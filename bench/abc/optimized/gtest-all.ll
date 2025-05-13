@@ -24945,58 +24945,52 @@ _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E.exit: ; 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7testing8internal7PrintToEoPSo(i64 noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca [40 x i8], align 16
-  %.sroa.2.0.insert.ext = zext i64 %1 to i128
-  %.sroa.2.0.insert.shift = shl nuw i128 %.sroa.2.0.insert.ext, 64
-  %.sroa.0.0.insert.ext = zext i64 %0 to i128
-  %.sroa.0.0.insert.insert = or disjoint i128 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
-  %5 = icmp eq i128 %.sroa.0.0.insert.insert, 0
-  br i1 %5, label %6, label %8
+  %5 = or i64 %1, %0
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %7, label %.lr.ph.preheader
 
-6:                                                ; preds = %3
-  %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.76, i64 noundef 1)
-  br label %29
+7:                                                ; preds = %3
+  %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.76, i64 noundef 1)
+  br label %28
 
-8:                                                ; preds = %3
+.lr.ph.preheader:                                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #59
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 39
   store i8 0, ptr %9, align 1, !tbaa !27
-  %10 = or i64 %1, %0
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br label %.lr.ph
 
-.lr.ph:                                           ; preds = %8, %.lr.ph
-  %.024 = phi ptr [ %23, %.lr.ph ], [ %9, %8 ]
-  %.01823 = phi i64 [ %12, %.lr.ph ], [ %1, %8 ]
-  %.01922 = phi i64 [ %20, %.lr.ph ], [ %0, %8 ]
-  %11 = urem i64 %.01823, 10
-  %12 = udiv i64 %.01823, 10
-  %13 = mul nuw nsw i64 %11, 6
-  %14 = urem i64 %.01922, 10
-  %15 = add nuw nsw i64 %13, %14
-  %16 = udiv i64 %.01922, 10
-  %17 = mul nuw i64 %11, 1844674407370955161
-  %18 = add nuw i64 %17, %16
-  %.lhs.trunc = trunc nuw nsw i64 %15 to i8
-  %19 = udiv i8 %.lhs.trunc, 10
-  %.zext = zext nneg i8 %19 to i64
-  %20 = add i64 %18, %.zext
-  %21 = urem i8 %.lhs.trunc, 10
-  %22 = or disjoint i8 %21, 48
-  %23 = getelementptr inbounds i8, ptr %.024, i64 -1
-  store i8 %22, ptr %23, align 1, !tbaa !27
-  %24 = icmp ugt i64 %.01823, 9
-  %25 = icmp ne i64 %20, 0
-  %26 = select i1 %24, i1 true, i1 %25
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !572
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.024 = phi ptr [ %22, %.lr.ph ], [ %9, %.lr.ph.preheader ]
+  %.01823 = phi i64 [ %11, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.01922 = phi i64 [ %19, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %10 = urem i64 %.01823, 10
+  %11 = udiv i64 %.01823, 10
+  %12 = mul nuw nsw i64 %10, 6
+  %13 = urem i64 %.01922, 10
+  %14 = add nuw nsw i64 %12, %13
+  %15 = udiv i64 %.01922, 10
+  %16 = mul nuw i64 %10, 1844674407370955161
+  %17 = add nuw i64 %16, %15
+  %.lhs.trunc = trunc nuw nsw i64 %14 to i8
+  %18 = udiv i8 %.lhs.trunc, 10
+  %.zext = zext nneg i8 %18 to i64
+  %19 = add i64 %17, %.zext
+  %20 = urem i8 %.lhs.trunc, 10
+  %21 = or disjoint i8 %20, 48
+  %22 = getelementptr inbounds i8, ptr %.024, i64 -1
+  store i8 %21, ptr %22, align 1, !tbaa !27
+  %23 = icmp ugt i64 %.01823, 9
+  %24 = icmp ne i64 %19, 0
+  %25 = select i1 %23, i1 true, i1 %24
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !572
 
-._crit_edge:                                      ; preds = %.lr.ph, %8
-  %.0.lcssa = phi ptr [ %9, %8 ], [ %23, %.lr.ph ]
-  %27 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.lcssa) #59
-  %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %.0.lcssa, i64 noundef %27)
+._crit_edge:                                      ; preds = %.lr.ph
+  %26 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #59
+  %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %22, i64 noundef %26)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #59
-  br label %29
+  br label %28
 
-29:                                               ; preds = %._crit_edge, %6
+28:                                               ; preds = %._crit_edge, %7
   ret void
 }
 
@@ -25016,63 +25010,57 @@ define void @_ZN7testing8internal7PrintToEnPSo(i64 noundef %0, i64 noundef %1, p
   %extract.t = trunc i128 %8 to i64
   %extract = lshr i128 %8, 64
   %extract.t8 = trunc nuw i128 %extract to i64
-  %.pre11 = and i128 %8, -18446744073709551616
   br label %9
 
 9:                                                ; preds = %6, %3
-  %.sroa.2.0.insert.shift.i.pre-phi = phi i128 [ %.pre11, %6 ], [ %.sroa.26.0.insert.shift, %3 ]
   %.0.off0 = phi i64 [ %extract.t, %6 ], [ %0, %3 ]
   %.0.off64 = phi i64 [ %extract.t8, %6 ], [ %1, %3 ]
-  %.sroa.0.0.insert.ext.i = zext i64 %.0.off0 to i128
-  %.sroa.0.0.insert.insert.i = or disjoint i128 %.sroa.2.0.insert.shift.i.pre-phi, %.sroa.0.0.insert.ext.i
-  %10 = icmp eq i128 %.sroa.0.0.insert.insert.i, 0
-  br i1 %10, label %11, label %13
+  %10 = or i64 %.0.off64, %.0.off0
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %12, label %.lr.ph.preheader.i
 
-11:                                               ; preds = %9
-  %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.76, i64 noundef 1)
+12:                                               ; preds = %9
+  %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.76, i64 noundef 1)
   br label %_ZN7testing8internal7PrintToEoPSo.exit
 
-13:                                               ; preds = %9
+.lr.ph.preheader.i:                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #59
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 39
   store i8 0, ptr %14, align 1, !tbaa !27
-  %15 = or i64 %.0.off64, %.0.off0
-  %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %13, %.lr.ph.i
-  %.024.i = phi ptr [ %28, %.lr.ph.i ], [ %14, %13 ]
-  %.01823.i = phi i64 [ %17, %.lr.ph.i ], [ %.0.off64, %13 ]
-  %.01922.i = phi i64 [ %25, %.lr.ph.i ], [ %.0.off0, %13 ]
-  %16 = urem i64 %.01823.i, 10
-  %17 = udiv i64 %.01823.i, 10
-  %18 = mul nuw nsw i64 %16, 6
-  %19 = urem i64 %.01922.i, 10
-  %20 = add nuw nsw i64 %18, %19
-  %21 = udiv i64 %.01922.i, 10
-  %22 = mul nuw i64 %16, 1844674407370955161
-  %23 = add nuw i64 %22, %21
-  %.lhs.trunc.i = trunc nuw nsw i64 %20 to i8
-  %24 = udiv i8 %.lhs.trunc.i, 10
-  %.zext.i = zext nneg i8 %24 to i64
-  %25 = add i64 %23, %.zext.i
-  %26 = urem i8 %.lhs.trunc.i, 10
-  %27 = or disjoint i8 %26, 48
-  %28 = getelementptr inbounds i8, ptr %.024.i, i64 -1
-  store i8 %27, ptr %28, align 1, !tbaa !27
-  %29 = icmp ugt i64 %.01823.i, 9
-  %30 = icmp ne i64 %25, 0
-  %31 = select i1 %29, i1 true, i1 %30
-  br i1 %31, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !572
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %.024.i = phi ptr [ %27, %.lr.ph.i ], [ %14, %.lr.ph.preheader.i ]
+  %.01823.i = phi i64 [ %16, %.lr.ph.i ], [ %.0.off64, %.lr.ph.preheader.i ]
+  %.01922.i = phi i64 [ %24, %.lr.ph.i ], [ %.0.off0, %.lr.ph.preheader.i ]
+  %15 = urem i64 %.01823.i, 10
+  %16 = udiv i64 %.01823.i, 10
+  %17 = mul nuw nsw i64 %15, 6
+  %18 = urem i64 %.01922.i, 10
+  %19 = add nuw nsw i64 %17, %18
+  %20 = udiv i64 %.01922.i, 10
+  %21 = mul nuw i64 %15, 1844674407370955161
+  %22 = add nuw i64 %21, %20
+  %.lhs.trunc.i = trunc nuw nsw i64 %19 to i8
+  %23 = udiv i8 %.lhs.trunc.i, 10
+  %.zext.i = zext nneg i8 %23 to i64
+  %24 = add i64 %22, %.zext.i
+  %25 = urem i8 %.lhs.trunc.i, 10
+  %26 = or disjoint i8 %25, 48
+  %27 = getelementptr inbounds i8, ptr %.024.i, i64 -1
+  store i8 %26, ptr %27, align 1, !tbaa !27
+  %28 = icmp ugt i64 %.01823.i, 9
+  %29 = icmp ne i64 %24, 0
+  %30 = select i1 %28, i1 true, i1 %29
+  br i1 %30, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !572
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %13
-  %.0.lcssa.i = phi ptr [ %14, %13 ], [ %28, %.lr.ph.i ]
-  %32 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i) #59
-  %33 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %.0.lcssa.i, i64 noundef %32)
+._crit_edge.i:                                    ; preds = %.lr.ph.i
+  %31 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #59
+  %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %27, i64 noundef %31)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #59
   br label %_ZN7testing8internal7PrintToEoPSo.exit
 
-_ZN7testing8internal7PrintToEoPSo.exit:           ; preds = %11, %._crit_edge.i
+_ZN7testing8internal7PrintToEoPSo.exit:           ; preds = %12, %._crit_edge.i
   ret void
 }
 

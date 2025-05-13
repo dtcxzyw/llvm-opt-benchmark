@@ -4325,7 +4325,7 @@ define void @Gia_ManPrintDsdMatrix(ptr noundef %0, i32 noundef %1) local_unnamed
   %.val33.val48 = phi i32 [ %.val35.val56, %.preheader.lr.ph ], [ %.val35.val, %._crit_edge53 ]
   %.val3347 = phi ptr [ %.val3555, %.preheader.lr.ph ], [ %.val35, %._crit_edge53 ]
   %.val46 = phi i32 [ %.val3454, %.preheader.lr.ph ], [ %.val34, %._crit_edge53 ]
-  %.058 = phi i32 [ 0, %.preheader.lr.ph ], [ %55, %._crit_edge53 ]
+  %.058 = phi i32 [ 0, %.preheader.lr.ph ], [ %54, %._crit_edge53 ]
   %.02557 = phi i32 [ 0, %.preheader.lr.ph ], [ %.1.lcssa, %._crit_edge53 ]
   %19 = icmp sgt i32 %.val33.val48, %.val46
   br i1 %19, label %.lr.ph52, label %._crit_edge53
@@ -4357,10 +4357,10 @@ define void @Gia_ManPrintDsdMatrix(ptr noundef %0, i32 noundef %1) local_unnamed
   %27 = icmp slt i32 %24, %26
   br i1 %27, label %.lr.ph52.split.us, label %._crit_edge53, !llvm.loop !113
 
-.lr.ph52.split:                                   ; preds = %.lr.ph52, %49
-  %.151 = phi i32 [ %.2, %49 ], [ %.02557, %.lr.ph52 ]
-  %.not50 = phi i1 [ true, %49 ], [ false, %.lr.ph52 ]
-  %.13049 = phi i32 [ %51, %49 ], [ 0, %.lr.ph52 ]
+.lr.ph52.split:                                   ; preds = %.lr.ph52, %48
+  %.151 = phi i32 [ %.2, %48 ], [ %.02557, %.lr.ph52 ]
+  %.not50 = phi i1 [ true, %48 ], [ false, %.lr.ph52 ]
+  %.13049 = phi i32 [ %50, %48 ], [ 0, %.lr.ph52 ]
   br i1 %.not50, label %30, label %28
 
 28:                                               ; preds = %.lr.ph52.split
@@ -4371,7 +4371,7 @@ define void @Gia_ManPrintDsdMatrix(ptr noundef %0, i32 noundef %1) local_unnamed
   %31 = icmp ne i32 %.13049, %1
   %32 = icmp samesign ugt i32 %.13049, %.058
   %or.cond = select i1 %31, i1 %32, i1 false
-  br i1 %or.cond, label %33, label %49
+  br i1 %or.cond, label %33, label %48
 
 33:                                               ; preds = %30
   %34 = add nsw i32 %.151, 1
@@ -4390,36 +4390,35 @@ define void @Gia_ManPrintDsdMatrix(ptr noundef %0, i32 noundef %1) local_unnamed
   %43 = sub nsw i32 %38, %42
   %44 = lshr i32 %41, 29
   %45 = and i32 %44, 1
-  %46 = shl nsw i32 %43, 1
-  %47 = or disjoint i32 %46, %45
-  %48 = icmp eq i32 %47, 0
-  %. = select i1 %48, i32 46, i32 43
-  br label %49
+  %46 = or i32 %43, %45
+  %47 = icmp eq i32 %46, 0
+  %. = select i1 %47, i32 46, i32 43
+  br label %48
 
-49:                                               ; preds = %33, %30
+48:                                               ; preds = %33, %30
   %.sink = phi i32 [ 32, %30 ], [ %., %33 ]
   %.2 = phi i32 [ %.151, %30 ], [ %34, %33 ]
-  %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, i32 noundef %.sink)
-  %51 = add nuw nsw i32 %.13049, 1
+  %49 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, i32 noundef %.sink)
+  %50 = add nuw nsw i32 %.13049, 1
   %.val = load i32, ptr %6, align 8, !tbaa !98
   %.val33 = load ptr, ptr %7, align 8, !tbaa !12
-  %52 = getelementptr i8, ptr %.val33, i64 4
-  %.val33.val = load i32, ptr %52, align 4, !tbaa !30
-  %53 = sub nsw i32 %.val33.val, %.val
-  %54 = icmp slt i32 %51, %53
-  br i1 %54, label %.lr.ph52.split, label %._crit_edge53, !llvm.loop !113
+  %51 = getelementptr i8, ptr %.val33, i64 4
+  %.val33.val = load i32, ptr %51, align 4, !tbaa !30
+  %52 = sub nsw i32 %.val33.val, %.val
+  %53 = icmp slt i32 %50, %52
+  br i1 %53, label %.lr.ph52.split, label %._crit_edge53, !llvm.loop !113
 
-._crit_edge53:                                    ; preds = %49, %23, %.preheader
-  %.1.lcssa = phi i32 [ %.02557, %.preheader ], [ %.02557, %23 ], [ %.2, %49 ]
-  %55 = add nuw nsw i32 %.058, 1
+._crit_edge53:                                    ; preds = %48, %23, %.preheader
+  %.1.lcssa = phi i32 [ %.02557, %.preheader ], [ %.02557, %23 ], [ %.2, %48 ]
+  %54 = add nuw nsw i32 %.058, 1
   %putchar32 = tail call i32 @putchar(i32 10)
   %.val34 = load i32, ptr %6, align 8, !tbaa !98
   %.val35 = load ptr, ptr %7, align 8, !tbaa !12
-  %56 = getelementptr i8, ptr %.val35, i64 4
-  %.val35.val = load i32, ptr %56, align 4, !tbaa !30
-  %57 = sub nsw i32 %.val35.val, %.val34
-  %58 = icmp slt i32 %55, %57
-  br i1 %58, label %.preheader, label %._crit_edge60, !llvm.loop !114
+  %55 = getelementptr i8, ptr %.val35, i64 4
+  %.val35.val = load i32, ptr %55, align 4, !tbaa !30
+  %56 = sub nsw i32 %.val35.val, %.val34
+  %57 = icmp slt i32 %54, %56
+  br i1 %57, label %.preheader, label %._crit_edge60, !llvm.loop !114
 
 ._crit_edge60:                                    ; preds = %._crit_edge53, %._crit_edge
   tail call void @Gia_ManStop(ptr noundef %4) #27

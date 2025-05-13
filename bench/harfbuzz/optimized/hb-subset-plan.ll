@@ -2032,21 +2032,22 @@ define hidden void @_ZNK2OT10PaintGlyph9closurev1EPNS_27hb_colrv1_closure_contex
 _ZN2OT27hb_colrv1_closure_context_t9add_glyphEj.exit: ; preds = %13, %14, %17, %20
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %32 = load i8, ptr %31, align 1, !tbaa !54
-  %33 = zext i8 %32 to i32
-  %34 = shl nuw nsw i32 %33, 16
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %34 = load i8, ptr %33, align 1, !tbaa !54
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %36 = load i8, ptr %35, align 1, !tbaa !54
-  %37 = zext i8 %36 to i32
-  %38 = shl nuw nsw i32 %37, 8
-  %39 = or disjoint i32 %38, %34
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %41 = load i8, ptr %40, align 1, !tbaa !54
-  %42 = zext i8 %41 to i32
-  %43 = or disjoint i32 %39, %42
-  %44 = icmp eq i32 %43, 0
-  %45 = zext nneg i32 %43 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 %45
-  %.0.i.i = select i1 %44, ptr @_hb_NullPool, ptr %46, !prof !33
+  %37 = or i8 %34, %32
+  %38 = or i8 %37, %36
+  %39 = icmp eq i8 %38, 0
+  %40 = zext i8 %32 to i64
+  %41 = shl nuw nsw i64 %40, 16
+  %42 = zext i8 %34 to i64
+  %43 = shl nuw nsw i64 %42, 8
+  %44 = zext i8 %36 to i64
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 %43
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %41
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %44
+  %.0.i.i = select i1 %39, ptr @_hb_NullPool, ptr %47, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef nonnull %1)
   ret void
 }
@@ -2182,24 +2183,25 @@ _ZN2OT27hb_colrv1_closure_context_t9add_glyphEj.exit: ; preds = %45, %46, %49, %
 define hidden void @_ZNK2OT14PaintTranslate9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !tbaa !54
-  %5 = zext i8 %4 to i32
-  %6 = shl nuw nsw i32 %5, 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1, !tbaa !54
-  %9 = zext i8 %8 to i32
-  %10 = shl nuw nsw i32 %9, 8
-  %11 = or disjoint i32 %10, %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = or disjoint i32 %11, %14
-  %16 = icmp eq i32 %15, 0
-  %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  %.0.i.i = select i1 %16, ptr @_hb_NullPool, ptr %18, !prof !33
+  %9 = or i8 %6, %4
+  %10 = or i8 %9, %8
+  %11 = icmp eq i8 %10, 0
+  %12 = zext i8 %4 to i64
+  %13 = shl nuw nsw i64 %12, 16
+  %14 = zext i8 %6 to i64
+  %15 = shl nuw nsw i64 %14, 8
+  %16 = zext i8 %8 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  %.0.i.i = select i1 %11, ptr @_hb_NullPool, ptr %19, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 2, ptr %19, align 8, !tbaa !52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 2, ptr %20, align 8, !tbaa !52
   ret void
 }
 
@@ -2207,24 +2209,25 @@ define hidden void @_ZNK2OT14PaintTranslate9closurev1EPNS_27hb_colrv1_closure_co
 define hidden void @_ZNK2OT10PaintScale9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !tbaa !54
-  %5 = zext i8 %4 to i32
-  %6 = shl nuw nsw i32 %5, 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1, !tbaa !54
-  %9 = zext i8 %8 to i32
-  %10 = shl nuw nsw i32 %9, 8
-  %11 = or disjoint i32 %10, %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = or disjoint i32 %11, %14
-  %16 = icmp eq i32 %15, 0
-  %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  %.0.i.i = select i1 %16, ptr @_hb_NullPool, ptr %18, !prof !33
+  %9 = or i8 %6, %4
+  %10 = or i8 %9, %8
+  %11 = icmp eq i8 %10, 0
+  %12 = zext i8 %4 to i64
+  %13 = shl nuw nsw i64 %12, 16
+  %14 = zext i8 %6 to i64
+  %15 = shl nuw nsw i64 %14, 8
+  %16 = zext i8 %8 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  %.0.i.i = select i1 %11, ptr @_hb_NullPool, ptr %19, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 2, ptr %19, align 8, !tbaa !52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 2, ptr %20, align 8, !tbaa !52
   ret void
 }
 
@@ -2232,24 +2235,25 @@ define hidden void @_ZNK2OT10PaintScale9closurev1EPNS_27hb_colrv1_closure_contex
 define hidden void @_ZNK2OT22PaintScaleAroundCenter9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !tbaa !54
-  %5 = zext i8 %4 to i32
-  %6 = shl nuw nsw i32 %5, 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1, !tbaa !54
-  %9 = zext i8 %8 to i32
-  %10 = shl nuw nsw i32 %9, 8
-  %11 = or disjoint i32 %10, %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = or disjoint i32 %11, %14
-  %16 = icmp eq i32 %15, 0
-  %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  %.0.i.i = select i1 %16, ptr @_hb_NullPool, ptr %18, !prof !33
+  %9 = or i8 %6, %4
+  %10 = or i8 %9, %8
+  %11 = icmp eq i8 %10, 0
+  %12 = zext i8 %4 to i64
+  %13 = shl nuw nsw i64 %12, 16
+  %14 = zext i8 %6 to i64
+  %15 = shl nuw nsw i64 %14, 8
+  %16 = zext i8 %8 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  %.0.i.i = select i1 %11, ptr @_hb_NullPool, ptr %19, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 4, ptr %19, align 8, !tbaa !52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 4, ptr %20, align 8, !tbaa !52
   ret void
 }
 
@@ -2257,24 +2261,25 @@ define hidden void @_ZNK2OT22PaintScaleAroundCenter9closurev1EPNS_27hb_colrv1_cl
 define hidden void @_ZNK2OT17PaintScaleUniform9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !tbaa !54
-  %5 = zext i8 %4 to i32
-  %6 = shl nuw nsw i32 %5, 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1, !tbaa !54
-  %9 = zext i8 %8 to i32
-  %10 = shl nuw nsw i32 %9, 8
-  %11 = or disjoint i32 %10, %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = or disjoint i32 %11, %14
-  %16 = icmp eq i32 %15, 0
-  %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  %.0.i.i = select i1 %16, ptr @_hb_NullPool, ptr %18, !prof !33
+  %9 = or i8 %6, %4
+  %10 = or i8 %9, %8
+  %11 = icmp eq i8 %10, 0
+  %12 = zext i8 %4 to i64
+  %13 = shl nuw nsw i64 %12, 16
+  %14 = zext i8 %6 to i64
+  %15 = shl nuw nsw i64 %14, 8
+  %16 = zext i8 %8 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  %.0.i.i = select i1 %11, ptr @_hb_NullPool, ptr %19, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 1, ptr %19, align 8, !tbaa !52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 1, ptr %20, align 8, !tbaa !52
   ret void
 }
 
@@ -2282,24 +2287,25 @@ define hidden void @_ZNK2OT17PaintScaleUniform9closurev1EPNS_27hb_colrv1_closure
 define hidden void @_ZNK2OT29PaintScaleUniformAroundCenter9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !tbaa !54
-  %5 = zext i8 %4 to i32
-  %6 = shl nuw nsw i32 %5, 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1, !tbaa !54
-  %9 = zext i8 %8 to i32
-  %10 = shl nuw nsw i32 %9, 8
-  %11 = or disjoint i32 %10, %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = or disjoint i32 %11, %14
-  %16 = icmp eq i32 %15, 0
-  %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  %.0.i.i = select i1 %16, ptr @_hb_NullPool, ptr %18, !prof !33
+  %9 = or i8 %6, %4
+  %10 = or i8 %9, %8
+  %11 = icmp eq i8 %10, 0
+  %12 = zext i8 %4 to i64
+  %13 = shl nuw nsw i64 %12, 16
+  %14 = zext i8 %6 to i64
+  %15 = shl nuw nsw i64 %14, 8
+  %16 = zext i8 %8 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  %.0.i.i = select i1 %11, ptr @_hb_NullPool, ptr %19, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 3, ptr %19, align 8, !tbaa !52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 3, ptr %20, align 8, !tbaa !52
   ret void
 }
 
@@ -2307,24 +2313,25 @@ define hidden void @_ZNK2OT29PaintScaleUniformAroundCenter9closurev1EPNS_27hb_co
 define hidden void @_ZNK2OT11PaintRotate9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !tbaa !54
-  %5 = zext i8 %4 to i32
-  %6 = shl nuw nsw i32 %5, 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1, !tbaa !54
-  %9 = zext i8 %8 to i32
-  %10 = shl nuw nsw i32 %9, 8
-  %11 = or disjoint i32 %10, %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = or disjoint i32 %11, %14
-  %16 = icmp eq i32 %15, 0
-  %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  %.0.i.i = select i1 %16, ptr @_hb_NullPool, ptr %18, !prof !33
+  %9 = or i8 %6, %4
+  %10 = or i8 %9, %8
+  %11 = icmp eq i8 %10, 0
+  %12 = zext i8 %4 to i64
+  %13 = shl nuw nsw i64 %12, 16
+  %14 = zext i8 %6 to i64
+  %15 = shl nuw nsw i64 %14, 8
+  %16 = zext i8 %8 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  %.0.i.i = select i1 %11, ptr @_hb_NullPool, ptr %19, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 1, ptr %19, align 8, !tbaa !52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 1, ptr %20, align 8, !tbaa !52
   ret void
 }
 
@@ -2332,24 +2339,25 @@ define hidden void @_ZNK2OT11PaintRotate9closurev1EPNS_27hb_colrv1_closure_conte
 define hidden void @_ZNK2OT23PaintRotateAroundCenter9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !tbaa !54
-  %5 = zext i8 %4 to i32
-  %6 = shl nuw nsw i32 %5, 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1, !tbaa !54
-  %9 = zext i8 %8 to i32
-  %10 = shl nuw nsw i32 %9, 8
-  %11 = or disjoint i32 %10, %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = or disjoint i32 %11, %14
-  %16 = icmp eq i32 %15, 0
-  %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  %.0.i.i = select i1 %16, ptr @_hb_NullPool, ptr %18, !prof !33
+  %9 = or i8 %6, %4
+  %10 = or i8 %9, %8
+  %11 = icmp eq i8 %10, 0
+  %12 = zext i8 %4 to i64
+  %13 = shl nuw nsw i64 %12, 16
+  %14 = zext i8 %6 to i64
+  %15 = shl nuw nsw i64 %14, 8
+  %16 = zext i8 %8 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  %.0.i.i = select i1 %11, ptr @_hb_NullPool, ptr %19, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 3, ptr %19, align 8, !tbaa !52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 3, ptr %20, align 8, !tbaa !52
   ret void
 }
 
@@ -2357,24 +2365,25 @@ define hidden void @_ZNK2OT23PaintRotateAroundCenter9closurev1EPNS_27hb_colrv1_c
 define hidden void @_ZNK2OT9PaintSkew9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !tbaa !54
-  %5 = zext i8 %4 to i32
-  %6 = shl nuw nsw i32 %5, 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1, !tbaa !54
-  %9 = zext i8 %8 to i32
-  %10 = shl nuw nsw i32 %9, 8
-  %11 = or disjoint i32 %10, %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = or disjoint i32 %11, %14
-  %16 = icmp eq i32 %15, 0
-  %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  %.0.i.i = select i1 %16, ptr @_hb_NullPool, ptr %18, !prof !33
+  %9 = or i8 %6, %4
+  %10 = or i8 %9, %8
+  %11 = icmp eq i8 %10, 0
+  %12 = zext i8 %4 to i64
+  %13 = shl nuw nsw i64 %12, 16
+  %14 = zext i8 %6 to i64
+  %15 = shl nuw nsw i64 %14, 8
+  %16 = zext i8 %8 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  %.0.i.i = select i1 %11, ptr @_hb_NullPool, ptr %19, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 2, ptr %19, align 8, !tbaa !52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 2, ptr %20, align 8, !tbaa !52
   ret void
 }
 
@@ -2382,24 +2391,25 @@ define hidden void @_ZNK2OT9PaintSkew9closurev1EPNS_27hb_colrv1_closure_context_
 define hidden void @_ZNK2OT21PaintSkewAroundCenter9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !tbaa !54
-  %5 = zext i8 %4 to i32
-  %6 = shl nuw nsw i32 %5, 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1, !tbaa !54
-  %9 = zext i8 %8 to i32
-  %10 = shl nuw nsw i32 %9, 8
-  %11 = or disjoint i32 %10, %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = or disjoint i32 %11, %14
-  %16 = icmp eq i32 %15, 0
-  %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  %.0.i.i = select i1 %16, ptr @_hb_NullPool, ptr %18, !prof !33
+  %9 = or i8 %6, %4
+  %10 = or i8 %9, %8
+  %11 = icmp eq i8 %10, 0
+  %12 = zext i8 %4 to i64
+  %13 = shl nuw nsw i64 %12, 16
+  %14 = zext i8 %6 to i64
+  %15 = shl nuw nsw i64 %14, 8
+  %16 = zext i8 %8 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  %.0.i.i = select i1 %11, ptr @_hb_NullPool, ptr %19, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 4, ptr %19, align 8, !tbaa !52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 4, ptr %20, align 8, !tbaa !52
   ret void
 }
 
@@ -2407,39 +2417,41 @@ define hidden void @_ZNK2OT21PaintSkewAroundCenter9closurev1EPNS_27hb_colrv1_clo
 define hidden void @_ZNK2OT14PaintComposite9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !tbaa !54
-  %5 = zext i8 %4 to i32
-  %6 = shl nuw nsw i32 %5, 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1, !tbaa !54
-  %9 = zext i8 %8 to i32
-  %10 = shl nuw nsw i32 %9, 8
-  %11 = or disjoint i32 %10, %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = or disjoint i32 %11, %14
-  %16 = icmp eq i32 %15, 0
-  %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  %.0.i.i = select i1 %16, ptr @_hb_NullPool, ptr %18, !prof !33
+  %9 = or i8 %6, %4
+  %10 = or i8 %9, %8
+  %11 = icmp eq i8 %10, 0
+  %12 = zext i8 %4 to i64
+  %13 = shl nuw nsw i64 %12, 16
+  %14 = zext i8 %6 to i64
+  %15 = shl nuw nsw i64 %14, 8
+  %16 = zext i8 %8 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  %.0.i.i = select i1 %11, ptr @_hb_NullPool, ptr %19, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %20 = load i8, ptr %19, align 1, !tbaa !54
-  %21 = zext i8 %20 to i32
-  %22 = shl nuw nsw i32 %21, 16
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %24 = load i8, ptr %23, align 1, !tbaa !54
-  %25 = zext i8 %24 to i32
-  %26 = shl nuw nsw i32 %25, 8
-  %27 = or disjoint i32 %26, %22
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %29 = load i8, ptr %28, align 1, !tbaa !54
-  %30 = zext i8 %29 to i32
-  %31 = or disjoint i32 %27, %30
-  %32 = icmp eq i32 %31, 0
-  %33 = zext nneg i32 %31 to i64
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 %33
-  %.0.i.i3 = select i1 %32, ptr @_hb_NullPool, ptr %34, !prof !33
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %21 = load i8, ptr %20, align 1, !tbaa !54
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %23 = load i8, ptr %22, align 1, !tbaa !54
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  %25 = load i8, ptr %24, align 1, !tbaa !54
+  %26 = or i8 %23, %21
+  %27 = or i8 %26, %25
+  %28 = icmp eq i8 %27, 0
+  %29 = zext i8 %21 to i64
+  %30 = shl nuw nsw i64 %29, 16
+  %31 = zext i8 %23 to i64
+  %32 = shl nuw nsw i64 %31, 8
+  %33 = zext i8 %25 to i64
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 %32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %30
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %33
+  %.0.i.i3 = select i1 %28, ptr @_hb_NullPool, ptr %36, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i3, ptr noundef %1)
   ret void
 }
@@ -48084,48 +48096,49 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT9Condition8sanitizeEP21
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   %46 = load i8, ptr %3, align 1, !tbaa !54
-  %47 = zext i8 %46 to i32
-  %48 = shl nuw nsw i32 %47, 16
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %48 = load i8, ptr %47, align 1, !tbaa !54
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %50 = load i8, ptr %49, align 1, !tbaa !54
-  %51 = zext i8 %50 to i32
-  %52 = shl nuw nsw i32 %51, 8
-  %53 = or disjoint i32 %52, %48
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %55 = load i8, ptr %54, align 1, !tbaa !54
-  %56 = zext i8 %55 to i32
-  %57 = or disjoint i32 %53, %56
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %_ZNK2OT15ConditionNegate8sanitizeEP21hb_sanitize_context_t.exit, label %59
+  %51 = or i8 %48, %46
+  %52 = or i8 %51, %50
+  %53 = icmp eq i8 %52, 0
+  br i1 %53, label %_ZNK2OT15ConditionNegate8sanitizeEP21hb_sanitize_context_t.exit, label %54
 
-59:                                               ; preds = %45
-  %60 = zext nneg i32 %57 to i64
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 %60
-  %62 = tail call noundef zeroext i1 @_ZNK2OT9Condition8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(62) %1)
-  br i1 %62, label %_ZNK2OT15ConditionNegate8sanitizeEP21hb_sanitize_context_t.exit, label %63
+54:                                               ; preds = %45
+  %55 = zext i8 %46 to i64
+  %56 = shl nuw nsw i64 %55, 16
+  %57 = zext i8 %48 to i64
+  %58 = shl nuw nsw i64 %57, 8
+  %59 = zext i8 %50 to i64
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 %58
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %56
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %59
+  %63 = tail call noundef zeroext i1 @_ZNK2OT9Condition8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %62, ptr noundef nonnull align 8 dereferenceable(62) %1)
+  br i1 %63, label %_ZNK2OT15ConditionNegate8sanitizeEP21hb_sanitize_context_t.exit, label %64
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %65 = load i32, ptr %64, align 4, !tbaa !522
-  %66 = icmp ugt i32 %65, 31
-  br i1 %66, label %_ZNK2OT15ConditionNegate8sanitizeEP21hb_sanitize_context_t.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i
+64:                                               ; preds = %54
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %66 = load i32, ptr %65, align 4, !tbaa !522
+  %67 = icmp ugt i32 %66, 31
+  br i1 %67, label %_ZNK2OT15ConditionNegate8sanitizeEP21hb_sanitize_context_t.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i
 
-_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %63
-  %67 = add nuw nsw i32 %65, 1
-  store i32 %67, ptr %64, align 4, !tbaa !522
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %69 = load i8, ptr %68, align 8, !tbaa !585, !range !31, !noundef !32
-  %70 = trunc nuw i8 %69 to i1
-  br i1 %70, label %71, label %_ZNK2OT15ConditionNegate8sanitizeEP21hb_sanitize_context_t.exit
+_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %64
+  %68 = add nuw nsw i32 %66, 1
+  store i32 %68, ptr %65, align 4, !tbaa !522
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %70 = load i8, ptr %69, align 8, !tbaa !585, !range !31, !noundef !32
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %72, label %_ZNK2OT15ConditionNegate8sanitizeEP21hb_sanitize_context_t.exit
 
-71:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i
+72:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i
   store i8 0, ptr %3, align 1
-  store i8 0, ptr %49, align 1
-  store i8 0, ptr %54, align 1, !tbaa !54
+  store i8 0, ptr %47, align 1
+  store i8 0, ptr %49, align 1, !tbaa !54
   br label %_ZNK2OT15ConditionNegate8sanitizeEP21hb_sanitize_context_t.exit
 
-_ZNK2OT15ConditionNegate8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %71, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %63, %59, %45, %37, %12, %2, %35, %33, %24, %15
-  %.0 = phi i1 [ %36, %35 ], [ %34, %33 ], [ %32, %24 ], [ %23, %15 ], [ false, %2 ], [ true, %12 ], [ true, %59 ], [ true, %45 ], [ false, %37 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ true, %71 ], [ false, %63 ]
+_ZNK2OT15ConditionNegate8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %72, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %64, %54, %45, %37, %12, %2, %35, %33, %24, %15
+  %.0 = phi i1 [ %36, %35 ], [ %34, %33 ], [ %32, %24 ], [ %23, %15 ], [ false, %2 ], [ true, %12 ], [ true, %54 ], [ true, %45 ], [ false, %37 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ true, %72 ], [ false, %64 ]
   ret i1 %.0
 }
 
@@ -48203,51 +48216,52 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EE
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   %46 = load i8, ptr %37, align 1, !tbaa !54
-  %47 = zext i8 %46 to i32
-  %48 = shl nuw nsw i32 %47, 16
-  %49 = getelementptr inbounds nuw i8, ptr %37, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %37, i64 1
+  %48 = load i8, ptr %47, align 1, !tbaa !54
+  %49 = getelementptr inbounds nuw i8, ptr %37, i64 2
   %50 = load i8, ptr %49, align 1, !tbaa !54
-  %51 = zext i8 %50 to i32
-  %52 = shl nuw nsw i32 %51, 8
-  %53 = or disjoint i32 %52, %48
-  %54 = getelementptr inbounds nuw i8, ptr %37, i64 2
-  %55 = load i8, ptr %54, align 1, !tbaa !54
-  %56 = zext i8 %55 to i32
-  %57 = or disjoint i32 %53, %56
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_12ConditionAndEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit.thread, label %59
+  %51 = or i8 %48, %46
+  %52 = or i8 %51, %50
+  %53 = icmp eq i8 %52, 0
+  br i1 %53, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_12ConditionAndEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit.thread, label %54
 
-59:                                               ; preds = %45
-  %60 = zext nneg i32 %57 to i64
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 %60
-  %62 = tail call noundef zeroext i1 @_ZNK2OT9Condition8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(62) %1)
-  br i1 %62, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_12ConditionAndEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit.thread, label %63
+54:                                               ; preds = %45
+  %55 = zext i8 %46 to i64
+  %56 = shl nuw nsw i64 %55, 16
+  %57 = zext i8 %48 to i64
+  %58 = shl nuw nsw i64 %57, 8
+  %59 = zext i8 %50 to i64
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 %58
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %56
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %59
+  %63 = tail call noundef zeroext i1 @_ZNK2OT9Condition8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %62, ptr noundef nonnull align 8 dereferenceable(62) %1)
+  br i1 %63, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_12ConditionAndEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit.thread, label %64
 
-63:                                               ; preds = %59
-  %64 = load i32, ptr %34, align 4, !tbaa !522
-  %65 = icmp ugt i32 %64, 31
-  br i1 %65, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EEEE8sanitizeIJPKNS_12ConditionAndEEEEbP21hb_sanitize_context_tDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i
+64:                                               ; preds = %54
+  %65 = load i32, ptr %34, align 4, !tbaa !522
+  %66 = icmp ugt i32 %65, 31
+  br i1 %66, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EEEE8sanitizeIJPKNS_12ConditionAndEEEEbP21hb_sanitize_context_tDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i
 
-_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %63
-  %66 = add nuw nsw i32 %64, 1
-  store i32 %66, ptr %34, align 4, !tbaa !522
-  %67 = load i8, ptr %35, align 8, !tbaa !585, !range !31, !noundef !32
-  %68 = trunc nuw i8 %67 to i1
-  br i1 %68, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_12ConditionAndEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EEEE8sanitizeIJPKNS_12ConditionAndEEEEbP21hb_sanitize_context_tDpOT_.exit
+_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %64
+  %67 = add nuw nsw i32 %65, 1
+  store i32 %67, ptr %34, align 4, !tbaa !522
+  %68 = load i8, ptr %35, align 8, !tbaa !585, !range !31, !noundef !32
+  %69 = trunc nuw i8 %68 to i1
+  br i1 %69, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_12ConditionAndEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EEEE8sanitizeIJPKNS_12ConditionAndEEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_12ConditionAndEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit: ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i
   store i8 0, ptr %37, align 1
-  store i8 0, ptr %49, align 1
-  store i8 0, ptr %54, align 1, !tbaa !54
+  store i8 0, ptr %47, align 1
+  store i8 0, ptr %49, align 1, !tbaa !54
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_12ConditionAndEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit.thread
 
-_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_12ConditionAndEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit.thread: ; preds = %45, %59, %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_12ConditionAndEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit
+_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_12ConditionAndEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit.thread: ; preds = %45, %54, %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_12ConditionAndEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EEEE8sanitizeIJPKNS_12ConditionAndEEEEbP21hb_sanitize_context_tDpOT_.exit, label %36, !llvm.loop !965
 
-_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EEEE8sanitizeIJPKNS_12ConditionAndEEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_12ConditionAndEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit.thread, %36, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %63, %32, %13, %22, %2, %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
-  %.09.i = phi i1 [ false, %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %2 ], [ false, %22 ], [ false, %13 ], [ true, %32 ], [ true, %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_12ConditionAndEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit.thread ], [ false, %36 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ false, %63 ]
+_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EEEE8sanitizeIJPKNS_12ConditionAndEEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_12ConditionAndEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit.thread, %36, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %64, %32, %13, %22, %2, %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
+  %.09.i = phi i1 [ false, %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %2 ], [ false, %22 ], [ false, %13 ], [ true, %32 ], [ true, %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_12ConditionAndEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit.thread ], [ false, %36 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ false, %64 ]
   ret i1 %.09.i
 }
 
@@ -48325,51 +48339,52 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EE
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   %46 = load i8, ptr %37, align 1, !tbaa !54
-  %47 = zext i8 %46 to i32
-  %48 = shl nuw nsw i32 %47, 16
-  %49 = getelementptr inbounds nuw i8, ptr %37, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %37, i64 1
+  %48 = load i8, ptr %47, align 1, !tbaa !54
+  %49 = getelementptr inbounds nuw i8, ptr %37, i64 2
   %50 = load i8, ptr %49, align 1, !tbaa !54
-  %51 = zext i8 %50 to i32
-  %52 = shl nuw nsw i32 %51, 8
-  %53 = or disjoint i32 %52, %48
-  %54 = getelementptr inbounds nuw i8, ptr %37, i64 2
-  %55 = load i8, ptr %54, align 1, !tbaa !54
-  %56 = zext i8 %55 to i32
-  %57 = or disjoint i32 %53, %56
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_11ConditionOrEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit.thread, label %59
+  %51 = or i8 %48, %46
+  %52 = or i8 %51, %50
+  %53 = icmp eq i8 %52, 0
+  br i1 %53, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_11ConditionOrEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit.thread, label %54
 
-59:                                               ; preds = %45
-  %60 = zext nneg i32 %57 to i64
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 %60
-  %62 = tail call noundef zeroext i1 @_ZNK2OT9Condition8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(62) %1)
-  br i1 %62, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_11ConditionOrEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit.thread, label %63
+54:                                               ; preds = %45
+  %55 = zext i8 %46 to i64
+  %56 = shl nuw nsw i64 %55, 16
+  %57 = zext i8 %48 to i64
+  %58 = shl nuw nsw i64 %57, 8
+  %59 = zext i8 %50 to i64
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 %58
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %56
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %59
+  %63 = tail call noundef zeroext i1 @_ZNK2OT9Condition8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %62, ptr noundef nonnull align 8 dereferenceable(62) %1)
+  br i1 %63, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_11ConditionOrEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit.thread, label %64
 
-63:                                               ; preds = %59
-  %64 = load i32, ptr %34, align 4, !tbaa !522
-  %65 = icmp ugt i32 %64, 31
-  br i1 %65, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EEEE8sanitizeIJPKNS_11ConditionOrEEEEbP21hb_sanitize_context_tDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i
+64:                                               ; preds = %54
+  %65 = load i32, ptr %34, align 4, !tbaa !522
+  %66 = icmp ugt i32 %65, 31
+  br i1 %66, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EEEE8sanitizeIJPKNS_11ConditionOrEEEEbP21hb_sanitize_context_tDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i
 
-_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %63
-  %66 = add nuw nsw i32 %64, 1
-  store i32 %66, ptr %34, align 4, !tbaa !522
-  %67 = load i8, ptr %35, align 8, !tbaa !585, !range !31, !noundef !32
-  %68 = trunc nuw i8 %67 to i1
-  br i1 %68, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_11ConditionOrEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EEEE8sanitizeIJPKNS_11ConditionOrEEEEbP21hb_sanitize_context_tDpOT_.exit
+_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %64
+  %67 = add nuw nsw i32 %65, 1
+  store i32 %67, ptr %34, align 4, !tbaa !522
+  %68 = load i8, ptr %35, align 8, !tbaa !585, !range !31, !noundef !32
+  %69 = trunc nuw i8 %68 to i1
+  br i1 %69, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_11ConditionOrEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EEEE8sanitizeIJPKNS_11ConditionOrEEEEbP21hb_sanitize_context_tDpOT_.exit
 
 _ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_11ConditionOrEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit: ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i
   store i8 0, ptr %37, align 1
-  store i8 0, ptr %49, align 1
-  store i8 0, ptr %54, align 1, !tbaa !54
+  store i8 0, ptr %47, align 1
+  store i8 0, ptr %49, align 1, !tbaa !54
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_11ConditionOrEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit.thread
 
-_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_11ConditionOrEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit.thread: ; preds = %45, %59, %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_11ConditionOrEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit
+_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_11ConditionOrEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit.thread: ; preds = %45, %54, %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_11ConditionOrEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EEEE8sanitizeIJPKNS_11ConditionOrEEEEbP21hb_sanitize_context_tDpOT_.exit, label %36, !llvm.loop !966
 
-_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EEEE8sanitizeIJPKNS_11ConditionOrEEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_11ConditionOrEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit.thread, %36, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %63, %32, %13, %22, %2, %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
-  %.09.i = phi i1 [ false, %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %2 ], [ false, %22 ], [ false, %13 ], [ true, %32 ], [ true, %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_11ConditionOrEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit.thread ], [ false, %36 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ false, %63 ]
+_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EEEE8sanitizeIJPKNS_11ConditionOrEEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_11ConditionOrEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit.thread, %36, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %64, %32, %13, %22, %2, %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
+  %.09.i = phi i1 [ false, %_ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj3EEEvLb1EEENS3_IhLj1EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %2 ], [ false, %22 ], [ false, %13 ], [ true, %32 ], [ true, %_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ConditionENS1_7IntTypeIjLj3EEEvLb1EEEJPKNS1_11ConditionOrEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_.exit.thread ], [ false, %36 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ false, %64 ]
   ret i1 %.09.i
 }
 
@@ -77003,34 +77018,34 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sa
     i8 2, label %23
     i8 3, label %31
     i8 4, label %43
-    i8 5, label %107
-    i8 6, label %174
-    i8 7, label %238
-    i8 8, label %305
-    i8 9, label %369
-    i8 10, label %436
-    i8 11, label %438
-    i8 12, label %447
-    i8 13, label %449
-    i8 14, label %451
-    i8 15, label %461
-    i8 16, label %471
-    i8 17, label %481
-    i8 18, label %491
-    i8 19, label %501
-    i8 20, label %511
-    i8 21, label %521
-    i8 22, label %531
-    i8 23, label %541
-    i8 24, label %551
-    i8 25, label %561
-    i8 26, label %571
-    i8 27, label %581
-    i8 28, label %591
-    i8 29, label %601
-    i8 30, label %611
-    i8 31, label %621
-    i8 32, label %631
+    i8 5, label %108
+    i8 6, label %176
+    i8 7, label %241
+    i8 8, label %309
+    i8 9, label %374
+    i8 10, label %442
+    i8 11, label %444
+    i8 12, label %453
+    i8 13, label %455
+    i8 14, label %457
+    i8 15, label %467
+    i8 16, label %477
+    i8 17, label %487
+    i8 18, label %497
+    i8 19, label %507
+    i8 20, label %517
+    i8 21, label %527
+    i8 22, label %537
+    i8 23, label %547
+    i8 24, label %557
+    i8 25, label %567
+    i8 26, label %577
+    i8 27, label %587
+    i8 28, label %597
+    i8 29, label %607
+    i8 30, label %617
+    i8 31, label %627
+    i8 32, label %637
   ]
 
 14:                                               ; preds = %12
@@ -77092,893 +77107,899 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sa
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   %56 = load i8, ptr %3, align 1, !tbaa !54
-  %57 = zext i8 %56 to i32
-  %58 = shl nuw nsw i32 %57, 16
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %58 = load i8, ptr %57, align 1, !tbaa !54
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %60 = load i8, ptr %59, align 1, !tbaa !54
-  %61 = zext i8 %60 to i32
-  %62 = shl nuw nsw i32 %61, 8
-  %63 = or disjoint i32 %62, %58
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %65 = load i8, ptr %64, align 1, !tbaa !54
-  %66 = zext i8 %65 to i32
-  %67 = or disjoint i32 %63, %66
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %69
+  %61 = or i8 %58, %56
+  %62 = or i8 %61, %60
+  %63 = icmp eq i8 %62, 0
+  br i1 %63, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %64
 
-69:                                               ; preds = %55
-  %70 = zext nneg i32 %67 to i64
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 %70
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 3
-  %73 = load ptr, ptr %4, align 8, !tbaa !586
-  %74 = ptrtoint ptr %72 to i64
+64:                                               ; preds = %55
+  %65 = zext i8 %56 to i64
+  %66 = shl nuw nsw i64 %65, 16
+  %67 = zext i8 %58 to i64
+  %68 = shl nuw nsw i64 %67, 8
+  %69 = zext i8 %60 to i64
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 %68
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %66
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 %69
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 3
+  %74 = load ptr, ptr %4, align 8, !tbaa !586
   %75 = ptrtoint ptr %73 to i64
-  %76 = sub i64 %74, %75
-  %77 = load i32, ptr %9, align 8, !tbaa !588
-  %78 = zext i32 %77 to i64
-  %.not.i.i.i.i.i.i.i = icmp ugt i64 %76, %78
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i, label %79
+  %76 = ptrtoint ptr %74 to i64
+  %77 = sub i64 %75, %76
+  %78 = load i32, ptr %9, align 8, !tbaa !588
+  %79 = zext i32 %78 to i64
+  %.not.i.i.i.i.i.i.i = icmp ugt i64 %77, %79
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i, label %80
 
-79:                                               ; preds = %69
-  %80 = getelementptr inbounds nuw i8, ptr %71, i64 1
+80:                                               ; preds = %64
+  %81 = getelementptr inbounds nuw i8, ptr %72, i64 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
-  %81 = load i16, ptr %80, align 1, !tbaa !40
-  %82 = tail call noundef i16 @llvm.bswap.i16(i16 %81)
-  %83 = zext i16 %82 to i32
-  %84 = mul nuw nsw i32 %83, 6
-  %85 = load ptr, ptr %4, align 8, !tbaa !586
-  %86 = ptrtoint ptr %85 to i64
-  %87 = sub i64 %74, %86
-  %88 = load i32, ptr %9, align 8, !tbaa !588
-  %89 = zext i32 %88 to i64
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %87, %89
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i, label %90, !prof !591
+  %82 = load i16, ptr %81, align 1, !tbaa !40
+  %83 = tail call noundef i16 @llvm.bswap.i16(i16 %82)
+  %84 = zext i16 %83 to i32
+  %85 = mul nuw nsw i32 %84, 6
+  %86 = load ptr, ptr %4, align 8, !tbaa !586
+  %87 = ptrtoint ptr %86 to i64
+  %88 = sub i64 %75, %87
+  %89 = load i32, ptr %9, align 8, !tbaa !588
+  %90 = zext i32 %89 to i64
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %88, %90
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i, label %91, !prof !591
 
-90:                                               ; preds = %79
-  %91 = load ptr, ptr %51, align 8, !tbaa !587
-  %92 = ptrtoint ptr %91 to i64
-  %93 = sub i64 %92, %74
-  %94 = trunc i64 %93 to i32
-  %.not12.i.i.i.i.i.i.i.i.i.i = icmp ugt i32 %84, %94
+91:                                               ; preds = %80
+  %92 = load ptr, ptr %51, align 8, !tbaa !587
+  %93 = ptrtoint ptr %92 to i64
+  %94 = sub i64 %93, %75
+  %95 = trunc i64 %94 to i32
+  %.not12.i.i.i.i.i.i.i.i.i.i = icmp ugt i32 %85, %95
   br i1 %.not12.i.i.i.i.i.i.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i, !prof !591
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i: ; preds = %90
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %96 = load i32, ptr %95, align 4, !tbaa !589
-  %97 = sub i32 %96, %84
-  store i32 %97, ptr %95, align 4, !tbaa !589
-  %98 = icmp sgt i32 %97, 0
-  br i1 %98, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i
+_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i: ; preds = %91
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %97 = load i32, ptr %96, align 4, !tbaa !589
+  %98 = sub i32 %97, %85
+  store i32 %98, ptr %96, align 4, !tbaa !589
+  %99 = icmp sgt i32 %98, 0
+  br i1 %99, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i, %90, %79, %69
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %100 = load i32, ptr %99, align 4, !tbaa !522
-  %101 = icmp ugt i32 %100, 31
-  br i1 %101, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i
+_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i, %91, %80, %64
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %101 = load i32, ptr %100, align 4, !tbaa !522
+  %102 = icmp ugt i32 %101, 31
+  br i1 %102, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i
-  %102 = add nuw nsw i32 %100, 1
-  store i32 %102, ptr %99, align 4, !tbaa !522
-  %103 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %104 = load i8, ptr %103, align 8, !tbaa !585, !range !31, !noundef !32
-  %105 = trunc nuw i8 %104 to i1
-  br i1 %105, label %106, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
+  %103 = add nuw nsw i32 %101, 1
+  store i32 %103, ptr %100, align 4, !tbaa !522
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %105 = load i8, ptr %104, align 8, !tbaa !585, !range !31, !noundef !32
+  %106 = trunc nuw i8 %105 to i1
+  br i1 %106, label %107, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-106:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i
+107:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i
   store i8 0, ptr %3, align 1
-  store i8 0, ptr %59, align 1
-  store i8 0, ptr %64, align 1, !tbaa !54
+  store i8 0, ptr %57, align 1
+  store i8 0, ptr %59, align 1, !tbaa !54
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-107:                                              ; preds = %12
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %109 = load ptr, ptr %4, align 8, !tbaa !586
-  %110 = ptrtoint ptr %108 to i64
+108:                                              ; preds = %12
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %110 = load ptr, ptr %4, align 8, !tbaa !586
   %111 = ptrtoint ptr %109 to i64
-  %112 = sub i64 %110, %111
-  %113 = load i32, ptr %9, align 8, !tbaa !588
-  %114 = zext i32 %113 to i64
-  %.not.i.i.i37 = icmp ugt i64 %112, %114
-  %115 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %117 = ptrtoint ptr %116 to i64
-  %118 = sub i64 %117, %111
-  %.not.i.i.i.i = icmp ugt i64 %118, %114
+  %112 = ptrtoint ptr %110 to i64
+  %113 = sub i64 %111, %112
+  %114 = load i32, ptr %9, align 8, !tbaa !588
+  %115 = zext i32 %114 to i64
+  %.not.i.i.i37 = icmp ugt i64 %113, %115
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %118 = ptrtoint ptr %117 to i64
+  %119 = sub i64 %118, %112
+  %.not.i.i.i.i = icmp ugt i64 %119, %115
   %or.cond.i.i.i = select i1 %.not.i.i.i37, i1 true, i1 %.not.i.i.i.i
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %120 = ptrtoint ptr %119 to i64
-  %121 = sub i64 %120, %111
-  %.not.i.not.i.i.i.i38 = icmp ugt i64 %121, %114
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %121 = ptrtoint ptr %120 to i64
+  %122 = sub i64 %121, %112
+  %.not.i.not.i.i.i.i38 = icmp ugt i64 %122, %115
   %or.cond151 = select i1 %or.cond.i.i.i, i1 true, i1 %.not.i.not.i.i.i.i38
-  br i1 %or.cond151, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %122, !prof !724
+  br i1 %or.cond151, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %123, !prof !724
 
-122:                                              ; preds = %107
+123:                                              ; preds = %108
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
-  %123 = load i8, ptr %3, align 1, !tbaa !54
-  %124 = zext i8 %123 to i32
-  %125 = shl nuw nsw i32 %124, 16
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %127 = load i8, ptr %126, align 1, !tbaa !54
-  %128 = zext i8 %127 to i32
-  %129 = shl nuw nsw i32 %128, 8
-  %130 = or disjoint i32 %129, %125
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %132 = load i8, ptr %131, align 1, !tbaa !54
-  %133 = zext i8 %132 to i32
-  %134 = or disjoint i32 %130, %133
-  %135 = icmp eq i32 %134, 0
-  br i1 %135, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %136
+  %124 = load i8, ptr %3, align 1, !tbaa !54
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %126 = load i8, ptr %125, align 1, !tbaa !54
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %128 = load i8, ptr %127, align 1, !tbaa !54
+  %129 = or i8 %126, %124
+  %130 = or i8 %129, %128
+  %131 = icmp eq i8 %130, 0
+  br i1 %131, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %132
 
-136:                                              ; preds = %122
-  %137 = zext nneg i32 %134 to i64
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 %137
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  %140 = load ptr, ptr %4, align 8, !tbaa !586
-  %141 = ptrtoint ptr %139 to i64
-  %142 = ptrtoint ptr %140 to i64
-  %143 = sub i64 %141, %142
-  %144 = load i32, ptr %9, align 8, !tbaa !588
-  %145 = zext i32 %144 to i64
-  %.not.i.i.i.i.i.i.i39 = icmp ugt i64 %143, %145
-  br i1 %.not.i.i.i.i.i.i.i39, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i, label %146
+132:                                              ; preds = %123
+  %133 = zext i8 %124 to i64
+  %134 = shl nuw nsw i64 %133, 16
+  %135 = zext i8 %126 to i64
+  %136 = shl nuw nsw i64 %135, 8
+  %137 = zext i8 %128 to i64
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 %136
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 %134
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 %137
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 3
+  %142 = load ptr, ptr %4, align 8, !tbaa !586
+  %143 = ptrtoint ptr %141 to i64
+  %144 = ptrtoint ptr %142 to i64
+  %145 = sub i64 %143, %144
+  %146 = load i32, ptr %9, align 8, !tbaa !588
+  %147 = zext i32 %146 to i64
+  %.not.i.i.i.i.i.i.i39 = icmp ugt i64 %145, %147
+  br i1 %.not.i.i.i.i.i.i.i39, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i, label %148
 
-146:                                              ; preds = %136
-  %147 = getelementptr inbounds nuw i8, ptr %138, i64 1
+148:                                              ; preds = %132
+  %149 = getelementptr inbounds nuw i8, ptr %140, i64 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
-  %148 = load i16, ptr %147, align 1, !tbaa !40
-  %149 = tail call noundef i16 @llvm.bswap.i16(i16 %148)
-  %150 = zext i16 %149 to i32
-  %151 = mul nuw nsw i32 %150, 10
-  %152 = load ptr, ptr %4, align 8, !tbaa !586
-  %153 = ptrtoint ptr %152 to i64
-  %154 = sub i64 %141, %153
-  %155 = load i32, ptr %9, align 8, !tbaa !588
-  %156 = zext i32 %155 to i64
-  %.not.i.i.i.i.i.i.i.i.i.i40 = icmp ugt i64 %154, %156
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i40, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i, label %157, !prof !591
+  %150 = load i16, ptr %149, align 1, !tbaa !40
+  %151 = tail call noundef i16 @llvm.bswap.i16(i16 %150)
+  %152 = zext i16 %151 to i32
+  %153 = mul nuw nsw i32 %152, 10
+  %154 = load ptr, ptr %4, align 8, !tbaa !586
+  %155 = ptrtoint ptr %154 to i64
+  %156 = sub i64 %143, %155
+  %157 = load i32, ptr %9, align 8, !tbaa !588
+  %158 = zext i32 %157 to i64
+  %.not.i.i.i.i.i.i.i.i.i.i40 = icmp ugt i64 %156, %158
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i40, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i, label %159, !prof !591
 
-157:                                              ; preds = %146
-  %158 = load ptr, ptr %115, align 8, !tbaa !587
-  %159 = ptrtoint ptr %158 to i64
-  %160 = sub i64 %159, %141
-  %161 = trunc i64 %160 to i32
-  %.not12.i.i.i.i.i.i.i.i.i.i41 = icmp ugt i32 %151, %161
+159:                                              ; preds = %148
+  %160 = load ptr, ptr %116, align 8, !tbaa !587
+  %161 = ptrtoint ptr %160 to i64
+  %162 = sub i64 %161, %143
+  %163 = trunc i64 %162 to i32
+  %.not12.i.i.i.i.i.i.i.i.i.i41 = icmp ugt i32 %153, %163
   br i1 %.not12.i.i.i.i.i.i.i.i.i.i41, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i, !prof !591
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i: ; preds = %157
-  %162 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %163 = load i32, ptr %162, align 4, !tbaa !589
-  %164 = sub i32 %163, %151
-  store i32 %164, ptr %162, align 4, !tbaa !589
-  %165 = icmp sgt i32 %164, 0
-  br i1 %165, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i
+_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i: ; preds = %159
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %165 = load i32, ptr %164, align 4, !tbaa !589
+  %166 = sub i32 %165, %153
+  store i32 %166, ptr %164, align 4, !tbaa !589
+  %167 = icmp sgt i32 %166, 0
+  br i1 %167, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i, %157, %146, %136
-  %166 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %167 = load i32, ptr %166, align 4, !tbaa !522
-  %168 = icmp ugt i32 %167, 31
-  br i1 %168, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i42
+_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i, %159, %148, %132
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %169 = load i32, ptr %168, align 4, !tbaa !522
+  %170 = icmp ugt i32 %169, 31
+  br i1 %170, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i42
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i42: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i
-  %169 = add nuw nsw i32 %167, 1
-  store i32 %169, ptr %166, align 4, !tbaa !522
-  %170 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %171 = load i8, ptr %170, align 8, !tbaa !585, !range !31, !noundef !32
-  %172 = trunc nuw i8 %171 to i1
-  br i1 %172, label %173, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
+  %171 = add nuw nsw i32 %169, 1
+  store i32 %171, ptr %168, align 4, !tbaa !522
+  %172 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %173 = load i8, ptr %172, align 8, !tbaa !585, !range !31, !noundef !32
+  %174 = trunc nuw i8 %173 to i1
+  br i1 %174, label %175, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-173:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i42
+175:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i42
   store i8 0, ptr %3, align 1
-  store i8 0, ptr %126, align 1
-  store i8 0, ptr %131, align 1, !tbaa !54
+  store i8 0, ptr %125, align 1
+  store i8 0, ptr %127, align 1, !tbaa !54
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-174:                                              ; preds = %12
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %176 = load ptr, ptr %4, align 8, !tbaa !586
-  %177 = ptrtoint ptr %175 to i64
-  %178 = ptrtoint ptr %176 to i64
-  %179 = sub i64 %177, %178
-  %180 = load i32, ptr %9, align 8, !tbaa !588
-  %181 = zext i32 %180 to i64
-  %.not.i.i.i43 = icmp ugt i64 %179, %181
-  %182 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %184 = ptrtoint ptr %183 to i64
-  %185 = sub i64 %184, %178
-  %.not.i.not.i.i.i.i44 = icmp ugt i64 %185, %181
+176:                                              ; preds = %12
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %178 = load ptr, ptr %4, align 8, !tbaa !586
+  %179 = ptrtoint ptr %177 to i64
+  %180 = ptrtoint ptr %178 to i64
+  %181 = sub i64 %179, %180
+  %182 = load i32, ptr %9, align 8, !tbaa !588
+  %183 = zext i32 %182 to i64
+  %.not.i.i.i43 = icmp ugt i64 %181, %183
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %186 = ptrtoint ptr %185 to i64
+  %187 = sub i64 %186, %180
+  %.not.i.not.i.i.i.i44 = icmp ugt i64 %187, %183
   %or.cond154 = select i1 %.not.i.i.i43, i1 true, i1 %.not.i.not.i.i.i.i44
-  br i1 %or.cond154, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %186, !prof !724
+  br i1 %or.cond154, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %188, !prof !724
 
-186:                                              ; preds = %174
+188:                                              ; preds = %176
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
-  %187 = load i8, ptr %3, align 1, !tbaa !54
-  %188 = zext i8 %187 to i32
-  %189 = shl nuw nsw i32 %188, 16
+  %189 = load i8, ptr %3, align 1, !tbaa !54
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %191 = load i8, ptr %190, align 1, !tbaa !54
-  %192 = zext i8 %191 to i32
-  %193 = shl nuw nsw i32 %192, 8
-  %194 = or disjoint i32 %193, %189
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %196 = load i8, ptr %195, align 1, !tbaa !54
-  %197 = zext i8 %196 to i32
-  %198 = or disjoint i32 %194, %197
-  %199 = icmp eq i32 %198, 0
-  br i1 %199, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %200
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %193 = load i8, ptr %192, align 1, !tbaa !54
+  %194 = or i8 %191, %189
+  %195 = or i8 %194, %193
+  %196 = icmp eq i8 %195, 0
+  br i1 %196, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %197
 
-200:                                              ; preds = %186
-  %201 = zext nneg i32 %198 to i64
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 %201
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 3
-  %204 = load ptr, ptr %4, align 8, !tbaa !586
-  %205 = ptrtoint ptr %203 to i64
-  %206 = ptrtoint ptr %204 to i64
-  %207 = sub i64 %205, %206
-  %208 = load i32, ptr %9, align 8, !tbaa !588
-  %209 = zext i32 %208 to i64
-  %.not.i.i.i.i.i.i.i45 = icmp ugt i64 %207, %209
-  br i1 %.not.i.i.i.i.i.i.i45, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i49, label %210
+197:                                              ; preds = %188
+  %198 = zext i8 %189 to i64
+  %199 = shl nuw nsw i64 %198, 16
+  %200 = zext i8 %191 to i64
+  %201 = shl nuw nsw i64 %200, 8
+  %202 = zext i8 %193 to i64
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 %201
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 %199
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 %202
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 3
+  %207 = load ptr, ptr %4, align 8, !tbaa !586
+  %208 = ptrtoint ptr %206 to i64
+  %209 = ptrtoint ptr %207 to i64
+  %210 = sub i64 %208, %209
+  %211 = load i32, ptr %9, align 8, !tbaa !588
+  %212 = zext i32 %211 to i64
+  %.not.i.i.i.i.i.i.i45 = icmp ugt i64 %210, %212
+  br i1 %.not.i.i.i.i.i.i.i45, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i49, label %213
 
-210:                                              ; preds = %200
-  %211 = getelementptr inbounds nuw i8, ptr %202, i64 1
+213:                                              ; preds = %197
+  %214 = getelementptr inbounds nuw i8, ptr %205, i64 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
-  %212 = load i16, ptr %211, align 1, !tbaa !40
-  %213 = tail call noundef i16 @llvm.bswap.i16(i16 %212)
-  %214 = zext i16 %213 to i32
-  %215 = mul nuw nsw i32 %214, 6
-  %216 = load ptr, ptr %4, align 8, !tbaa !586
-  %217 = ptrtoint ptr %216 to i64
-  %218 = sub i64 %205, %217
-  %219 = load i32, ptr %9, align 8, !tbaa !588
-  %220 = zext i32 %219 to i64
-  %.not.i.i.i.i.i.i.i.i.i.i46 = icmp ugt i64 %218, %220
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i46, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i49, label %221, !prof !591
+  %215 = load i16, ptr %214, align 1, !tbaa !40
+  %216 = tail call noundef i16 @llvm.bswap.i16(i16 %215)
+  %217 = zext i16 %216 to i32
+  %218 = mul nuw nsw i32 %217, 6
+  %219 = load ptr, ptr %4, align 8, !tbaa !586
+  %220 = ptrtoint ptr %219 to i64
+  %221 = sub i64 %208, %220
+  %222 = load i32, ptr %9, align 8, !tbaa !588
+  %223 = zext i32 %222 to i64
+  %.not.i.i.i.i.i.i.i.i.i.i46 = icmp ugt i64 %221, %223
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i46, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i49, label %224, !prof !591
 
-221:                                              ; preds = %210
-  %222 = load ptr, ptr %182, align 8, !tbaa !587
-  %223 = ptrtoint ptr %222 to i64
-  %224 = sub i64 %223, %205
-  %225 = trunc i64 %224 to i32
-  %.not12.i.i.i.i.i.i.i.i.i.i47 = icmp ugt i32 %215, %225
+224:                                              ; preds = %213
+  %225 = load ptr, ptr %184, align 8, !tbaa !587
+  %226 = ptrtoint ptr %225 to i64
+  %227 = sub i64 %226, %208
+  %228 = trunc i64 %227 to i32
+  %.not12.i.i.i.i.i.i.i.i.i.i47 = icmp ugt i32 %218, %228
   br i1 %.not12.i.i.i.i.i.i.i.i.i.i47, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i49, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i48, !prof !591
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i48: ; preds = %221
-  %226 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %227 = load i32, ptr %226, align 4, !tbaa !589
-  %228 = sub i32 %227, %215
-  store i32 %228, ptr %226, align 4, !tbaa !589
-  %229 = icmp sgt i32 %228, 0
-  br i1 %229, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i49
+_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i48: ; preds = %224
+  %229 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %230 = load i32, ptr %229, align 4, !tbaa !589
+  %231 = sub i32 %230, %218
+  store i32 %231, ptr %229, align 4, !tbaa !589
+  %232 = icmp sgt i32 %231, 0
+  br i1 %232, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i49
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i49: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i48, %221, %210, %200
-  %230 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %231 = load i32, ptr %230, align 4, !tbaa !522
-  %232 = icmp ugt i32 %231, 31
-  br i1 %232, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i50
+_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i49: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i48, %224, %213, %197
+  %233 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %234 = load i32, ptr %233, align 4, !tbaa !522
+  %235 = icmp ugt i32 %234, 31
+  br i1 %235, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i50
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i50: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i49
-  %233 = add nuw nsw i32 %231, 1
-  store i32 %233, ptr %230, align 4, !tbaa !522
-  %234 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %235 = load i8, ptr %234, align 8, !tbaa !585, !range !31, !noundef !32
-  %236 = trunc nuw i8 %235 to i1
-  br i1 %236, label %237, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
+  %236 = add nuw nsw i32 %234, 1
+  store i32 %236, ptr %233, align 4, !tbaa !522
+  %237 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %238 = load i8, ptr %237, align 8, !tbaa !585, !range !31, !noundef !32
+  %239 = trunc nuw i8 %238 to i1
+  br i1 %239, label %240, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-237:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i50
+240:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i50
   store i8 0, ptr %3, align 1
   store i8 0, ptr %190, align 1
-  store i8 0, ptr %195, align 1, !tbaa !54
+  store i8 0, ptr %192, align 1, !tbaa !54
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-238:                                              ; preds = %12
-  %239 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %240 = load ptr, ptr %4, align 8, !tbaa !586
-  %241 = ptrtoint ptr %239 to i64
-  %242 = ptrtoint ptr %240 to i64
-  %243 = sub i64 %241, %242
-  %244 = load i32, ptr %9, align 8, !tbaa !588
-  %245 = zext i32 %244 to i64
-  %.not.i.i.i51 = icmp ugt i64 %243, %245
-  %246 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %247 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %248 = ptrtoint ptr %247 to i64
-  %249 = sub i64 %248, %242
-  %.not.i.i.i.i52 = icmp ugt i64 %249, %245
-  %or.cond.i.i.i53 = select i1 %.not.i.i.i51, i1 true, i1 %.not.i.i.i.i52
-  %250 = getelementptr inbounds nuw i8, ptr %0, i64 4
+241:                                              ; preds = %12
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %243 = load ptr, ptr %4, align 8, !tbaa !586
+  %244 = ptrtoint ptr %242 to i64
+  %245 = ptrtoint ptr %243 to i64
+  %246 = sub i64 %244, %245
+  %247 = load i32, ptr %9, align 8, !tbaa !588
+  %248 = zext i32 %247 to i64
+  %.not.i.i.i51 = icmp ugt i64 %246, %248
+  %249 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %251 = ptrtoint ptr %250 to i64
-  %252 = sub i64 %251, %242
-  %.not.i.not.i.i.i.i54 = icmp ugt i64 %252, %245
+  %252 = sub i64 %251, %245
+  %.not.i.i.i.i52 = icmp ugt i64 %252, %248
+  %or.cond.i.i.i53 = select i1 %.not.i.i.i51, i1 true, i1 %.not.i.i.i.i52
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %254 = ptrtoint ptr %253 to i64
+  %255 = sub i64 %254, %245
+  %.not.i.not.i.i.i.i54 = icmp ugt i64 %255, %248
   %or.cond157 = select i1 %or.cond.i.i.i53, i1 true, i1 %.not.i.not.i.i.i.i54
-  br i1 %or.cond157, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %253, !prof !724
+  br i1 %or.cond157, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %256, !prof !724
 
-253:                                              ; preds = %238
+256:                                              ; preds = %241
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
-  %254 = load i8, ptr %3, align 1, !tbaa !54
-  %255 = zext i8 %254 to i32
-  %256 = shl nuw nsw i32 %255, 16
-  %257 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %258 = load i8, ptr %257, align 1, !tbaa !54
-  %259 = zext i8 %258 to i32
-  %260 = shl nuw nsw i32 %259, 8
-  %261 = or disjoint i32 %260, %256
-  %262 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %263 = load i8, ptr %262, align 1, !tbaa !54
-  %264 = zext i8 %263 to i32
-  %265 = or disjoint i32 %261, %264
-  %266 = icmp eq i32 %265, 0
-  br i1 %266, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %267
+  %257 = load i8, ptr %3, align 1, !tbaa !54
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %259 = load i8, ptr %258, align 1, !tbaa !54
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %261 = load i8, ptr %260, align 1, !tbaa !54
+  %262 = or i8 %259, %257
+  %263 = or i8 %262, %261
+  %264 = icmp eq i8 %263, 0
+  br i1 %264, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %265
 
-267:                                              ; preds = %253
-  %268 = zext nneg i32 %265 to i64
-  %269 = getelementptr inbounds nuw i8, ptr %0, i64 %268
-  %270 = getelementptr inbounds nuw i8, ptr %269, i64 3
-  %271 = load ptr, ptr %4, align 8, !tbaa !586
-  %272 = ptrtoint ptr %270 to i64
-  %273 = ptrtoint ptr %271 to i64
-  %274 = sub i64 %272, %273
-  %275 = load i32, ptr %9, align 8, !tbaa !588
-  %276 = zext i32 %275 to i64
-  %.not.i.i.i.i.i.i.i55 = icmp ugt i64 %274, %276
-  br i1 %.not.i.i.i.i.i.i.i55, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i59, label %277
+265:                                              ; preds = %256
+  %266 = zext i8 %257 to i64
+  %267 = shl nuw nsw i64 %266, 16
+  %268 = zext i8 %259 to i64
+  %269 = shl nuw nsw i64 %268, 8
+  %270 = zext i8 %261 to i64
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 %269
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 %267
+  %273 = getelementptr inbounds nuw i8, ptr %272, i64 %270
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 3
+  %275 = load ptr, ptr %4, align 8, !tbaa !586
+  %276 = ptrtoint ptr %274 to i64
+  %277 = ptrtoint ptr %275 to i64
+  %278 = sub i64 %276, %277
+  %279 = load i32, ptr %9, align 8, !tbaa !588
+  %280 = zext i32 %279 to i64
+  %.not.i.i.i.i.i.i.i55 = icmp ugt i64 %278, %280
+  br i1 %.not.i.i.i.i.i.i.i55, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i59, label %281
 
-277:                                              ; preds = %267
-  %278 = getelementptr inbounds nuw i8, ptr %269, i64 1
+281:                                              ; preds = %265
+  %282 = getelementptr inbounds nuw i8, ptr %273, i64 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
-  %279 = load i16, ptr %278, align 1, !tbaa !40
-  %280 = tail call noundef i16 @llvm.bswap.i16(i16 %279)
-  %281 = zext i16 %280 to i32
-  %282 = mul nuw nsw i32 %281, 10
-  %283 = load ptr, ptr %4, align 8, !tbaa !586
-  %284 = ptrtoint ptr %283 to i64
-  %285 = sub i64 %272, %284
-  %286 = load i32, ptr %9, align 8, !tbaa !588
-  %287 = zext i32 %286 to i64
-  %.not.i.i.i.i.i.i.i.i.i.i56 = icmp ugt i64 %285, %287
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i56, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i59, label %288, !prof !591
+  %283 = load i16, ptr %282, align 1, !tbaa !40
+  %284 = tail call noundef i16 @llvm.bswap.i16(i16 %283)
+  %285 = zext i16 %284 to i32
+  %286 = mul nuw nsw i32 %285, 10
+  %287 = load ptr, ptr %4, align 8, !tbaa !586
+  %288 = ptrtoint ptr %287 to i64
+  %289 = sub i64 %276, %288
+  %290 = load i32, ptr %9, align 8, !tbaa !588
+  %291 = zext i32 %290 to i64
+  %.not.i.i.i.i.i.i.i.i.i.i56 = icmp ugt i64 %289, %291
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i56, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i59, label %292, !prof !591
 
-288:                                              ; preds = %277
-  %289 = load ptr, ptr %246, align 8, !tbaa !587
-  %290 = ptrtoint ptr %289 to i64
-  %291 = sub i64 %290, %272
-  %292 = trunc i64 %291 to i32
-  %.not12.i.i.i.i.i.i.i.i.i.i57 = icmp ugt i32 %282, %292
+292:                                              ; preds = %281
+  %293 = load ptr, ptr %249, align 8, !tbaa !587
+  %294 = ptrtoint ptr %293 to i64
+  %295 = sub i64 %294, %276
+  %296 = trunc i64 %295 to i32
+  %.not12.i.i.i.i.i.i.i.i.i.i57 = icmp ugt i32 %286, %296
   br i1 %.not12.i.i.i.i.i.i.i.i.i.i57, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i59, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i58, !prof !591
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i58: ; preds = %288
-  %293 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %294 = load i32, ptr %293, align 4, !tbaa !589
-  %295 = sub i32 %294, %282
-  store i32 %295, ptr %293, align 4, !tbaa !589
-  %296 = icmp sgt i32 %295, 0
-  br i1 %296, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i59
+_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i58: ; preds = %292
+  %297 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %298 = load i32, ptr %297, align 4, !tbaa !589
+  %299 = sub i32 %298, %286
+  store i32 %299, ptr %297, align 4, !tbaa !589
+  %300 = icmp sgt i32 %299, 0
+  br i1 %300, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i59
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i59: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i58, %288, %277, %267
-  %297 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %298 = load i32, ptr %297, align 4, !tbaa !522
-  %299 = icmp ugt i32 %298, 31
-  br i1 %299, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i60
+_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i59: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i58, %292, %281, %265
+  %301 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %302 = load i32, ptr %301, align 4, !tbaa !522
+  %303 = icmp ugt i32 %302, 31
+  br i1 %303, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i60
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i60: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i59
-  %300 = add nuw nsw i32 %298, 1
-  store i32 %300, ptr %297, align 4, !tbaa !522
-  %301 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %302 = load i8, ptr %301, align 8, !tbaa !585, !range !31, !noundef !32
-  %303 = trunc nuw i8 %302 to i1
-  br i1 %303, label %304, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
+  %304 = add nuw nsw i32 %302, 1
+  store i32 %304, ptr %301, align 4, !tbaa !522
+  %305 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %306 = load i8, ptr %305, align 8, !tbaa !585, !range !31, !noundef !32
+  %307 = trunc nuw i8 %306 to i1
+  br i1 %307, label %308, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-304:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i60
+308:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i60
   store i8 0, ptr %3, align 1
-  store i8 0, ptr %257, align 1
-  store i8 0, ptr %262, align 1, !tbaa !54
+  store i8 0, ptr %258, align 1
+  store i8 0, ptr %260, align 1, !tbaa !54
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-305:                                              ; preds = %12
-  %306 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %307 = load ptr, ptr %4, align 8, !tbaa !586
-  %308 = ptrtoint ptr %306 to i64
-  %309 = ptrtoint ptr %307 to i64
-  %310 = sub i64 %308, %309
-  %311 = load i32, ptr %9, align 8, !tbaa !588
-  %312 = zext i32 %311 to i64
-  %.not.i.i.i61 = icmp ugt i64 %310, %312
-  %313 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %314 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %315 = ptrtoint ptr %314 to i64
-  %316 = sub i64 %315, %309
-  %.not.i.not.i.i.i.i62 = icmp ugt i64 %316, %312
+309:                                              ; preds = %12
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %311 = load ptr, ptr %4, align 8, !tbaa !586
+  %312 = ptrtoint ptr %310 to i64
+  %313 = ptrtoint ptr %311 to i64
+  %314 = sub i64 %312, %313
+  %315 = load i32, ptr %9, align 8, !tbaa !588
+  %316 = zext i32 %315 to i64
+  %.not.i.i.i61 = icmp ugt i64 %314, %316
+  %317 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %319 = ptrtoint ptr %318 to i64
+  %320 = sub i64 %319, %313
+  %.not.i.not.i.i.i.i62 = icmp ugt i64 %320, %316
   %or.cond160 = select i1 %.not.i.i.i61, i1 true, i1 %.not.i.not.i.i.i.i62
-  br i1 %or.cond160, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %317, !prof !724
+  br i1 %or.cond160, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %321, !prof !724
 
-317:                                              ; preds = %305
+321:                                              ; preds = %309
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
-  %318 = load i8, ptr %3, align 1, !tbaa !54
-  %319 = zext i8 %318 to i32
-  %320 = shl nuw nsw i32 %319, 16
-  %321 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %322 = load i8, ptr %321, align 1, !tbaa !54
-  %323 = zext i8 %322 to i32
-  %324 = shl nuw nsw i32 %323, 8
-  %325 = or disjoint i32 %324, %320
-  %326 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %327 = load i8, ptr %326, align 1, !tbaa !54
-  %328 = zext i8 %327 to i32
-  %329 = or disjoint i32 %325, %328
-  %330 = icmp eq i32 %329, 0
-  br i1 %330, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %331
+  %322 = load i8, ptr %3, align 1, !tbaa !54
+  %323 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %324 = load i8, ptr %323, align 1, !tbaa !54
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %326 = load i8, ptr %325, align 1, !tbaa !54
+  %327 = or i8 %324, %322
+  %328 = or i8 %327, %326
+  %329 = icmp eq i8 %328, 0
+  br i1 %329, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %330
 
-331:                                              ; preds = %317
-  %332 = zext nneg i32 %329 to i64
-  %333 = getelementptr inbounds nuw i8, ptr %0, i64 %332
-  %334 = getelementptr inbounds nuw i8, ptr %333, i64 3
-  %335 = load ptr, ptr %4, align 8, !tbaa !586
-  %336 = ptrtoint ptr %334 to i64
-  %337 = ptrtoint ptr %335 to i64
-  %338 = sub i64 %336, %337
-  %339 = load i32, ptr %9, align 8, !tbaa !588
-  %340 = zext i32 %339 to i64
-  %.not.i.i.i.i.i.i.i63 = icmp ugt i64 %338, %340
-  br i1 %.not.i.i.i.i.i.i.i63, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i67, label %341
+330:                                              ; preds = %321
+  %331 = zext i8 %322 to i64
+  %332 = shl nuw nsw i64 %331, 16
+  %333 = zext i8 %324 to i64
+  %334 = shl nuw nsw i64 %333, 8
+  %335 = zext i8 %326 to i64
+  %336 = getelementptr inbounds nuw i8, ptr %0, i64 %334
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 %332
+  %338 = getelementptr inbounds nuw i8, ptr %337, i64 %335
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 3
+  %340 = load ptr, ptr %4, align 8, !tbaa !586
+  %341 = ptrtoint ptr %339 to i64
+  %342 = ptrtoint ptr %340 to i64
+  %343 = sub i64 %341, %342
+  %344 = load i32, ptr %9, align 8, !tbaa !588
+  %345 = zext i32 %344 to i64
+  %.not.i.i.i.i.i.i.i63 = icmp ugt i64 %343, %345
+  br i1 %.not.i.i.i.i.i.i.i63, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i67, label %346
 
-341:                                              ; preds = %331
-  %342 = getelementptr inbounds nuw i8, ptr %333, i64 1
+346:                                              ; preds = %330
+  %347 = getelementptr inbounds nuw i8, ptr %338, i64 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
-  %343 = load i16, ptr %342, align 1, !tbaa !40
-  %344 = tail call noundef i16 @llvm.bswap.i16(i16 %343)
-  %345 = zext i16 %344 to i32
-  %346 = mul nuw nsw i32 %345, 6
-  %347 = load ptr, ptr %4, align 8, !tbaa !586
-  %348 = ptrtoint ptr %347 to i64
-  %349 = sub i64 %336, %348
-  %350 = load i32, ptr %9, align 8, !tbaa !588
-  %351 = zext i32 %350 to i64
-  %.not.i.i.i.i.i.i.i.i.i.i64 = icmp ugt i64 %349, %351
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i64, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i67, label %352, !prof !591
+  %348 = load i16, ptr %347, align 1, !tbaa !40
+  %349 = tail call noundef i16 @llvm.bswap.i16(i16 %348)
+  %350 = zext i16 %349 to i32
+  %351 = mul nuw nsw i32 %350, 6
+  %352 = load ptr, ptr %4, align 8, !tbaa !586
+  %353 = ptrtoint ptr %352 to i64
+  %354 = sub i64 %341, %353
+  %355 = load i32, ptr %9, align 8, !tbaa !588
+  %356 = zext i32 %355 to i64
+  %.not.i.i.i.i.i.i.i.i.i.i64 = icmp ugt i64 %354, %356
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i64, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i67, label %357, !prof !591
 
-352:                                              ; preds = %341
-  %353 = load ptr, ptr %313, align 8, !tbaa !587
-  %354 = ptrtoint ptr %353 to i64
-  %355 = sub i64 %354, %336
-  %356 = trunc i64 %355 to i32
-  %.not12.i.i.i.i.i.i.i.i.i.i65 = icmp ugt i32 %346, %356
+357:                                              ; preds = %346
+  %358 = load ptr, ptr %317, align 8, !tbaa !587
+  %359 = ptrtoint ptr %358 to i64
+  %360 = sub i64 %359, %341
+  %361 = trunc i64 %360 to i32
+  %.not12.i.i.i.i.i.i.i.i.i.i65 = icmp ugt i32 %351, %361
   br i1 %.not12.i.i.i.i.i.i.i.i.i.i65, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i67, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i66, !prof !591
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i66: ; preds = %352
-  %357 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %358 = load i32, ptr %357, align 4, !tbaa !589
-  %359 = sub i32 %358, %346
-  store i32 %359, ptr %357, align 4, !tbaa !589
-  %360 = icmp sgt i32 %359, 0
-  br i1 %360, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i67
+_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i66: ; preds = %357
+  %362 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %363 = load i32, ptr %362, align 4, !tbaa !589
+  %364 = sub i32 %363, %351
+  store i32 %364, ptr %362, align 4, !tbaa !589
+  %365 = icmp sgt i32 %364, 0
+  br i1 %365, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i67
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i67: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i66, %352, %341, %331
-  %361 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %362 = load i32, ptr %361, align 4, !tbaa !522
-  %363 = icmp ugt i32 %362, 31
-  br i1 %363, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i68
+_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i67: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i66, %357, %346, %330
+  %366 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %367 = load i32, ptr %366, align 4, !tbaa !522
+  %368 = icmp ugt i32 %367, 31
+  br i1 %368, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i68
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i68: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i67
-  %364 = add nuw nsw i32 %362, 1
-  store i32 %364, ptr %361, align 4, !tbaa !522
-  %365 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %366 = load i8, ptr %365, align 8, !tbaa !585, !range !31, !noundef !32
-  %367 = trunc nuw i8 %366 to i1
-  br i1 %367, label %368, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
+  %369 = add nuw nsw i32 %367, 1
+  store i32 %369, ptr %366, align 4, !tbaa !522
+  %370 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %371 = load i8, ptr %370, align 8, !tbaa !585, !range !31, !noundef !32
+  %372 = trunc nuw i8 %371 to i1
+  br i1 %372, label %373, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-368:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i68
+373:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i68
   store i8 0, ptr %3, align 1
-  store i8 0, ptr %321, align 1
-  store i8 0, ptr %326, align 1, !tbaa !54
+  store i8 0, ptr %323, align 1
+  store i8 0, ptr %325, align 1, !tbaa !54
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-369:                                              ; preds = %12
-  %370 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %371 = load ptr, ptr %4, align 8, !tbaa !586
-  %372 = ptrtoint ptr %370 to i64
-  %373 = ptrtoint ptr %371 to i64
-  %374 = sub i64 %372, %373
-  %375 = load i32, ptr %9, align 8, !tbaa !588
-  %376 = zext i32 %375 to i64
-  %.not.i.i.i69 = icmp ugt i64 %374, %376
-  %377 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %378 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %379 = ptrtoint ptr %378 to i64
-  %380 = sub i64 %379, %373
-  %.not.i.i.i.i70 = icmp ugt i64 %380, %376
+374:                                              ; preds = %12
+  %375 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %376 = load ptr, ptr %4, align 8, !tbaa !586
+  %377 = ptrtoint ptr %375 to i64
+  %378 = ptrtoint ptr %376 to i64
+  %379 = sub i64 %377, %378
+  %380 = load i32, ptr %9, align 8, !tbaa !588
+  %381 = zext i32 %380 to i64
+  %.not.i.i.i69 = icmp ugt i64 %379, %381
+  %382 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %383 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %384 = ptrtoint ptr %383 to i64
+  %385 = sub i64 %384, %378
+  %.not.i.i.i.i70 = icmp ugt i64 %385, %381
   %or.cond.i.i.i71 = select i1 %.not.i.i.i69, i1 true, i1 %.not.i.i.i.i70
-  %381 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %382 = ptrtoint ptr %381 to i64
-  %383 = sub i64 %382, %373
-  %.not.i.not.i.i.i.i72 = icmp ugt i64 %383, %376
+  %386 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %387 = ptrtoint ptr %386 to i64
+  %388 = sub i64 %387, %378
+  %.not.i.not.i.i.i.i72 = icmp ugt i64 %388, %381
   %or.cond163 = select i1 %or.cond.i.i.i71, i1 true, i1 %.not.i.not.i.i.i.i72
-  br i1 %or.cond163, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %384, !prof !724
+  br i1 %or.cond163, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %389, !prof !724
 
-384:                                              ; preds = %369
+389:                                              ; preds = %374
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
-  %385 = load i8, ptr %3, align 1, !tbaa !54
-  %386 = zext i8 %385 to i32
-  %387 = shl nuw nsw i32 %386, 16
-  %388 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %389 = load i8, ptr %388, align 1, !tbaa !54
-  %390 = zext i8 %389 to i32
-  %391 = shl nuw nsw i32 %390, 8
-  %392 = or disjoint i32 %391, %387
+  %390 = load i8, ptr %3, align 1, !tbaa !54
+  %391 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %392 = load i8, ptr %391, align 1, !tbaa !54
   %393 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %394 = load i8, ptr %393, align 1, !tbaa !54
-  %395 = zext i8 %394 to i32
-  %396 = or disjoint i32 %392, %395
-  %397 = icmp eq i32 %396, 0
+  %395 = or i8 %392, %390
+  %396 = or i8 %395, %394
+  %397 = icmp eq i8 %396, 0
   br i1 %397, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %398
 
-398:                                              ; preds = %384
-  %399 = zext nneg i32 %396 to i64
-  %400 = getelementptr inbounds nuw i8, ptr %0, i64 %399
-  %401 = getelementptr inbounds nuw i8, ptr %400, i64 3
-  %402 = load ptr, ptr %4, align 8, !tbaa !586
-  %403 = ptrtoint ptr %401 to i64
-  %404 = ptrtoint ptr %402 to i64
-  %405 = sub i64 %403, %404
-  %406 = load i32, ptr %9, align 8, !tbaa !588
-  %407 = zext i32 %406 to i64
-  %.not.i.i.i.i.i.i.i73 = icmp ugt i64 %405, %407
-  br i1 %.not.i.i.i.i.i.i.i73, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i77, label %408
+398:                                              ; preds = %389
+  %399 = zext i8 %390 to i64
+  %400 = shl nuw nsw i64 %399, 16
+  %401 = zext i8 %392 to i64
+  %402 = shl nuw nsw i64 %401, 8
+  %403 = zext i8 %394 to i64
+  %404 = getelementptr inbounds nuw i8, ptr %0, i64 %402
+  %405 = getelementptr inbounds nuw i8, ptr %404, i64 %400
+  %406 = getelementptr inbounds nuw i8, ptr %405, i64 %403
+  %407 = getelementptr inbounds nuw i8, ptr %406, i64 3
+  %408 = load ptr, ptr %4, align 8, !tbaa !586
+  %409 = ptrtoint ptr %407 to i64
+  %410 = ptrtoint ptr %408 to i64
+  %411 = sub i64 %409, %410
+  %412 = load i32, ptr %9, align 8, !tbaa !588
+  %413 = zext i32 %412 to i64
+  %.not.i.i.i.i.i.i.i73 = icmp ugt i64 %411, %413
+  br i1 %.not.i.i.i.i.i.i.i73, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i77, label %414
 
-408:                                              ; preds = %398
-  %409 = getelementptr inbounds nuw i8, ptr %400, i64 1
+414:                                              ; preds = %398
+  %415 = getelementptr inbounds nuw i8, ptr %406, i64 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
-  %410 = load i16, ptr %409, align 1, !tbaa !40
-  %411 = tail call noundef i16 @llvm.bswap.i16(i16 %410)
-  %412 = zext i16 %411 to i32
-  %413 = mul nuw nsw i32 %412, 10
-  %414 = load ptr, ptr %4, align 8, !tbaa !586
-  %415 = ptrtoint ptr %414 to i64
-  %416 = sub i64 %403, %415
-  %417 = load i32, ptr %9, align 8, !tbaa !588
-  %418 = zext i32 %417 to i64
-  %.not.i.i.i.i.i.i.i.i.i.i74 = icmp ugt i64 %416, %418
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i74, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i77, label %419, !prof !591
-
-419:                                              ; preds = %408
-  %420 = load ptr, ptr %377, align 8, !tbaa !587
+  %416 = load i16, ptr %415, align 1, !tbaa !40
+  %417 = tail call noundef i16 @llvm.bswap.i16(i16 %416)
+  %418 = zext i16 %417 to i32
+  %419 = mul nuw nsw i32 %418, 10
+  %420 = load ptr, ptr %4, align 8, !tbaa !586
   %421 = ptrtoint ptr %420 to i64
-  %422 = sub i64 %421, %403
-  %423 = trunc i64 %422 to i32
-  %.not12.i.i.i.i.i.i.i.i.i.i75 = icmp ugt i32 %413, %423
+  %422 = sub i64 %409, %421
+  %423 = load i32, ptr %9, align 8, !tbaa !588
+  %424 = zext i32 %423 to i64
+  %.not.i.i.i.i.i.i.i.i.i.i74 = icmp ugt i64 %422, %424
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i74, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i77, label %425, !prof !591
+
+425:                                              ; preds = %414
+  %426 = load ptr, ptr %382, align 8, !tbaa !587
+  %427 = ptrtoint ptr %426 to i64
+  %428 = sub i64 %427, %409
+  %429 = trunc i64 %428 to i32
+  %.not12.i.i.i.i.i.i.i.i.i.i75 = icmp ugt i32 %419, %429
   br i1 %.not12.i.i.i.i.i.i.i.i.i.i75, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i77, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i76, !prof !591
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i76: ; preds = %419
-  %424 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %425 = load i32, ptr %424, align 4, !tbaa !589
-  %426 = sub i32 %425, %413
-  store i32 %426, ptr %424, align 4, !tbaa !589
-  %427 = icmp sgt i32 %426, 0
-  br i1 %427, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i77
+_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i76: ; preds = %425
+  %430 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %431 = load i32, ptr %430, align 4, !tbaa !589
+  %432 = sub i32 %431, %419
+  store i32 %432, ptr %430, align 4, !tbaa !589
+  %433 = icmp sgt i32 %432, 0
+  br i1 %433, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i77
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i77: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i76, %419, %408, %398
-  %428 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %429 = load i32, ptr %428, align 4, !tbaa !522
-  %430 = icmp ugt i32 %429, 31
-  br i1 %430, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i78
+_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i77: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i76, %425, %414, %398
+  %434 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %435 = load i32, ptr %434, align 4, !tbaa !522
+  %436 = icmp ugt i32 %435, 31
+  br i1 %436, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i78
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i78: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i77
-  %431 = add nuw nsw i32 %429, 1
-  store i32 %431, ptr %428, align 4, !tbaa !522
-  %432 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %433 = load i8, ptr %432, align 8, !tbaa !585, !range !31, !noundef !32
-  %434 = trunc nuw i8 %433 to i1
-  br i1 %434, label %435, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
+  %437 = add nuw nsw i32 %435, 1
+  store i32 %437, ptr %434, align 4, !tbaa !522
+  %438 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %439 = load i8, ptr %438, align 8, !tbaa !585, !range !31, !noundef !32
+  %440 = trunc nuw i8 %439 to i1
+  br i1 %440, label %441, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-435:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i78
+441:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i78
   store i8 0, ptr %3, align 1
-  store i8 0, ptr %388, align 1
+  store i8 0, ptr %391, align 1
   store i8 0, ptr %393, align 1, !tbaa !54
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-436:                                              ; preds = %12
-  %437 = tail call noundef zeroext i1 @_ZNK2OT10PaintGlyph8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
+442:                                              ; preds = %12
+  %443 = tail call noundef zeroext i1 @_ZNK2OT10PaintGlyph8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-438:                                              ; preds = %12
-  %439 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %440 = load ptr, ptr %4, align 8, !tbaa !586
-  %441 = ptrtoint ptr %439 to i64
-  %442 = ptrtoint ptr %440 to i64
-  %443 = sub i64 %441, %442
-  %444 = load i32, ptr %9, align 8, !tbaa !588
-  %445 = zext i32 %444 to i64
-  %446 = icmp ule i64 %443, %445
+444:                                              ; preds = %12
+  %445 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %446 = load ptr, ptr %4, align 8, !tbaa !586
+  %447 = ptrtoint ptr %445 to i64
+  %448 = ptrtoint ptr %446 to i64
+  %449 = sub i64 %447, %448
+  %450 = load i32, ptr %9, align 8, !tbaa !588
+  %451 = zext i32 %450 to i64
+  %452 = icmp ule i64 %449, %451
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-447:                                              ; preds = %12
-  %448 = tail call noundef zeroext i1 @_ZNK2OT14PaintTransformINS_10NoVariableEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(7) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
+453:                                              ; preds = %12
+  %454 = tail call noundef zeroext i1 @_ZNK2OT14PaintTransformINS_10NoVariableEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(7) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-449:                                              ; preds = %12
-  %450 = tail call noundef zeroext i1 @_ZNK2OT14PaintTransformINS_8VariableEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(7) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
+455:                                              ; preds = %12
+  %456 = tail call noundef zeroext i1 @_ZNK2OT14PaintTransformINS_8VariableEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(7) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-451:                                              ; preds = %12
-  %452 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %453 = load ptr, ptr %4, align 8, !tbaa !586
-  %454 = ptrtoint ptr %452 to i64
-  %455 = ptrtoint ptr %453 to i64
-  %456 = sub i64 %454, %455
-  %457 = load i32, ptr %9, align 8, !tbaa !588
-  %458 = zext i32 %457 to i64
-  %.not181 = icmp ugt i64 %456, %458
-  br i1 %.not181, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %459
+457:                                              ; preds = %12
+  %458 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %459 = load ptr, ptr %4, align 8, !tbaa !586
+  %460 = ptrtoint ptr %458 to i64
+  %461 = ptrtoint ptr %459 to i64
+  %462 = sub i64 %460, %461
+  %463 = load i32, ptr %9, align 8, !tbaa !588
+  %464 = zext i32 %463 to i64
+  %.not181 = icmp ugt i64 %462, %464
+  br i1 %.not181, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %465
 
-459:                                              ; preds = %451
-  %460 = tail call noundef zeroext i1 @_ZNK2OT14PaintTranslate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
+465:                                              ; preds = %457
+  %466 = tail call noundef zeroext i1 @_ZNK2OT14PaintTranslate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-461:                                              ; preds = %12
-  %462 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %463 = load ptr, ptr %4, align 8, !tbaa !586
-  %464 = ptrtoint ptr %462 to i64
-  %465 = ptrtoint ptr %463 to i64
-  %466 = sub i64 %464, %465
-  %467 = load i32, ptr %9, align 8, !tbaa !588
-  %468 = zext i32 %467 to i64
-  %.not180 = icmp ugt i64 %466, %468
-  br i1 %.not180, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %469
+467:                                              ; preds = %12
+  %468 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %469 = load ptr, ptr %4, align 8, !tbaa !586
+  %470 = ptrtoint ptr %468 to i64
+  %471 = ptrtoint ptr %469 to i64
+  %472 = sub i64 %470, %471
+  %473 = load i32, ptr %9, align 8, !tbaa !588
+  %474 = zext i32 %473 to i64
+  %.not180 = icmp ugt i64 %472, %474
+  br i1 %.not180, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %475
 
-469:                                              ; preds = %461
-  %470 = tail call noundef zeroext i1 @_ZNK2OT14PaintTranslate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
+475:                                              ; preds = %467
+  %476 = tail call noundef zeroext i1 @_ZNK2OT14PaintTranslate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-471:                                              ; preds = %12
-  %472 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %473 = load ptr, ptr %4, align 8, !tbaa !586
-  %474 = ptrtoint ptr %472 to i64
-  %475 = ptrtoint ptr %473 to i64
-  %476 = sub i64 %474, %475
-  %477 = load i32, ptr %9, align 8, !tbaa !588
-  %478 = zext i32 %477 to i64
-  %.not179 = icmp ugt i64 %476, %478
-  br i1 %.not179, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %479
+477:                                              ; preds = %12
+  %478 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %479 = load ptr, ptr %4, align 8, !tbaa !586
+  %480 = ptrtoint ptr %478 to i64
+  %481 = ptrtoint ptr %479 to i64
+  %482 = sub i64 %480, %481
+  %483 = load i32, ptr %9, align 8, !tbaa !588
+  %484 = zext i32 %483 to i64
+  %.not179 = icmp ugt i64 %482, %484
+  br i1 %.not179, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %485
 
-479:                                              ; preds = %471
-  %480 = tail call noundef zeroext i1 @_ZNK2OT10PaintScale8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
+485:                                              ; preds = %477
+  %486 = tail call noundef zeroext i1 @_ZNK2OT10PaintScale8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-481:                                              ; preds = %12
-  %482 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %483 = load ptr, ptr %4, align 8, !tbaa !586
-  %484 = ptrtoint ptr %482 to i64
-  %485 = ptrtoint ptr %483 to i64
-  %486 = sub i64 %484, %485
-  %487 = load i32, ptr %9, align 8, !tbaa !588
-  %488 = zext i32 %487 to i64
-  %.not178 = icmp ugt i64 %486, %488
-  br i1 %.not178, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %489
+487:                                              ; preds = %12
+  %488 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %489 = load ptr, ptr %4, align 8, !tbaa !586
+  %490 = ptrtoint ptr %488 to i64
+  %491 = ptrtoint ptr %489 to i64
+  %492 = sub i64 %490, %491
+  %493 = load i32, ptr %9, align 8, !tbaa !588
+  %494 = zext i32 %493 to i64
+  %.not178 = icmp ugt i64 %492, %494
+  br i1 %.not178, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %495
 
-489:                                              ; preds = %481
-  %490 = tail call noundef zeroext i1 @_ZNK2OT10PaintScale8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
+495:                                              ; preds = %487
+  %496 = tail call noundef zeroext i1 @_ZNK2OT10PaintScale8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-491:                                              ; preds = %12
-  %492 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %493 = load ptr, ptr %4, align 8, !tbaa !586
-  %494 = ptrtoint ptr %492 to i64
-  %495 = ptrtoint ptr %493 to i64
-  %496 = sub i64 %494, %495
-  %497 = load i32, ptr %9, align 8, !tbaa !588
-  %498 = zext i32 %497 to i64
-  %.not177 = icmp ugt i64 %496, %498
-  br i1 %.not177, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %499
+497:                                              ; preds = %12
+  %498 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %499 = load ptr, ptr %4, align 8, !tbaa !586
+  %500 = ptrtoint ptr %498 to i64
+  %501 = ptrtoint ptr %499 to i64
+  %502 = sub i64 %500, %501
+  %503 = load i32, ptr %9, align 8, !tbaa !588
+  %504 = zext i32 %503 to i64
+  %.not177 = icmp ugt i64 %502, %504
+  br i1 %.not177, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %505
 
-499:                                              ; preds = %491
-  %500 = tail call noundef zeroext i1 @_ZNK2OT22PaintScaleAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
+505:                                              ; preds = %497
+  %506 = tail call noundef zeroext i1 @_ZNK2OT22PaintScaleAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-501:                                              ; preds = %12
-  %502 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %503 = load ptr, ptr %4, align 8, !tbaa !586
-  %504 = ptrtoint ptr %502 to i64
-  %505 = ptrtoint ptr %503 to i64
-  %506 = sub i64 %504, %505
-  %507 = load i32, ptr %9, align 8, !tbaa !588
-  %508 = zext i32 %507 to i64
-  %.not176 = icmp ugt i64 %506, %508
-  br i1 %.not176, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %509
+507:                                              ; preds = %12
+  %508 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %509 = load ptr, ptr %4, align 8, !tbaa !586
+  %510 = ptrtoint ptr %508 to i64
+  %511 = ptrtoint ptr %509 to i64
+  %512 = sub i64 %510, %511
+  %513 = load i32, ptr %9, align 8, !tbaa !588
+  %514 = zext i32 %513 to i64
+  %.not176 = icmp ugt i64 %512, %514
+  br i1 %.not176, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %515
 
-509:                                              ; preds = %501
-  %510 = tail call noundef zeroext i1 @_ZNK2OT22PaintScaleAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
+515:                                              ; preds = %507
+  %516 = tail call noundef zeroext i1 @_ZNK2OT22PaintScaleAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-511:                                              ; preds = %12
-  %512 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %513 = load ptr, ptr %4, align 8, !tbaa !586
-  %514 = ptrtoint ptr %512 to i64
-  %515 = ptrtoint ptr %513 to i64
-  %516 = sub i64 %514, %515
-  %517 = load i32, ptr %9, align 8, !tbaa !588
-  %518 = zext i32 %517 to i64
-  %.not175 = icmp ugt i64 %516, %518
-  br i1 %.not175, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %519
+517:                                              ; preds = %12
+  %518 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %519 = load ptr, ptr %4, align 8, !tbaa !586
+  %520 = ptrtoint ptr %518 to i64
+  %521 = ptrtoint ptr %519 to i64
+  %522 = sub i64 %520, %521
+  %523 = load i32, ptr %9, align 8, !tbaa !588
+  %524 = zext i32 %523 to i64
+  %.not175 = icmp ugt i64 %522, %524
+  br i1 %.not175, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %525
 
-519:                                              ; preds = %511
-  %520 = tail call noundef zeroext i1 @_ZNK2OT17PaintScaleUniform8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
+525:                                              ; preds = %517
+  %526 = tail call noundef zeroext i1 @_ZNK2OT17PaintScaleUniform8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-521:                                              ; preds = %12
-  %522 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %523 = load ptr, ptr %4, align 8, !tbaa !586
-  %524 = ptrtoint ptr %522 to i64
-  %525 = ptrtoint ptr %523 to i64
-  %526 = sub i64 %524, %525
-  %527 = load i32, ptr %9, align 8, !tbaa !588
-  %528 = zext i32 %527 to i64
-  %.not174 = icmp ugt i64 %526, %528
-  br i1 %.not174, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %529
+527:                                              ; preds = %12
+  %528 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %529 = load ptr, ptr %4, align 8, !tbaa !586
+  %530 = ptrtoint ptr %528 to i64
+  %531 = ptrtoint ptr %529 to i64
+  %532 = sub i64 %530, %531
+  %533 = load i32, ptr %9, align 8, !tbaa !588
+  %534 = zext i32 %533 to i64
+  %.not174 = icmp ugt i64 %532, %534
+  br i1 %.not174, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %535
 
-529:                                              ; preds = %521
-  %530 = tail call noundef zeroext i1 @_ZNK2OT17PaintScaleUniform8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
+535:                                              ; preds = %527
+  %536 = tail call noundef zeroext i1 @_ZNK2OT17PaintScaleUniform8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-531:                                              ; preds = %12
-  %532 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %533 = load ptr, ptr %4, align 8, !tbaa !586
-  %534 = ptrtoint ptr %532 to i64
-  %535 = ptrtoint ptr %533 to i64
-  %536 = sub i64 %534, %535
-  %537 = load i32, ptr %9, align 8, !tbaa !588
-  %538 = zext i32 %537 to i64
-  %.not173 = icmp ugt i64 %536, %538
-  br i1 %.not173, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %539
+537:                                              ; preds = %12
+  %538 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %539 = load ptr, ptr %4, align 8, !tbaa !586
+  %540 = ptrtoint ptr %538 to i64
+  %541 = ptrtoint ptr %539 to i64
+  %542 = sub i64 %540, %541
+  %543 = load i32, ptr %9, align 8, !tbaa !588
+  %544 = zext i32 %543 to i64
+  %.not173 = icmp ugt i64 %542, %544
+  br i1 %.not173, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %545
 
-539:                                              ; preds = %531
-  %540 = tail call noundef zeroext i1 @_ZNK2OT29PaintScaleUniformAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
+545:                                              ; preds = %537
+  %546 = tail call noundef zeroext i1 @_ZNK2OT29PaintScaleUniformAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-541:                                              ; preds = %12
-  %542 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %543 = load ptr, ptr %4, align 8, !tbaa !586
-  %544 = ptrtoint ptr %542 to i64
-  %545 = ptrtoint ptr %543 to i64
-  %546 = sub i64 %544, %545
-  %547 = load i32, ptr %9, align 8, !tbaa !588
-  %548 = zext i32 %547 to i64
-  %.not172 = icmp ugt i64 %546, %548
-  br i1 %.not172, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %549
+547:                                              ; preds = %12
+  %548 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %549 = load ptr, ptr %4, align 8, !tbaa !586
+  %550 = ptrtoint ptr %548 to i64
+  %551 = ptrtoint ptr %549 to i64
+  %552 = sub i64 %550, %551
+  %553 = load i32, ptr %9, align 8, !tbaa !588
+  %554 = zext i32 %553 to i64
+  %.not172 = icmp ugt i64 %552, %554
+  br i1 %.not172, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %555
 
-549:                                              ; preds = %541
-  %550 = tail call noundef zeroext i1 @_ZNK2OT29PaintScaleUniformAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(14) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
+555:                                              ; preds = %547
+  %556 = tail call noundef zeroext i1 @_ZNK2OT29PaintScaleUniformAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(14) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-551:                                              ; preds = %12
-  %552 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %553 = load ptr, ptr %4, align 8, !tbaa !586
-  %554 = ptrtoint ptr %552 to i64
-  %555 = ptrtoint ptr %553 to i64
-  %556 = sub i64 %554, %555
-  %557 = load i32, ptr %9, align 8, !tbaa !588
-  %558 = zext i32 %557 to i64
-  %.not171 = icmp ugt i64 %556, %558
-  br i1 %.not171, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %559
+557:                                              ; preds = %12
+  %558 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %559 = load ptr, ptr %4, align 8, !tbaa !586
+  %560 = ptrtoint ptr %558 to i64
+  %561 = ptrtoint ptr %559 to i64
+  %562 = sub i64 %560, %561
+  %563 = load i32, ptr %9, align 8, !tbaa !588
+  %564 = zext i32 %563 to i64
+  %.not171 = icmp ugt i64 %562, %564
+  br i1 %.not171, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %565
 
-559:                                              ; preds = %551
-  %560 = tail call noundef zeroext i1 @_ZNK2OT11PaintRotate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
+565:                                              ; preds = %557
+  %566 = tail call noundef zeroext i1 @_ZNK2OT11PaintRotate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-561:                                              ; preds = %12
-  %562 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %563 = load ptr, ptr %4, align 8, !tbaa !586
-  %564 = ptrtoint ptr %562 to i64
-  %565 = ptrtoint ptr %563 to i64
-  %566 = sub i64 %564, %565
-  %567 = load i32, ptr %9, align 8, !tbaa !588
-  %568 = zext i32 %567 to i64
-  %.not170 = icmp ugt i64 %566, %568
-  br i1 %.not170, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %569
+567:                                              ; preds = %12
+  %568 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %569 = load ptr, ptr %4, align 8, !tbaa !586
+  %570 = ptrtoint ptr %568 to i64
+  %571 = ptrtoint ptr %569 to i64
+  %572 = sub i64 %570, %571
+  %573 = load i32, ptr %9, align 8, !tbaa !588
+  %574 = zext i32 %573 to i64
+  %.not170 = icmp ugt i64 %572, %574
+  br i1 %.not170, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %575
 
-569:                                              ; preds = %561
-  %570 = tail call noundef zeroext i1 @_ZNK2OT11PaintRotate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
+575:                                              ; preds = %567
+  %576 = tail call noundef zeroext i1 @_ZNK2OT11PaintRotate8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-571:                                              ; preds = %12
-  %572 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %573 = load ptr, ptr %4, align 8, !tbaa !586
-  %574 = ptrtoint ptr %572 to i64
-  %575 = ptrtoint ptr %573 to i64
-  %576 = sub i64 %574, %575
-  %577 = load i32, ptr %9, align 8, !tbaa !588
-  %578 = zext i32 %577 to i64
-  %.not169 = icmp ugt i64 %576, %578
-  br i1 %.not169, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %579
+577:                                              ; preds = %12
+  %578 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %579 = load ptr, ptr %4, align 8, !tbaa !586
+  %580 = ptrtoint ptr %578 to i64
+  %581 = ptrtoint ptr %579 to i64
+  %582 = sub i64 %580, %581
+  %583 = load i32, ptr %9, align 8, !tbaa !588
+  %584 = zext i32 %583 to i64
+  %.not169 = icmp ugt i64 %582, %584
+  br i1 %.not169, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %585
 
-579:                                              ; preds = %571
-  %580 = tail call noundef zeroext i1 @_ZNK2OT23PaintRotateAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
+585:                                              ; preds = %577
+  %586 = tail call noundef zeroext i1 @_ZNK2OT23PaintRotateAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-581:                                              ; preds = %12
-  %582 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %583 = load ptr, ptr %4, align 8, !tbaa !586
-  %584 = ptrtoint ptr %582 to i64
-  %585 = ptrtoint ptr %583 to i64
-  %586 = sub i64 %584, %585
-  %587 = load i32, ptr %9, align 8, !tbaa !588
-  %588 = zext i32 %587 to i64
-  %.not168 = icmp ugt i64 %586, %588
-  br i1 %.not168, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %589
+587:                                              ; preds = %12
+  %588 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %589 = load ptr, ptr %4, align 8, !tbaa !586
+  %590 = ptrtoint ptr %588 to i64
+  %591 = ptrtoint ptr %589 to i64
+  %592 = sub i64 %590, %591
+  %593 = load i32, ptr %9, align 8, !tbaa !588
+  %594 = zext i32 %593 to i64
+  %.not168 = icmp ugt i64 %592, %594
+  br i1 %.not168, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %595
 
-589:                                              ; preds = %581
-  %590 = tail call noundef zeroext i1 @_ZNK2OT23PaintRotateAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(14) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
+595:                                              ; preds = %587
+  %596 = tail call noundef zeroext i1 @_ZNK2OT23PaintRotateAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(14) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-591:                                              ; preds = %12
-  %592 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %593 = load ptr, ptr %4, align 8, !tbaa !586
-  %594 = ptrtoint ptr %592 to i64
-  %595 = ptrtoint ptr %593 to i64
-  %596 = sub i64 %594, %595
-  %597 = load i32, ptr %9, align 8, !tbaa !588
-  %598 = zext i32 %597 to i64
-  %.not167 = icmp ugt i64 %596, %598
-  br i1 %.not167, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %599
+597:                                              ; preds = %12
+  %598 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %599 = load ptr, ptr %4, align 8, !tbaa !586
+  %600 = ptrtoint ptr %598 to i64
+  %601 = ptrtoint ptr %599 to i64
+  %602 = sub i64 %600, %601
+  %603 = load i32, ptr %9, align 8, !tbaa !588
+  %604 = zext i32 %603 to i64
+  %.not167 = icmp ugt i64 %602, %604
+  br i1 %.not167, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %605
 
-599:                                              ; preds = %591
-  %600 = tail call noundef zeroext i1 @_ZNK2OT9PaintSkew8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
+605:                                              ; preds = %597
+  %606 = tail call noundef zeroext i1 @_ZNK2OT9PaintSkew8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-601:                                              ; preds = %12
-  %602 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %603 = load ptr, ptr %4, align 8, !tbaa !586
-  %604 = ptrtoint ptr %602 to i64
-  %605 = ptrtoint ptr %603 to i64
-  %606 = sub i64 %604, %605
-  %607 = load i32, ptr %9, align 8, !tbaa !588
-  %608 = zext i32 %607 to i64
-  %.not166 = icmp ugt i64 %606, %608
-  br i1 %.not166, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %609
+607:                                              ; preds = %12
+  %608 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %609 = load ptr, ptr %4, align 8, !tbaa !586
+  %610 = ptrtoint ptr %608 to i64
+  %611 = ptrtoint ptr %609 to i64
+  %612 = sub i64 %610, %611
+  %613 = load i32, ptr %9, align 8, !tbaa !588
+  %614 = zext i32 %613 to i64
+  %.not166 = icmp ugt i64 %612, %614
+  br i1 %.not166, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %615
 
-609:                                              ; preds = %601
-  %610 = tail call noundef zeroext i1 @_ZNK2OT9PaintSkew8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
+615:                                              ; preds = %607
+  %616 = tail call noundef zeroext i1 @_ZNK2OT9PaintSkew8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-611:                                              ; preds = %12
-  %612 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %613 = load ptr, ptr %4, align 8, !tbaa !586
-  %614 = ptrtoint ptr %612 to i64
-  %615 = ptrtoint ptr %613 to i64
-  %616 = sub i64 %614, %615
-  %617 = load i32, ptr %9, align 8, !tbaa !588
-  %618 = zext i32 %617 to i64
-  %.not165 = icmp ugt i64 %616, %618
-  br i1 %.not165, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %619
+617:                                              ; preds = %12
+  %618 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %619 = load ptr, ptr %4, align 8, !tbaa !586
+  %620 = ptrtoint ptr %618 to i64
+  %621 = ptrtoint ptr %619 to i64
+  %622 = sub i64 %620, %621
+  %623 = load i32, ptr %9, align 8, !tbaa !588
+  %624 = zext i32 %623 to i64
+  %.not165 = icmp ugt i64 %622, %624
+  br i1 %.not165, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %625
 
-619:                                              ; preds = %611
-  %620 = tail call noundef zeroext i1 @_ZNK2OT21PaintSkewAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
+625:                                              ; preds = %617
+  %626 = tail call noundef zeroext i1 @_ZNK2OT21PaintSkewAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-621:                                              ; preds = %12
-  %622 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %623 = load ptr, ptr %4, align 8, !tbaa !586
-  %624 = ptrtoint ptr %622 to i64
-  %625 = ptrtoint ptr %623 to i64
-  %626 = sub i64 %624, %625
-  %627 = load i32, ptr %9, align 8, !tbaa !588
-  %628 = zext i32 %627 to i64
-  %.not164 = icmp ugt i64 %626, %628
-  br i1 %.not164, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %629
+627:                                              ; preds = %12
+  %628 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %629 = load ptr, ptr %4, align 8, !tbaa !586
+  %630 = ptrtoint ptr %628 to i64
+  %631 = ptrtoint ptr %629 to i64
+  %632 = sub i64 %630, %631
+  %633 = load i32, ptr %9, align 8, !tbaa !588
+  %634 = zext i32 %633 to i64
+  %.not164 = icmp ugt i64 %632, %634
+  br i1 %.not164, label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit, label %635
 
-629:                                              ; preds = %621
-  %630 = tail call noundef zeroext i1 @_ZNK2OT21PaintSkewAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
+635:                                              ; preds = %627
+  %636 = tail call noundef zeroext i1 @_ZNK2OT21PaintSkewAroundCenter8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-631:                                              ; preds = %12
-  %632 = tail call noundef zeroext i1 @_ZNK2OT14PaintComposite8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
+637:                                              ; preds = %12
+  %638 = tail call noundef zeroext i1 @_ZNK2OT14PaintComposite8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br label %_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit
 
-_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit: ; preds = %629, %621, %619, %611, %609, %601, %599, %591, %589, %581, %579, %571, %569, %561, %559, %551, %549, %541, %539, %531, %529, %521, %519, %511, %509, %501, %499, %491, %489, %481, %479, %471, %469, %461, %459, %451, %435, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i78, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i77, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i76, %384, %369, %368, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i68, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i67, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i66, %317, %305, %304, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i60, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i59, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i58, %253, %238, %237, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i50, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i49, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i48, %186, %174, %173, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i42, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i, %122, %107, %106, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i, %55, %43, %14, %23, %31, %436, %438, %447, %449, %631, %12, %2
-  %.0 = phi i1 [ false, %2 ], [ %632, %631 ], [ %450, %449 ], [ %448, %447 ], [ %446, %438 ], [ %437, %436 ], [ %narrow.i.i.i, %31 ], [ %.not.i.i.i, %23 ], [ %22, %14 ], [ true, %12 ], [ false, %43 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i ], [ true, %55 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i ], [ true, %106 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i ], [ false, %107 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i ], [ true, %122 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i42 ], [ true, %173 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i ], [ false, %174 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i48 ], [ true, %186 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i50 ], [ true, %237 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i49 ], [ false, %238 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i58 ], [ true, %253 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i60 ], [ true, %304 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i59 ], [ false, %305 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i66 ], [ true, %317 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i68 ], [ true, %368 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i67 ], [ false, %369 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i76 ], [ true, %384 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i78 ], [ true, %435 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i77 ], [ false, %451 ], [ %460, %459 ], [ false, %461 ], [ %470, %469 ], [ false, %471 ], [ %480, %479 ], [ false, %481 ], [ %490, %489 ], [ false, %491 ], [ %500, %499 ], [ false, %501 ], [ %510, %509 ], [ false, %511 ], [ %520, %519 ], [ false, %521 ], [ %530, %529 ], [ false, %531 ], [ %540, %539 ], [ false, %541 ], [ %550, %549 ], [ false, %551 ], [ %560, %559 ], [ false, %561 ], [ %570, %569 ], [ false, %571 ], [ %580, %579 ], [ false, %581 ], [ %590, %589 ], [ false, %591 ], [ %600, %599 ], [ false, %601 ], [ %610, %609 ], [ false, %611 ], [ %620, %619 ], [ false, %621 ], [ %630, %629 ]
+_ZN21hb_sanitize_context_t12may_dispatchIN2OT5PaintENS1_7IntTypeIhLj1EEEEEbPKT_PKT0_.exit: ; preds = %635, %627, %625, %617, %615, %607, %605, %597, %595, %587, %585, %577, %575, %567, %565, %557, %555, %547, %545, %537, %535, %527, %525, %517, %515, %507, %505, %497, %495, %487, %485, %477, %475, %467, %465, %457, %441, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i78, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i77, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i76, %389, %374, %373, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i68, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i67, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i66, %321, %309, %308, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i60, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i59, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i58, %256, %241, %240, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i50, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i49, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i48, %188, %176, %175, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i42, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i, %123, %108, %107, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i, %55, %43, %14, %23, %31, %442, %444, %453, %455, %637, %12, %2
+  %.0 = phi i1 [ false, %2 ], [ %638, %637 ], [ %456, %455 ], [ %454, %453 ], [ %452, %444 ], [ %443, %442 ], [ %narrow.i.i.i, %31 ], [ %.not.i.i.i, %23 ], [ %22, %14 ], [ true, %12 ], [ false, %43 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i ], [ true, %55 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i ], [ true, %107 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i ], [ false, %108 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i ], [ true, %123 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i42 ], [ true, %175 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i ], [ false, %176 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i48 ], [ true, %188 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i50 ], [ true, %240 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i49 ], [ false, %241 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i58 ], [ true, %256 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i60 ], [ true, %308 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i59 ], [ false, %309 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i66 ], [ true, %321 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i68 ], [ true, %373 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i67 ], [ false, %374 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i.i76 ], [ true, %389 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i.i78 ], [ true, %441 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i.i77 ], [ false, %457 ], [ %466, %465 ], [ false, %467 ], [ %476, %475 ], [ false, %477 ], [ %486, %485 ], [ false, %487 ], [ %496, %495 ], [ false, %497 ], [ %506, %505 ], [ false, %507 ], [ %516, %515 ], [ false, %517 ], [ %526, %525 ], [ false, %527 ], [ %536, %535 ], [ false, %537 ], [ %546, %545 ], [ false, %547 ], [ %556, %555 ], [ false, %557 ], [ %566, %565 ], [ false, %567 ], [ %576, %575 ], [ false, %577 ], [ %586, %585 ], [ false, %587 ], [ %596, %595 ], [ false, %597 ], [ %606, %605 ], [ false, %607 ], [ %616, %615 ], [ false, %617 ], [ %626, %625 ], [ false, %627 ], [ %636, %635 ]
   ret i1 %.0
 }
 
@@ -78008,64 +78029,65 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT10PaintGlyph8sanitizeEP
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   %18 = load i8, ptr %13, align 1, !tbaa !54
-  %19 = zext i8 %18 to i32
-  %20 = shl nuw nsw i32 %19, 16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %20 = load i8, ptr %19, align 1, !tbaa !54
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %22 = load i8, ptr %21, align 1, !tbaa !54
-  %23 = zext i8 %22 to i32
-  %24 = shl nuw nsw i32 %23, 8
-  %25 = or disjoint i32 %24, %20
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %27 = load i8, ptr %26, align 1, !tbaa !54
-  %28 = zext i8 %27 to i32
-  %29 = or disjoint i32 %25, %28
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %31
+  %23 = or i8 %20, %18
+  %24 = or i8 %23, %22
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %26
 
-31:                                               ; preds = %17
-  %32 = zext nneg i32 %29 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %35 = load i32, ptr %34, align 4, !tbaa !590
-  %.not.i.i = icmp slt i32 %35, 64
+26:                                               ; preds = %17
+  %27 = zext i8 %18 to i64
+  %28 = shl nuw nsw i64 %27, 16
+  %29 = zext i8 %20 to i64
+  %30 = shl nuw nsw i64 %29, 8
+  %31 = zext i8 %22 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %30
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %28
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %31
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %36 = load i32, ptr %35, align 4, !tbaa !590
+  %.not.i.i = icmp slt i32 %36, 64
   br i1 %.not.i.i, label %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, !prof !35
 
-_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %34, align 4, !tbaa !590
-  %.not10 = icmp eq i32 %36, 0
+_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %26
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %35, align 4, !tbaa !590
+  %.not10 = icmp eq i32 %37, 0
   br i1 %.not10, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, !prof !634
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
-  %38 = load i32, ptr %34, align 4, !tbaa !590
-  %39 = add nsw i32 %38, -1
-  store i32 %39, ptr %34, align 4, !tbaa !590
-  br i1 %37, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
+  %38 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %34, ptr noundef nonnull align 8 dereferenceable(62) %1)
+  %39 = load i32, ptr %35, align 4, !tbaa !590
+  %40 = add nsw i32 %39, -1
+  store i32 %40, ptr %35, align 4, !tbaa !590
+  br i1 %38, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
 
-_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %31, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %41 = load i32, ptr %40, align 4, !tbaa !522
-  %42 = icmp ugt i32 %41, 31
-  br i1 %42, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %26, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %42 = load i32, ptr %41, align 4, !tbaa !522
+  %43 = icmp ugt i32 %42, 31
+  br i1 %43, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
-  %43 = add nuw nsw i32 %41, 1
-  store i32 %43, ptr %40, align 4, !tbaa !522
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %45 = load i8, ptr %44, align 8, !tbaa !585, !range !31, !noundef !32
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
+  %44 = add nuw nsw i32 %42, 1
+  store i32 %44, ptr %41, align 4, !tbaa !522
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %46 = load i8, ptr %45, align 8, !tbaa !585, !range !31, !noundef !32
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
 
-47:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+48:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
   store i8 0, ptr %13, align 1
-  store i8 0, ptr %21, align 1
-  store i8 0, ptr %26, align 1, !tbaa !54
+  store i8 0, ptr %19, align 1
+  store i8 0, ptr %21, align 1, !tbaa !54
   br label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
 
-_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %47, %2
-  %48 = phi i1 [ false, %2 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %47 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
-  ret i1 %48
+_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %48, %2
+  %49 = phi i1 [ false, %2 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %48 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  ret i1 %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -78094,124 +78116,126 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT14PaintTransformINS_10N
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   %18 = load i8, ptr %13, align 1, !tbaa !54
-  %19 = zext i8 %18 to i32
-  %20 = shl nuw nsw i32 %19, 16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %20 = load i8, ptr %19, align 1, !tbaa !54
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %22 = load i8, ptr %21, align 1, !tbaa !54
-  %23 = zext i8 %22 to i32
-  %24 = shl nuw nsw i32 %23, 8
-  %25 = or disjoint i32 %24, %20
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %27 = load i8, ptr %26, align 1, !tbaa !54
-  %28 = zext i8 %27 to i32
-  %29 = or disjoint i32 %25, %28
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread, label %31
+  %23 = or i8 %20, %18
+  %24 = or i8 %23, %22
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread, label %26
 
-31:                                               ; preds = %17
-  %32 = zext nneg i32 %29 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %35 = load i32, ptr %34, align 4, !tbaa !590
-  %.not.i.i = icmp slt i32 %35, 64
+26:                                               ; preds = %17
+  %27 = zext i8 %18 to i64
+  %28 = shl nuw nsw i64 %27, 16
+  %29 = zext i8 %20 to i64
+  %30 = shl nuw nsw i64 %29, 8
+  %31 = zext i8 %22 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %30
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %28
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %31
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %36 = load i32, ptr %35, align 4, !tbaa !590
+  %.not.i.i = icmp slt i32 %36, 64
   br i1 %.not.i.i, label %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, !prof !35
 
-_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %34, align 4, !tbaa !590
-  %.not22 = icmp eq i32 %36, 0
+_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %26
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %35, align 4, !tbaa !590
+  %.not22 = icmp eq i32 %37, 0
   br i1 %.not22, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, !prof !634
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
-  %38 = load i32, ptr %34, align 4, !tbaa !590
-  %39 = add nsw i32 %38, -1
-  store i32 %39, ptr %34, align 4, !tbaa !590
-  br i1 %37, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
+  %38 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %34, ptr noundef nonnull align 8 dereferenceable(62) %1)
+  %39 = load i32, ptr %35, align 4, !tbaa !590
+  %40 = add nsw i32 %39, -1
+  store i32 %40, ptr %35, align 4, !tbaa !590
+  br i1 %38, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
 
-_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %31, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %41 = load i32, ptr %40, align 4, !tbaa !522
-  %42 = icmp ugt i32 %41, 31
-  br i1 %42, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %26, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %42 = load i32, ptr %41, align 4, !tbaa !522
+  %43 = icmp ugt i32 %42, 31
+  br i1 %43, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
-  %43 = add nuw nsw i32 %41, 1
-  store i32 %43, ptr %40, align 4, !tbaa !522
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %45 = load i8, ptr %44, align 8, !tbaa !585, !range !31, !noundef !32
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18
+  %44 = add nuw nsw i32 %42, 1
+  store i32 %44, ptr %41, align 4, !tbaa !522
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %46 = load i8, ptr %45, align 8, !tbaa !585, !range !31, !noundef !32
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18
 
 _ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
   store i8 0, ptr %13, align 1
-  store i8 0, ptr %21, align 1
-  store i8 0, ptr %26, align 1, !tbaa !54
+  store i8 0, ptr %19, align 1
+  store i8 0, ptr %21, align 1, !tbaa !54
   br label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread
 
 _ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread: ; preds = %17, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
-  %47 = load ptr, ptr %4, align 8, !tbaa !586
-  %48 = ptrtoint ptr %47 to i64
-  %49 = sub i64 %6, %48
-  %50 = load i32, ptr %9, align 8, !tbaa !588
-  %51 = zext i32 %50 to i64
-  %.not.i4.not = icmp ugt i64 %49, %51
-  br i1 %.not.i4.not, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18, label %52, !prof !33
+  %48 = load ptr, ptr %4, align 8, !tbaa !586
+  %49 = ptrtoint ptr %48 to i64
+  %50 = sub i64 %6, %49
+  %51 = load i32, ptr %9, align 8, !tbaa !588
+  %52 = zext i32 %51 to i64
+  %.not.i4.not = icmp ugt i64 %50, %52
+  br i1 %.not.i4.not, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18, label %53, !prof !33
 
-52:                                               ; preds = %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread
+53:                                               ; preds = %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
-  %53 = load i8, ptr %14, align 1, !tbaa !54
-  %54 = zext i8 %53 to i32
-  %55 = shl nuw nsw i32 %54, 16
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %57 = load i8, ptr %56, align 1, !tbaa !54
-  %58 = zext i8 %57 to i32
-  %59 = shl nuw nsw i32 %58, 8
-  %60 = or disjoint i32 %59, %55
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %62 = load i8, ptr %61, align 1, !tbaa !54
-  %63 = zext i8 %62 to i32
-  %64 = or disjoint i32 %60, %63
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18, label %66
+  %54 = load i8, ptr %14, align 1, !tbaa !54
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %56 = load i8, ptr %55, align 1, !tbaa !54
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %58 = load i8, ptr %57, align 1, !tbaa !54
+  %59 = or i8 %56, %54
+  %60 = or i8 %59, %58
+  %61 = icmp eq i8 %60, 0
+  br i1 %61, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18, label %62
 
-66:                                               ; preds = %52
-  %67 = zext nneg i32 %64 to i64
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 %67
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %70 = load ptr, ptr %4, align 8, !tbaa !586
-  %71 = ptrtoint ptr %69 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  %74 = load i32, ptr %9, align 8, !tbaa !588
-  %75 = zext i32 %74 to i64
-  %.not.i.i.i.not = icmp ugt i64 %73, %75
-  br i1 %.not.i.i.i.not, label %76, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18
+62:                                               ; preds = %53
+  %63 = zext i8 %54 to i64
+  %64 = shl nuw nsw i64 %63, 16
+  %65 = zext i8 %56 to i64
+  %66 = shl nuw nsw i64 %65, 8
+  %67 = zext i8 %58 to i64
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 %66
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %64
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %67
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  %72 = load ptr, ptr %4, align 8, !tbaa !586
+  %73 = ptrtoint ptr %71 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = load i32, ptr %9, align 8, !tbaa !588
+  %77 = zext i32 %76 to i64
+  %.not.i.i.i.not = icmp ugt i64 %75, %77
+  br i1 %.not.i.i.i.not, label %78, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18
 
-76:                                               ; preds = %66
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %78 = load i32, ptr %77, align 4, !tbaa !522
-  %79 = icmp ugt i32 %78, 31
-  br i1 %79, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i5
+78:                                               ; preds = %62
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %80 = load i32, ptr %79, align 4, !tbaa !522
+  %81 = icmp ugt i32 %80, 31
+  br i1 %81, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i5
 
-_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i5: ; preds = %76
-  %80 = add nuw nsw i32 %78, 1
-  store i32 %80, ptr %77, align 4, !tbaa !522
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %82 = load i8, ptr %81, align 8, !tbaa !585, !range !31, !noundef !32
-  %83 = trunc nuw i8 %82 to i1
-  br i1 %83, label %84, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18
+_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i5: ; preds = %78
+  %82 = add nuw nsw i32 %80, 1
+  store i32 %82, ptr %79, align 4, !tbaa !522
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %84 = load i8, ptr %83, align 8, !tbaa !585, !range !31, !noundef !32
+  %85 = trunc nuw i8 %84 to i1
+  br i1 %85, label %86, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18
 
-84:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i5
+86:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i5
   store i8 0, ptr %14, align 1
-  store i8 0, ptr %56, align 1
-  store i8 0, ptr %61, align 1, !tbaa !54
+  store i8 0, ptr %55, align 1
+  store i8 0, ptr %57, align 1, !tbaa !54
   br label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18
 
-_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18: ; preds = %66, %52, %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread, %76, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i5, %84, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %12, %2
-  %85 = phi i1 [ false, %2 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ], [ true, %66 ], [ true, %52 ], [ false, %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i5 ], [ true, %84 ], [ false, %76 ]
-  ret i1 %85
+_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18: ; preds = %62, %53, %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread, %78, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i5, %86, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %12, %2
+  %87 = phi i1 [ false, %2 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ], [ true, %62 ], [ true, %53 ], [ false, %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i5 ], [ true, %86 ], [ false, %78 ]
+  ret i1 %87
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -78240,129 +78264,131 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT14PaintTransformINS_8Va
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   %18 = load i8, ptr %13, align 1, !tbaa !54
-  %19 = zext i8 %18 to i32
-  %20 = shl nuw nsw i32 %19, 16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %20 = load i8, ptr %19, align 1, !tbaa !54
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %22 = load i8, ptr %21, align 1, !tbaa !54
-  %23 = zext i8 %22 to i32
-  %24 = shl nuw nsw i32 %23, 8
-  %25 = or disjoint i32 %24, %20
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %27 = load i8, ptr %26, align 1, !tbaa !54
-  %28 = zext i8 %27 to i32
-  %29 = or disjoint i32 %25, %28
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread, label %31
+  %23 = or i8 %20, %18
+  %24 = or i8 %23, %22
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread, label %26
 
-31:                                               ; preds = %17
-  %32 = zext nneg i32 %29 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %35 = load i32, ptr %34, align 4, !tbaa !590
-  %.not.i.i = icmp slt i32 %35, 64
+26:                                               ; preds = %17
+  %27 = zext i8 %18 to i64
+  %28 = shl nuw nsw i64 %27, 16
+  %29 = zext i8 %20 to i64
+  %30 = shl nuw nsw i64 %29, 8
+  %31 = zext i8 %22 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %30
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %28
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %31
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %36 = load i32, ptr %35, align 4, !tbaa !590
+  %.not.i.i = icmp slt i32 %36, 64
   br i1 %.not.i.i, label %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, !prof !35
 
-_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %34, align 4, !tbaa !590
-  %.not22 = icmp eq i32 %36, 0
+_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %26
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %35, align 4, !tbaa !590
+  %.not22 = icmp eq i32 %37, 0
   br i1 %.not22, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, !prof !634
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
-  %38 = load i32, ptr %34, align 4, !tbaa !590
-  %39 = add nsw i32 %38, -1
-  store i32 %39, ptr %34, align 4, !tbaa !590
-  br i1 %37, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
+  %38 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %34, ptr noundef nonnull align 8 dereferenceable(62) %1)
+  %39 = load i32, ptr %35, align 4, !tbaa !590
+  %40 = add nsw i32 %39, -1
+  store i32 %40, ptr %35, align 4, !tbaa !590
+  br i1 %38, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
 
-_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %31, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %41 = load i32, ptr %40, align 4, !tbaa !522
-  %42 = icmp ugt i32 %41, 31
-  br i1 %42, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %26, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %42 = load i32, ptr %41, align 4, !tbaa !522
+  %43 = icmp ugt i32 %42, 31
+  br i1 %43, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
-  %43 = add nuw nsw i32 %41, 1
-  store i32 %43, ptr %40, align 4, !tbaa !522
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %45 = load i8, ptr %44, align 8, !tbaa !585, !range !31, !noundef !32
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18
+  %44 = add nuw nsw i32 %42, 1
+  store i32 %44, ptr %41, align 4, !tbaa !522
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %46 = load i8, ptr %45, align 8, !tbaa !585, !range !31, !noundef !32
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18
 
 _ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
   store i8 0, ptr %13, align 1
-  store i8 0, ptr %21, align 1
-  store i8 0, ptr %26, align 1, !tbaa !54
+  store i8 0, ptr %19, align 1
+  store i8 0, ptr %21, align 1, !tbaa !54
   br label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread
 
 _ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread: ; preds = %17, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
-  %47 = load ptr, ptr %4, align 8, !tbaa !586
-  %48 = ptrtoint ptr %47 to i64
-  %49 = sub i64 %6, %48
-  %50 = load i32, ptr %9, align 8, !tbaa !588
-  %51 = zext i32 %50 to i64
-  %.not.i4.not = icmp ugt i64 %49, %51
-  br i1 %.not.i4.not, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18, label %52, !prof !33
+  %48 = load ptr, ptr %4, align 8, !tbaa !586
+  %49 = ptrtoint ptr %48 to i64
+  %50 = sub i64 %6, %49
+  %51 = load i32, ptr %9, align 8, !tbaa !588
+  %52 = zext i32 %51 to i64
+  %.not.i4.not = icmp ugt i64 %50, %52
+  br i1 %.not.i4.not, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18, label %53, !prof !33
 
-52:                                               ; preds = %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread
+53:                                               ; preds = %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
-  %53 = load i8, ptr %14, align 1, !tbaa !54
-  %54 = zext i8 %53 to i32
-  %55 = shl nuw nsw i32 %54, 16
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %57 = load i8, ptr %56, align 1, !tbaa !54
-  %58 = zext i8 %57 to i32
-  %59 = shl nuw nsw i32 %58, 8
-  %60 = or disjoint i32 %59, %55
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %62 = load i8, ptr %61, align 1, !tbaa !54
-  %63 = zext i8 %62 to i32
-  %64 = or disjoint i32 %60, %63
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18, label %66
+  %54 = load i8, ptr %14, align 1, !tbaa !54
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %56 = load i8, ptr %55, align 1, !tbaa !54
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %58 = load i8, ptr %57, align 1, !tbaa !54
+  %59 = or i8 %56, %54
+  %60 = or i8 %59, %58
+  %61 = icmp eq i8 %60, 0
+  br i1 %61, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18, label %62
 
-66:                                               ; preds = %52
-  %67 = zext nneg i32 %64 to i64
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 %67
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 28
-  %70 = load ptr, ptr %4, align 8, !tbaa !586
-  %71 = ptrtoint ptr %69 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  %74 = load i32, ptr %9, align 8, !tbaa !588
-  %75 = zext i32 %74 to i64
-  %.not.i.i.i = icmp ule i64 %73, %75
-  %76 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %77 = ptrtoint ptr %76 to i64
-  %78 = sub i64 %77, %72
-  %79 = icmp ule i64 %78, %75
-  %narrow.i.i.i = select i1 %.not.i.i.i, i1 %79, i1 false
-  br i1 %narrow.i.i.i, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18, label %80
+62:                                               ; preds = %53
+  %63 = zext i8 %54 to i64
+  %64 = shl nuw nsw i64 %63, 16
+  %65 = zext i8 %56 to i64
+  %66 = shl nuw nsw i64 %65, 8
+  %67 = zext i8 %58 to i64
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 %66
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %64
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %67
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 28
+  %72 = load ptr, ptr %4, align 8, !tbaa !586
+  %73 = ptrtoint ptr %71 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = load i32, ptr %9, align 8, !tbaa !588
+  %77 = zext i32 %76 to i64
+  %.not.i.i.i = icmp ule i64 %75, %77
+  %78 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  %79 = ptrtoint ptr %78 to i64
+  %80 = sub i64 %79, %74
+  %81 = icmp ule i64 %80, %77
+  %narrow.i.i.i = select i1 %.not.i.i.i, i1 %81, i1 false
+  br i1 %narrow.i.i.i, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18, label %82
 
-80:                                               ; preds = %66
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %82 = load i32, ptr %81, align 4, !tbaa !522
-  %83 = icmp ugt i32 %82, 31
-  br i1 %83, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i5
+82:                                               ; preds = %62
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %84 = load i32, ptr %83, align 4, !tbaa !522
+  %85 = icmp ugt i32 %84, 31
+  br i1 %85, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i5
 
-_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i5: ; preds = %80
-  %84 = add nuw nsw i32 %82, 1
-  store i32 %84, ptr %81, align 4, !tbaa !522
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %86 = load i8, ptr %85, align 8, !tbaa !585, !range !31, !noundef !32
-  %87 = trunc nuw i8 %86 to i1
-  br i1 %87, label %88, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18
+_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i5: ; preds = %82
+  %86 = add nuw nsw i32 %84, 1
+  store i32 %86, ptr %83, align 4, !tbaa !522
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %88 = load i8, ptr %87, align 8, !tbaa !585, !range !31, !noundef !32
+  %89 = trunc nuw i8 %88 to i1
+  br i1 %89, label %90, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18
 
-88:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i5
+90:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i5
   store i8 0, ptr %14, align 1
-  store i8 0, ptr %56, align 1
-  store i8 0, ptr %61, align 1, !tbaa !54
+  store i8 0, ptr %55, align 1
+  store i8 0, ptr %57, align 1, !tbaa !54
   br label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18
 
-_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18: ; preds = %66, %52, %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread, %80, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i5, %88, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %12, %2
-  %89 = phi i1 [ false, %2 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ], [ true, %66 ], [ true, %52 ], [ false, %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i5 ], [ true, %88 ], [ false, %80 ]
-  ret i1 %89
+_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread18: ; preds = %62, %53, %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread, %82, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i5, %90, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %12, %2
+  %91 = phi i1 [ false, %2 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ], [ true, %62 ], [ true, %53 ], [ false, %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit.thread ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i5 ], [ true, %90 ], [ false, %82 ]
+  ret i1 %91
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -78391,64 +78417,65 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT14PaintTranslate8saniti
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   %18 = load i8, ptr %13, align 1, !tbaa !54
-  %19 = zext i8 %18 to i32
-  %20 = shl nuw nsw i32 %19, 16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %20 = load i8, ptr %19, align 1, !tbaa !54
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %22 = load i8, ptr %21, align 1, !tbaa !54
-  %23 = zext i8 %22 to i32
-  %24 = shl nuw nsw i32 %23, 8
-  %25 = or disjoint i32 %24, %20
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %27 = load i8, ptr %26, align 1, !tbaa !54
-  %28 = zext i8 %27 to i32
-  %29 = or disjoint i32 %25, %28
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %31
+  %23 = or i8 %20, %18
+  %24 = or i8 %23, %22
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %26
 
-31:                                               ; preds = %17
-  %32 = zext nneg i32 %29 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %35 = load i32, ptr %34, align 4, !tbaa !590
-  %.not.i.i = icmp slt i32 %35, 64
+26:                                               ; preds = %17
+  %27 = zext i8 %18 to i64
+  %28 = shl nuw nsw i64 %27, 16
+  %29 = zext i8 %20 to i64
+  %30 = shl nuw nsw i64 %29, 8
+  %31 = zext i8 %22 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %30
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %28
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %31
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %36 = load i32, ptr %35, align 4, !tbaa !590
+  %.not.i.i = icmp slt i32 %36, 64
   br i1 %.not.i.i, label %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, !prof !35
 
-_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %34, align 4, !tbaa !590
-  %.not10 = icmp eq i32 %36, 0
+_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %26
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %35, align 4, !tbaa !590
+  %.not10 = icmp eq i32 %37, 0
   br i1 %.not10, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, !prof !634
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
-  %38 = load i32, ptr %34, align 4, !tbaa !590
-  %39 = add nsw i32 %38, -1
-  store i32 %39, ptr %34, align 4, !tbaa !590
-  br i1 %37, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
+  %38 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %34, ptr noundef nonnull align 8 dereferenceable(62) %1)
+  %39 = load i32, ptr %35, align 4, !tbaa !590
+  %40 = add nsw i32 %39, -1
+  store i32 %40, ptr %35, align 4, !tbaa !590
+  br i1 %38, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
 
-_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %31, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %41 = load i32, ptr %40, align 4, !tbaa !522
-  %42 = icmp ugt i32 %41, 31
-  br i1 %42, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %26, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %42 = load i32, ptr %41, align 4, !tbaa !522
+  %43 = icmp ugt i32 %42, 31
+  br i1 %43, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
-  %43 = add nuw nsw i32 %41, 1
-  store i32 %43, ptr %40, align 4, !tbaa !522
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %45 = load i8, ptr %44, align 8, !tbaa !585, !range !31, !noundef !32
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
+  %44 = add nuw nsw i32 %42, 1
+  store i32 %44, ptr %41, align 4, !tbaa !522
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %46 = load i8, ptr %45, align 8, !tbaa !585, !range !31, !noundef !32
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
 
-47:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+48:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
   store i8 0, ptr %13, align 1
-  store i8 0, ptr %21, align 1
-  store i8 0, ptr %26, align 1, !tbaa !54
+  store i8 0, ptr %19, align 1
+  store i8 0, ptr %21, align 1, !tbaa !54
   br label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
 
-_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %47, %2
-  %48 = phi i1 [ false, %2 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %47 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
-  ret i1 %48
+_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %48, %2
+  %49 = phi i1 [ false, %2 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %48 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  ret i1 %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -78477,64 +78504,65 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT10PaintScale8sanitizeEP
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   %18 = load i8, ptr %13, align 1, !tbaa !54
-  %19 = zext i8 %18 to i32
-  %20 = shl nuw nsw i32 %19, 16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %20 = load i8, ptr %19, align 1, !tbaa !54
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %22 = load i8, ptr %21, align 1, !tbaa !54
-  %23 = zext i8 %22 to i32
-  %24 = shl nuw nsw i32 %23, 8
-  %25 = or disjoint i32 %24, %20
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %27 = load i8, ptr %26, align 1, !tbaa !54
-  %28 = zext i8 %27 to i32
-  %29 = or disjoint i32 %25, %28
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %31
+  %23 = or i8 %20, %18
+  %24 = or i8 %23, %22
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %26
 
-31:                                               ; preds = %17
-  %32 = zext nneg i32 %29 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %35 = load i32, ptr %34, align 4, !tbaa !590
-  %.not.i.i = icmp slt i32 %35, 64
+26:                                               ; preds = %17
+  %27 = zext i8 %18 to i64
+  %28 = shl nuw nsw i64 %27, 16
+  %29 = zext i8 %20 to i64
+  %30 = shl nuw nsw i64 %29, 8
+  %31 = zext i8 %22 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %30
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %28
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %31
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %36 = load i32, ptr %35, align 4, !tbaa !590
+  %.not.i.i = icmp slt i32 %36, 64
   br i1 %.not.i.i, label %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, !prof !35
 
-_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %34, align 4, !tbaa !590
-  %.not10 = icmp eq i32 %36, 0
+_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %26
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %35, align 4, !tbaa !590
+  %.not10 = icmp eq i32 %37, 0
   br i1 %.not10, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, !prof !634
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
-  %38 = load i32, ptr %34, align 4, !tbaa !590
-  %39 = add nsw i32 %38, -1
-  store i32 %39, ptr %34, align 4, !tbaa !590
-  br i1 %37, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
+  %38 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %34, ptr noundef nonnull align 8 dereferenceable(62) %1)
+  %39 = load i32, ptr %35, align 4, !tbaa !590
+  %40 = add nsw i32 %39, -1
+  store i32 %40, ptr %35, align 4, !tbaa !590
+  br i1 %38, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
 
-_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %31, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %41 = load i32, ptr %40, align 4, !tbaa !522
-  %42 = icmp ugt i32 %41, 31
-  br i1 %42, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %26, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %42 = load i32, ptr %41, align 4, !tbaa !522
+  %43 = icmp ugt i32 %42, 31
+  br i1 %43, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
-  %43 = add nuw nsw i32 %41, 1
-  store i32 %43, ptr %40, align 4, !tbaa !522
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %45 = load i8, ptr %44, align 8, !tbaa !585, !range !31, !noundef !32
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
+  %44 = add nuw nsw i32 %42, 1
+  store i32 %44, ptr %41, align 4, !tbaa !522
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %46 = load i8, ptr %45, align 8, !tbaa !585, !range !31, !noundef !32
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
 
-47:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+48:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
   store i8 0, ptr %13, align 1
-  store i8 0, ptr %21, align 1
-  store i8 0, ptr %26, align 1, !tbaa !54
+  store i8 0, ptr %19, align 1
+  store i8 0, ptr %21, align 1, !tbaa !54
   br label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
 
-_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %47, %2
-  %48 = phi i1 [ false, %2 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %47 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
-  ret i1 %48
+_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %48, %2
+  %49 = phi i1 [ false, %2 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %48 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  ret i1 %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -78563,64 +78591,65 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT22PaintScaleAroundCente
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   %18 = load i8, ptr %13, align 1, !tbaa !54
-  %19 = zext i8 %18 to i32
-  %20 = shl nuw nsw i32 %19, 16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %20 = load i8, ptr %19, align 1, !tbaa !54
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %22 = load i8, ptr %21, align 1, !tbaa !54
-  %23 = zext i8 %22 to i32
-  %24 = shl nuw nsw i32 %23, 8
-  %25 = or disjoint i32 %24, %20
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %27 = load i8, ptr %26, align 1, !tbaa !54
-  %28 = zext i8 %27 to i32
-  %29 = or disjoint i32 %25, %28
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %31
+  %23 = or i8 %20, %18
+  %24 = or i8 %23, %22
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %26
 
-31:                                               ; preds = %17
-  %32 = zext nneg i32 %29 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %35 = load i32, ptr %34, align 4, !tbaa !590
-  %.not.i.i = icmp slt i32 %35, 64
+26:                                               ; preds = %17
+  %27 = zext i8 %18 to i64
+  %28 = shl nuw nsw i64 %27, 16
+  %29 = zext i8 %20 to i64
+  %30 = shl nuw nsw i64 %29, 8
+  %31 = zext i8 %22 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %30
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %28
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %31
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %36 = load i32, ptr %35, align 4, !tbaa !590
+  %.not.i.i = icmp slt i32 %36, 64
   br i1 %.not.i.i, label %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, !prof !35
 
-_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %34, align 4, !tbaa !590
-  %.not10 = icmp eq i32 %36, 0
+_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %26
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %35, align 4, !tbaa !590
+  %.not10 = icmp eq i32 %37, 0
   br i1 %.not10, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, !prof !634
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
-  %38 = load i32, ptr %34, align 4, !tbaa !590
-  %39 = add nsw i32 %38, -1
-  store i32 %39, ptr %34, align 4, !tbaa !590
-  br i1 %37, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
+  %38 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %34, ptr noundef nonnull align 8 dereferenceable(62) %1)
+  %39 = load i32, ptr %35, align 4, !tbaa !590
+  %40 = add nsw i32 %39, -1
+  store i32 %40, ptr %35, align 4, !tbaa !590
+  br i1 %38, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
 
-_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %31, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %41 = load i32, ptr %40, align 4, !tbaa !522
-  %42 = icmp ugt i32 %41, 31
-  br i1 %42, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %26, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %42 = load i32, ptr %41, align 4, !tbaa !522
+  %43 = icmp ugt i32 %42, 31
+  br i1 %43, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
-  %43 = add nuw nsw i32 %41, 1
-  store i32 %43, ptr %40, align 4, !tbaa !522
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %45 = load i8, ptr %44, align 8, !tbaa !585, !range !31, !noundef !32
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
+  %44 = add nuw nsw i32 %42, 1
+  store i32 %44, ptr %41, align 4, !tbaa !522
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %46 = load i8, ptr %45, align 8, !tbaa !585, !range !31, !noundef !32
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
 
-47:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+48:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
   store i8 0, ptr %13, align 1
-  store i8 0, ptr %21, align 1
-  store i8 0, ptr %26, align 1, !tbaa !54
+  store i8 0, ptr %19, align 1
+  store i8 0, ptr %21, align 1, !tbaa !54
   br label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
 
-_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %47, %2
-  %48 = phi i1 [ false, %2 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %47 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
-  ret i1 %48
+_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %48, %2
+  %49 = phi i1 [ false, %2 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %48 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  ret i1 %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -78649,64 +78678,65 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT17PaintScaleUniform8san
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   %18 = load i8, ptr %13, align 1, !tbaa !54
-  %19 = zext i8 %18 to i32
-  %20 = shl nuw nsw i32 %19, 16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %20 = load i8, ptr %19, align 1, !tbaa !54
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %22 = load i8, ptr %21, align 1, !tbaa !54
-  %23 = zext i8 %22 to i32
-  %24 = shl nuw nsw i32 %23, 8
-  %25 = or disjoint i32 %24, %20
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %27 = load i8, ptr %26, align 1, !tbaa !54
-  %28 = zext i8 %27 to i32
-  %29 = or disjoint i32 %25, %28
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %31
+  %23 = or i8 %20, %18
+  %24 = or i8 %23, %22
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %26
 
-31:                                               ; preds = %17
-  %32 = zext nneg i32 %29 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %35 = load i32, ptr %34, align 4, !tbaa !590
-  %.not.i.i = icmp slt i32 %35, 64
+26:                                               ; preds = %17
+  %27 = zext i8 %18 to i64
+  %28 = shl nuw nsw i64 %27, 16
+  %29 = zext i8 %20 to i64
+  %30 = shl nuw nsw i64 %29, 8
+  %31 = zext i8 %22 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %30
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %28
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %31
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %36 = load i32, ptr %35, align 4, !tbaa !590
+  %.not.i.i = icmp slt i32 %36, 64
   br i1 %.not.i.i, label %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, !prof !35
 
-_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %34, align 4, !tbaa !590
-  %.not10 = icmp eq i32 %36, 0
+_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %26
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %35, align 4, !tbaa !590
+  %.not10 = icmp eq i32 %37, 0
   br i1 %.not10, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, !prof !634
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
-  %38 = load i32, ptr %34, align 4, !tbaa !590
-  %39 = add nsw i32 %38, -1
-  store i32 %39, ptr %34, align 4, !tbaa !590
-  br i1 %37, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
+  %38 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %34, ptr noundef nonnull align 8 dereferenceable(62) %1)
+  %39 = load i32, ptr %35, align 4, !tbaa !590
+  %40 = add nsw i32 %39, -1
+  store i32 %40, ptr %35, align 4, !tbaa !590
+  br i1 %38, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
 
-_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %31, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %41 = load i32, ptr %40, align 4, !tbaa !522
-  %42 = icmp ugt i32 %41, 31
-  br i1 %42, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %26, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %42 = load i32, ptr %41, align 4, !tbaa !522
+  %43 = icmp ugt i32 %42, 31
+  br i1 %43, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
-  %43 = add nuw nsw i32 %41, 1
-  store i32 %43, ptr %40, align 4, !tbaa !522
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %45 = load i8, ptr %44, align 8, !tbaa !585, !range !31, !noundef !32
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
+  %44 = add nuw nsw i32 %42, 1
+  store i32 %44, ptr %41, align 4, !tbaa !522
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %46 = load i8, ptr %45, align 8, !tbaa !585, !range !31, !noundef !32
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
 
-47:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+48:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
   store i8 0, ptr %13, align 1
-  store i8 0, ptr %21, align 1
-  store i8 0, ptr %26, align 1, !tbaa !54
+  store i8 0, ptr %19, align 1
+  store i8 0, ptr %21, align 1, !tbaa !54
   br label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
 
-_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %47, %2
-  %48 = phi i1 [ false, %2 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %47 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
-  ret i1 %48
+_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %48, %2
+  %49 = phi i1 [ false, %2 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %48 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  ret i1 %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -78735,64 +78765,65 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT29PaintScaleUniformArou
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   %18 = load i8, ptr %13, align 1, !tbaa !54
-  %19 = zext i8 %18 to i32
-  %20 = shl nuw nsw i32 %19, 16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %20 = load i8, ptr %19, align 1, !tbaa !54
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %22 = load i8, ptr %21, align 1, !tbaa !54
-  %23 = zext i8 %22 to i32
-  %24 = shl nuw nsw i32 %23, 8
-  %25 = or disjoint i32 %24, %20
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %27 = load i8, ptr %26, align 1, !tbaa !54
-  %28 = zext i8 %27 to i32
-  %29 = or disjoint i32 %25, %28
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %31
+  %23 = or i8 %20, %18
+  %24 = or i8 %23, %22
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %26
 
-31:                                               ; preds = %17
-  %32 = zext nneg i32 %29 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %35 = load i32, ptr %34, align 4, !tbaa !590
-  %.not.i.i = icmp slt i32 %35, 64
+26:                                               ; preds = %17
+  %27 = zext i8 %18 to i64
+  %28 = shl nuw nsw i64 %27, 16
+  %29 = zext i8 %20 to i64
+  %30 = shl nuw nsw i64 %29, 8
+  %31 = zext i8 %22 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %30
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %28
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %31
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %36 = load i32, ptr %35, align 4, !tbaa !590
+  %.not.i.i = icmp slt i32 %36, 64
   br i1 %.not.i.i, label %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, !prof !35
 
-_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %34, align 4, !tbaa !590
-  %.not10 = icmp eq i32 %36, 0
+_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %26
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %35, align 4, !tbaa !590
+  %.not10 = icmp eq i32 %37, 0
   br i1 %.not10, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, !prof !634
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
-  %38 = load i32, ptr %34, align 4, !tbaa !590
-  %39 = add nsw i32 %38, -1
-  store i32 %39, ptr %34, align 4, !tbaa !590
-  br i1 %37, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
+  %38 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %34, ptr noundef nonnull align 8 dereferenceable(62) %1)
+  %39 = load i32, ptr %35, align 4, !tbaa !590
+  %40 = add nsw i32 %39, -1
+  store i32 %40, ptr %35, align 4, !tbaa !590
+  br i1 %38, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
 
-_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %31, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %41 = load i32, ptr %40, align 4, !tbaa !522
-  %42 = icmp ugt i32 %41, 31
-  br i1 %42, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %26, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %42 = load i32, ptr %41, align 4, !tbaa !522
+  %43 = icmp ugt i32 %42, 31
+  br i1 %43, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
-  %43 = add nuw nsw i32 %41, 1
-  store i32 %43, ptr %40, align 4, !tbaa !522
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %45 = load i8, ptr %44, align 8, !tbaa !585, !range !31, !noundef !32
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
+  %44 = add nuw nsw i32 %42, 1
+  store i32 %44, ptr %41, align 4, !tbaa !522
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %46 = load i8, ptr %45, align 8, !tbaa !585, !range !31, !noundef !32
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
 
-47:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+48:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
   store i8 0, ptr %13, align 1
-  store i8 0, ptr %21, align 1
-  store i8 0, ptr %26, align 1, !tbaa !54
+  store i8 0, ptr %19, align 1
+  store i8 0, ptr %21, align 1, !tbaa !54
   br label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
 
-_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %47, %2
-  %48 = phi i1 [ false, %2 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %47 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
-  ret i1 %48
+_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %48, %2
+  %49 = phi i1 [ false, %2 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %48 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  ret i1 %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -78821,64 +78852,65 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT11PaintRotate8sanitizeE
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   %18 = load i8, ptr %13, align 1, !tbaa !54
-  %19 = zext i8 %18 to i32
-  %20 = shl nuw nsw i32 %19, 16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %20 = load i8, ptr %19, align 1, !tbaa !54
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %22 = load i8, ptr %21, align 1, !tbaa !54
-  %23 = zext i8 %22 to i32
-  %24 = shl nuw nsw i32 %23, 8
-  %25 = or disjoint i32 %24, %20
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %27 = load i8, ptr %26, align 1, !tbaa !54
-  %28 = zext i8 %27 to i32
-  %29 = or disjoint i32 %25, %28
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %31
+  %23 = or i8 %20, %18
+  %24 = or i8 %23, %22
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %26
 
-31:                                               ; preds = %17
-  %32 = zext nneg i32 %29 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %35 = load i32, ptr %34, align 4, !tbaa !590
-  %.not.i.i = icmp slt i32 %35, 64
+26:                                               ; preds = %17
+  %27 = zext i8 %18 to i64
+  %28 = shl nuw nsw i64 %27, 16
+  %29 = zext i8 %20 to i64
+  %30 = shl nuw nsw i64 %29, 8
+  %31 = zext i8 %22 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %30
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %28
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %31
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %36 = load i32, ptr %35, align 4, !tbaa !590
+  %.not.i.i = icmp slt i32 %36, 64
   br i1 %.not.i.i, label %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, !prof !35
 
-_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %34, align 4, !tbaa !590
-  %.not10 = icmp eq i32 %36, 0
+_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %26
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %35, align 4, !tbaa !590
+  %.not10 = icmp eq i32 %37, 0
   br i1 %.not10, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, !prof !634
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
-  %38 = load i32, ptr %34, align 4, !tbaa !590
-  %39 = add nsw i32 %38, -1
-  store i32 %39, ptr %34, align 4, !tbaa !590
-  br i1 %37, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
+  %38 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %34, ptr noundef nonnull align 8 dereferenceable(62) %1)
+  %39 = load i32, ptr %35, align 4, !tbaa !590
+  %40 = add nsw i32 %39, -1
+  store i32 %40, ptr %35, align 4, !tbaa !590
+  br i1 %38, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
 
-_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %31, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %41 = load i32, ptr %40, align 4, !tbaa !522
-  %42 = icmp ugt i32 %41, 31
-  br i1 %42, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %26, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %42 = load i32, ptr %41, align 4, !tbaa !522
+  %43 = icmp ugt i32 %42, 31
+  br i1 %43, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
-  %43 = add nuw nsw i32 %41, 1
-  store i32 %43, ptr %40, align 4, !tbaa !522
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %45 = load i8, ptr %44, align 8, !tbaa !585, !range !31, !noundef !32
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
+  %44 = add nuw nsw i32 %42, 1
+  store i32 %44, ptr %41, align 4, !tbaa !522
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %46 = load i8, ptr %45, align 8, !tbaa !585, !range !31, !noundef !32
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
 
-47:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+48:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
   store i8 0, ptr %13, align 1
-  store i8 0, ptr %21, align 1
-  store i8 0, ptr %26, align 1, !tbaa !54
+  store i8 0, ptr %19, align 1
+  store i8 0, ptr %21, align 1, !tbaa !54
   br label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
 
-_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %47, %2
-  %48 = phi i1 [ false, %2 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %47 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
-  ret i1 %48
+_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %48, %2
+  %49 = phi i1 [ false, %2 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %48 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  ret i1 %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -78907,64 +78939,65 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT23PaintRotateAroundCent
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   %18 = load i8, ptr %13, align 1, !tbaa !54
-  %19 = zext i8 %18 to i32
-  %20 = shl nuw nsw i32 %19, 16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %20 = load i8, ptr %19, align 1, !tbaa !54
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %22 = load i8, ptr %21, align 1, !tbaa !54
-  %23 = zext i8 %22 to i32
-  %24 = shl nuw nsw i32 %23, 8
-  %25 = or disjoint i32 %24, %20
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %27 = load i8, ptr %26, align 1, !tbaa !54
-  %28 = zext i8 %27 to i32
-  %29 = or disjoint i32 %25, %28
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %31
+  %23 = or i8 %20, %18
+  %24 = or i8 %23, %22
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %26
 
-31:                                               ; preds = %17
-  %32 = zext nneg i32 %29 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %35 = load i32, ptr %34, align 4, !tbaa !590
-  %.not.i.i = icmp slt i32 %35, 64
+26:                                               ; preds = %17
+  %27 = zext i8 %18 to i64
+  %28 = shl nuw nsw i64 %27, 16
+  %29 = zext i8 %20 to i64
+  %30 = shl nuw nsw i64 %29, 8
+  %31 = zext i8 %22 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %30
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %28
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %31
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %36 = load i32, ptr %35, align 4, !tbaa !590
+  %.not.i.i = icmp slt i32 %36, 64
   br i1 %.not.i.i, label %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, !prof !35
 
-_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %34, align 4, !tbaa !590
-  %.not10 = icmp eq i32 %36, 0
+_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %26
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %35, align 4, !tbaa !590
+  %.not10 = icmp eq i32 %37, 0
   br i1 %.not10, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, !prof !634
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
-  %38 = load i32, ptr %34, align 4, !tbaa !590
-  %39 = add nsw i32 %38, -1
-  store i32 %39, ptr %34, align 4, !tbaa !590
-  br i1 %37, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
+  %38 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %34, ptr noundef nonnull align 8 dereferenceable(62) %1)
+  %39 = load i32, ptr %35, align 4, !tbaa !590
+  %40 = add nsw i32 %39, -1
+  store i32 %40, ptr %35, align 4, !tbaa !590
+  br i1 %38, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
 
-_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %31, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %41 = load i32, ptr %40, align 4, !tbaa !522
-  %42 = icmp ugt i32 %41, 31
-  br i1 %42, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %26, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %42 = load i32, ptr %41, align 4, !tbaa !522
+  %43 = icmp ugt i32 %42, 31
+  br i1 %43, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
-  %43 = add nuw nsw i32 %41, 1
-  store i32 %43, ptr %40, align 4, !tbaa !522
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %45 = load i8, ptr %44, align 8, !tbaa !585, !range !31, !noundef !32
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
+  %44 = add nuw nsw i32 %42, 1
+  store i32 %44, ptr %41, align 4, !tbaa !522
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %46 = load i8, ptr %45, align 8, !tbaa !585, !range !31, !noundef !32
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
 
-47:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+48:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
   store i8 0, ptr %13, align 1
-  store i8 0, ptr %21, align 1
-  store i8 0, ptr %26, align 1, !tbaa !54
+  store i8 0, ptr %19, align 1
+  store i8 0, ptr %21, align 1, !tbaa !54
   br label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
 
-_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %47, %2
-  %48 = phi i1 [ false, %2 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %47 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
-  ret i1 %48
+_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %48, %2
+  %49 = phi i1 [ false, %2 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %48 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  ret i1 %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -78993,64 +79026,65 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT9PaintSkew8sanitizeEP21
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   %18 = load i8, ptr %13, align 1, !tbaa !54
-  %19 = zext i8 %18 to i32
-  %20 = shl nuw nsw i32 %19, 16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %20 = load i8, ptr %19, align 1, !tbaa !54
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %22 = load i8, ptr %21, align 1, !tbaa !54
-  %23 = zext i8 %22 to i32
-  %24 = shl nuw nsw i32 %23, 8
-  %25 = or disjoint i32 %24, %20
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %27 = load i8, ptr %26, align 1, !tbaa !54
-  %28 = zext i8 %27 to i32
-  %29 = or disjoint i32 %25, %28
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %31
+  %23 = or i8 %20, %18
+  %24 = or i8 %23, %22
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %26
 
-31:                                               ; preds = %17
-  %32 = zext nneg i32 %29 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %35 = load i32, ptr %34, align 4, !tbaa !590
-  %.not.i.i = icmp slt i32 %35, 64
+26:                                               ; preds = %17
+  %27 = zext i8 %18 to i64
+  %28 = shl nuw nsw i64 %27, 16
+  %29 = zext i8 %20 to i64
+  %30 = shl nuw nsw i64 %29, 8
+  %31 = zext i8 %22 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %30
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %28
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %31
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %36 = load i32, ptr %35, align 4, !tbaa !590
+  %.not.i.i = icmp slt i32 %36, 64
   br i1 %.not.i.i, label %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, !prof !35
 
-_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %34, align 4, !tbaa !590
-  %.not10 = icmp eq i32 %36, 0
+_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %26
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %35, align 4, !tbaa !590
+  %.not10 = icmp eq i32 %37, 0
   br i1 %.not10, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, !prof !634
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
-  %38 = load i32, ptr %34, align 4, !tbaa !590
-  %39 = add nsw i32 %38, -1
-  store i32 %39, ptr %34, align 4, !tbaa !590
-  br i1 %37, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
+  %38 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %34, ptr noundef nonnull align 8 dereferenceable(62) %1)
+  %39 = load i32, ptr %35, align 4, !tbaa !590
+  %40 = add nsw i32 %39, -1
+  store i32 %40, ptr %35, align 4, !tbaa !590
+  br i1 %38, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
 
-_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %31, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %41 = load i32, ptr %40, align 4, !tbaa !522
-  %42 = icmp ugt i32 %41, 31
-  br i1 %42, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %26, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %42 = load i32, ptr %41, align 4, !tbaa !522
+  %43 = icmp ugt i32 %42, 31
+  br i1 %43, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
-  %43 = add nuw nsw i32 %41, 1
-  store i32 %43, ptr %40, align 4, !tbaa !522
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %45 = load i8, ptr %44, align 8, !tbaa !585, !range !31, !noundef !32
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
+  %44 = add nuw nsw i32 %42, 1
+  store i32 %44, ptr %41, align 4, !tbaa !522
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %46 = load i8, ptr %45, align 8, !tbaa !585, !range !31, !noundef !32
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
 
-47:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+48:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
   store i8 0, ptr %13, align 1
-  store i8 0, ptr %21, align 1
-  store i8 0, ptr %26, align 1, !tbaa !54
+  store i8 0, ptr %19, align 1
+  store i8 0, ptr %21, align 1, !tbaa !54
   br label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
 
-_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %47, %2
-  %48 = phi i1 [ false, %2 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %47 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
-  ret i1 %48
+_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %48, %2
+  %49 = phi i1 [ false, %2 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %48 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  ret i1 %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -79079,64 +79113,65 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT21PaintSkewAroundCenter
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   %18 = load i8, ptr %13, align 1, !tbaa !54
-  %19 = zext i8 %18 to i32
-  %20 = shl nuw nsw i32 %19, 16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %20 = load i8, ptr %19, align 1, !tbaa !54
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %22 = load i8, ptr %21, align 1, !tbaa !54
-  %23 = zext i8 %22 to i32
-  %24 = shl nuw nsw i32 %23, 8
-  %25 = or disjoint i32 %24, %20
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %27 = load i8, ptr %26, align 1, !tbaa !54
-  %28 = zext i8 %27 to i32
-  %29 = or disjoint i32 %25, %28
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %31
+  %23 = or i8 %20, %18
+  %24 = or i8 %23, %22
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %26
 
-31:                                               ; preds = %17
-  %32 = zext nneg i32 %29 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %35 = load i32, ptr %34, align 4, !tbaa !590
-  %.not.i.i = icmp slt i32 %35, 64
+26:                                               ; preds = %17
+  %27 = zext i8 %18 to i64
+  %28 = shl nuw nsw i64 %27, 16
+  %29 = zext i8 %20 to i64
+  %30 = shl nuw nsw i64 %29, 8
+  %31 = zext i8 %22 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %30
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %28
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %31
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %36 = load i32, ptr %35, align 4, !tbaa !590
+  %.not.i.i = icmp slt i32 %36, 64
   br i1 %.not.i.i, label %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, !prof !35
 
-_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %31
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %34, align 4, !tbaa !590
-  %.not10 = icmp eq i32 %36, 0
+_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %26
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %35, align 4, !tbaa !590
+  %.not10 = icmp eq i32 %37, 0
   br i1 %.not10, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, !prof !634
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %37 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(62) %1)
-  %38 = load i32, ptr %34, align 4, !tbaa !590
-  %39 = add nsw i32 %38, -1
-  store i32 %39, ptr %34, align 4, !tbaa !590
-  br i1 %37, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
+  %38 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %34, ptr noundef nonnull align 8 dereferenceable(62) %1)
+  %39 = load i32, ptr %35, align 4, !tbaa !590
+  %40 = add nsw i32 %39, -1
+  store i32 %40, ptr %35, align 4, !tbaa !590
+  br i1 %38, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
 
-_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %31, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %41 = load i32, ptr %40, align 4, !tbaa !522
-  %42 = icmp ugt i32 %41, 31
-  br i1 %42, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %26, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %42 = load i32, ptr %41, align 4, !tbaa !522
+  %43 = icmp ugt i32 %42, 31
+  br i1 %43, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
-  %43 = add nuw nsw i32 %41, 1
-  store i32 %43, ptr %40, align 4, !tbaa !522
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %45 = load i8, ptr %44, align 8, !tbaa !585, !range !31, !noundef !32
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
+  %44 = add nuw nsw i32 %42, 1
+  store i32 %44, ptr %41, align 4, !tbaa !522
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %46 = load i8, ptr %45, align 8, !tbaa !585, !range !31, !noundef !32
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
 
-47:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+48:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
   store i8 0, ptr %13, align 1
-  store i8 0, ptr %21, align 1
-  store i8 0, ptr %26, align 1, !tbaa !54
+  store i8 0, ptr %19, align 1
+  store i8 0, ptr %21, align 1, !tbaa !54
   br label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit
 
-_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %47, %2
-  %48 = phi i1 [ false, %2 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %47 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
-  ret i1 %48
+_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %48, %2
+  %49 = phi i1 [ false, %2 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %48 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  ret i1 %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -79174,133 +79209,135 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT14PaintComposite8saniti
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   %22 = load i8, ptr %17, align 1, !tbaa !54
-  %23 = zext i8 %22 to i32
-  %24 = shl nuw nsw i32 %23, 16
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %24 = load i8, ptr %23, align 1, !tbaa !54
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %26 = load i8, ptr %25, align 1, !tbaa !54
-  %27 = zext i8 %26 to i32
-  %28 = shl nuw nsw i32 %27, 8
-  %29 = or disjoint i32 %28, %24
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %31 = load i8, ptr %30, align 1, !tbaa !54
-  %32 = zext i8 %31 to i32
-  %33 = or disjoint i32 %29, %32
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread, label %35
+  %27 = or i8 %24, %22
+  %28 = or i8 %27, %26
+  %29 = icmp eq i8 %28, 0
+  br i1 %29, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread, label %30
 
-35:                                               ; preds = %21
-  %36 = zext nneg i32 %33 to i64
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 %36
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %39 = load i32, ptr %38, align 4, !tbaa !590
-  %.not.i.i = icmp slt i32 %39, 64
+30:                                               ; preds = %21
+  %31 = zext i8 %22 to i64
+  %32 = shl nuw nsw i64 %31, 16
+  %33 = zext i8 %24 to i64
+  %34 = shl nuw nsw i64 %33, 8
+  %35 = zext i8 %26 to i64
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %34
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %32
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %35
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %40 = load i32, ptr %39, align 4, !tbaa !590
+  %.not.i.i = icmp slt i32 %40, 64
   br i1 %.not.i.i, label %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, !prof !35
 
-_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %35
-  %40 = add nsw i32 %39, 1
-  store i32 %40, ptr %38, align 4, !tbaa !590
-  %.not36 = icmp eq i32 %40, 0
+_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i: ; preds = %30
+  %41 = add nsw i32 %40, 1
+  store i32 %41, ptr %39, align 4, !tbaa !590
+  %.not36 = icmp eq i32 %41, 0
   br i1 %.not36, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, !prof !634
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i
-  %41 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %37, ptr noundef nonnull align 8 dereferenceable(62) %1)
-  %42 = load i32, ptr %38, align 4, !tbaa !590
-  %43 = add nsw i32 %42, -1
-  store i32 %43, ptr %38, align 4, !tbaa !590
-  br i1 %41, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
+  %42 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %38, ptr noundef nonnull align 8 dereferenceable(62) %1)
+  %43 = load i32, ptr %39, align 4, !tbaa !590
+  %44 = add nsw i32 %43, -1
+  store i32 %44, ptr %39, align 4, !tbaa !590
+  br i1 %42, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
 
-_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %35, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %45 = load i32, ptr %44, align 4, !tbaa !522
-  %46 = icmp ugt i32 %45, 31
-  br i1 %46, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread30, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread: ; preds = %30, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %46 = load i32, ptr %45, align 4, !tbaa !522
+  %47 = icmp ugt i32 %46, 31
+  br i1 %47, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread30, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread
-  %47 = add nuw nsw i32 %45, 1
-  store i32 %47, ptr %44, align 4, !tbaa !522
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %49 = load i8, ptr %48, align 8, !tbaa !585, !range !31, !noundef !32
-  %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread30
+  %48 = add nuw nsw i32 %46, 1
+  store i32 %48, ptr %45, align 4, !tbaa !522
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %50 = load i8, ptr %49, align 8, !tbaa !585, !range !31, !noundef !32
+  %51 = trunc nuw i8 %50 to i1
+  br i1 %51, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread30
 
 _ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5: ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
   store i8 0, ptr %17, align 1
-  store i8 0, ptr %25, align 1
-  store i8 0, ptr %30, align 1, !tbaa !54
+  store i8 0, ptr %23, align 1
+  store i8 0, ptr %25, align 1, !tbaa !54
   br label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread
 
 _ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread: ; preds = %21, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %52 = load ptr, ptr %4, align 8, !tbaa !586
-  %53 = ptrtoint ptr %52 to i64
-  %54 = sub i64 %6, %53
-  %55 = load i32, ptr %9, align 8, !tbaa !588
-  %56 = zext i32 %55 to i64
-  %.not.i6.not = icmp ugt i64 %54, %56
-  br i1 %.not.i6.not, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread30, label %57, !prof !33
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %53 = load ptr, ptr %4, align 8, !tbaa !586
+  %54 = ptrtoint ptr %53 to i64
+  %55 = sub i64 %6, %54
+  %56 = load i32, ptr %9, align 8, !tbaa !588
+  %57 = zext i32 %56 to i64
+  %.not.i6.not = icmp ugt i64 %55, %57
+  br i1 %.not.i6.not, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread30, label %58, !prof !33
 
-57:                                               ; preds = %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread
+58:                                               ; preds = %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
-  %58 = load i8, ptr %51, align 1, !tbaa !54
-  %59 = zext i8 %58 to i32
-  %60 = shl nuw nsw i32 %59, 16
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %62 = load i8, ptr %61, align 1, !tbaa !54
-  %63 = zext i8 %62 to i32
-  %64 = shl nuw nsw i32 %63, 8
-  %65 = or disjoint i32 %64, %60
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %67 = load i8, ptr %66, align 1, !tbaa !54
-  %68 = zext i8 %67 to i32
-  %69 = or disjoint i32 %65, %68
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread30, label %71
+  %59 = load i8, ptr %52, align 1, !tbaa !54
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %61 = load i8, ptr %60, align 1, !tbaa !54
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  %63 = load i8, ptr %62, align 1, !tbaa !54
+  %64 = or i8 %61, %59
+  %65 = or i8 %64, %63
+  %66 = icmp eq i8 %65, 0
+  br i1 %66, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread30, label %67
 
-71:                                               ; preds = %57
-  %72 = zext nneg i32 %69 to i64
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 %72
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %75 = load i32, ptr %74, align 4, !tbaa !590
-  %.not.i.i13 = icmp slt i32 %75, 64
+67:                                               ; preds = %58
+  %68 = zext i8 %59 to i64
+  %69 = shl nuw nsw i64 %68, 16
+  %70 = zext i8 %61 to i64
+  %71 = shl nuw nsw i64 %70, 8
+  %72 = zext i8 %63 to i64
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 %71
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 %69
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 %72
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %77 = load i32, ptr %76, align 4, !tbaa !590
+  %.not.i.i13 = icmp slt i32 %77, 64
   br i1 %.not.i.i13, label %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i14, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit17.thread, !prof !35
 
-_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i14: ; preds = %71
-  %76 = add nsw i32 %75, 1
-  store i32 %76, ptr %74, align 4, !tbaa !590
-  %.not37 = icmp eq i32 %76, 0
+_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i14: ; preds = %67
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %76, align 4, !tbaa !590
+  %.not37 = icmp eq i32 %78, 0
   br i1 %.not37, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit17.thread, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit17, !prof !634
 
 _ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit17: ; preds = %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i14
-  %77 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %73, ptr noundef nonnull align 8 dereferenceable(62) %1)
-  %78 = load i32, ptr %74, align 4, !tbaa !590
-  %79 = add nsw i32 %78, -1
-  store i32 %79, ptr %74, align 4, !tbaa !590
-  br i1 %77, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread30, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit17.thread
+  %79 = tail call noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanitize_context_tJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %75, ptr noundef nonnull align 8 dereferenceable(62) %1)
+  %80 = load i32, ptr %76, align 4, !tbaa !590
+  %81 = add nsw i32 %80, -1
+  store i32 %81, ptr %76, align 4, !tbaa !590
+  br i1 %79, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread30, label %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit17.thread
 
-_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit17.thread: ; preds = %71, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i14, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit17
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %81 = load i32, ptr %80, align 4, !tbaa !522
-  %82 = icmp ugt i32 %81, 31
-  br i1 %82, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread30, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i8
+_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit17.thread: ; preds = %67, %_ZN21hb_sanitize_context_t21check_start_recursionEi.exit.i14, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit17
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %83 = load i32, ptr %82, align 4, !tbaa !522
+  %84 = icmp ugt i32 %83, 31
+  br i1 %84, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread30, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i8
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i8: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit17.thread
-  %83 = add nuw nsw i32 %81, 1
-  store i32 %83, ptr %80, align 4, !tbaa !522
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %85 = load i8, ptr %84, align 8, !tbaa !585, !range !31, !noundef !32
-  %86 = trunc nuw i8 %85 to i1
-  br i1 %86, label %87, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread30
+  %85 = add nuw nsw i32 %83, 1
+  store i32 %85, ptr %82, align 4, !tbaa !522
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %87 = load i8, ptr %86, align 8, !tbaa !585, !range !31, !noundef !32
+  %88 = trunc nuw i8 %87 to i1
+  br i1 %88, label %89, label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread30
 
-87:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i8
-  store i8 0, ptr %51, align 1
-  store i8 0, ptr %61, align 1
-  store i8 0, ptr %66, align 1, !tbaa !54
+89:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i8
+  store i8 0, ptr %52, align 1
+  store i8 0, ptr %60, align 1
+  store i8 0, ptr %62, align 1, !tbaa !54
   br label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread30
 
-_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread30: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit17, %57, %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit17.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i8, %87, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %16, %12, %2
-  %88 = phi i1 [ false, %12 ], [ false, %2 ], [ false, %16 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit17 ], [ true, %57 ], [ false, %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i8 ], [ true, %87 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit17.thread ]
-  ret i1 %88
+_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread30: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit17, %58, %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit17.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i8, %89, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %16, %12, %2
+  %90 = phi i1 [ false, %12 ], [ false, %2 ], [ false, %16 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit17 ], [ true, %58 ], [ false, %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEEvLb1EE8sanitizeIJEEEbP21hb_sanitize_context_tPKvDpOT_.exit5.thread ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i8 ], [ true, %89 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit17.thread ]
+  ret i1 %90
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -79497,8 +79534,8 @@ _ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_san
   %wide.trip.count = zext i32 %umax to i64
   br label %40
 
-40:                                               ; preds = %.lr.ph, %101
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %101 ]
+40:                                               ; preds = %.lr.ph, %102
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %102 ]
   %41 = getelementptr inbounds nuw [1 x %"struct.OT::ClipRecord"], ptr %3, i64 0, i64 %indvars.iv
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 7
   %43 = load ptr, ptr %4, align 8, !tbaa !586
@@ -79515,94 +79552,95 @@ _ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_san
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
   %51 = load i8, ptr %50, align 1, !tbaa !54
-  %52 = zext i8 %51 to i32
-  %53 = shl nuw nsw i32 %52, 16
-  %54 = getelementptr inbounds nuw i8, ptr %41, i64 5
+  %52 = getelementptr inbounds nuw i8, ptr %41, i64 5
+  %53 = load i8, ptr %52, align 1, !tbaa !54
+  %54 = getelementptr inbounds nuw i8, ptr %41, i64 6
   %55 = load i8, ptr %54, align 1, !tbaa !54
-  %56 = zext i8 %55 to i32
-  %57 = shl nuw nsw i32 %56, 8
-  %58 = or disjoint i32 %57, %53
-  %59 = getelementptr inbounds nuw i8, ptr %41, i64 6
-  %60 = load i8, ptr %59, align 1, !tbaa !54
-  %61 = zext i8 %60 to i32
-  %62 = or disjoint i32 %58, %61
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %101, label %64
+  %56 = or i8 %53, %51
+  %57 = or i8 %56, %55
+  %58 = icmp eq i8 %57, 0
+  br i1 %58, label %102, label %59
 
-64:                                               ; preds = %49
-  %65 = zext nneg i32 %62 to i64
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 %65
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1
-  %68 = load ptr, ptr %4, align 8, !tbaa !586
-  %69 = ptrtoint ptr %67 to i64
+59:                                               ; preds = %49
+  %60 = zext i8 %51 to i64
+  %61 = shl nuw nsw i64 %60, 16
+  %62 = zext i8 %53 to i64
+  %63 = shl nuw nsw i64 %62, 8
+  %64 = zext i8 %55 to i64
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 %63
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %61
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %64
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 1
+  %69 = load ptr, ptr %4, align 8, !tbaa !586
   %70 = ptrtoint ptr %68 to i64
-  %71 = sub i64 %69, %70
-  %72 = load i32, ptr %9, align 8, !tbaa !588
-  %73 = zext i32 %72 to i64
-  %.not.i.i.i.i.i.i = icmp ugt i64 %71, %73
-  br i1 %.not.i.i.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread7.i.i.i, label %74
+  %71 = ptrtoint ptr %69 to i64
+  %72 = sub i64 %70, %71
+  %73 = load i32, ptr %9, align 8, !tbaa !588
+  %74 = zext i32 %73 to i64
+  %.not.i.i.i.i.i.i = icmp ugt i64 %72, %74
+  br i1 %.not.i.i.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread7.i.i.i, label %75
 
-74:                                               ; preds = %64
+75:                                               ; preds = %59
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
-  %75 = load i8, ptr %66, align 1, !tbaa !9
-  switch i8 %75, label %101 [
+  %76 = load i8, ptr %67, align 1, !tbaa !9
+  switch i8 %76, label %102 [
     i8 1, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i
-    i8 2, label %76
+    i8 2, label %77
   ]
 
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds nuw i8, ptr %66, i64 13
-  %78 = load ptr, ptr %4, align 8, !tbaa !586
-  %79 = ptrtoint ptr %77 to i64
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds nuw i8, ptr %67, i64 13
+  %79 = load ptr, ptr %4, align 8, !tbaa !586
   %80 = ptrtoint ptr %78 to i64
-  %81 = sub i64 %79, %80
-  %82 = load i32, ptr %9, align 8, !tbaa !588
-  %83 = zext i32 %82 to i64
-  %.not.i.i.i.i.i.i.i.i.i = icmp ule i64 %81, %83
-  %84 = getelementptr inbounds nuw i8, ptr %66, i64 9
-  %85 = ptrtoint ptr %84 to i64
-  %86 = sub i64 %85, %80
-  %87 = icmp ule i64 %86, %83
-  %narrow.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 %87, i1 false
-  br i1 %narrow.i.i.i.i.i.i.i.i.i, label %101, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread7.i.i.i
+  %81 = ptrtoint ptr %79 to i64
+  %82 = sub i64 %80, %81
+  %83 = load i32, ptr %9, align 8, !tbaa !588
+  %84 = zext i32 %83 to i64
+  %.not.i.i.i.i.i.i.i.i.i = icmp ule i64 %82, %84
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 9
+  %86 = ptrtoint ptr %85 to i64
+  %87 = sub i64 %86, %81
+  %88 = icmp ule i64 %87, %84
+  %narrow.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 %88, i1 false
+  br i1 %narrow.i.i.i.i.i.i.i.i.i, label %102, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread7.i.i.i
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i: ; preds = %74
-  %88 = getelementptr inbounds nuw i8, ptr %66, i64 9
-  %89 = load ptr, ptr %4, align 8, !tbaa !586
-  %90 = ptrtoint ptr %88 to i64
+_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i: ; preds = %75
+  %89 = getelementptr inbounds nuw i8, ptr %67, i64 9
+  %90 = load ptr, ptr %4, align 8, !tbaa !586
   %91 = ptrtoint ptr %89 to i64
-  %92 = sub i64 %90, %91
-  %93 = load i32, ptr %9, align 8, !tbaa !588
-  %94 = zext i32 %93 to i64
-  %.not9.i.i.i = icmp ugt i64 %92, %94
-  br i1 %.not9.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread7.i.i.i, label %101
+  %92 = ptrtoint ptr %90 to i64
+  %93 = sub i64 %91, %92
+  %94 = load i32, ptr %9, align 8, !tbaa !588
+  %95 = zext i32 %94 to i64
+  %.not9.i.i.i = icmp ugt i64 %93, %95
+  br i1 %.not9.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread7.i.i.i, label %102
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread7.i.i.i: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i, %76, %64
-  %95 = load i32, ptr %38, align 4, !tbaa !522
-  %96 = icmp ugt i32 %95, 31
-  br i1 %96, label %_ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE8sanitizeIJPKNS_8ClipListEEEEbP21hb_sanitize_context_tDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i, !prof !591
+_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread7.i.i.i: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i, %77, %59
+  %96 = load i32, ptr %38, align 4, !tbaa !522
+  %97 = icmp ugt i32 %96, 31
+  br i1 %97, label %_ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE8sanitizeIJPKNS_8ClipListEEEEbP21hb_sanitize_context_tDpOT_.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i, !prof !591
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread7.i.i.i
-  %97 = add nuw nsw i32 %95, 1
-  store i32 %97, ptr %38, align 4, !tbaa !522
-  %98 = load i8, ptr %39, align 8, !tbaa !585, !range !31, !noundef !32
-  %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %100, label %_ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE8sanitizeIJPKNS_8ClipListEEEEbP21hb_sanitize_context_tDpOT_.exit, !prof !594
+  %98 = add nuw nsw i32 %96, 1
+  store i32 %98, ptr %38, align 4, !tbaa !522
+  %99 = load i8, ptr %39, align 8, !tbaa !585, !range !31, !noundef !32
+  %100 = trunc nuw i8 %99 to i1
+  br i1 %100, label %101, label %_ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE8sanitizeIJPKNS_8ClipListEEEEbP21hb_sanitize_context_tDpOT_.exit, !prof !594
 
-100:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i
+101:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i
   store i8 0, ptr %50, align 1
-  store i8 0, ptr %54, align 1
-  store i8 0, ptr %59, align 1, !tbaa !54
-  br label %101
+  store i8 0, ptr %52, align 1
+  store i8 0, ptr %54, align 1, !tbaa !54
+  br label %102
 
-101:                                              ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i, %49, %76, %74, %100
+102:                                              ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i, %49, %77, %75, %101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE8sanitizeIJPKNS_8ClipListEEEEbP21hb_sanitize_context_tDpOT_.exit, label %40, !llvm.loop !1352
 
-_ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE8sanitizeIJPKNS_8ClipListEEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread7.i.i.i, %40, %101, %35, %_ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit, %13, %26, %20, %2
-  %102 = phi i1 [ false, %2 ], [ false, %_ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %13 ], [ false, %26 ], [ false, %20 ], [ true, %35 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread7.i.i.i ], [ false, %40 ], [ true, %101 ]
-  ret i1 %102
+_ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE8sanitizeIJPKNS_8ClipListEEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread7.i.i.i, %40, %102, %35, %_ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit, %13, %26, %20, %2
+  %103 = phi i1 [ false, %2 ], [ false, %_ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %13 ], [ false, %26 ], [ false, %20 ], [ true, %35 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread7.i.i.i ], [ false, %40 ], [ true, %102 ]
+  ret i1 %103
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -80339,47 +80377,48 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE10intersectsEjj.exit: ; preds = %
 36:                                               ; preds = %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE10intersectsEjj.exit
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %38 = load i8, ptr %37, align 1, !tbaa !54
-  %39 = zext i8 %38 to i32
-  %40 = shl nuw nsw i32 %39, 16
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %40 = load i8, ptr %39, align 1, !tbaa !54
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %42 = load i8, ptr %41, align 1, !tbaa !54
-  %43 = zext i8 %42 to i32
-  %44 = shl nuw nsw i32 %43, 8
-  %45 = or disjoint i32 %44, %40
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %47 = load i8, ptr %46, align 1, !tbaa !54
-  %48 = zext i8 %47 to i32
-  %49 = or disjoint i32 %45, %48
-  %50 = icmp eq i32 %49, 0
-  %51 = zext nneg i32 %49 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 %51
-  %.0.i.i = select i1 %50, ptr @_hb_NullPool, ptr %52, !prof !33
-  %53 = load i8, ptr %.0.i.i, align 1, !tbaa !9
-  %cond.i = icmp eq i8 %53, 2
-  br i1 %cond.i, label %54, label %_ZNK2OT7ClipBox9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
+  %43 = or i8 %40, %38
+  %44 = or i8 %43, %42
+  %45 = icmp eq i8 %44, 0
+  %46 = zext i8 %38 to i64
+  %47 = shl nuw nsw i64 %46, 16
+  %48 = zext i8 %40 to i64
+  %49 = shl nuw nsw i64 %48, 8
+  %50 = zext i8 %42 to i64
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 %49
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %47
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %50
+  %.0.i.i = select i1 %45, ptr @_hb_NullPool, ptr %53, !prof !33
+  %54 = load i8, ptr %.0.i.i, align 1, !tbaa !9
+  %cond.i = icmp eq i8 %54, 2
+  br i1 %cond.i, label %55, label %_ZNK2OT7ClipBox9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
 
-54:                                               ; preds = %36
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %56 = load ptr, ptr %55, align 8, !tbaa !1356
-  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 9
-  %58 = load i32, ptr %57, align 1, !tbaa !4
-  %59 = call noundef i32 @llvm.bswap.i32(i32 %58)
-  %60 = add i32 %59, 3
-  %61 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %62 = getelementptr inbounds nuw i8, ptr %56, i64 64
-  %63 = load i8, ptr %62, align 8, !tbaa !30, !range !31, !noundef !32
-  %64 = trunc nuw i8 %63 to i1
-  br i1 %64, label %65, label %66, !prof !33
+55:                                               ; preds = %36
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %57 = load ptr, ptr %56, align 8, !tbaa !1356
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 9
+  %59 = load i32, ptr %58, align 1, !tbaa !4
+  %60 = call noundef i32 @llvm.bswap.i32(i32 %59)
+  %61 = add i32 %60, 3
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 64
+  %64 = load i8, ptr %63, align 8, !tbaa !30, !range !31, !noundef !32
+  %65 = trunc nuw i8 %64 to i1
+  br i1 %65, label %66, label %67, !prof !33
 
-65:                                               ; preds = %54
-  call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %61, i32 noundef %59, i32 noundef %60)
+66:                                               ; preds = %55
+  call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %62, i32 noundef %60, i32 noundef %61)
   br label %_ZNK2OT7ClipBox9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
 
-66:                                               ; preds = %54
-  %67 = call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %61, i32 noundef %59, i32 noundef %60)
+67:                                               ; preds = %55
+  %68 = call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %62, i32 noundef %60, i32 noundef %61)
   br label %_ZNK2OT7ClipBox9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
 
-_ZNK2OT7ClipBox9closurev1EPNS_27hb_colrv1_closure_context_tE.exit: ; preds = %66, %65, %36, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE10intersectsEjj.exit
+_ZNK2OT7ClipBox9closurev1EPNS_27hb_colrv1_closure_context_tE.exit: ; preds = %67, %66, %36, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE10intersectsEjj.exit
   ret void
 }
 
@@ -106296,11 +106335,11 @@ define linkonce_odr dso_local void @_ZN2OT27hb_colrv1_closure_context_t8dispatch
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %4 = load i32, ptr %3, align 4, !tbaa !39
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %66, label %6, !prof !33
+  br i1 %5, label %67, label %6, !prof !33
 
 6:                                                ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN2OT27hb_colrv1_closure_context_t13paint_visitedEPKv(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1)
-  br i1 %7, label %66, label %8
+  br i1 %7, label %67, label %8
 
 8:                                                ; preds = %6
   %9 = load i32, ptr %3, align 4, !tbaa !39
@@ -106308,100 +106347,101 @@ define linkonce_odr dso_local void @_ZN2OT27hb_colrv1_closure_context_t8dispatch
   store i32 %10, ptr %3, align 4, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !54
-  %13 = zext i8 %12 to i32
-  %14 = shl nuw nsw i32 %13, 16
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %14 = load i8, ptr %13, align 1, !tbaa !54
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %16 = load i8, ptr %15, align 1, !tbaa !54
-  %17 = zext i8 %16 to i32
-  %18 = shl nuw nsw i32 %17, 8
-  %19 = or disjoint i32 %18, %14
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %21 = load i8, ptr %20, align 1, !tbaa !54
-  %22 = zext i8 %21 to i32
-  %23 = or disjoint i32 %19, %22
-  %24 = icmp eq i32 %23, 0
-  %25 = zext nneg i32 %23 to i64
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %25
-  %.0.i.i.i.i = select i1 %24, ptr @_hb_NullPool, ptr %26, !prof !33
-  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 1
-  %28 = load i16, ptr %27, align 1, !tbaa !40
-  %29 = tail call noundef i16 @llvm.bswap.i16(i16 %28)
-  %30 = zext i16 %29 to i64
-  %.idx.i.i.i = mul nuw nsw i64 %30, 6
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 %.idx.i.i.i
-  %.ptr12.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 3
-  %.not10.i.i.i = icmp eq i16 %28, 0
+  %17 = or i8 %14, %12
+  %18 = or i8 %17, %16
+  %19 = icmp eq i8 %18, 0
+  %20 = zext i8 %12 to i64
+  %21 = shl nuw nsw i64 %20, 16
+  %22 = zext i8 %14 to i64
+  %23 = shl nuw nsw i64 %22, 8
+  %24 = zext i8 %16 to i64
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 %23
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %21
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %24
+  %.0.i.i.i.i = select i1 %19, ptr @_hb_NullPool, ptr %27, !prof !33
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 1
+  %29 = load i16, ptr %28, align 1, !tbaa !40
+  %30 = tail call noundef i16 @llvm.bswap.i16(i16 %29)
+  %31 = zext i16 %30 to i64
+  %.idx.i.i.i = mul nuw nsw i64 %31, 6
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 %.idx.i.i.i
+  %.ptr12.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 3
+  %.not10.i.i.i = icmp eq i16 %29, 0
   br i1 %.not10.i.i.i, label %_ZNK2OT10NoVariableINS_19PaintLinearGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 3
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  br label %34
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  br label %35
 
-34:                                               ; preds = %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i, %.lr.ph.i.i.i
-  %.011.i.i.i = phi ptr [ %.ptr.i.i.i, %.lr.ph.i.i.i ], [ %62, %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i ]
-  %35 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 2
-  %36 = load i16, ptr %35, align 1, !tbaa !40
-  %37 = tail call noundef i16 @llvm.bswap.i16(i16 %36)
-  %38 = zext i16 %37 to i32
-  %39 = load ptr, ptr %32, align 8, !tbaa !43
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 64
-  %42 = load i8, ptr %41, align 8, !tbaa !30, !range !31, !noundef !32
-  %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %44, label %45, !prof !33
+35:                                               ; preds = %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i, %.lr.ph.i.i.i
+  %.011.i.i.i = phi ptr [ %.ptr.i.i.i, %.lr.ph.i.i.i ], [ %63, %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i ]
+  %36 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 2
+  %37 = load i16, ptr %36, align 1, !tbaa !40
+  %38 = tail call noundef i16 @llvm.bswap.i16(i16 %37)
+  %39 = zext i16 %38 to i32
+  %40 = load ptr, ptr %33, align 8, !tbaa !43
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 64
+  %43 = load i8, ptr %42, align 8, !tbaa !30, !range !31, !noundef !32
+  %44 = trunc nuw i8 %43 to i1
+  br i1 %44, label %45, label %46, !prof !33
 
-44:                                               ; preds = %34
-  tail call void @_ZN12hb_bit_set_t3delEj(ptr noundef nonnull align 8 dereferenceable(49) %40, i32 noundef %38)
+45:                                               ; preds = %35
+  tail call void @_ZN12hb_bit_set_t3delEj(ptr noundef nonnull align 8 dereferenceable(49) %41, i32 noundef %39)
   br label %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i
 
-45:                                               ; preds = %34
-  %46 = load i8, ptr %40, align 8, !tbaa !44, !range !31, !noundef !32
-  %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %48, label %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i, !prof !45
+46:                                               ; preds = %35
+  %47 = load i8, ptr %41, align 8, !tbaa !44, !range !31, !noundef !32
+  %48 = trunc nuw i8 %47 to i1
+  br i1 %48, label %49, label %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i, !prof !45
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw i8, ptr %39, i64 20
-  store i32 -1, ptr %49, align 4, !tbaa !46
-  %50 = tail call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(49) %40, i32 noundef %38, i1 noundef zeroext true)
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %50, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i, label %51, !prof !33
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds nuw i8, ptr %40, i64 20
+  store i32 -1, ptr %50, align 4, !tbaa !46
+  %51 = tail call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(49) %41, i32 noundef %39, i1 noundef zeroext true)
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %51, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i, label %52, !prof !33
 
-51:                                               ; preds = %48
-  %52 = and i32 %38, 63
-  %53 = zext nneg i32 %52 to i64
-  %54 = shl nuw i64 1, %53
-  %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %56 = lshr i32 %38, 6
-  %57 = and i32 %56, 7
-  %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw [8 x i64], ptr %55, i64 0, i64 %58
-  %60 = load i64, ptr %59, align 8, !tbaa !47
-  %61 = or i64 %60, %54
-  store i64 %61, ptr %59, align 8, !tbaa !47
-  store i32 -1, ptr %50, align 8, !tbaa !49
+52:                                               ; preds = %49
+  %53 = and i32 %39, 63
+  %54 = zext nneg i32 %53 to i64
+  %55 = shl nuw i64 1, %54
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %57 = lshr i32 %39, 6
+  %58 = and i32 %57, 7
+  %59 = zext nneg i32 %58 to i64
+  %60 = getelementptr inbounds nuw [8 x i64], ptr %56, i64 0, i64 %59
+  %61 = load i64, ptr %60, align 8, !tbaa !47
+  %62 = or i64 %61, %55
+  store i64 %62, ptr %60, align 8, !tbaa !47
+  store i32 -1, ptr %51, align 8, !tbaa !49
   br label %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i
 
-_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i: ; preds = %51, %48, %45, %44
-  store i32 2, ptr %33, align 8, !tbaa !52
-  %62 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 6
-  %.not.i.i.i = icmp eq ptr %62, %.ptr12.i.i.i
-  br i1 %.not.i.i.i, label %_ZNK2OT10NoVariableINS_19PaintLinearGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.loopexit, label %34
+_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i: ; preds = %52, %49, %46, %45
+  store i32 2, ptr %34, align 8, !tbaa !52
+  %63 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 6
+  %.not.i.i.i = icmp eq ptr %63, %.ptr12.i.i.i
+  br i1 %.not.i.i.i, label %_ZNK2OT10NoVariableINS_19PaintLinearGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.loopexit, label %35
 
 _ZNK2OT10NoVariableINS_19PaintLinearGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.loopexit: ; preds = %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i
   %.pre = load i32, ptr %3, align 4, !tbaa !39
-  %63 = add i32 %.pre, 1
+  %64 = add i32 %.pre, 1
   br label %_ZNK2OT10NoVariableINS_19PaintLinearGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
 
 _ZNK2OT10NoVariableINS_19PaintLinearGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit: ; preds = %_ZNK2OT10NoVariableINS_19PaintLinearGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.loopexit, %8
-  %64 = phi i32 [ %63, %_ZNK2OT10NoVariableINS_19PaintLinearGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.loopexit ], [ %9, %8 ]
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 6, ptr %65, align 8, !tbaa !52
-  store i32 %64, ptr %3, align 4, !tbaa !39
-  br label %66
+  %65 = phi i32 [ %64, %_ZNK2OT10NoVariableINS_19PaintLinearGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.loopexit ], [ %9, %8 ]
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 6, ptr %66, align 8, !tbaa !52
+  store i32 %65, ptr %3, align 4, !tbaa !39
+  br label %67
 
-66:                                               ; preds = %6, %2, %_ZNK2OT10NoVariableINS_19PaintLinearGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
+67:                                               ; preds = %6, %2, %_ZNK2OT10NoVariableINS_19PaintLinearGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
   ret void
 }
 
@@ -106410,11 +106450,11 @@ define linkonce_odr dso_local void @_ZN2OT27hb_colrv1_closure_context_t8dispatch
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %4 = load i32, ptr %3, align 4, !tbaa !39
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %51, label %6, !prof !33
+  br i1 %5, label %52, label %6, !prof !33
 
 6:                                                ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN2OT27hb_colrv1_closure_context_t13paint_visitedEPKv(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1)
-  br i1 %7, label %51, label %8
+  br i1 %7, label %52, label %8
 
 8:                                                ; preds = %6
   %9 = load i32, ptr %3, align 4, !tbaa !39
@@ -106424,29 +106464,30 @@ define linkonce_odr dso_local void @_ZN2OT27hb_colrv1_closure_context_t8dispatch
   store i32 0, ptr %11, align 8, !tbaa !52
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = shl nuw nsw i32 %14, 16
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %15 = load i8, ptr %14, align 1, !tbaa !54
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %17 = load i8, ptr %16, align 1, !tbaa !54
-  %18 = zext i8 %17 to i32
-  %19 = shl nuw nsw i32 %18, 8
-  %20 = or disjoint i32 %19, %15
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %22 = load i8, ptr %21, align 1, !tbaa !54
-  %23 = zext i8 %22 to i32
-  %24 = or disjoint i32 %20, %23
-  %25 = icmp eq i32 %24, 0
-  %26 = zext nneg i32 %24 to i64
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %26
-  %.0.i.i.i.i = select i1 %25, ptr @_hb_NullPool, ptr %27, !prof !33
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 1
-  %29 = load i16, ptr %28, align 1, !tbaa !40
-  %30 = tail call noundef i16 @llvm.bswap.i16(i16 %29)
-  %31 = zext i16 %30 to i64
-  %.idx.i.i.i = mul nuw nsw i64 %31, 10
-  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 %.idx.i.i.i
-  %.ptr12.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 3
-  %.not10.i.i.i = icmp eq i16 %29, 0
+  %18 = or i8 %15, %13
+  %19 = or i8 %18, %17
+  %20 = icmp eq i8 %19, 0
+  %21 = zext i8 %13 to i64
+  %22 = shl nuw nsw i64 %21, 16
+  %23 = zext i8 %15 to i64
+  %24 = shl nuw nsw i64 %23, 8
+  %25 = zext i8 %17 to i64
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %22
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %25
+  %.0.i.i.i.i = select i1 %20, ptr @_hb_NullPool, ptr %28, !prof !33
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 1
+  %30 = load i16, ptr %29, align 1, !tbaa !40
+  %31 = tail call noundef i16 @llvm.bswap.i16(i16 %30)
+  %32 = zext i16 %31 to i64
+  %.idx.i.i.i = mul nuw nsw i64 %32, 10
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 %.idx.i.i.i
+  %.ptr12.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 3
+  %.not10.i.i.i = icmp eq i16 %30, 0
   br i1 %.not10.i.i.i, label %_ZNK2OT19PaintLinearGradientINS_8VariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %8
@@ -106454,45 +106495,45 @@ define linkonce_odr dso_local void @_ZN2OT27hb_colrv1_closure_context_t8dispatch
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
-  %.011.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %.ptr.i.i.i, %.lr.ph.preheader.i.i.i ]
+  %.011.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i ], [ %.ptr.i.i.i, %.lr.ph.preheader.i.i.i ]
   tail call void @_ZNK2OT8VariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(10) %.011.i.i.i, ptr noundef nonnull %0)
-  %33 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 10
-  %.not.i.i.i = icmp eq ptr %33, %.ptr12.i.i.i
+  %34 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 10
+  %.not.i.i.i = icmp eq ptr %34, %.ptr12.i.i.i
   br i1 %.not.i.i.i, label %_ZNK2OT19PaintLinearGradientINS_8VariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i, label %.lr.ph.i.i.i
 
 _ZNK2OT19PaintLinearGradientINS_8VariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i: ; preds = %.lr.ph.i.i.i, %8
   store i32 6, ptr %11, align 8, !tbaa !52
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %35 = load i32, ptr %34, align 1, !tbaa !4
-  %36 = tail call noundef i32 @llvm.bswap.i32(i32 %35)
-  %37 = icmp eq i32 %35, -1
-  br i1 %37, label %_ZNK2OT8VariableINS_19PaintLinearGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit, label %38
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %36 = load i32, ptr %35, align 1, !tbaa !4
+  %37 = tail call noundef i32 @llvm.bswap.i32(i32 %36)
+  %38 = icmp eq i32 %36, -1
+  br i1 %38, label %_ZNK2OT8VariableINS_19PaintLinearGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit, label %39
 
-38:                                               ; preds = %_ZNK2OT19PaintLinearGradientINS_8VariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %40 = load ptr, ptr %39, align 8, !tbaa !1356
-  %41 = add i32 %36, 5
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 64
-  %44 = load i8, ptr %43, align 8, !tbaa !30, !range !31, !noundef !32
-  %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %46, label %47, !prof !33
+39:                                               ; preds = %_ZNK2OT19PaintLinearGradientINS_8VariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %41 = load ptr, ptr %40, align 8, !tbaa !1356
+  %42 = add i32 %37, 5
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 64
+  %45 = load i8, ptr %44, align 8, !tbaa !30, !range !31, !noundef !32
+  %46 = trunc nuw i8 %45 to i1
+  br i1 %46, label %47, label %48, !prof !33
 
-46:                                               ; preds = %38
-  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %42, i32 noundef %36, i32 noundef %41)
+47:                                               ; preds = %39
+  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %43, i32 noundef %37, i32 noundef %42)
   br label %_ZNK2OT8VariableINS_19PaintLinearGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
 
-47:                                               ; preds = %38
-  %48 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %42, i32 noundef %36, i32 noundef %41)
+48:                                               ; preds = %39
+  %49 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %43, i32 noundef %37, i32 noundef %42)
   br label %_ZNK2OT8VariableINS_19PaintLinearGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
 
-_ZNK2OT8VariableINS_19PaintLinearGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit: ; preds = %_ZNK2OT19PaintLinearGradientINS_8VariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i, %46, %47
-  %49 = load i32, ptr %3, align 4, !tbaa !39
-  %50 = add i32 %49, 1
-  store i32 %50, ptr %3, align 4, !tbaa !39
-  br label %51
+_ZNK2OT8VariableINS_19PaintLinearGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit: ; preds = %_ZNK2OT19PaintLinearGradientINS_8VariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i, %47, %48
+  %50 = load i32, ptr %3, align 4, !tbaa !39
+  %51 = add i32 %50, 1
+  store i32 %51, ptr %3, align 4, !tbaa !39
+  br label %52
 
-51:                                               ; preds = %6, %2, %_ZNK2OT8VariableINS_19PaintLinearGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
+52:                                               ; preds = %6, %2, %_ZNK2OT8VariableINS_19PaintLinearGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
   ret void
 }
 
@@ -106501,11 +106542,11 @@ define linkonce_odr dso_local void @_ZN2OT27hb_colrv1_closure_context_t8dispatch
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %4 = load i32, ptr %3, align 4, !tbaa !39
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %66, label %6, !prof !33
+  br i1 %5, label %67, label %6, !prof !33
 
 6:                                                ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN2OT27hb_colrv1_closure_context_t13paint_visitedEPKv(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1)
-  br i1 %7, label %66, label %8
+  br i1 %7, label %67, label %8
 
 8:                                                ; preds = %6
   %9 = load i32, ptr %3, align 4, !tbaa !39
@@ -106513,100 +106554,101 @@ define linkonce_odr dso_local void @_ZN2OT27hb_colrv1_closure_context_t8dispatch
   store i32 %10, ptr %3, align 4, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !54
-  %13 = zext i8 %12 to i32
-  %14 = shl nuw nsw i32 %13, 16
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %14 = load i8, ptr %13, align 1, !tbaa !54
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %16 = load i8, ptr %15, align 1, !tbaa !54
-  %17 = zext i8 %16 to i32
-  %18 = shl nuw nsw i32 %17, 8
-  %19 = or disjoint i32 %18, %14
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %21 = load i8, ptr %20, align 1, !tbaa !54
-  %22 = zext i8 %21 to i32
-  %23 = or disjoint i32 %19, %22
-  %24 = icmp eq i32 %23, 0
-  %25 = zext nneg i32 %23 to i64
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %25
-  %.0.i.i.i.i = select i1 %24, ptr @_hb_NullPool, ptr %26, !prof !33
-  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 1
-  %28 = load i16, ptr %27, align 1, !tbaa !40
-  %29 = tail call noundef i16 @llvm.bswap.i16(i16 %28)
-  %30 = zext i16 %29 to i64
-  %.idx.i.i.i = mul nuw nsw i64 %30, 6
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 %.idx.i.i.i
-  %.ptr12.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 3
-  %.not10.i.i.i = icmp eq i16 %28, 0
+  %17 = or i8 %14, %12
+  %18 = or i8 %17, %16
+  %19 = icmp eq i8 %18, 0
+  %20 = zext i8 %12 to i64
+  %21 = shl nuw nsw i64 %20, 16
+  %22 = zext i8 %14 to i64
+  %23 = shl nuw nsw i64 %22, 8
+  %24 = zext i8 %16 to i64
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 %23
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %21
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %24
+  %.0.i.i.i.i = select i1 %19, ptr @_hb_NullPool, ptr %27, !prof !33
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 1
+  %29 = load i16, ptr %28, align 1, !tbaa !40
+  %30 = tail call noundef i16 @llvm.bswap.i16(i16 %29)
+  %31 = zext i16 %30 to i64
+  %.idx.i.i.i = mul nuw nsw i64 %31, 6
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 %.idx.i.i.i
+  %.ptr12.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 3
+  %.not10.i.i.i = icmp eq i16 %29, 0
   br i1 %.not10.i.i.i, label %_ZNK2OT10NoVariableINS_19PaintRadialGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 3
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  br label %34
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  br label %35
 
-34:                                               ; preds = %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i, %.lr.ph.i.i.i
-  %.011.i.i.i = phi ptr [ %.ptr.i.i.i, %.lr.ph.i.i.i ], [ %62, %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i ]
-  %35 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 2
-  %36 = load i16, ptr %35, align 1, !tbaa !40
-  %37 = tail call noundef i16 @llvm.bswap.i16(i16 %36)
-  %38 = zext i16 %37 to i32
-  %39 = load ptr, ptr %32, align 8, !tbaa !43
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 64
-  %42 = load i8, ptr %41, align 8, !tbaa !30, !range !31, !noundef !32
-  %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %44, label %45, !prof !33
+35:                                               ; preds = %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i, %.lr.ph.i.i.i
+  %.011.i.i.i = phi ptr [ %.ptr.i.i.i, %.lr.ph.i.i.i ], [ %63, %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i ]
+  %36 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 2
+  %37 = load i16, ptr %36, align 1, !tbaa !40
+  %38 = tail call noundef i16 @llvm.bswap.i16(i16 %37)
+  %39 = zext i16 %38 to i32
+  %40 = load ptr, ptr %33, align 8, !tbaa !43
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 64
+  %43 = load i8, ptr %42, align 8, !tbaa !30, !range !31, !noundef !32
+  %44 = trunc nuw i8 %43 to i1
+  br i1 %44, label %45, label %46, !prof !33
 
-44:                                               ; preds = %34
-  tail call void @_ZN12hb_bit_set_t3delEj(ptr noundef nonnull align 8 dereferenceable(49) %40, i32 noundef %38)
+45:                                               ; preds = %35
+  tail call void @_ZN12hb_bit_set_t3delEj(ptr noundef nonnull align 8 dereferenceable(49) %41, i32 noundef %39)
   br label %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i
 
-45:                                               ; preds = %34
-  %46 = load i8, ptr %40, align 8, !tbaa !44, !range !31, !noundef !32
-  %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %48, label %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i, !prof !45
+46:                                               ; preds = %35
+  %47 = load i8, ptr %41, align 8, !tbaa !44, !range !31, !noundef !32
+  %48 = trunc nuw i8 %47 to i1
+  br i1 %48, label %49, label %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i, !prof !45
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw i8, ptr %39, i64 20
-  store i32 -1, ptr %49, align 4, !tbaa !46
-  %50 = tail call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(49) %40, i32 noundef %38, i1 noundef zeroext true)
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %50, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i, label %51, !prof !33
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds nuw i8, ptr %40, i64 20
+  store i32 -1, ptr %50, align 4, !tbaa !46
+  %51 = tail call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(49) %41, i32 noundef %39, i1 noundef zeroext true)
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %51, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i, label %52, !prof !33
 
-51:                                               ; preds = %48
-  %52 = and i32 %38, 63
-  %53 = zext nneg i32 %52 to i64
-  %54 = shl nuw i64 1, %53
-  %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %56 = lshr i32 %38, 6
-  %57 = and i32 %56, 7
-  %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw [8 x i64], ptr %55, i64 0, i64 %58
-  %60 = load i64, ptr %59, align 8, !tbaa !47
-  %61 = or i64 %60, %54
-  store i64 %61, ptr %59, align 8, !tbaa !47
-  store i32 -1, ptr %50, align 8, !tbaa !49
+52:                                               ; preds = %49
+  %53 = and i32 %39, 63
+  %54 = zext nneg i32 %53 to i64
+  %55 = shl nuw i64 1, %54
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %57 = lshr i32 %39, 6
+  %58 = and i32 %57, 7
+  %59 = zext nneg i32 %58 to i64
+  %60 = getelementptr inbounds nuw [8 x i64], ptr %56, i64 0, i64 %59
+  %61 = load i64, ptr %60, align 8, !tbaa !47
+  %62 = or i64 %61, %55
+  store i64 %62, ptr %60, align 8, !tbaa !47
+  store i32 -1, ptr %51, align 8, !tbaa !49
   br label %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i
 
-_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i: ; preds = %51, %48, %45, %44
-  store i32 2, ptr %33, align 8, !tbaa !52
-  %62 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 6
-  %.not.i.i.i = icmp eq ptr %62, %.ptr12.i.i.i
-  br i1 %.not.i.i.i, label %_ZNK2OT10NoVariableINS_19PaintRadialGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.loopexit, label %34
+_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i: ; preds = %52, %49, %46, %45
+  store i32 2, ptr %34, align 8, !tbaa !52
+  %63 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 6
+  %.not.i.i.i = icmp eq ptr %63, %.ptr12.i.i.i
+  br i1 %.not.i.i.i, label %_ZNK2OT10NoVariableINS_19PaintRadialGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.loopexit, label %35
 
 _ZNK2OT10NoVariableINS_19PaintRadialGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.loopexit: ; preds = %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i
   %.pre = load i32, ptr %3, align 4, !tbaa !39
-  %63 = add i32 %.pre, 1
+  %64 = add i32 %.pre, 1
   br label %_ZNK2OT10NoVariableINS_19PaintRadialGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
 
 _ZNK2OT10NoVariableINS_19PaintRadialGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit: ; preds = %_ZNK2OT10NoVariableINS_19PaintRadialGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.loopexit, %8
-  %64 = phi i32 [ %63, %_ZNK2OT10NoVariableINS_19PaintRadialGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.loopexit ], [ %9, %8 ]
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 6, ptr %65, align 8, !tbaa !52
-  store i32 %64, ptr %3, align 4, !tbaa !39
-  br label %66
+  %65 = phi i32 [ %64, %_ZNK2OT10NoVariableINS_19PaintRadialGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.loopexit ], [ %9, %8 ]
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 6, ptr %66, align 8, !tbaa !52
+  store i32 %65, ptr %3, align 4, !tbaa !39
+  br label %67
 
-66:                                               ; preds = %6, %2, %_ZNK2OT10NoVariableINS_19PaintRadialGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
+67:                                               ; preds = %6, %2, %_ZNK2OT10NoVariableINS_19PaintRadialGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
   ret void
 }
 
@@ -106615,11 +106657,11 @@ define linkonce_odr dso_local void @_ZN2OT27hb_colrv1_closure_context_t8dispatch
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %4 = load i32, ptr %3, align 4, !tbaa !39
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %51, label %6, !prof !33
+  br i1 %5, label %52, label %6, !prof !33
 
 6:                                                ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN2OT27hb_colrv1_closure_context_t13paint_visitedEPKv(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1)
-  br i1 %7, label %51, label %8
+  br i1 %7, label %52, label %8
 
 8:                                                ; preds = %6
   %9 = load i32, ptr %3, align 4, !tbaa !39
@@ -106629,29 +106671,30 @@ define linkonce_odr dso_local void @_ZN2OT27hb_colrv1_closure_context_t8dispatch
   store i32 0, ptr %11, align 8, !tbaa !52
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = shl nuw nsw i32 %14, 16
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %15 = load i8, ptr %14, align 1, !tbaa !54
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %17 = load i8, ptr %16, align 1, !tbaa !54
-  %18 = zext i8 %17 to i32
-  %19 = shl nuw nsw i32 %18, 8
-  %20 = or disjoint i32 %19, %15
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %22 = load i8, ptr %21, align 1, !tbaa !54
-  %23 = zext i8 %22 to i32
-  %24 = or disjoint i32 %20, %23
-  %25 = icmp eq i32 %24, 0
-  %26 = zext nneg i32 %24 to i64
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %26
-  %.0.i.i.i.i = select i1 %25, ptr @_hb_NullPool, ptr %27, !prof !33
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 1
-  %29 = load i16, ptr %28, align 1, !tbaa !40
-  %30 = tail call noundef i16 @llvm.bswap.i16(i16 %29)
-  %31 = zext i16 %30 to i64
-  %.idx.i.i.i = mul nuw nsw i64 %31, 10
-  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 %.idx.i.i.i
-  %.ptr12.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 3
-  %.not10.i.i.i = icmp eq i16 %29, 0
+  %18 = or i8 %15, %13
+  %19 = or i8 %18, %17
+  %20 = icmp eq i8 %19, 0
+  %21 = zext i8 %13 to i64
+  %22 = shl nuw nsw i64 %21, 16
+  %23 = zext i8 %15 to i64
+  %24 = shl nuw nsw i64 %23, 8
+  %25 = zext i8 %17 to i64
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %22
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %25
+  %.0.i.i.i.i = select i1 %20, ptr @_hb_NullPool, ptr %28, !prof !33
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 1
+  %30 = load i16, ptr %29, align 1, !tbaa !40
+  %31 = tail call noundef i16 @llvm.bswap.i16(i16 %30)
+  %32 = zext i16 %31 to i64
+  %.idx.i.i.i = mul nuw nsw i64 %32, 10
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 %.idx.i.i.i
+  %.ptr12.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 3
+  %.not10.i.i.i = icmp eq i16 %30, 0
   br i1 %.not10.i.i.i, label %_ZNK2OT19PaintRadialGradientINS_8VariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %8
@@ -106659,45 +106702,45 @@ define linkonce_odr dso_local void @_ZN2OT27hb_colrv1_closure_context_t8dispatch
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
-  %.011.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %.ptr.i.i.i, %.lr.ph.preheader.i.i.i ]
+  %.011.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i ], [ %.ptr.i.i.i, %.lr.ph.preheader.i.i.i ]
   tail call void @_ZNK2OT8VariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(10) %.011.i.i.i, ptr noundef nonnull %0)
-  %33 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 10
-  %.not.i.i.i = icmp eq ptr %33, %.ptr12.i.i.i
+  %34 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 10
+  %.not.i.i.i = icmp eq ptr %34, %.ptr12.i.i.i
   br i1 %.not.i.i.i, label %_ZNK2OT19PaintRadialGradientINS_8VariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i, label %.lr.ph.i.i.i
 
 _ZNK2OT19PaintRadialGradientINS_8VariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i: ; preds = %.lr.ph.i.i.i, %8
   store i32 6, ptr %11, align 8, !tbaa !52
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %35 = load i32, ptr %34, align 1, !tbaa !4
-  %36 = tail call noundef i32 @llvm.bswap.i32(i32 %35)
-  %37 = icmp eq i32 %35, -1
-  br i1 %37, label %_ZNK2OT8VariableINS_19PaintRadialGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit, label %38
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %36 = load i32, ptr %35, align 1, !tbaa !4
+  %37 = tail call noundef i32 @llvm.bswap.i32(i32 %36)
+  %38 = icmp eq i32 %36, -1
+  br i1 %38, label %_ZNK2OT8VariableINS_19PaintRadialGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit, label %39
 
-38:                                               ; preds = %_ZNK2OT19PaintRadialGradientINS_8VariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %40 = load ptr, ptr %39, align 8, !tbaa !1356
-  %41 = add i32 %36, 5
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 64
-  %44 = load i8, ptr %43, align 8, !tbaa !30, !range !31, !noundef !32
-  %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %46, label %47, !prof !33
+39:                                               ; preds = %_ZNK2OT19PaintRadialGradientINS_8VariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %41 = load ptr, ptr %40, align 8, !tbaa !1356
+  %42 = add i32 %37, 5
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 64
+  %45 = load i8, ptr %44, align 8, !tbaa !30, !range !31, !noundef !32
+  %46 = trunc nuw i8 %45 to i1
+  br i1 %46, label %47, label %48, !prof !33
 
-46:                                               ; preds = %38
-  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %42, i32 noundef %36, i32 noundef %41)
+47:                                               ; preds = %39
+  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %43, i32 noundef %37, i32 noundef %42)
   br label %_ZNK2OT8VariableINS_19PaintRadialGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
 
-47:                                               ; preds = %38
-  %48 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %42, i32 noundef %36, i32 noundef %41)
+48:                                               ; preds = %39
+  %49 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %43, i32 noundef %37, i32 noundef %42)
   br label %_ZNK2OT8VariableINS_19PaintRadialGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
 
-_ZNK2OT8VariableINS_19PaintRadialGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit: ; preds = %_ZNK2OT19PaintRadialGradientINS_8VariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i, %46, %47
-  %49 = load i32, ptr %3, align 4, !tbaa !39
-  %50 = add i32 %49, 1
-  store i32 %50, ptr %3, align 4, !tbaa !39
-  br label %51
+_ZNK2OT8VariableINS_19PaintRadialGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit: ; preds = %_ZNK2OT19PaintRadialGradientINS_8VariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i, %47, %48
+  %50 = load i32, ptr %3, align 4, !tbaa !39
+  %51 = add i32 %50, 1
+  store i32 %51, ptr %3, align 4, !tbaa !39
+  br label %52
 
-51:                                               ; preds = %6, %2, %_ZNK2OT8VariableINS_19PaintRadialGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
+52:                                               ; preds = %6, %2, %_ZNK2OT8VariableINS_19PaintRadialGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
   ret void
 }
 
@@ -106706,11 +106749,11 @@ define linkonce_odr dso_local void @_ZN2OT27hb_colrv1_closure_context_t8dispatch
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %4 = load i32, ptr %3, align 4, !tbaa !39
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %66, label %6, !prof !33
+  br i1 %5, label %67, label %6, !prof !33
 
 6:                                                ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN2OT27hb_colrv1_closure_context_t13paint_visitedEPKv(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1)
-  br i1 %7, label %66, label %8
+  br i1 %7, label %67, label %8
 
 8:                                                ; preds = %6
   %9 = load i32, ptr %3, align 4, !tbaa !39
@@ -106718,100 +106761,101 @@ define linkonce_odr dso_local void @_ZN2OT27hb_colrv1_closure_context_t8dispatch
   store i32 %10, ptr %3, align 4, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !54
-  %13 = zext i8 %12 to i32
-  %14 = shl nuw nsw i32 %13, 16
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %14 = load i8, ptr %13, align 1, !tbaa !54
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %16 = load i8, ptr %15, align 1, !tbaa !54
-  %17 = zext i8 %16 to i32
-  %18 = shl nuw nsw i32 %17, 8
-  %19 = or disjoint i32 %18, %14
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %21 = load i8, ptr %20, align 1, !tbaa !54
-  %22 = zext i8 %21 to i32
-  %23 = or disjoint i32 %19, %22
-  %24 = icmp eq i32 %23, 0
-  %25 = zext nneg i32 %23 to i64
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %25
-  %.0.i.i.i.i = select i1 %24, ptr @_hb_NullPool, ptr %26, !prof !33
-  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 1
-  %28 = load i16, ptr %27, align 1, !tbaa !40
-  %29 = tail call noundef i16 @llvm.bswap.i16(i16 %28)
-  %30 = zext i16 %29 to i64
-  %.idx.i.i.i = mul nuw nsw i64 %30, 6
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 %.idx.i.i.i
-  %.ptr12.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 3
-  %.not10.i.i.i = icmp eq i16 %28, 0
+  %17 = or i8 %14, %12
+  %18 = or i8 %17, %16
+  %19 = icmp eq i8 %18, 0
+  %20 = zext i8 %12 to i64
+  %21 = shl nuw nsw i64 %20, 16
+  %22 = zext i8 %14 to i64
+  %23 = shl nuw nsw i64 %22, 8
+  %24 = zext i8 %16 to i64
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 %23
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %21
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %24
+  %.0.i.i.i.i = select i1 %19, ptr @_hb_NullPool, ptr %27, !prof !33
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 1
+  %29 = load i16, ptr %28, align 1, !tbaa !40
+  %30 = tail call noundef i16 @llvm.bswap.i16(i16 %29)
+  %31 = zext i16 %30 to i64
+  %.idx.i.i.i = mul nuw nsw i64 %31, 6
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 %.idx.i.i.i
+  %.ptr12.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 3
+  %.not10.i.i.i = icmp eq i16 %29, 0
   br i1 %.not10.i.i.i, label %_ZNK2OT10NoVariableINS_18PaintSweepGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 3
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  br label %34
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  br label %35
 
-34:                                               ; preds = %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i, %.lr.ph.i.i.i
-  %.011.i.i.i = phi ptr [ %.ptr.i.i.i, %.lr.ph.i.i.i ], [ %62, %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i ]
-  %35 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 2
-  %36 = load i16, ptr %35, align 1, !tbaa !40
-  %37 = tail call noundef i16 @llvm.bswap.i16(i16 %36)
-  %38 = zext i16 %37 to i32
-  %39 = load ptr, ptr %32, align 8, !tbaa !43
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 64
-  %42 = load i8, ptr %41, align 8, !tbaa !30, !range !31, !noundef !32
-  %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %44, label %45, !prof !33
+35:                                               ; preds = %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i, %.lr.ph.i.i.i
+  %.011.i.i.i = phi ptr [ %.ptr.i.i.i, %.lr.ph.i.i.i ], [ %63, %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i ]
+  %36 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 2
+  %37 = load i16, ptr %36, align 1, !tbaa !40
+  %38 = tail call noundef i16 @llvm.bswap.i16(i16 %37)
+  %39 = zext i16 %38 to i32
+  %40 = load ptr, ptr %33, align 8, !tbaa !43
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 64
+  %43 = load i8, ptr %42, align 8, !tbaa !30, !range !31, !noundef !32
+  %44 = trunc nuw i8 %43 to i1
+  br i1 %44, label %45, label %46, !prof !33
 
-44:                                               ; preds = %34
-  tail call void @_ZN12hb_bit_set_t3delEj(ptr noundef nonnull align 8 dereferenceable(49) %40, i32 noundef %38)
+45:                                               ; preds = %35
+  tail call void @_ZN12hb_bit_set_t3delEj(ptr noundef nonnull align 8 dereferenceable(49) %41, i32 noundef %39)
   br label %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i
 
-45:                                               ; preds = %34
-  %46 = load i8, ptr %40, align 8, !tbaa !44, !range !31, !noundef !32
-  %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %48, label %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i, !prof !45
+46:                                               ; preds = %35
+  %47 = load i8, ptr %41, align 8, !tbaa !44, !range !31, !noundef !32
+  %48 = trunc nuw i8 %47 to i1
+  br i1 %48, label %49, label %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i, !prof !45
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw i8, ptr %39, i64 20
-  store i32 -1, ptr %49, align 4, !tbaa !46
-  %50 = tail call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(49) %40, i32 noundef %38, i1 noundef zeroext true)
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %50, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i, label %51, !prof !33
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds nuw i8, ptr %40, i64 20
+  store i32 -1, ptr %50, align 4, !tbaa !46
+  %51 = tail call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(49) %41, i32 noundef %39, i1 noundef zeroext true)
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %51, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i, label %52, !prof !33
 
-51:                                               ; preds = %48
-  %52 = and i32 %38, 63
-  %53 = zext nneg i32 %52 to i64
-  %54 = shl nuw i64 1, %53
-  %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %56 = lshr i32 %38, 6
-  %57 = and i32 %56, 7
-  %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw [8 x i64], ptr %55, i64 0, i64 %58
-  %60 = load i64, ptr %59, align 8, !tbaa !47
-  %61 = or i64 %60, %54
-  store i64 %61, ptr %59, align 8, !tbaa !47
-  store i32 -1, ptr %50, align 8, !tbaa !49
+52:                                               ; preds = %49
+  %53 = and i32 %39, 63
+  %54 = zext nneg i32 %53 to i64
+  %55 = shl nuw i64 1, %54
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %57 = lshr i32 %39, 6
+  %58 = and i32 %57, 7
+  %59 = zext nneg i32 %58 to i64
+  %60 = getelementptr inbounds nuw [8 x i64], ptr %56, i64 0, i64 %59
+  %61 = load i64, ptr %60, align 8, !tbaa !47
+  %62 = or i64 %61, %55
+  store i64 %62, ptr %60, align 8, !tbaa !47
+  store i32 -1, ptr %51, align 8, !tbaa !49
   br label %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i
 
-_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i: ; preds = %51, %48, %45, %44
-  store i32 2, ptr %33, align 8, !tbaa !52
-  %62 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 6
-  %.not.i.i.i = icmp eq ptr %62, %.ptr12.i.i.i
-  br i1 %.not.i.i.i, label %_ZNK2OT10NoVariableINS_18PaintSweepGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.loopexit, label %34
+_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i: ; preds = %52, %49, %46, %45
+  store i32 2, ptr %34, align 8, !tbaa !52
+  %63 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 6
+  %.not.i.i.i = icmp eq ptr %63, %.ptr12.i.i.i
+  br i1 %.not.i.i.i, label %_ZNK2OT10NoVariableINS_18PaintSweepGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.loopexit, label %35
 
 _ZNK2OT10NoVariableINS_18PaintSweepGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.loopexit: ; preds = %_ZNK2OT10NoVariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i.i.i
   %.pre = load i32, ptr %3, align 4, !tbaa !39
-  %63 = add i32 %.pre, 1
+  %64 = add i32 %.pre, 1
   br label %_ZNK2OT10NoVariableINS_18PaintSweepGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
 
 _ZNK2OT10NoVariableINS_18PaintSweepGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit: ; preds = %_ZNK2OT10NoVariableINS_18PaintSweepGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.loopexit, %8
-  %64 = phi i32 [ %63, %_ZNK2OT10NoVariableINS_18PaintSweepGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.loopexit ], [ %9, %8 ]
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 4, ptr %65, align 8, !tbaa !52
-  store i32 %64, ptr %3, align 4, !tbaa !39
-  br label %66
+  %65 = phi i32 [ %64, %_ZNK2OT10NoVariableINS_18PaintSweepGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.loopexit ], [ %9, %8 ]
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 4, ptr %66, align 8, !tbaa !52
+  store i32 %65, ptr %3, align 4, !tbaa !39
+  br label %67
 
-66:                                               ; preds = %6, %2, %_ZNK2OT10NoVariableINS_18PaintSweepGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
+67:                                               ; preds = %6, %2, %_ZNK2OT10NoVariableINS_18PaintSweepGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
   ret void
 }
 
@@ -106820,11 +106864,11 @@ define linkonce_odr dso_local void @_ZN2OT27hb_colrv1_closure_context_t8dispatch
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %4 = load i32, ptr %3, align 4, !tbaa !39
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %51, label %6, !prof !33
+  br i1 %5, label %52, label %6, !prof !33
 
 6:                                                ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN2OT27hb_colrv1_closure_context_t13paint_visitedEPKv(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1)
-  br i1 %7, label %51, label %8
+  br i1 %7, label %52, label %8
 
 8:                                                ; preds = %6
   %9 = load i32, ptr %3, align 4, !tbaa !39
@@ -106834,29 +106878,30 @@ define linkonce_odr dso_local void @_ZN2OT27hb_colrv1_closure_context_t8dispatch
   store i32 0, ptr %11, align 8, !tbaa !52
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = shl nuw nsw i32 %14, 16
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %15 = load i8, ptr %14, align 1, !tbaa !54
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %17 = load i8, ptr %16, align 1, !tbaa !54
-  %18 = zext i8 %17 to i32
-  %19 = shl nuw nsw i32 %18, 8
-  %20 = or disjoint i32 %19, %15
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %22 = load i8, ptr %21, align 1, !tbaa !54
-  %23 = zext i8 %22 to i32
-  %24 = or disjoint i32 %20, %23
-  %25 = icmp eq i32 %24, 0
-  %26 = zext nneg i32 %24 to i64
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %26
-  %.0.i.i.i.i = select i1 %25, ptr @_hb_NullPool, ptr %27, !prof !33
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 1
-  %29 = load i16, ptr %28, align 1, !tbaa !40
-  %30 = tail call noundef i16 @llvm.bswap.i16(i16 %29)
-  %31 = zext i16 %30 to i64
-  %.idx.i.i.i = mul nuw nsw i64 %31, 10
-  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 %.idx.i.i.i
-  %.ptr12.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 3
-  %.not10.i.i.i = icmp eq i16 %29, 0
+  %18 = or i8 %15, %13
+  %19 = or i8 %18, %17
+  %20 = icmp eq i8 %19, 0
+  %21 = zext i8 %13 to i64
+  %22 = shl nuw nsw i64 %21, 16
+  %23 = zext i8 %15 to i64
+  %24 = shl nuw nsw i64 %23, 8
+  %25 = zext i8 %17 to i64
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %22
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %25
+  %.0.i.i.i.i = select i1 %20, ptr @_hb_NullPool, ptr %28, !prof !33
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 1
+  %30 = load i16, ptr %29, align 1, !tbaa !40
+  %31 = tail call noundef i16 @llvm.bswap.i16(i16 %30)
+  %32 = zext i16 %31 to i64
+  %.idx.i.i.i = mul nuw nsw i64 %32, 10
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 %.idx.i.i.i
+  %.ptr12.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 3
+  %.not10.i.i.i = icmp eq i16 %30, 0
   br i1 %.not10.i.i.i, label %_ZNK2OT18PaintSweepGradientINS_8VariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %8
@@ -106864,45 +106909,45 @@ define linkonce_odr dso_local void @_ZN2OT27hb_colrv1_closure_context_t8dispatch
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
-  %.011.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %.ptr.i.i.i, %.lr.ph.preheader.i.i.i ]
+  %.011.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i ], [ %.ptr.i.i.i, %.lr.ph.preheader.i.i.i ]
   tail call void @_ZNK2OT8VariableINS_9ColorStopEE9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(10) %.011.i.i.i, ptr noundef nonnull %0)
-  %33 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 10
-  %.not.i.i.i = icmp eq ptr %33, %.ptr12.i.i.i
+  %34 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 10
+  %.not.i.i.i = icmp eq ptr %34, %.ptr12.i.i.i
   br i1 %.not.i.i.i, label %_ZNK2OT18PaintSweepGradientINS_8VariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i, label %.lr.ph.i.i.i
 
 _ZNK2OT18PaintSweepGradientINS_8VariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i: ; preds = %.lr.ph.i.i.i, %8
   store i32 4, ptr %11, align 8, !tbaa !52
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %35 = load i32, ptr %34, align 1, !tbaa !4
-  %36 = tail call noundef i32 @llvm.bswap.i32(i32 %35)
-  %37 = icmp eq i32 %35, -1
-  br i1 %37, label %_ZNK2OT8VariableINS_18PaintSweepGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit, label %38
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %36 = load i32, ptr %35, align 1, !tbaa !4
+  %37 = tail call noundef i32 @llvm.bswap.i32(i32 %36)
+  %38 = icmp eq i32 %36, -1
+  br i1 %38, label %_ZNK2OT8VariableINS_18PaintSweepGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit, label %39
 
-38:                                               ; preds = %_ZNK2OT18PaintSweepGradientINS_8VariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %40 = load ptr, ptr %39, align 8, !tbaa !1356
-  %41 = add i32 %36, 3
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 64
-  %44 = load i8, ptr %43, align 8, !tbaa !30, !range !31, !noundef !32
-  %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %46, label %47, !prof !33
+39:                                               ; preds = %_ZNK2OT18PaintSweepGradientINS_8VariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %41 = load ptr, ptr %40, align 8, !tbaa !1356
+  %42 = add i32 %37, 3
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 64
+  %45 = load i8, ptr %44, align 8, !tbaa !30, !range !31, !noundef !32
+  %46 = trunc nuw i8 %45 to i1
+  br i1 %46, label %47, label %48, !prof !33
 
-46:                                               ; preds = %38
-  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %42, i32 noundef %36, i32 noundef %41)
+47:                                               ; preds = %39
+  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %43, i32 noundef %37, i32 noundef %42)
   br label %_ZNK2OT8VariableINS_18PaintSweepGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
 
-47:                                               ; preds = %38
-  %48 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %42, i32 noundef %36, i32 noundef %41)
+48:                                               ; preds = %39
+  %49 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %43, i32 noundef %37, i32 noundef %42)
   br label %_ZNK2OT8VariableINS_18PaintSweepGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
 
-_ZNK2OT8VariableINS_18PaintSweepGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit: ; preds = %_ZNK2OT18PaintSweepGradientINS_8VariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i, %46, %47
-  %49 = load i32, ptr %3, align 4, !tbaa !39
-  %50 = add i32 %49, 1
-  store i32 %50, ptr %3, align 4, !tbaa !39
-  br label %51
+_ZNK2OT8VariableINS_18PaintSweepGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit: ; preds = %_ZNK2OT18PaintSweepGradientINS_8VariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit.i, %47, %48
+  %50 = load i32, ptr %3, align 4, !tbaa !39
+  %51 = add i32 %50, 1
+  store i32 %51, ptr %3, align 4, !tbaa !39
+  br label %52
 
-51:                                               ; preds = %6, %2, %_ZNK2OT8VariableINS_18PaintSweepGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
+52:                                               ; preds = %6, %2, %_ZNK2OT8VariableINS_18PaintSweepGradientIS0_EEE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
   ret void
 }
 
@@ -107206,24 +107251,25 @@ _ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %_ZNK2OT9C
 define linkonce_odr hidden void @_ZNK2OT14PaintTransformINS_10NoVariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(7) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !tbaa !54
-  %5 = zext i8 %4 to i32
-  %6 = shl nuw nsw i32 %5, 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1, !tbaa !54
-  %9 = zext i8 %8 to i32
-  %10 = shl nuw nsw i32 %9, 8
-  %11 = or disjoint i32 %10, %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = or disjoint i32 %11, %14
-  %16 = icmp eq i32 %15, 0
-  %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  %.0.i.i = select i1 %16, ptr @_hb_NullPool, ptr %18, !prof !33
+  %9 = or i8 %6, %4
+  %10 = or i8 %9, %8
+  %11 = icmp eq i8 %10, 0
+  %12 = zext i8 %4 to i64
+  %13 = shl nuw nsw i64 %12, 16
+  %14 = zext i8 %6 to i64
+  %15 = shl nuw nsw i64 %14, 8
+  %16 = zext i8 %8 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  %.0.i.i = select i1 %11, ptr @_hb_NullPool, ptr %19, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 6, ptr %19, align 8, !tbaa !52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 6, ptr %20, align 8, !tbaa !52
   ret void
 }
 
@@ -107231,66 +107277,68 @@ define linkonce_odr hidden void @_ZNK2OT14PaintTransformINS_10NoVariableEE9closu
 define linkonce_odr hidden void @_ZNK2OT14PaintTransformINS_8VariableEE9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(7) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !tbaa !54
-  %5 = zext i8 %4 to i32
-  %6 = shl nuw nsw i32 %5, 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1, !tbaa !54
-  %9 = zext i8 %8 to i32
-  %10 = shl nuw nsw i32 %9, 8
-  %11 = or disjoint i32 %10, %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = or disjoint i32 %11, %14
-  %16 = icmp eq i32 %15, 0
-  %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  %.0.i.i = select i1 %16, ptr @_hb_NullPool, ptr %18, !prof !33
+  %9 = or i8 %6, %4
+  %10 = or i8 %9, %8
+  %11 = icmp eq i8 %10, 0
+  %12 = zext i8 %4 to i64
+  %13 = shl nuw nsw i64 %12, 16
+  %14 = zext i8 %6 to i64
+  %15 = shl nuw nsw i64 %14, 8
+  %16 = zext i8 %8 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  %.0.i.i = select i1 %11, ptr @_hb_NullPool, ptr %19, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %20 = load i8, ptr %19, align 1, !tbaa !54
-  %21 = zext i8 %20 to i32
-  %22 = shl nuw nsw i32 %21, 16
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %24 = load i8, ptr %23, align 1, !tbaa !54
-  %25 = zext i8 %24 to i32
-  %26 = shl nuw nsw i32 %25, 8
-  %27 = or disjoint i32 %26, %22
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %29 = load i8, ptr %28, align 1, !tbaa !54
-  %30 = zext i8 %29 to i32
-  %31 = or disjoint i32 %27, %30
-  %32 = icmp eq i32 %31, 0
-  %33 = zext nneg i32 %31 to i64
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 %33
-  %.0.i.i3 = select i1 %32, ptr @_hb_NullPool, ptr %34, !prof !33
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 6, ptr %35, align 8, !tbaa !52
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i3, i64 24
-  %37 = load i32, ptr %36, align 1, !tbaa !4
-  %38 = tail call noundef i32 @llvm.bswap.i32(i32 %37)
-  %39 = icmp eq i32 %37, -1
-  br i1 %39, label %_ZNK2OT8VariableINS_9Affine2x3EE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit, label %40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %21 = load i8, ptr %20, align 1, !tbaa !54
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %23 = load i8, ptr %22, align 1, !tbaa !54
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %25 = load i8, ptr %24, align 1, !tbaa !54
+  %26 = or i8 %23, %21
+  %27 = or i8 %26, %25
+  %28 = icmp eq i8 %27, 0
+  %29 = zext i8 %21 to i64
+  %30 = shl nuw nsw i64 %29, 16
+  %31 = zext i8 %23 to i64
+  %32 = shl nuw nsw i64 %31, 8
+  %33 = zext i8 %25 to i64
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 %32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %30
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %33
+  %.0.i.i3 = select i1 %28, ptr @_hb_NullPool, ptr %36, !prof !33
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 6, ptr %37, align 8, !tbaa !52
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i3, i64 24
+  %39 = load i32, ptr %38, align 1, !tbaa !4
+  %40 = tail call noundef i32 @llvm.bswap.i32(i32 %39)
+  %41 = icmp eq i32 %39, -1
+  br i1 %41, label %_ZNK2OT8VariableINS_9Affine2x3EE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit, label %42
 
-40:                                               ; preds = %2
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %42 = load ptr, ptr %41, align 8, !tbaa !1356
-  %43 = add i32 %38, 5
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 64
-  %46 = load i8, ptr %45, align 8, !tbaa !30, !range !31, !noundef !32
-  %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %48, label %49, !prof !33
+42:                                               ; preds = %2
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %44 = load ptr, ptr %43, align 8, !tbaa !1356
+  %45 = add i32 %40, 5
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
+  %48 = load i8, ptr %47, align 8, !tbaa !30, !range !31, !noundef !32
+  %49 = trunc nuw i8 %48 to i1
+  br i1 %49, label %50, label %51, !prof !33
 
-48:                                               ; preds = %40
-  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %44, i32 noundef %38, i32 noundef %43)
+50:                                               ; preds = %42
+  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %46, i32 noundef %40, i32 noundef %45)
   br label %_ZNK2OT8VariableINS_9Affine2x3EE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
 
-49:                                               ; preds = %40
-  %50 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %44, i32 noundef %38, i32 noundef %43)
+51:                                               ; preds = %42
+  %52 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %46, i32 noundef %40, i32 noundef %45)
   br label %_ZNK2OT8VariableINS_9Affine2x3EE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit
 
-_ZNK2OT8VariableINS_9Affine2x3EE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit: ; preds = %2, %48, %49
+_ZNK2OT8VariableINS_9Affine2x3EE9closurev1EPNS_27hb_colrv1_closure_context_tE.exit: ; preds = %2, %50, %51
   ret void
 }
 
@@ -107298,24 +107346,25 @@ _ZNK2OT8VariableINS_9Affine2x3EE9closurev1EPNS_27hb_colrv1_closure_context_tE.ex
 define linkonce_odr dso_local void @_ZNK2OT10NoVariableINS_14PaintTranslateEE9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !tbaa !54
-  %5 = zext i8 %4 to i32
-  %6 = shl nuw nsw i32 %5, 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1, !tbaa !54
-  %9 = zext i8 %8 to i32
-  %10 = shl nuw nsw i32 %9, 8
-  %11 = or disjoint i32 %10, %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = or disjoint i32 %11, %14
-  %16 = icmp eq i32 %15, 0
-  %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  %.0.i.i = select i1 %16, ptr @_hb_NullPool, ptr %18, !prof !33
+  %9 = or i8 %6, %4
+  %10 = or i8 %9, %8
+  %11 = icmp eq i8 %10, 0
+  %12 = zext i8 %4 to i64
+  %13 = shl nuw nsw i64 %12, 16
+  %14 = zext i8 %6 to i64
+  %15 = shl nuw nsw i64 %14, 8
+  %16 = zext i8 %8 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  %.0.i.i = select i1 %11, ptr @_hb_NullPool, ptr %19, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 2, ptr %19, align 8, !tbaa !52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 2, ptr %20, align 8, !tbaa !52
   ret void
 }
 
@@ -107325,48 +107374,49 @@ define linkonce_odr dso_local void @_ZNK2OT8VariableINS_14PaintTranslateEE9closu
   store i32 0, ptr %3, align 8, !tbaa !52
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1, !tbaa !54
-  %6 = zext i8 %5 to i32
-  %7 = shl nuw nsw i32 %6, 16
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %7 = load i8, ptr %6, align 1, !tbaa !54
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %9 = load i8, ptr %8, align 1, !tbaa !54
-  %10 = zext i8 %9 to i32
-  %11 = shl nuw nsw i32 %10, 8
-  %12 = or disjoint i32 %11, %7
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %14 = load i8, ptr %13, align 1, !tbaa !54
-  %15 = zext i8 %14 to i32
-  %16 = or disjoint i32 %12, %15
-  %17 = icmp eq i32 %16, 0
-  %18 = zext nneg i32 %16 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
-  %.0.i.i = select i1 %17, ptr @_hb_NullPool, ptr %19, !prof !33
+  %10 = or i8 %7, %5
+  %11 = or i8 %10, %9
+  %12 = icmp eq i8 %11, 0
+  %13 = zext i8 %5 to i64
+  %14 = shl nuw nsw i64 %13, 16
+  %15 = zext i8 %7 to i64
+  %16 = shl nuw nsw i64 %15, 8
+  %17 = zext i8 %9 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %14
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %17
+  %.0.i.i = select i1 %12, ptr @_hb_NullPool, ptr %20, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
   store i32 2, ptr %3, align 8, !tbaa !52
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i32, ptr %20, align 1, !tbaa !4
-  %22 = tail call noundef i32 @llvm.bswap.i32(i32 %21)
-  %23 = icmp eq i32 %21, -1
-  br i1 %23, label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit, label %24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = load i32, ptr %21, align 1, !tbaa !4
+  %23 = tail call noundef i32 @llvm.bswap.i32(i32 %22)
+  %24 = icmp eq i32 %22, -1
+  br i1 %24, label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit, label %25
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %26 = load ptr, ptr %25, align 8, !tbaa !1356
-  %27 = add i32 %22, 1
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %30 = load i8, ptr %29, align 8, !tbaa !30, !range !31, !noundef !32
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %33, !prof !33
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %27 = load ptr, ptr %26, align 8, !tbaa !1356
+  %28 = add i32 %23, 1
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 64
+  %31 = load i8, ptr %30, align 8, !tbaa !30, !range !31, !noundef !32
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %34, !prof !33
 
-32:                                               ; preds = %24
-  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %28, i32 noundef %22, i32 noundef %27)
+33:                                               ; preds = %25
+  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %29, i32 noundef %23, i32 noundef %28)
   br label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit
 
-33:                                               ; preds = %24
-  %34 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %28, i32 noundef %22, i32 noundef %27)
+34:                                               ; preds = %25
+  %35 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %29, i32 noundef %23, i32 noundef %28)
   br label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit
 
-_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %32, %33
+_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %33, %34
   ret void
 }
 
@@ -107374,24 +107424,25 @@ _ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %32, %
 define linkonce_odr dso_local void @_ZNK2OT10NoVariableINS_10PaintScaleEE9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !tbaa !54
-  %5 = zext i8 %4 to i32
-  %6 = shl nuw nsw i32 %5, 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1, !tbaa !54
-  %9 = zext i8 %8 to i32
-  %10 = shl nuw nsw i32 %9, 8
-  %11 = or disjoint i32 %10, %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = or disjoint i32 %11, %14
-  %16 = icmp eq i32 %15, 0
-  %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  %.0.i.i = select i1 %16, ptr @_hb_NullPool, ptr %18, !prof !33
+  %9 = or i8 %6, %4
+  %10 = or i8 %9, %8
+  %11 = icmp eq i8 %10, 0
+  %12 = zext i8 %4 to i64
+  %13 = shl nuw nsw i64 %12, 16
+  %14 = zext i8 %6 to i64
+  %15 = shl nuw nsw i64 %14, 8
+  %16 = zext i8 %8 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  %.0.i.i = select i1 %11, ptr @_hb_NullPool, ptr %19, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 2, ptr %19, align 8, !tbaa !52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 2, ptr %20, align 8, !tbaa !52
   ret void
 }
 
@@ -107401,48 +107452,49 @@ define linkonce_odr dso_local void @_ZNK2OT8VariableINS_10PaintScaleEE9closurev1
   store i32 0, ptr %3, align 8, !tbaa !52
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1, !tbaa !54
-  %6 = zext i8 %5 to i32
-  %7 = shl nuw nsw i32 %6, 16
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %7 = load i8, ptr %6, align 1, !tbaa !54
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %9 = load i8, ptr %8, align 1, !tbaa !54
-  %10 = zext i8 %9 to i32
-  %11 = shl nuw nsw i32 %10, 8
-  %12 = or disjoint i32 %11, %7
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %14 = load i8, ptr %13, align 1, !tbaa !54
-  %15 = zext i8 %14 to i32
-  %16 = or disjoint i32 %12, %15
-  %17 = icmp eq i32 %16, 0
-  %18 = zext nneg i32 %16 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
-  %.0.i.i = select i1 %17, ptr @_hb_NullPool, ptr %19, !prof !33
+  %10 = or i8 %7, %5
+  %11 = or i8 %10, %9
+  %12 = icmp eq i8 %11, 0
+  %13 = zext i8 %5 to i64
+  %14 = shl nuw nsw i64 %13, 16
+  %15 = zext i8 %7 to i64
+  %16 = shl nuw nsw i64 %15, 8
+  %17 = zext i8 %9 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %14
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %17
+  %.0.i.i = select i1 %12, ptr @_hb_NullPool, ptr %20, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
   store i32 2, ptr %3, align 8, !tbaa !52
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i32, ptr %20, align 1, !tbaa !4
-  %22 = tail call noundef i32 @llvm.bswap.i32(i32 %21)
-  %23 = icmp eq i32 %21, -1
-  br i1 %23, label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit, label %24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = load i32, ptr %21, align 1, !tbaa !4
+  %23 = tail call noundef i32 @llvm.bswap.i32(i32 %22)
+  %24 = icmp eq i32 %22, -1
+  br i1 %24, label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit, label %25
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %26 = load ptr, ptr %25, align 8, !tbaa !1356
-  %27 = add i32 %22, 1
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %30 = load i8, ptr %29, align 8, !tbaa !30, !range !31, !noundef !32
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %33, !prof !33
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %27 = load ptr, ptr %26, align 8, !tbaa !1356
+  %28 = add i32 %23, 1
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 64
+  %31 = load i8, ptr %30, align 8, !tbaa !30, !range !31, !noundef !32
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %34, !prof !33
 
-32:                                               ; preds = %24
-  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %28, i32 noundef %22, i32 noundef %27)
+33:                                               ; preds = %25
+  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %29, i32 noundef %23, i32 noundef %28)
   br label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit
 
-33:                                               ; preds = %24
-  %34 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %28, i32 noundef %22, i32 noundef %27)
+34:                                               ; preds = %25
+  %35 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %29, i32 noundef %23, i32 noundef %28)
   br label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit
 
-_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %32, %33
+_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %33, %34
   ret void
 }
 
@@ -107450,24 +107502,25 @@ _ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %32, %
 define linkonce_odr dso_local void @_ZNK2OT10NoVariableINS_22PaintScaleAroundCenterEE9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !tbaa !54
-  %5 = zext i8 %4 to i32
-  %6 = shl nuw nsw i32 %5, 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1, !tbaa !54
-  %9 = zext i8 %8 to i32
-  %10 = shl nuw nsw i32 %9, 8
-  %11 = or disjoint i32 %10, %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = or disjoint i32 %11, %14
-  %16 = icmp eq i32 %15, 0
-  %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  %.0.i.i = select i1 %16, ptr @_hb_NullPool, ptr %18, !prof !33
+  %9 = or i8 %6, %4
+  %10 = or i8 %9, %8
+  %11 = icmp eq i8 %10, 0
+  %12 = zext i8 %4 to i64
+  %13 = shl nuw nsw i64 %12, 16
+  %14 = zext i8 %6 to i64
+  %15 = shl nuw nsw i64 %14, 8
+  %16 = zext i8 %8 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  %.0.i.i = select i1 %11, ptr @_hb_NullPool, ptr %19, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 4, ptr %19, align 8, !tbaa !52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 4, ptr %20, align 8, !tbaa !52
   ret void
 }
 
@@ -107477,48 +107530,49 @@ define linkonce_odr dso_local void @_ZNK2OT8VariableINS_22PaintScaleAroundCenter
   store i32 0, ptr %3, align 8, !tbaa !52
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1, !tbaa !54
-  %6 = zext i8 %5 to i32
-  %7 = shl nuw nsw i32 %6, 16
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %7 = load i8, ptr %6, align 1, !tbaa !54
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %9 = load i8, ptr %8, align 1, !tbaa !54
-  %10 = zext i8 %9 to i32
-  %11 = shl nuw nsw i32 %10, 8
-  %12 = or disjoint i32 %11, %7
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %14 = load i8, ptr %13, align 1, !tbaa !54
-  %15 = zext i8 %14 to i32
-  %16 = or disjoint i32 %12, %15
-  %17 = icmp eq i32 %16, 0
-  %18 = zext nneg i32 %16 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
-  %.0.i.i = select i1 %17, ptr @_hb_NullPool, ptr %19, !prof !33
+  %10 = or i8 %7, %5
+  %11 = or i8 %10, %9
+  %12 = icmp eq i8 %11, 0
+  %13 = zext i8 %5 to i64
+  %14 = shl nuw nsw i64 %13, 16
+  %15 = zext i8 %7 to i64
+  %16 = shl nuw nsw i64 %15, 8
+  %17 = zext i8 %9 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %14
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %17
+  %.0.i.i = select i1 %12, ptr @_hb_NullPool, ptr %20, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
   store i32 4, ptr %3, align 8, !tbaa !52
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %21 = load i32, ptr %20, align 1, !tbaa !4
-  %22 = tail call noundef i32 @llvm.bswap.i32(i32 %21)
-  %23 = icmp eq i32 %21, -1
-  br i1 %23, label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit, label %24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %22 = load i32, ptr %21, align 1, !tbaa !4
+  %23 = tail call noundef i32 @llvm.bswap.i32(i32 %22)
+  %24 = icmp eq i32 %22, -1
+  br i1 %24, label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit, label %25
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %26 = load ptr, ptr %25, align 8, !tbaa !1356
-  %27 = add i32 %22, 3
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %30 = load i8, ptr %29, align 8, !tbaa !30, !range !31, !noundef !32
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %33, !prof !33
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %27 = load ptr, ptr %26, align 8, !tbaa !1356
+  %28 = add i32 %23, 3
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 64
+  %31 = load i8, ptr %30, align 8, !tbaa !30, !range !31, !noundef !32
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %34, !prof !33
 
-32:                                               ; preds = %24
-  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %28, i32 noundef %22, i32 noundef %27)
+33:                                               ; preds = %25
+  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %29, i32 noundef %23, i32 noundef %28)
   br label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit
 
-33:                                               ; preds = %24
-  %34 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %28, i32 noundef %22, i32 noundef %27)
+34:                                               ; preds = %25
+  %35 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %29, i32 noundef %23, i32 noundef %28)
   br label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit
 
-_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %32, %33
+_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %33, %34
   ret void
 }
 
@@ -107526,24 +107580,25 @@ _ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %32, %
 define linkonce_odr dso_local void @_ZNK2OT10NoVariableINS_17PaintScaleUniformEE9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !tbaa !54
-  %5 = zext i8 %4 to i32
-  %6 = shl nuw nsw i32 %5, 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1, !tbaa !54
-  %9 = zext i8 %8 to i32
-  %10 = shl nuw nsw i32 %9, 8
-  %11 = or disjoint i32 %10, %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = or disjoint i32 %11, %14
-  %16 = icmp eq i32 %15, 0
-  %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  %.0.i.i = select i1 %16, ptr @_hb_NullPool, ptr %18, !prof !33
+  %9 = or i8 %6, %4
+  %10 = or i8 %9, %8
+  %11 = icmp eq i8 %10, 0
+  %12 = zext i8 %4 to i64
+  %13 = shl nuw nsw i64 %12, 16
+  %14 = zext i8 %6 to i64
+  %15 = shl nuw nsw i64 %14, 8
+  %16 = zext i8 %8 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  %.0.i.i = select i1 %11, ptr @_hb_NullPool, ptr %19, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 1, ptr %19, align 8, !tbaa !52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 1, ptr %20, align 8, !tbaa !52
   ret void
 }
 
@@ -107553,47 +107608,48 @@ define linkonce_odr dso_local void @_ZNK2OT8VariableINS_17PaintScaleUniformEE9cl
   store i32 0, ptr %3, align 8, !tbaa !52
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1, !tbaa !54
-  %6 = zext i8 %5 to i32
-  %7 = shl nuw nsw i32 %6, 16
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %7 = load i8, ptr %6, align 1, !tbaa !54
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %9 = load i8, ptr %8, align 1, !tbaa !54
-  %10 = zext i8 %9 to i32
-  %11 = shl nuw nsw i32 %10, 8
-  %12 = or disjoint i32 %11, %7
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %14 = load i8, ptr %13, align 1, !tbaa !54
-  %15 = zext i8 %14 to i32
-  %16 = or disjoint i32 %12, %15
-  %17 = icmp eq i32 %16, 0
-  %18 = zext nneg i32 %16 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
-  %.0.i.i = select i1 %17, ptr @_hb_NullPool, ptr %19, !prof !33
+  %10 = or i8 %7, %5
+  %11 = or i8 %10, %9
+  %12 = icmp eq i8 %11, 0
+  %13 = zext i8 %5 to i64
+  %14 = shl nuw nsw i64 %13, 16
+  %15 = zext i8 %7 to i64
+  %16 = shl nuw nsw i64 %15, 8
+  %17 = zext i8 %9 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %14
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %17
+  %.0.i.i = select i1 %12, ptr @_hb_NullPool, ptr %20, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
   store i32 1, ptr %3, align 8, !tbaa !52
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %21 = load i32, ptr %20, align 1, !tbaa !4
-  %22 = tail call noundef i32 @llvm.bswap.i32(i32 %21)
-  %23 = icmp eq i32 %21, -1
-  br i1 %23, label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit, label %24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %22 = load i32, ptr %21, align 1, !tbaa !4
+  %23 = tail call noundef i32 @llvm.bswap.i32(i32 %22)
+  %24 = icmp eq i32 %22, -1
+  br i1 %24, label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit, label %25
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %26 = load ptr, ptr %25, align 8, !tbaa !1356
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %29 = load i8, ptr %28, align 8, !tbaa !30, !range !31, !noundef !32
-  %30 = trunc nuw i8 %29 to i1
-  br i1 %30, label %31, label %32, !prof !33
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %27 = load ptr, ptr %26, align 8, !tbaa !1356
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 64
+  %30 = load i8, ptr %29, align 8, !tbaa !30, !range !31, !noundef !32
+  %31 = trunc nuw i8 %30 to i1
+  br i1 %31, label %32, label %33, !prof !33
 
-31:                                               ; preds = %24
-  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %27, i32 noundef %22, i32 noundef %22)
+32:                                               ; preds = %25
+  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %28, i32 noundef %23, i32 noundef %23)
   br label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit
 
-32:                                               ; preds = %24
-  %33 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %27, i32 noundef %22, i32 noundef %22)
+33:                                               ; preds = %25
+  %34 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %28, i32 noundef %23, i32 noundef %23)
   br label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit
 
-_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %31, %32
+_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %32, %33
   ret void
 }
 
@@ -107601,24 +107657,25 @@ _ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %31, %
 define linkonce_odr dso_local void @_ZNK2OT10NoVariableINS_29PaintScaleUniformAroundCenterEE9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !tbaa !54
-  %5 = zext i8 %4 to i32
-  %6 = shl nuw nsw i32 %5, 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1, !tbaa !54
-  %9 = zext i8 %8 to i32
-  %10 = shl nuw nsw i32 %9, 8
-  %11 = or disjoint i32 %10, %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = or disjoint i32 %11, %14
-  %16 = icmp eq i32 %15, 0
-  %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  %.0.i.i = select i1 %16, ptr @_hb_NullPool, ptr %18, !prof !33
+  %9 = or i8 %6, %4
+  %10 = or i8 %9, %8
+  %11 = icmp eq i8 %10, 0
+  %12 = zext i8 %4 to i64
+  %13 = shl nuw nsw i64 %12, 16
+  %14 = zext i8 %6 to i64
+  %15 = shl nuw nsw i64 %14, 8
+  %16 = zext i8 %8 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  %.0.i.i = select i1 %11, ptr @_hb_NullPool, ptr %19, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 3, ptr %19, align 8, !tbaa !52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 3, ptr %20, align 8, !tbaa !52
   ret void
 }
 
@@ -107628,48 +107685,49 @@ define linkonce_odr dso_local void @_ZNK2OT8VariableINS_29PaintScaleUniformAroun
   store i32 0, ptr %3, align 8, !tbaa !52
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1, !tbaa !54
-  %6 = zext i8 %5 to i32
-  %7 = shl nuw nsw i32 %6, 16
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %7 = load i8, ptr %6, align 1, !tbaa !54
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %9 = load i8, ptr %8, align 1, !tbaa !54
-  %10 = zext i8 %9 to i32
-  %11 = shl nuw nsw i32 %10, 8
-  %12 = or disjoint i32 %11, %7
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %14 = load i8, ptr %13, align 1, !tbaa !54
-  %15 = zext i8 %14 to i32
-  %16 = or disjoint i32 %12, %15
-  %17 = icmp eq i32 %16, 0
-  %18 = zext nneg i32 %16 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
-  %.0.i.i = select i1 %17, ptr @_hb_NullPool, ptr %19, !prof !33
+  %10 = or i8 %7, %5
+  %11 = or i8 %10, %9
+  %12 = icmp eq i8 %11, 0
+  %13 = zext i8 %5 to i64
+  %14 = shl nuw nsw i64 %13, 16
+  %15 = zext i8 %7 to i64
+  %16 = shl nuw nsw i64 %15, 8
+  %17 = zext i8 %9 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %14
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %17
+  %.0.i.i = select i1 %12, ptr @_hb_NullPool, ptr %20, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
   store i32 3, ptr %3, align 8, !tbaa !52
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %21 = load i32, ptr %20, align 1, !tbaa !4
-  %22 = tail call noundef i32 @llvm.bswap.i32(i32 %21)
-  %23 = icmp eq i32 %21, -1
-  br i1 %23, label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit, label %24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %22 = load i32, ptr %21, align 1, !tbaa !4
+  %23 = tail call noundef i32 @llvm.bswap.i32(i32 %22)
+  %24 = icmp eq i32 %22, -1
+  br i1 %24, label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit, label %25
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %26 = load ptr, ptr %25, align 8, !tbaa !1356
-  %27 = add i32 %22, 2
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %30 = load i8, ptr %29, align 8, !tbaa !30, !range !31, !noundef !32
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %33, !prof !33
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %27 = load ptr, ptr %26, align 8, !tbaa !1356
+  %28 = add i32 %23, 2
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 64
+  %31 = load i8, ptr %30, align 8, !tbaa !30, !range !31, !noundef !32
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %34, !prof !33
 
-32:                                               ; preds = %24
-  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %28, i32 noundef %22, i32 noundef %27)
+33:                                               ; preds = %25
+  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %29, i32 noundef %23, i32 noundef %28)
   br label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit
 
-33:                                               ; preds = %24
-  %34 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %28, i32 noundef %22, i32 noundef %27)
+34:                                               ; preds = %25
+  %35 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %29, i32 noundef %23, i32 noundef %28)
   br label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit
 
-_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %32, %33
+_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %33, %34
   ret void
 }
 
@@ -107677,24 +107735,25 @@ _ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %32, %
 define linkonce_odr dso_local void @_ZNK2OT10NoVariableINS_11PaintRotateEE9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(6) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !tbaa !54
-  %5 = zext i8 %4 to i32
-  %6 = shl nuw nsw i32 %5, 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1, !tbaa !54
-  %9 = zext i8 %8 to i32
-  %10 = shl nuw nsw i32 %9, 8
-  %11 = or disjoint i32 %10, %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = or disjoint i32 %11, %14
-  %16 = icmp eq i32 %15, 0
-  %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  %.0.i.i = select i1 %16, ptr @_hb_NullPool, ptr %18, !prof !33
+  %9 = or i8 %6, %4
+  %10 = or i8 %9, %8
+  %11 = icmp eq i8 %10, 0
+  %12 = zext i8 %4 to i64
+  %13 = shl nuw nsw i64 %12, 16
+  %14 = zext i8 %6 to i64
+  %15 = shl nuw nsw i64 %14, 8
+  %16 = zext i8 %8 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  %.0.i.i = select i1 %11, ptr @_hb_NullPool, ptr %19, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 1, ptr %19, align 8, !tbaa !52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 1, ptr %20, align 8, !tbaa !52
   ret void
 }
 
@@ -107704,47 +107763,48 @@ define linkonce_odr dso_local void @_ZNK2OT8VariableINS_11PaintRotateEE9closurev
   store i32 0, ptr %3, align 8, !tbaa !52
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1, !tbaa !54
-  %6 = zext i8 %5 to i32
-  %7 = shl nuw nsw i32 %6, 16
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %7 = load i8, ptr %6, align 1, !tbaa !54
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %9 = load i8, ptr %8, align 1, !tbaa !54
-  %10 = zext i8 %9 to i32
-  %11 = shl nuw nsw i32 %10, 8
-  %12 = or disjoint i32 %11, %7
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %14 = load i8, ptr %13, align 1, !tbaa !54
-  %15 = zext i8 %14 to i32
-  %16 = or disjoint i32 %12, %15
-  %17 = icmp eq i32 %16, 0
-  %18 = zext nneg i32 %16 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
-  %.0.i.i = select i1 %17, ptr @_hb_NullPool, ptr %19, !prof !33
+  %10 = or i8 %7, %5
+  %11 = or i8 %10, %9
+  %12 = icmp eq i8 %11, 0
+  %13 = zext i8 %5 to i64
+  %14 = shl nuw nsw i64 %13, 16
+  %15 = zext i8 %7 to i64
+  %16 = shl nuw nsw i64 %15, 8
+  %17 = zext i8 %9 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %14
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %17
+  %.0.i.i = select i1 %12, ptr @_hb_NullPool, ptr %20, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
   store i32 1, ptr %3, align 8, !tbaa !52
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %21 = load i32, ptr %20, align 1, !tbaa !4
-  %22 = tail call noundef i32 @llvm.bswap.i32(i32 %21)
-  %23 = icmp eq i32 %21, -1
-  br i1 %23, label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit, label %24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %22 = load i32, ptr %21, align 1, !tbaa !4
+  %23 = tail call noundef i32 @llvm.bswap.i32(i32 %22)
+  %24 = icmp eq i32 %22, -1
+  br i1 %24, label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit, label %25
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %26 = load ptr, ptr %25, align 8, !tbaa !1356
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %29 = load i8, ptr %28, align 8, !tbaa !30, !range !31, !noundef !32
-  %30 = trunc nuw i8 %29 to i1
-  br i1 %30, label %31, label %32, !prof !33
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %27 = load ptr, ptr %26, align 8, !tbaa !1356
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 64
+  %30 = load i8, ptr %29, align 8, !tbaa !30, !range !31, !noundef !32
+  %31 = trunc nuw i8 %30 to i1
+  br i1 %31, label %32, label %33, !prof !33
 
-31:                                               ; preds = %24
-  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %27, i32 noundef %22, i32 noundef %22)
+32:                                               ; preds = %25
+  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %28, i32 noundef %23, i32 noundef %23)
   br label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit
 
-32:                                               ; preds = %24
-  %33 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %27, i32 noundef %22, i32 noundef %22)
+33:                                               ; preds = %25
+  %34 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %28, i32 noundef %23, i32 noundef %23)
   br label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit
 
-_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %31, %32
+_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %32, %33
   ret void
 }
 
@@ -107752,24 +107812,25 @@ _ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %31, %
 define linkonce_odr dso_local void @_ZNK2OT10NoVariableINS_23PaintRotateAroundCenterEE9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !tbaa !54
-  %5 = zext i8 %4 to i32
-  %6 = shl nuw nsw i32 %5, 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1, !tbaa !54
-  %9 = zext i8 %8 to i32
-  %10 = shl nuw nsw i32 %9, 8
-  %11 = or disjoint i32 %10, %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = or disjoint i32 %11, %14
-  %16 = icmp eq i32 %15, 0
-  %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  %.0.i.i = select i1 %16, ptr @_hb_NullPool, ptr %18, !prof !33
+  %9 = or i8 %6, %4
+  %10 = or i8 %9, %8
+  %11 = icmp eq i8 %10, 0
+  %12 = zext i8 %4 to i64
+  %13 = shl nuw nsw i64 %12, 16
+  %14 = zext i8 %6 to i64
+  %15 = shl nuw nsw i64 %14, 8
+  %16 = zext i8 %8 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  %.0.i.i = select i1 %11, ptr @_hb_NullPool, ptr %19, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 3, ptr %19, align 8, !tbaa !52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 3, ptr %20, align 8, !tbaa !52
   ret void
 }
 
@@ -107779,48 +107840,49 @@ define linkonce_odr dso_local void @_ZNK2OT8VariableINS_23PaintRotateAroundCente
   store i32 0, ptr %3, align 8, !tbaa !52
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1, !tbaa !54
-  %6 = zext i8 %5 to i32
-  %7 = shl nuw nsw i32 %6, 16
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %7 = load i8, ptr %6, align 1, !tbaa !54
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %9 = load i8, ptr %8, align 1, !tbaa !54
-  %10 = zext i8 %9 to i32
-  %11 = shl nuw nsw i32 %10, 8
-  %12 = or disjoint i32 %11, %7
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %14 = load i8, ptr %13, align 1, !tbaa !54
-  %15 = zext i8 %14 to i32
-  %16 = or disjoint i32 %12, %15
-  %17 = icmp eq i32 %16, 0
-  %18 = zext nneg i32 %16 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
-  %.0.i.i = select i1 %17, ptr @_hb_NullPool, ptr %19, !prof !33
+  %10 = or i8 %7, %5
+  %11 = or i8 %10, %9
+  %12 = icmp eq i8 %11, 0
+  %13 = zext i8 %5 to i64
+  %14 = shl nuw nsw i64 %13, 16
+  %15 = zext i8 %7 to i64
+  %16 = shl nuw nsw i64 %15, 8
+  %17 = zext i8 %9 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %14
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %17
+  %.0.i.i = select i1 %12, ptr @_hb_NullPool, ptr %20, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
   store i32 3, ptr %3, align 8, !tbaa !52
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %21 = load i32, ptr %20, align 1, !tbaa !4
-  %22 = tail call noundef i32 @llvm.bswap.i32(i32 %21)
-  %23 = icmp eq i32 %21, -1
-  br i1 %23, label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit, label %24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %22 = load i32, ptr %21, align 1, !tbaa !4
+  %23 = tail call noundef i32 @llvm.bswap.i32(i32 %22)
+  %24 = icmp eq i32 %22, -1
+  br i1 %24, label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit, label %25
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %26 = load ptr, ptr %25, align 8, !tbaa !1356
-  %27 = add i32 %22, 2
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %30 = load i8, ptr %29, align 8, !tbaa !30, !range !31, !noundef !32
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %33, !prof !33
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %27 = load ptr, ptr %26, align 8, !tbaa !1356
+  %28 = add i32 %23, 2
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 64
+  %31 = load i8, ptr %30, align 8, !tbaa !30, !range !31, !noundef !32
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %34, !prof !33
 
-32:                                               ; preds = %24
-  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %28, i32 noundef %22, i32 noundef %27)
+33:                                               ; preds = %25
+  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %29, i32 noundef %23, i32 noundef %28)
   br label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit
 
-33:                                               ; preds = %24
-  %34 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %28, i32 noundef %22, i32 noundef %27)
+34:                                               ; preds = %25
+  %35 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %29, i32 noundef %23, i32 noundef %28)
   br label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit
 
-_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %32, %33
+_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %33, %34
   ret void
 }
 
@@ -107828,24 +107890,25 @@ _ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %32, %
 define linkonce_odr dso_local void @_ZNK2OT10NoVariableINS_9PaintSkewEE9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !tbaa !54
-  %5 = zext i8 %4 to i32
-  %6 = shl nuw nsw i32 %5, 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1, !tbaa !54
-  %9 = zext i8 %8 to i32
-  %10 = shl nuw nsw i32 %9, 8
-  %11 = or disjoint i32 %10, %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = or disjoint i32 %11, %14
-  %16 = icmp eq i32 %15, 0
-  %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  %.0.i.i = select i1 %16, ptr @_hb_NullPool, ptr %18, !prof !33
+  %9 = or i8 %6, %4
+  %10 = or i8 %9, %8
+  %11 = icmp eq i8 %10, 0
+  %12 = zext i8 %4 to i64
+  %13 = shl nuw nsw i64 %12, 16
+  %14 = zext i8 %6 to i64
+  %15 = shl nuw nsw i64 %14, 8
+  %16 = zext i8 %8 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  %.0.i.i = select i1 %11, ptr @_hb_NullPool, ptr %19, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 2, ptr %19, align 8, !tbaa !52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 2, ptr %20, align 8, !tbaa !52
   ret void
 }
 
@@ -107855,48 +107918,49 @@ define linkonce_odr dso_local void @_ZNK2OT8VariableINS_9PaintSkewEE9closurev1EP
   store i32 0, ptr %3, align 8, !tbaa !52
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1, !tbaa !54
-  %6 = zext i8 %5 to i32
-  %7 = shl nuw nsw i32 %6, 16
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %7 = load i8, ptr %6, align 1, !tbaa !54
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %9 = load i8, ptr %8, align 1, !tbaa !54
-  %10 = zext i8 %9 to i32
-  %11 = shl nuw nsw i32 %10, 8
-  %12 = or disjoint i32 %11, %7
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %14 = load i8, ptr %13, align 1, !tbaa !54
-  %15 = zext i8 %14 to i32
-  %16 = or disjoint i32 %12, %15
-  %17 = icmp eq i32 %16, 0
-  %18 = zext nneg i32 %16 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
-  %.0.i.i = select i1 %17, ptr @_hb_NullPool, ptr %19, !prof !33
+  %10 = or i8 %7, %5
+  %11 = or i8 %10, %9
+  %12 = icmp eq i8 %11, 0
+  %13 = zext i8 %5 to i64
+  %14 = shl nuw nsw i64 %13, 16
+  %15 = zext i8 %7 to i64
+  %16 = shl nuw nsw i64 %15, 8
+  %17 = zext i8 %9 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %14
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %17
+  %.0.i.i = select i1 %12, ptr @_hb_NullPool, ptr %20, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
   store i32 2, ptr %3, align 8, !tbaa !52
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i32, ptr %20, align 1, !tbaa !4
-  %22 = tail call noundef i32 @llvm.bswap.i32(i32 %21)
-  %23 = icmp eq i32 %21, -1
-  br i1 %23, label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit, label %24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = load i32, ptr %21, align 1, !tbaa !4
+  %23 = tail call noundef i32 @llvm.bswap.i32(i32 %22)
+  %24 = icmp eq i32 %22, -1
+  br i1 %24, label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit, label %25
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %26 = load ptr, ptr %25, align 8, !tbaa !1356
-  %27 = add i32 %22, 1
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %30 = load i8, ptr %29, align 8, !tbaa !30, !range !31, !noundef !32
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %33, !prof !33
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %27 = load ptr, ptr %26, align 8, !tbaa !1356
+  %28 = add i32 %23, 1
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 64
+  %31 = load i8, ptr %30, align 8, !tbaa !30, !range !31, !noundef !32
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %34, !prof !33
 
-32:                                               ; preds = %24
-  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %28, i32 noundef %22, i32 noundef %27)
+33:                                               ; preds = %25
+  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %29, i32 noundef %23, i32 noundef %28)
   br label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit
 
-33:                                               ; preds = %24
-  %34 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %28, i32 noundef %22, i32 noundef %27)
+34:                                               ; preds = %25
+  %35 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %29, i32 noundef %23, i32 noundef %28)
   br label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit
 
-_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %32, %33
+_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %33, %34
   ret void
 }
 
@@ -107904,24 +107968,25 @@ _ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %32, %
 define linkonce_odr dso_local void @_ZNK2OT10NoVariableINS_21PaintSkewAroundCenterEE9closurev1EPNS_27hb_colrv1_closure_context_tE(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !tbaa !54
-  %5 = zext i8 %4 to i32
-  %6 = shl nuw nsw i32 %5, 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1, !tbaa !54
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1, !tbaa !54
-  %9 = zext i8 %8 to i32
-  %10 = shl nuw nsw i32 %9, 8
-  %11 = or disjoint i32 %10, %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !54
-  %14 = zext i8 %13 to i32
-  %15 = or disjoint i32 %11, %14
-  %16 = icmp eq i32 %15, 0
-  %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  %.0.i.i = select i1 %16, ptr @_hb_NullPool, ptr %18, !prof !33
+  %9 = or i8 %6, %4
+  %10 = or i8 %9, %8
+  %11 = icmp eq i8 %10, 0
+  %12 = zext i8 %4 to i64
+  %13 = shl nuw nsw i64 %12, 16
+  %14 = zext i8 %6 to i64
+  %15 = shl nuw nsw i64 %14, 8
+  %16 = zext i8 %8 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  %.0.i.i = select i1 %11, ptr @_hb_NullPool, ptr %19, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 4, ptr %19, align 8, !tbaa !52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 4, ptr %20, align 8, !tbaa !52
   ret void
 }
 
@@ -107931,48 +107996,49 @@ define linkonce_odr dso_local void @_ZNK2OT8VariableINS_21PaintSkewAroundCenterE
   store i32 0, ptr %3, align 8, !tbaa !52
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1, !tbaa !54
-  %6 = zext i8 %5 to i32
-  %7 = shl nuw nsw i32 %6, 16
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %7 = load i8, ptr %6, align 1, !tbaa !54
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %9 = load i8, ptr %8, align 1, !tbaa !54
-  %10 = zext i8 %9 to i32
-  %11 = shl nuw nsw i32 %10, 8
-  %12 = or disjoint i32 %11, %7
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %14 = load i8, ptr %13, align 1, !tbaa !54
-  %15 = zext i8 %14 to i32
-  %16 = or disjoint i32 %12, %15
-  %17 = icmp eq i32 %16, 0
-  %18 = zext nneg i32 %16 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
-  %.0.i.i = select i1 %17, ptr @_hb_NullPool, ptr %19, !prof !33
+  %10 = or i8 %7, %5
+  %11 = or i8 %10, %9
+  %12 = icmp eq i8 %11, 0
+  %13 = zext i8 %5 to i64
+  %14 = shl nuw nsw i64 %13, 16
+  %15 = zext i8 %7 to i64
+  %16 = shl nuw nsw i64 %15, 8
+  %17 = zext i8 %9 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %14
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %17
+  %.0.i.i = select i1 %12, ptr @_hb_NullPool, ptr %20, !prof !33
   tail call void @_ZNK2OT5Paint8dispatchINS_27hb_colrv1_closure_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i, ptr noundef %1)
   store i32 4, ptr %3, align 8, !tbaa !52
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %21 = load i32, ptr %20, align 1, !tbaa !4
-  %22 = tail call noundef i32 @llvm.bswap.i32(i32 %21)
-  %23 = icmp eq i32 %21, -1
-  br i1 %23, label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit, label %24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %22 = load i32, ptr %21, align 1, !tbaa !4
+  %23 = tail call noundef i32 @llvm.bswap.i32(i32 %22)
+  %24 = icmp eq i32 %22, -1
+  br i1 %24, label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit, label %25
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %26 = load ptr, ptr %25, align 8, !tbaa !1356
-  %27 = add i32 %22, 3
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %30 = load i8, ptr %29, align 8, !tbaa !30, !range !31, !noundef !32
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %33, !prof !33
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %27 = load ptr, ptr %26, align 8, !tbaa !1356
+  %28 = add i32 %23, 3
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 64
+  %31 = load i8, ptr %30, align 8, !tbaa !30, !range !31, !noundef !32
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %34, !prof !33
 
-32:                                               ; preds = %24
-  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %28, i32 noundef %22, i32 noundef %27)
+33:                                               ; preds = %25
+  tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %29, i32 noundef %23, i32 noundef %28)
   br label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit
 
-33:                                               ; preds = %24
-  %34 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %28, i32 noundef %22, i32 noundef %27)
+34:                                               ; preds = %25
+  %35 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %29, i32 noundef %23, i32 noundef %28)
   br label %_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit
 
-_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %32, %33
+_ZN2OT27hb_colrv1_closure_context_t13add_var_idxesEjj.exit: ; preds = %2, %33, %34
   ret void
 }
 

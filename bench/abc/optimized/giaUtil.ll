@@ -12790,7 +12790,7 @@ define i32 @Gia_ManCountPosWithNonZeroDrivers(ptr noundef readonly captures(none
 
 8:                                                ; preds = %.lr.ph.split, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %8 ]
-  %.016 = phi i32 [ 0, %.lr.ph.split ], [ %22, %8 ]
+  %.016 = phi i32 [ 0, %.lr.ph.split ], [ %21, %8 ]
   %9 = getelementptr inbounds nuw i32, ptr %.val13.val, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !3
   %11 = sext i32 %10 to i64
@@ -12801,17 +12801,16 @@ define i32 @Gia_ManCountPosWithNonZeroDrivers(ptr noundef readonly captures(none
   %15 = sub nsw i32 %10, %14
   %16 = lshr i32 %13, 29
   %17 = and i32 %16, 1
-  %18 = shl nsw i32 %15, 1
-  %19 = or disjoint i32 %18, %17
-  %20 = icmp ne i32 %19, 0
-  %21 = zext i1 %20 to i32
-  %22 = add nuw nsw i32 %.016, %21
+  %18 = or i32 %15, %17
+  %19 = icmp ne i32 %18, 0
+  %20 = zext i1 %19 to i32
+  %21 = add nuw nsw i32 %.016, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !179
 
 .critedge:                                        ; preds = %8, %.lr.ph, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %22, %8 ]
+  %.0.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %21, %8 ]
   ret i32 %.0.lcssa
 }
 

@@ -2125,136 +2125,129 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT4ltag8sanitizeEP21hb_sani
 
 13:                                               ; preds = %2
   %14 = load i8, ptr %0, align 1
-  %15 = zext i8 %14 to i32
-  %16 = shl nuw i32 %15, 24
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %16 = load i8, ptr %15, align 1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %18 = load i8, ptr %17, align 1
-  %19 = zext i8 %18 to i32
-  %20 = shl nuw nsw i32 %19, 16
-  %21 = or disjoint i32 %20, %16
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %23 = load i8, ptr %22, align 1
-  %24 = zext i8 %23 to i32
-  %25 = shl nuw nsw i32 %24, 8
-  %26 = or disjoint i32 %21, %25
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %28 = load i8, ptr %27, align 1
-  %29 = zext i8 %28 to i32
-  %30 = or disjoint i32 %26, %29
-  %.not21 = icmp eq i32 %30, 0
-  br i1 %.not21, label %_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %31
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %20 = load i8, ptr %19, align 1
+  %21 = or i8 %16, %14
+  %22 = or i8 %21, %18
+  %23 = or i8 %22, %20
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %25
 
-31:                                               ; preds = %13
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load i8, ptr %32, align 1
-  %34 = zext i8 %33 to i32
-  %35 = shl nuw i32 %34, 24
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %37 = load i8, ptr %36, align 1
-  %38 = zext i8 %37 to i32
-  %39 = shl nuw nsw i32 %38, 16
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %41 = load i8, ptr %40, align 1
-  %42 = zext i8 %41 to i32
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %44 = load i8, ptr %43, align 1
-  %45 = zext i8 %44 to i32
-  %46 = or disjoint i32 %39, %35
-  %47 = or disjoint i32 %46, %45
-  %48 = shl nuw nsw i32 %42, 10
-  %49 = shl i32 %47, 2
-  %50 = or disjoint i32 %49, %48
-  %51 = icmp ugt i8 %33, 63
-  br i1 %51, label %_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %52
+25:                                               ; preds = %13
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = load i8, ptr %26, align 1
+  %28 = zext i8 %27 to i32
+  %29 = shl nuw i32 %28, 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %31 = load i8, ptr %30, align 1
+  %32 = zext i8 %31 to i32
+  %33 = shl nuw nsw i32 %32, 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %35 = load i8, ptr %34, align 1
+  %36 = zext i8 %35 to i32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %38 = load i8, ptr %37, align 1
+  %39 = zext i8 %38 to i32
+  %40 = or disjoint i32 %33, %29
+  %41 = or disjoint i32 %40, %39
+  %42 = shl nuw nsw i32 %36, 10
+  %43 = shl i32 %41, 2
+  %44 = or disjoint i32 %43, %42
+  %45 = icmp ugt i8 %27, 63
+  br i1 %45, label %_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %46
 
-52:                                               ; preds = %31
-  %53 = load ptr, ptr %12, align 8
-  %54 = ptrtoint ptr %53 to i64
-  %55 = sub i64 %54, %6
-  %56 = trunc i64 %55 to i32
-  %.not20.i = icmp ugt i32 %50, %56
+46:                                               ; preds = %25
+  %47 = load ptr, ptr %12, align 8
+  %48 = ptrtoint ptr %47 to i64
+  %49 = sub i64 %48, %6
+  %50 = trunc i64 %49 to i32
+  %.not20.i = icmp ugt i32 %44, %50
   br i1 %.not20.i, label %_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
 
-_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit: ; preds = %52
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %58 = load i32, ptr %57, align 4
-  %59 = sub i32 %58, %50
-  store i32 %59, ptr %57, align 4
-  %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %61, label %_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread
+_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit: ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %52 = load i32, ptr %51, align 4
+  %53 = sub i32 %52, %44
+  store i32 %53, ptr %51, align 4
+  %54 = icmp sgt i32 %53, 0
+  br i1 %54, label %55, label %_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread
 
-61:                                               ; preds = %_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
-  %62 = load i8, ptr %32, align 1
-  %63 = zext i8 %62 to i32
-  %64 = shl nuw i32 %63, 24
-  %65 = load i8, ptr %36, align 1
-  %66 = zext i8 %65 to i32
-  %67 = shl nuw nsw i32 %66, 16
-  %68 = or disjoint i32 %67, %64
-  %69 = load i8, ptr %40, align 1
-  %70 = zext i8 %69 to i32
-  %71 = shl nuw nsw i32 %70, 8
-  %72 = or disjoint i32 %68, %71
-  %73 = load i8, ptr %43, align 1
-  %74 = zext i8 %73 to i32
-  %75 = or disjoint i32 %72, %74
-  %.not33 = icmp eq i32 %75, 0
+55:                                               ; preds = %_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
+  %56 = load i8, ptr %26, align 1
+  %57 = zext i8 %56 to i32
+  %58 = shl nuw i32 %57, 24
+  %59 = load i8, ptr %30, align 1
+  %60 = zext i8 %59 to i32
+  %61 = shl nuw nsw i32 %60, 16
+  %62 = or disjoint i32 %61, %58
+  %63 = load i8, ptr %34, align 1
+  %64 = zext i8 %63 to i32
+  %65 = shl nuw nsw i32 %64, 8
+  %66 = or disjoint i32 %62, %65
+  %67 = load i8, ptr %37, align 1
+  %68 = zext i8 %67 to i32
+  %69 = or disjoint i32 %66, %68
+  %.not33 = icmp eq i32 %69, 0
   br i1 %.not33, label %_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %61
-  %wide.trip.count = zext i32 %75 to i64
+.lr.ph.preheader:                                 ; preds = %55
+  %wide.trip.count = zext i32 %69 to i64
   br label %.lr.ph
 
-76:                                               ; preds = %_ZN21hb_sanitize_context_t8dispatchIN3AAT13FTStringRangeEJPKNS1_4ltagEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit
+70:                                               ; preds = %_ZN21hb_sanitize_context_t8dispatchIN3AAT13FTStringRangeEJPKNS1_4ltagEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %.lr.ph, !llvm.loop !15
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %76
-  %77 = phi i32 [ %59, %.lr.ph.preheader ], [ %103, %76 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %76 ]
-  %78 = getelementptr inbounds nuw [1 x %"struct.AAT::FTStringRange"], ptr %3, i64 0, i64 %indvars.iv
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  %80 = ptrtoint ptr %79 to i64
-  %81 = sub i64 %80, %7
-  %.not.i.i.i = icmp ugt i64 %81, %11
-  br i1 %.not.i.i.i, label %_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %82
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %70
+  %71 = phi i32 [ %53, %.lr.ph.preheader ], [ %97, %70 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %70 ]
+  %72 = getelementptr inbounds nuw [1 x %"struct.AAT::FTStringRange"], ptr %3, i64 0, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
+  %74 = ptrtoint ptr %73 to i64
+  %75 = sub i64 %74, %7
+  %.not.i.i.i = icmp ugt i64 %75, %11
+  br i1 %.not.i.i.i, label %_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %76
 
-82:                                               ; preds = %.lr.ph
-  %83 = load i8, ptr %78, align 1
-  %84 = zext i8 %83 to i64
-  %85 = shl nuw nsw i64 %84, 8
-  %86 = getelementptr inbounds nuw i8, ptr %78, i64 1
-  %87 = load i8, ptr %86, align 1
-  %88 = zext i8 %87 to i64
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 %85
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %88
-  %91 = getelementptr inbounds nuw i8, ptr %78, i64 2
-  %92 = load i8, ptr %91, align 1
-  %93 = zext i8 %92 to i32
-  %94 = shl nuw nsw i32 %93, 8
-  %95 = getelementptr inbounds nuw i8, ptr %78, i64 3
-  %96 = load i8, ptr %95, align 1
-  %97 = zext i8 %96 to i32
-  %98 = or disjoint i32 %94, %97
-  %99 = ptrtoint ptr %90 to i64
-  %100 = sub i64 %99, %7
-  %.not.i.i.i.i.i.i = icmp ugt i64 %100, %11
-  %101 = sub i64 %54, %99
-  %102 = trunc i64 %101 to i32
-  %.not16.i.i.i.i.i.i = icmp ugt i32 %98, %102
+76:                                               ; preds = %.lr.ph
+  %77 = load i8, ptr %72, align 1
+  %78 = zext i8 %77 to i64
+  %79 = shl nuw nsw i64 %78, 8
+  %80 = getelementptr inbounds nuw i8, ptr %72, i64 1
+  %81 = load i8, ptr %80, align 1
+  %82 = zext i8 %81 to i64
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 %79
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 %82
+  %85 = getelementptr inbounds nuw i8, ptr %72, i64 2
+  %86 = load i8, ptr %85, align 1
+  %87 = zext i8 %86 to i32
+  %88 = shl nuw nsw i32 %87, 8
+  %89 = getelementptr inbounds nuw i8, ptr %72, i64 3
+  %90 = load i8, ptr %89, align 1
+  %91 = zext i8 %90 to i32
+  %92 = or disjoint i32 %88, %91
+  %93 = ptrtoint ptr %84 to i64
+  %94 = sub i64 %93, %7
+  %.not.i.i.i.i.i.i = icmp ugt i64 %94, %11
+  %95 = sub i64 %48, %93
+  %96 = trunc i64 %95 to i32
+  %.not16.i.i.i.i.i.i = icmp ugt i32 %92, %96
   %or.cond = select i1 %.not.i.i.i.i.i.i, i1 true, i1 %.not16.i.i.i.i.i.i
   br i1 %or.cond, label %_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %_ZN21hb_sanitize_context_t8dispatchIN3AAT13FTStringRangeEJPKNS1_4ltagEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit
 
-_ZN21hb_sanitize_context_t8dispatchIN3AAT13FTStringRangeEJPKNS1_4ltagEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit: ; preds = %82
-  %103 = sub i32 %77, %98
-  store i32 %103, ptr %57, align 4
-  %104 = icmp sgt i32 %103, 0
-  br i1 %104, label %76, label %_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread
+_ZN21hb_sanitize_context_t8dispatchIN3AAT13FTStringRangeEJPKNS1_4ltagEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit: ; preds = %76
+  %97 = sub i32 %71, %92
+  store i32 %97, ptr %51, align 4
+  %98 = icmp sgt i32 %97, 0
+  br i1 %98, label %70, label %_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread
 
-_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread: ; preds = %82, %.lr.ph, %76, %_ZN21hb_sanitize_context_t8dispatchIN3AAT13FTStringRangeEJPKNS1_4ltagEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit, %61, %_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit, %31, %52, %13, %2
-  %105 = phi i1 [ false, %13 ], [ false, %2 ], [ false, %_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %31 ], [ false, %52 ], [ true, %61 ], [ false, %82 ], [ false, %.lr.ph ], [ true, %76 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN3AAT13FTStringRangeEJPKNS1_4ltagEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit ]
-  ret i1 %105
+_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread: ; preds = %76, %.lr.ph, %70, %_ZN21hb_sanitize_context_t8dispatchIN3AAT13FTStringRangeEJPKNS1_4ltagEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit, %55, %_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit, %25, %46, %13, %2
+  %99 = phi i1 [ false, %13 ], [ false, %2 ], [ false, %_ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %25 ], [ false, %46 ], [ true, %55 ], [ false, %76 ], [ false, %.lr.ph ], [ true, %70 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN3AAT13FTStringRangeEJPKNS1_4ltagEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit ]
+  ret i1 %99
 }
 
 declare ptr @hb_language_from_string(ptr noundef, i32 noundef) local_unnamed_addr #4

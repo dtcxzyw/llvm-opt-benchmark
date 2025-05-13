@@ -65,13 +65,13 @@ $_ZN21hb_sanitize_context_t13sanitize_blobIN2OT4postEEEP9hb_blob_tS4_ = comdat a
 define hidden noundef zeroext i1 @_Z34_hb_ot_metrics_get_position_commonP9hb_font_t19hb_ot_metrics_tag_tPi(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  switch i32 %1, label %563 [
+  switch i32 %1, label %518 [
     i32 1751216995, label %6
-    i32 1751413603, label %142
-    i32 1751934832, label %278
-    i32 1986098019, label %412
-    i32 1986294627, label %462
-    i32 1986815856, label %512
+    i32 1751413603, label %130
+    i32 1751934832, label %254
+    i32 1986098019, label %376
+    i32 1986294627, label %423
+    i32 1986815856, label %470
   ]
 
 6:                                                ; preds = %3
@@ -86,7 +86,7 @@ define hidden noundef zeroext i1 @_Z34_hb_ot_metrics_get_position_commonP9hb_fon
   %14 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 63
   %15 = load i8, ptr %14, align 1
   %16 = icmp slt i8 %15, 0
-  br i1 %16, label %17, label %92
+  br i1 %16, label %17, label %83
 
 17:                                               ; preds = %6
   %18 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -98,681 +98,627 @@ define hidden noundef zeroext i1 @_Z34_hb_ot_metrics_get_position_commonP9hb_fon
   %spec.select.i.i.i.i.i115 = select i1 %23, ptr @_hb_NullPool, ptr %20
   %24 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i115, i64 4
   %25 = load i8, ptr %24, align 1
-  %26 = zext i8 %25 to i32
-  %27 = shl nuw nsw i32 %26, 8
-  %28 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i115, i64 5
-  %29 = load i8, ptr %28, align 1
-  %30 = zext i8 %29 to i32
-  %31 = or disjoint i32 %27, %30
-  %.not.i = icmp eq i32 %31, 0
-  br i1 %.not.i, label %32, label %_ZNK2OT3OS28has_dataEv.exit.thread
+  %26 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i115, i64 5
+  %27 = load i8, ptr %26, align 1
+  %28 = or i8 %27, %25
+  %29 = icmp eq i8 %28, 0
+  br i1 %29, label %30, label %_ZNK2OT3OS28has_dataEv.exit.thread
 
-32:                                               ; preds = %17
-  %33 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i115, i64 6
+30:                                               ; preds = %17
+  %31 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i115, i64 6
+  %32 = load i8, ptr %31, align 1
+  %33 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i115, i64 7
   %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  %36 = shl nuw nsw i32 %35, 8
-  %37 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i115, i64 7
-  %38 = load i8, ptr %37, align 1
-  %39 = zext i8 %38 to i32
-  %40 = or disjoint i32 %36, %39
-  %.not1.i = icmp eq i32 %40, 0
-  br i1 %.not1.i, label %41, label %_ZNK2OT3OS28has_dataEv.exit.thread
+  %35 = or i8 %34, %32
+  %36 = icmp eq i8 %35, 0
+  br i1 %36, label %37, label %_ZNK2OT3OS28has_dataEv.exit.thread
 
-41:                                               ; preds = %32
-  %42 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i115, i64 64
-  %43 = load i8, ptr %42, align 1
-  %44 = zext i8 %43 to i32
-  %45 = shl nuw nsw i32 %44, 8
-  %46 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i115, i64 65
+37:                                               ; preds = %30
+  %38 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i115, i64 64
+  %39 = load i8, ptr %38, align 1
+  %40 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i115, i64 65
+  %41 = load i8, ptr %40, align 1
+  %42 = or i8 %41, %39
+  %43 = icmp eq i8 %42, 0
+  br i1 %43, label %_ZNK2OT3OS28has_dataEv.exit, label %_ZNK2OT3OS28has_dataEv.exit.thread
+
+_ZNK2OT3OS28has_dataEv.exit:                      ; preds = %37
+  %44 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i115, i64 66
+  %45 = load i8, ptr %44, align 1
+  %46 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i115, i64 67
   %47 = load i8, ptr %46, align 1
-  %48 = zext i8 %47 to i32
-  %49 = or disjoint i32 %45, %48
-  %.not2.i = icmp eq i32 %49, 0
-  br i1 %.not2.i, label %_ZNK2OT3OS28has_dataEv.exit, label %_ZNK2OT3OS28has_dataEv.exit.thread
+  %48 = or i8 %47, %45
+  %.not150 = icmp eq i8 %48, 0
+  br i1 %.not150, label %83, label %_ZNK2OT3OS28has_dataEv.exit.thread
 
-_ZNK2OT3OS28has_dataEv.exit:                      ; preds = %41
-  %50 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i115, i64 66
-  %51 = load i8, ptr %50, align 1
-  %52 = zext i8 %51 to i32
-  %53 = shl nuw nsw i32 %52, 8
-  %54 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i115, i64 67
-  %55 = load i8, ptr %54, align 1
-  %56 = zext i8 %55 to i32
-  %57 = or disjoint i32 %53, %56
-  %.not156 = icmp eq i32 %57, 0
-  br i1 %.not156, label %92, label %_ZNK2OT3OS28has_dataEv.exit.thread
-
-_ZNK2OT3OS28has_dataEv.exit.thread:               ; preds = %17, %32, %41, %_ZNK2OT3OS28has_dataEv.exit
+_ZNK2OT3OS28has_dataEv.exit.thread:               ; preds = %17, %30, %37, %_ZNK2OT3OS28has_dataEv.exit
   %.not109 = icmp eq ptr %2, null
-  br i1 %.not109, label %563, label %58
+  br i1 %.not109, label %518, label %49
 
-58:                                               ; preds = %_ZNK2OT3OS28has_dataEv.exit.thread
-  %59 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %63 = load i32, ptr %62, align 8
-  %64 = icmp ult i32 %63, 78
-  %spec.select.i.i.i.i.i116 = select i1 %64, ptr @_hb_NullPool, ptr %61
-  %65 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i116, i64 68
-  %66 = load i8, ptr %65, align 1
-  %67 = zext i8 %66 to i16
-  %68 = shl nuw i16 %67, 8
-  %69 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i116, i64 69
-  %70 = load i8, ptr %69, align 1
-  %71 = zext i8 %70 to i16
-  %72 = or disjoint i16 %68, %71
-  %73 = sitofp i16 %72 to float
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  %75 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_tLj22E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %74)
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %79 = load i32, ptr %78, align 8
-  %80 = icmp ult i32 %79, 12
-  %spec.select.i.i.i.i.i117 = select i1 %80, ptr @_hb_NullPool, ptr %77
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %84 = load i32, ptr %83, align 8
-  %85 = tail call noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef nonnull align 1 dereferenceable(13) %spec.select.i.i.i.i.i117, i32 noundef 1751216995, ptr noundef %82, i32 noundef %84)
-  %86 = fadd float %85, %73
-  %87 = tail call float @llvm.fabs.f32(float %86)
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %89 = load float, ptr %88, align 8
-  %90 = fmul float %89, %87
-  %91 = fadd float %90, 5.000000e-01
+49:                                               ; preds = %_ZNK2OT3OS28has_dataEv.exit.thread
+  %50 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %54 = load i32, ptr %53, align 8
+  %55 = icmp ult i32 %54, 78
+  %spec.select.i.i.i.i.i116 = select i1 %55, ptr @_hb_NullPool, ptr %52
+  %56 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i116, i64 68
+  %57 = load i8, ptr %56, align 1
+  %58 = zext i8 %57 to i16
+  %59 = shl nuw i16 %58, 8
+  %60 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i116, i64 69
+  %61 = load i8, ptr %60, align 1
+  %62 = zext i8 %61 to i16
+  %63 = or disjoint i16 %59, %62
+  %64 = sitofp i16 %63 to float
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 256
+  %66 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_tLj22E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %65)
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  %70 = load i32, ptr %69, align 8
+  %71 = icmp ult i32 %70, 12
+  %spec.select.i.i.i.i.i117 = select i1 %71, ptr @_hb_NullPool, ptr %68
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %75 = load i32, ptr %74, align 8
+  %76 = tail call noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef nonnull align 1 dereferenceable(13) %spec.select.i.i.i.i.i117, i32 noundef 1751216995, ptr noundef %73, i32 noundef %75)
+  %77 = fadd float %76, %64
+  %78 = tail call float @llvm.fabs.f32(float %77)
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %80 = load float, ptr %79, align 8
+  %81 = fmul float %80, %78
+  %82 = fadd float %81, 5.000000e-01
   br label %.sink.split
 
-92:                                               ; preds = %_ZNK2OT3OS28has_dataEv.exit, %6
-  %93 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %94 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %93)
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %98 = load i32, ptr %97, align 8
-  %99 = icmp ult i32 %98, 36
-  %spec.select.i.i.i.i.i118 = select i1 %99, ptr @_hb_NullPool, ptr %96
-  %100 = load i8, ptr %spec.select.i.i.i.i.i118, align 1
-  %101 = zext i8 %100 to i32
-  %102 = shl nuw nsw i32 %101, 8
-  %103 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i118, i64 1
-  %104 = load i8, ptr %103, align 1
-  %105 = zext i8 %104 to i32
-  %106 = or disjoint i32 %102, %105
-  %.not157 = icmp eq i32 %106, 0
-  br i1 %.not157, label %563, label %107
+83:                                               ; preds = %_ZNK2OT3OS28has_dataEv.exit, %6
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %85 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %84)
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 24
+  %89 = load i32, ptr %88, align 8
+  %90 = icmp ult i32 %89, 36
+  %spec.select.i.i.i.i.i118 = select i1 %90, ptr @_hb_NullPool, ptr %87
+  %91 = load i8, ptr %spec.select.i.i.i.i.i118, align 1
+  %92 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i118, i64 1
+  %93 = load i8, ptr %92, align 1
+  %94 = or i8 %93, %91
+  %.not151 = icmp eq i8 %94, 0
+  br i1 %.not151, label %518, label %95
 
-107:                                              ; preds = %92
+95:                                               ; preds = %83
   %.not108 = icmp eq ptr %2, null
-  br i1 %.not108, label %563, label %108
+  br i1 %.not108, label %518, label %96
 
-108:                                              ; preds = %107
-  %109 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %93)
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %109, i64 24
-  %113 = load i32, ptr %112, align 8
-  %114 = icmp ult i32 %113, 36
-  %spec.select.i.i.i.i.i119 = select i1 %114, ptr @_hb_NullPool, ptr %111
-  %115 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i119, i64 4
-  %116 = load i8, ptr %115, align 1
-  %117 = zext i8 %116 to i16
-  %118 = shl nuw i16 %117, 8
-  %119 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i119, i64 5
-  %120 = load i8, ptr %119, align 1
-  %121 = zext i8 %120 to i16
-  %122 = or disjoint i16 %118, %121
-  %123 = sitofp i16 %122 to float
-  %124 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  %125 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_tLj22E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %124)
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %125, i64 24
-  %129 = load i32, ptr %128, align 8
-  %130 = icmp ult i32 %129, 12
-  %spec.select.i.i.i.i.i120 = select i1 %130, ptr @_hb_NullPool, ptr %127
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %134 = load i32, ptr %133, align 8
-  %135 = tail call noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef nonnull align 1 dereferenceable(13) %spec.select.i.i.i.i.i120, i32 noundef 1751216995, ptr noundef %132, i32 noundef %134)
-  %136 = fadd float %135, %123
-  %137 = tail call float @llvm.fabs.f32(float %136)
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %139 = load float, ptr %138, align 8
-  %140 = fmul float %139, %137
-  %141 = fadd float %140, 5.000000e-01
+96:                                               ; preds = %95
+  %97 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %84)
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 24
+  %101 = load i32, ptr %100, align 8
+  %102 = icmp ult i32 %101, 36
+  %spec.select.i.i.i.i.i119 = select i1 %102, ptr @_hb_NullPool, ptr %99
+  %103 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i119, i64 4
+  %104 = load i8, ptr %103, align 1
+  %105 = zext i8 %104 to i16
+  %106 = shl nuw i16 %105, 8
+  %107 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i119, i64 5
+  %108 = load i8, ptr %107, align 1
+  %109 = zext i8 %108 to i16
+  %110 = or disjoint i16 %106, %109
+  %111 = sitofp i16 %110 to float
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 256
+  %113 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_tLj22E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %112)
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %113, i64 24
+  %117 = load i32, ptr %116, align 8
+  %118 = icmp ult i32 %117, 12
+  %spec.select.i.i.i.i.i120 = select i1 %118, ptr @_hb_NullPool, ptr %115
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %122 = load i32, ptr %121, align 8
+  %123 = tail call noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef nonnull align 1 dereferenceable(13) %spec.select.i.i.i.i.i120, i32 noundef 1751216995, ptr noundef %120, i32 noundef %122)
+  %124 = fadd float %123, %111
+  %125 = tail call float @llvm.fabs.f32(float %124)
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %127 = load float, ptr %126, align 8
+  %128 = fmul float %127, %125
+  %129 = fadd float %128, 5.000000e-01
   br label %.sink.split
 
-142:                                              ; preds = %3
-  %143 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %144 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %143)
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %144, i64 24
-  %148 = load i32, ptr %147, align 8
-  %149 = icmp ult i32 %148, 78
-  %spec.select.i.i.i.i.i121 = select i1 %149, ptr @_hb_NullPool, ptr %146
-  %150 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i121, i64 63
+130:                                              ; preds = %3
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %132 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %131)
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 24
+  %136 = load i32, ptr %135, align 8
+  %137 = icmp ult i32 %136, 78
+  %spec.select.i.i.i.i.i121 = select i1 %137, ptr @_hb_NullPool, ptr %134
+  %138 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i121, i64 63
+  %139 = load i8, ptr %138, align 1
+  %140 = icmp slt i8 %139, 0
+  br i1 %140, label %141, label %207
+
+141:                                              ; preds = %130
+  %142 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %131)
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %142, i64 24
+  %146 = load i32, ptr %145, align 8
+  %147 = icmp ult i32 %146, 78
+  %spec.select.i.i.i.i.i122 = select i1 %147, ptr @_hb_NullPool, ptr %144
+  %148 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i122, i64 4
+  %149 = load i8, ptr %148, align 1
+  %150 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i122, i64 5
   %151 = load i8, ptr %150, align 1
-  %152 = icmp slt i8 %151, 0
-  br i1 %152, label %153, label %228
+  %152 = or i8 %151, %149
+  %153 = icmp eq i8 %152, 0
+  br i1 %153, label %154, label %_ZNK2OT3OS28has_dataEv.exit123.thread
 
-153:                                              ; preds = %142
-  %154 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %143)
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
-  %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %154, i64 24
-  %158 = load i32, ptr %157, align 8
-  %159 = icmp ult i32 %158, 78
-  %spec.select.i.i.i.i.i122 = select i1 %159, ptr @_hb_NullPool, ptr %156
-  %160 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i122, i64 4
-  %161 = load i8, ptr %160, align 1
-  %162 = zext i8 %161 to i32
-  %163 = shl nuw nsw i32 %162, 8
-  %164 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i122, i64 5
+154:                                              ; preds = %141
+  %155 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i122, i64 6
+  %156 = load i8, ptr %155, align 1
+  %157 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i122, i64 7
+  %158 = load i8, ptr %157, align 1
+  %159 = or i8 %158, %156
+  %160 = icmp eq i8 %159, 0
+  br i1 %160, label %161, label %_ZNK2OT3OS28has_dataEv.exit123.thread
+
+161:                                              ; preds = %154
+  %162 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i122, i64 64
+  %163 = load i8, ptr %162, align 1
+  %164 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i122, i64 65
   %165 = load i8, ptr %164, align 1
-  %166 = zext i8 %165 to i32
-  %167 = or disjoint i32 %163, %166
-  %.not.i123 = icmp eq i32 %167, 0
-  br i1 %.not.i123, label %168, label %_ZNK2OT3OS28has_dataEv.exit126.thread
+  %166 = or i8 %165, %163
+  %167 = icmp eq i8 %166, 0
+  br i1 %167, label %_ZNK2OT3OS28has_dataEv.exit123, label %_ZNK2OT3OS28has_dataEv.exit123.thread
 
-168:                                              ; preds = %153
-  %169 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i122, i64 6
-  %170 = load i8, ptr %169, align 1
-  %171 = zext i8 %170 to i32
-  %172 = shl nuw nsw i32 %171, 8
-  %173 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i122, i64 7
-  %174 = load i8, ptr %173, align 1
-  %175 = zext i8 %174 to i32
-  %176 = or disjoint i32 %172, %175
-  %.not1.i124 = icmp eq i32 %176, 0
-  br i1 %.not1.i124, label %177, label %_ZNK2OT3OS28has_dataEv.exit126.thread
+_ZNK2OT3OS28has_dataEv.exit123:                   ; preds = %161
+  %168 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i122, i64 66
+  %169 = load i8, ptr %168, align 1
+  %170 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i122, i64 67
+  %171 = load i8, ptr %170, align 1
+  %172 = or i8 %171, %169
+  %.not148 = icmp eq i8 %172, 0
+  br i1 %.not148, label %207, label %_ZNK2OT3OS28has_dataEv.exit123.thread
 
-177:                                              ; preds = %168
-  %178 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i122, i64 64
-  %179 = load i8, ptr %178, align 1
-  %180 = zext i8 %179 to i32
-  %181 = shl nuw nsw i32 %180, 8
-  %182 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i122, i64 65
-  %183 = load i8, ptr %182, align 1
-  %184 = zext i8 %183 to i32
-  %185 = or disjoint i32 %181, %184
-  %.not2.i125 = icmp eq i32 %185, 0
-  br i1 %.not2.i125, label %_ZNK2OT3OS28has_dataEv.exit126, label %_ZNK2OT3OS28has_dataEv.exit126.thread
-
-_ZNK2OT3OS28has_dataEv.exit126:                   ; preds = %177
-  %186 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i122, i64 66
-  %187 = load i8, ptr %186, align 1
-  %188 = zext i8 %187 to i32
-  %189 = shl nuw nsw i32 %188, 8
-  %190 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i122, i64 67
-  %191 = load i8, ptr %190, align 1
-  %192 = zext i8 %191 to i32
-  %193 = or disjoint i32 %189, %192
-  %.not154 = icmp eq i32 %193, 0
-  br i1 %.not154, label %228, label %_ZNK2OT3OS28has_dataEv.exit126.thread
-
-_ZNK2OT3OS28has_dataEv.exit126.thread:            ; preds = %153, %168, %177, %_ZNK2OT3OS28has_dataEv.exit126
+_ZNK2OT3OS28has_dataEv.exit123.thread:            ; preds = %141, %154, %161, %_ZNK2OT3OS28has_dataEv.exit123
   %.not107 = icmp eq ptr %2, null
-  br i1 %.not107, label %563, label %194
+  br i1 %.not107, label %518, label %173
 
-194:                                              ; preds = %_ZNK2OT3OS28has_dataEv.exit126.thread
-  %195 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %143)
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
+173:                                              ; preds = %_ZNK2OT3OS28has_dataEv.exit123.thread
+  %174 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %131)
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 16
+  %176 = load ptr, ptr %175, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %174, i64 24
+  %178 = load i32, ptr %177, align 8
+  %179 = icmp ult i32 %178, 78
+  %spec.select.i.i.i.i.i124 = select i1 %179, ptr @_hb_NullPool, ptr %176
+  %180 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i124, i64 70
+  %181 = load i8, ptr %180, align 1
+  %182 = zext i8 %181 to i16
+  %183 = shl nuw i16 %182, 8
+  %184 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i124, i64 71
+  %185 = load i8, ptr %184, align 1
+  %186 = zext i8 %185 to i16
+  %187 = or disjoint i16 %183, %186
+  %188 = sitofp i16 %187 to float
+  %189 = getelementptr inbounds nuw i8, ptr %5, i64 256
+  %190 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_tLj22E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %189)
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
+  %192 = load ptr, ptr %191, align 8
+  %193 = getelementptr inbounds nuw i8, ptr %190, i64 24
+  %194 = load i32, ptr %193, align 8
+  %195 = icmp ult i32 %194, 12
+  %spec.select.i.i.i.i.i125 = select i1 %195, ptr @_hb_NullPool, ptr %192
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds nuw i8, ptr %195, i64 24
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %199 = load i32, ptr %198, align 8
-  %200 = icmp ult i32 %199, 78
-  %spec.select.i.i.i.i.i127 = select i1 %200, ptr @_hb_NullPool, ptr %197
-  %201 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i127, i64 70
-  %202 = load i8, ptr %201, align 1
-  %203 = zext i8 %202 to i16
-  %204 = shl nuw i16 %203, 8
-  %205 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i127, i64 71
-  %206 = load i8, ptr %205, align 1
-  %207 = zext i8 %206 to i16
-  %208 = or disjoint i16 %204, %207
-  %209 = sitofp i16 %208 to float
-  %210 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  %211 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_tLj22E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %210)
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 16
-  %213 = load ptr, ptr %212, align 8
-  %214 = getelementptr inbounds nuw i8, ptr %211, i64 24
-  %215 = load i32, ptr %214, align 8
-  %216 = icmp ult i32 %215, 12
-  %spec.select.i.i.i.i.i128 = select i1 %216, ptr @_hb_NullPool, ptr %213
-  %217 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %218 = load ptr, ptr %217, align 8
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %220 = load i32, ptr %219, align 8
-  %221 = tail call noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef nonnull align 1 dereferenceable(13) %spec.select.i.i.i.i.i128, i32 noundef 1751413603, ptr noundef %218, i32 noundef %220)
-  %222 = fadd float %221, %209
-  %223 = tail call float @llvm.fabs.f32(float %222)
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %225 = load float, ptr %224, align 8
-  %226 = fmul float %225, %223
-  %227 = fsub float 5.000000e-01, %226
+  %200 = tail call noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef nonnull align 1 dereferenceable(13) %spec.select.i.i.i.i.i125, i32 noundef 1751413603, ptr noundef %197, i32 noundef %199)
+  %201 = fadd float %200, %188
+  %202 = tail call float @llvm.fabs.f32(float %201)
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %204 = load float, ptr %203, align 8
+  %205 = fmul float %204, %202
+  %206 = fsub float 5.000000e-01, %205
   br label %.sink.split
 
-228:                                              ; preds = %_ZNK2OT3OS28has_dataEv.exit126, %142
-  %229 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %230 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %229)
-  %231 = getelementptr inbounds nuw i8, ptr %230, i64 16
-  %232 = load ptr, ptr %231, align 8
-  %233 = getelementptr inbounds nuw i8, ptr %230, i64 24
-  %234 = load i32, ptr %233, align 8
-  %235 = icmp ult i32 %234, 36
-  %spec.select.i.i.i.i.i129 = select i1 %235, ptr @_hb_NullPool, ptr %232
-  %236 = load i8, ptr %spec.select.i.i.i.i.i129, align 1
-  %237 = zext i8 %236 to i32
-  %238 = shl nuw nsw i32 %237, 8
-  %239 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i129, i64 1
-  %240 = load i8, ptr %239, align 1
-  %241 = zext i8 %240 to i32
-  %242 = or disjoint i32 %238, %241
-  %.not155 = icmp eq i32 %242, 0
-  br i1 %.not155, label %563, label %243
+207:                                              ; preds = %_ZNK2OT3OS28has_dataEv.exit123, %130
+  %208 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %209 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %208)
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 16
+  %211 = load ptr, ptr %210, align 8
+  %212 = getelementptr inbounds nuw i8, ptr %209, i64 24
+  %213 = load i32, ptr %212, align 8
+  %214 = icmp ult i32 %213, 36
+  %spec.select.i.i.i.i.i126 = select i1 %214, ptr @_hb_NullPool, ptr %211
+  %215 = load i8, ptr %spec.select.i.i.i.i.i126, align 1
+  %216 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i126, i64 1
+  %217 = load i8, ptr %216, align 1
+  %218 = or i8 %217, %215
+  %.not149 = icmp eq i8 %218, 0
+  br i1 %.not149, label %518, label %219
 
-243:                                              ; preds = %228
+219:                                              ; preds = %207
   %.not106 = icmp eq ptr %2, null
-  br i1 %.not106, label %563, label %244
+  br i1 %.not106, label %518, label %220
 
-244:                                              ; preds = %243
-  %245 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %229)
-  %246 = getelementptr inbounds nuw i8, ptr %245, i64 16
-  %247 = load ptr, ptr %246, align 8
-  %248 = getelementptr inbounds nuw i8, ptr %245, i64 24
-  %249 = load i32, ptr %248, align 8
-  %250 = icmp ult i32 %249, 36
-  %spec.select.i.i.i.i.i130 = select i1 %250, ptr @_hb_NullPool, ptr %247
-  %251 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i130, i64 6
-  %252 = load i8, ptr %251, align 1
-  %253 = zext i8 %252 to i16
-  %254 = shl nuw i16 %253, 8
-  %255 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i130, i64 7
-  %256 = load i8, ptr %255, align 1
-  %257 = zext i8 %256 to i16
-  %258 = or disjoint i16 %254, %257
-  %259 = sitofp i16 %258 to float
-  %260 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  %261 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_tLj22E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %260)
-  %262 = getelementptr inbounds nuw i8, ptr %261, i64 16
-  %263 = load ptr, ptr %262, align 8
-  %264 = getelementptr inbounds nuw i8, ptr %261, i64 24
-  %265 = load i32, ptr %264, align 8
-  %266 = icmp ult i32 %265, 12
-  %spec.select.i.i.i.i.i131 = select i1 %266, ptr @_hb_NullPool, ptr %263
-  %267 = getelementptr inbounds nuw i8, ptr %0, i64 128
+220:                                              ; preds = %219
+  %221 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %208)
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 16
+  %223 = load ptr, ptr %222, align 8
+  %224 = getelementptr inbounds nuw i8, ptr %221, i64 24
+  %225 = load i32, ptr %224, align 8
+  %226 = icmp ult i32 %225, 36
+  %spec.select.i.i.i.i.i127 = select i1 %226, ptr @_hb_NullPool, ptr %223
+  %227 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i127, i64 6
+  %228 = load i8, ptr %227, align 1
+  %229 = zext i8 %228 to i16
+  %230 = shl nuw i16 %229, 8
+  %231 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i127, i64 7
+  %232 = load i8, ptr %231, align 1
+  %233 = zext i8 %232 to i16
+  %234 = or disjoint i16 %230, %233
+  %235 = sitofp i16 %234 to float
+  %236 = getelementptr inbounds nuw i8, ptr %5, i64 256
+  %237 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_tLj22E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %236)
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 16
+  %239 = load ptr, ptr %238, align 8
+  %240 = getelementptr inbounds nuw i8, ptr %237, i64 24
+  %241 = load i32, ptr %240, align 8
+  %242 = icmp ult i32 %241, 12
+  %spec.select.i.i.i.i.i128 = select i1 %242, ptr @_hb_NullPool, ptr %239
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %244 = load ptr, ptr %243, align 8
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %246 = load i32, ptr %245, align 8
+  %247 = tail call noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef nonnull align 1 dereferenceable(13) %spec.select.i.i.i.i.i128, i32 noundef 1751413603, ptr noundef %244, i32 noundef %246)
+  %248 = fadd float %247, %235
+  %249 = tail call float @llvm.fabs.f32(float %248)
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %251 = load float, ptr %250, align 8
+  %252 = fmul float %251, %249
+  %253 = fsub float 5.000000e-01, %252
+  br label %.sink.split
+
+254:                                              ; preds = %3
+  %255 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %256 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %255)
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 16
+  %258 = load ptr, ptr %257, align 8
+  %259 = getelementptr inbounds nuw i8, ptr %256, i64 24
+  %260 = load i32, ptr %259, align 8
+  %261 = icmp ult i32 %260, 78
+  %spec.select.i.i.i.i.i129 = select i1 %261, ptr @_hb_NullPool, ptr %258
+  %262 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i129, i64 63
+  %263 = load i8, ptr %262, align 1
+  %264 = icmp slt i8 %263, 0
+  br i1 %264, label %265, label %330
+
+265:                                              ; preds = %254
+  %266 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %255)
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 16
   %268 = load ptr, ptr %267, align 8
-  %269 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %269 = getelementptr inbounds nuw i8, ptr %266, i64 24
   %270 = load i32, ptr %269, align 8
-  %271 = tail call noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef nonnull align 1 dereferenceable(13) %spec.select.i.i.i.i.i131, i32 noundef 1751413603, ptr noundef %268, i32 noundef %270)
-  %272 = fadd float %271, %259
-  %273 = tail call float @llvm.fabs.f32(float %272)
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %275 = load float, ptr %274, align 8
-  %276 = fmul float %275, %273
-  %277 = fsub float 5.000000e-01, %276
-  br label %.sink.split
+  %271 = icmp ult i32 %270, 78
+  %spec.select.i.i.i.i.i130 = select i1 %271, ptr @_hb_NullPool, ptr %268
+  %272 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i130, i64 4
+  %273 = load i8, ptr %272, align 1
+  %274 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i130, i64 5
+  %275 = load i8, ptr %274, align 1
+  %276 = or i8 %275, %273
+  %277 = icmp eq i8 %276, 0
+  br i1 %277, label %278, label %_ZNK2OT3OS28has_dataEv.exit131.thread
 
-278:                                              ; preds = %3
-  %279 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %280 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %279)
-  %281 = getelementptr inbounds nuw i8, ptr %280, i64 16
-  %282 = load ptr, ptr %281, align 8
-  %283 = getelementptr inbounds nuw i8, ptr %280, i64 24
-  %284 = load i32, ptr %283, align 8
-  %285 = icmp ult i32 %284, 78
-  %spec.select.i.i.i.i.i132 = select i1 %285, ptr @_hb_NullPool, ptr %282
-  %286 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i132, i64 63
+278:                                              ; preds = %265
+  %279 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i130, i64 6
+  %280 = load i8, ptr %279, align 1
+  %281 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i130, i64 7
+  %282 = load i8, ptr %281, align 1
+  %283 = or i8 %282, %280
+  %284 = icmp eq i8 %283, 0
+  br i1 %284, label %285, label %_ZNK2OT3OS28has_dataEv.exit131.thread
+
+285:                                              ; preds = %278
+  %286 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i130, i64 64
   %287 = load i8, ptr %286, align 1
-  %288 = icmp slt i8 %287, 0
-  br i1 %288, label %289, label %363
+  %288 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i130, i64 65
+  %289 = load i8, ptr %288, align 1
+  %290 = or i8 %289, %287
+  %291 = icmp eq i8 %290, 0
+  br i1 %291, label %_ZNK2OT3OS28has_dataEv.exit131, label %_ZNK2OT3OS28has_dataEv.exit131.thread
 
-289:                                              ; preds = %278
-  %290 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %279)
-  %291 = getelementptr inbounds nuw i8, ptr %290, i64 16
-  %292 = load ptr, ptr %291, align 8
-  %293 = getelementptr inbounds nuw i8, ptr %290, i64 24
-  %294 = load i32, ptr %293, align 8
-  %295 = icmp ult i32 %294, 78
-  %spec.select.i.i.i.i.i133 = select i1 %295, ptr @_hb_NullPool, ptr %292
-  %296 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i133, i64 4
-  %297 = load i8, ptr %296, align 1
-  %298 = zext i8 %297 to i32
-  %299 = shl nuw nsw i32 %298, 8
-  %300 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i133, i64 5
-  %301 = load i8, ptr %300, align 1
-  %302 = zext i8 %301 to i32
-  %303 = or disjoint i32 %299, %302
-  %.not.i134 = icmp eq i32 %303, 0
-  br i1 %.not.i134, label %304, label %_ZNK2OT3OS28has_dataEv.exit137.thread
+_ZNK2OT3OS28has_dataEv.exit131:                   ; preds = %285
+  %292 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i130, i64 66
+  %293 = load i8, ptr %292, align 1
+  %294 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i130, i64 67
+  %295 = load i8, ptr %294, align 1
+  %296 = or i8 %295, %293
+  %.not146 = icmp eq i8 %296, 0
+  br i1 %.not146, label %330, label %_ZNK2OT3OS28has_dataEv.exit131.thread
 
-304:                                              ; preds = %289
-  %305 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i133, i64 6
-  %306 = load i8, ptr %305, align 1
-  %307 = zext i8 %306 to i32
-  %308 = shl nuw nsw i32 %307, 8
-  %309 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i133, i64 7
-  %310 = load i8, ptr %309, align 1
-  %311 = zext i8 %310 to i32
-  %312 = or disjoint i32 %308, %311
-  %.not1.i135 = icmp eq i32 %312, 0
-  br i1 %.not1.i135, label %313, label %_ZNK2OT3OS28has_dataEv.exit137.thread
-
-313:                                              ; preds = %304
-  %314 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i133, i64 64
-  %315 = load i8, ptr %314, align 1
-  %316 = zext i8 %315 to i32
-  %317 = shl nuw nsw i32 %316, 8
-  %318 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i133, i64 65
-  %319 = load i8, ptr %318, align 1
-  %320 = zext i8 %319 to i32
-  %321 = or disjoint i32 %317, %320
-  %.not2.i136 = icmp eq i32 %321, 0
-  br i1 %.not2.i136, label %_ZNK2OT3OS28has_dataEv.exit137, label %_ZNK2OT3OS28has_dataEv.exit137.thread
-
-_ZNK2OT3OS28has_dataEv.exit137:                   ; preds = %313
-  %322 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i133, i64 66
-  %323 = load i8, ptr %322, align 1
-  %324 = zext i8 %323 to i32
-  %325 = shl nuw nsw i32 %324, 8
-  %326 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i133, i64 67
-  %327 = load i8, ptr %326, align 1
-  %328 = zext i8 %327 to i32
-  %329 = or disjoint i32 %325, %328
-  %.not152 = icmp eq i32 %329, 0
-  br i1 %.not152, label %363, label %_ZNK2OT3OS28has_dataEv.exit137.thread
-
-_ZNK2OT3OS28has_dataEv.exit137.thread:            ; preds = %289, %304, %313, %_ZNK2OT3OS28has_dataEv.exit137
+_ZNK2OT3OS28has_dataEv.exit131.thread:            ; preds = %265, %278, %285, %_ZNK2OT3OS28has_dataEv.exit131
   %.not105 = icmp eq ptr %2, null
-  br i1 %.not105, label %563, label %330
+  br i1 %.not105, label %518, label %297
 
-330:                                              ; preds = %_ZNK2OT3OS28has_dataEv.exit137.thread
-  %331 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %279)
-  %332 = getelementptr inbounds nuw i8, ptr %331, i64 16
-  %333 = load ptr, ptr %332, align 8
-  %334 = getelementptr inbounds nuw i8, ptr %331, i64 24
-  %335 = load i32, ptr %334, align 8
-  %336 = icmp ult i32 %335, 78
-  %spec.select.i.i.i.i.i138 = select i1 %336, ptr @_hb_NullPool, ptr %333
-  %337 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i138, i64 72
-  %338 = load i8, ptr %337, align 1
-  %339 = zext i8 %338 to i16
-  %340 = shl nuw i16 %339, 8
-  %341 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i138, i64 73
-  %342 = load i8, ptr %341, align 1
-  %343 = zext i8 %342 to i16
-  %344 = or disjoint i16 %340, %343
-  %345 = sitofp i16 %344 to float
-  %346 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  %347 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_tLj22E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %346)
-  %348 = getelementptr inbounds nuw i8, ptr %347, i64 16
-  %349 = load ptr, ptr %348, align 8
-  %350 = getelementptr inbounds nuw i8, ptr %347, i64 24
-  %351 = load i32, ptr %350, align 8
-  %352 = icmp ult i32 %351, 12
-  %spec.select.i.i.i.i.i139 = select i1 %352, ptr @_hb_NullPool, ptr %349
-  %353 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %354 = load ptr, ptr %353, align 8
-  %355 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %356 = load i32, ptr %355, align 8
-  %357 = tail call noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef nonnull align 1 dereferenceable(13) %spec.select.i.i.i.i.i139, i32 noundef 1751934832, ptr noundef %354, i32 noundef %356)
-  %358 = fadd float %357, %345
-  %359 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %360 = load float, ptr %359, align 8
-  %361 = fmul float %358, %360
-  %362 = fadd float %361, 5.000000e-01
+297:                                              ; preds = %_ZNK2OT3OS28has_dataEv.exit131.thread
+  %298 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %255)
+  %299 = getelementptr inbounds nuw i8, ptr %298, i64 16
+  %300 = load ptr, ptr %299, align 8
+  %301 = getelementptr inbounds nuw i8, ptr %298, i64 24
+  %302 = load i32, ptr %301, align 8
+  %303 = icmp ult i32 %302, 78
+  %spec.select.i.i.i.i.i132 = select i1 %303, ptr @_hb_NullPool, ptr %300
+  %304 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i132, i64 72
+  %305 = load i8, ptr %304, align 1
+  %306 = zext i8 %305 to i16
+  %307 = shl nuw i16 %306, 8
+  %308 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i132, i64 73
+  %309 = load i8, ptr %308, align 1
+  %310 = zext i8 %309 to i16
+  %311 = or disjoint i16 %307, %310
+  %312 = sitofp i16 %311 to float
+  %313 = getelementptr inbounds nuw i8, ptr %5, i64 256
+  %314 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_tLj22E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %313)
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 16
+  %316 = load ptr, ptr %315, align 8
+  %317 = getelementptr inbounds nuw i8, ptr %314, i64 24
+  %318 = load i32, ptr %317, align 8
+  %319 = icmp ult i32 %318, 12
+  %spec.select.i.i.i.i.i133 = select i1 %319, ptr @_hb_NullPool, ptr %316
+  %320 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %321 = load ptr, ptr %320, align 8
+  %322 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %323 = load i32, ptr %322, align 8
+  %324 = tail call noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef nonnull align 1 dereferenceable(13) %spec.select.i.i.i.i.i133, i32 noundef 1751934832, ptr noundef %321, i32 noundef %323)
+  %325 = fadd float %324, %312
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %327 = load float, ptr %326, align 8
+  %328 = fmul float %325, %327
+  %329 = fadd float %328, 5.000000e-01
   br label %.sink.split
 
-363:                                              ; preds = %_ZNK2OT3OS28has_dataEv.exit137, %278
-  %364 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %365 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %364)
-  %366 = getelementptr inbounds nuw i8, ptr %365, i64 16
-  %367 = load ptr, ptr %366, align 8
-  %368 = getelementptr inbounds nuw i8, ptr %365, i64 24
-  %369 = load i32, ptr %368, align 8
-  %370 = icmp ult i32 %369, 36
-  %spec.select.i.i.i.i.i140 = select i1 %370, ptr @_hb_NullPool, ptr %367
-  %371 = load i8, ptr %spec.select.i.i.i.i.i140, align 1
-  %372 = zext i8 %371 to i32
-  %373 = shl nuw nsw i32 %372, 8
-  %374 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i140, i64 1
-  %375 = load i8, ptr %374, align 1
-  %376 = zext i8 %375 to i32
-  %377 = or disjoint i32 %373, %376
-  %.not153 = icmp eq i32 %377, 0
-  br i1 %.not153, label %563, label %378
+330:                                              ; preds = %_ZNK2OT3OS28has_dataEv.exit131, %254
+  %331 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %332 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %331)
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 16
+  %334 = load ptr, ptr %333, align 8
+  %335 = getelementptr inbounds nuw i8, ptr %332, i64 24
+  %336 = load i32, ptr %335, align 8
+  %337 = icmp ult i32 %336, 36
+  %spec.select.i.i.i.i.i134 = select i1 %337, ptr @_hb_NullPool, ptr %334
+  %338 = load i8, ptr %spec.select.i.i.i.i.i134, align 1
+  %339 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i134, i64 1
+  %340 = load i8, ptr %339, align 1
+  %341 = or i8 %340, %338
+  %.not147 = icmp eq i8 %341, 0
+  br i1 %.not147, label %518, label %342
 
-378:                                              ; preds = %363
+342:                                              ; preds = %330
   %.not104 = icmp eq ptr %2, null
-  br i1 %.not104, label %563, label %379
+  br i1 %.not104, label %518, label %343
 
-379:                                              ; preds = %378
-  %380 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %364)
-  %381 = getelementptr inbounds nuw i8, ptr %380, i64 16
-  %382 = load ptr, ptr %381, align 8
-  %383 = getelementptr inbounds nuw i8, ptr %380, i64 24
-  %384 = load i32, ptr %383, align 8
-  %385 = icmp ult i32 %384, 36
-  %spec.select.i.i.i.i.i141 = select i1 %385, ptr @_hb_NullPool, ptr %382
-  %386 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i141, i64 8
-  %387 = load i8, ptr %386, align 1
-  %388 = zext i8 %387 to i16
-  %389 = shl nuw i16 %388, 8
-  %390 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i141, i64 9
-  %391 = load i8, ptr %390, align 1
-  %392 = zext i8 %391 to i16
-  %393 = or disjoint i16 %389, %392
-  %394 = sitofp i16 %393 to float
-  %395 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  %396 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_tLj22E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %395)
-  %397 = getelementptr inbounds nuw i8, ptr %396, i64 16
-  %398 = load ptr, ptr %397, align 8
-  %399 = getelementptr inbounds nuw i8, ptr %396, i64 24
-  %400 = load i32, ptr %399, align 8
-  %401 = icmp ult i32 %400, 12
-  %spec.select.i.i.i.i.i142 = select i1 %401, ptr @_hb_NullPool, ptr %398
-  %402 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %403 = load ptr, ptr %402, align 8
-  %404 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %405 = load i32, ptr %404, align 8
-  %406 = tail call noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef nonnull align 1 dereferenceable(13) %spec.select.i.i.i.i.i142, i32 noundef 1751934832, ptr noundef %403, i32 noundef %405)
-  %407 = fadd float %406, %394
-  %408 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %409 = load float, ptr %408, align 8
-  %410 = fmul float %407, %409
-  %411 = fadd float %410, 5.000000e-01
+343:                                              ; preds = %342
+  %344 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %331)
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 16
+  %346 = load ptr, ptr %345, align 8
+  %347 = getelementptr inbounds nuw i8, ptr %344, i64 24
+  %348 = load i32, ptr %347, align 8
+  %349 = icmp ult i32 %348, 36
+  %spec.select.i.i.i.i.i135 = select i1 %349, ptr @_hb_NullPool, ptr %346
+  %350 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i135, i64 8
+  %351 = load i8, ptr %350, align 1
+  %352 = zext i8 %351 to i16
+  %353 = shl nuw i16 %352, 8
+  %354 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i135, i64 9
+  %355 = load i8, ptr %354, align 1
+  %356 = zext i8 %355 to i16
+  %357 = or disjoint i16 %353, %356
+  %358 = sitofp i16 %357 to float
+  %359 = getelementptr inbounds nuw i8, ptr %5, i64 256
+  %360 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_tLj22E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %359)
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 16
+  %362 = load ptr, ptr %361, align 8
+  %363 = getelementptr inbounds nuw i8, ptr %360, i64 24
+  %364 = load i32, ptr %363, align 8
+  %365 = icmp ult i32 %364, 12
+  %spec.select.i.i.i.i.i136 = select i1 %365, ptr @_hb_NullPool, ptr %362
+  %366 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %367 = load ptr, ptr %366, align 8
+  %368 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %369 = load i32, ptr %368, align 8
+  %370 = tail call noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef nonnull align 1 dereferenceable(13) %spec.select.i.i.i.i.i136, i32 noundef 1751934832, ptr noundef %367, i32 noundef %369)
+  %371 = fadd float %370, %358
+  %372 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %373 = load float, ptr %372, align 8
+  %374 = fmul float %371, %373
+  %375 = fadd float %374, 5.000000e-01
   br label %.sink.split
 
-412:                                              ; preds = %3
-  %413 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  %414 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %413)
-  %415 = getelementptr inbounds nuw i8, ptr %414, i64 16
-  %416 = load ptr, ptr %415, align 8
-  %417 = getelementptr inbounds nuw i8, ptr %414, i64 24
-  %418 = load i32, ptr %417, align 8
-  %419 = icmp ult i32 %418, 36
-  %spec.select.i.i.i.i.i143 = select i1 %419, ptr @_hb_NullPool, ptr %416
-  %420 = load i8, ptr %spec.select.i.i.i.i.i143, align 1
-  %421 = zext i8 %420 to i32
-  %422 = shl nuw nsw i32 %421, 8
-  %423 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i143, i64 1
-  %424 = load i8, ptr %423, align 1
-  %425 = zext i8 %424 to i32
-  %426 = or disjoint i32 %422, %425
-  %427 = icmp ne i32 %426, 0
+376:                                              ; preds = %3
+  %377 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  %378 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %377)
+  %379 = getelementptr inbounds nuw i8, ptr %378, i64 16
+  %380 = load ptr, ptr %379, align 8
+  %381 = getelementptr inbounds nuw i8, ptr %378, i64 24
+  %382 = load i32, ptr %381, align 8
+  %383 = icmp ult i32 %382, 36
+  %spec.select.i.i.i.i.i137 = select i1 %383, ptr @_hb_NullPool, ptr %380
+  %384 = load i8, ptr %spec.select.i.i.i.i.i137, align 1
+  %385 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i137, i64 1
+  %386 = load i8, ptr %385, align 1
+  %387 = or i8 %386, %384
+  %388 = icmp ne i8 %387, 0
   %.not103 = icmp ne ptr %2, null
-  %or.cond.not = and i1 %.not103, %427
-  br i1 %or.cond.not, label %428, label %563
+  %or.cond.not = and i1 %.not103, %388
+  br i1 %or.cond.not, label %389, label %518
 
-428:                                              ; preds = %412
-  %429 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %413)
-  %430 = getelementptr inbounds nuw i8, ptr %429, i64 16
-  %431 = load ptr, ptr %430, align 8
-  %432 = getelementptr inbounds nuw i8, ptr %429, i64 24
-  %433 = load i32, ptr %432, align 8
-  %434 = icmp ult i32 %433, 36
-  %spec.select.i.i.i.i.i144 = select i1 %434, ptr @_hb_NullPool, ptr %431
-  %435 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i144, i64 4
-  %436 = load i8, ptr %435, align 1
-  %437 = zext i8 %436 to i16
-  %438 = shl nuw i16 %437, 8
-  %439 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i144, i64 5
-  %440 = load i8, ptr %439, align 1
-  %441 = zext i8 %440 to i16
-  %442 = or disjoint i16 %438, %441
-  %443 = sitofp i16 %442 to float
-  %444 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  %445 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_tLj22E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %444)
-  %446 = getelementptr inbounds nuw i8, ptr %445, i64 16
-  %447 = load ptr, ptr %446, align 8
-  %448 = getelementptr inbounds nuw i8, ptr %445, i64 24
-  %449 = load i32, ptr %448, align 8
-  %450 = icmp ult i32 %449, 12
-  %spec.select.i.i.i.i.i145 = select i1 %450, ptr @_hb_NullPool, ptr %447
-  %451 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %452 = load ptr, ptr %451, align 8
-  %453 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %454 = load i32, ptr %453, align 8
-  %455 = tail call noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef nonnull align 1 dereferenceable(13) %spec.select.i.i.i.i.i145, i32 noundef 1986098019, ptr noundef %452, i32 noundef %454)
-  %456 = fadd float %455, %443
-  %457 = tail call float @llvm.fabs.f32(float %456)
-  %458 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %459 = load float, ptr %458, align 4
-  %460 = fmul float %459, %457
-  %461 = fadd float %460, 5.000000e-01
+389:                                              ; preds = %376
+  %390 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %377)
+  %391 = getelementptr inbounds nuw i8, ptr %390, i64 16
+  %392 = load ptr, ptr %391, align 8
+  %393 = getelementptr inbounds nuw i8, ptr %390, i64 24
+  %394 = load i32, ptr %393, align 8
+  %395 = icmp ult i32 %394, 36
+  %spec.select.i.i.i.i.i138 = select i1 %395, ptr @_hb_NullPool, ptr %392
+  %396 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i138, i64 4
+  %397 = load i8, ptr %396, align 1
+  %398 = zext i8 %397 to i16
+  %399 = shl nuw i16 %398, 8
+  %400 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i138, i64 5
+  %401 = load i8, ptr %400, align 1
+  %402 = zext i8 %401 to i16
+  %403 = or disjoint i16 %399, %402
+  %404 = sitofp i16 %403 to float
+  %405 = getelementptr inbounds nuw i8, ptr %5, i64 256
+  %406 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_tLj22E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %405)
+  %407 = getelementptr inbounds nuw i8, ptr %406, i64 16
+  %408 = load ptr, ptr %407, align 8
+  %409 = getelementptr inbounds nuw i8, ptr %406, i64 24
+  %410 = load i32, ptr %409, align 8
+  %411 = icmp ult i32 %410, 12
+  %spec.select.i.i.i.i.i139 = select i1 %411, ptr @_hb_NullPool, ptr %408
+  %412 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %413 = load ptr, ptr %412, align 8
+  %414 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %415 = load i32, ptr %414, align 8
+  %416 = tail call noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef nonnull align 1 dereferenceable(13) %spec.select.i.i.i.i.i139, i32 noundef 1986098019, ptr noundef %413, i32 noundef %415)
+  %417 = fadd float %416, %404
+  %418 = tail call float @llvm.fabs.f32(float %417)
+  %419 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %420 = load float, ptr %419, align 4
+  %421 = fmul float %420, %418
+  %422 = fadd float %421, 5.000000e-01
   br label %.sink.split
 
-462:                                              ; preds = %3
-  %463 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  %464 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %463)
-  %465 = getelementptr inbounds nuw i8, ptr %464, i64 16
-  %466 = load ptr, ptr %465, align 8
-  %467 = getelementptr inbounds nuw i8, ptr %464, i64 24
-  %468 = load i32, ptr %467, align 8
-  %469 = icmp ult i32 %468, 36
-  %spec.select.i.i.i.i.i146 = select i1 %469, ptr @_hb_NullPool, ptr %466
-  %470 = load i8, ptr %spec.select.i.i.i.i.i146, align 1
-  %471 = zext i8 %470 to i32
-  %472 = shl nuw nsw i32 %471, 8
-  %473 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i146, i64 1
-  %474 = load i8, ptr %473, align 1
-  %475 = zext i8 %474 to i32
-  %476 = or disjoint i32 %472, %475
-  %477 = icmp ne i32 %476, 0
+423:                                              ; preds = %3
+  %424 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  %425 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %424)
+  %426 = getelementptr inbounds nuw i8, ptr %425, i64 16
+  %427 = load ptr, ptr %426, align 8
+  %428 = getelementptr inbounds nuw i8, ptr %425, i64 24
+  %429 = load i32, ptr %428, align 8
+  %430 = icmp ult i32 %429, 36
+  %spec.select.i.i.i.i.i140 = select i1 %430, ptr @_hb_NullPool, ptr %427
+  %431 = load i8, ptr %spec.select.i.i.i.i.i140, align 1
+  %432 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i140, i64 1
+  %433 = load i8, ptr %432, align 1
+  %434 = or i8 %433, %431
+  %435 = icmp ne i8 %434, 0
   %.not102 = icmp ne ptr %2, null
-  %or.cond112.not = and i1 %.not102, %477
-  br i1 %or.cond112.not, label %478, label %563
+  %or.cond112.not = and i1 %.not102, %435
+  br i1 %or.cond112.not, label %436, label %518
 
-478:                                              ; preds = %462
-  %479 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %463)
-  %480 = getelementptr inbounds nuw i8, ptr %479, i64 16
-  %481 = load ptr, ptr %480, align 8
-  %482 = getelementptr inbounds nuw i8, ptr %479, i64 24
-  %483 = load i32, ptr %482, align 8
-  %484 = icmp ult i32 %483, 36
-  %spec.select.i.i.i.i.i147 = select i1 %484, ptr @_hb_NullPool, ptr %481
-  %485 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i147, i64 6
-  %486 = load i8, ptr %485, align 1
-  %487 = zext i8 %486 to i16
-  %488 = shl nuw i16 %487, 8
-  %489 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i147, i64 7
-  %490 = load i8, ptr %489, align 1
-  %491 = zext i8 %490 to i16
-  %492 = or disjoint i16 %488, %491
-  %493 = sitofp i16 %492 to float
-  %494 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  %495 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_tLj22E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %494)
-  %496 = getelementptr inbounds nuw i8, ptr %495, i64 16
-  %497 = load ptr, ptr %496, align 8
-  %498 = getelementptr inbounds nuw i8, ptr %495, i64 24
-  %499 = load i32, ptr %498, align 8
-  %500 = icmp ult i32 %499, 12
-  %spec.select.i.i.i.i.i148 = select i1 %500, ptr @_hb_NullPool, ptr %497
-  %501 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %502 = load ptr, ptr %501, align 8
-  %503 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %504 = load i32, ptr %503, align 8
-  %505 = tail call noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef nonnull align 1 dereferenceable(13) %spec.select.i.i.i.i.i148, i32 noundef 1986294627, ptr noundef %502, i32 noundef %504)
-  %506 = fadd float %505, %493
-  %507 = tail call float @llvm.fabs.f32(float %506)
-  %508 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %509 = load float, ptr %508, align 4
-  %510 = fmul float %509, %507
-  %511 = fsub float 5.000000e-01, %510
+436:                                              ; preds = %423
+  %437 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %424)
+  %438 = getelementptr inbounds nuw i8, ptr %437, i64 16
+  %439 = load ptr, ptr %438, align 8
+  %440 = getelementptr inbounds nuw i8, ptr %437, i64 24
+  %441 = load i32, ptr %440, align 8
+  %442 = icmp ult i32 %441, 36
+  %spec.select.i.i.i.i.i141 = select i1 %442, ptr @_hb_NullPool, ptr %439
+  %443 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i141, i64 6
+  %444 = load i8, ptr %443, align 1
+  %445 = zext i8 %444 to i16
+  %446 = shl nuw i16 %445, 8
+  %447 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i141, i64 7
+  %448 = load i8, ptr %447, align 1
+  %449 = zext i8 %448 to i16
+  %450 = or disjoint i16 %446, %449
+  %451 = sitofp i16 %450 to float
+  %452 = getelementptr inbounds nuw i8, ptr %5, i64 256
+  %453 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_tLj22E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %452)
+  %454 = getelementptr inbounds nuw i8, ptr %453, i64 16
+  %455 = load ptr, ptr %454, align 8
+  %456 = getelementptr inbounds nuw i8, ptr %453, i64 24
+  %457 = load i32, ptr %456, align 8
+  %458 = icmp ult i32 %457, 12
+  %spec.select.i.i.i.i.i142 = select i1 %458, ptr @_hb_NullPool, ptr %455
+  %459 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %460 = load ptr, ptr %459, align 8
+  %461 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %462 = load i32, ptr %461, align 8
+  %463 = tail call noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef nonnull align 1 dereferenceable(13) %spec.select.i.i.i.i.i142, i32 noundef 1986294627, ptr noundef %460, i32 noundef %462)
+  %464 = fadd float %463, %451
+  %465 = tail call float @llvm.fabs.f32(float %464)
+  %466 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %467 = load float, ptr %466, align 4
+  %468 = fmul float %467, %465
+  %469 = fsub float 5.000000e-01, %468
   br label %.sink.split
 
-512:                                              ; preds = %3
-  %513 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  %514 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %513)
-  %515 = getelementptr inbounds nuw i8, ptr %514, i64 16
-  %516 = load ptr, ptr %515, align 8
-  %517 = getelementptr inbounds nuw i8, ptr %514, i64 24
-  %518 = load i32, ptr %517, align 8
-  %519 = icmp ult i32 %518, 36
-  %spec.select.i.i.i.i.i149 = select i1 %519, ptr @_hb_NullPool, ptr %516
-  %520 = load i8, ptr %spec.select.i.i.i.i.i149, align 1
-  %521 = zext i8 %520 to i32
-  %522 = shl nuw nsw i32 %521, 8
-  %523 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i149, i64 1
-  %524 = load i8, ptr %523, align 1
-  %525 = zext i8 %524 to i32
-  %526 = or disjoint i32 %522, %525
-  %527 = icmp ne i32 %526, 0
+470:                                              ; preds = %3
+  %471 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  %472 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %471)
+  %473 = getelementptr inbounds nuw i8, ptr %472, i64 16
+  %474 = load ptr, ptr %473, align 8
+  %475 = getelementptr inbounds nuw i8, ptr %472, i64 24
+  %476 = load i32, ptr %475, align 8
+  %477 = icmp ult i32 %476, 36
+  %spec.select.i.i.i.i.i143 = select i1 %477, ptr @_hb_NullPool, ptr %474
+  %478 = load i8, ptr %spec.select.i.i.i.i.i143, align 1
+  %479 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i143, i64 1
+  %480 = load i8, ptr %479, align 1
+  %481 = or i8 %480, %478
+  %482 = icmp ne i8 %481, 0
   %.not = icmp ne ptr %2, null
-  %or.cond114.not = and i1 %.not, %527
-  br i1 %or.cond114.not, label %528, label %563
+  %or.cond114.not = and i1 %.not, %482
+  br i1 %or.cond114.not, label %483, label %518
 
-528:                                              ; preds = %512
-  %529 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %513)
-  %530 = getelementptr inbounds nuw i8, ptr %529, i64 16
-  %531 = load ptr, ptr %530, align 8
-  %532 = getelementptr inbounds nuw i8, ptr %529, i64 24
-  %533 = load i32, ptr %532, align 8
-  %534 = icmp ult i32 %533, 36
-  %spec.select.i.i.i.i.i150 = select i1 %534, ptr @_hb_NullPool, ptr %531
-  %535 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i150, i64 8
-  %536 = load i8, ptr %535, align 1
-  %537 = zext i8 %536 to i16
-  %538 = shl nuw i16 %537, 8
-  %539 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i150, i64 9
-  %540 = load i8, ptr %539, align 1
-  %541 = zext i8 %540 to i16
-  %542 = or disjoint i16 %538, %541
-  %543 = sitofp i16 %542 to float
-  %544 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  %545 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_tLj22E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %544)
-  %546 = getelementptr inbounds nuw i8, ptr %545, i64 16
-  %547 = load ptr, ptr %546, align 8
-  %548 = getelementptr inbounds nuw i8, ptr %545, i64 24
-  %549 = load i32, ptr %548, align 8
-  %550 = icmp ult i32 %549, 12
-  %spec.select.i.i.i.i.i151 = select i1 %550, ptr @_hb_NullPool, ptr %547
-  %551 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %552 = load ptr, ptr %551, align 8
-  %553 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %554 = load i32, ptr %553, align 8
-  %555 = tail call noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef nonnull align 1 dereferenceable(13) %spec.select.i.i.i.i.i151, i32 noundef 1986815856, ptr noundef %552, i32 noundef %554)
-  %556 = fadd float %555, %543
-  %557 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %558 = load float, ptr %557, align 4
-  %559 = fmul float %556, %558
-  %560 = fadd float %559, 5.000000e-01
+483:                                              ; preds = %470
+  %484 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %471)
+  %485 = getelementptr inbounds nuw i8, ptr %484, i64 16
+  %486 = load ptr, ptr %485, align 8
+  %487 = getelementptr inbounds nuw i8, ptr %484, i64 24
+  %488 = load i32, ptr %487, align 8
+  %489 = icmp ult i32 %488, 36
+  %spec.select.i.i.i.i.i144 = select i1 %489, ptr @_hb_NullPool, ptr %486
+  %490 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i144, i64 8
+  %491 = load i8, ptr %490, align 1
+  %492 = zext i8 %491 to i16
+  %493 = shl nuw i16 %492, 8
+  %494 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i144, i64 9
+  %495 = load i8, ptr %494, align 1
+  %496 = zext i8 %495 to i16
+  %497 = or disjoint i16 %493, %496
+  %498 = sitofp i16 %497 to float
+  %499 = getelementptr inbounds nuw i8, ptr %5, i64 256
+  %500 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_tLj22E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %499)
+  %501 = getelementptr inbounds nuw i8, ptr %500, i64 16
+  %502 = load ptr, ptr %501, align 8
+  %503 = getelementptr inbounds nuw i8, ptr %500, i64 24
+  %504 = load i32, ptr %503, align 8
+  %505 = icmp ult i32 %504, 12
+  %spec.select.i.i.i.i.i145 = select i1 %505, ptr @_hb_NullPool, ptr %502
+  %506 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %507 = load ptr, ptr %506, align 8
+  %508 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %509 = load i32, ptr %508, align 8
+  %510 = tail call noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef nonnull align 1 dereferenceable(13) %spec.select.i.i.i.i.i145, i32 noundef 1986815856, ptr noundef %507, i32 noundef %509)
+  %511 = fadd float %510, %498
+  %512 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %513 = load float, ptr %512, align 4
+  %514 = fmul float %511, %513
+  %515 = fadd float %514, 5.000000e-01
   br label %.sink.split
 
-.sink.split:                                      ; preds = %108, %58, %244, %194, %379, %330, %428, %478, %528
-  %.sink = phi float [ %560, %528 ], [ %511, %478 ], [ %461, %428 ], [ %362, %330 ], [ %411, %379 ], [ %227, %194 ], [ %277, %244 ], [ %91, %58 ], [ %141, %108 ]
-  %561 = tail call noundef float @llvm.floor.f32(float %.sink)
-  %562 = fptosi float %561 to i32
-  store i32 %562, ptr %2, align 4
-  br label %563
+.sink.split:                                      ; preds = %96, %49, %220, %173, %343, %297, %389, %436, %483
+  %.sink = phi float [ %515, %483 ], [ %469, %436 ], [ %422, %389 ], [ %329, %297 ], [ %375, %343 ], [ %206, %173 ], [ %253, %220 ], [ %82, %49 ], [ %129, %96 ]
+  %516 = tail call noundef float @llvm.floor.f32(float %.sink)
+  %517 = fptosi float %516 to i32
+  store i32 %517, ptr %2, align 4
+  br label %518
 
-563:                                              ; preds = %.sink.split, %3, %512, %462, %412, %_ZNK2OT3OS28has_dataEv.exit137.thread, %378, %363, %_ZNK2OT3OS28has_dataEv.exit126.thread, %243, %228, %_ZNK2OT3OS28has_dataEv.exit.thread, %107, %92
-  %.0 = phi i1 [ true, %_ZNK2OT3OS28has_dataEv.exit.thread ], [ false, %92 ], [ true, %107 ], [ true, %_ZNK2OT3OS28has_dataEv.exit126.thread ], [ false, %228 ], [ true, %243 ], [ true, %_ZNK2OT3OS28has_dataEv.exit137.thread ], [ false, %363 ], [ true, %378 ], [ %427, %412 ], [ %477, %462 ], [ %527, %512 ], [ false, %3 ], [ true, %.sink.split ]
+518:                                              ; preds = %.sink.split, %3, %470, %423, %376, %_ZNK2OT3OS28has_dataEv.exit131.thread, %342, %330, %_ZNK2OT3OS28has_dataEv.exit123.thread, %219, %207, %_ZNK2OT3OS28has_dataEv.exit.thread, %95, %83
+  %.0 = phi i1 [ true, %_ZNK2OT3OS28has_dataEv.exit.thread ], [ false, %83 ], [ true, %95 ], [ true, %_ZNK2OT3OS28has_dataEv.exit123.thread ], [ false, %207 ], [ true, %219 ], [ true, %_ZNK2OT3OS28has_dataEv.exit131.thread ], [ false, %330 ], [ true, %342 ], [ %388, %376 ], [ %435, %423 ], [ %482, %470 ], [ false, %3 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -851,16 +797,16 @@ define linkonce_odr hidden noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef
 _ZL10hb_bsearchIKN2OT20VariationValueRecordEjEPT_RKT0_S4_mmPFiPKvS9_E.exit: ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %53 = load i8, ptr %52, align 1
-  %54 = zext i8 %53 to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %57 = load i8, ptr %56, align 1
-  %58 = zext i8 %57 to i32
-  %59 = or disjoint i32 %55, %58
-  %60 = icmp eq i32 %59, 0
-  %61 = zext nneg i32 %59 to i64
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 %61
-  %.0.i.i = select i1 %60, ptr @_hb_NullPool, ptr %62
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %55 = load i8, ptr %54, align 1
+  %56 = or i8 %55, %53
+  %57 = icmp eq i8 %56, 0
+  %58 = zext i8 %53 to i64
+  %59 = shl nuw nsw i64 %58, 8
+  %60 = zext i8 %55 to i64
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 %59
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %60
+  %.0.i.i = select i1 %57, ptr @_hb_NullPool, ptr %62
   %63 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
@@ -894,53 +840,57 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEi
   %88 = zext nneg i32 %70 to i64
   %89 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.161"], ptr %87, i64 0, i64 %88
   %90 = load i8, ptr %89, align 1
-  %91 = zext i8 %90 to i32
-  %92 = shl nuw i32 %91, 24
-  %93 = getelementptr inbounds nuw i8, ptr %89, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 1
+  %92 = load i8, ptr %91, align 1
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 2
   %94 = load i8, ptr %93, align 1
-  %95 = zext i8 %94 to i32
-  %96 = shl nuw nsw i32 %95, 16
-  %97 = or disjoint i32 %96, %92
-  %98 = getelementptr inbounds nuw i8, ptr %89, i64 2
-  %99 = load i8, ptr %98, align 1
-  %100 = zext i8 %99 to i32
-  %101 = shl nuw nsw i32 %100, 8
-  %102 = or disjoint i32 %97, %101
-  %103 = getelementptr inbounds nuw i8, ptr %89, i64 3
-  %104 = load i8, ptr %103, align 1
-  %105 = zext i8 %104 to i32
-  %106 = or disjoint i32 %102, %105
-  %107 = icmp eq i32 %106, 0
-  %108 = zext i32 %106 to i64
-  %109 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %108
-  %.0.i.i.i.i = select i1 %107, ptr @_hb_NullPool, ptr %109
-  %110 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
-  %111 = load i8, ptr %110, align 1
-  %112 = zext i8 %111 to i32
-  %113 = shl nuw i32 %112, 24
+  %95 = getelementptr inbounds nuw i8, ptr %89, i64 3
+  %96 = load i8, ptr %95, align 1
+  %97 = or i8 %92, %90
+  %98 = or i8 %97, %94
+  %99 = or i8 %98, %96
+  %100 = icmp eq i8 %99, 0
+  %101 = zext i8 %90 to i64
+  %102 = shl nuw nsw i64 %101, 24
+  %103 = zext i8 %92 to i64
+  %104 = shl nuw nsw i64 %103, 16
+  %105 = zext i8 %94 to i64
+  %106 = shl nuw nsw i64 %105, 8
+  %107 = zext i8 %96 to i64
+  %108 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %104
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 %102
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 %106
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %107
+  %.0.i.i.i.i = select i1 %100, ptr @_hb_NullPool, ptr %111
+  %112 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
+  %113 = load i8, ptr %112, align 1
   %114 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 3
   %115 = load i8, ptr %114, align 1
-  %116 = zext i8 %115 to i32
-  %117 = shl nuw nsw i32 %116, 16
-  %118 = or disjoint i32 %117, %113
-  %119 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
-  %120 = load i8, ptr %119, align 1
-  %121 = zext i8 %120 to i32
-  %122 = shl nuw nsw i32 %121, 8
-  %123 = or disjoint i32 %118, %122
-  %124 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 5
-  %125 = load i8, ptr %124, align 1
-  %126 = zext i8 %125 to i32
-  %127 = or disjoint i32 %123, %126
-  %128 = icmp eq i32 %127, 0
-  %129 = zext i32 %127 to i64
-  %130 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %129
-  %.0.i.i8.i.i = select i1 %128, ptr @_hb_NullPool, ptr %130
-  %131 = tail call noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13VarRegionListEPf(ptr noundef nonnull align 1 dereferenceable(8) %.0.i.i.i.i, i32 noundef %86, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 1 dereferenceable(10) %.0.i.i8.i.i, ptr noundef null)
+  %116 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
+  %117 = load i8, ptr %116, align 1
+  %118 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 5
+  %119 = load i8, ptr %118, align 1
+  %120 = or i8 %115, %113
+  %121 = or i8 %120, %117
+  %122 = or i8 %121, %119
+  %123 = icmp eq i8 %122, 0
+  %124 = zext i8 %113 to i64
+  %125 = shl nuw nsw i64 %124, 24
+  %126 = zext i8 %115 to i64
+  %127 = shl nuw nsw i64 %126, 16
+  %128 = zext i8 %117 to i64
+  %129 = shl nuw nsw i64 %128, 8
+  %130 = zext i8 %119 to i64
+  %131 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %127
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 %125
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 %129
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 %130
+  %.0.i.i8.i.i = select i1 %123, ptr @_hb_NullPool, ptr %134
+  %135 = tail call noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13VarRegionListEPf(ptr noundef nonnull align 1 dereferenceable(8) %.0.i.i.i.i, i32 noundef %86, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 1 dereferenceable(10) %.0.i.i8.i.i, ptr noundef null)
   br label %_ZNK2OT14VariationStore9get_deltaEjPKijPf.exit
 
 _ZNK2OT14VariationStore9get_deltaEjPKijPf.exit:   ; preds = %51, %4, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i, %_ZL10hb_bsearchIKN2OT20VariationValueRecordEjEPT_RKT0_S4_mmPFiPKvS9_E.exit
-  %.0 = phi float [ %131, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i ], [ 0.000000e+00, %_ZL10hb_bsearchIKN2OT20VariationValueRecordEjEPT_RKT0_S4_mmPFiPKvS9_E.exit ], [ 0.000000e+00, %4 ], [ 0.000000e+00, %51 ]
+  %.0 = phi float [ %135, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i ], [ 0.000000e+00, %_ZL10hb_bsearchIKN2OT20VariationValueRecordEjEPT_RKT0_S4_mmPFiPKvS9_E.exit ], [ 0.000000e+00, %4 ], [ 0.000000e+00, %51 ]
   ret float %.0
 }
 
@@ -948,7 +898,7 @@ _ZNK2OT14VariationStore9get_deltaEjPKijPf.exit:   ; preds = %51, %4, %_ZNK2OT7Ar
 define hidden range(i32 0, 2) i32 @hb_ot_metrics_get_position(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  switch i32 %1, label %1735 [
+  switch i32 %1, label %1544 [
     i32 1751216995, label %6
     i32 1751413603, label %6
     i32 1751934832, label %6
@@ -956,38 +906,38 @@ define hidden range(i32 0, 2) i32 @hb_ot_metrics_get_position(ptr noundef readon
     i32 1986294627, label %6
     i32 1986815856, label %6
     i32 1751346273, label %8
-    i32 1751346276, label %77
-    i32 1751347827, label %146
-    i32 1751347822, label %146
-    i32 1751347046, label %319
-    i32 1986228851, label %359
-    i32 1986228846, label %399
-    i32 1986228070, label %439
-    i32 2020108148, label %479
-    i32 1668311156, label %546
-    i32 1935833203, label %614
-    i32 1935833459, label %683
-    i32 1935833199, label %752
-    i32 1935833455, label %821
-    i32 1936750707, label %890
-    i32 1936750963, label %959
-    i32 1936750703, label %1028
-    i32 1936750959, label %1097
-    i32 1937011315, label %1166
-    i32 1937011311, label %1235
-    i32 1970168947, label %1304
-    i32 1970168943, label %1356
-    i32 1331786595, label %1408
-    i32 1214346083, label %1477
-    i32 1331983203, label %1517
-    i32 1214542691, label %1586
-    i32 1332504432, label %1626
-    i32 1215063920, label %1695
+    i32 1751346276, label %68
+    i32 1751347827, label %128
+    i32 1751347822, label %128
+    i32 1751347046, label %292
+    i32 1986228851, label %329
+    i32 1986228846, label %366
+    i32 1986228070, label %403
+    i32 2020108148, label %440
+    i32 1668311156, label %501
+    i32 1935833203, label %563
+    i32 1935833459, label %623
+    i32 1935833199, label %683
+    i32 1935833455, label %743
+    i32 1936750707, label %803
+    i32 1936750963, label %863
+    i32 1936750703, label %923
+    i32 1936750959, label %983
+    i32 1937011315, label %1043
+    i32 1937011311, label %1103
+    i32 1970168947, label %1163
+    i32 1970168943, label %1208
+    i32 1331786595, label %1253
+    i32 1214346083, label %1313
+    i32 1331983203, label %1350
+    i32 1214542691, label %1410
+    i32 1332504432, label %1447
+    i32 1215063920, label %1507
   ]
 
 6:                                                ; preds = %3, %3, %3, %3, %3, %3
   %7 = tail call noundef zeroext i1 @_Z34_hb_ot_metrics_get_position_commonP9hb_font_t19hb_ot_metrics_tag_tPi(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2)
-  br label %1735
+  br label %1544
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 128
@@ -1000,872 +950,869 @@ define hidden range(i32 0, 2) i32 @hb_ot_metrics_get_position(ptr noundef readon
   %spec.select.i.i.i.i.i = select i1 %15, ptr @_hb_NullPool, ptr %12
   %16 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 4
   %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i32
-  %19 = shl nuw nsw i32 %18, 8
-  %20 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 5
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i32
-  %23 = or disjoint i32 %19, %22
-  %.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i, label %24, label %_ZNK2OT3OS28has_dataEv.exit
+  %18 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 5
+  %19 = load i8, ptr %18, align 1
+  %20 = or i8 %19, %17
+  %21 = icmp eq i8 %20, 0
+  br i1 %21, label %22, label %_ZNK2OT3OS28has_dataEv.exit
 
-24:                                               ; preds = %8
-  %25 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 6
+22:                                               ; preds = %8
+  %23 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 6
+  %24 = load i8, ptr %23, align 1
+  %25 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 7
   %26 = load i8, ptr %25, align 1
-  %27 = zext i8 %26 to i32
-  %28 = shl nuw nsw i32 %27, 8
-  %29 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 7
-  %30 = load i8, ptr %29, align 1
-  %31 = zext i8 %30 to i32
-  %32 = or disjoint i32 %28, %31
-  %.not1.i = icmp eq i32 %32, 0
-  br i1 %.not1.i, label %33, label %_ZNK2OT3OS28has_dataEv.exit
+  %27 = or i8 %26, %24
+  %28 = icmp eq i8 %27, 0
+  br i1 %28, label %29, label %_ZNK2OT3OS28has_dataEv.exit
 
-33:                                               ; preds = %24
-  %34 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 64
-  %35 = load i8, ptr %34, align 1
-  %36 = zext i8 %35 to i32
-  %37 = shl nuw nsw i32 %36, 8
-  %38 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 65
-  %39 = load i8, ptr %38, align 1
-  %40 = zext i8 %39 to i32
-  %41 = or disjoint i32 %37, %40
-  %.not2.i = icmp eq i32 %41, 0
-  br i1 %.not2.i, label %42, label %_ZNK2OT3OS28has_dataEv.exit
+29:                                               ; preds = %22
+  %30 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 64
+  %31 = load i8, ptr %30, align 1
+  %32 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 65
+  %33 = load i8, ptr %32, align 1
+  %34 = or i8 %33, %31
+  %35 = icmp eq i8 %34, 0
+  br i1 %35, label %36, label %_ZNK2OT3OS28has_dataEv.exit
 
-42:                                               ; preds = %33
-  %43 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 66
-  %44 = load i8, ptr %43, align 1
-  %45 = zext i8 %44 to i32
-  %46 = shl nuw nsw i32 %45, 8
-  %47 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 67
-  %48 = load i8, ptr %47, align 1
-  %49 = zext i8 %48 to i32
-  %50 = or disjoint i32 %46, %49
-  %51 = icmp ne i32 %50, 0
+36:                                               ; preds = %29
+  %37 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 66
+  %38 = load i8, ptr %37, align 1
+  %39 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 67
+  %40 = load i8, ptr %39, align 1
+  %41 = or i8 %40, %38
+  %42 = icmp ne i8 %41, 0
   br label %_ZNK2OT3OS28has_dataEv.exit
 
-_ZNK2OT3OS28has_dataEv.exit:                      ; preds = %8, %24, %33, %42
-  %52 = phi i1 [ true, %33 ], [ true, %24 ], [ true, %8 ], [ %51, %42 ]
+_ZNK2OT3OS28has_dataEv.exit:                      ; preds = %8, %22, %29, %36
+  %43 = phi i1 [ true, %29 ], [ true, %22 ], [ true, %8 ], [ %42, %36 ]
   %.not294 = icmp ne ptr %2, null
-  %or.cond296.not = and i1 %.not294, %52
-  br i1 %or.cond296.not, label %53, label %1735
+  %or.cond296.not = and i1 %.not294, %43
+  br i1 %or.cond296.not, label %44, label %1544
 
-53:                                               ; preds = %_ZNK2OT3OS28has_dataEv.exit
-  %54 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %58 = load i32, ptr %57, align 8
-  %59 = icmp ult i32 %58, 78
-  %spec.select.i.i.i.i.i352 = select i1 %59, ptr @_hb_NullPool, ptr %56
-  %60 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i352, i64 74
-  %61 = load i8, ptr %60, align 1
-  %62 = zext i8 %61 to i32
-  %63 = shl nuw nsw i32 %62, 8
-  %64 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i352, i64 75
-  %65 = load i8, ptr %64, align 1
-  %66 = zext i8 %65 to i32
-  %67 = or disjoint i32 %63, %66
-  %68 = uitofp nneg i32 %67 to float
-  %69 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1751346273)
-  %70 = fadd float %69, %68
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %72 = load float, ptr %71, align 8
-  %73 = fmul float %72, %70
-  %74 = fadd float %73, 5.000000e-01
-  %75 = tail call noundef float @llvm.floor.f32(float %74)
-  %76 = fptosi float %75 to i32
-  store i32 %76, ptr %2, align 4
-  br label %1735
+44:                                               ; preds = %_ZNK2OT3OS28has_dataEv.exit
+  %45 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %49 = load i32, ptr %48, align 8
+  %50 = icmp ult i32 %49, 78
+  %spec.select.i.i.i.i.i352 = select i1 %50, ptr @_hb_NullPool, ptr %47
+  %51 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i352, i64 74
+  %52 = load i8, ptr %51, align 1
+  %53 = zext i8 %52 to i32
+  %54 = shl nuw nsw i32 %53, 8
+  %55 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i352, i64 75
+  %56 = load i8, ptr %55, align 1
+  %57 = zext i8 %56 to i32
+  %58 = or disjoint i32 %54, %57
+  %59 = uitofp nneg i32 %58 to float
+  %60 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1751346273)
+  %61 = fadd float %60, %59
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %63 = load float, ptr %62, align 8
+  %64 = fmul float %63, %61
+  %65 = fadd float %64, 5.000000e-01
+  %66 = tail call noundef float @llvm.floor.f32(float %65)
+  %67 = fptosi float %66 to i32
+  store i32 %67, ptr %2, align 4
+  br label %1544
 
-77:                                               ; preds = %3
-  %78 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %79 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %78)
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %83 = load i32, ptr %82, align 8
-  %84 = icmp ult i32 %83, 78
-  %spec.select.i.i.i.i.i353 = select i1 %84, ptr @_hb_NullPool, ptr %81
-  %85 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i353, i64 4
+68:                                               ; preds = %3
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %70 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %69)
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  %74 = load i32, ptr %73, align 8
+  %75 = icmp ult i32 %74, 78
+  %spec.select.i.i.i.i.i353 = select i1 %75, ptr @_hb_NullPool, ptr %72
+  %76 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i353, i64 4
+  %77 = load i8, ptr %76, align 1
+  %78 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i353, i64 5
+  %79 = load i8, ptr %78, align 1
+  %80 = or i8 %79, %77
+  %81 = icmp eq i8 %80, 0
+  br i1 %81, label %82, label %_ZNK2OT3OS28has_dataEv.exit354
+
+82:                                               ; preds = %68
+  %83 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i353, i64 6
+  %84 = load i8, ptr %83, align 1
+  %85 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i353, i64 7
   %86 = load i8, ptr %85, align 1
-  %87 = zext i8 %86 to i32
-  %88 = shl nuw nsw i32 %87, 8
-  %89 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i353, i64 5
-  %90 = load i8, ptr %89, align 1
-  %91 = zext i8 %90 to i32
-  %92 = or disjoint i32 %88, %91
-  %.not.i354 = icmp eq i32 %92, 0
-  br i1 %.not.i354, label %93, label %_ZNK2OT3OS28has_dataEv.exit357
+  %87 = or i8 %86, %84
+  %88 = icmp eq i8 %87, 0
+  br i1 %88, label %89, label %_ZNK2OT3OS28has_dataEv.exit354
 
-93:                                               ; preds = %77
-  %94 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i353, i64 6
-  %95 = load i8, ptr %94, align 1
-  %96 = zext i8 %95 to i32
-  %97 = shl nuw nsw i32 %96, 8
-  %98 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i353, i64 7
-  %99 = load i8, ptr %98, align 1
-  %100 = zext i8 %99 to i32
-  %101 = or disjoint i32 %97, %100
-  %.not1.i355 = icmp eq i32 %101, 0
-  br i1 %.not1.i355, label %102, label %_ZNK2OT3OS28has_dataEv.exit357
+89:                                               ; preds = %82
+  %90 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i353, i64 64
+  %91 = load i8, ptr %90, align 1
+  %92 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i353, i64 65
+  %93 = load i8, ptr %92, align 1
+  %94 = or i8 %93, %91
+  %95 = icmp eq i8 %94, 0
+  br i1 %95, label %96, label %_ZNK2OT3OS28has_dataEv.exit354
 
-102:                                              ; preds = %93
-  %103 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i353, i64 64
-  %104 = load i8, ptr %103, align 1
-  %105 = zext i8 %104 to i32
-  %106 = shl nuw nsw i32 %105, 8
-  %107 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i353, i64 65
-  %108 = load i8, ptr %107, align 1
-  %109 = zext i8 %108 to i32
-  %110 = or disjoint i32 %106, %109
-  %.not2.i356 = icmp eq i32 %110, 0
-  br i1 %.not2.i356, label %111, label %_ZNK2OT3OS28has_dataEv.exit357
+96:                                               ; preds = %89
+  %97 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i353, i64 66
+  %98 = load i8, ptr %97, align 1
+  %99 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i353, i64 67
+  %100 = load i8, ptr %99, align 1
+  %101 = or i8 %100, %98
+  %102 = icmp ne i8 %101, 0
+  br label %_ZNK2OT3OS28has_dataEv.exit354
 
-111:                                              ; preds = %102
-  %112 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i353, i64 66
-  %113 = load i8, ptr %112, align 1
-  %114 = zext i8 %113 to i32
-  %115 = shl nuw nsw i32 %114, 8
-  %116 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i353, i64 67
-  %117 = load i8, ptr %116, align 1
-  %118 = zext i8 %117 to i32
-  %119 = or disjoint i32 %115, %118
-  %120 = icmp ne i32 %119, 0
-  br label %_ZNK2OT3OS28has_dataEv.exit357
-
-_ZNK2OT3OS28has_dataEv.exit357:                   ; preds = %77, %93, %102, %111
-  %121 = phi i1 [ true, %102 ], [ true, %93 ], [ true, %77 ], [ %120, %111 ]
+_ZNK2OT3OS28has_dataEv.exit354:                   ; preds = %68, %82, %89, %96
+  %103 = phi i1 [ true, %89 ], [ true, %82 ], [ true, %68 ], [ %102, %96 ]
   %.not293 = icmp ne ptr %2, null
-  %or.cond298.not = and i1 %.not293, %121
-  br i1 %or.cond298.not, label %122, label %1735
+  %or.cond298.not = and i1 %.not293, %103
+  br i1 %or.cond298.not, label %104, label %1544
 
-122:                                              ; preds = %_ZNK2OT3OS28has_dataEv.exit357
-  %123 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %78)
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %123, i64 24
-  %127 = load i32, ptr %126, align 8
-  %128 = icmp ult i32 %127, 78
-  %spec.select.i.i.i.i.i358 = select i1 %128, ptr @_hb_NullPool, ptr %125
-  %129 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i358, i64 76
-  %130 = load i8, ptr %129, align 1
-  %131 = zext i8 %130 to i32
-  %132 = shl nuw nsw i32 %131, 8
-  %133 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i358, i64 77
-  %134 = load i8, ptr %133, align 1
-  %135 = zext i8 %134 to i32
-  %136 = or disjoint i32 %132, %135
-  %137 = uitofp nneg i32 %136 to float
-  %138 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1751346276)
-  %139 = fadd float %138, %137
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %141 = load float, ptr %140, align 8
-  %142 = fmul float %141, %139
-  %143 = fadd float %142, 5.000000e-01
-  %144 = tail call noundef float @llvm.floor.f32(float %143)
-  %145 = fptosi float %144 to i32
-  store i32 %145, ptr %2, align 4
-  br label %1735
+104:                                              ; preds = %_ZNK2OT3OS28has_dataEv.exit354
+  %105 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %69)
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %105, i64 24
+  %109 = load i32, ptr %108, align 8
+  %110 = icmp ult i32 %109, 78
+  %spec.select.i.i.i.i.i355 = select i1 %110, ptr @_hb_NullPool, ptr %107
+  %111 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i355, i64 76
+  %112 = load i8, ptr %111, align 1
+  %113 = zext i8 %112 to i32
+  %114 = shl nuw nsw i32 %113, 8
+  %115 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i355, i64 77
+  %116 = load i8, ptr %115, align 1
+  %117 = zext i8 %116 to i32
+  %118 = or disjoint i32 %114, %117
+  %119 = uitofp nneg i32 %118 to float
+  %120 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1751346276)
+  %121 = fadd float %120, %119
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %123 = load float, ptr %122, align 8
+  %124 = fmul float %123, %121
+  %125 = fadd float %124, 5.000000e-01
+  %126 = tail call noundef float @llvm.floor.f32(float %125)
+  %127 = fptosi float %126 to i32
+  store i32 %127, ptr %2, align 4
+  br label %1544
 
-146:                                              ; preds = %3, %3
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %148 = load float, ptr %147, align 4
-  %149 = fcmp une float %148, 0.000000e+00
-  br i1 %149, label %150, label %174
+128:                                              ; preds = %3, %3
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %130 = load float, ptr %129, align 4
+  %131 = fcmp une float %130, 0.000000e+00
+  br i1 %131, label %132, label %156
 
-150:                                              ; preds = %146
-  %151 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %152 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %151)
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %152, i64 24
-  %156 = load i32, ptr %155, align 8
-  %157 = icmp ult i32 %156, 36
-  %spec.select.i.i.i.i.i359 = select i1 %157, ptr @_hb_NullPool, ptr %154
-  %158 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i359, i64 18
-  %159 = load i8, ptr %158, align 1
-  %160 = zext i8 %159 to i16
-  %161 = shl nuw i16 %160, 8
-  %162 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i359, i64 19
-  %163 = load i8, ptr %162, align 1
-  %164 = zext i8 %163 to i16
-  %165 = or disjoint i16 %161, %164
-  %166 = sext i16 %165 to i32
-  %167 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %168 = load atomic i32, ptr %167 monotonic, align 4
-  %.not.i360 = icmp eq i32 %168, 0
-  br i1 %.not.i360, label %169, label %_ZNK9hb_face_t8get_upemEv.exit
+132:                                              ; preds = %128
+  %133 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %134 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %133)
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 16
+  %136 = load ptr, ptr %135, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %134, i64 24
+  %138 = load i32, ptr %137, align 8
+  %139 = icmp ult i32 %138, 36
+  %spec.select.i.i.i.i.i356 = select i1 %139, ptr @_hb_NullPool, ptr %136
+  %140 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i356, i64 18
+  %141 = load i8, ptr %140, align 1
+  %142 = zext i8 %141 to i16
+  %143 = shl nuw i16 %142, 8
+  %144 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i356, i64 19
+  %145 = load i8, ptr %144, align 1
+  %146 = zext i8 %145 to i16
+  %147 = or disjoint i16 %143, %146
+  %148 = sext i16 %147 to i32
+  %149 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  %150 = load atomic i32, ptr %149 monotonic, align 4
+  %.not.i = icmp eq i32 %150, 0
+  br i1 %.not.i, label %151, label %_ZNK9hb_face_t8get_upemEv.exit
 
-169:                                              ; preds = %150
-  %170 = tail call noundef i32 @_ZNK9hb_face_t9load_upemEv(ptr noundef nonnull align 8 dereferenceable(416) %5)
+151:                                              ; preds = %132
+  %152 = tail call noundef i32 @_ZNK9hb_face_t9load_upemEv(ptr noundef nonnull align 8 dereferenceable(416) %5)
   br label %_ZNK9hb_face_t8get_upemEv.exit
 
-_ZNK9hb_face_t8get_upemEv.exit:                   ; preds = %150, %169
-  %.0.i = phi i32 [ %170, %169 ], [ %168, %150 ]
-  %.not290 = icmp ne i16 %165, 0
-  %171 = icmp ugt i32 %.0.i, %166
-  %or.cond299 = and i1 %.not290, %171
-  br i1 %or.cond299, label %172, label %174
+_ZNK9hb_face_t8get_upemEv.exit:                   ; preds = %132, %151
+  %.0.i = phi i32 [ %152, %151 ], [ %150, %132 ]
+  %.not290 = icmp ne i16 %147, 0
+  %153 = icmp ugt i32 %.0.i, %148
+  %or.cond299 = and i1 %.not290, %153
+  br i1 %or.cond299, label %154, label %156
 
-172:                                              ; preds = %_ZNK9hb_face_t8get_upemEv.exit
-  %173 = udiv i32 %.0.i, %166
-  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %173, i32 256)
-  br label %174
+154:                                              ; preds = %_ZNK9hb_face_t8get_upemEv.exit
+  %155 = udiv i32 %.0.i, %148
+  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %155, i32 256)
+  br label %156
 
-174:                                              ; preds = %172, %_ZNK9hb_face_t8get_upemEv.exit, %146
-  %.0235 = phi i32 [ 1, %146 ], [ %.sroa.speculated, %172 ], [ 1, %_ZNK9hb_face_t8get_upemEv.exit ]
-  %175 = icmp eq i32 %1, 1751347827
-  br i1 %175, label %176, label %219
+156:                                              ; preds = %154, %_ZNK9hb_face_t8get_upemEv.exit, %128
+  %.0235 = phi i32 [ 1, %128 ], [ %.sroa.speculated, %154 ], [ 1, %_ZNK9hb_face_t8get_upemEv.exit ]
+  %157 = icmp eq i32 %1, 1751347827
+  br i1 %157, label %158, label %198
 
-176:                                              ; preds = %174
-  %177 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %178 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %177)
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 16
-  %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %178, i64 24
-  %182 = load i32, ptr %181, align 8
-  %183 = icmp ult i32 %182, 36
-  %spec.select.i.i.i.i.i362 = select i1 %183, ptr @_hb_NullPool, ptr %180
-  %184 = load i8, ptr %spec.select.i.i.i.i.i362, align 1
-  %185 = zext i8 %184 to i32
-  %186 = shl nuw nsw i32 %185, 8
-  %187 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i362, i64 1
-  %188 = load i8, ptr %187, align 1
-  %189 = zext i8 %188 to i32
-  %190 = or disjoint i32 %186, %189
-  %191 = icmp ne i32 %190, 0
+158:                                              ; preds = %156
+  %159 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %160 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %159)
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
+  %162 = load ptr, ptr %161, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %160, i64 24
+  %164 = load i32, ptr %163, align 8
+  %165 = icmp ult i32 %164, 36
+  %spec.select.i.i.i.i.i358 = select i1 %165, ptr @_hb_NullPool, ptr %162
+  %166 = load i8, ptr %spec.select.i.i.i.i.i358, align 1
+  %167 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i358, i64 1
+  %168 = load i8, ptr %167, align 1
+  %169 = or i8 %168, %166
+  %170 = icmp ne i8 %169, 0
   %.not291 = icmp ne ptr %2, null
-  %or.cond301.not = and i1 %.not291, %191
-  br i1 %or.cond301.not, label %.thread, label %215
+  %or.cond301.not = and i1 %.not291, %170
+  br i1 %or.cond301.not, label %.thread, label %194
 
-.thread:                                          ; preds = %176
-  %192 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %177)
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 16
-  %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %192, i64 24
-  %196 = load i32, ptr %195, align 8
-  %197 = icmp ult i32 %196, 36
-  %spec.select.i.i.i.i.i363 = select i1 %197, ptr @_hb_NullPool, ptr %194
-  %198 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i363, i64 18
-  %199 = load i8, ptr %198, align 1
-  %200 = zext i8 %199 to i16
-  %201 = shl nuw i16 %200, 8
-  %202 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i363, i64 19
-  %203 = load i8, ptr %202, align 1
-  %204 = zext i8 %203 to i16
-  %205 = or disjoint i16 %201, %204
-  %206 = sitofp i16 %205 to float
-  %207 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1751347827)
-  %208 = fadd float %207, %206
-  %209 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %210 = load float, ptr %209, align 8
-  %211 = fmul float %210, %208
-  %212 = fadd float %211, 5.000000e-01
-  %213 = tail call noundef float @llvm.floor.f32(float %212)
-  %214 = fptosi float %213 to i32
-  br label %216
+.thread:                                          ; preds = %158
+  %171 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %159)
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %171, i64 24
+  %175 = load i32, ptr %174, align 8
+  %176 = icmp ult i32 %175, 36
+  %spec.select.i.i.i.i.i359 = select i1 %176, ptr @_hb_NullPool, ptr %173
+  %177 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i359, i64 18
+  %178 = load i8, ptr %177, align 1
+  %179 = zext i8 %178 to i16
+  %180 = shl nuw i16 %179, 8
+  %181 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i359, i64 19
+  %182 = load i8, ptr %181, align 1
+  %183 = zext i8 %182 to i16
+  %184 = or disjoint i16 %180, %183
+  %185 = sitofp i16 %184 to float
+  %186 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1751347827)
+  %187 = fadd float %186, %185
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %189 = load float, ptr %188, align 8
+  %190 = fmul float %189, %187
+  %191 = fadd float %190, 5.000000e-01
+  %192 = tail call noundef float @llvm.floor.f32(float %191)
+  %193 = fptosi float %192 to i32
+  br label %195
 
-215:                                              ; preds = %176
-  br i1 %.not291, label %._crit_edge484, label %1735
+194:                                              ; preds = %158
+  br i1 %.not291, label %._crit_edge438, label %1544
 
-._crit_edge484:                                   ; preds = %215
-  %.pre485 = load i32, ptr %2, align 4
-  br label %216
+._crit_edge438:                                   ; preds = %194
+  %.pre439 = load i32, ptr %2, align 4
+  br label %195
 
-216:                                              ; preds = %._crit_edge484, %.thread
-  %217 = phi i32 [ %.pre485, %._crit_edge484 ], [ %214, %.thread ]
-  %218 = mul i32 %217, %.0235
-  store i32 %218, ptr %2, align 4
-  br label %1735
+195:                                              ; preds = %._crit_edge438, %.thread
+  %196 = phi i32 [ %.pre439, %._crit_edge438 ], [ %193, %.thread ]
+  %197 = mul i32 %196, %.0235
+  store i32 %197, ptr %2, align 4
+  br label %1544
 
-219:                                              ; preds = %174
-  %220 = load float, ptr %147, align 4
-  %221 = fcmp une float %220, 0.000000e+00
-  %222 = icmp ne ptr %2, null
-  %or.cond = and i1 %222, %221
-  br i1 %or.cond, label %223, label %263
+198:                                              ; preds = %156
+  %199 = load float, ptr %129, align 4
+  %200 = fcmp une float %199, 0.000000e+00
+  %201 = icmp ne ptr %2, null
+  %or.cond = and i1 %201, %200
+  br i1 %or.cond, label %202, label %239
 
-223:                                              ; preds = %219
-  %224 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %225 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %224)
-  %226 = getelementptr inbounds nuw i8, ptr %225, i64 16
-  %227 = load ptr, ptr %226, align 8
-  %228 = getelementptr inbounds nuw i8, ptr %225, i64 24
-  %229 = load i32, ptr %228, align 8
-  %230 = icmp ult i32 %229, 36
-  %spec.select.i.i.i.i.i364 = select i1 %230, ptr @_hb_NullPool, ptr %227
-  %231 = load i8, ptr %spec.select.i.i.i.i.i364, align 1
-  %232 = zext i8 %231 to i32
-  %233 = shl nuw nsw i32 %232, 8
-  %234 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i364, i64 1
-  %235 = load i8, ptr %234, align 1
-  %236 = zext i8 %235 to i32
-  %237 = or disjoint i32 %233, %236
-  %.not483 = icmp eq i32 %237, 0
-  br i1 %.not483, label %263, label %238
+202:                                              ; preds = %198
+  %203 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %204 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %203)
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %206 = load ptr, ptr %205, align 8
+  %207 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %208 = load i32, ptr %207, align 8
+  %209 = icmp ult i32 %208, 36
+  %spec.select.i.i.i.i.i360 = select i1 %209, ptr @_hb_NullPool, ptr %206
+  %210 = load i8, ptr %spec.select.i.i.i.i.i360, align 1
+  %211 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i360, i64 1
+  %212 = load i8, ptr %211, align 1
+  %213 = or i8 %212, %210
+  %.not437 = icmp eq i8 %213, 0
+  br i1 %.not437, label %239, label %214
 
-238:                                              ; preds = %223
-  %239 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %224)
-  %240 = getelementptr inbounds nuw i8, ptr %239, i64 16
-  %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds nuw i8, ptr %239, i64 24
-  %243 = load i32, ptr %242, align 8
-  %244 = icmp ult i32 %243, 36
-  %spec.select.i.i.i.i.i365 = select i1 %244, ptr @_hb_NullPool, ptr %241
-  %245 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i365, i64 18
-  %246 = load i8, ptr %245, align 1
-  %247 = zext i8 %246 to i16
-  %248 = shl nuw i16 %247, 8
-  %249 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i365, i64 19
-  %250 = load i8, ptr %249, align 1
-  %251 = zext i8 %250 to i16
-  %252 = or disjoint i16 %248, %251
-  %253 = sitofp i16 %252 to float
-  %254 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef %1)
-  %255 = fadd float %254, %253
-  %256 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %257 = load float, ptr %256, align 8
-  %258 = fmul float %257, %255
-  %259 = fadd float %258, 5.000000e-01
-  %260 = tail call noundef float @llvm.floor.f32(float %259)
-  %261 = fptosi float %260 to i32
-  store i32 %261, ptr %2, align 4
-  %262 = sitofp i32 %261 to float
-  br label %263
+214:                                              ; preds = %202
+  %215 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %203)
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
+  %217 = load ptr, ptr %216, align 8
+  %218 = getelementptr inbounds nuw i8, ptr %215, i64 24
+  %219 = load i32, ptr %218, align 8
+  %220 = icmp ult i32 %219, 36
+  %spec.select.i.i.i.i.i361 = select i1 %220, ptr @_hb_NullPool, ptr %217
+  %221 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i361, i64 18
+  %222 = load i8, ptr %221, align 1
+  %223 = zext i8 %222 to i16
+  %224 = shl nuw i16 %223, 8
+  %225 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i361, i64 19
+  %226 = load i8, ptr %225, align 1
+  %227 = zext i8 %226 to i16
+  %228 = or disjoint i16 %224, %227
+  %229 = sitofp i16 %228 to float
+  %230 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef %1)
+  %231 = fadd float %230, %229
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %233 = load float, ptr %232, align 8
+  %234 = fmul float %233, %231
+  %235 = fadd float %234, 5.000000e-01
+  %236 = tail call noundef float @llvm.floor.f32(float %235)
+  %237 = fptosi float %236 to i32
+  store i32 %237, ptr %2, align 4
+  %238 = sitofp i32 %237 to float
+  br label %239
 
-263:                                              ; preds = %238, %223, %219
-  %.0234 = phi float [ %262, %238 ], [ 0.000000e+00, %223 ], [ 0.000000e+00, %219 ]
-  %264 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %265 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %264)
-  %266 = getelementptr inbounds nuw i8, ptr %265, i64 16
-  %267 = load ptr, ptr %266, align 8
-  %268 = getelementptr inbounds nuw i8, ptr %265, i64 24
-  %269 = load i32, ptr %268, align 8
-  %270 = icmp ult i32 %269, 36
-  %spec.select.i.i.i.i.i366 = select i1 %270, ptr @_hb_NullPool, ptr %267
-  %271 = load i8, ptr %spec.select.i.i.i.i.i366, align 1
-  %272 = zext i8 %271 to i32
-  %273 = shl nuw nsw i32 %272, 8
-  %274 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i366, i64 1
-  %275 = load i8, ptr %274, align 1
-  %276 = zext i8 %275 to i32
-  %277 = or disjoint i32 %273, %276
-  %278 = icmp ne i32 %277, 0
-  %brmerge.demorgan = and i1 %222, %278
-  br i1 %brmerge.demorgan, label %.thread482, label %302
+239:                                              ; preds = %214, %202, %198
+  %.0234 = phi float [ %238, %214 ], [ 0.000000e+00, %202 ], [ 0.000000e+00, %198 ]
+  %240 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %241 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %240)
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 16
+  %243 = load ptr, ptr %242, align 8
+  %244 = getelementptr inbounds nuw i8, ptr %241, i64 24
+  %245 = load i32, ptr %244, align 8
+  %246 = icmp ult i32 %245, 36
+  %spec.select.i.i.i.i.i362 = select i1 %246, ptr @_hb_NullPool, ptr %243
+  %247 = load i8, ptr %spec.select.i.i.i.i.i362, align 1
+  %248 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i362, i64 1
+  %249 = load i8, ptr %248, align 1
+  %250 = or i8 %249, %247
+  %251 = icmp ne i8 %250, 0
+  %brmerge.demorgan = and i1 %201, %251
+  br i1 %brmerge.demorgan, label %.thread436, label %275
 
-.thread482:                                       ; preds = %263
-  %279 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %264)
-  %280 = getelementptr inbounds nuw i8, ptr %279, i64 16
-  %281 = load ptr, ptr %280, align 8
-  %282 = getelementptr inbounds nuw i8, ptr %279, i64 24
-  %283 = load i32, ptr %282, align 8
-  %284 = icmp ult i32 %283, 36
-  %spec.select.i.i.i.i.i367 = select i1 %284, ptr @_hb_NullPool, ptr %281
-  %285 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i367, i64 20
-  %286 = load i8, ptr %285, align 1
-  %287 = zext i8 %286 to i16
-  %288 = shl nuw i16 %287, 8
-  %289 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i367, i64 21
-  %290 = load i8, ptr %289, align 1
-  %291 = zext i8 %290 to i16
-  %292 = or disjoint i16 %288, %291
-  %293 = sitofp i16 %292 to float
-  %294 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef %1)
-  %295 = fadd float %294, %293
-  %296 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %297 = load float, ptr %296, align 4
-  %298 = fmul float %297, %295
-  %299 = fadd float %298, 5.000000e-01
-  %300 = tail call noundef float @llvm.floor.f32(float %299)
-  %301 = fptosi float %300 to i32
-  br label %303
+.thread436:                                       ; preds = %239
+  %252 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %240)
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 16
+  %254 = load ptr, ptr %253, align 8
+  %255 = getelementptr inbounds nuw i8, ptr %252, i64 24
+  %256 = load i32, ptr %255, align 8
+  %257 = icmp ult i32 %256, 36
+  %spec.select.i.i.i.i.i363 = select i1 %257, ptr @_hb_NullPool, ptr %254
+  %258 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i363, i64 20
+  %259 = load i8, ptr %258, align 1
+  %260 = zext i8 %259 to i16
+  %261 = shl nuw i16 %260, 8
+  %262 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i363, i64 21
+  %263 = load i8, ptr %262, align 1
+  %264 = zext i8 %263 to i16
+  %265 = or disjoint i16 %261, %264
+  %266 = sitofp i16 %265 to float
+  %267 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef %1)
+  %268 = fadd float %267, %266
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %270 = load float, ptr %269, align 4
+  %271 = fmul float %270, %268
+  %272 = fadd float %271, 5.000000e-01
+  %273 = tail call noundef float @llvm.floor.f32(float %272)
+  %274 = fptosi float %273 to i32
+  br label %276
 
-302:                                              ; preds = %263
-  br i1 %222, label %._crit_edge, label %1735
+275:                                              ; preds = %239
+  br i1 %201, label %._crit_edge, label %1544
 
-._crit_edge:                                      ; preds = %302
+._crit_edge:                                      ; preds = %275
   %.pre = load i32, ptr %2, align 4
-  br label %303
+  br label %276
 
-303:                                              ; preds = %._crit_edge, %.thread482
-  %304 = phi i32 [ %.pre, %._crit_edge ], [ %301, %.thread482 ]
-  %305 = mul i32 %304, %.0235
-  store i32 %305, ptr %2, align 4
-  %306 = load float, ptr %147, align 4
-  %307 = fcmp une float %306, 0.000000e+00
-  br i1 %307, label %308, label %1735
+276:                                              ; preds = %._crit_edge, %.thread436
+  %277 = phi i32 [ %.pre, %._crit_edge ], [ %274, %.thread436 ]
+  %278 = mul i32 %277, %.0235
+  store i32 %278, ptr %2, align 4
+  %279 = load float, ptr %129, align 4
+  %280 = fcmp une float %279, 0.000000e+00
+  br i1 %280, label %281, label %1544
 
-308:                                              ; preds = %303
-  %309 = uitofp nneg i32 %.0235 to float
-  %310 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %311 = load float, ptr %310, align 8
-  %312 = fmul float %311, %309
-  %313 = fmul float %.0234, %312
-  %314 = fadd float %313, 5.000000e-01
-  %315 = tail call noundef float @llvm.floor.f32(float %314)
-  %316 = sitofp i32 %305 to float
-  %317 = fadd float %315, %316
-  %318 = fptosi float %317 to i32
-  store i32 %318, ptr %2, align 4
-  br label %1735
+281:                                              ; preds = %276
+  %282 = uitofp nneg i32 %.0235 to float
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %284 = load float, ptr %283, align 8
+  %285 = fmul float %284, %282
+  %286 = fmul float %.0234, %285
+  %287 = fadd float %286, 5.000000e-01
+  %288 = tail call noundef float @llvm.floor.f32(float %287)
+  %289 = sitofp i32 %278 to float
+  %290 = fadd float %288, %289
+  %291 = fptosi float %290 to i32
+  store i32 %291, ptr %2, align 4
+  br label %1544
 
-319:                                              ; preds = %3
-  %320 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %321 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %320)
-  %322 = getelementptr inbounds nuw i8, ptr %321, i64 16
-  %323 = load ptr, ptr %322, align 8
-  %324 = getelementptr inbounds nuw i8, ptr %321, i64 24
-  %325 = load i32, ptr %324, align 8
-  %326 = icmp ult i32 %325, 36
-  %spec.select.i.i.i.i.i368 = select i1 %326, ptr @_hb_NullPool, ptr %323
-  %327 = load i8, ptr %spec.select.i.i.i.i.i368, align 1
-  %328 = zext i8 %327 to i32
-  %329 = shl nuw nsw i32 %328, 8
-  %330 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i368, i64 1
-  %331 = load i8, ptr %330, align 1
-  %332 = zext i8 %331 to i32
-  %333 = or disjoint i32 %329, %332
-  %334 = icmp ne i32 %333, 0
+292:                                              ; preds = %3
+  %293 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %294 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %293)
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 16
+  %296 = load ptr, ptr %295, align 8
+  %297 = getelementptr inbounds nuw i8, ptr %294, i64 24
+  %298 = load i32, ptr %297, align 8
+  %299 = icmp ult i32 %298, 36
+  %spec.select.i.i.i.i.i364 = select i1 %299, ptr @_hb_NullPool, ptr %296
+  %300 = load i8, ptr %spec.select.i.i.i.i.i364, align 1
+  %301 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i364, i64 1
+  %302 = load i8, ptr %301, align 1
+  %303 = or i8 %302, %300
+  %304 = icmp ne i8 %303, 0
   %.not289 = icmp ne ptr %2, null
-  %or.cond305.not = and i1 %.not289, %334
-  br i1 %or.cond305.not, label %335, label %1735
+  %or.cond305.not = and i1 %.not289, %304
+  br i1 %or.cond305.not, label %305, label %1544
 
-335:                                              ; preds = %319
-  %336 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %320)
-  %337 = getelementptr inbounds nuw i8, ptr %336, i64 16
-  %338 = load ptr, ptr %337, align 8
-  %339 = getelementptr inbounds nuw i8, ptr %336, i64 24
-  %340 = load i32, ptr %339, align 8
-  %341 = icmp ult i32 %340, 36
-  %spec.select.i.i.i.i.i369 = select i1 %341, ptr @_hb_NullPool, ptr %338
-  %342 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i369, i64 22
-  %343 = load i8, ptr %342, align 1
-  %344 = zext i8 %343 to i16
-  %345 = shl nuw i16 %344, 8
-  %346 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i369, i64 23
-  %347 = load i8, ptr %346, align 1
-  %348 = zext i8 %347 to i16
-  %349 = or disjoint i16 %345, %348
-  %350 = sitofp i16 %349 to float
-  %351 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1751347046)
-  %352 = fadd float %351, %350
-  %353 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %354 = load float, ptr %353, align 4
-  %355 = fmul float %354, %352
-  %356 = fadd float %355, 5.000000e-01
-  %357 = tail call noundef float @llvm.floor.f32(float %356)
-  %358 = fptosi float %357 to i32
-  store i32 %358, ptr %2, align 4
-  br label %1735
+305:                                              ; preds = %292
+  %306 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %293)
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 16
+  %308 = load ptr, ptr %307, align 8
+  %309 = getelementptr inbounds nuw i8, ptr %306, i64 24
+  %310 = load i32, ptr %309, align 8
+  %311 = icmp ult i32 %310, 36
+  %spec.select.i.i.i.i.i365 = select i1 %311, ptr @_hb_NullPool, ptr %308
+  %312 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i365, i64 22
+  %313 = load i8, ptr %312, align 1
+  %314 = zext i8 %313 to i16
+  %315 = shl nuw i16 %314, 8
+  %316 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i365, i64 23
+  %317 = load i8, ptr %316, align 1
+  %318 = zext i8 %317 to i16
+  %319 = or disjoint i16 %315, %318
+  %320 = sitofp i16 %319 to float
+  %321 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1751347046)
+  %322 = fadd float %321, %320
+  %323 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %324 = load float, ptr %323, align 4
+  %325 = fmul float %324, %322
+  %326 = fadd float %325, 5.000000e-01
+  %327 = tail call noundef float @llvm.floor.f32(float %326)
+  %328 = fptosi float %327 to i32
+  store i32 %328, ptr %2, align 4
+  br label %1544
 
-359:                                              ; preds = %3
-  %360 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  %361 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %360)
-  %362 = getelementptr inbounds nuw i8, ptr %361, i64 16
-  %363 = load ptr, ptr %362, align 8
-  %364 = getelementptr inbounds nuw i8, ptr %361, i64 24
-  %365 = load i32, ptr %364, align 8
-  %366 = icmp ult i32 %365, 36
-  %spec.select.i.i.i.i.i370 = select i1 %366, ptr @_hb_NullPool, ptr %363
-  %367 = load i8, ptr %spec.select.i.i.i.i.i370, align 1
-  %368 = zext i8 %367 to i32
-  %369 = shl nuw nsw i32 %368, 8
-  %370 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i370, i64 1
-  %371 = load i8, ptr %370, align 1
-  %372 = zext i8 %371 to i32
-  %373 = or disjoint i32 %369, %372
-  %374 = icmp ne i32 %373, 0
+329:                                              ; preds = %3
+  %330 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  %331 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %330)
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 16
+  %333 = load ptr, ptr %332, align 8
+  %334 = getelementptr inbounds nuw i8, ptr %331, i64 24
+  %335 = load i32, ptr %334, align 8
+  %336 = icmp ult i32 %335, 36
+  %spec.select.i.i.i.i.i366 = select i1 %336, ptr @_hb_NullPool, ptr %333
+  %337 = load i8, ptr %spec.select.i.i.i.i.i366, align 1
+  %338 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i366, i64 1
+  %339 = load i8, ptr %338, align 1
+  %340 = or i8 %339, %337
+  %341 = icmp ne i8 %340, 0
   %.not288 = icmp ne ptr %2, null
-  %or.cond307.not = and i1 %.not288, %374
-  br i1 %or.cond307.not, label %375, label %1735
+  %or.cond307.not = and i1 %.not288, %341
+  br i1 %or.cond307.not, label %342, label %1544
 
-375:                                              ; preds = %359
-  %376 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %360)
-  %377 = getelementptr inbounds nuw i8, ptr %376, i64 16
-  %378 = load ptr, ptr %377, align 8
-  %379 = getelementptr inbounds nuw i8, ptr %376, i64 24
-  %380 = load i32, ptr %379, align 8
-  %381 = icmp ult i32 %380, 36
-  %spec.select.i.i.i.i.i371 = select i1 %381, ptr @_hb_NullPool, ptr %378
-  %382 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i371, i64 18
-  %383 = load i8, ptr %382, align 1
-  %384 = zext i8 %383 to i16
-  %385 = shl nuw i16 %384, 8
-  %386 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i371, i64 19
+342:                                              ; preds = %329
+  %343 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %330)
+  %344 = getelementptr inbounds nuw i8, ptr %343, i64 16
+  %345 = load ptr, ptr %344, align 8
+  %346 = getelementptr inbounds nuw i8, ptr %343, i64 24
+  %347 = load i32, ptr %346, align 8
+  %348 = icmp ult i32 %347, 36
+  %spec.select.i.i.i.i.i367 = select i1 %348, ptr @_hb_NullPool, ptr %345
+  %349 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i367, i64 18
+  %350 = load i8, ptr %349, align 1
+  %351 = zext i8 %350 to i16
+  %352 = shl nuw i16 %351, 8
+  %353 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i367, i64 19
+  %354 = load i8, ptr %353, align 1
+  %355 = zext i8 %354 to i16
+  %356 = or disjoint i16 %352, %355
+  %357 = sitofp i16 %356 to float
+  %358 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1986228851)
+  %359 = fadd float %358, %357
+  %360 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %361 = load float, ptr %360, align 4
+  %362 = fmul float %361, %359
+  %363 = fadd float %362, 5.000000e-01
+  %364 = tail call noundef float @llvm.floor.f32(float %363)
+  %365 = fptosi float %364 to i32
+  store i32 %365, ptr %2, align 4
+  br label %1544
+
+366:                                              ; preds = %3
+  %367 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  %368 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %367)
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 16
+  %370 = load ptr, ptr %369, align 8
+  %371 = getelementptr inbounds nuw i8, ptr %368, i64 24
+  %372 = load i32, ptr %371, align 8
+  %373 = icmp ult i32 %372, 36
+  %spec.select.i.i.i.i.i368 = select i1 %373, ptr @_hb_NullPool, ptr %370
+  %374 = load i8, ptr %spec.select.i.i.i.i.i368, align 1
+  %375 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i368, i64 1
+  %376 = load i8, ptr %375, align 1
+  %377 = or i8 %376, %374
+  %378 = icmp ne i8 %377, 0
+  %.not287 = icmp ne ptr %2, null
+  %or.cond309.not = and i1 %.not287, %378
+  br i1 %or.cond309.not, label %379, label %1544
+
+379:                                              ; preds = %366
+  %380 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %367)
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 16
+  %382 = load ptr, ptr %381, align 8
+  %383 = getelementptr inbounds nuw i8, ptr %380, i64 24
+  %384 = load i32, ptr %383, align 8
+  %385 = icmp ult i32 %384, 36
+  %spec.select.i.i.i.i.i369 = select i1 %385, ptr @_hb_NullPool, ptr %382
+  %386 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i369, i64 20
   %387 = load i8, ptr %386, align 1
   %388 = zext i8 %387 to i16
-  %389 = or disjoint i16 %385, %388
-  %390 = sitofp i16 %389 to float
-  %391 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1986228851)
-  %392 = fadd float %391, %390
-  %393 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %394 = load float, ptr %393, align 4
-  %395 = fmul float %394, %392
-  %396 = fadd float %395, 5.000000e-01
-  %397 = tail call noundef float @llvm.floor.f32(float %396)
-  %398 = fptosi float %397 to i32
-  store i32 %398, ptr %2, align 4
-  br label %1735
+  %389 = shl nuw i16 %388, 8
+  %390 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i369, i64 21
+  %391 = load i8, ptr %390, align 1
+  %392 = zext i8 %391 to i16
+  %393 = or disjoint i16 %389, %392
+  %394 = sitofp i16 %393 to float
+  %395 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1986228846)
+  %396 = fadd float %395, %394
+  %397 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %398 = load float, ptr %397, align 8
+  %399 = fmul float %398, %396
+  %400 = fadd float %399, 5.000000e-01
+  %401 = tail call noundef float @llvm.floor.f32(float %400)
+  %402 = fptosi float %401 to i32
+  store i32 %402, ptr %2, align 4
+  br label %1544
 
-399:                                              ; preds = %3
-  %400 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  %401 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %400)
-  %402 = getelementptr inbounds nuw i8, ptr %401, i64 16
-  %403 = load ptr, ptr %402, align 8
-  %404 = getelementptr inbounds nuw i8, ptr %401, i64 24
-  %405 = load i32, ptr %404, align 8
-  %406 = icmp ult i32 %405, 36
-  %spec.select.i.i.i.i.i372 = select i1 %406, ptr @_hb_NullPool, ptr %403
-  %407 = load i8, ptr %spec.select.i.i.i.i.i372, align 1
-  %408 = zext i8 %407 to i32
-  %409 = shl nuw nsw i32 %408, 8
-  %410 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i372, i64 1
-  %411 = load i8, ptr %410, align 1
-  %412 = zext i8 %411 to i32
-  %413 = or disjoint i32 %409, %412
-  %414 = icmp ne i32 %413, 0
-  %.not287 = icmp ne ptr %2, null
-  %or.cond309.not = and i1 %.not287, %414
-  br i1 %or.cond309.not, label %415, label %1735
-
-415:                                              ; preds = %399
-  %416 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %400)
-  %417 = getelementptr inbounds nuw i8, ptr %416, i64 16
-  %418 = load ptr, ptr %417, align 8
-  %419 = getelementptr inbounds nuw i8, ptr %416, i64 24
-  %420 = load i32, ptr %419, align 8
-  %421 = icmp ult i32 %420, 36
-  %spec.select.i.i.i.i.i373 = select i1 %421, ptr @_hb_NullPool, ptr %418
-  %422 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i373, i64 20
-  %423 = load i8, ptr %422, align 1
-  %424 = zext i8 %423 to i16
-  %425 = shl nuw i16 %424, 8
-  %426 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i373, i64 21
-  %427 = load i8, ptr %426, align 1
-  %428 = zext i8 %427 to i16
-  %429 = or disjoint i16 %425, %428
-  %430 = sitofp i16 %429 to float
-  %431 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1986228846)
-  %432 = fadd float %431, %430
-  %433 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %434 = load float, ptr %433, align 8
-  %435 = fmul float %434, %432
-  %436 = fadd float %435, 5.000000e-01
-  %437 = tail call noundef float @llvm.floor.f32(float %436)
-  %438 = fptosi float %437 to i32
-  store i32 %438, ptr %2, align 4
-  br label %1735
-
-439:                                              ; preds = %3
-  %440 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  %441 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %440)
-  %442 = getelementptr inbounds nuw i8, ptr %441, i64 16
-  %443 = load ptr, ptr %442, align 8
-  %444 = getelementptr inbounds nuw i8, ptr %441, i64 24
-  %445 = load i32, ptr %444, align 8
-  %446 = icmp ult i32 %445, 36
-  %spec.select.i.i.i.i.i374 = select i1 %446, ptr @_hb_NullPool, ptr %443
-  %447 = load i8, ptr %spec.select.i.i.i.i.i374, align 1
-  %448 = zext i8 %447 to i32
-  %449 = shl nuw nsw i32 %448, 8
-  %450 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i374, i64 1
-  %451 = load i8, ptr %450, align 1
-  %452 = zext i8 %451 to i32
-  %453 = or disjoint i32 %449, %452
-  %454 = icmp ne i32 %453, 0
+403:                                              ; preds = %3
+  %404 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  %405 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %404)
+  %406 = getelementptr inbounds nuw i8, ptr %405, i64 16
+  %407 = load ptr, ptr %406, align 8
+  %408 = getelementptr inbounds nuw i8, ptr %405, i64 24
+  %409 = load i32, ptr %408, align 8
+  %410 = icmp ult i32 %409, 36
+  %spec.select.i.i.i.i.i370 = select i1 %410, ptr @_hb_NullPool, ptr %407
+  %411 = load i8, ptr %spec.select.i.i.i.i.i370, align 1
+  %412 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i370, i64 1
+  %413 = load i8, ptr %412, align 1
+  %414 = or i8 %413, %411
+  %415 = icmp ne i8 %414, 0
   %.not286 = icmp ne ptr %2, null
-  %or.cond311.not = and i1 %.not286, %454
-  br i1 %or.cond311.not, label %455, label %1735
+  %or.cond311.not = and i1 %.not286, %415
+  br i1 %or.cond311.not, label %416, label %1544
 
-455:                                              ; preds = %439
-  %456 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %440)
-  %457 = getelementptr inbounds nuw i8, ptr %456, i64 16
-  %458 = load ptr, ptr %457, align 8
-  %459 = getelementptr inbounds nuw i8, ptr %456, i64 24
-  %460 = load i32, ptr %459, align 8
-  %461 = icmp ult i32 %460, 36
-  %spec.select.i.i.i.i.i375 = select i1 %461, ptr @_hb_NullPool, ptr %458
-  %462 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i375, i64 22
+416:                                              ; preds = %403
+  %417 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %404)
+  %418 = getelementptr inbounds nuw i8, ptr %417, i64 16
+  %419 = load ptr, ptr %418, align 8
+  %420 = getelementptr inbounds nuw i8, ptr %417, i64 24
+  %421 = load i32, ptr %420, align 8
+  %422 = icmp ult i32 %421, 36
+  %spec.select.i.i.i.i.i371 = select i1 %422, ptr @_hb_NullPool, ptr %419
+  %423 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i371, i64 22
+  %424 = load i8, ptr %423, align 1
+  %425 = zext i8 %424 to i16
+  %426 = shl nuw i16 %425, 8
+  %427 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i371, i64 23
+  %428 = load i8, ptr %427, align 1
+  %429 = zext i8 %428 to i16
+  %430 = or disjoint i16 %426, %429
+  %431 = sitofp i16 %430 to float
+  %432 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1986228070)
+  %433 = fadd float %432, %431
+  %434 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %435 = load float, ptr %434, align 8
+  %436 = fmul float %435, %433
+  %437 = fadd float %436, 5.000000e-01
+  %438 = tail call noundef float @llvm.floor.f32(float %437)
+  %439 = fptosi float %438 to i32
+  store i32 %439, ptr %2, align 4
+  br label %1544
+
+440:                                              ; preds = %3
+  %441 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %442 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %441)
+  %443 = getelementptr inbounds nuw i8, ptr %442, i64 16
+  %444 = load ptr, ptr %443, align 8
+  %445 = getelementptr inbounds nuw i8, ptr %442, i64 24
+  %446 = load i32, ptr %445, align 8
+  %447 = icmp ult i32 %446, 78
+  %spec.select.i.i.i.i.i372 = select i1 %447, ptr @_hb_NullPool, ptr %444
+  %448 = load i8, ptr %spec.select.i.i.i.i.i372, align 1
+  %449 = zext i8 %448 to i32
+  %450 = shl nuw nsw i32 %449, 8
+  %451 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i372, i64 1
+  %452 = load i8, ptr %451, align 1
+  %453 = zext i8 %452 to i32
+  %454 = or disjoint i32 %450, %453
+  %455 = icmp samesign ugt i32 %454, 1
+  %456 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i372, i64 86
+  %spec.select.i = select i1 %455, ptr %456, ptr @_hb_NullPool
+  %457 = load i8, ptr %spec.select.i, align 1
+  %458 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 1
+  %459 = load i8, ptr %458, align 1
+  %460 = or i8 %459, %457
+  %461 = icmp ne i8 %460, 0
+  %462 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 2
   %463 = load i8, ptr %462, align 1
-  %464 = zext i8 %463 to i16
-  %465 = shl nuw i16 %464, 8
-  %466 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i375, i64 23
-  %467 = load i8, ptr %466, align 1
-  %468 = zext i8 %467 to i16
-  %469 = or disjoint i16 %465, %468
-  %470 = sitofp i16 %469 to float
-  %471 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1986228070)
-  %472 = fadd float %471, %470
-  %473 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %474 = load float, ptr %473, align 8
-  %475 = fmul float %474, %472
-  %476 = fadd float %475, 5.000000e-01
-  %477 = tail call noundef float @llvm.floor.f32(float %476)
-  %478 = fptosi float %477 to i32
-  store i32 %478, ptr %2, align 4
-  br label %1735
-
-479:                                              ; preds = %3
-  %480 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %481 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %480)
-  %482 = getelementptr inbounds nuw i8, ptr %481, i64 16
-  %483 = load ptr, ptr %482, align 8
-  %484 = getelementptr inbounds nuw i8, ptr %481, i64 24
-  %485 = load i32, ptr %484, align 8
-  %486 = icmp ult i32 %485, 78
-  %spec.select.i.i.i.i.i376 = select i1 %486, ptr @_hb_NullPool, ptr %483
-  %487 = load i8, ptr %spec.select.i.i.i.i.i376, align 1
-  %488 = zext i8 %487 to i32
-  %489 = shl nuw nsw i32 %488, 8
-  %490 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i376, i64 1
-  %491 = load i8, ptr %490, align 1
-  %492 = zext i8 %491 to i32
-  %493 = or disjoint i32 %489, %492
-  %494 = icmp samesign ugt i32 %493, 1
-  %495 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i376, i64 86
-  %spec.select.i = select i1 %494, ptr %495, ptr @_hb_NullPool
-  %496 = load i8, ptr %spec.select.i, align 1
-  %497 = zext i8 %496 to i16
-  %498 = shl nuw i16 %497, 8
-  %499 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 1
-  %500 = load i8, ptr %499, align 1
-  %501 = zext i8 %500 to i16
-  %502 = or disjoint i16 %498, %501
-  %.not.i377 = icmp eq i16 %502, 0
-  br i1 %.not.i377, label %503, label %_ZNK2OT9OS2V2Tail8has_dataEv.exit
-
-503:                                              ; preds = %479
-  %504 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 2
-  %505 = load i8, ptr %504, align 1
-  %506 = zext i8 %505 to i16
-  %507 = shl nuw i16 %506, 8
-  %508 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 3
-  %509 = load i8, ptr %508, align 1
-  %510 = zext i8 %509 to i16
-  %511 = or disjoint i16 %507, %510
-  %512 = icmp ne i16 %511, 0
-  br label %_ZNK2OT9OS2V2Tail8has_dataEv.exit
-
-_ZNK2OT9OS2V2Tail8has_dataEv.exit:                ; preds = %479, %503
-  %513 = phi i1 [ true, %479 ], [ %512, %503 ]
+  %464 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 3
+  %465 = load i8, ptr %464, align 1
+  %466 = or i8 %465, %463
+  %467 = icmp ne i8 %466, 0
+  %468 = select i1 %461, i1 true, i1 %467
   %.not285 = icmp ne ptr %2, null
-  %or.cond313.not = and i1 %.not285, %513
-  br i1 %or.cond313.not, label %514, label %1735
+  %or.cond313.not = and i1 %.not285, %468
+  br i1 %or.cond313.not, label %469, label %1544
 
-514:                                              ; preds = %_ZNK2OT9OS2V2Tail8has_dataEv.exit
-  %515 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %480)
-  %516 = getelementptr inbounds nuw i8, ptr %515, i64 16
-  %517 = load ptr, ptr %516, align 8
-  %518 = getelementptr inbounds nuw i8, ptr %515, i64 24
-  %519 = load i32, ptr %518, align 8
-  %520 = icmp ult i32 %519, 78
-  %spec.select.i.i.i.i.i378 = select i1 %520, ptr @_hb_NullPool, ptr %517
-  %521 = load i8, ptr %spec.select.i.i.i.i.i378, align 1
-  %522 = zext i8 %521 to i32
-  %523 = shl nuw nsw i32 %522, 8
-  %524 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i378, i64 1
-  %525 = load i8, ptr %524, align 1
-  %526 = zext i8 %525 to i32
-  %527 = or disjoint i32 %523, %526
-  %528 = icmp samesign ugt i32 %527, 1
-  %529 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i378, i64 86
-  %spec.select.i379 = select i1 %528, ptr %529, ptr @_hb_NullPool
-  %530 = load i8, ptr %spec.select.i379, align 1
-  %531 = zext i8 %530 to i16
-  %532 = shl nuw i16 %531, 8
-  %533 = getelementptr inbounds nuw i8, ptr %spec.select.i379, i64 1
-  %534 = load i8, ptr %533, align 1
-  %535 = zext i8 %534 to i16
-  %536 = or disjoint i16 %532, %535
-  %537 = sitofp i16 %536 to float
-  %538 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 2020108148)
-  %539 = fadd float %538, %537
-  %540 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %541 = load float, ptr %540, align 8
-  %542 = fmul float %541, %539
-  %543 = fadd float %542, 5.000000e-01
-  %544 = tail call noundef float @llvm.floor.f32(float %543)
-  %545 = fptosi float %544 to i32
-  store i32 %545, ptr %2, align 4
-  br label %1735
+469:                                              ; preds = %440
+  %470 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %441)
+  %471 = getelementptr inbounds nuw i8, ptr %470, i64 16
+  %472 = load ptr, ptr %471, align 8
+  %473 = getelementptr inbounds nuw i8, ptr %470, i64 24
+  %474 = load i32, ptr %473, align 8
+  %475 = icmp ult i32 %474, 78
+  %spec.select.i.i.i.i.i373 = select i1 %475, ptr @_hb_NullPool, ptr %472
+  %476 = load i8, ptr %spec.select.i.i.i.i.i373, align 1
+  %477 = zext i8 %476 to i32
+  %478 = shl nuw nsw i32 %477, 8
+  %479 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i373, i64 1
+  %480 = load i8, ptr %479, align 1
+  %481 = zext i8 %480 to i32
+  %482 = or disjoint i32 %478, %481
+  %483 = icmp samesign ugt i32 %482, 1
+  %484 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i373, i64 86
+  %spec.select.i374 = select i1 %483, ptr %484, ptr @_hb_NullPool
+  %485 = load i8, ptr %spec.select.i374, align 1
+  %486 = zext i8 %485 to i16
+  %487 = shl nuw i16 %486, 8
+  %488 = getelementptr inbounds nuw i8, ptr %spec.select.i374, i64 1
+  %489 = load i8, ptr %488, align 1
+  %490 = zext i8 %489 to i16
+  %491 = or disjoint i16 %487, %490
+  %492 = sitofp i16 %491 to float
+  %493 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 2020108148)
+  %494 = fadd float %493, %492
+  %495 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %496 = load float, ptr %495, align 8
+  %497 = fmul float %496, %494
+  %498 = fadd float %497, 5.000000e-01
+  %499 = tail call noundef float @llvm.floor.f32(float %498)
+  %500 = fptosi float %499 to i32
+  store i32 %500, ptr %2, align 4
+  br label %1544
 
-546:                                              ; preds = %3
-  %547 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %548 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %547)
-  %549 = getelementptr inbounds nuw i8, ptr %548, i64 16
-  %550 = load ptr, ptr %549, align 8
-  %551 = getelementptr inbounds nuw i8, ptr %548, i64 24
-  %552 = load i32, ptr %551, align 8
-  %553 = icmp ult i32 %552, 78
-  %spec.select.i.i.i.i.i380 = select i1 %553, ptr @_hb_NullPool, ptr %550
-  %554 = load i8, ptr %spec.select.i.i.i.i.i380, align 1
-  %555 = zext i8 %554 to i32
-  %556 = shl nuw nsw i32 %555, 8
-  %557 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i380, i64 1
-  %558 = load i8, ptr %557, align 1
-  %559 = zext i8 %558 to i32
-  %560 = or disjoint i32 %556, %559
-  %561 = icmp samesign ugt i32 %560, 1
-  %562 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i380, i64 86
-  %spec.select.i381 = select i1 %561, ptr %562, ptr @_hb_NullPool
-  %563 = load i8, ptr %spec.select.i381, align 1
-  %564 = zext i8 %563 to i16
-  %565 = shl nuw i16 %564, 8
-  %566 = getelementptr inbounds nuw i8, ptr %spec.select.i381, i64 1
-  %567 = load i8, ptr %566, align 1
-  %568 = zext i8 %567 to i16
-  %569 = or disjoint i16 %565, %568
-  %.not.i382 = icmp eq i16 %569, 0
-  br i1 %.not.i382, label %570, label %_ZNK2OT9OS2V2Tail8has_dataEv.exit383
-
-570:                                              ; preds = %546
-  %571 = getelementptr inbounds nuw i8, ptr %spec.select.i381, i64 2
-  %572 = load i8, ptr %571, align 1
-  %573 = zext i8 %572 to i16
-  %574 = shl nuw i16 %573, 8
-  %575 = getelementptr inbounds nuw i8, ptr %spec.select.i381, i64 3
-  %576 = load i8, ptr %575, align 1
-  %577 = zext i8 %576 to i16
-  %578 = or disjoint i16 %574, %577
-  %579 = icmp ne i16 %578, 0
-  br label %_ZNK2OT9OS2V2Tail8has_dataEv.exit383
-
-_ZNK2OT9OS2V2Tail8has_dataEv.exit383:             ; preds = %546, %570
-  %580 = phi i1 [ true, %546 ], [ %579, %570 ]
+501:                                              ; preds = %3
+  %502 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %503 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %502)
+  %504 = getelementptr inbounds nuw i8, ptr %503, i64 16
+  %505 = load ptr, ptr %504, align 8
+  %506 = getelementptr inbounds nuw i8, ptr %503, i64 24
+  %507 = load i32, ptr %506, align 8
+  %508 = icmp ult i32 %507, 78
+  %spec.select.i.i.i.i.i375 = select i1 %508, ptr @_hb_NullPool, ptr %505
+  %509 = load i8, ptr %spec.select.i.i.i.i.i375, align 1
+  %510 = zext i8 %509 to i32
+  %511 = shl nuw nsw i32 %510, 8
+  %512 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i375, i64 1
+  %513 = load i8, ptr %512, align 1
+  %514 = zext i8 %513 to i32
+  %515 = or disjoint i32 %511, %514
+  %516 = icmp samesign ugt i32 %515, 1
+  %517 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i375, i64 86
+  %spec.select.i376 = select i1 %516, ptr %517, ptr @_hb_NullPool
+  %518 = load i8, ptr %spec.select.i376, align 1
+  %519 = getelementptr inbounds nuw i8, ptr %spec.select.i376, i64 1
+  %520 = load i8, ptr %519, align 1
+  %521 = or i8 %520, %518
+  %522 = icmp ne i8 %521, 0
+  %523 = getelementptr inbounds nuw i8, ptr %spec.select.i376, i64 2
+  %524 = load i8, ptr %523, align 1
+  %525 = getelementptr inbounds nuw i8, ptr %spec.select.i376, i64 3
+  %526 = load i8, ptr %525, align 1
+  %527 = or i8 %526, %524
+  %528 = icmp ne i8 %527, 0
+  %529 = select i1 %522, i1 true, i1 %528
   %.not284 = icmp ne ptr %2, null
-  %or.cond315.not = and i1 %.not284, %580
-  br i1 %or.cond315.not, label %581, label %1735
+  %or.cond315.not = and i1 %.not284, %529
+  br i1 %or.cond315.not, label %530, label %1544
 
-581:                                              ; preds = %_ZNK2OT9OS2V2Tail8has_dataEv.exit383
-  %582 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %547)
-  %583 = getelementptr inbounds nuw i8, ptr %582, i64 16
-  %584 = load ptr, ptr %583, align 8
-  %585 = getelementptr inbounds nuw i8, ptr %582, i64 24
-  %586 = load i32, ptr %585, align 8
-  %587 = icmp ult i32 %586, 78
-  %spec.select.i.i.i.i.i384 = select i1 %587, ptr @_hb_NullPool, ptr %584
-  %588 = load i8, ptr %spec.select.i.i.i.i.i384, align 1
-  %589 = zext i8 %588 to i32
-  %590 = shl nuw nsw i32 %589, 8
-  %591 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i384, i64 1
-  %592 = load i8, ptr %591, align 1
-  %593 = zext i8 %592 to i32
-  %594 = or disjoint i32 %590, %593
-  %595 = icmp samesign ugt i32 %594, 1
-  %596 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i384, i64 86
-  %spec.select.i385 = select i1 %595, ptr %596, ptr @_hb_NullPool
-  %597 = getelementptr inbounds nuw i8, ptr %spec.select.i385, i64 2
-  %598 = load i8, ptr %597, align 1
-  %599 = zext i8 %598 to i16
-  %600 = shl nuw i16 %599, 8
-  %601 = getelementptr inbounds nuw i8, ptr %spec.select.i385, i64 3
-  %602 = load i8, ptr %601, align 1
-  %603 = zext i8 %602 to i16
-  %604 = or disjoint i16 %600, %603
-  %605 = sitofp i16 %604 to float
-  %606 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1668311156)
-  %607 = fadd float %606, %605
-  %608 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %609 = load float, ptr %608, align 8
-  %610 = fmul float %609, %607
-  %611 = fadd float %610, 5.000000e-01
-  %612 = tail call noundef float @llvm.floor.f32(float %611)
-  %613 = fptosi float %612 to i32
-  store i32 %613, ptr %2, align 4
-  br label %1735
+530:                                              ; preds = %501
+  %531 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %502)
+  %532 = getelementptr inbounds nuw i8, ptr %531, i64 16
+  %533 = load ptr, ptr %532, align 8
+  %534 = getelementptr inbounds nuw i8, ptr %531, i64 24
+  %535 = load i32, ptr %534, align 8
+  %536 = icmp ult i32 %535, 78
+  %spec.select.i.i.i.i.i377 = select i1 %536, ptr @_hb_NullPool, ptr %533
+  %537 = load i8, ptr %spec.select.i.i.i.i.i377, align 1
+  %538 = zext i8 %537 to i32
+  %539 = shl nuw nsw i32 %538, 8
+  %540 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i377, i64 1
+  %541 = load i8, ptr %540, align 1
+  %542 = zext i8 %541 to i32
+  %543 = or disjoint i32 %539, %542
+  %544 = icmp samesign ugt i32 %543, 1
+  %545 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i377, i64 86
+  %spec.select.i378 = select i1 %544, ptr %545, ptr @_hb_NullPool
+  %546 = getelementptr inbounds nuw i8, ptr %spec.select.i378, i64 2
+  %547 = load i8, ptr %546, align 1
+  %548 = zext i8 %547 to i16
+  %549 = shl nuw i16 %548, 8
+  %550 = getelementptr inbounds nuw i8, ptr %spec.select.i378, i64 3
+  %551 = load i8, ptr %550, align 1
+  %552 = zext i8 %551 to i16
+  %553 = or disjoint i16 %549, %552
+  %554 = sitofp i16 %553 to float
+  %555 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1668311156)
+  %556 = fadd float %555, %554
+  %557 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %558 = load float, ptr %557, align 8
+  %559 = fmul float %558, %556
+  %560 = fadd float %559, 5.000000e-01
+  %561 = tail call noundef float @llvm.floor.f32(float %560)
+  %562 = fptosi float %561 to i32
+  store i32 %562, ptr %2, align 4
+  br label %1544
 
-614:                                              ; preds = %3
-  %615 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %616 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %615)
-  %617 = getelementptr inbounds nuw i8, ptr %616, i64 16
-  %618 = load ptr, ptr %617, align 8
-  %619 = getelementptr inbounds nuw i8, ptr %616, i64 24
-  %620 = load i32, ptr %619, align 8
-  %621 = icmp ult i32 %620, 78
-  %spec.select.i.i.i.i.i386 = select i1 %621, ptr @_hb_NullPool, ptr %618
-  %622 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i386, i64 4
-  %623 = load i8, ptr %622, align 1
-  %624 = zext i8 %623 to i32
-  %625 = shl nuw nsw i32 %624, 8
-  %626 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i386, i64 5
-  %627 = load i8, ptr %626, align 1
-  %628 = zext i8 %627 to i32
-  %629 = or disjoint i32 %625, %628
-  %.not.i387 = icmp eq i32 %629, 0
-  br i1 %.not.i387, label %630, label %_ZNK2OT3OS28has_dataEv.exit390
+563:                                              ; preds = %3
+  %564 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %565 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %564)
+  %566 = getelementptr inbounds nuw i8, ptr %565, i64 16
+  %567 = load ptr, ptr %566, align 8
+  %568 = getelementptr inbounds nuw i8, ptr %565, i64 24
+  %569 = load i32, ptr %568, align 8
+  %570 = icmp ult i32 %569, 78
+  %spec.select.i.i.i.i.i379 = select i1 %570, ptr @_hb_NullPool, ptr %567
+  %571 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i379, i64 4
+  %572 = load i8, ptr %571, align 1
+  %573 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i379, i64 5
+  %574 = load i8, ptr %573, align 1
+  %575 = or i8 %574, %572
+  %576 = icmp eq i8 %575, 0
+  br i1 %576, label %577, label %_ZNK2OT3OS28has_dataEv.exit380
 
-630:                                              ; preds = %614
-  %631 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i386, i64 6
-  %632 = load i8, ptr %631, align 1
-  %633 = zext i8 %632 to i32
-  %634 = shl nuw nsw i32 %633, 8
-  %635 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i386, i64 7
-  %636 = load i8, ptr %635, align 1
-  %637 = zext i8 %636 to i32
-  %638 = or disjoint i32 %634, %637
-  %.not1.i388 = icmp eq i32 %638, 0
-  br i1 %.not1.i388, label %639, label %_ZNK2OT3OS28has_dataEv.exit390
+577:                                              ; preds = %563
+  %578 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i379, i64 6
+  %579 = load i8, ptr %578, align 1
+  %580 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i379, i64 7
+  %581 = load i8, ptr %580, align 1
+  %582 = or i8 %581, %579
+  %583 = icmp eq i8 %582, 0
+  br i1 %583, label %584, label %_ZNK2OT3OS28has_dataEv.exit380
 
-639:                                              ; preds = %630
-  %640 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i386, i64 64
-  %641 = load i8, ptr %640, align 1
-  %642 = zext i8 %641 to i32
-  %643 = shl nuw nsw i32 %642, 8
-  %644 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i386, i64 65
-  %645 = load i8, ptr %644, align 1
-  %646 = zext i8 %645 to i32
-  %647 = or disjoint i32 %643, %646
-  %.not2.i389 = icmp eq i32 %647, 0
-  br i1 %.not2.i389, label %648, label %_ZNK2OT3OS28has_dataEv.exit390
+584:                                              ; preds = %577
+  %585 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i379, i64 64
+  %586 = load i8, ptr %585, align 1
+  %587 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i379, i64 65
+  %588 = load i8, ptr %587, align 1
+  %589 = or i8 %588, %586
+  %590 = icmp eq i8 %589, 0
+  br i1 %590, label %591, label %_ZNK2OT3OS28has_dataEv.exit380
 
-648:                                              ; preds = %639
-  %649 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i386, i64 66
-  %650 = load i8, ptr %649, align 1
-  %651 = zext i8 %650 to i32
-  %652 = shl nuw nsw i32 %651, 8
-  %653 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i386, i64 67
-  %654 = load i8, ptr %653, align 1
-  %655 = zext i8 %654 to i32
-  %656 = or disjoint i32 %652, %655
-  %657 = icmp ne i32 %656, 0
-  br label %_ZNK2OT3OS28has_dataEv.exit390
+591:                                              ; preds = %584
+  %592 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i379, i64 66
+  %593 = load i8, ptr %592, align 1
+  %594 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i379, i64 67
+  %595 = load i8, ptr %594, align 1
+  %596 = or i8 %595, %593
+  %597 = icmp ne i8 %596, 0
+  br label %_ZNK2OT3OS28has_dataEv.exit380
 
-_ZNK2OT3OS28has_dataEv.exit390:                   ; preds = %614, %630, %639, %648
-  %658 = phi i1 [ true, %639 ], [ true, %630 ], [ true, %614 ], [ %657, %648 ]
+_ZNK2OT3OS28has_dataEv.exit380:                   ; preds = %563, %577, %584, %591
+  %598 = phi i1 [ true, %584 ], [ true, %577 ], [ true, %563 ], [ %597, %591 ]
   %.not283 = icmp ne ptr %2, null
-  %or.cond317.not = and i1 %.not283, %658
-  br i1 %or.cond317.not, label %659, label %1735
+  %or.cond317.not = and i1 %.not283, %598
+  br i1 %or.cond317.not, label %599, label %1544
 
-659:                                              ; preds = %_ZNK2OT3OS28has_dataEv.exit390
-  %660 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %615)
+599:                                              ; preds = %_ZNK2OT3OS28has_dataEv.exit380
+  %600 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %564)
+  %601 = getelementptr inbounds nuw i8, ptr %600, i64 16
+  %602 = load ptr, ptr %601, align 8
+  %603 = getelementptr inbounds nuw i8, ptr %600, i64 24
+  %604 = load i32, ptr %603, align 8
+  %605 = icmp ult i32 %604, 78
+  %spec.select.i.i.i.i.i381 = select i1 %605, ptr @_hb_NullPool, ptr %602
+  %606 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i381, i64 10
+  %607 = load i8, ptr %606, align 1
+  %608 = zext i8 %607 to i16
+  %609 = shl nuw i16 %608, 8
+  %610 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i381, i64 11
+  %611 = load i8, ptr %610, align 1
+  %612 = zext i8 %611 to i16
+  %613 = or disjoint i16 %609, %612
+  %614 = sitofp i16 %613 to float
+  %615 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1935833203)
+  %616 = fadd float %615, %614
+  %617 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %618 = load float, ptr %617, align 4
+  %619 = fmul float %618, %616
+  %620 = fadd float %619, 5.000000e-01
+  %621 = tail call noundef float @llvm.floor.f32(float %620)
+  %622 = fptosi float %621 to i32
+  store i32 %622, ptr %2, align 4
+  br label %1544
+
+623:                                              ; preds = %3
+  %624 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %625 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %624)
+  %626 = getelementptr inbounds nuw i8, ptr %625, i64 16
+  %627 = load ptr, ptr %626, align 8
+  %628 = getelementptr inbounds nuw i8, ptr %625, i64 24
+  %629 = load i32, ptr %628, align 8
+  %630 = icmp ult i32 %629, 78
+  %spec.select.i.i.i.i.i382 = select i1 %630, ptr @_hb_NullPool, ptr %627
+  %631 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i382, i64 4
+  %632 = load i8, ptr %631, align 1
+  %633 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i382, i64 5
+  %634 = load i8, ptr %633, align 1
+  %635 = or i8 %634, %632
+  %636 = icmp eq i8 %635, 0
+  br i1 %636, label %637, label %_ZNK2OT3OS28has_dataEv.exit383
+
+637:                                              ; preds = %623
+  %638 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i382, i64 6
+  %639 = load i8, ptr %638, align 1
+  %640 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i382, i64 7
+  %641 = load i8, ptr %640, align 1
+  %642 = or i8 %641, %639
+  %643 = icmp eq i8 %642, 0
+  br i1 %643, label %644, label %_ZNK2OT3OS28has_dataEv.exit383
+
+644:                                              ; preds = %637
+  %645 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i382, i64 64
+  %646 = load i8, ptr %645, align 1
+  %647 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i382, i64 65
+  %648 = load i8, ptr %647, align 1
+  %649 = or i8 %648, %646
+  %650 = icmp eq i8 %649, 0
+  br i1 %650, label %651, label %_ZNK2OT3OS28has_dataEv.exit383
+
+651:                                              ; preds = %644
+  %652 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i382, i64 66
+  %653 = load i8, ptr %652, align 1
+  %654 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i382, i64 67
+  %655 = load i8, ptr %654, align 1
+  %656 = or i8 %655, %653
+  %657 = icmp ne i8 %656, 0
+  br label %_ZNK2OT3OS28has_dataEv.exit383
+
+_ZNK2OT3OS28has_dataEv.exit383:                   ; preds = %623, %637, %644, %651
+  %658 = phi i1 [ true, %644 ], [ true, %637 ], [ true, %623 ], [ %657, %651 ]
+  %.not282 = icmp ne ptr %2, null
+  %or.cond319.not = and i1 %.not282, %658
+  br i1 %or.cond319.not, label %659, label %1544
+
+659:                                              ; preds = %_ZNK2OT3OS28has_dataEv.exit383
+  %660 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %624)
   %661 = getelementptr inbounds nuw i8, ptr %660, i64 16
   %662 = load ptr, ptr %661, align 8
   %663 = getelementptr inbounds nuw i8, ptr %660, i64 24
   %664 = load i32, ptr %663, align 8
   %665 = icmp ult i32 %664, 78
-  %spec.select.i.i.i.i.i391 = select i1 %665, ptr @_hb_NullPool, ptr %662
-  %666 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i391, i64 10
+  %spec.select.i.i.i.i.i384 = select i1 %665, ptr @_hb_NullPool, ptr %662
+  %666 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i384, i64 12
   %667 = load i8, ptr %666, align 1
   %668 = zext i8 %667 to i16
   %669 = shl nuw i16 %668, 8
-  %670 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i391, i64 11
+  %670 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i384, i64 13
   %671 = load i8, ptr %670, align 1
   %672 = zext i8 %671 to i16
   %673 = or disjoint i16 %669, %672
   %674 = sitofp i16 %673 to float
-  %675 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1935833203)
+  %675 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1935833459)
   %676 = fadd float %675, %674
-  %677 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %678 = load float, ptr %677, align 4
+  %677 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %678 = load float, ptr %677, align 8
   %679 = fmul float %678, %676
   %680 = fadd float %679, 5.000000e-01
   %681 = tail call noundef float @llvm.floor.f32(float %680)
   %682 = fptosi float %681 to i32
   store i32 %682, ptr %2, align 4
-  br label %1735
+  br label %1544
 
 683:                                              ; preds = %3
   %684 = getelementptr inbounds nuw i8, ptr %5, i64 128
@@ -1875,1357 +1822,1112 @@ _ZNK2OT3OS28has_dataEv.exit390:                   ; preds = %614, %630, %639, %6
   %688 = getelementptr inbounds nuw i8, ptr %685, i64 24
   %689 = load i32, ptr %688, align 8
   %690 = icmp ult i32 %689, 78
-  %spec.select.i.i.i.i.i392 = select i1 %690, ptr @_hb_NullPool, ptr %687
-  %691 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i392, i64 4
+  %spec.select.i.i.i.i.i385 = select i1 %690, ptr @_hb_NullPool, ptr %687
+  %691 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i385, i64 4
   %692 = load i8, ptr %691, align 1
-  %693 = zext i8 %692 to i32
-  %694 = shl nuw nsw i32 %693, 8
-  %695 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i392, i64 5
-  %696 = load i8, ptr %695, align 1
-  %697 = zext i8 %696 to i32
-  %698 = or disjoint i32 %694, %697
-  %.not.i393 = icmp eq i32 %698, 0
-  br i1 %.not.i393, label %699, label %_ZNK2OT3OS28has_dataEv.exit396
+  %693 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i385, i64 5
+  %694 = load i8, ptr %693, align 1
+  %695 = or i8 %694, %692
+  %696 = icmp eq i8 %695, 0
+  br i1 %696, label %697, label %_ZNK2OT3OS28has_dataEv.exit386
 
-699:                                              ; preds = %683
-  %700 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i392, i64 6
+697:                                              ; preds = %683
+  %698 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i385, i64 6
+  %699 = load i8, ptr %698, align 1
+  %700 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i385, i64 7
   %701 = load i8, ptr %700, align 1
-  %702 = zext i8 %701 to i32
-  %703 = shl nuw nsw i32 %702, 8
-  %704 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i392, i64 7
-  %705 = load i8, ptr %704, align 1
-  %706 = zext i8 %705 to i32
-  %707 = or disjoint i32 %703, %706
-  %.not1.i394 = icmp eq i32 %707, 0
-  br i1 %.not1.i394, label %708, label %_ZNK2OT3OS28has_dataEv.exit396
+  %702 = or i8 %701, %699
+  %703 = icmp eq i8 %702, 0
+  br i1 %703, label %704, label %_ZNK2OT3OS28has_dataEv.exit386
 
-708:                                              ; preds = %699
-  %709 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i392, i64 64
-  %710 = load i8, ptr %709, align 1
-  %711 = zext i8 %710 to i32
-  %712 = shl nuw nsw i32 %711, 8
-  %713 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i392, i64 65
-  %714 = load i8, ptr %713, align 1
-  %715 = zext i8 %714 to i32
-  %716 = or disjoint i32 %712, %715
-  %.not2.i395 = icmp eq i32 %716, 0
-  br i1 %.not2.i395, label %717, label %_ZNK2OT3OS28has_dataEv.exit396
+704:                                              ; preds = %697
+  %705 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i385, i64 64
+  %706 = load i8, ptr %705, align 1
+  %707 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i385, i64 65
+  %708 = load i8, ptr %707, align 1
+  %709 = or i8 %708, %706
+  %710 = icmp eq i8 %709, 0
+  br i1 %710, label %711, label %_ZNK2OT3OS28has_dataEv.exit386
 
-717:                                              ; preds = %708
-  %718 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i392, i64 66
-  %719 = load i8, ptr %718, align 1
-  %720 = zext i8 %719 to i32
-  %721 = shl nuw nsw i32 %720, 8
-  %722 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i392, i64 67
-  %723 = load i8, ptr %722, align 1
-  %724 = zext i8 %723 to i32
-  %725 = or disjoint i32 %721, %724
-  %726 = icmp ne i32 %725, 0
-  br label %_ZNK2OT3OS28has_dataEv.exit396
+711:                                              ; preds = %704
+  %712 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i385, i64 66
+  %713 = load i8, ptr %712, align 1
+  %714 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i385, i64 67
+  %715 = load i8, ptr %714, align 1
+  %716 = or i8 %715, %713
+  %717 = icmp ne i8 %716, 0
+  br label %_ZNK2OT3OS28has_dataEv.exit386
 
-_ZNK2OT3OS28has_dataEv.exit396:                   ; preds = %683, %699, %708, %717
-  %727 = phi i1 [ true, %708 ], [ true, %699 ], [ true, %683 ], [ %726, %717 ]
-  %.not282 = icmp ne ptr %2, null
-  %or.cond319.not = and i1 %.not282, %727
-  br i1 %or.cond319.not, label %728, label %1735
-
-728:                                              ; preds = %_ZNK2OT3OS28has_dataEv.exit396
-  %729 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %684)
-  %730 = getelementptr inbounds nuw i8, ptr %729, i64 16
-  %731 = load ptr, ptr %730, align 8
-  %732 = getelementptr inbounds nuw i8, ptr %729, i64 24
-  %733 = load i32, ptr %732, align 8
-  %734 = icmp ult i32 %733, 78
-  %spec.select.i.i.i.i.i397 = select i1 %734, ptr @_hb_NullPool, ptr %731
-  %735 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i397, i64 12
-  %736 = load i8, ptr %735, align 1
-  %737 = zext i8 %736 to i16
-  %738 = shl nuw i16 %737, 8
-  %739 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i397, i64 13
-  %740 = load i8, ptr %739, align 1
-  %741 = zext i8 %740 to i16
-  %742 = or disjoint i16 %738, %741
-  %743 = sitofp i16 %742 to float
-  %744 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1935833459)
-  %745 = fadd float %744, %743
-  %746 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %747 = load float, ptr %746, align 8
-  %748 = fmul float %747, %745
-  %749 = fadd float %748, 5.000000e-01
-  %750 = tail call noundef float @llvm.floor.f32(float %749)
-  %751 = fptosi float %750 to i32
-  store i32 %751, ptr %2, align 4
-  br label %1735
-
-752:                                              ; preds = %3
-  %753 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %754 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %753)
-  %755 = getelementptr inbounds nuw i8, ptr %754, i64 16
-  %756 = load ptr, ptr %755, align 8
-  %757 = getelementptr inbounds nuw i8, ptr %754, i64 24
-  %758 = load i32, ptr %757, align 8
-  %759 = icmp ult i32 %758, 78
-  %spec.select.i.i.i.i.i398 = select i1 %759, ptr @_hb_NullPool, ptr %756
-  %760 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i398, i64 4
-  %761 = load i8, ptr %760, align 1
-  %762 = zext i8 %761 to i32
-  %763 = shl nuw nsw i32 %762, 8
-  %764 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i398, i64 5
-  %765 = load i8, ptr %764, align 1
-  %766 = zext i8 %765 to i32
-  %767 = or disjoint i32 %763, %766
-  %.not.i399 = icmp eq i32 %767, 0
-  br i1 %.not.i399, label %768, label %_ZNK2OT3OS28has_dataEv.exit402
-
-768:                                              ; preds = %752
-  %769 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i398, i64 6
-  %770 = load i8, ptr %769, align 1
-  %771 = zext i8 %770 to i32
-  %772 = shl nuw nsw i32 %771, 8
-  %773 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i398, i64 7
-  %774 = load i8, ptr %773, align 1
-  %775 = zext i8 %774 to i32
-  %776 = or disjoint i32 %772, %775
-  %.not1.i400 = icmp eq i32 %776, 0
-  br i1 %.not1.i400, label %777, label %_ZNK2OT3OS28has_dataEv.exit402
-
-777:                                              ; preds = %768
-  %778 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i398, i64 64
-  %779 = load i8, ptr %778, align 1
-  %780 = zext i8 %779 to i32
-  %781 = shl nuw nsw i32 %780, 8
-  %782 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i398, i64 65
-  %783 = load i8, ptr %782, align 1
-  %784 = zext i8 %783 to i32
-  %785 = or disjoint i32 %781, %784
-  %.not2.i401 = icmp eq i32 %785, 0
-  br i1 %.not2.i401, label %786, label %_ZNK2OT3OS28has_dataEv.exit402
-
-786:                                              ; preds = %777
-  %787 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i398, i64 66
-  %788 = load i8, ptr %787, align 1
-  %789 = zext i8 %788 to i32
-  %790 = shl nuw nsw i32 %789, 8
-  %791 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i398, i64 67
-  %792 = load i8, ptr %791, align 1
-  %793 = zext i8 %792 to i32
-  %794 = or disjoint i32 %790, %793
-  %795 = icmp ne i32 %794, 0
-  br label %_ZNK2OT3OS28has_dataEv.exit402
-
-_ZNK2OT3OS28has_dataEv.exit402:                   ; preds = %752, %768, %777, %786
-  %796 = phi i1 [ true, %777 ], [ true, %768 ], [ true, %752 ], [ %795, %786 ]
+_ZNK2OT3OS28has_dataEv.exit386:                   ; preds = %683, %697, %704, %711
+  %718 = phi i1 [ true, %704 ], [ true, %697 ], [ true, %683 ], [ %717, %711 ]
   %.not281 = icmp ne ptr %2, null
-  %or.cond321.not = and i1 %.not281, %796
-  br i1 %or.cond321.not, label %797, label %1735
+  %or.cond321.not = and i1 %.not281, %718
+  br i1 %or.cond321.not, label %719, label %1544
 
-797:                                              ; preds = %_ZNK2OT3OS28has_dataEv.exit402
-  %798 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %753)
-  %799 = getelementptr inbounds nuw i8, ptr %798, i64 16
-  %800 = load ptr, ptr %799, align 8
-  %801 = getelementptr inbounds nuw i8, ptr %798, i64 24
-  %802 = load i32, ptr %801, align 8
-  %803 = icmp ult i32 %802, 78
-  %spec.select.i.i.i.i.i403 = select i1 %803, ptr @_hb_NullPool, ptr %800
-  %804 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i403, i64 14
-  %805 = load i8, ptr %804, align 1
-  %806 = zext i8 %805 to i16
-  %807 = shl nuw i16 %806, 8
-  %808 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i403, i64 15
-  %809 = load i8, ptr %808, align 1
-  %810 = zext i8 %809 to i16
-  %811 = or disjoint i16 %807, %810
-  %812 = sitofp i16 %811 to float
-  %813 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1935833199)
-  %814 = fadd float %813, %812
-  %815 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %816 = load float, ptr %815, align 4
-  %817 = fmul float %816, %814
-  %818 = fadd float %817, 5.000000e-01
-  %819 = tail call noundef float @llvm.floor.f32(float %818)
-  %820 = fptosi float %819 to i32
-  store i32 %820, ptr %2, align 4
-  br label %1735
+719:                                              ; preds = %_ZNK2OT3OS28has_dataEv.exit386
+  %720 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %684)
+  %721 = getelementptr inbounds nuw i8, ptr %720, i64 16
+  %722 = load ptr, ptr %721, align 8
+  %723 = getelementptr inbounds nuw i8, ptr %720, i64 24
+  %724 = load i32, ptr %723, align 8
+  %725 = icmp ult i32 %724, 78
+  %spec.select.i.i.i.i.i387 = select i1 %725, ptr @_hb_NullPool, ptr %722
+  %726 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i387, i64 14
+  %727 = load i8, ptr %726, align 1
+  %728 = zext i8 %727 to i16
+  %729 = shl nuw i16 %728, 8
+  %730 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i387, i64 15
+  %731 = load i8, ptr %730, align 1
+  %732 = zext i8 %731 to i16
+  %733 = or disjoint i16 %729, %732
+  %734 = sitofp i16 %733 to float
+  %735 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1935833199)
+  %736 = fadd float %735, %734
+  %737 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %738 = load float, ptr %737, align 4
+  %739 = fmul float %738, %736
+  %740 = fadd float %739, 5.000000e-01
+  %741 = tail call noundef float @llvm.floor.f32(float %740)
+  %742 = fptosi float %741 to i32
+  store i32 %742, ptr %2, align 4
+  br label %1544
 
-821:                                              ; preds = %3
-  %822 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %823 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %822)
-  %824 = getelementptr inbounds nuw i8, ptr %823, i64 16
-  %825 = load ptr, ptr %824, align 8
-  %826 = getelementptr inbounds nuw i8, ptr %823, i64 24
-  %827 = load i32, ptr %826, align 8
-  %828 = icmp ult i32 %827, 78
-  %spec.select.i.i.i.i.i404 = select i1 %828, ptr @_hb_NullPool, ptr %825
-  %829 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i404, i64 4
-  %830 = load i8, ptr %829, align 1
-  %831 = zext i8 %830 to i32
-  %832 = shl nuw nsw i32 %831, 8
-  %833 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i404, i64 5
-  %834 = load i8, ptr %833, align 1
-  %835 = zext i8 %834 to i32
-  %836 = or disjoint i32 %832, %835
-  %.not.i405 = icmp eq i32 %836, 0
-  br i1 %.not.i405, label %837, label %_ZNK2OT3OS28has_dataEv.exit408
+743:                                              ; preds = %3
+  %744 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %745 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %744)
+  %746 = getelementptr inbounds nuw i8, ptr %745, i64 16
+  %747 = load ptr, ptr %746, align 8
+  %748 = getelementptr inbounds nuw i8, ptr %745, i64 24
+  %749 = load i32, ptr %748, align 8
+  %750 = icmp ult i32 %749, 78
+  %spec.select.i.i.i.i.i388 = select i1 %750, ptr @_hb_NullPool, ptr %747
+  %751 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i388, i64 4
+  %752 = load i8, ptr %751, align 1
+  %753 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i388, i64 5
+  %754 = load i8, ptr %753, align 1
+  %755 = or i8 %754, %752
+  %756 = icmp eq i8 %755, 0
+  br i1 %756, label %757, label %_ZNK2OT3OS28has_dataEv.exit389
 
-837:                                              ; preds = %821
-  %838 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i404, i64 6
-  %839 = load i8, ptr %838, align 1
-  %840 = zext i8 %839 to i32
-  %841 = shl nuw nsw i32 %840, 8
-  %842 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i404, i64 7
-  %843 = load i8, ptr %842, align 1
-  %844 = zext i8 %843 to i32
-  %845 = or disjoint i32 %841, %844
-  %.not1.i406 = icmp eq i32 %845, 0
-  br i1 %.not1.i406, label %846, label %_ZNK2OT3OS28has_dataEv.exit408
+757:                                              ; preds = %743
+  %758 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i388, i64 6
+  %759 = load i8, ptr %758, align 1
+  %760 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i388, i64 7
+  %761 = load i8, ptr %760, align 1
+  %762 = or i8 %761, %759
+  %763 = icmp eq i8 %762, 0
+  br i1 %763, label %764, label %_ZNK2OT3OS28has_dataEv.exit389
 
-846:                                              ; preds = %837
-  %847 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i404, i64 64
-  %848 = load i8, ptr %847, align 1
-  %849 = zext i8 %848 to i32
-  %850 = shl nuw nsw i32 %849, 8
-  %851 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i404, i64 65
-  %852 = load i8, ptr %851, align 1
-  %853 = zext i8 %852 to i32
-  %854 = or disjoint i32 %850, %853
-  %.not2.i407 = icmp eq i32 %854, 0
-  br i1 %.not2.i407, label %855, label %_ZNK2OT3OS28has_dataEv.exit408
+764:                                              ; preds = %757
+  %765 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i388, i64 64
+  %766 = load i8, ptr %765, align 1
+  %767 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i388, i64 65
+  %768 = load i8, ptr %767, align 1
+  %769 = or i8 %768, %766
+  %770 = icmp eq i8 %769, 0
+  br i1 %770, label %771, label %_ZNK2OT3OS28has_dataEv.exit389
 
-855:                                              ; preds = %846
-  %856 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i404, i64 66
-  %857 = load i8, ptr %856, align 1
-  %858 = zext i8 %857 to i32
-  %859 = shl nuw nsw i32 %858, 8
-  %860 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i404, i64 67
-  %861 = load i8, ptr %860, align 1
-  %862 = zext i8 %861 to i32
-  %863 = or disjoint i32 %859, %862
-  %864 = icmp ne i32 %863, 0
-  br label %_ZNK2OT3OS28has_dataEv.exit408
+771:                                              ; preds = %764
+  %772 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i388, i64 66
+  %773 = load i8, ptr %772, align 1
+  %774 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i388, i64 67
+  %775 = load i8, ptr %774, align 1
+  %776 = or i8 %775, %773
+  %777 = icmp ne i8 %776, 0
+  br label %_ZNK2OT3OS28has_dataEv.exit389
 
-_ZNK2OT3OS28has_dataEv.exit408:                   ; preds = %821, %837, %846, %855
-  %865 = phi i1 [ true, %846 ], [ true, %837 ], [ true, %821 ], [ %864, %855 ]
+_ZNK2OT3OS28has_dataEv.exit389:                   ; preds = %743, %757, %764, %771
+  %778 = phi i1 [ true, %764 ], [ true, %757 ], [ true, %743 ], [ %777, %771 ]
   %.not280 = icmp ne ptr %2, null
-  %or.cond323.not = and i1 %.not280, %865
-  br i1 %or.cond323.not, label %866, label %1735
+  %or.cond323.not = and i1 %.not280, %778
+  br i1 %or.cond323.not, label %779, label %1544
 
-866:                                              ; preds = %_ZNK2OT3OS28has_dataEv.exit408
-  %867 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %822)
-  %868 = getelementptr inbounds nuw i8, ptr %867, i64 16
-  %869 = load ptr, ptr %868, align 8
-  %870 = getelementptr inbounds nuw i8, ptr %867, i64 24
-  %871 = load i32, ptr %870, align 8
-  %872 = icmp ult i32 %871, 78
-  %spec.select.i.i.i.i.i409 = select i1 %872, ptr @_hb_NullPool, ptr %869
-  %873 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i409, i64 16
-  %874 = load i8, ptr %873, align 1
-  %875 = zext i8 %874 to i16
-  %876 = shl nuw i16 %875, 8
-  %877 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i409, i64 17
-  %878 = load i8, ptr %877, align 1
-  %879 = zext i8 %878 to i16
-  %880 = or disjoint i16 %876, %879
-  %881 = sitofp i16 %880 to float
-  %882 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1935833455)
-  %883 = fadd float %882, %881
-  %884 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %885 = load float, ptr %884, align 8
-  %886 = fmul float %885, %883
-  %887 = fadd float %886, 5.000000e-01
-  %888 = tail call noundef float @llvm.floor.f32(float %887)
-  %889 = fptosi float %888 to i32
-  store i32 %889, ptr %2, align 4
-  br label %1735
+779:                                              ; preds = %_ZNK2OT3OS28has_dataEv.exit389
+  %780 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %744)
+  %781 = getelementptr inbounds nuw i8, ptr %780, i64 16
+  %782 = load ptr, ptr %781, align 8
+  %783 = getelementptr inbounds nuw i8, ptr %780, i64 24
+  %784 = load i32, ptr %783, align 8
+  %785 = icmp ult i32 %784, 78
+  %spec.select.i.i.i.i.i390 = select i1 %785, ptr @_hb_NullPool, ptr %782
+  %786 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i390, i64 16
+  %787 = load i8, ptr %786, align 1
+  %788 = zext i8 %787 to i16
+  %789 = shl nuw i16 %788, 8
+  %790 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i390, i64 17
+  %791 = load i8, ptr %790, align 1
+  %792 = zext i8 %791 to i16
+  %793 = or disjoint i16 %789, %792
+  %794 = sitofp i16 %793 to float
+  %795 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1935833455)
+  %796 = fadd float %795, %794
+  %797 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %798 = load float, ptr %797, align 8
+  %799 = fmul float %798, %796
+  %800 = fadd float %799, 5.000000e-01
+  %801 = tail call noundef float @llvm.floor.f32(float %800)
+  %802 = fptosi float %801 to i32
+  store i32 %802, ptr %2, align 4
+  br label %1544
 
-890:                                              ; preds = %3
-  %891 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %892 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %891)
-  %893 = getelementptr inbounds nuw i8, ptr %892, i64 16
-  %894 = load ptr, ptr %893, align 8
-  %895 = getelementptr inbounds nuw i8, ptr %892, i64 24
-  %896 = load i32, ptr %895, align 8
-  %897 = icmp ult i32 %896, 78
-  %spec.select.i.i.i.i.i410 = select i1 %897, ptr @_hb_NullPool, ptr %894
-  %898 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i410, i64 4
-  %899 = load i8, ptr %898, align 1
-  %900 = zext i8 %899 to i32
-  %901 = shl nuw nsw i32 %900, 8
-  %902 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i410, i64 5
-  %903 = load i8, ptr %902, align 1
-  %904 = zext i8 %903 to i32
-  %905 = or disjoint i32 %901, %904
-  %.not.i411 = icmp eq i32 %905, 0
-  br i1 %.not.i411, label %906, label %_ZNK2OT3OS28has_dataEv.exit414
+803:                                              ; preds = %3
+  %804 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %805 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %804)
+  %806 = getelementptr inbounds nuw i8, ptr %805, i64 16
+  %807 = load ptr, ptr %806, align 8
+  %808 = getelementptr inbounds nuw i8, ptr %805, i64 24
+  %809 = load i32, ptr %808, align 8
+  %810 = icmp ult i32 %809, 78
+  %spec.select.i.i.i.i.i391 = select i1 %810, ptr @_hb_NullPool, ptr %807
+  %811 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i391, i64 4
+  %812 = load i8, ptr %811, align 1
+  %813 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i391, i64 5
+  %814 = load i8, ptr %813, align 1
+  %815 = or i8 %814, %812
+  %816 = icmp eq i8 %815, 0
+  br i1 %816, label %817, label %_ZNK2OT3OS28has_dataEv.exit392
 
-906:                                              ; preds = %890
-  %907 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i410, i64 6
-  %908 = load i8, ptr %907, align 1
-  %909 = zext i8 %908 to i32
-  %910 = shl nuw nsw i32 %909, 8
-  %911 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i410, i64 7
-  %912 = load i8, ptr %911, align 1
-  %913 = zext i8 %912 to i32
-  %914 = or disjoint i32 %910, %913
-  %.not1.i412 = icmp eq i32 %914, 0
-  br i1 %.not1.i412, label %915, label %_ZNK2OT3OS28has_dataEv.exit414
+817:                                              ; preds = %803
+  %818 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i391, i64 6
+  %819 = load i8, ptr %818, align 1
+  %820 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i391, i64 7
+  %821 = load i8, ptr %820, align 1
+  %822 = or i8 %821, %819
+  %823 = icmp eq i8 %822, 0
+  br i1 %823, label %824, label %_ZNK2OT3OS28has_dataEv.exit392
 
-915:                                              ; preds = %906
-  %916 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i410, i64 64
-  %917 = load i8, ptr %916, align 1
-  %918 = zext i8 %917 to i32
-  %919 = shl nuw nsw i32 %918, 8
-  %920 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i410, i64 65
-  %921 = load i8, ptr %920, align 1
-  %922 = zext i8 %921 to i32
-  %923 = or disjoint i32 %919, %922
-  %.not2.i413 = icmp eq i32 %923, 0
-  br i1 %.not2.i413, label %924, label %_ZNK2OT3OS28has_dataEv.exit414
+824:                                              ; preds = %817
+  %825 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i391, i64 64
+  %826 = load i8, ptr %825, align 1
+  %827 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i391, i64 65
+  %828 = load i8, ptr %827, align 1
+  %829 = or i8 %828, %826
+  %830 = icmp eq i8 %829, 0
+  br i1 %830, label %831, label %_ZNK2OT3OS28has_dataEv.exit392
 
-924:                                              ; preds = %915
-  %925 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i410, i64 66
-  %926 = load i8, ptr %925, align 1
-  %927 = zext i8 %926 to i32
-  %928 = shl nuw nsw i32 %927, 8
-  %929 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i410, i64 67
-  %930 = load i8, ptr %929, align 1
-  %931 = zext i8 %930 to i32
-  %932 = or disjoint i32 %928, %931
-  %933 = icmp ne i32 %932, 0
-  br label %_ZNK2OT3OS28has_dataEv.exit414
+831:                                              ; preds = %824
+  %832 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i391, i64 66
+  %833 = load i8, ptr %832, align 1
+  %834 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i391, i64 67
+  %835 = load i8, ptr %834, align 1
+  %836 = or i8 %835, %833
+  %837 = icmp ne i8 %836, 0
+  br label %_ZNK2OT3OS28has_dataEv.exit392
 
-_ZNK2OT3OS28has_dataEv.exit414:                   ; preds = %890, %906, %915, %924
-  %934 = phi i1 [ true, %915 ], [ true, %906 ], [ true, %890 ], [ %933, %924 ]
+_ZNK2OT3OS28has_dataEv.exit392:                   ; preds = %803, %817, %824, %831
+  %838 = phi i1 [ true, %824 ], [ true, %817 ], [ true, %803 ], [ %837, %831 ]
   %.not279 = icmp ne ptr %2, null
-  %or.cond325.not = and i1 %.not279, %934
-  br i1 %or.cond325.not, label %935, label %1735
+  %or.cond325.not = and i1 %.not279, %838
+  br i1 %or.cond325.not, label %839, label %1544
 
-935:                                              ; preds = %_ZNK2OT3OS28has_dataEv.exit414
-  %936 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %891)
-  %937 = getelementptr inbounds nuw i8, ptr %936, i64 16
-  %938 = load ptr, ptr %937, align 8
-  %939 = getelementptr inbounds nuw i8, ptr %936, i64 24
-  %940 = load i32, ptr %939, align 8
-  %941 = icmp ult i32 %940, 78
-  %spec.select.i.i.i.i.i415 = select i1 %941, ptr @_hb_NullPool, ptr %938
-  %942 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i415, i64 18
-  %943 = load i8, ptr %942, align 1
-  %944 = zext i8 %943 to i16
-  %945 = shl nuw i16 %944, 8
-  %946 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i415, i64 19
-  %947 = load i8, ptr %946, align 1
-  %948 = zext i8 %947 to i16
-  %949 = or disjoint i16 %945, %948
-  %950 = sitofp i16 %949 to float
-  %951 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1936750707)
-  %952 = fadd float %951, %950
-  %953 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %954 = load float, ptr %953, align 4
-  %955 = fmul float %954, %952
-  %956 = fadd float %955, 5.000000e-01
-  %957 = tail call noundef float @llvm.floor.f32(float %956)
-  %958 = fptosi float %957 to i32
-  store i32 %958, ptr %2, align 4
-  br label %1735
+839:                                              ; preds = %_ZNK2OT3OS28has_dataEv.exit392
+  %840 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %804)
+  %841 = getelementptr inbounds nuw i8, ptr %840, i64 16
+  %842 = load ptr, ptr %841, align 8
+  %843 = getelementptr inbounds nuw i8, ptr %840, i64 24
+  %844 = load i32, ptr %843, align 8
+  %845 = icmp ult i32 %844, 78
+  %spec.select.i.i.i.i.i393 = select i1 %845, ptr @_hb_NullPool, ptr %842
+  %846 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i393, i64 18
+  %847 = load i8, ptr %846, align 1
+  %848 = zext i8 %847 to i16
+  %849 = shl nuw i16 %848, 8
+  %850 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i393, i64 19
+  %851 = load i8, ptr %850, align 1
+  %852 = zext i8 %851 to i16
+  %853 = or disjoint i16 %849, %852
+  %854 = sitofp i16 %853 to float
+  %855 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1936750707)
+  %856 = fadd float %855, %854
+  %857 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %858 = load float, ptr %857, align 4
+  %859 = fmul float %858, %856
+  %860 = fadd float %859, 5.000000e-01
+  %861 = tail call noundef float @llvm.floor.f32(float %860)
+  %862 = fptosi float %861 to i32
+  store i32 %862, ptr %2, align 4
+  br label %1544
 
-959:                                              ; preds = %3
-  %960 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %961 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %960)
-  %962 = getelementptr inbounds nuw i8, ptr %961, i64 16
-  %963 = load ptr, ptr %962, align 8
-  %964 = getelementptr inbounds nuw i8, ptr %961, i64 24
-  %965 = load i32, ptr %964, align 8
-  %966 = icmp ult i32 %965, 78
-  %spec.select.i.i.i.i.i416 = select i1 %966, ptr @_hb_NullPool, ptr %963
-  %967 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i416, i64 4
-  %968 = load i8, ptr %967, align 1
-  %969 = zext i8 %968 to i32
-  %970 = shl nuw nsw i32 %969, 8
-  %971 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i416, i64 5
-  %972 = load i8, ptr %971, align 1
-  %973 = zext i8 %972 to i32
-  %974 = or disjoint i32 %970, %973
-  %.not.i417 = icmp eq i32 %974, 0
-  br i1 %.not.i417, label %975, label %_ZNK2OT3OS28has_dataEv.exit420
+863:                                              ; preds = %3
+  %864 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %865 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %864)
+  %866 = getelementptr inbounds nuw i8, ptr %865, i64 16
+  %867 = load ptr, ptr %866, align 8
+  %868 = getelementptr inbounds nuw i8, ptr %865, i64 24
+  %869 = load i32, ptr %868, align 8
+  %870 = icmp ult i32 %869, 78
+  %spec.select.i.i.i.i.i394 = select i1 %870, ptr @_hb_NullPool, ptr %867
+  %871 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i394, i64 4
+  %872 = load i8, ptr %871, align 1
+  %873 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i394, i64 5
+  %874 = load i8, ptr %873, align 1
+  %875 = or i8 %874, %872
+  %876 = icmp eq i8 %875, 0
+  br i1 %876, label %877, label %_ZNK2OT3OS28has_dataEv.exit395
 
-975:                                              ; preds = %959
-  %976 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i416, i64 6
-  %977 = load i8, ptr %976, align 1
-  %978 = zext i8 %977 to i32
-  %979 = shl nuw nsw i32 %978, 8
-  %980 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i416, i64 7
-  %981 = load i8, ptr %980, align 1
-  %982 = zext i8 %981 to i32
-  %983 = or disjoint i32 %979, %982
-  %.not1.i418 = icmp eq i32 %983, 0
-  br i1 %.not1.i418, label %984, label %_ZNK2OT3OS28has_dataEv.exit420
+877:                                              ; preds = %863
+  %878 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i394, i64 6
+  %879 = load i8, ptr %878, align 1
+  %880 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i394, i64 7
+  %881 = load i8, ptr %880, align 1
+  %882 = or i8 %881, %879
+  %883 = icmp eq i8 %882, 0
+  br i1 %883, label %884, label %_ZNK2OT3OS28has_dataEv.exit395
 
-984:                                              ; preds = %975
-  %985 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i416, i64 64
-  %986 = load i8, ptr %985, align 1
-  %987 = zext i8 %986 to i32
-  %988 = shl nuw nsw i32 %987, 8
-  %989 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i416, i64 65
-  %990 = load i8, ptr %989, align 1
-  %991 = zext i8 %990 to i32
-  %992 = or disjoint i32 %988, %991
-  %.not2.i419 = icmp eq i32 %992, 0
-  br i1 %.not2.i419, label %993, label %_ZNK2OT3OS28has_dataEv.exit420
+884:                                              ; preds = %877
+  %885 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i394, i64 64
+  %886 = load i8, ptr %885, align 1
+  %887 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i394, i64 65
+  %888 = load i8, ptr %887, align 1
+  %889 = or i8 %888, %886
+  %890 = icmp eq i8 %889, 0
+  br i1 %890, label %891, label %_ZNK2OT3OS28has_dataEv.exit395
 
-993:                                              ; preds = %984
-  %994 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i416, i64 66
-  %995 = load i8, ptr %994, align 1
-  %996 = zext i8 %995 to i32
-  %997 = shl nuw nsw i32 %996, 8
-  %998 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i416, i64 67
-  %999 = load i8, ptr %998, align 1
-  %1000 = zext i8 %999 to i32
-  %1001 = or disjoint i32 %997, %1000
-  %1002 = icmp ne i32 %1001, 0
-  br label %_ZNK2OT3OS28has_dataEv.exit420
+891:                                              ; preds = %884
+  %892 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i394, i64 66
+  %893 = load i8, ptr %892, align 1
+  %894 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i394, i64 67
+  %895 = load i8, ptr %894, align 1
+  %896 = or i8 %895, %893
+  %897 = icmp ne i8 %896, 0
+  br label %_ZNK2OT3OS28has_dataEv.exit395
 
-_ZNK2OT3OS28has_dataEv.exit420:                   ; preds = %959, %975, %984, %993
-  %1003 = phi i1 [ true, %984 ], [ true, %975 ], [ true, %959 ], [ %1002, %993 ]
+_ZNK2OT3OS28has_dataEv.exit395:                   ; preds = %863, %877, %884, %891
+  %898 = phi i1 [ true, %884 ], [ true, %877 ], [ true, %863 ], [ %897, %891 ]
   %.not278 = icmp ne ptr %2, null
-  %or.cond327.not = and i1 %.not278, %1003
-  br i1 %or.cond327.not, label %1004, label %1735
+  %or.cond327.not = and i1 %.not278, %898
+  br i1 %or.cond327.not, label %899, label %1544
 
-1004:                                             ; preds = %_ZNK2OT3OS28has_dataEv.exit420
-  %1005 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %960)
-  %1006 = getelementptr inbounds nuw i8, ptr %1005, i64 16
-  %1007 = load ptr, ptr %1006, align 8
-  %1008 = getelementptr inbounds nuw i8, ptr %1005, i64 24
-  %1009 = load i32, ptr %1008, align 8
-  %1010 = icmp ult i32 %1009, 78
-  %spec.select.i.i.i.i.i421 = select i1 %1010, ptr @_hb_NullPool, ptr %1007
-  %1011 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i421, i64 20
-  %1012 = load i8, ptr %1011, align 1
-  %1013 = zext i8 %1012 to i16
-  %1014 = shl nuw i16 %1013, 8
-  %1015 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i421, i64 21
-  %1016 = load i8, ptr %1015, align 1
-  %1017 = zext i8 %1016 to i16
-  %1018 = or disjoint i16 %1014, %1017
-  %1019 = sitofp i16 %1018 to float
-  %1020 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1936750963)
-  %1021 = fadd float %1020, %1019
-  %1022 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %1023 = load float, ptr %1022, align 8
-  %1024 = fmul float %1023, %1021
-  %1025 = fadd float %1024, 5.000000e-01
-  %1026 = tail call noundef float @llvm.floor.f32(float %1025)
-  %1027 = fptosi float %1026 to i32
-  store i32 %1027, ptr %2, align 4
-  br label %1735
+899:                                              ; preds = %_ZNK2OT3OS28has_dataEv.exit395
+  %900 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %864)
+  %901 = getelementptr inbounds nuw i8, ptr %900, i64 16
+  %902 = load ptr, ptr %901, align 8
+  %903 = getelementptr inbounds nuw i8, ptr %900, i64 24
+  %904 = load i32, ptr %903, align 8
+  %905 = icmp ult i32 %904, 78
+  %spec.select.i.i.i.i.i396 = select i1 %905, ptr @_hb_NullPool, ptr %902
+  %906 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i396, i64 20
+  %907 = load i8, ptr %906, align 1
+  %908 = zext i8 %907 to i16
+  %909 = shl nuw i16 %908, 8
+  %910 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i396, i64 21
+  %911 = load i8, ptr %910, align 1
+  %912 = zext i8 %911 to i16
+  %913 = or disjoint i16 %909, %912
+  %914 = sitofp i16 %913 to float
+  %915 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1936750963)
+  %916 = fadd float %915, %914
+  %917 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %918 = load float, ptr %917, align 8
+  %919 = fmul float %918, %916
+  %920 = fadd float %919, 5.000000e-01
+  %921 = tail call noundef float @llvm.floor.f32(float %920)
+  %922 = fptosi float %921 to i32
+  store i32 %922, ptr %2, align 4
+  br label %1544
 
-1028:                                             ; preds = %3
-  %1029 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %1030 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1029)
-  %1031 = getelementptr inbounds nuw i8, ptr %1030, i64 16
-  %1032 = load ptr, ptr %1031, align 8
-  %1033 = getelementptr inbounds nuw i8, ptr %1030, i64 24
-  %1034 = load i32, ptr %1033, align 8
-  %1035 = icmp ult i32 %1034, 78
-  %spec.select.i.i.i.i.i422 = select i1 %1035, ptr @_hb_NullPool, ptr %1032
-  %1036 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i422, i64 4
-  %1037 = load i8, ptr %1036, align 1
-  %1038 = zext i8 %1037 to i32
-  %1039 = shl nuw nsw i32 %1038, 8
-  %1040 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i422, i64 5
-  %1041 = load i8, ptr %1040, align 1
-  %1042 = zext i8 %1041 to i32
-  %1043 = or disjoint i32 %1039, %1042
-  %.not.i423 = icmp eq i32 %1043, 0
-  br i1 %.not.i423, label %1044, label %_ZNK2OT3OS28has_dataEv.exit426
+923:                                              ; preds = %3
+  %924 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %925 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %924)
+  %926 = getelementptr inbounds nuw i8, ptr %925, i64 16
+  %927 = load ptr, ptr %926, align 8
+  %928 = getelementptr inbounds nuw i8, ptr %925, i64 24
+  %929 = load i32, ptr %928, align 8
+  %930 = icmp ult i32 %929, 78
+  %spec.select.i.i.i.i.i397 = select i1 %930, ptr @_hb_NullPool, ptr %927
+  %931 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i397, i64 4
+  %932 = load i8, ptr %931, align 1
+  %933 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i397, i64 5
+  %934 = load i8, ptr %933, align 1
+  %935 = or i8 %934, %932
+  %936 = icmp eq i8 %935, 0
+  br i1 %936, label %937, label %_ZNK2OT3OS28has_dataEv.exit398
 
-1044:                                             ; preds = %1028
-  %1045 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i422, i64 6
-  %1046 = load i8, ptr %1045, align 1
-  %1047 = zext i8 %1046 to i32
-  %1048 = shl nuw nsw i32 %1047, 8
-  %1049 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i422, i64 7
-  %1050 = load i8, ptr %1049, align 1
-  %1051 = zext i8 %1050 to i32
-  %1052 = or disjoint i32 %1048, %1051
-  %.not1.i424 = icmp eq i32 %1052, 0
-  br i1 %.not1.i424, label %1053, label %_ZNK2OT3OS28has_dataEv.exit426
+937:                                              ; preds = %923
+  %938 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i397, i64 6
+  %939 = load i8, ptr %938, align 1
+  %940 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i397, i64 7
+  %941 = load i8, ptr %940, align 1
+  %942 = or i8 %941, %939
+  %943 = icmp eq i8 %942, 0
+  br i1 %943, label %944, label %_ZNK2OT3OS28has_dataEv.exit398
 
-1053:                                             ; preds = %1044
-  %1054 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i422, i64 64
-  %1055 = load i8, ptr %1054, align 1
-  %1056 = zext i8 %1055 to i32
-  %1057 = shl nuw nsw i32 %1056, 8
-  %1058 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i422, i64 65
-  %1059 = load i8, ptr %1058, align 1
-  %1060 = zext i8 %1059 to i32
-  %1061 = or disjoint i32 %1057, %1060
-  %.not2.i425 = icmp eq i32 %1061, 0
-  br i1 %.not2.i425, label %1062, label %_ZNK2OT3OS28has_dataEv.exit426
+944:                                              ; preds = %937
+  %945 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i397, i64 64
+  %946 = load i8, ptr %945, align 1
+  %947 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i397, i64 65
+  %948 = load i8, ptr %947, align 1
+  %949 = or i8 %948, %946
+  %950 = icmp eq i8 %949, 0
+  br i1 %950, label %951, label %_ZNK2OT3OS28has_dataEv.exit398
 
-1062:                                             ; preds = %1053
-  %1063 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i422, i64 66
-  %1064 = load i8, ptr %1063, align 1
-  %1065 = zext i8 %1064 to i32
-  %1066 = shl nuw nsw i32 %1065, 8
-  %1067 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i422, i64 67
-  %1068 = load i8, ptr %1067, align 1
-  %1069 = zext i8 %1068 to i32
-  %1070 = or disjoint i32 %1066, %1069
-  %1071 = icmp ne i32 %1070, 0
-  br label %_ZNK2OT3OS28has_dataEv.exit426
+951:                                              ; preds = %944
+  %952 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i397, i64 66
+  %953 = load i8, ptr %952, align 1
+  %954 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i397, i64 67
+  %955 = load i8, ptr %954, align 1
+  %956 = or i8 %955, %953
+  %957 = icmp ne i8 %956, 0
+  br label %_ZNK2OT3OS28has_dataEv.exit398
 
-_ZNK2OT3OS28has_dataEv.exit426:                   ; preds = %1028, %1044, %1053, %1062
-  %1072 = phi i1 [ true, %1053 ], [ true, %1044 ], [ true, %1028 ], [ %1071, %1062 ]
+_ZNK2OT3OS28has_dataEv.exit398:                   ; preds = %923, %937, %944, %951
+  %958 = phi i1 [ true, %944 ], [ true, %937 ], [ true, %923 ], [ %957, %951 ]
   %.not277 = icmp ne ptr %2, null
-  %or.cond329.not = and i1 %.not277, %1072
-  br i1 %or.cond329.not, label %1073, label %1735
+  %or.cond329.not = and i1 %.not277, %958
+  br i1 %or.cond329.not, label %959, label %1544
 
-1073:                                             ; preds = %_ZNK2OT3OS28has_dataEv.exit426
-  %1074 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1029)
-  %1075 = getelementptr inbounds nuw i8, ptr %1074, i64 16
-  %1076 = load ptr, ptr %1075, align 8
-  %1077 = getelementptr inbounds nuw i8, ptr %1074, i64 24
-  %1078 = load i32, ptr %1077, align 8
-  %1079 = icmp ult i32 %1078, 78
-  %spec.select.i.i.i.i.i427 = select i1 %1079, ptr @_hb_NullPool, ptr %1076
-  %1080 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i427, i64 22
-  %1081 = load i8, ptr %1080, align 1
-  %1082 = zext i8 %1081 to i16
-  %1083 = shl nuw i16 %1082, 8
-  %1084 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i427, i64 23
-  %1085 = load i8, ptr %1084, align 1
-  %1086 = zext i8 %1085 to i16
-  %1087 = or disjoint i16 %1083, %1086
-  %1088 = sitofp i16 %1087 to float
-  %1089 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1936750703)
-  %1090 = fadd float %1089, %1088
-  %1091 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %1092 = load float, ptr %1091, align 4
-  %1093 = fmul float %1092, %1090
-  %1094 = fadd float %1093, 5.000000e-01
-  %1095 = tail call noundef float @llvm.floor.f32(float %1094)
-  %1096 = fptosi float %1095 to i32
-  store i32 %1096, ptr %2, align 4
-  br label %1735
+959:                                              ; preds = %_ZNK2OT3OS28has_dataEv.exit398
+  %960 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %924)
+  %961 = getelementptr inbounds nuw i8, ptr %960, i64 16
+  %962 = load ptr, ptr %961, align 8
+  %963 = getelementptr inbounds nuw i8, ptr %960, i64 24
+  %964 = load i32, ptr %963, align 8
+  %965 = icmp ult i32 %964, 78
+  %spec.select.i.i.i.i.i399 = select i1 %965, ptr @_hb_NullPool, ptr %962
+  %966 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i399, i64 22
+  %967 = load i8, ptr %966, align 1
+  %968 = zext i8 %967 to i16
+  %969 = shl nuw i16 %968, 8
+  %970 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i399, i64 23
+  %971 = load i8, ptr %970, align 1
+  %972 = zext i8 %971 to i16
+  %973 = or disjoint i16 %969, %972
+  %974 = sitofp i16 %973 to float
+  %975 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1936750703)
+  %976 = fadd float %975, %974
+  %977 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %978 = load float, ptr %977, align 4
+  %979 = fmul float %978, %976
+  %980 = fadd float %979, 5.000000e-01
+  %981 = tail call noundef float @llvm.floor.f32(float %980)
+  %982 = fptosi float %981 to i32
+  store i32 %982, ptr %2, align 4
+  br label %1544
 
-1097:                                             ; preds = %3
-  %1098 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %1099 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1098)
-  %1100 = getelementptr inbounds nuw i8, ptr %1099, i64 16
-  %1101 = load ptr, ptr %1100, align 8
-  %1102 = getelementptr inbounds nuw i8, ptr %1099, i64 24
-  %1103 = load i32, ptr %1102, align 8
-  %1104 = icmp ult i32 %1103, 78
-  %spec.select.i.i.i.i.i428 = select i1 %1104, ptr @_hb_NullPool, ptr %1101
-  %1105 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i428, i64 4
-  %1106 = load i8, ptr %1105, align 1
-  %1107 = zext i8 %1106 to i32
-  %1108 = shl nuw nsw i32 %1107, 8
-  %1109 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i428, i64 5
-  %1110 = load i8, ptr %1109, align 1
-  %1111 = zext i8 %1110 to i32
-  %1112 = or disjoint i32 %1108, %1111
-  %.not.i429 = icmp eq i32 %1112, 0
-  br i1 %.not.i429, label %1113, label %_ZNK2OT3OS28has_dataEv.exit432
+983:                                              ; preds = %3
+  %984 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %985 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %984)
+  %986 = getelementptr inbounds nuw i8, ptr %985, i64 16
+  %987 = load ptr, ptr %986, align 8
+  %988 = getelementptr inbounds nuw i8, ptr %985, i64 24
+  %989 = load i32, ptr %988, align 8
+  %990 = icmp ult i32 %989, 78
+  %spec.select.i.i.i.i.i400 = select i1 %990, ptr @_hb_NullPool, ptr %987
+  %991 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i400, i64 4
+  %992 = load i8, ptr %991, align 1
+  %993 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i400, i64 5
+  %994 = load i8, ptr %993, align 1
+  %995 = or i8 %994, %992
+  %996 = icmp eq i8 %995, 0
+  br i1 %996, label %997, label %_ZNK2OT3OS28has_dataEv.exit401
 
-1113:                                             ; preds = %1097
-  %1114 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i428, i64 6
-  %1115 = load i8, ptr %1114, align 1
-  %1116 = zext i8 %1115 to i32
-  %1117 = shl nuw nsw i32 %1116, 8
-  %1118 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i428, i64 7
-  %1119 = load i8, ptr %1118, align 1
-  %1120 = zext i8 %1119 to i32
-  %1121 = or disjoint i32 %1117, %1120
-  %.not1.i430 = icmp eq i32 %1121, 0
-  br i1 %.not1.i430, label %1122, label %_ZNK2OT3OS28has_dataEv.exit432
+997:                                              ; preds = %983
+  %998 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i400, i64 6
+  %999 = load i8, ptr %998, align 1
+  %1000 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i400, i64 7
+  %1001 = load i8, ptr %1000, align 1
+  %1002 = or i8 %1001, %999
+  %1003 = icmp eq i8 %1002, 0
+  br i1 %1003, label %1004, label %_ZNK2OT3OS28has_dataEv.exit401
 
-1122:                                             ; preds = %1113
-  %1123 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i428, i64 64
-  %1124 = load i8, ptr %1123, align 1
-  %1125 = zext i8 %1124 to i32
-  %1126 = shl nuw nsw i32 %1125, 8
-  %1127 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i428, i64 65
-  %1128 = load i8, ptr %1127, align 1
-  %1129 = zext i8 %1128 to i32
-  %1130 = or disjoint i32 %1126, %1129
-  %.not2.i431 = icmp eq i32 %1130, 0
-  br i1 %.not2.i431, label %1131, label %_ZNK2OT3OS28has_dataEv.exit432
+1004:                                             ; preds = %997
+  %1005 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i400, i64 64
+  %1006 = load i8, ptr %1005, align 1
+  %1007 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i400, i64 65
+  %1008 = load i8, ptr %1007, align 1
+  %1009 = or i8 %1008, %1006
+  %1010 = icmp eq i8 %1009, 0
+  br i1 %1010, label %1011, label %_ZNK2OT3OS28has_dataEv.exit401
 
-1131:                                             ; preds = %1122
-  %1132 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i428, i64 66
-  %1133 = load i8, ptr %1132, align 1
-  %1134 = zext i8 %1133 to i32
-  %1135 = shl nuw nsw i32 %1134, 8
-  %1136 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i428, i64 67
-  %1137 = load i8, ptr %1136, align 1
-  %1138 = zext i8 %1137 to i32
-  %1139 = or disjoint i32 %1135, %1138
-  %1140 = icmp ne i32 %1139, 0
-  br label %_ZNK2OT3OS28has_dataEv.exit432
+1011:                                             ; preds = %1004
+  %1012 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i400, i64 66
+  %1013 = load i8, ptr %1012, align 1
+  %1014 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i400, i64 67
+  %1015 = load i8, ptr %1014, align 1
+  %1016 = or i8 %1015, %1013
+  %1017 = icmp ne i8 %1016, 0
+  br label %_ZNK2OT3OS28has_dataEv.exit401
 
-_ZNK2OT3OS28has_dataEv.exit432:                   ; preds = %1097, %1113, %1122, %1131
-  %1141 = phi i1 [ true, %1122 ], [ true, %1113 ], [ true, %1097 ], [ %1140, %1131 ]
+_ZNK2OT3OS28has_dataEv.exit401:                   ; preds = %983, %997, %1004, %1011
+  %1018 = phi i1 [ true, %1004 ], [ true, %997 ], [ true, %983 ], [ %1017, %1011 ]
   %.not276 = icmp ne ptr %2, null
-  %or.cond331.not = and i1 %.not276, %1141
-  br i1 %or.cond331.not, label %1142, label %1735
+  %or.cond331.not = and i1 %.not276, %1018
+  br i1 %or.cond331.not, label %1019, label %1544
 
-1142:                                             ; preds = %_ZNK2OT3OS28has_dataEv.exit432
-  %1143 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1098)
-  %1144 = getelementptr inbounds nuw i8, ptr %1143, i64 16
-  %1145 = load ptr, ptr %1144, align 8
-  %1146 = getelementptr inbounds nuw i8, ptr %1143, i64 24
-  %1147 = load i32, ptr %1146, align 8
-  %1148 = icmp ult i32 %1147, 78
-  %spec.select.i.i.i.i.i433 = select i1 %1148, ptr @_hb_NullPool, ptr %1145
-  %1149 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i433, i64 24
-  %1150 = load i8, ptr %1149, align 1
-  %1151 = zext i8 %1150 to i16
-  %1152 = shl nuw i16 %1151, 8
-  %1153 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i433, i64 25
-  %1154 = load i8, ptr %1153, align 1
-  %1155 = zext i8 %1154 to i16
-  %1156 = or disjoint i16 %1152, %1155
-  %1157 = sitofp i16 %1156 to float
-  %1158 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1936750959)
-  %1159 = fadd float %1158, %1157
-  %1160 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %1161 = load float, ptr %1160, align 8
-  %1162 = fmul float %1161, %1159
-  %1163 = fadd float %1162, 5.000000e-01
-  %1164 = tail call noundef float @llvm.floor.f32(float %1163)
-  %1165 = fptosi float %1164 to i32
-  store i32 %1165, ptr %2, align 4
-  br label %1735
+1019:                                             ; preds = %_ZNK2OT3OS28has_dataEv.exit401
+  %1020 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %984)
+  %1021 = getelementptr inbounds nuw i8, ptr %1020, i64 16
+  %1022 = load ptr, ptr %1021, align 8
+  %1023 = getelementptr inbounds nuw i8, ptr %1020, i64 24
+  %1024 = load i32, ptr %1023, align 8
+  %1025 = icmp ult i32 %1024, 78
+  %spec.select.i.i.i.i.i402 = select i1 %1025, ptr @_hb_NullPool, ptr %1022
+  %1026 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i402, i64 24
+  %1027 = load i8, ptr %1026, align 1
+  %1028 = zext i8 %1027 to i16
+  %1029 = shl nuw i16 %1028, 8
+  %1030 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i402, i64 25
+  %1031 = load i8, ptr %1030, align 1
+  %1032 = zext i8 %1031 to i16
+  %1033 = or disjoint i16 %1029, %1032
+  %1034 = sitofp i16 %1033 to float
+  %1035 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1936750959)
+  %1036 = fadd float %1035, %1034
+  %1037 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %1038 = load float, ptr %1037, align 8
+  %1039 = fmul float %1038, %1036
+  %1040 = fadd float %1039, 5.000000e-01
+  %1041 = tail call noundef float @llvm.floor.f32(float %1040)
+  %1042 = fptosi float %1041 to i32
+  store i32 %1042, ptr %2, align 4
+  br label %1544
 
-1166:                                             ; preds = %3
-  %1167 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %1168 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1167)
-  %1169 = getelementptr inbounds nuw i8, ptr %1168, i64 16
-  %1170 = load ptr, ptr %1169, align 8
-  %1171 = getelementptr inbounds nuw i8, ptr %1168, i64 24
-  %1172 = load i32, ptr %1171, align 8
-  %1173 = icmp ult i32 %1172, 78
-  %spec.select.i.i.i.i.i434 = select i1 %1173, ptr @_hb_NullPool, ptr %1170
-  %1174 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i434, i64 4
-  %1175 = load i8, ptr %1174, align 1
-  %1176 = zext i8 %1175 to i32
-  %1177 = shl nuw nsw i32 %1176, 8
-  %1178 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i434, i64 5
-  %1179 = load i8, ptr %1178, align 1
-  %1180 = zext i8 %1179 to i32
-  %1181 = or disjoint i32 %1177, %1180
-  %.not.i435 = icmp eq i32 %1181, 0
-  br i1 %.not.i435, label %1182, label %_ZNK2OT3OS28has_dataEv.exit438
+1043:                                             ; preds = %3
+  %1044 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %1045 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1044)
+  %1046 = getelementptr inbounds nuw i8, ptr %1045, i64 16
+  %1047 = load ptr, ptr %1046, align 8
+  %1048 = getelementptr inbounds nuw i8, ptr %1045, i64 24
+  %1049 = load i32, ptr %1048, align 8
+  %1050 = icmp ult i32 %1049, 78
+  %spec.select.i.i.i.i.i403 = select i1 %1050, ptr @_hb_NullPool, ptr %1047
+  %1051 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i403, i64 4
+  %1052 = load i8, ptr %1051, align 1
+  %1053 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i403, i64 5
+  %1054 = load i8, ptr %1053, align 1
+  %1055 = or i8 %1054, %1052
+  %1056 = icmp eq i8 %1055, 0
+  br i1 %1056, label %1057, label %_ZNK2OT3OS28has_dataEv.exit404
 
-1182:                                             ; preds = %1166
-  %1183 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i434, i64 6
-  %1184 = load i8, ptr %1183, align 1
-  %1185 = zext i8 %1184 to i32
-  %1186 = shl nuw nsw i32 %1185, 8
-  %1187 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i434, i64 7
-  %1188 = load i8, ptr %1187, align 1
-  %1189 = zext i8 %1188 to i32
-  %1190 = or disjoint i32 %1186, %1189
-  %.not1.i436 = icmp eq i32 %1190, 0
-  br i1 %.not1.i436, label %1191, label %_ZNK2OT3OS28has_dataEv.exit438
+1057:                                             ; preds = %1043
+  %1058 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i403, i64 6
+  %1059 = load i8, ptr %1058, align 1
+  %1060 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i403, i64 7
+  %1061 = load i8, ptr %1060, align 1
+  %1062 = or i8 %1061, %1059
+  %1063 = icmp eq i8 %1062, 0
+  br i1 %1063, label %1064, label %_ZNK2OT3OS28has_dataEv.exit404
 
-1191:                                             ; preds = %1182
-  %1192 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i434, i64 64
-  %1193 = load i8, ptr %1192, align 1
-  %1194 = zext i8 %1193 to i32
-  %1195 = shl nuw nsw i32 %1194, 8
-  %1196 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i434, i64 65
-  %1197 = load i8, ptr %1196, align 1
-  %1198 = zext i8 %1197 to i32
-  %1199 = or disjoint i32 %1195, %1198
-  %.not2.i437 = icmp eq i32 %1199, 0
-  br i1 %.not2.i437, label %1200, label %_ZNK2OT3OS28has_dataEv.exit438
+1064:                                             ; preds = %1057
+  %1065 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i403, i64 64
+  %1066 = load i8, ptr %1065, align 1
+  %1067 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i403, i64 65
+  %1068 = load i8, ptr %1067, align 1
+  %1069 = or i8 %1068, %1066
+  %1070 = icmp eq i8 %1069, 0
+  br i1 %1070, label %1071, label %_ZNK2OT3OS28has_dataEv.exit404
 
-1200:                                             ; preds = %1191
-  %1201 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i434, i64 66
-  %1202 = load i8, ptr %1201, align 1
-  %1203 = zext i8 %1202 to i32
-  %1204 = shl nuw nsw i32 %1203, 8
-  %1205 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i434, i64 67
-  %1206 = load i8, ptr %1205, align 1
-  %1207 = zext i8 %1206 to i32
-  %1208 = or disjoint i32 %1204, %1207
-  %1209 = icmp ne i32 %1208, 0
-  br label %_ZNK2OT3OS28has_dataEv.exit438
+1071:                                             ; preds = %1064
+  %1072 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i403, i64 66
+  %1073 = load i8, ptr %1072, align 1
+  %1074 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i403, i64 67
+  %1075 = load i8, ptr %1074, align 1
+  %1076 = or i8 %1075, %1073
+  %1077 = icmp ne i8 %1076, 0
+  br label %_ZNK2OT3OS28has_dataEv.exit404
 
-_ZNK2OT3OS28has_dataEv.exit438:                   ; preds = %1166, %1182, %1191, %1200
-  %1210 = phi i1 [ true, %1191 ], [ true, %1182 ], [ true, %1166 ], [ %1209, %1200 ]
+_ZNK2OT3OS28has_dataEv.exit404:                   ; preds = %1043, %1057, %1064, %1071
+  %1078 = phi i1 [ true, %1064 ], [ true, %1057 ], [ true, %1043 ], [ %1077, %1071 ]
   %.not275 = icmp ne ptr %2, null
-  %or.cond333.not = and i1 %.not275, %1210
-  br i1 %or.cond333.not, label %1211, label %1735
+  %or.cond333.not = and i1 %.not275, %1078
+  br i1 %or.cond333.not, label %1079, label %1544
 
-1211:                                             ; preds = %_ZNK2OT3OS28has_dataEv.exit438
-  %1212 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1167)
-  %1213 = getelementptr inbounds nuw i8, ptr %1212, i64 16
-  %1214 = load ptr, ptr %1213, align 8
-  %1215 = getelementptr inbounds nuw i8, ptr %1212, i64 24
-  %1216 = load i32, ptr %1215, align 8
-  %1217 = icmp ult i32 %1216, 78
-  %spec.select.i.i.i.i.i439 = select i1 %1217, ptr @_hb_NullPool, ptr %1214
-  %1218 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i439, i64 26
-  %1219 = load i8, ptr %1218, align 1
-  %1220 = zext i8 %1219 to i16
-  %1221 = shl nuw i16 %1220, 8
-  %1222 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i439, i64 27
-  %1223 = load i8, ptr %1222, align 1
-  %1224 = zext i8 %1223 to i16
-  %1225 = or disjoint i16 %1221, %1224
-  %1226 = sitofp i16 %1225 to float
-  %1227 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1937011315)
-  %1228 = fadd float %1227, %1226
-  %1229 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %1230 = load float, ptr %1229, align 8
-  %1231 = fmul float %1230, %1228
-  %1232 = fadd float %1231, 5.000000e-01
-  %1233 = tail call noundef float @llvm.floor.f32(float %1232)
-  %1234 = fptosi float %1233 to i32
-  store i32 %1234, ptr %2, align 4
-  br label %1735
+1079:                                             ; preds = %_ZNK2OT3OS28has_dataEv.exit404
+  %1080 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1044)
+  %1081 = getelementptr inbounds nuw i8, ptr %1080, i64 16
+  %1082 = load ptr, ptr %1081, align 8
+  %1083 = getelementptr inbounds nuw i8, ptr %1080, i64 24
+  %1084 = load i32, ptr %1083, align 8
+  %1085 = icmp ult i32 %1084, 78
+  %spec.select.i.i.i.i.i405 = select i1 %1085, ptr @_hb_NullPool, ptr %1082
+  %1086 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i405, i64 26
+  %1087 = load i8, ptr %1086, align 1
+  %1088 = zext i8 %1087 to i16
+  %1089 = shl nuw i16 %1088, 8
+  %1090 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i405, i64 27
+  %1091 = load i8, ptr %1090, align 1
+  %1092 = zext i8 %1091 to i16
+  %1093 = or disjoint i16 %1089, %1092
+  %1094 = sitofp i16 %1093 to float
+  %1095 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1937011315)
+  %1096 = fadd float %1095, %1094
+  %1097 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %1098 = load float, ptr %1097, align 8
+  %1099 = fmul float %1098, %1096
+  %1100 = fadd float %1099, 5.000000e-01
+  %1101 = tail call noundef float @llvm.floor.f32(float %1100)
+  %1102 = fptosi float %1101 to i32
+  store i32 %1102, ptr %2, align 4
+  br label %1544
 
-1235:                                             ; preds = %3
-  %1236 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %1237 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1236)
-  %1238 = getelementptr inbounds nuw i8, ptr %1237, i64 16
-  %1239 = load ptr, ptr %1238, align 8
-  %1240 = getelementptr inbounds nuw i8, ptr %1237, i64 24
-  %1241 = load i32, ptr %1240, align 8
-  %1242 = icmp ult i32 %1241, 78
-  %spec.select.i.i.i.i.i440 = select i1 %1242, ptr @_hb_NullPool, ptr %1239
-  %1243 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i440, i64 4
-  %1244 = load i8, ptr %1243, align 1
-  %1245 = zext i8 %1244 to i32
-  %1246 = shl nuw nsw i32 %1245, 8
-  %1247 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i440, i64 5
-  %1248 = load i8, ptr %1247, align 1
-  %1249 = zext i8 %1248 to i32
-  %1250 = or disjoint i32 %1246, %1249
-  %.not.i441 = icmp eq i32 %1250, 0
-  br i1 %.not.i441, label %1251, label %_ZNK2OT3OS28has_dataEv.exit444
+1103:                                             ; preds = %3
+  %1104 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %1105 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1104)
+  %1106 = getelementptr inbounds nuw i8, ptr %1105, i64 16
+  %1107 = load ptr, ptr %1106, align 8
+  %1108 = getelementptr inbounds nuw i8, ptr %1105, i64 24
+  %1109 = load i32, ptr %1108, align 8
+  %1110 = icmp ult i32 %1109, 78
+  %spec.select.i.i.i.i.i406 = select i1 %1110, ptr @_hb_NullPool, ptr %1107
+  %1111 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i406, i64 4
+  %1112 = load i8, ptr %1111, align 1
+  %1113 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i406, i64 5
+  %1114 = load i8, ptr %1113, align 1
+  %1115 = or i8 %1114, %1112
+  %1116 = icmp eq i8 %1115, 0
+  br i1 %1116, label %1117, label %_ZNK2OT3OS28has_dataEv.exit407
 
-1251:                                             ; preds = %1235
-  %1252 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i440, i64 6
-  %1253 = load i8, ptr %1252, align 1
-  %1254 = zext i8 %1253 to i32
-  %1255 = shl nuw nsw i32 %1254, 8
-  %1256 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i440, i64 7
-  %1257 = load i8, ptr %1256, align 1
-  %1258 = zext i8 %1257 to i32
-  %1259 = or disjoint i32 %1255, %1258
-  %.not1.i442 = icmp eq i32 %1259, 0
-  br i1 %.not1.i442, label %1260, label %_ZNK2OT3OS28has_dataEv.exit444
+1117:                                             ; preds = %1103
+  %1118 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i406, i64 6
+  %1119 = load i8, ptr %1118, align 1
+  %1120 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i406, i64 7
+  %1121 = load i8, ptr %1120, align 1
+  %1122 = or i8 %1121, %1119
+  %1123 = icmp eq i8 %1122, 0
+  br i1 %1123, label %1124, label %_ZNK2OT3OS28has_dataEv.exit407
 
-1260:                                             ; preds = %1251
-  %1261 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i440, i64 64
-  %1262 = load i8, ptr %1261, align 1
-  %1263 = zext i8 %1262 to i32
-  %1264 = shl nuw nsw i32 %1263, 8
-  %1265 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i440, i64 65
-  %1266 = load i8, ptr %1265, align 1
-  %1267 = zext i8 %1266 to i32
-  %1268 = or disjoint i32 %1264, %1267
-  %.not2.i443 = icmp eq i32 %1268, 0
-  br i1 %.not2.i443, label %1269, label %_ZNK2OT3OS28has_dataEv.exit444
+1124:                                             ; preds = %1117
+  %1125 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i406, i64 64
+  %1126 = load i8, ptr %1125, align 1
+  %1127 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i406, i64 65
+  %1128 = load i8, ptr %1127, align 1
+  %1129 = or i8 %1128, %1126
+  %1130 = icmp eq i8 %1129, 0
+  br i1 %1130, label %1131, label %_ZNK2OT3OS28has_dataEv.exit407
 
-1269:                                             ; preds = %1260
-  %1270 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i440, i64 66
-  %1271 = load i8, ptr %1270, align 1
-  %1272 = zext i8 %1271 to i32
-  %1273 = shl nuw nsw i32 %1272, 8
-  %1274 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i440, i64 67
-  %1275 = load i8, ptr %1274, align 1
-  %1276 = zext i8 %1275 to i32
-  %1277 = or disjoint i32 %1273, %1276
-  %1278 = icmp ne i32 %1277, 0
-  br label %_ZNK2OT3OS28has_dataEv.exit444
+1131:                                             ; preds = %1124
+  %1132 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i406, i64 66
+  %1133 = load i8, ptr %1132, align 1
+  %1134 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i406, i64 67
+  %1135 = load i8, ptr %1134, align 1
+  %1136 = or i8 %1135, %1133
+  %1137 = icmp ne i8 %1136, 0
+  br label %_ZNK2OT3OS28has_dataEv.exit407
 
-_ZNK2OT3OS28has_dataEv.exit444:                   ; preds = %1235, %1251, %1260, %1269
-  %1279 = phi i1 [ true, %1260 ], [ true, %1251 ], [ true, %1235 ], [ %1278, %1269 ]
+_ZNK2OT3OS28has_dataEv.exit407:                   ; preds = %1103, %1117, %1124, %1131
+  %1138 = phi i1 [ true, %1124 ], [ true, %1117 ], [ true, %1103 ], [ %1137, %1131 ]
   %.not274 = icmp ne ptr %2, null
-  %or.cond335.not = and i1 %.not274, %1279
-  br i1 %or.cond335.not, label %1280, label %1735
+  %or.cond335.not = and i1 %.not274, %1138
+  br i1 %or.cond335.not, label %1139, label %1544
 
-1280:                                             ; preds = %_ZNK2OT3OS28has_dataEv.exit444
-  %1281 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1236)
-  %1282 = getelementptr inbounds nuw i8, ptr %1281, i64 16
-  %1283 = load ptr, ptr %1282, align 8
-  %1284 = getelementptr inbounds nuw i8, ptr %1281, i64 24
-  %1285 = load i32, ptr %1284, align 8
-  %1286 = icmp ult i32 %1285, 78
-  %spec.select.i.i.i.i.i445 = select i1 %1286, ptr @_hb_NullPool, ptr %1283
-  %1287 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i445, i64 28
-  %1288 = load i8, ptr %1287, align 1
-  %1289 = zext i8 %1288 to i16
-  %1290 = shl nuw i16 %1289, 8
-  %1291 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i445, i64 29
-  %1292 = load i8, ptr %1291, align 1
-  %1293 = zext i8 %1292 to i16
-  %1294 = or disjoint i16 %1290, %1293
-  %1295 = sitofp i16 %1294 to float
-  %1296 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1937011311)
-  %1297 = fadd float %1296, %1295
-  %1298 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %1299 = load float, ptr %1298, align 8
-  %1300 = fmul float %1299, %1297
-  %1301 = fadd float %1300, 5.000000e-01
-  %1302 = tail call noundef float @llvm.floor.f32(float %1301)
-  %1303 = fptosi float %1302 to i32
-  store i32 %1303, ptr %2, align 4
-  br label %1735
+1139:                                             ; preds = %_ZNK2OT3OS28has_dataEv.exit407
+  %1140 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1104)
+  %1141 = getelementptr inbounds nuw i8, ptr %1140, i64 16
+  %1142 = load ptr, ptr %1141, align 8
+  %1143 = getelementptr inbounds nuw i8, ptr %1140, i64 24
+  %1144 = load i32, ptr %1143, align 8
+  %1145 = icmp ult i32 %1144, 78
+  %spec.select.i.i.i.i.i408 = select i1 %1145, ptr @_hb_NullPool, ptr %1142
+  %1146 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i408, i64 28
+  %1147 = load i8, ptr %1146, align 1
+  %1148 = zext i8 %1147 to i16
+  %1149 = shl nuw i16 %1148, 8
+  %1150 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i408, i64 29
+  %1151 = load i8, ptr %1150, align 1
+  %1152 = zext i8 %1151 to i16
+  %1153 = or disjoint i16 %1149, %1152
+  %1154 = sitofp i16 %1153 to float
+  %1155 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1937011311)
+  %1156 = fadd float %1155, %1154
+  %1157 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %1158 = load float, ptr %1157, align 8
+  %1159 = fmul float %1158, %1156
+  %1160 = fadd float %1159, 5.000000e-01
+  %1161 = tail call noundef float @llvm.floor.f32(float %1160)
+  %1162 = fptosi float %1161 to i32
+  store i32 %1162, ptr %2, align 4
+  br label %1544
 
-1304:                                             ; preds = %3
-  %1305 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  %1306 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18post_accelerator_tE21hb_face_lazy_loader_tIS1_Lj7EE9hb_face_tLj7ES1_E10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1305)
-  %1307 = load ptr, ptr %1306, align 8
-  %.not.i.i.i.i = icmp eq ptr %1307, null
-  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr @_hb_NullPool, ptr %1307
-  %1308 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i, i64 16
-  %1309 = load ptr, ptr %1308, align 8
-  %1310 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i, i64 24
-  %1311 = load i32, ptr %1310, align 8
-  %1312 = icmp ult i32 %1311, 32
-  %spec.select.i.i1.i.i = select i1 %1312, ptr @_hb_NullPool, ptr %1309
-  %1313 = load i8, ptr %spec.select.i.i1.i.i, align 1
-  %1314 = zext i8 %1313 to i32
-  %1315 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i, i64 1
-  %1316 = load i8, ptr %1315, align 1
-  %1317 = zext i8 %1316 to i32
-  %1318 = shl nuw i32 %1314, 24
-  %1319 = shl nuw nsw i32 %1317, 16
-  %1320 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i, i64 2
-  %1321 = load i8, ptr %1320, align 1
-  %1322 = zext i8 %1321 to i32
-  %1323 = shl nuw nsw i32 %1322, 8
-  %1324 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i, i64 3
-  %1325 = load i8, ptr %1324, align 1
-  %1326 = zext i8 %1325 to i32
-  %1327 = or disjoint i32 %1319, %1318
-  %1328 = or disjoint i32 %1327, %1326
-  %1329 = or disjoint i32 %1328, %1323
-  %1330 = icmp ne i32 %1329, 0
+1163:                                             ; preds = %3
+  %1164 = getelementptr inbounds nuw i8, ptr %5, i64 136
+  %1165 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18post_accelerator_tE21hb_face_lazy_loader_tIS1_Lj7EE9hb_face_tLj7ES1_E10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1164)
+  %1166 = load ptr, ptr %1165, align 8
+  %.not.i.i.i.i = icmp eq ptr %1166, null
+  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr @_hb_NullPool, ptr %1166
+  %1167 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i, i64 16
+  %1168 = load ptr, ptr %1167, align 8
+  %1169 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i, i64 24
+  %1170 = load i32, ptr %1169, align 8
+  %1171 = icmp ult i32 %1170, 32
+  %spec.select.i.i1.i.i = select i1 %1171, ptr @_hb_NullPool, ptr %1168
+  %1172 = load i8, ptr %spec.select.i.i1.i.i, align 1
+  %1173 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i, i64 1
+  %1174 = load i8, ptr %1173, align 1
+  %1175 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i, i64 2
+  %1176 = load i8, ptr %1175, align 1
+  %1177 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i, i64 3
+  %1178 = load i8, ptr %1177, align 1
+  %1179 = or i8 %1174, %1172
+  %1180 = or i8 %1179, %1176
+  %1181 = or i8 %1180, %1178
+  %1182 = icmp ne i8 %1181, 0
   %.not273 = icmp ne ptr %2, null
-  %or.cond337.not = and i1 %.not273, %1330
-  br i1 %or.cond337.not, label %1331, label %1735
+  %or.cond337.not = and i1 %.not273, %1182
+  br i1 %or.cond337.not, label %1183, label %1544
 
-1331:                                             ; preds = %1304
-  %1332 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18post_accelerator_tE21hb_face_lazy_loader_tIS1_Lj7EE9hb_face_tLj7ES1_E10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1305)
-  %1333 = load ptr, ptr %1332, align 8
-  %.not.i.i.i.i446 = icmp eq ptr %1333, null
-  %spec.select.i.i.i.i447 = select i1 %.not.i.i.i.i446, ptr @_hb_NullPool, ptr %1333
-  %1334 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i447, i64 16
-  %1335 = load ptr, ptr %1334, align 8
-  %1336 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i447, i64 24
-  %1337 = load i32, ptr %1336, align 8
-  %1338 = icmp ult i32 %1337, 32
-  %spec.select.i.i1.i.i448 = select i1 %1338, ptr @_hb_NullPool, ptr %1335
-  %1339 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i448, i64 10
-  %1340 = load i8, ptr %1339, align 1
-  %1341 = zext i8 %1340 to i16
-  %1342 = shl nuw i16 %1341, 8
-  %1343 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i448, i64 11
-  %1344 = load i8, ptr %1343, align 1
-  %1345 = zext i8 %1344 to i16
-  %1346 = or disjoint i16 %1342, %1345
-  %1347 = sitofp i16 %1346 to float
-  %1348 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1970168947)
-  %1349 = fadd float %1348, %1347
-  %1350 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %1351 = load float, ptr %1350, align 8
-  %1352 = fmul float %1351, %1349
-  %1353 = fadd float %1352, 5.000000e-01
-  %1354 = tail call noundef float @llvm.floor.f32(float %1353)
-  %1355 = fptosi float %1354 to i32
-  store i32 %1355, ptr %2, align 4
-  br label %1735
+1183:                                             ; preds = %1163
+  %1184 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18post_accelerator_tE21hb_face_lazy_loader_tIS1_Lj7EE9hb_face_tLj7ES1_E10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1164)
+  %1185 = load ptr, ptr %1184, align 8
+  %.not.i.i.i.i409 = icmp eq ptr %1185, null
+  %spec.select.i.i.i.i410 = select i1 %.not.i.i.i.i409, ptr @_hb_NullPool, ptr %1185
+  %1186 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i410, i64 16
+  %1187 = load ptr, ptr %1186, align 8
+  %1188 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i410, i64 24
+  %1189 = load i32, ptr %1188, align 8
+  %1190 = icmp ult i32 %1189, 32
+  %spec.select.i.i1.i.i411 = select i1 %1190, ptr @_hb_NullPool, ptr %1187
+  %1191 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i411, i64 10
+  %1192 = load i8, ptr %1191, align 1
+  %1193 = zext i8 %1192 to i16
+  %1194 = shl nuw i16 %1193, 8
+  %1195 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i411, i64 11
+  %1196 = load i8, ptr %1195, align 1
+  %1197 = zext i8 %1196 to i16
+  %1198 = or disjoint i16 %1194, %1197
+  %1199 = sitofp i16 %1198 to float
+  %1200 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1970168947)
+  %1201 = fadd float %1200, %1199
+  %1202 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %1203 = load float, ptr %1202, align 8
+  %1204 = fmul float %1203, %1201
+  %1205 = fadd float %1204, 5.000000e-01
+  %1206 = tail call noundef float @llvm.floor.f32(float %1205)
+  %1207 = fptosi float %1206 to i32
+  store i32 %1207, ptr %2, align 4
+  br label %1544
 
-1356:                                             ; preds = %3
-  %1357 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  %1358 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18post_accelerator_tE21hb_face_lazy_loader_tIS1_Lj7EE9hb_face_tLj7ES1_E10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1357)
-  %1359 = load ptr, ptr %1358, align 8
-  %.not.i.i.i.i449 = icmp eq ptr %1359, null
-  %spec.select.i.i.i.i450 = select i1 %.not.i.i.i.i449, ptr @_hb_NullPool, ptr %1359
-  %1360 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i450, i64 16
-  %1361 = load ptr, ptr %1360, align 8
-  %1362 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i450, i64 24
-  %1363 = load i32, ptr %1362, align 8
-  %1364 = icmp ult i32 %1363, 32
-  %spec.select.i.i1.i.i451 = select i1 %1364, ptr @_hb_NullPool, ptr %1361
-  %1365 = load i8, ptr %spec.select.i.i1.i.i451, align 1
-  %1366 = zext i8 %1365 to i32
-  %1367 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i451, i64 1
-  %1368 = load i8, ptr %1367, align 1
-  %1369 = zext i8 %1368 to i32
-  %1370 = shl nuw i32 %1366, 24
-  %1371 = shl nuw nsw i32 %1369, 16
-  %1372 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i451, i64 2
-  %1373 = load i8, ptr %1372, align 1
-  %1374 = zext i8 %1373 to i32
-  %1375 = shl nuw nsw i32 %1374, 8
-  %1376 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i451, i64 3
-  %1377 = load i8, ptr %1376, align 1
-  %1378 = zext i8 %1377 to i32
-  %1379 = or disjoint i32 %1371, %1370
-  %1380 = or disjoint i32 %1379, %1378
-  %1381 = or disjoint i32 %1380, %1375
-  %1382 = icmp ne i32 %1381, 0
+1208:                                             ; preds = %3
+  %1209 = getelementptr inbounds nuw i8, ptr %5, i64 136
+  %1210 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18post_accelerator_tE21hb_face_lazy_loader_tIS1_Lj7EE9hb_face_tLj7ES1_E10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1209)
+  %1211 = load ptr, ptr %1210, align 8
+  %.not.i.i.i.i412 = icmp eq ptr %1211, null
+  %spec.select.i.i.i.i413 = select i1 %.not.i.i.i.i412, ptr @_hb_NullPool, ptr %1211
+  %1212 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i413, i64 16
+  %1213 = load ptr, ptr %1212, align 8
+  %1214 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i413, i64 24
+  %1215 = load i32, ptr %1214, align 8
+  %1216 = icmp ult i32 %1215, 32
+  %spec.select.i.i1.i.i414 = select i1 %1216, ptr @_hb_NullPool, ptr %1213
+  %1217 = load i8, ptr %spec.select.i.i1.i.i414, align 1
+  %1218 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i414, i64 1
+  %1219 = load i8, ptr %1218, align 1
+  %1220 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i414, i64 2
+  %1221 = load i8, ptr %1220, align 1
+  %1222 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i414, i64 3
+  %1223 = load i8, ptr %1222, align 1
+  %1224 = or i8 %1219, %1217
+  %1225 = or i8 %1224, %1221
+  %1226 = or i8 %1225, %1223
+  %1227 = icmp ne i8 %1226, 0
   %.not272 = icmp ne ptr %2, null
-  %or.cond339.not = and i1 %.not272, %1382
-  br i1 %or.cond339.not, label %1383, label %1735
+  %or.cond339.not = and i1 %.not272, %1227
+  br i1 %or.cond339.not, label %1228, label %1544
 
-1383:                                             ; preds = %1356
-  %1384 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18post_accelerator_tE21hb_face_lazy_loader_tIS1_Lj7EE9hb_face_tLj7ES1_E10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1357)
-  %1385 = load ptr, ptr %1384, align 8
-  %.not.i.i.i.i452 = icmp eq ptr %1385, null
-  %spec.select.i.i.i.i453 = select i1 %.not.i.i.i.i452, ptr @_hb_NullPool, ptr %1385
-  %1386 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i453, i64 16
-  %1387 = load ptr, ptr %1386, align 8
-  %1388 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i453, i64 24
-  %1389 = load i32, ptr %1388, align 8
-  %1390 = icmp ult i32 %1389, 32
-  %spec.select.i.i1.i.i454 = select i1 %1390, ptr @_hb_NullPool, ptr %1387
-  %1391 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i454, i64 8
-  %1392 = load i8, ptr %1391, align 1
-  %1393 = zext i8 %1392 to i16
-  %1394 = shl nuw i16 %1393, 8
-  %1395 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i454, i64 9
-  %1396 = load i8, ptr %1395, align 1
-  %1397 = zext i8 %1396 to i16
-  %1398 = or disjoint i16 %1394, %1397
-  %1399 = sitofp i16 %1398 to float
-  %1400 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1970168943)
-  %1401 = fadd float %1400, %1399
-  %1402 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %1403 = load float, ptr %1402, align 8
-  %1404 = fmul float %1403, %1401
-  %1405 = fadd float %1404, 5.000000e-01
-  %1406 = tail call noundef float @llvm.floor.f32(float %1405)
-  %1407 = fptosi float %1406 to i32
-  store i32 %1407, ptr %2, align 4
-  br label %1735
+1228:                                             ; preds = %1208
+  %1229 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18post_accelerator_tE21hb_face_lazy_loader_tIS1_Lj7EE9hb_face_tLj7ES1_E10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1209)
+  %1230 = load ptr, ptr %1229, align 8
+  %.not.i.i.i.i415 = icmp eq ptr %1230, null
+  %spec.select.i.i.i.i416 = select i1 %.not.i.i.i.i415, ptr @_hb_NullPool, ptr %1230
+  %1231 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i416, i64 16
+  %1232 = load ptr, ptr %1231, align 8
+  %1233 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i416, i64 24
+  %1234 = load i32, ptr %1233, align 8
+  %1235 = icmp ult i32 %1234, 32
+  %spec.select.i.i1.i.i417 = select i1 %1235, ptr @_hb_NullPool, ptr %1232
+  %1236 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i417, i64 8
+  %1237 = load i8, ptr %1236, align 1
+  %1238 = zext i8 %1237 to i16
+  %1239 = shl nuw i16 %1238, 8
+  %1240 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i417, i64 9
+  %1241 = load i8, ptr %1240, align 1
+  %1242 = zext i8 %1241 to i16
+  %1243 = or disjoint i16 %1239, %1242
+  %1244 = sitofp i16 %1243 to float
+  %1245 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1970168943)
+  %1246 = fadd float %1245, %1244
+  %1247 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %1248 = load float, ptr %1247, align 8
+  %1249 = fmul float %1248, %1246
+  %1250 = fadd float %1249, 5.000000e-01
+  %1251 = tail call noundef float @llvm.floor.f32(float %1250)
+  %1252 = fptosi float %1251 to i32
+  store i32 %1252, ptr %2, align 4
+  br label %1544
 
-1408:                                             ; preds = %3
-  %1409 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %1410 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1409)
-  %1411 = getelementptr inbounds nuw i8, ptr %1410, i64 16
-  %1412 = load ptr, ptr %1411, align 8
-  %1413 = getelementptr inbounds nuw i8, ptr %1410, i64 24
-  %1414 = load i32, ptr %1413, align 8
-  %1415 = icmp ult i32 %1414, 78
-  %spec.select.i.i.i.i.i455 = select i1 %1415, ptr @_hb_NullPool, ptr %1412
-  %1416 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i455, i64 4
-  %1417 = load i8, ptr %1416, align 1
-  %1418 = zext i8 %1417 to i32
-  %1419 = shl nuw nsw i32 %1418, 8
-  %1420 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i455, i64 5
-  %1421 = load i8, ptr %1420, align 1
-  %1422 = zext i8 %1421 to i32
-  %1423 = or disjoint i32 %1419, %1422
-  %.not.i456 = icmp eq i32 %1423, 0
-  br i1 %.not.i456, label %1424, label %_ZNK2OT3OS28has_dataEv.exit459
+1253:                                             ; preds = %3
+  %1254 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %1255 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1254)
+  %1256 = getelementptr inbounds nuw i8, ptr %1255, i64 16
+  %1257 = load ptr, ptr %1256, align 8
+  %1258 = getelementptr inbounds nuw i8, ptr %1255, i64 24
+  %1259 = load i32, ptr %1258, align 8
+  %1260 = icmp ult i32 %1259, 78
+  %spec.select.i.i.i.i.i418 = select i1 %1260, ptr @_hb_NullPool, ptr %1257
+  %1261 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i418, i64 4
+  %1262 = load i8, ptr %1261, align 1
+  %1263 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i418, i64 5
+  %1264 = load i8, ptr %1263, align 1
+  %1265 = or i8 %1264, %1262
+  %1266 = icmp eq i8 %1265, 0
+  br i1 %1266, label %1267, label %_ZNK2OT3OS28has_dataEv.exit419
 
-1424:                                             ; preds = %1408
-  %1425 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i455, i64 6
-  %1426 = load i8, ptr %1425, align 1
-  %1427 = zext i8 %1426 to i32
-  %1428 = shl nuw nsw i32 %1427, 8
-  %1429 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i455, i64 7
-  %1430 = load i8, ptr %1429, align 1
-  %1431 = zext i8 %1430 to i32
-  %1432 = or disjoint i32 %1428, %1431
-  %.not1.i457 = icmp eq i32 %1432, 0
-  br i1 %.not1.i457, label %1433, label %_ZNK2OT3OS28has_dataEv.exit459
+1267:                                             ; preds = %1253
+  %1268 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i418, i64 6
+  %1269 = load i8, ptr %1268, align 1
+  %1270 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i418, i64 7
+  %1271 = load i8, ptr %1270, align 1
+  %1272 = or i8 %1271, %1269
+  %1273 = icmp eq i8 %1272, 0
+  br i1 %1273, label %1274, label %_ZNK2OT3OS28has_dataEv.exit419
 
-1433:                                             ; preds = %1424
-  %1434 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i455, i64 64
-  %1435 = load i8, ptr %1434, align 1
-  %1436 = zext i8 %1435 to i32
-  %1437 = shl nuw nsw i32 %1436, 8
-  %1438 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i455, i64 65
-  %1439 = load i8, ptr %1438, align 1
-  %1440 = zext i8 %1439 to i32
-  %1441 = or disjoint i32 %1437, %1440
-  %.not2.i458 = icmp eq i32 %1441, 0
-  br i1 %.not2.i458, label %1442, label %_ZNK2OT3OS28has_dataEv.exit459
+1274:                                             ; preds = %1267
+  %1275 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i418, i64 64
+  %1276 = load i8, ptr %1275, align 1
+  %1277 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i418, i64 65
+  %1278 = load i8, ptr %1277, align 1
+  %1279 = or i8 %1278, %1276
+  %1280 = icmp eq i8 %1279, 0
+  br i1 %1280, label %1281, label %_ZNK2OT3OS28has_dataEv.exit419
 
-1442:                                             ; preds = %1433
-  %1443 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i455, i64 66
-  %1444 = load i8, ptr %1443, align 1
-  %1445 = zext i8 %1444 to i32
-  %1446 = shl nuw nsw i32 %1445, 8
-  %1447 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i455, i64 67
-  %1448 = load i8, ptr %1447, align 1
-  %1449 = zext i8 %1448 to i32
-  %1450 = or disjoint i32 %1446, %1449
-  %1451 = icmp ne i32 %1450, 0
-  br label %_ZNK2OT3OS28has_dataEv.exit459
+1281:                                             ; preds = %1274
+  %1282 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i418, i64 66
+  %1283 = load i8, ptr %1282, align 1
+  %1284 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i418, i64 67
+  %1285 = load i8, ptr %1284, align 1
+  %1286 = or i8 %1285, %1283
+  %1287 = icmp ne i8 %1286, 0
+  br label %_ZNK2OT3OS28has_dataEv.exit419
 
-_ZNK2OT3OS28has_dataEv.exit459:                   ; preds = %1408, %1424, %1433, %1442
-  %1452 = phi i1 [ true, %1433 ], [ true, %1424 ], [ true, %1408 ], [ %1451, %1442 ]
+_ZNK2OT3OS28has_dataEv.exit419:                   ; preds = %1253, %1267, %1274, %1281
+  %1288 = phi i1 [ true, %1274 ], [ true, %1267 ], [ true, %1253 ], [ %1287, %1281 ]
   %.not271 = icmp ne ptr %2, null
-  %or.cond341.not = and i1 %.not271, %1452
-  br i1 %or.cond341.not, label %1453, label %1735
+  %or.cond341.not = and i1 %.not271, %1288
+  br i1 %or.cond341.not, label %1289, label %1544
 
-1453:                                             ; preds = %_ZNK2OT3OS28has_dataEv.exit459
-  %1454 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1409)
-  %1455 = getelementptr inbounds nuw i8, ptr %1454, i64 16
-  %1456 = load ptr, ptr %1455, align 8
-  %1457 = getelementptr inbounds nuw i8, ptr %1454, i64 24
-  %1458 = load i32, ptr %1457, align 8
-  %1459 = icmp ult i32 %1458, 78
-  %spec.select.i.i.i.i.i460 = select i1 %1459, ptr @_hb_NullPool, ptr %1456
-  %1460 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i460, i64 68
-  %1461 = load i8, ptr %1460, align 1
-  %1462 = zext i8 %1461 to i16
-  %1463 = shl nuw i16 %1462, 8
-  %1464 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i460, i64 69
-  %1465 = load i8, ptr %1464, align 1
-  %1466 = zext i8 %1465 to i16
-  %1467 = or disjoint i16 %1463, %1466
-  %1468 = sitofp i16 %1467 to float
-  %1469 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1331786595)
-  %1470 = fadd float %1469, %1468
-  %1471 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %1472 = load float, ptr %1471, align 8
-  %1473 = fmul float %1472, %1470
-  %1474 = fadd float %1473, 5.000000e-01
-  %1475 = tail call noundef float @llvm.floor.f32(float %1474)
-  %1476 = fptosi float %1475 to i32
-  store i32 %1476, ptr %2, align 4
-  br label %1735
+1289:                                             ; preds = %_ZNK2OT3OS28has_dataEv.exit419
+  %1290 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1254)
+  %1291 = getelementptr inbounds nuw i8, ptr %1290, i64 16
+  %1292 = load ptr, ptr %1291, align 8
+  %1293 = getelementptr inbounds nuw i8, ptr %1290, i64 24
+  %1294 = load i32, ptr %1293, align 8
+  %1295 = icmp ult i32 %1294, 78
+  %spec.select.i.i.i.i.i420 = select i1 %1295, ptr @_hb_NullPool, ptr %1292
+  %1296 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i420, i64 68
+  %1297 = load i8, ptr %1296, align 1
+  %1298 = zext i8 %1297 to i16
+  %1299 = shl nuw i16 %1298, 8
+  %1300 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i420, i64 69
+  %1301 = load i8, ptr %1300, align 1
+  %1302 = zext i8 %1301 to i16
+  %1303 = or disjoint i16 %1299, %1302
+  %1304 = sitofp i16 %1303 to float
+  %1305 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1331786595)
+  %1306 = fadd float %1305, %1304
+  %1307 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %1308 = load float, ptr %1307, align 8
+  %1309 = fmul float %1308, %1306
+  %1310 = fadd float %1309, 5.000000e-01
+  %1311 = tail call noundef float @llvm.floor.f32(float %1310)
+  %1312 = fptosi float %1311 to i32
+  store i32 %1312, ptr %2, align 4
+  br label %1544
 
-1477:                                             ; preds = %3
-  %1478 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %1479 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1478)
-  %1480 = getelementptr inbounds nuw i8, ptr %1479, i64 16
-  %1481 = load ptr, ptr %1480, align 8
-  %1482 = getelementptr inbounds nuw i8, ptr %1479, i64 24
-  %1483 = load i32, ptr %1482, align 8
-  %1484 = icmp ult i32 %1483, 36
-  %spec.select.i.i.i.i.i461 = select i1 %1484, ptr @_hb_NullPool, ptr %1481
-  %1485 = load i8, ptr %spec.select.i.i.i.i.i461, align 1
-  %1486 = zext i8 %1485 to i32
-  %1487 = shl nuw nsw i32 %1486, 8
-  %1488 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i461, i64 1
-  %1489 = load i8, ptr %1488, align 1
-  %1490 = zext i8 %1489 to i32
-  %1491 = or disjoint i32 %1487, %1490
-  %1492 = icmp ne i32 %1491, 0
+1313:                                             ; preds = %3
+  %1314 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %1315 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1314)
+  %1316 = getelementptr inbounds nuw i8, ptr %1315, i64 16
+  %1317 = load ptr, ptr %1316, align 8
+  %1318 = getelementptr inbounds nuw i8, ptr %1315, i64 24
+  %1319 = load i32, ptr %1318, align 8
+  %1320 = icmp ult i32 %1319, 36
+  %spec.select.i.i.i.i.i421 = select i1 %1320, ptr @_hb_NullPool, ptr %1317
+  %1321 = load i8, ptr %spec.select.i.i.i.i.i421, align 1
+  %1322 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i421, i64 1
+  %1323 = load i8, ptr %1322, align 1
+  %1324 = or i8 %1323, %1321
+  %1325 = icmp ne i8 %1324, 0
   %.not270 = icmp ne ptr %2, null
-  %or.cond343.not = and i1 %.not270, %1492
-  br i1 %or.cond343.not, label %1493, label %1735
+  %or.cond343.not = and i1 %.not270, %1325
+  br i1 %or.cond343.not, label %1326, label %1544
 
-1493:                                             ; preds = %1477
-  %1494 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1478)
-  %1495 = getelementptr inbounds nuw i8, ptr %1494, i64 16
-  %1496 = load ptr, ptr %1495, align 8
-  %1497 = getelementptr inbounds nuw i8, ptr %1494, i64 24
-  %1498 = load i32, ptr %1497, align 8
-  %1499 = icmp ult i32 %1498, 36
-  %spec.select.i.i.i.i.i462 = select i1 %1499, ptr @_hb_NullPool, ptr %1496
-  %1500 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i462, i64 4
-  %1501 = load i8, ptr %1500, align 1
-  %1502 = zext i8 %1501 to i16
-  %1503 = shl nuw i16 %1502, 8
-  %1504 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i462, i64 5
-  %1505 = load i8, ptr %1504, align 1
-  %1506 = zext i8 %1505 to i16
-  %1507 = or disjoint i16 %1503, %1506
-  %1508 = sitofp i16 %1507 to float
-  %1509 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1214346083)
-  %1510 = fadd float %1509, %1508
-  %1511 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %1512 = load float, ptr %1511, align 8
-  %1513 = fmul float %1512, %1510
-  %1514 = fadd float %1513, 5.000000e-01
-  %1515 = tail call noundef float @llvm.floor.f32(float %1514)
-  %1516 = fptosi float %1515 to i32
-  store i32 %1516, ptr %2, align 4
-  br label %1735
+1326:                                             ; preds = %1313
+  %1327 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1314)
+  %1328 = getelementptr inbounds nuw i8, ptr %1327, i64 16
+  %1329 = load ptr, ptr %1328, align 8
+  %1330 = getelementptr inbounds nuw i8, ptr %1327, i64 24
+  %1331 = load i32, ptr %1330, align 8
+  %1332 = icmp ult i32 %1331, 36
+  %spec.select.i.i.i.i.i422 = select i1 %1332, ptr @_hb_NullPool, ptr %1329
+  %1333 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i422, i64 4
+  %1334 = load i8, ptr %1333, align 1
+  %1335 = zext i8 %1334 to i16
+  %1336 = shl nuw i16 %1335, 8
+  %1337 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i422, i64 5
+  %1338 = load i8, ptr %1337, align 1
+  %1339 = zext i8 %1338 to i16
+  %1340 = or disjoint i16 %1336, %1339
+  %1341 = sitofp i16 %1340 to float
+  %1342 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1214346083)
+  %1343 = fadd float %1342, %1341
+  %1344 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %1345 = load float, ptr %1344, align 8
+  %1346 = fmul float %1345, %1343
+  %1347 = fadd float %1346, 5.000000e-01
+  %1348 = tail call noundef float @llvm.floor.f32(float %1347)
+  %1349 = fptosi float %1348 to i32
+  store i32 %1349, ptr %2, align 4
+  br label %1544
 
-1517:                                             ; preds = %3
-  %1518 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %1519 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1518)
-  %1520 = getelementptr inbounds nuw i8, ptr %1519, i64 16
-  %1521 = load ptr, ptr %1520, align 8
-  %1522 = getelementptr inbounds nuw i8, ptr %1519, i64 24
-  %1523 = load i32, ptr %1522, align 8
-  %1524 = icmp ult i32 %1523, 78
-  %spec.select.i.i.i.i.i463 = select i1 %1524, ptr @_hb_NullPool, ptr %1521
-  %1525 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i463, i64 4
-  %1526 = load i8, ptr %1525, align 1
-  %1527 = zext i8 %1526 to i32
-  %1528 = shl nuw nsw i32 %1527, 8
-  %1529 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i463, i64 5
-  %1530 = load i8, ptr %1529, align 1
-  %1531 = zext i8 %1530 to i32
-  %1532 = or disjoint i32 %1528, %1531
-  %.not.i464 = icmp eq i32 %1532, 0
-  br i1 %.not.i464, label %1533, label %_ZNK2OT3OS28has_dataEv.exit467
+1350:                                             ; preds = %3
+  %1351 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %1352 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1351)
+  %1353 = getelementptr inbounds nuw i8, ptr %1352, i64 16
+  %1354 = load ptr, ptr %1353, align 8
+  %1355 = getelementptr inbounds nuw i8, ptr %1352, i64 24
+  %1356 = load i32, ptr %1355, align 8
+  %1357 = icmp ult i32 %1356, 78
+  %spec.select.i.i.i.i.i423 = select i1 %1357, ptr @_hb_NullPool, ptr %1354
+  %1358 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i423, i64 4
+  %1359 = load i8, ptr %1358, align 1
+  %1360 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i423, i64 5
+  %1361 = load i8, ptr %1360, align 1
+  %1362 = or i8 %1361, %1359
+  %1363 = icmp eq i8 %1362, 0
+  br i1 %1363, label %1364, label %_ZNK2OT3OS28has_dataEv.exit424
 
-1533:                                             ; preds = %1517
-  %1534 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i463, i64 6
-  %1535 = load i8, ptr %1534, align 1
-  %1536 = zext i8 %1535 to i32
-  %1537 = shl nuw nsw i32 %1536, 8
-  %1538 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i463, i64 7
-  %1539 = load i8, ptr %1538, align 1
-  %1540 = zext i8 %1539 to i32
-  %1541 = or disjoint i32 %1537, %1540
-  %.not1.i465 = icmp eq i32 %1541, 0
-  br i1 %.not1.i465, label %1542, label %_ZNK2OT3OS28has_dataEv.exit467
+1364:                                             ; preds = %1350
+  %1365 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i423, i64 6
+  %1366 = load i8, ptr %1365, align 1
+  %1367 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i423, i64 7
+  %1368 = load i8, ptr %1367, align 1
+  %1369 = or i8 %1368, %1366
+  %1370 = icmp eq i8 %1369, 0
+  br i1 %1370, label %1371, label %_ZNK2OT3OS28has_dataEv.exit424
 
-1542:                                             ; preds = %1533
-  %1543 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i463, i64 64
-  %1544 = load i8, ptr %1543, align 1
-  %1545 = zext i8 %1544 to i32
-  %1546 = shl nuw nsw i32 %1545, 8
-  %1547 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i463, i64 65
-  %1548 = load i8, ptr %1547, align 1
-  %1549 = zext i8 %1548 to i32
-  %1550 = or disjoint i32 %1546, %1549
-  %.not2.i466 = icmp eq i32 %1550, 0
-  br i1 %.not2.i466, label %1551, label %_ZNK2OT3OS28has_dataEv.exit467
+1371:                                             ; preds = %1364
+  %1372 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i423, i64 64
+  %1373 = load i8, ptr %1372, align 1
+  %1374 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i423, i64 65
+  %1375 = load i8, ptr %1374, align 1
+  %1376 = or i8 %1375, %1373
+  %1377 = icmp eq i8 %1376, 0
+  br i1 %1377, label %1378, label %_ZNK2OT3OS28has_dataEv.exit424
 
-1551:                                             ; preds = %1542
-  %1552 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i463, i64 66
-  %1553 = load i8, ptr %1552, align 1
-  %1554 = zext i8 %1553 to i32
-  %1555 = shl nuw nsw i32 %1554, 8
-  %1556 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i463, i64 67
-  %1557 = load i8, ptr %1556, align 1
-  %1558 = zext i8 %1557 to i32
-  %1559 = or disjoint i32 %1555, %1558
-  %1560 = icmp ne i32 %1559, 0
-  br label %_ZNK2OT3OS28has_dataEv.exit467
+1378:                                             ; preds = %1371
+  %1379 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i423, i64 66
+  %1380 = load i8, ptr %1379, align 1
+  %1381 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i423, i64 67
+  %1382 = load i8, ptr %1381, align 1
+  %1383 = or i8 %1382, %1380
+  %1384 = icmp ne i8 %1383, 0
+  br label %_ZNK2OT3OS28has_dataEv.exit424
 
-_ZNK2OT3OS28has_dataEv.exit467:                   ; preds = %1517, %1533, %1542, %1551
-  %1561 = phi i1 [ true, %1542 ], [ true, %1533 ], [ true, %1517 ], [ %1560, %1551 ]
+_ZNK2OT3OS28has_dataEv.exit424:                   ; preds = %1350, %1364, %1371, %1378
+  %1385 = phi i1 [ true, %1371 ], [ true, %1364 ], [ true, %1350 ], [ %1384, %1378 ]
   %.not269 = icmp ne ptr %2, null
-  %or.cond345.not = and i1 %.not269, %1561
-  br i1 %or.cond345.not, label %1562, label %1735
+  %or.cond345.not = and i1 %.not269, %1385
+  br i1 %or.cond345.not, label %1386, label %1544
 
-1562:                                             ; preds = %_ZNK2OT3OS28has_dataEv.exit467
-  %1563 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1518)
-  %1564 = getelementptr inbounds nuw i8, ptr %1563, i64 16
-  %1565 = load ptr, ptr %1564, align 8
-  %1566 = getelementptr inbounds nuw i8, ptr %1563, i64 24
-  %1567 = load i32, ptr %1566, align 8
-  %1568 = icmp ult i32 %1567, 78
-  %spec.select.i.i.i.i.i468 = select i1 %1568, ptr @_hb_NullPool, ptr %1565
-  %1569 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i468, i64 70
-  %1570 = load i8, ptr %1569, align 1
-  %1571 = zext i8 %1570 to i16
-  %1572 = shl nuw i16 %1571, 8
-  %1573 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i468, i64 71
-  %1574 = load i8, ptr %1573, align 1
-  %1575 = zext i8 %1574 to i16
-  %1576 = or disjoint i16 %1572, %1575
-  %1577 = sitofp i16 %1576 to float
-  %1578 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1331983203)
-  %1579 = fadd float %1578, %1577
-  %1580 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %1581 = load float, ptr %1580, align 8
-  %1582 = fmul float %1581, %1579
-  %1583 = fadd float %1582, 5.000000e-01
-  %1584 = tail call noundef float @llvm.floor.f32(float %1583)
-  %1585 = fptosi float %1584 to i32
-  store i32 %1585, ptr %2, align 4
-  br label %1735
+1386:                                             ; preds = %_ZNK2OT3OS28has_dataEv.exit424
+  %1387 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1351)
+  %1388 = getelementptr inbounds nuw i8, ptr %1387, i64 16
+  %1389 = load ptr, ptr %1388, align 8
+  %1390 = getelementptr inbounds nuw i8, ptr %1387, i64 24
+  %1391 = load i32, ptr %1390, align 8
+  %1392 = icmp ult i32 %1391, 78
+  %spec.select.i.i.i.i.i425 = select i1 %1392, ptr @_hb_NullPool, ptr %1389
+  %1393 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i425, i64 70
+  %1394 = load i8, ptr %1393, align 1
+  %1395 = zext i8 %1394 to i16
+  %1396 = shl nuw i16 %1395, 8
+  %1397 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i425, i64 71
+  %1398 = load i8, ptr %1397, align 1
+  %1399 = zext i8 %1398 to i16
+  %1400 = or disjoint i16 %1396, %1399
+  %1401 = sitofp i16 %1400 to float
+  %1402 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1331983203)
+  %1403 = fadd float %1402, %1401
+  %1404 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %1405 = load float, ptr %1404, align 8
+  %1406 = fmul float %1405, %1403
+  %1407 = fadd float %1406, 5.000000e-01
+  %1408 = tail call noundef float @llvm.floor.f32(float %1407)
+  %1409 = fptosi float %1408 to i32
+  store i32 %1409, ptr %2, align 4
+  br label %1544
 
-1586:                                             ; preds = %3
-  %1587 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %1588 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1587)
-  %1589 = getelementptr inbounds nuw i8, ptr %1588, i64 16
-  %1590 = load ptr, ptr %1589, align 8
-  %1591 = getelementptr inbounds nuw i8, ptr %1588, i64 24
-  %1592 = load i32, ptr %1591, align 8
-  %1593 = icmp ult i32 %1592, 36
-  %spec.select.i.i.i.i.i469 = select i1 %1593, ptr @_hb_NullPool, ptr %1590
-  %1594 = load i8, ptr %spec.select.i.i.i.i.i469, align 1
-  %1595 = zext i8 %1594 to i32
-  %1596 = shl nuw nsw i32 %1595, 8
-  %1597 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i469, i64 1
-  %1598 = load i8, ptr %1597, align 1
-  %1599 = zext i8 %1598 to i32
-  %1600 = or disjoint i32 %1596, %1599
-  %1601 = icmp ne i32 %1600, 0
+1410:                                             ; preds = %3
+  %1411 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %1412 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1411)
+  %1413 = getelementptr inbounds nuw i8, ptr %1412, i64 16
+  %1414 = load ptr, ptr %1413, align 8
+  %1415 = getelementptr inbounds nuw i8, ptr %1412, i64 24
+  %1416 = load i32, ptr %1415, align 8
+  %1417 = icmp ult i32 %1416, 36
+  %spec.select.i.i.i.i.i426 = select i1 %1417, ptr @_hb_NullPool, ptr %1414
+  %1418 = load i8, ptr %spec.select.i.i.i.i.i426, align 1
+  %1419 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i426, i64 1
+  %1420 = load i8, ptr %1419, align 1
+  %1421 = or i8 %1420, %1418
+  %1422 = icmp ne i8 %1421, 0
   %.not268 = icmp ne ptr %2, null
-  %or.cond347.not = and i1 %.not268, %1601
-  br i1 %or.cond347.not, label %1602, label %1735
+  %or.cond347.not = and i1 %.not268, %1422
+  br i1 %or.cond347.not, label %1423, label %1544
 
-1602:                                             ; preds = %1586
-  %1603 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1587)
-  %1604 = getelementptr inbounds nuw i8, ptr %1603, i64 16
-  %1605 = load ptr, ptr %1604, align 8
-  %1606 = getelementptr inbounds nuw i8, ptr %1603, i64 24
-  %1607 = load i32, ptr %1606, align 8
-  %1608 = icmp ult i32 %1607, 36
-  %spec.select.i.i.i.i.i470 = select i1 %1608, ptr @_hb_NullPool, ptr %1605
-  %1609 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i470, i64 6
-  %1610 = load i8, ptr %1609, align 1
-  %1611 = zext i8 %1610 to i16
-  %1612 = shl nuw i16 %1611, 8
-  %1613 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i470, i64 7
-  %1614 = load i8, ptr %1613, align 1
-  %1615 = zext i8 %1614 to i16
-  %1616 = or disjoint i16 %1612, %1615
-  %1617 = sitofp i16 %1616 to float
-  %1618 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1214542691)
-  %1619 = fadd float %1618, %1617
-  %1620 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %1621 = load float, ptr %1620, align 8
-  %1622 = fmul float %1621, %1619
-  %1623 = fadd float %1622, 5.000000e-01
-  %1624 = tail call noundef float @llvm.floor.f32(float %1623)
-  %1625 = fptosi float %1624 to i32
-  store i32 %1625, ptr %2, align 4
-  br label %1735
+1423:                                             ; preds = %1410
+  %1424 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1411)
+  %1425 = getelementptr inbounds nuw i8, ptr %1424, i64 16
+  %1426 = load ptr, ptr %1425, align 8
+  %1427 = getelementptr inbounds nuw i8, ptr %1424, i64 24
+  %1428 = load i32, ptr %1427, align 8
+  %1429 = icmp ult i32 %1428, 36
+  %spec.select.i.i.i.i.i427 = select i1 %1429, ptr @_hb_NullPool, ptr %1426
+  %1430 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i427, i64 6
+  %1431 = load i8, ptr %1430, align 1
+  %1432 = zext i8 %1431 to i16
+  %1433 = shl nuw i16 %1432, 8
+  %1434 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i427, i64 7
+  %1435 = load i8, ptr %1434, align 1
+  %1436 = zext i8 %1435 to i16
+  %1437 = or disjoint i16 %1433, %1436
+  %1438 = sitofp i16 %1437 to float
+  %1439 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1214542691)
+  %1440 = fadd float %1439, %1438
+  %1441 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %1442 = load float, ptr %1441, align 8
+  %1443 = fmul float %1442, %1440
+  %1444 = fadd float %1443, 5.000000e-01
+  %1445 = tail call noundef float @llvm.floor.f32(float %1444)
+  %1446 = fptosi float %1445 to i32
+  store i32 %1446, ptr %2, align 4
+  br label %1544
 
-1626:                                             ; preds = %3
-  %1627 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %1628 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1627)
-  %1629 = getelementptr inbounds nuw i8, ptr %1628, i64 16
-  %1630 = load ptr, ptr %1629, align 8
-  %1631 = getelementptr inbounds nuw i8, ptr %1628, i64 24
-  %1632 = load i32, ptr %1631, align 8
-  %1633 = icmp ult i32 %1632, 78
-  %spec.select.i.i.i.i.i471 = select i1 %1633, ptr @_hb_NullPool, ptr %1630
-  %1634 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i471, i64 4
-  %1635 = load i8, ptr %1634, align 1
-  %1636 = zext i8 %1635 to i32
-  %1637 = shl nuw nsw i32 %1636, 8
-  %1638 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i471, i64 5
-  %1639 = load i8, ptr %1638, align 1
-  %1640 = zext i8 %1639 to i32
-  %1641 = or disjoint i32 %1637, %1640
-  %.not.i472 = icmp eq i32 %1641, 0
-  br i1 %.not.i472, label %1642, label %_ZNK2OT3OS28has_dataEv.exit475
+1447:                                             ; preds = %3
+  %1448 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %1449 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1448)
+  %1450 = getelementptr inbounds nuw i8, ptr %1449, i64 16
+  %1451 = load ptr, ptr %1450, align 8
+  %1452 = getelementptr inbounds nuw i8, ptr %1449, i64 24
+  %1453 = load i32, ptr %1452, align 8
+  %1454 = icmp ult i32 %1453, 78
+  %spec.select.i.i.i.i.i428 = select i1 %1454, ptr @_hb_NullPool, ptr %1451
+  %1455 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i428, i64 4
+  %1456 = load i8, ptr %1455, align 1
+  %1457 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i428, i64 5
+  %1458 = load i8, ptr %1457, align 1
+  %1459 = or i8 %1458, %1456
+  %1460 = icmp eq i8 %1459, 0
+  br i1 %1460, label %1461, label %_ZNK2OT3OS28has_dataEv.exit429
 
-1642:                                             ; preds = %1626
-  %1643 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i471, i64 6
-  %1644 = load i8, ptr %1643, align 1
-  %1645 = zext i8 %1644 to i32
-  %1646 = shl nuw nsw i32 %1645, 8
-  %1647 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i471, i64 7
-  %1648 = load i8, ptr %1647, align 1
-  %1649 = zext i8 %1648 to i32
-  %1650 = or disjoint i32 %1646, %1649
-  %.not1.i473 = icmp eq i32 %1650, 0
-  br i1 %.not1.i473, label %1651, label %_ZNK2OT3OS28has_dataEv.exit475
+1461:                                             ; preds = %1447
+  %1462 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i428, i64 6
+  %1463 = load i8, ptr %1462, align 1
+  %1464 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i428, i64 7
+  %1465 = load i8, ptr %1464, align 1
+  %1466 = or i8 %1465, %1463
+  %1467 = icmp eq i8 %1466, 0
+  br i1 %1467, label %1468, label %_ZNK2OT3OS28has_dataEv.exit429
 
-1651:                                             ; preds = %1642
-  %1652 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i471, i64 64
-  %1653 = load i8, ptr %1652, align 1
-  %1654 = zext i8 %1653 to i32
-  %1655 = shl nuw nsw i32 %1654, 8
-  %1656 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i471, i64 65
-  %1657 = load i8, ptr %1656, align 1
-  %1658 = zext i8 %1657 to i32
-  %1659 = or disjoint i32 %1655, %1658
-  %.not2.i474 = icmp eq i32 %1659, 0
-  br i1 %.not2.i474, label %1660, label %_ZNK2OT3OS28has_dataEv.exit475
+1468:                                             ; preds = %1461
+  %1469 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i428, i64 64
+  %1470 = load i8, ptr %1469, align 1
+  %1471 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i428, i64 65
+  %1472 = load i8, ptr %1471, align 1
+  %1473 = or i8 %1472, %1470
+  %1474 = icmp eq i8 %1473, 0
+  br i1 %1474, label %1475, label %_ZNK2OT3OS28has_dataEv.exit429
 
-1660:                                             ; preds = %1651
-  %1661 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i471, i64 66
-  %1662 = load i8, ptr %1661, align 1
-  %1663 = zext i8 %1662 to i32
-  %1664 = shl nuw nsw i32 %1663, 8
-  %1665 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i471, i64 67
-  %1666 = load i8, ptr %1665, align 1
-  %1667 = zext i8 %1666 to i32
-  %1668 = or disjoint i32 %1664, %1667
-  %1669 = icmp ne i32 %1668, 0
-  br label %_ZNK2OT3OS28has_dataEv.exit475
+1475:                                             ; preds = %1468
+  %1476 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i428, i64 66
+  %1477 = load i8, ptr %1476, align 1
+  %1478 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i428, i64 67
+  %1479 = load i8, ptr %1478, align 1
+  %1480 = or i8 %1479, %1477
+  %1481 = icmp ne i8 %1480, 0
+  br label %_ZNK2OT3OS28has_dataEv.exit429
 
-_ZNK2OT3OS28has_dataEv.exit475:                   ; preds = %1626, %1642, %1651, %1660
-  %1670 = phi i1 [ true, %1651 ], [ true, %1642 ], [ true, %1626 ], [ %1669, %1660 ]
+_ZNK2OT3OS28has_dataEv.exit429:                   ; preds = %1447, %1461, %1468, %1475
+  %1482 = phi i1 [ true, %1468 ], [ true, %1461 ], [ true, %1447 ], [ %1481, %1475 ]
   %.not267 = icmp ne ptr %2, null
-  %or.cond349.not = and i1 %.not267, %1670
-  br i1 %or.cond349.not, label %1671, label %1735
+  %or.cond349.not = and i1 %.not267, %1482
+  br i1 %or.cond349.not, label %1483, label %1544
 
-1671:                                             ; preds = %_ZNK2OT3OS28has_dataEv.exit475
-  %1672 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1627)
-  %1673 = getelementptr inbounds nuw i8, ptr %1672, i64 16
-  %1674 = load ptr, ptr %1673, align 8
-  %1675 = getelementptr inbounds nuw i8, ptr %1672, i64 24
-  %1676 = load i32, ptr %1675, align 8
-  %1677 = icmp ult i32 %1676, 78
-  %spec.select.i.i.i.i.i476 = select i1 %1677, ptr @_hb_NullPool, ptr %1674
-  %1678 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i476, i64 72
-  %1679 = load i8, ptr %1678, align 1
-  %1680 = zext i8 %1679 to i16
-  %1681 = shl nuw i16 %1680, 8
-  %1682 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i476, i64 73
-  %1683 = load i8, ptr %1682, align 1
-  %1684 = zext i8 %1683 to i16
-  %1685 = or disjoint i16 %1681, %1684
-  %1686 = sitofp i16 %1685 to float
-  %1687 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1332504432)
-  %1688 = fadd float %1687, %1686
-  %1689 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %1690 = load float, ptr %1689, align 8
-  %1691 = fmul float %1690, %1688
-  %1692 = fadd float %1691, 5.000000e-01
-  %1693 = tail call noundef float @llvm.floor.f32(float %1692)
-  %1694 = fptosi float %1693 to i32
-  store i32 %1694, ptr %2, align 4
-  br label %1735
+1483:                                             ; preds = %_ZNK2OT3OS28has_dataEv.exit429
+  %1484 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1448)
+  %1485 = getelementptr inbounds nuw i8, ptr %1484, i64 16
+  %1486 = load ptr, ptr %1485, align 8
+  %1487 = getelementptr inbounds nuw i8, ptr %1484, i64 24
+  %1488 = load i32, ptr %1487, align 8
+  %1489 = icmp ult i32 %1488, 78
+  %spec.select.i.i.i.i.i430 = select i1 %1489, ptr @_hb_NullPool, ptr %1486
+  %1490 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i430, i64 72
+  %1491 = load i8, ptr %1490, align 1
+  %1492 = zext i8 %1491 to i16
+  %1493 = shl nuw i16 %1492, 8
+  %1494 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i430, i64 73
+  %1495 = load i8, ptr %1494, align 1
+  %1496 = zext i8 %1495 to i16
+  %1497 = or disjoint i16 %1493, %1496
+  %1498 = sitofp i16 %1497 to float
+  %1499 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1332504432)
+  %1500 = fadd float %1499, %1498
+  %1501 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %1502 = load float, ptr %1501, align 8
+  %1503 = fmul float %1502, %1500
+  %1504 = fadd float %1503, 5.000000e-01
+  %1505 = tail call noundef float @llvm.floor.f32(float %1504)
+  %1506 = fptosi float %1505 to i32
+  store i32 %1506, ptr %2, align 4
+  br label %1544
 
-1695:                                             ; preds = %3
-  %1696 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %1697 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1696)
-  %1698 = getelementptr inbounds nuw i8, ptr %1697, i64 16
-  %1699 = load ptr, ptr %1698, align 8
-  %1700 = getelementptr inbounds nuw i8, ptr %1697, i64 24
-  %1701 = load i32, ptr %1700, align 8
-  %1702 = icmp ult i32 %1701, 36
-  %spec.select.i.i.i.i.i477 = select i1 %1702, ptr @_hb_NullPool, ptr %1699
-  %1703 = load i8, ptr %spec.select.i.i.i.i.i477, align 1
-  %1704 = zext i8 %1703 to i32
-  %1705 = shl nuw nsw i32 %1704, 8
-  %1706 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i477, i64 1
-  %1707 = load i8, ptr %1706, align 1
-  %1708 = zext i8 %1707 to i32
-  %1709 = or disjoint i32 %1705, %1708
-  %1710 = icmp ne i32 %1709, 0
+1507:                                             ; preds = %3
+  %1508 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %1509 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1508)
+  %1510 = getelementptr inbounds nuw i8, ptr %1509, i64 16
+  %1511 = load ptr, ptr %1510, align 8
+  %1512 = getelementptr inbounds nuw i8, ptr %1509, i64 24
+  %1513 = load i32, ptr %1512, align 8
+  %1514 = icmp ult i32 %1513, 36
+  %spec.select.i.i.i.i.i431 = select i1 %1514, ptr @_hb_NullPool, ptr %1511
+  %1515 = load i8, ptr %spec.select.i.i.i.i.i431, align 1
+  %1516 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i431, i64 1
+  %1517 = load i8, ptr %1516, align 1
+  %1518 = or i8 %1517, %1515
+  %1519 = icmp ne i8 %1518, 0
   %.not = icmp ne ptr %2, null
-  %or.cond351.not = and i1 %.not, %1710
-  br i1 %or.cond351.not, label %1711, label %1735
+  %or.cond351.not = and i1 %.not, %1519
+  br i1 %or.cond351.not, label %1520, label %1544
 
-1711:                                             ; preds = %1695
-  %1712 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1696)
-  %1713 = getelementptr inbounds nuw i8, ptr %1712, i64 16
-  %1714 = load ptr, ptr %1713, align 8
-  %1715 = getelementptr inbounds nuw i8, ptr %1712, i64 24
-  %1716 = load i32, ptr %1715, align 8
-  %1717 = icmp ult i32 %1716, 36
-  %spec.select.i.i.i.i.i478 = select i1 %1717, ptr @_hb_NullPool, ptr %1714
-  %1718 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i478, i64 8
-  %1719 = load i8, ptr %1718, align 1
-  %1720 = zext i8 %1719 to i16
-  %1721 = shl nuw i16 %1720, 8
-  %1722 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i478, i64 9
-  %1723 = load i8, ptr %1722, align 1
-  %1724 = zext i8 %1723 to i16
-  %1725 = or disjoint i16 %1721, %1724
-  %1726 = sitofp i16 %1725 to float
-  %1727 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1215063920)
-  %1728 = fadd float %1727, %1726
-  %1729 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %1730 = load float, ptr %1729, align 8
-  %1731 = fmul float %1730, %1728
-  %1732 = fadd float %1731, 5.000000e-01
-  %1733 = tail call noundef float @llvm.floor.f32(float %1732)
-  %1734 = fptosi float %1733 to i32
-  store i32 %1734, ptr %2, align 4
-  br label %1735
+1520:                                             ; preds = %1507
+  %1521 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %1508)
+  %1522 = getelementptr inbounds nuw i8, ptr %1521, i64 16
+  %1523 = load ptr, ptr %1522, align 8
+  %1524 = getelementptr inbounds nuw i8, ptr %1521, i64 24
+  %1525 = load i32, ptr %1524, align 8
+  %1526 = icmp ult i32 %1525, 36
+  %spec.select.i.i.i.i.i432 = select i1 %1526, ptr @_hb_NullPool, ptr %1523
+  %1527 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i432, i64 8
+  %1528 = load i8, ptr %1527, align 1
+  %1529 = zext i8 %1528 to i16
+  %1530 = shl nuw i16 %1529, 8
+  %1531 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i432, i64 9
+  %1532 = load i8, ptr %1531, align 1
+  %1533 = zext i8 %1532 to i16
+  %1534 = or disjoint i16 %1530, %1533
+  %1535 = sitofp i16 %1534 to float
+  %1536 = tail call float @hb_ot_metrics_get_variation(ptr noundef nonnull %0, i32 noundef 1215063920)
+  %1537 = fadd float %1536, %1535
+  %1538 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %1539 = load float, ptr %1538, align 8
+  %1540 = fmul float %1539, %1537
+  %1541 = fadd float %1540, 5.000000e-01
+  %1542 = tail call noundef float @llvm.floor.f32(float %1541)
+  %1543 = fptosi float %1542 to i32
+  store i32 %1543, ptr %2, align 4
+  br label %1544
 
-1735:                                             ; preds = %3, %1695, %1711, %_ZNK2OT3OS28has_dataEv.exit475, %1671, %1586, %1602, %_ZNK2OT3OS28has_dataEv.exit467, %1562, %1477, %1493, %_ZNK2OT3OS28has_dataEv.exit459, %1453, %1356, %1383, %1304, %1331, %_ZNK2OT3OS28has_dataEv.exit444, %1280, %_ZNK2OT3OS28has_dataEv.exit438, %1211, %_ZNK2OT3OS28has_dataEv.exit432, %1142, %_ZNK2OT3OS28has_dataEv.exit426, %1073, %_ZNK2OT3OS28has_dataEv.exit420, %1004, %_ZNK2OT3OS28has_dataEv.exit414, %935, %_ZNK2OT3OS28has_dataEv.exit408, %866, %_ZNK2OT3OS28has_dataEv.exit402, %797, %_ZNK2OT3OS28has_dataEv.exit396, %728, %_ZNK2OT3OS28has_dataEv.exit390, %659, %_ZNK2OT9OS2V2Tail8has_dataEv.exit383, %581, %_ZNK2OT9OS2V2Tail8has_dataEv.exit, %514, %439, %455, %399, %415, %359, %375, %319, %335, %302, %308, %303, %215, %216, %_ZNK2OT3OS28has_dataEv.exit357, %122, %_ZNK2OT3OS28has_dataEv.exit, %53, %6
-  %.0.shrunk = phi i1 [ %7, %6 ], [ true, %53 ], [ %52, %_ZNK2OT3OS28has_dataEv.exit ], [ true, %122 ], [ %121, %_ZNK2OT3OS28has_dataEv.exit357 ], [ %191, %216 ], [ %191, %215 ], [ %278, %303 ], [ %278, %308 ], [ %278, %302 ], [ true, %335 ], [ %334, %319 ], [ true, %375 ], [ %374, %359 ], [ true, %415 ], [ %414, %399 ], [ true, %455 ], [ %454, %439 ], [ true, %514 ], [ %513, %_ZNK2OT9OS2V2Tail8has_dataEv.exit ], [ true, %581 ], [ %580, %_ZNK2OT9OS2V2Tail8has_dataEv.exit383 ], [ true, %659 ], [ %658, %_ZNK2OT3OS28has_dataEv.exit390 ], [ true, %728 ], [ %727, %_ZNK2OT3OS28has_dataEv.exit396 ], [ true, %797 ], [ %796, %_ZNK2OT3OS28has_dataEv.exit402 ], [ true, %866 ], [ %865, %_ZNK2OT3OS28has_dataEv.exit408 ], [ true, %935 ], [ %934, %_ZNK2OT3OS28has_dataEv.exit414 ], [ true, %1004 ], [ %1003, %_ZNK2OT3OS28has_dataEv.exit420 ], [ true, %1073 ], [ %1072, %_ZNK2OT3OS28has_dataEv.exit426 ], [ true, %1142 ], [ %1141, %_ZNK2OT3OS28has_dataEv.exit432 ], [ true, %1211 ], [ %1210, %_ZNK2OT3OS28has_dataEv.exit438 ], [ true, %1280 ], [ %1279, %_ZNK2OT3OS28has_dataEv.exit444 ], [ true, %1331 ], [ %1330, %1304 ], [ true, %1383 ], [ %1382, %1356 ], [ true, %1453 ], [ %1452, %_ZNK2OT3OS28has_dataEv.exit459 ], [ true, %1493 ], [ %1492, %1477 ], [ true, %1562 ], [ %1561, %_ZNK2OT3OS28has_dataEv.exit467 ], [ true, %1602 ], [ %1601, %1586 ], [ true, %1671 ], [ %1670, %_ZNK2OT3OS28has_dataEv.exit475 ], [ true, %1711 ], [ %1710, %1695 ], [ false, %3 ]
+1544:                                             ; preds = %3, %1507, %1520, %_ZNK2OT3OS28has_dataEv.exit429, %1483, %1410, %1423, %_ZNK2OT3OS28has_dataEv.exit424, %1386, %1313, %1326, %_ZNK2OT3OS28has_dataEv.exit419, %1289, %1208, %1228, %1163, %1183, %_ZNK2OT3OS28has_dataEv.exit407, %1139, %_ZNK2OT3OS28has_dataEv.exit404, %1079, %_ZNK2OT3OS28has_dataEv.exit401, %1019, %_ZNK2OT3OS28has_dataEv.exit398, %959, %_ZNK2OT3OS28has_dataEv.exit395, %899, %_ZNK2OT3OS28has_dataEv.exit392, %839, %_ZNK2OT3OS28has_dataEv.exit389, %779, %_ZNK2OT3OS28has_dataEv.exit386, %719, %_ZNK2OT3OS28has_dataEv.exit383, %659, %_ZNK2OT3OS28has_dataEv.exit380, %599, %501, %530, %440, %469, %403, %416, %366, %379, %329, %342, %292, %305, %275, %281, %276, %194, %195, %_ZNK2OT3OS28has_dataEv.exit354, %104, %_ZNK2OT3OS28has_dataEv.exit, %44, %6
+  %.0.shrunk = phi i1 [ %7, %6 ], [ true, %44 ], [ %43, %_ZNK2OT3OS28has_dataEv.exit ], [ true, %104 ], [ %103, %_ZNK2OT3OS28has_dataEv.exit354 ], [ %170, %195 ], [ %170, %194 ], [ %251, %276 ], [ %251, %281 ], [ %251, %275 ], [ true, %305 ], [ %304, %292 ], [ true, %342 ], [ %341, %329 ], [ true, %379 ], [ %378, %366 ], [ true, %416 ], [ %415, %403 ], [ true, %469 ], [ %468, %440 ], [ true, %530 ], [ %529, %501 ], [ true, %599 ], [ %598, %_ZNK2OT3OS28has_dataEv.exit380 ], [ true, %659 ], [ %658, %_ZNK2OT3OS28has_dataEv.exit383 ], [ true, %719 ], [ %718, %_ZNK2OT3OS28has_dataEv.exit386 ], [ true, %779 ], [ %778, %_ZNK2OT3OS28has_dataEv.exit389 ], [ true, %839 ], [ %838, %_ZNK2OT3OS28has_dataEv.exit392 ], [ true, %899 ], [ %898, %_ZNK2OT3OS28has_dataEv.exit395 ], [ true, %959 ], [ %958, %_ZNK2OT3OS28has_dataEv.exit398 ], [ true, %1019 ], [ %1018, %_ZNK2OT3OS28has_dataEv.exit401 ], [ true, %1079 ], [ %1078, %_ZNK2OT3OS28has_dataEv.exit404 ], [ true, %1139 ], [ %1138, %_ZNK2OT3OS28has_dataEv.exit407 ], [ true, %1183 ], [ %1182, %1163 ], [ true, %1228 ], [ %1227, %1208 ], [ true, %1289 ], [ %1288, %_ZNK2OT3OS28has_dataEv.exit419 ], [ true, %1326 ], [ %1325, %1313 ], [ true, %1386 ], [ %1385, %_ZNK2OT3OS28has_dataEv.exit424 ], [ true, %1423 ], [ %1422, %1410 ], [ true, %1483 ], [ %1482, %_ZNK2OT3OS28has_dataEv.exit429 ], [ true, %1520 ], [ %1519, %1507 ], [ false, %3 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -4348,22 +4050,22 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4MVAR8sanitizeEP21hb_sanit
 36:                                               ; preds = %26
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %38 = load i8, ptr %37, align 1
-  %39 = zext i8 %38 to i32
-  %40 = shl nuw nsw i32 %39, 8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %42 = load i8, ptr %41, align 1
-  %43 = zext i8 %42 to i32
-  %44 = or disjoint i32 %40, %43
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %.thread, label %46
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %40 = load i8, ptr %39, align 1
+  %41 = or i8 %40, %38
+  %42 = icmp eq i8 %41, 0
+  br i1 %42, label %.thread, label %43
 
-46:                                               ; preds = %36
-  %47 = zext nneg i32 %44 to i64
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %47
+43:                                               ; preds = %36
+  %44 = zext i8 %38 to i64
+  %45 = shl nuw nsw i64 %44, 8
+  %46 = zext i8 %40 to i64
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 %45
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %46
   %49 = tail call noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %48, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %49, label %.thread, label %50
 
-50:                                               ; preds = %46
+50:                                               ; preds = %43
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %52 = load i32, ptr %51, align 4
   %53 = icmp ugt i32 %52, 31
@@ -4381,7 +4083,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %50
   store i16 0, ptr %37, align 1
   br label %.thread
 
-.thread:                                          ; preds = %36, %46, %58
+.thread:                                          ; preds = %36, %43, %58
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
@@ -4463,87 +4165,89 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeE
 
 28:                                               ; preds = %23
   %29 = load i8, ptr %24, align 1
-  %30 = zext i8 %29 to i32
-  %31 = shl nuw i32 %30, 24
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %31 = load i8, ptr %30, align 1
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %33 = load i8, ptr %32, align 1
-  %34 = zext i8 %33 to i32
-  %35 = shl nuw nsw i32 %34, 16
-  %36 = or disjoint i32 %35, %31
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %38 = load i8, ptr %37, align 1
-  %39 = zext i8 %38 to i32
-  %40 = shl nuw nsw i32 %39, 8
-  %41 = or disjoint i32 %36, %40
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %43 = load i8, ptr %42, align 1
-  %44 = zext i8 %43 to i32
-  %45 = or disjoint i32 %41, %44
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.thread, label %47
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %35 = load i8, ptr %34, align 1
+  %36 = or i8 %31, %29
+  %37 = or i8 %36, %33
+  %38 = or i8 %37, %35
+  %39 = icmp eq i8 %38, 0
+  br i1 %39, label %.thread, label %40
 
-47:                                               ; preds = %28
-  %48 = zext i32 %45 to i64
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 %48
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %51 = ptrtoint ptr %50 to i64
-  %52 = sub i64 %51, %8
-  %.not.i.i.i = icmp ugt i64 %52, %12
-  br i1 %.not.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %53
+40:                                               ; preds = %28
+  %41 = zext i8 %29 to i64
+  %42 = shl nuw nsw i64 %41, 24
+  %43 = zext i8 %31 to i64
+  %44 = shl nuw nsw i64 %43, 16
+  %45 = zext i8 %33 to i64
+  %46 = shl nuw nsw i64 %45, 8
+  %47 = zext i8 %35 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %44
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %42
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %46
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %47
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  %53 = ptrtoint ptr %52 to i64
+  %54 = sub i64 %53, %8
+  %.not.i.i.i = icmp ugt i64 %54, %12
+  br i1 %.not.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %55
 
-53:                                               ; preds = %47
-  %54 = load i8, ptr %49, align 1
-  %55 = zext i8 %54 to i32
-  %56 = shl nuw nsw i32 %55, 8
-  %57 = getelementptr inbounds nuw i8, ptr %49, i64 1
-  %58 = load i8, ptr %57, align 1
-  %59 = zext i8 %58 to i32
-  %60 = or disjoint i32 %56, %59
-  %61 = getelementptr inbounds nuw i8, ptr %49, i64 2
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i32
-  %64 = shl nuw nsw i32 %63, 8
-  %65 = getelementptr inbounds nuw i8, ptr %49, i64 3
-  %66 = load i8, ptr %65, align 1
-  %67 = zext i8 %66 to i32
-  %68 = or disjoint i32 %64, %67
-  %69 = mul nuw i32 %68, %60
-  %70 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %69, i32 6)
-  %71 = extractvalue { i32, i1 } %70, 0
-  %72 = extractvalue { i32, i1 } %70, 1
-  br i1 %72, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %73
+55:                                               ; preds = %40
+  %56 = load i8, ptr %51, align 1
+  %57 = zext i8 %56 to i32
+  %58 = shl nuw nsw i32 %57, 8
+  %59 = getelementptr inbounds nuw i8, ptr %51, i64 1
+  %60 = load i8, ptr %59, align 1
+  %61 = zext i8 %60 to i32
+  %62 = or disjoint i32 %58, %61
+  %63 = getelementptr inbounds nuw i8, ptr %51, i64 2
+  %64 = load i8, ptr %63, align 1
+  %65 = zext i8 %64 to i32
+  %66 = shl nuw nsw i32 %65, 8
+  %67 = getelementptr inbounds nuw i8, ptr %51, i64 3
+  %68 = load i8, ptr %67, align 1
+  %69 = zext i8 %68 to i32
+  %70 = or disjoint i32 %66, %69
+  %71 = mul nuw i32 %70, %62
+  %72 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %71, i32 6)
+  %73 = extractvalue { i32, i1 } %72, 0
+  %74 = extractvalue { i32, i1 } %72, 1
+  br i1 %74, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %75
 
-73:                                               ; preds = %53
-  %74 = load ptr, ptr %13, align 8
-  %75 = ptrtoint ptr %74 to i64
-  %76 = sub i64 %75, %51
-  %77 = trunc i64 %76 to i32
-  %.not16.i.i.i.i.i.i = icmp ugt i32 %71, %77
+75:                                               ; preds = %55
+  %76 = load ptr, ptr %13, align 8
+  %77 = ptrtoint ptr %76 to i64
+  %78 = sub i64 %77, %53
+  %79 = trunc i64 %78 to i32
+  %.not16.i.i.i.i.i.i = icmp ugt i32 %73, %79
   br i1 %.not16.i.i.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit: ; preds = %73
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %79 = load i32, ptr %78, align 4
-  %80 = sub i32 %79, %71
-  store i32 %80, ptr %78, align 4
-  %81 = icmp sgt i32 %80, 0
-  br i1 %81, label %.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
+_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit: ; preds = %75
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %81 = load i32, ptr %80, align 4
+  %82 = sub i32 %81, %73
+  store i32 %82, ptr %80, align 4
+  %83 = icmp sgt i32 %82, 0
+  br i1 %83, label %.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %73, %53, %47, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %83 = load i32, ptr %82, align 4
-  %84 = icmp ugt i32 %83, 31
-  br i1 %84, label %.thread33, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %75, %55, %40, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %85 = load i32, ptr %84, align 4
+  %86 = icmp ugt i32 %85, 31
+  br i1 %86, label %.thread33, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
-  %85 = add nuw nsw i32 %83, 1
-  store i32 %85, ptr %82, align 4
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %87 = load i8, ptr %86, align 8
-  %88 = trunc i8 %87 to i1
-  br i1 %88, label %89, label %.thread33
+  %87 = add nuw nsw i32 %85, 1
+  store i32 %87, ptr %84, align 4
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %89 = load i8, ptr %88, align 8
+  %90 = trunc i8 %89 to i1
+  br i1 %90, label %91, label %.thread33
 
-89:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+91:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
   store i32 0, ptr %24, align 1
   %.pre = load ptr, ptr %5, align 8
   %.pre42 = load i32, ptr %10, align 8
@@ -4552,63 +4256,63 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_c
   %.pre46 = zext i32 %.pre42 to i64
   br label %.thread
 
-.thread:                                          ; preds = %28, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, %89
-  %.pre-phi47 = phi i64 [ %12, %28 ], [ %12, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit ], [ %.pre46, %89 ]
-  %.pre-phi45 = phi i64 [ %9, %28 ], [ %9, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit ], [ %.pre44, %89 ]
+.thread:                                          ; preds = %28, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, %91
+  %.pre-phi47 = phi i64 [ %12, %28 ], [ %12, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit ], [ %.pre46, %91 ]
+  %.pre-phi45 = phi i64 [ %9, %28 ], [ %9, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit ], [ %.pre44, %91 ]
   store ptr %0, ptr %3, align 8
   %.not.i28 = icmp ugt i64 %.pre-phi45, %.pre-phi47
-  br i1 %.not.i28, label %.thread33, label %90
+  br i1 %.not.i28, label %.thread33, label %92
 
-90:                                               ; preds = %.thread
-  %91 = load i8, ptr %25, align 1
-  %92 = zext i8 %91 to i32
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %94 = load i8, ptr %93, align 1
-  %95 = zext i8 %94 to i32
-  %96 = shl nuw nsw i32 %92, 10
-  %97 = shl nuw nsw i32 %95, 2
-  %98 = or disjoint i32 %97, %96
-  %99 = load ptr, ptr %13, align 8
-  %100 = ptrtoint ptr %99 to i64
-  %101 = sub i64 %100, %7
-  %102 = trunc i64 %101 to i32
-  %.not20.i = icmp ugt i32 %98, %102
+92:                                               ; preds = %.thread
+  %93 = load i8, ptr %25, align 1
+  %94 = zext i8 %93 to i32
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  %96 = load i8, ptr %95, align 1
+  %97 = zext i8 %96 to i32
+  %98 = shl nuw nsw i32 %94, 10
+  %99 = shl nuw nsw i32 %97, 2
+  %100 = or disjoint i32 %99, %98
+  %101 = load ptr, ptr %13, align 8
+  %102 = ptrtoint ptr %101 to i64
+  %103 = sub i64 %102, %7
+  %104 = trunc i64 %103 to i32
+  %.not20.i = icmp ugt i32 %100, %104
   br i1 %.not20.i, label %.thread33, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
 
-_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit: ; preds = %90
-  %103 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %104 = load i32, ptr %103, align 4
-  %105 = sub i32 %104, %98
-  store i32 %105, ptr %103, align 4
-  %106 = icmp sgt i32 %105, 0
-  br i1 %106, label %107, label %.thread33
+_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit: ; preds = %92
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %106 = load i32, ptr %105, align 4
+  %107 = sub i32 %106, %100
+  store i32 %107, ptr %105, align 4
+  %108 = icmp sgt i32 %107, 0
+  br i1 %108, label %109, label %.thread33
 
-107:                                              ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
-  %108 = load i8, ptr %25, align 1
-  %109 = zext i8 %108 to i32
-  %110 = shl nuw nsw i32 %109, 8
-  %111 = load i8, ptr %93, align 1
-  %112 = zext i8 %111 to i32
-  %113 = or disjoint i32 %110, %112
-  %.not40 = icmp eq i32 %113, 0
+109:                                              ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
+  %110 = load i8, ptr %25, align 1
+  %111 = zext i8 %110 to i32
+  %112 = shl nuw nsw i32 %111, 8
+  %113 = load i8, ptr %95, align 1
+  %114 = zext i8 %113 to i32
+  %115 = or disjoint i32 %112, %114
+  %.not40 = icmp eq i32 %115, 0
   br i1 %.not40, label %.thread33, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %107
-  %wide.trip.count = zext nneg i32 %113 to i64
+.lr.ph.preheader:                                 ; preds = %109
+  %wide.trip.count = zext nneg i32 %115 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %114 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.161"], ptr %4, i64 0, i64 %indvars.iv
-  %115 = call noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_7VarDataENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_14VariationStoreEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_(ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(4) %114, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %116 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.161"], ptr %4, i64 0, i64 %indvars.iv
+  %117 = call noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_7VarDataENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_14VariationStoreEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_(ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(4) %116, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond.not = select i1 %115, i1 %exitcond.not, i1 false
+  %or.cond.not = select i1 %117, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.thread33, !llvm.loop !13
 
-.thread33:                                        ; preds = %.lr.ph, %107, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit, %.thread, %90, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %23, %14, %2
-  %116 = phi i1 [ false, %14 ], [ false, %2 ], [ false, %23 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ], [ false, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %.thread ], [ false, %90 ], [ true, %107 ], [ %115, %.lr.ph ]
-  ret i1 %116
+.thread33:                                        ; preds = %.lr.ph, %109, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit, %.thread, %92, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %23, %14, %2
+  %118 = phi i1 [ false, %14 ], [ false, %2 ], [ false, %23 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ], [ false, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %.thread ], [ false, %92 ], [ true, %109 ], [ %117, %.lr.ph ]
+  ret i1 %118
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4628,140 +4332,142 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispa
 
 14:                                               ; preds = %3
   %15 = load i8, ptr %1, align 1
-  %16 = zext i8 %15 to i32
-  %17 = shl nuw i32 %16, 24
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %17 = load i8, ptr %16, align 1
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  %21 = shl nuw nsw i32 %20, 16
-  %22 = or disjoint i32 %21, %17
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %24 = load i8, ptr %23, align 1
-  %25 = zext i8 %24 to i32
-  %26 = shl nuw nsw i32 %25, 8
-  %27 = or disjoint i32 %22, %26
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %29 = load i8, ptr %28, align 1
-  %30 = zext i8 %29 to i32
-  %31 = or disjoint i32 %27, %30
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %_ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_context_t.exit, label %33
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %21 = load i8, ptr %20, align 1
+  %22 = or i8 %17, %15
+  %23 = or i8 %22, %19
+  %24 = or i8 %23, %21
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %_ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_context_t.exit, label %26
 
-33:                                               ; preds = %14
-  %34 = zext i32 %31 to i64
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 %34
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
-  %37 = ptrtoint ptr %36 to i64
-  %38 = sub i64 %37, %9
-  %.not.i.i.i = icmp ugt i64 %38, %13
-  br i1 %.not.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %39
+26:                                               ; preds = %14
+  %27 = zext i8 %15 to i64
+  %28 = shl nuw nsw i64 %27, 24
+  %29 = zext i8 %17 to i64
+  %30 = shl nuw nsw i64 %29, 16
+  %31 = zext i8 %19 to i64
+  %32 = shl nuw nsw i64 %31, 8
+  %33 = zext i8 %21 to i64
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %30
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %28
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %32
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %33
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
+  %39 = ptrtoint ptr %38 to i64
+  %40 = sub i64 %39, %9
+  %.not.i.i.i = icmp ugt i64 %40, %13
+  br i1 %.not.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %41
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %41 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %42 = load i8, ptr %41, align 1
-  %43 = zext i8 %42 to i32
-  %44 = getelementptr inbounds nuw i8, ptr %35, i64 5
-  %45 = load i8, ptr %44, align 1
-  %46 = zext i8 %45 to i32
-  %47 = shl nuw nsw i32 %43, 9
-  %48 = shl nuw nsw i32 %46, 1
-  %49 = or disjoint i32 %48, %47
-  %50 = load ptr, ptr %40, align 8
-  %51 = ptrtoint ptr %50 to i64
-  %52 = sub i64 %51, %37
-  %53 = trunc i64 %52 to i32
-  %.not20.i.i.i.i = icmp ugt i32 %49, %53
+41:                                               ; preds = %26
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  %44 = load i8, ptr %43, align 1
+  %45 = zext i8 %44 to i32
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 5
+  %47 = load i8, ptr %46, align 1
+  %48 = zext i8 %47 to i32
+  %49 = shl nuw nsw i32 %45, 9
+  %50 = shl nuw nsw i32 %48, 1
+  %51 = or disjoint i32 %50, %49
+  %52 = load ptr, ptr %42, align 8
+  %53 = ptrtoint ptr %52 to i64
+  %54 = sub i64 %53, %39
+  %55 = trunc i64 %54 to i32
+  %.not20.i.i.i.i = icmp ugt i32 %51, %55
   br i1 %.not20.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i
 
-_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i: ; preds = %39
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %55 = load i32, ptr %54, align 4
-  %56 = sub i32 %55, %49
-  store i32 %56, ptr %54, align 4
-  %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %58, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
+_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i: ; preds = %41
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %57 = load i32, ptr %56, align 4
+  %58 = sub i32 %57, %51
+  store i32 %58, ptr %56, align 4
+  %59 = icmp sgt i32 %58, 0
+  br i1 %59, label %60, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
 
-58:                                               ; preds = %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i
-  %59 = getelementptr inbounds nuw i8, ptr %35, i64 2
-  %60 = load i8, ptr %59, align 1
-  %61 = zext i8 %60 to i32
-  %62 = shl nuw nsw i32 %61, 8
-  %63 = getelementptr inbounds nuw i8, ptr %35, i64 3
-  %64 = load i8, ptr %63, align 1
-  %65 = zext i8 %64 to i32
-  %.masked.i.i.i.i = and i32 %62, 32512
-  %66 = or disjoint i32 %.masked.i.i.i.i, %65
-  %67 = load i8, ptr %41, align 1
-  %68 = zext i8 %67 to i32
-  %69 = shl nuw nsw i32 %68, 8
-  %70 = load i8, ptr %44, align 1
-  %71 = zext i8 %70 to i32
-  %72 = or disjoint i32 %69, %71
-  %.not15.i.i.i = icmp samesign ugt i32 %66, %72
-  br i1 %.not15.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %73
+60:                                               ; preds = %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i
+  %61 = getelementptr inbounds nuw i8, ptr %37, i64 2
+  %62 = load i8, ptr %61, align 1
+  %63 = zext i8 %62 to i32
+  %64 = shl nuw nsw i32 %63, 8
+  %65 = getelementptr inbounds nuw i8, ptr %37, i64 3
+  %66 = load i8, ptr %65, align 1
+  %67 = zext i8 %66 to i32
+  %.masked.i.i.i.i = and i32 %64, 32512
+  %68 = or disjoint i32 %.masked.i.i.i.i, %67
+  %69 = load i8, ptr %43, align 1
+  %70 = zext i8 %69 to i32
+  %71 = shl nuw nsw i32 %70, 8
+  %72 = load i8, ptr %46, align 1
+  %73 = zext i8 %72 to i32
+  %74 = or disjoint i32 %71, %73
+  %.not15.i.i.i = icmp samesign ugt i32 %68, %74
+  br i1 %.not15.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %75
 
-73:                                               ; preds = %58
-  %74 = load i8, ptr %35, align 1
-  %75 = zext i8 %74 to i32
-  %76 = shl nuw nsw i32 %75, 8
-  %77 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  %78 = load i8, ptr %77, align 1
-  %79 = zext i8 %78 to i32
-  %80 = or disjoint i32 %76, %79
-  %81 = add nuw nsw i32 %72, %66
-  %.lobit.i.i.i.i = lshr i8 %60, 7
-  %82 = zext nneg i8 %.lobit.i.i.i.i to i32
-  %83 = shl nuw nsw i32 %81, %82
-  %84 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %80, i32 %83)
-  %85 = extractvalue { i32, i1 } %84, 0
-  %86 = extractvalue { i32, i1 } %84, 1
-  br i1 %86, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %87
+75:                                               ; preds = %60
+  %76 = load i8, ptr %37, align 1
+  %77 = zext i8 %76 to i32
+  %78 = shl nuw nsw i32 %77, 8
+  %79 = getelementptr inbounds nuw i8, ptr %37, i64 1
+  %80 = load i8, ptr %79, align 1
+  %81 = zext i8 %80 to i32
+  %82 = or disjoint i32 %78, %81
+  %83 = add nuw nsw i32 %74, %68
+  %.lobit.i.i.i.i = lshr i8 %62, 7
+  %84 = zext nneg i8 %.lobit.i.i.i.i to i32
+  %85 = shl nuw nsw i32 %83, %84
+  %86 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %82, i32 %85)
+  %87 = extractvalue { i32, i1 } %86, 0
+  %88 = extractvalue { i32, i1 } %86, 1
+  br i1 %88, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %89
 
-87:                                               ; preds = %73
-  %88 = zext i8 %70 to i64
-  %89 = shl nuw nsw i64 %88, 1
-  %90 = getelementptr inbounds nuw i8, ptr %41, i64 %89
-  %91 = zext i8 %67 to i64
-  %92 = shl nuw nsw i64 %91, 9
-  %93 = getelementptr inbounds nuw i8, ptr %90, i64 %92
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 2
-  %95 = ptrtoint ptr %94 to i64
-  %96 = sub i64 %95, %9
-  %.not.i16.i.i.i = icmp ugt i64 %96, %13
-  %97 = sub i64 %51, %95
-  %98 = trunc i64 %97 to i32
-  %.not16.i.i.i.i = icmp ugt i32 %85, %98
+89:                                               ; preds = %75
+  %90 = zext i8 %72 to i64
+  %91 = shl nuw nsw i64 %90, 1
+  %92 = getelementptr inbounds nuw i8, ptr %43, i64 %91
+  %93 = zext i8 %69 to i64
+  %94 = shl nuw nsw i64 %93, 9
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 %94
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 2
+  %97 = ptrtoint ptr %96 to i64
+  %98 = sub i64 %97, %9
+  %.not.i16.i.i.i = icmp ugt i64 %98, %13
+  %99 = sub i64 %53, %97
+  %100 = trunc i64 %99 to i32
+  %.not16.i.i.i.i = icmp ugt i32 %87, %100
   %or.cond.i.i.i = select i1 %.not.i16.i.i.i, i1 true, i1 %.not16.i.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit: ; preds = %87
-  %99 = sub i32 %56, %85
-  store i32 %99, ptr %54, align 4
-  %100 = icmp sgt i32 %99, 0
-  br i1 %100, label %_ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_context_t.exit, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
+_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit: ; preds = %89
+  %101 = sub i32 %58, %87
+  store i32 %101, ptr %56, align 4
+  %102 = icmp sgt i32 %101, 0
+  br i1 %102, label %_ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_context_t.exit, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %87, %73, %39, %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i, %33, %58, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %102 = load i32, ptr %101, align 4
-  %103 = icmp ugt i32 %102, 31
-  br i1 %103, label %_ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_context_t.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %89, %75, %41, %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i, %26, %60, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %104 = load i32, ptr %103, align 4
+  %105 = icmp ugt i32 %104, 31
+  br i1 %105, label %_ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_context_t.exit, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
-  %104 = add nuw nsw i32 %102, 1
-  store i32 %104, ptr %101, align 4
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %106 = load i8, ptr %105, align 8
-  %107 = trunc i8 %106 to i1
-  br i1 %107, label %108, label %_ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_context_t.exit
+  %106 = add nuw nsw i32 %104, 1
+  store i32 %106, ptr %103, align 4
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %108 = load i8, ptr %107, align 8
+  %109 = trunc i8 %108 to i1
+  br i1 %109, label %110, label %_ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_context_t.exit
 
-108:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+110:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
   store i32 0, ptr %1, align 1
   br label %_ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_context_t.exit
 
-_ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_context_t.exit: ; preds = %108, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, %14, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, %3
-  %109 = phi i1 [ false, %3 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit ], [ true, %14 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %108 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ]
-  ret i1 %109
+_ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_context_t.exit: ; preds = %110, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, %14, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, %3
+  %111 = phi i1 [ false, %3 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit ], [ true, %14 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %110 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ]
+  ret i1 %111
 }
 
 ; Function Attrs: mustprogress uwtable

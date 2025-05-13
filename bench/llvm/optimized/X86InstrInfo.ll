@@ -12043,13 +12043,12 @@ define dso_local noundef ptr @_ZN4llvm3X8619getConstantFromPoolERKNS_12MachineIn
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !240
   %24 = sext i32 %23 to i64
-  %25 = shl nsw i64 %24, 32
-  %26 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !240
-  %28 = zext i32 %27 to i64
-  %29 = or disjoint i64 %25, %28
-  %.not = icmp eq i64 %29, 0
-  br i1 %.not, label %30, label %.critedge
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %26 = load i32, ptr %25, align 4, !tbaa !240
+  %27 = zext i32 %26 to i64
+  %28 = or i64 %27, %24
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %30, label %.critedge
 
 30:                                               ; preds = %21
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24

@@ -2511,16 +2511,13 @@ define dso_local range(i32 0, 2) i32 @stbtt_IsGlyphEmpty(ptr noundef readonly ca
   %.val = load i8, ptr %80, align 1
   %81 = getelementptr i8, ptr %80, i64 1
   %.val7 = load i8, ptr %81, align 1
-  %82 = zext i8 %.val to i16
-  %83 = shl nuw i16 %82, 8
-  %84 = zext i8 %.val7 to i16
-  %85 = or disjoint i16 %83, %84
-  %86 = icmp eq i16 %85, 0
-  %87 = zext i1 %86 to i32
+  %82 = or i8 %.val7, %.val
+  %83 = icmp eq i8 %82, 0
+  %84 = zext i1 %83 to i32
   br label %_ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit.thread
 
 _ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit.thread: ; preds = %75, %5, %2, %78
-  %.0 = phi i32 [ %87, %78 ], [ 1, %2 ], [ 1, %5 ], [ 1, %75 ]
+  %.0 = phi i32 [ %84, %78 ], [ 1, %2 ], [ 1, %5 ], [ 1, %75 ]
   ret i32 %.0
 }
 
@@ -2677,105 +2674,102 @@ define dso_local range(i32 -32768, 32768) i32 @stbtt_GetGlyphKernAdvance(ptr nou
   %.val32 = load i8, ptr %11, align 1
   %12 = getelementptr i8, ptr %9, i64 3
   %.val33 = load i8, ptr %12, align 1
-  %13 = zext i8 %.val32 to i16
-  %14 = shl nuw i16 %13, 8
-  %15 = zext i8 %.val33 to i16
-  %16 = or disjoint i16 %14, %15
-  %17 = icmp eq i16 %16, 0
-  br i1 %17, label %.loopexit, label %18
+  %13 = or i8 %.val33, %.val32
+  %14 = icmp eq i8 %13, 0
+  br i1 %14, label %.loopexit, label %15
 
-18:                                               ; preds = %10
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.val30 = load i8, ptr %19, align 1
-  %20 = getelementptr i8, ptr %9, i64 9
-  %.val31 = load i8, ptr %20, align 1
-  %21 = zext i8 %.val30 to i16
-  %22 = shl nuw i16 %21, 8
-  %23 = zext i8 %.val31 to i16
-  %24 = or disjoint i16 %22, %23
-  %.not27 = icmp eq i16 %24, 1
-  br i1 %.not27, label %25, label %.loopexit
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.val30 = load i8, ptr %16, align 1
+  %17 = getelementptr i8, ptr %9, i64 9
+  %.val31 = load i8, ptr %17, align 1
+  %18 = zext i8 %.val30 to i16
+  %19 = shl nuw i16 %18, 8
+  %20 = zext i8 %.val31 to i16
+  %21 = or disjoint i16 %19, %20
+  %.not27 = icmp eq i16 %21, 1
+  br i1 %.not27, label %22, label %.loopexit
 
-25:                                               ; preds = %18
-  %26 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %.val = load i8, ptr %26, align 1
-  %27 = getelementptr i8, ptr %9, i64 11
-  %.val29 = load i8, ptr %27, align 1
-  %28 = zext i8 %.val to i32
-  %29 = shl nuw nsw i32 %28, 8
-  %30 = zext i8 %.val29 to i32
-  %31 = or disjoint i32 %29, %30
-  %32 = shl i32 %1, 16
-  %33 = or i32 %32, %2
-  %.not2836 = icmp eq i32 %31, 0
+22:                                               ; preds = %15
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  %.val = load i8, ptr %23, align 1
+  %24 = getelementptr i8, ptr %9, i64 11
+  %.val29 = load i8, ptr %24, align 1
+  %25 = zext i8 %.val to i32
+  %26 = shl nuw nsw i32 %25, 8
+  %27 = zext i8 %.val29 to i32
+  %28 = or disjoint i32 %26, %27
+  %29 = shl i32 %1, 16
+  %30 = or i32 %29, %2
+  %.not2836 = icmp eq i32 %28, 0
   br i1 %.not2836, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %25
-  %34 = add nsw i32 %31, -1
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 18
-  br label %36
+.lr.ph:                                           ; preds = %22
+  %31 = add nsw i32 %28, -1
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 18
+  br label %33
 
-36:                                               ; preds = %.lr.ph, %75
-  %.02238 = phi i32 [ %34, %.lr.ph ], [ %.1, %75 ]
-  %.02337 = phi i32 [ 0, %.lr.ph ], [ %.124, %75 ]
-  %37 = add nsw i32 %.02238, %.02337
-  %38 = ashr i32 %37, 1
-  %39 = mul nsw i32 %38, 6
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %35, i64 %40
-  %42 = load i8, ptr %41, align 1
-  %43 = zext i8 %42 to i32
-  %44 = shl nuw i32 %43, 24
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 1
-  %46 = load i8, ptr %45, align 1
-  %47 = zext i8 %46 to i32
-  %48 = shl nuw nsw i32 %47, 16
-  %49 = or disjoint i32 %48, %44
-  %50 = getelementptr inbounds nuw i8, ptr %41, i64 2
-  %51 = load i8, ptr %50, align 1
-  %52 = zext i8 %51 to i32
-  %53 = shl nuw nsw i32 %52, 8
-  %54 = or disjoint i32 %49, %53
-  %55 = getelementptr inbounds nuw i8, ptr %41, i64 3
-  %56 = load i8, ptr %55, align 1
-  %57 = zext i8 %56 to i32
-  %58 = or disjoint i32 %54, %57
-  %59 = icmp ult i32 %33, %58
-  br i1 %59, label %60, label %62
+33:                                               ; preds = %.lr.ph, %72
+  %.02238 = phi i32 [ %31, %.lr.ph ], [ %.1, %72 ]
+  %.02337 = phi i32 [ 0, %.lr.ph ], [ %.124, %72 ]
+  %34 = add nsw i32 %.02238, %.02337
+  %35 = ashr i32 %34, 1
+  %36 = mul nsw i32 %35, 6
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds i8, ptr %32, i64 %37
+  %39 = load i8, ptr %38, align 1
+  %40 = zext i8 %39 to i32
+  %41 = shl nuw i32 %40, 24
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 1
+  %43 = load i8, ptr %42, align 1
+  %44 = zext i8 %43 to i32
+  %45 = shl nuw nsw i32 %44, 16
+  %46 = or disjoint i32 %45, %41
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 2
+  %48 = load i8, ptr %47, align 1
+  %49 = zext i8 %48 to i32
+  %50 = shl nuw nsw i32 %49, 8
+  %51 = or disjoint i32 %46, %50
+  %52 = getelementptr inbounds nuw i8, ptr %38, i64 3
+  %53 = load i8, ptr %52, align 1
+  %54 = zext i8 %53 to i32
+  %55 = or disjoint i32 %51, %54
+  %56 = icmp ult i32 %30, %55
+  br i1 %56, label %57, label %59
 
-60:                                               ; preds = %36
-  %61 = add nsw i32 %38, -1
-  br label %75
+57:                                               ; preds = %33
+  %58 = add nsw i32 %35, -1
+  br label %72
 
-62:                                               ; preds = %36
-  %63 = icmp ugt i32 %33, %58
-  br i1 %63, label %64, label %66
+59:                                               ; preds = %33
+  %60 = icmp ugt i32 %30, %55
+  br i1 %60, label %61, label %63
 
-64:                                               ; preds = %62
-  %65 = add nsw i32 %38, 1
-  br label %75
+61:                                               ; preds = %59
+  %62 = add nsw i32 %35, 1
+  br label %72
 
-66:                                               ; preds = %62
-  %67 = getelementptr inbounds nuw i8, ptr %9, i64 22
-  %68 = getelementptr inbounds i8, ptr %67, i64 %40
-  %.val34 = load i8, ptr %68, align 1
-  %69 = getelementptr i8, ptr %68, i64 1
-  %.val35 = load i8, ptr %69, align 1
-  %70 = zext i8 %.val34 to i16
-  %71 = shl nuw i16 %70, 8
-  %72 = zext i8 %.val35 to i16
-  %73 = or disjoint i16 %71, %72
-  %74 = sext i16 %73 to i32
+63:                                               ; preds = %59
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 22
+  %65 = getelementptr inbounds i8, ptr %64, i64 %37
+  %.val34 = load i8, ptr %65, align 1
+  %66 = getelementptr i8, ptr %65, i64 1
+  %.val35 = load i8, ptr %66, align 1
+  %67 = zext i8 %.val34 to i16
+  %68 = shl nuw i16 %67, 8
+  %69 = zext i8 %.val35 to i16
+  %70 = or disjoint i16 %68, %69
+  %71 = sext i16 %70 to i32
   br label %.loopexit
 
-75:                                               ; preds = %64, %60
-  %.124 = phi i32 [ %.02337, %60 ], [ %65, %64 ]
-  %.1 = phi i32 [ %61, %60 ], [ %.02238, %64 ]
+72:                                               ; preds = %61, %57
+  %.124 = phi i32 [ %.02337, %57 ], [ %62, %61 ]
+  %.1 = phi i32 [ %58, %57 ], [ %.02238, %61 ]
   %.not28 = icmp sgt i32 %.124, %.1
-  br i1 %.not28, label %.loopexit, label %36, !llvm.loop !16
+  br i1 %.not28, label %.loopexit, label %33, !llvm.loop !16
 
-.loopexit:                                        ; preds = %75, %25, %18, %10, %3, %66
-  %.0 = phi i32 [ %74, %66 ], [ 0, %3 ], [ 0, %10 ], [ 0, %18 ], [ 0, %25 ], [ 0, %75 ]
+.loopexit:                                        ; preds = %72, %22, %15, %10, %3, %63
+  %.0 = phi i32 [ %71, %63 ], [ 0, %3 ], [ 0, %10 ], [ 0, %15 ], [ 0, %22 ], [ 0, %72 ]
   ret i32 %.0
 }
 
@@ -2797,105 +2791,102 @@ define dso_local range(i32 -32768, 32768) i32 @stbtt_GetCodepointKernAdvance(ptr
   %.val32.i = load i8, ptr %13, align 1
   %14 = getelementptr i8, ptr %12, i64 3
   %.val33.i = load i8, ptr %14, align 1
-  %15 = zext i8 %.val32.i to i16
-  %16 = shl nuw i16 %15, 8
-  %17 = zext i8 %.val33.i to i16
-  %18 = or disjoint i16 %16, %17
-  %19 = icmp eq i16 %18, 0
-  br i1 %19, label %stbtt_GetGlyphKernAdvance.exit, label %20
+  %15 = or i8 %.val33.i, %.val32.i
+  %16 = icmp eq i8 %15, 0
+  br i1 %16, label %stbtt_GetGlyphKernAdvance.exit, label %17
 
-20:                                               ; preds = %6
-  %21 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.val30.i = load i8, ptr %21, align 1
-  %22 = getelementptr i8, ptr %12, i64 9
-  %.val31.i = load i8, ptr %22, align 1
-  %23 = zext i8 %.val30.i to i16
-  %24 = shl nuw i16 %23, 8
-  %25 = zext i8 %.val31.i to i16
-  %26 = or disjoint i16 %24, %25
-  %.not27.i = icmp eq i16 %26, 1
-  br i1 %.not27.i, label %27, label %stbtt_GetGlyphKernAdvance.exit
+17:                                               ; preds = %6
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.val30.i = load i8, ptr %18, align 1
+  %19 = getelementptr i8, ptr %12, i64 9
+  %.val31.i = load i8, ptr %19, align 1
+  %20 = zext i8 %.val30.i to i16
+  %21 = shl nuw i16 %20, 8
+  %22 = zext i8 %.val31.i to i16
+  %23 = or disjoint i16 %21, %22
+  %.not27.i = icmp eq i16 %23, 1
+  br i1 %.not27.i, label %24, label %stbtt_GetGlyphKernAdvance.exit
 
-27:                                               ; preds = %20
-  %28 = getelementptr inbounds nuw i8, ptr %12, i64 10
-  %.val.i = load i8, ptr %28, align 1
-  %29 = getelementptr i8, ptr %12, i64 11
-  %.val29.i = load i8, ptr %29, align 1
-  %30 = zext i8 %.val.i to i32
-  %31 = shl nuw nsw i32 %30, 8
-  %32 = zext i8 %.val29.i to i32
-  %33 = or disjoint i32 %31, %32
-  %34 = shl i32 %7, 16
-  %35 = or i32 %34, %8
-  %.not2836.i = icmp eq i32 %33, 0
+24:                                               ; preds = %17
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 10
+  %.val.i = load i8, ptr %25, align 1
+  %26 = getelementptr i8, ptr %12, i64 11
+  %.val29.i = load i8, ptr %26, align 1
+  %27 = zext i8 %.val.i to i32
+  %28 = shl nuw nsw i32 %27, 8
+  %29 = zext i8 %.val29.i to i32
+  %30 = or disjoint i32 %28, %29
+  %31 = shl i32 %7, 16
+  %32 = or i32 %31, %8
+  %.not2836.i = icmp eq i32 %30, 0
   br i1 %.not2836.i, label %stbtt_GetGlyphKernAdvance.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %27
-  %36 = add nsw i32 %33, -1
-  %37 = getelementptr inbounds nuw i8, ptr %12, i64 18
-  br label %38
+.lr.ph.i:                                         ; preds = %24
+  %33 = add nsw i32 %30, -1
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 18
+  br label %35
 
-38:                                               ; preds = %77, %.lr.ph.i
-  %.02238.i = phi i32 [ %36, %.lr.ph.i ], [ %.1.i, %77 ]
-  %.02337.i = phi i32 [ 0, %.lr.ph.i ], [ %.124.i, %77 ]
-  %39 = add nsw i32 %.02337.i, %.02238.i
-  %40 = ashr i32 %39, 1
-  %41 = mul nsw i32 %40, 6
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %37, i64 %42
-  %44 = load i8, ptr %43, align 1
-  %45 = zext i8 %44 to i32
-  %46 = shl nuw i32 %45, 24
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 1
-  %48 = load i8, ptr %47, align 1
-  %49 = zext i8 %48 to i32
-  %50 = shl nuw nsw i32 %49, 16
-  %51 = or disjoint i32 %50, %46
-  %52 = getelementptr inbounds nuw i8, ptr %43, i64 2
-  %53 = load i8, ptr %52, align 1
-  %54 = zext i8 %53 to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = or disjoint i32 %51, %55
-  %57 = getelementptr inbounds nuw i8, ptr %43, i64 3
-  %58 = load i8, ptr %57, align 1
-  %59 = zext i8 %58 to i32
-  %60 = or disjoint i32 %56, %59
-  %61 = icmp ult i32 %35, %60
-  br i1 %61, label %62, label %64
+35:                                               ; preds = %74, %.lr.ph.i
+  %.02238.i = phi i32 [ %33, %.lr.ph.i ], [ %.1.i, %74 ]
+  %.02337.i = phi i32 [ 0, %.lr.ph.i ], [ %.124.i, %74 ]
+  %36 = add nsw i32 %.02337.i, %.02238.i
+  %37 = ashr i32 %36, 1
+  %38 = mul nsw i32 %37, 6
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %34, i64 %39
+  %41 = load i8, ptr %40, align 1
+  %42 = zext i8 %41 to i32
+  %43 = shl nuw i32 %42, 24
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 1
+  %45 = load i8, ptr %44, align 1
+  %46 = zext i8 %45 to i32
+  %47 = shl nuw nsw i32 %46, 16
+  %48 = or disjoint i32 %47, %43
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 2
+  %50 = load i8, ptr %49, align 1
+  %51 = zext i8 %50 to i32
+  %52 = shl nuw nsw i32 %51, 8
+  %53 = or disjoint i32 %48, %52
+  %54 = getelementptr inbounds nuw i8, ptr %40, i64 3
+  %55 = load i8, ptr %54, align 1
+  %56 = zext i8 %55 to i32
+  %57 = or disjoint i32 %53, %56
+  %58 = icmp ult i32 %32, %57
+  br i1 %58, label %59, label %61
 
-62:                                               ; preds = %38
-  %63 = add nsw i32 %40, -1
-  br label %77
+59:                                               ; preds = %35
+  %60 = add nsw i32 %37, -1
+  br label %74
 
-64:                                               ; preds = %38
-  %65 = icmp ugt i32 %35, %60
-  br i1 %65, label %66, label %68
+61:                                               ; preds = %35
+  %62 = icmp ugt i32 %32, %57
+  br i1 %62, label %63, label %65
 
-66:                                               ; preds = %64
-  %67 = add nsw i32 %40, 1
-  br label %77
+63:                                               ; preds = %61
+  %64 = add nsw i32 %37, 1
+  br label %74
 
-68:                                               ; preds = %64
-  %69 = getelementptr inbounds nuw i8, ptr %12, i64 22
-  %70 = getelementptr inbounds i8, ptr %69, i64 %42
-  %.val34.i = load i8, ptr %70, align 1
-  %71 = getelementptr i8, ptr %70, i64 1
-  %.val35.i = load i8, ptr %71, align 1
-  %72 = zext i8 %.val34.i to i16
-  %73 = shl nuw i16 %72, 8
-  %74 = zext i8 %.val35.i to i16
-  %75 = or disjoint i16 %73, %74
-  %76 = sext i16 %75 to i32
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds nuw i8, ptr %12, i64 22
+  %67 = getelementptr inbounds i8, ptr %66, i64 %39
+  %.val34.i = load i8, ptr %67, align 1
+  %68 = getelementptr i8, ptr %67, i64 1
+  %.val35.i = load i8, ptr %68, align 1
+  %69 = zext i8 %.val34.i to i16
+  %70 = shl nuw i16 %69, 8
+  %71 = zext i8 %.val35.i to i16
+  %72 = or disjoint i16 %70, %71
+  %73 = sext i16 %72 to i32
   br label %stbtt_GetGlyphKernAdvance.exit
 
-77:                                               ; preds = %66, %62
-  %.124.i = phi i32 [ %.02337.i, %62 ], [ %67, %66 ]
-  %.1.i = phi i32 [ %63, %62 ], [ %.02238.i, %66 ]
+74:                                               ; preds = %63, %59
+  %.124.i = phi i32 [ %.02337.i, %59 ], [ %64, %63 ]
+  %.1.i = phi i32 [ %60, %59 ], [ %.02238.i, %63 ]
   %.not28.i = icmp sgt i32 %.124.i, %.1.i
-  br i1 %.not28.i, label %stbtt_GetGlyphKernAdvance.exit, label %38, !llvm.loop !16
+  br i1 %.not28.i, label %stbtt_GetGlyphKernAdvance.exit, label %35, !llvm.loop !16
 
-stbtt_GetGlyphKernAdvance.exit:                   ; preds = %77, %68, %27, %20, %6, %3
-  %.0 = phi i32 [ 0, %3 ], [ %76, %68 ], [ 0, %6 ], [ 0, %20 ], [ 0, %27 ], [ 0, %77 ]
+stbtt_GetGlyphKernAdvance.exit:                   ; preds = %74, %65, %24, %17, %6, %3
+  %.0 = phi i32 [ 0, %3 ], [ %73, %65 ], [ 0, %6 ], [ 0, %17 ], [ 0, %24 ], [ 0, %74 ]
   ret i32 %.0
 }
 

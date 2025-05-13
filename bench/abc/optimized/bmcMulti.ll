@@ -196,7 +196,7 @@ define i32 @Gia_ManCountConst0PosGia(ptr noundef readonly captures(none) %0) loc
 
 9:                                                ; preds = %.lr.ph.split, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %9 ]
-  %.015 = phi i32 [ 0, %.lr.ph.split ], [ %23, %9 ]
+  %.015 = phi i32 [ 0, %.lr.ph.split ], [ %22, %9 ]
   %10 = getelementptr inbounds nuw i32, ptr %.val12.val, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !14
   %12 = sext i32 %11 to i64
@@ -207,17 +207,16 @@ define i32 @Gia_ManCountConst0PosGia(ptr noundef readonly captures(none) %0) loc
   %16 = sub nsw i32 %11, %15
   %17 = lshr i32 %14, 29
   %18 = and i32 %17, 1
-  %19 = shl nsw i32 %16, 1
-  %20 = or disjoint i32 %19, %18
-  %21 = icmp eq i32 %20, 0
-  %22 = zext i1 %21 to i32
-  %23 = add nuw nsw i32 %.015, %22
+  %19 = or i32 %16, %18
+  %20 = icmp eq i32 %19, 0
+  %21 = zext i1 %20 to i32
+  %22 = add nuw nsw i32 %.015, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !40
 
 .critedge:                                        ; preds = %9, %.lr.ph, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %23, %9 ]
+  %.0.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %22, %9 ]
   ret i32 %.0.lcssa
 }
 

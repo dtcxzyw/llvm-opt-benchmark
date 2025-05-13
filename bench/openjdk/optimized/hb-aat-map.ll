@@ -108,557 +108,541 @@ _ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face
   %29 = icmp ult i32 %28, 12
   %spec.select.i.i.i.i.i = select i1 %29, ptr @_hb_NullPool, ptr %26
   %30 = load i8, ptr %spec.select.i.i.i.i.i, align 1
-  %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 1
-  %33 = load i8, ptr %32, align 1
-  %34 = zext i8 %33 to i32
-  %35 = shl nuw i32 %31, 24
-  %36 = shl nuw nsw i32 %34, 16
-  %37 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 2
-  %38 = load i8, ptr %37, align 1
-  %39 = zext i8 %38 to i32
-  %40 = shl nuw nsw i32 %39, 8
-  %41 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 3
-  %42 = load i8, ptr %41, align 1
-  %43 = zext i8 %42 to i32
-  %44 = or disjoint i32 %36, %35
-  %45 = or disjoint i32 %44, %43
-  %46 = or disjoint i32 %45, %40
-  %.not78 = icmp eq i32 %46, 0
-  br i1 %.not78, label %317, label %47
+  %31 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 1
+  %32 = load i8, ptr %31, align 1
+  %33 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 2
+  %34 = load i8, ptr %33, align 1
+  %35 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 3
+  %36 = load i8, ptr %35, align 1
+  %37 = or i8 %32, %30
+  %38 = or i8 %37, %34
+  %39 = or i8 %38, %36
+  %.not78 = icmp eq i8 %39, 0
+  br i1 %.not78, label %301, label %40
 
-47:                                               ; preds = %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit
-  %48 = load i32, ptr %1, align 4
-  %49 = icmp eq i32 %48, 1633774708
-  br i1 %49, label %50, label %170
+40:                                               ; preds = %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit
+  %41 = load i32, ptr %1, align 4
+  %42 = icmp eq i32 %41, 1633774708
+  br i1 %42, label %43, label %160
 
-50:                                               ; preds = %47
-  %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 352
-  %53 = load atomic i64, ptr %52 acquire, align 8
-  %.not14.i.i.i34 = icmp eq i64 %53, 0
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %0, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 352
+  %46 = load atomic i64, ptr %45 acquire, align 8
+  %.not14.i.i.i34 = icmp eq i64 %46, 0
   br i1 %.not14.i.i.i34, label %.lr.ph.i.i.i39, label %.loopexit.split.loop.exit12.i.i.i35
 
-.lr.ph.i.i.i39:                                   ; preds = %50
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 80
-  br label %55
+.lr.ph.i.i.i39:                                   ; preds = %43
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 80
+  br label %48
 
-55:                                               ; preds = %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i45, %.lr.ph.i.i.i39
-  %56 = load ptr, ptr %54, align 8
-  %.not.i.i.i.i40 = icmp eq ptr %56, null
-  br i1 %.not.i.i.i.i40, label %57, label %59
+48:                                               ; preds = %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i45, %.lr.ph.i.i.i39
+  %49 = load ptr, ptr %47, align 8
+  %.not.i.i.i.i40 = icmp eq ptr %49, null
+  br i1 %.not.i.i.i.i40, label %50, label %52
 
-57:                                               ; preds = %55
-  %58 = tail call noundef ptr @hb_blob_get_empty()
+50:                                               ; preds = %48
+  %51 = tail call noundef ptr @hb_blob_get_empty()
   br label %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit47
 
-59:                                               ; preds = %55
-  %60 = tail call noundef ptr @_ZN22hb_table_lazy_loader_tIN3AAT4featELj34ELb0EE6createEP9hb_face_t(ptr noundef nonnull %56)
-  %.not10.i.i.i41 = icmp eq ptr %60, null
-  br i1 %.not10.i.i.i41, label %61, label %63
+52:                                               ; preds = %48
+  %53 = tail call noundef ptr @_ZN22hb_table_lazy_loader_tIN3AAT4featELj34ELb0EE6createEP9hb_face_t(ptr noundef nonnull %49)
+  %.not10.i.i.i41 = icmp eq ptr %53, null
+  br i1 %.not10.i.i.i41, label %54, label %56
 
-61:                                               ; preds = %59
-  %62 = tail call noundef ptr @hb_blob_get_empty()
-  br label %63
+54:                                               ; preds = %52
+  %55 = tail call noundef ptr @hb_blob_get_empty()
+  br label %56
 
-63:                                               ; preds = %61, %59
-  %.1.i.i.i42 = phi ptr [ %60, %59 ], [ %62, %61 ]
-  %64 = ptrtoint ptr %.1.i.i.i42 to i64
-  %65 = cmpxchg weak ptr %52, i64 0, i64 %64 acq_rel monotonic, align 8
-  %66 = extractvalue { i64, i1 } %65, 1
-  br i1 %66, label %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit47, label %67
+56:                                               ; preds = %54, %52
+  %.1.i.i.i42 = phi ptr [ %53, %52 ], [ %55, %54 ]
+  %57 = ptrtoint ptr %.1.i.i.i42 to i64
+  %58 = cmpxchg weak ptr %45, i64 0, i64 %57 acq_rel monotonic, align 8
+  %59 = extractvalue { i64, i1 } %58, 1
+  br i1 %59, label %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit47, label %60
 
-67:                                               ; preds = %63
+60:                                               ; preds = %56
   %.not.i11.i.i.i43 = icmp eq ptr %.1.i.i.i42, null
-  br i1 %.not.i11.i.i.i43, label %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i45, label %68
+  br i1 %.not.i11.i.i.i43, label %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i45, label %61
 
-68:                                               ; preds = %67
-  %69 = tail call noundef ptr @hb_blob_get_empty()
-  %.not3.i.i.i.i44 = icmp eq ptr %.1.i.i.i42, %69
-  br i1 %.not3.i.i.i.i44, label %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i45, label %70
+61:                                               ; preds = %60
+  %62 = tail call noundef ptr @hb_blob_get_empty()
+  %.not3.i.i.i.i44 = icmp eq ptr %.1.i.i.i42, %62
+  br i1 %.not3.i.i.i.i44, label %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i45, label %63
 
-70:                                               ; preds = %68
+63:                                               ; preds = %61
   tail call void @hb_blob_destroy(ptr noundef nonnull %.1.i.i.i42)
   br label %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i45
 
-_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i45: ; preds = %70, %68, %67
-  %71 = load atomic i64, ptr %52 acquire, align 8
-  %.not.i.i.i46 = icmp eq i64 %71, 0
-  br i1 %.not.i.i.i46, label %55, label %.loopexit.split.loop.exit12.i.i.i35
+_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i45: ; preds = %63, %61, %60
+  %64 = load atomic i64, ptr %45 acquire, align 8
+  %.not.i.i.i46 = icmp eq i64 %64, 0
+  br i1 %.not.i.i.i46, label %48, label %.loopexit.split.loop.exit12.i.i.i35
 
-.loopexit.split.loop.exit12.i.i.i35:              ; preds = %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i45, %50
-  %.lcssa.i.i.i36 = phi i64 [ %53, %50 ], [ %71, %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i45 ]
-  %72 = inttoptr i64 %.lcssa.i.i.i36 to ptr
+.loopexit.split.loop.exit12.i.i.i35:              ; preds = %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i45, %43
+  %.lcssa.i.i.i36 = phi i64 [ %46, %43 ], [ %64, %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i45 ]
+  %65 = inttoptr i64 %.lcssa.i.i.i36 to ptr
   br label %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit47
 
-_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit47: ; preds = %63, %57, %.loopexit.split.loop.exit12.i.i.i35
-  %.07.i.i.i37 = phi ptr [ %58, %57 ], [ %72, %.loopexit.split.loop.exit12.i.i.i35 ], [ %.1.i.i.i42, %63 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.07.i.i.i37, i64 16
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %.07.i.i.i37, i64 24
-  %76 = load i32, ptr %75, align 8
-  %77 = icmp ult i32 %76, 12
-  %spec.select.i.i.i.i.i38 = select i1 %77, ptr @_hb_NullPool, ptr %74
-  %78 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i38, i64 12
-  %79 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i38, i64 4
-  %80 = load i8, ptr %79, align 1
-  %81 = zext i8 %80 to i32
-  %82 = shl nuw nsw i32 %81, 8
-  %83 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i38, i64 5
-  %84 = load i8, ptr %83, align 1
-  %85 = zext i8 %84 to i32
-  %86 = or disjoint i32 %82, %85
-  %.not1.i.i.i.i.i.not.i.i = icmp eq i32 %86, 0
+_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit47: ; preds = %56, %50, %.loopexit.split.loop.exit12.i.i.i35
+  %.07.i.i.i37 = phi ptr [ %51, %50 ], [ %65, %.loopexit.split.loop.exit12.i.i.i35 ], [ %.1.i.i.i42, %56 ]
+  %66 = getelementptr inbounds nuw i8, ptr %.07.i.i.i37, i64 16
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %.07.i.i.i37, i64 24
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp ult i32 %69, 12
+  %spec.select.i.i.i.i.i38 = select i1 %70, ptr @_hb_NullPool, ptr %67
+  %71 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i38, i64 12
+  %72 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i38, i64 4
+  %73 = load i8, ptr %72, align 1
+  %74 = zext i8 %73 to i32
+  %75 = shl nuw nsw i32 %74, 8
+  %76 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i38, i64 5
+  %77 = load i8, ptr %76, align 1
+  %78 = zext i8 %77 to i32
+  %79 = or disjoint i32 %75, %78
+  %.not1.i.i.i.i.i.not.i.i = icmp eq i32 %79, 0
   br i1 %.not1.i.i.i.i.i.not.i.i, label %_ZNK3AAT4feat15exposes_featureE28hb_aat_layout_feature_type_t.exit, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit47
-  %87 = add nsw i32 %86, -1
+  %80 = add nsw i32 %79, -1
   br label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %106, %.lr.ph.preheader.i.i.i.i.i.i.i
-  %.0193.i.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i.i, %106 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %.0202.i.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i.i, %106 ], [ %87, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %88 = add i32 %.0202.i.i.i.i.i.i.i, %.0193.i.i.i.i.i.i.i
-  %89 = lshr i32 %88, 1
-  %90 = zext nneg i32 %89 to i64
-  %91 = mul nuw nsw i64 %90, 12
-  %92 = getelementptr inbounds nuw i8, ptr %78, i64 %91
-  %93 = load i8, ptr %92, align 1
-  %94 = zext i8 %93 to i32
-  %95 = shl nuw nsw i32 %94, 8
-  %96 = getelementptr inbounds nuw i8, ptr %92, i64 1
-  %97 = load i8, ptr %96, align 1
-  %98 = zext i8 %97 to i32
-  %99 = or disjoint i32 %95, %98
-  %100 = icmp samesign ugt i32 %99, 17
-  br i1 %100, label %101, label %103
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %99, %.lr.ph.preheader.i.i.i.i.i.i.i
+  %.0193.i.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i.i, %99 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %.0202.i.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i.i, %99 ], [ %80, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %81 = add i32 %.0202.i.i.i.i.i.i.i, %.0193.i.i.i.i.i.i.i
+  %82 = lshr i32 %81, 1
+  %83 = zext nneg i32 %82 to i64
+  %84 = mul nuw nsw i64 %83, 12
+  %85 = getelementptr inbounds nuw i8, ptr %71, i64 %84
+  %86 = load i8, ptr %85, align 1
+  %87 = zext i8 %86 to i32
+  %88 = shl nuw nsw i32 %87, 8
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 1
+  %90 = load i8, ptr %89, align 1
+  %91 = zext i8 %90 to i32
+  %92 = or disjoint i32 %88, %91
+  %93 = icmp samesign ugt i32 %92, 17
+  br i1 %93, label %94, label %96
 
-101:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %102 = add nsw i32 %89, -1
-  br label %106
+94:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
+  %95 = add nsw i32 %82, -1
+  br label %99
 
-103:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %.not23.i.i.i.i.i.i.i = icmp eq i32 %99, 17
-  br i1 %.not23.i.i.i.i.i.i.i, label %107, label %104
+96:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
+  %.not23.i.i.i.i.i.i.i = icmp eq i32 %92, 17
+  br i1 %.not23.i.i.i.i.i.i.i, label %100, label %97
 
-104:                                              ; preds = %103
-  %105 = add nuw nsw i32 %89, 1
-  br label %106
+97:                                               ; preds = %96
+  %98 = add nuw nsw i32 %82, 1
+  br label %99
 
-106:                                              ; preds = %104, %101
-  %.121.i.i.i.i.i.i.i = phi i32 [ %102, %101 ], [ %.0202.i.i.i.i.i.i.i, %104 ]
-  %.1.i.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i.i, %101 ], [ %105, %104 ]
+99:                                               ; preds = %97, %94
+  %.121.i.i.i.i.i.i.i = phi i32 [ %95, %94 ], [ %.0202.i.i.i.i.i.i.i, %97 ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i.i, %94 ], [ %98, %97 ]
   %.not.not.i.i.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i.i.i, %.121.i.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i.i, label %_ZNK3AAT4feat15exposes_featureE28hb_aat_layout_feature_type_t.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !6
 
-107:                                              ; preds = %103
-  %108 = getelementptr inbounds nuw %"struct.AAT::FeatureName", ptr %78, i64 %90
+100:                                              ; preds = %96
+  %101 = getelementptr inbounds nuw %"struct.AAT::FeatureName", ptr %71, i64 %83
   br label %_ZNK3AAT4feat15exposes_featureE28hb_aat_layout_feature_type_t.exit
 
-_ZNK3AAT4feat15exposes_featureE28hb_aat_layout_feature_type_t.exit: ; preds = %106, %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit47, %107
-  %109 = phi ptr [ %108, %107 ], [ @_hb_NullPool, %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit47 ], [ @_hb_NullPool, %106 ]
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 2
-  %111 = load i8, ptr %110, align 1
-  %112 = zext i8 %111 to i32
-  %113 = shl nuw nsw i32 %112, 8
-  %114 = getelementptr inbounds nuw i8, ptr %109, i64 3
-  %115 = load i8, ptr %114, align 1
-  %116 = zext i8 %115 to i32
-  %117 = or disjoint i32 %113, %116
-  %.not81 = icmp eq i32 %117, 0
-  br i1 %.not81, label %317, label %118
+_ZNK3AAT4feat15exposes_featureE28hb_aat_layout_feature_type_t.exit: ; preds = %99, %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit47, %100
+  %102 = phi ptr [ %101, %100 ], [ @_hb_NullPool, %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit47 ], [ @_hb_NullPool, %99 ]
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 2
+  %104 = load i8, ptr %103, align 1
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 3
+  %106 = load i8, ptr %105, align 1
+  %107 = or i8 %106, %104
+  %.not81 = icmp eq i8 %107, 0
+  br i1 %.not81, label %301, label %108
 
-118:                                              ; preds = %_ZNK3AAT4feat15exposes_featureE28hb_aat_layout_feature_type_t.exit
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %121 = load i32, ptr %120, align 4
-  %122 = add i32 %121, 1
-  %123 = tail call i32 @llvm.smax.i32(i32 %122, i32 0)
-  %124 = load i32, ptr %119, align 8
-  %125 = icmp slt i32 %124, 0
-  br i1 %125, label %151, label %126
+108:                                              ; preds = %_ZNK3AAT4feat15exposes_featureE28hb_aat_layout_feature_type_t.exit
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %111 = load i32, ptr %110, align 4
+  %112 = add i32 %111, 1
+  %113 = tail call i32 @llvm.smax.i32(i32 %112, i32 0)
+  %114 = load i32, ptr %109, align 8
+  %115 = icmp slt i32 %114, 0
+  br i1 %115, label %141, label %116
 
-126:                                              ; preds = %118
-  %.not.i.i.i48 = icmp sgt i32 %122, %124
+116:                                              ; preds = %108
+  %.not.i.i.i48 = icmp sgt i32 %112, %114
   br i1 %.not.i.i.i48, label %.preheader.i.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i
 
-.preheader.i.i.i:                                 ; preds = %126, %.preheader.i.i.i
-  %.143.i.i.i = phi i32 [ %129, %.preheader.i.i.i ], [ %124, %126 ]
-  %127 = lshr i32 %.143.i.i.i, 1
-  %128 = add nuw i32 %.143.i.i.i, 8
-  %129 = add nuw i32 %128, %127
-  %130 = icmp ugt i32 %123, %129
-  br i1 %130, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !8
+.preheader.i.i.i:                                 ; preds = %116, %.preheader.i.i.i
+  %.143.i.i.i = phi i32 [ %119, %.preheader.i.i.i ], [ %114, %116 ]
+  %117 = lshr i32 %.143.i.i.i, 1
+  %118 = add nuw i32 %.143.i.i.i, 8
+  %119 = add nuw i32 %118, %117
+  %120 = icmp ugt i32 %113, %119
+  br i1 %120, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !8
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i
-  %131 = icmp ugt i32 %129, 178956970
-  br i1 %131, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i.i, label %132
+  %121 = icmp ugt i32 %119, 178956970
+  br i1 %121, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i.i, label %122
 
-132:                                              ; preds = %.thread.i.i.i
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %134 = load ptr, ptr %133, align 8
-  %135 = zext nneg i32 %129 to i64
-  %136 = mul nuw nsw i64 %135, 24
-  %137 = tail call ptr @realloc(ptr noundef %134, i64 noundef %136) #12
-  %.not42.i.i.i = icmp eq ptr %137, null
-  br i1 %.not42.i.i.i, label %138, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.i.i
+122:                                              ; preds = %.thread.i.i.i
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %124 = load ptr, ptr %123, align 8
+  %125 = zext nneg i32 %119 to i64
+  %126 = mul nuw nsw i64 %125, 24
+  %127 = tail call ptr @realloc(ptr noundef %124, i64 noundef %126) #12
+  %.not42.i.i.i = icmp eq ptr %127, null
+  br i1 %.not42.i.i.i, label %128, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.i.i
 
-138:                                              ; preds = %132
-  %139 = load i32, ptr %119, align 8
-  %.not21.i.i.i = icmp ugt i32 %129, %139
+128:                                              ; preds = %122
+  %129 = load i32, ptr %109, align 8
+  %.not21.i.i.i = icmp ugt i32 %119, %129
   br i1 %.not21.i.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i.i: ; preds = %138, %.thread.i.i.i
-  %.01538.sink.i.ph.in.i.i = phi i32 [ %124, %.thread.i.i.i ], [ %139, %138 ]
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i.i: ; preds = %128, %.thread.i.i.i
+  %.01538.sink.i.ph.in.i.i = phi i32 [ %114, %.thread.i.i.i ], [ %129, %128 ]
   %.01538.sink.i.ph.i.i = xor i32 %.01538.sink.i.ph.in.i.i, -1
-  store i32 %.01538.sink.i.ph.i.i, ptr %119, align 8
-  br label %151
+  store i32 %.01538.sink.i.ph.i.i, ptr %109, align 8
+  br label %141
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.i.i: ; preds = %132
-  store ptr %137, ptr %133, align 8
-  store i32 %129, ptr %119, align 8
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.i.i: ; preds = %122
+  store ptr %127, ptr %123, align 8
+  store i32 %119, ptr %109, align 8
   br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.i.i, %138, %126
-  %140 = load i32, ptr %120, align 4
-  %141 = icmp ugt i32 %123, %140
-  br i1 %141, label %142, label %152
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.i.i, %128, %116
+  %130 = load i32, ptr %110, align 4
+  %131 = icmp ugt i32 %113, %130
+  br i1 %131, label %132, label %142
 
-142:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i
-  %143 = sub nuw nsw i32 %123, %140
-  %144 = mul i32 %143, 24
-  %.not.i.i.i.i49 = icmp eq i32 %144, 0
-  br i1 %.not.i.i.i.i49, label %152, label %145
+132:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i
+  %133 = sub nuw nsw i32 %113, %130
+  %134 = mul i32 %133, 24
+  %.not.i.i.i.i49 = icmp eq i32 %134, 0
+  br i1 %.not.i.i.i.i49, label %142, label %135
 
-145:                                              ; preds = %142
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %147 = load ptr, ptr %146, align 8
-  %148 = zext nneg i32 %140 to i64
-  %149 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_range_t", ptr %147, i64 %148
-  %150 = zext i32 %144 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %149, i8 0, i64 %150, i1 false)
-  br label %152
+135:                                              ; preds = %132
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %137 = load ptr, ptr %136, align 8
+  %138 = zext nneg i32 %130 to i64
+  %139 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_range_t", ptr %137, i64 %138
+  %140 = zext i32 %134 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %139, i8 0, i64 %140, i1 false)
+  br label %142
 
-151:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i.i, %118
+141:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i.i, %108
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(24) @_hb_NullPool, i64 24, i1 false)
   br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv.exit
 
-152:                                              ; preds = %145, %142, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i
-  store i32 %123, ptr %120, align 4
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %154 = load ptr, ptr %153, align 8
-  %155 = add nsw i32 %123, -1
-  %156 = zext i32 %155 to i64
-  %157 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_range_t", ptr %154, i64 %156
+142:                                              ; preds = %135, %132, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i
+  store i32 %113, ptr %110, align 4
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %144 = load ptr, ptr %143, align 8
+  %145 = add nsw i32 %113, -1
+  %146 = zext i32 %145 to i64
+  %147 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_range_t", ptr %144, i64 %146
   br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv.exit
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv.exit: ; preds = %151, %152
-  %.0.i = phi ptr [ %157, %152 ], [ @_hb_CrapPool, %151 ]
-  %158 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %159 = load i32, ptr %158, align 4
-  %160 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  store i32 %159, ptr %160, align 4
-  %161 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %162 = load i32, ptr %161, align 4
-  %163 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
-  store i32 %162, ptr %163, align 4
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv.exit: ; preds = %141, %142
+  %.0.i = phi ptr [ %147, %142 ], [ @_hb_CrapPool, %141 ]
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %149 = load i32, ptr %148, align 4
+  %150 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  store i32 %149, ptr %150, align 4
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %152 = load i32, ptr %151, align 4
+  %153 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
+  store i32 %152, ptr %153, align 4
   store i32 17, ptr %.0.i, align 4
-  %164 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %165 = load i32, ptr %164, align 4
-  %166 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  store i32 %165, ptr %166, align 4
-  %167 = load i32, ptr %120, align 4
-  %168 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
-  store i32 %167, ptr %168, align 4
-  %169 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  store i8 1, ptr %169, align 4
-  br label %317
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %155 = load i32, ptr %154, align 4
+  %156 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
+  store i32 %155, ptr %156, align 4
+  %157 = load i32, ptr %110, align 4
+  %158 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
+  store i32 %157, ptr %158, align 4
+  %159 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  store i8 1, ptr %159, align 4
+  br label %301
 
-170:                                              ; preds = %47
-  %171 = tail call noundef ptr @_Z34hb_aat_layout_find_feature_mappingj(i32 noundef %48)
-  %.not = icmp eq ptr %171, null
-  br i1 %.not, label %317, label %172
+160:                                              ; preds = %40
+  %161 = tail call noundef ptr @_Z34hb_aat_layout_find_feature_mappingj(i32 noundef %41)
+  %.not = icmp eq ptr %161, null
+  br i1 %.not, label %301, label %162
 
-172:                                              ; preds = %170
-  %173 = load ptr, ptr %0, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 352
-  %175 = load atomic i64, ptr %174 acquire, align 8
-  %.not14.i.i.i50 = icmp eq i64 %175, 0
+162:                                              ; preds = %160
+  %163 = load ptr, ptr %0, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 352
+  %165 = load atomic i64, ptr %164 acquire, align 8
+  %.not14.i.i.i50 = icmp eq i64 %165, 0
   br i1 %.not14.i.i.i50, label %.lr.ph.i.i.i55, label %.loopexit.split.loop.exit12.i.i.i51
 
-.lr.ph.i.i.i55:                                   ; preds = %172
-  %176 = getelementptr inbounds nuw i8, ptr %173, i64 80
-  br label %177
+.lr.ph.i.i.i55:                                   ; preds = %162
+  %166 = getelementptr inbounds nuw i8, ptr %163, i64 80
+  br label %167
 
-177:                                              ; preds = %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i61, %.lr.ph.i.i.i55
-  %178 = load ptr, ptr %176, align 8
-  %.not.i.i.i.i56 = icmp eq ptr %178, null
-  br i1 %.not.i.i.i.i56, label %179, label %181
+167:                                              ; preds = %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i61, %.lr.ph.i.i.i55
+  %168 = load ptr, ptr %166, align 8
+  %.not.i.i.i.i56 = icmp eq ptr %168, null
+  br i1 %.not.i.i.i.i56, label %169, label %171
 
-179:                                              ; preds = %177
-  %180 = tail call noundef ptr @hb_blob_get_empty()
+169:                                              ; preds = %167
+  %170 = tail call noundef ptr @hb_blob_get_empty()
   br label %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit63
 
-181:                                              ; preds = %177
-  %182 = tail call noundef ptr @_ZN22hb_table_lazy_loader_tIN3AAT4featELj34ELb0EE6createEP9hb_face_t(ptr noundef nonnull %178)
-  %.not10.i.i.i57 = icmp eq ptr %182, null
-  br i1 %.not10.i.i.i57, label %183, label %185
+171:                                              ; preds = %167
+  %172 = tail call noundef ptr @_ZN22hb_table_lazy_loader_tIN3AAT4featELj34ELb0EE6createEP9hb_face_t(ptr noundef nonnull %168)
+  %.not10.i.i.i57 = icmp eq ptr %172, null
+  br i1 %.not10.i.i.i57, label %173, label %175
 
-183:                                              ; preds = %181
-  %184 = tail call noundef ptr @hb_blob_get_empty()
-  br label %185
+173:                                              ; preds = %171
+  %174 = tail call noundef ptr @hb_blob_get_empty()
+  br label %175
 
-185:                                              ; preds = %183, %181
-  %.1.i.i.i58 = phi ptr [ %182, %181 ], [ %184, %183 ]
-  %186 = ptrtoint ptr %.1.i.i.i58 to i64
-  %187 = cmpxchg weak ptr %174, i64 0, i64 %186 acq_rel monotonic, align 8
-  %188 = extractvalue { i64, i1 } %187, 1
-  br i1 %188, label %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit63, label %189
+175:                                              ; preds = %173, %171
+  %.1.i.i.i58 = phi ptr [ %172, %171 ], [ %174, %173 ]
+  %176 = ptrtoint ptr %.1.i.i.i58 to i64
+  %177 = cmpxchg weak ptr %164, i64 0, i64 %176 acq_rel monotonic, align 8
+  %178 = extractvalue { i64, i1 } %177, 1
+  br i1 %178, label %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit63, label %179
 
-189:                                              ; preds = %185
+179:                                              ; preds = %175
   %.not.i11.i.i.i59 = icmp eq ptr %.1.i.i.i58, null
-  br i1 %.not.i11.i.i.i59, label %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i61, label %190
+  br i1 %.not.i11.i.i.i59, label %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i61, label %180
 
-190:                                              ; preds = %189
-  %191 = tail call noundef ptr @hb_blob_get_empty()
-  %.not3.i.i.i.i60 = icmp eq ptr %.1.i.i.i58, %191
-  br i1 %.not3.i.i.i.i60, label %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i61, label %192
+180:                                              ; preds = %179
+  %181 = tail call noundef ptr @hb_blob_get_empty()
+  %.not3.i.i.i.i60 = icmp eq ptr %.1.i.i.i58, %181
+  br i1 %.not3.i.i.i.i60, label %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i61, label %182
 
-192:                                              ; preds = %190
+182:                                              ; preds = %180
   tail call void @hb_blob_destroy(ptr noundef nonnull %.1.i.i.i58)
   br label %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i61
 
-_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i61: ; preds = %192, %190, %189
-  %193 = load atomic i64, ptr %174 acquire, align 8
-  %.not.i.i.i62 = icmp eq i64 %193, 0
-  br i1 %.not.i.i.i62, label %177, label %.loopexit.split.loop.exit12.i.i.i51
+_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i61: ; preds = %182, %180, %179
+  %183 = load atomic i64, ptr %164 acquire, align 8
+  %.not.i.i.i62 = icmp eq i64 %183, 0
+  br i1 %.not.i.i.i62, label %167, label %.loopexit.split.loop.exit12.i.i.i51
 
-.loopexit.split.loop.exit12.i.i.i51:              ; preds = %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i61, %172
-  %.lcssa.i.i.i52 = phi i64 [ %175, %172 ], [ %193, %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i61 ]
-  %194 = inttoptr i64 %.lcssa.i.i.i52 to ptr
+.loopexit.split.loop.exit12.i.i.i51:              ; preds = %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i61, %162
+  %.lcssa.i.i.i52 = phi i64 [ %165, %162 ], [ %183, %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i61 ]
+  %184 = inttoptr i64 %.lcssa.i.i.i52 to ptr
   br label %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit63
 
-_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit63: ; preds = %185, %179, %.loopexit.split.loop.exit12.i.i.i51
-  %.07.i.i.i53 = phi ptr [ %180, %179 ], [ %194, %.loopexit.split.loop.exit12.i.i.i51 ], [ %.1.i.i.i58, %185 ]
-  %195 = getelementptr inbounds nuw i8, ptr %.07.i.i.i53, i64 16
-  %196 = load ptr, ptr %195, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %.07.i.i.i53, i64 24
-  %198 = load i32, ptr %197, align 8
-  %199 = icmp ult i32 %198, 12
-  %spec.select.i.i.i.i.i54 = select i1 %199, ptr @_hb_NullPool, ptr %196
-  %200 = getelementptr inbounds nuw i8, ptr %171, i64 4
-  %201 = load i32, ptr %200, align 4
-  %202 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i54, i64 12
-  %203 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i54, i64 4
-  %204 = load i8, ptr %203, align 1
-  %205 = zext i8 %204 to i32
-  %206 = shl nuw nsw i32 %205, 8
-  %207 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i54, i64 5
-  %208 = load i8, ptr %207, align 1
-  %209 = zext i8 %208 to i32
-  %210 = or disjoint i32 %206, %209
-  %.not1.i.i.i.i.i.not.i = icmp eq i32 %210, 0
+_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit63: ; preds = %175, %169, %.loopexit.split.loop.exit12.i.i.i51
+  %.07.i.i.i53 = phi ptr [ %170, %169 ], [ %184, %.loopexit.split.loop.exit12.i.i.i51 ], [ %.1.i.i.i58, %175 ]
+  %185 = getelementptr inbounds nuw i8, ptr %.07.i.i.i53, i64 16
+  %186 = load ptr, ptr %185, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %.07.i.i.i53, i64 24
+  %188 = load i32, ptr %187, align 8
+  %189 = icmp ult i32 %188, 12
+  %spec.select.i.i.i.i.i54 = select i1 %189, ptr @_hb_NullPool, ptr %186
+  %190 = getelementptr inbounds nuw i8, ptr %161, i64 4
+  %191 = load i32, ptr %190, align 4
+  %192 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i54, i64 12
+  %193 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i54, i64 4
+  %194 = load i8, ptr %193, align 1
+  %195 = zext i8 %194 to i32
+  %196 = shl nuw nsw i32 %195, 8
+  %197 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i54, i64 5
+  %198 = load i8, ptr %197, align 1
+  %199 = zext i8 %198 to i32
+  %200 = or disjoint i32 %196, %199
+  %.not1.i.i.i.i.i.not.i = icmp eq i32 %200, 0
   br i1 %.not1.i.i.i.i.i.not.i, label %_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t.exit, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit63
-  %211 = add nsw i32 %210, -1
+  %201 = add nsw i32 %200, -1
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %230, %.lr.ph.preheader.i.i.i.i.i.i
-  %.0193.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i, %230 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %.0202.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i, %230 ], [ %211, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %212 = add i32 %.0202.i.i.i.i.i.i, %.0193.i.i.i.i.i.i
-  %213 = lshr i32 %212, 1
-  %214 = zext nneg i32 %213 to i64
-  %215 = mul nuw nsw i64 %214, 12
-  %216 = getelementptr inbounds nuw i8, ptr %202, i64 %215
-  %217 = load i8, ptr %216, align 1
-  %218 = zext i8 %217 to i32
-  %219 = shl nuw nsw i32 %218, 8
-  %220 = getelementptr inbounds nuw i8, ptr %216, i64 1
-  %221 = load i8, ptr %220, align 1
-  %222 = zext i8 %221 to i32
-  %223 = or disjoint i32 %219, %222
-  %224 = icmp slt i32 %201, %223
-  br i1 %224, label %225, label %227
+.lr.ph.i.i.i.i.i.i:                               ; preds = %220, %.lr.ph.preheader.i.i.i.i.i.i
+  %.0193.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i, %220 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.0202.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i, %220 ], [ %201, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %202 = add i32 %.0202.i.i.i.i.i.i, %.0193.i.i.i.i.i.i
+  %203 = lshr i32 %202, 1
+  %204 = zext nneg i32 %203 to i64
+  %205 = mul nuw nsw i64 %204, 12
+  %206 = getelementptr inbounds nuw i8, ptr %192, i64 %205
+  %207 = load i8, ptr %206, align 1
+  %208 = zext i8 %207 to i32
+  %209 = shl nuw nsw i32 %208, 8
+  %210 = getelementptr inbounds nuw i8, ptr %206, i64 1
+  %211 = load i8, ptr %210, align 1
+  %212 = zext i8 %211 to i32
+  %213 = or disjoint i32 %209, %212
+  %214 = icmp slt i32 %191, %213
+  br i1 %214, label %215, label %217
 
-225:                                              ; preds = %.lr.ph.i.i.i.i.i.i
-  %226 = add nsw i32 %213, -1
-  br label %230
+215:                                              ; preds = %.lr.ph.i.i.i.i.i.i
+  %216 = add nsw i32 %203, -1
+  br label %220
 
-227:                                              ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not23.i.i.i.i.i.i = icmp eq i32 %201, %223
-  br i1 %.not23.i.i.i.i.i.i, label %231, label %228
+217:                                              ; preds = %.lr.ph.i.i.i.i.i.i
+  %.not23.i.i.i.i.i.i = icmp eq i32 %191, %213
+  br i1 %.not23.i.i.i.i.i.i, label %221, label %218
 
-228:                                              ; preds = %227
-  %229 = add nuw nsw i32 %213, 1
-  br label %230
+218:                                              ; preds = %217
+  %219 = add nuw nsw i32 %203, 1
+  br label %220
 
-230:                                              ; preds = %228, %225
-  %.121.i.i.i.i.i.i = phi i32 [ %226, %225 ], [ %.0202.i.i.i.i.i.i, %228 ]
-  %.1.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i, %225 ], [ %229, %228 ]
+220:                                              ; preds = %218, %215
+  %.121.i.i.i.i.i.i = phi i32 [ %216, %215 ], [ %.0202.i.i.i.i.i.i, %218 ]
+  %.1.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i, %215 ], [ %219, %218 ]
   %.not.not.i.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i.i, %.121.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i, label %_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !6
 
-231:                                              ; preds = %227
-  %232 = getelementptr inbounds nuw %"struct.AAT::FeatureName", ptr %202, i64 %214
+221:                                              ; preds = %217
+  %222 = getelementptr inbounds nuw %"struct.AAT::FeatureName", ptr %192, i64 %204
   br label %_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t.exit
 
-_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t.exit: ; preds = %230, %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit63, %231
-  %233 = phi ptr [ %232, %231 ], [ @_hb_NullPool, %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit63 ], [ @_hb_NullPool, %230 ]
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 2
-  %235 = load i8, ptr %234, align 1
-  %236 = zext i8 %235 to i32
-  %237 = shl nuw nsw i32 %236, 8
-  %238 = getelementptr inbounds nuw i8, ptr %233, i64 3
-  %239 = load i8, ptr %238, align 1
-  %240 = zext i8 %239 to i32
-  %241 = or disjoint i32 %237, %240
-  %.not79 = icmp eq i32 %241, 0
-  br i1 %.not79, label %242, label %261
+_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t.exit: ; preds = %220, %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit63, %221
+  %223 = phi ptr [ %222, %221 ], [ @_hb_NullPool, %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit63 ], [ @_hb_NullPool, %220 ]
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 2
+  %225 = load i8, ptr %224, align 1
+  %226 = getelementptr inbounds nuw i8, ptr %223, i64 3
+  %227 = load i8, ptr %226, align 1
+  %228 = or i8 %227, %225
+  %.not79 = icmp eq i8 %228, 0
+  br i1 %.not79, label %229, label %245
 
-242:                                              ; preds = %_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t.exit
-  %243 = icmp eq i32 %201, 37
-  br i1 %243, label %244, label %317
+229:                                              ; preds = %_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t.exit
+  %230 = icmp eq i32 %191, 37
+  br i1 %230, label %231, label %301
 
-244:                                              ; preds = %242
-  %245 = getelementptr inbounds nuw i8, ptr %171, i64 8
-  %246 = load i32, ptr %245, align 4
-  %247 = icmp eq i32 %246, 1
-  br i1 %247, label %248, label %317
+231:                                              ; preds = %229
+  %232 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %233 = load i32, ptr %232, align 4
+  %234 = icmp eq i32 %233, 1
+  br i1 %234, label %235, label %301
 
-248:                                              ; preds = %244
-  %249 = load ptr, ptr %0, align 8
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 352
-  %251 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv(ptr noundef nonnull align 8 dereferenceable(8) %250)
-  %252 = tail call noundef nonnull align 1 dereferenceable(12) ptr @_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t(ptr noundef nonnull align 1 dereferenceable(24) %251, i32 noundef 3)
-  %253 = getelementptr inbounds nuw i8, ptr %252, i64 2
-  %254 = load i8, ptr %253, align 1
-  %255 = zext i8 %254 to i32
-  %256 = shl nuw nsw i32 %255, 8
-  %257 = getelementptr inbounds nuw i8, ptr %252, i64 3
-  %258 = load i8, ptr %257, align 1
-  %259 = zext i8 %258 to i32
-  %260 = or disjoint i32 %256, %259
-  %.not80 = icmp eq i32 %260, 0
-  br i1 %.not80, label %317, label %261
+235:                                              ; preds = %231
+  %236 = load ptr, ptr %0, align 8
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 352
+  %238 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv(ptr noundef nonnull align 8 dereferenceable(8) %237)
+  %239 = tail call noundef nonnull align 1 dereferenceable(12) ptr @_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t(ptr noundef nonnull align 1 dereferenceable(24) %238, i32 noundef 3)
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 2
+  %241 = load i8, ptr %240, align 1
+  %242 = getelementptr inbounds nuw i8, ptr %239, i64 3
+  %243 = load i8, ptr %242, align 1
+  %244 = or i8 %243, %241
+  %.not80 = icmp eq i8 %244, 0
+  br i1 %.not80, label %301, label %245
 
-261:                                              ; preds = %248, %_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t.exit
-  %.0 = phi ptr [ %233, %_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t.exit ], [ %252, %248 ]
-  %262 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %263 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %264 = load i32, ptr %263, align 4
-  %265 = add i32 %264, 1
-  %266 = tail call i32 @llvm.smax.i32(i32 %265, i32 0)
-  %267 = load i32, ptr %262, align 8
-  %268 = icmp slt i32 %267, 0
-  br i1 %268, label %294, label %269
+245:                                              ; preds = %235, %_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t.exit
+  %.0 = phi ptr [ %223, %_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t.exit ], [ %239, %235 ]
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %248 = load i32, ptr %247, align 4
+  %249 = add i32 %248, 1
+  %250 = tail call i32 @llvm.smax.i32(i32 %249, i32 0)
+  %251 = load i32, ptr %246, align 8
+  %252 = icmp slt i32 %251, 0
+  br i1 %252, label %278, label %253
 
-269:                                              ; preds = %261
-  %.not.i.i.i64 = icmp sgt i32 %265, %267
+253:                                              ; preds = %245
+  %.not.i.i.i64 = icmp sgt i32 %249, %251
   br i1 %.not.i.i.i64, label %.preheader.i.i.i68, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i65
 
-.preheader.i.i.i68:                               ; preds = %269, %.preheader.i.i.i68
-  %.143.i.i.i69 = phi i32 [ %272, %.preheader.i.i.i68 ], [ %267, %269 ]
-  %270 = lshr i32 %.143.i.i.i69, 1
-  %271 = add nuw i32 %.143.i.i.i69, 8
-  %272 = add nuw i32 %271, %270
-  %273 = icmp ugt i32 %266, %272
-  br i1 %273, label %.preheader.i.i.i68, label %.thread.i.i.i70, !llvm.loop !8
+.preheader.i.i.i68:                               ; preds = %253, %.preheader.i.i.i68
+  %.143.i.i.i69 = phi i32 [ %256, %.preheader.i.i.i68 ], [ %251, %253 ]
+  %254 = lshr i32 %.143.i.i.i69, 1
+  %255 = add nuw i32 %.143.i.i.i69, 8
+  %256 = add nuw i32 %255, %254
+  %257 = icmp ugt i32 %250, %256
+  br i1 %257, label %.preheader.i.i.i68, label %.thread.i.i.i70, !llvm.loop !8
 
 .thread.i.i.i70:                                  ; preds = %.preheader.i.i.i68
-  %274 = icmp ugt i32 %272, 178956970
-  br i1 %274, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i.i74, label %275
+  %258 = icmp ugt i32 %256, 178956970
+  br i1 %258, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i.i74, label %259
 
-275:                                              ; preds = %.thread.i.i.i70
-  %276 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %277 = load ptr, ptr %276, align 8
-  %278 = zext nneg i32 %272 to i64
-  %279 = mul nuw nsw i64 %278, 24
-  %280 = tail call ptr @realloc(ptr noundef %277, i64 noundef %279) #12
-  %.not42.i.i.i71 = icmp eq ptr %280, null
-  br i1 %.not42.i.i.i71, label %281, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.i.i72
+259:                                              ; preds = %.thread.i.i.i70
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %261 = load ptr, ptr %260, align 8
+  %262 = zext nneg i32 %256 to i64
+  %263 = mul nuw nsw i64 %262, 24
+  %264 = tail call ptr @realloc(ptr noundef %261, i64 noundef %263) #12
+  %.not42.i.i.i71 = icmp eq ptr %264, null
+  br i1 %.not42.i.i.i71, label %265, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.i.i72
 
-281:                                              ; preds = %275
-  %282 = load i32, ptr %262, align 8
-  %.not21.i.i.i73 = icmp ugt i32 %272, %282
+265:                                              ; preds = %259
+  %266 = load i32, ptr %246, align 8
+  %.not21.i.i.i73 = icmp ugt i32 %256, %266
   br i1 %.not21.i.i.i73, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i.i74, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i65
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i.i74: ; preds = %281, %.thread.i.i.i70
-  %.01538.sink.i.ph.in.i.i75 = phi i32 [ %267, %.thread.i.i.i70 ], [ %282, %281 ]
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i.i74: ; preds = %265, %.thread.i.i.i70
+  %.01538.sink.i.ph.in.i.i75 = phi i32 [ %251, %.thread.i.i.i70 ], [ %266, %265 ]
   %.01538.sink.i.ph.i.i76 = xor i32 %.01538.sink.i.ph.in.i.i75, -1
-  store i32 %.01538.sink.i.ph.i.i76, ptr %262, align 8
-  br label %294
+  store i32 %.01538.sink.i.ph.i.i76, ptr %246, align 8
+  br label %278
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.i.i72: ; preds = %275
-  store ptr %280, ptr %276, align 8
-  store i32 %272, ptr %262, align 8
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.i.i72: ; preds = %259
+  store ptr %264, ptr %260, align 8
+  store i32 %256, ptr %246, align 8
   br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i65
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i65: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.i.i72, %281, %269
-  %283 = load i32, ptr %263, align 4
-  %284 = icmp ugt i32 %266, %283
-  br i1 %284, label %285, label %295
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i65: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.i.i72, %265, %253
+  %267 = load i32, ptr %247, align 4
+  %268 = icmp ugt i32 %250, %267
+  br i1 %268, label %269, label %279
 
-285:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i65
-  %286 = sub nuw nsw i32 %266, %283
-  %287 = mul i32 %286, 24
-  %.not.i.i.i.i67 = icmp eq i32 %287, 0
-  br i1 %.not.i.i.i.i67, label %295, label %288
+269:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i65
+  %270 = sub nuw nsw i32 %250, %267
+  %271 = mul i32 %270, 24
+  %.not.i.i.i.i67 = icmp eq i32 %271, 0
+  br i1 %.not.i.i.i.i67, label %279, label %272
 
-288:                                              ; preds = %285
-  %289 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %290 = load ptr, ptr %289, align 8
-  %291 = zext nneg i32 %283 to i64
-  %292 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_range_t", ptr %290, i64 %291
-  %293 = zext i32 %287 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %292, i8 0, i64 %293, i1 false)
-  br label %295
+272:                                              ; preds = %269
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %274 = load ptr, ptr %273, align 8
+  %275 = zext nneg i32 %267 to i64
+  %276 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_range_t", ptr %274, i64 %275
+  %277 = zext i32 %271 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %276, i8 0, i64 %277, i1 false)
+  br label %279
 
-294:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i.i74, %261
+278:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i.i74, %245
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(24) @_hb_NullPool, i64 24, i1 false)
   br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv.exit77
 
-295:                                              ; preds = %288, %285, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i65
-  store i32 %266, ptr %263, align 4
-  %296 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %297 = load ptr, ptr %296, align 8
-  %298 = add nsw i32 %266, -1
-  %299 = zext i32 %298 to i64
-  %300 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_range_t", ptr %297, i64 %299
+279:                                              ; preds = %272, %269, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i65
+  store i32 %250, ptr %247, align 4
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %281 = load ptr, ptr %280, align 8
+  %282 = add nsw i32 %250, -1
+  %283 = zext i32 %282 to i64
+  %284 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_range_t", ptr %281, i64 %283
   br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv.exit77
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv.exit77: ; preds = %294, %295
-  %.0.i66 = phi ptr [ %300, %295 ], [ @_hb_CrapPool, %294 ]
-  %301 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %302 = load i32, ptr %301, align 4
-  %303 = getelementptr inbounds nuw i8, ptr %.0.i66, i64 16
-  store i32 %302, ptr %303, align 4
-  %304 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %305 = load i32, ptr %304, align 4
-  %306 = getelementptr inbounds nuw i8, ptr %.0.i66, i64 20
-  store i32 %305, ptr %306, align 4
-  %307 = load i32, ptr %200, align 4
-  store i32 %307, ptr %.0.i66, align 4
-  %308 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %309 = load i32, ptr %308, align 4
-  %.not33 = icmp eq i32 %309, 0
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv.exit77: ; preds = %278, %279
+  %.0.i66 = phi ptr [ %284, %279 ], [ @_hb_CrapPool, %278 ]
+  %285 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %286 = load i32, ptr %285, align 4
+  %287 = getelementptr inbounds nuw i8, ptr %.0.i66, i64 16
+  store i32 %286, ptr %287, align 4
+  %288 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %289 = load i32, ptr %288, align 4
+  %290 = getelementptr inbounds nuw i8, ptr %.0.i66, i64 20
+  store i32 %289, ptr %290, align 4
+  %291 = load i32, ptr %190, align 4
+  store i32 %291, ptr %.0.i66, align 4
+  %292 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %293 = load i32, ptr %292, align 4
+  %.not33 = icmp eq i32 %293, 0
   %.in.v = select i1 %.not33, i64 12, i64 8
-  %.in = getelementptr inbounds nuw i8, ptr %171, i64 %.in.v
-  %310 = load i32, ptr %.in, align 4
-  %311 = getelementptr inbounds nuw i8, ptr %.0.i66, i64 4
-  store i32 %310, ptr %311, align 4
-  %312 = load i32, ptr %263, align 4
-  %313 = getelementptr inbounds nuw i8, ptr %.0.i66, i64 12
-  store i32 %312, ptr %313, align 4
-  %314 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %315 = load i8, ptr %314, align 1
-  %316 = getelementptr inbounds nuw i8, ptr %.0.i66, i64 8
-  %.lobit = lshr i8 %315, 7
-  store i8 %.lobit, ptr %316, align 4
-  br label %317
+  %.in = getelementptr inbounds nuw i8, ptr %161, i64 %.in.v
+  %294 = load i32, ptr %.in, align 4
+  %295 = getelementptr inbounds nuw i8, ptr %.0.i66, i64 4
+  store i32 %294, ptr %295, align 4
+  %296 = load i32, ptr %247, align 4
+  %297 = getelementptr inbounds nuw i8, ptr %.0.i66, i64 12
+  store i32 %296, ptr %297, align 4
+  %298 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %299 = load i8, ptr %298, align 1
+  %300 = getelementptr inbounds nuw i8, ptr %.0.i66, i64 8
+  %.lobit = lshr i8 %299, 7
+  store i8 %.lobit, ptr %300, align 4
+  br label %301
 
-317:                                              ; preds = %242, %244, %248, %170, %_ZNK3AAT4feat15exposes_featureE28hb_aat_layout_feature_type_t.exit, %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv.exit77, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv.exit
+301:                                              ; preds = %229, %231, %235, %160, %_ZNK3AAT4feat15exposes_featureE28hb_aat_layout_feature_type_t.exit, %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv.exit77, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv.exit
   ret void
 }
 

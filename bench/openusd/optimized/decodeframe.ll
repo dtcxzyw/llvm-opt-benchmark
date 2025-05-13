@@ -11286,10 +11286,6 @@ dec_calc_subpel_params.exit:                      ; preds = %av1_is_scaled.exit.
   %213 = sext i32 %5 to i64
   %214 = getelementptr inbounds ptr, ptr %6, i64 %213
   %215 = load ptr, ptr %214, align 8
-  %.sroa.4.0.insert.ext = zext i32 %.sroa.4.0 to i64
-  %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
-  %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0 to i64
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.0.0.insert.ext
   %216 = load i32, ptr %205, align 8
   %.not.i.i.i.i = icmp eq i32 %216, -1
   br i1 %.not.i.i.i.i, label %av1_is_scaled.exit.i.i, label %av1_is_valid_scale.exit.i.i.i
@@ -11317,534 +11313,535 @@ av1_is_scaled.exit.i.i:                           ; preds = %219, %av1_is_valid_
   br i1 %or.cond.not.i.i, label %226, label %extend_mc_border.exit
 
 226:                                              ; preds = %av1_is_scaled.exit.i.i
-  %227 = icmp eq i64 %.sroa.0.0.insert.insert, 0
-  %or.cond7.i.i = select i1 %not..i.i, i1 %227, i1 false
-  %228 = and i32 %222, 7
-  %.not.i.i = icmp eq i32 %228, 0
+  %227 = or i32 %.sroa.0.0, %.sroa.4.0
+  %228 = icmp eq i32 %227, 0
+  %or.cond7.i.i = select i1 %not..i.i, i1 %228, i1 false
+  %229 = and i32 %222, 7
+  %.not.i.i = icmp eq i32 %229, 0
   %or.cond.i.i = select i1 %or.cond7.i.i, i1 %.not.i.i, i1 false
-  %229 = and i32 %224, 7
-  %.not31.i.i = icmp eq i32 %229, 0
+  %230 = and i32 %224, 7
+  %.not31.i.i = icmp eq i32 %230, 0
   %or.cond38.i.i = select i1 %or.cond.i.i, i1 %.not31.i.i, i1 false
-  br i1 %or.cond38.i.i, label %extend_mc_border.exit, label %230
+  br i1 %or.cond38.i.i, label %extend_mc_border.exit, label %231
 
-230:                                              ; preds = %226
+231:                                              ; preds = %226
   %.not32.i.i = icmp eq i32 %.sink.i, 0
-  br i1 %.not32.i.i, label %231, label %234
+  br i1 %.not32.i.i, label %232, label %235
 
-231:                                              ; preds = %230
-  %232 = getelementptr inbounds nuw i8, ptr %205, i64 8
-  %233 = load i32, ptr %232, align 8
-  %.not33.i.i = icmp eq i32 %233, 16
-  br i1 %.not33.i.i, label %237, label %234
+232:                                              ; preds = %231
+  %233 = getelementptr inbounds nuw i8, ptr %205, i64 8
+  %234 = load i32, ptr %233, align 8
+  %.not33.i.i = icmp eq i32 %234, 16
+  br i1 %.not33.i.i, label %238, label %235
 
-234:                                              ; preds = %231, %230
-  %235 = add nsw i32 %.sroa.018.0, -3
-  %236 = add nsw i32 %.sroa.420.0, 4
-  br label %237
+235:                                              ; preds = %232, %231
+  %236 = add nsw i32 %.sroa.018.0, -3
+  %237 = add nsw i32 %.sroa.420.0, 4
+  br label %238
 
-237:                                              ; preds = %234, %231
-  %.sroa.5.1.i = phi i32 [ %.sroa.420.0, %231 ], [ %236, %234 ]
-  %.sroa.0.1.i = phi i32 [ %.sroa.018.0, %231 ], [ %235, %234 ]
-  %.173.i = phi i64 [ 0, %231 ], [ 3, %234 ]
+238:                                              ; preds = %235, %232
+  %.sroa.5.1.i = phi i32 [ %.sroa.420.0, %232 ], [ %237, %235 ]
+  %.sroa.0.1.i = phi i32 [ %.sroa.018.0, %232 ], [ %236, %235 ]
+  %.173.i = phi i64 [ 0, %232 ], [ 3, %235 ]
   %.not34.i.i = icmp eq i32 %194, 0
-  br i1 %.not34.i.i, label %238, label %241
+  br i1 %.not34.i.i, label %239, label %242
 
-238:                                              ; preds = %237
-  %239 = getelementptr inbounds nuw i8, ptr %205, i64 12
-  %240 = load i32, ptr %239, align 4
-  %.not35.i.i = icmp eq i32 %240, 16
-  br i1 %.not35.i.i, label %244, label %241
+239:                                              ; preds = %238
+  %240 = getelementptr inbounds nuw i8, ptr %205, i64 12
+  %241 = load i32, ptr %240, align 4
+  %.not35.i.i = icmp eq i32 %241, 16
+  br i1 %.not35.i.i, label %245, label %242
 
-241:                                              ; preds = %238, %237
-  %242 = add nsw i32 %.sroa.6.0, -3
-  %243 = add nsw i32 %.sroa.10.0, 4
-  br label %244
+242:                                              ; preds = %239, %238
+  %243 = add nsw i32 %.sroa.6.0, -3
+  %244 = add nsw i32 %.sroa.10.0, 4
+  br label %245
 
-244:                                              ; preds = %241, %238
-  %.sroa.14.1.i = phi i32 [ %.sroa.10.0, %238 ], [ %243, %241 ]
-  %.sroa.9.1.i = phi i32 [ %.sroa.6.0, %238 ], [ %242, %241 ]
-  %.1.i = phi i32 [ 0, %238 ], [ 3, %241 ]
-  %245 = icmp sgt i32 %.sroa.0.1.i, -1
+245:                                              ; preds = %242, %239
+  %.sroa.14.1.i = phi i32 [ %.sroa.10.0, %239 ], [ %244, %242 ]
+  %.sroa.9.1.i = phi i32 [ %.sroa.6.0, %239 ], [ %243, %242 ]
+  %.1.i = phi i32 [ 0, %239 ], [ 3, %242 ]
+  %246 = icmp sgt i32 %.sroa.0.1.i, -1
   %.not36.i.i = icmp slt i32 %.sroa.5.1.i, %222
-  %or.cond.not91.not94.i = select i1 %245, i1 %.not36.i.i, i1 false
-  %246 = icmp sgt i32 %.sroa.9.1.i, -1
-  %or.cond89.not92.i = select i1 %or.cond.not91.not94.i, i1 %246, i1 false
+  %or.cond.not91.not94.i = select i1 %246, i1 %.not36.i.i, i1 false
+  %247 = icmp sgt i32 %.sroa.9.1.i, -1
+  %or.cond89.not92.i = select i1 %or.cond.not91.not94.i, i1 %247, i1 false
   %.not37.i.i = icmp slt i32 %.sroa.14.1.i, %224
   %or.cond90.i = select i1 %or.cond89.not92.i, i1 %.not37.i.i, i1 false
-  br i1 %or.cond90.i, label %extend_mc_border.exit, label %247
+  br i1 %or.cond90.i, label %extend_mc_border.exit, label %248
 
-247:                                              ; preds = %244
-  %248 = load ptr, ptr %195, align 8
-  %249 = mul nsw i32 %204, %.sroa.9.1.i
-  %250 = sext i32 %249 to i64
-  %251 = getelementptr inbounds i8, ptr %248, i64 %250
-  %252 = sext i32 %.sroa.0.1.i to i64
-  %253 = sub nsw i32 %.sroa.5.1.i, %.sroa.0.1.i
-  %254 = sub nsw i32 %.sroa.14.1.i, %.sroa.9.1.i
+248:                                              ; preds = %245
+  %249 = load ptr, ptr %195, align 8
+  %250 = mul nsw i32 %204, %.sroa.9.1.i
+  %251 = sext i32 %250 to i64
+  %252 = getelementptr inbounds i8, ptr %249, i64 %251
+  %253 = sext i32 %.sroa.0.1.i to i64
+  %254 = sub nsw i32 %.sroa.5.1.i, %.sroa.0.1.i
+  %255 = sub nsw i32 %.sroa.14.1.i, %.sroa.9.1.i
   %.not30.i = icmp eq i32 %212, 0
-  br i1 %.not30.i, label %374, label %255
+  br i1 %.not30.i, label %375, label %256
 
-255:                                              ; preds = %247
-  %256 = getelementptr inbounds i8, ptr %251, i64 %252
-  %257 = ptrtoint ptr %256 to i64
-  %258 = shl i64 %257, 1
-  %259 = inttoptr i64 %258 to ptr
-  %260 = ptrtoint ptr %215 to i64
-  %261 = shl i64 %260, 1
-  %262 = inttoptr i64 %261 to ptr
-  %263 = sub nsw i64 0, %252
-  %264 = getelementptr inbounds i16, ptr %259, i64 %263
-  %265 = sub nsw i64 0, %250
-  %266 = getelementptr inbounds i16, ptr %264, i64 %265
+256:                                              ; preds = %248
+  %257 = getelementptr inbounds i8, ptr %252, i64 %253
+  %258 = ptrtoint ptr %257 to i64
+  %259 = shl i64 %258, 1
+  %260 = inttoptr i64 %259 to ptr
+  %261 = ptrtoint ptr %215 to i64
+  %262 = shl i64 %261, 1
+  %263 = inttoptr i64 %262 to ptr
+  %264 = sub nsw i64 0, %253
+  %265 = getelementptr inbounds i16, ptr %260, i64 %264
+  %266 = sub nsw i64 0, %251
+  %267 = getelementptr inbounds i16, ptr %265, i64 %266
   %.not.i31.i = icmp slt i32 %.sroa.9.1.i, %224
-  br i1 %.not.i31.i, label %272, label %267
+  br i1 %.not.i31.i, label %273, label %268
 
-267:                                              ; preds = %255
-  %268 = add nsw i32 %224, -1
-  %269 = mul nsw i32 %204, %268
-  %270 = sext i32 %269 to i64
-  %271 = getelementptr inbounds i16, ptr %266, i64 %270
-  br label %274
+268:                                              ; preds = %256
+  %269 = add nsw i32 %224, -1
+  %270 = mul nsw i32 %204, %269
+  %271 = sext i32 %270 to i64
+  %272 = getelementptr inbounds i16, ptr %267, i64 %271
+  br label %275
 
-272:                                              ; preds = %255
-  %273 = icmp sgt i32 %.sroa.9.1.i, 0
-  %spec.select.i33.i = select i1 %273, ptr %264, ptr %266
-  br label %274
+273:                                              ; preds = %256
+  %274 = icmp sgt i32 %.sroa.9.1.i, 0
+  %spec.select.i33.i = select i1 %274, ptr %265, ptr %267
+  br label %275
 
-274:                                              ; preds = %272, %267
-  %.060.i.i = phi ptr [ %271, %267 ], [ %spec.select.i33.i, %272 ]
-  %275 = icmp slt i32 %.sroa.0.1.i, 0
-  %276 = sub nsw i32 0, %.sroa.0.1.i
-  %277 = select i1 %275, i32 %276, i32 0
-  %spec.select78.i.i = call i32 @llvm.smin.i32(i32 %277, i32 %253)
-  %278 = icmp sgt i32 %.sroa.5.1.i, %222
-  %279 = sub nsw i32 %.sroa.5.1.i, %222
-  %.059.i.i = select i1 %278, i32 %279, i32 0
+275:                                              ; preds = %273, %268
+  %.060.i.i = phi ptr [ %272, %268 ], [ %spec.select.i33.i, %273 ]
+  %276 = icmp slt i32 %.sroa.0.1.i, 0
+  %277 = sub nsw i32 0, %.sroa.0.1.i
+  %278 = select i1 %276, i32 %277, i32 0
+  %spec.select78.i.i = call i32 @llvm.smin.i32(i32 %278, i32 %254)
+  %279 = icmp sgt i32 %.sroa.5.1.i, %222
+  %280 = sub nsw i32 %.sroa.5.1.i, %222
+  %.059.i.i = select i1 %279, i32 %280, i32 0
   %.059.fr.i.i = freeze i32 %.059.i.i
-  %.1.i.i = call i32 @llvm.smin.i32(i32 %.059.fr.i.i, i32 %253)
-  %280 = add i32 %.1.i.i, %spec.select78.i.i
-  %281 = sub i32 %253, %280
+  %.1.i.i = call i32 @llvm.smin.i32(i32 %.059.fr.i.i, i32 %254)
+  %281 = add i32 %.1.i.i, %spec.select78.i.i
+  %282 = sub i32 %254, %281
   %.not74.i.i = icmp eq i32 %spec.select78.i.i, 0
-  %282 = sext i32 %spec.select78.i.i to i64
-  %.not75.i.i = icmp eq i32 %253, %280
-  %283 = sext i32 %281 to i64
-  %284 = shl nsw i64 %283, 1
+  %283 = sext i32 %spec.select78.i.i to i64
+  %.not75.i.i = icmp eq i32 %254, %281
+  %284 = sext i32 %282 to i64
+  %285 = shl nsw i64 %284, 1
   %.not76.i.i = icmp eq i32 %.1.i.i, 0
-  %285 = sext i32 %222 to i64
-  %286 = sext i32 %.1.i.i to i64
-  %287 = sext i32 %253 to i64
-  %288 = sext i32 %204 to i64
+  %286 = sext i32 %222 to i64
+  %287 = sext i32 %.1.i.i to i64
+  %288 = sext i32 %254 to i64
+  %289 = sext i32 %204 to i64
   br i1 %.not74.i.i, label %.split.us.i.i, label %.split.i.i
 
-.split.us.i.i:                                    ; preds = %274
+.split.us.i.i:                                    ; preds = %275
   br i1 %.not76.i.i, label %.split.us.split.us.i.i, label %.split.us.split.i.i
 
 .split.us.split.us.i.i:                           ; preds = %.split.us.i.i
   br i1 %.not75.i.i, label %highbd_build_mc_border.exit.i, label %.split.us.split.us.split.i.i
 
 .split.us.split.us.split.i.i:                     ; preds = %.split.us.split.us.i.i, %.split.us.split.us.split.i.i
-  %.063.us.us.i.i = phi i32 [ %296, %.split.us.split.us.split.i.i ], [ %254, %.split.us.split.us.i.i ]
-  %.062.us.us.i.i = phi ptr [ %292, %.split.us.split.us.split.i.i ], [ %262, %.split.us.split.us.i.i ]
+  %.063.us.us.i.i = phi i32 [ %297, %.split.us.split.us.split.i.i ], [ %255, %.split.us.split.us.i.i ]
+  %.062.us.us.i.i = phi ptr [ %293, %.split.us.split.us.split.i.i ], [ %263, %.split.us.split.us.i.i ]
   %.161.us.us.i.i = phi ptr [ %.2.us.us.i.i, %.split.us.split.us.split.i.i ], [ %.060.i.i, %.split.us.split.us.i.i ]
-  %.058.us.us.i.i = phi i32 [ %293, %.split.us.split.us.split.i.i ], [ %.sroa.9.1.i, %.split.us.split.us.i.i ]
-  %289 = getelementptr inbounds nuw i16, ptr %.062.us.us.i.i, i64 %282
-  %290 = getelementptr inbounds i16, ptr %.161.us.us.i.i, i64 %252
-  %291 = getelementptr inbounds nuw i16, ptr %290, i64 %282
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %289, ptr align 2 %291, i64 %284, i1 false)
-  %292 = getelementptr inbounds i16, ptr %.062.us.us.i.i, i64 %287
-  %293 = add nsw i32 %.058.us.us.i.i, 1
-  %294 = icmp sgt i32 %.058.us.us.i.i, -1
-  %295 = icmp slt i32 %293, %224
-  %or.cond.us.us.i.i = select i1 %294, i1 %295, i1 false
-  %.2.idx.us.us.i.i = select i1 %or.cond.us.us.i.i, i64 %288, i64 0
+  %.058.us.us.i.i = phi i32 [ %294, %.split.us.split.us.split.i.i ], [ %.sroa.9.1.i, %.split.us.split.us.i.i ]
+  %290 = getelementptr inbounds nuw i16, ptr %.062.us.us.i.i, i64 %283
+  %291 = getelementptr inbounds i16, ptr %.161.us.us.i.i, i64 %253
+  %292 = getelementptr inbounds nuw i16, ptr %291, i64 %283
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %290, ptr align 2 %292, i64 %285, i1 false)
+  %293 = getelementptr inbounds i16, ptr %.062.us.us.i.i, i64 %288
+  %294 = add nsw i32 %.058.us.us.i.i, 1
+  %295 = icmp sgt i32 %.058.us.us.i.i, -1
+  %296 = icmp slt i32 %294, %224
+  %or.cond.us.us.i.i = select i1 %295, i1 %296, i1 false
+  %.2.idx.us.us.i.i = select i1 %or.cond.us.us.i.i, i64 %289, i64 0
   %.2.us.us.i.i = getelementptr inbounds i16, ptr %.161.us.us.i.i, i64 %.2.idx.us.us.i.i
-  %296 = add nsw i32 %.063.us.us.i.i, -1
-  %.not77.us.us.i.i = icmp eq i32 %296, 0
+  %297 = add nsw i32 %.063.us.us.i.i, -1
+  %.not77.us.us.i.i = icmp eq i32 %297, 0
   br i1 %.not77.us.us.i.i, label %highbd_build_mc_border.exit.i, label %.split.us.split.us.split.i.i, !llvm.loop !102
 
 .split.us.split.i.i:                              ; preds = %.split.us.i.i
   br i1 %.not75.i.i, label %.split.us.split.split.us.i.i, label %.split.us.split.split.i.i
 
 .split.us.split.split.us.i.i:                     ; preds = %.split.us.split.i.i, %.split.us.split.split.us.i.i
-  %.063.us.us98.i.i = phi i32 [ %308, %.split.us.split.split.us.i.i ], [ %254, %.split.us.split.i.i ]
-  %.062.us.us99.i.i = phi ptr [ %304, %.split.us.split.split.us.i.i ], [ %262, %.split.us.split.i.i ]
+  %.063.us.us98.i.i = phi i32 [ %309, %.split.us.split.split.us.i.i ], [ %255, %.split.us.split.i.i ]
+  %.062.us.us99.i.i = phi ptr [ %305, %.split.us.split.split.us.i.i ], [ %263, %.split.us.split.i.i ]
   %.161.us.us100.i.i = phi ptr [ %.2.us.us104.i.i, %.split.us.split.split.us.i.i ], [ %.060.i.i, %.split.us.split.i.i ]
-  %.058.us.us101.i.i = phi i32 [ %305, %.split.us.split.split.us.i.i ], [ %.sroa.9.1.i, %.split.us.split.i.i ]
-  %297 = getelementptr inbounds nuw i16, ptr %.062.us.us99.i.i, i64 %282
-  %298 = getelementptr inbounds i16, ptr %297, i64 %283
-  %299 = getelementptr i16, ptr %.161.us.us100.i.i, i64 %285
-  %300 = getelementptr i8, ptr %299, i64 -2
-  %301 = load i16, ptr %300, align 2
-  %302 = zext i16 %301 to i32
-  %303 = call ptr @aom_memset16(ptr noundef %298, i32 noundef %302, i64 noundef %286) #16
-  %304 = getelementptr inbounds i16, ptr %.062.us.us99.i.i, i64 %287
-  %305 = add nsw i32 %.058.us.us101.i.i, 1
-  %306 = icmp sgt i32 %.058.us.us101.i.i, -1
-  %307 = icmp slt i32 %305, %224
-  %or.cond.us.us102.i.i = select i1 %306, i1 %307, i1 false
-  %.2.idx.us.us103.i.i = select i1 %or.cond.us.us102.i.i, i64 %288, i64 0
+  %.058.us.us101.i.i = phi i32 [ %306, %.split.us.split.split.us.i.i ], [ %.sroa.9.1.i, %.split.us.split.i.i ]
+  %298 = getelementptr inbounds nuw i16, ptr %.062.us.us99.i.i, i64 %283
+  %299 = getelementptr inbounds i16, ptr %298, i64 %284
+  %300 = getelementptr i16, ptr %.161.us.us100.i.i, i64 %286
+  %301 = getelementptr i8, ptr %300, i64 -2
+  %302 = load i16, ptr %301, align 2
+  %303 = zext i16 %302 to i32
+  %304 = call ptr @aom_memset16(ptr noundef %299, i32 noundef %303, i64 noundef %287) #16
+  %305 = getelementptr inbounds i16, ptr %.062.us.us99.i.i, i64 %288
+  %306 = add nsw i32 %.058.us.us101.i.i, 1
+  %307 = icmp sgt i32 %.058.us.us101.i.i, -1
+  %308 = icmp slt i32 %306, %224
+  %or.cond.us.us102.i.i = select i1 %307, i1 %308, i1 false
+  %.2.idx.us.us103.i.i = select i1 %or.cond.us.us102.i.i, i64 %289, i64 0
   %.2.us.us104.i.i = getelementptr inbounds i16, ptr %.161.us.us100.i.i, i64 %.2.idx.us.us103.i.i
-  %308 = add nsw i32 %.063.us.us98.i.i, -1
-  %.not77.us.us105.i.i = icmp eq i32 %308, 0
+  %309 = add nsw i32 %.063.us.us98.i.i, -1
+  %.not77.us.us105.i.i = icmp eq i32 %309, 0
   br i1 %.not77.us.us105.i.i, label %highbd_build_mc_border.exit.i, label %.split.us.split.split.us.i.i, !llvm.loop !102
 
 .split.us.split.split.i.i:                        ; preds = %.split.us.split.i.i, %.split.us.split.split.i.i
-  %.063.us.i.i = phi i32 [ %322, %.split.us.split.split.i.i ], [ %254, %.split.us.split.i.i ]
-  %.062.us.i.i = phi ptr [ %318, %.split.us.split.split.i.i ], [ %262, %.split.us.split.i.i ]
+  %.063.us.i.i = phi i32 [ %323, %.split.us.split.split.i.i ], [ %255, %.split.us.split.i.i ]
+  %.062.us.i.i = phi ptr [ %319, %.split.us.split.split.i.i ], [ %263, %.split.us.split.i.i ]
   %.161.us.i.i = phi ptr [ %.2.us.i.i, %.split.us.split.split.i.i ], [ %.060.i.i, %.split.us.split.i.i ]
-  %.058.us.i.i = phi i32 [ %319, %.split.us.split.split.i.i ], [ %.sroa.9.1.i, %.split.us.split.i.i ]
-  %309 = getelementptr inbounds nuw i16, ptr %.062.us.i.i, i64 %282
-  %310 = getelementptr inbounds i16, ptr %.161.us.i.i, i64 %252
-  %311 = getelementptr inbounds nuw i16, ptr %310, i64 %282
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %309, ptr align 2 %311, i64 %284, i1 false)
-  %312 = getelementptr inbounds i16, ptr %309, i64 %283
-  %313 = getelementptr i16, ptr %.161.us.i.i, i64 %285
-  %314 = getelementptr i8, ptr %313, i64 -2
-  %315 = load i16, ptr %314, align 2
-  %316 = zext i16 %315 to i32
-  %317 = call ptr @aom_memset16(ptr noundef nonnull %312, i32 noundef %316, i64 noundef %286) #16
-  %318 = getelementptr inbounds i16, ptr %.062.us.i.i, i64 %287
-  %319 = add nsw i32 %.058.us.i.i, 1
-  %320 = icmp sgt i32 %.058.us.i.i, -1
-  %321 = icmp slt i32 %319, %224
-  %or.cond.us.i.i = select i1 %320, i1 %321, i1 false
-  %.2.idx.us.i.i = select i1 %or.cond.us.i.i, i64 %288, i64 0
+  %.058.us.i.i = phi i32 [ %320, %.split.us.split.split.i.i ], [ %.sroa.9.1.i, %.split.us.split.i.i ]
+  %310 = getelementptr inbounds nuw i16, ptr %.062.us.i.i, i64 %283
+  %311 = getelementptr inbounds i16, ptr %.161.us.i.i, i64 %253
+  %312 = getelementptr inbounds nuw i16, ptr %311, i64 %283
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %310, ptr align 2 %312, i64 %285, i1 false)
+  %313 = getelementptr inbounds i16, ptr %310, i64 %284
+  %314 = getelementptr i16, ptr %.161.us.i.i, i64 %286
+  %315 = getelementptr i8, ptr %314, i64 -2
+  %316 = load i16, ptr %315, align 2
+  %317 = zext i16 %316 to i32
+  %318 = call ptr @aom_memset16(ptr noundef nonnull %313, i32 noundef %317, i64 noundef %287) #16
+  %319 = getelementptr inbounds i16, ptr %.062.us.i.i, i64 %288
+  %320 = add nsw i32 %.058.us.i.i, 1
+  %321 = icmp sgt i32 %.058.us.i.i, -1
+  %322 = icmp slt i32 %320, %224
+  %or.cond.us.i.i = select i1 %321, i1 %322, i1 false
+  %.2.idx.us.i.i = select i1 %or.cond.us.i.i, i64 %289, i64 0
   %.2.us.i.i = getelementptr inbounds i16, ptr %.161.us.i.i, i64 %.2.idx.us.i.i
-  %322 = add nsw i32 %.063.us.i.i, -1
-  %.not77.us.i.i = icmp eq i32 %322, 0
+  %323 = add nsw i32 %.063.us.i.i, -1
+  %.not77.us.i.i = icmp eq i32 %323, 0
   br i1 %.not77.us.i.i, label %highbd_build_mc_border.exit.i, label %.split.us.split.split.i.i, !llvm.loop !102
 
-.split.i.i:                                       ; preds = %274
+.split.i.i:                                       ; preds = %275
   br i1 %.not76.i.i, label %.split.split.us.i.i, label %.split.split.i.i
 
 .split.split.us.i.i:                              ; preds = %.split.i.i
   br i1 %.not75.i.i, label %.split.split.us.split.us.i.i, label %.split.split.us.split.i.i
 
 .split.split.us.split.us.i.i:                     ; preds = %.split.split.us.i.i, %.split.split.us.split.us.i.i
-  %.063.us81.us.i.i = phi i32 [ %330, %.split.split.us.split.us.i.i ], [ %254, %.split.split.us.i.i ]
-  %.062.us82.us.i.i = phi ptr [ %326, %.split.split.us.split.us.i.i ], [ %262, %.split.split.us.i.i ]
+  %.063.us81.us.i.i = phi i32 [ %331, %.split.split.us.split.us.i.i ], [ %255, %.split.split.us.i.i ]
+  %.062.us82.us.i.i = phi ptr [ %327, %.split.split.us.split.us.i.i ], [ %263, %.split.split.us.i.i ]
   %.161.us83.us.i.i = phi ptr [ %.2.us87.us.i.i, %.split.split.us.split.us.i.i ], [ %.060.i.i, %.split.split.us.i.i ]
-  %.058.us84.us.i.i = phi i32 [ %327, %.split.split.us.split.us.i.i ], [ %.sroa.9.1.i, %.split.split.us.i.i ]
-  %323 = load i16, ptr %.161.us83.us.i.i, align 2
-  %324 = zext i16 %323 to i32
-  %325 = call ptr @aom_memset16(ptr noundef %.062.us82.us.i.i, i32 noundef %324, i64 noundef %282) #16
-  %326 = getelementptr inbounds i16, ptr %.062.us82.us.i.i, i64 %287
-  %327 = add nsw i32 %.058.us84.us.i.i, 1
-  %328 = icmp sgt i32 %.058.us84.us.i.i, -1
-  %329 = icmp slt i32 %327, %224
-  %or.cond.us85.us.i.i = select i1 %328, i1 %329, i1 false
-  %.2.idx.us86.us.i.i = select i1 %or.cond.us85.us.i.i, i64 %288, i64 0
+  %.058.us84.us.i.i = phi i32 [ %328, %.split.split.us.split.us.i.i ], [ %.sroa.9.1.i, %.split.split.us.i.i ]
+  %324 = load i16, ptr %.161.us83.us.i.i, align 2
+  %325 = zext i16 %324 to i32
+  %326 = call ptr @aom_memset16(ptr noundef %.062.us82.us.i.i, i32 noundef %325, i64 noundef %283) #16
+  %327 = getelementptr inbounds i16, ptr %.062.us82.us.i.i, i64 %288
+  %328 = add nsw i32 %.058.us84.us.i.i, 1
+  %329 = icmp sgt i32 %.058.us84.us.i.i, -1
+  %330 = icmp slt i32 %328, %224
+  %or.cond.us85.us.i.i = select i1 %329, i1 %330, i1 false
+  %.2.idx.us86.us.i.i = select i1 %or.cond.us85.us.i.i, i64 %289, i64 0
   %.2.us87.us.i.i = getelementptr inbounds i16, ptr %.161.us83.us.i.i, i64 %.2.idx.us86.us.i.i
-  %330 = add nsw i32 %.063.us81.us.i.i, -1
-  %.not77.us88.us.i.i = icmp eq i32 %330, 0
+  %331 = add nsw i32 %.063.us81.us.i.i, -1
+  %.not77.us88.us.i.i = icmp eq i32 %331, 0
   br i1 %.not77.us88.us.i.i, label %highbd_build_mc_border.exit.i, label %.split.split.us.split.us.i.i, !llvm.loop !102
 
 .split.split.us.split.i.i:                        ; preds = %.split.split.us.i.i, %.split.split.us.split.i.i
-  %.063.us81.i.i = phi i32 [ %341, %.split.split.us.split.i.i ], [ %254, %.split.split.us.i.i ]
-  %.062.us82.i.i = phi ptr [ %337, %.split.split.us.split.i.i ], [ %262, %.split.split.us.i.i ]
+  %.063.us81.i.i = phi i32 [ %342, %.split.split.us.split.i.i ], [ %255, %.split.split.us.i.i ]
+  %.062.us82.i.i = phi ptr [ %338, %.split.split.us.split.i.i ], [ %263, %.split.split.us.i.i ]
   %.161.us83.i.i = phi ptr [ %.2.us87.i.i, %.split.split.us.split.i.i ], [ %.060.i.i, %.split.split.us.i.i ]
-  %.058.us84.i.i = phi i32 [ %338, %.split.split.us.split.i.i ], [ %.sroa.9.1.i, %.split.split.us.i.i ]
-  %331 = load i16, ptr %.161.us83.i.i, align 2
-  %332 = zext i16 %331 to i32
-  %333 = call ptr @aom_memset16(ptr noundef %.062.us82.i.i, i32 noundef %332, i64 noundef %282) #16
-  %334 = getelementptr inbounds i16, ptr %.062.us82.i.i, i64 %282
-  %335 = getelementptr inbounds i16, ptr %.161.us83.i.i, i64 %252
-  %336 = getelementptr inbounds i16, ptr %335, i64 %282
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %334, ptr nonnull align 2 %336, i64 %284, i1 false)
-  %337 = getelementptr inbounds i16, ptr %.062.us82.i.i, i64 %287
-  %338 = add nsw i32 %.058.us84.i.i, 1
-  %339 = icmp sgt i32 %.058.us84.i.i, -1
-  %340 = icmp slt i32 %338, %224
-  %or.cond.us85.i.i = select i1 %339, i1 %340, i1 false
-  %.2.idx.us86.i.i = select i1 %or.cond.us85.i.i, i64 %288, i64 0
+  %.058.us84.i.i = phi i32 [ %339, %.split.split.us.split.i.i ], [ %.sroa.9.1.i, %.split.split.us.i.i ]
+  %332 = load i16, ptr %.161.us83.i.i, align 2
+  %333 = zext i16 %332 to i32
+  %334 = call ptr @aom_memset16(ptr noundef %.062.us82.i.i, i32 noundef %333, i64 noundef %283) #16
+  %335 = getelementptr inbounds i16, ptr %.062.us82.i.i, i64 %283
+  %336 = getelementptr inbounds i16, ptr %.161.us83.i.i, i64 %253
+  %337 = getelementptr inbounds i16, ptr %336, i64 %283
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %335, ptr nonnull align 2 %337, i64 %285, i1 false)
+  %338 = getelementptr inbounds i16, ptr %.062.us82.i.i, i64 %288
+  %339 = add nsw i32 %.058.us84.i.i, 1
+  %340 = icmp sgt i32 %.058.us84.i.i, -1
+  %341 = icmp slt i32 %339, %224
+  %or.cond.us85.i.i = select i1 %340, i1 %341, i1 false
+  %.2.idx.us86.i.i = select i1 %or.cond.us85.i.i, i64 %289, i64 0
   %.2.us87.i.i = getelementptr inbounds i16, ptr %.161.us83.i.i, i64 %.2.idx.us86.i.i
-  %341 = add nsw i32 %.063.us81.i.i, -1
-  %.not77.us88.i.i = icmp eq i32 %341, 0
+  %342 = add nsw i32 %.063.us81.i.i, -1
+  %.not77.us88.i.i = icmp eq i32 %342, 0
   br i1 %.not77.us88.i.i, label %highbd_build_mc_border.exit.i, label %.split.split.us.split.i.i, !llvm.loop !102
 
 .split.split.i.i:                                 ; preds = %.split.i.i
   br i1 %.not75.i.i, label %.split.split.split.us.i.i, label %.split.split.split.i.i
 
 .split.split.split.us.i.i:                        ; preds = %.split.split.i.i, %.split.split.split.us.i.i
-  %.063.us89.i.i = phi i32 [ %356, %.split.split.split.us.i.i ], [ %254, %.split.split.i.i ]
-  %.062.us90.i.i = phi ptr [ %352, %.split.split.split.us.i.i ], [ %262, %.split.split.i.i ]
+  %.063.us89.i.i = phi i32 [ %357, %.split.split.split.us.i.i ], [ %255, %.split.split.i.i ]
+  %.062.us90.i.i = phi ptr [ %353, %.split.split.split.us.i.i ], [ %263, %.split.split.i.i ]
   %.161.us91.i.i = phi ptr [ %.2.us95.i.i, %.split.split.split.us.i.i ], [ %.060.i.i, %.split.split.i.i ]
-  %.058.us92.i.i = phi i32 [ %353, %.split.split.split.us.i.i ], [ %.sroa.9.1.i, %.split.split.i.i ]
-  %342 = load i16, ptr %.161.us91.i.i, align 2
-  %343 = zext i16 %342 to i32
-  %344 = call ptr @aom_memset16(ptr noundef %.062.us90.i.i, i32 noundef %343, i64 noundef %282) #16
-  %345 = getelementptr inbounds i16, ptr %.062.us90.i.i, i64 %282
-  %346 = getelementptr inbounds i16, ptr %345, i64 %283
-  %347 = getelementptr i16, ptr %.161.us91.i.i, i64 %285
-  %348 = getelementptr i8, ptr %347, i64 -2
-  %349 = load i16, ptr %348, align 2
-  %350 = zext i16 %349 to i32
-  %351 = call ptr @aom_memset16(ptr noundef nonnull %346, i32 noundef %350, i64 noundef %286) #16
-  %352 = getelementptr inbounds i16, ptr %.062.us90.i.i, i64 %287
-  %353 = add nsw i32 %.058.us92.i.i, 1
-  %354 = icmp sgt i32 %.058.us92.i.i, -1
-  %355 = icmp slt i32 %353, %224
-  %or.cond.us93.i.i = select i1 %354, i1 %355, i1 false
-  %.2.idx.us94.i.i = select i1 %or.cond.us93.i.i, i64 %288, i64 0
+  %.058.us92.i.i = phi i32 [ %354, %.split.split.split.us.i.i ], [ %.sroa.9.1.i, %.split.split.i.i ]
+  %343 = load i16, ptr %.161.us91.i.i, align 2
+  %344 = zext i16 %343 to i32
+  %345 = call ptr @aom_memset16(ptr noundef %.062.us90.i.i, i32 noundef %344, i64 noundef %283) #16
+  %346 = getelementptr inbounds i16, ptr %.062.us90.i.i, i64 %283
+  %347 = getelementptr inbounds i16, ptr %346, i64 %284
+  %348 = getelementptr i16, ptr %.161.us91.i.i, i64 %286
+  %349 = getelementptr i8, ptr %348, i64 -2
+  %350 = load i16, ptr %349, align 2
+  %351 = zext i16 %350 to i32
+  %352 = call ptr @aom_memset16(ptr noundef nonnull %347, i32 noundef %351, i64 noundef %287) #16
+  %353 = getelementptr inbounds i16, ptr %.062.us90.i.i, i64 %288
+  %354 = add nsw i32 %.058.us92.i.i, 1
+  %355 = icmp sgt i32 %.058.us92.i.i, -1
+  %356 = icmp slt i32 %354, %224
+  %or.cond.us93.i.i = select i1 %355, i1 %356, i1 false
+  %.2.idx.us94.i.i = select i1 %or.cond.us93.i.i, i64 %289, i64 0
   %.2.us95.i.i = getelementptr inbounds i16, ptr %.161.us91.i.i, i64 %.2.idx.us94.i.i
-  %356 = add nsw i32 %.063.us89.i.i, -1
-  %.not77.us96.i.i = icmp eq i32 %356, 0
+  %357 = add nsw i32 %.063.us89.i.i, -1
+  %.not77.us96.i.i = icmp eq i32 %357, 0
   br i1 %.not77.us96.i.i, label %highbd_build_mc_border.exit.i, label %.split.split.split.us.i.i, !llvm.loop !102
 
 .split.split.split.i.i:                           ; preds = %.split.split.i.i, %.split.split.split.i.i
-  %.063.i.i = phi i32 [ %373, %.split.split.split.i.i ], [ %254, %.split.split.i.i ]
-  %.062.i.i = phi ptr [ %369, %.split.split.split.i.i ], [ %262, %.split.split.i.i ]
+  %.063.i.i = phi i32 [ %374, %.split.split.split.i.i ], [ %255, %.split.split.i.i ]
+  %.062.i.i = phi ptr [ %370, %.split.split.split.i.i ], [ %263, %.split.split.i.i ]
   %.161.i.i = phi ptr [ %.2.i.i, %.split.split.split.i.i ], [ %.060.i.i, %.split.split.i.i ]
-  %.058.i.i = phi i32 [ %370, %.split.split.split.i.i ], [ %.sroa.9.1.i, %.split.split.i.i ]
-  %357 = load i16, ptr %.161.i.i, align 2
-  %358 = zext i16 %357 to i32
-  %359 = call ptr @aom_memset16(ptr noundef %.062.i.i, i32 noundef %358, i64 noundef %282) #16
-  %360 = getelementptr inbounds i16, ptr %.062.i.i, i64 %282
-  %361 = getelementptr inbounds i16, ptr %.161.i.i, i64 %252
-  %362 = getelementptr inbounds i16, ptr %361, i64 %282
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %360, ptr nonnull align 2 %362, i64 %284, i1 false)
-  %363 = getelementptr inbounds i16, ptr %360, i64 %283
-  %364 = getelementptr i16, ptr %.161.i.i, i64 %285
-  %365 = getelementptr i8, ptr %364, i64 -2
-  %366 = load i16, ptr %365, align 2
-  %367 = zext i16 %366 to i32
-  %368 = call ptr @aom_memset16(ptr noundef nonnull %363, i32 noundef %367, i64 noundef %286) #16
-  %369 = getelementptr inbounds i16, ptr %.062.i.i, i64 %287
-  %370 = add nsw i32 %.058.i.i, 1
-  %371 = icmp sgt i32 %.058.i.i, -1
-  %372 = icmp slt i32 %370, %224
-  %or.cond.i32.i = select i1 %371, i1 %372, i1 false
-  %.2.idx.i.i = select i1 %or.cond.i32.i, i64 %288, i64 0
+  %.058.i.i = phi i32 [ %371, %.split.split.split.i.i ], [ %.sroa.9.1.i, %.split.split.i.i ]
+  %358 = load i16, ptr %.161.i.i, align 2
+  %359 = zext i16 %358 to i32
+  %360 = call ptr @aom_memset16(ptr noundef %.062.i.i, i32 noundef %359, i64 noundef %283) #16
+  %361 = getelementptr inbounds i16, ptr %.062.i.i, i64 %283
+  %362 = getelementptr inbounds i16, ptr %.161.i.i, i64 %253
+  %363 = getelementptr inbounds i16, ptr %362, i64 %283
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %361, ptr nonnull align 2 %363, i64 %285, i1 false)
+  %364 = getelementptr inbounds i16, ptr %361, i64 %284
+  %365 = getelementptr i16, ptr %.161.i.i, i64 %286
+  %366 = getelementptr i8, ptr %365, i64 -2
+  %367 = load i16, ptr %366, align 2
+  %368 = zext i16 %367 to i32
+  %369 = call ptr @aom_memset16(ptr noundef nonnull %364, i32 noundef %368, i64 noundef %287) #16
+  %370 = getelementptr inbounds i16, ptr %.062.i.i, i64 %288
+  %371 = add nsw i32 %.058.i.i, 1
+  %372 = icmp sgt i32 %.058.i.i, -1
+  %373 = icmp slt i32 %371, %224
+  %or.cond.i32.i = select i1 %372, i1 %373, i1 false
+  %.2.idx.i.i = select i1 %or.cond.i32.i, i64 %289, i64 0
   %.2.i.i = getelementptr inbounds i16, ptr %.161.i.i, i64 %.2.idx.i.i
-  %373 = add nsw i32 %.063.i.i, -1
-  %.not77.i.i = icmp eq i32 %373, 0
+  %374 = add nsw i32 %.063.i.i, -1
+  %.not77.i.i = icmp eq i32 %374, 0
   br i1 %.not77.i.i, label %highbd_build_mc_border.exit.i, label %.split.split.split.i.i, !llvm.loop !102
 
-374:                                              ; preds = %247
+375:                                              ; preds = %248
   %.not.i34.i = icmp slt i32 %.sroa.9.1.i, %224
-  br i1 %.not.i34.i, label %380, label %375
+  br i1 %.not.i34.i, label %381, label %376
 
-375:                                              ; preds = %374
-  %376 = add nsw i32 %224, -1
-  %377 = mul nsw i32 %204, %376
-  %378 = sext i32 %377 to i64
-  %379 = getelementptr inbounds i8, ptr %248, i64 %378
-  br label %382
+376:                                              ; preds = %375
+  %377 = add nsw i32 %224, -1
+  %378 = mul nsw i32 %204, %377
+  %379 = sext i32 %378 to i64
+  %380 = getelementptr inbounds i8, ptr %249, i64 %379
+  br label %383
 
-380:                                              ; preds = %374
-  %381 = icmp sgt i32 %.sroa.9.1.i, 0
-  %spec.select.i62.i = select i1 %381, ptr %251, ptr %248
-  br label %382
+381:                                              ; preds = %375
+  %382 = icmp sgt i32 %.sroa.9.1.i, 0
+  %spec.select.i62.i = select i1 %382, ptr %252, ptr %249
+  br label %383
 
-382:                                              ; preds = %380, %375
-  %.058.i35.i = phi ptr [ %379, %375 ], [ %spec.select.i62.i, %380 ]
-  %383 = icmp slt i32 %.sroa.0.1.i, 0
-  %384 = sub nsw i32 0, %.sroa.0.1.i
-  %385 = select i1 %383, i32 %384, i32 0
-  %spec.select76.i.i = call i32 @llvm.smin.i32(i32 %385, i32 %253)
-  %386 = icmp sgt i32 %.sroa.5.1.i, %222
-  %387 = sub nsw i32 %.sroa.5.1.i, %222
-  %.057.i.i = select i1 %386, i32 %387, i32 0
-  %.1.i36.i = call i32 @llvm.smin.i32(i32 %.057.i.i, i32 %253)
-  %388 = add i32 %spec.select76.i.i, %.1.i36.i
-  %389 = sub i32 %253, %388
+383:                                              ; preds = %381, %376
+  %.058.i35.i = phi ptr [ %380, %376 ], [ %spec.select.i62.i, %381 ]
+  %384 = icmp slt i32 %.sroa.0.1.i, 0
+  %385 = sub nsw i32 0, %.sroa.0.1.i
+  %386 = select i1 %384, i32 %385, i32 0
+  %spec.select76.i.i = call i32 @llvm.smin.i32(i32 %386, i32 %254)
+  %387 = icmp sgt i32 %.sroa.5.1.i, %222
+  %388 = sub nsw i32 %.sroa.5.1.i, %222
+  %.057.i.i = select i1 %387, i32 %388, i32 0
+  %.1.i36.i = call i32 @llvm.smin.i32(i32 %.057.i.i, i32 %254)
+  %389 = add i32 %spec.select76.i.i, %.1.i36.i
+  %390 = sub i32 %254, %389
   %.not72.i.i = icmp eq i32 %spec.select76.i.i, 0
-  %.not73.i.i = icmp eq i32 %253, %388
+  %.not73.i.i = icmp eq i32 %254, %389
   %.not74.i37.i = icmp eq i32 %.1.i36.i, 0
-  %390 = sext i32 %253 to i64
-  %391 = sext i32 %204 to i64
-  %392 = sext i32 %spec.select76.i.i to i64
-  %393 = sext i32 %389 to i64
-  %394 = sext i32 %222 to i64
-  %395 = sext i32 %.1.i36.i to i64
+  %391 = sext i32 %254 to i64
+  %392 = sext i32 %204 to i64
+  %393 = sext i32 %spec.select76.i.i to i64
+  %394 = sext i32 %390 to i64
+  %395 = sext i32 %222 to i64
+  %396 = sext i32 %.1.i36.i to i64
   br i1 %.not73.i.i, label %.split.us.i50.i, label %.split.i38.i
 
-.split.us.i50.i:                                  ; preds = %382
+.split.us.i50.i:                                  ; preds = %383
   br i1 %.not72.i.i, label %.split.us.split.us.i57.i, label %.split.us.split.i51.i
 
 .split.us.split.us.i57.i:                         ; preds = %.split.us.i50.i
   br i1 %.not74.i37.i, label %highbd_build_mc_border.exit.i, label %.split.us.split.us.split.i58.i
 
 .split.us.split.us.split.i58.i:                   ; preds = %.split.us.split.us.i57.i, %.split.us.split.us.split.i58.i
-  %.061.us.us.i.i = phi i32 [ %405, %.split.us.split.us.split.i58.i ], [ %254, %.split.us.split.us.i57.i ]
-  %.060.us.us.i.i = phi i32 [ %402, %.split.us.split.us.split.i58.i ], [ %.sroa.9.1.i, %.split.us.split.us.i57.i ]
+  %.061.us.us.i.i = phi i32 [ %406, %.split.us.split.us.split.i58.i ], [ %255, %.split.us.split.us.i57.i ]
+  %.060.us.us.i.i = phi i32 [ %403, %.split.us.split.us.split.i58.i ], [ %.sroa.9.1.i, %.split.us.split.us.i57.i ]
   %.159.us.us.i.i = phi ptr [ %.2.us.us.i61.i, %.split.us.split.us.split.i58.i ], [ %.058.i35.i, %.split.us.split.us.i57.i ]
-  %.056.us.us.i.i = phi ptr [ %401, %.split.us.split.us.split.i58.i ], [ %215, %.split.us.split.us.i57.i ]
-  %396 = getelementptr inbounds nuw i8, ptr %.056.us.us.i.i, i64 %392
-  %397 = getelementptr inbounds i8, ptr %396, i64 %393
-  %398 = getelementptr i8, ptr %.159.us.us.i.i, i64 %394
-  %399 = getelementptr i8, ptr %398, i64 -1
-  %400 = load i8, ptr %399, align 1
-  call void @llvm.memset.p0.i64(ptr align 1 %397, i8 %400, i64 %395, i1 false)
-  %401 = getelementptr inbounds i8, ptr %.056.us.us.i.i, i64 %390
-  %402 = add nsw i32 %.060.us.us.i.i, 1
-  %403 = icmp sgt i32 %.060.us.us.i.i, -1
-  %404 = icmp slt i32 %402, %224
-  %or.cond.us.us.i59.i = select i1 %403, i1 %404, i1 false
-  %.2.idx.us.us.i60.i = select i1 %or.cond.us.us.i59.i, i64 %391, i64 0
+  %.056.us.us.i.i = phi ptr [ %402, %.split.us.split.us.split.i58.i ], [ %215, %.split.us.split.us.i57.i ]
+  %397 = getelementptr inbounds nuw i8, ptr %.056.us.us.i.i, i64 %393
+  %398 = getelementptr inbounds i8, ptr %397, i64 %394
+  %399 = getelementptr i8, ptr %.159.us.us.i.i, i64 %395
+  %400 = getelementptr i8, ptr %399, i64 -1
+  %401 = load i8, ptr %400, align 1
+  call void @llvm.memset.p0.i64(ptr align 1 %398, i8 %401, i64 %396, i1 false)
+  %402 = getelementptr inbounds i8, ptr %.056.us.us.i.i, i64 %391
+  %403 = add nsw i32 %.060.us.us.i.i, 1
+  %404 = icmp sgt i32 %.060.us.us.i.i, -1
+  %405 = icmp slt i32 %403, %224
+  %or.cond.us.us.i59.i = select i1 %404, i1 %405, i1 false
+  %.2.idx.us.us.i60.i = select i1 %or.cond.us.us.i59.i, i64 %392, i64 0
   %.2.us.us.i61.i = getelementptr inbounds i8, ptr %.159.us.us.i.i, i64 %.2.idx.us.us.i60.i
-  %405 = add nsw i32 %.061.us.us.i.i, -1
-  %.not75.us.us.i.i = icmp eq i32 %405, 0
+  %406 = add nsw i32 %.061.us.us.i.i, -1
+  %.not75.us.us.i.i = icmp eq i32 %406, 0
   br i1 %.not75.us.us.i.i, label %highbd_build_mc_border.exit.i, label %.split.us.split.us.split.i58.i, !llvm.loop !103
 
 .split.us.split.i51.i:                            ; preds = %.split.us.i50.i
   br i1 %.not74.i37.i, label %.split.us.split.split.us.i56.i, label %.split.us.split.split.i52.i
 
 .split.us.split.split.us.i56.i:                   ; preds = %.split.us.split.i51.i, %.split.us.split.split.us.i56.i
-  %.061.us.us95.i.i = phi i32 [ %411, %.split.us.split.split.us.i56.i ], [ %254, %.split.us.split.i51.i ]
-  %.060.us.us96.i.i = phi i32 [ %408, %.split.us.split.split.us.i56.i ], [ %.sroa.9.1.i, %.split.us.split.i51.i ]
+  %.061.us.us95.i.i = phi i32 [ %412, %.split.us.split.split.us.i56.i ], [ %255, %.split.us.split.i51.i ]
+  %.060.us.us96.i.i = phi i32 [ %409, %.split.us.split.split.us.i56.i ], [ %.sroa.9.1.i, %.split.us.split.i51.i ]
   %.159.us.us97.i.i = phi ptr [ %.2.us.us101.i.i, %.split.us.split.split.us.i56.i ], [ %.058.i35.i, %.split.us.split.i51.i ]
-  %.056.us.us98.i.i = phi ptr [ %407, %.split.us.split.split.us.i56.i ], [ %215, %.split.us.split.i51.i ]
-  %406 = load i8, ptr %.159.us.us97.i.i, align 1
-  call void @llvm.memset.p0.i64(ptr align 1 %.056.us.us98.i.i, i8 %406, i64 %392, i1 false)
-  %407 = getelementptr inbounds i8, ptr %.056.us.us98.i.i, i64 %390
-  %408 = add nsw i32 %.060.us.us96.i.i, 1
-  %409 = icmp sgt i32 %.060.us.us96.i.i, -1
-  %410 = icmp slt i32 %408, %224
-  %or.cond.us.us99.i.i = select i1 %409, i1 %410, i1 false
-  %.2.idx.us.us100.i.i = select i1 %or.cond.us.us99.i.i, i64 %391, i64 0
+  %.056.us.us98.i.i = phi ptr [ %408, %.split.us.split.split.us.i56.i ], [ %215, %.split.us.split.i51.i ]
+  %407 = load i8, ptr %.159.us.us97.i.i, align 1
+  call void @llvm.memset.p0.i64(ptr align 1 %.056.us.us98.i.i, i8 %407, i64 %393, i1 false)
+  %408 = getelementptr inbounds i8, ptr %.056.us.us98.i.i, i64 %391
+  %409 = add nsw i32 %.060.us.us96.i.i, 1
+  %410 = icmp sgt i32 %.060.us.us96.i.i, -1
+  %411 = icmp slt i32 %409, %224
+  %or.cond.us.us99.i.i = select i1 %410, i1 %411, i1 false
+  %.2.idx.us.us100.i.i = select i1 %or.cond.us.us99.i.i, i64 %392, i64 0
   %.2.us.us101.i.i = getelementptr inbounds i8, ptr %.159.us.us97.i.i, i64 %.2.idx.us.us100.i.i
-  %411 = add nsw i32 %.061.us.us95.i.i, -1
-  %.not75.us.us102.i.i = icmp eq i32 %411, 0
+  %412 = add nsw i32 %.061.us.us95.i.i, -1
+  %.not75.us.us102.i.i = icmp eq i32 %412, 0
   br i1 %.not75.us.us102.i.i, label %highbd_build_mc_border.exit.i, label %.split.us.split.split.us.i56.i, !llvm.loop !103
 
 .split.us.split.split.i52.i:                      ; preds = %.split.us.split.i51.i, %.split.us.split.split.i52.i
-  %.061.us.i.i = phi i32 [ %422, %.split.us.split.split.i52.i ], [ %254, %.split.us.split.i51.i ]
-  %.060.us.i.i = phi i32 [ %419, %.split.us.split.split.i52.i ], [ %.sroa.9.1.i, %.split.us.split.i51.i ]
+  %.061.us.i.i = phi i32 [ %423, %.split.us.split.split.i52.i ], [ %255, %.split.us.split.i51.i ]
+  %.060.us.i.i = phi i32 [ %420, %.split.us.split.split.i52.i ], [ %.sroa.9.1.i, %.split.us.split.i51.i ]
   %.159.us.i.i = phi ptr [ %.2.us.i55.i, %.split.us.split.split.i52.i ], [ %.058.i35.i, %.split.us.split.i51.i ]
-  %.056.us.i.i = phi ptr [ %418, %.split.us.split.split.i52.i ], [ %215, %.split.us.split.i51.i ]
-  %412 = load i8, ptr %.159.us.i.i, align 1
-  call void @llvm.memset.p0.i64(ptr align 1 %.056.us.i.i, i8 %412, i64 %392, i1 false)
-  %413 = getelementptr inbounds i8, ptr %.056.us.i.i, i64 %392
-  %414 = getelementptr inbounds i8, ptr %413, i64 %393
-  %415 = getelementptr i8, ptr %.159.us.i.i, i64 %394
-  %416 = getelementptr i8, ptr %415, i64 -1
-  %417 = load i8, ptr %416, align 1
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %414, i8 %417, i64 %395, i1 false)
-  %418 = getelementptr inbounds i8, ptr %.056.us.i.i, i64 %390
-  %419 = add nsw i32 %.060.us.i.i, 1
-  %420 = icmp sgt i32 %.060.us.i.i, -1
-  %421 = icmp slt i32 %419, %224
-  %or.cond.us.i53.i = select i1 %420, i1 %421, i1 false
-  %.2.idx.us.i54.i = select i1 %or.cond.us.i53.i, i64 %391, i64 0
+  %.056.us.i.i = phi ptr [ %419, %.split.us.split.split.i52.i ], [ %215, %.split.us.split.i51.i ]
+  %413 = load i8, ptr %.159.us.i.i, align 1
+  call void @llvm.memset.p0.i64(ptr align 1 %.056.us.i.i, i8 %413, i64 %393, i1 false)
+  %414 = getelementptr inbounds i8, ptr %.056.us.i.i, i64 %393
+  %415 = getelementptr inbounds i8, ptr %414, i64 %394
+  %416 = getelementptr i8, ptr %.159.us.i.i, i64 %395
+  %417 = getelementptr i8, ptr %416, i64 -1
+  %418 = load i8, ptr %417, align 1
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %415, i8 %418, i64 %396, i1 false)
+  %419 = getelementptr inbounds i8, ptr %.056.us.i.i, i64 %391
+  %420 = add nsw i32 %.060.us.i.i, 1
+  %421 = icmp sgt i32 %.060.us.i.i, -1
+  %422 = icmp slt i32 %420, %224
+  %or.cond.us.i53.i = select i1 %421, i1 %422, i1 false
+  %.2.idx.us.i54.i = select i1 %or.cond.us.i53.i, i64 %392, i64 0
   %.2.us.i55.i = getelementptr inbounds i8, ptr %.159.us.i.i, i64 %.2.idx.us.i54.i
-  %422 = add nsw i32 %.061.us.i.i, -1
-  %.not75.us.i.i = icmp eq i32 %422, 0
+  %423 = add nsw i32 %.061.us.i.i, -1
+  %.not75.us.i.i = icmp eq i32 %423, 0
   br i1 %.not75.us.i.i, label %highbd_build_mc_border.exit.i, label %.split.us.split.split.i52.i, !llvm.loop !103
 
-.split.i38.i:                                     ; preds = %382
+.split.i38.i:                                     ; preds = %383
   br i1 %.not72.i.i, label %.split.split.us.i47.i, label %.split.split.i39.i
 
 .split.split.us.i47.i:                            ; preds = %.split.i38.i
   br i1 %.not74.i37.i, label %.split.split.us.split.us.i49.i, label %.split.split.us.split.i48.i
 
 .split.split.us.split.us.i49.i:                   ; preds = %.split.split.us.i47.i, %.split.split.us.split.us.i49.i
-  %.061.us79.us.i.i = phi i32 [ %430, %.split.split.us.split.us.i49.i ], [ %254, %.split.split.us.i47.i ]
-  %.060.us80.us.i.i = phi i32 [ %427, %.split.split.us.split.us.i49.i ], [ %.sroa.9.1.i, %.split.split.us.i47.i ]
+  %.061.us79.us.i.i = phi i32 [ %431, %.split.split.us.split.us.i49.i ], [ %255, %.split.split.us.i47.i ]
+  %.060.us80.us.i.i = phi i32 [ %428, %.split.split.us.split.us.i49.i ], [ %.sroa.9.1.i, %.split.split.us.i47.i ]
   %.159.us81.us.i.i = phi ptr [ %.2.us85.us.i.i, %.split.split.us.split.us.i49.i ], [ %.058.i35.i, %.split.split.us.i47.i ]
-  %.056.us82.us.i.i = phi ptr [ %426, %.split.split.us.split.us.i49.i ], [ %215, %.split.split.us.i47.i ]
-  %423 = getelementptr inbounds nuw i8, ptr %.056.us82.us.i.i, i64 %392
-  %424 = getelementptr inbounds i8, ptr %.159.us81.us.i.i, i64 %252
-  %425 = getelementptr inbounds nuw i8, ptr %424, i64 %392
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %423, ptr align 1 %425, i64 %393, i1 false)
-  %426 = getelementptr inbounds i8, ptr %.056.us82.us.i.i, i64 %390
-  %427 = add nsw i32 %.060.us80.us.i.i, 1
-  %428 = icmp sgt i32 %.060.us80.us.i.i, -1
-  %429 = icmp slt i32 %427, %224
-  %or.cond.us83.us.i.i = select i1 %428, i1 %429, i1 false
-  %.2.idx.us84.us.i.i = select i1 %or.cond.us83.us.i.i, i64 %391, i64 0
+  %.056.us82.us.i.i = phi ptr [ %427, %.split.split.us.split.us.i49.i ], [ %215, %.split.split.us.i47.i ]
+  %424 = getelementptr inbounds nuw i8, ptr %.056.us82.us.i.i, i64 %393
+  %425 = getelementptr inbounds i8, ptr %.159.us81.us.i.i, i64 %253
+  %426 = getelementptr inbounds nuw i8, ptr %425, i64 %393
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %424, ptr align 1 %426, i64 %394, i1 false)
+  %427 = getelementptr inbounds i8, ptr %.056.us82.us.i.i, i64 %391
+  %428 = add nsw i32 %.060.us80.us.i.i, 1
+  %429 = icmp sgt i32 %.060.us80.us.i.i, -1
+  %430 = icmp slt i32 %428, %224
+  %or.cond.us83.us.i.i = select i1 %429, i1 %430, i1 false
+  %.2.idx.us84.us.i.i = select i1 %or.cond.us83.us.i.i, i64 %392, i64 0
   %.2.us85.us.i.i = getelementptr inbounds i8, ptr %.159.us81.us.i.i, i64 %.2.idx.us84.us.i.i
-  %430 = add nsw i32 %.061.us79.us.i.i, -1
-  %.not75.us86.us.i.i = icmp eq i32 %430, 0
+  %431 = add nsw i32 %.061.us79.us.i.i, -1
+  %.not75.us86.us.i.i = icmp eq i32 %431, 0
   br i1 %.not75.us86.us.i.i, label %highbd_build_mc_border.exit.i, label %.split.split.us.split.us.i49.i, !llvm.loop !103
 
 .split.split.us.split.i48.i:                      ; preds = %.split.split.us.i47.i, %.split.split.us.split.i48.i
-  %.061.us79.i.i = phi i32 [ %442, %.split.split.us.split.i48.i ], [ %254, %.split.split.us.i47.i ]
-  %.060.us80.i.i = phi i32 [ %439, %.split.split.us.split.i48.i ], [ %.sroa.9.1.i, %.split.split.us.i47.i ]
+  %.061.us79.i.i = phi i32 [ %443, %.split.split.us.split.i48.i ], [ %255, %.split.split.us.i47.i ]
+  %.060.us80.i.i = phi i32 [ %440, %.split.split.us.split.i48.i ], [ %.sroa.9.1.i, %.split.split.us.i47.i ]
   %.159.us81.i.i = phi ptr [ %.2.us85.i.i, %.split.split.us.split.i48.i ], [ %.058.i35.i, %.split.split.us.i47.i ]
-  %.056.us82.i.i = phi ptr [ %438, %.split.split.us.split.i48.i ], [ %215, %.split.split.us.i47.i ]
-  %431 = getelementptr inbounds nuw i8, ptr %.056.us82.i.i, i64 %392
-  %432 = getelementptr inbounds i8, ptr %.159.us81.i.i, i64 %252
-  %433 = getelementptr inbounds nuw i8, ptr %432, i64 %392
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %431, ptr align 1 %433, i64 %393, i1 false)
-  %434 = getelementptr inbounds i8, ptr %431, i64 %393
-  %435 = getelementptr i8, ptr %.159.us81.i.i, i64 %394
-  %436 = getelementptr i8, ptr %435, i64 -1
-  %437 = load i8, ptr %436, align 1
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %434, i8 %437, i64 %395, i1 false)
-  %438 = getelementptr inbounds i8, ptr %.056.us82.i.i, i64 %390
-  %439 = add nsw i32 %.060.us80.i.i, 1
-  %440 = icmp sgt i32 %.060.us80.i.i, -1
-  %441 = icmp slt i32 %439, %224
-  %or.cond.us83.i.i = select i1 %440, i1 %441, i1 false
-  %.2.idx.us84.i.i = select i1 %or.cond.us83.i.i, i64 %391, i64 0
+  %.056.us82.i.i = phi ptr [ %439, %.split.split.us.split.i48.i ], [ %215, %.split.split.us.i47.i ]
+  %432 = getelementptr inbounds nuw i8, ptr %.056.us82.i.i, i64 %393
+  %433 = getelementptr inbounds i8, ptr %.159.us81.i.i, i64 %253
+  %434 = getelementptr inbounds nuw i8, ptr %433, i64 %393
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %432, ptr align 1 %434, i64 %394, i1 false)
+  %435 = getelementptr inbounds i8, ptr %432, i64 %394
+  %436 = getelementptr i8, ptr %.159.us81.i.i, i64 %395
+  %437 = getelementptr i8, ptr %436, i64 -1
+  %438 = load i8, ptr %437, align 1
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %435, i8 %438, i64 %396, i1 false)
+  %439 = getelementptr inbounds i8, ptr %.056.us82.i.i, i64 %391
+  %440 = add nsw i32 %.060.us80.i.i, 1
+  %441 = icmp sgt i32 %.060.us80.i.i, -1
+  %442 = icmp slt i32 %440, %224
+  %or.cond.us83.i.i = select i1 %441, i1 %442, i1 false
+  %.2.idx.us84.i.i = select i1 %or.cond.us83.i.i, i64 %392, i64 0
   %.2.us85.i.i = getelementptr inbounds i8, ptr %.159.us81.i.i, i64 %.2.idx.us84.i.i
-  %442 = add nsw i32 %.061.us79.i.i, -1
-  %.not75.us86.i.i = icmp eq i32 %442, 0
+  %443 = add nsw i32 %.061.us79.i.i, -1
+  %.not75.us86.i.i = icmp eq i32 %443, 0
   br i1 %.not75.us86.i.i, label %highbd_build_mc_border.exit.i, label %.split.split.us.split.i48.i, !llvm.loop !103
 
 .split.split.i39.i:                               ; preds = %.split.i38.i
   br i1 %.not74.i37.i, label %.split.split.split.us.i46.i, label %.split.split.split.i40.i
 
 .split.split.split.us.i46.i:                      ; preds = %.split.split.i39.i, %.split.split.split.us.i46.i
-  %.061.us87.i.i = phi i32 [ %451, %.split.split.split.us.i46.i ], [ %254, %.split.split.i39.i ]
-  %.060.us88.i.i = phi i32 [ %448, %.split.split.split.us.i46.i ], [ %.sroa.9.1.i, %.split.split.i39.i ]
+  %.061.us87.i.i = phi i32 [ %452, %.split.split.split.us.i46.i ], [ %255, %.split.split.i39.i ]
+  %.060.us88.i.i = phi i32 [ %449, %.split.split.split.us.i46.i ], [ %.sroa.9.1.i, %.split.split.i39.i ]
   %.159.us89.i.i = phi ptr [ %.2.us93.i.i, %.split.split.split.us.i46.i ], [ %.058.i35.i, %.split.split.i39.i ]
-  %.056.us90.i.i = phi ptr [ %447, %.split.split.split.us.i46.i ], [ %215, %.split.split.i39.i ]
-  %443 = load i8, ptr %.159.us89.i.i, align 1
-  call void @llvm.memset.p0.i64(ptr align 1 %.056.us90.i.i, i8 %443, i64 %392, i1 false)
-  %444 = getelementptr inbounds i8, ptr %.056.us90.i.i, i64 %392
-  %445 = getelementptr inbounds i8, ptr %.159.us89.i.i, i64 %252
-  %446 = getelementptr inbounds i8, ptr %445, i64 %392
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %444, ptr nonnull align 1 %446, i64 %393, i1 false)
-  %447 = getelementptr inbounds i8, ptr %.056.us90.i.i, i64 %390
-  %448 = add nsw i32 %.060.us88.i.i, 1
-  %449 = icmp sgt i32 %.060.us88.i.i, -1
-  %450 = icmp slt i32 %448, %224
-  %or.cond.us91.i.i = select i1 %449, i1 %450, i1 false
-  %.2.idx.us92.i.i = select i1 %or.cond.us91.i.i, i64 %391, i64 0
+  %.056.us90.i.i = phi ptr [ %448, %.split.split.split.us.i46.i ], [ %215, %.split.split.i39.i ]
+  %444 = load i8, ptr %.159.us89.i.i, align 1
+  call void @llvm.memset.p0.i64(ptr align 1 %.056.us90.i.i, i8 %444, i64 %393, i1 false)
+  %445 = getelementptr inbounds i8, ptr %.056.us90.i.i, i64 %393
+  %446 = getelementptr inbounds i8, ptr %.159.us89.i.i, i64 %253
+  %447 = getelementptr inbounds i8, ptr %446, i64 %393
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %445, ptr nonnull align 1 %447, i64 %394, i1 false)
+  %448 = getelementptr inbounds i8, ptr %.056.us90.i.i, i64 %391
+  %449 = add nsw i32 %.060.us88.i.i, 1
+  %450 = icmp sgt i32 %.060.us88.i.i, -1
+  %451 = icmp slt i32 %449, %224
+  %or.cond.us91.i.i = select i1 %450, i1 %451, i1 false
+  %.2.idx.us92.i.i = select i1 %or.cond.us91.i.i, i64 %392, i64 0
   %.2.us93.i.i = getelementptr inbounds i8, ptr %.159.us89.i.i, i64 %.2.idx.us92.i.i
-  %451 = add nsw i32 %.061.us87.i.i, -1
-  %.not75.us94.i.i = icmp eq i32 %451, 0
+  %452 = add nsw i32 %.061.us87.i.i, -1
+  %.not75.us94.i.i = icmp eq i32 %452, 0
   br i1 %.not75.us94.i.i, label %highbd_build_mc_border.exit.i, label %.split.split.split.us.i46.i, !llvm.loop !103
 
 .split.split.split.i40.i:                         ; preds = %.split.split.i39.i, %.split.split.split.i40.i
-  %.061.i.i = phi i32 [ %464, %.split.split.split.i40.i ], [ %254, %.split.split.i39.i ]
-  %.060.i41.i = phi i32 [ %461, %.split.split.split.i40.i ], [ %.sroa.9.1.i, %.split.split.i39.i ]
+  %.061.i.i = phi i32 [ %465, %.split.split.split.i40.i ], [ %255, %.split.split.i39.i ]
+  %.060.i41.i = phi i32 [ %462, %.split.split.split.i40.i ], [ %.sroa.9.1.i, %.split.split.i39.i ]
   %.159.i.i = phi ptr [ %.2.i44.i, %.split.split.split.i40.i ], [ %.058.i35.i, %.split.split.i39.i ]
-  %.056.i.i = phi ptr [ %460, %.split.split.split.i40.i ], [ %215, %.split.split.i39.i ]
-  %452 = load i8, ptr %.159.i.i, align 1
-  call void @llvm.memset.p0.i64(ptr align 1 %.056.i.i, i8 %452, i64 %392, i1 false)
-  %453 = getelementptr inbounds i8, ptr %.056.i.i, i64 %392
-  %454 = getelementptr inbounds i8, ptr %.159.i.i, i64 %252
-  %455 = getelementptr inbounds i8, ptr %454, i64 %392
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %453, ptr nonnull align 1 %455, i64 %393, i1 false)
-  %456 = getelementptr inbounds i8, ptr %453, i64 %393
-  %457 = getelementptr i8, ptr %.159.i.i, i64 %394
-  %458 = getelementptr i8, ptr %457, i64 -1
-  %459 = load i8, ptr %458, align 1
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %456, i8 %459, i64 %395, i1 false)
-  %460 = getelementptr inbounds i8, ptr %.056.i.i, i64 %390
-  %461 = add nsw i32 %.060.i41.i, 1
-  %462 = icmp sgt i32 %.060.i41.i, -1
-  %463 = icmp slt i32 %461, %224
-  %or.cond.i42.i = select i1 %462, i1 %463, i1 false
-  %.2.idx.i43.i = select i1 %or.cond.i42.i, i64 %391, i64 0
+  %.056.i.i = phi ptr [ %461, %.split.split.split.i40.i ], [ %215, %.split.split.i39.i ]
+  %453 = load i8, ptr %.159.i.i, align 1
+  call void @llvm.memset.p0.i64(ptr align 1 %.056.i.i, i8 %453, i64 %393, i1 false)
+  %454 = getelementptr inbounds i8, ptr %.056.i.i, i64 %393
+  %455 = getelementptr inbounds i8, ptr %.159.i.i, i64 %253
+  %456 = getelementptr inbounds i8, ptr %455, i64 %393
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %454, ptr nonnull align 1 %456, i64 %394, i1 false)
+  %457 = getelementptr inbounds i8, ptr %454, i64 %394
+  %458 = getelementptr i8, ptr %.159.i.i, i64 %395
+  %459 = getelementptr i8, ptr %458, i64 -1
+  %460 = load i8, ptr %459, align 1
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %457, i8 %460, i64 %396, i1 false)
+  %461 = getelementptr inbounds i8, ptr %.056.i.i, i64 %391
+  %462 = add nsw i32 %.060.i41.i, 1
+  %463 = icmp sgt i32 %.060.i41.i, -1
+  %464 = icmp slt i32 %462, %224
+  %or.cond.i42.i = select i1 %463, i1 %464, i1 false
+  %.2.idx.i43.i = select i1 %or.cond.i42.i, i64 %392, i64 0
   %.2.i44.i = getelementptr inbounds i8, ptr %.159.i.i, i64 %.2.idx.i43.i
-  %464 = add nsw i32 %.061.i.i, -1
-  %.not75.i45.i = icmp eq i32 %464, 0
+  %465 = add nsw i32 %.061.i.i, -1
+  %.not75.i45.i = icmp eq i32 %465, 0
   br i1 %.not75.i45.i, label %highbd_build_mc_border.exit.i, label %.split.split.split.i40.i, !llvm.loop !103
 
 highbd_build_mc_border.exit.i:                    ; preds = %.split.split.split.i.i, %.split.split.split.us.i.i, %.split.split.us.split.i.i, %.split.split.us.split.us.i.i, %.split.us.split.split.i.i, %.split.us.split.split.us.i.i, %.split.us.split.us.split.i.i, %.split.split.split.i40.i, %.split.split.split.us.i46.i, %.split.split.us.split.i48.i, %.split.split.us.split.us.i49.i, %.split.us.split.split.i52.i, %.split.us.split.split.us.i56.i, %.split.us.split.us.split.i58.i, %.split.us.split.us.i57.i, %.split.us.split.us.i.i
-  store i32 %253, ptr %9, align 4
-  %465 = mul nsw i32 %.1.i, %253
-  %466 = sext i32 %465 to i64
-  %467 = getelementptr inbounds i8, ptr %215, i64 %466
-  %468 = getelementptr inbounds nuw i8, ptr %467, i64 %.173.i
-  store ptr %468, ptr %7, align 8
+  store i32 %254, ptr %9, align 4
+  %466 = mul nsw i32 %.1.i, %254
+  %467 = sext i32 %466 to i64
+  %468 = getelementptr inbounds i8, ptr %215, i64 %467
+  %469 = getelementptr inbounds nuw i8, ptr %468, i64 %.173.i
+  store ptr %469, ptr %7, align 8
   br label %extend_mc_border.exit
 
-extend_mc_border.exit:                            ; preds = %av1_is_scaled.exit.i.i, %226, %244, %highbd_build_mc_border.exit.i
+extend_mc_border.exit:                            ; preds = %av1_is_scaled.exit.i.i, %226, %245, %highbd_build_mc_border.exit.i
   ret void
 }
 
