@@ -1630,7 +1630,7 @@ define void @_ZN14arrow_vendored17double_conversion6Bignum17AssignPowerUInt16Eti
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %.079 = phi i16 [ %13, %.lr.ph ], [ %1, %8 ]
   %.03978 = phi i32 [ %14, %.lr.ph ], [ 0, %8 ]
-  %13 = lshr i16 %.079, 1
+  %13 = lshr exact i16 %.079, 1
   %14 = add nuw nsw i32 %.03978, 1
   %15 = zext nneg i16 %13 to i32
   %16 = and i32 %15, 1

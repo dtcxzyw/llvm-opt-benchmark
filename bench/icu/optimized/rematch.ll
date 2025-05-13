@@ -4342,11 +4342,11 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit: ; preds = %
   %135 = zext nneg i32 %134 to i64
   %136 = getelementptr inbounds nuw [32 x i8], ptr %133, i64 0, i64 %135
   %137 = load i8, ptr %136, align 1, !tbaa !100
-  %138 = zext i8 %137 to i32
-  %139 = and i32 %111, 7
-  %140 = shl nuw nsw i32 1, %139
-  %141 = and i32 %140, %138
-  %.not167 = icmp eq i32 %141, 0
+  %138 = zext i8 %137 to i16
+  %139 = and i16 %110, 7
+  %140 = shl nuw nsw i16 1, %139
+  %141 = and i16 %140, %138
+  %.not167 = icmp eq i16 %141, 0
   br i1 %.not167, label %151, label %146
 
 .thread:                                          ; preds = %114, %117, %123, %128
@@ -13089,11 +13089,11 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %930 = zext nneg i32 %929 to i64
   %931 = getelementptr inbounds nuw [32 x i8], ptr %928, i64 0, i64 %930
   %932 = load i8, ptr %931, align 1, !tbaa !100
-  %933 = zext i8 %932 to i32
-  %934 = and i32 %908, 7
-  %935 = shl nuw nsw i32 1, %934
-  %936 = and i32 %935, %933
-  %.not1040 = icmp eq i32 %936, 0
+  %933 = zext i8 %932 to i16
+  %934 = and i16 %907, 7
+  %935 = shl nuw nsw i16 1, %934
+  %936 = and i16 %935, %933
+  %.not1040 = icmp eq i16 %936, 0
   br label %941
 
 .thread1404:                                      ; preds = %912, %918, %923
@@ -13195,11 +13195,11 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %999 = zext nneg i32 %998 to i64
   %1000 = getelementptr inbounds nuw [32 x i8], ptr %997, i64 0, i64 %999
   %1001 = load i8, ptr %1000, align 1, !tbaa !100
-  %1002 = zext i8 %1001 to i32
-  %1003 = and i32 %976, 7
-  %1004 = shl nuw nsw i32 1, %1003
-  %1005 = and i32 %1004, %1002
-  %.not1035 = icmp eq i32 %1005, 0
+  %1002 = zext i8 %1001 to i16
+  %1003 = and i16 %975, 7
+  %1004 = shl nuw nsw i16 1, %1003
+  %1005 = and i16 %1004, %1002
+  %.not1035 = icmp eq i16 %1005, 0
   br i1 %.not1035, label %.critedge1082, label %1011
 
 .thread1408:                                      ; preds = %980, %986, %991
@@ -13296,11 +13296,11 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %1068 = zext nneg i32 %1067 to i64
   %1069 = getelementptr inbounds nuw [32 x i8], ptr %1066, i64 0, i64 %1068
   %1070 = load i8, ptr %1069, align 1, !tbaa !100
-  %1071 = zext i8 %1070 to i32
-  %1072 = and i32 %1044, 7
-  %1073 = shl nuw nsw i32 1, %1072
-  %1074 = and i32 %1073, %1071
-  %.not1031 = icmp eq i32 %1074, 0
+  %1071 = zext i8 %1070 to i16
+  %1072 = and i16 %1043, 7
+  %1073 = shl nuw nsw i16 1, %1072
+  %1074 = and i16 %1073, %1071
+  %.not1031 = icmp eq i16 %1074, 0
   br i1 %.not1031, label %1077, label %.critedge1082
 
 .thread1412:                                      ; preds = %1048, %1054, %1059
@@ -15394,11 +15394,11 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1312: ;
   %2219 = zext nneg i32 %2218 to i64
   %2220 = getelementptr inbounds nuw [32 x i8], ptr %2188, i64 0, i64 %2219
   %2221 = load i8, ptr %2220, align 1, !tbaa !100
-  %2222 = zext i8 %2221 to i32
-  %2223 = and i32 %2199, 7
-  %2224 = shl nuw nsw i32 1, %2223
-  %2225 = and i32 %2224, %2222
-  %2226 = icmp eq i32 %2225, 0
+  %2222 = zext i8 %2221 to i16
+  %2223 = and i16 %2198, 7
+  %2224 = shl nuw nsw i16 1, %2223
+  %2225 = and i16 %2224, %2222
+  %2226 = icmp eq i16 %2225, 0
   br i1 %2226, label %2227, label %2256
 
 2227:                                             ; preds = %2217

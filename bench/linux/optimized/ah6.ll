@@ -834,10 +834,10 @@ define internal i32 @ah6_output(ptr noundef readonly captures(none) %0, ptr noun
   %123 = getelementptr inbounds nuw i8, ptr %97, i64 7
   store i8 0, ptr %123, align 1
   %124 = load i32, ptr %91, align 4
-  %125 = zext i32 %124 to i64
-  %126 = add nuw nsw i64 %125, 19
-  %127 = lshr i64 %126, 2
-  %128 = trunc i64 %127 to i8
+  %125 = trunc i32 %124 to i16
+  %126 = add i16 %125, 19
+  %127 = lshr i16 %126, 2
+  %128 = trunc i16 %127 to i8
   %129 = and i8 %128, -2
   %130 = add i8 %129, -2
   %131 = getelementptr inbounds nuw i8, ptr %89, i64 1

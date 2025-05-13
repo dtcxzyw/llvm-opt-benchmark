@@ -172,7 +172,7 @@ define dso_local void @gs_init() local_unnamed_addr #0 {
   br label %_get_gr_type.exit
 
 24:                                               ; preds = %19
-  %25 = lshr i16 %16, 1
+  %25 = lshr exact i16 %16, 1
   %.lobit.i = and i16 %25, 1
   br label %_get_gr_type.exit
 
@@ -1691,7 +1691,7 @@ define dso_local void @gs_reconfig() local_unnamed_addr #0 {
   br label %_get_gr_type.exit
 
 24:                                               ; preds = %19
-  %25 = lshr i16 %16, 1
+  %25 = lshr exact i16 %16, 1
   %.lobit.i = and i16 %25, 1
   br label %_get_gr_type.exit
 

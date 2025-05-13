@@ -624,19 +624,19 @@ define zeroext i8 @lv_color16_luminance(i16 %0) local_unnamed_addr #1 {
 define zeroext i8 @lv_color24_luminance(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i8, ptr %2, align 1, !tbaa !10
-  %4 = zext i8 %3 to i32
-  %5 = mul nuw nsw i32 %4, 77
+  %4 = zext i8 %3 to i16
+  %5 = mul nuw nsw i16 %4, 77
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = load i8, ptr %6, align 1, !tbaa !10
-  %8 = zext i8 %7 to i32
-  %9 = mul nuw nsw i32 %8, 151
-  %10 = add nuw nsw i32 %9, %5
+  %8 = zext i8 %7 to i16
+  %9 = mul nuw i16 %8, 151
+  %10 = add nuw i16 %9, %5
   %11 = load i8, ptr %0, align 1, !tbaa !10
-  %12 = zext i8 %11 to i32
-  %13 = mul nuw nsw i32 %12, 28
-  %14 = add nuw nsw i32 %10, %13
-  %15 = lshr i32 %14, 8
-  %16 = trunc nuw i32 %15 to i8
+  %12 = zext i8 %11 to i16
+  %13 = mul nuw nsw i16 %12, 28
+  %14 = add nuw i16 %10, %13
+  %15 = lshr i16 %14, 8
+  %16 = trunc nuw i16 %15 to i8
   ret i8 %16
 }
 

@@ -900,7 +900,7 @@ define internal fastcc void @write_bmp_header(ptr noundef %0, ptr noundef readon
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 378
   %73 = load i8, ptr %72, align 2, !tbaa !84
   %74 = icmp eq i8 %73, 2
-  br i1 %74, label %75, label %104
+  br i1 %74, label %75, label %106
 
 75:                                               ; preds = %14
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 380
@@ -909,82 +909,84 @@ define internal fastcc void @write_bmp_header(ptr noundef %0, ptr noundef readon
   %79 = mul i8 %78, 100
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i8 %79, ptr %80, align 8, !tbaa !35
-  %81 = zext i16 %77 to i64
-  %82 = mul nuw nsw i64 %81, 100
-  %83 = lshr i64 %82, 8
-  %84 = trunc i64 %83 to i8
-  %85 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  store i8 %84, ptr %85, align 1, !tbaa !35
-  %86 = lshr i64 %82, 16
-  %87 = trunc nuw nsw i64 %86 to i8
-  %88 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  store i8 %87, ptr %88, align 2, !tbaa !35
-  %89 = getelementptr inbounds nuw i8, ptr %4, i64 27
-  store i8 0, ptr %89, align 1, !tbaa !35
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 382
-  %91 = load i16, ptr %90, align 2, !tbaa !86
-  %92 = trunc i16 %91 to i8
-  %93 = mul i8 %92, 100
-  %94 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i8 %93, ptr %94, align 4, !tbaa !35
-  %95 = zext i16 %91 to i64
-  %96 = mul nuw nsw i64 %95, 100
-  %97 = lshr i64 %96, 8
-  %98 = trunc i64 %97 to i8
+  %81 = mul i16 %77, 100
+  %82 = lshr i16 %81, 8
+  %83 = trunc nuw i16 %82 to i8
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  store i8 %83, ptr %84, align 1, !tbaa !35
+  %85 = zext i16 %77 to i32
+  %86 = mul nuw nsw i32 %85, 100
+  %87 = lshr i32 %86, 16
+  %88 = trunc nuw nsw i32 %87 to i8
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 26
+  store i8 %88, ptr %89, align 2, !tbaa !35
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 27
+  store i8 0, ptr %90, align 1, !tbaa !35
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 382
+  %92 = load i16, ptr %91, align 2, !tbaa !86
+  %93 = trunc i16 %92 to i8
+  %94 = mul i8 %93, 100
+  %95 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  store i8 %94, ptr %95, align 4, !tbaa !35
+  %96 = mul i16 %92, 100
+  %97 = lshr i16 %96, 8
+  %98 = trunc nuw i16 %97 to i8
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 29
   store i8 %98, ptr %99, align 1, !tbaa !35
-  %100 = lshr i64 %96, 16
-  %101 = trunc nuw nsw i64 %100 to i8
-  %102 = getelementptr inbounds nuw i8, ptr %4, i64 30
-  store i8 %101, ptr %102, align 2, !tbaa !35
-  %103 = getelementptr inbounds nuw i8, ptr %4, i64 31
-  store i8 0, ptr %103, align 1, !tbaa !35
-  br label %104
+  %100 = zext i16 %92 to i32
+  %101 = mul nuw nsw i32 %100, 100
+  %102 = lshr i32 %101, 16
+  %103 = trunc nuw nsw i32 %102 to i8
+  %104 = getelementptr inbounds nuw i8, ptr %4, i64 30
+  store i8 %103, ptr %104, align 2, !tbaa !35
+  %105 = getelementptr inbounds nuw i8, ptr %4, i64 31
+  store i8 0, ptr %105, align 1, !tbaa !35
+  br label %106
 
-104:                                              ; preds = %75, %14
-  %105 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 0, ptr %105, align 16, !tbaa !35
-  %106 = lshr exact i32 %.0, 8
-  %107 = trunc nuw nsw i32 %106 to i8
-  %108 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 %107, ptr %108, align 1, !tbaa !35
-  %109 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %110 = load ptr, ptr %109, align 8, !tbaa !70
-  %111 = call i64 @fwrite(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 14, ptr noundef %110)
-  %.not53 = icmp eq i64 %111, 14
-  br i1 %.not53, label %116, label %112
+106:                                              ; preds = %75, %14
+  %107 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i8 0, ptr %107, align 16, !tbaa !35
+  %108 = lshr exact i32 %.0, 8
+  %109 = trunc nuw nsw i32 %108 to i8
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 33
+  store i8 %109, ptr %110, align 1, !tbaa !35
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %112 = load ptr, ptr %111, align 8, !tbaa !70
+  %113 = call i64 @fwrite(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 14, ptr noundef %112)
+  %.not53 = icmp eq i64 %113, 14
+  br i1 %.not53, label %118, label %114
 
-112:                                              ; preds = %104
-  %113 = load ptr, ptr %0, align 8, !tbaa !31
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 40
-  store i32 37, ptr %114, align 8, !tbaa !32
-  %115 = load ptr, ptr %113, align 8, !tbaa !36
-  tail call void %115(ptr noundef nonnull %0) #7
-  br label %116
+114:                                              ; preds = %106
+  %115 = load ptr, ptr %0, align 8, !tbaa !31
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 40
+  store i32 37, ptr %116, align 8, !tbaa !32
+  %117 = load ptr, ptr %115, align 8, !tbaa !36
+  tail call void %117(ptr noundef nonnull %0) #7
+  br label %118
 
-116:                                              ; preds = %112, %104
-  %117 = load ptr, ptr %109, align 8, !tbaa !70
-  %118 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 40, ptr noundef %117)
-  %.not54 = icmp eq i64 %118, 40
-  br i1 %.not54, label %123, label %119
+118:                                              ; preds = %114, %106
+  %119 = load ptr, ptr %111, align 8, !tbaa !70
+  %120 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 40, ptr noundef %119)
+  %.not54 = icmp eq i64 %120, 40
+  br i1 %.not54, label %125, label %121
 
-119:                                              ; preds = %116
-  %120 = load ptr, ptr %0, align 8, !tbaa !31
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 40
-  store i32 37, ptr %121, align 8, !tbaa !32
-  %122 = load ptr, ptr %120, align 8, !tbaa !36
-  tail call void %122(ptr noundef nonnull %0) #7
-  br label %123
-
-123:                                              ; preds = %119, %116
-  br i1 %15, label %124, label %125
-
-124:                                              ; preds = %123
-  %.val = load ptr, ptr %109, align 8, !tbaa !70
-  tail call fastcc void @write_colormap(ptr noundef nonnull %0, ptr %.val, i32 noundef %.0, i32 noundef 4)
+121:                                              ; preds = %118
+  %122 = load ptr, ptr %0, align 8, !tbaa !31
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 40
+  store i32 37, ptr %123, align 8, !tbaa !32
+  %124 = load ptr, ptr %122, align 8, !tbaa !36
+  tail call void %124(ptr noundef nonnull %0) #7
   br label %125
 
-125:                                              ; preds = %124, %123
+125:                                              ; preds = %121, %118
+  br i1 %15, label %126, label %127
+
+126:                                              ; preds = %125
+  %.val = load ptr, ptr %111, align 8, !tbaa !70
+  tail call fastcc void @write_colormap(ptr noundef nonnull %0, ptr %.val, i32 noundef %.0, i32 noundef 4)
+  br label %127
+
+127:                                              ; preds = %126, %125
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %3) #7
   ret void

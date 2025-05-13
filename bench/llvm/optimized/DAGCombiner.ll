@@ -205537,14 +205537,13 @@ _ZNK4llvm3EVTneES0_.exit60.thread:                ; preds = %74, %76
 
 102:                                              ; preds = %100, %92
   %103 = shl nuw nsw i64 %63, 29
-  %104 = and i64 %103, 64424509440
-  %105 = and i64 %86, 4294967295
+  %104 = and i64 %86, 4294967295
   br label %.critedge2
 
 .critedge2:                                       ; preds = %37, %12, %19, %24, %94, %28, %62, %67, %98, %100, %89, %_ZNK4llvm3EVTneES0_.exit60.thread, %102, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit, %5
-  %.sroa.086.0 = phi i64 [ 0, %28 ], [ 0, %62 ], [ 0, %_ZNK4llvm3EVTneES0_.exit60.thread ], [ %105, %102 ], [ 0, %100 ], [ 0, %98 ], [ 0, %89 ], [ 0, %67 ], [ 0, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit ], [ 0, %12 ], [ 0, %5 ], [ 0, %94 ], [ 0, %24 ], [ 0, %19 ], [ 0, %37 ]
-  %.sroa.3.0 = phi i64 [ 0, %28 ], [ 0, %62 ], [ 0, %_ZNK4llvm3EVTneES0_.exit60.thread ], [ %104, %102 ], [ 0, %100 ], [ 0, %98 ], [ 0, %89 ], [ 0, %67 ], [ 0, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit ], [ 0, %12 ], [ 0, %5 ], [ 0, %94 ], [ 0, %24 ], [ 0, %19 ], [ 0, %37 ]
-  %.sroa.086.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.086.0
+  %.sroa.086.0 = phi i64 [ 0, %28 ], [ 0, %62 ], [ 0, %_ZNK4llvm3EVTneES0_.exit60.thread ], [ %104, %102 ], [ 0, %100 ], [ 0, %98 ], [ 0, %89 ], [ 0, %67 ], [ 0, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit ], [ 0, %12 ], [ 0, %5 ], [ 0, %94 ], [ 0, %24 ], [ 0, %19 ], [ 0, %37 ]
+  %.sroa.3.0 = phi i64 [ 0, %28 ], [ 0, %62 ], [ 0, %_ZNK4llvm3EVTneES0_.exit60.thread ], [ %103, %102 ], [ 0, %100 ], [ 0, %98 ], [ 0, %89 ], [ 0, %67 ], [ 0, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit ], [ 0, %12 ], [ 0, %5 ], [ 0, %94 ], [ 0, %24 ], [ 0, %19 ], [ 0, %37 ]
+  %.sroa.086.0.insert.insert = or i64 %.sroa.3.0, %.sroa.086.0
   ret i64 %.sroa.086.0.insert.insert
 }
 
