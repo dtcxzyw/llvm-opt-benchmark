@@ -247,14 +247,14 @@ define internal void @start_pass(ptr noundef %0) #0 {
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %.preheader112 ], [ 0, %61 ]
   %67 = getelementptr inbounds nuw [64 x i16], ptr %59, i64 0, i64 %indvars.iv97
   %68 = load i16, ptr %67, align 2, !tbaa !55
-  %69 = zext i16 %68 to i64
+  %69 = zext i16 %68 to i32
   %70 = getelementptr inbounds nuw [64 x i16], ptr @start_pass.aanscales, i64 0, i64 %indvars.iv97
   %71 = load i16, ptr %70, align 2, !tbaa !55
-  %72 = sext i16 %71 to i64
-  %73 = mul nsw i64 %72, %69
-  %74 = add nsw i64 %73, 2048
-  %75 = lshr i64 %74, 12
-  %76 = trunc i64 %75 to i16
+  %72 = sext i16 %71 to i32
+  %73 = mul nsw i32 %72, %69
+  %74 = add nsw i32 %73, 2048
+  %75 = lshr i32 %74, 12
+  %76 = trunc i32 %75 to i16
   %77 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv97
   store i16 %76, ptr %77, align 2, !tbaa !55
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1

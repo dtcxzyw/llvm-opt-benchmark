@@ -1695,7 +1695,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %.078 = phi i16 [ %13, %.lr.ph ], [ %1, %8 ]
   %.03977 = phi i32 [ %14, %.lr.ph ], [ 0, %8 ]
-  %13 = lshr i16 %.078, 1
+  %13 = lshr exact i16 %.078, 1
   %14 = add nuw nsw i32 %.03977, 1
   %15 = zext nneg i16 %13 to i32
   %16 = and i32 %15, 1

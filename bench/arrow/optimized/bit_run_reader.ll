@@ -30,13 +30,13 @@ define void @_ZN5arrow8internal12BitRunReaderC2EPKhll(ptr noundef nonnull align 
   %15 = lshr i64 %2, 3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !15
-  %18 = zext i8 %17 to i32
-  %19 = trunc i64 %2 to i32
-  %20 = and i32 %19, 7
+  %18 = zext i8 %17 to i16
+  %19 = trunc i64 %2 to i16
+  %20 = and i16 %19, 7
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = xor i32 %18, -1
-  %23 = lshr i32 %22, %20
-  %24 = trunc i32 %23 to i8
+  %22 = xor i16 %18, -1
+  %23 = lshr i16 %22, %20
+  %24 = trunc i16 %23 to i8
   %25 = and i8 %24, 1
   store i8 %25, ptr %21, align 8, !tbaa !16
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24

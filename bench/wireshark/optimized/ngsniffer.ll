@@ -2755,10 +2755,10 @@ define internal zeroext i1 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr n
   %79 = add i8 %78, 14
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 %79, ptr %80, align 1
-  %81 = zext i32 %76 to i64
-  %82 = add nuw nsw i64 %81, 14
-  %83 = lshr i64 %82, 8
-  %84 = trunc i64 %83 to i8
+  %81 = trunc i32 %76 to i16
+  %82 = add i16 %81, 14
+  %83 = lshr i16 %82, 8
+  %84 = trunc nuw i16 %83 to i8
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 3
   store i8 %84, ptr %85, align 1
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 4

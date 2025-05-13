@@ -9856,8 +9856,8 @@ define void @dequantize_row_tq2_0(ptr noalias noundef readonly captures(none) %0
 .preheader:                                       ; preds = %.preheader23, %17
   %.227 = phi ptr [ %.129, %.preheader23 ], [ %29, %17 ]
   %.02026 = phi i64 [ 0, %.preheader23 ], [ %18, %17 ]
-  %.020.tr = trunc nuw i64 %.02026 to i32
-  %15 = shl nuw nsw i32 %.020.tr, 1
+  %.020.tr = trunc nuw i64 %.02026 to i8
+  %15 = shl nuw nsw i8 %.020.tr, 1
   br label %19
 
 16:                                               ; preds = %17
@@ -9874,9 +9874,9 @@ define void @dequantize_row_tq2_0(ptr noalias noundef readonly captures(none) %0
   %20 = or disjoint i64 %.01924, %.02128
   %21 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !13
-  %23 = zext i8 %22 to i32
-  %24 = lshr i32 %23, %15
-  %25 = and i32 %24, 3
+  %23 = lshr i8 %22, %15
+  %24 = and i8 %23, 3
+  %25 = zext nneg i8 %24 to i32
   %26 = add nsw i32 %25, -1
   %27 = sitofp i32 %26 to float
   %28 = fmul float %11, %27

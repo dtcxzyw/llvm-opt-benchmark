@@ -22876,7 +22876,7 @@ _ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit52
 204:                                              ; preds = %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit52.thread, %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit52
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %170, i64 24, i1 false)
-  %205 = lshr i64 %54, 3
+  %205 = lshr exact i64 %54, 3
   %206 = and i64 %205, 536870911
   %207 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandEPKNS_17MachineMemOperandERKNS_18MachinePointerInfoENS_12LocationSizeE(ptr noundef nonnull align 8 dereferenceable(1065) %17, ptr noundef nonnull %170, ptr noundef nonnull align 8 dereferenceable(21) %14, i64 %206) #30
   %208 = load ptr, ptr %17, align 8, !tbaa !203

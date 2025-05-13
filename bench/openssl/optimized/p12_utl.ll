@@ -257,10 +257,10 @@ define ptr @OPENSSL_utf82uni(ptr noundef %0, i32 noundef %1, ptr noundef writeon
   %54 = add i64 %51, -65536
   store i64 %54, ptr %5, align 8, !tbaa !14
   %55 = lshr i64 %54, 10
-  %56 = trunc i64 %55 to i32
-  %57 = add i32 %56, 55296
-  %58 = lshr i32 %57, 8
-  %59 = trunc i32 %58 to i8
+  %56 = trunc i64 %55 to i16
+  %57 = add i16 %56, -10240
+  %58 = lshr i16 %57, 8
+  %59 = trunc nuw i16 %58 to i8
   store i8 %59, ptr %.04967, align 1, !tbaa !3
   %60 = getelementptr inbounds nuw i8, ptr %.04967, i64 2
   %61 = lshr i64 %51, 8

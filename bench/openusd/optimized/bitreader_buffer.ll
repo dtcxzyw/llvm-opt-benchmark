@@ -589,7 +589,7 @@ aom_rb_read_primitive_subexpfin.exit.i:           ; preds = %aom_rb_read_literal
   br i1 %141, label %142, label %145
 
 142:                                              ; preds = %139
-  %143 = lshr i16 %.0.i.i, 1
+  %143 = lshr exact i16 %.0.i.i, 1
   %144 = add i16 %143, %6
   br label %aom_rb_read_primitive_refsubexpfin.exit
 
@@ -615,7 +615,7 @@ aom_rb_read_primitive_subexpfin.exit.i:           ; preds = %aom_rb_read_literal
   br i1 %159, label %160, label %163
 
 160:                                              ; preds = %157
-  %161 = lshr i16 %.0.i.i, 1
+  %161 = lshr exact i16 %.0.i.i, 1
   %162 = add i16 %161, %152
   br label %inv_recenter_nonneg.exit11.i.i
 

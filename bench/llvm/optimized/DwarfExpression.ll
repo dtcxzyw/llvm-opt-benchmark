@@ -3501,7 +3501,7 @@ define dso_local void @_ZN4llvm15DwarfExpression17addFragmentOffsetEPKNS_12DIExp
 
 41:                                               ; preds = %32
   call void %35(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 noundef zeroext -109, ptr noundef null) #15
-  %42 = lshr i64 %30, 3
+  %42 = lshr exact i64 %30, 3
   %43 = and i64 %42, 536870911
   br label %44
 

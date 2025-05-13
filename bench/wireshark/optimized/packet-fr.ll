@@ -770,7 +770,7 @@ define internal fastcc void @dissect_fr_common(ptr noundef %0, ptr noundef %1, p
   br label %74
 
 27:                                               ; preds = %21
-  %28 = lshr i8 %22, 1
+  %28 = lshr exact i8 %22, 1
   %29 = load i32, ptr @hf_fr_first_addr_octet, align 4
   %30 = load i32, ptr @ett_fr_address, align 4
   %31 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0226, ptr noundef %0, i32 noundef 0, i32 noundef %29, i32 noundef %30, ptr noundef nonnull @dissect_fr_common.first_address_bits, i32 noundef 0)

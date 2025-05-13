@@ -639,9 +639,9 @@ define hidden void @ScaleFilterCols_16_C(ptr noundef writeonly captures(none) %0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
-  %.042 = phi ptr [ %43, %.lr.ph ], [ %0, %5 ]
-  %.03841 = phi i32 [ %42, %.lr.ph ], [ %3, %5 ]
-  %.03940 = phi i32 [ %44, %.lr.ph ], [ 0, %5 ]
+  %.042 = phi ptr [ %41, %.lr.ph ], [ %0, %5 ]
+  %.03841 = phi i32 [ %40, %.lr.ph ], [ %3, %5 ]
+  %.03940 = phi i32 [ %42, %.lr.ph ], [ 0, %5 ]
   %8 = ashr i32 %.03841, 16
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i16, ptr %1, i64 %9
@@ -649,69 +649,66 @@ define hidden void @ScaleFilterCols_16_C(ptr noundef writeonly captures(none) %0
   %12 = getelementptr i8, ptr %10, i64 2
   %13 = load i16, ptr %12, align 2
   %14 = and i32 %.03841, 65535
-  %15 = zext nneg i32 %14 to i64
-  %16 = zext i16 %13 to i64
-  %17 = zext i16 %11 to i64
-  %18 = sub nsw i64 %16, %17
-  %19 = mul nsw i64 %18, %15
-  %20 = add nsw i64 %19, 32768
-  %21 = lshr i64 %20, 16
-  %22 = trunc i64 %21 to i16
-  %23 = add i16 %11, %22
-  store i16 %23, ptr %.042, align 2
-  %24 = add nsw i32 %.03841, %4
-  %25 = ashr i32 %24, 16
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %1, i64 %26
-  %28 = load i16, ptr %27, align 2
-  %29 = getelementptr i8, ptr %27, i64 2
-  %30 = load i16, ptr %29, align 2
-  %31 = and i32 %24, 65535
-  %32 = zext nneg i32 %31 to i64
-  %33 = zext i16 %30 to i64
-  %34 = zext i16 %28 to i64
-  %35 = sub nsw i64 %33, %34
-  %36 = mul nsw i64 %35, %32
-  %37 = add nsw i64 %36, 32768
-  %38 = lshr i64 %37, 16
-  %39 = trunc i64 %38 to i16
-  %40 = add i16 %28, %39
-  %41 = getelementptr inbounds nuw i8, ptr %.042, i64 2
-  store i16 %40, ptr %41, align 2
-  %42 = add nsw i32 %24, %4
-  %43 = getelementptr inbounds nuw i8, ptr %.042, i64 4
-  %44 = add nuw nsw i32 %.03940, 2
-  %45 = icmp slt i32 %44, %6
-  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  %15 = zext i16 %13 to i32
+  %16 = zext i16 %11 to i32
+  %17 = sub nsw i32 %15, %16
+  %18 = mul i32 %17, %14
+  %19 = add i32 %18, 32768
+  %20 = lshr i32 %19, 16
+  %21 = trunc nuw i32 %20 to i16
+  %22 = add i16 %11, %21
+  store i16 %22, ptr %.042, align 2
+  %23 = add nsw i32 %.03841, %4
+  %24 = ashr i32 %23, 16
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds i16, ptr %1, i64 %25
+  %27 = load i16, ptr %26, align 2
+  %28 = getelementptr i8, ptr %26, i64 2
+  %29 = load i16, ptr %28, align 2
+  %30 = and i32 %23, 65535
+  %31 = zext i16 %29 to i32
+  %32 = zext i16 %27 to i32
+  %33 = sub nsw i32 %31, %32
+  %34 = mul i32 %33, %30
+  %35 = add i32 %34, 32768
+  %36 = lshr i32 %35, 16
+  %37 = trunc nuw i32 %36 to i16
+  %38 = add i16 %27, %37
+  %39 = getelementptr inbounds nuw i8, ptr %.042, i64 2
+  store i16 %38, ptr %39, align 2
+  %40 = add nsw i32 %23, %4
+  %41 = getelementptr inbounds nuw i8, ptr %.042, i64 4
+  %42 = add nuw nsw i32 %.03940, 2
+  %43 = icmp slt i32 %42, %6
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
-  %.038.lcssa = phi i32 [ %3, %5 ], [ %42, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %5 ], [ %43, %.lr.ph ]
-  %46 = and i32 %2, 1
-  %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %64, label %47
+  %.038.lcssa = phi i32 [ %3, %5 ], [ %40, %.lr.ph ]
+  %.0.lcssa = phi ptr [ %0, %5 ], [ %41, %.lr.ph ]
+  %44 = and i32 %2, 1
+  %.not = icmp eq i32 %44, 0
+  br i1 %.not, label %61, label %45
 
-47:                                               ; preds = %._crit_edge
-  %48 = ashr i32 %.038.lcssa, 16
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i16, ptr %1, i64 %49
+45:                                               ; preds = %._crit_edge
+  %46 = ashr i32 %.038.lcssa, 16
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds i16, ptr %1, i64 %47
+  %49 = load i16, ptr %48, align 2
+  %50 = getelementptr i8, ptr %48, i64 2
   %51 = load i16, ptr %50, align 2
-  %52 = getelementptr i8, ptr %50, i64 2
-  %53 = load i16, ptr %52, align 2
-  %54 = and i32 %.038.lcssa, 65535
-  %55 = zext nneg i32 %54 to i64
-  %56 = zext i16 %53 to i64
-  %57 = zext i16 %51 to i64
-  %58 = sub nsw i64 %56, %57
-  %59 = mul nsw i64 %58, %55
-  %60 = add nsw i64 %59, 32768
-  %61 = lshr i64 %60, 16
-  %62 = trunc i64 %61 to i16
-  %63 = add i16 %51, %62
-  store i16 %63, ptr %.0.lcssa, align 2
-  br label %64
+  %52 = and i32 %.038.lcssa, 65535
+  %53 = zext i16 %51 to i32
+  %54 = zext i16 %49 to i32
+  %55 = sub nsw i32 %53, %54
+  %56 = mul i32 %55, %52
+  %57 = add i32 %56, 32768
+  %58 = lshr i32 %57, 16
+  %59 = trunc nuw i32 %58 to i16
+  %60 = add i16 %49, %59
+  store i16 %60, ptr %.0.lcssa, align 2
+  br label %61
 
-64:                                               ; preds = %47, %._crit_edge
+61:                                               ; preds = %45, %._crit_edge
   ret void
 }
 

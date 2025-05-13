@@ -3729,13 +3729,13 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly captures(addre
 
 .thread76:                                        ; preds = %.thread
   %46 = icmp slt i8 %24, 0
-  %47 = zext nneg i8 %24 to i32
-  %48 = shl nuw nsw i32 %47, 8
-  %49 = select i1 %46, i32 0, i32 %48
+  %47 = zext nneg i8 %24 to i16
+  %48 = shl nuw nsw i16 %47, 8
+  %49 = select i1 %46, i16 0, i16 %48
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 %45
   %51 = load i8, ptr %50, align 1, !tbaa !10
-  %52 = sext i8 %51 to i32
-  %53 = or i32 %49, %52
+  %52 = sext i8 %51 to i16
+  %53 = or i16 %49, %52
   %54 = getelementptr inbounds nuw i8, ptr %.06280, i64 1
   store i8 95, ptr %.06280, align 1, !tbaa !10
   %55 = and i8 %51, 15
@@ -3746,8 +3746,8 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly captures(addre
   %59 = add nuw nsw i8 %58, 97
   %60 = getelementptr inbounds nuw i8, ptr %.06280, i64 3
   store i8 %59, ptr %57, align 1, !tbaa !10
-  %61 = lshr i32 %53, 8
-  %62 = trunc i32 %61 to i8
+  %61 = lshr i16 %53, 8
+  %62 = trunc nuw i16 %61 to i8
   %63 = and i8 %62, 15
   %64 = add nuw nsw i8 %63, 97
   %65 = getelementptr inbounds nuw i8, ptr %.06280, i64 4

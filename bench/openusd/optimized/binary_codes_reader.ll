@@ -173,7 +173,7 @@ define hidden zeroext i16 @aom_read_primitive_refsubexpfin_(ptr noundef %0, i16 
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = lshr i16 %5, 1
+  %16 = lshr exact i16 %5, 1
   %17 = add i16 %16, %3
   br label %inv_recenter_finite_nonneg.exit
 
@@ -199,7 +199,7 @@ define hidden zeroext i16 @aom_read_primitive_refsubexpfin_(ptr noundef %0, i16 
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %30
-  %34 = lshr i16 %5, 1
+  %34 = lshr exact i16 %5, 1
   %35 = add i16 %34, %25
   br label %inv_recenter_nonneg.exit11.i
 

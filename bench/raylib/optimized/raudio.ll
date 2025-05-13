@@ -89013,14 +89013,14 @@ jar_xm_envelopes.exit.thread:                     ; preds = %191, %jar_xm_envelo
   %.0.i = select i1 %209, float %212, float 1.000000e+00
   %213 = add i16 %205, 1
   store i16 %213, ptr %204, align 4
-  %214 = trunc i16 %205 to i8
-  %215 = getelementptr inbounds nuw i8, ptr %.pr296, i64 242
-  %216 = load i8, ptr %215, align 2
-  %217 = mul i8 %216, %214
-  %218 = getelementptr inbounds nuw i8, ptr %.pr296, i64 236
-  %219 = load i32, ptr %218, align 4
-  %220 = lshr i8 %217, 2
-  switch i32 %219, label %jar_xm_waveform.exit.i [
+  %214 = getelementptr inbounds nuw i8, ptr %.pr296, i64 242
+  %215 = load i8, ptr %214, align 2
+  %216 = getelementptr inbounds nuw i8, ptr %.pr296, i64 236
+  %217 = load i32, ptr %216, align 4
+  %218 = trunc i16 %205 to i8
+  %219 = mul i8 %215, %218
+  %220 = lshr i8 %219, 2
+  switch i32 %217, label %jar_xm_waveform.exit.i [
     i32 0, label %221
     i32 1, label %227
     i32 2, label %232
@@ -89044,7 +89044,7 @@ jar_xm_envelopes.exit.thread:                     ; preds = %191, %jar_xm_envelo
   br label %jar_xm_waveform.exit.i
 
 232:                                              ; preds = %203
-  %233 = icmp slt i8 %217, 0
+  %233 = icmp slt i8 %219, 0
   %234 = select i1 %233, float 1.000000e+00, float -1.000000e+00
   br label %jar_xm_waveform.exit.i
 

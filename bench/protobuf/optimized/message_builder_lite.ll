@@ -2762,17 +2762,17 @@ if.then7:                                         ; preds = %if.then
   br i1 %cmp14, label %if.then15, label %if.end53
 
 if.then15:                                        ; preds = %if.then7
-  %sub18 = sub nuw nsw i8 15, %5
+  %narrow = sub nuw nsw i8 15, %5
   %6 = load i32, ptr %position_, align 4
   %conv20 = and i32 %6, 255
   %cmp21 = icmp samesign ult i32 %conv20, 15
   %7 = zext i1 %cmp21 to i8
-  %div69 = lshr i8 %sub18, %7
+  %div69 = lshr i8 %narrow, %7
   %.sroa.speculated116 = tail call i8 @llvm.umax.i8(i8 %div69, i8 1)
   %conv27 = zext nneg i8 %.sroa.speculated116 to i32
   %cmp31.not = icmp samesign uge i32 %conv20, %conv27
-  %narrow = add nuw nsw i8 %.sroa.speculated116, %5
-  %cmp36 = icmp samesign ult i8 %narrow, 15
+  %narrow123 = add nuw nsw i8 %.sroa.speculated116, %5
+  %cmp36 = icmp samesign ult i8 %narrow123, 15
   %or.cond = select i1 %cmp31.not, i1 true, i1 %cmp36
   br i1 %or.cond, label %if.then37, label %if.end53
 
@@ -2811,11 +2811,11 @@ if.then59:                                        ; preds = %if.end53
   br i1 %cmp67, label %if.then68, label %if.end108
 
 if.then68:                                        ; preds = %if.then59
-  %sub72 = sub nuw nsw i8 15, %12
+  %narrow124 = sub nuw nsw i8 15, %12
   %13 = load i32, ptr %position_, align 4
   %cmp75 = icmp sgt i32 %13, 0
   %14 = zext i1 %cmp75 to i8
-  %div7870 = lshr i8 %sub72, %14
+  %div7870 = lshr i8 %narrow124, %14
   %.sroa.speculated = tail call i8 @llvm.umax.i8(i8 %div7870, i8 1)
   %conv83 = and i32 %13, 255
   %arrayidx.i86 = getelementptr i8, ptr %0, i64 10
@@ -2824,8 +2824,8 @@ if.then68:                                        ; preds = %if.then59
   %conv86 = zext nneg i8 %.sroa.speculated to i32
   %sub87 = sub nsw i32 %conv85, %conv86
   %cmp88.not = icmp sle i32 %conv83, %sub87
-  %narrow123 = add nuw nsw i8 %.sroa.speculated, %12
-  %cmp94 = icmp samesign ult i8 %narrow123, 15
+  %narrow125 = add nuw nsw i8 %.sroa.speculated, %12
+  %cmp94 = icmp samesign ult i8 %narrow125, 15
   %or.cond122 = select i1 %cmp88.not, i1 true, i1 %cmp94
   br i1 %or.cond122, label %if.then95, label %if.end108
 

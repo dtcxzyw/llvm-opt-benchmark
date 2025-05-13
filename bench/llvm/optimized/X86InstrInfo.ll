@@ -30962,7 +30962,7 @@ _ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit58:        ; preds = %.lr.ph.i53, %117
   br i1 %148, label %149, label %161
 
 149:                                              ; preds = %146
-  %.zext59.i91 = lshr i32 %1, 3
+  %.zext59.i91 = lshr exact i32 %1, 3
   %notmask48.i92 = shl nsw i32 -1, %.zext59.i91
   %150 = xor i32 %notmask48.i92, -1
   br label %151
