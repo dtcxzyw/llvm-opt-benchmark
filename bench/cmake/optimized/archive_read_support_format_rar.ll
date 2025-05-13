@@ -6151,32 +6151,32 @@ define internal fastcc range(i32 0, 2) i32 @execute_filter(ptr noundef %0, ptr n
 
 195:                                              ; preds = %._crit_edge.i34, %.lr.ph71.i
   %.04569.i = phi ptr [ %177, %.lr.ph71.i ], [ %.146.lcssa.i, %._crit_edge.i34 ]
-  %.04768.i = phi i32 [ 0, %.lr.ph71.i ], [ %305, %._crit_edge.i34 ]
+  %.04768.i = phi i32 [ 0, %.lr.ph71.i ], [ %307, %._crit_edge.i34 ]
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %5) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %5, i8 0, i64 68, i1 false)
   %.not5458.i = icmp ult i32 %.04768.i, %173
   br i1 %.not5458.i, label %.lr.ph.i35, label %._crit_edge.i34
 
-.lr.ph.i35:                                       ; preds = %195, %292
-  %196 = phi i32 [ %293, %292 ], [ 0, %195 ]
-  %197 = phi i32 [ %294, %292 ], [ 0, %195 ]
-  %198 = phi i32 [ %295, %292 ], [ 0, %195 ]
-  %199 = phi i32 [ %296, %292 ], [ 0, %195 ]
-  %200 = phi i32 [ %297, %292 ], [ 0, %195 ]
-  %201 = phi i32 [ %298, %292 ], [ 0, %195 ]
-  %202 = phi i32 [ %299, %292 ], [ 0, %195 ]
+.lr.ph.i35:                                       ; preds = %195, %294
+  %196 = phi i32 [ %295, %292 ], [ 0, %195 ]
+  %197 = phi i32 [ %296, %292 ], [ 0, %195 ]
+  %198 = phi i32 [ %297, %292 ], [ 0, %195 ]
+  %199 = phi i32 [ %298, %292 ], [ 0, %195 ]
+  %200 = phi i32 [ %299, %292 ], [ 0, %195 ]
+  %201 = phi i32 [ %300, %292 ], [ 0, %195 ]
+  %202 = phi i32 [ %301, %292 ], [ 0, %195 ]
   %203 = phi i32 [ %258, %292 ], [ 0, %195 ]
-  %204 = phi i8 [ %300, %292 ], [ 0, %195 ]
-  %205 = phi i8 [ %301, %292 ], [ 0, %195 ]
+  %204 = phi i8 [ %302, %292 ], [ 0, %195 ]
+  %205 = phi i8 [ %303, %292 ], [ 0, %195 ]
   %206 = phi i8 [ %230, %292 ], [ 0, %195 ]
   %207 = phi i16 [ %214, %292 ], [ 0, %195 ]
   %208 = phi i8 [ %255, %292 ], [ 0, %195 ]
   %209 = phi i16 [ %215, %292 ], [ 0, %195 ]
   %.14660.i = phi ptr [ %212, %292 ], [ %.04569.i, %195 ]
-  %.04859.i = phi i32 [ %303, %292 ], [ %.04768.i, %195 ]
-  %210 = phi i8 [ %302, %292 ], [ 0, %195 ]
+  %.04859.i = phi i32 [ %305, %292 ], [ %.04768.i, %195 ]
+  %210 = phi i8 [ %304, %292 ], [ 0, %195 ]
   %.not.i36 = icmp ult ptr %.14660.i, %179
-  br i1 %.not.i36, label %211, label %304
+  br i1 %.not.i36, label %211, label %306
 
 211:                                              ; preds = %.lr.ph.i35
   %212 = getelementptr inbounds nuw i8, ptr %.14660.i, i64 1
@@ -6210,7 +6210,7 @@ define internal fastcc range(i32 0, 2) i32 @execute_filter(ptr noundef %0, ptr n
   %236 = tail call i32 @llvm.abs.i32(i32 %235, i1 true)
   %237 = add nsw i32 %236, %201
   store i32 %237, ptr %188, align 4, !tbaa !153
-  %238 = add nsw i32 %231, %234
+  %239 = add nsw i32 %231, %234
   %239 = tail call i32 @llvm.abs.i32(i32 %238, i1 true)
   %240 = add nsw i32 %239, %200
   store i32 %240, ptr %189, align 4, !tbaa !153
@@ -6219,8 +6219,8 @@ define internal fastcc range(i32 0, 2) i32 @execute_filter(ptr noundef %0, ptr n
   %243 = tail call i32 @llvm.abs.i32(i32 %242, i1 true)
   %244 = add nsw i32 %243, %199
   store i32 %244, ptr %190, align 4, !tbaa !153
-  %245 = add nsw i32 %231, %241
-  %246 = tail call i32 @llvm.abs.i32(i32 %245, i1 true)
+  %246 = add nsw i32 %231, %241
+  %246 = tail call i32 @llvm.abs.i32(i32 %246, i1 true)
   %247 = add nsw i32 %246, %198
   store i32 %247, ptr %191, align 4, !tbaa !153
   %248 = sext i16 %209 to i32
@@ -6228,7 +6228,7 @@ define internal fastcc range(i32 0, 2) i32 @execute_filter(ptr noundef %0, ptr n
   %250 = tail call i32 @llvm.abs.i32(i32 %249, i1 true)
   %251 = add nsw i32 %250, %197
   store i32 %251, ptr %192, align 4, !tbaa !153
-  %252 = add nsw i32 %231, %248
+  %253 = add nsw i32 %231, %248
   %253 = tail call i32 @llvm.abs.i32(i32 %252, i1 true)
   %254 = add nsw i32 %253, %196
   store i32 %254, ptr %193, align 4, !tbaa !153
@@ -6247,121 +6247,121 @@ define internal fastcc range(i32 0, 2) i32 @execute_filter(ptr noundef %0, ptr n
 .preheader.i37:                                   ; preds = %211, %.preheader.i37
   %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i39, %.preheader.i37 ], [ 1, %211 ]
   %.057.i = phi i8 [ %spec.select.i, %.preheader.i37 ], [ 0, %211 ]
-  %260 = getelementptr inbounds nuw [11 x i32], ptr %187, i64 0, i64 %indvars.iv.i38
-  %261 = load i32, ptr %260, align 4, !tbaa !153
-  %262 = zext nneg i8 %.057.i to i64
-  %263 = getelementptr inbounds nuw [11 x i32], ptr %187, i64 0, i64 %262
-  %264 = load i32, ptr %263, align 4, !tbaa !153
-  %265 = icmp slt i32 %261, %264
-  %266 = trunc nuw nsw i64 %indvars.iv.i38 to i8
-  %spec.select.i = select i1 %265, i8 %266, i8 %.057.i
+  %262 = getelementptr inbounds nuw [11 x i32], ptr %187, i64 0, i64 %indvars.iv.i38
+  %263 = load i32, ptr %262, align 4, !tbaa !153
+  %264 = zext nneg i8 %.057.i to i64
+  %265 = getelementptr inbounds nuw [11 x i32], ptr %187, i64 0, i64 %264
+  %266 = load i32, ptr %265, align 4, !tbaa !153
+  %267 = icmp slt i32 %263, %266
+  %268 = trunc nuw nsw i64 %indvars.iv.i38 to i8
+  %spec.select.i = select i1 %267, i8 %268, i8 %.057.i
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, 7
-  br i1 %exitcond.not.i40, label %267, label %.preheader.i37, !llvm.loop !249
+  br i1 %exitcond.not.i40, label %269, label %.preheader.i37, !llvm.loop !249
 
-267:                                              ; preds = %.preheader.i37
+269:                                              ; preds = %.preheader.i37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %187, i8 0, i64 44, i1 false)
   switch i8 %spec.select.i, label %292 [
-    i8 1, label %268
-    i8 2, label %272
-    i8 3, label %276
-    i8 4, label %280
-    i8 5, label %284
-    i8 6, label %288
+    i8 1, label %270
+    i8 2, label %274
+    i8 3, label %278
+    i8 4, label %282
+    i8 5, label %286
+    i8 6, label %290
   ]
 
-268:                                              ; preds = %267
-  %269 = icmp sgt i8 %210, -17
-  br i1 %269, label %270, label %292
+270:                                              ; preds = %269
+  %271 = icmp sgt i8 %210, -17
+  br i1 %271, label %272, label %294
 
-270:                                              ; preds = %268
-  %271 = add nsw i8 %210, -1
-  store i8 %271, ptr %5, align 4, !tbaa !31
-  br label %292
+272:                                              ; preds = %270
+  %273 = add nsw i8 %210, -1
+  store i8 %273, ptr %5, align 4, !tbaa !31
+  br label %294
 
-272:                                              ; preds = %267
-  %273 = icmp slt i8 %210, 16
-  br i1 %273, label %274, label %292
+274:                                              ; preds = %269
+  %275 = icmp slt i8 %210, 16
+  br i1 %275, label %276, label %294
 
-274:                                              ; preds = %272
-  %275 = add nsw i8 %210, 1
-  store i8 %275, ptr %5, align 4, !tbaa !31
-  br label %292
+276:                                              ; preds = %274
+  %277 = add nsw i8 %210, 1
+  store i8 %277, ptr %5, align 4, !tbaa !31
+  br label %294
 
-276:                                              ; preds = %267
-  %277 = icmp sgt i8 %205, -17
-  br i1 %277, label %278, label %292
+278:                                              ; preds = %269
+  %279 = icmp sgt i8 %205, -17
+  br i1 %279, label %280, label %294
 
-278:                                              ; preds = %276
-  %279 = add nsw i8 %205, -1
-  store i8 %279, ptr %185, align 1, !tbaa !31
-  br label %292
+280:                                              ; preds = %278
+  %281 = add nsw i8 %205, -1
+  store i8 %281, ptr %185, align 1, !tbaa !31
+  br label %294
 
-280:                                              ; preds = %267
-  %281 = icmp slt i8 %205, 16
-  br i1 %281, label %282, label %292
+282:                                              ; preds = %269
+  %283 = icmp slt i8 %205, 16
+  br i1 %283, label %284, label %294
 
-282:                                              ; preds = %280
-  %283 = add nsw i8 %205, 1
-  store i8 %283, ptr %185, align 1, !tbaa !31
-  br label %292
+284:                                              ; preds = %282
+  %285 = add nsw i8 %205, 1
+  store i8 %285, ptr %185, align 1, !tbaa !31
+  br label %294
 
-284:                                              ; preds = %267
-  %285 = icmp sgt i8 %204, -17
-  br i1 %285, label %286, label %292
+286:                                              ; preds = %269
+  %287 = icmp sgt i8 %204, -17
+  br i1 %287, label %288, label %294
 
-286:                                              ; preds = %284
-  %287 = add nsw i8 %204, -1
-  store i8 %287, ptr %186, align 2, !tbaa !31
-  br label %292
+288:                                              ; preds = %286
+  %289 = add nsw i8 %204, -1
+  store i8 %289, ptr %186, align 2, !tbaa !31
+  br label %294
 
-288:                                              ; preds = %267
-  %289 = icmp slt i8 %204, 16
-  br i1 %289, label %290, label %292
+290:                                              ; preds = %269
+  %291 = icmp slt i8 %204, 16
+  br i1 %291, label %292, label %294
 
-290:                                              ; preds = %288
-  %291 = add nsw i8 %204, 1
-  store i8 %291, ptr %186, align 2, !tbaa !31
-  br label %292
+292:                                              ; preds = %290
+  %293 = add nsw i8 %204, 1
+  store i8 %293, ptr %186, align 2, !tbaa !31
+  br label %294
 
-292:                                              ; preds = %290, %288, %286, %284, %282, %280, %278, %276, %274, %272, %270, %268, %267, %211
-  %293 = phi i32 [ 0, %267 ], [ 0, %270 ], [ 0, %268 ], [ 0, %274 ], [ 0, %272 ], [ 0, %278 ], [ 0, %276 ], [ 0, %282 ], [ 0, %280 ], [ 0, %286 ], [ 0, %284 ], [ 0, %290 ], [ 0, %288 ], [ %254, %211 ]
-  %294 = phi i32 [ 0, %267 ], [ 0, %270 ], [ 0, %268 ], [ 0, %274 ], [ 0, %272 ], [ 0, %278 ], [ 0, %276 ], [ 0, %282 ], [ 0, %280 ], [ 0, %286 ], [ 0, %284 ], [ 0, %290 ], [ 0, %288 ], [ %251, %211 ]
-  %295 = phi i32 [ 0, %267 ], [ 0, %270 ], [ 0, %268 ], [ 0, %274 ], [ 0, %272 ], [ 0, %278 ], [ 0, %276 ], [ 0, %282 ], [ 0, %280 ], [ 0, %286 ], [ 0, %284 ], [ 0, %290 ], [ 0, %288 ], [ %247, %211 ]
-  %296 = phi i32 [ 0, %267 ], [ 0, %270 ], [ 0, %268 ], [ 0, %274 ], [ 0, %272 ], [ 0, %278 ], [ 0, %276 ], [ 0, %282 ], [ 0, %280 ], [ 0, %286 ], [ 0, %284 ], [ 0, %290 ], [ 0, %288 ], [ %244, %211 ]
-  %297 = phi i32 [ 0, %267 ], [ 0, %270 ], [ 0, %268 ], [ 0, %274 ], [ 0, %272 ], [ 0, %278 ], [ 0, %276 ], [ 0, %282 ], [ 0, %280 ], [ 0, %286 ], [ 0, %284 ], [ 0, %290 ], [ 0, %288 ], [ %240, %211 ]
-  %298 = phi i32 [ 0, %267 ], [ 0, %270 ], [ 0, %268 ], [ 0, %274 ], [ 0, %272 ], [ 0, %278 ], [ 0, %276 ], [ 0, %282 ], [ 0, %280 ], [ 0, %286 ], [ 0, %284 ], [ 0, %290 ], [ 0, %288 ], [ %237, %211 ]
-  %299 = phi i32 [ 0, %267 ], [ 0, %270 ], [ 0, %268 ], [ 0, %274 ], [ 0, %272 ], [ 0, %278 ], [ 0, %276 ], [ 0, %282 ], [ 0, %280 ], [ 0, %286 ], [ 0, %284 ], [ 0, %290 ], [ 0, %288 ], [ %233, %211 ]
-  %300 = phi i8 [ %204, %267 ], [ %204, %270 ], [ %204, %268 ], [ %204, %274 ], [ %204, %272 ], [ %204, %278 ], [ %204, %276 ], [ %204, %282 ], [ %204, %280 ], [ %287, %286 ], [ %204, %284 ], [ %291, %290 ], [ %204, %288 ], [ %204, %211 ]
-  %301 = phi i8 [ %205, %267 ], [ %205, %270 ], [ %205, %268 ], [ %205, %274 ], [ %205, %272 ], [ %279, %278 ], [ %205, %276 ], [ %283, %282 ], [ %205, %280 ], [ %205, %286 ], [ %205, %284 ], [ %205, %290 ], [ %205, %288 ], [ %205, %211 ]
-  %302 = phi i8 [ %210, %267 ], [ %271, %270 ], [ %210, %268 ], [ %275, %274 ], [ %210, %272 ], [ %210, %278 ], [ %210, %276 ], [ %210, %282 ], [ %210, %280 ], [ %210, %286 ], [ %210, %284 ], [ %210, %290 ], [ %210, %288 ], [ %210, %211 ]
-  %303 = add i32 %.04859.i, %174
-  %.not54.i = icmp ult i32 %303, %173
+294:                                              ; preds = %290, %288, %286, %284, %282, %280, %278, %276, %274, %272, %270, %268, %269, %211
+  %295 = phi i32 [ 0, %267 ], [ 0, %270 ], [ 0, %268 ], [ 0, %274 ], [ 0, %272 ], [ 0, %278 ], [ 0, %276 ], [ 0, %282 ], [ 0, %280 ], [ 0, %286 ], [ 0, %284 ], [ 0, %290 ], [ 0, %288 ], [ %254, %211 ]
+  %296 = phi i32 [ 0, %267 ], [ 0, %270 ], [ 0, %268 ], [ 0, %274 ], [ 0, %272 ], [ 0, %278 ], [ 0, %276 ], [ 0, %282 ], [ 0, %280 ], [ 0, %286 ], [ 0, %284 ], [ 0, %290 ], [ 0, %288 ], [ %251, %211 ]
+  %297 = phi i32 [ 0, %267 ], [ 0, %270 ], [ 0, %268 ], [ 0, %274 ], [ 0, %272 ], [ 0, %278 ], [ 0, %276 ], [ 0, %282 ], [ 0, %280 ], [ 0, %286 ], [ 0, %284 ], [ 0, %290 ], [ 0, %288 ], [ %247, %211 ]
+  %298 = phi i32 [ 0, %267 ], [ 0, %270 ], [ 0, %268 ], [ 0, %274 ], [ 0, %272 ], [ 0, %278 ], [ 0, %276 ], [ 0, %282 ], [ 0, %280 ], [ 0, %286 ], [ 0, %284 ], [ 0, %290 ], [ 0, %288 ], [ %244, %211 ]
+  %299 = phi i32 [ 0, %267 ], [ 0, %270 ], [ 0, %268 ], [ 0, %274 ], [ 0, %272 ], [ 0, %278 ], [ 0, %276 ], [ 0, %282 ], [ 0, %280 ], [ 0, %286 ], [ 0, %284 ], [ 0, %290 ], [ 0, %288 ], [ %240, %211 ]
+  %300 = phi i32 [ 0, %267 ], [ 0, %270 ], [ 0, %268 ], [ 0, %274 ], [ 0, %272 ], [ 0, %278 ], [ 0, %276 ], [ 0, %282 ], [ 0, %280 ], [ 0, %286 ], [ 0, %284 ], [ 0, %290 ], [ 0, %288 ], [ %237, %211 ]
+  %301 = phi i32 [ 0, %267 ], [ 0, %270 ], [ 0, %268 ], [ 0, %274 ], [ 0, %272 ], [ 0, %278 ], [ 0, %276 ], [ 0, %282 ], [ 0, %280 ], [ 0, %286 ], [ 0, %284 ], [ 0, %290 ], [ 0, %288 ], [ %233, %211 ]
+  %302 = phi i8 [ %204, %267 ], [ %204, %270 ], [ %204, %268 ], [ %204, %274 ], [ %204, %272 ], [ %204, %278 ], [ %204, %276 ], [ %204, %282 ], [ %204, %280 ], [ %287, %286 ], [ %204, %284 ], [ %293, %290 ], [ %204, %288 ], [ %204, %211 ]
+  %303 = phi i8 [ %205, %267 ], [ %205, %270 ], [ %205, %268 ], [ %205, %274 ], [ %205, %272 ], [ %281, %278 ], [ %205, %276 ], [ %283, %282 ], [ %205, %280 ], [ %205, %286 ], [ %205, %284 ], [ %205, %290 ], [ %205, %288 ], [ %205, %211 ]
+  %304 = phi i8 [ %210, %267 ], [ %273, %270 ], [ %210, %268 ], [ %275, %274 ], [ %210, %272 ], [ %210, %278 ], [ %210, %276 ], [ %210, %282 ], [ %210, %280 ], [ %210, %286 ], [ %210, %284 ], [ %210, %290 ], [ %210, %288 ], [ %210, %211 ]
+  %305 = add i32 %.04859.i, %174
+  %.not54.i = icmp ult i32 %305, %173
   br i1 %.not54.i, label %.lr.ph.i35, label %._crit_edge.i34, !llvm.loop !250
 
-304:                                              ; preds = %.lr.ph.i35
+306:                                              ; preds = %.lr.ph.i35
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %5) #19
   br label %execute_filter_delta.exit
 
-._crit_edge.i34:                                  ; preds = %292, %195
+._crit_edge.i34:                                  ; preds = %294, %195
   %.146.lcssa.i = phi ptr [ %.04569.i, %195 ], [ %212, %292 ]
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %5) #19
-  %305 = add nuw i32 %.04768.i, 1
-  %exitcond75.not.i = icmp eq i32 %305, %174
+  %307 = add nuw i32 %.04768.i, 1
+  %exitcond75.not.i = icmp eq i32 %307, %174
   br i1 %exitcond75.not.i, label %._crit_edge72.i, label %195, !llvm.loop !251
 
 ._crit_edge72.i:                                  ; preds = %._crit_edge.i34, %176
-  %306 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  store i32 %173, ptr %306, align 4, !tbaa !169
-  %307 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i32 %173, ptr %307, align 8, !tbaa !170
+  %308 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  store i32 %173, ptr %308, align 4, !tbaa !169
+  %309 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  store i32 %173, ptr %309, align 8, !tbaa !170
   br label %execute_filter_delta.exit
 
-308:                                              ; preds = %4
+310:                                              ; preds = %4
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.38) #19
   br label %execute_filter_delta.exit
 
-execute_filter_delta.exit:                        ; preds = %.lr.ph.i27, %.lr.ph.i, %._crit_edge72.i, %304, %170, %._crit_edge.i33, %121, %113, %.split.us.i23, %71, %.split.us.i, %29, %._crit_edge.i, %9, %308
+execute_filter_delta.exit:                        ; preds = %.lr.ph.i27, %.lr.ph.i, %._crit_edge72.i, %306, %170, %._crit_edge.i33, %121, %113, %.split.us.i23, %71, %.split.us.i, %29, %._crit_edge.i, %9, %310
   %.0 = phi i32 [ 0, %308 ], [ 1, %._crit_edge.i ], [ 0, %9 ], [ 1, %.split.us.i ], [ 0, %29 ], [ 1, %.split.us.i23 ], [ 0, %71 ], [ 1, %._crit_edge.i33 ], [ 0, %121 ], [ 0, %113 ], [ 0, %304 ], [ 1, %._crit_edge72.i ], [ 0, %170 ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph.i27 ]
   ret i32 %.0
 }

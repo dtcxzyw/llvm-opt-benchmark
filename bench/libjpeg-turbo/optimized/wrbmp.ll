@@ -937,26 +937,26 @@ define internal fastcc void @write_bmp_header(ptr noundef %0, ptr noundef readon
   %101 = mul nuw nsw i32 %100, 100
   %102 = lshr i32 %101, 16
   %103 = trunc nuw nsw i32 %102 to i8
-  %104 = getelementptr inbounds nuw i8, ptr %4, i64 30
-  store i8 %103, ptr %104, align 2, !tbaa !35
+  %103 = getelementptr inbounds nuw i8, ptr %4, i64 30
+  store i8 %103, ptr %103, align 2, !tbaa !35
   %105 = getelementptr inbounds nuw i8, ptr %4, i64 31
   store i8 0, ptr %105, align 1, !tbaa !35
   br label %106
 
-106:                                              ; preds = %75, %14
+106:; preds = %75, %14
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %107, align 16, !tbaa !35
   %108 = lshr exact i32 %.0, 8
   %109 = trunc nuw nsw i32 %108 to i8
-  %110 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 %109, ptr %110, align 1, !tbaa !35
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 33
+  store i8 %109, ptr %109, align 1, !tbaa !35
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %112 = load ptr, ptr %111, align 8, !tbaa !70
   %113 = call i64 @fwrite(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 14, ptr noundef %112)
   %.not53 = icmp eq i64 %113, 14
   br i1 %.not53, label %118, label %114
 
-114:                                              ; preds = %106
+114: ; preds = %106
   %115 = load ptr, ptr %0, align 8, !tbaa !31
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 40
   store i32 37, ptr %116, align 8, !tbaa !32
@@ -964,13 +964,13 @@ define internal fastcc void @write_bmp_header(ptr noundef %0, ptr noundef readon
   tail call void %117(ptr noundef nonnull %0) #7
   br label %118
 
-118:                                              ; preds = %114, %106
+118:             ; preds = %114, %106
   %119 = load ptr, ptr %111, align 8, !tbaa !70
   %120 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 40, ptr noundef %119)
   %.not54 = icmp eq i64 %120, 40
   br i1 %.not54, label %125, label %121
 
-121:                                              ; preds = %118
+121: ; preds = %118
   %122 = load ptr, ptr %0, align 8, !tbaa !31
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 40
   store i32 37, ptr %123, align 8, !tbaa !32

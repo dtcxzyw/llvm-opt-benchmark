@@ -1834,56 +1834,56 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %76 = getelementptr inbounds i8, ptr %1, i64 %75
   %77 = load i16, ptr %76, align 2, !tbaa !23
   %indvars.iv27.tr.i = trunc i64 %indvars.iv27.i to i16
-  %78 = shl i16 %indvars.iv27.tr.i, 1
-  %.not.us.i = and i16 %78, 6
-  %79 = xor i16 %.not.us.i, 6
-  %80 = shl i16 %77, %79
-  %81 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv27.i
-  %82 = lshr i16 %80, 8
-  %83 = trunc nuw i16 %82 to i8
-  store i8 %83, ptr %81, align 1, !tbaa !24
+  %79 = shl i16 %indvars.iv27.tr.i, 1
+  %.not.us.i = and i16 %79, 6
+  %80 = xor i16 %.not.us.i, 6
+  %81 = shl i16 %77, %80
+  %82 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv27.i
+  %83 = lshr i16 %81, 8
+  %84 = trunc nuw i16 %83 to i8
+  store i8 %84, ptr %82, align 1, !tbaa !24
   %indvars.iv.next28.i = add nsw i64 %indvars.iv27.i, -1
   %.not36.i = icmp eq i64 %indvars.iv27.i, 0
   br i1 %.not36.i, label %_ZN3dpx12UnPackPackedIhLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.us.i, !llvm.loop !45
 
 .lr.ph.split.us19.i:                              ; preds = %.lr.ph.i, %.lr.ph.split.us19.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.us19.i ], [ %71, %.lr.ph.i ]
-  %84 = trunc i64 %indvars.iv.i to i32
-  %85 = mul i32 %84, 12
-  %86 = sdiv i32 %85, 8
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i8, ptr %1, i64 %87
-  %89 = load i16, ptr %88, align 2, !tbaa !23
+  %85 = trunc i64 %indvars.iv.i to i32
+  %86 = mul i32 %85, 12
+  %87 = sdiv i32 %86, 8
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds i8, ptr %1, i64 %88
+  %90 = load i16, ptr %89, align 2, !tbaa !23
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i16
-  %90 = shl i16 %indvars.iv.tr.i, 1
-  %.not.us21.i = and i16 %90, 6
-  %91 = xor i16 %.not.us21.i, 6
-  %92 = shl i16 %89, %91
-  %93 = lshr i16 %92, 10
-  %94 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv.i
-  %95 = trunc nuw nsw i16 %93 to i8
-  store i8 %95, ptr %94, align 1, !tbaa !24
+  %91 = shl i16 %indvars.iv.tr.i, 1
+  %.not.us21.i = and i16 %91, 6
+  %92 = xor i16 %.not.us21.i, 6
+  %93 = shl i16 %90, %92
+  %94 = lshr i16 %93, 10
+  %95 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv.i
+  %96 = trunc nuw nsw i16 %94 to i8
+  store i8 %96, ptr %95, align 1, !tbaa !24
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not35.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not35.i, label %_ZN3dpx12UnPackPackedIhLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.us19.i, !llvm.loop !45
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph.split.i ], [ %71, %.lr.ph.i ]
-  %96 = trunc i64 %indvars.iv30.i to i32
-  %97 = mul i32 %.0.i49, %96
-  %98 = sdiv i32 %97, 8
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds i8, ptr %1, i64 %99
-  %101 = load i16, ptr %100, align 2, !tbaa !23
+  %97 = trunc i64 %indvars.iv30.i to i32
+  %98 = mul i32 %.0.i49, %97
+  %99 = sdiv i32 %98, 8
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr inbounds i8, ptr %1, i64 %100
+  %102 = load i16, ptr %101, align 2, !tbaa !23
   %indvars.iv30.tr.i = trunc i64 %indvars.iv30.i to i16
-  %102 = shl i16 %indvars.iv30.tr.i, 1
-  %.not.i = and i16 %102, 6
-  %103 = xor i16 %.not.i, 6
-  %104 = shl i16 %101, %103
-  %105 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv30.i
-  %106 = lshr i16 %104, 8
-  %107 = trunc nuw i16 %106 to i8
-  store i8 %107, ptr %105, align 1, !tbaa !24
+  %104 = shl i16 %indvars.iv30.tr.i, 1
+  %.not.i = and i16 %104, 6
+  %105 = xor i16 %.not.i, 6
+  %106 = shl i16 %101, %105
+  %107 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv30.i
+  %108 = lshr i16 %106, 8
+  %109 = trunc nuw i16 %108 to i8
+  store i8 %109, ptr %107, align 1, !tbaa !24
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, -1
   %.not37.i = icmp eq i64 %indvars.iv30.i, 0
   br i1 %.not37.i, label %_ZN3dpx12UnPackPackedIhLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit, label %.lr.ph.split.i, !llvm.loop !45
@@ -2026,7 +2026,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %92 = shl i16 %91, 2
   %.not.us21.i = and i16 %92, 4
   %93 = xor i16 %.not.us21.i, 4
-  %94 = shl i16 %90, %93
+  %94 = shl i16 %91, %93
   %95 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv.i
   %96 = lshr i16 %94, 8
   %97 = trunc nuw i16 %96 to i8

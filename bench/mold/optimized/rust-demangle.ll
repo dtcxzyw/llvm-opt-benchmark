@@ -5590,7 +5590,7 @@ print_str.exit:                                   ; preds = %parse_hex_nibbles_f
   br label %37
 
 37:                                               ; preds = %.lr.ph88, %.thread58
-  %.03187 = phi i64 [ 0, %.lr.ph88 ], [ %88, %.thread58 ]
+  %.03187 = phi i64 [ 0, %.lr.ph88 ], [ %92, %.thread58 ]
   %38 = getelementptr inbounds nuw i8, ptr %25, i64 %.03187
   %39 = load i8, ptr %38, align 1, !tbaa !21
   %40 = icmp sgt i8 %39, 96
@@ -5606,61 +5606,61 @@ print_str.exit:                                   ; preds = %parse_hex_nibbles_f
   %48 = add i64 %.03187, -2
   br label %50
 
-thread-pre-split.i:                               ; preds = %50
-  %49 = add nuw nsw i64 %.sroa.048.0, 1
-  %exitcond.not.i = icmp eq i64 %49, 7
+thread-pre-split.i:                               ; preds = %51
+  %50 = add nuw nsw i64 %.sroa.048.0, 1
+  %exitcond.not.i = icmp eq i64 %50, 7
   %indvars.iv.next = add i64 %indvars.iv, 2
-  br i1 %exitcond.not.i, label %.thread, label %50
+  br i1 %exitcond.not.i, label %.thread, label %51
 
-50:                                               ; preds = %thread-pre-split.i, %37
+51:                                               ; preds = %thread-pre-split.i, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %thread-pre-split.i ], [ %48, %37 ]
-  %.sroa.048.0 = phi i64 [ %49, %thread-pre-split.i ], [ 0, %37 ]
-  %51 = phi i8 [ %55, %thread-pre-split.i ], [ %47, %37 ]
-  %52 = trunc nuw nsw i64 %.sroa.048.0 to i8
-  %53 = lshr exact i8 -128, %52
+  %.sroa.048.0 = phi i64 [ %50, %thread-pre-split.i ], [ 0, %37 ]
+  %52 = phi i8 [ %55, %thread-pre-split.i ], [ %47, %37 ]
+  %53 = trunc nuw nsw i64 %.sroa.048.0 to i8
+  %54 = lshr exact i8 -128, %53
   %54 = xor i8 %53, -1
   %55 = and i8 %51, %54
-  %56 = and i8 %53, %47
+  %57 = and i8 %53, %47
   %57 = icmp eq i8 %56, 0
   br i1 %57, label %utf8_decode.exit, label %thread-pre-split.i
 
 utf8_decode.exit:                                 ; preds = %50
   %58 = zext i8 %55 to i32
   %.not = icmp eq i64 %.sroa.048.0, 0
-  br i1 %.not, label %.thread58, label %59
+  br i1 %.not, label %.thread58, label %61
 
-59:                                               ; preds = %utf8_decode.exit
-  %60 = icmp ne i64 %.sroa.048.0, 1
-  %61 = icmp samesign ult i64 %.sroa.048.0, 5
-  %or.cond = and i1 %60, %61
+61:                                               ; preds = %utf8_decode.exit
+  %62 = icmp ne i64 %.sroa.048.0, 1
+  %63 = icmp samesign ult i64 %.sroa.048.0, 5
+  %or.cond = and i1 %62, %63
   br i1 %or.cond, label %.preheader, label %.thread
 
-.preheader:                                       ; preds = %59
+.preheader:                                       ; preds = %61
   %.080 = add nsw i64 %.sroa.048.0, -1
   %.not3781 = icmp eq i64 %.080, 0
   br i1 %.not3781, label %.thread58, label %.lr.ph
 
-.thread:                                          ; preds = %59, %thread-pre-split.i
+.thread:                                          ; preds = %61, %thread-pre-split.i
   store i8 1, ptr %2, align 8, !tbaa !15
   br label %print_str.exit46
 
 .lr.ph:                                           ; preds = %.preheader, %84
   %.084 = phi i64 [ %.0, %84 ], [ %.080, %.preheader ]
   %.183 = phi i32 [ %87, %84 ], [ %58, %.preheader ]
-  %.382 = phi i64 [ %62, %84 ], [ %.03187, %.preheader ]
-  %62 = add i64 %.382, 2
-  %63 = getelementptr inbounds nuw i8, ptr %25, i64 %62
-  %64 = load i8, ptr %63, align 1, !tbaa !21
-  %65 = icmp sgt i8 %64, 96
-  %.v.i40 = select i1 %65, i8 9, i8 96
-  %66 = add i8 %.v.i40, %64
-  %67 = shl i8 %66, 4
+  %.382 = phi i64 [ %64, %84 ], [ %.03187, %.preheader ]
+  %64 = add i64 %.382, 2
+  %65 = getelementptr inbounds nuw i8, ptr %25, i64 %64
+  %66 = load i8, ptr %65, align 1, !tbaa !21
+  %67 = icmp sgt i8 %66, 96
+  %.v.i40 = select i1 %67, i8 9, i8 96
+  %68 = add i8 %.v.i40, %66
+  %69 = shl i8 %68, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.382
-  %68 = load i8, ptr %gep, align 1, !tbaa !21
-  %69 = icmp sgt i8 %68, 96
-  %.v.i41 = select i1 %69, i8 -87, i8 -48
-  %70 = add i8 %.v.i41, %68
-  %71 = or i8 %67, %70
+  %70 = load i8, ptr %gep, align 1, !tbaa !21
+  %71 = icmp sgt i8 %70, 96
+  %.v.i41 = select i1 %71, i8 -87, i8 -48
+  %72 = add i8 %.v.i41, %70
+  %73 = or i8 %69, %72
   br label %73
 
 thread-pre-split.i42:                             ; preds = %73
@@ -5670,22 +5670,22 @@ thread-pre-split.i42:                             ; preds = %73
 
 73:                                               ; preds = %thread-pre-split.i42, %.lr.ph
   %.sroa.0.0 = phi i64 [ 0, %.lr.ph ], [ %72, %thread-pre-split.i42 ]
-  %74 = phi i32 [ 8, %.lr.ph ], [ %80, %thread-pre-split.i42 ]
-  %75 = phi i8 [ %71, %.lr.ph ], [ %79, %thread-pre-split.i42 ]
+  %.sroa.0.0 = phi i32 [ 8, %.lr.ph ], [ %80, %thread-pre-split.i42 ]
+  %77 = phi i8 [ %71, %.lr.ph ], [ %79, %thread-pre-split.i42 ]
   %76 = trunc nuw nsw i64 %.sroa.0.0 to i8
   %77 = lshr exact i8 -128, %76
   %78 = xor i8 %77, -1
   %79 = and i8 %75, %78
   %80 = add nsw i32 %74, -1
-  %81 = and i8 %77, %71
+  %83 = and i8 %77, %71
   %82 = icmp eq i8 %81, 0
   br i1 %82, label %utf8_decode.exit45, label %thread-pre-split.i42
 
-utf8_decode.exit45:                               ; preds = %73
+utf8_decode.exit45: ; preds = %73
   %83 = icmp eq i64 %.sroa.0.0, 1
   br i1 %83, label %84, label %utf8_decode.exit45.thread
 
-84:                                               ; preds = %utf8_decode.exit45
+84:  ; preds = %utf8_decode.exit45
   %85 = shl i32 %.183, %80
   %86 = zext i8 %79 to i32
   %87 = or i32 %85, %86
@@ -5701,29 +5701,29 @@ utf8_decode.exit45.thread:                        ; preds = %utf8_decode.exit45,
   %.132 = phi i64 [ %.03187, %utf8_decode.exit ], [ %.03187, %.preheader ], [ %indvars.iv, %84 ]
   %.030 = phi i32 [ %58, %utf8_decode.exit ], [ %58, %.preheader ], [ %87, %84 ]
   tail call fastcc void @print_quoted_escaped_char(ptr noundef %0, i8 noundef signext 34, i32 noundef %.030)
-  %88 = add i64 %.132, 2
-  %.not38 = icmp ult i64 %88, %.017.i.i
+  %92 = add i64 %.132, 2
+  %.not38 = icmp ult i64 %92, %.017.i.i
   br i1 %.not38, label %37, label %.critedge, !llvm.loop !68
 
 .critedge:                                        ; preds = %.thread58, %print_str.exit
-  %89 = load i8, ptr %2, align 8, !tbaa !15, !range !24, !noundef !25
-  %90 = trunc nuw i8 %89 to i1
-  br i1 %90, label %print_str.exit46, label %91
+  %93 = load i8, ptr %2, align 8, !tbaa !15, !range !24, !noundef !25
+  %94 = trunc nuw i8 %93 to i1
+  br i1 %94, label %print_str.exit46, label %95
 
-91:                                               ; preds = %.critedge
-  %92 = load i8, ptr %29, align 1, !tbaa !16, !range !24, !noundef !25
-  %93 = trunc nuw i8 %92 to i1
-  br i1 %93, label %print_str.exit46, label %94
+95:                                               ; preds = %.critedge
+  %96 = load i8, ptr %29, align 1, !tbaa !16, !range !24, !noundef !25
+  %97 = trunc nuw i8 %96 to i1
+  br i1 %97, label %print_str.exit46, label %98
 
-94:                                               ; preds = %91
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %96 = load ptr, ptr %95, align 8, !tbaa !13
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %98 = load ptr, ptr %97, align 8, !tbaa !12
-  tail call void %96(ptr noundef nonnull @.str.86, i64 noundef 1, ptr noundef %98) #11
+98:                                               ; preds = %95
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %100 = load ptr, ptr %99, align 8, !tbaa !13
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %102 = load ptr, ptr %101, align 8, !tbaa !12
+  tail call void %96(ptr noundef nonnull @.str.86, i64 noundef 1, ptr noundef %102) #11
   br label %print_str.exit46
 
-print_str.exit46:                                 ; preds = %.thread, %utf8_decode.exit45.thread, %94, %91, %.critedge, %.loopexit, %5
+print_str.exit46:                                 ; preds = %.thread, %utf8_decode.exit45.thread, %98, %95, %.critedge, %.loopexit, %5
   ret void
 }
 

@@ -685,14 +685,14 @@ define hidden void @ScaleFilterCols_16_C(ptr noundef writeonly captures(none) %0
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.038.lcssa = phi i32 [ %3, %5 ], [ %40, %.lr.ph ]
   %.0.lcssa = phi ptr [ %0, %5 ], [ %41, %.lr.ph ]
-  %44 = and i32 %2, 1
-  %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %61, label %45
+  %46 = and i32 %2, 1
+  %.not = icmp eq i32 %46, 0
+  br i1 %.not, label %64, label %47
 
-45:                                               ; preds = %._crit_edge
-  %46 = ashr i32 %.038.lcssa, 16
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i16, ptr %1, i64 %47
+47:                                               ; preds = %._crit_edge
+  %48 = ashr i32 %.038.lcssa, 16
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds i16, ptr %1, i64 %49
   %49 = load i16, ptr %48, align 2
   %50 = getelementptr i8, ptr %48, i64 2
   %51 = load i16, ptr %50, align 2
@@ -708,7 +708,7 @@ define hidden void @ScaleFilterCols_16_C(ptr noundef writeonly captures(none) %0
   store i16 %60, ptr %.0.lcssa, align 2
   br label %61
 
-61:                                               ; preds = %45, %._crit_edge
+64:                                               ; preds = %47, %._crit_edge
   ret void
 }
 

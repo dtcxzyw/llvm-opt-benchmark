@@ -86523,7 +86523,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2145)
   %63 = load ptr, ptr %18, align 8, !tbaa !102, !noalias !2147
   %.not.i.i18 = icmp eq ptr %63, null
-  br i1 %.not.i.i18, label %.preheader.i, label %71
+  br i1 %.not.i.i18, label %.preheader.i, label %74
 
 .preheader.i:                                     ; preds = %59
   %.not79.i = icmp eq i64 %3, 0
@@ -86541,54 +86541,54 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 
 .lr.ph75.split.us.i:                              ; preds = %.lr.ph75.i, %.lr.ph75.split.us.i
   %.05874.us.i = phi i64 [ %70, %.lr.ph75.split.us.i ], [ 0, %.lr.ph75.i ]
-  %66 = getelementptr inbounds nuw i8, ptr %7, i64 %.05874.us.i
-  %67 = load i8, ptr %66, align 1, !tbaa !34, !alias.scope !2140, !noalias !2150
-  %68 = lshr i8 %67, %.fr.i
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 %.05874.us.i
+  %68 = load i8, ptr %67, align 1, !tbaa !34, !alias.scope !2140, !noalias !2150
+  %68 = lshr i8 %68, %.fr.i
   %69 = getelementptr inbounds nuw i8, ptr %17, i64 %.05874.us.i
   store i8 %68, ptr %69, align 1, !tbaa !34, !alias.scope !2145, !noalias !2149
   %70 = add nuw i64 %.05874.us.i, 1
   %exitcond88.not.i = icmp eq i64 %70, %3
   br i1 %exitcond88.not.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIhhhNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %.lr.ph75.split.us.i, !llvm.loop !2151
 
-71:                                               ; preds = %59
-  %72 = add i64 %3, 63
-  %73 = lshr i64 %72, 6
-  %.not77.i = icmp ult i64 %72, 64
+74:                                               ; preds = %59
+  %75 = add i64 %3, 63
+  %76 = lshr i64 %75, 6
+  %.not77.i = icmp ult i64 %75, 64
   br i1 %.not77.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIhhhNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
-_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %71, %.loopexit64.i
+_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %74, %.loopexit64.i
   %.073.i = phi i64 [ %.3.i, %.loopexit64.i ], [ 0, %71 ]
-  %.05772.i = phi i64 [ %104, %.loopexit64.i ], [ 0, %71 ]
-  %74 = getelementptr inbounds nuw i64, ptr %63, i64 %.05772.i
-  %75 = load i64, ptr %74, align 8, !tbaa !103, !noalias !2147
-  %76 = add i64 %.073.i, 64
-  %77 = tail call noundef i64 @llvm.umin.i64(i64 %76, i64 %3)
-  switch i64 %75, label %.preheader63.i [
+  %.05772.i = phi i64 [ %110, %.loopexit64.i ], [ 0, %71 ]
+  %77 = getelementptr inbounds nuw i64, ptr %63, i64 %.05772.i
+  %78 = load i64, ptr %77, align 8, !tbaa !103, !noalias !2147
+  %79 = add i64 %.073.i, 64
+  %80 = tail call noundef i64 @llvm.umin.i64(i64 %79, i64 %3)
+  switch i64 %78, label %.preheader63.i [
     i64 -1, label %.preheader65.i
     i64 0, label %.loopexit64.i
   ]
 
 .preheader65.i:                                   ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
-  %78 = icmp ult i64 %.073.i, %77
-  br i1 %78, label %.lr.ph.i, label %.loopexit64.i
+  %81 = icmp ult i64 %.073.i, %80
+  br i1 %81, label %.lr.ph.i, label %.loopexit64.i
 
 .lr.ph.i:                                         ; preds = %.preheader65.i
-  %79 = load i8, ptr %9, align 1, !tbaa !34, !alias.scope !2143, !noalias !2148
-  %.fr78.i = freeze i8 %79
-  %80 = icmp ult i8 %.fr78.i, 8
+  %82 = load i8, ptr %9, align 1, !tbaa !34, !alias.scope !2143, !noalias !2148
+  %.fr78.i = freeze i8 %82
+  %83 = icmp ult i8 %.fr78.i, 8
   br i1 %80, label %.lr.ph.split.us.i, label %.lr.ph.split.preheader.i
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %scevgep.i = getelementptr i8, ptr %17, i64 %.073.i
-  %81 = sub i64 %77, %.073.i
-  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %81, i1 false), !tbaa !34, !alias.scope !2145, !noalias !2149
+  %85 = sub i64 %80, %.073.i
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %85, i1 false), !tbaa !34, !alias.scope !2145, !noalias !2149
   br label %.loopexit64.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %.168.us.i = phi i64 [ %86, %.lr.ph.split.us.i ], [ %.073.i, %.lr.ph.i ]
-  %82 = getelementptr inbounds nuw i8, ptr %7, i64 %.168.us.i
-  %83 = load i8, ptr %82, align 1, !tbaa !34, !alias.scope !2140, !noalias !2150
-  %84 = lshr i8 %83, %.fr78.i
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 %.168.us.i
+  %87 = load i8, ptr %86, align 1, !tbaa !34, !alias.scope !2140, !noalias !2150
+  %84 = lshr i8 %87, %.fr78.i
   %85 = getelementptr inbounds nuw i8, ptr %17, i64 %.168.us.i
   store i8 %84, ptr %85, align 1, !tbaa !34, !alias.scope !2145, !noalias !2149
   %86 = add nuw i64 %.168.us.i, 1
@@ -86596,43 +86596,43 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %71,
   br i1 %exitcond.not.i, label %.loopexit64.i, label %.lr.ph.split.us.i, !llvm.loop !2152
 
 .preheader63.i:                                   ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
-  %87 = icmp ult i64 %.073.i, %77
-  br i1 %87, label %.lr.ph70.i, label %.loopexit64.i
+  %93 = icmp ult i64 %.073.i, %80
+  br i1 %93, label %.lr.ph70.i, label %.loopexit64.i
 
-.lr.ph70.i:                                       ; preds = %.preheader63.i, %102
-  %.469.i = phi i64 [ %103, %102 ], [ %.073.i, %.preheader63.i ]
-  %88 = sub nuw i64 %.469.i, %.073.i
-  %89 = shl nuw i64 1, %88
-  %90 = and i64 %89, %75
-  %.not.i = icmp eq i64 %90, 0
-  br i1 %.not.i, label %102, label %91
+.lr.ph70.i:                                       ; preds = %.preheader63.i, %108
+  %.469.i = phi i64 [ %109, %102 ], [ %.073.i, %.preheader63.i ]
+  %94 = sub nuw i64 %.469.i, %.073.i
+  %95 = shl nuw i64 1, %94
+  %96 = and i64 %95, %78
+  %.not.i = icmp eq i64 %96, 0
+  br i1 %.not.i, label %108, label %97
 
-91:                                               ; preds = %.lr.ph70.i
-  %92 = getelementptr inbounds nuw i8, ptr %7, i64 %.469.i
-  %93 = load i8, ptr %92, align 1, !tbaa !34, !alias.scope !2140, !noalias !2150
-  %94 = load i8, ptr %9, align 1, !tbaa !34, !alias.scope !2143, !noalias !2148
-  %95 = icmp ult i8 %94, 8
-  %96 = zext i8 %93 to i32
-  %97 = zext nneg i8 %94 to i32
-  %98 = lshr i32 %96, %97
-  %99 = trunc nuw i32 %98 to i8
-  %100 = select i1 %95, i8 %99, i8 0
-  %101 = getelementptr inbounds nuw i8, ptr %17, i64 %.469.i
-  store i8 %100, ptr %101, align 1, !tbaa !34, !alias.scope !2145, !noalias !2149
-  br label %102
+97:                                               ; preds = %.lr.ph70.i
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 %.469.i
+  %99 = load i8, ptr %98, align 1, !tbaa !34, !alias.scope !2140, !noalias !2150
+  %100 = load i8, ptr %9, align 1, !tbaa !34, !alias.scope !2143, !noalias !2148
+  %101 = icmp ult i8 %100, 8
+  %102 = zext i8 %99 to i32
+  %103 = zext nneg i8 %100 to i32
+  %104 = lshr i32 %102, %103
+  %105 = trunc nuw i32 %104 to i8
+  %106 = select i1 %101, i8 %105, i8 0
+  %107 = getelementptr inbounds nuw i8, ptr %17, i64 %.469.i
+  store i8 %106, ptr %107, align 1, !tbaa !34, !alias.scope !2145, !noalias !2149
+  br label %108
 
-102:                                              ; preds = %91, %.lr.ph70.i
-  %103 = add nuw i64 %.469.i, 1
-  %exitcond86.not.i = icmp eq i64 %103, %77
+108:                                              ; preds = %97, %.lr.ph70.i
+  %109 = add nuw i64 %.469.i, 1
+  %exitcond86.not.i = icmp eq i64 %109, %80
   br i1 %exitcond86.not.i, label %.loopexit64.i, label %.lr.ph70.i, !llvm.loop !2153
 
-.loopexit64.i:                                    ; preds = %.lr.ph.split.us.i, %102, %.preheader63.i, %.lr.ph.split.preheader.i, %.preheader65.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
-  %.3.i = phi i64 [ %77, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i ], [ %.073.i, %.preheader63.i ], [ %.073.i, %.preheader65.i ], [ %77, %.lr.ph.split.preheader.i ], [ %77, %102 ], [ %77, %.lr.ph.split.us.i ]
-  %104 = add nuw nsw i64 %.05772.i, 1
-  %exitcond87.not.i = icmp eq i64 %104, %73
+.loopexit64.i:                                    ; preds = %.lr.ph.split.us.i, %108, %.preheader63.i, %.lr.ph.split.preheader.i, %.preheader65.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
+  %.3.i = phi i64 [ %80, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i ], [ %.073.i, %.preheader63.i ], [ %.073.i, %.preheader65.i ], [ %80, %.lr.ph.split.preheader.i ], [ %80, %102 ], [ %80, %.lr.ph.split.us.i ]
+  %110 = add nuw nsw i64 %.05772.i, 1
+  %exitcond87.not.i = icmp eq i64 %110, %76
   br i1 %exitcond87.not.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIhhhNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i, !llvm.loop !2154
 
-_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIhhhNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit: ; preds = %.loopexit64.i, %.lr.ph75.split.us.i, %71, %.lr.ph75.split.preheader.i, %.preheader.i, %15
+_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIhhhNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit: ; preds = %.loopexit64.i, %.lr.ph75.split.us.i, %74, %.lr.ph75.split.preheader.i, %.preheader.i, %15
   ret void
 }
 
@@ -88517,7 +88517,7 @@ _ZN6duckdb19UnifiedVectorFormatD2Ev.exit24:       ; preds = %_ZN6duckdb15Selecti
 define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopItttNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext %5) local_unnamed_addr #0 comdat align 2 {
   %7 = load ptr, ptr %4, align 8, !tbaa !102
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %.preheader, label %16
+  br i1 %.not.i, label %.preheader, label %19
 
 .preheader:                                       ; preds = %6
   %.not79 = icmp eq i64 %3, 0
@@ -88530,106 +88530,106 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopItttNS_29Bi
   br i1 %9, label %.lr.ph75.split.us, label %.lr.ph75.split.preheader
 
 .lr.ph75.split.preheader:                         ; preds = %.lr.ph75
-  %10 = shl nuw i64 %3, 1
-  tail call void @llvm.memset.p0.i64(ptr align 2 %2, i8 0, i64 %10, i1 false), !tbaa !594
+  %11 = shl nuw i64 %3, 1
+  tail call void @llvm.memset.p0.i64(ptr align 2 %2, i8 0, i64 %11, i1 false), !tbaa !594
   br label %.loopexit
 
 .lr.ph75.split.us:                                ; preds = %.lr.ph75, %.lr.ph75.split.us
   %.05874.us = phi i64 [ %15, %.lr.ph75.split.us ], [ 0, %.lr.ph75 ]
-  %11 = getelementptr inbounds nuw i16, ptr %0, i64 %.05874.us
-  %12 = load i16, ptr %11, align 2, !tbaa !594
-  %13 = lshr i16 %12, %.fr
+  %12 = getelementptr inbounds nuw i16, ptr %0, i64 %.05874.us
+  %13 = load i16, ptr %12, align 2, !tbaa !594
+  %13 = lshr i16 %13, %.fr
   %14 = getelementptr inbounds nuw i16, ptr %2, i64 %.05874.us
   store i16 %13, ptr %14, align 2, !tbaa !594
   %15 = add nuw i64 %.05874.us, 1
   %exitcond88.not = icmp eq i64 %15, %3
   br i1 %exitcond88.not, label %.loopexit, label %.lr.ph75.split.us, !llvm.loop !2217
 
-16:                                               ; preds = %6
-  %17 = add i64 %3, 63
-  %18 = lshr i64 %17, 6
-  %.not77 = icmp ult i64 %17, 64
+19:                                               ; preds = %6
+  %20 = add i64 %3, 63
+  %21 = lshr i64 %20, 6
+  %.not77 = icmp ult i64 %20, 64
   br i1 %.not77, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
-_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %16, %.loopexit64
+_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %19, %.loopexit64
   %.073 = phi i64 [ %.3, %.loopexit64 ], [ 0, %16 ]
-  %.05772 = phi i64 [ %51, %.loopexit64 ], [ 0, %16 ]
-  %19 = getelementptr inbounds nuw i64, ptr %7, i64 %.05772
-  %20 = load i64, ptr %19, align 8, !tbaa !103
-  %21 = add i64 %.073, 64
-  %22 = tail call noundef i64 @llvm.umin.i64(i64 %21, i64 %3)
-  switch i64 %20, label %.preheader63 [
+  %.05772 = phi i64 [ %57, %.loopexit64 ], [ 0, %16 ]
+  %22 = getelementptr inbounds nuw i64, ptr %7, i64 %.05772
+  %23 = load i64, ptr %22, align 8, !tbaa !103
+  %24 = add i64 %.073, 64
+  %25 = tail call noundef i64 @llvm.umin.i64(i64 %24, i64 %3)
+  switch i64 %23, label %.preheader63 [
     i64 -1, label %.preheader65
     i64 0, label %.loopexit64
   ]
 
 .preheader65:                                     ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %23 = icmp ult i64 %.073, %22
-  br i1 %23, label %.lr.ph, label %.loopexit64
+  %26 = icmp ult i64 %.073, %25
+  br i1 %26, label %.lr.ph, label %.loopexit64
 
 .lr.ph:                                           ; preds = %.preheader65
-  %24 = load i16, ptr %1, align 2, !tbaa !594
-  %.fr78 = freeze i16 %24
-  %25 = icmp ult i16 %.fr78, 16
+  %27 = load i16, ptr %1, align 2, !tbaa !594
+  %.fr78 = freeze i16 %27
+  %28 = icmp ult i16 %.fr78, 16
   br i1 %25, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %26 = shl i64 %.073, 1
-  %scevgep = getelementptr i8, ptr %2, i64 %26
-  %27 = sub i64 %22, %.073
-  %28 = shl i64 %27, 1
-  tail call void @llvm.memset.p0.i64(ptr align 2 %scevgep, i8 0, i64 %28, i1 false), !tbaa !594
+  %30 = shl i64 %.073, 1
+  %scevgep = getelementptr i8, ptr %2, i64 %30
+  %31 = sub i64 %25, %.073
+  %32 = shl i64 %31, 1
+  tail call void @llvm.memset.p0.i64(ptr align 2 %scevgep, i8 0, i64 %32, i1 false), !tbaa !594
   br label %.loopexit64
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.168.us = phi i64 [ %33, %.lr.ph.split.us ], [ %.073, %.lr.ph ]
-  %29 = getelementptr inbounds nuw i16, ptr %0, i64 %.168.us
-  %30 = load i16, ptr %29, align 2, !tbaa !594
-  %31 = lshr i16 %30, %.fr78
+  %33 = getelementptr inbounds nuw i16, ptr %0, i64 %.168.us
+  %34 = load i16, ptr %33, align 2, !tbaa !594
+  %31 = lshr i16 %34, %.fr78
   %32 = getelementptr inbounds nuw i16, ptr %2, i64 %.168.us
   store i16 %31, ptr %32, align 2, !tbaa !594
   %33 = add nuw i64 %.168.us, 1
-  %exitcond.not = icmp eq i64 %33, %22
+  %exitcond.not = icmp eq i64 %33, %25
   br i1 %exitcond.not, label %.loopexit64, label %.lr.ph.split.us, !llvm.loop !2218
 
 .preheader63:                                     ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %34 = icmp ult i64 %.073, %22
-  br i1 %34, label %.lr.ph70, label %.loopexit64
+  %40 = icmp ult i64 %.073, %25
+  br i1 %40, label %.lr.ph70, label %.loopexit64
 
-.lr.ph70:                                         ; preds = %.preheader63, %49
-  %.469 = phi i64 [ %50, %49 ], [ %.073, %.preheader63 ]
-  %35 = sub nuw i64 %.469, %.073
-  %36 = shl nuw i64 1, %35
-  %37 = and i64 %36, %20
-  %.not = icmp eq i64 %37, 0
-  br i1 %.not, label %49, label %38
+.lr.ph70:                                         ; preds = %.preheader63, %55
+  %.469 = phi i64 [ %56, %49 ], [ %.073, %.preheader63 ]
+  %41 = sub nuw i64 %.469, %.073
+  %42 = shl nuw i64 1, %41
+  %43 = and i64 %42, %23
+  %.not = icmp eq i64 %43, 0
+  br i1 %.not, label %55, label %44
 
-38:                                               ; preds = %.lr.ph70
-  %39 = getelementptr inbounds nuw i16, ptr %0, i64 %.469
-  %40 = load i16, ptr %39, align 2, !tbaa !594
-  %41 = load i16, ptr %1, align 2, !tbaa !594
-  %42 = icmp ult i16 %41, 16
-  %43 = zext i16 %40 to i32
-  %44 = zext nneg i16 %41 to i32
-  %45 = lshr i32 %43, %44
-  %46 = trunc nuw i32 %45 to i16
-  %47 = select i1 %42, i16 %46, i16 0
-  %48 = getelementptr inbounds nuw i16, ptr %2, i64 %.469
-  store i16 %47, ptr %48, align 2, !tbaa !594
-  br label %49
+44:                                               ; preds = %.lr.ph70
+  %45 = getelementptr inbounds nuw i16, ptr %0, i64 %.469
+  %46 = load i16, ptr %45, align 2, !tbaa !594
+  %47 = load i16, ptr %1, align 2, !tbaa !594
+  %48 = icmp ult i16 %47, 16
+  %49 = zext i16 %46 to i32
+  %50 = zext nneg i16 %47 to i32
+  %51 = lshr i32 %49, %50
+  %52 = trunc nuw i32 %51 to i16
+  %53 = select i1 %48, i16 %52, i16 0
+  %54 = getelementptr inbounds nuw i16, ptr %2, i64 %.469
+  store i16 %53, ptr %54, align 2, !tbaa !594
+  br label %55
 
-49:                                               ; preds = %.lr.ph70, %38
-  %50 = add nuw i64 %.469, 1
-  %exitcond86.not = icmp eq i64 %50, %22
+55:                                               ; preds = %.lr.ph70, %44
+  %56 = add nuw i64 %.469, 1
+  %exitcond86.not = icmp eq i64 %56, %25
   br i1 %exitcond86.not, label %.loopexit64, label %.lr.ph70, !llvm.loop !2219
 
-.loopexit64:                                      ; preds = %.lr.ph.split.us, %49, %.lr.ph.split.preheader, %.preheader65, %.preheader63, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %.3 = phi i64 [ %22, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.073, %.preheader63 ], [ %.073, %.preheader65 ], [ %22, %.lr.ph.split.preheader ], [ %22, %49 ], [ %22, %.lr.ph.split.us ]
-  %51 = add nuw nsw i64 %.05772, 1
-  %exitcond87.not = icmp eq i64 %51, %18
+.loopexit64:                                      ; preds = %.lr.ph.split.us, %55, %.lr.ph.split.preheader, %.preheader65, %.preheader63, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
+  %.3 = phi i64 [ %25, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit ], [ %.073, %.preheader63 ], [ %.073, %.preheader65 ], [ %25, %.lr.ph.split.preheader ], [ %25, %49 ], [ %25, %.lr.ph.split.us ]
+  %57 = add nuw nsw i64 %.05772, 1
+  %exitcond87.not = icmp eq i64 %57, %21
   br i1 %exitcond87.not, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit, !llvm.loop !2220
 
-.loopexit:                                        ; preds = %.loopexit64, %.lr.ph75.split.us, %.lr.ph75.split.preheader, %16, %.preheader
+.loopexit:                                        ; preds = %.loopexit64, %.lr.ph75.split.us, %.lr.ph75.split.preheader, %19, %.preheader
   ret void
 }
 
