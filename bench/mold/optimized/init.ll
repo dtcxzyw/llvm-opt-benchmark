@@ -44,7 +44,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden i64 @_mi_thread_id() local_unnamed_addr #0 {
-  %1 = tail call ptr @llvm.thread.pointer()
+  %1 = tail call ptr @llvm.thread.pointer.p0()
   %2 = ptrtoint ptr %1 to i64
   ret i64 %2
 }
@@ -71,7 +71,7 @@ define hidden noundef nonnull ptr @_mi_heap_main_get() local_unnamed_addr #1 {
   br i1 %2, label %3, label %mi_heap_main_init.exit
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @llvm.thread.pointer()
+  %4 = tail call ptr @llvm.thread.pointer.p0()
   %5 = ptrtoint ptr %4 to i64
   store i64 %5, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 16), align 16, !tbaa !14
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 32), align 32, !tbaa !3
@@ -256,7 +256,7 @@ define hidden zeroext i1 @_mi_is_main_thread() local_unnamed_addr #6 {
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @llvm.thread.pointer()
+  %4 = tail call ptr @llvm.thread.pointer.p0()
   %5 = ptrtoint ptr %4 to i64
   %6 = icmp eq i64 %1, %5
   br label %7
@@ -289,7 +289,7 @@ define hidden void @mi_thread_init() local_unnamed_addr #1 {
   br i1 %9, label %_mi_is_main_thread.exit.thread.i, label %_mi_is_main_thread.exit.i
 
 _mi_is_main_thread.exit.i:                        ; preds = %7
-  %10 = tail call ptr @llvm.thread.pointer()
+  %10 = tail call ptr @llvm.thread.pointer.p0()
   %11 = ptrtoint ptr %10 to i64
   %12 = icmp eq i64 %8, %11
   br i1 %12, label %_mi_is_main_thread.exit.thread.i, label %.preheader.i
@@ -300,7 +300,7 @@ _mi_is_main_thread.exit.thread.i:                 ; preds = %_mi_is_main_thread.
   br i1 %14, label %15, label %_mi_thread_heap_init.exit.thread1
 
 15:                                               ; preds = %_mi_is_main_thread.exit.thread.i
-  %16 = tail call ptr @llvm.thread.pointer()
+  %16 = tail call ptr @llvm.thread.pointer.p0()
   %17 = ptrtoint ptr %16 to i64
   store i64 %17, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 16), align 16, !tbaa !14
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 32), align 32, !tbaa !3
@@ -422,7 +422,7 @@ define hidden void @mi_process_init() local_unnamed_addr #1 {
   br i1 %2, label %3, label %mi_heap_main_init.exit
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @llvm.thread.pointer()
+  %4 = tail call ptr @llvm.thread.pointer.p0()
   %5 = ptrtoint ptr %4 to i64
   store i64 %5, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 16), align 16, !tbaa !14
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 32), align 32, !tbaa !3
@@ -449,7 +449,7 @@ mi_atomic_once.exit:                              ; preds = %mi_heap_main_init.e
 
 14:                                               ; preds = %mi_atomic_once.exit
   store i8 1, ptr @_mi_process_is_initialized, align 1, !tbaa !23
-  %15 = tail call ptr @llvm.thread.pointer()
+  %15 = tail call ptr @llvm.thread.pointer.p0()
   %16 = ptrtoint ptr %15 to i64
   tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.1, i64 noundef %16) #14
   %.b1.i = load i1, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
@@ -555,7 +555,7 @@ define hidden void @_mi_thread_done(ptr noundef readonly captures(address) %0) l
   tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 288), i64 noundef 1) #14
   %10 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !14
-  %12 = tail call ptr @llvm.thread.pointer()
+  %12 = tail call ptr @llvm.thread.pointer.p0()
   %13 = ptrtoint ptr %12 to i64
   %.not = icmp eq i64 %11, %13
   br i1 %.not, label %14, label %_mi_thread_heap_done.exit
@@ -682,7 +682,7 @@ define hidden void @_mi_process_load() local_unnamed_addr #1 {
   br i1 %3, label %4, label %mi_heap_main_init.exit
 
 4:                                                ; preds = %0
-  %5 = tail call ptr @llvm.thread.pointer()
+  %5 = tail call ptr @llvm.thread.pointer.p0()
   %6 = ptrtoint ptr %5 to i64
   store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 16), align 16, !tbaa !14
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 32), align 32, !tbaa !3
@@ -837,32 +837,29 @@ declare void @mi_stats_print(ptr noundef) local_unnamed_addr #3
 
 declare void @_mi_allocator_done() local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare ptr @llvm.thread.pointer() #10
-
 declare void @_mi_random_init(ptr noundef) local_unnamed_addr #3
 
 declare i64 @_mi_heap_random_next(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #12
+declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #12
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #11
 
 declare void @_mi_error_message(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #12
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #12
+declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
+declare void @llvm.assume(i1 noundef) #12
 
 declare void @_mi_heap_init(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #3
 
@@ -878,6 +875,9 @@ declare void @_mi_stats_done(ptr noundef) local_unnamed_addr #3
 
 declare void @_mi_prim_thread_init_auto_done() local_unnamed_addr #3
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare ptr @llvm.thread.pointer.p0() #13
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -888,10 +888,10 @@ attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nounwind "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nounwind "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #14 = { nounwind "no-builtin-malloc" }
 attributes #15 = { nounwind }
 attributes #16 = { "no-builtin-malloc" }

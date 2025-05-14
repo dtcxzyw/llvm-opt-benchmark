@@ -165,7 +165,7 @@ define hidden void @mi_free(ptr noundef %0) #3 {
   br i1 %8, label %mi_free_block_local.exit, label %9, !prof !18
 
 9:                                                ; preds = %1
-  %10 = tail call ptr @llvm.thread.pointer()
+  %10 = tail call ptr @llvm.thread.pointer.p0()
   %11 = ptrtoint ptr %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 280
   %13 = load atomic i64, ptr %12 monotonic, align 8
@@ -330,7 +330,7 @@ define hidden void @mi_free_size(ptr noundef %0, i64 %1) #3 {
   br i1 %9, label %mi_free.exit, label %10, !prof !18
 
 10:                                               ; preds = %2
-  %11 = tail call ptr @llvm.thread.pointer()
+  %11 = tail call ptr @llvm.thread.pointer.p0()
   %12 = ptrtoint ptr %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 280
   %14 = load atomic i64, ptr %13 monotonic, align 8
@@ -393,7 +393,7 @@ define void @_ZdlPvSt11align_val_t(ptr noundef %0, i64 noundef %1) local_unnamed
   br i1 %9, label %mi_free_aligned.exit, label %10, !prof !18
 
 10:                                               ; preds = %2
-  %11 = tail call ptr @llvm.thread.pointer()
+  %11 = tail call ptr @llvm.thread.pointer.p0()
   %12 = ptrtoint ptr %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 280
   %14 = load atomic i64, ptr %13 monotonic, align 8
@@ -456,7 +456,7 @@ define hidden void @mi_free_aligned(ptr noundef %0, i64 noundef %1) local_unname
   br i1 %9, label %mi_free.exit, label %10, !prof !18
 
 10:                                               ; preds = %2
-  %11 = tail call ptr @llvm.thread.pointer()
+  %11 = tail call ptr @llvm.thread.pointer.p0()
   %12 = ptrtoint ptr %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 280
   %14 = load atomic i64, ptr %13 monotonic, align 8
@@ -519,7 +519,7 @@ define void @_ZdaPvSt11align_val_t(ptr noundef %0, i64 noundef %1) local_unnamed
   br i1 %9, label %mi_free_aligned.exit, label %10, !prof !18
 
 10:                                               ; preds = %2
-  %11 = tail call ptr @llvm.thread.pointer()
+  %11 = tail call ptr @llvm.thread.pointer.p0()
   %12 = ptrtoint ptr %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 280
   %14 = load atomic i64, ptr %13 monotonic, align 8
@@ -582,7 +582,7 @@ define void @_ZdlPvmSt11align_val_t(ptr noundef %0, i64 noundef %1, i64 noundef 
   br i1 %10, label %mi_free_size_aligned.exit, label %11, !prof !18
 
 11:                                               ; preds = %3
-  %12 = tail call ptr @llvm.thread.pointer()
+  %12 = tail call ptr @llvm.thread.pointer.p0()
   %13 = ptrtoint ptr %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 280
   %15 = load atomic i64, ptr %14 monotonic, align 8
@@ -645,7 +645,7 @@ define hidden void @mi_free_size_aligned(ptr noundef %0, i64 noundef %1, i64 nou
   br i1 %10, label %mi_free_size.exit, label %11, !prof !18
 
 11:                                               ; preds = %3
-  %12 = tail call ptr @llvm.thread.pointer()
+  %12 = tail call ptr @llvm.thread.pointer.p0()
   %13 = ptrtoint ptr %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 280
   %15 = load atomic i64, ptr %14 monotonic, align 8
@@ -708,7 +708,7 @@ define void @_ZdaPvmSt11align_val_t(ptr noundef %0, i64 noundef %1, i64 noundef 
   br i1 %10, label %mi_free_size_aligned.exit, label %11, !prof !18
 
 11:                                               ; preds = %3
-  %12 = tail call ptr @llvm.thread.pointer()
+  %12 = tail call ptr @llvm.thread.pointer.p0()
   %13 = ptrtoint ptr %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 280
   %15 = load atomic i64, ptr %14 monotonic, align 8
@@ -771,7 +771,7 @@ define void @_ZdlPvRKSt9nothrow_t(ptr noundef %0, ptr noundef readnone captures(
   br i1 %9, label %mi_free.exit, label %10, !prof !18
 
 10:                                               ; preds = %2
-  %11 = tail call ptr @llvm.thread.pointer()
+  %11 = tail call ptr @llvm.thread.pointer.p0()
   %12 = ptrtoint ptr %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 280
   %14 = load atomic i64, ptr %13 monotonic, align 8
@@ -834,7 +834,7 @@ define void @_ZdaPvRKSt9nothrow_t(ptr noundef %0, ptr noundef readnone captures(
   br i1 %9, label %mi_free.exit, label %10, !prof !18
 
 10:                                               ; preds = %2
-  %11 = tail call ptr @llvm.thread.pointer()
+  %11 = tail call ptr @llvm.thread.pointer.p0()
   %12 = ptrtoint ptr %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 280
   %14 = load atomic i64, ptr %13 monotonic, align 8
@@ -897,7 +897,7 @@ define void @_ZdlPvSt11align_val_tRKSt9nothrow_t(ptr noundef %0, i64 noundef %1,
   br i1 %10, label %mi_free_aligned.exit, label %11, !prof !18
 
 11:                                               ; preds = %3
-  %12 = tail call ptr @llvm.thread.pointer()
+  %12 = tail call ptr @llvm.thread.pointer.p0()
   %13 = ptrtoint ptr %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 280
   %15 = load atomic i64, ptr %14 monotonic, align 8
@@ -960,7 +960,7 @@ define void @_ZdaPvSt11align_val_tRKSt9nothrow_t(ptr noundef %0, i64 noundef %1,
   br i1 %10, label %mi_free_aligned.exit, label %11, !prof !18
 
 11:                                               ; preds = %3
-  %12 = tail call ptr @llvm.thread.pointer()
+  %12 = tail call ptr @llvm.thread.pointer.p0()
   %13 = ptrtoint ptr %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 280
   %15 = load atomic i64, ptr %14 monotonic, align 8
@@ -1353,7 +1353,7 @@ define void @vfree(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %8, label %mi_free.exit, label %9, !prof !18
 
 9:                                                ; preds = %1
-  %10 = tail call ptr @llvm.thread.pointer()
+  %10 = tail call ptr @llvm.thread.pointer.p0()
   %11 = ptrtoint ptr %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 280
   %13 = load atomic i64, ptr %12 monotonic, align 8
@@ -1440,7 +1440,7 @@ define void @cfree(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %8, label %mi_free.exit, label %9, !prof !18
 
 9:                                                ; preds = %1
-  %10 = tail call ptr @llvm.thread.pointer()
+  %10 = tail call ptr @llvm.thread.pointer.p0()
   %11 = ptrtoint ptr %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 280
   %13 = load atomic i64, ptr %12 monotonic, align 8
@@ -2586,7 +2586,7 @@ mi_heap_malloc.exit:                              ; preds = %.critedge, %32
   br i1 %10, label %mi_free.exit, label %58, !prof !18
 
 58:                                               ; preds = %55
-  %59 = tail call ptr @llvm.thread.pointer()
+  %59 = tail call ptr @llvm.thread.pointer.p0()
   %60 = ptrtoint ptr %59 to i64
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 280
   %62 = load atomic i64, ptr %61 monotonic, align 8
@@ -2684,7 +2684,7 @@ define hidden ptr @mi_heap_reallocf(ptr noundef %0, ptr noundef %1, i64 noundef 
   br i1 %14, label %mi_free.exit, label %15, !prof !18
 
 15:                                               ; preds = %7
-  %16 = tail call ptr @llvm.thread.pointer()
+  %16 = tail call ptr @llvm.thread.pointer.p0()
   %17 = ptrtoint ptr %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 280
   %19 = load atomic i64, ptr %18 monotonic, align 8
@@ -3362,7 +3362,7 @@ define internal fastcc void @mi_free_block_mt(ptr noundef %0, ptr noundef %1, pt
   br i1 %21, label %mi_free.exit, label %22, !prof !18
 
 22:                                               ; preds = %14
-  %23 = tail call ptr @llvm.thread.pointer()
+  %23 = tail call ptr @llvm.thread.pointer.p0()
   %24 = ptrtoint ptr %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 280
   %26 = load atomic i64, ptr %25 monotonic, align 8
@@ -3504,15 +3504,12 @@ define internal fastcc void @mi_free_block_delayed_mt(ptr noundef captures(none)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare ptr @llvm.thread.pointer() #11
-
 declare void @_mi_page_retire(ptr noundef) local_unnamed_addr #5
 
 declare void @_mi_page_unfull(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i64 @mi_page_usable_aligned_size_of(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #12 {
+define internal fastcc i64 @mi_page_usable_aligned_size_of(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = ptrtoint ptr %1 to i64
@@ -3546,24 +3543,27 @@ _mi_page_ptr_unalign.exit:                        ; preds = %10, %14
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
+declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #14
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #14
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 declare void @_mi_error_message(i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #17
+declare void @abort() local_unnamed_addr #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare ptr @llvm.thread.pointer.p0() #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #18
@@ -3582,13 +3582,13 @@ attributes #7 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-bui
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nounwind "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree noinline norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #12 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { cold nofree noreturn nounwind "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { cold nofree noreturn nounwind "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nounwind "no-builtin-malloc" }
 attributes #20 = { "no-builtin-malloc" }
