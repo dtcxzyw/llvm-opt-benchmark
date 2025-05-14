@@ -31,7 +31,7 @@ define range(i64 0, 2) i64 @OSQPVectorf_is_eq(ptr noundef readonly captures(none
   %16 = fsub double %13, %15
   %17 = tail call double @llvm.fabs.f64(double %16)
   %18 = fcmp ogt double %17, %2
-  %.1 = select i1 %18, i64 0, i64 %.024
+  %19 = select i1 %18, i64 0, i64 %.024
   %19 = add nuw nsw i64 %.01923, 1
   %exitcond.not = icmp eq i64 %19, %5
   br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !13
@@ -43,7 +43,7 @@ define range(i64 0, 2) i64 @OSQPVectorf_is_eq(ptr noundef readonly captures(none
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
 define noalias noundef ptr @OSQPVectorf_new(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
-  %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %OSQPVectorf_from_raw.exit, label %4
 
@@ -55,13 +55,13 @@ define noalias noundef ptr @OSQPVectorf_new(ptr noundef readonly captures(none) 
 
 6:                                                ; preds = %4
   %7 = shl i64 %1, 3
-  %8 = tail call noalias ptr @malloc(i64 noundef %7) #20
+  %8 = tail call noalias ptr @malloc(i64 noundef %7) #19
   store ptr %8, ptr %3, align 8, !tbaa !10
   %.not12.i = icmp eq ptr %8, null
   br i1 %.not12.i, label %9, label %OSQPVectorf_malloc.exit
 
 9:                                                ; preds = %6
-  tail call void @free(ptr noundef nonnull %3) #21
+  tail call void @free(ptr noundef nonnull %3) #20
   br label %OSQPVectorf_from_raw.exit
 
 OSQPVectorf_malloc.exit.thread9:                  ; preds = %4
@@ -89,7 +89,7 @@ OSQPVectorf_from_raw.exit:                        ; preds = %.lr.ph.i, %2, %9, %
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
 define noalias noundef ptr @OSQPVectorf_malloc(i64 noundef %0) local_unnamed_addr #2 {
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %3
 
@@ -101,13 +101,13 @@ define noalias noundef ptr @OSQPVectorf_malloc(i64 noundef %0) local_unnamed_add
 
 5:                                                ; preds = %3
   %6 = shl i64 %0, 3
-  %7 = tail call noalias ptr @malloc(i64 noundef %6) #20
+  %7 = tail call noalias ptr @malloc(i64 noundef %6) #19
   store ptr %7, ptr %2, align 8, !tbaa !10
   %.not12 = icmp eq ptr %7, null
   br i1 %.not12, label %8, label %10
 
 8:                                                ; preds = %5
-  tail call void @free(ptr noundef nonnull %2) #21
+  tail call void @free(ptr noundef nonnull %2) #20
   br label %10
 
 9:                                                ; preds = %3
@@ -143,7 +143,7 @@ define void @OSQPVectorf_from_raw(ptr noundef readonly captures(none) %0, ptr no
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
 define noalias noundef ptr @OSQPVectori_new(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
-  %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %OSQPVectori_from_raw.exit, label %4
 
@@ -155,13 +155,13 @@ define noalias noundef ptr @OSQPVectori_new(ptr noundef readonly captures(none) 
 
 6:                                                ; preds = %4
   %7 = shl i64 %1, 3
-  %8 = tail call noalias ptr @malloc(i64 noundef %7) #20
+  %8 = tail call noalias ptr @malloc(i64 noundef %7) #19
   store ptr %8, ptr %3, align 8, !tbaa !19
   %.not12.i = icmp eq ptr %8, null
   br i1 %.not12.i, label %9, label %OSQPVectori_malloc.exit
 
 9:                                                ; preds = %6
-  tail call void @free(ptr noundef nonnull %3) #21
+  tail call void @free(ptr noundef nonnull %3) #20
   br label %OSQPVectori_from_raw.exit
 
 OSQPVectori_malloc.exit.thread9:                  ; preds = %4
@@ -189,7 +189,7 @@ OSQPVectori_from_raw.exit:                        ; preds = %.lr.ph.i, %2, %9, %
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
 define noalias noundef ptr @OSQPVectori_malloc(i64 noundef %0) local_unnamed_addr #2 {
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %3
 
@@ -201,13 +201,13 @@ define noalias noundef ptr @OSQPVectori_malloc(i64 noundef %0) local_unnamed_add
 
 5:                                                ; preds = %3
   %6 = shl i64 %0, 3
-  %7 = tail call noalias ptr @malloc(i64 noundef %6) #20
+  %7 = tail call noalias ptr @malloc(i64 noundef %6) #19
   store ptr %7, ptr %2, align 8, !tbaa !19
   %.not12 = icmp eq ptr %7, null
   br i1 %.not12, label %8, label %10
 
 8:                                                ; preds = %5
-  tail call void @free(ptr noundef nonnull %2) #21
+  tail call void @free(ptr noundef nonnull %2) #20
   br label %10
 
 9:                                                ; preds = %3
@@ -249,7 +249,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
 define noalias noundef ptr @OSQPVectorf_calloc(i64 noundef %0) local_unnamed_addr #2 {
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3
 
@@ -260,13 +260,13 @@ define noalias noundef ptr @OSQPVectorf_calloc(i64 noundef %0) local_unnamed_add
   br i1 %.not11, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef 8) #22
+  %6 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef 8) #21
   store ptr %6, ptr %2, align 8, !tbaa !10
   %.not12 = icmp eq ptr %6, null
   br i1 %.not12, label %7, label %9
 
 7:                                                ; preds = %5
-  tail call void @free(ptr noundef nonnull %2) #21
+  tail call void @free(ptr noundef nonnull %2) #20
   br label %9
 
 8:                                                ; preds = %3
@@ -283,7 +283,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
 define noalias noundef ptr @OSQPVectori_calloc(i64 noundef %0) local_unnamed_addr #2 {
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3
 
@@ -294,13 +294,13 @@ define noalias noundef ptr @OSQPVectori_calloc(i64 noundef %0) local_unnamed_add
   br i1 %.not11, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef 8) #22
+  %6 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef 8) #21
   store ptr %6, ptr %2, align 8, !tbaa !19
   %.not12 = icmp eq ptr %6, null
   br i1 %.not12, label %7, label %9
 
 7:                                                ; preds = %5
-  tail call void @free(ptr noundef nonnull %2) #21
+  tail call void @free(ptr noundef nonnull %2) #20
   br label %9
 
 8:                                                ; preds = %3
@@ -316,7 +316,7 @@ define noalias noundef ptr @OSQPVectori_calloc(i64 noundef %0) local_unnamed_add
 define noalias noundef ptr @OSQPVectorf_copy_new(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !3
-  %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %OSQPVectorf_copy.exit, label %5
 
@@ -328,13 +328,13 @@ define noalias noundef ptr @OSQPVectorf_copy_new(ptr noundef readonly captures(n
 
 7:                                                ; preds = %5
   %8 = shl i64 %3, 3
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #20
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #19
   store ptr %9, ptr %4, align 8, !tbaa !10
   %.not12.i = icmp eq ptr %9, null
   br i1 %.not12.i, label %10, label %OSQPVectorf_malloc.exit
 
 10:                                               ; preds = %7
-  tail call void @free(ptr noundef nonnull %4) #21
+  tail call void @free(ptr noundef nonnull %4) #20
   br label %OSQPVectorf_copy.exit
 
 OSQPVectorf_malloc.exit.thread:                   ; preds = %5
@@ -391,11 +391,11 @@ define void @OSQPVectorf_free(ptr noundef captures(address_is_null) %0) local_un
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr %0, align 8, !tbaa !10
-  tail call void @free(ptr noundef %3) #21
+  tail call void @free(ptr noundef %3) #20
   br label %4
 
 4:                                                ; preds = %2, %1
-  tail call void @free(ptr noundef %0) #21
+  tail call void @free(ptr noundef %0) #20
   ret void
 }
 
@@ -406,11 +406,11 @@ define void @OSQPVectori_free(ptr noundef captures(address_is_null) %0) local_un
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr %0, align 8, !tbaa !19
-  tail call void @free(ptr noundef %3) #21
+  tail call void @free(ptr noundef %3) #20
   br label %4
 
 4:                                                ; preds = %2, %1
-  tail call void @free(ptr noundef %0) #21
+  tail call void @free(ptr noundef %0) #20
   ret void
 }
 
@@ -486,7 +486,7 @@ define noalias noundef ptr @OSQPVectorf_subvector_byrows(ptr noundef readonly ca
 
 ._crit_edge:                                      ; preds = %7, %2
   %.020.lcssa = phi i64 [ 0, %2 ], [ %spec.select, %7 ]
-  %12 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %12 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %OSQPVectorf_malloc.exit.thread, label %13
 
@@ -498,13 +498,13 @@ define noalias noundef ptr @OSQPVectorf_subvector_byrows(ptr noundef readonly ca
 
 15:                                               ; preds = %13
   %16 = shl i64 %.020.lcssa, 3
-  %17 = tail call noalias ptr @malloc(i64 noundef %16) #20
+  %17 = tail call noalias ptr @malloc(i64 noundef %16) #19
   store ptr %17, ptr %12, align 8, !tbaa !10
   %.not12.i = icmp eq ptr %17, null
   br i1 %.not12.i, label %18, label %OSQPVectorf_malloc.exit
 
 18:                                               ; preds = %15
-  tail call void @free(ptr noundef nonnull %12) #21
+  tail call void @free(ptr noundef nonnull %12) #20
   br label %OSQPVectorf_malloc.exit.thread
 
 19:                                               ; preds = %13
@@ -554,7 +554,7 @@ define noalias noundef ptr @OSQPVectorf_concat(ptr noundef readonly captures(non
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !3
   %7 = add nsw i64 %6, %4
-  %8 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %8 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %OSQPVectorf_malloc.exit.thread, label %9
 
@@ -566,13 +566,13 @@ define noalias noundef ptr @OSQPVectorf_concat(ptr noundef readonly captures(non
 
 11:                                               ; preds = %9
   %12 = shl i64 %7, 3
-  %13 = tail call noalias ptr @malloc(i64 noundef %12) #20
+  %13 = tail call noalias ptr @malloc(i64 noundef %12) #19
   store ptr %13, ptr %8, align 8, !tbaa !10
   %.not12.i = icmp eq ptr %13, null
   br i1 %.not12.i, label %14, label %OSQPVectorf_malloc.exit
 
 14:                                               ; preds = %11
-  tail call void @free(ptr noundef nonnull %8) #21
+  tail call void @free(ptr noundef nonnull %8) #20
   br label %OSQPVectorf_malloc.exit.thread
 
 15:                                               ; preds = %9
@@ -625,7 +625,7 @@ OSQPVectorf_malloc.exit.thread:                   ; preds = %26, %.preheader, %2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: read, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @OSQPVectorf_view(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #10 {
-  %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
 
@@ -653,7 +653,7 @@ define void @OSQPVectorf_view_update(ptr noundef writeonly captures(none) initia
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @OSQPVectorf_view_free(ptr noundef captures(none) %0) local_unnamed_addr #12 {
-  tail call void @free(ptr noundef %0) #21
+  tail call void @free(ptr noundef %0) #20
   ret void
 }
 
@@ -822,24 +822,24 @@ define void @OSQPVectorf_round_to_zero(ptr noundef readonly captures(none) %0, d
   %6 = icmp sgt i64 %4, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %2, %12
-  %.014 = phi i64 [ %13, %12 ], [ 0, %2 ]
+.lr.ph:                                           ; preds = %2, %14
+  %.014 = phi i64 [ %15, %12 ], [ 0, %2 ]
   %7 = getelementptr inbounds nuw double, ptr %5, i64 %.014
   %8 = load double, ptr %7, align 8, !tbaa !11
   %9 = tail call double @llvm.fabs.f64(double %8)
   %10 = fcmp olt double %9, %1
   br i1 %10, label %11, label %12
 
-11:                                               ; preds = %.lr.ph
+13:                                               ; preds = %.lr.ph
   store double 0.000000e+00, ptr %7, align 8, !tbaa !11
-  br label %12
+  br label %14
 
-12:                                               ; preds = %.lr.ph, %11
-  %13 = add nuw nsw i64 %.014, 1
-  %exitcond.not = icmp eq i64 %13, %4
+14:                                               ; preds = %.lr.ph, %13
+  %15 = add nuw nsw i64 %.014, 1
+  %exitcond.not = icmp eq i64 %15, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
-._crit_edge:                                      ; preds = %12, %2
+._crit_edge:                                      ; preds = %14, %2
   ret void
 }
 

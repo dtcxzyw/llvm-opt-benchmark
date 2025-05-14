@@ -111,7 +111,7 @@ define void @_Z18duDebugDrawTriMeshP11duDebugDrawPKfiPKiS2_iPKhf(ptr noundef %0,
   %74 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %75 = load float, ptr %74, align 4
   %76 = call float @llvm.fabs.f32(float %75)
-  %77 = zext i1 %73 to i64
+  %.0 = zext i1 %73 to i64
   %78 = getelementptr inbounds nuw float, ptr %29, i64 %77
   %79 = load float, ptr %78, align 4
   %80 = call float @llvm.fabs.f32(float %79)
@@ -134,18 +134,18 @@ define void @_Z18duDebugDrawTriMeshP11duDebugDrawPKfiPKiS2_iPKhf(ptr noundef %0,
   %95 = load float, ptr %94, align 4
   %96 = fmul float %7, %95
   store float %96, ptr %10, align 4
-  %97 = getelementptr inbounds nuw float, ptr %65, i64 %90
-  %98 = load float, ptr %97, align 4
-  %99 = fmul float %7, %98
-  store float %99, ptr %26, align 4
-  %100 = getelementptr inbounds nuw float, ptr %70, i64 %86
-  %101 = load float, ptr %100, align 4
-  %102 = fmul float %7, %101
-  store float %102, ptr %11, align 4
-  %103 = getelementptr inbounds nuw float, ptr %70, i64 %90
-  %104 = load float, ptr %103, align 4
-  %105 = fmul float %7, %104
-  store float %105, ptr %27, align 4
+  %99 = getelementptr inbounds nuw float, ptr %65, i64 %90
+  %100 = load float, ptr %99, align 4
+  %101 = fmul float %7, %100
+  store float %101, ptr %26, align 4
+  %102 = getelementptr inbounds nuw float, ptr %70, i64 %86
+  %103 = load float, ptr %102, align 4
+  %104 = fmul float %7, %103
+  store float %104, ptr %11, align 4
+  %105 = getelementptr inbounds nuw float, ptr %70, i64 %90
+  %106 = load float, ptr %105, align 4
+  %107 = fmul float %7, %106
+  store float %107, ptr %27, align 4
   %106 = load ptr, ptr %0, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 56
   %108 = load ptr, ptr %107, align 8
@@ -154,9 +154,9 @@ define void @_Z18duDebugDrawTriMeshP11duDebugDrawPKfiPKiS2_iPKhf(ptr noundef %0,
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 56
   %111 = load ptr, ptr %110, align 8
   call void %111(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %65, i32 noundef %.074, ptr noundef nonnull %10)
-  %112 = load ptr, ptr %0, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 56
-  %114 = load ptr, ptr %113, align 8
+  %114 = load ptr, ptr %0, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 56
+  %116 = load ptr, ptr %115, align 8
   call void %114(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %70, i32 noundef %.074, ptr noundef nonnull %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %115 = trunc nuw i64 %indvars.iv.next to i32
@@ -172,9 +172,9 @@ define void @_Z18duDebugDrawTriMeshP11duDebugDrawPKfiPKiS2_iPKhf(ptr noundef %0,
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %122 = load ptr, ptr %121, align 8
   call void %122(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext false)
-  br label %123
+  br label %._crit_edge
 
-123:                                              ; preds = %8, %._crit_edge
+._crit_edge:                                      ; preds = %8, %._crit_edge
   ret void
 }
 
@@ -195,7 +195,7 @@ define void @_Z23duDebugDrawTriMeshSlopeP11duDebugDrawPKfiPKiS2_iff(ptr noundef 
 16:                                               ; preds = %8
   %17 = fdiv float %6, 1.800000e+02
   %18 = fmul float %17, 0x400921FB60000000
-  %19 = tail call float @cosf(float noundef %18) #5
+  %19 = tail call float @cosf(float noundef %18) #4
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
@@ -275,7 +275,7 @@ define void @_Z23duDebugDrawTriMeshSlopeP11duDebugDrawPKfiPKiS2_iff(ptr noundef 
   %74 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %75 = load float, ptr %74, align 4
   %76 = call float @llvm.fabs.f32(float %75)
-  %77 = zext i1 %73 to i64
+  %.0 = zext i1 %73 to i64
   %78 = getelementptr inbounds nuw float, ptr %32, i64 %77
   %79 = load float, ptr %78, align 4
   %80 = call float @llvm.fabs.f32(float %79)
@@ -298,18 +298,18 @@ define void @_Z23duDebugDrawTriMeshSlopeP11duDebugDrawPKfiPKiS2_iff(ptr noundef 
   %95 = load float, ptr %94, align 4
   %96 = fmul float %7, %95
   store float %96, ptr %10, align 4
-  %97 = getelementptr inbounds nuw float, ptr %65, i64 %90
-  %98 = load float, ptr %97, align 4
-  %99 = fmul float %7, %98
-  store float %99, ptr %29, align 4
-  %100 = getelementptr inbounds nuw float, ptr %70, i64 %86
-  %101 = load float, ptr %100, align 4
-  %102 = fmul float %7, %101
-  store float %102, ptr %11, align 4
-  %103 = getelementptr inbounds nuw float, ptr %70, i64 %90
-  %104 = load float, ptr %103, align 4
-  %105 = fmul float %7, %104
-  store float %105, ptr %30, align 4
+  %99 = getelementptr inbounds nuw float, ptr %65, i64 %90
+  %100 = load float, ptr %99, align 4
+  %101 = fmul float %7, %100
+  store float %101, ptr %29, align 4
+  %102 = getelementptr inbounds nuw float, ptr %70, i64 %86
+  %103 = load float, ptr %102, align 4
+  %104 = fmul float %7, %103
+  store float %104, ptr %11, align 4
+  %105 = getelementptr inbounds nuw float, ptr %70, i64 %90
+  %106 = load float, ptr %105, align 4
+  %107 = fmul float %7, %106
+  store float %107, ptr %30, align 4
   %106 = load ptr, ptr %0, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 56
   %108 = load ptr, ptr %107, align 8
@@ -318,9 +318,9 @@ define void @_Z23duDebugDrawTriMeshSlopeP11duDebugDrawPKfiPKiS2_iff(ptr noundef 
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 56
   %111 = load ptr, ptr %110, align 8
   call void %111(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %65, i32 noundef %.074, ptr noundef nonnull %10)
-  %112 = load ptr, ptr %0, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 56
-  %114 = load ptr, ptr %113, align 8
+  %114 = load ptr, ptr %0, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 56
+  %116 = load ptr, ptr %115, align 8
   call void %114(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %70, i32 noundef %.074, ptr noundef nonnull %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %115 = trunc nuw i64 %indvars.iv.next to i32
@@ -336,9 +336,9 @@ define void @_Z23duDebugDrawTriMeshSlopeP11duDebugDrawPKfiPKiS2_iff(ptr noundef 
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %122 = load ptr, ptr %121, align 8
   call void %122(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext false)
-  br label %123
+  br label %._crit_edge
 
-123:                                              ; preds = %8, %._crit_edge
+._crit_edge:                                      ; preds = %8, %._crit_edge
   ret void
 }
 

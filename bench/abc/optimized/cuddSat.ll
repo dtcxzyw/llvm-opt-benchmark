@@ -1397,9 +1397,9 @@ define range(i32 0, 2) i32 @Cudd_EqualSupNorm(ptr noundef %0, ptr noundef %1, pt
   %26 = fcmp olt double %25, %3
   br i1 %26, label %80, label %27
 
-27:                                               ; preds = %19
-  %28 = icmp sgt i32 %4, 0
-  br i1 %28, label %29, label %80
+29:                                               ; preds = %19
+  %30 = icmp sgt i32 %4, 0
+  br i1 %30, label %29, label %80
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 608
@@ -1437,40 +1437,40 @@ define range(i32 0, 2) i32 @Cudd_EqualSupNorm(ptr noundef %0, ptr noundef %1, pt
   %53 = icmp eq i32 %52, 2147483647
   br i1 %53, label %60, label %54
 
-54:                                               ; preds = %50
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %56 = load ptr, ptr %55, align 8, !tbaa !47
+31:                                               ; preds = %50
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %33 = load ptr, ptr %32, align 8, !tbaa !47
   %57 = zext i32 %52 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %56, i64 %57
-  %59 = load i32, ptr %58, align 4, !tbaa !11
+  %58 = getelementptr inbounds nuw i32, ptr %33, i64 %57
+  %36 = load i32, ptr %58, align 4, !tbaa !11
   br label %60
 
-60:                                               ; preds = %50, %54
-  %61 = phi i32 [ %59, %54 ], [ 2147483647, %50 ]
+60:; preds = %50, %31
+  %61 = phi i32 [ %36, %54 ], [ 2147483647, %50 ]
   %.not66 = icmp ugt i32 %51, %61
   br i1 %.not66, label %67, label %62
 
-62:                                               ; preds = %60
+62:; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !12
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %66 = load ptr, ptr %65, align 8, !tbaa !12
-  br label %67
+  br label %69
 
-67:                                               ; preds = %60, %62
+69:                                               ; preds = %60, %62
   %.056 = phi ptr [ %66, %62 ], [ %1, %60 ]
   %.055 = phi ptr [ %64, %62 ], [ %1, %60 ]
   %.not67 = icmp ugt i32 %61, %51
-  br i1 %.not67, label %73, label %68
+  br i1 %.not67, label %73, label %70
 
-68:                                               ; preds = %67
-  %69 = getelementptr inbounds nuw i8, ptr %2, i64 16
+70:                                               ; preds = %69
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %70 = load ptr, ptr %69, align 8, !tbaa !12
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %72 = load ptr, ptr %71, align 8, !tbaa !12
   br label %73
 
-73:                                               ; preds = %67, %68
+73:; preds = %67, %68
   %.058 = phi ptr [ %70, %68 ], [ %2, %67 ]
   %.057 = phi ptr [ %72, %68 ], [ %2, %67 ]
   %74 = tail call i32 @Cudd_EqualSupNorm(ptr noundef %0, ptr noundef %.055, ptr noundef %.058, double noundef %3, i32 noundef %4)
@@ -1488,7 +1488,7 @@ define range(i32 0, 2) i32 @Cudd_EqualSupNorm(ptr noundef %0, ptr noundef %1, pt
   tail call void @cuddCacheInsert2(ptr noundef %0, ptr noundef nonnull @Cudd_EqualSupNorm, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %79) #10
   br label %80
 
-80:                                               ; preds = %75, %73, %39, %27, %29, %19, %5, %77
+80: ; preds = %75, %73, %39, %27, %29, %19, %5, %77
   %.0 = phi i32 [ 1, %77 ], [ 1, %5 ], [ 1, %19 ], [ 0, %29 ], [ 0, %27 ], [ 1, %39 ], [ 0, %73 ], [ 0, %75 ]
   ret i32 %.0
 }

@@ -48,24 +48,24 @@ define ptr @cuddAddScalarInverseRecur(ptr noundef %0, ptr noundef %1, ptr nounde
   %12 = fcmp olt double %9, %11
   br i1 %12, label %53, label %13
 
-13:                                               ; preds = %6
+13:; preds = %6
   %14 = fdiv double 1.000000e+00, %8
   %15 = tail call ptr @cuddUniqueConst(ptr noundef %0, double noundef %14) #4
   br label %53
 
-16:                                               ; preds = %3
+16:; preds = %3
   %17 = tail call ptr @cuddCacheLookup2(ptr noundef %0, ptr noundef nonnull @Cudd_addScalarInverse, ptr noundef nonnull %1, ptr noundef %2) #4
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %18, label %53
 
-18:                                               ; preds = %16
+18:; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !28
   %21 = tail call ptr @cuddAddScalarInverseRecur(ptr noundef %0, ptr noundef %20, ptr noundef %2)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %53, label %23
 
-23:                                               ; preds = %18
+23:; preds = %18
   %24 = ptrtoint ptr %21 to i64
   %25 = and i64 %24, -2
   %26 = inttoptr i64 %25 to ptr
@@ -79,11 +79,11 @@ define ptr @cuddAddScalarInverseRecur(ptr noundef %0, ptr noundef %1, ptr nounde
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %35
 
-34:                                               ; preds = %23
+34:; preds = %23
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %21) #4
   br label %53
 
-35:                                               ; preds = %23
+35:; preds = %23
   %36 = ptrtoint ptr %32 to i64
   %37 = and i64 %36, -2
   %38 = inttoptr i64 %37 to ptr
@@ -94,18 +94,18 @@ define ptr @cuddAddScalarInverseRecur(ptr noundef %0, ptr noundef %1, ptr nounde
   %42 = icmp eq ptr %21, %32
   br i1 %42, label %.thread, label %43
 
-43:                                               ; preds = %35
+43: ; preds = %35
   %44 = load i32, ptr %1, align 8, !tbaa !3
   %45 = tail call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %44, ptr noundef nonnull %21, ptr noundef nonnull %32) #4
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %.thread
 
-47:                                               ; preds = %43
+47:; preds = %43
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %21) #4
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %32) #4
   br label %53
 
-.thread:                                          ; preds = %35, %43
+.thread:; preds = %35, %43
   %48 = phi ptr [ %45, %43 ], [ %21, %35 ]
   %49 = load i32, ptr %27, align 4, !tbaa !29
   %50 = add i32 %49, -1
@@ -116,7 +116,7 @@ define ptr @cuddAddScalarInverseRecur(ptr noundef %0, ptr noundef %1, ptr nounde
   tail call void @cuddCacheInsert2(ptr noundef %0, ptr noundef nonnull @Cudd_addScalarInverse, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %48) #4
   br label %53
 
-53:                                               ; preds = %18, %16, %6, %.thread, %47, %34, %13
+53:     ; preds = %18, %16, %6, %.thread, %47, %34, %13
   %.0 = phi ptr [ %15, %13 ], [ null, %34 ], [ null, %47 ], [ %48, %.thread ], [ null, %6 ], [ %17, %16 ], [ null, %18 ]
   ret ptr %.0
 }

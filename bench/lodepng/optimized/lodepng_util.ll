@@ -6642,10 +6642,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN7lodepngL9invMatrixEPf(pt
   %43 = fcmp ogt double %42, 1.000000e+15
   br i1 %43, label %.loopexit, label %44
 
-44:                                               ; preds = %1
+44:; preds = %1
   %45 = fmul double %17, %41
   store double %45, ptr %2, align 16, !tbaa !142
-  %46 = fmul double %24, %34
+  %47 = fmul double %24, %34
   %47 = tail call double @llvm.fmuladd.f64(double %39, double %14, double %46)
   %48 = fmul double %47, %41
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6686,7 +6686,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN7lodepngL9invMatrixEPf(pt
   store double %75, ptr %76, align 16, !tbaa !142
   br label %77
 
-77:                                               ; preds = %44, %77
+77:; preds = %44, %77
   %indvars.iv = phi i64 [ 0, %44 ], [ %indvars.iv.next, %77 ]
   %78 = getelementptr inbounds nuw [9 x double], ptr %2, i64 0, i64 %indvars.iv
   %79 = load double, ptr %78, align 8, !tbaa !142

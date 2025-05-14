@@ -7381,9 +7381,9 @@ define void @_ZN14SequenceDialog17hScrollBarChangedEi(ptr noundef readonly align
   %14 = fsub double %11, %13
   %15 = tail call double @llvm.fabs.f64(double %14)
   %16 = fcmp ogt double %15, 1.000000e-02
-  br i1 %16, label %17, label %22
+  br i1 %16, label %17, label %24
 
-17:                                               ; preds = %2
+17:   ; preds = %2
   %18 = fsub double %.sroa.2.0.copyload.i, %.sroa.0.0.copyload.i
   tail call void @_ZN7QCPAxis8setRangeEddN2Qt13AlignmentFlagE(ptr noundef align 8 dereferenceable_or_null(472) %8, double noundef %13, double noundef %18, i32 noundef 132)
   %19 = load ptr, ptr %3, align 8
@@ -7392,7 +7392,7 @@ define void @_ZN14SequenceDialog17hScrollBarChangedEi(ptr noundef readonly align
   tail call void @_ZN11QCustomPlot6replotENS_15RefreshPriorityE(ptr noundef align 8 dereferenceable_or_null(513) %21, i32 noundef 3)
   br label %22
 
-22:                                               ; preds = %17, %2
+24:                                               ; preds = %17, %2
   ret void
 }
 
@@ -7421,9 +7421,9 @@ define void @_ZN14SequenceDialog17vScrollBarChangedEi(ptr noundef readonly align
   %14 = fsub double %11, %13
   %15 = tail call double @llvm.fabs.f64(double %14)
   %16 = fcmp ogt double %15, 1.000000e-02
-  br i1 %16, label %17, label %22
+  br i1 %16, label %17, label %24
 
-17:                                               ; preds = %2
+17:   ; preds = %2
   %18 = fsub double %.sroa.2.0.copyload.i, %.sroa.0.0.copyload.i
   tail call void @_ZN7QCPAxis8setRangeEddN2Qt13AlignmentFlagE(ptr noundef align 8 dereferenceable_or_null(472) %8, double noundef %13, double noundef %18, i32 noundef 132)
   %19 = load ptr, ptr %3, align 8
@@ -7432,7 +7432,7 @@ define void @_ZN14SequenceDialog17vScrollBarChangedEi(ptr noundef readonly align
   tail call void @_ZN11QCustomPlot6replotENS_15RefreshPriorityE(ptr noundef align 8 dereferenceable_or_null(513) %21, i32 noundef 3)
   br label %22
 
-22:                                               ; preds = %17, %2
+24:                                               ; preds = %17, %2
   ret void
 }
 

@@ -4356,70 +4356,70 @@ define ptr @cuddUniqueConst(ptr noundef %0, double noundef %1) local_unnamed_add
   %37 = mul i32 %.sroa.0.0.extract.trunc, 12582917
   %.sroa.0.4.extract.shift = lshr i64 %36, 32
   %.sroa.0.4.extract.trunc = trunc nuw i64 %.sroa.0.4.extract.shift to i32
-  %38 = add i32 %37, %.sroa.0.4.extract.trunc
-  %39 = mul i32 %38, 4256249
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %41 = load i32, ptr %40, align 8, !tbaa !120
-  %42 = lshr i32 %39, %41
-  %43 = load ptr, ptr %3, align 8, !tbaa !73
-  %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds ptr, ptr %43, i64 %44
-  %.05059 = load ptr, ptr %45, align 8, !tbaa !38
+  %40 = add i32 %37, %.sroa.0.4.extract.trunc
+  %41 = mul i32 %40, 4256249
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %43 = load i32, ptr %42, align 8, !tbaa !120
+  %44 = lshr i32 %41, %43
+  %45 = load ptr, ptr %3, align 8, !tbaa !73
+  %46 = sext i32 %44 to i64
+  %47 = getelementptr inbounds ptr, ptr %45, i64 %46
+  %.05059 = load ptr, ptr %47, align 8, !tbaa !38
   %.not5760 = icmp eq ptr %.05059, null
   br i1 %.not5760, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %27, %58
+.lr.ph:                                           ; preds = %27, %62
   %.05061 = phi ptr [ %.050, %58 ], [ %.05059, %27 ]
-  %46 = getelementptr inbounds nuw i8, ptr %.05061, i64 16
-  %47 = load double, ptr %46, align 8, !tbaa !161
-  %48 = fcmp oeq double %47, %.051
-  br i1 %48, label %53, label %49
+  %48 = getelementptr inbounds nuw i8, ptr %.05061, i64 16
+  %49 = load double, ptr %48, align 8, !tbaa !161
+  %50 = fcmp oeq double %49, %.051
+  br i1 %50, label %53, label %51
 
-49:                                               ; preds = %.lr.ph
-  %50 = fsub double %47, %.051
+51:                                               ; preds = %.lr.ph
+  %52 = fsub double %49, %.051
   %51 = tail call double @llvm.fabs.f64(double %50)
   %52 = fcmp olt double %51, %34
   br i1 %52, label %53, label %58
 
-53:                                               ; preds = %49, %.lr.ph
+53:; preds = %51, %.lr.ph
   %54 = getelementptr inbounds nuw i8, ptr %.05061, i64 4
   %55 = load i32, ptr %54, align 4, !tbaa !39
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %71
 
-57:                                               ; preds = %53
+57:; preds = %53
   tail call void @cuddReclaim(ptr noundef %0, ptr noundef nonnull %.05061) #14
-  br label %71
+  br label %75
 
-58:                                               ; preds = %49
-  %59 = getelementptr inbounds nuw i8, ptr %.05061, i64 8
-  %.050 = load ptr, ptr %59, align 8, !tbaa !38
+62:                                               ; preds = %51
+  %63 = getelementptr inbounds nuw i8, ptr %.05061, i64 8
+  %.050 = load ptr, ptr %63, align 8, !tbaa !38
   %.not57 = icmp eq ptr %.050, null
   br i1 %.not57, label %._crit_edge, label %.lr.ph, !llvm.loop !199
 
-._crit_edge:                                      ; preds = %58, %27
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %61 = load i32, ptr %60, align 4, !tbaa !27
-  %62 = add i32 %61, 1
-  store i32 %62, ptr %60, align 4, !tbaa !27
-  %63 = load i32, ptr %4, align 8, !tbaa !77
-  %64 = add i32 %63, 1
-  store i32 %64, ptr %4, align 8, !tbaa !77
-  %65 = tail call ptr @cuddAllocNode(ptr noundef %0)
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %71, label %67
+._crit_edge:                                      ; preds = %62, %27
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %65 = load i32, ptr %64, align 4, !tbaa !27
+  %66 = add i32 %65, 1
+  store i32 %66, ptr %64, align 4, !tbaa !27
+  %67 = load i32, ptr %4, align 8, !tbaa !77
+  %68 = add i32 %67, 1
+  store i32 %68, ptr %4, align 8, !tbaa !77
+  %69 = tail call ptr @cuddAllocNode(ptr noundef %0)
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %75, label %71
 
-67:                                               ; preds = %._crit_edge
-  store i32 2147483647, ptr %65, align 8, !tbaa !165
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store double %.051, ptr %68, align 8, !tbaa !161
-  %69 = load ptr, ptr %45, align 8, !tbaa !38
-  %70 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store ptr %69, ptr %70, align 8, !tbaa !40
-  store ptr %65, ptr %45, align 8, !tbaa !38
-  br label %71
+71:                                               ; preds = %._crit_edge
+  store i32 2147483647, ptr %69, align 8, !tbaa !165
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  store double %.051, ptr %72, align 8, !tbaa !161
+  %73 = load ptr, ptr %47, align 8, !tbaa !38
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  store ptr %73, ptr %74, align 8, !tbaa !40
+  store ptr %69, ptr %47, align 8, !tbaa !38
+  br label %75
 
-71:                                               ; preds = %._crit_edge, %53, %57, %67
+75:                                               ; preds = %._crit_edge, %53, %57, %71
   %.0 = phi ptr [ %65, %67 ], [ %.05061, %57 ], [ %.05061, %53 ], [ null, %._crit_edge ]
   ret ptr %.0
 }

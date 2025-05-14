@@ -6101,7 +6101,7 @@ define void @Abc_SclUpsizePrintDiffs(ptr noundef %0, ptr noundef readnone captur
 
 .lr.ph:                                           ; preds = %3, %119
   %indvars.iv = phi i64 [ %indvars.iv.next, %119 ], [ 0, %3 ]
-  %21 = phi ptr [ %120, %119 ], [ %18, %3 ]
+  %21 = phi ptr [ %132, %119 ], [ %18, %3 ]
   %22 = getelementptr i8, ptr %21, i64 8
   %.val116.val = load ptr, ptr %22, align 8, !tbaa !35
   %23 = getelementptr inbounds nuw ptr, ptr %.val116.val, i64 %indvars.iv
@@ -6127,18 +6127,18 @@ define void @Abc_SclUpsizePrintDiffs(ptr noundef %0, ptr noundef readnone captur
   %37 = fcmp ogt float %36, 0x3F50624DE0000000
   br i1 %37, label %38, label %44
 
-38:                                               ; preds = %29
+38:; preds = %29
   %39 = fpext float %35 to double
   %40 = fpext float %32 to double
   %41 = fpext float %34 to double
   %42 = trunc nuw nsw i64 %indvars.iv to i32
   %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %42, double noundef %39, double noundef %40, double noundef %41)
   %.pre = load ptr, ptr %15, align 8, !tbaa !99
-  br label %44
+  br label %46
 
-44:                                               ; preds = %38, %29
-  %45 = phi ptr [ %.pre, %38 ], [ %30, %29 ]
-  %46 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %45, i64 %indvars.iv, i32 1
+46:                                               ; preds = %38, %29
+  %47 = phi ptr [ %.pre, %38 ], [ %30, %29 ]
+  %48 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %47, i64 %indvars.iv, i32 1
   %47 = load float, ptr %46, align 4, !tbaa !67
   %48 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %49 = load float, ptr %48, align 4, !tbaa !67
@@ -6147,7 +6147,7 @@ define void @Abc_SclUpsizePrintDiffs(ptr noundef %0, ptr noundef readnone captur
   %52 = fcmp ogt float %51, 0x3F50624DE0000000
   br i1 %52, label %53, label %59
 
-53:                                               ; preds = %44
+63:                                               ; preds = %46
   %54 = fpext float %50 to double
   %55 = fpext float %47 to double
   %56 = fpext float %49 to double
@@ -6155,7 +6155,7 @@ define void @Abc_SclUpsizePrintDiffs(ptr noundef %0, ptr noundef readnone captur
   %58 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %57, double noundef %54, double noundef %55, double noundef %56)
   br label %59
 
-59:                                               ; preds = %53, %44
+59:; preds = %53, %46
   %60 = load ptr, ptr %13, align 8, !tbaa !94
   %61 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %60, i64 %indvars.iv
   %62 = load float, ptr %61, align 4, !tbaa !65
@@ -6173,100 +6173,100 @@ define void @Abc_SclUpsizePrintDiffs(ptr noundef %0, ptr noundef readnone captur
   %72 = trunc nuw nsw i64 %indvars.iv to i32
   %73 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %72, double noundef %69, double noundef %70, double noundef %71)
   %.pre122 = load ptr, ptr %13, align 8, !tbaa !94
-  br label %74
+  br label %80
 
-74:                                               ; preds = %68, %59
-  %75 = phi ptr [ %.pre122, %68 ], [ %60, %59 ]
-  %76 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %75, i64 %indvars.iv, i32 1
-  %77 = load float, ptr %76, align 4, !tbaa !67
-  %78 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  %79 = load float, ptr %78, align 4, !tbaa !67
-  %80 = fsub float %77, %79
+80:                                               ; preds = %68, %59
+  %81 = phi ptr [ %.pre122, %68 ], [ %60, %59 ]
+  %82 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %81, i64 %indvars.iv, i32 1
+  %83 = load float, ptr %82, align 4, !tbaa !67
+  %84 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  %85 = load float, ptr %84, align 4, !tbaa !67
+  %86 = fsub float %83, %85
   %81 = tail call float @llvm.fabs.f32(float %80)
   %82 = fcmp ogt float %81, 0x3F50624DE0000000
   br i1 %82, label %83, label %89
 
-83:                                               ; preds = %74
+83:; preds = %74
   %84 = fpext float %80 to double
   %85 = fpext float %77 to double
-  %86 = fpext float %79 to double
+  %92 = fpext float %85 to double
   %87 = trunc nuw nsw i64 %indvars.iv to i32
   %88 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %87, double noundef %84, double noundef %85, double noundef %86)
   br label %89
 
-89:                                               ; preds = %83, %74
+89:; preds = %83, %74
   %90 = load ptr, ptr %11, align 8, !tbaa !64
   %91 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %90, i64 %indvars.iv
-  %92 = load float, ptr %91, align 4, !tbaa !65
-  %93 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %8, i64 %indvars.iv
-  %94 = load float, ptr %93, align 4, !tbaa !65
+  %98 = load float, ptr %91, align 4, !tbaa !65
+  %99 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %8, i64 %indvars.iv
+  %100 = load float, ptr %99, align 4, !tbaa !65
   %95 = fsub float %92, %94
   %96 = tail call float @llvm.fabs.f32(float %95)
   %97 = fcmp ogt float %96, 0x3F50624DE0000000
   br i1 %97, label %98, label %104
 
-98:                                               ; preds = %89
+98:; preds = %89
   %99 = fpext float %95 to double
-  %100 = fpext float %92 to double
+  %100 = fpext float %98 to double
   %101 = fpext float %94 to double
   %102 = trunc nuw nsw i64 %indvars.iv to i32
   %103 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %102, double noundef %99, double noundef %100, double noundef %101)
   %.pre123 = load ptr, ptr %11, align 8, !tbaa !64
-  br label %104
+  br label %114
 
-104:                                              ; preds = %98, %89
-  %105 = phi ptr [ %.pre123, %98 ], [ %90, %89 ]
-  %106 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %105, i64 %indvars.iv, i32 1
-  %107 = load float, ptr %106, align 4, !tbaa !67
-  %108 = getelementptr inbounds nuw i8, ptr %93, i64 4
-  %109 = load float, ptr %108, align 4, !tbaa !67
-  %110 = fsub float %107, %109
-  %111 = tail call float @llvm.fabs.f32(float %110)
+114:                                              ; preds = %98, %89
+  %115 = phi ptr [ %.pre123, %98 ], [ %90, %89 ]
+  %116 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %115, i64 %indvars.iv, i32 1
+  %117 = load float, ptr %116, align 4, !tbaa !67
+  %118 = getelementptr inbounds nuw i8, ptr %93, i64 4
+  %119 = load float, ptr %118, align 4, !tbaa !67
+  %120 = fsub float %117, %119
+  %111 = tail call float @llvm.fabs.f32(float %120)
   %112 = fcmp ogt float %111, 0x3F50624DE0000000
   br i1 %112, label %113, label %119
 
-113:                                              ; preds = %104
+113:; preds = %104
   %114 = fpext float %110 to double
   %115 = fpext float %107 to double
-  %116 = fpext float %109 to double
+  %126 = fpext float %109 to double
   %117 = trunc nuw nsw i64 %indvars.iv to i32
   %118 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %117, double noundef %114, double noundef %115, double noundef %116)
   br label %119
 
-119:                                              ; preds = %26, %.lr.ph, %113, %104
+119:; preds = %26, %.lr.ph, %113, %104
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %120 = load ptr, ptr %17, align 8, !tbaa !34
-  %121 = getelementptr i8, ptr %120, i64 4
-  %.val = load i32, ptr %121, align 4, !tbaa !42
-  %122 = sext i32 %.val to i64
-  %123 = icmp slt i64 %indvars.iv.next, %122
-  br i1 %123, label %.lr.ph, label %.critedge, !llvm.loop !144
+  %132 = load ptr, ptr %17, align 8, !tbaa !34
+  %133 = getelementptr i8, ptr %132, i64 4
+  %.val = load i32, ptr %133, align 4, !tbaa !42
+  %134 = sext i32 %.val to i64
+  %135 = icmp slt i64 %indvars.iv.next, %134
+  br i1 %135, label %.lr.ph, label %.critedge, !llvm.loop !144
 
 .critedge:                                        ; preds = %119, %3
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %125, label %124
+  br i1 %.not, label %137, label %136
 
-124:                                              ; preds = %.critedge
+136:                                              ; preds = %.critedge
   tail call void @free(ptr noundef nonnull %8) #27
-  br label %125
+  br label %137
 
-125:                                              ; preds = %.critedge, %124
+137:                                              ; preds = %.critedge, %136
   %.not113 = icmp eq ptr %9, null
-  br i1 %.not113, label %127, label %126
+  br i1 %.not113, label %139, label %138
 
-126:                                              ; preds = %125
+138:                                              ; preds = %137
   tail call void @free(ptr noundef nonnull %9) #27
-  br label %127
+  br label %139
 
-127:                                              ; preds = %125, %126
+139:                                              ; preds = %137, %138
   %.not114 = icmp eq ptr %10, null
-  br i1 %.not114, label %129, label %128
+  br i1 %.not114, label %141, label %140
 
-128:                                              ; preds = %127
+140:                                              ; preds = %139
   tail call void @free(ptr noundef nonnull %10) #27
-  br label %129
+  br label %141
 
-129:                                              ; preds = %127, %128
+141:                                              ; preds = %139, %140
   ret void
 }
 

@@ -1938,7 +1938,7 @@ define range(i64 1, -4294967288) i64 @b2TimeOfImpact(ptr noundef %0) local_unnam
   %40 = fsub float %20, %21
   br label %41
 
-41:                                               ; preds = %604, %1
+41:                                               ; preds = %606, %1
   %.0103 = phi i32 [ 0, %1 ], [ %99, %604 ]
   %.099 = phi float [ 0.000000e+00, %1 ], [ %.3102.ph, %604 ]
   %42 = fsub float 1.000000e+00, %.099
@@ -2811,16 +2811,16 @@ b2EvaluateSeparation.exit:                        ; preds = %543, %552, %567
   %597 = fcmp olt float %596, %21
   br i1 %597, label %select.unfold, label %598
 
-598:                                              ; preds = %b2EvaluateSeparation.exit
+598:; preds = %b2EvaluateSeparation.exit
   %599 = fcmp ogt float %594, %20
   %.082. = select i1 %599, float %.082, float %594
   %..079 = select i1 %599, float %594, float %.079
-  %.0..075 = select i1 %599, float %.0, float %.075
-  %.074..0 = select i1 %599, float %.074, float %.0
+  %.082. = select i1 %599, float %.0, float %.075
+  %..079 = select i1 %599, float %.074, float %.0
   %600 = icmp eq i32 %485, 50
   br i1 %600, label %select.unfold, label %472
 
-select.unfold:                                    ; preds = %598, %b2EvaluateSeparation.exit
+select.unfold:; preds = %598, %b2EvaluateSeparation.exit
   %.4.ph = phi float [ %.0, %b2EvaluateSeparation.exit ], [ %.088, %598 ]
   %601 = add nuw nsw i32 %.085, 1
   %602 = icmp eq i32 %601, 8
@@ -2828,8 +2828,8 @@ select.unfold:                                    ; preds = %598, %b2EvaluateSep
 
 select.unfold223:                                 ; preds = %461, %select.unfold
   %.3102.ph = phi float [ %.088, %461 ], [ %.099, %select.unfold ]
-  %603 = icmp eq i32 %99, 20
-  br i1 %603, label %.thread256, label %604
+  %605 = icmp eq i32 %99, 20
+  br i1 %605, label %.thread256, label %606
 
 .thread256:                                       ; preds = %select.unfold223, %466, %463, %b2FindMinSeparation.exit
   %.sroa.073.5.ph = phi i64 [ 3, %466 ], [ 1, %463 ], [ 4, %b2FindMinSeparation.exit ], [ 1, %select.unfold223 ]
@@ -2837,7 +2837,7 @@ select.unfold223:                                 ; preds = %461, %select.unfold
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #12
   br label %.thread246
 
-604:                                              ; preds = %select.unfold223
+606:                                              ; preds = %select.unfold223
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #12
   br label %41
@@ -2848,8 +2848,8 @@ select.unfold223:                                 ; preds = %461, %select.unfold
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 180, ptr nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
-  %605 = bitcast float %.sroa.8.1253 to i32
-  %.sroa.8.0.insert.ext = zext i32 %605 to i64
+  %607 = bitcast float %.sroa.8.1253 to i32
+  %.sroa.8.0.insert.ext = zext i32 %607 to i64
   %.sroa.8.0.insert.shift = shl nuw i64 %.sroa.8.0.insert.ext, 32
   %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.8.0.insert.shift, %.sroa.073.1252
   ret i64 %.sroa.073.0.insert.insert

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @dlagtf_(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef writeonly captures(none) initializes((0, 4)) %8) local_unnamed_addr #0 {
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
   %11 = getelementptr inbounds i8, ptr %7, i64 -4
   %12 = getelementptr inbounds i8, ptr %6, i64 -8
   %13 = getelementptr inbounds i8, ptr %4, i64 -8
@@ -23,7 +23,7 @@ define void @dlagtf_(ptr noundef readonly captures(none) %0, ptr noundef capture
 18:                                               ; preds = %9
   store i32 -1, ptr %8, align 4, !tbaa !3
   store i32 1, ptr %10, align 4, !tbaa !3
-  %19 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %10, i32 noundef 6) #5
+  %19 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %10, i32 noundef 6) #4
   br label %144
 
 20:                                               ; preds = %9
@@ -51,7 +51,7 @@ define void @dlagtf_(ptr noundef readonly captures(none) %0, ptr noundef capture
   br label %144
 
 33:                                               ; preds = %22
-  %34 = tail call double @dlamch_(ptr noundef nonnull @.str.1) #5
+  %34 = tail call double @dlamch_(ptr noundef nonnull @.str.1) #4
   %35 = load double, ptr %5, align 8, !tbaa !7
   %.inv = fcmp oge double %35, %34
   %. = select i1 %.inv, double %35, double %34
@@ -227,17 +227,17 @@ define void @dlagtf_(ptr noundef readonly captures(none) %0, ptr noundef capture
   %138 = fcmp ugt double %136, %137
   br i1 %138, label %144, label %139
 
-139:                                              ; preds = %._crit_edge
+139:; preds = %._crit_edge
   %140 = getelementptr inbounds i32, ptr %11, i64 %133
   %141 = load i32, ptr %140, align 4, !tbaa !3
   %142 = icmp eq i32 %141, 0
   br i1 %142, label %143, label %144
 
-143:                                              ; preds = %139
+143:; preds = %139
   store i32 %132, ptr %140, align 4, !tbaa !3
   br label %144
 
-144:                                              ; preds = %._crit_edge, %139, %143, %30, %32, %20, %18
+144:; preds = %._crit_edge, %139, %143, %30, %32, %20, %18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
   ret void
 }

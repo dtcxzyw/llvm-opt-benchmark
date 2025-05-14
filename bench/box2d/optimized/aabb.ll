@@ -18,11 +18,11 @@ define zeroext i1 @b2IsValidAABB(<2 x float> %0, <2 x float> %1) local_unnamed_a
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %2
-  %11 = tail call zeroext i1 @b2IsValidVec2(<2 x float> %0) #5
+  %11 = tail call zeroext i1 @b2IsValidVec2(<2 x float> %0) #4
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
-  %13 = tail call zeroext i1 @b2IsValidVec2(<2 x float> %1) #5
+  %13 = tail call zeroext i1 @b2IsValidVec2(<2 x float> %1) #4
   br label %14
 
 14:                                               ; preds = %12, %10, %2
@@ -47,101 +47,101 @@ define hidden void @b2AABB_RayCast(ptr dead_on_unwind noalias writable writeonly
   %11 = fcmp olt float %9, 0x3E80000000000000
   br i1 %11, label %12, label %15
 
-12:                                               ; preds = %5
+12:; preds = %5
   %.sroa.053.0.vec.extract = extractelement <2 x float> %1, i64 0
-  %13 = fcmp olt float %.sroa.050.0.vec.extract, %.sroa.053.0.vec.extract
+  %17 = fcmp olt float %.sroa.050.0.vec.extract, %.sroa.053.0.vec.extract
   %.sroa.5.8.vec.extract = extractelement <2 x float> %2, i64 0
-  %14 = fcmp olt float %.sroa.5.8.vec.extract, %.sroa.050.0.vec.extract
-  %or.cond79 = select i1 %13, i1 true, i1 %14
-  br i1 %or.cond79, label %60, label %28
+  %18 = fcmp olt float %.sroa.5.8.vec.extract, %.sroa.050.0.vec.extract
+  %or.cond79 = select i1 %17, i1 true, i1 %18
+  br i1 %or.cond79, label %64, label %32
 
-15:                                               ; preds = %5
-  %16 = fdiv float 1.000000e+00, %7
-  %17 = fsub <2 x float> %1, %3
-  %18 = extractelement <2 x float> %17, i64 0
-  %19 = fmul float %18, %16
-  %20 = fsub <2 x float> %2, %3
-  %21 = extractelement <2 x float> %20, i64 0
-  %22 = fmul float %21, %16
-  %23 = fcmp ogt float %19, %22
-  %.068 = select i1 %23, float %22, float %19
-  %.067 = select i1 %23, float %19, float %22
-  %.066 = select i1 %23, float 1.000000e+00, float -1.000000e+00
-  %24 = fcmp ogt float %.068, 0xC7EFFFFFE0000000
-  %.sroa.025.1 = select i1 %24, float %.066, float 0.000000e+00
-  %.1 = select i1 %24, float %.068, float 0xC7EFFFFFE0000000
-  %25 = fcmp ogt float %.067, 0x47EFFFFFE0000000
-  %26 = select i1 %25, float 0x47EFFFFFE0000000, float %.067
-  %27 = fcmp ule float %.1, %26
-  br i1 %27, label %28, label %60
+19:                                               ; preds = %5
+  %20 = fdiv float 1.000000e+00, %7
+  %21 = fsub <2 x float> %1, %3
+  %22 = extractelement <2 x float> %21, i64 0
+  %23 = fmul float %22, %20
+  %24 = fsub <2 x float> %2, %3
+  %25 = extractelement <2 x float> %24, i64 0
+  %26 = fmul float %25, %20
+  %27 = fcmp ogt float %23, %26
+  %.068 = select i1 %27, float %26, float %23
+  %.067 = select i1 %27, float %23, float %26
+  %.066 = select i1 %27, float 1.000000e+00, float -1.000000e+00
+  %28 = fcmp ogt float %.068, 0xC7EFFFFFE0000000
+  %.sroa.025.1 = select i1 %28, float %.066, float 0.000000e+00
+  %.1 = select i1 %28, float %.068, float 0xC7EFFFFFE0000000
+  %29 = fcmp ogt float %.067, 0x47EFFFFFE0000000
+  %30 = select i1 %29, float 0x47EFFFFFE0000000, float %.067
+  %31 = fcmp ule float %.1, %30
+  br i1 %31, label %32, label %64
 
-28:                                               ; preds = %12, %15
+32:                                               ; preds = %12, %19
   %.sroa.025.0 = phi float [ %.sroa.025.1, %15 ], [ 0.000000e+00, %12 ]
-  %.062 = phi float [ %26, %15 ], [ 0x47EFFFFFE0000000, %12 ]
+  %.062 = phi float [ %30, %15 ], [ 0x47EFFFFFE0000000, %12 ]
   %.0 = phi float [ %.1, %15 ], [ 0xC7EFFFFFE0000000, %12 ]
-  %29 = fcmp olt float %10, 0x3E80000000000000
-  br i1 %29, label %30, label %33
+  %33 = fcmp olt float %10, 0x3E80000000000000
+  br i1 %33, label %34, label %37
 
-30:                                               ; preds = %28
+34:                                               ; preds = %32
   %.sroa.053.4.vec.extract = extractelement <2 x float> %1, i64 1
-  %31 = fcmp olt float %.sroa.050.4.vec.extract, %.sroa.053.4.vec.extract
+  %35 = fcmp olt float %.sroa.050.4.vec.extract, %.sroa.053.4.vec.extract
   %.sroa.5.12.vec.extract = extractelement <2 x float> %2, i64 1
-  %32 = fcmp olt float %.sroa.5.12.vec.extract, %.sroa.050.4.vec.extract
-  %or.cond80 = select i1 %31, i1 true, i1 %32
-  br i1 %or.cond80, label %60, label %46
+  %36 = fcmp olt float %.sroa.5.12.vec.extract, %.sroa.050.4.vec.extract
+  %or.cond80 = select i1 %35, i1 true, i1 %36
+  br i1 %or.cond80, label %64, label %50
 
-33:                                               ; preds = %28
-  %34 = fdiv float 1.000000e+00, %8
-  %35 = fsub <2 x float> %1, %3
-  %36 = extractelement <2 x float> %35, i64 1
-  %37 = fmul float %36, %34
-  %38 = fsub <2 x float> %2, %3
-  %39 = extractelement <2 x float> %38, i64 1
-  %40 = fmul float %39, %34
-  %41 = fcmp ogt float %37, %40
-  %.065 = select i1 %41, float %40, float %37
-  %.064 = select i1 %41, float %37, float %40
-  %.063 = select i1 %41, float 1.000000e+00, float -1.000000e+00
-  %42 = fcmp ogt float %.065, %.0
-  %.sroa.6.3 = select i1 %42, float %.063, float 0.000000e+00
-  %.sroa.025.3 = select i1 %42, float 0.000000e+00, float %.sroa.025.0
-  %.3 = select i1 %42, float %.065, float %.0
-  %43 = fcmp olt float %.062, %.064
-  %44 = select i1 %43, float %.062, float %.064
-  %45 = fcmp ule float %.3, %44
-  br i1 %45, label %46, label %60
+37:                                               ; preds = %32
+  %38 = fdiv float 1.000000e+00, %8
+  %39 = fsub <2 x float> %1, %3
+  %40 = extractelement <2 x float> %39, i64 1
+  %41 = fmul float %40, %38
+  %42 = fsub <2 x float> %2, %3
+  %43 = extractelement <2 x float> %42, i64 1
+  %44 = fmul float %43, %38
+  %45 = fcmp ogt float %41, %44
+  %.065 = select i1 %45, float %44, float %41
+  %.064 = select i1 %45, float %41, float %44
+  %.063 = select i1 %45, float 1.000000e+00, float -1.000000e+00
+  %46 = fcmp ogt float %.065, %.0
+  %.sroa.6.3 = select i1 %46, float %.063, float 0.000000e+00
+  %.sroa.025.3 = select i1 %46, float 0.000000e+00, float %.sroa.025.0
+  %.3 = select i1 %46, float %.065, float %.0
+  %47 = fcmp olt float %.062, %.064
+  %48 = select i1 %47, float %.062, float %.064
+  %49 = fcmp ule float %.3, %48
+  br i1 %49, label %50, label %64
 
-46:                                               ; preds = %30, %33
+50:                                               ; preds = %34, %37
   %.sroa.6.2 = phi float [ %.sroa.6.3, %33 ], [ 0.000000e+00, %30 ]
   %.sroa.025.2 = phi float [ %.sroa.025.3, %33 ], [ %.sroa.025.0, %30 ]
   %.2 = phi float [ %.3, %33 ], [ %.0, %30 ]
-  %47 = fcmp olt float %.2, 0.000000e+00
-  %48 = fcmp ogt float %.2, 1.000000e+00
-  %or.cond = or i1 %47, %48
-  br i1 %or.cond, label %60, label %49
+  %51 = fcmp olt float %.2, 0.000000e+00
+  %52 = fcmp ogt float %.2, 1.000000e+00
+  %or.cond = or i1 %51, %52
+  br i1 %or.cond, label %64, label %53
 
-49:                                               ; preds = %46
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %.2, ptr %50, align 4, !tbaa !3
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %.2, ptr %54, align 4, !tbaa !3
   store float %.sroa.025.2, ptr %0, align 4, !tbaa !11
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %.sroa.6.2, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !11
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %52 = fsub float 1.000000e+00, %.2
-  %53 = fmul float %.sroa.050.0.vec.extract, %52
-  %54 = fmul float %.sroa.01.0.vec.extract.i, %.2
-  %55 = fadd float %54, %53
-  %.sroa.05.0.vec.insert.i = insertelement <2 x float> poison, float %55, i64 0
-  %56 = fmul float %.sroa.050.4.vec.extract, %52
-  %57 = fmul float %.sroa.01.4.vec.extract.i, %.2
-  %58 = fadd float %57, %56
-  %.sroa.05.4.vec.insert.i = insertelement <2 x float> %.sroa.05.0.vec.insert.i, float %58, i64 1
-  store <2 x float> %.sroa.05.4.vec.insert.i, ptr %51, align 4
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %59, align 4, !tbaa !12
-  br label %60
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %56 = fsub float 1.000000e+00, %.2
+  %57 = fmul float %.sroa.050.0.vec.extract, %56
+  %58 = fmul float %.sroa.01.0.vec.extract.i, %.2
+  %59 = fadd float %58, %57
+  %.sroa.05.0.vec.insert.i = insertelement <2 x float> poison, float %59, i64 0
+  %60 = fmul float %.sroa.050.4.vec.extract, %56
+  %61 = fmul float %.sroa.01.4.vec.extract.i, %.2
+  %62 = fadd float %61, %60
+  %.sroa.05.4.vec.insert.i = insertelement <2 x float> %.sroa.05.0.vec.insert.i, float %62, i64 1
+  store <2 x float> %.sroa.05.4.vec.insert.i, ptr %55, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 1, ptr %63, align 4, !tbaa !12
+  br label %64
 
-60:                                               ; preds = %46, %30, %12, %33, %15, %49
+64:                                               ; preds = %50, %34, %12, %37, %19, %53
   ret void
 }
 

@@ -972,8 +972,8 @@ define void @csc_col_norm_inf(ptr noundef readonly captures(none) %0, ptr nounde
   %21 = fcmp uge double %20, 0.000000e+00
   %22 = fneg double %20
   %23 = tail call double @llvm.fabs.f64(double %20)
-  %24 = fcmp ule double %23, %18
-  %.mux = select i1 %21, double %20, double %22
+  %.inv = fcmp ule double %23, %18
+  %24 = select i1 %21, double %20, double %22
   %25 = select i1 %24, double %18, double %.mux
   store double %25, ptr %16, align 8, !tbaa !3
   %26 = add nsw i64 %.03137, 1
@@ -1035,9 +1035,9 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i.preheader,
   %26 = tail call double @llvm.fabs.f64(double %23)
   %27 = getelementptr inbounds double, ptr %1, i64 %21
   %28 = load double, ptr %27, align 8, !tbaa !3
-  %29 = fcmp ule double %26, %28
-  %.mux = select i1 %24, double %23, double %25
-  %30 = select i1 %29, double %28, double %.mux
+  %.inv = fcmp ule double %26, %28
+  %29 = select i1 %.inv, double %23, double %25
+  %30 = select i1 %29, double %28, double %24
   store double %30, ptr %27, align 8, !tbaa !3
   %31 = add nsw i64 %.03541, 1
   %exitcond.not = icmp eq i64 %31, %18

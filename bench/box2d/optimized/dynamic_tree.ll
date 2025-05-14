@@ -1919,7 +1919,7 @@ define i64 @b2DynamicTree_RayCast(ptr noundef readonly captures(none) %0, ptr no
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4, !tbaa !14
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %158, label %11
+  br i1 %10, label %160, label %11
 
 11:                                               ; preds = %5
   %.sroa.059.0.copyload = load <2 x float>, ptr %1, align 4
@@ -2051,85 +2051,85 @@ b2Normalize.exit:                                 ; preds = %11, %18
   %85 = fcmp olt float %84, %81
   br i1 %85, label %b2AABB_Overlaps.exit.thread, label %86, !llvm.loop !54
 
-86:                                               ; preds = %65
+86: ; preds = %65
   %87 = getelementptr i8, ptr %54, i64 38
   %.val = load i16, ptr %87, align 2, !tbaa !34
   %88 = and i16 %.val, 4
   %.not = icmp eq i16 %88, 0
   br i1 %.not, label %111, label %89
 
-89:                                               ; preds = %86
+89:; preds = %86
   store float %.0194, ptr %45, align 4, !tbaa !51
-  %90 = getelementptr inbounds nuw i8, ptr %54, i64 32
-  %91 = load i32, ptr %90, align 8, !tbaa !16
-  %92 = call float %3(ptr noundef nonnull %7, i32 noundef %50, i32 noundef %91, ptr noundef %4) #13
-  %93 = add nsw i32 %.sroa.4.1195, 1
-  %94 = fcmp une float %92, 0.000000e+00
-  br i1 %94, label %95, label %.thread178
+  %92 = getelementptr inbounds nuw i8, ptr %54, i64 32
+  %93 = load i32, ptr %92, align 8, !tbaa !16
+  %94 = call float %3(ptr noundef nonnull %7, i32 noundef %50, i32 noundef %93, ptr noundef %4) #13
+  %95 = add nsw i32 %.sroa.4.1195, 1
+  %96 = fcmp une float %94, 0.000000e+00
+  br i1 %96, label %97, label %.thread178
 
-95:                                               ; preds = %89
-  %96 = fcmp ule float %92, 0.000000e+00
-  %97 = fcmp ugt float %92, %.0194
-  %or.cond = select i1 %96, i1 true, i1 %97
-  br i1 %or.cond, label %b2AABB_Overlaps.exit.thread, label %98
+97:                                               ; preds = %89
+  %98 = fcmp ule float %94, 0.000000e+00
+  %99 = fcmp ugt float %94, %.0194
+  %or.cond = select i1 %98, i1 true, i1 %99
+  br i1 %or.cond, label %b2AABB_Overlaps.exit.thread, label %100
 
-98:                                               ; preds = %95
-  %99 = fmul float %.sroa.0.0.vec.extract.i, %92
-  %100 = fadd float %.sroa.02.0.vec.extract.i, %99
-  %101 = fmul float %.sroa.0.4.vec.extract.i, %92
-  %102 = fadd float %.sroa.02.4.vec.extract.i, %101
-  %103 = fcmp olt float %.sroa.02.0.vec.extract.i, %100
-  %104 = select i1 %103, float %.sroa.02.0.vec.extract.i, float %100
-  %.sroa.02.0.vec.insert.i148 = insertelement <2 x float> poison, float %104, i64 0
-  %105 = fcmp olt float %.sroa.02.4.vec.extract.i, %102
-  %106 = select i1 %105, float %.sroa.02.4.vec.extract.i, float %102
-  %.sroa.02.4.vec.insert.i151 = insertelement <2 x float> %.sroa.02.0.vec.insert.i148, float %106, i64 1
-  %107 = fcmp ogt float %.sroa.02.0.vec.extract.i, %100
-  %108 = select i1 %107, float %.sroa.02.0.vec.extract.i, float %100
-  %.sroa.02.0.vec.insert.i154 = insertelement <2 x float> poison, float %108, i64 0
-  %109 = fcmp ogt float %.sroa.02.4.vec.extract.i, %102
-  %110 = select i1 %109, float %.sroa.02.4.vec.extract.i, float %102
-  %.sroa.02.4.vec.insert.i157 = insertelement <2 x float> %.sroa.02.0.vec.insert.i154, float %110, i64 1
+100:                                              ; preds = %97
+  %101 = fmul float %.sroa.0.0.vec.extract.i, %94
+  %102 = fadd float %.sroa.02.0.vec.extract.i, %101
+  %103 = fmul float %.sroa.0.4.vec.extract.i, %94
+  %104 = fadd float %.sroa.02.4.vec.extract.i, %103
+  %105 = fcmp olt float %.sroa.02.0.vec.extract.i, %102
+  %106 = select i1 %105, float %.sroa.02.0.vec.extract.i, float %102
+  %.sroa.02.0.vec.insert.i148 = insertelement <2 x float> poison, float %106, i64 0
+  %107 = fcmp olt float %.sroa.02.4.vec.extract.i, %104
+  %108 = select i1 %107, float %.sroa.02.4.vec.extract.i, float %104
+  %.sroa.02.4.vec.insert.i151 = insertelement <2 x float> %.sroa.02.0.vec.insert.i148, float %108, i64 1
+  %109 = fcmp ogt float %.sroa.02.0.vec.extract.i, %102
+  %110 = select i1 %109, float %.sroa.02.0.vec.extract.i, float %102
+  %.sroa.02.0.vec.insert.i154 = insertelement <2 x float> poison, float %110, i64 0
+  %111 = fcmp ogt float %.sroa.02.4.vec.extract.i, %104
+  %112 = select i1 %111, float %.sroa.02.4.vec.extract.i, float %104
+  %.sroa.02.4.vec.insert.i157 = insertelement <2 x float> %.sroa.02.0.vec.insert.i154, float %112, i64 1
   br label %b2AABB_Overlaps.exit.thread
 
-111:                                              ; preds = %86
-  %112 = icmp samesign ult i32 %.082191, 1024
-  br i1 %112, label %113, label %b2AABB_Overlaps.exit.thread
+113:                                              ; preds = %86
+  %114 = icmp samesign ult i32 %.082191, 1024
+  br i1 %114, label %115, label %b2AABB_Overlaps.exit.thread
 
-113:                                              ; preds = %111
-  %114 = getelementptr inbounds nuw i8, ptr %54, i64 28
-  %115 = load i32, ptr %114, align 4, !tbaa !41
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds %struct.b2TreeNode, ptr %44, i64 %116
+115:                                              ; preds = %113
+  %116 = getelementptr inbounds nuw i8, ptr %54, i64 28
+  %117 = load i32, ptr %116, align 4, !tbaa !41
+  %118 = sext i32 %117 to i64
+  %119 = getelementptr inbounds %struct.b2TreeNode, ptr %44, i64 %118
   %118 = load <2 x float>, ptr %117, align 8
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %120 = load <2 x float>, ptr %119, align 8
   %121 = fadd <2 x float> %118, %120
   %122 = extractelement <2 x float> %121, i64 0
-  %123 = fmul float %122, 5.000000e-01
-  %124 = fadd <2 x float> %118, %120
+  %123 = fmul float %124, 5.000000e-01
+  %124 = fadd <2 x float> %120, %120
   %125 = extractelement <2 x float> %124, i64 1
   %126 = fmul float %125, 5.000000e-01
   %127 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %128 = load i32, ptr %127, align 8, !tbaa !16
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds %struct.b2TreeNode, ptr %44, i64 %129
+  %130 = getelementptr inbounds %struct.b2TreeNode, ptr %44, i64 %131
   %131 = load <2 x float>, ptr %130, align 8
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %133 = load <2 x float>, ptr %132, align 8
   %134 = fadd <2 x float> %131, %133
   %135 = extractelement <2 x float> %134, i64 0
-  %136 = fmul float %135, 5.000000e-01
+  %136 = fmul float %137, 5.000000e-01
   %137 = fadd <2 x float> %131, %133
   %138 = extractelement <2 x float> %137, i64 1
   %139 = fmul float %138, 5.000000e-01
   %140 = fsub float %.sroa.02.0.vec.extract.i, %123
   %141 = fsub float %.sroa.02.4.vec.extract.i, %126
-  %142 = fmul float %140, %140
+  %142 = fmul float %140, %142
   %143 = fmul float %141, %141
   %144 = fadd float %142, %143
   %145 = fsub float %.sroa.02.0.vec.extract.i, %136
-  %146 = fsub float %.sroa.02.4.vec.extract.i, %139
+  %146 = fsub float %.sroa.02.4.vec.extract.i, %141
   %147 = fmul float %145, %145
   %148 = fmul float %146, %146
   %149 = fadd float %147, %148
@@ -2143,29 +2143,29 @@ b2Normalize.exit:                                 ; preds = %11, %18
   %.587 = add nuw nsw i32 %.082191, 1
   br label %b2AABB_Overlaps.exit.thread
 
-b2AABB_Overlaps.exit.thread:                      ; preds = %60, %98, %95, %52, %111, %113, %65, %46
+b2AABB_Overlaps.exit.thread:                      ; preds = %60, %100, %97, %52, %113, %115, %65, %46
   %.183 = phi i32 [ %47, %46 ], [ %47, %52 ], [ %47, %65 ], [ %.587, %113 ], [ %47, %111 ], [ %47, %95 ], [ %47, %98 ], [ %47, %60 ]
   %.sroa.043.1 = phi <2 x float> [ %.sroa.043.0192, %46 ], [ %.sroa.043.0192, %52 ], [ %.sroa.043.0192, %65 ], [ %.sroa.043.0192, %113 ], [ %.sroa.043.0192, %111 ], [ %.sroa.043.0192, %95 ], [ %.sroa.02.4.vec.insert.i151, %98 ], [ %.sroa.043.0192, %60 ]
   %.sroa.5.1 = phi <2 x float> [ %.sroa.5.0193, %46 ], [ %.sroa.5.0193, %52 ], [ %.sroa.5.0193, %65 ], [ %.sroa.5.0193, %113 ], [ %.sroa.5.0193, %111 ], [ %.sroa.5.0193, %95 ], [ %.sroa.02.4.vec.insert.i157, %98 ], [ %.sroa.5.0193, %60 ]
-  %.1 = phi float [ %.0194, %46 ], [ %.0194, %52 ], [ %.0194, %65 ], [ %.0194, %113 ], [ %.0194, %111 ], [ %.0194, %95 ], [ %92, %98 ], [ %.0194, %60 ]
-  %.sroa.4.2 = phi i32 [ %.sroa.4.1195, %46 ], [ %.sroa.4.1195, %52 ], [ %.sroa.4.1195, %65 ], [ %.sroa.4.1195, %113 ], [ %.sroa.4.1195, %111 ], [ %93, %95 ], [ %93, %98 ], [ %.sroa.4.1195, %60 ]
+  %.1 = phi float [ %.0194, %46 ], [ %.0194, %52 ], [ %.0194, %65 ], [ %.0194, %113 ], [ %.0194, %111 ], [ %.0194, %95 ], [ %94, %98 ], [ %.0194, %60 ]
+  %.sroa.4.2 = phi i32 [ %.sroa.4.1195, %46 ], [ %.sroa.4.1195, %52 ], [ %.sroa.4.1195, %65 ], [ %.sroa.4.1195, %113 ], [ %.sroa.4.1195, %111 ], [ %95, %95 ], [ %95, %98 ], [ %.sroa.4.1195, %60 ]
   %.sroa.078.2 = phi i32 [ %.sroa.078.1196, %46 ], [ %55, %52 ], [ %55, %65 ], [ %55, %113 ], [ %55, %111 ], [ %55, %95 ], [ %55, %98 ], [ %55, %60 ]
-  %153 = icmp sgt i32 %.183, 0
-  br i1 %153, label %46, label %.thread178
+  %155 = icmp sgt i32 %.183, 0
+  br i1 %155, label %46, label %.thread178
 
 .thread178:                                       ; preds = %89, %b2AABB_Overlaps.exit.thread
-  %.sroa.4.6 = phi i32 [ %.sroa.4.2, %b2AABB_Overlaps.exit.thread ], [ %93, %89 ]
+  %.sroa.4.6 = phi i32 [ %.sroa.4.2, %b2AABB_Overlaps.exit.thread ], [ %95, %89 ]
   %.sroa.078.3 = phi i32 [ %.sroa.078.2, %b2AABB_Overlaps.exit.thread ], [ %55, %89 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #13
-  %154 = zext i32 %.sroa.4.6 to i64
-  %155 = shl nuw i64 %154, 32
-  %156 = zext i32 %.sroa.078.3 to i64
-  %157 = or disjoint i64 %155, %156
-  br label %158
+  %156 = zext i32 %.sroa.4.6 to i64
+  %157 = shl nuw i64 %156, 32
+  %158 = zext i32 %.sroa.078.3 to i64
+  %159 = or disjoint i64 %157, %158
+  br label %160
 
-158:                                              ; preds = %5, %.thread178
-  %.sroa.078.0.insert.insert = phi i64 [ 0, %5 ], [ %157, %.thread178 ]
+160:                                              ; preds = %5, %.thread178
+  %.sroa.078.0.insert.insert = phi i64 [ 0, %5 ], [ %159, %.thread178 ]
   ret i64 %.sroa.078.0.insert.insert
 }
 
@@ -2176,13 +2176,13 @@ define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4, !tbaa !14
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %187, label %11
+  br i1 %10, label %189, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i32, ptr %12, align 4, !tbaa !55
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %187, label %15
+  br i1 %14, label %189, label %15
 
 15:                                               ; preds = %11
   %.sroa.073.0.copyload = load <2 x float>, ptr %1, align 4
@@ -2349,64 +2349,64 @@ define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr 
   %109 = fmul float %34, %101
   %110 = fmul float %37, %102
   %111 = fadd float %109, %110
-  %112 = fcmp olt float %111, %108
-  br i1 %112, label %b2AABB_Overlaps.exit.thread, label %113, !llvm.loop !61
+  %112 = fcmp olt float %113, %108
+  br i1 %114, label %b2AABB_Overlaps.exit.thread, label %113, !llvm.loop !61
 
-113:                                              ; preds = %90
+113: ; preds = %90
   %114 = getelementptr i8, ptr %76, i64 38
   %.val = load i16, ptr %114, align 2, !tbaa !34
   %115 = and i16 %.val, 4
   %.not = icmp eq i16 %115, 0
   br i1 %.not, label %141, label %116
 
-116:                                              ; preds = %113
+116:; preds = %113
   store float %.0111277, ptr %57, align 4, !tbaa !58
-  %117 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  %118 = load i32, ptr %117, align 8, !tbaa !16
-  %119 = call float %3(ptr noundef nonnull %6, i32 noundef %72, i32 noundef %118, ptr noundef %4) #13
-  %120 = add nsw i32 %.sroa.4.1278, 1
-  %121 = fcmp une float %119, 0.000000e+00
-  br i1 %121, label %122, label %.thread257
+  %119 = getelementptr inbounds nuw i8, ptr %76, i64 32
+  %120 = load i32, ptr %119, align 8, !tbaa !16
+  %121 = call float %3(ptr noundef nonnull %6, i32 noundef %72, i32 noundef %120, ptr noundef %4) #13
+  %122 = add nsw i32 %.sroa.4.1278, 1
+  %123 = fcmp une float %121, 0.000000e+00
+  br i1 %123, label %124, label %.thread257
 
-122:                                              ; preds = %116
-  %123 = fcmp ogt float %119, 0.000000e+00
-  %124 = fcmp olt float %119, %.0111277
-  %or.cond = select i1 %123, i1 %124, i1 false
-  br i1 %or.cond, label %125, label %b2AABB_Overlaps.exit.thread
+124:                                              ; preds = %118
+  %125 = fcmp ogt float %121, 0.000000e+00
+  %126 = fcmp olt float %121, %.0111277
+  %or.cond = select i1 %125, i1 %126, i1 false
+  br i1 %or.cond, label %127, label %b2AABB_Overlaps.exit.thread
 
-125:                                              ; preds = %122
-  %126 = load <2 x float>, ptr %31, align 4
-  %.sroa.0.0.vec.extract.i211 = extractelement <2 x float> %126, i64 0
-  %127 = fmul float %119, %.sroa.0.0.vec.extract.i211
-  %.sroa.0.4.vec.extract.i213 = extractelement <2 x float> %126, i64 1
-  %128 = fmul float %119, %.sroa.0.4.vec.extract.i213
-  %129 = fadd float %19, %127
-  %130 = fadd float %20, %128
-  %131 = fcmp olt float %19, %129
-  %132 = select i1 %131, float %19, float %129
-  %.sroa.02.0.vec.insert.i223 = insertelement <2 x float> poison, float %132, i64 0
-  %133 = fcmp olt float %20, %130
-  %134 = select i1 %133, float %20, float %130
-  %.sroa.02.4.vec.insert.i226 = insertelement <2 x float> %.sroa.02.0.vec.insert.i223, float %134, i64 1
-  %135 = fadd float %21, %127
-  %136 = fadd float %22, %128
-  %137 = fcmp ogt float %21, %135
-  %138 = select i1 %137, float %21, float %135
-  %.sroa.02.0.vec.insert.i235 = insertelement <2 x float> poison, float %138, i64 0
-  %139 = fcmp ogt float %22, %136
-  %140 = select i1 %139, float %22, float %136
-  %.sroa.02.4.vec.insert.i238 = insertelement <2 x float> %.sroa.02.0.vec.insert.i235, float %140, i64 1
+127:                                              ; preds = %124
+  %128 = load <2 x float>, ptr %31, align 4
+  %.sroa.0.0.vec.extract.i211 = extractelement <2 x float> %128, i64 0
+  %129 = fmul float %121, %.sroa.0.0.vec.extract.i211
+  %.sroa.0.4.vec.extract.i213 = extractelement <2 x float> %128, i64 1
+  %130 = fmul float %121, %.sroa.0.4.vec.extract.i213
+  %131 = fadd float %19, %129
+  %132 = fadd float %20, %130
+  %133 = fcmp olt float %19, %131
+  %134 = select i1 %133, float %19, float %131
+  %.sroa.02.0.vec.insert.i223 = insertelement <2 x float> poison, float %134, i64 0
+  %135 = fcmp olt float %20, %132
+  %136 = select i1 %135, float %20, float %132
+  %.sroa.02.4.vec.insert.i226 = insertelement <2 x float> %.sroa.02.0.vec.insert.i223, float %136, i64 1
+  %137 = fadd float %21, %129
+  %138 = fadd float %22, %130
+  %139 = fcmp ogt float %21, %137
+  %140 = select i1 %139, float %21, float %137
+  %.sroa.02.0.vec.insert.i235 = insertelement <2 x float> poison, float %140, i64 0
+  %141 = fcmp ogt float %22, %138
+  %142 = select i1 %141, float %22, float %138
+  %.sroa.02.4.vec.insert.i238 = insertelement <2 x float> %.sroa.02.0.vec.insert.i235, float %142, i64 1
   br label %b2AABB_Overlaps.exit.thread
 
-141:                                              ; preds = %113
-  %142 = icmp samesign ult i32 %.0112274, 1024
-  br i1 %142, label %143, label %b2AABB_Overlaps.exit.thread
+143:                                              ; preds = %115
+  %144 = icmp samesign ult i32 %.0112274, 1024
+  br i1 %144, label %145, label %b2AABB_Overlaps.exit.thread
 
-143:                                              ; preds = %141
-  %144 = getelementptr inbounds nuw i8, ptr %76, i64 28
-  %145 = load i32, ptr %144, align 4, !tbaa !41
-  %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds %struct.b2TreeNode, ptr %54, i64 %146
+145:                                              ; preds = %143
+  %146 = getelementptr inbounds nuw i8, ptr %76, i64 28
+  %147 = load i32, ptr %146, align 4, !tbaa !41
+  %148 = sext i32 %147 to i64
+  %149 = getelementptr inbounds %struct.b2TreeNode, ptr %54, i64 %148
   %148 = load <2 x float>, ptr %147, align 8
   %149 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %150 = load <2 x float>, ptr %149, align 8
@@ -2449,29 +2449,29 @@ define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr 
   %.5117 = add nuw nsw i32 %.0112274, 1
   br label %b2AABB_Overlaps.exit.thread
 
-b2AABB_Overlaps.exit.thread:                      ; preds = %82, %125, %122, %74, %141, %143, %90, %68
+b2AABB_Overlaps.exit.thread:                      ; preds = %82, %127, %124, %74, %143, %145, %90, %68
   %.1113 = phi i32 [ %69, %68 ], [ %69, %74 ], [ %69, %90 ], [ %.5117, %143 ], [ %69, %141 ], [ %69, %122 ], [ %69, %125 ], [ %69, %82 ]
   %.sroa.045.1 = phi <2 x float> [ %.sroa.045.0275, %68 ], [ %.sroa.045.0275, %74 ], [ %.sroa.045.0275, %90 ], [ %.sroa.045.0275, %143 ], [ %.sroa.045.0275, %141 ], [ %.sroa.045.0275, %122 ], [ %.sroa.02.4.vec.insert.i226, %125 ], [ %.sroa.045.0275, %82 ]
   %.sroa.5.1 = phi <2 x float> [ %.sroa.5.0276, %68 ], [ %.sroa.5.0276, %74 ], [ %.sroa.5.0276, %90 ], [ %.sroa.5.0276, %143 ], [ %.sroa.5.0276, %141 ], [ %.sroa.5.0276, %122 ], [ %.sroa.02.4.vec.insert.i238, %125 ], [ %.sroa.5.0276, %82 ]
-  %.1 = phi float [ %.0111277, %68 ], [ %.0111277, %74 ], [ %.0111277, %90 ], [ %.0111277, %143 ], [ %.0111277, %141 ], [ %.0111277, %122 ], [ %119, %125 ], [ %.0111277, %82 ]
-  %.sroa.4.2 = phi i32 [ %.sroa.4.1278, %68 ], [ %.sroa.4.1278, %74 ], [ %.sroa.4.1278, %90 ], [ %.sroa.4.1278, %143 ], [ %.sroa.4.1278, %141 ], [ %120, %122 ], [ %120, %125 ], [ %.sroa.4.1278, %82 ]
+  %.1 = phi float [ %.0111277, %68 ], [ %.0111277, %74 ], [ %.0111277, %90 ], [ %.0111277, %143 ], [ %.0111277, %141 ], [ %.0111277, %122 ], [ %121, %125 ], [ %.0111277, %82 ]
+  %.sroa.4.2 = phi i32 [ %.sroa.4.1278, %68 ], [ %.sroa.4.1278, %74 ], [ %.sroa.4.1278, %90 ], [ %.sroa.4.1278, %143 ], [ %.sroa.4.1278, %141 ], [ %122, %122 ], [ %122, %125 ], [ %.sroa.4.1278, %82 ]
   %.sroa.0107.2 = phi i32 [ %.sroa.0107.1279, %68 ], [ %77, %74 ], [ %77, %90 ], [ %77, %143 ], [ %77, %141 ], [ %77, %122 ], [ %77, %125 ], [ %77, %82 ]
-  %183 = icmp sgt i32 %.1113, 0
-  br i1 %183, label %68, label %.thread257
+  %185 = icmp sgt i32 %.1113, 0
+  br i1 %185, label %68, label %.thread257
 
-.thread257:                                       ; preds = %116, %b2AABB_Overlaps.exit.thread
-  %.sroa.4.6 = phi i32 [ %.sroa.4.2, %b2AABB_Overlaps.exit.thread ], [ %120, %116 ]
-  %.sroa.0107.3 = phi i32 [ %.sroa.0107.2, %b2AABB_Overlaps.exit.thread ], [ %77, %116 ]
+.thread257:                                       ; preds = %118, %b2AABB_Overlaps.exit.thread
+  %.sroa.4.6 = phi i32 [ %.sroa.4.2, %b2AABB_Overlaps.exit.thread ], [ %122, %118 ]
+  %.sroa.0107.3 = phi i32 [ %.sroa.0107.2, %b2AABB_Overlaps.exit.thread ], [ %77, %118 ]
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %6) #13
-  %184 = zext i32 %.sroa.4.6 to i64
-  %185 = shl nuw i64 %184, 32
-  %186 = zext i32 %.sroa.0107.3 to i64
-  br label %187
+  %186 = zext i32 %.sroa.4.6 to i64
+  %187 = shl nuw i64 %186, 32
+  %188 = zext i32 %.sroa.0107.3 to i64
+  br label %189
 
-187:                                              ; preds = %5, %11, %.thread257
-  %.sroa.4.0 = phi i64 [ 0, %5 ], [ 0, %11 ], [ %185, %.thread257 ]
-  %.sroa.0107.0 = phi i64 [ 0, %5 ], [ 0, %11 ], [ %186, %.thread257 ]
+189:                                              ; preds = %5, %11, %.thread257
+  %.sroa.4.0 = phi i64 [ 0, %5 ], [ 0, %11 ], [ %187, %.thread257 ]
+  %.sroa.0107.0 = phi i64 [ 0, %5 ], [ 0, %11 ], [ %188, %.thread257 ]
   %.sroa.0107.0.insert.insert = or disjoint i64 %.sroa.0107.0, %.sroa.4.0
   ret i64 %.sroa.0107.0.insert.insert
 }
