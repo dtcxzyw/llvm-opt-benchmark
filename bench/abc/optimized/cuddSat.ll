@@ -1369,7 +1369,7 @@ define i32 @Cudd_bddLeqUnless(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Cudd_EqualSupNorm(ptr noundef %0, ptr noundef %1, ptr noundef %2, double noundef %3, i32 noundef %4) #2 {
   %6 = icmp eq ptr %1, %2
-  br i1 %6, label %82, label %7
+  br i1 %6, label %80, label %7
 
 7:                                                ; preds = %5
   %8 = ptrtoint ptr %1 to i64
@@ -1377,7 +1377,7 @@ define range(i32 0, 2) i32 @Cudd_EqualSupNorm(ptr noundef %0, ptr noundef %1, pt
   %10 = inttoptr i64 %9 to ptr
   %11 = load i32, ptr %10, align 8, !tbaa !3
   %12 = icmp eq i32 %11, 2147483647
-  br i1 %12, label %13, label %41
+  br i1 %12, label %13, label %39
 
 13:                                               ; preds = %7
   %14 = ptrtoint ptr %2 to i64
@@ -1385,7 +1385,7 @@ define range(i32 0, 2) i32 @Cudd_EqualSupNorm(ptr noundef %0, ptr noundef %1, pt
   %16 = inttoptr i64 %15 to ptr
   %17 = load i32, ptr %16, align 8, !tbaa !3
   %18 = icmp eq i32 %17, 2147483647
-  br i1 %18, label %19, label %41
+  br i1 %18, label %19, label %39
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1393,105 +1393,103 @@ define range(i32 0, 2) i32 @Cudd_EqualSupNorm(ptr noundef %0, ptr noundef %1, pt
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = load double, ptr %22, align 8, !tbaa !12
   %24 = fsub double %21, %23
-  %25 = fcmp olt double %24, 0.000000e+00
-  %26 = fneg double %24
-  %27 = select i1 %25, double %26, double %24
-  %28 = fcmp olt double %27, %3
-  br i1 %28, label %82, label %29
+  %25 = tail call double @llvm.fabs.f64(double %24)
+  %26 = fcmp olt double %25, %3
+  br i1 %26, label %80, label %27
 
-29:                                               ; preds = %19
-  %30 = icmp sgt i32 %4, 0
-  br i1 %30, label %31, label %82
+27:                                               ; preds = %19
+  %28 = icmp sgt i32 %4, 0
+  br i1 %28, label %29, label %80
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %33 = load ptr, ptr %32, align 8, !tbaa !48
-  %34 = tail call i64 @fwrite(ptr nonnull @.str, i64 17, i64 1, ptr %33)
-  %35 = load ptr, ptr %32, align 8, !tbaa !48
-  %36 = load double, ptr %20, align 8, !tbaa !12
-  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.1, ptr noundef nonnull %1, double noundef %36) #10
-  %38 = load ptr, ptr %32, align 8, !tbaa !48
-  %39 = load double, ptr %22, align 8, !tbaa !12
-  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.2, ptr noundef nonnull %2, double noundef %39) #10
-  br label %82
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %31 = load ptr, ptr %30, align 8, !tbaa !48
+  %32 = tail call i64 @fwrite(ptr nonnull @.str, i64 17, i64 1, ptr %31)
+  %33 = load ptr, ptr %30, align 8, !tbaa !48
+  %34 = load double, ptr %20, align 8, !tbaa !12
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.1, ptr noundef nonnull %1, double noundef %34) #10
+  %36 = load ptr, ptr %30, align 8, !tbaa !48
+  %37 = load double, ptr %22, align 8, !tbaa !12
+  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.2, ptr noundef nonnull %2, double noundef %37) #10
+  br label %80
 
-41:                                               ; preds = %13, %7
-  %42 = tail call ptr @cuddCacheLookup2(ptr noundef %0, ptr noundef nonnull @Cudd_EqualSupNorm, ptr noundef %1, ptr noundef %2) #10
-  %.not = icmp eq ptr %42, null
-  br i1 %.not, label %43, label %82
+39:                                               ; preds = %13, %7
+  %40 = tail call ptr @cuddCacheLookup2(ptr noundef %0, ptr noundef nonnull @Cudd_EqualSupNorm, ptr noundef %1, ptr noundef %2) #10
+  %.not = icmp eq ptr %40, null
+  br i1 %.not, label %41, label %80
 
-43:                                               ; preds = %41
-  %44 = load i32, ptr %1, align 8, !tbaa !3
-  %45 = icmp eq i32 %44, 2147483647
-  br i1 %45, label %52, label %46
+41:                                               ; preds = %39
+  %42 = load i32, ptr %1, align 8, !tbaa !3
+  %43 = icmp eq i32 %42, 2147483647
+  br i1 %43, label %50, label %44
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %48 = load ptr, ptr %47, align 8, !tbaa !47
-  %49 = zext i32 %44 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %48, i64 %49
-  %51 = load i32, ptr %50, align 4, !tbaa !11
-  br label %52
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %46 = load ptr, ptr %45, align 8, !tbaa !47
+  %47 = zext i32 %42 to i64
+  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
+  %49 = load i32, ptr %48, align 4, !tbaa !11
+  br label %50
 
-52:                                               ; preds = %43, %46
-  %53 = phi i32 [ %51, %46 ], [ 2147483647, %43 ]
-  %54 = load i32, ptr %2, align 8, !tbaa !3
-  %55 = icmp eq i32 %54, 2147483647
-  br i1 %55, label %62, label %56
+50:                                               ; preds = %41, %44
+  %51 = phi i32 [ %49, %44 ], [ 2147483647, %41 ]
+  %52 = load i32, ptr %2, align 8, !tbaa !3
+  %53 = icmp eq i32 %52, 2147483647
+  br i1 %53, label %60, label %54
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %58 = load ptr, ptr %57, align 8, !tbaa !47
-  %59 = zext i32 %54 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %58, i64 %59
-  %61 = load i32, ptr %60, align 4, !tbaa !11
-  br label %62
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %56 = load ptr, ptr %55, align 8, !tbaa !47
+  %57 = zext i32 %52 to i64
+  %58 = getelementptr inbounds nuw i32, ptr %56, i64 %57
+  %59 = load i32, ptr %58, align 4, !tbaa !11
+  br label %60
 
-62:                                               ; preds = %52, %56
-  %63 = phi i32 [ %61, %56 ], [ 2147483647, %52 ]
-  %.not66 = icmp ugt i32 %53, %63
-  br i1 %.not66, label %69, label %64
+60:                                               ; preds = %50, %54
+  %61 = phi i32 [ %59, %54 ], [ 2147483647, %50 ]
+  %.not66 = icmp ugt i32 %51, %61
+  br i1 %.not66, label %67, label %62
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %64 = load ptr, ptr %63, align 8, !tbaa !12
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %66 = load ptr, ptr %65, align 8, !tbaa !12
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %68 = load ptr, ptr %67, align 8, !tbaa !12
-  br label %69
+  br label %67
 
-69:                                               ; preds = %62, %64
-  %.056 = phi ptr [ %68, %64 ], [ %1, %62 ]
-  %.055 = phi ptr [ %66, %64 ], [ %1, %62 ]
-  %.not67 = icmp ugt i32 %63, %53
-  br i1 %.not67, label %75, label %70
+67:                                               ; preds = %60, %62
+  %.056 = phi ptr [ %66, %62 ], [ %1, %60 ]
+  %.055 = phi ptr [ %64, %62 ], [ %1, %60 ]
+  %.not67 = icmp ugt i32 %61, %51
+  br i1 %.not67, label %73, label %68
 
-70:                                               ; preds = %69
-  %71 = getelementptr inbounds nuw i8, ptr %2, i64 16
+68:                                               ; preds = %67
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %70 = load ptr, ptr %69, align 8, !tbaa !12
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %72 = load ptr, ptr %71, align 8, !tbaa !12
-  %73 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !12
-  br label %75
+  br label %73
 
-75:                                               ; preds = %69, %70
-  %.058 = phi ptr [ %72, %70 ], [ %2, %69 ]
-  %.057 = phi ptr [ %74, %70 ], [ %2, %69 ]
-  %76 = tail call i32 @Cudd_EqualSupNorm(ptr noundef %0, ptr noundef %.055, ptr noundef %.058, double noundef %3, i32 noundef %4)
-  %.not68 = icmp eq i32 %76, 0
-  br i1 %.not68, label %82, label %77
+73:                                               ; preds = %67, %68
+  %.058 = phi ptr [ %70, %68 ], [ %2, %67 ]
+  %.057 = phi ptr [ %72, %68 ], [ %2, %67 ]
+  %74 = tail call i32 @Cudd_EqualSupNorm(ptr noundef %0, ptr noundef %.055, ptr noundef %.058, double noundef %3, i32 noundef %4)
+  %.not68 = icmp eq i32 %74, 0
+  br i1 %.not68, label %80, label %75
+
+75:                                               ; preds = %73
+  %76 = tail call i32 @Cudd_EqualSupNorm(ptr noundef %0, ptr noundef %.056, ptr noundef %.057, double noundef %3, i32 noundef %4)
+  %.not69 = icmp eq i32 %76, 0
+  br i1 %.not69, label %80, label %77
 
 77:                                               ; preds = %75
-  %78 = tail call i32 @Cudd_EqualSupNorm(ptr noundef %0, ptr noundef %.056, ptr noundef %.057, double noundef %3, i32 noundef %4)
-  %.not69 = icmp eq i32 %78, 0
-  br i1 %.not69, label %82, label %79
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %79 = load ptr, ptr %78, align 8, !tbaa !15
+  tail call void @cuddCacheInsert2(ptr noundef %0, ptr noundef nonnull @Cudd_EqualSupNorm, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %79) #10
+  br label %80
 
-79:                                               ; preds = %77
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %81 = load ptr, ptr %80, align 8, !tbaa !15
-  tail call void @cuddCacheInsert2(ptr noundef %0, ptr noundef nonnull @Cudd_EqualSupNorm, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %81) #10
-  br label %82
-
-82:                                               ; preds = %77, %75, %41, %29, %31, %19, %5, %79
-  %.0 = phi i32 [ 1, %79 ], [ 1, %5 ], [ 1, %19 ], [ 0, %31 ], [ 0, %29 ], [ 1, %41 ], [ 0, %75 ], [ 0, %77 ]
+80:                                               ; preds = %75, %73, %39, %27, %29, %19, %5, %77
+  %.0 = phi i32 [ 1, %77 ], [ 1, %5 ], [ 1, %19 ], [ 0, %29 ], [ 0, %27 ], [ 1, %39 ], [ 0, %73 ], [ 0, %75 ]
   ret i32 %.0
 }
 
@@ -1635,6 +1633,9 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #8
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

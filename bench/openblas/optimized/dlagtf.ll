@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @dlagtf_(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef writeonly captures(none) initializes((0, 4)) %8) local_unnamed_addr #0 {
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
   %11 = getelementptr inbounds i8, ptr %7, i64 -4
   %12 = getelementptr inbounds i8, ptr %6, i64 -8
   %13 = getelementptr inbounds i8, ptr %4, i64 -8
@@ -23,12 +23,12 @@ define void @dlagtf_(ptr noundef readonly captures(none) %0, ptr noundef capture
 18:                                               ; preds = %9
   store i32 -1, ptr %8, align 4, !tbaa !3
   store i32 1, ptr %10, align 4, !tbaa !3
-  %19 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %10, i32 noundef 6) #4
-  br label %146
+  %19 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %10, i32 noundef 6) #5
+  br label %144
 
 20:                                               ; preds = %9
   %21 = icmp eq i32 %16, 0
-  br i1 %21, label %146, label %22
+  br i1 %21, label %144, label %22
 
 22:                                               ; preds = %20
   %23 = load double, ptr %2, align 8, !tbaa !7
@@ -44,14 +44,14 @@ define void @dlagtf_(ptr noundef readonly captures(none) %0, ptr noundef capture
 
 30:                                               ; preds = %22
   %31 = fcmp oeq double %25, 0.000000e+00
-  br i1 %31, label %32, label %146
+  br i1 %31, label %32, label %144
 
 32:                                               ; preds = %30
   store i32 1, ptr %7, align 4, !tbaa !3
-  br label %146
+  br label %144
 
 33:                                               ; preds = %22
-  %34 = tail call double @dlamch_(ptr noundef nonnull @.str.1) #4
+  %34 = tail call double @dlamch_(ptr noundef nonnull @.str.1) #5
   %35 = load double, ptr %5, align 8, !tbaa !7
   %.inv = fcmp oge double %35, %34
   %. = select i1 %.inv, double %35, double %34
@@ -222,25 +222,23 @@ define void @dlagtf_(ptr noundef readonly captures(none) %0, ptr noundef capture
   %133 = sext i32 %132 to i64
   %134 = getelementptr inbounds double, ptr %15, i64 %133
   %135 = load double, ptr %134, align 8, !tbaa !7
-  %136 = fcmp oge double %135, 0.000000e+00
-  %137 = fneg double %135
-  %138 = select i1 %136, double %135, double %137
-  %139 = fmul double %., %.0151.lcssa
-  %140 = fcmp ugt double %138, %139
-  br i1 %140, label %146, label %141
+  %136 = tail call double @llvm.fabs.f64(double %135)
+  %137 = fmul double %., %.0151.lcssa
+  %138 = fcmp ugt double %136, %137
+  br i1 %138, label %144, label %139
 
-141:                                              ; preds = %._crit_edge
-  %142 = getelementptr inbounds i32, ptr %11, i64 %133
-  %143 = load i32, ptr %142, align 4, !tbaa !3
-  %144 = icmp eq i32 %143, 0
-  br i1 %144, label %145, label %146
+139:                                              ; preds = %._crit_edge
+  %140 = getelementptr inbounds i32, ptr %11, i64 %133
+  %141 = load i32, ptr %140, align 4, !tbaa !3
+  %142 = icmp eq i32 %141, 0
+  br i1 %142, label %143, label %144
 
-145:                                              ; preds = %141
-  store i32 %132, ptr %142, align 4, !tbaa !3
-  br label %146
+143:                                              ; preds = %139
+  store i32 %132, ptr %140, align 4, !tbaa !3
+  br label %144
 
-146:                                              ; preds = %._crit_edge, %141, %145, %30, %32, %20, %18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
+144:                                              ; preds = %._crit_edge, %139, %143, %30, %32, %20, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
   ret void
 }
 
@@ -257,11 +255,15 @@ declare double @llvm.fmuladd.f64(double, double, double) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

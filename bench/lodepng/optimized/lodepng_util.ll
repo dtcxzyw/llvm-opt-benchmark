@@ -6638,69 +6638,67 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN7lodepngL9invMatrixEPf(pt
   %40 = tail call double @llvm.fmuladd.f64(double %39, double %29, double %36)
   %41 = fdiv double 1.000000e+00, %40
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #27
-  %42 = fcmp ogt double %41, 0.000000e+00
-  %43 = fneg double %41
-  %44 = select i1 %42, double %41, double %43
-  %45 = fcmp ogt double %44, 1.000000e+15
-  br i1 %45, label %.loopexit, label %46
+  %42 = tail call double @llvm.fabs.f64(double %41)
+  %43 = fcmp ogt double %42, 1.000000e+15
+  br i1 %43, label %.loopexit, label %44
 
-46:                                               ; preds = %1
-  %47 = fmul double %17, %41
-  store double %47, ptr %2, align 16, !tbaa !142
-  %48 = fmul double %24, %34
-  %49 = tail call double @llvm.fmuladd.f64(double %39, double %14, double %48)
-  %50 = fmul double %49, %41
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double %50, ptr %51, align 8, !tbaa !142
-  %52 = fneg double %5
-  %53 = fmul double %52, %39
-  %54 = tail call double @llvm.fmuladd.f64(double %34, double %11, double %53)
-  %55 = fmul double %54, %41
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store double %55, ptr %56, align 16, !tbaa !142
-  %57 = fmul double %26, %41
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store double %57, ptr %58, align 8, !tbaa !142
-  %59 = fmul double %27, %39
-  %60 = tail call double @llvm.fmuladd.f64(double %31, double %8, double %59)
-  %61 = fmul double %60, %41
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store double %61, ptr %62, align 16, !tbaa !142
-  %63 = fneg double %11
-  %64 = fmul double %63, %31
-  %65 = tail call double @llvm.fmuladd.f64(double %23, double %39, double %64)
-  %66 = fmul double %65, %41
-  %67 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store double %66, ptr %67, align 8, !tbaa !142
-  %68 = fmul double %29, %41
-  %69 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store double %68, ptr %69, align 16, !tbaa !142
-  %70 = fmul double %15, %31
-  %71 = tail call double @llvm.fmuladd.f64(double %20, double %34, double %70)
-  %72 = fmul double %71, %41
-  %73 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store double %72, ptr %73, align 8, !tbaa !142
-  %74 = fneg double %34
-  %75 = fmul double %23, %74
-  %76 = tail call double @llvm.fmuladd.f64(double %31, double %5, double %75)
-  %77 = fmul double %76, %41
-  %78 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store double %77, ptr %78, align 16, !tbaa !142
-  br label %79
+44:                                               ; preds = %1
+  %45 = fmul double %17, %41
+  store double %45, ptr %2, align 16, !tbaa !142
+  %46 = fmul double %24, %34
+  %47 = tail call double @llvm.fmuladd.f64(double %39, double %14, double %46)
+  %48 = fmul double %47, %41
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store double %48, ptr %49, align 8, !tbaa !142
+  %50 = fneg double %5
+  %51 = fmul double %50, %39
+  %52 = tail call double @llvm.fmuladd.f64(double %34, double %11, double %51)
+  %53 = fmul double %52, %41
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store double %53, ptr %54, align 16, !tbaa !142
+  %55 = fmul double %26, %41
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store double %55, ptr %56, align 8, !tbaa !142
+  %57 = fmul double %27, %39
+  %58 = tail call double @llvm.fmuladd.f64(double %31, double %8, double %57)
+  %59 = fmul double %58, %41
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store double %59, ptr %60, align 16, !tbaa !142
+  %61 = fneg double %11
+  %62 = fmul double %61, %31
+  %63 = tail call double @llvm.fmuladd.f64(double %23, double %39, double %62)
+  %64 = fmul double %63, %41
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store double %64, ptr %65, align 8, !tbaa !142
+  %66 = fmul double %29, %41
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  store double %66, ptr %67, align 16, !tbaa !142
+  %68 = fmul double %15, %31
+  %69 = tail call double @llvm.fmuladd.f64(double %20, double %34, double %68)
+  %70 = fmul double %69, %41
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  store double %70, ptr %71, align 8, !tbaa !142
+  %72 = fneg double %34
+  %73 = fmul double %23, %72
+  %74 = tail call double @llvm.fmuladd.f64(double %31, double %5, double %73)
+  %75 = fmul double %74, %41
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  store double %75, ptr %76, align 16, !tbaa !142
+  br label %77
 
-79:                                               ; preds = %46, %79
-  %indvars.iv = phi i64 [ 0, %46 ], [ %indvars.iv.next, %79 ]
-  %80 = getelementptr inbounds nuw [9 x double], ptr %2, i64 0, i64 %indvars.iv
-  %81 = load double, ptr %80, align 8, !tbaa !142
-  %82 = fptrunc double %81 to float
-  %83 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
-  store float %82, ptr %83, align 4, !tbaa !79
+77:                                               ; preds = %44, %77
+  %indvars.iv = phi i64 [ 0, %44 ], [ %indvars.iv.next, %77 ]
+  %78 = getelementptr inbounds nuw [9 x double], ptr %2, i64 0, i64 %indvars.iv
+  %79 = load double, ptr %78, align 8, !tbaa !142
+  %80 = fptrunc double %79 to float
+  %81 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  store float %80, ptr %81, align 4, !tbaa !79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %.loopexit, label %79, !llvm.loop !144
+  br i1 %exitcond.not, label %.loopexit, label %77, !llvm.loop !144
 
-.loopexit:                                        ; preds = %79, %1
-  %.0 = phi i32 [ 1, %1 ], [ 0, %79 ]
+.loopexit:                                        ; preds = %77, %1
+  %.0 = phi i32 [ 1, %1 ], [ 0, %77 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #27
   ret i32 %.0
 }
@@ -7959,6 +7957,9 @@ declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #25

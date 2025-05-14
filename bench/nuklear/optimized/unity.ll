@@ -12271,17 +12271,19 @@ define void @nk_draw_list_path_rect_to(ptr noundef captures(address_is_null) %0,
   %7 = extractelement <2 x float> %6, i64 0
   %8 = fcmp uge float %7, 0.000000e+00
   %9 = fneg float %7
-  %10 = select i1 %8, float %7, float %9
+  %10 = tail call float @llvm.fabs.f32(float %7)
   %11 = fcmp olt float %3, %10
-  %12 = select i1 %11, float %3, float %10
+  %.mux = select i1 %8, float %7, float %9
+  %12 = select i1 %11, float %3, float %.mux
   %.sroa.032.4.vec.extract = extractelement <2 x float> %2, i64 1
   %.sroa.066.4.vec.extract = extractelement <2 x float> %1, i64 1
   %13 = fsub float %.sroa.032.4.vec.extract, %.sroa.066.4.vec.extract
   %14 = fcmp uge float %13, 0.000000e+00
   %15 = fneg float %13
-  %16 = select i1 %14, float %13, float %15
+  %16 = tail call float @llvm.fabs.f32(float %13)
   %17 = fcmp olt float %12, %16
-  %18 = select i1 %17, float %12, float %16
+  %.mux111 = select i1 %14, float %13, float %15
+  %18 = select i1 %17, float %12, float %.mux111
   %19 = fcmp oeq float %18, 0.000000e+00
   br i1 %19, label %20, label %.preheader.i
 

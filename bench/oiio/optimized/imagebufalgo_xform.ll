@@ -36471,7 +36471,7 @@ define linkonce_odr hidden void @_ZNK9Imath_3_18Matrix33IfE7inverseEv(ptr dead_o
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load float, ptr %15, align 4, !tbaa !73
   %17 = fcmp une float %16, 1.000000e+00
-  br i1 %17, label %18, label %114
+  br i1 %17, label %18, label %112
 
 18:                                               ; preds = %._crit_edge, %13, %8
   %19 = phi float [ %.pre, %._crit_edge ], [ %11, %13 ], [ %11, %8 ]
@@ -36566,218 +36566,214 @@ define linkonce_odr hidden void @_ZNK9Imath_3_18Matrix33IfE7inverseEv(ptr dead_o
   %indvars.iv103 = phi i64 [ 0, %77 ], [ %indvars.iv.next104, %.critedge ]
   br label %79
 
-79:                                               ; preds = %.preheader, %86
-  %indvars.iv99 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next100, %86 ]
+79:                                               ; preds = %.preheader, %84
+  %indvars.iv99 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next100, %84 ]
   %80 = getelementptr inbounds nuw [3 x [3 x float]], ptr %3, i64 0, i64 %indvars.iv103, i64 %indvars.iv99
   %81 = load float, ptr %80, align 4, !tbaa !73
-  %82 = fcmp ogt float %81, 0.000000e+00
-  %83 = fneg float %81
-  %84 = select i1 %82, float %81, float %83
-  %85 = fcmp ogt float %78, %84
-  br i1 %85, label %86, label %88
+  %82 = tail call float @llvm.fabs.f32(float %81)
+  %83 = fcmp ogt float %78, %82
+  br i1 %83, label %84, label %86
 
-86:                                               ; preds = %79
-  %87 = fdiv float %81, %67
-  store float %87, ptr %80, align 4, !tbaa !73
+84:                                               ; preds = %79
+  %85 = fdiv float %81, %67
+  store float %85, ptr %80, align 4, !tbaa !73
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond102 = icmp eq i64 %indvars.iv.next100, 3
   br i1 %exitcond102, label %.critedge, label %79, !llvm.loop !711
 
-.critedge:                                        ; preds = %86
+.critedge:                                        ; preds = %84
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond106 = icmp eq i64 %indvars.iv.next104, 3
   br i1 %exitcond106, label %.critedge59, label %.preheader, !llvm.loop !712
 
-88:                                               ; preds = %79
+86:                                               ; preds = %79
   store float 1.000000e+00, ptr %0, align 4, !tbaa !73
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float 0.000000e+00, ptr %87, align 4, !tbaa !73
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float 0.000000e+00, ptr %88, align 4, !tbaa !73
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float 0.000000e+00, ptr %89, align 4, !tbaa !73
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float 0.000000e+00, ptr %90, align 4, !tbaa !73
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float 1.000000e+00, ptr %90, align 4, !tbaa !73
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float 0.000000e+00, ptr %91, align 4, !tbaa !73
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float 1.000000e+00, ptr %92, align 4, !tbaa !73
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store float 0.000000e+00, ptr %92, align 4, !tbaa !73
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float 0.000000e+00, ptr %93, align 4, !tbaa !73
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float 0.000000e+00, ptr %94, align 4, !tbaa !73
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float 0.000000e+00, ptr %95, align 4, !tbaa !73
-  br label %112
+  br label %110
 
 .critedge59:                                      ; preds = %72, %.critedge
-  %96 = load float, ptr %3, align 4, !tbaa !73
-  store float %96, ptr %0, align 4, !tbaa !73
-  %97 = load float, ptr %57, align 4, !tbaa !73
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %94 = load float, ptr %3, align 4, !tbaa !73
+  store float %94, ptr %0, align 4, !tbaa !73
+  %95 = load float, ptr %57, align 4, !tbaa !73
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %95, ptr %96, align 4, !tbaa !73
+  %97 = load float, ptr %58, align 4, !tbaa !73
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %97, ptr %98, align 4, !tbaa !73
-  %99 = load float, ptr %58, align 4, !tbaa !73
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %99 = load float, ptr %59, align 4, !tbaa !73
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %99, ptr %100, align 4, !tbaa !73
-  %101 = load float, ptr %59, align 4, !tbaa !73
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %101 = load float, ptr %60, align 4, !tbaa !73
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %101, ptr %102, align 4, !tbaa !73
-  %103 = load float, ptr %60, align 4, !tbaa !73
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %103 = load float, ptr %61, align 4, !tbaa !73
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %103, ptr %104, align 4, !tbaa !73
-  %105 = load float, ptr %61, align 4, !tbaa !73
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %105 = load float, ptr %62, align 4, !tbaa !73
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float %105, ptr %106, align 4, !tbaa !73
-  %107 = load float, ptr %62, align 4, !tbaa !73
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %107 = load float, ptr %63, align 4, !tbaa !73
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float %107, ptr %108, align 4, !tbaa !73
-  %109 = load float, ptr %63, align 4, !tbaa !73
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %109, ptr %110, align 4, !tbaa !73
-  %111 = load float, ptr %64, align 4, !tbaa !73
-  br label %112
+  %109 = load float, ptr %64, align 4, !tbaa !73
+  br label %110
 
-112:                                              ; preds = %88, %.critedge59
-  %.sink = phi float [ 1.000000e+00, %88 ], [ %111, %.critedge59 ]
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %.sink, ptr %113, align 4, !tbaa !73
+110:                                              ; preds = %86, %.critedge59
+  %.sink = phi float [ 1.000000e+00, %86 ], [ %109, %.critedge59 ]
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store float %.sink, ptr %111, align 4, !tbaa !73
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3) #27
-  br label %191
+  br label %187
 
-114:                                              ; preds = %13
+112:                                              ; preds = %13
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #27
-  %115 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %114 = load float, ptr %113, align 4, !tbaa !73
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %116 = load float, ptr %115, align 4, !tbaa !73
-  %117 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %118 = load float, ptr %117, align 4, !tbaa !73
+  %117 = fneg float %116
+  %118 = load float, ptr %9, align 4, !tbaa !73
   %119 = fneg float %118
-  %120 = load float, ptr %9, align 4, !tbaa !73
-  %121 = fneg float %120
-  %122 = load float, ptr %1, align 4, !tbaa !73
-  store float %116, ptr %4, align 4, !tbaa !73
-  %123 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %120 = load float, ptr %1, align 4, !tbaa !73
+  store float %114, ptr %4, align 4, !tbaa !73
+  %121 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store float %117, ptr %121, align 4, !tbaa !73
+  %122 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store float 0.000000e+00, ptr %122, align 4, !tbaa !73
+  %123 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store float %119, ptr %123, align 4, !tbaa !73
-  %124 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store float 0.000000e+00, ptr %124, align 4, !tbaa !73
-  %125 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store float %121, ptr %125, align 4, !tbaa !73
-  %126 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store float %122, ptr %126, align 4, !tbaa !73
-  %127 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store float 0.000000e+00, ptr %127, align 4, !tbaa !73
-  %128 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store float 1.000000e+00, ptr %128, align 4, !tbaa !73
-  %129 = fmul float %120, %119
-  %130 = tail call float @llvm.fmuladd.f32(float %122, float %116, float %129)
-  %131 = fcmp ogt float %130, 0.000000e+00
-  %132 = fneg float %130
-  %133 = select i1 %131, float %130, float %132
-  %134 = fcmp ult float %133, 1.000000e+00
-  br i1 %134, label %146, label %.preheader68
+  %124 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store float %120, ptr %124, align 4, !tbaa !73
+  %125 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  store float 0.000000e+00, ptr %125, align 4, !tbaa !73
+  %126 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store float 1.000000e+00, ptr %126, align 4, !tbaa !73
+  %127 = fmul float %118, %117
+  %128 = tail call float @llvm.fmuladd.f32(float %120, float %114, float %127)
+  %129 = fcmp ogt float %128, 0.000000e+00
+  %130 = fneg float %128
+  %131 = select i1 %129, float %128, float %130
+  %132 = fcmp ult float %131, 1.000000e+00
+  br i1 %132, label %144, label %.preheader68
 
-.preheader68:                                     ; preds = %114
-  %135 = load float, ptr %4, align 4, !tbaa !73
-  %136 = fdiv float %135, %130
-  store float %136, ptr %4, align 4, !tbaa !73
-  %137 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %138 = load float, ptr %137, align 4, !tbaa !73
-  %139 = fdiv float %138, %130
-  store float %139, ptr %137, align 4, !tbaa !73
-  %140 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %141 = load float, ptr %140, align 4, !tbaa !73
-  %142 = fdiv float %141, %130
-  store float %142, ptr %140, align 4, !tbaa !73
-  %143 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %144 = load float, ptr %143, align 4, !tbaa !73
-  %145 = fdiv float %144, %130
-  store float %145, ptr %143, align 4, !tbaa !73
+.preheader68:                                     ; preds = %112
+  %133 = load float, ptr %4, align 4, !tbaa !73
+  %134 = fdiv float %133, %128
+  store float %134, ptr %4, align 4, !tbaa !73
+  %135 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %136 = load float, ptr %135, align 4, !tbaa !73
+  %137 = fdiv float %136, %128
+  store float %137, ptr %135, align 4, !tbaa !73
+  %138 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %139 = load float, ptr %138, align 4, !tbaa !73
+  %140 = fdiv float %139, %128
+  store float %140, ptr %138, align 4, !tbaa !73
+  %141 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %142 = load float, ptr %141, align 4, !tbaa !73
+  %143 = fdiv float %142, %128
+  store float %143, ptr %141, align 4, !tbaa !73
   br label %.critedge63
 
-146:                                              ; preds = %114
-  %147 = fmul float %133, 0x47D0000000000000
+144:                                              ; preds = %112
+  %145 = fmul float %131, 0x47D0000000000000
   br label %.preheader67
 
-.preheader67:                                     ; preds = %146, %.critedge61
-  %.not79 = phi i1 [ true, %146 ], [ false, %.critedge61 ]
-  %indvars.iv89 = phi i64 [ 0, %146 ], [ 1, %.critedge61 ]
-  br label %148
+.preheader67:                                     ; preds = %144, %.critedge61
+  %.not79 = phi i1 [ true, %144 ], [ false, %.critedge61 ]
+  %indvars.iv89 = phi i64 [ 0, %144 ], [ 1, %.critedge61 ]
+  br label %146
 
-148:                                              ; preds = %.preheader67, %155
-  %.not = phi i1 [ true, %.preheader67 ], [ false, %155 ]
-  %indvars.iv86 = phi i64 [ 0, %.preheader67 ], [ 1, %155 ]
-  %149 = getelementptr inbounds nuw [3 x [3 x float]], ptr %4, i64 0, i64 %indvars.iv89, i64 %indvars.iv86
-  %150 = load float, ptr %149, align 4, !tbaa !73
-  %151 = fcmp ogt float %150, 0.000000e+00
-  %152 = fneg float %150
-  %153 = select i1 %151, float %150, float %152
-  %154 = fcmp ogt float %147, %153
-  br i1 %154, label %155, label %157
+146:                                              ; preds = %.preheader67, %151
+  %.not = phi i1 [ true, %.preheader67 ], [ false, %151 ]
+  %indvars.iv86 = phi i64 [ 0, %.preheader67 ], [ 1, %151 ]
+  %147 = getelementptr inbounds nuw [3 x [3 x float]], ptr %4, i64 0, i64 %indvars.iv89, i64 %indvars.iv86
+  %148 = load float, ptr %147, align 4, !tbaa !73
+  %149 = tail call float @llvm.fabs.f32(float %148)
+  %150 = fcmp ogt float %145, %149
+  br i1 %150, label %151, label %153
 
-155:                                              ; preds = %148
-  %156 = fdiv float %150, %130
-  store float %156, ptr %149, align 4, !tbaa !73
-  br i1 %.not, label %148, label %.critedge61, !llvm.loop !713
+151:                                              ; preds = %146
+  %152 = fdiv float %148, %128
+  store float %152, ptr %147, align 4, !tbaa !73
+  br i1 %.not, label %146, label %.critedge61, !llvm.loop !713
 
-.critedge61:                                      ; preds = %155
+.critedge61:                                      ; preds = %151
   br i1 %.not79, label %.preheader67, label %.critedge63, !llvm.loop !714
 
-157:                                              ; preds = %148
+153:                                              ; preds = %146
   store float 1.000000e+00, ptr %0, align 4, !tbaa !73
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float 0.000000e+00, ptr %154, align 4, !tbaa !73
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float 0.000000e+00, ptr %155, align 4, !tbaa !73
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float 0.000000e+00, ptr %156, align 4, !tbaa !73
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float 1.000000e+00, ptr %157, align 4, !tbaa !73
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float 0.000000e+00, ptr %158, align 4, !tbaa !73
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float 0.000000e+00, ptr %159, align 4, !tbaa !73
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float 0.000000e+00, ptr %160, align 4, !tbaa !73
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float 1.000000e+00, ptr %161, align 4, !tbaa !73
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float 0.000000e+00, ptr %162, align 4, !tbaa !73
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float 0.000000e+00, ptr %163, align 4, !tbaa !73
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float 0.000000e+00, ptr %164, align 4, !tbaa !73
-  br label %189
+  br label %185
 
 .critedge63:                                      ; preds = %.critedge61, %.preheader68
-  %165 = load float, ptr %14, align 4, !tbaa !73
-  %166 = fneg float %165
-  %167 = load float, ptr %4, align 4, !tbaa !73
-  %168 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %169 = load float, ptr %168, align 4, !tbaa !73
-  %170 = load float, ptr %125, align 4, !tbaa !73
-  %171 = fneg float %170
-  %172 = fmul float %169, %171
-  %173 = tail call float @llvm.fmuladd.f32(float %166, float %167, float %172)
-  %174 = load float, ptr %123, align 4, !tbaa !73
-  %175 = load float, ptr %126, align 4, !tbaa !73
-  %176 = fneg float %175
-  %177 = fmul float %169, %176
-  %178 = tail call float @llvm.fmuladd.f32(float %166, float %174, float %177)
-  store float %167, ptr %0, align 4, !tbaa !73
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %174, ptr %179, align 4, !tbaa !73
-  %180 = load float, ptr %124, align 4, !tbaa !73
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %161 = load float, ptr %14, align 4, !tbaa !73
+  %162 = fneg float %161
+  %163 = load float, ptr %4, align 4, !tbaa !73
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %165 = load float, ptr %164, align 4, !tbaa !73
+  %166 = load float, ptr %123, align 4, !tbaa !73
+  %167 = fneg float %166
+  %168 = fmul float %165, %167
+  %169 = tail call float @llvm.fmuladd.f32(float %162, float %163, float %168)
+  %170 = load float, ptr %121, align 4, !tbaa !73
+  %171 = load float, ptr %124, align 4, !tbaa !73
+  %172 = fneg float %171
+  %173 = fmul float %165, %172
+  %174 = tail call float @llvm.fmuladd.f32(float %162, float %170, float %173)
+  store float %163, ptr %0, align 4, !tbaa !73
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %170, ptr %175, align 4, !tbaa !73
+  %176 = load float, ptr %122, align 4, !tbaa !73
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %176, ptr %177, align 4, !tbaa !73
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %166, ptr %178, align 4, !tbaa !73
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %171, ptr %179, align 4, !tbaa !73
+  %180 = load float, ptr %125, align 4, !tbaa !73
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %180, ptr %181, align 4, !tbaa !73
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %170, ptr %182, align 4, !tbaa !73
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %175, ptr %183, align 4, !tbaa !73
-  %184 = load float, ptr %127, align 4, !tbaa !73
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %184, ptr %185, align 4, !tbaa !73
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %173, ptr %186, align 4, !tbaa !73
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %178, ptr %187, align 4, !tbaa !73
-  %188 = load float, ptr %128, align 4, !tbaa !73
-  br label %189
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store float %169, ptr %182, align 4, !tbaa !73
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store float %174, ptr %183, align 4, !tbaa !73
+  %184 = load float, ptr %126, align 4, !tbaa !73
+  br label %185
 
-189:                                              ; preds = %157, %.critedge63
-  %.sink110 = phi float [ 1.000000e+00, %157 ], [ %188, %.critedge63 ]
-  %190 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %.sink110, ptr %190, align 4, !tbaa !73
+185:                                              ; preds = %153, %.critedge63
+  %.sink110 = phi float [ 1.000000e+00, %153 ], [ %184, %.critedge63 ]
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store float %.sink110, ptr %186, align 4, !tbaa !73
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #27
-  br label %191
+  br label %187
 
-191:                                              ; preds = %189, %112
+187:                                              ; preds = %185, %110
   ret void
 }
 

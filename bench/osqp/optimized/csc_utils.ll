@@ -82,11 +82,9 @@ define range(i64 0, 2) i64 @csc_is_eq(ptr noundef readonly captures(none) %0, pt
   %41 = getelementptr inbounds double, ptr %40, i64 %.039
   %42 = load double, ptr %41, align 8, !tbaa !18
   %43 = fsub double %39, %42
-  %44 = fcmp olt double %43, 0.000000e+00
-  %45 = fneg double %43
-  %46 = select i1 %44, double %45, double %43
-  %47 = fcmp ogt double %46, %2
-  br i1 %47, label %.loopexit37, label %29
+  %44 = tail call double @llvm.fabs.f64(double %43)
+  %45 = fcmp ogt double %44, %2
+  br i1 %45, label %.loopexit37, label %29
 
 .loopexit37:                                      ; preds = %17, %.loopexit, %31, %36, %.preheader, %3
   %.033 = phi i64 [ 0, %3 ], [ 1, %.preheader ], [ 0, %36 ], [ 0, %31 ], [ 0, %17 ], [ 1, %.loopexit ]
@@ -1861,6 +1859,9 @@ declare i64 @llvm.smin.i64(i64, i64) #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14

@@ -11204,258 +11204,261 @@ define linkonce_odr noundef zeroext i1 @_Z4isInRK7QPointFS1_fffPfRS_(ptr noundef
   %11 = fcmp une double %.pre.i.i, 0.000000e+00
   %or.cond.i.i = select i1 %10, i1 %11, i1 false
   %12 = fsub double %9, %.pre.i.i
-  %13 = fcmp ult double %12, 0.000000e+00
-  %14 = fneg double %12
-  %15 = select i1 %13, double %14, double %12
-  br i1 %or.cond.i.i, label %18, label %16
+  br i1 %or.cond.i.i, label %16, label %13
+
+13:                                               ; preds = %7
+  %14 = tail call double @llvm.fabs.f64(double %12)
+  %15 = fcmp ugt double %14, 0x3D719799812DEA11
+  br i1 %15, label %_ZneRK7QPointFS1_.exit.thread, label %29
 
 16:                                               ; preds = %7
-  %17 = fcmp ugt double %15, 0x3D719799812DEA11
-  br i1 %17, label %_ZneRK7QPointFS1_.exit.thread, label %28
+  %17 = fcmp ult double %12, 0.000000e+00
+  %18 = fneg double %12
+  %19 = select i1 %17, double %18, double %12
+  %20 = fmul double %19, 1.000000e+12
+  %21 = fcmp ult double %9, 0.000000e+00
+  %22 = fneg double %9
+  %23 = select i1 %21, double %22, double %9
+  %24 = fcmp ult double %.pre.i.i, 0.000000e+00
+  %25 = fneg double %.pre.i.i
+  %26 = select i1 %24, double %25, double %.pre.i.i
+  %27 = fcmp olt double %23, %26
+  %.sroa.speculated.i.i.i = select i1 %27, double %23, double %26
+  %28 = fcmp ugt double %20, %.sroa.speculated.i.i.i
+  br i1 %28, label %_ZneRK7QPointFS1_.exit.thread, label %29
 
-18:                                               ; preds = %7
-  %19 = fmul double %15, 1.000000e+12
-  %20 = fcmp ult double %9, 0.000000e+00
-  %21 = fneg double %9
-  %22 = select i1 %20, double %21, double %9
-  %23 = fcmp ult double %.pre.i.i, 0.000000e+00
-  %24 = fneg double %.pre.i.i
-  %25 = select i1 %23, double %24, double %.pre.i.i
-  %26 = fcmp olt double %22, %25
-  %.sroa.speculated.i.i.i = select i1 %26, double %22, double %25
-  %27 = fcmp ugt double %19, %.sroa.speculated.i.i.i
-  br i1 %27, label %_ZneRK7QPointFS1_.exit.thread, label %28
-
-28:                                               ; preds = %18, %16
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load double, ptr %29, align 8
-  %31 = fcmp une double %30, 0.000000e+00
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %33 = load double, ptr %32, align 8
-  %34 = fcmp une double %33, 0.000000e+00
-  %or.cond17.i.i = select i1 %31, i1 %34, i1 false
-  %35 = fsub double %30, %33
-  %36 = fcmp ult double %35, 0.000000e+00
-  %37 = fneg double %35
-  %38 = select i1 %36, double %37, double %35
+29:                                               ; preds = %16, %13
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load double, ptr %30, align 8
+  %32 = fcmp une double %31, 0.000000e+00
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %34 = load double, ptr %33, align 8
+  %35 = fcmp une double %34, 0.000000e+00
+  %or.cond17.i.i = select i1 %32, i1 %35, i1 false
+  %36 = fsub double %31, %34
   br i1 %or.cond17.i.i, label %_ZneRK7QPointFS1_.exit, label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %28
-  %39 = fcmp ugt double %38, 0x3D719799812DEA11
-  br i1 %39, label %_ZneRK7QPointFS1_.exit.thread, label %_ZneRK7QPointFS1_.exit._crit_edge
+._crit_edge.i.i:                                  ; preds = %29
+  %37 = tail call double @llvm.fabs.f64(double %36)
+  %38 = fcmp ugt double %37, 0x3D719799812DEA11
+  br i1 %38, label %_ZneRK7QPointFS1_.exit.thread, label %_ZneRK7QPointFS1_.exit._crit_edge
 
-_ZneRK7QPointFS1_.exit:                           ; preds = %28
-  %40 = fmul double %38, 1.000000e+12
-  %41 = fcmp ult double %30, 0.000000e+00
-  %42 = fneg double %30
-  %43 = select i1 %41, double %42, double %30
-  %44 = fcmp ult double %33, 0.000000e+00
-  %45 = fneg double %33
-  %46 = select i1 %44, double %45, double %33
-  %47 = fcmp olt double %43, %46
-  %.sroa.speculated.i15.i.i = select i1 %47, double %43, double %46
-  %48 = fcmp ugt double %40, %.sroa.speculated.i15.i.i
-  br i1 %48, label %_ZneRK7QPointFS1_.exit.thread, label %_ZneRK7QPointFS1_.exit._crit_edge
+_ZneRK7QPointFS1_.exit:                           ; preds = %29
+  %39 = fcmp ult double %36, 0.000000e+00
+  %40 = fneg double %36
+  %41 = select i1 %39, double %40, double %36
+  %42 = fmul double %41, 1.000000e+12
+  %43 = fcmp ult double %31, 0.000000e+00
+  %44 = fneg double %31
+  %45 = select i1 %43, double %44, double %31
+  %46 = fcmp ult double %34, 0.000000e+00
+  %47 = fneg double %34
+  %48 = select i1 %46, double %47, double %34
+  %49 = fcmp olt double %45, %48
+  %.sroa.speculated.i15.i.i = select i1 %49, double %45, double %48
+  %50 = fcmp ugt double %42, %.sroa.speculated.i15.i.i
+  br i1 %50, label %_ZneRK7QPointFS1_.exit.thread, label %_ZneRK7QPointFS1_.exit._crit_edge
 
 _ZneRK7QPointFS1_.exit._crit_edge:                ; preds = %._crit_edge.i.i, %_ZneRK7QPointFS1_.exit
-  %.pre116 = fpext float %2 to double
-  %.pre118 = fpext float %3 to double
-  br label %91
+  %.pre114 = fpext float %2 to double
+  %.pre116 = fpext float %3 to double
+  br label %93
 
-_ZneRK7QPointFS1_.exit.thread:                    ; preds = %._crit_edge.i.i, %16, %18, %_ZneRK7QPointFS1_.exit
-  %49 = fsub double %.pre.i.i, %9
-  %50 = fptrunc double %49 to float
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %52 = load double, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+_ZneRK7QPointFS1_.exit.thread:                    ; preds = %._crit_edge.i.i, %13, %16, %_ZneRK7QPointFS1_.exit
+  %51 = fsub double %.pre.i.i, %9
+  %52 = fptrunc double %51 to float
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load double, ptr %53, align 8
-  %55 = fsub double %52, %54
-  %56 = fptrunc double %55 to float
-  %57 = fmul float %56, %56
-  %58 = tail call float @llvm.fmuladd.f32(float %50, float %50, float %57)
-  %59 = fpext float %2 to double
-  %60 = fsub double %59, %9
-  %61 = fptrunc double %60 to float
-  %62 = fpext float %3 to double
-  %63 = fsub double %62, %54
-  %64 = fptrunc double %63 to float
-  %65 = fmul float %64, %56
-  %66 = tail call float @llvm.fmuladd.f32(float %61, float %50, float %65)
-  %67 = fdiv float %66, %58
-  %68 = fmul float %67, %50
-  %69 = fpext float %68 to double
-  %70 = fadd double %9, %69
-  %71 = fptrunc double %70 to float
-  %72 = fmul float %67, %56
-  %73 = fpext float %72 to double
-  %74 = fadd double %54, %73
-  %75 = fptrunc double %74 to float
-  %76 = fsub float %2, %71
-  %77 = fsub float %3, %75
-  %78 = fcmp oge float %67, 0.000000e+00
-  %79 = fcmp ole float %67, 1.000000e+00
-  %or.cond = and i1 %78, %79
-  br i1 %or.cond, label %80, label %91
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %56 = load double, ptr %55, align 8
+  %57 = fsub double %54, %56
+  %58 = fptrunc double %57 to float
+  %59 = fmul float %58, %58
+  %60 = tail call float @llvm.fmuladd.f32(float %52, float %52, float %59)
+  %61 = fpext float %2 to double
+  %62 = fsub double %61, %9
+  %63 = fptrunc double %62 to float
+  %64 = fpext float %3 to double
+  %65 = fsub double %64, %56
+  %66 = fptrunc double %65 to float
+  %67 = fmul float %66, %58
+  %68 = tail call float @llvm.fmuladd.f32(float %63, float %52, float %67)
+  %69 = fdiv float %68, %60
+  %70 = fmul float %69, %52
+  %71 = fpext float %70 to double
+  %72 = fadd double %9, %71
+  %73 = fptrunc double %72 to float
+  %74 = fmul float %69, %58
+  %75 = fpext float %74 to double
+  %76 = fadd double %56, %75
+  %77 = fptrunc double %76 to float
+  %78 = fsub float %2, %73
+  %79 = fsub float %3, %77
+  %80 = fcmp oge float %69, 0.000000e+00
+  %81 = fcmp ole float %69, 1.000000e+00
+  %or.cond = and i1 %80, %81
+  br i1 %or.cond, label %82, label %93
 
-80:                                               ; preds = %_ZneRK7QPointFS1_.exit.thread
-  %81 = fmul float %77, %77
-  %82 = tail call float @llvm.fmuladd.f32(float %76, float %76, float %81)
-  %83 = fcmp olt float %82, %8
-  br i1 %83, label %84, label %91
+82:                                               ; preds = %_ZneRK7QPointFS1_.exit.thread
+  %83 = fmul float %79, %79
+  %84 = tail call float @llvm.fmuladd.f32(float %78, float %78, float %83)
+  %85 = fcmp olt float %84, %8
+  br i1 %85, label %86, label %93
 
-84:                                               ; preds = %80
-  %sqrt = tail call float @llvm.sqrt.f32(float %82)
-  %85 = fdiv float %sqrt, %4
-  store float %85, ptr %5, align 4
-  %86 = fdiv float %77, %4
-  %87 = fpext float %86 to double
-  %88 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store double %87, ptr %88, align 8
-  %89 = fdiv float %76, %4
-  %90 = fpext float %89 to double
-  store double %90, ptr %6, align 8
-  br label %173
+86:                                               ; preds = %82
+  %sqrt = tail call float @llvm.sqrt.f32(float %84)
+  %87 = fdiv float %sqrt, %4
+  store float %87, ptr %5, align 4
+  %88 = fdiv float %79, %4
+  %89 = fpext float %88 to double
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store double %89, ptr %90, align 8
+  %91 = fdiv float %78, %4
+  %92 = fpext float %91 to double
+  store double %92, ptr %6, align 8
+  br label %178
 
-91:                                               ; preds = %_ZneRK7QPointFS1_.exit._crit_edge, %_ZneRK7QPointFS1_.exit.thread, %80
-  %.pre-phi119 = phi double [ %.pre118, %_ZneRK7QPointFS1_.exit._crit_edge ], [ %62, %_ZneRK7QPointFS1_.exit.thread ], [ %62, %80 ]
-  %.pre-phi117 = phi double [ %.pre116, %_ZneRK7QPointFS1_.exit._crit_edge ], [ %59, %_ZneRK7QPointFS1_.exit.thread ], [ %59, %80 ]
-  %92 = phi double [ %33, %_ZneRK7QPointFS1_.exit._crit_edge ], [ %52, %_ZneRK7QPointFS1_.exit.thread ], [ %52, %80 ]
-  %93 = fsub double %.pre-phi117, %.pre.i.i
-  %94 = fptrunc double %93 to float
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %96 = fsub double %.pre-phi119, %92
-  %97 = fptrunc double %96 to float
-  %98 = fmul float %97, %97
-  %99 = tail call float @llvm.fmuladd.f32(float %94, float %94, float %98)
-  %100 = fcmp olt float %99, %8
-  br i1 %100, label %101, label %107
+93:                                               ; preds = %_ZneRK7QPointFS1_.exit._crit_edge, %_ZneRK7QPointFS1_.exit.thread, %82
+  %.pre-phi117 = phi double [ %.pre116, %_ZneRK7QPointFS1_.exit._crit_edge ], [ %64, %_ZneRK7QPointFS1_.exit.thread ], [ %64, %82 ]
+  %.pre-phi115 = phi double [ %.pre114, %_ZneRK7QPointFS1_.exit._crit_edge ], [ %61, %_ZneRK7QPointFS1_.exit.thread ], [ %61, %82 ]
+  %94 = phi double [ %34, %_ZneRK7QPointFS1_.exit._crit_edge ], [ %54, %_ZneRK7QPointFS1_.exit.thread ], [ %54, %82 ]
+  %95 = fsub double %.pre-phi115, %.pre.i.i
+  %96 = fptrunc double %95 to float
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %98 = fsub double %.pre-phi117, %94
+  %99 = fptrunc double %98 to float
+  %100 = fmul float %99, %99
+  %101 = tail call float @llvm.fmuladd.f32(float %96, float %96, float %100)
+  %102 = fcmp olt float %101, %8
+  br i1 %102, label %103, label %109
 
-101:                                              ; preds = %91
-  %sqrt110 = tail call float @llvm.sqrt.f32(float %99)
+103:                                              ; preds = %93
+  %sqrt110 = tail call float @llvm.sqrt.f32(float %101)
   store float %sqrt110, ptr %5, align 4
-  %102 = fdiv float %97, %4
-  %103 = fpext float %102 to double
-  %104 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store double %103, ptr %104, align 8
-  %105 = fdiv float %94, %4
-  %106 = fpext float %105 to double
-  store double %106, ptr %6, align 8
+  %104 = fdiv float %99, %4
+  %105 = fpext float %104 to double
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store double %105, ptr %106, align 8
+  %107 = fdiv float %96, %4
+  %108 = fpext float %107 to double
+  store double %108, ptr %6, align 8
   %.pre = load double, ptr %0, align 8
   %.pre.i.pre = load double, ptr %1, align 8
   %.pre113 = fsub double %.pre, %.pre.i.pre
-  %.pre114 = fneg double %.pre113
-  br label %107
+  br label %109
 
-107:                                              ; preds = %101, %91
-  %.pre-phi115 = phi double [ %.pre114, %101 ], [ %14, %91 ]
-  %.pre-phi = phi double [ %.pre113, %101 ], [ %12, %91 ]
-  %.pre.i = phi double [ %.pre.i.pre, %101 ], [ %.pre.i.i, %91 ]
-  %108 = phi double [ %.pre, %101 ], [ %9, %91 ]
-  %.0106 = phi i8 [ 1, %101 ], [ 0, %91 ]
-  %109 = fcmp une double %108, 0.000000e+00
-  %110 = fcmp une double %.pre.i, 0.000000e+00
-  %or.cond.i = select i1 %109, i1 %110, i1 false
-  %111 = fcmp ult double %.pre-phi, 0.000000e+00
-  %112 = select i1 %111, double %.pre-phi115, double %.pre-phi
-  br i1 %or.cond.i, label %115, label %113
+109:                                              ; preds = %103, %93
+  %.pre-phi = phi double [ %.pre113, %103 ], [ %12, %93 ]
+  %.pre.i = phi double [ %.pre.i.pre, %103 ], [ %.pre.i.i, %93 ]
+  %110 = phi double [ %.pre, %103 ], [ %9, %93 ]
+  %.0106 = phi i8 [ 1, %103 ], [ 0, %93 ]
+  %111 = fcmp une double %110, 0.000000e+00
+  %112 = fcmp une double %.pre.i, 0.000000e+00
+  %or.cond.i = select i1 %111, i1 %112, i1 false
+  br i1 %or.cond.i, label %116, label %113
 
-113:                                              ; preds = %107
-  %114 = fcmp ugt double %112, 0x3D719799812DEA11
-  br i1 %114, label %_ZeqRK7QPointFS1_.exit.thread, label %125
+113:                                              ; preds = %109
+  %114 = tail call double @llvm.fabs.f64(double %.pre-phi)
+  %115 = fcmp ugt double %114, 0x3D719799812DEA11
+  br i1 %115, label %_ZeqRK7QPointFS1_.exit.thread, label %129
 
-115:                                              ; preds = %107
-  %116 = fmul double %112, 1.000000e+12
-  %117 = fcmp ult double %108, 0.000000e+00
-  %118 = fneg double %108
-  %119 = select i1 %117, double %118, double %108
-  %120 = fcmp ult double %.pre.i, 0.000000e+00
-  %121 = fneg double %.pre.i
-  %122 = select i1 %120, double %121, double %.pre.i
-  %123 = fcmp olt double %119, %122
-  %.sroa.speculated.i.i = select i1 %123, double %119, double %122
-  %124 = fcmp ugt double %116, %.sroa.speculated.i.i
-  br i1 %124, label %_ZeqRK7QPointFS1_.exit.thread, label %125
+116:                                              ; preds = %109
+  %117 = fcmp ult double %.pre-phi, 0.000000e+00
+  %118 = fneg double %.pre-phi
+  %119 = select i1 %117, double %118, double %.pre-phi
+  %120 = fmul double %119, 1.000000e+12
+  %121 = fcmp ult double %110, 0.000000e+00
+  %122 = fneg double %110
+  %123 = select i1 %121, double %122, double %110
+  %124 = fcmp ult double %.pre.i, 0.000000e+00
+  %125 = fneg double %.pre.i
+  %126 = select i1 %124, double %125, double %.pre.i
+  %127 = fcmp olt double %123, %126
+  %.sroa.speculated.i.i = select i1 %127, double %123, double %126
+  %128 = fcmp ugt double %120, %.sroa.speculated.i.i
+  br i1 %128, label %_ZeqRK7QPointFS1_.exit.thread, label %129
 
-125:                                              ; preds = %115, %113
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %127 = load double, ptr %126, align 8
-  %128 = fcmp une double %127, 0.000000e+00
-  %129 = load double, ptr %95, align 8
-  %130 = fcmp une double %129, 0.000000e+00
-  %or.cond17.i = select i1 %128, i1 %130, i1 false
-  %131 = fsub double %127, %129
-  %132 = fcmp ult double %131, 0.000000e+00
-  %133 = fneg double %131
-  %134 = select i1 %132, double %133, double %131
+129:                                              ; preds = %116, %113
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %131 = load double, ptr %130, align 8
+  %132 = fcmp une double %131, 0.000000e+00
+  %133 = load double, ptr %97, align 8
+  %134 = fcmp une double %133, 0.000000e+00
+  %or.cond17.i = select i1 %132, i1 %134, i1 false
+  %135 = fsub double %131, %133
   br i1 %or.cond17.i, label %_ZeqRK7QPointFS1_.exit, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %125
-  %135 = fcmp ugt double %134, 0x3D719799812DEA11
-  br i1 %135, label %_ZeqRK7QPointFS1_.exit.thread, label %145
+._crit_edge.i:                                    ; preds = %129
+  %136 = tail call double @llvm.fabs.f64(double %135)
+  %137 = fcmp ugt double %136, 0x3D719799812DEA11
+  br i1 %137, label %_ZeqRK7QPointFS1_.exit.thread, label %150
 
-_ZeqRK7QPointFS1_.exit:                           ; preds = %125
-  %136 = fmul double %134, 1.000000e+12
-  %137 = fcmp ult double %127, 0.000000e+00
-  %138 = fneg double %127
-  %139 = select i1 %137, double %138, double %127
-  %140 = fcmp ult double %129, 0.000000e+00
-  %141 = fneg double %129
-  %142 = select i1 %140, double %141, double %129
-  %143 = fcmp olt double %139, %142
-  %.sroa.speculated.i15.i = select i1 %143, double %139, double %142
-  %144 = fcmp ugt double %136, %.sroa.speculated.i15.i
-  br i1 %144, label %_ZeqRK7QPointFS1_.exit.thread, label %145
+_ZeqRK7QPointFS1_.exit:                           ; preds = %129
+  %138 = fcmp ult double %135, 0.000000e+00
+  %139 = fneg double %135
+  %140 = select i1 %138, double %139, double %135
+  %141 = fmul double %140, 1.000000e+12
+  %142 = fcmp ult double %131, 0.000000e+00
+  %143 = fneg double %131
+  %144 = select i1 %142, double %143, double %131
+  %145 = fcmp ult double %133, 0.000000e+00
+  %146 = fneg double %133
+  %147 = select i1 %145, double %146, double %133
+  %148 = fcmp olt double %144, %147
+  %.sroa.speculated.i15.i = select i1 %148, double %144, double %147
+  %149 = fcmp ugt double %141, %.sroa.speculated.i15.i
+  br i1 %149, label %_ZeqRK7QPointFS1_.exit.thread, label %150
 
-145:                                              ; preds = %._crit_edge.i, %_ZeqRK7QPointFS1_.exit
-  %146 = load float, ptr %5, align 4
-  %147 = fdiv float %146, %4
-  store float %147, ptr %5, align 4
-  %148 = trunc nuw i8 %.0106 to i1
-  br label %173
+150:                                              ; preds = %._crit_edge.i, %_ZeqRK7QPointFS1_.exit
+  %151 = load float, ptr %5, align 4
+  %152 = fdiv float %151, %4
+  store float %152, ptr %5, align 4
+  %153 = trunc nuw i8 %.0106 to i1
+  br label %178
 
-_ZeqRK7QPointFS1_.exit.thread:                    ; preds = %113, %115, %._crit_edge.i, %_ZeqRK7QPointFS1_.exit
-  %149 = fsub double %.pre-phi117, %108
-  %150 = fptrunc double %149 to float
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %152 = load double, ptr %151, align 8
-  %153 = fsub double %.pre-phi119, %152
-  %154 = fptrunc double %153 to float
-  %155 = fmul float %154, %154
-  %156 = tail call float @llvm.fmuladd.f32(float %150, float %150, float %155)
-  %157 = fcmp olt float %156, %8
-  br i1 %157, label %158, label %169
+_ZeqRK7QPointFS1_.exit.thread:                    ; preds = %113, %116, %._crit_edge.i, %_ZeqRK7QPointFS1_.exit
+  %154 = fsub double %.pre-phi115, %110
+  %155 = fptrunc double %154 to float
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %157 = load double, ptr %156, align 8
+  %158 = fsub double %.pre-phi117, %157
+  %159 = fptrunc double %158 to float
+  %160 = fmul float %159, %159
+  %161 = tail call float @llvm.fmuladd.f32(float %155, float %155, float %160)
+  %162 = fcmp olt float %161, %8
+  br i1 %162, label %163, label %174
 
-158:                                              ; preds = %_ZeqRK7QPointFS1_.exit.thread
-  %sqrt111 = tail call float @llvm.sqrt.f32(float %156)
-  %159 = trunc nuw i8 %.0106 to i1
-  br i1 %159, label %160, label %163
+163:                                              ; preds = %_ZeqRK7QPointFS1_.exit.thread
+  %sqrt111 = tail call float @llvm.sqrt.f32(float %161)
+  %164 = trunc nuw i8 %.0106 to i1
+  br i1 %164, label %165, label %168
 
-160:                                              ; preds = %158
-  %161 = load float, ptr %5, align 4
-  %162 = fcmp uge float %sqrt111, %161
-  br i1 %162, label %169, label %163
+165:                                              ; preds = %163
+  %166 = load float, ptr %5, align 4
+  %167 = fcmp uge float %sqrt111, %166
+  br i1 %167, label %174, label %168
 
-163:                                              ; preds = %158, %160
+168:                                              ; preds = %163, %165
   store float %sqrt111, ptr %5, align 4
-  %164 = fdiv float %154, %4
-  %165 = fpext float %164 to double
-  %166 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store double %165, ptr %166, align 8
-  %167 = fdiv float %150, %4
-  %168 = fpext float %167 to double
-  store double %168, ptr %6, align 8
-  br label %169
+  %169 = fdiv float %159, %4
+  %170 = fpext float %169 to double
+  %171 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store double %170, ptr %171, align 8
+  %172 = fdiv float %155, %4
+  %173 = fpext float %172 to double
+  store double %173, ptr %6, align 8
+  br label %174
 
-169:                                              ; preds = %163, %160, %_ZeqRK7QPointFS1_.exit.thread
-  %.1 = phi i8 [ %.0106, %_ZeqRK7QPointFS1_.exit.thread ], [ 1, %160 ], [ 1, %163 ]
-  %170 = load float, ptr %5, align 4
-  %171 = fdiv float %170, %4
-  store float %171, ptr %5, align 4
-  %172 = trunc nuw i8 %.1 to i1
-  br label %173
+174:                                              ; preds = %168, %165, %_ZeqRK7QPointFS1_.exit.thread
+  %.1 = phi i8 [ %.0106, %_ZeqRK7QPointFS1_.exit.thread ], [ 1, %165 ], [ 1, %168 ]
+  %175 = load float, ptr %5, align 4
+  %176 = fdiv float %175, %4
+  store float %176, ptr %5, align 4
+  %177 = trunc nuw i8 %.1 to i1
+  br label %178
 
-173:                                              ; preds = %169, %145, %84
-  %.0 = phi i1 [ true, %84 ], [ %148, %145 ], [ %172, %169 ]
+178:                                              ; preds = %174, %150, %86
+  %.0 = phi i1 [ true, %86 ], [ %153, %150 ], [ %177, %174 ]
   ret i1 %.0
 }
 

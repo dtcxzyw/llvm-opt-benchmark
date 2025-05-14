@@ -7379,22 +7379,20 @@ define void @_ZN14SequenceDialog17hScrollBarChangedEi(ptr noundef readonly align
   %12 = sitofp i32 %1 to double
   %13 = fdiv double %12, 1.000000e+02
   %14 = fsub double %11, %13
-  %15 = fcmp ult double %14, 0.000000e+00
-  %16 = fneg double %14
-  %17 = select i1 %15, double %16, double %14
-  %18 = fcmp ogt double %17, 1.000000e-02
-  br i1 %18, label %19, label %24
+  %15 = tail call double @llvm.fabs.f64(double %14)
+  %16 = fcmp ogt double %15, 1.000000e-02
+  br i1 %16, label %17, label %22
 
-19:                                               ; preds = %2
-  %20 = fsub double %.sroa.2.0.copyload.i, %.sroa.0.0.copyload.i
-  tail call void @_ZN7QCPAxis8setRangeEddN2Qt13AlignmentFlagE(ptr noundef align 8 dereferenceable_or_null(472) %8, double noundef %13, double noundef %20, i32 noundef 132)
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 176
-  %23 = load ptr, ptr %22, align 8
-  tail call void @_ZN11QCustomPlot6replotENS_15RefreshPriorityE(ptr noundef align 8 dereferenceable_or_null(513) %23, i32 noundef 3)
-  br label %24
+17:                                               ; preds = %2
+  %18 = fsub double %.sroa.2.0.copyload.i, %.sroa.0.0.copyload.i
+  tail call void @_ZN7QCPAxis8setRangeEddN2Qt13AlignmentFlagE(ptr noundef align 8 dereferenceable_or_null(472) %8, double noundef %13, double noundef %18, i32 noundef 132)
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
+  %21 = load ptr, ptr %20, align 8
+  tail call void @_ZN11QCustomPlot6replotENS_15RefreshPriorityE(ptr noundef align 8 dereferenceable_or_null(513) %21, i32 noundef 3)
+  br label %22
 
-24:                                               ; preds = %19, %2
+22:                                               ; preds = %17, %2
   ret void
 }
 
@@ -7421,22 +7419,20 @@ define void @_ZN14SequenceDialog17vScrollBarChangedEi(ptr noundef readonly align
   %12 = sitofp i32 %1 to double
   %13 = fdiv double %12, 1.000000e+02
   %14 = fsub double %11, %13
-  %15 = fcmp ult double %14, 0.000000e+00
-  %16 = fneg double %14
-  %17 = select i1 %15, double %16, double %14
-  %18 = fcmp ogt double %17, 1.000000e-02
-  br i1 %18, label %19, label %24
+  %15 = tail call double @llvm.fabs.f64(double %14)
+  %16 = fcmp ogt double %15, 1.000000e-02
+  br i1 %16, label %17, label %22
 
-19:                                               ; preds = %2
-  %20 = fsub double %.sroa.2.0.copyload.i, %.sroa.0.0.copyload.i
-  tail call void @_ZN7QCPAxis8setRangeEddN2Qt13AlignmentFlagE(ptr noundef align 8 dereferenceable_or_null(472) %8, double noundef %13, double noundef %20, i32 noundef 132)
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 176
-  %23 = load ptr, ptr %22, align 8
-  tail call void @_ZN11QCustomPlot6replotENS_15RefreshPriorityE(ptr noundef align 8 dereferenceable_or_null(513) %23, i32 noundef 3)
-  br label %24
+17:                                               ; preds = %2
+  %18 = fsub double %.sroa.2.0.copyload.i, %.sroa.0.0.copyload.i
+  tail call void @_ZN7QCPAxis8setRangeEddN2Qt13AlignmentFlagE(ptr noundef align 8 dereferenceable_or_null(472) %8, double noundef %13, double noundef %18, i32 noundef 132)
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
+  %21 = load ptr, ptr %20, align 8
+  tail call void @_ZN11QCustomPlot6replotENS_15RefreshPriorityE(ptr noundef align 8 dereferenceable_or_null(513) %21, i32 noundef 3)
+  br label %22
 
-24:                                               ; preds = %19, %2
+22:                                               ; preds = %17, %2
   ret void
 }
 
@@ -15790,6 +15786,9 @@ declare i32 @llvm.smax.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #21
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #23

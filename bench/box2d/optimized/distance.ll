@@ -1938,9 +1938,9 @@ define range(i64 1, -4294967288) i64 @b2TimeOfImpact(ptr noundef %0) local_unnam
   %40 = fsub float %20, %21
   br label %41
 
-41:                                               ; preds = %606, %1
-  %.0103 = phi i32 [ 0, %1 ], [ %99, %606 ]
-  %.099 = phi float [ 0.000000e+00, %1 ], [ %.3102.ph, %606 ]
+41:                                               ; preds = %604, %1
+  %.0103 = phi i32 [ 0, %1 ], [ %99, %604 ]
+  %.099 = phi float [ 0.000000e+00, %1 ], [ %.3102.ph, %604 ]
   %42 = fsub float 1.000000e+00, %.099
   %43 = fmul float %.sroa.0.0.vec.extract.i.i, %42
   %44 = fmul float %.sroa.0.4.vec.extract.i.i, %42
@@ -2295,7 +2295,7 @@ b2MakeSeparationFunction.exit:                    ; preds = %b2Normalize.exit.i,
 
 264:                                              ; preds = %select.unfold, %b2MakeSeparationFunction.exit
   %.088 = phi float [ %7, %b2MakeSeparationFunction.exit ], [ %.4.ph, %select.unfold ]
-  %.085 = phi i32 [ 0, %b2MakeSeparationFunction.exit ], [ %603, %select.unfold ]
+  %.085 = phi i32 [ 0, %b2MakeSeparationFunction.exit ], [ %601, %select.unfold ]
   %265 = fsub float 1.000000e+00, %.088
   %266 = fmul float %.sroa.0.0.vec.extract.i.i, %265
   %267 = fmul float %.sroa.0.4.vec.extract.i.i, %265
@@ -2640,12 +2640,12 @@ b2FindMinSeparation.exit:                         ; preds = %b2FindSupport.exit1
   %471 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %10, i64 0, i64 %470
   br label %472
 
-472:                                              ; preds = %.preheader, %600
-  %.082 = phi float [ %.082., %600 ], [ %459, %.preheader ]
-  %.079 = phi float [ %..079, %600 ], [ %464, %.preheader ]
-  %.078 = phi i32 [ %485, %600 ], [ 0, %.preheader ]
-  %.075 = phi float [ %.0..075, %600 ], [ %.099, %.preheader ]
-  %.074 = phi float [ %.074..0, %600 ], [ %.088, %.preheader ]
+472:                                              ; preds = %.preheader, %598
+  %.082 = phi float [ %.082., %598 ], [ %459, %.preheader ]
+  %.079 = phi float [ %..079, %598 ], [ %464, %.preheader ]
+  %.078 = phi i32 [ %485, %598 ], [ 0, %.preheader ]
+  %.075 = phi float [ %.0..075, %598 ], [ %.099, %.preheader ]
+  %.074 = phi float [ %.074..0, %598 ], [ %.088, %.preheader ]
   %473 = and i32 %.078, 1
   %.not = icmp eq i32 %473, 0
   br i1 %.not, label %481, label %474
@@ -2807,31 +2807,29 @@ b2EvaluateSeparation.exit:                        ; preds = %543, %552, %567
   %593 = fmul float %.sroa.0.4.vec.extract.i190.i.sink288, %591
   %594 = fadd float %592, %593
   %595 = fsub float %594, %20
-  %596 = fcmp olt float %595, 0.000000e+00
-  %597 = fneg float %595
-  %598 = select i1 %596, float %597, float %595
-  %599 = fcmp olt float %598, %21
-  br i1 %599, label %select.unfold, label %600
+  %596 = tail call float @llvm.fabs.f32(float %595)
+  %597 = fcmp olt float %596, %21
+  br i1 %597, label %select.unfold, label %598
 
-600:                                              ; preds = %b2EvaluateSeparation.exit
-  %601 = fcmp ogt float %594, %20
-  %.082. = select i1 %601, float %.082, float %594
-  %..079 = select i1 %601, float %594, float %.079
-  %.0..075 = select i1 %601, float %.0, float %.075
-  %.074..0 = select i1 %601, float %.074, float %.0
-  %602 = icmp eq i32 %485, 50
-  br i1 %602, label %select.unfold, label %472
+598:                                              ; preds = %b2EvaluateSeparation.exit
+  %599 = fcmp ogt float %594, %20
+  %.082. = select i1 %599, float %.082, float %594
+  %..079 = select i1 %599, float %594, float %.079
+  %.0..075 = select i1 %599, float %.0, float %.075
+  %.074..0 = select i1 %599, float %.074, float %.0
+  %600 = icmp eq i32 %485, 50
+  br i1 %600, label %select.unfold, label %472
 
-select.unfold:                                    ; preds = %600, %b2EvaluateSeparation.exit
-  %.4.ph = phi float [ %.0, %b2EvaluateSeparation.exit ], [ %.088, %600 ]
-  %603 = add nuw nsw i32 %.085, 1
-  %604 = icmp eq i32 %603, 8
-  br i1 %604, label %select.unfold223, label %264
+select.unfold:                                    ; preds = %598, %b2EvaluateSeparation.exit
+  %.4.ph = phi float [ %.0, %b2EvaluateSeparation.exit ], [ %.088, %598 ]
+  %601 = add nuw nsw i32 %.085, 1
+  %602 = icmp eq i32 %601, 8
+  br i1 %602, label %select.unfold223, label %264
 
 select.unfold223:                                 ; preds = %461, %select.unfold
   %.3102.ph = phi float [ %.088, %461 ], [ %.099, %select.unfold ]
-  %605 = icmp eq i32 %99, 20
-  br i1 %605, label %.thread256, label %606
+  %603 = icmp eq i32 %99, 20
+  br i1 %603, label %.thread256, label %604
 
 .thread256:                                       ; preds = %select.unfold223, %466, %463, %b2FindMinSeparation.exit
   %.sroa.073.5.ph = phi i64 [ 3, %466 ], [ 1, %463 ], [ 4, %b2FindMinSeparation.exit ], [ 1, %select.unfold223 ]
@@ -2839,7 +2837,7 @@ select.unfold223:                                 ; preds = %461, %select.unfold
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #12
   br label %.thread246
 
-606:                                              ; preds = %select.unfold223
+604:                                              ; preds = %select.unfold223
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #12
   br label %41
@@ -2850,8 +2848,8 @@ select.unfold223:                                 ; preds = %461, %select.unfold
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 180, ptr nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
-  %607 = bitcast float %.sroa.8.1253 to i32
-  %.sroa.8.0.insert.ext = zext i32 %607 to i64
+  %605 = bitcast float %.sroa.8.1253 to i32
+  %.sroa.8.0.insert.ext = zext i32 %605 to i64
   %.sroa.8.0.insert.shift = shl nuw i64 %.sroa.8.0.insert.ext, 32
   %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.8.0.insert.shift, %.sroa.073.1252
   ret i64 %.sroa.073.0.insert.insert
@@ -3109,6 +3107,9 @@ declare float @llvm.sqrt.f32(float) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

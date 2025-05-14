@@ -22,7 +22,7 @@ define void @_Z18duDebugDrawTriMeshP11duDebugDrawPKfiPKiS2_iPKhf(ptr noundef %0,
   %or.cond3 = and i1 %or.cond, %14
   %15 = icmp ne ptr %4, null
   %or.cond5 = and i1 %or.cond3, %15
-  br i1 %or.cond5, label %16, label %131
+  br i1 %or.cond5, label %16, label %123
 
 16:                                               ; preds = %8
   %17 = load ptr, ptr %0, align 8
@@ -104,85 +104,77 @@ define void @_Z18duDebugDrawTriMeshP11duDebugDrawPKfiPKiS2_iPKhf(ptr noundef %0,
   %68 = mul nsw i32 %67, 3
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds float, ptr %1, i64 %69
-  %71 = fcmp olt float %33, 0.000000e+00
-  %72 = fneg float %33
-  %73 = select i1 %71, float %72, float %33
-  %74 = fcmp olt float %30, 0.000000e+00
-  %75 = fneg float %30
-  %76 = select i1 %74, float %75, float %30
-  %77 = fcmp ogt float %73, %76
-  %.0 = zext i1 %77 to i32
-  %78 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %71 = call float @llvm.fabs.f32(float %33)
+  %72 = call float @llvm.fabs.f32(float %30)
+  %73 = fcmp ogt float %71, %72
+  %.0 = zext i1 %73 to i32
+  %74 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %75 = load float, ptr %74, align 4
+  %76 = call float @llvm.fabs.f32(float %75)
+  %77 = zext i1 %73 to i64
+  %78 = getelementptr inbounds nuw float, ptr %29, i64 %77
   %79 = load float, ptr %78, align 4
-  %80 = fcmp olt float %79, 0.000000e+00
-  %81 = fneg float %79
-  %82 = select i1 %80, float %81, float %79
-  %83 = zext i1 %77 to i64
-  %84 = getelementptr inbounds nuw float, ptr %29, i64 %83
-  %85 = load float, ptr %84, align 4
-  %86 = fcmp olt float %85, 0.000000e+00
-  %87 = fneg float %85
-  %88 = select i1 %86, float %87, float %85
-  %89 = fcmp ogt float %82, %88
-  %90 = shl nuw nsw i32 1, %.0
-  %91 = select i1 %89, i32 0, i32 %90
-  %92 = shl nuw nsw i32 1, %91
-  %93 = and i32 %92, 3
-  %94 = zext nneg i32 %91 to i64
-  %95 = getelementptr inbounds nuw float, ptr %60, i64 %94
-  %96 = load float, ptr %95, align 4
-  %97 = fmul float %7, %96
-  store float %97, ptr %9, align 4
-  %98 = zext nneg i32 %93 to i64
-  %99 = getelementptr inbounds nuw float, ptr %60, i64 %98
-  %100 = load float, ptr %99, align 4
-  %101 = fmul float %7, %100
-  store float %101, ptr %25, align 4
-  %102 = getelementptr inbounds nuw float, ptr %65, i64 %94
-  %103 = load float, ptr %102, align 4
-  %104 = fmul float %7, %103
-  store float %104, ptr %10, align 4
-  %105 = getelementptr inbounds nuw float, ptr %65, i64 %98
-  %106 = load float, ptr %105, align 4
-  %107 = fmul float %7, %106
-  store float %107, ptr %26, align 4
-  %108 = getelementptr inbounds nuw float, ptr %70, i64 %94
-  %109 = load float, ptr %108, align 4
-  %110 = fmul float %7, %109
-  store float %110, ptr %11, align 4
-  %111 = getelementptr inbounds nuw float, ptr %70, i64 %98
-  %112 = load float, ptr %111, align 4
-  %113 = fmul float %7, %112
-  store float %113, ptr %27, align 4
-  %114 = load ptr, ptr %0, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 56
-  %116 = load ptr, ptr %115, align 8
-  call void %116(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %60, i32 noundef %.074, ptr noundef nonnull %9)
-  %117 = load ptr, ptr %0, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 56
-  %119 = load ptr, ptr %118, align 8
-  call void %119(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %65, i32 noundef %.074, ptr noundef nonnull %10)
-  %120 = load ptr, ptr %0, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 56
-  %122 = load ptr, ptr %121, align 8
-  call void %122(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %70, i32 noundef %.074, ptr noundef nonnull %11)
+  %80 = call float @llvm.fabs.f32(float %79)
+  %81 = fcmp ogt float %76, %80
+  %82 = shl nuw nsw i32 1, %.0
+  %83 = select i1 %81, i32 0, i32 %82
+  %84 = shl nuw nsw i32 1, %83
+  %85 = and i32 %84, 3
+  %86 = zext nneg i32 %83 to i64
+  %87 = getelementptr inbounds nuw float, ptr %60, i64 %86
+  %88 = load float, ptr %87, align 4
+  %89 = fmul float %7, %88
+  store float %89, ptr %9, align 4
+  %90 = zext nneg i32 %85 to i64
+  %91 = getelementptr inbounds nuw float, ptr %60, i64 %90
+  %92 = load float, ptr %91, align 4
+  %93 = fmul float %7, %92
+  store float %93, ptr %25, align 4
+  %94 = getelementptr inbounds nuw float, ptr %65, i64 %86
+  %95 = load float, ptr %94, align 4
+  %96 = fmul float %7, %95
+  store float %96, ptr %10, align 4
+  %97 = getelementptr inbounds nuw float, ptr %65, i64 %90
+  %98 = load float, ptr %97, align 4
+  %99 = fmul float %7, %98
+  store float %99, ptr %26, align 4
+  %100 = getelementptr inbounds nuw float, ptr %70, i64 %86
+  %101 = load float, ptr %100, align 4
+  %102 = fmul float %7, %101
+  store float %102, ptr %11, align 4
+  %103 = getelementptr inbounds nuw float, ptr %70, i64 %90
+  %104 = load float, ptr %103, align 4
+  %105 = fmul float %7, %104
+  store float %105, ptr %27, align 4
+  %106 = load ptr, ptr %0, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 56
+  %108 = load ptr, ptr %107, align 8
+  call void %108(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %60, i32 noundef %.074, ptr noundef nonnull %9)
+  %109 = load ptr, ptr %0, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 56
+  %111 = load ptr, ptr %110, align 8
+  call void %111(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %65, i32 noundef %.074, ptr noundef nonnull %10)
+  %112 = load ptr, ptr %0, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 56
+  %114 = load ptr, ptr %113, align 8
+  call void %114(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %70, i32 noundef %.074, ptr noundef nonnull %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %123 = trunc nuw i64 %indvars.iv.next to i32
-  %124 = icmp sgt i32 %23, %123
-  br i1 %124, label %28, label %._crit_edge, !llvm.loop !4
+  %115 = trunc nuw i64 %indvars.iv.next to i32
+  %116 = icmp sgt i32 %23, %115
+  br i1 %116, label %28, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %55, %16
-  %125 = load ptr, ptr %0, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 72
-  %127 = load ptr, ptr %126, align 8
-  call void %127(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %128 = load ptr, ptr %0, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
-  %130 = load ptr, ptr %129, align 8
-  call void %130(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext false)
-  br label %131
+  %117 = load ptr, ptr %0, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 72
+  %119 = load ptr, ptr %118, align 8
+  call void %119(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %120 = load ptr, ptr %0, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
+  %122 = load ptr, ptr %121, align 8
+  call void %122(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext false)
+  br label %123
 
-131:                                              ; preds = %8, %._crit_edge
+123:                                              ; preds = %8, %._crit_edge
   ret void
 }
 
@@ -198,12 +190,12 @@ define void @_Z23duDebugDrawTriMeshSlopeP11duDebugDrawPKfiPKiS2_iff(ptr noundef 
   %or.cond3 = and i1 %or.cond, %14
   %15 = icmp ne ptr %4, null
   %or.cond5 = and i1 %or.cond3, %15
-  br i1 %or.cond5, label %16, label %131
+  br i1 %or.cond5, label %16, label %123
 
 16:                                               ; preds = %8
   %17 = fdiv float %6, 1.800000e+02
   %18 = fmul float %17, 0x400921FB60000000
-  %19 = tail call float @cosf(float noundef %18) #4
+  %19 = tail call float @cosf(float noundef %18) #5
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
@@ -276,85 +268,77 @@ define void @_Z23duDebugDrawTriMeshSlopeP11duDebugDrawPKfiPKiS2_iff(ptr noundef 
   %68 = mul nsw i32 %67, 3
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds float, ptr %1, i64 %69
-  %71 = fcmp olt float %36, 0.000000e+00
-  %72 = fneg float %36
-  %73 = select i1 %71, float %72, float %36
-  %74 = fcmp olt float %33, 0.000000e+00
-  %75 = fneg float %33
-  %76 = select i1 %74, float %75, float %33
-  %77 = fcmp ogt float %73, %76
-  %.0 = zext i1 %77 to i32
-  %78 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %71 = call float @llvm.fabs.f32(float %36)
+  %72 = call float @llvm.fabs.f32(float %33)
+  %73 = fcmp ogt float %71, %72
+  %.0 = zext i1 %73 to i32
+  %74 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %75 = load float, ptr %74, align 4
+  %76 = call float @llvm.fabs.f32(float %75)
+  %77 = zext i1 %73 to i64
+  %78 = getelementptr inbounds nuw float, ptr %32, i64 %77
   %79 = load float, ptr %78, align 4
-  %80 = fcmp olt float %79, 0.000000e+00
-  %81 = fneg float %79
-  %82 = select i1 %80, float %81, float %79
-  %83 = zext i1 %77 to i64
-  %84 = getelementptr inbounds nuw float, ptr %32, i64 %83
-  %85 = load float, ptr %84, align 4
-  %86 = fcmp olt float %85, 0.000000e+00
-  %87 = fneg float %85
-  %88 = select i1 %86, float %87, float %85
-  %89 = fcmp ogt float %82, %88
-  %90 = shl nuw nsw i32 1, %.0
-  %91 = select i1 %89, i32 0, i32 %90
-  %92 = shl nuw nsw i32 1, %91
-  %93 = and i32 %92, 3
-  %94 = zext nneg i32 %91 to i64
-  %95 = getelementptr inbounds nuw float, ptr %60, i64 %94
-  %96 = load float, ptr %95, align 4
-  %97 = fmul float %7, %96
-  store float %97, ptr %9, align 4
-  %98 = zext nneg i32 %93 to i64
-  %99 = getelementptr inbounds nuw float, ptr %60, i64 %98
-  %100 = load float, ptr %99, align 4
-  %101 = fmul float %7, %100
-  store float %101, ptr %28, align 4
-  %102 = getelementptr inbounds nuw float, ptr %65, i64 %94
-  %103 = load float, ptr %102, align 4
-  %104 = fmul float %7, %103
-  store float %104, ptr %10, align 4
-  %105 = getelementptr inbounds nuw float, ptr %65, i64 %98
-  %106 = load float, ptr %105, align 4
-  %107 = fmul float %7, %106
-  store float %107, ptr %29, align 4
-  %108 = getelementptr inbounds nuw float, ptr %70, i64 %94
-  %109 = load float, ptr %108, align 4
-  %110 = fmul float %7, %109
-  store float %110, ptr %11, align 4
-  %111 = getelementptr inbounds nuw float, ptr %70, i64 %98
-  %112 = load float, ptr %111, align 4
-  %113 = fmul float %7, %112
-  store float %113, ptr %30, align 4
-  %114 = load ptr, ptr %0, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 56
-  %116 = load ptr, ptr %115, align 8
-  call void %116(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %60, i32 noundef %.074, ptr noundef nonnull %9)
-  %117 = load ptr, ptr %0, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 56
-  %119 = load ptr, ptr %118, align 8
-  call void %119(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %65, i32 noundef %.074, ptr noundef nonnull %10)
-  %120 = load ptr, ptr %0, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 56
-  %122 = load ptr, ptr %121, align 8
-  call void %122(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %70, i32 noundef %.074, ptr noundef nonnull %11)
+  %80 = call float @llvm.fabs.f32(float %79)
+  %81 = fcmp ogt float %76, %80
+  %82 = shl nuw nsw i32 1, %.0
+  %83 = select i1 %81, i32 0, i32 %82
+  %84 = shl nuw nsw i32 1, %83
+  %85 = and i32 %84, 3
+  %86 = zext nneg i32 %83 to i64
+  %87 = getelementptr inbounds nuw float, ptr %60, i64 %86
+  %88 = load float, ptr %87, align 4
+  %89 = fmul float %7, %88
+  store float %89, ptr %9, align 4
+  %90 = zext nneg i32 %85 to i64
+  %91 = getelementptr inbounds nuw float, ptr %60, i64 %90
+  %92 = load float, ptr %91, align 4
+  %93 = fmul float %7, %92
+  store float %93, ptr %28, align 4
+  %94 = getelementptr inbounds nuw float, ptr %65, i64 %86
+  %95 = load float, ptr %94, align 4
+  %96 = fmul float %7, %95
+  store float %96, ptr %10, align 4
+  %97 = getelementptr inbounds nuw float, ptr %65, i64 %90
+  %98 = load float, ptr %97, align 4
+  %99 = fmul float %7, %98
+  store float %99, ptr %29, align 4
+  %100 = getelementptr inbounds nuw float, ptr %70, i64 %86
+  %101 = load float, ptr %100, align 4
+  %102 = fmul float %7, %101
+  store float %102, ptr %11, align 4
+  %103 = getelementptr inbounds nuw float, ptr %70, i64 %90
+  %104 = load float, ptr %103, align 4
+  %105 = fmul float %7, %104
+  store float %105, ptr %30, align 4
+  %106 = load ptr, ptr %0, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 56
+  %108 = load ptr, ptr %107, align 8
+  call void %108(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %60, i32 noundef %.074, ptr noundef nonnull %9)
+  %109 = load ptr, ptr %0, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 56
+  %111 = load ptr, ptr %110, align 8
+  call void %111(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %65, i32 noundef %.074, ptr noundef nonnull %10)
+  %112 = load ptr, ptr %0, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 56
+  %114 = load ptr, ptr %113, align 8
+  call void %114(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %70, i32 noundef %.074, ptr noundef nonnull %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %123 = trunc nuw i64 %indvars.iv.next to i32
-  %124 = icmp sgt i32 %26, %123
-  br i1 %124, label %31, label %._crit_edge, !llvm.loop !6
+  %115 = trunc nuw i64 %indvars.iv.next to i32
+  %116 = icmp sgt i32 %26, %115
+  br i1 %116, label %31, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %55, %16
-  %125 = load ptr, ptr %0, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 72
-  %127 = load ptr, ptr %126, align 8
-  call void %127(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %128 = load ptr, ptr %0, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
-  %130 = load ptr, ptr %129, align 8
-  call void %130(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext false)
-  br label %131
+  %117 = load ptr, ptr %0, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 72
+  %119 = load ptr, ptr %118, align 8
+  call void %119(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %120 = load ptr, ptr %0, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
+  %122 = load ptr, ptr %121, align 8
+  call void %122(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext false)
+  br label %123
 
-131:                                              ; preds = %8, %._crit_edge
+123:                                              ; preds = %8, %._crit_edge
   ret void
 }
 
@@ -3049,11 +3033,15 @@ define void @_Z25duDebugDrawPolyMeshDetailP11duDebugDrawRK16rcPolyMeshDetail(ptr
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #4
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

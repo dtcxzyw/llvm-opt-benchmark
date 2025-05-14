@@ -779,51 +779,49 @@ define void @lv_arc_set_start_angle(ptr noundef %0, float noundef %1) local_unna
   %21 = fadd float %17, 3.600000e+02
   %.0 = select i1 %20, float %21, float %17
   %22 = fsub float %.0, %.033
-  %23 = fcmp ogt float %22, 0.000000e+00
-  %24 = fneg float %22
-  %25 = select i1 %23, float %22, float %24
-  %26 = fcmp ogt float %25, 1.800000e+02
-  br i1 %26, label %27, label %28
+  %23 = tail call float @llvm.fabs.f32(float %22)
+  %24 = fcmp ogt float %23, 1.800000e+02
+  br i1 %24, label %25, label %26
 
-27:                                               ; preds = %9
+25:                                               ; preds = %9
   tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #7
-  br label %34
+  br label %32
 
-28:                                               ; preds = %9
-  %29 = fcmp olt float %.0, %.033
-  br i1 %29, label %30, label %31
+26:                                               ; preds = %9
+  %27 = fcmp olt float %.0, %.033
+  br i1 %27, label %28, label %29
 
-30:                                               ; preds = %28
+28:                                               ; preds = %26
   tail call fastcc void @inv_arc_area(ptr noundef %0, float noundef %15, float noundef %.034, i32 noundef 131072)
-  br label %34
+  br label %32
 
-31:                                               ; preds = %28
-  %32 = fcmp olt float %.033, %.0
-  br i1 %32, label %33, label %34
+29:                                               ; preds = %26
+  %30 = fcmp olt float %.033, %.0
+  br i1 %30, label %31, label %32
 
-33:                                               ; preds = %31
+31:                                               ; preds = %29
   tail call fastcc void @inv_arc_area(ptr noundef %0, float noundef %.034, float noundef %15, i32 noundef 131072)
-  br label %34
+  br label %32
 
-34:                                               ; preds = %30, %33, %31, %27
+32:                                               ; preds = %28, %31, %29, %25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
   call fastcc void @get_center(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
-  %35 = load i32, ptr %7, align 4, !tbaa !30
+  %33 = load i32, ptr %7, align 4, !tbaa !30
   %.val.i = load i32, ptr %6, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %.val6.i = load i32, ptr %36, align 4
-  call fastcc void @get_knob_area(ptr noundef nonnull %0, i32 %.val.i, i32 %.val6.i, i32 noundef %35, ptr noundef %8)
-  %37 = tail call fastcc i32 @knob_get_extra_size(ptr noundef nonnull %0)
-  %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %39, label %inv_knob_area.exit
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %.val6.i = load i32, ptr %34, align 4
+  call fastcc void @get_knob_area(ptr noundef nonnull %0, i32 %.val.i, i32 %.val6.i, i32 noundef %33, ptr noundef %8)
+  %35 = tail call fastcc i32 @knob_get_extra_size(ptr noundef nonnull %0)
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %37, label %inv_knob_area.exit
 
-39:                                               ; preds = %34
-  call void @lv_area_increase(ptr noundef nonnull %8, i32 noundef %37, i32 noundef %37) #7
+37:                                               ; preds = %32
+  call void @lv_area_increase(ptr noundef nonnull %8, i32 noundef %35, i32 noundef %35) #7
   br label %inv_knob_area.exit
 
-inv_knob_area.exit:                               ; preds = %34, %39
+inv_knob_area.exit:                               ; preds = %32, %37
   call void @lv_obj_invalidate_area(ptr noundef nonnull %0, ptr noundef nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
@@ -833,20 +831,20 @@ inv_knob_area.exit:                               ; preds = %34, %39
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
   call fastcc void @get_center(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
-  %40 = load i32, ptr %4, align 4, !tbaa !30
+  %38 = load i32, ptr %4, align 4, !tbaa !30
   %.val.i43 = load i32, ptr %3, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.val6.i44 = load i32, ptr %41, align 4
-  call fastcc void @get_knob_area(ptr noundef nonnull %0, i32 %.val.i43, i32 %.val6.i44, i32 noundef %40, ptr noundef %5)
-  %42 = call fastcc i32 @knob_get_extra_size(ptr noundef nonnull %0)
-  %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %44, label %inv_knob_area.exit45
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.val6.i44 = load i32, ptr %39, align 4
+  call fastcc void @get_knob_area(ptr noundef nonnull %0, i32 %.val.i43, i32 %.val6.i44, i32 noundef %38, ptr noundef %5)
+  %40 = call fastcc i32 @knob_get_extra_size(ptr noundef nonnull %0)
+  %41 = icmp sgt i32 %40, 0
+  br i1 %41, label %42, label %inv_knob_area.exit45
 
-44:                                               ; preds = %inv_knob_area.exit
-  call void @lv_area_increase(ptr noundef nonnull %5, i32 noundef %42, i32 noundef %42) #7
+42:                                               ; preds = %inv_knob_area.exit
+  call void @lv_area_increase(ptr noundef nonnull %5, i32 noundef %40, i32 noundef %40) #7
   br label %inv_knob_area.exit45
 
-inv_knob_area.exit45:                             ; preds = %inv_knob_area.exit, %44
+inv_knob_area.exit45:                             ; preds = %inv_knob_area.exit, %42
   call void @lv_obj_invalidate_area(ptr noundef nonnull %0, ptr noundef nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
@@ -942,51 +940,49 @@ define void @lv_arc_set_end_angle(ptr noundef %0, float noundef %1) local_unname
   %21 = fadd float %17, 3.600000e+02
   %.0 = select i1 %20, float %21, float %17
   %22 = fsub float %.0, %.033
-  %23 = fcmp ogt float %22, 0.000000e+00
-  %24 = fneg float %22
-  %25 = select i1 %23, float %22, float %24
-  %26 = fcmp ogt float %25, 1.800000e+02
-  br i1 %26, label %27, label %28
+  %23 = tail call float @llvm.fabs.f32(float %22)
+  %24 = fcmp ogt float %23, 1.800000e+02
+  br i1 %24, label %25, label %26
 
-27:                                               ; preds = %9
+25:                                               ; preds = %9
   tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #7
-  br label %34
+  br label %32
 
-28:                                               ; preds = %9
-  %29 = fcmp olt float %.0, %.033
-  br i1 %29, label %30, label %31
+26:                                               ; preds = %9
+  %27 = fcmp olt float %.0, %.033
+  br i1 %27, label %28, label %29
 
-30:                                               ; preds = %28
+28:                                               ; preds = %26
   tail call fastcc void @inv_arc_area(ptr noundef %0, float noundef %.034, float noundef %13, i32 noundef 131072)
-  br label %34
+  br label %32
 
-31:                                               ; preds = %28
-  %32 = fcmp olt float %.033, %.0
-  br i1 %32, label %33, label %34
+29:                                               ; preds = %26
+  %30 = fcmp olt float %.033, %.0
+  br i1 %30, label %31, label %32
 
-33:                                               ; preds = %31
+31:                                               ; preds = %29
   tail call fastcc void @inv_arc_area(ptr noundef %0, float noundef %13, float noundef %.034, i32 noundef 131072)
-  br label %34
+  br label %32
 
-34:                                               ; preds = %30, %33, %31, %27
+32:                                               ; preds = %28, %31, %29, %25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
   call fastcc void @get_center(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
-  %35 = load i32, ptr %7, align 4, !tbaa !30
+  %33 = load i32, ptr %7, align 4, !tbaa !30
   %.val.i = load i32, ptr %6, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %.val6.i = load i32, ptr %36, align 4
-  call fastcc void @get_knob_area(ptr noundef nonnull %0, i32 %.val.i, i32 %.val6.i, i32 noundef %35, ptr noundef %8)
-  %37 = tail call fastcc i32 @knob_get_extra_size(ptr noundef nonnull %0)
-  %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %39, label %inv_knob_area.exit
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %.val6.i = load i32, ptr %34, align 4
+  call fastcc void @get_knob_area(ptr noundef nonnull %0, i32 %.val.i, i32 %.val6.i, i32 noundef %33, ptr noundef %8)
+  %35 = tail call fastcc i32 @knob_get_extra_size(ptr noundef nonnull %0)
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %37, label %inv_knob_area.exit
 
-39:                                               ; preds = %34
-  call void @lv_area_increase(ptr noundef nonnull %8, i32 noundef %37, i32 noundef %37) #7
+37:                                               ; preds = %32
+  call void @lv_area_increase(ptr noundef nonnull %8, i32 noundef %35, i32 noundef %35) #7
   br label %inv_knob_area.exit
 
-inv_knob_area.exit:                               ; preds = %34, %39
+inv_knob_area.exit:                               ; preds = %32, %37
   call void @lv_obj_invalidate_area(ptr noundef nonnull %0, ptr noundef nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
@@ -996,20 +992,20 @@ inv_knob_area.exit:                               ; preds = %34, %39
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
   call fastcc void @get_center(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
-  %40 = load i32, ptr %4, align 4, !tbaa !30
+  %38 = load i32, ptr %4, align 4, !tbaa !30
   %.val.i43 = load i32, ptr %3, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.val6.i44 = load i32, ptr %41, align 4
-  call fastcc void @get_knob_area(ptr noundef nonnull %0, i32 %.val.i43, i32 %.val6.i44, i32 noundef %40, ptr noundef %5)
-  %42 = call fastcc i32 @knob_get_extra_size(ptr noundef nonnull %0)
-  %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %44, label %inv_knob_area.exit45
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.val6.i44 = load i32, ptr %39, align 4
+  call fastcc void @get_knob_area(ptr noundef nonnull %0, i32 %.val.i43, i32 %.val6.i44, i32 noundef %38, ptr noundef %5)
+  %40 = call fastcc i32 @knob_get_extra_size(ptr noundef nonnull %0)
+  %41 = icmp sgt i32 %40, 0
+  br i1 %41, label %42, label %inv_knob_area.exit45
 
-44:                                               ; preds = %inv_knob_area.exit
-  call void @lv_area_increase(ptr noundef nonnull %5, i32 noundef %42, i32 noundef %42) #7
+42:                                               ; preds = %inv_knob_area.exit
+  call void @lv_area_increase(ptr noundef nonnull %5, i32 noundef %40, i32 noundef %40) #7
   br label %inv_knob_area.exit45
 
-inv_knob_area.exit45:                             ; preds = %inv_knob_area.exit, %44
+inv_knob_area.exit45:                             ; preds = %inv_knob_area.exit, %42
   call void @lv_obj_invalidate_area(ptr noundef nonnull %0, ptr noundef nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
@@ -1049,33 +1045,31 @@ define void @lv_arc_set_bg_start_angle(ptr noundef %0, float noundef %1) local_u
   %15 = fadd float %11, 3.600000e+02
   %.0 = select i1 %14, float %15, float %11
   %16 = fsub float %.0, %.032
-  %17 = fcmp ogt float %16, 0.000000e+00
-  %18 = fneg float %16
-  %19 = select i1 %17, float %16, float %18
-  %20 = fcmp ogt float %19, 1.800000e+02
-  br i1 %20, label %21, label %22
+  %17 = tail call float @llvm.fabs.f32(float %16)
+  %18 = fcmp ogt float %17, 1.800000e+02
+  br i1 %18, label %19, label %20
 
-21:                                               ; preds = %3
+19:                                               ; preds = %3
   tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #7
-  br label %28
+  br label %26
 
-22:                                               ; preds = %3
-  %23 = fcmp olt float %.0, %.032
-  br i1 %23, label %24, label %25
+20:                                               ; preds = %3
+  %21 = fcmp olt float %.0, %.032
+  br i1 %21, label %22, label %23
 
-24:                                               ; preds = %22
+22:                                               ; preds = %20
   tail call fastcc void @inv_arc_area(ptr noundef %0, float noundef %9, float noundef %.033, i32 noundef 0)
-  br label %28
+  br label %26
 
-25:                                               ; preds = %22
-  %26 = fcmp olt float %.032, %.0
-  br i1 %26, label %27, label %28
+23:                                               ; preds = %20
+  %24 = fcmp olt float %.032, %.0
+  br i1 %24, label %25, label %26
 
-27:                                               ; preds = %25
+25:                                               ; preds = %23
   tail call fastcc void @inv_arc_area(ptr noundef %0, float noundef %.033, float noundef %9, i32 noundef 0)
-  br label %28
+  br label %26
 
-28:                                               ; preds = %24, %27, %25, %21
+26:                                               ; preds = %22, %25, %23, %19
   store float %.033, ptr %8, align 4, !tbaa !17
   tail call fastcc void @value_update(ptr noundef %0)
   ret void
@@ -1203,33 +1197,31 @@ define void @lv_arc_set_bg_end_angle(ptr noundef %0, float noundef %1) local_unn
   %15 = fadd float %11, 3.600000e+02
   %.0 = select i1 %14, float %15, float %11
   %16 = fsub float %.0, %.032
-  %17 = fcmp ogt float %16, 0.000000e+00
-  %18 = fneg float %16
-  %19 = select i1 %17, float %16, float %18
-  %20 = fcmp ogt float %19, 1.800000e+02
-  br i1 %20, label %21, label %22
+  %17 = tail call float @llvm.fabs.f32(float %16)
+  %18 = fcmp ogt float %17, 1.800000e+02
+  br i1 %18, label %19, label %20
 
-21:                                               ; preds = %3
+19:                                               ; preds = %3
   tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #7
-  br label %28
+  br label %26
 
-22:                                               ; preds = %3
-  %23 = fcmp olt float %.0, %.032
-  br i1 %23, label %24, label %25
+20:                                               ; preds = %3
+  %21 = fcmp olt float %.0, %.032
+  br i1 %21, label %22, label %23
 
-24:                                               ; preds = %22
+22:                                               ; preds = %20
   tail call fastcc void @inv_arc_area(ptr noundef %0, float noundef %.033, float noundef %7, i32 noundef 0)
-  br label %28
+  br label %26
 
-25:                                               ; preds = %22
-  %26 = fcmp olt float %.032, %.0
-  br i1 %26, label %27, label %28
+23:                                               ; preds = %20
+  %24 = fcmp olt float %.032, %.0
+  br i1 %24, label %25, label %26
 
-27:                                               ; preds = %25
+25:                                               ; preds = %23
   tail call fastcc void @inv_arc_area(ptr noundef %0, float noundef %7, float noundef %.033, i32 noundef 0)
-  br label %28
+  br label %26
 
-28:                                               ; preds = %24, %27, %25, %21
+26:                                               ; preds = %22, %25, %23, %19
   store float %.033, ptr %6, align 8, !tbaa !18
   tail call fastcc void @value_update(ptr noundef %0)
   ret void
@@ -2220,6 +2212,9 @@ declare i32 @lv_obj_get_height(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6

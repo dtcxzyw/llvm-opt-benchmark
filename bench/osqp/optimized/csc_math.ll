@@ -965,18 +965,19 @@ define void @csc_col_norm_inf(ptr noundef readonly captures(none) %0, ptr nounde
   br label %17
 
 17:                                               ; preds = %.lr.ph, %17
-  %18 = phi double [ %.promoted, %.lr.ph ], [ %24, %17 ]
-  %.03137 = phi i64 [ %11, %.lr.ph ], [ %25, %17 ]
+  %18 = phi double [ %.promoted, %.lr.ph ], [ %25, %17 ]
+  %.03137 = phi i64 [ %11, %.lr.ph ], [ %26, %17 ]
   %19 = getelementptr inbounds double, ptr %8, i64 %.03137
   %20 = load double, ptr %19, align 8, !tbaa !3
   %21 = fcmp uge double %20, 0.000000e+00
   %22 = fneg double %20
-  %23 = select i1 %21, double %20, double %22
-  %.inv = fcmp ogt double %23, %18
-  %24 = select i1 %.inv, double %23, double %18
-  store double %24, ptr %16, align 8, !tbaa !3
-  %25 = add nsw i64 %.03137, 1
-  %exitcond.not = icmp eq i64 %25, %14
+  %23 = tail call double @llvm.fabs.f64(double %20)
+  %24 = fcmp ule double %23, %18
+  %.mux = select i1 %21, double %20, double %22
+  %25 = select i1 %24, double %18, double %.mux
+  store double %25, ptr %16, align 8, !tbaa !3
+  %26 = add nsw i64 %.03137, 1
+  %exitcond.not = icmp eq i64 %26, %14
   br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
@@ -1024,21 +1025,22 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i.preheader,
   br i1 %19, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph43, %.lr.ph
-  %.03541 = phi i64 [ %30, %.lr.ph ], [ %15, %.lr.ph43 ]
+  %.03541 = phi i64 [ %31, %.lr.ph ], [ %15, %.lr.ph43 ]
   %20 = getelementptr inbounds i64, ptr %6, i64 %.03541
   %21 = load i64, ptr %20, align 8, !tbaa !17
   %22 = getelementptr inbounds double, ptr %11, i64 %.03541
   %23 = load double, ptr %22, align 8, !tbaa !3
   %24 = fcmp uge double %23, 0.000000e+00
   %25 = fneg double %23
-  %26 = select i1 %24, double %23, double %25
+  %26 = tail call double @llvm.fabs.f64(double %23)
   %27 = getelementptr inbounds double, ptr %1, i64 %21
   %28 = load double, ptr %27, align 8, !tbaa !3
-  %.inv = fcmp ogt double %26, %28
-  %29 = select i1 %.inv, double %26, double %28
-  store double %29, ptr %27, align 8, !tbaa !3
-  %30 = add nsw i64 %.03541, 1
-  %exitcond.not = icmp eq i64 %30, %18
+  %29 = fcmp ule double %26, %28
+  %.mux = select i1 %24, double %23, double %25
+  %30 = select i1 %29, double %28, double %.mux
+  store double %30, ptr %27, align 8, !tbaa !3
+  %31 = add nsw i64 %.03541, 1
+  %exitcond.not = icmp eq i64 %31, %18
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.loopexit, %vec_set_scalar.exit
@@ -1125,6 +1127,9 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i.preheader,
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #7
+
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1132,6 +1137,7 @@ attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

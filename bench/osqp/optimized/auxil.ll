@@ -71,10 +71,10 @@ define double @compute_rho_estimate(ptr noundef readonly captures(none) %0) loca
   %8 = load double, ptr %7, align 8, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !19
-  %11 = tail call double @OSQPVectorf_norm_inf(ptr noundef %10) #9
+  %11 = tail call double @OSQPVectorf_norm_inf(ptr noundef %10) #10
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %13 = load ptr, ptr %12, align 8, !tbaa !20
-  %14 = tail call double @OSQPVectorf_norm_inf(ptr noundef %13) #9
+  %14 = tail call double @OSQPVectorf_norm_inf(ptr noundef %13) #10
   %15 = fcmp ogt double %11, %14
   %16 = select i1 %15, double %11, double %14
   %17 = fadd double %16, 0x39B4484BFEEBC29F
@@ -82,15 +82,15 @@ define double @compute_rho_estimate(ptr noundef readonly captures(none) %0) loca
   %19 = load ptr, ptr %4, align 8, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !22
-  %22 = tail call double @OSQPVectorf_norm_inf(ptr noundef %21) #9
+  %22 = tail call double @OSQPVectorf_norm_inf(ptr noundef %21) #10
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %24 = load ptr, ptr %23, align 8, !tbaa !25
-  %25 = tail call double @OSQPVectorf_norm_inf(ptr noundef %24) #9
+  %25 = tail call double @OSQPVectorf_norm_inf(ptr noundef %24) #10
   %26 = fcmp ogt double %22, %25
   %27 = select i1 %26, double %22, double %25
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %29 = load ptr, ptr %28, align 8, !tbaa !26
-  %30 = tail call double @OSQPVectorf_norm_inf(ptr noundef %29) #9
+  %30 = tail call double @OSQPVectorf_norm_inf(ptr noundef %29) #10
   %31 = fcmp ogt double %27, %30
   %32 = select i1 %31, double %27, double %30
   %33 = fadd double %32, 0x39B4484BFEEBC29F
@@ -98,7 +98,7 @@ define double @compute_rho_estimate(ptr noundef readonly captures(none) %0) loca
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %36 = load double, ptr %35, align 8, !tbaa !27
   %37 = fdiv double %18, %34
-  %38 = tail call double @sqrt(double noundef %37) #9, !tbaa !30
+  %38 = tail call double @sqrt(double noundef %37) #10, !tbaa !30
   %39 = fmul double %36, %38
   %40 = fcmp ogt double %39, 0x3EB0C6F7A0B5ED8D
   %41 = select i1 %40, double %39, double 0x3EB0C6F7A0B5ED8D
@@ -125,10 +125,10 @@ define i64 @adapt_rho(ptr noundef %0) local_unnamed_addr #0 {
   %10 = load double, ptr %9, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %12 = load ptr, ptr %11, align 8, !tbaa !19
-  %13 = tail call double @OSQPVectorf_norm_inf(ptr noundef %12) #9
+  %13 = tail call double @OSQPVectorf_norm_inf(ptr noundef %12) #10
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %15 = load ptr, ptr %14, align 8, !tbaa !20
-  %16 = tail call double @OSQPVectorf_norm_inf(ptr noundef %15) #9
+  %16 = tail call double @OSQPVectorf_norm_inf(ptr noundef %15) #10
   %17 = fcmp ogt double %13, %16
   %18 = select i1 %17, double %13, double %16
   %19 = fadd double %18, 0x39B4484BFEEBC29F
@@ -136,15 +136,15 @@ define i64 @adapt_rho(ptr noundef %0) local_unnamed_addr #0 {
   %21 = load ptr, ptr %6, align 8, !tbaa !21
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !22
-  %24 = tail call double @OSQPVectorf_norm_inf(ptr noundef %23) #9
+  %24 = tail call double @OSQPVectorf_norm_inf(ptr noundef %23) #10
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %26 = load ptr, ptr %25, align 8, !tbaa !25
-  %27 = tail call double @OSQPVectorf_norm_inf(ptr noundef %26) #9
+  %27 = tail call double @OSQPVectorf_norm_inf(ptr noundef %26) #10
   %28 = fcmp ogt double %24, %27
   %29 = select i1 %28, double %24, double %27
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %31 = load ptr, ptr %30, align 8, !tbaa !26
-  %32 = tail call double @OSQPVectorf_norm_inf(ptr noundef %31) #9
+  %32 = tail call double @OSQPVectorf_norm_inf(ptr noundef %31) #10
   %33 = fcmp ogt double %29, %32
   %34 = select i1 %33, double %29, double %32
   %35 = fadd double %34, 0x39B4484BFEEBC29F
@@ -152,7 +152,7 @@ define i64 @adapt_rho(ptr noundef %0) local_unnamed_addr #0 {
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %38 = load double, ptr %37, align 8, !tbaa !27
   %39 = fdiv double %20, %36
-  %40 = tail call double @sqrt(double noundef %39) #9, !tbaa !30
+  %40 = tail call double @sqrt(double noundef %39) #10, !tbaa !30
   %41 = fmul double %38, %40
   %42 = fcmp ogt double %41, 0x3EB0C6F7A0B5ED8D
   %43 = select i1 %42, double %41, double 0x3EB0C6F7A0B5ED8D
@@ -170,7 +170,7 @@ define i64 @adapt_rho(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %53, label %60
 
 53:                                               ; preds = %1
-  %54 = tail call i64 @osqp_update_rho(ptr noundef nonnull %0, double noundef %45) #9
+  %54 = tail call i64 @osqp_update_rho(ptr noundef nonnull %0, double noundef %45) #10
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %56 = load i64, ptr %55, align 8, !tbaa !35
   %57 = add nsw i64 %56, 1
@@ -209,17 +209,17 @@ define i64 @set_rho_vec(ptr noundef readonly captures(none) %0) local_unnamed_ad
   %16 = load ptr, ptr %15, align 8, !tbaa !38
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !39
-  %19 = tail call i64 @OSQPVectorf_ew_bounds_type(ptr noundef %13, ptr noundef %16, ptr noundef %18, double noundef 1.000000e-04, double noundef 1.000000e+26) #9
+  %19 = tail call i64 @OSQPVectorf_ew_bounds_type(ptr noundef %13, ptr noundef %16, ptr noundef %18, double noundef 1.000000e-04, double noundef 1.000000e+26) #10
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !40
   %22 = load ptr, ptr %12, align 8, !tbaa !37
   %23 = load double, ptr %5, align 8, !tbaa !27
   %24 = fmul double %23, 1.000000e+03
-  tail call void @OSQPVectorf_set_scalar_conditional(ptr noundef %21, ptr noundef %22, double noundef 0x3EB0C6F7A0B5ED8D, double noundef %23, double noundef %24) #9
+  tail call void @OSQPVectorf_set_scalar_conditional(ptr noundef %21, ptr noundef %22, double noundef 0x3EB0C6F7A0B5ED8D, double noundef %23, double noundef %24) #10
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %26 = load ptr, ptr %25, align 8, !tbaa !41
   %27 = load ptr, ptr %20, align 8, !tbaa !40
-  tail call void @OSQPVectorf_ew_reciprocal(ptr noundef %26, ptr noundef %27) #9
+  tail call void @OSQPVectorf_ew_reciprocal(ptr noundef %26, ptr noundef %27) #10
   ret i64 %19
 }
 
@@ -251,17 +251,17 @@ define i64 @update_rho_vec(ptr noundef readonly captures(none) %0) local_unnamed
   %16 = load ptr, ptr %15, align 8, !tbaa !38
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !39
-  %19 = tail call i64 @OSQPVectorf_ew_bounds_type(ptr noundef %13, ptr noundef %16, ptr noundef %18, double noundef 1.000000e-04, double noundef 1.000000e+26) #9
+  %19 = tail call i64 @OSQPVectorf_ew_bounds_type(ptr noundef %13, ptr noundef %16, ptr noundef %18, double noundef 1.000000e-04, double noundef 1.000000e+26) #10
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !40
   %22 = load ptr, ptr %12, align 8, !tbaa !37
   %23 = load double, ptr %5, align 8, !tbaa !27
   %24 = fmul double %23, 1.000000e+03
-  tail call void @OSQPVectorf_set_scalar_conditional(ptr noundef %21, ptr noundef %22, double noundef 0x3EB0C6F7A0B5ED8D, double noundef %23, double noundef %24) #9
+  tail call void @OSQPVectorf_set_scalar_conditional(ptr noundef %21, ptr noundef %22, double noundef 0x3EB0C6F7A0B5ED8D, double noundef %23, double noundef %24) #10
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %26 = load ptr, ptr %25, align 8, !tbaa !41
   %27 = load ptr, ptr %20, align 8, !tbaa !40
-  tail call void @OSQPVectorf_ew_reciprocal(ptr noundef %26, ptr noundef %27) #9
+  tail call void @OSQPVectorf_ew_reciprocal(ptr noundef %26, ptr noundef %27) #10
   %28 = icmp eq i64 %19, 1
   br i1 %28, label %29, label %39
 
@@ -274,7 +274,7 @@ define i64 @update_rho_vec(ptr noundef readonly captures(none) %0) local_unnamed
   %35 = load ptr, ptr %0, align 8, !tbaa !3
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %37 = load double, ptr %36, align 8, !tbaa !27
-  %38 = tail call i64 %33(ptr noundef %31, ptr noundef %34, double noundef %37) #9
+  %38 = tail call i64 %33(ptr noundef %31, ptr noundef %34, double noundef %37) #10
   br label %39
 
 39:                                               ; preds = %29, %1
@@ -305,7 +305,7 @@ define void @update_xz_tilde(ptr noundef readonly captures(none) %0, i64 noundef
   %11 = load ptr, ptr %4, align 8, !tbaa !21
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !22
-  tail call void @OSQPVectorf_add_scaled(ptr noundef %6, double noundef %8, ptr noundef %10, double noundef -1.000000e+00, ptr noundef %13) #9
+  tail call void @OSQPVectorf_add_scaled(ptr noundef %6, double noundef %8, ptr noundef %10, double noundef -1.000000e+00, ptr noundef %13) #10
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %15 = load i64, ptr %14, align 8, !tbaa !49
   %.not.i = icmp eq i64 %15, 0
@@ -318,11 +318,11 @@ define void @update_xz_tilde(ptr noundef readonly captures(none) %0, i64 noundef
   %20 = load ptr, ptr %19, align 8, !tbaa !41
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %22 = load ptr, ptr %21, align 8, !tbaa !51
-  tail call void @OSQPVectorf_ew_prod(ptr noundef %17, ptr noundef %20, ptr noundef %22) #9
+  tail call void @OSQPVectorf_ew_prod(ptr noundef %17, ptr noundef %20, ptr noundef %22) #10
   %23 = load ptr, ptr %16, align 8, !tbaa !50
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %25 = load ptr, ptr %24, align 8, !tbaa !52
-  tail call void @OSQPVectorf_add_scaled(ptr noundef %23, double noundef -1.000000e+00, ptr noundef %23, double noundef 1.000000e+00, ptr noundef %25) #9
+  tail call void @OSQPVectorf_add_scaled(ptr noundef %23, double noundef -1.000000e+00, ptr noundef %23, double noundef 1.000000e+00, ptr noundef %25) #10
   br label %compute_rhs.exit
 
 26:                                               ; preds = %2
@@ -333,7 +333,7 @@ define void @update_xz_tilde(ptr noundef readonly captures(none) %0, i64 noundef
   %31 = fneg double %30
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %33 = load ptr, ptr %32, align 8, !tbaa !51
-  tail call void @OSQPVectorf_add_scaled(ptr noundef %17, double noundef 1.000000e+00, ptr noundef %28, double noundef %31, ptr noundef %33) #9
+  tail call void @OSQPVectorf_add_scaled(ptr noundef %17, double noundef 1.000000e+00, ptr noundef %28, double noundef %31, ptr noundef %33) #10
   br label %compute_rhs.exit
 
 compute_rhs.exit:                                 ; preds = %18, %26
@@ -343,7 +343,7 @@ compute_rhs.exit:                                 ; preds = %18, %26
   %37 = load ptr, ptr %36, align 8, !tbaa !54
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %39 = load ptr, ptr %38, align 8, !tbaa !55
-  %40 = tail call i64 %37(ptr noundef %35, ptr noundef %39, i64 noundef %1) #9
+  %40 = tail call i64 %37(ptr noundef %35, ptr noundef %39, i64 noundef %1) #10
   ret void
 }
 
@@ -361,12 +361,12 @@ define void @update_x(ptr noundef readonly captures(none) %0) local_unnamed_addr
   %11 = fsub double 1.000000e+00, %8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %13 = load ptr, ptr %12, align 8, !tbaa !48
-  tail call void @OSQPVectorf_add_scaled(ptr noundef %6, double noundef %8, ptr noundef %10, double noundef %11, ptr noundef %13) #9
+  tail call void @OSQPVectorf_add_scaled(ptr noundef %6, double noundef %8, ptr noundef %10, double noundef %11, ptr noundef %13) #10
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %15 = load ptr, ptr %14, align 8, !tbaa !58
   %16 = load ptr, ptr %5, align 8, !tbaa !56
   %17 = load ptr, ptr %12, align 8, !tbaa !48
-  tail call void @OSQPVectorf_minus(ptr noundef %15, ptr noundef %16, ptr noundef %17) #9
+  tail call void @OSQPVectorf_minus(ptr noundef %15, ptr noundef %16, ptr noundef %17) #10
   ret void
 }
 
@@ -391,7 +391,7 @@ define void @update_z(ptr noundef readonly captures(none) %0) local_unnamed_addr
   %11 = load ptr, ptr %10, align 8, !tbaa !41
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %13 = load ptr, ptr %12, align 8, !tbaa !51
-  tail call void @OSQPVectorf_ew_prod(ptr noundef %8, ptr noundef %11, ptr noundef %13) #9
+  tail call void @OSQPVectorf_ew_prod(ptr noundef %8, ptr noundef %11, ptr noundef %13) #10
   %14 = load ptr, ptr %7, align 8, !tbaa !19
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %16 = load double, ptr %15, align 8, !tbaa !57
@@ -400,7 +400,7 @@ define void @update_z(ptr noundef readonly captures(none) %0) local_unnamed_addr
   %19 = fsub double 1.000000e+00, %16
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !52
-  tail call void @OSQPVectorf_add_scaled3(ptr noundef %14, double noundef 1.000000e+00, ptr noundef %14, double noundef %16, ptr noundef %18, double noundef %19, ptr noundef %21) #9
+  tail call void @OSQPVectorf_add_scaled3(ptr noundef %14, double noundef 1.000000e+00, ptr noundef %14, double noundef %16, ptr noundef %18, double noundef %19, ptr noundef %21) #10
   br label %34
 
 22:                                               ; preds = %1
@@ -415,7 +415,7 @@ define void @update_z(ptr noundef readonly captures(none) %0) local_unnamed_addr
   %31 = load double, ptr %30, align 8, !tbaa !53
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %33 = load ptr, ptr %32, align 8, !tbaa !51
-  tail call void @OSQPVectorf_add_scaled3(ptr noundef %8, double noundef %24, ptr noundef %26, double noundef %27, ptr noundef %29, double noundef %31, ptr noundef %33) #9
+  tail call void @OSQPVectorf_add_scaled3(ptr noundef %8, double noundef %24, ptr noundef %26, double noundef %27, ptr noundef %29, double noundef %31, ptr noundef %33) #10
   br label %34
 
 34:                                               ; preds = %22, %9
@@ -426,7 +426,7 @@ define void @update_z(ptr noundef readonly captures(none) %0) local_unnamed_addr
   %39 = load ptr, ptr %38, align 8, !tbaa !38
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %41 = load ptr, ptr %40, align 8, !tbaa !39
-  tail call void @OSQPVectorf_ew_bound_vec(ptr noundef %36, ptr noundef %36, ptr noundef %39, ptr noundef %41) #9
+  tail call void @OSQPVectorf_ew_bound_vec(ptr noundef %36, ptr noundef %36, ptr noundef %39, ptr noundef %41) #10
   ret void
 }
 
@@ -452,7 +452,7 @@ define void @update_y(ptr noundef readonly captures(none) %0) local_unnamed_addr
   %13 = load ptr, ptr %12, align 8, !tbaa !52
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %15 = load ptr, ptr %14, align 8, !tbaa !19
-  tail call void @OSQPVectorf_add_scaled3(ptr noundef %6, double noundef %8, ptr noundef %10, double noundef %11, ptr noundef %13, double noundef -1.000000e+00, ptr noundef %15) #9
+  tail call void @OSQPVectorf_add_scaled3(ptr noundef %6, double noundef %8, ptr noundef %10, double noundef %11, ptr noundef %13, double noundef -1.000000e+00, ptr noundef %15) #10
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %17 = load i64, ptr %16, align 8, !tbaa !49
   %.not = icmp eq i64 %17, 0
@@ -462,20 +462,20 @@ define void @update_y(ptr noundef readonly captures(none) %0) local_unnamed_addr
 19:                                               ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !40
-  tail call void @OSQPVectorf_ew_prod(ptr noundef %18, ptr noundef %18, ptr noundef %21) #9
+  tail call void @OSQPVectorf_ew_prod(ptr noundef %18, ptr noundef %18, ptr noundef %21) #10
   br label %25
 
 22:                                               ; preds = %1
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %24 = load double, ptr %23, align 8, !tbaa !27
-  tail call void @OSQPVectorf_mult_scalar(ptr noundef %18, double noundef %24) #9
+  tail call void @OSQPVectorf_mult_scalar(ptr noundef %18, double noundef %24) #10
   br label %25
 
 25:                                               ; preds = %22, %19
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %27 = load ptr, ptr %26, align 8, !tbaa !51
   %28 = load ptr, ptr %5, align 8, !tbaa !59
-  tail call void @OSQPVectorf_plus(ptr noundef %27, ptr noundef %27, ptr noundef %28) #9
+  tail call void @OSQPVectorf_plus(ptr noundef %27, ptr noundef %27, ptr noundef %28) #10
   ret void
 }
 
@@ -489,33 +489,33 @@ define void @compute_obj_val_dual_gap(ptr noundef readonly captures(none) %0, pt
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %10 = load ptr, ptr %9, align 8, !tbaa !26
-  %11 = tail call double @OSQPVectorf_dot_prod(ptr noundef %10, ptr noundef %1) #9
+  %11 = tail call double @OSQPVectorf_dot_prod(ptr noundef %10, ptr noundef %1) #10
   %12 = load ptr, ptr %8, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !22
-  %15 = tail call double @OSQPVectorf_dot_prod(ptr noundef %14, ptr noundef %1) #9
+  %15 = tail call double @OSQPVectorf_dot_prod(ptr noundef %14, ptr noundef %1) #10
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %17 = load ptr, ptr %16, align 8, !tbaa !52
-  tail call void @OSQPVectorf_copy(ptr noundef %17, ptr noundef %2) #9
+  tail call void @OSQPVectorf_copy(ptr noundef %17, ptr noundef %2) #10
   %18 = load ptr, ptr %16, align 8, !tbaa !52
   %19 = load ptr, ptr %8, align 8, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !38
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %23 = load ptr, ptr %22, align 8, !tbaa !39
-  tail call void @OSQPVectorf_project_polar_reccone(ptr noundef %18, ptr noundef %21, ptr noundef %23, double noundef 1.000000e+26) #9
+  tail call void @OSQPVectorf_project_polar_reccone(ptr noundef %18, ptr noundef %21, ptr noundef %23, double noundef 1.000000e+26) #10
   %24 = load ptr, ptr %16, align 8, !tbaa !52
-  tail call void @OSQPVectorf_round_to_zero(ptr noundef %24, double noundef 1.000000e-15) #9
+  tail call void @OSQPVectorf_round_to_zero(ptr noundef %24, double noundef 1.000000e-15) #10
   %25 = load ptr, ptr %8, align 8, !tbaa !21
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load ptr, ptr %26, align 8, !tbaa !39
   %28 = load ptr, ptr %16, align 8, !tbaa !52
-  %29 = tail call double @OSQPVectorf_dot_prod_signed(ptr noundef %27, ptr noundef %28, i64 noundef 1) #9
+  %29 = tail call double @OSQPVectorf_dot_prod_signed(ptr noundef %27, ptr noundef %28, i64 noundef 1) #10
   %30 = load ptr, ptr %8, align 8, !tbaa !21
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %32 = load ptr, ptr %31, align 8, !tbaa !38
   %33 = load ptr, ptr %16, align 8, !tbaa !52
-  %34 = tail call double @OSQPVectorf_dot_prod_signed(ptr noundef %32, ptr noundef %33, i64 noundef -1) #9
+  %34 = tail call double @OSQPVectorf_dot_prod_signed(ptr noundef %32, ptr noundef %33, i64 noundef -1) #10
   %35 = fadd double %29, %34
   %36 = tail call double @llvm.fmuladd.f64(double %11, double 5.000000e-01, double %15)
   store double %36, ptr %3, align 8, !tbaa !60
@@ -586,7 +586,7 @@ define range(i64 0, 2) i64 @is_primal_infeasible(ptr noundef readonly captures(n
   %10 = load ptr, ptr %9, align 8, !tbaa !38
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !39
-  tail call void @OSQPVectorf_project_polar_reccone(ptr noundef %7, ptr noundef %10, ptr noundef %12, double noundef 1.000000e+26) #9
+  tail call void @OSQPVectorf_project_polar_reccone(ptr noundef %7, ptr noundef %10, ptr noundef %12, double noundef 1.000000e+26) #10
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %14 = load i64, ptr %13, align 8, !tbaa !62
   %.not = icmp eq i64 %14, 0
@@ -606,13 +606,13 @@ define range(i64 0, 2) i64 @is_primal_infeasible(ptr noundef readonly captures(n
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !71
   %25 = load ptr, ptr %6, align 8, !tbaa !59
-  tail call void @OSQPVectorf_ew_prod(ptr noundef %20, ptr noundef %24, ptr noundef %25) #9
+  tail call void @OSQPVectorf_ew_prod(ptr noundef %20, ptr noundef %24, ptr noundef %25) #10
   br label %26
 
 26:                                               ; preds = %2, %15, %18
   %.sink.in = phi ptr [ %19, %18 ], [ %6, %15 ], [ %6, %2 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !45
-  %27 = tail call double @OSQPVectorf_norm_inf(ptr noundef %.sink) #9
+  %27 = tail call double @OSQPVectorf_norm_inf(ptr noundef %.sink) #10
   %28 = fcmp ogt double %27, 0x39B4484BFEEBC29F
   br i1 %28, label %29, label %65
 
@@ -621,12 +621,12 @@ define range(i64 0, 2) i64 @is_primal_infeasible(ptr noundef readonly captures(n
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %32 = load ptr, ptr %31, align 8, !tbaa !39
   %33 = load ptr, ptr %6, align 8, !tbaa !59
-  %34 = tail call double @OSQPVectorf_dot_prod_signed(ptr noundef %32, ptr noundef %33, i64 noundef 1) #9
+  %34 = tail call double @OSQPVectorf_dot_prod_signed(ptr noundef %32, ptr noundef %33, i64 noundef 1) #10
   %35 = load ptr, ptr %5, align 8, !tbaa !21
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load ptr, ptr %36, align 8, !tbaa !38
   %38 = load ptr, ptr %6, align 8, !tbaa !59
-  %39 = tail call double @OSQPVectorf_dot_prod_signed(ptr noundef %37, ptr noundef %38, i64 noundef -1) #9
+  %39 = tail call double @OSQPVectorf_dot_prod_signed(ptr noundef %37, ptr noundef %38, i64 noundef -1) #10
   %40 = fadd double %34, %39
   %41 = fcmp olt double %40, 0.000000e+00
   br i1 %41, label %42, label %65
@@ -638,7 +638,7 @@ define range(i64 0, 2) i64 @is_primal_infeasible(ptr noundef readonly captures(n
   %46 = load ptr, ptr %6, align 8, !tbaa !59
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %48 = load ptr, ptr %47, align 8, !tbaa !73
-  tail call void @OSQPMatrix_Atxpy(ptr noundef %45, ptr noundef %46, ptr noundef %48, double noundef 1.000000e+00, double noundef 0.000000e+00) #9
+  tail call void @OSQPMatrix_Atxpy(ptr noundef %45, ptr noundef %46, ptr noundef %48, double noundef 1.000000e+00, double noundef 0.000000e+00) #10
   %49 = load i64, ptr %13, align 8, !tbaa !62
   %.not32 = icmp eq i64 %49, 0
   br i1 %.not32, label %59, label %50
@@ -655,12 +655,12 @@ define range(i64 0, 2) i64 @is_primal_infeasible(ptr noundef readonly captures(n
   %56 = load ptr, ptr %55, align 8, !tbaa !63
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %58 = load ptr, ptr %57, align 8, !tbaa !74
-  tail call void @OSQPVectorf_ew_prod(ptr noundef %54, ptr noundef %54, ptr noundef %58) #9
+  tail call void @OSQPVectorf_ew_prod(ptr noundef %54, ptr noundef %54, ptr noundef %58) #10
   br label %59
 
 59:                                               ; preds = %53, %50, %42
   %60 = load ptr, ptr %47, align 8, !tbaa !73
-  %61 = tail call double @OSQPVectorf_norm_inf(ptr noundef %60) #9
+  %61 = tail call double @OSQPVectorf_norm_inf(ptr noundef %60) #10
   %62 = fmul double %1, %27
   %63 = fcmp olt double %61, %62
   %64 = zext i1 %63 to i64
@@ -696,7 +696,7 @@ define i64 @is_dual_infeasible(ptr noundef readonly captures(none) %0, double no
   %15 = load ptr, ptr %14, align 8, !tbaa !75
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %17 = load ptr, ptr %16, align 8, !tbaa !58
-  %18 = tail call double @OSQPVectorf_scaled_norm_inf(ptr noundef %15, ptr noundef %17) #9
+  %18 = tail call double @OSQPVectorf_scaled_norm_inf(ptr noundef %15, ptr noundef %17) #10
   %19 = load ptr, ptr %12, align 8, !tbaa !63
   %20 = load double, ptr %19, align 8, !tbaa !76
   br label %25
@@ -704,7 +704,7 @@ define i64 @is_dual_infeasible(ptr noundef readonly captures(none) %0, double no
 21:                                               ; preds = %8, %2
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %23 = load ptr, ptr %22, align 8, !tbaa !58
-  %24 = tail call double @OSQPVectorf_norm_inf(ptr noundef %23) #9
+  %24 = tail call double @OSQPVectorf_norm_inf(ptr noundef %23) #10
   br label %25
 
 25:                                               ; preds = %21, %11
@@ -719,7 +719,7 @@ define i64 @is_dual_infeasible(ptr noundef readonly captures(none) %0, double no
   %30 = load ptr, ptr %29, align 8, !tbaa !22
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %32 = load ptr, ptr %31, align 8, !tbaa !58
-  %33 = tail call double @OSQPVectorf_dot_prod(ptr noundef %30, ptr noundef %32) #9
+  %33 = tail call double @OSQPVectorf_dot_prod(ptr noundef %30, ptr noundef %32) #10
   %34 = fcmp olt double %33, 0.000000e+00
   br i1 %34, label %35, label %84
 
@@ -730,7 +730,7 @@ define i64 @is_dual_infeasible(ptr noundef readonly captures(none) %0, double no
   %39 = load ptr, ptr %31, align 8, !tbaa !58
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 192
   %41 = load ptr, ptr %40, align 8, !tbaa !78
-  tail call void @OSQPMatrix_Axpy(ptr noundef %38, ptr noundef %39, ptr noundef %41, double noundef 1.000000e+00, double noundef 0.000000e+00) #9
+  tail call void @OSQPMatrix_Axpy(ptr noundef %38, ptr noundef %39, ptr noundef %41, double noundef 1.000000e+00, double noundef 0.000000e+00) #10
   %42 = load i64, ptr %6, align 8, !tbaa !62
   %.not39 = icmp eq i64 %42, 0
   br i1 %.not39, label %52, label %43
@@ -747,12 +747,12 @@ define i64 @is_dual_infeasible(ptr noundef readonly captures(none) %0, double no
   %49 = load ptr, ptr %48, align 8, !tbaa !63
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %51 = load ptr, ptr %50, align 8, !tbaa !74
-  tail call void @OSQPVectorf_ew_prod(ptr noundef %47, ptr noundef %47, ptr noundef %51) #9
+  tail call void @OSQPVectorf_ew_prod(ptr noundef %47, ptr noundef %47, ptr noundef %51) #10
   br label %52
 
 52:                                               ; preds = %46, %43, %35
   %53 = load ptr, ptr %40, align 8, !tbaa !78
-  %54 = tail call double @OSQPVectorf_norm_inf(ptr noundef %53) #9
+  %54 = tail call double @OSQPVectorf_norm_inf(ptr noundef %53) #10
   %55 = fmul double %1, %.037
   %56 = fmul double %55, %.036
   %57 = fcmp olt double %54, %56
@@ -765,7 +765,7 @@ define i64 @is_dual_infeasible(ptr noundef readonly captures(none) %0, double no
   %62 = load ptr, ptr %31, align 8, !tbaa !58
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 200
   %64 = load ptr, ptr %63, align 8, !tbaa !70
-  tail call void @OSQPMatrix_Axpy(ptr noundef %61, ptr noundef %62, ptr noundef %64, double noundef 1.000000e+00, double noundef 0.000000e+00) #9
+  tail call void @OSQPMatrix_Axpy(ptr noundef %61, ptr noundef %62, ptr noundef %64, double noundef 1.000000e+00, double noundef 0.000000e+00) #10
   %65 = load i64, ptr %6, align 8, !tbaa !62
   %.not41 = icmp eq i64 %65, 0
   br i1 %.not41, label %75, label %66
@@ -782,7 +782,7 @@ define i64 @is_dual_infeasible(ptr noundef readonly captures(none) %0, double no
   %72 = load ptr, ptr %71, align 8, !tbaa !63
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 40
   %74 = load ptr, ptr %73, align 8, !tbaa !79
-  tail call void @OSQPVectorf_ew_prod(ptr noundef %70, ptr noundef %70, ptr noundef %74) #9
+  tail call void @OSQPVectorf_ew_prod(ptr noundef %70, ptr noundef %70, ptr noundef %74) #10
   br label %75
 
 75:                                               ; preds = %69, %66, %58
@@ -793,7 +793,7 @@ define i64 @is_dual_infeasible(ptr noundef readonly captures(none) %0, double no
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %81 = load ptr, ptr %80, align 8, !tbaa !39
   %82 = fmul double %1, %.036
-  %83 = tail call i64 @OSQPVectorf_in_reccone(ptr noundef %76, ptr noundef %79, ptr noundef %81, double noundef 1.000000e+26, double noundef %82) #9
+  %83 = tail call i64 @OSQPVectorf_in_reccone(ptr noundef %76, ptr noundef %79, ptr noundef %81, double noundef 1.000000e+26, double noundef %82) #10
   br label %84
 
 84:                                               ; preds = %25, %52, %27, %75
@@ -855,59 +855,59 @@ define void @store_solution(ptr noundef %0, ptr noundef readonly captures(addres
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !56
   %22 = load ptr, ptr %14, align 8, !tbaa !51
-  %23 = tail call i64 @unscale_solution(ptr noundef %17, ptr noundef %19, ptr noundef %21, ptr noundef %22, ptr noundef %5) #9
+  %23 = tail call i64 @unscale_solution(ptr noundef %17, ptr noundef %19, ptr noundef %21, ptr noundef %22, ptr noundef %5) #10
   %24 = load ptr, ptr %1, align 8, !tbaa !81
   %25 = load ptr, ptr %16, align 8, !tbaa !48
-  tail call void @OSQPVectorf_to_raw(ptr noundef %24, ptr noundef %25) #9
+  tail call void @OSQPVectorf_to_raw(ptr noundef %24, ptr noundef %25) #10
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !84
   %28 = load ptr, ptr %18, align 8, !tbaa !52
-  tail call void @OSQPVectorf_to_raw(ptr noundef %27, ptr noundef %28) #9
+  tail call void @OSQPVectorf_to_raw(ptr noundef %27, ptr noundef %28) #10
   br label %36
 
 29:                                               ; preds = %11
   %30 = load ptr, ptr %1, align 8, !tbaa !81
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %32 = load ptr, ptr %31, align 8, !tbaa !56
-  tail call void @OSQPVectorf_to_raw(ptr noundef %30, ptr noundef %32) #9
+  tail call void @OSQPVectorf_to_raw(ptr noundef %30, ptr noundef %32) #10
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !84
   %35 = load ptr, ptr %14, align 8, !tbaa !51
-  tail call void @OSQPVectorf_to_raw(ptr noundef %34, ptr noundef %35) #9
+  tail call void @OSQPVectorf_to_raw(ptr noundef %34, ptr noundef %35) #10
   br label %36
 
 36:                                               ; preds = %29, %15
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %38 = load ptr, ptr %37, align 8, !tbaa !59
-  tail call void @OSQPVectorf_set_scalar(ptr noundef %38, double noundef 0x41DFF00000000000) #9
+  tail call void @OSQPVectorf_set_scalar(ptr noundef %38, double noundef 0x41DFF00000000000) #10
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %40 = load ptr, ptr %39, align 8, !tbaa !58
-  tail call void @OSQPVectorf_set_scalar(ptr noundef %40, double noundef 0x41DFF00000000000) #9
+  tail call void @OSQPVectorf_set_scalar(ptr noundef %40, double noundef 0x41DFF00000000000) #10
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !85
   %43 = load ptr, ptr %37, align 8, !tbaa !59
-  tail call void @OSQPVectorf_to_raw(ptr noundef %42, ptr noundef %43) #9
+  tail call void @OSQPVectorf_to_raw(ptr noundef %42, ptr noundef %43) #10
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !86
   %46 = load ptr, ptr %39, align 8, !tbaa !58
-  tail call void @OSQPVectorf_to_raw(ptr noundef %45, ptr noundef %46) #9
+  tail call void @OSQPVectorf_to_raw(ptr noundef %45, ptr noundef %46) #10
   br label %88
 
 47:                                               ; preds = %6, %6, %6, %6, %6
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %49 = load ptr, ptr %48, align 8, !tbaa !56
-  tail call void @OSQPVectorf_set_scalar(ptr noundef %49, double noundef 0x41DFF00000000000) #9
+  tail call void @OSQPVectorf_set_scalar(ptr noundef %49, double noundef 0x41DFF00000000000) #10
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %51 = load ptr, ptr %50, align 8, !tbaa !51
-  tail call void @OSQPVectorf_set_scalar(ptr noundef %51, double noundef 0x41DFF00000000000) #9
+  tail call void @OSQPVectorf_set_scalar(ptr noundef %51, double noundef 0x41DFF00000000000) #10
   %52 = load ptr, ptr %1, align 8, !tbaa !81
   %53 = load ptr, ptr %48, align 8, !tbaa !56
-  tail call void @OSQPVectorf_to_raw(ptr noundef %52, ptr noundef %53) #9
+  tail call void @OSQPVectorf_to_raw(ptr noundef %52, ptr noundef %53) #10
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !84
   %56 = load ptr, ptr %50, align 8, !tbaa !51
-  tail call void @OSQPVectorf_to_raw(ptr noundef %55, ptr noundef %56) #9
-  tail call void @osqp_cold_start(ptr noundef nonnull %0) #9
+  tail call void @OSQPVectorf_to_raw(ptr noundef %55, ptr noundef %56) #10
+  tail call void @osqp_cold_start(ptr noundef nonnull %0) #10
   %57 = load i64, ptr %9, align 8, !tbaa !80
   %.off = add i64 %57, -3
   %switch = icmp ult i64 %.off, 2
@@ -916,21 +916,21 @@ define void @store_solution(ptr noundef %0, ptr noundef readonly captures(addres
 58:                                               ; preds = %47
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %60 = load ptr, ptr %59, align 8, !tbaa !59
-  %61 = tail call double @OSQPVectorf_norm_inf(ptr noundef %60) #9
+  %61 = tail call double @OSQPVectorf_norm_inf(ptr noundef %60) #10
   %62 = load ptr, ptr %59, align 8, !tbaa !59
   %63 = fdiv double 1.000000e+00, %61
-  tail call void @OSQPVectorf_mult_scalar(ptr noundef %62, double noundef %63) #9
+  tail call void @OSQPVectorf_mult_scalar(ptr noundef %62, double noundef %63) #10
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %65 = load ptr, ptr %64, align 8, !tbaa !85
   %66 = load ptr, ptr %59, align 8, !tbaa !59
-  tail call void @OSQPVectorf_to_raw(ptr noundef %65, ptr noundef %66) #9
+  tail call void @OSQPVectorf_to_raw(ptr noundef %65, ptr noundef %66) #10
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %68 = load ptr, ptr %67, align 8, !tbaa !58
-  tail call void @OSQPVectorf_set_scalar(ptr noundef %68, double noundef 0x41DFF00000000000) #9
+  tail call void @OSQPVectorf_set_scalar(ptr noundef %68, double noundef 0x41DFF00000000000) #10
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %70 = load ptr, ptr %69, align 8, !tbaa !86
   %71 = load ptr, ptr %67, align 8, !tbaa !58
-  tail call void @OSQPVectorf_to_raw(ptr noundef %70, ptr noundef %71) #9
+  tail call void @OSQPVectorf_to_raw(ptr noundef %70, ptr noundef %71) #10
   %.pre = load i64, ptr %9, align 8, !tbaa !80
   br label %72
 
@@ -943,21 +943,21 @@ define void @store_solution(ptr noundef %0, ptr noundef readonly captures(addres
 74:                                               ; preds = %72
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %76 = load ptr, ptr %75, align 8, !tbaa !58
-  %77 = tail call double @OSQPVectorf_norm_inf(ptr noundef %76) #9
+  %77 = tail call double @OSQPVectorf_norm_inf(ptr noundef %76) #10
   %78 = load ptr, ptr %75, align 8, !tbaa !58
   %79 = fdiv double 1.000000e+00, %77
-  tail call void @OSQPVectorf_mult_scalar(ptr noundef %78, double noundef %79) #9
+  tail call void @OSQPVectorf_mult_scalar(ptr noundef %78, double noundef %79) #10
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %81 = load ptr, ptr %80, align 8, !tbaa !86
   %82 = load ptr, ptr %75, align 8, !tbaa !58
-  tail call void @OSQPVectorf_to_raw(ptr noundef %81, ptr noundef %82) #9
+  tail call void @OSQPVectorf_to_raw(ptr noundef %81, ptr noundef %82) #10
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %84 = load ptr, ptr %83, align 8, !tbaa !59
-  tail call void @OSQPVectorf_set_scalar(ptr noundef %84, double noundef 0x41DFF00000000000) #9
+  tail call void @OSQPVectorf_set_scalar(ptr noundef %84, double noundef 0x41DFF00000000000) #10
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %86 = load ptr, ptr %85, align 8, !tbaa !85
   %87 = load ptr, ptr %83, align 8, !tbaa !59
-  tail call void @OSQPVectorf_to_raw(ptr noundef %86, ptr noundef %87) #9
+  tail call void @OSQPVectorf_to_raw(ptr noundef %86, ptr noundef %87) #10
   br label %88
 
 88:                                               ; preds = %72, %36, %74, %2
@@ -1032,13 +1032,13 @@ define void @update_info(ptr noundef readonly captures(none) %0, i64 noundef %1,
   %38 = load ptr, ptr %37, align 8, !tbaa !72
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %40 = load ptr, ptr %39, align 8, !tbaa !20
-  tail call void @OSQPMatrix_Axpy(ptr noundef %38, ptr noundef %.057, ptr noundef %40, double noundef 1.000000e+00, double noundef 0.000000e+00) #9
+  tail call void @OSQPMatrix_Axpy(ptr noundef %38, ptr noundef %.057, ptr noundef %40, double noundef 1.000000e+00, double noundef 0.000000e+00) #10
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %42 = load ptr, ptr %41, align 8, !tbaa !52
   %43 = load ptr, ptr %39, align 8, !tbaa !20
-  tail call void @OSQPVectorf_minus(ptr noundef %42, ptr noundef %43, ptr noundef %.058) #9
+  tail call void @OSQPVectorf_minus(ptr noundef %42, ptr noundef %43, ptr noundef %.058) #10
   %44 = load ptr, ptr %41, align 8, !tbaa !52
-  %45 = tail call double @OSQPVectorf_norm_inf(ptr noundef %44) #9
+  %45 = tail call double @OSQPVectorf_norm_inf(ptr noundef %44) #10
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 240
   store double %45, ptr %46, align 8, !tbaa !10
   %47 = getelementptr inbounds nuw i8, ptr %.val, i64 48
@@ -1058,7 +1058,7 @@ define void @update_info(ptr noundef readonly captures(none) %0, i64 noundef %1,
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %56 = load ptr, ptr %55, align 8, !tbaa !79
   %57 = load ptr, ptr %41, align 8, !tbaa !52
-  %58 = tail call double @OSQPVectorf_scaled_norm_inf(ptr noundef %56, ptr noundef %57) #9
+  %58 = tail call double @OSQPVectorf_scaled_norm_inf(ptr noundef %56, ptr noundef %57) #10
   br label %compute_prim_res.exit
 
 compute_prim_res.exit:                            ; preds = %52, %49, %36, %31
@@ -1071,16 +1071,16 @@ compute_prim_res.exit:                            ; preds = %52, %49, %36, %31
   %61 = load ptr, ptr %.val75, align 8, !tbaa !21
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = load ptr, ptr %62, align 8, !tbaa !22
-  tail call void @OSQPVectorf_copy(ptr noundef %60, ptr noundef %63) #9
+  tail call void @OSQPVectorf_copy(ptr noundef %60, ptr noundef %63) #10
   %64 = load ptr, ptr %.val75, align 8, !tbaa !21
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8, !tbaa !77
   %67 = getelementptr inbounds nuw i8, ptr %.val75, i64 120
   %68 = load ptr, ptr %67, align 8, !tbaa !26
-  tail call void @OSQPMatrix_Axpy(ptr noundef %66, ptr noundef %.057, ptr noundef %68, double noundef 1.000000e+00, double noundef 0.000000e+00) #9
+  tail call void @OSQPMatrix_Axpy(ptr noundef %66, ptr noundef %.057, ptr noundef %68, double noundef 1.000000e+00, double noundef 0.000000e+00) #10
   %69 = load ptr, ptr %59, align 8, !tbaa !48
   %70 = load ptr, ptr %67, align 8, !tbaa !26
-  tail call void @OSQPVectorf_plus(ptr noundef %69, ptr noundef %69, ptr noundef %70) #9
+  tail call void @OSQPVectorf_plus(ptr noundef %69, ptr noundef %69, ptr noundef %70) #10
   %71 = load ptr, ptr %.val75, align 8, !tbaa !21
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !93
@@ -1092,15 +1092,15 @@ compute_prim_res.exit:                            ; preds = %52, %49, %36, %31
   %76 = load ptr, ptr %75, align 8, !tbaa !72
   %77 = getelementptr inbounds nuw i8, ptr %.val75, i64 128
   %78 = load ptr, ptr %77, align 8, !tbaa !25
-  tail call void @OSQPMatrix_Atxpy(ptr noundef %76, ptr noundef %.064, ptr noundef %78, double noundef 1.000000e+00, double noundef 0.000000e+00) #9
+  tail call void @OSQPMatrix_Atxpy(ptr noundef %76, ptr noundef %.064, ptr noundef %78, double noundef 1.000000e+00, double noundef 0.000000e+00) #10
   %79 = load ptr, ptr %59, align 8, !tbaa !48
   %80 = load ptr, ptr %77, align 8, !tbaa !25
-  tail call void @OSQPVectorf_plus(ptr noundef %79, ptr noundef %79, ptr noundef %80) #9
+  tail call void @OSQPVectorf_plus(ptr noundef %79, ptr noundef %79, ptr noundef %80) #10
   br label %81
 
 81:                                               ; preds = %74, %compute_prim_res.exit
   %82 = load ptr, ptr %59, align 8, !tbaa !48
-  %83 = tail call double @OSQPVectorf_norm_inf(ptr noundef %82) #9
+  %83 = tail call double @OSQPVectorf_norm_inf(ptr noundef %82) #10
   %84 = getelementptr inbounds nuw i8, ptr %.val75, i64 248
   store double %83, ptr %84, align 8, !tbaa !18
   %85 = getelementptr inbounds nuw i8, ptr %.val74, i64 48
@@ -1122,7 +1122,7 @@ compute_prim_res.exit:                            ; preds = %52, %49, %36, %31
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %96 = load ptr, ptr %95, align 8, !tbaa !74
   %97 = load ptr, ptr %59, align 8, !tbaa !48
-  %98 = tail call double @OSQPVectorf_scaled_norm_inf(ptr noundef %96, ptr noundef %97) #9
+  %98 = tail call double @OSQPVectorf_scaled_norm_inf(ptr noundef %96, ptr noundef %97) #10
   %99 = fmul double %94, %98
   br label %compute_dual_res.exit
 
@@ -1147,7 +1147,7 @@ compute_dual_res.exit:                            ; preds = %81, %87, %90
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 264
   %111 = load ptr, ptr %110, align 8, !tbaa !95
-  %112 = tail call double @osqp_toc(ptr noundef %111) #9
+  %112 = tail call double @osqp_toc(ptr noundef %111) #10
   store double %112, ptr %109, align 8, !tbaa !60
   %113 = load double, ptr %.059, align 8, !tbaa !60
   %114 = load double, ptr %.060, align 8, !tbaa !60
@@ -1174,7 +1174,7 @@ define void @reset_info(ptr noundef initializes((32, 40), (120, 128), (136, 144)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 11, ptr %4, align 8, !tbaa !80
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @OSQP_STATUS_MESSAGE, i64 88), align 8, !tbaa !100
-  tail call void @c_strcpy(ptr noundef %0, ptr noundef %5) #9
+  tail call void @c_strcpy(ptr noundef %0, ptr noundef %5) #10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 0, ptr %6, align 8, !tbaa !35
   ret void
@@ -1186,7 +1186,7 @@ define void @update_status(ptr noundef initializes((32, 40)) %0, i64 noundef %1)
   store i64 %1, ptr %3, align 8, !tbaa !80
   %4 = getelementptr inbounds [12 x ptr], ptr @OSQP_STATUS_MESSAGE, i64 0, i64 %1
   %5 = load ptr, ptr %4, align 8, !tbaa !100
-  tail call void @c_strcpy(ptr noundef %0, ptr noundef %5) #9
+  tail call void @c_strcpy(ptr noundef %0, ptr noundef %5) #10
   ret void
 }
 
@@ -1222,10 +1222,10 @@ define range(i64 0, 2) i64 @check_termination(ptr noundef readonly captures(none
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 9, ptr %24, align 8, !tbaa !80
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @OSQP_STATUS_MESSAGE, i64 72), align 8, !tbaa !100
-  tail call void @c_strcpy(ptr noundef nonnull %4, ptr noundef %25) #9
+  tail call void @c_strcpy(ptr noundef nonnull %4, ptr noundef %25) #10
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store double 0x41DFF00000000000, ptr %26, align 8, !tbaa !108
-  br label %228
+  br label %224
 
 27:                                               ; preds = %19
   %.not = icmp eq i64 %1, 0
@@ -1268,13 +1268,13 @@ define range(i64 0, 2) i64 @check_termination(ptr noundef readonly captures(none
   %48 = load ptr, ptr %47, align 8, !tbaa !79
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %50 = load ptr, ptr %49, align 8, !tbaa !19
-  %51 = tail call double @OSQPVectorf_scaled_norm_inf(ptr noundef %48, ptr noundef %50) #9
+  %51 = tail call double @OSQPVectorf_scaled_norm_inf(ptr noundef %48, ptr noundef %50) #10
   %52 = load ptr, ptr %45, align 8, !tbaa !63
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %54 = load ptr, ptr %53, align 8, !tbaa !79
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %56 = load ptr, ptr %55, align 8, !tbaa !20
-  %57 = tail call double @OSQPVectorf_scaled_norm_inf(ptr noundef %54, ptr noundef %56) #9
+  %57 = tail call double @OSQPVectorf_scaled_norm_inf(ptr noundef %54, ptr noundef %56) #10
   %58 = fcmp ogt double %51, %57
   %59 = select i1 %58, double %51, double %57
   br label %compute_prim_tol.exit
@@ -1282,10 +1282,10 @@ define range(i64 0, 2) i64 @check_termination(ptr noundef readonly captures(none
 60:                                               ; preds = %41, %38
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %62 = load ptr, ptr %61, align 8, !tbaa !19
-  %63 = tail call double @OSQPVectorf_norm_inf(ptr noundef %62) #9
+  %63 = tail call double @OSQPVectorf_norm_inf(ptr noundef %62) #10
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %65 = load ptr, ptr %64, align 8, !tbaa !20
-  %66 = tail call double @OSQPVectorf_norm_inf(ptr noundef %65) #9
+  %66 = tail call double @OSQPVectorf_norm_inf(ptr noundef %65) #10
   %67 = fcmp ogt double %63, %66
   %68 = select i1 %67, double %63, double %66
   br label %compute_prim_tol.exit
@@ -1326,13 +1326,13 @@ compute_prim_tol.exit:                            ; preds = %44, %60
   %87 = load ptr, ptr %.val99, align 8, !tbaa !21
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %89 = load ptr, ptr %88, align 8, !tbaa !22
-  %90 = tail call double @OSQPVectorf_scaled_norm_inf(ptr noundef %86, ptr noundef %89) #9
+  %90 = tail call double @OSQPVectorf_scaled_norm_inf(ptr noundef %86, ptr noundef %89) #10
   %91 = load ptr, ptr %83, align 8, !tbaa !63
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %93 = load ptr, ptr %92, align 8, !tbaa !74
   %94 = getelementptr inbounds nuw i8, ptr %.val99, i64 128
   %95 = load ptr, ptr %94, align 8, !tbaa !25
-  %96 = tail call double @OSQPVectorf_scaled_norm_inf(ptr noundef %93, ptr noundef %95) #9
+  %96 = tail call double @OSQPVectorf_scaled_norm_inf(ptr noundef %93, ptr noundef %95) #10
   %97 = fcmp ogt double %90, %96
   %98 = select i1 %97, double %90, double %96
   %99 = load ptr, ptr %83, align 8, !tbaa !63
@@ -1340,7 +1340,7 @@ compute_prim_tol.exit:                            ; preds = %44, %60
   %101 = load ptr, ptr %100, align 8, !tbaa !74
   %102 = getelementptr inbounds nuw i8, ptr %.val99, i64 120
   %103 = load ptr, ptr %102, align 8, !tbaa !26
-  %104 = tail call double @OSQPVectorf_scaled_norm_inf(ptr noundef %101, ptr noundef %103) #9
+  %104 = tail call double @OSQPVectorf_scaled_norm_inf(ptr noundef %101, ptr noundef %103) #10
   %105 = fcmp ogt double %98, %104
   %106 = select i1 %105, double %98, double %104
   %107 = load ptr, ptr %83, align 8, !tbaa !63
@@ -1353,15 +1353,15 @@ compute_prim_tol.exit:                            ; preds = %44, %60
   %112 = load ptr, ptr %.val99, align 8, !tbaa !21
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
   %114 = load ptr, ptr %113, align 8, !tbaa !22
-  %115 = tail call double @OSQPVectorf_norm_inf(ptr noundef %114) #9
+  %115 = tail call double @OSQPVectorf_norm_inf(ptr noundef %114) #10
   %116 = getelementptr inbounds nuw i8, ptr %.val99, i64 128
   %117 = load ptr, ptr %116, align 8, !tbaa !25
-  %118 = tail call double @OSQPVectorf_norm_inf(ptr noundef %117) #9
+  %118 = tail call double @OSQPVectorf_norm_inf(ptr noundef %117) #10
   %119 = fcmp ogt double %115, %118
   %120 = select i1 %119, double %115, double %118
   %121 = getelementptr inbounds nuw i8, ptr %.val99, i64 120
   %122 = load ptr, ptr %121, align 8, !tbaa !26
-  %123 = tail call double @OSQPVectorf_norm_inf(ptr noundef %122) #9
+  %123 = tail call double @OSQPVectorf_norm_inf(ptr noundef %122) #10
   %124 = fcmp ogt double %120, %123
   %125 = select i1 %124, double %120, double %123
   br label %compute_dual_tol.exit
@@ -1383,7 +1383,7 @@ compute_dual_tol.exit:                            ; preds = %82, %111
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 216
   %134 = load i64, ptr %133, align 8, !tbaa !109
   %.not88 = icmp eq i64 %134, 0
-  br i1 %.not88, label %188, label %135
+  br i1 %.not88, label %184, label %135
 
 135:                                              ; preds = %132
   %.val100 = load ptr, ptr %0, align 8, !tbaa !3
@@ -1397,16 +1397,18 @@ compute_dual_tol.exit:                            ; preds = %82, %111
   %142 = load double, ptr %141, align 8, !tbaa !67
   %143 = fcmp uge double %142, 0.000000e+00
   %144 = fneg double %142
-  %145 = select i1 %143, double %142, double %144
+  %145 = tail call double @llvm.fabs.f64(double %142)
   %146 = fcmp ogt double %140, %145
-  %147 = select i1 %146, double %140, double %145
+  %.mux.i = select i1 %143, double %142, double %144
+  %147 = select i1 %146, double %140, double %.mux.i
   %148 = getelementptr inbounds nuw i8, ptr %.val101, i64 152
   %149 = load double, ptr %148, align 8, !tbaa !68
   %150 = fcmp uge double %149, 0.000000e+00
   %151 = fneg double %149
-  %152 = select i1 %150, double %149, double %151
+  %152 = tail call double @llvm.fabs.f64(double %149)
   %153 = fcmp ogt double %147, %152
-  %154 = select i1 %153, double %147, double %152
+  %.mux4.i = select i1 %150, double %149, double %151
+  %154 = select i1 %153, double %147, double %.mux4.i
   %155 = getelementptr inbounds nuw i8, ptr %.val100, i64 48
   %156 = load i64, ptr %155, align 8, !tbaa !62
   %.not.i104 = icmp eq i64 %156, 0
@@ -1432,132 +1434,128 @@ compute_duality_gap_tol.exit:                     ; preds = %135, %157, %160
   %167 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %168 = load i64, ptr %167, align 8, !tbaa !62
   %.not89 = icmp eq i64 %168, 0
-  br i1 %.not89, label %180, label %169
+  br i1 %.not89, label %178, label %169
 
 169:                                              ; preds = %compute_duality_gap_tol.exit
   %170 = getelementptr inbounds nuw i8, ptr %5, i64 200
   %171 = load i64, ptr %170, align 8, !tbaa !69
   %.not90 = icmp eq i64 %171, 0
-  br i1 %.not90, label %172, label %180
+  br i1 %.not90, label %172, label %178
 
 172:                                              ; preds = %169
   %173 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %174 = load double, ptr %173, align 8, !tbaa !110
-  %175 = fcmp olt double %174, 0.000000e+00
-  %176 = fneg double %174
-  %177 = select i1 %175, double %176, double %174
-  %178 = fcmp olt double %177, %166
-  %179 = and i1 %128, %178
-  %or.cond107 = and i1 %76, %179
-  br i1 %or.cond107, label %189, label %.thread
+  %175 = tail call double @llvm.fabs.f64(double %174)
+  %176 = fcmp olt double %175, %166
+  %177 = and i1 %128, %176
+  %or.cond107 = and i1 %76, %177
+  br i1 %or.cond107, label %185, label %.thread
 
-180:                                              ; preds = %169, %compute_duality_gap_tol.exit
-  %181 = getelementptr inbounds nuw i8, ptr %7, i64 160
-  %182 = load double, ptr %181, align 8, !tbaa !61
-  %183 = fcmp olt double %182, 0.000000e+00
-  %184 = fneg double %182
-  %185 = select i1 %183, double %184, double %182
-  %186 = fcmp olt double %185, %166
-  %187 = and i1 %128, %186
-  %or.cond = and i1 %76, %187
-  br i1 %or.cond, label %189, label %.thread
+178:                                              ; preds = %169, %compute_duality_gap_tol.exit
+  %179 = getelementptr inbounds nuw i8, ptr %7, i64 160
+  %180 = load double, ptr %179, align 8, !tbaa !61
+  %181 = tail call double @llvm.fabs.f64(double %180)
+  %182 = fcmp olt double %181, %166
+  %183 = and i1 %128, %182
+  %or.cond = and i1 %76, %183
+  br i1 %or.cond, label %185, label %.thread
 
-188:                                              ; preds = %132
+184:                                              ; preds = %132
   %or.cond3.old.old = and i1 %76, %128
-  br i1 %or.cond3.old.old, label %189, label %.thread
+  br i1 %or.cond3.old.old, label %185, label %.thread
 
-189:                                              ; preds = %172, %180, %188
-  %190 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  br i1 %.not, label %193, label %191
+185:                                              ; preds = %172, %178, %184
+  %186 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  br i1 %.not, label %189, label %187
 
-191:                                              ; preds = %189
-  store i64 2, ptr %190, align 8, !tbaa !80
-  %192 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @OSQP_STATUS_MESSAGE, i64 16), align 16, !tbaa !100
-  tail call void @c_strcpy(ptr noundef nonnull %4, ptr noundef %192) #9
-  br label %228
+187:                                              ; preds = %185
+  store i64 2, ptr %186, align 8, !tbaa !80
+  %188 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @OSQP_STATUS_MESSAGE, i64 16), align 16, !tbaa !100
+  tail call void @c_strcpy(ptr noundef nonnull %4, ptr noundef %188) #10
+  br label %224
 
-193:                                              ; preds = %189
-  store i64 1, ptr %190, align 8, !tbaa !80
-  %194 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @OSQP_STATUS_MESSAGE, i64 8), align 8, !tbaa !100
-  tail call void @c_strcpy(ptr noundef nonnull %4, ptr noundef %194) #9
-  br label %228
+189:                                              ; preds = %185
+  store i64 1, ptr %186, align 8, !tbaa !80
+  %190 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @OSQP_STATUS_MESSAGE, i64 8), align 8, !tbaa !100
+  tail call void @c_strcpy(ptr noundef nonnull %4, ptr noundef %190) #10
+  br label %224
 
-.thread:                                          ; preds = %172, %180, %188
-  br i1 %.080, label %211, label %195
+.thread:                                          ; preds = %172, %178, %184
+  br i1 %.080, label %207, label %191
 
-195:                                              ; preds = %.thread
-  %196 = getelementptr inbounds nuw i8, ptr %4, i64 32
+191:                                              ; preds = %.thread
+  %192 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %. = select i1 %.not, i64 3, i64 4
-  store i64 %., ptr %196, align 8, !tbaa !80
+  store i64 %., ptr %192, align 8, !tbaa !80
   %.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @OSQP_STATUS_MESSAGE, i64 24), align 8
   %.val113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @OSQP_STATUS_MESSAGE, i64 32), align 16
   %.sink = select i1 %.not, ptr %.val, ptr %.val113
-  tail call void @c_strcpy(ptr noundef nonnull %4, ptr noundef %.sink) #9
-  %197 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %198 = load i64, ptr %197, align 8, !tbaa !62
-  %.not95 = icmp eq i64 %198, 0
-  br i1 %.not95, label %209, label %199
+  tail call void @c_strcpy(ptr noundef nonnull %4, ptr noundef %.sink) #10
+  %193 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %194 = load i64, ptr %193, align 8, !tbaa !62
+  %.not95 = icmp eq i64 %194, 0
+  br i1 %.not95, label %205, label %195
 
-199:                                              ; preds = %195
-  %200 = getelementptr inbounds nuw i8, ptr %5, i64 200
-  %201 = load i64, ptr %200, align 8, !tbaa !69
-  %.not96 = icmp eq i64 %201, 0
-  br i1 %.not96, label %202, label %209
+195:                                              ; preds = %191
+  %196 = getelementptr inbounds nuw i8, ptr %5, i64 200
+  %197 = load i64, ptr %196, align 8, !tbaa !69
+  %.not96 = icmp eq i64 %197, 0
+  br i1 %.not96, label %198, label %205
 
-202:                                              ; preds = %199
-  %203 = getelementptr inbounds nuw i8, ptr %7, i64 168
-  %204 = load ptr, ptr %203, align 8, !tbaa !59
-  %205 = getelementptr inbounds nuw i8, ptr %7, i64 232
-  %206 = load ptr, ptr %205, align 8, !tbaa !63
-  %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
-  %208 = load ptr, ptr %207, align 8, !tbaa !71
-  tail call void @OSQPVectorf_ew_prod(ptr noundef %204, ptr noundef %204, ptr noundef %208) #9
-  br label %209
+198:                                              ; preds = %195
+  %199 = getelementptr inbounds nuw i8, ptr %7, i64 168
+  %200 = load ptr, ptr %199, align 8, !tbaa !59
+  %201 = getelementptr inbounds nuw i8, ptr %7, i64 232
+  %202 = load ptr, ptr %201, align 8, !tbaa !63
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
+  %204 = load ptr, ptr %203, align 8, !tbaa !71
+  tail call void @OSQPVectorf_ew_prod(ptr noundef %200, ptr noundef %200, ptr noundef %204) #10
+  br label %205
 
-209:                                              ; preds = %202, %199, %195
-  %210 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store double 1.000000e+30, ptr %210, align 8, !tbaa !108
-  br label %228
+205:                                              ; preds = %198, %195, %191
+  %206 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store double 1.000000e+30, ptr %206, align 8, !tbaa !108
+  br label %224
 
-211:                                              ; preds = %.thread
-  br i1 %.079, label %228, label %212
+207:                                              ; preds = %.thread
+  br i1 %.079, label %224, label %208
 
-212:                                              ; preds = %211
-  %213 = getelementptr inbounds nuw i8, ptr %4, i64 32
+208:                                              ; preds = %207
+  %209 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.111 = select i1 %.not, i64 5, i64 6
-  store i64 %.111, ptr %213, align 8, !tbaa !80
+  store i64 %.111, ptr %209, align 8, !tbaa !80
   %.val114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @OSQP_STATUS_MESSAGE, i64 40), align 8
   %.val115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @OSQP_STATUS_MESSAGE, i64 48), align 16
   %.sink108 = select i1 %.not, ptr %.val114, ptr %.val115
-  tail call void @c_strcpy(ptr noundef nonnull %4, ptr noundef %.sink108) #9
-  %214 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %215 = load i64, ptr %214, align 8, !tbaa !62
-  %.not93 = icmp eq i64 %215, 0
-  br i1 %.not93, label %226, label %216
+  tail call void @c_strcpy(ptr noundef nonnull %4, ptr noundef %.sink108) #10
+  %210 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %211 = load i64, ptr %210, align 8, !tbaa !62
+  %.not93 = icmp eq i64 %211, 0
+  br i1 %.not93, label %222, label %212
 
-216:                                              ; preds = %212
-  %217 = getelementptr inbounds nuw i8, ptr %5, i64 200
-  %218 = load i64, ptr %217, align 8, !tbaa !69
-  %.not94 = icmp eq i64 %218, 0
-  br i1 %.not94, label %219, label %226
+212:                                              ; preds = %208
+  %213 = getelementptr inbounds nuw i8, ptr %5, i64 200
+  %214 = load i64, ptr %213, align 8, !tbaa !69
+  %.not94 = icmp eq i64 %214, 0
+  br i1 %.not94, label %215, label %222
 
-219:                                              ; preds = %216
-  %220 = getelementptr inbounds nuw i8, ptr %7, i64 184
-  %221 = load ptr, ptr %220, align 8, !tbaa !58
-  %222 = getelementptr inbounds nuw i8, ptr %7, i64 232
-  %223 = load ptr, ptr %222, align 8, !tbaa !63
-  %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
-  %225 = load ptr, ptr %224, align 8, !tbaa !75
-  tail call void @OSQPVectorf_ew_prod(ptr noundef %221, ptr noundef %221, ptr noundef %225) #9
-  br label %226
+215:                                              ; preds = %212
+  %216 = getelementptr inbounds nuw i8, ptr %7, i64 184
+  %217 = load ptr, ptr %216, align 8, !tbaa !58
+  %218 = getelementptr inbounds nuw i8, ptr %7, i64 232
+  %219 = load ptr, ptr %218, align 8, !tbaa !63
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
+  %221 = load ptr, ptr %220, align 8, !tbaa !75
+  tail call void @OSQPVectorf_ew_prod(ptr noundef %217, ptr noundef %217, ptr noundef %221) #10
+  br label %222
 
-226:                                              ; preds = %219, %216, %212
-  %227 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store double -1.000000e+30, ptr %227, align 8, !tbaa !108
-  br label %228
+222:                                              ; preds = %215, %212, %208
+  %223 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store double -1.000000e+30, ptr %223, align 8, !tbaa !108
+  br label %224
 
-228:                                              ; preds = %211, %226, %209, %193, %191, %23
-  %.0 = phi i64 [ 1, %23 ], [ 1, %209 ], [ 1, %226 ], [ 0, %211 ], [ 1, %193 ], [ 1, %191 ]
+224:                                              ; preds = %207, %222, %205, %189, %187, %23
+  %.0 = phi i64 [ 1, %23 ], [ 1, %205 ], [ 1, %222 ], [ 0, %207 ], [ 1, %189 ], [ 1, %187 ]
   ret i64 %.0
 }
 
@@ -1731,13 +1729,13 @@ define range(i64 0, 2) i64 @validate_linsys_solver(i64 noundef %0) local_unnamed
   ]
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @osqp_algebra_linsys_supported() #9
+  %3 = tail call i64 @osqp_algebra_linsys_supported() #10
   %4 = and i64 %3, 2
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %8, label %9
 
 5:                                                ; preds = %1
-  %6 = tail call i64 @osqp_algebra_linsys_supported() #9
+  %6 = tail call i64 @osqp_algebra_linsys_supported() #10
   %7 = and i64 %6, 1
   %.not3 = icmp eq i64 %7, 0
   br i1 %.not3, label %8, label %9
@@ -1775,13 +1773,13 @@ define range(i64 0, 2) i64 @validate_settings(ptr noundef readonly captures(addr
   ]
 
 10:                                               ; preds = %7
-  %11 = tail call i64 @osqp_algebra_linsys_supported() #9
+  %11 = tail call i64 @osqp_algebra_linsys_supported() #10
   %12 = and i64 %11, 2
   %.not.i = icmp eq i64 %12, 0
   br i1 %.not.i, label %validate_linsys_solver.exit, label %18
 
 13:                                               ; preds = %7
-  %14 = tail call i64 @osqp_algebra_linsys_supported() #9
+  %14 = tail call i64 @osqp_algebra_linsys_supported() #10
   %15 = and i64 %14, 1
   %.not3.i = icmp eq i64 %15, 0
   br i1 %.not3.i, label %validate_linsys_solver.exit, label %18
@@ -2145,6 +2143,9 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #8
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #9
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2154,7 +2155,8 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nounwind }
-attributes #9 = { nounwind }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 
