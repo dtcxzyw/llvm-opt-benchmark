@@ -80990,7 +80990,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost13re_detail_50012perl_ma
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i8 %7, ptr %8, align 8, !tbaa !1236
   %9 = icmp sgt i32 %5, 0
-  br i1 %9, label %10, label %133
+  br i1 %9, label %10, label %131
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -81021,13 +81021,13 @@ _ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEE10set_secondES2_mbb.exit: ; 
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %29 = load ptr, ptr %28, align 8, !tbaa !43
   %30 = icmp eq ptr %27, %29
-  br i1 %30, label %134, label %31
+  br i1 %30, label %132, label %31
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds i8, ptr %29, i64 -112
   %33 = load i32, ptr %32, align 8, !tbaa !1299
   %34 = icmp eq i32 %5, %33
-  br i1 %34, label %35, label %134
+  br i1 %34, label %35, label %132
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %29, i64 -104
@@ -81175,7 +81175,7 @@ _ZNSt6vectorIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKcSaINS
   %115 = load i32, ptr %114, align 8, !tbaa !1299
   br label %116
 
-116:                                              ; preds = %107, %113
+116:                                              ; preds = %113, %107
   %117 = phi i32 [ %115, %113 ], [ -2147483645, %107 ]
   store i32 5, ptr %.0.i8, align 8, !tbaa !12
   %118 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 8
@@ -81191,42 +81191,38 @@ _ZNSt6vectorIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKcSaINS
   %123 = load ptr, ptr %122, align 8, !tbaa !1229
   %124 = tail call noundef ptr @_ZN5boost13re_detail_50014repeater_countIPKcE12unwind_untilEiPS4_i(ptr noundef nonnull align 8 dereferenceable(40) %118, i32 noundef %98, ptr noundef nonnull %123, i32 noundef %117)
   %.not.i.i.i = icmp eq ptr %124, null
-  br i1 %.not.i.i.i, label %131, label %125
+  br i1 %.not.i.i.i, label %_ZN5boost13re_detail_50012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE19push_repeater_countEiPPNS0_14repeater_countIS3_EE.exit, label %125
 
 125:                                              ; preds = %116
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %127 = load i64, ptr %126, align 8, !tbaa !1306
-  %128 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 32
-  store i64 %127, ptr %128, align 8, !tbaa !1306
-  %129 = getelementptr inbounds nuw i8, ptr %124, i64 32
-  %130 = load ptr, ptr %129, align 8, !tbaa !1305
-  store ptr %130, ptr %119, align 8, !tbaa !1305
+  %128 = getelementptr inbounds nuw i8, ptr %124, i64 32
+  %129 = load ptr, ptr %128, align 8, !tbaa !1305
+  store ptr %129, ptr %119, align 8, !tbaa !1305
   br label %_ZN5boost13re_detail_50012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE19push_repeater_countEiPPNS0_14repeater_countIS3_EE.exit
 
-131:                                              ; preds = %116
-  %132 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 32
-  store i64 0, ptr %132, align 8, !tbaa !1306
-  br label %_ZN5boost13re_detail_50012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE19push_repeater_countEiPPNS0_14repeater_countIS3_EE.exit
-
-_ZN5boost13re_detail_50012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE19push_repeater_countEiPPNS0_14repeater_countIS3_EE.exit: ; preds = %125, %131
+_ZN5boost13re_detail_50012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE19push_repeater_countEiPPNS0_14repeater_countIS3_EE.exit: ; preds = %116, %125
+  %.sink = phi i64 [ %127, %125 ], [ 0, %116 ]
+  %130 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 32
+  store i64 %.sink, ptr %130, align 8, !tbaa !1306
   store ptr %.0.i8, ptr %49, align 8, !tbaa !1266
   %.pre = load ptr, ptr %2, align 8, !tbaa !1232
-  br label %134
+  br label %132
 
-133:                                              ; preds = %1
-  switch i32 %5, label %138 [
-    i32 -4, label %134
-    i32 0, label %134
+131:                                              ; preds = %1
+  switch i32 %5, label %136 [
+    i32 -4, label %132
+    i32 0, label %132
   ]
 
-134:                                              ; preds = %133, %133, %25, %_ZN5boost13re_detail_50012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE19push_repeater_countEiPPNS0_14repeater_countIS3_EE.exit, %31
-  %135 = phi ptr [ %3, %133 ], [ %3, %133 ], [ %3, %25 ], [ %.pre, %_ZN5boost13re_detail_50012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE19push_repeater_countEiPPNS0_14repeater_countIS3_EE.exit ], [ %3, %31 ]
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %137 = load ptr, ptr %136, align 8, !tbaa !12
-  br label %138
+132:                                              ; preds = %131, %131, %25, %_ZN5boost13re_detail_50012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE19push_repeater_countEiPPNS0_14repeater_countIS3_EE.exit, %31
+  %133 = phi ptr [ %3, %131 ], [ %3, %131 ], [ %3, %25 ], [ %.pre, %_ZN5boost13re_detail_50012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE19push_repeater_countEiPPNS0_14repeater_countIS3_EE.exit ], [ %3, %31 ]
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  %135 = load ptr, ptr %134, align 8, !tbaa !12
+  br label %136
 
-138:                                              ; preds = %133, %134
-  %storemerge = phi ptr [ %137, %134 ], [ null, %133 ]
+136:                                              ; preds = %131, %132
+  %storemerge = phi ptr [ %135, %132 ], [ null, %131 ]
   store ptr %storemerge, ptr %2, align 8, !tbaa !1232
   ret i1 true
 }
@@ -92968,7 +92964,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost13re_detail_50012perl_ma
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i8 %7, ptr %8, align 8, !tbaa !1409
   %9 = icmp sgt i32 %5, 0
-  br i1 %9, label %10, label %133
+  br i1 %9, label %10, label %131
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -92999,13 +92995,13 @@ _ZN5boost13match_resultsIPKwSaINS_9sub_matchIS2_EEEE10set_secondES2_mbb.exit: ; 
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %29 = load ptr, ptr %28, align 8, !tbaa !43
   %30 = icmp eq ptr %27, %29
-  br i1 %30, label %134, label %31
+  br i1 %30, label %132, label %31
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds i8, ptr %29, i64 -112
   %33 = load i32, ptr %32, align 8, !tbaa !1464
   %34 = icmp eq i32 %5, %33
-  br i1 %34, label %35, label %134
+  br i1 %34, label %35, label %132
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %29, i64 -104
@@ -93153,7 +93149,7 @@ _ZNSt6vectorIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKwSaINS
   %115 = load i32, ptr %114, align 8, !tbaa !1464
   br label %116
 
-116:                                              ; preds = %107, %113
+116:                                              ; preds = %113, %107
   %117 = phi i32 [ %115, %113 ], [ -2147483645, %107 ]
   store i32 5, ptr %.0.i8, align 8, !tbaa !12
   %118 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 8
@@ -93169,42 +93165,38 @@ _ZNSt6vectorIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIPKwSaINS
   %123 = load ptr, ptr %122, align 8, !tbaa !1402
   %124 = tail call noundef ptr @_ZN5boost13re_detail_50014repeater_countIPKwE12unwind_untilEiPS4_i(ptr noundef nonnull align 8 dereferenceable(40) %118, i32 noundef %98, ptr noundef nonnull %123, i32 noundef %117)
   %.not.i.i.i = icmp eq ptr %124, null
-  br i1 %.not.i.i.i, label %131, label %125
+  br i1 %.not.i.i.i, label %_ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE19push_repeater_countEiPPNS0_14repeater_countIS3_EE.exit, label %125
 
 125:                                              ; preds = %116
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %127 = load i64, ptr %126, align 8, !tbaa !1471
-  %128 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 32
-  store i64 %127, ptr %128, align 8, !tbaa !1471
-  %129 = getelementptr inbounds nuw i8, ptr %124, i64 32
-  %130 = load ptr, ptr %129, align 8, !tbaa !1470
-  store ptr %130, ptr %119, align 8, !tbaa !1470
+  %128 = getelementptr inbounds nuw i8, ptr %124, i64 32
+  %129 = load ptr, ptr %128, align 8, !tbaa !1470
+  store ptr %129, ptr %119, align 8, !tbaa !1470
   br label %_ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE19push_repeater_countEiPPNS0_14repeater_countIS3_EE.exit
 
-131:                                              ; preds = %116
-  %132 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 32
-  store i64 0, ptr %132, align 8, !tbaa !1471
-  br label %_ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE19push_repeater_countEiPPNS0_14repeater_countIS3_EE.exit
-
-_ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE19push_repeater_countEiPPNS0_14repeater_countIS3_EE.exit: ; preds = %125, %131
+_ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE19push_repeater_countEiPPNS0_14repeater_countIS3_EE.exit: ; preds = %116, %125
+  %.sink = phi i64 [ %127, %125 ], [ 0, %116 ]
+  %130 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 32
+  store i64 %.sink, ptr %130, align 8, !tbaa !1471
   store ptr %.0.i8, ptr %49, align 8, !tbaa !1434
   %.pre = load ptr, ptr %2, align 8, !tbaa !1405
-  br label %134
+  br label %132
 
-133:                                              ; preds = %1
-  switch i32 %5, label %138 [
-    i32 -4, label %134
-    i32 0, label %134
+131:                                              ; preds = %1
+  switch i32 %5, label %136 [
+    i32 -4, label %132
+    i32 0, label %132
   ]
 
-134:                                              ; preds = %133, %133, %25, %_ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE19push_repeater_countEiPPNS0_14repeater_countIS3_EE.exit, %31
-  %135 = phi ptr [ %3, %133 ], [ %3, %133 ], [ %3, %25 ], [ %.pre, %_ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE19push_repeater_countEiPPNS0_14repeater_countIS3_EE.exit ], [ %3, %31 ]
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %137 = load ptr, ptr %136, align 8, !tbaa !12
-  br label %138
+132:                                              ; preds = %131, %131, %25, %_ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE19push_repeater_countEiPPNS0_14repeater_countIS3_EE.exit, %31
+  %133 = phi ptr [ %3, %131 ], [ %3, %131 ], [ %3, %25 ], [ %.pre, %_ZN5boost13re_detail_50012perl_matcherIPKwSaINS_9sub_matchIS3_EEENS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE19push_repeater_countEiPPNS0_14repeater_countIS3_EE.exit ], [ %3, %31 ]
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  %135 = load ptr, ptr %134, align 8, !tbaa !12
+  br label %136
 
-138:                                              ; preds = %133, %134
-  %storemerge = phi ptr [ %137, %134 ], [ null, %133 ]
+136:                                              ; preds = %131, %132
+  %storemerge = phi ptr [ %135, %132 ], [ null, %131 ]
   store ptr %storemerge, ptr %2, align 8, !tbaa !1405
   ret i1 true
 }

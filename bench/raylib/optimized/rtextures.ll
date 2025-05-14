@@ -37017,8 +37017,8 @@ define internal fastcc ptr @stbi__gif_load_next(ptr noundef nonnull %0, ptr noun
   %10 = load i32, ptr %1, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
-  %or.cond307.not = icmp ult i32 %10, 536870912
-  br i1 %or.cond307.not, label %stbi__mul2sizes_valid.exit.thread15.i, label %stbi__skip.exit225.thread.sink.split
+  %.not23.i = icmp ugt i32 %10, 536870911
+  br i1 %.not23.i, label %stbi__skip.exit225.thread.sink.split, label %stbi__mul2sizes_valid.exit.thread15.i
 
 stbi__mul2sizes_valid.exit.thread15.i:            ; preds = %9
   %13 = shl nuw nsw i32 %10, 2
@@ -37096,20 +37096,20 @@ stbi__mad3sizes_valid.exit:                       ; preds = %stbi__mul2sizes_val
 
 .lr.ph271:                                        ; preds = %.preheader256
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %wide.trip.count287 = zext nneg i32 %36 to i64
+  %wide.trip.count288 = zext nneg i32 %36 to i64
   br label %44
 
 44:                                               ; preds = %.lr.ph271, %54
-  %indvars.iv284 = phi i64 [ 0, %.lr.ph271 ], [ %indvars.iv.next285, %54 ]
+  %indvars.iv285 = phi i64 [ 0, %.lr.ph271 ], [ %indvars.iv.next286, %54 ]
   %45 = load ptr, ptr %43, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %indvars.iv284
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %indvars.iv285
   %47 = load i8, ptr %46, align 1
   %.not166 = icmp eq i8 %47, 0
   br i1 %.not166, label %54, label %48
 
 48:                                               ; preds = %44
   %49 = load ptr, ptr %5, align 8
-  %50 = shl nsw i64 %indvars.iv284, 2
+  %50 = shl nsw i64 %indvars.iv285, 2
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 %50
   %53 = load i32, ptr %52, align 1
@@ -37117,9 +37117,9 @@ stbi__mad3sizes_valid.exit:                       ; preds = %stbi__mul2sizes_val
   br label %54
 
 54:                                               ; preds = %44, %48
-  %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
-  %exitcond288.not = icmp eq i64 %indvars.iv.next285, %wide.trip.count287
-  br i1 %exitcond288.not, label %.loopexit, label %44
+  %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
+  %exitcond289.not = icmp eq i64 %indvars.iv.next286, %wide.trip.count288
+  br i1 %exitcond289.not, label %.loopexit, label %44
 
 55:                                               ; preds = %.lr.ph, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
@@ -37156,13 +37156,13 @@ stbi__mad3sizes_valid.exit:                       ; preds = %stbi__mul2sizes_val
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr align 1 %69, i64 %74, i1 false)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre294 = load i32, ptr %1, align 8
-  %.pre296 = load i32, ptr %34, align 4
-  %.pre298 = mul nsw i32 %.pre296, %.pre294
+  %.pre295 = load i32, ptr %1, align 8
+  %.pre297 = load i32, ptr %34, align 4
+  %.pre299 = mul nsw i32 %.pre297, %.pre295
   br label %75
 
 75:                                               ; preds = %.loopexit, %27
-  %.pre-phi = phi i32 [ %.pre298, %.loopexit ], [ %17, %27 ]
+  %.pre-phi = phi i32 [ %.pre299, %.loopexit ], [ %17, %27 ]
   %76 = phi ptr [ %.pre, %.loopexit ], [ %24, %27 ]
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -37348,9 +37348,9 @@ stbi__get8.exit190:                               ; preds = %153, %stbi__refill_
   store i32 %178, ptr %179, align 8
   %180 = and i32 %178, 64
   %.not175 = icmp eq i32 %180, 0
-  %.pre297 = load i32, ptr %138, align 4
-  %181 = shl nsw i32 %.pre297, 3
-  %spec.select = select i1 %.not175, i32 %.pre297, i32 %181
+  %.pre298 = load i32, ptr %138, align 4
+  %181 = shl nsw i32 %.pre298, 3
+  %spec.select = select i1 %.not175, i32 %.pre298, i32 %181
   %spec.select313 = select i1 %.not175, i32 0, i32 3
   br label %182
 
@@ -37864,18 +37864,18 @@ stbi__process_gif_raster.exit:                    ; preds = %255, %stbi__get8.ex
   %420 = load i32, ptr %419, align 4
   %421 = icmp sgt i32 %420, 0
   %422 = icmp sgt i32 %417, 0
-  %or.cond274 = select i1 %421, i1 %422, i1 false
-  br i1 %or.cond274, label %.lr.ph273, label %stbi__skip.exit225.thread
+  %or.cond275 = select i1 %421, i1 %422, i1 false
+  br i1 %or.cond275, label %.lr.ph273, label %stbi__skip.exit225.thread
 
 .lr.ph273:                                        ; preds = %418
   %423 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %wide.trip.count292 = zext nneg i32 %417 to i64
+  %wide.trip.count293 = zext nneg i32 %417 to i64
   br label %424
 
 424:                                              ; preds = %.lr.ph273, %439
-  %indvars.iv289 = phi i64 [ 0, %.lr.ph273 ], [ %indvars.iv.next290, %439 ]
+  %indvars.iv290 = phi i64 [ 0, %.lr.ph273 ], [ %indvars.iv.next291, %439 ]
   %425 = load ptr, ptr %77, align 8
-  %426 = getelementptr inbounds nuw i8, ptr %425, i64 %indvars.iv289
+  %426 = getelementptr inbounds nuw i8, ptr %425, i64 %indvars.iv290
   %427 = load i8, ptr %426, align 1
   %428 = icmp eq i8 %427, 0
   br i1 %428, label %429, label %439
@@ -37887,7 +37887,7 @@ stbi__process_gif_raster.exit:                    ; preds = %255, %stbi__get8.ex
   %gep = getelementptr i8, ptr %94, i64 %.idx182
   store i8 -1, ptr %gep, align 1
   %432 = load ptr, ptr %5, align 8
-  %433 = shl nsw i64 %indvars.iv289, 2
+  %433 = shl nsw i64 %indvars.iv290, 2
   %434 = getelementptr inbounds nuw i8, ptr %432, i64 %433
   %435 = load i32, ptr %419, align 4
   %436 = sext i32 %435 to i64
@@ -37897,9 +37897,9 @@ stbi__process_gif_raster.exit:                    ; preds = %255, %stbi__get8.ex
   br label %439
 
 439:                                              ; preds = %424, %429
-  %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
-  %exitcond293.not = icmp eq i64 %indvars.iv.next290, %wide.trip.count292
-  br i1 %exitcond293.not, label %stbi__skip.exit225.thread, label %424
+  %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
+  %exitcond294.not = icmp eq i64 %indvars.iv.next291, %wide.trip.count293
+  br i1 %exitcond294.not, label %stbi__skip.exit225.thread, label %424
 
 440:                                              ; preds = %stbi__get8.exit
   %441 = icmp ult ptr %123, %122

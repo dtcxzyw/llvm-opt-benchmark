@@ -10066,8 +10066,8 @@ _ZL13stbi__get16beP13stbi__context.exit273:       ; preds = %358, %361, %_ZL19st
   br label %704
 
 386:                                              ; preds = %_ZL13stbi__get16beP13stbi__context.exit273
-  %or.cond.not = icmp ult i32 %145, 536870912
-  br i1 %or.cond.not, label %_ZL21stbi__mul2sizes_validii.exit.thread15.i, label %391
+  %.not23.i = icmp ugt i32 %145, 536870911
+  br i1 %.not23.i, label %391, label %_ZL21stbi__mul2sizes_validii.exit.thread15.i
 
 _ZL21stbi__mul2sizes_validii.exit.thread15.i:     ; preds = %386
   %387 = shl nuw nsw i32 %145, 2

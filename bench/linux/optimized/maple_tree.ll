@@ -2048,14 +2048,14 @@ define dso_local i32 @mas_empty_area_rev(ptr noundef captures(none) %0, i64 noun
   %91 = ptrtoint ptr %90 to i64
   %92 = and i64 %91, 1
   %93 = icmp eq i64 %92, 0
-  br i1 %93, label %.lr.ph188, label %.preheader52._crit_edge
+  br i1 %93, label %.lr.ph189, label %.preheader52._crit_edge
 
 94:                                               ; preds = %82
   %95 = add i8 %84, -2
   store i8 %95, ptr %83, align 1
   br label %110
 
-.preheader52:                                     ; preds = %.lr.ph188
+.preheader52:                                     ; preds = %.lr.ph189
   %96 = load ptr, ptr %5, align 8
   %97 = ptrtoint ptr %96 to i64
   %98 = and i64 %97, -256
@@ -2064,20 +2064,20 @@ define dso_local i32 @mas_empty_area_rev(ptr noundef captures(none) %0, i64 noun
   %101 = ptrtoint ptr %100 to i64
   %102 = and i64 %101, 1
   %103 = icmp eq i64 %102, 0
-  br i1 %103, label %.lr.ph188, label %.preheader52._crit_edge, !llvm.loop !27
+  br i1 %103, label %.lr.ph189, label %.preheader52._crit_edge, !llvm.loop !27
 
 .preheader52._crit_edge:                          ; preds = %.preheader52, %.preheader52.preheader
-  %.lcssa185 = phi i8 [ %84, %.preheader52.preheader ], [ 0, %.preheader52 ]
-  %104 = icmp eq i8 %.lcssa185, 0
+  %.lcssa186 = phi i8 [ %84, %.preheader52.preheader ], [ 0, %.preheader52 ]
+  %104 = icmp eq i8 %.lcssa186, 0
   br i1 %104, label %.loopexit50, label %.thread
 
-.lr.ph188:                                        ; preds = %.preheader52.preheader, %.preheader52
+.lr.ph189:                                        ; preds = %.preheader52.preheader, %.preheader52
   %105 = tail call fastcc i32 @mas_ascend(ptr noundef %0), !range !25
   %106 = load i8, ptr %83, align 1
   %107 = icmp eq i8 %106, 0
   br i1 %107, label %.preheader52, label %.thread.loopexit, !llvm.loop !27
 
-.thread.loopexit:                                 ; preds = %.lr.ph188
+.thread.loopexit:                                 ; preds = %.lr.ph189
   %108 = add i8 %106, -1
   br label %.thread
 
@@ -2096,9 +2096,9 @@ define dso_local i32 @mas_empty_area_rev(ptr noundef captures(none) %0, i64 noun
 115:                                              ; preds = %110
   %116 = icmp ne i32 %112, 3
   %117 = icmp eq i64 %1, 0
-  %.not143 = and i1 %117, %116
+  %.not79 = and i1 %117, %116
   %118 = icmp ult i64 %2, %3
-  %or.cond = and i1 %.not143, %118
+  %or.cond = and i1 %.not79, %118
   br i1 %or.cond, label %.loopexit50, label %119, !prof !28
 
 119:                                              ; preds = %115
@@ -2133,13 +2133,13 @@ define dso_local i32 @mas_empty_area_rev(ptr noundef captures(none) %0, i64 noun
 
 135:                                              ; preds = %.lr.ph, %.thread44
   %136 = phi i8 [ %133, %.lr.ph ], [ %337, %.thread44 ]
-  %.in72.in.in = load ptr, ptr %5, align 8
-  %.in72.in = ptrtoint ptr %.in72.in.in to i64
-  %.in.in73 = trunc i64 %.in72.in to i32
-  %.in = lshr i32 %.in.in73, 3
+  %.in74.in.in = load ptr, ptr %5, align 8
+  %.in74.in = ptrtoint ptr %.in74.in.in to i64
+  %.in.in75 = trunc i64 %.in74.in to i32
+  %.in = lshr i32 %.in.in75, 3
   %137 = and i32 %.in, 15
-  %.in72 = and i64 %.in72.in, -256
-  %138 = inttoptr i64 %.in72 to ptr
+  %.in74 = and i64 %.in74.in, -256
+  %138 = inttoptr i64 %.in74 to ptr
   switch i32 %137, label %147 [
     i32 0, label %139
     i32 3, label %.thread36
@@ -2439,7 +2439,7 @@ define dso_local i32 @mas_empty_area_rev(ptr noundef captures(none) %0, i64 noun
   br label %312
 
 312:                                              ; preds = %305, %307, %.thread41
-  %313 = phi ptr [ %.pre, %305 ], [ %.in72.in.in, %307 ], [ inttoptr (i64 -62 to ptr), %.thread41 ]
+  %313 = phi ptr [ %.pre, %305 ], [ %.in74.in.in, %307 ], [ inttoptr (i64 -62 to ptr), %.thread41 ]
   %314 = phi i8 [ %306, %305 ], [ %136, %307 ], [ %136, %.thread41 ]
   %315 = icmp eq ptr %134, %313
   br i1 %315, label %.preheader.preheader, label %.loopexit49
@@ -2453,9 +2453,9 @@ define dso_local i32 @mas_empty_area_rev(ptr noundef captures(none) %0, i64 noun
   %321 = ptrtoint ptr %320 to i64
   %322 = and i64 %321, 1
   %323 = icmp eq i64 %322, 0
-  br i1 %323, label %.lr.ph189, label %.preheader._crit_edge
+  br i1 %323, label %.lr.ph190, label %.preheader._crit_edge
 
-.preheader:                                       ; preds = %.lr.ph189
+.preheader:                                       ; preds = %.lr.ph190
   %324 = load ptr, ptr %5, align 8
   %325 = ptrtoint ptr %324 to i64
   %326 = and i64 %325, -256
@@ -2464,21 +2464,21 @@ define dso_local i32 @mas_empty_area_rev(ptr noundef captures(none) %0, i64 noun
   %329 = ptrtoint ptr %328 to i64
   %330 = and i64 %329, 1
   %331 = icmp eq i64 %330, 0
-  br i1 %331, label %.lr.ph189, label %.preheader._crit_edge, !llvm.loop !27
+  br i1 %331, label %.lr.ph190, label %.preheader._crit_edge, !llvm.loop !27
 
 .preheader._crit_edge:                            ; preds = %.preheader, %.preheader.preheader
-  %.lcssa159 = phi i8 [ %314, %.preheader.preheader ], [ 0, %.preheader ]
-  %332 = icmp eq i8 %.lcssa159, 0
+  %.lcssa160 = phi i8 [ %314, %.preheader.preheader ], [ 0, %.preheader ]
+  %332 = icmp eq i8 %.lcssa160, 0
   br i1 %332, label %.loopexit50, label %.thread44
 
-.lr.ph189:                                        ; preds = %.preheader.preheader, %.preheader
+.lr.ph190:                                        ; preds = %.preheader.preheader, %.preheader
   %333 = tail call fastcc i32 @mas_ascend(ptr noundef %0), !range !25
   %334 = load i8, ptr %128, align 1
   %335 = icmp eq i8 %334, 0
   br i1 %335, label %.preheader, label %.thread44, !llvm.loop !27
 
-.thread44:                                        ; preds = %.lr.ph189, %.preheader._crit_edge
-  %336 = phi i8 [ %.lcssa159, %.preheader._crit_edge ], [ %334, %.lr.ph189 ]
+.thread44:                                        ; preds = %.lr.ph190, %.preheader._crit_edge
+  %336 = phi i8 [ %.lcssa160, %.preheader._crit_edge ], [ %334, %.lr.ph190 ]
   %337 = add i8 %336, -1
   store i8 %337, ptr %128, align 1
   %338 = load i32, ptr %15, align 8
@@ -2514,14 +2514,14 @@ define dso_local i32 @mas_empty_area_rev(ptr noundef captures(none) %0, i64 noun
 
 356:                                              ; preds = %355, %352
   %357 = phi i64 [ %.ph.ph, %355 ], [ %353, %352 ]
-  %reass.sub74 = sub i64 %357, %3
-  %358 = add i64 %reass.sub74, 1
+  %reass.sub76 = sub i64 %357, %3
+  %358 = add i64 %reass.sub76, 1
   store i64 %358, ptr %125, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !19
   %359 = load ptr, ptr %138, align 256
   %360 = ptrtoint ptr %359 to i64
   %361 = and i64 %360, -256
-  %362 = icmp eq i64 %361, %.in72
+  %362 = icmp eq i64 %361, %.in74
   br i1 %362, label %380, label %363, !prof !12
 
 363:                                              ; preds = %356

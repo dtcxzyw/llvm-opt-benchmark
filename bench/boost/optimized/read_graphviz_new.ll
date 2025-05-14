@@ -53358,7 +53358,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost13re_detail_50012perl_ma
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i8 %7, ptr %8, align 8, !tbaa !879
   %9 = icmp sgt i32 %5, 0
-  br i1 %9, label %10, label %131
+  br i1 %9, label %10, label %129
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -53390,13 +53390,13 @@ _ZN5boost13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_st
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %28 = load ptr, ptr %27, align 8, !tbaa !45
   %29 = icmp eq ptr %26, %28
-  br i1 %29, label %132, label %30
+  br i1 %29, label %130, label %30
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds i8, ptr %28, i64 -112
   %32 = load i32, ptr %31, align 8, !tbaa !932
   %33 = icmp eq i32 %5, %32
-  br i1 %33, label %34, label %132
+  br i1 %33, label %34, label %130
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %28, i64 -104
@@ -53544,7 +53544,7 @@ _ZNSt6vectorIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIN9__gnu_
   %113 = load i32, ptr %112, align 8, !tbaa !932
   br label %114
 
-114:                                              ; preds = %106, %111
+114:                                              ; preds = %111, %106
   %115 = phi i32 [ %113, %111 ], [ -2147483645, %106 ]
   store i32 5, ptr %.0.i8, align 8, !tbaa !16
   %116 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 8
@@ -53560,41 +53560,37 @@ _ZNSt6vectorIN5boost13re_detail_50014recursion_infoINS0_13match_resultsIN9__gnu_
   %121 = load ptr, ptr %120, align 8, !tbaa !872
   %122 = tail call noundef ptr @_ZN5boost13re_detail_50014repeater_countIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE12unwind_untilEiPSD_i(ptr noundef nonnull align 8 dereferenceable(40) %116, i32 noundef %97, ptr noundef nonnull %121, i32 noundef %115)
   %.not.i.i.i = icmp eq ptr %122, null
-  br i1 %.not.i.i.i, label %129, label %123
+  br i1 %.not.i.i.i, label %_ZN5boost13re_detail_50012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE19push_repeater_countEiPPNS0_14repeater_countISC_EE.exit, label %123
 
 123:                                              ; preds = %114
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %125 = load i64, ptr %124, align 8, !tbaa !938
-  %126 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 32
-  store i64 %125, ptr %126, align 8, !tbaa !938
-  %127 = getelementptr inbounds nuw i8, ptr %122, i64 32
-  %128 = load i64, ptr %127, align 8, !tbaa !45
-  store i64 %128, ptr %117, align 8, !tbaa !45
+  %126 = getelementptr inbounds nuw i8, ptr %122, i64 32
+  %127 = load i64, ptr %126, align 8, !tbaa !45
+  store i64 %127, ptr %117, align 8, !tbaa !45
   br label %_ZN5boost13re_detail_50012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE19push_repeater_countEiPPNS0_14repeater_countISC_EE.exit
 
-129:                                              ; preds = %114
-  %130 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 32
-  store i64 0, ptr %130, align 8, !tbaa !938
-  br label %_ZN5boost13re_detail_50012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE19push_repeater_countEiPPNS0_14repeater_countISC_EE.exit
-
-_ZN5boost13re_detail_50012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE19push_repeater_countEiPPNS0_14repeater_countISC_EE.exit: ; preds = %123, %129
+_ZN5boost13re_detail_50012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE19push_repeater_countEiPPNS0_14repeater_countISC_EE.exit: ; preds = %114, %123
+  %.sink = phi i64 [ %125, %123 ], [ 0, %114 ]
+  %128 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 32
+  store i64 %.sink, ptr %128, align 8, !tbaa !938
   store ptr %.0.i8, ptr %48, align 8, !tbaa !903
-  br label %132
+  br label %130
 
-131:                                              ; preds = %1
-  switch i32 %5, label %136 [
-    i32 -4, label %132
-    i32 0, label %132
+129:                                              ; preds = %1
+  switch i32 %5, label %134 [
+    i32 -4, label %130
+    i32 0, label %130
   ]
 
-132:                                              ; preds = %131, %131, %24, %_ZN5boost13re_detail_50012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE19push_repeater_countEiPPNS0_14repeater_countISC_EE.exit, %30
-  %133 = load ptr, ptr %2, align 8, !tbaa !875
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %135 = load ptr, ptr %134, align 8, !tbaa !16
-  br label %136
+130:                                              ; preds = %129, %129, %24, %_ZN5boost13re_detail_50012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE19push_repeater_countEiPPNS0_14repeater_countISC_EE.exit, %30
+  %131 = load ptr, ptr %2, align 8, !tbaa !875
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  %133 = load ptr, ptr %132, align 8, !tbaa !16
+  br label %134
 
-136:                                              ; preds = %131, %132
-  %storemerge = phi ptr [ %135, %132 ], [ null, %131 ]
+134:                                              ; preds = %129, %130
+  %storemerge = phi ptr [ %133, %130 ], [ null, %129 ]
   store ptr %storemerge, ptr %2, align 8, !tbaa !875
   ret i1 true
 }

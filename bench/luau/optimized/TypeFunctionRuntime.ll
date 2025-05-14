@@ -11370,166 +11370,97 @@ _ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_16TypeFunctionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(152) %2) local_unnamed_addr #2 {
-  %4 = alloca %"struct.std::pair", align 8
-  %5 = load i32, ptr %1, align 8, !tbaa !31
-  %6 = load i32, ptr %2, align 8, !tbaa !31
-  %.not = icmp eq i32 %5, %6
-  br i1 %.not, label %7, label %_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionNegationTypeESC_.exit
+  %4 = load i32, ptr %1, align 8, !tbaa !31
+  %5 = load i32, ptr %2, align 8, !tbaa !31
+  %.not = icmp eq i32 %4, %5
+  br i1 %.not, label %6, label %46
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  switch i32 %5, label %56 [
-    i32 0, label %10
-    i32 1, label %_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionNegationTypeESC_.exit
-    i32 2, label %_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionNegationTypeESC_.exit
-    i32 3, label %_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionNegationTypeESC_.exit
-    i32 4, label %14
-    i32 5, label %16
-    i32 6, label %18
-    i32 7, label %20
-    i32 9, label %50
-    i32 8, label %52
-    i32 10, label %54
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %or.cond = icmp eq i32 %4, 0
+  br i1 %or.cond, label %9, label %13
+
+9:                                                ; preds = %6
+  %10 = load i32, ptr %7, align 8, !tbaa !105
+  %11 = load i32, ptr %8, align 8, !tbaa !105
+  %12 = icmp eq i32 %10, %11
+  br label %46
+
+13:                                               ; preds = %6
+  %switch = icmp ult i32 %4, 4
+  br i1 %switch, label %46, label %14
+
+14:                                               ; preds = %13
+  switch i32 %4, label %29 [
+    i32 4, label %15
+    i32 5, label %17
+    i32 6, label %19
+    i32 7, label %21
+    i32 9, label %23
+    i32 8, label %25
+    i32 10, label %27
   ]
 
-10:                                               ; preds = %7
-  %11 = load i32, ptr %8, align 8, !tbaa !105
-  %12 = load i32, ptr %9, align 8, !tbaa !105
-  %13 = icmp eq i32 %11, %12
-  br label %_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionNegationTypeESC_.exit
+15:                                               ; preds = %14
+  %16 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_25TypeFunctionSingletonTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %8)
+  br label %46
 
-14:                                               ; preds = %7
-  %15 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_25TypeFunctionSingletonTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %9)
-  br label %_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionNegationTypeESC_.exit
+17:                                               ; preds = %14
+  %18 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_21TypeFunctionUnionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  br label %46
 
-16:                                               ; preds = %7
-  %17 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_21TypeFunctionUnionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9)
-  br label %_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionNegationTypeESC_.exit
+19:                                               ; preds = %14
+  %20 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_28TypeFunctionIntersectionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  br label %46
 
-18:                                               ; preds = %7
-  %19 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_28TypeFunctionIntersectionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9)
-  br label %_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionNegationTypeESC_.exit
+21:                                               ; preds = %14
+  %22 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionNegationTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  br label %46
 
-20:                                               ; preds = %7
-  %21 = icmp eq ptr %1, %2
-  br i1 %21, label %_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionNegationTypeESC_.exit, label %22
+23:                                               ; preds = %14
+  %24 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_21TypeFunctionTableTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(88) %8)
+  br label %46
 
-22:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #27
-  store ptr %8, ptr %4, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %9, ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !73
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.not11.i.i.i.i.i = icmp eq ptr %25, null
-  br i1 %.not11.i.i.i.i.i, label %45, label %.lr.ph.i.i.i.i.i
+25:                                               ; preds = %14
+  %26 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionFunctionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %8)
+  br label %46
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %22, %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.thread10.i.i.i.i.i
-  %.013.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.thread10.i.i.i.i.i ], [ %25, %22 ]
-  %.0812.i.i.i.i.i = phi ptr [ %.19.i.i.i.i.i, %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.thread10.i.i.i.i.i ], [ %26, %22 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 32
-  %28 = load ptr, ptr %27, align 8, !tbaa !128
-  %29 = icmp ult ptr %28, %8
-  br i1 %29, label %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.thread.i.i.i.i.i, label %30
+27:                                               ; preds = %14
+  %28 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_21TypeFunctionClassTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(144) %8)
+  br label %46
 
-30:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %31 = icmp ult ptr %8, %28
-  br i1 %31, label %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.thread10.i.i.i.i.i, label %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.i.i.i.i.i
+29:                                               ; preds = %14
+  %30 = icmp eq i32 %4, 11
+  br i1 %30, label %31, label %45
 
-_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.i.i.i.i.i: ; preds = %30
-  %32 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 40
-  %33 = load ptr, ptr %32, align 8, !tbaa !130
-  %34 = icmp ult ptr %33, %9
-  br i1 %34, label %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.thread.i.i.i.i.i, label %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.thread10.i.i.i.i.i
+31:                                               ; preds = %29
+  %32 = load i8, ptr %7, align 8, !tbaa !95, !range !101, !noundef !102
+  %33 = load i8, ptr %8, align 8, !tbaa !95, !range !101, !noundef !102
+  %34 = icmp eq i8 %32, %33
+  br i1 %34, label %35, label %45
 
-_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.thread.i.i.i.i.i: ; preds = %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  br label %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.thread10.i.i.i.i.i
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %37 = load i8, ptr %36, align 1, !tbaa !97, !range !101, !noundef !102
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 9
+  %39 = load i8, ptr %38, align 1, !tbaa !97, !range !101, !noundef !102
+  %40 = icmp eq i8 %37, %39
+  br i1 %40, label %41, label %45
 
-_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.thread10.i.i.i.i.i: ; preds = %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.thread.i.i.i.i.i, %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.i.i.i.i.i, %30
-  %.sink.i.i.i.i.i = phi i64 [ 24, %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.thread.i.i.i.i.i ], [ 16, %30 ], [ 16, %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.i.i.i.i.i ]
-  %.19.i.i.i.i.i = phi ptr [ %.0812.i.i.i.i.i, %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.thread.i.i.i.i.i ], [ %.013.i.i.i.i.i, %30 ], [ %.013.i.i.i.i.i, %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.i.i.i.i.i ]
-  %35 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 %.sink.i.i.i.i.i
-  %.1.i.i.i.i.i = load ptr, ptr %35, align 8, !tbaa !78
-  %.not.i.i.i.i.i = icmp eq ptr %.1.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt8_Rb_treeISt4pairIPKvS2_ES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !131
+41:                                               ; preds = %35
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %44 = tail call noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %43) #27
+  br label %45
 
-_ZNSt8_Rb_treeISt4pairIPKvS2_ES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i.i.i: ; preds = %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.thread10.i.i.i.i.i
-  %36 = icmp eq ptr %.19.i.i.i.i.i, %26
-  br i1 %36, label %45, label %37
+45:                                               ; preds = %29, %31, %35, %41
+  %.9 = phi i1 [ false, %35 ], [ false, %31 ], [ %44, %41 ], [ undef, %29 ]
+  %spec.select = and i1 %30, %.9
+  br label %46
 
-37:                                               ; preds = %_ZNSt8_Rb_treeISt4pairIPKvS2_ES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i.i.i
-  %38 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i, i64 32
-  %39 = load ptr, ptr %38, align 8, !tbaa !128
-  %40 = icmp ult ptr %8, %39
-  br i1 %40, label %45, label %41
-
-41:                                               ; preds = %37
-  %42 = icmp ult ptr %39, %8
-  br i1 %42, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread8.i, label %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.i.i.i.i
-
-_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.i.i.i.i: ; preds = %41
-  %43 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i, i64 40
-  %44 = load ptr, ptr %43, align 8, !tbaa !130
-  %.not.i.i = icmp ult ptr %9, %44
-  br i1 %.not.i.i, label %45, label %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread8.i
-
-_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread8.i: ; preds = %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.i.i.i.i, %41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #27
-  br label %_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionNegationTypeESC_.exit
-
-45:                                               ; preds = %_ZNKSt4lessISt4pairIPKvS2_EEclERKS3_S6_.exit.i.i.i.i, %37, %_ZNSt8_Rb_treeISt4pairIPKvS2_ES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i.i.i, %22
-  %46 = call { ptr, i8 } @_ZNSt8_Rb_treeISt4pairIPKvS2_ES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EES0_ISt17_Rb_tree_iteratorIS3_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #27
-  %47 = load ptr, ptr %8, align 8, !tbaa !103
-  %48 = load ptr, ptr %9, align 8, !tbaa !103
-  %49 = call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_16TypeFunctionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(152) %47, ptr noundef nonnull align 8 dereferenceable(152) %48)
-  br label %_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionNegationTypeESC_.exit
-
-50:                                               ; preds = %7
-  %51 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_21TypeFunctionTableTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(88) %8, ptr noundef nonnull align 8 dereferenceable(88) %9)
-  br label %_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionNegationTypeESC_.exit
-
-52:                                               ; preds = %7
-  %53 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionFunctionTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %9)
-  br label %_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionNegationTypeESC_.exit
-
-54:                                               ; preds = %7
-  %55 = tail call noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_21TypeFunctionClassTypeESC_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull align 8 dereferenceable(144) %9)
-  br label %_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionNegationTypeESC_.exit
-
-56:                                               ; preds = %7
-  %57 = icmp eq i32 %5, 11
-  br i1 %57, label %58, label %72
-
-58:                                               ; preds = %56
-  %59 = load i8, ptr %8, align 8, !tbaa !95, !range !101, !noundef !102
-  %60 = load i8, ptr %9, align 8, !tbaa !95, !range !101, !noundef !102
-  %61 = icmp eq i8 %59, %60
-  br i1 %61, label %62, label %72
-
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %64 = load i8, ptr %63, align 1, !tbaa !97, !range !101, !noundef !102
-  %65 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %66 = load i8, ptr %65, align 1, !tbaa !97, !range !101, !noundef !102
-  %67 = icmp eq i8 %64, %66
-  br i1 %67, label %68, label %72
-
-68:                                               ; preds = %62
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %71 = tail call noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %70) #27
-  br label %72
-
-72:                                               ; preds = %56, %58, %62, %68
-  %.9 = phi i1 [ false, %62 ], [ false, %58 ], [ %71, %68 ], [ undef, %56 ]
-  %spec.select = and i1 %57, %.9
-  br label %_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionNegationTypeESC_.exit
-
-_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_24TypeFunctionNegationTypeESC_.exit: ; preds = %45, %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread8.i, %20, %7, %7, %7, %54, %52, %50, %18, %16, %14, %10, %72, %3
-  %.0 = phi i1 [ %13, %10 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ false, %3 ], [ %spec.select, %72 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ %49, %45 ], [ true, %_ZN4Luau15seenSetContainsERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EES3_S3_.exit.thread8.i ], [ true, %20 ]
+46:                                               ; preds = %13, %27, %25, %23, %21, %19, %17, %15, %9, %45, %3
+  %.0 = phi i1 [ %12, %9 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ false, %3 ], [ %spec.select, %45 ], [ true, %13 ]
   ret i1 %.0
 }
 

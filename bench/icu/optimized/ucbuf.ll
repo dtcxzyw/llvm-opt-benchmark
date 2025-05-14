@@ -570,11 +570,11 @@ define i32 @ucbuf_getcx32(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 15:                                               ; preds = %9
   %16 = tail call fastcc noundef ptr @_ZL15ucbuf_fillucbufP8UCHARBUFP10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %.pre = load ptr, ptr %10, align 8, !tbaa !16
-  %.pre57 = load ptr, ptr %12, align 8, !tbaa !19
+  %.pre58 = load ptr, ptr %12, align 8, !tbaa !19
   br label %17
 
 17:                                               ; preds = %15, %9
-  %18 = phi ptr [ %.pre57, %15 ], [ %13, %9 ]
+  %18 = phi ptr [ %.pre58, %15 ], [ %13, %9 ]
   %19 = phi ptr [ %.pre, %15 ], [ %11, %9 ]
   %20 = icmp ult ptr %19, %18
   br i1 %20, label %21, label %.thread
@@ -641,7 +641,7 @@ define i32 @ucbuf_getcx32(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 56:                                               ; preds = %43
   %.not53 = icmp ne i32 %44, %26
-  %57 = icmp eq i16 %25, 117
+  %57 = icmp eq i32 %44, 117
   %or.cond = or i1 %.not53, %57
   br i1 %or.cond, label %58, label %.thread
 

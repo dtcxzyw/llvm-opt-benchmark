@@ -182,8 +182,8 @@ define noundef zeroext i1 @_ZN9RSCoder164InitEjjPb(ptr noundef nonnull align 8 c
 
 .preheader41:                                     ; preds = %.lr.ph.preheader, %16
   %.promoted = load i32, ptr %7, align 4
-  %.not48 = icmp eq i32 %18, 0
-  br i1 %.not48, label %.preheader, label %.lr.ph44.preheader
+  %.not49 = icmp eq i32 %18, 0
+  br i1 %.not49, label %.preheader, label %.lr.ph44.preheader
 
 .lr.ph44.preheader:                               ; preds = %.preheader41
   %wide.trip.count = zext i32 %18 to i64
@@ -192,7 +192,7 @@ define noundef zeroext i1 @_ZN9RSCoder164InitEjjPb(ptr noundef nonnull align 8 c
 .preheader:                                       ; preds = %31, %.preheader41
   %22 = phi i32 [ %.promoted, %.preheader41 ], [ %32, %31 ]
   %23 = icmp ult i32 %18, %19
-  br i1 %23, label %.lr.ph47.preheader, label %._crit_edge
+  br i1 %23, label %.lr.ph47.preheader, label %_ZN9RSCoder1617MakeEncoderMatrixEv.exit
 
 .lr.ph47.preheader:                               ; preds = %.preheader
   %24 = zext i32 %18 to i64
@@ -217,11 +217,10 @@ define noundef zeroext i1 @_ZN9RSCoder164InitEjjPb(ptr noundef nonnull align 8 c
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %.lr.ph44, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %.lr.ph47, %.preheader
-  %.021.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %.lr.ph47 ]
+._crit_edge:                                      ; preds = %.lr.ph47
   %33 = add i32 %22, -1
-  %or.cond.not = icmp ult i32 %33, %.021.lcssa
-  br i1 %or.cond.not, label %._crit_edge61, label %_ZN9RSCoder1617MakeEncoderMatrixEv.exit
+  %or.cond = icmp ult i32 %33, %spec.select
+  br i1 %or.cond, label %._crit_edge61, label %_ZN9RSCoder1617MakeEncoderMatrixEv.exit
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %.lr.ph47
   %indvars.iv52 = phi i64 [ %24, %.lr.ph47.preheader ], [ %indvars.iv.next53, %.lr.ph47 ]
@@ -234,9 +233,9 @@ define noundef zeroext i1 @_ZN9RSCoder164InitEjjPb(ptr noundef nonnull align 8 c
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %20
   br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph47, !llvm.loop !28
 
-._crit_edge61:                                    ; preds = %._crit_edge, %4
-  %37 = phi i32 [ %2, %4 ], [ %17, %._crit_edge ]
-  %38 = phi i32 [ %1, %4 ], [ %18, %._crit_edge ]
+._crit_edge61:                                    ; preds = %4, %._crit_edge
+  %37 = phi i32 [ %17, %._crit_edge ], [ %2, %4 ]
+  %38 = phi i32 [ %18, %._crit_edge ], [ %1, %4 ]
   %39 = add i32 %37, %38
   %40 = icmp ugt i32 %39, 65535
   %41 = icmp eq i32 %38, 0
@@ -357,8 +356,8 @@ _ZN9RSCoder1617MakeDecoderMatrixEv.exit:          ; preds = %92, %52
   store ptr %101, ptr %44, align 8, !tbaa !19
   %.not.i34 = icmp eq i32 %97, 0
   %.not13.i = icmp eq i32 %51, 0
-  %or.cond63 = select i1 %.not.i34, i1 true, i1 %.not13.i
-  br i1 %or.cond63, label %_ZN9RSCoder1617MakeEncoderMatrixEv.exit, label %.preheader.i35.preheader
+  %or.cond65 = select i1 %.not.i34, i1 true, i1 %.not13.i
+  br i1 %or.cond65, label %_ZN9RSCoder1617MakeEncoderMatrixEv.exit, label %.preheader.i35.preheader
 
 .preheader.i35.preheader:                         ; preds = %96
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -407,8 +406,8 @@ _ZN9RSCoder165gfInvEj.exit.i37:                   ; preds = %111, %.lr.ph.i36
   %exitcond57.not = icmp eq i32 %125, %51
   br i1 %exitcond57.not, label %._crit_edge.i38, label %.lr.ph.i36, !llvm.loop !34
 
-_ZN9RSCoder1617MakeEncoderMatrixEv.exit:          ; preds = %._crit_edge.i38, %._crit_edge, %96, %_ZN9RSCoder1617MakeDecoderMatrixEv.exit, %._crit_edge61
-  %.125 = phi i1 [ false, %._crit_edge61 ], [ true, %_ZN9RSCoder1617MakeDecoderMatrixEv.exit ], [ true, %96 ], [ false, %._crit_edge ], [ true, %._crit_edge.i38 ]
+_ZN9RSCoder1617MakeEncoderMatrixEv.exit:          ; preds = %._crit_edge.i38, %.preheader, %._crit_edge, %96, %_ZN9RSCoder1617MakeDecoderMatrixEv.exit, %._crit_edge61
+  %.125 = phi i1 [ false, %._crit_edge61 ], [ true, %_ZN9RSCoder1617MakeDecoderMatrixEv.exit ], [ true, %96 ], [ false, %._crit_edge ], [ false, %.preheader ], [ true, %._crit_edge.i38 ]
   ret i1 %.125
 }
 

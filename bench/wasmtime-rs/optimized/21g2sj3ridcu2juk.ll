@@ -11781,7 +11781,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i56.i.i)
   %.pre.i = load i8, ptr %6, align 8, !range !18, !noalias !1004
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.pre108.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !1004
+  %.pre109.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !1004
   %29 = trunc nuw i8 %.pre.i to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1004
   br i1 %29, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_select17h9e94c9bcad9f861dE.exit", label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i._crit_edge"
@@ -11908,8 +11908,8 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br i1 %switch70.i, label %.critedge.i, label %92
 
 .critedge.i:                                      ; preds = %92, %80, %78
-  %.sroa.039.0.insert.ext.pre-phi.i = phi i32 [ %.sroa.039.0.extract.trunc.mask.i, %80 ], [ %.sroa.026.0.extract.trunc.mask.i, %78 ], [ %.sroa.039.0.extract.trunc.mask.i, %92 ]
-  %.sroa.642.0.in.i = phi i32 [ %.sroa.642.0.extract.shift.i, %80 ], [ %.sroa.5.0.extract.shift.i, %78 ], [ %.sroa.642.0.extract.shift.i, %92 ]
+  %.sroa.039.0.insert.ext.pre-phi.i = phi i32 [ %.sroa.039.0.extract.trunc.mask.i, %92 ], [ %.sroa.039.0.extract.trunc.mask.i, %80 ], [ %.sroa.026.0.extract.trunc.mask.i, %78 ]
+  %.sroa.642.0.in.i = phi i32 [ %.sroa.642.0.extract.shift.i, %92 ], [ %.sroa.642.0.extract.shift.i, %80 ], [ %.sroa.5.0.extract.shift.i, %78 ]
   %.sroa.642.0.insert.shift.i = shl nuw i32 %.sroa.642.0.in.i, 8
   %.sroa.039.0.insert.insert.i = or disjoint i32 %.sroa.642.0.insert.shift.i, %.sroa.039.0.insert.ext.pre-phi.i
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 144
@@ -11938,8 +11938,8 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %93 = icmp ne i32 %.sroa.039.0.extract.trunc.mask.i, %.sroa.026.0.extract.trunc.mask.i
   %94 = icmp ne i32 %.sroa.642.0.extract.shift.i, %.sroa.5.0.extract.shift.i
   %or.cond74.i = select i1 %77, i1 %94, i1 false
-  %or.cond110.i = select i1 %93, i1 true, i1 %or.cond74.i
-  br i1 %or.cond110.i, label %.critedge73.i, label %.critedge.i
+  %or.cond108.i = select i1 %93, i1 true, i1 %or.cond74.i
+  br i1 %or.cond108.i, label %.critedge73.i, label %.critedge.i
 
 .critedge73.i:                                    ; preds = %92
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !1004
@@ -11959,7 +11959,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_select17h9e94c9bcad9f861dE.exit"
 
 "_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_select17h9e94c9bcad9f861dE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit93.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit107.i", %61, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hf43ad1def43a17ddE.exit.i", %.critedge73.i
-  %.0.i = phi ptr [ %68, %61 ], [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hf43ad1def43a17ddE.exit.i" ], [ %101, %.critedge73.i ], [ %.pre108.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i" ], [ %42, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit93.i" ], [ %56, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit107.i" ]
+  %.0.i = phi ptr [ %68, %61 ], [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hf43ad1def43a17ddE.exit.i" ], [ %101, %.critedge73.i ], [ %.pre109.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i" ], [ %42, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit93.i" ], [ %56, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit107.i" ]
   ret ptr %.0.i
 }
 

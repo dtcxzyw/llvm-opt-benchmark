@@ -45948,7 +45948,7 @@ declare noundef float @_ZN5ImGui24GetNavTweakPressedAmountE9ImGuiAxis(i32 nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIiifEEfiT_S1_S1_bff(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, float noundef %5, float noundef %6) local_unnamed_addr #6 comdat {
   %8 = icmp eq i32 %2, %3
-  br i1 %8, label %94, label %9
+  br i1 %8, label %93, label %9
 
 9:                                                ; preds = %7
   %. = tail call i32 @llvm.smin.i32(i32 %2, i32 %3)
@@ -45956,7 +45956,7 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIiifEEfiT_S1_S
   %10 = icmp slt i32 %1, %.
   %11 = tail call i32 @llvm.smin.i32(i32 %1, i32 %.84)
   %12 = select i1 %10, i32 %., i32 %11
-  br i1 %4, label %13, label %88
+  br i1 %4, label %13, label %87
 
 13:                                               ; preds = %9
   %14 = icmp slt i32 %3, %2
@@ -45978,7 +45978,11 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIiifEEfiT_S1_S
   %24 = sitofp i32 %spec.select79 to float
   %25 = tail call noundef float @llvm.fabs.f32(float %24)
   %26 = fcmp olt float %25, %5
-  br i1 %26, label %27, label %31
+  br i1 %26, label %27, label %._crit_edge
+
+._crit_edge:                                      ; preds = %22
+  %.pre = fneg float %5
+  br label %31
 
 27:                                               ; preds = %22
   %28 = icmp slt i32 %spec.select79, 0
@@ -45986,99 +45990,99 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIiifEEfiT_S1_S
   %30 = select i1 %28, float %29, float %5
   br label %31
 
-31:                                               ; preds = %27, %22
-  %32 = phi float [ %30, %27 ], [ %24, %22 ]
+31:                                               ; preds = %._crit_edge, %27
+  %.pre-phi = phi float [ %.pre, %._crit_edge ], [ %29, %27 ]
+  %32 = phi float [ %24, %._crit_edge ], [ %30, %27 ]
   %33 = icmp eq i32 %spec.select79, 0
   %34 = icmp slt i32 %spec.select, 0
   %or.cond58 = and i1 %33, %34
-  %35 = fneg float %5
-  %.047 = select i1 %or.cond58, float %35, float %32
-  %36 = sitofp i32 %12 to float
-  %37 = fcmp ult float %23, %36
-  br i1 %37, label %38, label %85
+  %.047 = select i1 %or.cond58, float %.pre-phi, float %32
+  %35 = sitofp i32 %12 to float
+  %36 = fcmp ult float %23, %35
+  br i1 %36, label %37, label %84
 
-38:                                               ; preds = %31
-  %39 = fcmp ugt float %.047, %36
-  br i1 %39, label %40, label %85
+37:                                               ; preds = %31
+  %38 = fcmp ugt float %.047, %35
+  br i1 %38, label %39, label %84
 
-40:                                               ; preds = %38
-  %41 = mul nsw i32 %3, %2
-  %42 = icmp slt i32 %41, 0
-  br i1 %42, label %43, label %70
+39:                                               ; preds = %37
+  %40 = mul nsw i32 %3, %2
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %42, label %69
 
-43:                                               ; preds = %40
-  %44 = fneg float %15
-  %45 = fsub float %24, %15
-  %46 = fdiv float %44, %45
-  %47 = fsub float %46, %6
-  %48 = fadd float %6, %46
-  %49 = icmp eq i32 %1, 0
-  br i1 %49, label %85, label %50
+42:                                               ; preds = %39
+  %43 = fneg float %15
+  %44 = fsub float %24, %15
+  %45 = fdiv float %43, %44
+  %46 = fsub float %45, %6
+  %47 = fadd float %6, %45
+  %48 = icmp eq i32 %1, 0
+  br i1 %48, label %84, label %49
 
-50:                                               ; preds = %43
-  %51 = icmp slt i32 %1, 0
-  br i1 %51, label %52, label %62
+49:                                               ; preds = %42
+  %50 = icmp slt i32 %1, 0
+  br i1 %50, label %51, label %61
 
-52:                                               ; preds = %50
-  %53 = fneg float %36
-  %54 = fdiv float %53, %5
-  %55 = tail call noundef float @logf(float noundef %54) #44, !tbaa !177
-  %56 = fneg float %23
-  %57 = fdiv float %56, %5
-  %58 = tail call noundef float @logf(float noundef %57) #44, !tbaa !177
-  %59 = fdiv float %55, %58
-  %60 = fsub float 1.000000e+00, %59
-  %61 = fmul float %47, %60
-  br label %85
+51:                                               ; preds = %49
+  %52 = fneg float %35
+  %53 = fdiv float %52, %5
+  %54 = tail call noundef float @logf(float noundef %53) #44, !tbaa !177
+  %55 = fneg float %23
+  %56 = fdiv float %55, %5
+  %57 = tail call noundef float @logf(float noundef %56) #44, !tbaa !177
+  %58 = fdiv float %54, %57
+  %59 = fsub float 1.000000e+00, %58
+  %60 = fmul float %46, %59
+  br label %84
 
-62:                                               ; preds = %50
-  %63 = fdiv float %36, %5
-  %64 = tail call noundef float @logf(float noundef %63) #44, !tbaa !177
-  %65 = fdiv float %.047, %5
-  %66 = tail call noundef float @logf(float noundef %65) #44, !tbaa !177
-  %67 = fdiv float %64, %66
-  %68 = fsub float 1.000000e+00, %48
-  %69 = tail call float @llvm.fmuladd.f32(float %67, float %68, float %48)
-  br label %85
+61:                                               ; preds = %49
+  %62 = fdiv float %35, %5
+  %63 = tail call noundef float @logf(float noundef %62) #44, !tbaa !177
+  %64 = fdiv float %.047, %5
+  %65 = tail call noundef float @logf(float noundef %64) #44, !tbaa !177
+  %66 = fdiv float %63, %65
+  %67 = fsub float 1.000000e+00, %47
+  %68 = tail call float @llvm.fmuladd.f32(float %66, float %67, float %47)
+  br label %84
 
-70:                                               ; preds = %40
-  %71 = or i32 %3, %2
-  %or.cond59.not = icmp sgt i32 %71, -1
-  br i1 %or.cond59.not, label %79, label %72
+69:                                               ; preds = %39
+  %70 = or i32 %3, %2
+  %or.cond59.not = icmp sgt i32 %70, -1
+  br i1 %or.cond59.not, label %78, label %71
 
-72:                                               ; preds = %70
-  %73 = fdiv float %36, %.047
-  %74 = tail call noundef float @logf(float noundef %73) #44, !tbaa !177
-  %75 = fdiv float %23, %.047
-  %76 = tail call noundef float @logf(float noundef %75) #44, !tbaa !177
-  %77 = fdiv float %74, %76
-  %78 = fsub float 1.000000e+00, %77
-  br label %85
+71:                                               ; preds = %69
+  %72 = fdiv float %35, %.047
+  %73 = tail call noundef float @logf(float noundef %72) #44, !tbaa !177
+  %74 = fdiv float %23, %.047
+  %75 = tail call noundef float @logf(float noundef %74) #44, !tbaa !177
+  %76 = fdiv float %73, %75
+  %77 = fsub float 1.000000e+00, %76
+  br label %84
 
-79:                                               ; preds = %70
-  %80 = fdiv float %36, %23
-  %81 = tail call noundef float @logf(float noundef %80) #44, !tbaa !177
-  %82 = fdiv float %.047, %23
-  %83 = tail call noundef float @logf(float noundef %82) #44, !tbaa !177
-  %84 = fdiv float %81, %83
-  br label %85
+78:                                               ; preds = %69
+  %79 = fdiv float %35, %23
+  %80 = tail call noundef float @logf(float noundef %79) #44, !tbaa !177
+  %81 = fdiv float %.047, %23
+  %82 = tail call noundef float @logf(float noundef %81) #44, !tbaa !177
+  %83 = fdiv float %80, %82
+  br label %84
 
-85:                                               ; preds = %62, %52, %43, %38, %31, %72, %79
-  %.048 = phi float [ %78, %72 ], [ %84, %79 ], [ 0.000000e+00, %31 ], [ 1.000000e+00, %38 ], [ %61, %52 ], [ %69, %62 ], [ %46, %43 ]
-  %86 = fsub float 1.000000e+00, %.048
-  %87 = select i1 %14, float %86, float %.048
-  br label %94
+84:                                               ; preds = %61, %51, %42, %37, %31, %71, %78
+  %.048 = phi float [ %77, %71 ], [ %83, %78 ], [ 0.000000e+00, %31 ], [ 1.000000e+00, %37 ], [ %60, %51 ], [ %68, %61 ], [ %45, %42 ]
+  %85 = fsub float 1.000000e+00, %.048
+  %86 = select i1 %14, float %85, float %.048
+  br label %93
 
-88:                                               ; preds = %9
-  %89 = sub nsw i32 %12, %2
-  %90 = sitofp i32 %89 to float
-  %91 = sub nsw i32 %3, %2
-  %92 = sitofp i32 %91 to float
-  %93 = fdiv float %90, %92
-  br label %94
+87:                                               ; preds = %9
+  %88 = sub nsw i32 %12, %2
+  %89 = sitofp i32 %88 to float
+  %90 = sub nsw i32 %3, %2
+  %91 = sitofp i32 %90 to float
+  %92 = fdiv float %89, %91
+  br label %93
 
-94:                                               ; preds = %85, %88, %7
-  %.0 = phi float [ 0.000000e+00, %7 ], [ %87, %85 ], [ %93, %88 ]
+93:                                               ; preds = %84, %87, %7
+  %.0 = phi float [ 0.000000e+00, %7 ], [ %86, %84 ], [ %92, %87 ]
   ret float %.0
 }
 
@@ -46497,7 +46501,7 @@ _Z22ImParseFormatFindStartPKc.exit.thread:        ; preds = %12, %3, %47
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIxxdEEfiT_S1_S1_bff(i32 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4, float noundef %5, float noundef %6) local_unnamed_addr #6 comdat {
   %8 = icmp eq i64 %2, %3
-  br i1 %8, label %105, label %9
+  br i1 %8, label %104, label %9
 
 9:                                                ; preds = %7
   %. = tail call i64 @llvm.smin.i64(i64 %2, i64 %3)
@@ -46505,7 +46509,7 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIxxdEEfiT_S1_S
   %10 = icmp slt i64 %1, %.
   %11 = tail call i64 @llvm.smin.i64(i64 %1, i64 %.82)
   %12 = select i1 %10, i64 %., i64 %11
-  br i1 %4, label %13, label %98
+  br i1 %4, label %13, label %97
 
 13:                                               ; preds = %9
   %14 = icmp slt i64 %3, %2
@@ -46529,7 +46533,11 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIxxdEEfiT_S1_S
   %26 = sitofp i64 %spec.select77 to double
   %27 = tail call noundef double @llvm.fabs.f64(double %26)
   %28 = fcmp olt double %27, %17
-  br i1 %28, label %29, label %34
+  br i1 %28, label %29, label %._crit_edge
+
+._crit_edge:                                      ; preds = %24
+  %.pre = fneg float %5
+  br label %34
 
 29:                                               ; preds = %24
   %30 = icmp slt i64 %spec.select77, 0
@@ -46538,107 +46546,107 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIxxdEEfiT_S1_S
   %33 = fpext float %32 to double
   br label %34
 
-34:                                               ; preds = %29, %24
-  %35 = phi double [ %33, %29 ], [ %26, %24 ]
+34:                                               ; preds = %._crit_edge, %29
+  %.pre-phi = phi float [ %.pre, %._crit_edge ], [ %31, %29 ]
+  %35 = phi double [ %26, %._crit_edge ], [ %33, %29 ]
   %36 = icmp eq i64 %spec.select77, 0
   %37 = icmp slt i64 %spec.select, 0
   %or.cond56 = and i1 %36, %37
-  %38 = fneg float %5
-  %39 = fpext float %38 to double
-  %.047 = select i1 %or.cond56, double %39, double %35
-  %40 = sitofp i64 %12 to double
-  %41 = fcmp ult double %25, %40
-  br i1 %41, label %42, label %95
+  %38 = fpext float %.pre-phi to double
+  %.047 = select i1 %or.cond56, double %38, double %35
+  %39 = sitofp i64 %12 to double
+  %40 = fcmp ult double %25, %39
+  br i1 %40, label %41, label %94
 
-42:                                               ; preds = %34
-  %43 = fcmp ugt double %.047, %40
-  br i1 %43, label %44, label %95
+41:                                               ; preds = %34
+  %42 = fcmp ugt double %.047, %39
+  br i1 %42, label %43, label %94
 
-44:                                               ; preds = %42
-  %45 = mul nsw i64 %3, %2
-  %46 = icmp slt i64 %45, 0
-  br i1 %46, label %47, label %78
+43:                                               ; preds = %41
+  %44 = mul nsw i64 %3, %2
+  %45 = icmp slt i64 %44, 0
+  br i1 %45, label %46, label %77
 
-47:                                               ; preds = %44
-  %48 = sitofp i64 %spec.select to float
-  %49 = fneg float %48
-  %50 = sitofp i64 %spec.select77 to float
-  %51 = fsub float %50, %48
-  %52 = fdiv float %49, %51
-  %53 = fsub float %52, %6
-  %54 = fadd float %6, %52
-  %55 = icmp eq i64 %1, 0
-  br i1 %55, label %95, label %56
+46:                                               ; preds = %43
+  %47 = sitofp i64 %spec.select to float
+  %48 = fneg float %47
+  %49 = sitofp i64 %spec.select77 to float
+  %50 = fsub float %49, %47
+  %51 = fdiv float %48, %50
+  %52 = fsub float %51, %6
+  %53 = fadd float %6, %51
+  %54 = icmp eq i64 %1, 0
+  br i1 %54, label %94, label %55
 
-56:                                               ; preds = %47
-  %57 = icmp slt i64 %1, 0
-  br i1 %57, label %58, label %69
+55:                                               ; preds = %46
+  %56 = icmp slt i64 %1, 0
+  br i1 %56, label %57, label %68
 
-58:                                               ; preds = %56
-  %59 = fneg double %40
-  %60 = fdiv double %59, %17
-  %61 = tail call noundef double @log(double noundef %60) #44, !tbaa !177
-  %62 = fneg double %25
-  %63 = fdiv double %62, %17
-  %64 = tail call noundef double @log(double noundef %63) #44, !tbaa !177
-  %65 = fdiv double %61, %64
-  %66 = fptrunc double %65 to float
-  %67 = fsub float 1.000000e+00, %66
-  %68 = fmul float %53, %67
-  br label %95
+57:                                               ; preds = %55
+  %58 = fneg double %39
+  %59 = fdiv double %58, %17
+  %60 = tail call noundef double @log(double noundef %59) #44, !tbaa !177
+  %61 = fneg double %25
+  %62 = fdiv double %61, %17
+  %63 = tail call noundef double @log(double noundef %62) #44, !tbaa !177
+  %64 = fdiv double %60, %63
+  %65 = fptrunc double %64 to float
+  %66 = fsub float 1.000000e+00, %65
+  %67 = fmul float %52, %66
+  br label %94
 
-69:                                               ; preds = %56
-  %70 = fdiv double %40, %17
-  %71 = tail call noundef double @log(double noundef %70) #44, !tbaa !177
-  %72 = fdiv double %.047, %17
-  %73 = tail call noundef double @log(double noundef %72) #44, !tbaa !177
-  %74 = fdiv double %71, %73
-  %75 = fptrunc double %74 to float
-  %76 = fsub float 1.000000e+00, %54
-  %77 = tail call float @llvm.fmuladd.f32(float %75, float %76, float %54)
-  br label %95
+68:                                               ; preds = %55
+  %69 = fdiv double %39, %17
+  %70 = tail call noundef double @log(double noundef %69) #44, !tbaa !177
+  %71 = fdiv double %.047, %17
+  %72 = tail call noundef double @log(double noundef %71) #44, !tbaa !177
+  %73 = fdiv double %70, %72
+  %74 = fptrunc double %73 to float
+  %75 = fsub float 1.000000e+00, %53
+  %76 = tail call float @llvm.fmuladd.f32(float %74, float %75, float %53)
+  br label %94
 
-78:                                               ; preds = %44
-  %79 = or i64 %3, %2
-  %or.cond57.not = icmp sgt i64 %79, -1
-  br i1 %or.cond57.not, label %88, label %80
+77:                                               ; preds = %43
+  %78 = or i64 %3, %2
+  %or.cond57.not = icmp sgt i64 %78, -1
+  br i1 %or.cond57.not, label %87, label %79
 
-80:                                               ; preds = %78
-  %81 = fdiv double %40, %.047
-  %82 = tail call noundef double @log(double noundef %81) #44, !tbaa !177
-  %83 = fdiv double %25, %.047
-  %84 = tail call noundef double @log(double noundef %83) #44, !tbaa !177
-  %85 = fdiv double %82, %84
-  %86 = fptrunc double %85 to float
-  %87 = fsub float 1.000000e+00, %86
-  br label %95
+79:                                               ; preds = %77
+  %80 = fdiv double %39, %.047
+  %81 = tail call noundef double @log(double noundef %80) #44, !tbaa !177
+  %82 = fdiv double %25, %.047
+  %83 = tail call noundef double @log(double noundef %82) #44, !tbaa !177
+  %84 = fdiv double %81, %83
+  %85 = fptrunc double %84 to float
+  %86 = fsub float 1.000000e+00, %85
+  br label %94
 
-88:                                               ; preds = %78
-  %89 = fdiv double %40, %25
-  %90 = tail call noundef double @log(double noundef %89) #44, !tbaa !177
-  %91 = fdiv double %.047, %25
-  %92 = tail call noundef double @log(double noundef %91) #44, !tbaa !177
-  %93 = fdiv double %90, %92
-  %94 = fptrunc double %93 to float
-  br label %95
+87:                                               ; preds = %77
+  %88 = fdiv double %39, %25
+  %89 = tail call noundef double @log(double noundef %88) #44, !tbaa !177
+  %90 = fdiv double %.047, %25
+  %91 = tail call noundef double @log(double noundef %90) #44, !tbaa !177
+  %92 = fdiv double %89, %91
+  %93 = fptrunc double %92 to float
+  br label %94
 
-95:                                               ; preds = %69, %58, %47, %42, %34, %80, %88
-  %.048 = phi float [ %87, %80 ], [ %94, %88 ], [ 0.000000e+00, %34 ], [ 1.000000e+00, %42 ], [ %68, %58 ], [ %77, %69 ], [ %52, %47 ]
-  %96 = fsub float 1.000000e+00, %.048
-  %97 = select i1 %14, float %96, float %.048
-  br label %105
+94:                                               ; preds = %68, %57, %46, %41, %34, %79, %87
+  %.048 = phi float [ %86, %79 ], [ %93, %87 ], [ 0.000000e+00, %34 ], [ 1.000000e+00, %41 ], [ %67, %57 ], [ %76, %68 ], [ %51, %46 ]
+  %95 = fsub float 1.000000e+00, %.048
+  %96 = select i1 %14, float %95, float %.048
+  br label %104
 
-98:                                               ; preds = %9
-  %99 = sub nsw i64 %12, %2
-  %100 = sitofp i64 %99 to double
-  %101 = sub nsw i64 %3, %2
-  %102 = sitofp i64 %101 to double
-  %103 = fdiv double %100, %102
-  %104 = fptrunc double %103 to float
-  br label %105
+97:                                               ; preds = %9
+  %98 = sub nsw i64 %12, %2
+  %99 = sitofp i64 %98 to double
+  %100 = sub nsw i64 %3, %2
+  %101 = sitofp i64 %100 to double
+  %102 = fdiv double %99, %101
+  %103 = fptrunc double %102 to float
+  br label %104
 
-105:                                              ; preds = %95, %98, %7
-  %.0 = phi float [ 0.000000e+00, %7 ], [ %97, %95 ], [ %104, %98 ]
+104:                                              ; preds = %94, %97, %7
+  %.0 = phi float [ 0.000000e+00, %7 ], [ %96, %94 ], [ %103, %97 ]
   ret float %.0
 }
 
