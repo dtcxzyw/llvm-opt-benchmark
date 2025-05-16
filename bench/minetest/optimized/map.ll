@@ -9812,10 +9812,9 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph.spli
   %__begin1.sroa.0.047.us.us = phi ptr [ %call.i.us.us, %cleanup.us.us ], [ %3, %for.body.lr.ph.split.us ]
   %_M_storage.i.i.us.us = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.047.us.us, i64 32
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %p) #26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %p, ptr noundef nonnull align 2 dereferenceable(6) %_M_storage.i.i.us.us, i64 6, i1 false), !tbaa.struct !97
   %4 = load ptr, ptr %m_map, align 8, !tbaa !269
-  %agg.tmp.sroa.0.0.copyload.us.us = load i48, ptr %p, align 8, !tbaa.struct !97
-  %call8.us.us = tail call noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %4, i48 %agg.tmp.sroa.0.0.copyload.us.us)
+  %agg.tmp.sroa.0.0.copyload.us.us17 = load i48, ptr %_M_storage.i.i.us.us, align 2
+  %call8.us.us = tail call noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %4, i48 %agg.tmp.sroa.0.0.copyload.us.us17)
   %second.us.us = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.047.us.us, i64 38
   %5 = load i8, ptr %second.us.us, align 2, !tbaa !281
   %6 = and i8 %5, 1
@@ -9878,10 +9877,9 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
   %__begin1.sroa.0.047.us = phi ptr [ %call.i.us, %cleanup.us ], [ %3, %for.body.lr.ph.split.us ]
   %_M_storage.i.i.us = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.047.us, i64 32
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %p) #26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %p, ptr noundef nonnull align 2 dereferenceable(6) %_M_storage.i.i.us, i64 6, i1 false), !tbaa.struct !97
   %12 = load ptr, ptr %m_map, align 8, !tbaa !269
-  %agg.tmp.sroa.0.0.copyload.us = load i48, ptr %p, align 8, !tbaa.struct !97
-  %call8.us = tail call noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %12, i48 %agg.tmp.sroa.0.0.copyload.us)
+  %agg.tmp.sroa.0.0.copyload.us16 = load i48, ptr %_M_storage.i.i.us, align 2
+  %call8.us = tail call noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %12, i48 %agg.tmp.sroa.0.0.copyload.us16)
   %second.us = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.047.us, i64 38
   %13 = load i8, ptr %second.us, align 2, !tbaa !281
   %14 = and i8 %13, 1
@@ -9952,8 +9950,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %cl
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %p) #26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %p, ptr noundef nonnull align 2 dereferenceable(6) %_M_storage.i.i, i64 6, i1 false), !tbaa.struct !97
   %21 = load ptr, ptr %m_map, align 8, !tbaa !269
-  %agg.tmp.sroa.0.0.copyload = load i48, ptr %p, align 8, !tbaa.struct !97
-  %call8 = call noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %21, i48 %agg.tmp.sroa.0.0.copyload)
+  %agg.tmp.sroa.0.0.copyload15 = load i48, ptr %_M_storage.i.i, align 2
+  %call8 = call noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %21, i48 %agg.tmp.sroa.0.0.copyload15)
   %second = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.047, i64 38
   %22 = load i8, ptr %second, align 2, !tbaa !281
   %23 = and i8 %22, 1

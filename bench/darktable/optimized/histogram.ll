@@ -4574,8 +4574,8 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
   %490 = zext i32 %489 to i64
   %491 = getelementptr inbounds nuw [10 x %struct.dt_lib_histogram_color_harmony_t], ptr @dt_color_harmonies, i64 0, i64 %490
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 16 dereferenceable(48) %491, i64 48, i1 false), !tbaa.struct !248
-  %492 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %493 = load i32, ptr %492, align 8, !tbaa !249
+  %492 = getelementptr inbounds nuw i8, ptr %491, i64 8
+  %493 = load i32, ptr %492, align 8
   %494 = icmp sgt i32 %493, 0
   br i1 %494, label %.lr.ph315.i, label %._crit_edge316.i
 
@@ -4726,7 +4726,7 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
   %573 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !224
   %574 = getelementptr inbounds nuw i8, ptr %573, i64 336
-  %575 = load ptr, ptr %574, align 8, !tbaa !250
+  %575 = load ptr, ptr %574, align 8, !tbaa !249
   %576 = call ptr @pango_font_description_copy_static(ptr noundef %575) #17
   call void @pango_font_description_set_weight(ptr noundef %576, i32 noundef 400) #17
   %577 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !170
@@ -4761,19 +4761,19 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
   %591 = sitofp i32 %37 to float
   %592 = fmul reassoc nsz arcp contract afn float %591, 0x3FDEB851E0000000
   %593 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %594 = load i32, ptr %593, align 4, !tbaa !251
+  %594 = load i32, ptr %593, align 4, !tbaa !250
   %595 = sitofp i32 %594 to float
-  %596 = load i32, ptr %6, align 4, !tbaa !253
+  %596 = load i32, ptr %6, align 4, !tbaa !252
   %597 = sitofp i32 %596 to float
   %598 = fadd reassoc nsz arcp contract afn float %595, %597
   %599 = fsub reassoc nsz arcp contract afn float %592, %598
   %600 = fpext reassoc nsz arcp contract afn float %599 to double
   %601 = fmul reassoc nsz arcp contract afn double %46, 4.800000e-01
   %602 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %603 = load i32, ptr %602, align 4, !tbaa !254
+  %603 = load i32, ptr %602, align 4, !tbaa !253
   %604 = sitofp i32 %603 to double
   %605 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %606 = load i32, ptr %605, align 4, !tbaa !255
+  %606 = load i32, ptr %605, align 4, !tbaa !254
   %607 = sitofp i32 %606 to double
   %608 = fadd reassoc nsz arcp contract afn double %604, %607
   %609 = fsub reassoc nsz arcp contract afn double %601, %608
@@ -4880,7 +4880,7 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
   br i1 %473, label %.preheader.i127, label %_lib_histogram_draw_vectorscope.exit
 
 .preheader.i127:                                  ; preds = %639
-  %.0254319.i = load ptr, ptr %466, align 8, !tbaa !256
+  %.0254319.i = load ptr, ptr %466, align 8, !tbaa !255
   %.not271320.i = icmp eq ptr %.0254319.i, null
   br i1 %.not271320.i, label %_lib_histogram_draw_vectorscope.exit, label %.lr.ph323.i
 
@@ -4949,7 +4949,7 @@ _lib_histogram_draw_rgb_parade.exit:              ; preds = %316, %321
 671:                                              ; preds = %659, %647
   %672 = add nuw nsw i32 %.0321.i, 1
   %673 = getelementptr inbounds nuw i8, ptr %.0254322.i, i64 8
-  %.0254.i = load ptr, ptr %673, align 8, !tbaa !256
+  %.0254.i = load ptr, ptr %673, align 8, !tbaa !255
   %.not271.i = icmp eq ptr %.0254.i, null
   br i1 %.not271.i, label %_lib_histogram_draw_vectorscope.exit, label %641
 
@@ -4993,7 +4993,7 @@ _lib_histogram_draw_histogram.exit:               ; preds = %194, %170, %329, %_
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_drawable_leave_notify_callback(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %5 = load i32, ptr %4, align 4, !tbaa !257
+  %5 = load i32, ptr %4, align 4, !tbaa !256
   %6 = and i32 %5, 256
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %11
@@ -5035,10 +5035,10 @@ define internal noundef i32 @_drawable_button_press_callback(ptr readnone captur
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %14 = load double, ptr %13, align 8, !tbaa !260
+  %14 = load double, ptr %13, align 8, !tbaa !259
   %15 = fneg reassoc nsz arcp contract afn double %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store double %15, ptr %16, align 8, !tbaa !264
+  store double %15, ptr %16, align 8, !tbaa !263
   br label %17
 
 17:                                               ; preds = %12, %9, %6
@@ -5062,7 +5062,7 @@ define internal noundef i32 @_drawable_motion_notify_callback(ptr noundef %0, pt
   %4 = alloca %struct._cairo_rectangle_int, align 4
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %7 = load i32, ptr %6, align 8, !tbaa !265
+  %7 = load i32, ptr %6, align 8, !tbaa !264
   %8 = and i32 %7, 256
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %21, label %9
@@ -5081,10 +5081,10 @@ define internal noundef i32 @_drawable_motion_notify_callback(ptr noundef %0, pt
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load double, ptr %16, align 8, !tbaa !267
+  %17 = load double, ptr %16, align 8, !tbaa !266
   %18 = fneg reassoc nsz arcp contract afn double %17
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store double %18, ptr %19, align 8, !tbaa !268
+  store double %18, ptr %19, align 8, !tbaa !267
   br label %20
 
 20:                                               ; preds = %15, %12, %9
@@ -5095,7 +5095,7 @@ define internal noundef i32 @_drawable_motion_notify_callback(ptr noundef %0, pt
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
   call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %4) #17
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %23 = load double, ptr %22, align 8, !tbaa !268
+  %23 = load double, ptr %22, align 8, !tbaa !267
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i32, ptr %24, align 4, !tbaa !219
   %26 = sitofp i32 %25 to float
@@ -5103,7 +5103,7 @@ define internal noundef i32 @_drawable_motion_notify_callback(ptr noundef %0, pt
   %28 = fdiv reassoc nsz arcp contract afn double %23, %27
   %29 = fptrunc reassoc nsz arcp contract afn double %28 to float
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %31 = load double, ptr %30, align 8, !tbaa !267
+  %31 = load double, ptr %30, align 8, !tbaa !266
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %33 = load i32, ptr %32, align 4, !tbaa !221
   %34 = sitofp i32 %33 to float
@@ -5227,7 +5227,7 @@ define internal noundef i32 @_eventbox_scroll_callback(ptr readnone captures(non
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
   store i32 0, ptr %4, align 4, !tbaa !112
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %6 = load i32, ptr %5, align 8, !tbaa !269
+  %6 = load i32, ptr %5, align 8, !tbaa !268
   %7 = tail call i32 @gtk_accelerator_get_default_mod_mask() #17
   %8 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !112
   %9 = or i32 %8, %6
@@ -5254,13 +5254,13 @@ define internal noundef i32 @_eventbox_scroll_callback(ptr readnone captures(non
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %23 = load double, ptr %22, align 8, !tbaa !271
+  %23 = load double, ptr %22, align 8, !tbaa !270
   %24 = fneg reassoc nsz arcp contract afn double %23
-  store double %24, ptr %22, align 8, !tbaa !271
+  store double %24, ptr %22, align 8, !tbaa !270
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %26 = load double, ptr %25, align 8, !tbaa !272
+  %26 = load double, ptr %25, align 8, !tbaa !271
   %27 = fneg reassoc nsz arcp contract afn double %26
-  store double %27, ptr %25, align 8, !tbaa !272
+  store double %27, ptr %25, align 8, !tbaa !271
   br label %28
 
 28:                                               ; preds = %21, %18
@@ -5282,7 +5282,7 @@ define internal noundef i32 @_eventbox_scroll_callback(ptr readnone captures(non
   br i1 %37, label %38, label %96
 
 38:                                               ; preds = %34
-  %39 = load i32, ptr %5, align 8, !tbaa !269
+  %39 = load i32, ptr %5, align 8, !tbaa !268
   %40 = call i32 @gtk_accelerator_get_default_mod_mask() #17
   %41 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !112
   %42 = or i32 %41, %39
@@ -5310,7 +5310,7 @@ define internal noundef i32 @_eventbox_scroll_callback(ptr readnone captures(non
   br label %95
 
 54:                                               ; preds = %38
-  %55 = load i32, ptr %5, align 8, !tbaa !269
+  %55 = load i32, ptr %5, align 8, !tbaa !268
   %56 = call i32 @gtk_accelerator_get_default_mod_mask() #17
   %57 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !112
   %58 = or i32 %57, %55
@@ -5342,7 +5342,7 @@ define internal noundef i32 @_eventbox_scroll_callback(ptr readnone captures(non
   br label %95
 
 72:                                               ; preds = %54
-  %73 = load i32, ptr %5, align 8, !tbaa !269
+  %73 = load i32, ptr %5, align 8, !tbaa !268
   %74 = call i32 @gtk_accelerator_get_default_mod_mask() #17
   %75 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !112
   %76 = or i32 %75, %73
@@ -5400,13 +5400,13 @@ define internal noundef i32 @_eventbox_enter_notify_callback(ptr readnone captur
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_eventbox_leave_notify_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %5 = load i32, ptr %4, align 8, !tbaa !273
+  %5 = load i32, ptr %4, align 8, !tbaa !272
   %6 = icmp eq i32 %5, 2
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %9 = load i32, ptr %8, align 4, !tbaa !274
+  %9 = load i32, ptr %8, align 4, !tbaa !273
   %10 = icmp eq i32 %9, 2
   br i1 %10, label %16, label %11
 
@@ -5436,9 +5436,9 @@ define internal noundef i32 @_eventbox_motion_notify_callback(ptr noundef %0, pt
   %9 = load ptr, ptr %8, align 32, !tbaa !156
   %10 = call i32 @gtk_widget_get_allocated_height(ptr noundef %9) #17
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !275
+  %12 = load i32, ptr %11, align 4, !tbaa !274
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %14 = load double, ptr %13, align 8, !tbaa !267
+  %14 = load double, ptr %13, align 8, !tbaa !266
   %15 = sitofp i32 %12 to double
   %16 = fsub reassoc nsz arcp contract afn double %14, %15
   %17 = fcmp reassoc nsz arcp contract afn ogt double %16, 0.000000e+00
@@ -7185,30 +7185,29 @@ attributes #19 = { nounwind allocsize(0,1) }
 !246 = !{!237, !46, i64 632}
 !247 = !{!237, !46, i64 640}
 !248 = !{i64 0, i64 8, !103, i64 8, i64 4, !112, i64 12, i64 16, !208, i64 28, i64 16, !208}
-!249 = !{!160, !9, i64 8}
-!250 = !{!237, !242, i64 336}
-!251 = !{!252, !9, i64 8}
-!252 = !{!"_PangoRectangle", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
-!253 = !{!252, !9, i64 0}
-!254 = !{!252, !9, i64 12}
-!255 = !{!252, !9, i64 4}
-!256 = !{!86, !86, i64 0}
-!257 = !{!258, !9, i64 84}
-!258 = !{!"_GdkEventCrossing", !9, i64 0, !259, i64 8, !10, i64 16, !259, i64 24, !9, i64 32, !46, i64 40, !46, i64 48, !46, i64 56, !46, i64 64, !9, i64 72, !9, i64 76, !9, i64 80, !9, i64 84}
-!259 = !{!"p1 _ZTS10_GdkWindow", !13, i64 0}
-!260 = !{!261, !46, i64 32}
-!261 = !{!"_GdkEventButton", !9, i64 0, !259, i64 8, !10, i64 16, !9, i64 20, !46, i64 24, !46, i64 32, !262, i64 40, !9, i64 48, !9, i64 52, !263, i64 56, !46, i64 64, !46, i64 72}
-!262 = !{!"p1 double", !13, i64 0}
-!263 = !{!"p1 _ZTS10_GdkDevice", !13, i64 0}
-!264 = !{!261, !46, i64 24}
-!265 = !{!266, !9, i64 48}
-!266 = !{!"_GdkEventMotion", !9, i64 0, !259, i64 8, !10, i64 16, !9, i64 20, !46, i64 24, !46, i64 32, !262, i64 40, !9, i64 48, !62, i64 52, !263, i64 56, !46, i64 64, !46, i64 72}
-!267 = !{!266, !46, i64 32}
-!268 = !{!266, !46, i64 24}
-!269 = !{!270, !9, i64 40}
-!270 = !{!"_GdkEventScroll", !9, i64 0, !259, i64 8, !10, i64 16, !9, i64 20, !46, i64 24, !46, i64 32, !9, i64 40, !9, i64 44, !263, i64 48, !46, i64 56, !46, i64 64, !46, i64 72, !46, i64 80, !9, i64 88}
-!271 = !{!270, !46, i64 72}
-!272 = !{!270, !46, i64 80}
-!273 = !{!258, !9, i64 72}
-!274 = !{!258, !9, i64 76}
-!275 = !{!220, !9, i64 4}
+!249 = !{!237, !242, i64 336}
+!250 = !{!251, !9, i64 8}
+!251 = !{!"_PangoRectangle", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
+!252 = !{!251, !9, i64 0}
+!253 = !{!251, !9, i64 12}
+!254 = !{!251, !9, i64 4}
+!255 = !{!86, !86, i64 0}
+!256 = !{!257, !9, i64 84}
+!257 = !{!"_GdkEventCrossing", !9, i64 0, !258, i64 8, !10, i64 16, !258, i64 24, !9, i64 32, !46, i64 40, !46, i64 48, !46, i64 56, !46, i64 64, !9, i64 72, !9, i64 76, !9, i64 80, !9, i64 84}
+!258 = !{!"p1 _ZTS10_GdkWindow", !13, i64 0}
+!259 = !{!260, !46, i64 32}
+!260 = !{!"_GdkEventButton", !9, i64 0, !258, i64 8, !10, i64 16, !9, i64 20, !46, i64 24, !46, i64 32, !261, i64 40, !9, i64 48, !9, i64 52, !262, i64 56, !46, i64 64, !46, i64 72}
+!261 = !{!"p1 double", !13, i64 0}
+!262 = !{!"p1 _ZTS10_GdkDevice", !13, i64 0}
+!263 = !{!260, !46, i64 24}
+!264 = !{!265, !9, i64 48}
+!265 = !{!"_GdkEventMotion", !9, i64 0, !258, i64 8, !10, i64 16, !9, i64 20, !46, i64 24, !46, i64 32, !261, i64 40, !9, i64 48, !62, i64 52, !262, i64 56, !46, i64 64, !46, i64 72}
+!266 = !{!265, !46, i64 32}
+!267 = !{!265, !46, i64 24}
+!268 = !{!269, !9, i64 40}
+!269 = !{!"_GdkEventScroll", !9, i64 0, !258, i64 8, !10, i64 16, !9, i64 20, !46, i64 24, !46, i64 32, !9, i64 40, !9, i64 44, !262, i64 48, !46, i64 56, !46, i64 64, !46, i64 72, !46, i64 80, !9, i64 88}
+!270 = !{!269, !46, i64 72}
+!271 = !{!269, !46, i64 80}
+!272 = !{!257, !9, i64 72}
+!273 = !{!257, !9, i64 76}
+!274 = !{!220, !9, i64 4}

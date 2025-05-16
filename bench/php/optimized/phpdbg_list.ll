@@ -940,8 +940,8 @@ zend_hash_find_ptr.exit:                          ; preds = %51
   %58 = load ptr, ptr %57, align 8, !tbaa !45, !nonnull !52, !noundef !52
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %59, ptr noundef nonnull align 8 dereferenceable(256) %53, i64 256, i1 false), !tbaa.struct !132
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 152
-  %61 = load ptr, ptr %60, align 8, !tbaa !133
+  %60 = getelementptr inbounds nuw i8, ptr %53, i64 136
+  %61 = load ptr, ptr %60, align 8
   %.not27 = icmp eq ptr %61, null
   br i1 %.not27, label %65, label %62
 
@@ -962,13 +962,13 @@ declare void @llvm.assume(i1 noundef) #8
 ; Function Attrs: nounwind uwtable
 define hidden ptr @phpdbg_compile_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
-  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !134
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !133
   %6 = and i64 %5, 4096
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1416), align 8, !tbaa !135
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1416), align 8, !tbaa !134
   %9 = tail call ptr %8(ptr noundef %0, ptr noundef %1, i32 noundef %2) #12
   br label %75
 
@@ -984,7 +984,7 @@ define hidden ptr @phpdbg_compile_string(ptr noundef %0, ptr noundef %1, i32 nou
   store ptr %18, ptr %15, align 8, !tbaa !69
   %19 = load i64, ptr %11, align 8, !tbaa !48
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 %19, ptr %20, align 8, !tbaa !136
+  store i64 %19, ptr %20, align 8, !tbaa !135
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 276
   store i32 0, ptr %21, align 4, !tbaa !68
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 %19
@@ -1031,7 +1031,7 @@ define hidden ptr @phpdbg_compile_string(ptr noundef %0, ptr noundef %1, i32 nou
   %42 = zext i32 %.079.lcssa to i64
   %43 = getelementptr inbounds nuw [1 x i32], ptr %21, i64 0, i64 %42
   store i32 %41, ptr %43, align 4, !tbaa !68
-  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1416), align 8, !tbaa !135
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1416), align 8, !tbaa !134
   %45 = tail call ptr %44(ptr noundef %0, ptr noundef %1, i32 noundef %2) #12
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %zend_hash_add_ptr.exit
@@ -1044,7 +1044,7 @@ define hidden ptr @phpdbg_compile_string(ptr noundef %0, ptr noundef %1, i32 nou
 
 zend_hash_add_ptr.exit:                           ; preds = %._crit_edge
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 104
-  %50 = load ptr, ptr %49, align 8, !tbaa !137
+  %50 = load ptr, ptr %49, align 8, !tbaa !136
   %51 = tail call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.27, ptr noundef %1, i32 noundef 0, ptr noundef %50) #12
   %52 = shl nuw nsw i64 %42, 2
   %53 = add nuw nsw i64 %52, 280
@@ -1086,8 +1086,8 @@ zend_hash_add_ptr.exit:                           ; preds = %._crit_edge
 zend_string_release.exit:                         ; preds = %zend_hash_add_ptr.exit, %60, %67, %68
   %69 = getelementptr inbounds nuw i8, ptr %54, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %69, ptr noundef nonnull align 8 dereferenceable(256) %45, i64 256, i1 false), !tbaa.struct !132
-  %70 = getelementptr inbounds nuw i8, ptr %54, i64 152
-  %71 = load ptr, ptr %70, align 8, !tbaa !133
+  %70 = getelementptr inbounds nuw i8, ptr %45, i64 136
+  %71 = load ptr, ptr %70, align 8
   %.not85 = icmp eq ptr %71, null
   br i1 %.not85, label %75, label %72
 
@@ -1109,7 +1109,7 @@ define hidden void @phpdbg_init_list() local_unnamed_addr #9 {
   %1 = load ptr, ptr @zend_compile_file, align 8, !tbaa !121
   store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1400), align 8, !tbaa !115
   %2 = load ptr, ptr @zend_compile_string, align 8, !tbaa !121
-  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1416), align 8, !tbaa !135
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1416), align 8, !tbaa !134
   store ptr @phpdbg_compile_file, ptr @zend_compile_file, align 8, !tbaa !121
   store ptr @phpdbg_compile_string, ptr @zend_compile_string, align 8, !tbaa !121
   ret void
@@ -1297,8 +1297,7 @@ attributes #16 = { nounwind allocsize(1) }
 !130 = !{!112, !56, i64 48}
 !131 = !{!5, !12, i64 1408}
 !132 = !{i64 0, i64 1, !45, i64 1, i64 3, !45, i64 4, i64 4, !68, i64 8, i64 8, !117, i64 16, i64 8, !72, i64 24, i64 8, !118, i64 32, i64 4, !68, i64 36, i64 4, !68, i64 40, i64 8, !119, i64 48, i64 8, !120, i64 56, i64 8, !121, i64 64, i64 8, !117, i64 72, i64 4, !68, i64 80, i64 8, !122, i64 88, i64 4, !68, i64 92, i64 4, !68, i64 96, i64 4, !68, i64 104, i64 8, !123, i64 112, i64 8, !120, i64 120, i64 8, !120, i64 128, i64 8, !124, i64 136, i64 8, !125, i64 144, i64 4, !68, i64 148, i64 4, !68, i64 152, i64 8, !126, i64 160, i64 8, !127, i64 168, i64 8, !117, i64 176, i64 4, !68, i64 180, i64 4, !68, i64 184, i64 4, !68, i64 188, i64 4, !68, i64 192, i64 8, !128, i64 200, i64 8, !129, i64 208, i64 48, !45}
-!133 = !{!54, !63, i64 152}
-!134 = !{!5, !11, i64 2184}
-!135 = !{!5, !12, i64 1416}
-!136 = !{!54, !11, i64 8}
-!137 = !{!55, !61, i64 104}
+!133 = !{!5, !11, i64 2184}
+!134 = !{!5, !12, i64 1416}
+!135 = !{!54, !11, i64 8}
+!136 = !{!55, !61, i64 104}

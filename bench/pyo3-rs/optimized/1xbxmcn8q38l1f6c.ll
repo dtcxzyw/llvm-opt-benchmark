@@ -721,25 +721,26 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit.threa
   call void @_ZN4core3ops8function6FnOnce9call_once17hc9573aaa536acb0fE(ptr nonnull sret([352 x i8]) align 8 %4, ptr nonnull align 8 %11)
   %12 = load i64, ptr %4, align 8
   %.not.i = icmp eq i64 %12, 22
-  br i1 %.not.i, label %13, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit
+  br i1 %.not.i, label %13, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit.thread10
+
+_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit.thread10: ; preds = %10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %8, ptr noundef nonnull align 8 dereferenceable(352) %4, i64 352, i1 false)
+  call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %4)
+  br label %19
 
 13:                                               ; preds = %10
   invoke void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..array..iter..IntoIter$LT$syn..stmt..Stmt$C$3_usize$GT$$GT$$GT$17h8a7e01c654e03d94E"(ptr nonnull align 8 %1)
-          to label %16 unwind label %14
+          to label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit unwind label %14
 
 14:                                               ; preds = %13
   %15 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %1, align 8
   invoke void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$syn..stmt..Stmt$GT$$GT$17h1ceb2d7478514a7fE"(ptr nonnull align 8 %4) #6
-          to label %common.resume unwind label %17
+          to label %common.resume unwind label %16
 
-16:                                               ; preds = %13
-  store i64 0, ptr %1, align 8
-  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit
-
-17:                                               ; preds = %14
-  %18 = landingpad { ptr, i32 }
+16:                                               ; preds = %14
+  %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #7
   unreachable
@@ -748,14 +749,15 @@ common.resume:                                    ; preds = %35, %14, %41
   %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %15, %14 ], [ %36, %35 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit: ; preds = %10, %16
+_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit: ; preds = %13
+  store i64 0, ptr %1, align 8
+  %.pr68.pre = load i64, ptr %4, align 8
+  %18 = icmp eq i64 %.pr68.pre, 22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %8, ptr noundef nonnull align 8 dereferenceable(352) %4, i64 352, i1 false)
-  %.pr6 = load i64, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %4)
-  %.not = icmp eq i64 %.pr6, 22
-  br i1 %.not, label %20, label %19
+  br i1 %18, label %20, label %19
 
-19:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit
+19:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit.thread10, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(352) %8, i64 352, i1 false)
   br label %24
 

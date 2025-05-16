@@ -192,11 +192,11 @@ define void @_ZN5draco21ShannonEntropyTracker13UpdateSymbolsEPKjib(ptr dead_on_u
   %9 = load i32, ptr %8, align 8, !tbaa !13
   %10 = add nsw i32 %9, %3
   store i32 %10, ptr %8, align 8, !tbaa !13
+  %.promoted39 = load double, ptr %7, align 8
   %11 = icmp sgt i32 %3, 0
   br i1 %11, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %5
-  %.promoted = load double, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -213,20 +213,21 @@ define void @_ZN5draco21ShannonEntropyTracker13UpdateSymbolsEPKjib(ptr dead_on_u
   br i1 %4, label %64, label %.lr.ph38
 
 .thread:                                          ; preds = %5
+  store double %.promoted39, ptr %0, align 8
   br i1 %4, label %64, label %.loopexit
 
 .lr.ph38:                                         ; preds = %15
   %16 = load ptr, ptr %1, align 8, !tbaa !15
-  %wide.trip.count46 = zext nneg i32 %3 to i64
+  %wide.trip.count47 = zext nneg i32 %3 to i64
   br label %65
 
 17:                                               ; preds = %.lr.ph, %54
-  %.pre4850 = phi ptr [ %.pre, %.lr.ph ], [ %.pre4851, %54 ]
+  %.pre4951 = phi ptr [ %.pre, %.lr.ph ], [ %.pre4952, %54 ]
   %18 = phi ptr [ %.pre, %.lr.ph ], [ %42, %54 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
   %19 = phi i32 [ %.promoted35, %.lr.ph ], [ %56, %54 ]
   %20 = phi i32 [ %.promoted33, %.lr.ph ], [ %57, %54 ]
-  %21 = phi double [ %.promoted, %.lr.ph ], [ %63, %54 ]
+  %21 = phi double [ %.promoted39, %.lr.ph ], [ %63, %54 ]
   %22 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !3
   %24 = load ptr, ptr %12, align 8, !tbaa !19
@@ -249,7 +250,7 @@ define void @_ZN5draco21ShannonEntropyTracker13UpdateSymbolsEPKjib(ptr dead_on_u
 34:                                               ; preds = %30
   %35 = sub nuw nsw i64 %32, %28
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %24, i64 noundef %35, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  %.pre48.pre = load ptr, ptr %1, align 8, !tbaa !15
+  %.pre49.pre = load ptr, ptr %1, align 8, !tbaa !15
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 36:                                               ; preds = %30
@@ -266,13 +267,13 @@ define void @_ZN5draco21ShannonEntropyTracker13UpdateSymbolsEPKjib(ptr dead_on_u
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %34, %36, %38, %40
-  %.pre48 = phi ptr [ %.pre48.pre, %34 ], [ %.pre4850, %36 ], [ %.pre4850, %38 ], [ %.pre4850, %40 ]
+  %.pre49 = phi ptr [ %.pre49.pre, %34 ], [ %.pre4951, %36 ], [ %.pre4951, %38 ], [ %.pre4951, %40 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #20
   br label %41
 
 41:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit, %17
-  %.pre4851 = phi ptr [ %.pre48, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit ], [ %.pre4850, %17 ]
-  %42 = phi ptr [ %.pre48, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit ], [ %18, %17 ]
+  %.pre4952 = phi ptr [ %.pre49, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit ], [ %.pre4951, %17 ]
+  %42 = phi ptr [ %.pre49, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit ], [ %18, %17 ]
   %43 = getelementptr inbounds nuw i32, ptr %42, i64 %29
   %44 = load i32, ptr %43, align 4, !tbaa !3
   %45 = icmp sgt i32 %44, 1
@@ -282,7 +283,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %34, %36, %38, %40
   %47 = uitofp nneg i32 %44 to double
   %48 = call noundef double @log2(double noundef %47) #20, !tbaa !3
   %49 = fmul double %48, %47
-  %.pre49 = load i32, ptr %43, align 4, !tbaa !3
+  %.pre50 = load i32, ptr %43, align 4, !tbaa !3
   br label %54
 
 50:                                               ; preds = %41
@@ -295,7 +296,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %34, %36, %38, %40
   br label %54
 
 54:                                               ; preds = %52, %50, %46
-  %55 = phi i32 [ %.pre49, %46 ], [ %44, %50 ], [ 0, %52 ]
+  %55 = phi i32 [ %.pre50, %46 ], [ %44, %50 ], [ 0, %52 ]
   %56 = phi i32 [ %19, %46 ], [ %19, %50 ], [ %spec.store.select, %52 ]
   %57 = phi i32 [ %20, %46 ], [ %20, %50 ], [ %53, %52 ]
   %.028 = phi double [ %49, %46 ], [ 0.000000e+00, %50 ], [ 0.000000e+00, %52 ]
@@ -315,17 +316,17 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %34, %36, %38, %40
   br label %.loopexit
 
 65:                                               ; preds = %.lr.ph38, %65
-  %indvars.iv43 = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next44, %65 ]
-  %66 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv43
+  %indvars.iv44 = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next45, %65 ]
+  %66 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv44
   %67 = load i32, ptr %66, align 4, !tbaa !3
   %68 = zext i32 %67 to i64
   %69 = getelementptr inbounds nuw i32, ptr %16, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !3
   %71 = add nsw i32 %70, -1
   store i32 %71, ptr %69, align 4, !tbaa !3
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
-  br i1 %exitcond47.not, label %.loopexit, label %65, !llvm.loop !21
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
+  br i1 %exitcond48.not, label %.loopexit, label %65, !llvm.loop !21
 
 .loopexit:                                        ; preds = %65, %.thread, %64
   ret void

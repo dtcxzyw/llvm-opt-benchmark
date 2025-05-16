@@ -9720,7 +9720,7 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, i64 24, i1 false)
   %12 = invoke { i8, i8 } @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfad8171f0259d39aE.llvm.11424388141523703806"(ptr noalias noundef readonly align 8 dereferenceable(8) @anon.b9c08160b8d52b2f9d67197464302e31.46.llvm.11424388141523703806)
-          to label %13 unwind label %34
+          to label %13 unwind label %33
 
 13:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
@@ -9728,70 +9728,69 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1741)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1744
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %15 = load ptr, ptr %14, align 8, !alias.scope !1741, !noalias !1746, !nonnull !55, !noundef !55
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %17 = load i64, ptr %16, align 8, !alias.scope !1741, !noalias !1746, !noundef !55
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %19 = load i16, ptr %18, align 8, !alias.scope !1741, !noalias !1746, !noundef !55
-  store ptr %15, ptr %5, align 8, !noalias !1744
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %17, ptr %20, align 8, !noalias !1744
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i16 %19, ptr %21, align 8, !noalias !1744
+  %14 = load ptr, ptr %.sroa.5.0..sroa_idx2, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %16 = load i64, ptr %15, align 8, !alias.scope !1741, !noalias !1746, !noundef !55
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %18 = load i16, ptr %17, align 8, !alias.scope !1741, !noalias !1746, !noundef !55
+  store ptr %14, ptr %5, align 8, !noalias !1744
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %16, ptr %19, align 8, !noalias !1744
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i16 %18, ptr %20, align 8, !noalias !1744
   invoke void @"_ZN78_$LT$$LP$$RF$str$C$u16$RP$$u20$as$u20$std..net..socket_addr..ToSocketAddrs$GT$15to_socket_addrs17h054092dda14a36afE"(ptr noalias noundef nonnull sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
-          to label %.noexc unwind label %22, !noalias !1741
+          to label %.noexc unwind label %21, !noalias !1741
 
-22:                                               ; preds = %13
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %13
+  %22 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr179drop_in_place$LT$tokio..net..addr..$LT$impl$u20$tokio..net..addr..sealed..ToSocketAddrsPriv$u20$for$u20$$LP$$RF$str$C$u16$RP$$GT$..to_socket_addrs..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf19f5a440c7c1673E.llvm.9340333246167201960"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6) #27
-          to label %.body.thread unwind label %30, !noalias !1746
+          to label %.body.thread unwind label %29, !noalias !1746
 
 .noexc:                                           ; preds = %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1744
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !1747
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0c839abf1383eb12E.llvm.700930863383756518"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6)
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %25 = load i64, ptr %24, align 8, !range !89, !noalias !1747, !noundef !55
-  %.not.i.i.i.i.i.i = icmp eq i64 %25, 0
-  br i1 %.not.i.i.i.i.i.i, label %32, label %26
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %24 = load i64, ptr %23, align 8, !range !89, !noalias !1747, !noundef !55
+  %.not.i.i.i.i.i.i = icmp eq i64 %24, 0
+  br i1 %.not.i.i.i.i.i.i, label %31, label %25
 
-26:                                               ; preds = %.noexc
-  %27 = load ptr, ptr %4, align 8, !noalias !1747, !nonnull !55, !noundef !55
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %29 = load i64, ptr %28, align 8, !noalias !1747, !noundef !55
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.700930863383756518"(ptr noalias noundef nonnull readonly align 1 %16, ptr noundef nonnull %27, i64 noundef %25, i64 noundef %29)
-  br label %32
+25:                                               ; preds = %.noexc
+  %26 = load ptr, ptr %4, align 8, !noalias !1747, !nonnull !55, !noundef !55
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %28 = load i64, ptr %27, align 8, !noalias !1747, !noundef !55
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.700930863383756518"(ptr noalias noundef nonnull readonly align 1 %15, ptr noundef nonnull %26, i64 noundef %24, i64 noundef %28)
+  br label %31
 
-30:                                               ; preds = %22
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %21
+  %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #28, !noalias !1746
   unreachable
 
-32:                                               ; preds = %26, %.noexc
+31:                                               ; preds = %25, %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1747
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   store i64 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   ret void
 
-.body.thread:                                     ; preds = %22, %34
-  %eh.lpad-body10 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %34 ], [ %23, %22 ]
+.body.thread:                                     ; preds = %21, %33
+  %eh.lpad-body10 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %33 ], [ %22, %21 ]
   resume { ptr, i32 } %eh.lpad-body10
 
-34:                                               ; preds = %11
+33:                                               ; preds = %11
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr179drop_in_place$LT$tokio..net..addr..$LT$impl$u20$tokio..net..addr..sealed..ToSocketAddrsPriv$u20$for$u20$$LP$$RF$str$C$u16$RP$$GT$..to_socket_addrs..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf19f5a440c7c1673E.llvm.9340333246167201960"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #27
-          to label %.body.thread unwind label %35
+          to label %.body.thread unwind label %34
 
-35:                                               ; preds = %34
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %33
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #28
   unreachable

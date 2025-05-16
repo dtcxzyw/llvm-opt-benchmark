@@ -2220,7 +2220,7 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_summary_info(ptr noundef readonly
 cdf_check_stream_offset.exit.thread:              ; preds = %5
   %12 = tail call ptr @__errno_location() #22
   store i32 22, ptr %12, align 4, !tbaa !21
-  br label %31
+  br label %34
 
 13:                                               ; preds = %5
   %.not12.i35 = icmp ult i64 %11, 48
@@ -2229,7 +2229,7 @@ cdf_check_stream_offset.exit.thread:              ; preds = %5
 cdf_check_stream_offset.exit37.thread:            ; preds = %13
   %14 = tail call ptr @__errno_location() #22
   store i32 22, ptr %14, align 4, !tbaa !21
-  br label %31
+  br label %34
 
 cdf_check_stream_offset.exit37:                   ; preds = %13
   %15 = load i16, ptr %7, align 4, !tbaa !51
@@ -2245,21 +2245,25 @@ cdf_check_stream_offset.exit37:                   ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %22, ptr noundef nonnull align 4 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !56
-  %24 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %25 = load i32, ptr %24, align 4, !tbaa !57
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  %27 = load i32, ptr %26, align 4, !tbaa !58
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 %25, ptr %28, align 4, !tbaa !57
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 14
+  %25 = load i16, ptr %24, align 2
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %27 = load i32, ptr %26, align 4, !tbaa !57
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 44
+  %29 = load i32, ptr %28, align 4, !tbaa !58
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 14
+  store i16 %25, ptr %30, align 2, !tbaa !43
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i32 %27, ptr %31, align 4, !tbaa !57
   store i64 0, ptr %4, align 8, !tbaa !47
   store i64 0, ptr %6, align 8, !tbaa !47
   store ptr null, ptr %3, align 8, !tbaa !37
-  %29 = call i32 @cdf_read_property_info(ptr noundef nonnull %0, ptr poison, i32 noundef %27, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %6)
-  %30 = icmp eq i32 %29, -1
-  %. = sext i1 %30 to i32
-  br label %31
+  %32 = call i32 @cdf_read_property_info(ptr noundef nonnull %0, ptr poison, i32 noundef %29, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %6)
+  %33 = icmp eq i32 %32, -1
+  %. = sext i1 %33 to i32
+  br label %34
 
-31:                                               ; preds = %cdf_check_stream_offset.exit37.thread, %cdf_check_stream_offset.exit.thread, %cdf_check_stream_offset.exit37
+34:                                               ; preds = %cdf_check_stream_offset.exit37.thread, %cdf_check_stream_offset.exit.thread, %cdf_check_stream_offset.exit37
   %.0 = phi i32 [ %., %cdf_check_stream_offset.exit37 ], [ -1, %cdf_check_stream_offset.exit.thread ], [ -1, %cdf_check_stream_offset.exit37.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
   ret i32 %.0

@@ -1412,7 +1412,7 @@ define internal noundef i32 @_ZL23u_printf_scidbl_handlerPK23u_printf_stream_han
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #9
   %7 = load double, ptr %4, align 8, !tbaa !20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %6, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false)
-  %8 = load i32, ptr %6, align 4, !tbaa !42
+  %8 = load i32, ptr %3, align 4
   %9 = icmp eq i32 %8, -1
   br i1 %9, label %10, label %16
 
@@ -1426,67 +1426,70 @@ define internal noundef i32 @_ZL23u_printf_scidbl_handlerPK23u_printf_stream_han
   store i16 102, ptr %14, align 2, !tbaa !60
   store i32 0, ptr %6, align 4, !tbaa !42
   %15 = call noundef i32 @_ZL23u_printf_double_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %4)
-  br label %41
+  br label %42
 
 16:                                               ; preds = %10, %5
   %17 = fcmp olt double %7, 1.000000e-04
+  %.pr.pre = load i32, ptr %6, align 4, !tbaa !42
   br i1 %17, label %thread-pre-split, label %18
 
 18:                                               ; preds = %16
-  %19 = icmp slt i32 %8, 1
+  %19 = icmp slt i32 %.pr.pre, 1
   %20 = fcmp oge double %7, 1.000000e+06
   %or.cond = select i1 %19, i1 %20, i1 false
   br i1 %or.cond, label %thread-pre-split, label %21
 
 21:                                               ; preds = %18
-  br i1 %9, label %34, label %22
+  %.not = icmp eq i32 %.pr.pre, -1
+  br i1 %.not, label %35, label %22
 
 22:                                               ; preds = %21
-  %23 = tail call double @uprv_pow10_77(i32 noundef %8)
+  %23 = tail call double @uprv_pow10_77(i32 noundef %.pr.pre)
   %24 = fcmp ogt double %7, %23
-  br i1 %24, label %thread-pre-split.thread, label %34
+  br i1 %24, label %thread-pre-split.thread, label %35
 
 thread-pre-split.thread:                          ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 10
   %26 = load i16, ptr %25, align 2, !tbaa !60
   %27 = add i16 %26, -2
   store i16 %27, ptr %25, align 2, !tbaa !60
-  br label %32
+  br label %33
 
 thread-pre-split:                                 ; preds = %16, %18
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 10
   %29 = load i16, ptr %28, align 2, !tbaa !60
   %30 = add i16 %29, -2
   store i16 %30, ptr %28, align 2, !tbaa !60
-  br i1 %9, label %31, label %32
+  %31 = icmp eq i32 %.pr.pre, -1
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %thread-pre-split
+32:                                               ; preds = %thread-pre-split
   store i32 5, ptr %6, align 4, !tbaa !42
-  br label %32
+  br label %33
 
-32:                                               ; preds = %thread-pre-split.thread, %31, %thread-pre-split
-  %33 = call noundef i32 @_ZL27u_printf_scientific_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %4)
-  br label %41
+33:                                               ; preds = %thread-pre-split.thread, %32, %thread-pre-split
+  %34 = call noundef i32 @_ZL27u_printf_scientific_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %4)
+  br label %42
 
-34:                                               ; preds = %22, %21
-  %35 = tail call ptr @u_locbund_getNumberFormat_77(ptr noundef %2, i32 noundef 1)
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %41, label %37
+35:                                               ; preds = %22, %21
+  %36 = tail call ptr @u_locbund_getNumberFormat_77(ptr noundef %2, i32 noundef 1)
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %42, label %38
 
-37:                                               ; preds = %34
-  %38 = tail call i32 @unum_getAttribute_77(ptr noundef nonnull %35, i32 noundef 18)
-  %39 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  store i16 102, ptr %39, align 2, !tbaa !60
-  %spec.store.select = select i1 %9, i32 6, i32 %8
-  tail call void @unum_setAttribute_77(ptr noundef nonnull %35, i32 noundef 16, i32 noundef 1)
-  tail call void @unum_setAttribute_77(ptr noundef nonnull %35, i32 noundef 18, i32 noundef %spec.store.select)
-  %40 = call noundef i32 @_ZL23u_printf_double_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %4)
-  call void @unum_setAttribute_77(ptr noundef nonnull %35, i32 noundef 18, i32 noundef %38)
-  call void @unum_setAttribute_77(ptr noundef nonnull %35, i32 noundef 16, i32 noundef 0)
-  br label %41
+38:                                               ; preds = %35
+  %39 = tail call i32 @unum_getAttribute_77(ptr noundef nonnull %36, i32 noundef 18)
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  store i16 102, ptr %40, align 2, !tbaa !60
+  %spec.store.select = select i1 %.not, i32 6, i32 %.pr.pre
+  tail call void @unum_setAttribute_77(ptr noundef nonnull %36, i32 noundef 16, i32 noundef 1)
+  tail call void @unum_setAttribute_77(ptr noundef nonnull %36, i32 noundef 18, i32 noundef %spec.store.select)
+  %41 = call noundef i32 @_ZL23u_printf_double_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %4)
+  call void @unum_setAttribute_77(ptr noundef nonnull %36, i32 noundef 18, i32 noundef %39)
+  call void @unum_setAttribute_77(ptr noundef nonnull %36, i32 noundef 16, i32 noundef 0)
+  br label %42
 
-41:                                               ; preds = %13, %37, %32, %34
-  %.0 = phi i32 [ 0, %34 ], [ %15, %13 ], [ %33, %32 ], [ %40, %37 ]
+42:                                               ; preds = %13, %38, %33, %35
+  %.0 = phi i32 [ 0, %35 ], [ %15, %13 ], [ %34, %33 ], [ %41, %38 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #9
   ret i32 %.0
 }

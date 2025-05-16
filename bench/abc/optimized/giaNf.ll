@@ -10110,10 +10110,10 @@ define void @Nf_ManFixPoDrivers(ptr noundef %0) local_unnamed_addr #14 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %11
 
-11:                                               ; preds = %.lr.ph, %79
-  %12 = phi ptr [ %2, %.lr.ph ], [ %80, %79 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
-  %13 = phi ptr [ %4, %.lr.ph ], [ %82, %79 ]
+11:                                               ; preds = %.lr.ph, %78
+  %12 = phi ptr [ %2, %.lr.ph ], [ %79, %78 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
+  %13 = phi ptr [ %4, %.lr.ph ], [ %81, %78 ]
   %14 = getelementptr i8, ptr %12, i64 32
   %.val55 = load ptr, ptr %14, align 8, !tbaa !134
   %15 = getelementptr i8, ptr %13, i64 8
@@ -10138,7 +10138,7 @@ define void @Nf_ManFixPoDrivers(ptr noundef %0) local_unnamed_addr #14 {
   %27 = and i64 %.val54, 536870911
   %28 = icmp eq i64 %27, 536870911
   %narrow.i.not = or i1 %.not.i, %28
-  br i1 %narrow.i.not, label %79, label %29
+  br i1 %narrow.i.not, label %78, label %29
 
 29:                                               ; preds = %20
   %.val60 = load ptr, ptr %7, align 8, !tbaa !25
@@ -10147,13 +10147,13 @@ define void @Nf_ManFixPoDrivers(ptr noundef %0) local_unnamed_addr #14 {
   %32 = getelementptr i32, ptr %.val60, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !13
   %.not41 = icmp eq i32 %33, 0
-  br i1 %.not41, label %79, label %34
+  br i1 %.not41, label %78, label %34
 
 34:                                               ; preds = %29
   %35 = getelementptr i8, ptr %32, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !13
   %.not42 = icmp eq i32 %36, 0
-  br i1 %.not42, label %79, label %37
+  br i1 %.not42, label %78, label %37
 
 37:                                               ; preds = %34
   %38 = lshr i32 %21, 29
@@ -10168,13 +10168,13 @@ define void @Nf_ManFixPoDrivers(ptr noundef %0) local_unnamed_addr #14 {
   %46 = load i32, ptr %42, align 4
   %47 = and i32 %46, 1073741824
   %.not44 = icmp eq i32 %47, 0
-  br i1 %.not44, label %48, label %79
+  br i1 %.not44, label %48, label %78
 
 48:                                               ; preds = %37
   %49 = load i32, ptr %45, align 4
   %50 = and i32 %49, 1073741824
   %.not45 = icmp eq i32 %50, 0
-  br i1 %.not45, label %51, label %79
+  br i1 %.not45, label %51, label %78
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -10185,7 +10185,7 @@ define void @Nf_ManFixPoDrivers(ptr noundef %0) local_unnamed_addr #14 {
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 224
   %58 = load i32, ptr %57, align 8, !tbaa !177
   %59 = icmp sgt i32 %55, %58
-  br i1 %59, label %79, label %60
+  br i1 %59, label %78, label %60
 
 60:                                               ; preds = %51
   %61 = tail call i64 @Nf_MatchDeref_rec(ptr noundef nonnull %0, i32 noundef %23, i32 noundef %39, ptr noundef nonnull %42)
@@ -10207,27 +10207,26 @@ define void @Nf_ManFixPoDrivers(ptr noundef %0) local_unnamed_addr #14 {
   %73 = load i32, ptr %72, align 4, !tbaa !190
   %74 = add nsw i32 %73, %71
   store i32 %74, ptr %72, align 4, !tbaa !190
-  %75 = load i32, ptr %42, align 4
+  %75 = load i32, ptr %45, align 4
   %76 = or i32 %75, -1073741824
   store i32 %76, ptr %42, align 4
-  %77 = load i32, ptr %45, align 4
-  %78 = or i32 %77, -2147483648
-  store i32 %78, ptr %45, align 4
+  %77 = or i32 %75, -2147483648
+  store i32 %77, ptr %45, align 4
   %.pre = load ptr, ptr %0, align 8, !tbaa !100
-  br label %79
+  br label %78
 
-79:                                               ; preds = %51, %37, %48, %29, %34, %20, %60
-  %80 = phi ptr [ %12, %37 ], [ %12, %48 ], [ %12, %51 ], [ %.pre, %60 ], [ %12, %34 ], [ %12, %29 ], [ %12, %20 ]
+78:                                               ; preds = %51, %37, %48, %29, %34, %20, %60
+  %79 = phi ptr [ %12, %37 ], [ %12, %48 ], [ %12, %51 ], [ %.pre, %60 ], [ %12, %34 ], [ %12, %29 ], [ %12, %20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 72
-  %82 = load ptr, ptr %81, align 8, !tbaa !188
-  %83 = getelementptr i8, ptr %82, i64 4
-  %.val = load i32, ptr %83, align 4, !tbaa !22
-  %84 = sext i32 %.val to i64
-  %85 = icmp slt i64 %indvars.iv.next, %84
-  br i1 %85, label %11, label %.critedge, !llvm.loop !247
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 72
+  %81 = load ptr, ptr %80, align 8, !tbaa !188
+  %82 = getelementptr i8, ptr %81, i64 4
+  %.val = load i32, ptr %82, align 4, !tbaa !22
+  %83 = sext i32 %.val to i64
+  %84 = icmp slt i64 %indvars.iv.next, %83
+  br i1 %84, label %11, label %.critedge, !llvm.loop !247
 
-.critedge:                                        ; preds = %11, %79, %1
+.critedge:                                        ; preds = %11, %78, %1
   ret void
 }
 

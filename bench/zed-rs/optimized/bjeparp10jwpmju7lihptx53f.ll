@@ -11772,9 +11772,9 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN13extensions_ui26extension_version
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  %25 = load i64, ptr %4, align 8, !range !30, !noundef !10
+  %25 = load i64, ptr %6, align 8
   %trunc = trunc nuw i64 %25 to i1
-  %26 = load i64, ptr %24, align 8, !range !30
+  %26 = load i64, ptr %5, align 8
   %trunc9 = trunc nuw i64 %26 to i1
   %27 = select i1 %trunc, i1 true, i1 %trunc9
   br i1 %27, label %28, label %35
@@ -11799,7 +11799,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN13extensions_ui26extension_version
   %43 = load i64, ptr %42, align 8, !noundef !10
   %44 = tail call i8 @llvm.ucmp.i8.i64(i64 %41, i64 %37)
   %45 = icmp eq i64 %41, %37
-  br i1 %45, label %46, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$GT$17h9566704bf0428f8cE.exit.i.thread"
+  br i1 %45, label %46, label %.thread
 
 46:                                               ; preds = %35
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -11808,16 +11808,16 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN13extensions_ui26extension_version
   %50 = load i64, ptr %49, align 8, !noundef !10
   %51 = tail call i8 @llvm.ucmp.i8.i64(i64 %48, i64 %50)
   %52 = icmp eq i64 %48, %50
-  br i1 %52, label %53, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$GT$17h9566704bf0428f8cE.exit.i.thread"
+  br i1 %52, label %53, label %.thread
 
 53:                                               ; preds = %46
   %54 = tail call i8 @llvm.ucmp.i8.i64(i64 %43, i64 %39)
-  br label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$GT$17h9566704bf0428f8cE.exit.i.thread"
+  br label %.thread
 
-"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$GT$17h9566704bf0428f8cE.exit.i.thread": ; preds = %53, %46, %35
+.thread:                                          ; preds = %35, %46, %53
   %.sroa.0.0.ph = phi i8 [ %44, %35 ], [ %51, %46 ], [ %54, %53 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br label %"_ZN4core3ptr186drop_in_place$LT$$LP$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$C$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$RP$$GT$17h750c06845e034e1eE.exit"
+  br label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$GT$17h9566704bf0428f8cE.exit.i"
 
 55:                                               ; preds = %71, %78, %28
   %.sroa.0.0 = phi i8 [ %83, %78 ], [ %76, %71 ], [ %33, %28 ]
@@ -11828,16 +11828,12 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN13extensions_ui26extension_version
 57:                                               ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %58)
-          to label %"._ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$GT$17h9566704bf0428f8cE.exit.i_crit_edge" unwind label %59
-
-"._ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$GT$17h9566704bf0428f8cE.exit.i_crit_edge": ; preds = %57
-  %.pre = load i64, ptr %24, align 8, !range !30, !alias.scope !1791
-  br label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$GT$17h9566704bf0428f8cE.exit.i"
+          to label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$GT$17h9566704bf0428f8cE.exit.i" unwind label %59
 
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           cleanup
-  %61 = load i64, ptr %24, align 8, !range !30, !alias.scope !1796, !noundef !10
+  %61 = load i64, ptr %24, align 8, !range !30, !alias.scope !1791, !noundef !10
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %common.resume, label %63
 
@@ -11846,8 +11842,9 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN13extensions_ui26extension_version
   invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
           to label %common.resume unwind label %69
 
-"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$GT$17h9566704bf0428f8cE.exit.i": ; preds = %"._ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$GT$17h9566704bf0428f8cE.exit.i_crit_edge", %55
-  %65 = phi i64 [ %.pre, %"._ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$GT$17h9566704bf0428f8cE.exit.i_crit_edge" ], [ %26, %55 ]
+"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$GT$17h9566704bf0428f8cE.exit.i": ; preds = %.thread, %57, %55
+  %.sroa.0.013 = phi i8 [ %.sroa.0.0.ph, %.thread ], [ %.sroa.0.0, %57 ], [ %.sroa.0.0, %55 ]
+  %65 = load i64, ptr %24, align 8, !range !30, !alias.scope !1796, !noundef !10
   %66 = icmp eq i64 %65, 0
   br i1 %66, label %"_ZN4core3ptr186drop_in_place$LT$$LP$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$C$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$RP$$GT$17h750c06845e034e1eE.exit", label %67
 
@@ -11866,10 +11863,9 @@ common.resume:                                    ; preds = %21, %17, %59, %63
   %common.resume.op = phi { ptr, i32 } [ %60, %63 ], [ %60, %59 ], [ %18, %17 ], [ %18, %21 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr186drop_in_place$LT$$LP$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$C$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$RP$$GT$17h750c06845e034e1eE.exit": ; preds = %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$GT$17h9566704bf0428f8cE.exit.i.thread", %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$GT$17h9566704bf0428f8cE.exit.i", %67
-  %.sroa.0.01315 = phi i8 [ %.sroa.0.0.ph, %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$GT$17h9566704bf0428f8cE.exit.i.thread" ], [ %.sroa.0.0, %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$GT$17h9566704bf0428f8cE.exit.i" ], [ %.sroa.0.0, %67 ]
+"_ZN4core3ptr186drop_in_place$LT$$LP$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$C$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$RP$$GT$17h750c06845e034e1eE.exit": ; preds = %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$semantic_version..SemanticVersion$C$anyhow..Error$GT$$GT$17h9566704bf0428f8cE.exit.i", %67
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  ret i8 %.sroa.0.01315
+  ret i8 %.sroa.0.013
 
 71:                                               ; preds = %28
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 172

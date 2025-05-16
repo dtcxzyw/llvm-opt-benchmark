@@ -15145,63 +15145,62 @@ define internal fastcc void @_advance_slot_until(ptr noundef nonnull captures(no
 12:                                               ; preds = %7
   %13 = and i64 %5, 10485760
   %.not20 = icmp eq i64 %13, 0
-  br i1 %.not20, label %19, label %14
+  br i1 %.not20, label %18, label %14
 
 14:                                               ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
-  %15 = load i64, ptr %3, align 8
-  %16 = icmp slt i64 %15, %1
-  br i1 %16, label %.lr.ph, label %.loopexit
+  %15 = icmp slt i64 %8, %1
+  br i1 %15, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %14, %.lr.ph
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call fastcc void @_advance_slot(ptr noundef %3)
-  %17 = load i64, ptr %3, align 8
-  %18 = icmp slt i64 %17, %1
-  br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !85
+  %16 = load i64, ptr %3, align 8
+  %17 = icmp slt i64 %16, %1
+  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !85
 
-19:                                               ; preds = %12
-  %20 = and i64 %5, 16
-  %.not12.i = icmp eq i64 %20, 0
-  br i1 %.not12.i, label %21, label %26
+18:                                               ; preds = %12
+  %19 = and i64 %5, 16
+  %.not12.i = icmp eq i64 %19, 0
+  br i1 %.not12.i, label %20, label %25
 
-21:                                               ; preds = %19
-  %22 = and i64 %5, 4
-  %.not13.i = icmp eq i64 %22, 0
-  br i1 %.not13.i, label %23, label %26
+20:                                               ; preds = %18
+  %21 = and i64 %5, 4
+  %.not13.i = icmp eq i64 %21, 0
+  br i1 %.not13.i, label %22, label %25
 
-23:                                               ; preds = %21
-  %24 = and i64 %5, 34359738368
-  %.not14.i = icmp eq i64 %24, 0
-  br i1 %.not14.i, label %_get_advance_secs.exit, label %26
+22:                                               ; preds = %20
+  %23 = and i64 %5, 34359738368
+  %.not14.i = icmp eq i64 %23, 0
+  br i1 %.not14.i, label %_get_advance_secs.exit, label %25
 
-_get_advance_secs.exit:                           ; preds = %23
-  %25 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.130, ptr noundef nonnull @__func__._get_advance_secs) #19
+_get_advance_secs.exit:                           ; preds = %22
+  %24 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.130, ptr noundef nonnull @__func__._get_advance_secs) #19
   br label %.loopexit
 
-26:                                               ; preds = %19, %21, %23
-  %.08.i.ph = phi i64 [ 3600, %23 ], [ 86400, %21 ], [ 604800, %19 ]
-  %27 = xor i64 %8, -1
-  %28 = add i64 %1, %27
-  %29 = sdiv i64 %28, %.08.i.ph
-  %sext = shl i64 %29, 32
-  %30 = ashr exact i64 %sext, 32
-  %31 = mul nsw i64 %30, %.08.i.ph
-  %32 = add nsw i64 %31, %8
-  store i64 %32, ptr %0, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load i64, ptr %33, align 8
-  %35 = add nsw i64 %31, %34
-  store i64 %35, ptr %33, align 8
-  %36 = and i64 %29, 2147483648
-  %.not21 = icmp eq i64 %36, 0
-  br i1 %.not21, label %.loopexit, label %37
+25:                                               ; preds = %18, %20, %22
+  %.08.i.ph = phi i64 [ 3600, %22 ], [ 86400, %20 ], [ 604800, %18 ]
+  %26 = xor i64 %8, -1
+  %27 = add i64 %1, %26
+  %28 = sdiv i64 %27, %.08.i.ph
+  %sext = shl i64 %28, 32
+  %29 = ashr exact i64 %sext, 32
+  %30 = mul nsw i64 %29, %.08.i.ph
+  %31 = add nsw i64 %30, %8
+  store i64 %31, ptr %0, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %33 = load i64, ptr %32, align 8
+  %34 = add nsw i64 %30, %33
+  store i64 %34, ptr %32, align 8
+  %35 = and i64 %28, 2147483648
+  %.not21 = icmp eq i64 %35, 0
+  br i1 %.not21, label %.loopexit, label %36
 
-37:                                               ; preds = %26
-  %38 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.129, ptr noundef nonnull @__func__._advance_slot_until) #19
+36:                                               ; preds = %25
+  %37 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.129, ptr noundef nonnull @__func__._advance_slot_until) #19
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %14, %_get_advance_secs.exit, %37, %26, %2, %10
+.loopexit:                                        ; preds = %.lr.ph, %14, %_get_advance_secs.exit, %36, %25, %2, %10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
   ret void
 }

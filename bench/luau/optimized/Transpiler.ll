@@ -5748,11 +5748,11 @@ _ZN4Luau7Printer13lookupCstNodeINS_16CstTypeReferenceEEEPT_PNS_7AstNodeE.exit: ;
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8
   call void %75(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull align 4 dereferenceable(8) %72)
-  %.pre544 = load ptr, ptr %9, align 8, !tbaa !46
+  %.pre543 = load ptr, ptr %9, align 8, !tbaa !46
   br label %.critedge
 
 .critedge:                                        ; preds = %67, %69
-  %76 = phi ptr [ %.pre544, %69 ], [ %68, %67 ]
+  %76 = phi ptr [ %.pre543, %69 ], [ %68, %67 ]
   %.sroa.10.0 = phi ptr [ %71, %69 ], [ null, %67 ]
   %77 = load ptr, ptr %76, align 8, !tbaa !23
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 80
@@ -6066,7 +6066,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit325:     ; preds = %.lr.ph527, %156
   %248 = load ptr, ptr %239, align 8, !tbaa !285
   %249 = getelementptr inbounds nuw %"struct.Luau::CstTypeTable::Item", ptr %248, i64 %.0177509
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %249, i64 56, i1 false)
-  %250 = load i32, ptr %6, align 8, !tbaa !286
+  %250 = load i32, ptr %249, align 8
   %251 = icmp eq i32 %250, 0
   br i1 %251, label %252, label %328
 
@@ -6133,7 +6133,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit325:     ; preds = %.lr.ph527, %156
   call void %299(ptr noundef nonnull align 8 dereferenceable(8) %296, i64 1, ptr nonnull @.str.127)
   %300 = load ptr, ptr %189, align 8, !tbaa !270
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
-  %302 = load ptr, ptr %301, align 8, !tbaa !296
+  %302 = load ptr, ptr %301, align 8, !tbaa !286
   call void @_ZN4Luau7Printer23visualizeTypeAnnotationERNS_7AstTypeE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(28) %302)
   %303 = load i8, ptr %244, align 8, !tbaa !212, !range !30, !noundef !31
   %304 = trunc nuw i8 %303 to i1
@@ -6188,7 +6188,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit325:     ; preds = %.lr.ph527, %156
   call void %337(ptr noundef nonnull align 8 dereferenceable(8) %334, ptr noundef nonnull align 4 dereferenceable(8) %333)
   %338 = load ptr, ptr %9, align 8, !tbaa !46
   %339 = getelementptr inbounds nuw i8, ptr %.0176510, i64 32
-  %340 = load i32, ptr %339, align 8, !tbaa !297
+  %340 = load i32, ptr %339, align 8, !tbaa !287
   %341 = icmp eq i32 %340, 1
   %342 = select i1 %341, ptr @.str.144, ptr @.str.145
   %343 = select i1 %341, i64 4, i64 5
@@ -6196,11 +6196,10 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit325:     ; preds = %.lr.ph527, %156
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 72
   %346 = load ptr, ptr %345, align 8
   call void %346(ptr noundef nonnull align 8 dereferenceable(8) %338, i64 %343, ptr nonnull %342)
-  %.pre541 = load i32, ptr %6, align 8, !tbaa !286
   br label %347
 
 347:                                              ; preds = %332, %328
-  %348 = phi i32 [ %.pre541, %332 ], [ %250, %328 ]
+  %348 = load i32, ptr %6, align 8, !tbaa !289
   %349 = icmp eq i32 %348, 2
   br i1 %349, label %350, label %380
 
@@ -6344,7 +6343,7 @@ _ZNK4Luau7AstNameeqEPKc.exit.thread:              ; preds = %428
   br i1 %432, label %._crit_edge, label %.lr.ph513
 
 ._crit_edge:                                      ; preds = %472, %_ZNK4Luau7AstNameeqEPKc.exit.thread.thread, %_ZNK4Luau7AstNameeqEPKc.exit.thread
-  %.sroa.8554.0 = phi ptr [ %439, %_ZNK4Luau7AstNameeqEPKc.exit.thread.thread ], [ %440, %_ZNK4Luau7AstNameeqEPKc.exit.thread ], [ %440, %472 ]
+  %.sroa.8553.0 = phi ptr [ %439, %_ZNK4Luau7AstNameeqEPKc.exit.thread.thread ], [ %440, %_ZNK4Luau7AstNameeqEPKc.exit.thread ], [ %440, %472 ]
   %.sroa.0.1 = phi i1 [ true, %_ZNK4Luau7AstNameeqEPKc.exit.thread.thread ], [ true, %_ZNK4Luau7AstNameeqEPKc.exit.thread ], [ %.sroa.0.2, %472 ]
   %441 = load ptr, ptr %189, align 8, !tbaa !270
   %.not287 = icmp eq ptr %441, null
@@ -6406,16 +6405,16 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit333:     ; preds = %.lr.ph513, %443
   br i1 %475, label %.lr.ph513, label %._crit_edge, !llvm.loop !305
 
 476:                                              ; preds = %._crit_edge
-  br i1 %.sroa.0.1, label %_ZN4Luau22CommaSeparatorInserterclEv.exit553, label %477
+  br i1 %.sroa.0.1, label %_ZN4Luau22CommaSeparatorInserterclEv.exit552, label %477
 
 477:                                              ; preds = %476
-  %478 = load ptr, ptr %.sroa.8554.0, align 8, !tbaa !23
+  %478 = load ptr, ptr %.sroa.8553.0, align 8, !tbaa !23
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 80
   %480 = load ptr, ptr %479, align 8
-  call void %480(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.8554.0, i64 1, ptr nonnull @.str.107)
-  br label %_ZN4Luau22CommaSeparatorInserterclEv.exit553
+  call void %480(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.8553.0, i64 1, ptr nonnull @.str.107)
+  br label %_ZN4Luau22CommaSeparatorInserterclEv.exit552
 
-_ZN4Luau22CommaSeparatorInserterclEv.exit553:     ; preds = %476, %477
+_ZN4Luau22CommaSeparatorInserterclEv.exit552:     ; preds = %476, %477
   %481 = load ptr, ptr %9, align 8, !tbaa !46
   %482 = load ptr, ptr %481, align 8, !tbaa !23
   %483 = getelementptr inbounds nuw i8, ptr %482, i64 80
@@ -6436,14 +6435,14 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit553:     ; preds = %476, %477
   call void %494(ptr noundef nonnull align 8 dereferenceable(8) %491, i64 1, ptr nonnull @.str.127)
   br label %.loopexit.sink.split.sink.split
 
-.loopexit.sink.split.sink.split:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit, %_ZN4Luau22CommaSeparatorInserterclEv.exit553, %218
-  %.pre542 = load ptr, ptr %189, align 8, !tbaa !270
+.loopexit.sink.split.sink.split:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit, %_ZN4Luau22CommaSeparatorInserterclEv.exit552, %218
+  %.pre541 = load ptr, ptr %189, align 8, !tbaa !270
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %213
-  %.sink = phi ptr [ %214, %213 ], [ %.pre542, %.loopexit.sink.split.sink.split ]
+  %.sink = phi ptr [ %214, %213 ], [ %.pre541, %.loopexit.sink.split.sink.split ]
   %495 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
-  %496 = load ptr, ptr %495, align 8, !tbaa !296
+  %496 = load ptr, ptr %495, align 8, !tbaa !286
   call void @_ZN4Luau7Printer23visualizeTypeAnnotationERNS_7AstTypeE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(28) %496)
   br label %.loopexit
 
@@ -6622,8 +6621,8 @@ _ZNK4Luau7AstNameeqEPKc.exit344:                  ; preds = %577
   %.not281492 = icmp eq ptr %.0477, null
   %587 = icmp ne i32 %584, %112
   %588 = and i1 %587, %586
-  %or.cond551 = select i1 %588, i1 true, i1 %.not281492
-  br i1 %or.cond551, label %.critedge300, label %.critedge316
+  %or.cond550 = select i1 %588, i1 true, i1 %.not281492
+  br i1 %or.cond550, label %.critedge300, label %.critedge316
 
 .critedge316:                                     ; preds = %582
   %589 = load ptr, ptr %9, align 8, !tbaa !46
@@ -9481,7 +9480,7 @@ common.ret440:                                    ; preds = %._crit_edge427, %39
   tail call void %163(ptr noundef nonnull align 8 dereferenceable(8) %160, i64 1, ptr nonnull @.str.135)
   %164 = load ptr, ptr %141, align 8, !tbaa !270
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  %166 = load ptr, ptr %165, align 8, !tbaa !296
+  %166 = load ptr, ptr %165, align 8, !tbaa !286
   tail call void @_ZN4Luau18Printer_DEPRECATED23visualizeTypeAnnotationERKNS_7AstTypeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(28) %166)
   %167 = load ptr, ptr %4, align 8, !tbaa !328
   %168 = load ptr, ptr %167, align 8, !tbaa !23
@@ -9593,7 +9592,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit250:     ; preds = %._crit_edge.thread,
   tail call void %230(ptr noundef nonnull align 8 dereferenceable(8) %227, i64 1, ptr nonnull @.str.127)
   %231 = load ptr, ptr %141, align 8, !tbaa !270
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
-  %233 = load ptr, ptr %232, align 8, !tbaa !296
+  %233 = load ptr, ptr %232, align 8, !tbaa !286
   tail call void @_ZN4Luau18Printer_DEPRECATED23visualizeTypeAnnotationERKNS_7AstTypeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(28) %233)
   br label %234
 
@@ -15467,22 +15466,22 @@ attributes #28 = { noreturn nounwind }
 !283 = !{!279, !17, i64 16}
 !284 = !{!272, !273, i64 0}
 !285 = !{!279, !281, i64 8}
-!286 = !{!287, !288, i64 0}
-!287 = !{!"_ZTSN4Luau12CstTypeTable4ItemE", !288, i64 0, !50, i64 4, !50, i64 12, !50, i64 20, !289, i64 28, !292, i64 36, !295, i64 48}
-!288 = !{!"_ZTSN4Luau12CstTypeTable4Item4KindE", !6, i64 0}
-!289 = !{!"_ZTSSt8optionalIN4Luau12CstExprTable9SeparatorEE", !290, i64 0}
-!290 = !{!"_ZTSSt14_Optional_baseIN4Luau12CstExprTable9SeparatorELb1ELb1EE", !291, i64 0}
-!291 = !{!"_ZTSSt17_Optional_payloadIN4Luau12CstExprTable9SeparatorELb1ELb1ELb1EE", !213, i64 0}
-!292 = !{!"_ZTSSt8optionalIN4Luau8PositionEE", !293, i64 0}
-!293 = !{!"_ZTSSt14_Optional_baseIN4Luau8PositionELb1ELb1EE", !294, i64 0}
-!294 = !{!"_ZTSSt17_Optional_payloadIN4Luau8PositionELb1ELb1ELb1EE", !105, i64 0}
-!295 = !{!"p1 _ZTSN4Luau21CstExprConstantStringE", !11, i64 0}
-!296 = !{!276, !97, i64 8}
-!297 = !{!298, !277, i64 32}
-!298 = !{!"_ZTSN4Luau12AstTablePropE", !96, i64 0, !49, i64 8, !97, i64 24, !277, i64 32, !249, i64 36}
-!299 = !{!287, !295, i64 48}
-!300 = !{!298, !16, i64 0}
-!301 = !{!298, !97, i64 24}
+!286 = !{!276, !97, i64 8}
+!287 = !{!288, !277, i64 32}
+!288 = !{!"_ZTSN4Luau12AstTablePropE", !96, i64 0, !49, i64 8, !97, i64 24, !277, i64 32, !249, i64 36}
+!289 = !{!290, !291, i64 0}
+!290 = !{!"_ZTSN4Luau12CstTypeTable4ItemE", !291, i64 0, !50, i64 4, !50, i64 12, !50, i64 20, !292, i64 28, !295, i64 36, !298, i64 48}
+!291 = !{!"_ZTSN4Luau12CstTypeTable4Item4KindE", !6, i64 0}
+!292 = !{!"_ZTSSt8optionalIN4Luau12CstExprTable9SeparatorEE", !293, i64 0}
+!293 = !{!"_ZTSSt14_Optional_baseIN4Luau12CstExprTable9SeparatorELb1ELb1EE", !294, i64 0}
+!294 = !{!"_ZTSSt17_Optional_payloadIN4Luau12CstExprTable9SeparatorELb1ELb1ELb1EE", !213, i64 0}
+!295 = !{!"_ZTSSt8optionalIN4Luau8PositionEE", !296, i64 0}
+!296 = !{!"_ZTSSt14_Optional_baseIN4Luau8PositionELb1ELb1EE", !297, i64 0}
+!297 = !{!"_ZTSSt17_Optional_payloadIN4Luau8PositionELb1ELb1ELb1EE", !105, i64 0}
+!298 = !{!"p1 _ZTSN4Luau21CstExprConstantStringE", !11, i64 0}
+!299 = !{!290, !298, i64 48}
+!300 = !{!288, !16, i64 0}
+!301 = !{!288, !97, i64 24}
 !302 = distinct !{!302, !21}
 !303 = !{!271, !17, i64 40}
 !304 = !{!271, !273, i64 32}

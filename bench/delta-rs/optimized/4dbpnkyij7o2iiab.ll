@@ -306,7 +306,7 @@ define hidden void @"_ZN11bytes_utils9segmented21SegmentedBuf$LT$B$GT$11clean_em
   %20 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %7, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false), !noalias !13
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  %21 = load ptr, ptr %2, align 8, !alias.scope !18, !noundef !5
+  %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17h454ec97bfa3a13baE.llvm.12862495042339831644.exit", label %23
 
@@ -431,7 +431,7 @@ define hidden void @"_ZN11bytes_utils9segmented21SegmentedBuf$LT$B$GT$4push17h52
   %53 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %40, i64 %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %53, i64 32, i1 false), !noalias !55
   call void @llvm.experimental.noalias.scope.decl(metadata !58)
-  %54 = load ptr, ptr %3, align 8, !alias.scope !58, !noalias !43, !noundef !5
+  %54 = load ptr, ptr %53, align 8, !noalias !43
   %55 = icmp eq ptr %54, null
   br i1 %55, label %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17h454ec97bfa3a13baE.llvm.12862495042339831644.exit.i", label %56
 
@@ -676,16 +676,18 @@ define hidden void @"_ZN188_$LT$aws_sdk_glue..error_meta..Error$u20$as$u20$core.
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %5, ptr noundef nonnull align 8 dereferenceable(352) %1, i64 352, i1 false)
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 208
-  %.sroa.011.0.copyload = load i64, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %5, ptr noundef nonnull align 8 dereferenceable(344) %1, i64 344, i1 false)
+  %.sroa.4.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %1, i64 344
+  %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx35, align 8
+  %.sroa.4.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %5, i64 344
+  store i64 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx36, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %.sroa.011.0.copyload3132 = load i64, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 344
-  %.sroa.13.0.copyload = load i64, ptr %.sroa.13.0..sroa_idx, align 8
   call void @"_ZN4core3ptr69drop_in_place$LT$aws_smithy_runtime_api..http..response..Response$GT$17h6d3deeb5e2868cc7E"(ptr noalias noundef nonnull align 8 dereferenceable(208) %5)
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !106)
-  %11 = add i64 %.sroa.011.0.copyload, 9223372036854775807
+  %11 = add i64 %.sroa.011.0.copyload3132, 9223372036854775807
   %12 = icmp ult i64 %11, 9
   %13 = select i1 %12, i64 %11, i64 1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -709,11 +711,11 @@ define hidden void @"_ZN188_$LT$aws_sdk_glue..error_meta..Error$u20$as$u20$core.
   br label %25
 
 17:                                               ; preds = %8
-  store i64 %.sroa.011.0.copyload, ptr %14, align 8, !alias.scope !109
+  store i64 %.sroa.011.0.copyload3132, ptr %14, align 8, !alias.scope !109
   %.sroa.5.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.5.0..sroa_idx14, ptr noundef nonnull align 8 dereferenceable(128) %10, i64 128, i1 false)
   %.sroa.13.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i64 %.sroa.13.0.copyload, ptr %.sroa.13.0..sroa_idx15, align 8, !alias.scope !109
+  store i64 %.sroa.4.0.copyload, ptr %.sroa.13.0..sroa_idx15, align 8, !alias.scope !109
   br label %25
 
 18:                                               ; preds = %8

@@ -1766,8 +1766,8 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN9Arguments18is_deprecated_flagEPK
   %4 = alloca %class.JDK_Version, align 8
   %5 = alloca %class.JDK_Version, align 8
   %6 = alloca %class.JDK_Version, align 8
-  %.sroa.4 = alloca [36 x i8], align 4
-  %.sroa.5 = alloca %class.JDK_Version, align 8
+  %.sroa.4.sroa.0 = alloca [16 x i8], align 4
+  %.sroa.5.sroa.4 = alloca { i32, i32, i32, i32 }, align 8
   %7 = load ptr, ptr @_ZL17special_jvm_flags, align 16
   %.not11.not.i = icmp eq ptr %7, null
   br i1 %.not11.not.i, label %.critedge, label %.lr.ph.i.preheader
@@ -1795,63 +1795,69 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN9Arguments18is_deprecated_flagEPK
   %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.lcssa, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.4, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.4.0..sroa_idx, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.sroa.0, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.0..sroa_idx, i64 16, i1 false)
+  %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %.lcssa, i64 28
+  %.sroa.4.sroa.3.0.copyload = load i32, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.lcssa, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.5.0..sroa_idx, i64 20, i1 false)
+  %.sroa.5.sroa.0.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %.lcssa, i64 52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.sroa.4, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, i64 16, i1 false)
   %15 = icmp eq i32 %.sroa.1.0.copyload, 0
   br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %.lr.ph.i._crit_edge
+  %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %.lcssa, i64 32
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 4 dereferenceable(20) @_ZN11JDK_Version8_currentE, i64 20, i1 false)
-  %17 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 28
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(20) %17, i64 20, i1 false)
-  %18 = load i32, ptr %5, align 8
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %23, label %20
+  store i32 %.sroa.4.sroa.3.0.copyload, ptr %5, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.217.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, i64 16, i1 false)
+  %17 = icmp eq i32 %.sroa.4.sroa.3.0.copyload, 0
+  br i1 %17, label %21, label %18
 
-20:                                               ; preds = %16
-  %21 = call noundef i32 @_ZNK11JDK_Version7compareERKS_(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(20) %5) #31
-  %22 = icmp sgt i32 %21, -1
-  br i1 %22, label %_ZL17version_less_than11JDK_VersionS_.exit, label %23
+18:                                               ; preds = %16
+  %19 = call noundef i32 @_ZNK11JDK_Version7compareERKS_(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(20) %5) #31
+  %20 = icmp sgt i32 %19, -1
+  br i1 %20, label %_ZL17version_less_than11JDK_VersionS_.exit, label %21
 
-_ZL17version_less_than11JDK_VersionS_.exit:       ; preds = %20
+_ZL17version_less_than11JDK_VersionS_.exit:       ; preds = %18
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
   br label %.critedge
 
-23:                                               ; preds = %16, %20
+21:                                               ; preds = %16, %18
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) @_ZN11JDK_Version8_currentE, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.5, i64 20, i1 false)
-  %24 = load i32, ptr %3, align 8
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %29, label %26
+  store i32 %.sroa.5.sroa.0.0.copyload, ptr %3, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.sroa.4, i64 16, i1 false)
+  %22 = icmp eq i32 %.sroa.5.sroa.0.0.copyload, 0
+  br i1 %22, label %26, label %23
 
-26:                                               ; preds = %23
-  %27 = call noundef i32 @_ZNK11JDK_Version7compareERKS_(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(20) %3) #31
-  %28 = icmp sgt i32 %27, -1
-  br i1 %28, label %_ZL17version_less_than11JDK_VersionS_.exit3, label %29
+23:                                               ; preds = %21
+  %24 = call noundef i32 @_ZNK11JDK_Version7compareERKS_(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(20) %3) #31
+  %25 = icmp sgt i32 %24, -1
+  br i1 %25, label %_ZL17version_less_than11JDK_VersionS_.exit3, label %26
 
-_ZL17version_less_than11JDK_VersionS_.exit3:      ; preds = %26
+_ZL17version_less_than11JDK_VersionS_.exit3:      ; preds = %23
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
   br label %.critedge
 
-29:                                               ; preds = %23, %26
+26:                                               ; preds = %21, %23
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
   store i32 %.sroa.1.0.copyload, ptr %1, align 4
   %.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.8..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.8..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.sroa.0, i64 16, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %2, %_ZL17version_less_than11JDK_VersionS_.exit3, %_ZL17version_less_than11JDK_VersionS_.exit, %.lr.ph.i._crit_edge, %29
-  %.0 = phi i32 [ 1, %29 ], [ -1, %_ZL17version_less_than11JDK_VersionS_.exit ], [ -1, %_ZL17version_less_than11JDK_VersionS_.exit3 ], [ 0, %.lr.ph.i._crit_edge ], [ 0, %2 ], [ 0, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %2, %_ZL17version_less_than11JDK_VersionS_.exit3, %_ZL17version_less_than11JDK_VersionS_.exit, %.lr.ph.i._crit_edge, %26
+  %.0 = phi i32 [ 1, %26 ], [ -1, %_ZL17version_less_than11JDK_VersionS_.exit ], [ -1, %_ZL17version_less_than11JDK_VersionS_.exit3 ], [ 0, %.lr.ph.i._crit_edge ], [ 0, %2 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -7742,7 +7748,7 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
   %71 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %.sroa.17.079, i64 %indvars.iv.i
   %72 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %67, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false)
-  %73 = load ptr, ptr %72, align 8
+  %73 = load ptr, ptr %71, align 8
   %74 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %73, i8 noundef zeroext 9) #31
   store ptr %74, ptr %72, align 8
   %75 = icmp eq ptr %74, null
@@ -8205,7 +8211,7 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
   %99 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %.sroa.27.0.lcssa, i64 %indvars.iv.i
   %100 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %94, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef nonnull align 8 dereferenceable(16) %99, i64 16, i1 false)
-  %101 = load ptr, ptr %100, align 8
+  %101 = load ptr, ptr %99, align 8
   %102 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %101, i8 noundef zeroext 9) #31
   store ptr %102, ptr %100, align 8
   %103 = icmp eq ptr %102, null

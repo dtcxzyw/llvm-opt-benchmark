@@ -200,8 +200,8 @@ define void @densmatr_mixDephasing(ptr noundef readonly byval(%struct.Qureg) ali
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %9, ptr noundef nonnull align 8 dereferenceable(136) %0, i64 136, i1 false)
   store double %10, ptr %4, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %12 = load i64, ptr %11, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %5, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %13 = zext nneg i32 %1 to i64
@@ -727,28 +727,33 @@ define void @densmatr_mixDepolarisingDistributed(ptr noundef byval(%struct.Qureg
   store i32 %1, ptr %10, align 4, !tbaa !18
   store double %2, ptr %11, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %9, ptr noundef nonnull align 8 dereferenceable(136) %0, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
+  %.sroa.4.0..sroa_idx1 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.4.0.copyload2 = load i64, ptr %.sroa.4.0..sroa_idx1, align 8
+  %.sroa.5.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.5.0..sroa_idx3, i64 112, i1 false)
   %17 = fsub double 1.000000e+00, %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i64 %.sroa.4.0.copyload2, ptr %.sroa.4.0..sroa_idx, align 8
   store double %17, ptr %4, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %19 = load i64, ptr %18, align 8, !tbaa !8
-  store i64 %19, ptr %5, align 8, !tbaa !16
+  store i64 %.sroa.4.0.copyload2, ptr %5, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
-  %20 = zext nneg i32 %1 to i64
-  %21 = shl nuw i64 1, %20
-  store i64 %21, ptr %6, align 8, !tbaa !16
+  %18 = zext nneg i32 %1 to i64
+  %19 = shl nuw i64 1, %18
+  store i64 %19, ptr %6, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
-  %22 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !17
-  %24 = add nsw i32 %23, %1
-  %25 = zext nneg i32 %24 to i64
-  %26 = shl nuw i64 1, %25
-  store i64 %26, ptr %7, align 8, !tbaa !16
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %21 = load i32, ptr %20, align 4, !tbaa !17
+  %22 = add nsw i32 %21, %1
+  %23 = zext nneg i32 %22 to i64
+  %24 = shl nuw i64 1, %23
+  store i64 %24, ptr %7, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
-  %27 = or i64 %26, %21
-  store i64 %27, ptr %8, align 8, !tbaa !16
+  %25 = or i64 %24, %19
+  store i64 %25, ptr %8, align 8, !tbaa !16
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @densmatr_oneQubitDegradeOffDiagonal.omp_outlined, ptr nonnull %5, ptr nonnull align 8 %9, ptr nonnull %8, ptr nonnull %6, ptr nonnull %7, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
@@ -761,20 +766,18 @@ define void @densmatr_mixDepolarisingDistributed(ptr noundef byval(%struct.Qureg
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #4
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load i64, ptr %28, align 8, !tbaa !8
-  %30 = ashr i64 %29, 1
-  store i64 %30, ptr %16, align 8, !tbaa !16
-  store i64 %21, ptr %13, align 8, !tbaa !16
-  %31 = shl i64 2, %20
-  store i64 %31, ptr %12, align 8, !tbaa !16
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %33 = load i32, ptr %32, align 4, !tbaa !17
-  %34 = zext nneg i32 %33 to i64
-  %35 = shl nuw i64 1, %34
-  store i64 %35, ptr %14, align 8, !tbaa !16
-  %36 = ashr i64 %35, 1
-  store i64 %36, ptr %15, align 8, !tbaa !16
+  %26 = ashr i64 %.sroa.4.0.copyload2, 1
+  store i64 %26, ptr %16, align 8, !tbaa !16
+  store i64 %19, ptr %13, align 8, !tbaa !16
+  %27 = shl i64 2, %18
+  store i64 %27, ptr %12, align 8, !tbaa !16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %29 = load i32, ptr %28, align 4, !tbaa !17
+  %30 = zext nneg i32 %29 to i64
+  %31 = shl nuw i64 1, %30
+  store i64 %31, ptr %14, align 8, !tbaa !16
+  %32 = ashr i64 %31, 1
+  store i64 %32, ptr %15, align 8, !tbaa !16
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 8, ptr nonnull @densmatr_mixDepolarisingDistributed.omp_outlined, ptr nonnull %16, ptr nonnull %15, ptr nonnull %13, ptr nonnull %14, ptr nonnull %12, ptr nonnull %10, ptr nonnull %0, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #4
@@ -926,8 +929,8 @@ define void @densmatr_mixDampingDistributed(ptr noundef byval(%struct.Qureg) ali
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %9, ptr noundef nonnull align 8 dereferenceable(136) %0, i64 136, i1 false)
   store double %19, ptr %4, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %21 = load i64, ptr %20, align 8, !tbaa !8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %21 = load i64, ptr %20, align 8
   store i64 %21, ptr %5, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %22 = zext nneg i32 %1 to i64
@@ -955,20 +958,18 @@ define void @densmatr_mixDampingDistributed(ptr noundef byval(%struct.Qureg) ali
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #4
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = load i64, ptr %30, align 8, !tbaa !8
-  %32 = ashr i64 %31, 1
-  store i64 %32, ptr %17, align 8, !tbaa !16
+  %30 = ashr i64 %21, 1
+  store i64 %30, ptr %17, align 8, !tbaa !16
   store i64 %23, ptr %14, align 8, !tbaa !16
-  %33 = shl i64 2, %22
-  store i64 %33, ptr %13, align 8, !tbaa !16
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %35 = load i32, ptr %34, align 4, !tbaa !17
-  %36 = zext nneg i32 %35 to i64
-  %37 = shl nuw i64 1, %36
-  store i64 %37, ptr %15, align 8, !tbaa !16
-  %38 = ashr i64 %37, 1
-  store i64 %38, ptr %16, align 8, !tbaa !16
+  %31 = shl i64 2, %22
+  store i64 %31, ptr %13, align 8, !tbaa !16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %33 = load i32, ptr %32, align 4, !tbaa !17
+  %34 = zext nneg i32 %33 to i64
+  %35 = shl nuw i64 1, %34
+  store i64 %35, ptr %15, align 8, !tbaa !16
+  %36 = ashr i64 %35, 1
+  store i64 %36, ptr %16, align 8, !tbaa !16
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 9, ptr nonnull @densmatr_mixDampingDistributed.omp_outlined, ptr nonnull %17, ptr nonnull %16, ptr nonnull %14, ptr nonnull %15, ptr nonnull %13, ptr nonnull %10, ptr nonnull %0, ptr nonnull %11, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #4

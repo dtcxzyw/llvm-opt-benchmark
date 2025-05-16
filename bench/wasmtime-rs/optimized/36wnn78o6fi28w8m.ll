@@ -14407,6 +14407,7 @@ define void @_ZN11wasi_common5sched12subscription18SubscriptionResult17from_subs
   %5 = load i32, ptr %4, align 8, !range !141, !noundef !4
   %6 = add nsw i32 %5, -1000000000
   %narrow = tail call i32 @llvm.umin.i32(i32 %6, i32 2)
+  %.sroa.4.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   switch i32 %narrow, label %default.unreachable [
     i32 0, label %16
     i32 1, label %20
@@ -14418,8 +14419,7 @@ default.unreachable:                              ; preds = %2
 
 7:                                                ; preds = %2
   %.sroa.013.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx33, align 8, !nonnull !4, !noundef !4
   %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.514.0.copyload = load i64, ptr %.sroa.514.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -14442,8 +14442,8 @@ default.unreachable:                              ; preds = %2
   br i1 %.not.i.not, label %23, label %24
 
 16:                                               ; preds = %2
-  %.sroa.0.0.copyload = load i64, ptr %1, align 8
-  %17 = icmp eq i64 %.sroa.0.0.copyload, 2
+  %.sroa.0.0.copyload732 = load i64, ptr %1, align 8
+  %17 = icmp eq i64 %.sroa.0.0.copyload732, 2
   br i1 %17, label %"_ZN4core3ptr69drop_in_place$LT$wasi_common..sched..subscription..RwSubscription$GT$17h639e6020efc6d834E.exit3", label %18
 
 "_ZN4core3ptr69drop_in_place$LT$wasi_common..sched..subscription..RwSubscription$GT$17h639e6020efc6d834E.exit3": ; preds = %16, %18
@@ -14452,32 +14452,30 @@ default.unreachable:                              ; preds = %2
   br label %19
 
 18:                                               ; preds = %16
-  %.sroa.531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.0.0.copyload, ptr %.sroa.419.0..sroa_idx, align 8
+  store i64 %.sroa.0.0.copyload732, ptr %.sroa.419.0..sroa_idx, align 8
   %.sroa.419.sroa.4.0..sroa.419.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.419.sroa.4.0..sroa.419.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.531.0..sroa_idx, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.419.sroa.4.0..sroa.419.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx33, i64 16, i1 false)
   br label %"_ZN4core3ptr69drop_in_place$LT$wasi_common..sched..subscription..RwSubscription$GT$17h639e6020efc6d834E.exit3"
 
 19:                                               ; preds = %23, %24, %"_ZN4core3ptr69drop_in_place$LT$wasi_common..sched..subscription..RwSubscription$GT$17h639e6020efc6d834E.exit6", %"_ZN4core3ptr69drop_in_place$LT$wasi_common..sched..subscription..RwSubscription$GT$17h639e6020efc6d834E.exit3"
   ret void
 
 20:                                               ; preds = %2
-  %.sroa.033.0.copyload = load i64, ptr %1, align 8
-  %21 = icmp eq i64 %.sroa.033.0.copyload, 2
+  %.sroa.09.0.copyload1031 = load i64, ptr %1, align 8
+  %21 = icmp eq i64 %.sroa.09.0.copyload1031, 2
   br i1 %21, label %"_ZN4core3ptr69drop_in_place$LT$wasi_common..sched..subscription..RwSubscription$GT$17h639e6020efc6d834E.exit6", label %22
 
 "_ZN4core3ptr69drop_in_place$LT$wasi_common..sched..subscription..RwSubscription$GT$17h639e6020efc6d834E.exit6": ; preds = %20, %22
-  %.sink36 = phi i64 [ 1, %22 ], [ 3, %20 ]
-  store i64 %.sink36, ptr %0, align 8
+  %.sink38 = phi i64 [ 1, %22 ], [ 3, %20 ]
+  store i64 %.sink38, ptr %0, align 8
   br label %19
 
 22:                                               ; preds = %20
-  %.sroa.534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.033.0.copyload, ptr %.sroa.425.0..sroa_idx, align 8
+  store i64 %.sroa.09.0.copyload1031, ptr %.sroa.425.0..sroa_idx, align 8
   %.sroa.425.sroa.4.0..sroa.425.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.425.sroa.4.0..sroa.425.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.534.0..sroa_idx, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.425.sroa.4.0..sroa.425.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx33, i64 16, i1 false)
   br label %"_ZN4core3ptr69drop_in_place$LT$wasi_common..sched..subscription..RwSubscription$GT$17h639e6020efc6d834E.exit6"
 
 23:                                               ; preds = %7

@@ -6421,7 +6421,7 @@ switch.lookup:                                    ; preds = %88
   %153 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr %149, ptr %153, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
-  %154 = load i8, ptr %17, align 8, !range !723, !noundef !12
+  %154 = load i8, ptr %18, align 8
   %.not263 = icmp eq i8 %154, 22
   br i1 %.not263, label %158, label %155
 
@@ -6581,7 +6581,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %199 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %195, ptr %199, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  %200 = load i8, ptr %13, align 8, !range !723, !noundef !12
+  %200 = load i8, ptr %14, align 8
   %.not = icmp eq i8 %200, 22
   br i1 %.not, label %204, label %201
 
@@ -7298,7 +7298,7 @@ define hidden void @"_ZN8flycheck1_74_$LT$impl$u20$serde..de..Deserialize$u20$fo
   store i64 -9223372036854775803, ptr %0, align 8
   br label %50
 
-17:                                               ; preds = %36, %32, %30, %46, %42, %25, %12
+17:                                               ; preds = %36, %32, %30, %46, %42, %22, %12
   %18 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h403e1e77a0cad8c6E"(ptr noalias noundef align 8 dereferenceable(32) %9) #33
@@ -7309,29 +7309,21 @@ define hidden void @"_ZN8flycheck1_74_$LT$impl$u20$serde..de..Deserialize$u20$fo
   call void @llvm.experimental.noalias.scope.decl(metadata !1682)
   %20 = load i64, ptr %6, align 8, !range !1684, !alias.scope !1682, !noalias !1679, !noundef !12
   %21 = icmp eq i64 %20, -9223372036854775804
-  br i1 %21, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h689140f12035f0acE.exit.thread", label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h689140f12035f0acE.exit"
+  br i1 %21, label %22, label %26
 
-"_ZN4core6result19Result$LT$T$C$E$GT$3map17h689140f12035f0acE.exit.thread": ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %23 = load ptr, ptr %22, align 8, !alias.scope !1682, !noalias !1679, !nonnull !12, !align !15, !noundef !12
-  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %23, ptr %24, align 8, !alias.scope !1679, !noalias !1682
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %24 = load ptr, ptr %23, align 8, !alias.scope !1682, !noalias !1679, !nonnull !12, !align !15, !noundef !12
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %24, ptr %25, align 8, !alias.scope !1679, !noalias !1682
   store i64 -9223372036854775803, ptr %7, align 8, !alias.scope !1679, !noalias !1682
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %6)
-  br label %25
-
-"_ZN4core6result19Result$LT$T$C$E$GT$3map17h689140f12035f0acE.exit": ; preds = %19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %7, ptr noundef nonnull readonly align 8 dereferenceable(312) %6, i64 312, i1 false), !alias.scope !1685
-  %.pr = load i64, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %6)
-  %.not = icmp eq i64 %.pr, -9223372036854775803
-  br i1 %.not, label %25, label %26
-
-25:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h689140f12035f0acE.exit.thread", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h689140f12035f0acE.exit"
   invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..result..Result$LT$flycheck..JsonMessage$C$serde_json..error..Error$GT$$GT$17h859e2e38809cd7adE"(ptr noalias noundef align 8 dereferenceable(312) %7)
           to label %28 unwind label %17
 
-26:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h689140f12035f0acE.exit"
+26:                                               ; preds = %19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %7, ptr noundef nonnull readonly align 8 dereferenceable(312) %6, i64 312, i1 false), !alias.scope !1685
+  call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(312) %7, i64 312, i1 false)
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %7)
   br label %27
@@ -7340,7 +7332,7 @@ define hidden void @"_ZN8flycheck1_74_$LT$impl$u20$serde..de..Deserialize$u20$fo
   call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h403e1e77a0cad8c6E"(ptr noalias noundef align 8 dereferenceable(32) %9)
   br label %50
 
-28:                                               ; preds = %25
+28:                                               ; preds = %22
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4)

@@ -1422,15 +1422,14 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i111: ; preds = %421
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19) #25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %19, ptr noundef nonnull align 8 dereferenceable(25) %18, i64 25, i1 false)
   store i8 0, ptr %202, align 8, !tbaa !123, !alias.scope !132
-  %427 = load ptr, ptr %19, align 8, !tbaa !115
+  %427 = load ptr, ptr %18, align 8
   %428 = load ptr, ptr %203, align 8, !tbaa !115
   %429 = icmp eq ptr %427, %428
   br i1 %429, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %426
   %.sroa.5320.0.copyload = load ptr, ptr %.sroa.5320.0..sroa_idx, align 8
-  %.sroa.0319.0.copyload = load ptr, ptr %18, align 8
-  %430 = icmp eq ptr %.sroa.0319.0.copyload, %.sroa.5320.0.copyload
+  %430 = icmp eq ptr %427, %.sroa.5320.0.copyload
   br label %431
 
 431:                                              ; preds = %.lr.ph, %_ZN3ade6HandleINS_4NodeEED2Ev.exit140
@@ -1790,15 +1789,14 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i148: ; preds = %566, 
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22) #25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %22, ptr noundef nonnull align 8 dereferenceable(25) %21, i64 25, i1 false)
   store i8 0, ptr %208, align 8, !tbaa !150, !alias.scope !154
-  %575 = load ptr, ptr %22, align 8, !tbaa !115
+  %575 = load ptr, ptr %21, align 8
   %576 = load ptr, ptr %209, align 8, !tbaa !115
   %577 = icmp eq ptr %575, %576
   br i1 %577, label %._crit_edge471, label %.lr.ph470
 
 .lr.ph470:                                        ; preds = %574
   %.sroa.5314.0.copyload = load ptr, ptr %.sroa.5314.0..sroa_idx, align 8
-  %.sroa.0313.0.copyload = load ptr, ptr %21, align 8
-  %578 = icmp eq ptr %.sroa.0313.0.copyload, %.sroa.5314.0.copyload
+  %578 = icmp eq ptr %575, %.sroa.5314.0.copyload
   br label %579
 
 579:                                              ; preds = %.lr.ph470, %_ZN3ade6HandleINS_4NodeEED2Ev.exit191

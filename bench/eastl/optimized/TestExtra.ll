@@ -18329,21 +18329,21 @@ if.then:                                          ; preds = %entry
   call void @_ZN5eastl9DequeBaseI7Align64NS_9allocatorELj4EE17DoReallocSubarrayEmNS3_4SideE(ptr nonnull sret(%"struct.eastl::DequeIterator.3") align 8 %itNewBegin, ptr noundef nonnull align 8 dereferenceable(81) %this, i64 noundef %sub.ptr.div.i.i, i32 noundef 0)
   %4 = load ptr, ptr %first, align 8
   %5 = load ptr, ptr %last, align 8
+  %6 = load ptr, ptr %itNewBegin, align 8
   %cmp.not6.i.i = icmp eq ptr %4, %5
   br i1 %cmp.not6.i.i, label %_ZN5eastl18uninitialized_copyIPK7Align64NS_13DequeIteratorIS1_PS1_RS1_Lj4EEEEET0_T_S9_S8_.exit, label %for.body.i.i.preheader
 
 for.body.i.i.preheader:                           ; preds = %if.then
   %mpCurrentArrayPtr5.i = getelementptr inbounds nuw i8, ptr %itNewBegin, i64 24
-  %6 = load ptr, ptr %mpCurrentArrayPtr5.i, align 8
+  %7 = load ptr, ptr %mpCurrentArrayPtr5.i, align 8
   %mpEnd4.i = getelementptr inbounds nuw i8, ptr %itNewBegin, i64 16
-  %7 = load ptr, ptr %mpEnd4.i, align 8
-  %8 = load ptr, ptr %itNewBegin, align 8
+  %8 = load ptr, ptr %mpEnd4.i, align 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %_ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i
-  %agg.tmp.sroa.12.0.i = phi ptr [ %agg.tmp.sroa.12.1.i, %_ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i ], [ %6, %for.body.i.i.preheader ]
-  %agg.tmp.sroa.8.0.i = phi ptr [ %agg.tmp.sroa.8.1.i, %_ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i ], [ %7, %for.body.i.i.preheader ]
-  %agg.tmp.sroa.0.0.i = phi ptr [ %agg.tmp.sroa.0.1.i, %_ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i ], [ %8, %for.body.i.i.preheader ]
+  %agg.tmp.sroa.12.0.i = phi ptr [ %agg.tmp.sroa.12.1.i, %_ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i ], [ %7, %for.body.i.i.preheader ]
+  %agg.tmp.sroa.8.0.i = phi ptr [ %agg.tmp.sroa.8.1.i, %_ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i ], [ %8, %for.body.i.i.preheader ]
+  %agg.tmp.sroa.0.0.i = phi ptr [ %agg.tmp.sroa.0.1.i, %_ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i ], [ %6, %for.body.i.i.preheader ]
   %first.addr.07.i.i = phi ptr [ %incdec.ptr.i.i, %_ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i ], [ %4, %for.body.i.i.preheader ]
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %agg.tmp.sroa.0.0.i, ptr noundef nonnull align 64 dereferenceable(64) %first.addr.07.i.i, i64 64, i1 false), !noalias !258
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %first.addr.07.i.i, i64 64
@@ -18366,11 +18366,10 @@ _ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i: ; preds = %if.then.
 
 _ZN5eastl18uninitialized_copyIPK7Align64NS_13DequeIteratorIS1_PS1_RS1_Lj4EEEEET0_T_S9_S8_.exit: ; preds = %_ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i, %if.then
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mItBegin, ptr noundef nonnull align 8 dereferenceable(32) %itNewBegin, i64 32, i1 false)
-  %10 = load ptr, ptr %mItBegin, align 8
-  store ptr %10, ptr %agg.result, align 8
+  store ptr %6, ptr %agg.result, align 8
   %mpBegin.i32 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  %mpBegin3.i33 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %11 = load ptr, ptr %mpBegin3.i33, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %itNewBegin, i64 8
+  %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %mpBegin.i32, align 8
   %mpEnd.i34 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %mpEnd4.i35 = getelementptr inbounds nuw i8, ptr %this, i64 32

@@ -478,7 +478,7 @@ define hidden noundef zeroext i1 @_ZN3ue28overlapsERKNS_9CharReachES2_(ptr nound
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   %4 = load i64, ptr %1, align 8, !noalias !10
-  %5 = load i64, ptr %3, align 8, !alias.scope !10
+  %5 = load i64, ptr %0, align 8, !noalias !10
   %6 = and i64 %5, %4
   store i64 %6, ptr %3, align 8, !alias.scope !10
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -524,7 +524,7 @@ define hidden noundef zeroext i1 @_ZN3ue210isSubsetOfERKNS_9CharReachES2_(ptr no
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
   %4 = load i64, ptr %0, align 8, !noalias !13
-  %5 = load i64, ptr %3, align 8, !alias.scope !13
+  %5 = load i64, ptr %1, align 8, !noalias !13
   %6 = and i64 %5, %4
   store i64 %6, ptr %3, align 8, !alias.scope !13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -558,7 +558,7 @@ define hidden noundef zeroext i1 @_ZNK3ue29CharReach10isSubsetOfERKS0_(ptr nound
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %4 = load i64, ptr %0, align 8, !noalias !16
-  %5 = load i64, ptr %3, align 8, !alias.scope !16
+  %5 = load i64, ptr %1, align 8, !noalias !16
   %6 = and i64 %5, %4
   store i64 %6, ptr %3, align 8, !alias.scope !16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -639,8 +639,8 @@ define hidden void @_ZN3ue213make_caselessEPNS_9CharReachE(ptr noundef captures(
   br i1 %exitcond.not, label %2, label %3, !llvm.loop !19
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN3ue211isutf8asciiERKNS_9CharReachE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #6 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden noundef zeroext i1 @_ZN3ue211isutf8asciiERKNS_9CharReachE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #4 {
 _ZN3ue29CharReachC2Ehh.exit:
   %1 = alloca %"class.ue2::CharReach", align 8
   %.sroa.0 = alloca [4 x i64], align 8
@@ -661,9 +661,10 @@ _ZN3ue29CharReachC2Ehh.exit:
   br i1 %.not.i.i.i, label %_ZNK3ue29CharReachcoEv.exit, label %3
 
 _ZNK3ue29CharReachcoEv.exit:                      ; preds = %3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   %6 = load i64, ptr %.sroa.0, align 8
-  %7 = load i64, ptr %1, align 8, !alias.scope !20
+  %7 = load i64, ptr %0, align 8, !noalias !20
   %8 = and i64 %7, %6
   store i64 %8, ptr %1, align 8, !alias.scope !20
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
@@ -701,27 +702,30 @@ _ZNK3ue29CharReach4noneEv.exit:                   ; preds = %24
   ret i1 %.not13.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN3ue211isutf8startERKNS_9CharReachE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #6 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden noundef zeroext i1 @_ZN3ue211isutf8startERKNS_9CharReachE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #4 {
 _ZN3ue29CharReachC2Ehh.exit:
   %1 = alloca %"class.ue2::CharReach", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #17
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 24, i1 false)
-  %2 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 0, ptr %2, align 8, !alias.scope !23
-  br label %3
+  %2 = load i64, ptr %0, align 8, !noalias !23
+  store i64 %2, ptr %1, align 8, !alias.scope !23
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 0, ptr %3, align 8, !alias.scope !23
+  br label %4
 
-3:                                                ; preds = %3, %_ZN3ue29CharReachC2Ehh.exit
-  %.012.idx14.i.i = phi i64 [ 0, %_ZN3ue29CharReachC2Ehh.exit ], [ %.012.add.i.i, %3 ]
+4:                                                ; preds = %4, %_ZN3ue29CharReachC2Ehh.exit
+  %.012.idx14.i.i = phi i64 [ 0, %_ZN3ue29CharReachC2Ehh.exit ], [ %.012.add.i.i, %4 ]
   %.012.ptr.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.012.idx14.i.i
-  %4 = load i64, ptr %.012.ptr.i.i, align 8
-  %.not13.i.i = icmp eq i64 %4, 0
+  %5 = load i64, ptr %.012.ptr.i.i, align 8
+  %.not13.i.i = icmp eq i64 %5, 0
   %.012.add.i.i = add nuw nsw i64 %.012.idx14.i.i, 8
   %.not.i.i = icmp ne i64 %.012.add.i.i, 32
   %or.cond.not.i.i = select i1 %.not13.i.i, i1 %.not.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %3, label %_ZNK3ue29CharReach4noneEv.exit
+  br i1 %or.cond.not.i.i, label %4, label %_ZNK3ue29CharReach4noneEv.exit
 
-_ZNK3ue29CharReach4noneEv.exit:                   ; preds = %3
+_ZNK3ue29CharReach4noneEv.exit:                   ; preds = %4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #17
   ret i1 %.not13.i.i
 }

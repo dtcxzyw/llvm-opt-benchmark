@@ -646,7 +646,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK13btConvexShape31localGetSupp
   %3 = alloca %class.btVector3, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !18
-  %4 = load float, ptr %3, align 4, !tbaa !15
+  %4 = load float, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %6 = load float, ptr %5, align 4, !tbaa !15
   %7 = fmul float %6, %6
@@ -655,17 +655,21 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK13btConvexShape31localGetSupp
   %10 = load float, ptr %9, align 4, !tbaa !15
   %11 = tail call noundef float @llvm.fmuladd.f32(float %10, float %10, float %8)
   %12 = fcmp olt float %11, 0x3D10000000000000
-  br i1 %12, label %13, label %15
+  br i1 %12, label %13, label %._crit_edge
+
+._crit_edge:                                      ; preds = %2
+  %.pre = load float, ptr %3, align 4, !tbaa !15
+  br label %15
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store float 0.000000e+00, ptr %14, align 4, !tbaa !15
   br label %15
 
-15:                                               ; preds = %13, %2
-  %16 = phi float [ -1.000000e+00, %13 ], [ %10, %2 ]
-  %17 = phi float [ -1.000000e+00, %13 ], [ %6, %2 ]
-  %18 = phi float [ -1.000000e+00, %13 ], [ %4, %2 ]
+15:                                               ; preds = %._crit_edge, %13
+  %16 = phi float [ %10, %._crit_edge ], [ -1.000000e+00, %13 ]
+  %17 = phi float [ %6, %._crit_edge ], [ -1.000000e+00, %13 ]
+  %18 = phi float [ %.pre, %._crit_edge ], [ -1.000000e+00, %13 ]
   %19 = fmul float %17, %17
   %20 = tail call float @llvm.fmuladd.f32(float %18, float %18, float %19)
   %21 = tail call noundef float @llvm.fmuladd.f32(float %16, float %16, float %20)

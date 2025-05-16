@@ -5908,7 +5908,7 @@ define void @evbuffer_search_range(ptr dead_on_unwind noalias writable sret(%str
 
 13:                                               ; preds = %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load ptr, ptr %14, align 8
   br label %20
 
@@ -5922,7 +5922,7 @@ define void @evbuffer_search_range(ptr dead_on_unwind noalias writable sret(%str
   br label %20
 
 20:                                               ; preds = %16, %13
-  %.promoted64 = phi ptr [ %15, %13 ], [ %17, %16 ]
+  %.036 = phi ptr [ %15, %13 ], [ %17, %16 ]
   %.not46 = icmp eq ptr %5, null
   br i1 %.not46, label %24, label %21
 
@@ -5937,7 +5937,7 @@ define void @evbuffer_search_range(ptr dead_on_unwind noalias writable sret(%str
   br i1 %or.cond, label %.thread55, label %25
 
 25:                                               ; preds = %24
-  %.not4760 = icmp eq ptr %.promoted64, null
+  %.not4760 = icmp eq ptr %.036, null
   br i1 %.not4760, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25
@@ -5948,12 +5948,13 @@ define void @evbuffer_search_range(ptr dead_on_unwind noalias writable sret(%str
   %29 = sext i8 %26 to i32
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.promoted63 = load i64, ptr %28, align 8
+  %.promoted64 = load ptr, ptr %27, align 8
   br label %31
 
 31:                                               ; preds = %.lr.ph, %85
   %.03549.i66 = phi ptr [ %.promoted64, %.lr.ph ], [ %.03549.i65, %85 ]
   %32 = phi i64 [ %.promoted63, %.lr.ph ], [ %86, %85 ]
-  %.161 = phi ptr [ %.promoted64, %.lr.ph ], [ %.2, %85 ]
+  %.161 = phi ptr [ %.036, %.lr.ph ], [ %.2, %85 ]
   %33 = phi i64 [ %.promoted, %.lr.ph ], [ %87, %85 ]
   %34 = getelementptr inbounds nuw i8, ptr %.161, i64 40
   %35 = load ptr, ptr %34, align 8

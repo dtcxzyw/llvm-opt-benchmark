@@ -10657,8 +10657,8 @@ _ZNK3fmt3v1112scan_context3argEi.exit:            ; preds = %3
   %14 = sext i32 %1 to i64
   %15 = getelementptr inbounds %"class.fmt::v11::basic_scan_arg", ptr %13, i64 %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !tbaa.struct !364
-  %.pr = load i32, ptr %4, align 8, !tbaa !263
-  %.not.i = icmp eq i32 %.pr, 7
+  %.pr16 = load i32, ptr %15, align 8
+  %.not.i = icmp eq i32 %.pr16, 7
   br i1 %.not.i, label %_ZNK3fmt3v1114basic_scan_argINS0_12scan_contextEE11scan_customEPKcRNS0_18scan_parse_contextERS2_.exit, label %28
 
 _ZNK3fmt3v1114basic_scan_argINS0_12scan_contextEE11scan_customEPKcRNS0_18scan_parse_contextERS2_.exit: ; preds = %_ZNK3fmt3v1112scan_context3argEi.exit
@@ -10696,14 +10696,14 @@ _ZNK3fmt3v1112scan_context5beginEv.exit:          ; preds = %28, %35
   %.sroa.9.1 = phi i8 [ undef, %28 ], [ %36, %35 ]
   %.sink.i.i = phi ptr [ @_ZZN3fmt3v116detail11scan_buffer8iterator12get_sentinelEvE3ptr, %28 ], [ %30, %35 ]
   %37 = load ptr, ptr %.sink.i.i, align 8, !tbaa !15
-  %.not16 = icmp eq ptr %37, null
-  br i1 %.not16, label %.critedge, label %.lr.ph
+  %.not17 = icmp eq ptr %37, null
+  br i1 %.not17, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK3fmt3v1112scan_context5beginEv.exit, %_ZN3fmt3v116detail11scan_buffer8iteratorppEv.exit
   %38 = phi ptr [ %47, %_ZN3fmt3v116detail11scan_buffer8iteratorppEv.exit ], [ %33, %_ZNK3fmt3v1112scan_context5beginEv.exit ]
-  %.sroa.0.018 = phi ptr [ %.sroa.0.1, %_ZN3fmt3v116detail11scan_buffer8iteratorppEv.exit ], [ %.sink.i.i, %_ZNK3fmt3v1112scan_context5beginEv.exit ]
-  %.sroa.9.017 = phi i8 [ %48, %_ZN3fmt3v116detail11scan_buffer8iteratorppEv.exit ], [ %.sroa.9.1, %_ZNK3fmt3v1112scan_context5beginEv.exit ]
-  switch i8 %.sroa.9.017, label %.critedge [
+  %.sroa.0.019 = phi ptr [ %.sroa.0.1, %_ZN3fmt3v116detail11scan_buffer8iteratorppEv.exit ], [ %.sink.i.i, %_ZNK3fmt3v1112scan_context5beginEv.exit ]
+  %.sroa.9.018 = phi i8 [ %48, %_ZN3fmt3v116detail11scan_buffer8iteratorppEv.exit ], [ %.sroa.9.1, %_ZNK3fmt3v1112scan_context5beginEv.exit ]
+  switch i8 %.sroa.9.018, label %.critedge [
     i8 32, label %39
     i8 10, label %39
   ]
@@ -10722,21 +10722,21 @@ _ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i: ; preds = %39
   %44 = load ptr, ptr %30, align 8, !tbaa !17
   %45 = load ptr, ptr %32, align 8, !tbaa !23
   %.not.i2 = icmp eq ptr %44, %45
-  %spec.select = select i1 %.not.i2, ptr @_ZZN3fmt3v116detail11scan_buffer8iterator12get_sentinelEvE3ptr, ptr %.sroa.0.018
+  %spec.select = select i1 %.not.i2, ptr @_ZZN3fmt3v116detail11scan_buffer8iterator12get_sentinelEvE3ptr, ptr %.sroa.0.019
   br label %_ZN3fmt3v116detail11scan_buffer8iteratorppEv.exit
 
 _ZN3fmt3v116detail11scan_buffer8iteratorppEv.exit: ; preds = %_ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i, %39
   %46 = phi ptr [ %41, %39 ], [ %44, %_ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i ]
   %47 = phi ptr [ %38, %39 ], [ %45, %_ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.018, %39 ], [ %spec.select, %_ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.019, %39 ], [ %spec.select, %_ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i ]
   %48 = load i8, ptr %46, align 1, !tbaa !4
   %49 = load ptr, ptr %.sroa.0.1, align 8, !tbaa !15
   %.not = icmp eq ptr %49, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !371
 
 .critedge:                                        ; preds = %_ZN3fmt3v116detail11scan_buffer8iteratorppEv.exit, %.lr.ph, %_ZNK3fmt3v1112scan_context5beginEv.exit
-  %.sroa.9.0.lcssa = phi i8 [ %.sroa.9.1, %_ZNK3fmt3v1112scan_context5beginEv.exit ], [ %.sroa.9.017, %.lr.ph ], [ %48, %_ZN3fmt3v116detail11scan_buffer8iteratorppEv.exit ]
-  %.sroa.0.0.lcssa = phi ptr [ %.sink.i.i, %_ZNK3fmt3v1112scan_context5beginEv.exit ], [ %.sroa.0.018, %.lr.ph ], [ %.sroa.0.1, %_ZN3fmt3v116detail11scan_buffer8iteratorppEv.exit ]
+  %.sroa.9.0.lcssa = phi i8 [ %.sroa.9.1, %_ZNK3fmt3v1112scan_context5beginEv.exit ], [ %.sroa.9.018, %.lr.ph ], [ %48, %_ZN3fmt3v116detail11scan_buffer8iteratorppEv.exit ]
+  %.sroa.0.0.lcssa = phi ptr [ %.sink.i.i, %_ZNK3fmt3v1112scan_context5beginEv.exit ], [ %.sroa.0.019, %.lr.ph ], [ %.sroa.0.1, %_ZN3fmt3v116detail11scan_buffer8iteratorppEv.exit ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #36
   store ptr %.sroa.0.0.lcssa, ptr %6, align 8, !tbaa !12
   %.sroa.6.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -10906,8 +10906,8 @@ _ZNK3fmt3v1112scan_context3argEi.exit:            ; preds = %4
   %16 = sext i32 %1 to i64
   %17 = getelementptr inbounds %"class.fmt::v11::basic_scan_arg", ptr %15, i64 %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !tbaa.struct !364
-  %.pr = load i32, ptr %5, align 8, !tbaa !263
-  %.not.i = icmp eq i32 %.pr, 7
+  %.pr14 = load i32, ptr %17, align 8
+  %.not.i = icmp eq i32 %.pr14, 7
   br i1 %.not.i, label %18, label %32
 
 18:                                               ; preds = %_ZNK3fmt3v1112scan_context3argEi.exit
@@ -11039,8 +11039,11 @@ define linkonce_odr hidden void @_ZN3fmt3v1114basic_scan_argINS0_12scan_contextE
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !4
+  %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !12, !noalias !395
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sroa.5.0..sroa_idx124 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx124, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #36, !noalias !395
   store i32 32768, ptr %11, align 4, !tbaa !7, !noalias !395
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -11049,8 +11052,8 @@ define linkonce_odr hidden void @_ZN3fmt3v1114basic_scan_argINS0_12scan_contextE
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %scevgep.i.i, i8 0, i64 7, i1 false), !noalias !395
   store i32 -1, ptr %17, align 4, !tbaa !380, !noalias !395
-  %.sroa.05.0.copyload.i = load ptr, ptr %9, align 8, !tbaa !12, !noalias !398
-  %18 = load ptr, ptr %.sroa.05.0.copyload.i, align 8, !tbaa !15, !noalias !398
+  store ptr %.sroa.0.0.copyload, ptr %9, align 8
+  %18 = load ptr, ptr %.sroa.0.0.copyload, align 8, !tbaa !15, !noalias !398
   %19 = icmp ne ptr %18, null
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %21 = load i8, ptr %20, align 8, !noalias !398
@@ -11059,8 +11062,7 @@ define linkonce_odr hidden void @_ZN3fmt3v1114basic_scan_argINS0_12scan_contextE
   br i1 %or.cond.i, label %23, label %_ZN3fmt3v116detail4readIiTnNSt9enable_ifIXsr3std9is_signedIT_EE5valueEiE4typeELi0EEENS1_11scan_buffer8iteratorES8_RS4_RKNS0_12format_specsE.exit
 
 23:                                               ; preds = %13
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %24 = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !388, !noalias !398
+  %24 = load ptr, ptr %.sroa.5.0..sroa_idx124, align 8, !tbaa !388, !noalias !398
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !17, !noalias !398
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -11084,7 +11086,7 @@ _ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i.i: ; preds = %23
   br label %_ZN3fmt3v116detail11scan_buffer8iteratorppEv.exit.i
 
 _ZN3fmt3v116detail11scan_buffer8iteratorppEv.exit.i: ; preds = %34, %_ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i.i, %23
-  %.sroa.08.0.copyload.i = phi ptr [ %.sroa.05.0.copyload.i, %23 ], [ %.sroa.05.0.copyload.i, %_ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i.i ], [ @_ZZN3fmt3v116detail11scan_buffer8iterator12get_sentinelEvE3ptr, %34 ]
+  %.sroa.08.0.copyload.i = phi ptr [ %.sroa.0.0.copyload, %23 ], [ %.sroa.0.0.copyload, %_ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i.i ], [ @_ZZN3fmt3v116detail11scan_buffer8iterator12get_sentinelEvE3ptr, %34 ]
   %35 = phi ptr [ %29, %23 ], [ %32, %_ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i.i ], [ %32, %34 ]
   %36 = load i8, ptr %35, align 1, !tbaa !4, !noalias !398
   store i8 %36, ptr %20, align 8, !tbaa !391, !noalias !398
@@ -11225,8 +11227,11 @@ _ZN3fmt3v116detail4readIjTnNSt9enable_ifIXsr3std11is_unsignedIT_EE5valueEiE4type
 81:                                               ; preds = %3
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !4
+  %.sroa.0125.0.copyload = load ptr, ptr %2, align 8, !tbaa !12, !noalias !408
+  %.sroa.5127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sroa.5127.0..sroa_idx128 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5127.0..sroa_idx128, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5127.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #36, !noalias !408
   store i32 32768, ptr %10, align 4, !tbaa !7, !noalias !408
   %84 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -11235,8 +11240,8 @@ _ZN3fmt3v116detail4readIjTnNSt9enable_ifIXsr3std11is_unsignedIT_EE5valueEiE4type
   %85 = getelementptr inbounds nuw i8, ptr %10, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %scevgep.i.i15, i8 0, i64 7, i1 false), !noalias !408
   store i32 -1, ptr %85, align 4, !tbaa !380, !noalias !408
-  %.sroa.05.0.copyload.i16 = load ptr, ptr %6, align 8, !tbaa !12, !noalias !411
-  %86 = load ptr, ptr %.sroa.05.0.copyload.i16, align 8, !tbaa !15, !noalias !411
+  store ptr %.sroa.0125.0.copyload, ptr %6, align 8
+  %86 = load ptr, ptr %.sroa.0125.0.copyload, align 8, !tbaa !15, !noalias !411
   %87 = icmp ne ptr %86, null
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %89 = load i8, ptr %88, align 8, !noalias !411
@@ -11245,8 +11250,7 @@ _ZN3fmt3v116detail4readIjTnNSt9enable_ifIXsr3std11is_unsignedIT_EE5valueEiE4type
   br i1 %or.cond.i17, label %91, label %_ZN3fmt3v116detail4readIxTnNSt9enable_ifIXsr3std9is_signedIT_EE5valueEiE4typeELi0EEENS1_11scan_buffer8iteratorES8_RS4_RKNS0_12format_specsE.exit
 
 91:                                               ; preds = %81
-  %.sroa.2.0..sroa_idx.i19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %92 = load ptr, ptr %.sroa.2.0..sroa_idx.i19, align 8, !tbaa !388, !noalias !411
+  %92 = load ptr, ptr %.sroa.5127.0..sroa_idx128, align 8, !tbaa !388, !noalias !411
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8, !tbaa !17, !noalias !411
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 16
@@ -11270,7 +11274,7 @@ _ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i.i23: ; preds = %91
   br label %_ZN3fmt3v116detail11scan_buffer8iteratorppEv.exit.i21
 
 _ZN3fmt3v116detail11scan_buffer8iteratorppEv.exit.i21: ; preds = %102, %_ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i.i23, %91
-  %.sroa.08.0.copyload.i22 = phi ptr [ %.sroa.05.0.copyload.i16, %91 ], [ %.sroa.05.0.copyload.i16, %_ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i.i23 ], [ @_ZZN3fmt3v116detail11scan_buffer8iterator12get_sentinelEvE3ptr, %102 ]
+  %.sroa.08.0.copyload.i22 = phi ptr [ %.sroa.0125.0.copyload, %91 ], [ %.sroa.0125.0.copyload, %_ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i.i23 ], [ @_ZZN3fmt3v116detail11scan_buffer8iterator12get_sentinelEvE3ptr, %102 ]
   %103 = phi ptr [ %97, %91 ], [ %100, %_ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i.i23 ], [ %100, %102 ]
   %104 = load i8, ptr %103, align 1, !tbaa !4, !noalias !411
   store i8 %104, ptr %88, align 8, !tbaa !391, !noalias !411
@@ -12115,8 +12119,8 @@ define linkonce_odr hidden void @_ZN3fmt3v1114basic_scan_argINS0_12scan_contextE
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 24, i1 false), !noalias !447
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !450, !noalias !447
-  %.sroa.05.0.copyload.i.i = load ptr, ptr %9, align 8, !tbaa !12, !noalias !452
-  %16 = load ptr, ptr %.sroa.05.0.copyload.i.i, align 8, !tbaa !15, !noalias !452
+  %.sroa.05.0.copyload.i23.i = load ptr, ptr %2, align 8, !noalias !447
+  %16 = load ptr, ptr %.sroa.05.0.copyload.i23.i, align 8, !tbaa !15, !noalias !452
   %17 = icmp ne ptr %16, null
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %19 = load i8, ptr %18, align 8, !noalias !452
@@ -12150,7 +12154,7 @@ _ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i.i.i: ; preds = %21
   br label %_ZN3fmt3v116detail11scan_buffer8iteratorppEv.exit.i.i
 
 _ZN3fmt3v116detail11scan_buffer8iteratorppEv.exit.i.i: ; preds = %32, %_ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i.i.i, %21
-  %.sroa.08.0.copyload.i.i = phi ptr [ %.sroa.05.0.copyload.i.i, %21 ], [ %.sroa.05.0.copyload.i.i, %_ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i.i.i ], [ @_ZZN3fmt3v116detail11scan_buffer8iterator12get_sentinelEvE3ptr, %32 ]
+  %.sroa.08.0.copyload.i.i = phi ptr [ %.sroa.05.0.copyload.i23.i, %21 ], [ %.sroa.05.0.copyload.i23.i, %_ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i.i.i ], [ @_ZZN3fmt3v116detail11scan_buffer8iterator12get_sentinelEvE3ptr, %32 ]
   %33 = phi ptr [ %27, %21 ], [ %30, %_ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i.i.i ], [ %30, %32 ]
   %34 = load i8, ptr %33, align 1, !tbaa !4, !noalias !452
   store i8 %34, ptr %18, align 8, !tbaa !391, !noalias !452
@@ -12193,8 +12197,8 @@ _ZN3fmt3v116detail11arg_scannerclIRiEENS1_11scan_buffer8iteratorEOT_.exit: ; pre
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 24, i1 false), !noalias !458
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !450, !noalias !458
-  %.sroa.05.0.copyload.i.i8 = load ptr, ptr %6, align 8, !tbaa !12, !noalias !461
-  %50 = load ptr, ptr %.sroa.05.0.copyload.i.i8, align 8, !tbaa !15, !noalias !461
+  %.sroa.05.0.copyload.i23.i8 = load ptr, ptr %2, align 8, !noalias !458
+  %50 = load ptr, ptr %.sroa.05.0.copyload.i23.i8, align 8, !tbaa !15, !noalias !461
   %51 = icmp ne ptr %50, null
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %53 = load i8, ptr %52, align 8, !noalias !461
@@ -12228,7 +12232,7 @@ _ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i.i.i15: ; preds = %55
   br label %_ZN3fmt3v116detail11scan_buffer8iteratorppEv.exit.i.i13
 
 _ZN3fmt3v116detail11scan_buffer8iteratorppEv.exit.i.i13: ; preds = %66, %_ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i.i.i15, %55
-  %.sroa.08.0.copyload.i.i14 = phi ptr [ %.sroa.05.0.copyload.i.i8, %55 ], [ %.sroa.05.0.copyload.i.i8, %_ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i.i.i15 ], [ @_ZZN3fmt3v116detail11scan_buffer8iterator12get_sentinelEvE3ptr, %66 ]
+  %.sroa.08.0.copyload.i.i14 = phi ptr [ %.sroa.05.0.copyload.i23.i8, %55 ], [ %.sroa.05.0.copyload.i23.i8, %_ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i.i.i15 ], [ @_ZZN3fmt3v116detail11scan_buffer8iterator12get_sentinelEvE3ptr, %66 ]
   %67 = phi ptr [ %61, %55 ], [ %64, %_ZN3fmt3v116detail11scan_buffer11try_consumeEv.exit.i.i.i15 ], [ %64, %66 ]
   %68 = load i8, ptr %67, align 1, !tbaa !4, !noalias !461
   store i8 %68, ptr %52, align 8, !tbaa !391, !noalias !461

@@ -5744,64 +5744,63 @@ include_by_branch.exit.i:                         ; preds = %68, %add_trailing_s
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %95 = load ptr, ptr %94, align 8, !tbaa !92
   %.not6.i.i = icmp eq ptr %95, null
-  br i1 %.not6.i.i, label %96, label %106
+  br i1 %.not6.i.i, label %96, label %105
 
 96:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %39, i64 48, i1 false), !tbaa.struct !95
-  %97 = load i8, ptr %6, align 8
-  %98 = or i8 %97, 32
-  store i8 %98, ptr %6, align 8
-  %99 = tail call ptr @xmalloc(i64 noundef 40) #31
-  store ptr %99, ptr %94, align 8, !tbaa !92
-  tail call void @string_list_init_dup(ptr noundef %99) #31
-  %100 = load ptr, ptr %94, align 8, !tbaa !92
-  %101 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %102 = load ptr, ptr %101, align 8, !tbaa !65
-  %103 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %104 = load ptr, ptr %103, align 8, !tbaa !64
-  %105 = call i32 @config_with_options(ptr noundef nonnull @add_remote_url, ptr noundef %100, ptr noundef %102, ptr noundef %104, ptr noundef nonnull %6)
+  %97 = or disjoint i8 %91, 32
+  store i8 %97, ptr %6, align 8
+  %98 = tail call ptr @xmalloc(i64 noundef 40) #31
+  store ptr %98, ptr %94, align 8, !tbaa !92
+  tail call void @string_list_init_dup(ptr noundef %98) #31
+  %99 = load ptr, ptr %94, align 8, !tbaa !92
+  %100 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %101 = load ptr, ptr %100, align 8, !tbaa !65
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %103 = load ptr, ptr %102, align 8, !tbaa !64
+  %104 = call i32 @config_with_options(ptr noundef nonnull @add_remote_url, ptr noundef %99, ptr noundef %101, ptr noundef %103, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #31
   %.pre.i.i = load ptr, ptr %94, align 8, !tbaa !92
-  br label %106
+  br label %105
 
-106:                                              ; preds = %96, %93
-  %107 = phi ptr [ %.pre.i.i, %96 ], [ %95, %93 ]
+105:                                              ; preds = %96, %93
+  %106 = phi ptr [ %.pre.i.i, %96 ], [ %95, %93 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.repo_config_copy_or_rename_section_in_file.copystr, i64 24, i1 false)
-  %108 = shl i64 %36, 32
-  %sext.i.i = add i64 %108, -98784247808
-  %109 = ashr exact i64 %sext.i.i, 32
-  call void @strbuf_add(ptr noundef nonnull %5, ptr noundef nonnull %90, i64 noundef %109) #31
-  %110 = load ptr, ptr %107, align 8, !tbaa !97
-  %111 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.not11.i.i.i = icmp eq ptr %110, null
+  %107 = shl i64 %36, 32
+  %sext.i.i = add i64 %107, -98784247808
+  %108 = ashr exact i64 %sext.i.i, 32
+  call void @strbuf_add(ptr noundef nonnull %5, ptr noundef nonnull %90, i64 noundef %108) #31
+  %109 = load ptr, ptr %106, align 8, !tbaa !97
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.not11.i.i.i = icmp eq ptr %109, null
   br i1 %.not11.i.i.i, label %at_least_one_url_matches_glob.exit.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %106
-  %112 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %113 = load i64, ptr %112, align 8, !tbaa !100
-  %.not10.i28.i = icmp eq i64 %113, 0
+.lr.ph.i.i.i:                                     ; preds = %105
+  %111 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %112 = load i64, ptr %111, align 8, !tbaa !100
+  %.not10.i28.i = icmp eq i64 %112, 0
   br i1 %.not10.i28.i, label %at_least_one_url_matches_glob.exit.i.i, label %.lr.ph.i.i
 
-114:                                              ; preds = %.lr.ph.i.i
-  %115 = getelementptr inbounds nuw i8, ptr %.0912.i7.i.i, i64 16
-  %116 = load ptr, ptr %107, align 8, !tbaa !97
-  %117 = load i64, ptr %112, align 8, !tbaa !100
-  %118 = getelementptr inbounds nuw %struct.string_list_item, ptr %116, i64 %117
-  %119 = icmp ult ptr %115, %118
-  br i1 %119, label %.lr.ph.i.i, label %at_least_one_url_matches_glob.exit.i.i
+113:                                              ; preds = %.lr.ph.i.i
+  %114 = getelementptr inbounds nuw i8, ptr %.0912.i7.i.i, i64 16
+  %115 = load ptr, ptr %106, align 8, !tbaa !97
+  %116 = load i64, ptr %111, align 8, !tbaa !100
+  %117 = getelementptr inbounds nuw %struct.string_list_item, ptr %115, i64 %116
+  %118 = icmp ult ptr %114, %117
+  br i1 %118, label %.lr.ph.i.i, label %at_least_one_url_matches_glob.exit.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.i, %114
-  %.0912.i7.i.i = phi ptr [ %115, %114 ], [ %110, %.lr.ph.i.i.i ]
-  %120 = load ptr, ptr %111, align 8, !tbaa !13
-  %121 = load ptr, ptr %.0912.i7.i.i, align 8, !tbaa !101
-  %122 = call i32 @wildmatch(ptr noundef %120, ptr noundef %121, i32 noundef 2) #31
-  %.not10.i.i.i = icmp eq i32 %122, 0
-  br i1 %.not10.i.i.i, label %at_least_one_url_matches_glob.exit.i.i, label %114
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.i, %113
+  %.0912.i7.i.i = phi ptr [ %114, %113 ], [ %109, %.lr.ph.i.i.i ]
+  %119 = load ptr, ptr %110, align 8, !tbaa !13
+  %120 = load ptr, ptr %.0912.i7.i.i, align 8, !tbaa !101
+  %121 = call i32 @wildmatch(ptr noundef %119, ptr noundef %120, i32 noundef 2) #31
+  %.not10.i.i.i = icmp eq i32 %121, 0
+  br i1 %.not10.i.i.i, label %at_least_one_url_matches_glob.exit.i.i, label %113
 
-at_least_one_url_matches_glob.exit.i.i:           ; preds = %.lr.ph.i.i, %114, %.lr.ph.i.i.i, %106
-  %.0.i.i.i = phi i32 [ 0, %106 ], [ 0, %.lr.ph.i.i.i ], [ 1, %.lr.ph.i.i ], [ 0, %114 ]
+at_least_one_url_matches_glob.exit.i.i:           ; preds = %.lr.ph.i.i, %113, %.lr.ph.i.i.i, %105
+  %.0.i.i.i = phi i32 [ 0, %105 ], [ 0, %.lr.ph.i.i.i ], [ 1, %.lr.ph.i.i ], [ 0, %113 ]
   call void @strbuf_release(ptr noundef nonnull %5) #31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #31
   br label %include_condition_is_true.exit
@@ -5812,30 +5811,30 @@ include_condition_is_true.exit:                   ; preds = %41, %48, %include_b
   br i1 %.not29, label %parse_config_key.exit.thread, label %include_condition_is_true.exit.thread45
 
 include_condition_is_true.exit.thread45:          ; preds = %89, %include_condition_is_true.exit
-  %123 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(5) @.str.208) #30
-  %.not30 = icmp eq i32 %123, 0
-  br i1 %.not30, label %124, label %parse_config_key.exit.thread
+  %122 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(5) @.str.208) #30
+  %.not30 = icmp eq i32 %122, 0
+  br i1 %.not30, label %123, label %parse_config_key.exit.thread
 
-124:                                              ; preds = %include_condition_is_true.exit.thread45
-  %125 = load ptr, ptr %9, align 8, !tbaa !56
-  %126 = load ptr, ptr %38, align 8, !tbaa !63
-  %127 = load i8, ptr %126, align 8
-  %128 = and i8 %127, 32
-  %.not31 = icmp eq i8 %128, 0
-  br i1 %.not31, label %130, label %129
+123:                                              ; preds = %include_condition_is_true.exit.thread45
+  %124 = load ptr, ptr %9, align 8, !tbaa !56
+  %125 = load ptr, ptr %38, align 8, !tbaa !63
+  %126 = load i8, ptr %125, align 8
+  %127 = and i8 %126, 32
+  %.not31 = icmp eq i8 %127, 0
+  br i1 %.not31, label %129, label %128
 
-129:                                              ; preds = %124
+128:                                              ; preds = %123
   store ptr @forbid_remote_url, ptr %9, align 8, !tbaa !56
-  br label %130
+  br label %129
 
-130:                                              ; preds = %129, %124
-  %131 = load ptr, ptr %2, align 8, !tbaa !28
-  %132 = call fastcc i32 @handle_path_include(ptr noundef %131, ptr noundef %1, ptr noundef nonnull %3)
-  store ptr %125, ptr %9, align 8, !tbaa !56
+129:                                              ; preds = %128, %123
+  %130 = load ptr, ptr %2, align 8, !tbaa !28
+  %131 = call fastcc i32 @handle_path_include(ptr noundef %130, ptr noundef %1, ptr noundef nonnull %3)
+  store ptr %124, ptr %9, align 8, !tbaa !56
   br label %parse_config_key.exit.thread
 
-parse_config_key.exit.thread:                     ; preds = %22, %46, %parse_config_key.exit, %87, %88, %29, %27, %include_condition_is_true.exit, %include_condition_is_true.exit.thread45, %130, %4
-  %.0 = phi i32 [ %13, %4 ], [ %.025, %include_condition_is_true.exit.thread45 ], [ %132, %130 ], [ %.025, %include_condition_is_true.exit ], [ %.025, %27 ], [ %.025, %29 ], [ %.025, %88 ], [ %.025, %87 ], [ %.025, %parse_config_key.exit ], [ %.025, %46 ], [ %.025, %22 ]
+parse_config_key.exit.thread:                     ; preds = %22, %46, %parse_config_key.exit, %87, %88, %29, %27, %include_condition_is_true.exit, %include_condition_is_true.exit.thread45, %129, %4
+  %.0 = phi i32 [ %13, %4 ], [ %.025, %include_condition_is_true.exit.thread45 ], [ %131, %129 ], [ %.025, %include_condition_is_true.exit ], [ %.025, %27 ], [ %.025, %29 ], [ %.025, %88 ], [ %.025, %87 ], [ %.025, %parse_config_key.exit ], [ %.025, %46 ], [ %.025, %22 ]
   ret i32 %.0
 }
 

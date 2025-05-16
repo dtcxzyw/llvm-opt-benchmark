@@ -26435,21 +26435,21 @@ _ZN3fmt3v116detail5writeIciTnNSt9enable_ifIXaaaasr11is_integralIT0_EE5valuentsr3
 30:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
-  %31 = load i32, ptr %6, align 4, !tbaa !870
-  %32 = lshr i32 %31, 6
-  %33 = and i32 %32, 3
-  %.not.i = icmp eq i32 %33, 0
-  br i1 %.not.i, label %_ZN3fmt3v116detail19handle_dynamic_specINS0_7contextEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERS7_.exit, label %34
+  %31 = lshr i32 %7, 6
+  %32 = and i32 %31, 3
+  %.not.i = icmp eq i32 %32, 0
+  br i1 %.not.i, label %_ZN3fmt3v116detail19handle_dynamic_specINS0_7contextEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERS7_.exit, label %33
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %37 = tail call noundef i32 @_ZN3fmt3v116detail16get_dynamic_specINS0_7contextEEEiNS0_11arg_id_kindERKNS1_7arg_refINT_9char_typeEEERS6_(i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  store i32 %37, ptr %36, align 4, !tbaa !154
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %36 = tail call noundef i32 @_ZN3fmt3v116detail16get_dynamic_specINS0_7contextEEEiNS0_11arg_id_kindERKNS1_7arg_refINT_9char_typeEEERS6_(i32 noundef %32, ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  store i32 %36, ptr %35, align 4, !tbaa !154
   br label %_ZN3fmt3v116detail19handle_dynamic_specINS0_7contextEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERS7_.exit
 
-_ZN3fmt3v116detail19handle_dynamic_specINS0_7contextEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERS7_.exit: ; preds = %30, %34
-  %38 = lshr i32 %31, 8
+_ZN3fmt3v116detail19handle_dynamic_specINS0_7contextEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERS7_.exit: ; preds = %30, %33
+  %37 = load i32, ptr %6, align 4, !tbaa !870
+  %38 = lshr i32 %37, 8
   %39 = and i32 %38, 3
   %.not.i16 = icmp eq i32 %39, 0
   br i1 %.not.i16, label %_ZN3fmt3v116detail19handle_dynamic_specINS0_7contextEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERS7_.exit17, label %40
@@ -26467,7 +26467,7 @@ _ZN3fmt3v116detail19handle_dynamic_specINS0_7contextEEEvNS0_11arg_id_kindERiRKNS
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.0.0.copyload.i19 = load ptr, ptr %45, align 8, !tbaa !200
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %46 = and i32 %31, 16384
+  %46 = and i32 %37, 16384
   %.not26 = icmp eq i32 %46, 0
   br i1 %.not26, label %50, label %47
 
@@ -62537,21 +62537,21 @@ _ZN3fmt3v116detail5writeIwNS0_14basic_appenderIwEEEET0_S5_NS0_17basic_string_vie
 35:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
-  %36 = load i32, ptr %8, align 4, !tbaa !870
-  %37 = lshr i32 %36, 6
-  %38 = and i32 %37, 3
-  %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.not.i = icmp eq i32 %38, 0
-  br i1 %.not.i, label %_ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERSA_.exit, label %40
+  %36 = lshr i32 %9, 6
+  %37 = and i32 %36, 3
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.not.i = icmp eq i32 %37, 0
+  br i1 %.not.i, label %_ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERSA_.exit, label %39
 
-40:                                               ; preds = %35
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %42 = tail call noundef i32 @_ZN3fmt3v116detail16get_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEiNS0_11arg_id_kindERKNS1_7arg_refINT_9char_typeEEERS9_(i32 noundef %38, ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  store i32 %42, ptr %39, align 4, !tbaa !154
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %41 = tail call noundef i32 @_ZN3fmt3v116detail16get_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEiNS0_11arg_id_kindERKNS1_7arg_refINT_9char_typeEEERS9_(i32 noundef %37, ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  store i32 %41, ptr %38, align 4, !tbaa !154
   br label %_ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERSA_.exit
 
-_ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERSA_.exit: ; preds = %35, %40
-  %43 = lshr i32 %36, 8
+_ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERSA_.exit: ; preds = %35, %39
+  %42 = load i32, ptr %8, align 4, !tbaa !870
+  %43 = lshr i32 %42, 8
   %44 = and i32 %43, 3
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %.not.i17 = icmp eq i32 %44, 0
@@ -62568,7 +62568,7 @@ _ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_append
   %.sroa.01.0.copyload = load ptr, ptr %1, align 8, !tbaa !192
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !10
-  %49 = and i32 %36, 7
+  %49 = and i32 %42, 7
   %50 = icmp eq i32 %49, 1
   br i1 %50, label %.thread.i.i27, label %60
 
@@ -62601,7 +62601,7 @@ _ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_append
 
 _ZN3fmt3v116detail5writeIwNS0_14basic_appenderIwEEEET0_S5_NS0_17basic_string_viewIT_EERKNS0_12format_specsENS1_10locale_refE.exit28: ; preds = %.thread.i.i27, %60
   %.0.sink.i.i23 = phi i64 [ %.0.i.i22, %60 ], [ %59, %.thread.i.i27 ]
-  %64 = load i32, ptr %39, align 4, !tbaa !1010
+  %64 = load i32, ptr %38, align 4, !tbaa !1010
   %.not.i.i24 = icmp eq i32 %64, 0
   %spec.select34.i.i25 = select i1 %.not.i.i24, i64 0, i64 %.0.sink.i.i23
   %65 = zext i1 %50 to i8
@@ -63832,21 +63832,21 @@ _ZN3fmt3v116detail5writeIwiTnNSt9enable_ifIXaaaasr11is_integralIT0_EE5valuentsr3
 30:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
-  %31 = load i32, ptr %6, align 4, !tbaa !870
-  %32 = lshr i32 %31, 6
-  %33 = and i32 %32, 3
-  %.not.i = icmp eq i32 %33, 0
-  br i1 %.not.i, label %_ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERSA_.exit, label %34
+  %31 = lshr i32 %7, 6
+  %32 = and i32 %31, 3
+  %.not.i = icmp eq i32 %32, 0
+  br i1 %.not.i, label %_ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERSA_.exit, label %33
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %37 = tail call noundef i32 @_ZN3fmt3v116detail16get_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEiNS0_11arg_id_kindERKNS1_7arg_refINT_9char_typeEEERS9_(i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  store i32 %37, ptr %36, align 4, !tbaa !154
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %36 = tail call noundef i32 @_ZN3fmt3v116detail16get_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEiNS0_11arg_id_kindERKNS1_7arg_refINT_9char_typeEEERS9_(i32 noundef %32, ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  store i32 %36, ptr %35, align 4, !tbaa !154
   br label %_ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERSA_.exit
 
-_ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERSA_.exit: ; preds = %30, %34
-  %38 = lshr i32 %31, 8
+_ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERSA_.exit: ; preds = %30, %33
+  %37 = load i32, ptr %6, align 4, !tbaa !870
+  %38 = lshr i32 %37, 8
   %39 = and i32 %38, 3
   %.not.i16 = icmp eq i32 %39, 0
   br i1 %.not.i16, label %_ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERSA_.exit17, label %40
@@ -63864,7 +63864,7 @@ _ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_append
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.0.0.copyload.i19 = load ptr, ptr %45, align 8, !tbaa !200
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %46 = and i32 %31, 16384
+  %46 = and i32 %37, 16384
   %.not26 = icmp eq i32 %46, 0
   br i1 %.not26, label %50, label %47
 
@@ -64222,21 +64222,21 @@ define linkonce_odr hidden ptr @_ZNK3fmt3v116detail16native_formatterIwwLNS1_4ty
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
-  %12 = load i32, ptr %4, align 4, !tbaa !870
-  %13 = lshr i32 %12, 6
-  %14 = and i32 %13, 3
-  %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %_ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERSA_.exit, label %15
+  %12 = lshr i32 %5, 6
+  %13 = and i32 %12, 3
+  %.not.i = icmp eq i32 %13, 0
+  br i1 %.not.i, label %_ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERSA_.exit, label %14
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %18 = tail call noundef i32 @_ZN3fmt3v116detail16get_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEiNS0_11arg_id_kindERKNS1_7arg_refINT_9char_typeEEERS9_(i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  store i32 %18, ptr %17, align 4, !tbaa !154
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %17 = tail call noundef i32 @_ZN3fmt3v116detail16get_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEiNS0_11arg_id_kindERKNS1_7arg_refINT_9char_typeEEERS9_(i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  store i32 %17, ptr %16, align 4, !tbaa !154
   br label %_ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERSA_.exit
 
-_ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERSA_.exit: ; preds = %11, %15
-  %19 = lshr i32 %12, 8
+_ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERSA_.exit: ; preds = %11, %14
+  %18 = load i32, ptr %4, align 4, !tbaa !870
+  %19 = lshr i32 %18, 8
   %20 = and i32 %19, 3
   %.not.i14 = icmp eq i32 %20, 0
   br i1 %.not.i14, label %_ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERSA_.exit15, label %21
@@ -90768,7 +90768,7 @@ define linkonce_odr hidden ptr @_ZNK3fmt3v119formatterISt7complexIdEwvE6formatIN
   %7 = alloca %"struct.fmt::v11::format_specs", align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
-  %8 = load i32, ptr %5, align 8, !tbaa !870
+  %8 = load i32, ptr %0, align 8
   %9 = and i32 %8, 960
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %_ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERSA_.exit14, label %10
@@ -90784,11 +90784,10 @@ define linkonce_odr hidden ptr @_ZNK3fmt3v119formatterISt7complexIdEwvE6formatIN
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = call noundef i32 @_ZN3fmt3v116detail16get_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEiNS0_11arg_id_kindERKNS1_7arg_refINT_9char_typeEEERS9_(i32 noundef %12, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(32) %2)
   store i32 %16, ptr %15, align 8, !tbaa !154
-  %.pre = load i32, ptr %5, align 8, !tbaa !870
   br label %_ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERSA_.exit
 
 _ZN3fmt3v116detail19handle_dynamic_specINS0_15generic_contextINS0_14basic_appenderIwEEwEEEEvNS0_11arg_id_kindERiRKNS1_7arg_refINT_9char_typeEEERSA_.exit: ; preds = %10, %13
-  %17 = phi i32 [ %8, %10 ], [ %.pre, %13 ]
+  %17 = load i32, ptr %5, align 8, !tbaa !870
   %18 = lshr i32 %17, 8
   %19 = and i32 %18, 3
   %.not.i13 = icmp eq i32 %19, 0

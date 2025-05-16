@@ -2474,33 +2474,32 @@ define dso_local i32 @nfs4_server_capabilities(ptr noundef %0, ptr noundef %1) #
   %157 = and i32 %156, -65537
   store i32 %157, ptr %39, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %40, ptr noundef nonnull align 8 dereferenceable(12) %31, i64 12, i1 false)
-  %158 = load i32, ptr %40, align 8
-  %159 = and i32 %158, 24
-  store i32 %159, ptr %40, align 8
-  %160 = load i32, ptr %41, align 4
-  %161 = and i32 %160, 3145728
-  store i32 %161, ptr %41, align 4
+  %158 = and i32 %92, 24
+  store i32 %158, ptr %40, align 8
+  %159 = load i32, ptr %41, align 4
+  %160 = and i32 %159, 3145728
+  store i32 %160, ptr %41, align 4
   store i32 0, ptr %42, align 8
-  br label %162
+  br label %161
 
-162:                                              ; preds = %162, %155
-  %163 = phi i64 [ 0, %155 ], [ %169, %162 ]
-  %164 = getelementptr [3 x i32], ptr %31, i64 0, i64 %163
-  %165 = load i32, ptr %164, align 4
-  %166 = getelementptr [3 x i32], ptr %43, i64 0, i64 %163
-  %167 = load i32, ptr %166, align 4
-  %168 = and i32 %167, %165
-  store i32 %168, ptr %166, align 4
-  %169 = add nuw nsw i64 %163, 1
-  %170 = icmp eq i64 %169, 3
-  br i1 %170, label %.split2, label %162, !llvm.loop !32
+161:                                              ; preds = %161, %155
+  %162 = phi i64 [ 0, %155 ], [ %168, %161 ]
+  %163 = getelementptr [3 x i32], ptr %31, i64 0, i64 %162
+  %164 = load i32, ptr %163, align 4
+  %165 = getelementptr [3 x i32], ptr %43, i64 0, i64 %162
+  %166 = load i32, ptr %165, align 4
+  %167 = and i32 %166, %164
+  store i32 %167, ptr %165, align 4
+  %168 = add nuw nsw i64 %162, 1
+  %169 = icmp eq i64 %168, 3
+  br i1 %169, label %.split2, label %161, !llvm.loop !32
 
-.split2:                                          ; preds = %162
+.split2:                                          ; preds = %161
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %44, ptr noundef nonnull align 4 dereferenceable(12) %43, i64 12, i1 false)
-  %171 = load i32, ptr %33, align 8
-  store i32 %171, ptr %45, align 4
-  %172 = load i32, ptr %46, align 4
-  store i32 %172, ptr %47, align 8
+  %170 = load i32, ptr %33, align 8
+  store i32 %170, ptr %45, align 4
+  %171 = load i32, ptr %46, align 4
+  store i32 %171, ptr %47, align 8
   br label %.split
 
 .split:                                           ; preds = %76, %.split2
@@ -2509,15 +2508,15 @@ define dso_local i32 @nfs4_server_capabilities(ptr noundef %0, ptr noundef %1) #
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #22
-  %173 = call i32 @nfs4_handle_exception(ptr noundef %0, i32 noundef %.sink11, ptr noundef nonnull %9)
-  %174 = load i8, ptr %48, align 2
-  %175 = and i8 %174, 8
-  %176 = icmp eq i8 %175, 0
-  br i1 %176, label %177, label %52, !llvm.loop !35
+  %172 = call i32 @nfs4_handle_exception(ptr noundef %0, i32 noundef %.sink11, ptr noundef nonnull %9)
+  %173 = load i8, ptr %48, align 2
+  %174 = and i8 %173, 8
+  %175 = icmp eq i8 %174, 0
+  br i1 %175, label %176, label %52, !llvm.loop !35
 
-177:                                              ; preds = %.split
+176:                                              ; preds = %.split
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #22
-  ret i32 %173
+  ret i32 %172
 }
 
 ; Function Attrs: null_pointer_is_valid

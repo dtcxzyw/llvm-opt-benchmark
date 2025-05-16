@@ -114,7 +114,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16GfGetHomogenizedERKNS_7GfVec
   %5 = fcmp oeq double %4, 0.000000e+00
   %6 = select i1 %5, double 1.000000e+00, double %4
   %7 = fdiv double 1.000000e+00, %6
-  %8 = load double, ptr %0, align 8
+  %8 = load double, ptr %1, align 8
   %9 = fmul double %7, %8
   store double %9, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -132,48 +132,48 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16GfGetHomogenizedERKNS_7GfVec
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__18GfHomogeneousCrossERKNS_7GfVec4dES2_(ptr dead_on_unwind noalias writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec4d") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #3 {
-  %.sroa.013.0.copyload = load double, ptr %1, align 8
-  %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.415.0.copyload = load double, ptr %.sroa.415.0..sroa_idx, align 8
-  %.sroa.717.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.717.0.copyload = load double, ptr %.sroa.717.0..sroa_idx, align 8
-  %.sroa.1019.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.1019.0.copyload = load double, ptr %.sroa.1019.0..sroa_idx, align 8
-  %4 = fcmp oeq double %.sroa.1019.0.copyload, 0.000000e+00
-  %5 = fdiv double 1.000000e+00, %.sroa.1019.0.copyload
+  %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.312.0.copyload = load double, ptr %.sroa.312.0..sroa_idx, align 8
+  %.sroa.614.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.614.0.copyload = load double, ptr %.sroa.614.0..sroa_idx, align 8
+  %.sroa.916.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.916.0.copyload = load double, ptr %.sroa.916.0..sroa_idx, align 8
+  %4 = fcmp oeq double %.sroa.916.0.copyload, 0.000000e+00
+  %5 = fdiv double 1.000000e+00, %.sroa.916.0.copyload
   %6 = select i1 %4, double 1.000000e+00, double %5
-  %7 = fmul double %.sroa.013.0.copyload, %6
-  %8 = fmul double %.sroa.415.0.copyload, %6
-  %9 = fmul double %.sroa.717.0.copyload, %6
-  %.sroa.08.0.copyload = load double, ptr %2, align 8
-  %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.410.0.copyload = load double, ptr %.sroa.410.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sroa.10.0.copyload = load double, ptr %.sroa.10.0..sroa_idx, align 8
-  %10 = fcmp oeq double %.sroa.10.0.copyload, 0.000000e+00
-  %11 = fdiv double 1.000000e+00, %.sroa.10.0.copyload
-  %12 = select i1 %10, double 1.000000e+00, double %11
-  %13 = fmul double %.sroa.08.0.copyload, %12
-  %14 = fmul double %.sroa.410.0.copyload, %12
-  %15 = fmul double %.sroa.7.0.copyload, %12
-  %16 = fneg double %14
-  %17 = fmul double %9, %16
-  %18 = tail call double @llvm.fmuladd.f64(double %8, double %15, double %17)
-  %19 = fneg double %15
-  %20 = fmul double %7, %19
-  %21 = tail call double @llvm.fmuladd.f64(double %9, double %13, double %20)
-  %22 = fneg double %13
-  %23 = fmul double %8, %22
-  %24 = tail call double @llvm.fmuladd.f64(double %7, double %14, double %23)
-  store double %18, ptr %0, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %21, ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %24, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double 1.000000e+00, ptr %27, align 8
+  %7 = load double, ptr %1, align 8, !noalias !4
+  %8 = fmul double %7, %6
+  %9 = fmul double %.sroa.312.0.copyload, %6
+  %10 = fmul double %.sroa.614.0.copyload, %6
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.sroa.9.0.copyload = load double, ptr %.sroa.9.0..sroa_idx, align 8
+  %11 = fcmp oeq double %.sroa.9.0.copyload, 0.000000e+00
+  %12 = fdiv double 1.000000e+00, %.sroa.9.0.copyload
+  %13 = select i1 %11, double 1.000000e+00, double %12
+  %14 = load double, ptr %2, align 8, !noalias !7
+  %15 = fmul double %14, %13
+  %16 = fmul double %.sroa.3.0.copyload, %13
+  %17 = fmul double %.sroa.6.0.copyload, %13
+  %18 = fneg double %16
+  %19 = fmul double %10, %18
+  %20 = tail call double @llvm.fmuladd.f64(double %9, double %17, double %19)
+  %21 = fneg double %17
+  %22 = fmul double %8, %21
+  %23 = tail call double @llvm.fmuladd.f64(double %10, double %15, double %22)
+  %24 = fneg double %15
+  %25 = fmul double %9, %24
+  %26 = tail call double @llvm.fmuladd.f64(double %8, double %16, double %25)
+  store double %20, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %23, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store double %26, ptr %28, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store double 1.000000e+00, ptr %29, align 8
   ret void
 }
 
@@ -195,3 +195,9 @@ attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZN32pxrInternal_v0_24__pxrReserved__16GfGetHomogenizedERKNS_7GfVec4dE: argument 0"}
+!6 = distinct !{!6, !"_ZN32pxrInternal_v0_24__pxrReserved__16GfGetHomogenizedERKNS_7GfVec4dE"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZN32pxrInternal_v0_24__pxrReserved__16GfGetHomogenizedERKNS_7GfVec4dE: argument 0"}
+!9 = distinct !{!9, !"_ZN32pxrInternal_v0_24__pxrReserved__16GfGetHomogenizedERKNS_7GfVec4dE"}

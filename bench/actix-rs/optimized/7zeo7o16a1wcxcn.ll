@@ -1102,14 +1102,13 @@ _ZN11actix_files5named9NamedFile4etag17ha3bbef69975ebe76E.exit: ; preds = %.noex
 
 _ZN10actix_http12http_message11HttpMessage10get_header17h1fd6e1d02da0dcb5E.exit.i: ; preds = %.noexc195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %58, i64 24, i1 false), !noalias !180
-  %.pre.i = load i64, ptr %60, align 8, !range !164, !noalias !151
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %58), !noalias !151
-  %or.cond.i = icmp slt i64 %.pre.i, -9223372036854775806
+  %or.cond.i = icmp eq i64 %172, -9223372036854775808
   %or.cond5.i = or i1 %165, %or.cond.i
   br i1 %or.cond5.i, label %183, label %190
 
 183:                                              ; preds = %196, %_ZN10actix_http12http_message11HttpMessage10get_header17h1fd6e1d02da0dcb5E.exit.i
-  %184 = phi i64 [ %.pr.i, %196 ], [ %.pre.i, %_ZN10actix_http12http_message11HttpMessage10get_header17h1fd6e1d02da0dcb5E.exit.i ]
+  %184 = phi i64 [ %.pr.i, %196 ], [ %172, %_ZN10actix_http12http_message11HttpMessage10get_header17h1fd6e1d02da0dcb5E.exit.i ]
   %switch.i.i = icmp slt i64 %184, -9223372036854775806
   br i1 %switch.i.i, label %211, label %185
 
@@ -2092,8 +2091,8 @@ _ZN10actix_http6header3map9HeaderMap3get17h414954298c47259cE.exit.thread: ; pred
 520:                                              ; preds = %518
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %88)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, ptr noundef nonnull align 8 dereferenceable(24) %89, i64 24, i1 false)
-  %521 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %522 = load i64, ptr %521, align 8, !noundef !5
+  %521 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  %522 = load i64, ptr %521, align 8
   %.not152 = icmp eq i64 %522, 0
   br i1 %.not152, label %523, label %527, !prof !310
 
@@ -3636,15 +3635,15 @@ define { ptr, ptr } @"_ZN121_$LT$actix_files..named..NamedFileService$u20$as$u20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %7, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !630)
-  %9 = load i64, ptr %8, align 8, !range !62, !alias.scope !630, !noundef !5
-  switch i64 %9, label %default.unreachable [
+  %9 = load i64, ptr %1, align 8
+  switch i64 %9, label %default.unreachable1.i [
     i64 0, label %"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17hd5ef0a96f049e61bE.llvm.10796002377775672969.exit"
     i64 1, label %20
     i64 2, label %22
     i64 3, label %10
   ]
 
-default.unreachable:                              ; preds = %2
+default.unreachable1.i:                           ; preds = %2
   unreachable
 
 10:                                               ; preds = %2

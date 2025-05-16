@@ -70,19 +70,15 @@ define { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..func
 
 "_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h322b657f218b940bE.exit.i": ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %18 = load ptr, ptr %17, align 8, !nonnull !3, !noundef !3
-  %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %20 = load i64, ptr %19, align 8, !noundef !3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$17h24c64bb3b239b72bE.exit"
 
 "_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$17h24c64bb3b239b72bE.exit": ; preds = %3, %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h322b657f218b940bE.exit.i"
-  %.sroa.02.0.i = phi ptr [ %18, %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h322b657f218b940bE.exit.i" ], [ null, %3 ]
-  %.sroa.33.0.i = phi i64 [ %20, %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h322b657f218b940bE.exit.i" ], [ undef, %3 ]
-  %21 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0.i, 0
-  %22 = insertvalue { ptr, i64 } %21, i64 %.sroa.33.0.i, 1
-  ret { ptr, i64 } %22
+  %.sroa.02.0.i = phi ptr [ %9, %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h322b657f218b940bE.exit.i" ], [ null, %3 ]
+  %.sroa.33.0.i = phi i64 [ %2, %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h322b657f218b940bE.exit.i" ], [ undef, %3 ]
+  %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0.i, 0
+  %18 = insertvalue { ptr, i64 } %17, i64 %.sroa.33.0.i, 1
+  ret { ptr, i64 } %18
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -337,8 +333,8 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h4b8687ea9f67f5c
   %61 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %62 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %64 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %65 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.sroa.235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -395,8 +391,8 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h4b8687ea9f67f5c
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %61, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %62, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
-  %82 = load ptr, ptr %64, align 8, !nonnull !3, !noundef !3
-  %83 = load i64, ptr %65, align 8, !noundef !3
+  %82 = load ptr, ptr %64, align 8
+  %83 = load i64, ptr %65, align 8
   %84 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hf1d35a488a27ffb4E"(i64 %83, i1 zeroext false)
           to label %86 unwind label %98
 
@@ -669,8 +665,8 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h758f8b4bbe8a00a
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %66 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %67 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.sroa.235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -727,8 +723,8 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h758f8b4bbe8a00a
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %64, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %65, i64 24, i1 false)
-  %84 = load ptr, ptr %66, align 8, !nonnull !3, !noundef !3
-  %85 = load i64, ptr %67, align 8, !noundef !3
+  %84 = load ptr, ptr %66, align 8
+  %85 = load i64, ptr %67, align 8
   %86 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hf1d35a488a27ffb4E"(i64 %85, i1 zeroext false)
           to label %88 unwind label %100
 
@@ -1004,8 +1000,8 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h97be0ed74b84f23
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %66 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %67 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.sroa.235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -1062,8 +1058,8 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h97be0ed74b84f23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %64, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %65, i64 24, i1 false)
-  %84 = load ptr, ptr %66, align 8, !nonnull !3, !noundef !3
-  %85 = load i64, ptr %67, align 8, !noundef !3
+  %84 = load ptr, ptr %66, align 8
+  %85 = load i64, ptr %67, align 8
   %86 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hf1d35a488a27ffb4E"(i64 %85, i1 zeroext false)
           to label %88 unwind label %100
 
@@ -1332,8 +1328,8 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17hbf01b9ee8547d56
   %63 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %66 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %67 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %.sroa.235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -1390,8 +1386,8 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17hbf01b9ee8547d56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %64, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %65, i64 24, i1 false)
-  %84 = load ptr, ptr %66, align 8, !nonnull !3, !noundef !3
-  %85 = load i64, ptr %67, align 8, !noundef !3
+  %84 = load ptr, ptr %66, align 8
+  %85 = load i64, ptr %67, align 8
   %86 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hf1d35a488a27ffb4E"(i64 %85, i1 zeroext false)
           to label %88 unwind label %100
 

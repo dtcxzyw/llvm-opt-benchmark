@@ -3041,8 +3041,8 @@ define void @_ZN5arrow15BasicDecimal2563AbsERKS0_(ptr dead_on_unwind noalias wri
   %3 = alloca %"class.arrow::BasicDecimal256", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load i64, ptr %4, align 8, !tbaa !7
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %5 = load i64, ptr %4, align 8
   %6 = icmp slt i64 %5, 0
   br i1 %6, label %.preheader.i, label %_ZN5arrow15BasicDecimal2563AbsEv.exit
 
@@ -3367,46 +3367,42 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
   %10 = xor i64 %9, %7
   %isneg = icmp sgt i64 %10, -1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32, i1 false)
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %12 = load i64, ptr %11, align 8
-  %13 = icmp slt i64 %12, 0
-  br i1 %13, label %.preheader.i.i, label %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit
+  %11 = icmp slt i64 %7, 0
+  br i1 %11, label %.preheader.i.i, label %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit
 
 .preheader.i.i:                                   ; preds = %2, %.preheader.i.i
-  %.010.i.i.i = phi i64 [ %20, %.preheader.i.i ], [ 1, %2 ]
-  %.089.i.i.i = phi i64 [ %21, %.preheader.i.i ], [ 0, %2 ]
-  %14 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %.089.i.i.i
-  %15 = load i64, ptr %14, align 8
-  %16 = xor i64 %15, -1
-  %17 = add i64 %.010.i.i.i, %16
-  store i64 %17, ptr %14, align 8
-  %18 = icmp eq i64 %17, 0
-  %19 = and i64 %.010.i.i.i, 1
-  %20 = select i1 %18, i64 %19, i64 0
-  %21 = add nuw nsw i64 %.089.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %21, 4
+  %.010.i.i.i = phi i64 [ %18, %.preheader.i.i ], [ 1, %2 ]
+  %.089.i.i.i = phi i64 [ %19, %.preheader.i.i ], [ 0, %2 ]
+  %12 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %.089.i.i.i
+  %13 = load i64, ptr %12, align 8
+  %14 = xor i64 %13, -1
+  %15 = add i64 %.010.i.i.i, %14
+  store i64 %15, ptr %12, align 8
+  %16 = icmp eq i64 %15, 0
+  %17 = and i64 %.010.i.i.i, 1
+  %18 = select i1 %16, i64 %17, i64 0
+  %19 = add nuw nsw i64 %.089.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %19, 4
   br i1 %exitcond.not.i.i.i, label %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit, label %.preheader.i.i, !llvm.loop !29
 
 _ZN5arrow15BasicDecimal2563AbsERKS0_.exit:        ; preds = %.preheader.i.i, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %23 = load i64, ptr %22, align 8
-  %24 = icmp slt i64 %23, 0
-  br i1 %24, label %.preheader.i.i3, label %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit7
+  %20 = icmp slt i64 %9, 0
+  br i1 %20, label %.preheader.i.i3, label %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit7
 
 .preheader.i.i3:                                  ; preds = %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit, %.preheader.i.i3
-  %.010.i.i.i4 = phi i64 [ %31, %.preheader.i.i3 ], [ 1, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit ]
-  %.089.i.i.i5 = phi i64 [ %32, %.preheader.i.i3 ], [ 0, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit ]
-  %25 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %.089.i.i.i5
-  %26 = load i64, ptr %25, align 8
-  %27 = xor i64 %26, -1
-  %28 = add i64 %.010.i.i.i4, %27
-  store i64 %28, ptr %25, align 8
-  %29 = icmp eq i64 %28, 0
-  %30 = and i64 %.010.i.i.i4, 1
-  %31 = select i1 %29, i64 %30, i64 0
-  %32 = add nuw nsw i64 %.089.i.i.i5, 1
-  %exitcond.not.i.i.i6 = icmp eq i64 %32, 4
+  %.010.i.i.i4 = phi i64 [ %27, %.preheader.i.i3 ], [ 1, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit ]
+  %.089.i.i.i5 = phi i64 [ %28, %.preheader.i.i3 ], [ 0, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit ]
+  %21 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %.089.i.i.i5
+  %22 = load i64, ptr %21, align 8
+  %23 = xor i64 %22, -1
+  %24 = add i64 %.010.i.i.i4, %23
+  store i64 %24, ptr %21, align 8
+  %25 = icmp eq i64 %24, 0
+  %26 = and i64 %.010.i.i.i4, 1
+  %27 = select i1 %25, i64 %26, i64 0
+  %28 = add nuw nsw i64 %.089.i.i.i5, 1
+  %exitcond.not.i.i.i6 = icmp eq i64 %28, 4
   br i1 %exitcond.not.i.i.i6, label %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit7, label %.preheader.i.i3, !llvm.loop !29
 
 _ZN5arrow15BasicDecimal2563AbsERKS0_.exit7:       ; preds = %.preheader.i.i3, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit
@@ -3417,56 +3413,56 @@ _ZN5arrow15BasicDecimal2563AbsERKS0_.exit7:       ; preds = %.preheader.i.i3, %_
 .lr.ph.i:                                         ; preds = %._crit_edge.i, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit7
   %indvars.iv39.i = phi i64 [ 0, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit7 ], [ %indvars.iv.next40.i, %._crit_edge.i ]
   %indvars.iv37.i = phi i64 [ 4, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit7 ], [ %indvars.iv.next38.i, %._crit_edge.i ]
-  %33 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %indvars.iv39.i
-  %34 = load i64, ptr %33, align 8
-  %35 = zext i64 %34 to i128
-  br label %36
+  %29 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %indvars.iv39.i
+  %30 = load i64, ptr %29, align 8
+  %31 = zext i64 %30 to i128
+  br label %32
 
-._crit_edge.i:                                    ; preds = %36
+._crit_edge.i:                                    ; preds = %32
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %indvars.iv.next38.i = add nsw i64 %indvars.iv37.i, -1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next40.i, 4
   br i1 %exitcond44.not.i, label %_ZN5arrow12_GLOBAL__N_121MultiplyUnsignedArrayILi4EEEvRKSt5arrayImXT_EES5_PS3_.exit, label %.lr.ph.i, !llvm.loop !34
 
-36:                                               ; preds = %36, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %36 ]
-  %.01431.i = phi i64 [ 0, %.lr.ph.i ], [ %50, %36 ]
-  %37 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %indvars.iv.i
-  %38 = load i64, ptr %37, align 8
-  %39 = zext i64 %38 to i128
-  %40 = mul nuw i128 %35, %39
-  %41 = add nuw nsw i64 %indvars.iv.i, %indvars.iv39.i
-  %42 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %41
-  %43 = load i64, ptr %42, align 8, !tbaa !7
-  %44 = zext i64 %43 to i128
-  %45 = zext i64 %.01431.i to i128
-  %46 = add nuw nsw i128 %44, %45
-  %47 = add nuw i128 %46, %40
-  %48 = trunc i128 %47 to i64
-  store i64 %48, ptr %42, align 8, !tbaa !7
-  %49 = lshr i128 %47, 64
-  %50 = trunc nuw i128 %49 to i64
+32:                                               ; preds = %32, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
+  %.01431.i = phi i64 [ 0, %.lr.ph.i ], [ %46, %32 ]
+  %33 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %indvars.iv.i
+  %34 = load i64, ptr %33, align 8
+  %35 = zext i64 %34 to i128
+  %36 = mul nuw i128 %31, %35
+  %37 = add nuw nsw i64 %indvars.iv.i, %indvars.iv39.i
+  %38 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %37
+  %39 = load i64, ptr %38, align 8, !tbaa !7
+  %40 = zext i64 %39 to i128
+  %41 = zext i64 %.01431.i to i128
+  %42 = add nuw nsw i128 %40, %41
+  %43 = add nuw i128 %42, %36
+  %44 = trunc i128 %43 to i64
+  store i64 %44, ptr %38, align 8, !tbaa !7
+  %45 = lshr i128 %43, 64
+  %46 = trunc nuw i128 %45 to i64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv37.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %36, !llvm.loop !35
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %32, !llvm.loop !35
 
 _ZN5arrow12_GLOBAL__N_121MultiplyUnsignedArrayILi4EEEvRKSt5arrayImXT_EES5_PS3_.exit: ; preds = %._crit_edge.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !9
   br i1 %isneg, label %_ZN5arrow15BasicDecimal2566NegateEv.exit, label %.preheader
 
 .preheader:                                       ; preds = %_ZN5arrow12_GLOBAL__N_121MultiplyUnsignedArrayILi4EEEvRKSt5arrayImXT_EES5_PS3_.exit, %.preheader
-  %.010.i = phi i64 [ %57, %.preheader ], [ 1, %_ZN5arrow12_GLOBAL__N_121MultiplyUnsignedArrayILi4EEEvRKSt5arrayImXT_EES5_PS3_.exit ]
-  %.089.i = phi i64 [ %58, %.preheader ], [ 0, %_ZN5arrow12_GLOBAL__N_121MultiplyUnsignedArrayILi4EEEvRKSt5arrayImXT_EES5_PS3_.exit ]
-  %51 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %.089.i
-  %52 = load i64, ptr %51, align 8, !tbaa !7
-  %53 = xor i64 %52, -1
-  %54 = add i64 %.010.i, %53
-  store i64 %54, ptr %51, align 8, !tbaa !7
-  %55 = icmp eq i64 %54, 0
-  %56 = and i64 %.010.i, 1
-  %57 = select i1 %55, i64 %56, i64 0
-  %58 = add nuw nsw i64 %.089.i, 1
-  %exitcond.not.i8 = icmp eq i64 %58, 4
+  %.010.i = phi i64 [ %53, %.preheader ], [ 1, %_ZN5arrow12_GLOBAL__N_121MultiplyUnsignedArrayILi4EEEvRKSt5arrayImXT_EES5_PS3_.exit ]
+  %.089.i = phi i64 [ %54, %.preheader ], [ 0, %_ZN5arrow12_GLOBAL__N_121MultiplyUnsignedArrayILi4EEEvRKSt5arrayImXT_EES5_PS3_.exit ]
+  %47 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %.089.i
+  %48 = load i64, ptr %47, align 8, !tbaa !7
+  %49 = xor i64 %48, -1
+  %50 = add i64 %.010.i, %49
+  store i64 %50, ptr %47, align 8, !tbaa !7
+  %51 = icmp eq i64 %50, 0
+  %52 = and i64 %.010.i, 1
+  %53 = select i1 %51, i64 %52, i64 0
+  %54 = add nuw nsw i64 %.089.i, 1
+  %exitcond.not.i8 = icmp eq i64 %54, 4
   br i1 %exitcond.not.i8, label %_ZN5arrow15BasicDecimal2566NegateEv.exit, label %.preheader, !llvm.loop !29
 
 _ZN5arrow15BasicDecimal2566NegateEv.exit:         ; preds = %.preheader, %_ZN5arrow12_GLOBAL__N_121MultiplyUnsignedArrayILi4EEEvRKSt5arrayImXT_EES5_PS3_.exit
@@ -3491,8 +3487,8 @@ define noundef range(i32 0, 3) i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32, i1 false)
-  %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !7
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = load i64, ptr %15, align 8
   %17 = icmp slt i64 %16, 0
   br i1 %17, label %.preheader.i.i, label %_ZN5arrow15BasicDecimal2566NegateEv.exit.i.i.preheader
 
@@ -3565,8 +3561,8 @@ _ZN5arrowL11FillInArrayERKNS_15BasicDecimal256EPjRb.exit.i: ; preds = %32, %.lr.
   %44 = add nuw nsw i64 %.120.lcssa.i.i.i, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %45 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %46 = load i64, ptr %45, align 8, !tbaa !7
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load i64, ptr %45, align 8
   %47 = icmp slt i64 %46, 0
   br i1 %47, label %.preheader.i111.i, label %_ZN5arrow15BasicDecimal2566NegateEv.exit.i115.i.preheader
 
@@ -4500,8 +4496,8 @@ define noundef zeroext i1 @_ZNK5arrow15BasicDecimal25615FitsInPrecisionEi(ptr no
   %3 = alloca %"class.arrow::BasicDecimal256", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15, !noalias !49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32, i1 false), !noalias !49
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load i64, ptr %4, align 8, !tbaa !7, !noalias !49
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = load i64, ptr %4, align 8, !noalias !49
   %6 = icmp slt i64 %5, 0
   br i1 %6, label %.preheader.i.i, label %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit
 
@@ -4518,19 +4514,16 @@ define noundef zeroext i1 @_ZNK5arrow15BasicDecimal25615FitsInPrecisionEi(ptr no
   %13 = select i1 %11, i64 %12, i64 0
   %14 = add nuw nsw i64 %.089.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %14, 4
-  br i1 %exitcond.not.i.i.i, label %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit.loopexit, label %.preheader.i.i, !llvm.loop !29
+  br i1 %exitcond.not.i.i.i, label %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit, label %.preheader.i.i, !llvm.loop !29
 
-_ZN5arrow15BasicDecimal2563AbsERKS0_.exit.loopexit: ; preds = %.preheader.i.i
-  %.sroa.6.0.copyload.pre = load i64, ptr %4, align 8
-  br label %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit
-
-_ZN5arrow15BasicDecimal2563AbsERKS0_.exit:        ; preds = %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit.loopexit, %2
-  %.sroa.6.0.copyload = phi i64 [ %.sroa.6.0.copyload.pre, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit.loopexit ], [ %5, %2 ]
+_ZN5arrow15BasicDecimal2563AbsERKS0_.exit:        ; preds = %.preheader.i.i, %2
   %.sroa.0.0.copyload = load i64, ptr %3, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15, !noalias !49
   %15 = sext i32 %1 to i64
   %16 = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %15

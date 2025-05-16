@@ -3363,10 +3363,9 @@ define void @_RNvMs1_NtNtCseG2FYMysgNb_3wax4walk4globNtB5_10GlobWalker4walk(ptr 
   %5 = alloca [88 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !600)
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %4), !noalias !603
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %7 = load i64, ptr %6, align 8, !alias.scope !600, !noalias !605, !noundef !5
+  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %4), !noalias !600
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = load i64, ptr %6, align 8
   invoke void @_RINvMse_NtCseG2FYMysgNb_3wax4walkNtB6_8WalkTree24with_prefix_and_behaviorNtNtCsapf13pIxsjn_3std4path7PathBufNtB6_12WalkBehaviorEB8_(ptr noalias noundef nonnull sret([192 x i8]) align 8 captures(none) dereferenceable(192) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %1, i64 noundef %7, i64 noundef -1, i1 noundef zeroext false)
           to label %15 unwind label %8
 
@@ -3375,18 +3374,18 @@ define void @_RNvMs1_NtNtCseG2FYMysgNb_3wax4walk4globNtB5_10GlobWalker4walk(ptr 
           cleanup
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsaz5AFKTGGYY_5regex5regex6string5RegexECseG2FYMysgNb_3wax(ptr noalias noundef nonnull align 8 dereferenceable(32) %10) #37
-          to label %13 unwind label %11, !noalias !605
+          to label %13 unwind label %11, !noalias !604
 
 11:                                               ; preds = %13, %8
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h1bb225b6f4388944E() #34, !noalias !605
+  call void @_ZN4core9panicking16panic_in_cleanup17h1bb225b6f4388944E() #34, !noalias !604
   unreachable
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtCsaz5AFKTGGYY_5regex5regex6string5RegexEECseG2FYMysgNb_3wax(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #37
-          to label %.body unwind label %11, !noalias !605
+          to label %.body unwind label %11, !noalias !604
 
 15:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
@@ -3395,11 +3394,11 @@ define void @_RNvMs1_NtNtCseG2FYMysgNb_3wax4walk4globNtB5_10GlobWalker4walk(ptr 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(192) %4, i64 192, i1 false), !noalias !600
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(192) %4, i64 192, i1 false), !noalias !605
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !600
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !605
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %4), !noalias !603
+  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %4), !noalias !600
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
   ret void
 
@@ -4485,10 +4484,10 @@ define void @_RINvMse_NtCseG2FYMysgNb_3wax4walkNtB6_8WalkTree24with_prefix_and_b
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false), !alias.scope !759
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7)
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load ptr, ptr %9, align 8, !nonnull !5, !noundef !5
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %12 = load i64, ptr %11, align 8, !noundef !5
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %12 = load i64, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !766
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i8 0, ptr %13, align 8, !noalias !766
@@ -5924,12 +5923,12 @@ attributes #38 = { noreturn nounwind }
 !597 = distinct !{!597, !"_RNvMs_NtNtCseG2FYMysgNb_3wax4walk4globNtB4_6Anchor17root_prefix_paths"}
 !598 = !{!599}
 !599 = distinct !{!599, !597, !"_RNvMs_NtNtCseG2FYMysgNb_3wax4walk4globNtB4_6Anchor17root_prefix_paths: argument 0"}
-!600 = !{!601}
-!601 = distinct !{!601, !602, !"_RINvMs1_NtNtCseG2FYMysgNb_3wax4walk4globNtB6_10GlobWalker18walk_with_behaviorNtB8_12WalkBehaviorEBa_: argument 1"}
+!600 = !{!601, !603}
+!601 = distinct !{!601, !602, !"_RINvMs1_NtNtCseG2FYMysgNb_3wax4walk4globNtB6_10GlobWalker18walk_with_behaviorNtB8_12WalkBehaviorEBa_: argument 0"}
 !602 = distinct !{!602, !"_RINvMs1_NtNtCseG2FYMysgNb_3wax4walk4globNtB6_10GlobWalker18walk_with_behaviorNtB8_12WalkBehaviorEBa_"}
-!603 = !{!604, !601}
-!604 = distinct !{!604, !602, !"_RINvMs1_NtNtCseG2FYMysgNb_3wax4walk4globNtB6_10GlobWalker18walk_with_behaviorNtB8_12WalkBehaviorEBa_: argument 0"}
-!605 = !{!604}
+!603 = distinct !{!603, !602, !"_RINvMs1_NtNtCseG2FYMysgNb_3wax4walk4globNtB6_10GlobWalker18walk_with_behaviorNtB8_12WalkBehaviorEBa_: argument 1"}
+!604 = !{!601}
+!605 = !{!603}
 !606 = !{!607}
 !607 = distinct !{!607, !608, !"_RNvMs2_NtNtCseG2FYMysgNb_3wax4walk4globNtB5_16FilterAnyProgram7residue: argument 0"}
 !608 = distinct !{!608, !"_RNvMs2_NtNtCseG2FYMysgNb_3wax4walk4globNtB5_16FilterAnyProgram7residue"}

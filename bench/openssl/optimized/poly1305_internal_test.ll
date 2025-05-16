@@ -39,11 +39,11 @@ define internal range(i32 0, 2) i32 @test_poly1305(i32 noundef %0) #0 {
   %6 = getelementptr inbounds [35 x %struct.TESTDATA], ptr @tests, i64 0, i64 %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3096) %3, ptr noundef nonnull align 8 dereferenceable(3096) %6, i64 3096, i1 false), !tbaa.struct !4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load i64, ptr %3, align 8, !tbaa !10
+  %8 = load i64, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1040
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 2064
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 2072
-  %12 = load i64, ptr %10, align 8, !tbaa !13
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 2072
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 2064
+  %12 = load i64, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #4
   %13 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 1517, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %12, i64 noundef 16) #4
   %.not = icmp eq i32 %13, 0
@@ -53,7 +53,7 @@ define internal range(i32 0, 2) i32 @test_poly1305(i32 noundef %0) #0 {
   call void @Poly1305_Init(ptr noundef nonnull %2, ptr noundef nonnull %9) #4
   call void @Poly1305_Update(ptr noundef nonnull %2, ptr noundef nonnull %7, i64 noundef %8) #4
   call void @Poly1305_Final(ptr noundef nonnull %2, ptr noundef nonnull %4) #4
-  %15 = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 1524, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull %4, i64 noundef %12, ptr noundef nonnull %11, i64 noundef %12) #4
+  %15 = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 1524, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull %4, i64 noundef %12, ptr noundef nonnull %10, i64 noundef %12) #4
   %.not52 = icmp eq i32 %15, 0
   br i1 %.not52, label %16, label %17
 
@@ -72,7 +72,7 @@ define internal range(i32 0, 2) i32 @test_poly1305(i32 noundef %0) #0 {
   %21 = add i64 %8, -1
   call void @Poly1305_Update(ptr noundef nonnull %2, ptr noundef nonnull %20, i64 noundef %21) #4
   call void @Poly1305_Final(ptr noundef nonnull %2, ptr noundef nonnull %4) #4
-  %22 = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 1535, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull %4, i64 noundef %12, ptr noundef nonnull %11, i64 noundef %12) #4
+  %22 = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 1535, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull %4, i64 noundef %12, ptr noundef nonnull %10, i64 noundef %12) #4
   %.not53 = icmp eq i32 %22, 0
   br i1 %.not53, label %23, label %24
 
@@ -92,7 +92,7 @@ define internal range(i32 0, 2) i32 @test_poly1305(i32 noundef %0) #0 {
   %29 = sub i64 %8, %27
   call void @Poly1305_Update(ptr noundef nonnull %2, ptr noundef nonnull %28, i64 noundef %29) #4
   call void @Poly1305_Final(ptr noundef nonnull %2, ptr noundef nonnull %4) #4
-  %30 = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 1549, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull %4, i64 noundef %12, ptr noundef nonnull %11, i64 noundef %12) #4
+  %30 = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 1549, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull %4, i64 noundef %12, ptr noundef nonnull %10, i64 noundef %12) #4
   %.not54 = icmp eq i32 %30, 0
   br i1 %.not54, label %31, label %.lr.ph
 
@@ -108,7 +108,7 @@ define internal range(i32 0, 2) i32 @test_poly1305(i32 noundef %0) #0 {
   %33 = sub nuw i64 %8, %.057
   call void @Poly1305_Update(ptr noundef nonnull %2, ptr noundef nonnull %32, i64 noundef %33) #4
   call void @Poly1305_Final(ptr noundef nonnull %2, ptr noundef nonnull %4) #4
-  %34 = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 1560, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull %4, i64 noundef %12, ptr noundef nonnull %11, i64 noundef %12) #4
+  %34 = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 1560, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull %4, i64 noundef %12, ptr noundef nonnull %10, i64 noundef %12) #4
   %.not55 = icmp eq i32 %34, 0
   br i1 %.not55, label %35, label %36
 
@@ -119,7 +119,7 @@ define internal range(i32 0, 2) i32 @test_poly1305(i32 noundef %0) #0 {
 36:                                               ; preds = %.lr.ph
   %37 = add i64 %.057, 16
   %38 = icmp ult i64 %37, %8
-  br i1 %38, label %.lr.ph, label %.critedge, !llvm.loop !14
+  br i1 %38, label %.lr.ph, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %36, %17, %35, %31, %24, %1, %23, %16
   %.050 = phi i32 [ 0, %23 ], [ 0, %16 ], [ 0, %1 ], [ 1, %24 ], [ 0, %31 ], [ 0, %35 ], [ 1, %17 ], [ 1, %36 ]
@@ -168,9 +168,5 @@ attributes #4 = { nounwind }
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!7, !7, i64 0}
-!10 = !{!11, !6, i64 0}
-!11 = !{!"", !12, i64 0, !12, i64 1032, !12, i64 2064}
-!12 = !{!"", !6, i64 0, !7, i64 8}
-!13 = !{!11, !6, i64 2064}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}

@@ -67,7 +67,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
-  %36 = load i64, ptr %9, align 8, !range !5, !noundef !3
+  %36 = load i64, ptr %35, align 8
   %.not.i = icmp eq i64 %36, -9223372036854775807
   br i1 %.not.i, label %.thread, label %37
 
@@ -77,7 +77,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
 
 .thread:                                          ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %39 = load ptr, ptr %38, align 8, !nonnull !3, !align !6, !noundef !3
+  %39 = load ptr, ptr %38, align 8, !nonnull !3, !align !5, !noundef !3
   br label %45
 
 40:                                               ; preds = %31, %37
@@ -135,12 +135,12 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
 54:                                               ; preds = %51
   %55 = landingpad { ptr, i32 }
           cleanup
-  %56 = load i64, ptr %10, align 8, !range !7, !noundef !3
+  %56 = load i64, ptr %10, align 8, !range !6, !noundef !3
   %57 = icmp eq i64 %56, 19
   br i1 %57, label %75, label %77
 
 58:                                               ; preds = %51
-  %59 = load i64, ptr %10, align 8, !range !7, !noundef !3
+  %59 = load i64, ptr %10, align 8, !range !6, !noundef !3
   %60 = icmp eq i64 %59, 19
   br i1 %60, label %61, label %63
 
@@ -210,7 +210,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
           to label %96 unwind label %73
 
 86:                                               ; preds = %83
-  %87 = load i64, ptr %10, align 8, !range !7, !noundef !3
+  %87 = load i64, ptr %10, align 8, !range !6, !noundef !3
   %88 = icmp eq i64 %87, 19
   br i1 %88, label %89, label %91
 
@@ -295,7 +295,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
-  %36 = load i64, ptr %9, align 8, !range !5, !noundef !3
+  %36 = load i64, ptr %35, align 8
   %.not.i = icmp eq i64 %36, -9223372036854775803
   br i1 %.not.i, label %.thread, label %37
 
@@ -305,7 +305,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
 
 .thread:                                          ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %39 = load ptr, ptr %38, align 8, !nonnull !3, !align !6, !noundef !3
+  %39 = load ptr, ptr %38, align 8, !nonnull !3, !align !5, !noundef !3
   br label %45
 
 40:                                               ; preds = %31, %37
@@ -363,12 +363,12 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
 54:                                               ; preds = %51
   %55 = landingpad { ptr, i32 }
           cleanup
-  %56 = load i64, ptr %10, align 8, !range !7, !noundef !3
+  %56 = load i64, ptr %10, align 8, !range !6, !noundef !3
   %57 = icmp eq i64 %56, 19
   br i1 %57, label %75, label %77
 
 58:                                               ; preds = %51
-  %59 = load i64, ptr %10, align 8, !range !7, !noundef !3
+  %59 = load i64, ptr %10, align 8, !range !6, !noundef !3
   %60 = icmp eq i64 %59, 19
   br i1 %60, label %61, label %63
 
@@ -438,7 +438,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
           to label %96 unwind label %73
 
 86:                                               ; preds = %83
-  %87 = load i64, ptr %10, align 8, !range !7, !noundef !3
+  %87 = load i64, ptr %10, align 8, !range !6, !noundef !3
   %88 = icmp eq i64 %87, 19
   br i1 %88, label %89, label %91
 
@@ -478,8 +478,8 @@ define hidden zeroext i1 @"_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$c
   br i1 %8, label %16, label %9
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %0, align 8, !nonnull !3, !align !6, !noundef !3
-  %11 = load ptr, ptr %10, align 8, !nonnull !3, !align !8, !noundef !3
+  %10 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
+  %11 = load ptr, ptr %10, align 8, !nonnull !3, !align !7, !noundef !3
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !3
   store ptr %11, ptr %3, align 8
@@ -506,8 +506,8 @@ define hidden zeroext i1 @"_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$c
   br i1 %8, label %16, label %9
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %0, align 8, !nonnull !3, !align !6, !noundef !3
-  %11 = load ptr, ptr %10, align 8, !nonnull !3, !align !8, !noundef !3
+  %10 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
+  %11 = load ptr, ptr %10, align 8, !nonnull !3, !align !7, !noundef !3
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !3
   store ptr %11, ptr %3, align 8
@@ -590,7 +590,6 @@ attributes #5 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
 !3 = !{}
 !4 = !{i64 0, i64 41}
-!5 = !{i64 0, i64 -9223372036854775800}
-!6 = !{i64 8}
-!7 = !{i64 0, i64 39}
-!8 = !{i64 1}
+!5 = !{i64 8}
+!6 = !{i64 0, i64 39}
+!7 = !{i64 1}

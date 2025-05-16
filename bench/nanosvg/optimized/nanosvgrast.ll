@@ -981,7 +981,7 @@ nsvg__viewAlign.exit167.i:                        ; preds = %213, %211, %nsvg__v
   store float %310, ptr %293, align 4, !tbaa !28
   %318 = load ptr, ptr %280, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, ptr noundef nonnull align 4 dereferenceable(24) %318, i64 24, i1 false)
-  %319 = load float, ptr %4, align 16, !tbaa !28
+  %319 = load float, ptr %318, align 4
   %320 = fpext float %319 to double
   %321 = load float, ptr %223, align 4, !tbaa !28
   %322 = fpext float %321 to double
@@ -997,7 +997,6 @@ nsvg__viewAlign.exit167.i:                        ; preds = %213, %211, %nsvg__v
   br i1 %or.cond.i.i, label %331, label %332
 
 331:                                              ; preds = %279
-  store float 1.000000e+00, ptr %4, align 16, !tbaa !28
   store float 0.000000e+00, ptr %225, align 4, !tbaa !28
   store float 0.000000e+00, ptr %224, align 8, !tbaa !28
   store float 1.000000e+00, ptr %223, align 4, !tbaa !28
@@ -1104,7 +1103,7 @@ nsvg__xformInverse.exit.i:                        ; preds = %332, %331
   store float %400, ptr %383, align 4, !tbaa !28
   %408 = load ptr, ptr %370, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, ptr noundef nonnull align 4 dereferenceable(24) %408, i64 24, i1 false)
-  %409 = load float, ptr %4, align 16, !tbaa !28
+  %409 = load float, ptr %408, align 4
   %410 = fpext float %409 to double
   %411 = load float, ptr %223, align 4, !tbaa !28
   %412 = fpext float %411 to double
@@ -1120,7 +1119,6 @@ nsvg__xformInverse.exit.i:                        ; preds = %332, %331
   br i1 %or.cond.i168.i, label %421, label %422
 
 421:                                              ; preds = %369
-  store float 1.000000e+00, ptr %4, align 16, !tbaa !28
   store float 0.000000e+00, ptr %225, align 4, !tbaa !28
   store float 0.000000e+00, ptr %224, align 8, !tbaa !28
   store float 1.000000e+00, ptr %223, align 4, !tbaa !28

@@ -2065,7 +2065,6 @@ python_hashlib_Hacl_Hash_Blake2b_reset_with_key.exit:
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_Blake2b_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #11 {
   %.sroa.0130 = alloca %struct.Hacl_Hash_Blake2b_block_state_t_s, align 8
-  %.sroa.053 = alloca %struct.Hacl_Hash_Blake2b_block_state_t_s, align 8
   %.sroa.3153.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.3153.0.copyload = load i64, ptr %.sroa.3153.0..sroa_idx, align 8, !tbaa !3
   %4 = zext i32 %2 to i64
@@ -2082,17 +2081,18 @@ define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_Blake2b_update
   %.0185 = select i1 %or.cond, i32 128, i32 %11
   %12 = sub nuw nsw i32 128, %.0185
   %.not = icmp ugt i32 %2, %12
-  %.sroa.6128.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0130, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %.sroa.4143.0.copyload = load ptr, ptr %.sroa.6128.0..sroa_idx, align 8, !tbaa !15
+  %.sroa.4143.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.4143.0.copyload = load ptr, ptr %.sroa.4143.0..sroa_idx, align 8, !tbaa !15
   %. = select i1 %or.cond, i64 128, i64 %8
   %14 = getelementptr i8, ptr %.sroa.4143.0.copyload, i64 %.
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 1 %1, i64 %4, i1 false)
   %15 = add i64 %.sroa.3153.0.copyload, %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0130, i64 24, i1 false), !tbaa.struct !21
+  store ptr %.sroa.4143.0.copyload, ptr %.sroa.4143.0..sroa_idx, align 8, !tbaa !15
   br label %.sink.split
 
 16:                                               ; preds = %7
@@ -2105,6 +2105,7 @@ define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_Blake2b_update
   %.sroa.4126.0.copyload = load ptr, ptr %.sroa.4126.0..sroa_idx, align 8, !tbaa !12
   %.sroa.5127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.5127.0.copyload = load ptr, ptr %.sroa.5127.0..sroa_idx, align 8, !tbaa !12
+  %.sroa.6128.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.6128.0.copyload = load ptr, ptr %.sroa.6128.0..sroa_idx, align 8, !tbaa !15
   %19 = and i64 %4, 127
   %20 = icmp eq i64 %19, 0
@@ -2116,55 +2117,59 @@ define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_Blake2b_update
   %25 = zext i32 %23 to i64
   %26 = getelementptr i8, ptr %1, i64 %25
   %.not.i = icmp ult i32 %22, 128
-  br i1 %.not.i, label %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit205, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit207, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %18
   %27 = lshr i32 %22, 7
   %wide.trip.count.i = zext nneg i32 %27 to i64
-  br label %.lr.ph.i201
+  br label %.lr.ph.i203
 
-.lr.ph.i201:                                      ; preds = %.lr.ph.i201, %.lr.ph.preheader.i
-  %indvars.iv.i202 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i203, %.lr.ph.i201 ]
-  %indvars.iv.next.i203 = add nuw nsw i64 %indvars.iv.i202, 1
-  %28 = shl i64 %indvars.iv.next.i203, 7
+.lr.ph.i203:                                      ; preds = %.lr.ph.i203, %.lr.ph.preheader.i
+  %indvars.iv.i204 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i205, %.lr.ph.i203 ]
+  %indvars.iv.next.i205 = add nuw nsw i64 %indvars.iv.i204, 1
+  %28 = shl i64 %indvars.iv.next.i205, 7
   %29 = and i64 %28, 4294967168
   %30 = add i64 %29, %.sroa.3153.0.copyload
   %31 = xor i64 %30, -1
   %32 = and i64 %.sroa.3153.0.copyload, %31
   %33 = lshr i64 %32, 63
-  %34 = shl i64 %indvars.iv.i202, 7
+  %34 = shl i64 %indvars.iv.i204, 7
   %35 = and i64 %34, 4294967168
   %36 = getelementptr i8, ptr %1, i64 %35
   tail call fastcc void @update_block(ptr noundef %.sroa.4126.0.copyload, ptr noundef %.sroa.5127.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false, i64 %30, i64 %33, ptr noundef readonly %36)
-  %exitcond.not.i204 = icmp eq i64 %indvars.iv.next.i203, %wide.trip.count.i
-  br i1 %exitcond.not.i204, label %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit205, label %.lr.ph.i201, !llvm.loop !7
+  %exitcond.not.i206 = icmp eq i64 %indvars.iv.next.i205, %wide.trip.count.i
+  br i1 %exitcond.not.i206, label %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit207, label %.lr.ph.i203, !llvm.loop !7
 
-python_hashlib_Hacl_Hash_Blake2b_update_multi.exit205: ; preds = %.lr.ph.i201, %18
+python_hashlib_Hacl_Hash_Blake2b_update_multi.exit207: ; preds = %.lr.ph.i203, %18
   %37 = zext i32 %24 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.6128.0.copyload, ptr align 1 %26, i64 %37, i1 false)
   %38 = add i64 %.sroa.3153.0.copyload, %4
   store i64 %.sroa.0125.0.copyload, ptr %0, align 8
   store ptr %.sroa.4126.0.copyload, ptr %.sroa.4126.0..sroa_idx, align 8, !tbaa !12
   store ptr %.sroa.5127.0.copyload, ptr %.sroa.5127.0..sroa_idx, align 8, !tbaa !12
+  store ptr %.sroa.6128.0.copyload, ptr %.sroa.6128.0..sroa_idx, align 8, !tbaa !15
   br label %.sink.split
 
 39:                                               ; preds = %16
   %40 = zext nneg i32 %12 to i64
   %41 = getelementptr i8, ptr %1, i64 %40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.053, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %.sroa.466.0.copyload = load ptr, ptr %.sroa.6128.0..sroa_idx, align 8, !tbaa !15
-  %.197 = select i1 %or.cond, i64 128, i64 %8
-  %42 = getelementptr i8, ptr %.sroa.466.0.copyload, i64 %.197
+  %.sroa.065.sroa.0.0.copyload = load i64, ptr %0, align 8
+  %.sroa.065.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.065.sroa.4.sroa.0.0.copyload = load ptr, ptr %.sroa.065.sroa.4.0..sroa_idx, align 8, !tbaa !12
+  %.sroa.065.sroa.4.sroa.4.0..sroa.065.sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.065.sroa.4.sroa.4.0.copyload = load ptr, ptr %.sroa.065.sroa.4.sroa.4.0..sroa.065.sroa.4.0..sroa_idx.sroa_idx, align 8, !tbaa !12
+  %.sroa.466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.466.0.copyload = load ptr, ptr %.sroa.466.0..sroa_idx, align 8, !tbaa !15
+  %.199 = select i1 %or.cond, i64 128, i64 %8
+  %42 = getelementptr i8, ptr %.sroa.466.0.copyload, i64 %.199
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr align 1 %1, i64 %40, i1 false)
   %43 = add i64 %.sroa.3153.0.copyload, %40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.053, i64 24, i1 false), !tbaa.struct !21
-  store ptr %.sroa.466.0.copyload, ptr %.sroa.6128.0..sroa_idx, align 8, !tbaa !15
+  store i64 %.sroa.065.sroa.0.0.copyload, ptr %0, align 8
+  store ptr %.sroa.065.sroa.4.sroa.0.0.copyload, ptr %.sroa.065.sroa.4.0..sroa_idx, align 8, !tbaa !12
+  store ptr %.sroa.065.sroa.4.sroa.4.0.copyload, ptr %.sroa.065.sroa.4.sroa.4.0..sroa.065.sroa.4.0..sroa_idx.sroa_idx, align 8, !tbaa !12
+  store ptr %.sroa.466.0.copyload, ptr %.sroa.466.0..sroa_idx, align 8, !tbaa !15
   store i64 %43, ptr %.sroa.3153.0..sroa_idx, align 8, !tbaa !3
-  %.sroa.0.0.copyload = load i64, ptr %0, align 8
-  %.sroa.451.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.451.0.copyload = load ptr, ptr %.sroa.451.0..sroa_idx, align 8, !tbaa !12
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !12
   %44 = and i64 %43, 127
   %45 = icmp eq i64 %44, 0
   %46 = icmp ne i64 %43, 0
@@ -2172,67 +2177,66 @@ python_hashlib_Hacl_Hash_Blake2b_update_multi.exit205: ; preds = %.lr.ph.i201, %
   %47 = trunc nuw nsw i64 %44 to i32
   %.0190 = select i1 %or.cond12, i32 128, i32 %47
   %48 = icmp eq i32 %.0190, 0
-  br i1 %48, label %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit213, label %.lr.ph.i209
+  br i1 %48, label %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit215, label %.lr.ph.i211
 
-.lr.ph.i209:                                      ; preds = %39
+.lr.ph.i211:                                      ; preds = %39
   %49 = zext nneg i32 %.0190 to i64
   %50 = sub i64 %43, %49
   %51 = add i64 %50, 128
   %52 = sub i64 -129, %50
   %53 = and i64 %50, %52
   %54 = lshr i64 %53, 63
-  tail call fastcc void @update_block(ptr noundef %.sroa.451.0.copyload, ptr noundef %.sroa.5.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false, i64 %51, i64 %54, ptr noundef readonly %.sroa.466.0.copyload)
-  br label %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit213
+  tail call fastcc void @update_block(ptr noundef %.sroa.065.sroa.4.sroa.0.0.copyload, ptr noundef %.sroa.065.sroa.4.sroa.4.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false, i64 %51, i64 %54, ptr noundef readonly %.sroa.466.0.copyload)
+  br label %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit215
 
-python_hashlib_Hacl_Hash_Blake2b_update_multi.exit213: ; preds = %.lr.ph.i209, %39
+python_hashlib_Hacl_Hash_Blake2b_update_multi.exit215: ; preds = %.lr.ph.i211, %39
   %55 = sub i32 %2, %12
   %56 = zext i32 %55 to i64
   %57 = and i64 %56, 127
-  %.not224 = icmp eq i64 %57, 0
+  %.not229 = icmp eq i64 %57, 0
   %58 = trunc nuw nsw i64 %57 to i32
-  %.0191 = select i1 %.not224, i32 128, i32 %58
+  %.0191 = select i1 %.not229, i32 128, i32 %58
   %59 = sub i32 %55, %.0191
   %60 = and i32 %59, -128
   %61 = sub i32 %55, %60
   %62 = zext i32 %60 to i64
   %63 = getelementptr i8, ptr %41, i64 %62
-  %.not.i216 = icmp ult i32 %59, 128
-  br i1 %.not.i216, label %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit223, label %.lr.ph.preheader.i217
+  %.not.i218 = icmp ult i32 %59, 128
+  br i1 %.not.i218, label %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit225, label %.lr.ph.preheader.i219
 
-.lr.ph.preheader.i217:                            ; preds = %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit213
+.lr.ph.preheader.i219:                            ; preds = %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit215
   %64 = lshr i32 %59, 7
-  %wide.trip.count.i218 = zext nneg i32 %64 to i64
-  br label %.lr.ph.i219
+  %wide.trip.count.i220 = zext nneg i32 %64 to i64
+  br label %.lr.ph.i221
 
-.lr.ph.i219:                                      ; preds = %.lr.ph.i219, %.lr.ph.preheader.i217
-  %indvars.iv.i220 = phi i64 [ 0, %.lr.ph.preheader.i217 ], [ %indvars.iv.next.i221, %.lr.ph.i219 ]
-  %indvars.iv.next.i221 = add nuw nsw i64 %indvars.iv.i220, 1
-  %65 = shl i64 %indvars.iv.next.i221, 7
+.lr.ph.i221:                                      ; preds = %.lr.ph.i221, %.lr.ph.preheader.i219
+  %indvars.iv.i222 = phi i64 [ 0, %.lr.ph.preheader.i219 ], [ %indvars.iv.next.i223, %.lr.ph.i221 ]
+  %indvars.iv.next.i223 = add nuw nsw i64 %indvars.iv.i222, 1
+  %65 = shl i64 %indvars.iv.next.i223, 7
   %66 = and i64 %65, 4294967168
   %67 = add i64 %66, %43
   %68 = xor i64 %67, -1
   %69 = and i64 %43, %68
   %70 = lshr i64 %69, 63
-  %71 = shl i64 %indvars.iv.i220, 7
+  %71 = shl i64 %indvars.iv.i222, 7
   %72 = and i64 %71, 4294967168
   %73 = getelementptr i8, ptr %41, i64 %72
-  tail call fastcc void @update_block(ptr noundef %.sroa.451.0.copyload, ptr noundef %.sroa.5.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false, i64 %67, i64 %70, ptr noundef readonly %73)
-  %exitcond.not.i222 = icmp eq i64 %indvars.iv.next.i221, %wide.trip.count.i218
-  br i1 %exitcond.not.i222, label %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit223, label %.lr.ph.i219, !llvm.loop !7
+  tail call fastcc void @update_block(ptr noundef %.sroa.065.sroa.4.sroa.0.0.copyload, ptr noundef %.sroa.065.sroa.4.sroa.4.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false, i64 %67, i64 %70, ptr noundef readonly %73)
+  %exitcond.not.i224 = icmp eq i64 %indvars.iv.next.i223, %wide.trip.count.i220
+  br i1 %exitcond.not.i224, label %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit225, label %.lr.ph.i221, !llvm.loop !7
 
-python_hashlib_Hacl_Hash_Blake2b_update_multi.exit223: ; preds = %.lr.ph.i219, %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit213
+python_hashlib_Hacl_Hash_Blake2b_update_multi.exit225: ; preds = %.lr.ph.i221, %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit215
   %74 = zext i32 %61 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.466.0.copyload, ptr align 1 %63, i64 %74, i1 false)
   %75 = add i64 %43, %56
-  store i64 %.sroa.0.0.copyload, ptr %0, align 8
-  store ptr %.sroa.451.0.copyload, ptr %.sroa.451.0..sroa_idx, align 8, !tbaa !12
-  store ptr %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !12
+  store i64 %.sroa.065.sroa.0.0.copyload, ptr %0, align 8
+  store ptr %.sroa.065.sroa.4.sroa.0.0.copyload, ptr %.sroa.065.sroa.4.0..sroa_idx, align 8, !tbaa !12
+  store ptr %.sroa.065.sroa.4.sroa.4.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !12
+  store ptr %.sroa.466.0.copyload, ptr %.sroa.466.0..sroa_idx, align 8, !tbaa !15
   br label %.sink.split
 
-.sink.split:                                      ; preds = %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit205, %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit223, %13
-  %.sroa.4143.0.copyload.sink = phi ptr [ %.sroa.4143.0.copyload, %13 ], [ %.sroa.466.0.copyload, %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit223 ], [ %.sroa.6128.0.copyload, %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit205 ]
-  %.sink = phi i64 [ %15, %13 ], [ %75, %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit223 ], [ %38, %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit205 ]
-  store ptr %.sroa.4143.0.copyload.sink, ptr %.sroa.6128.0..sroa_idx, align 8, !tbaa !15
+.sink.split:                                      ; preds = %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit207, %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit225, %13
+  %.sink = phi i64 [ %15, %13 ], [ %75, %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit225 ], [ %38, %python_hashlib_Hacl_Hash_Blake2b_update_multi.exit207 ]
   store i64 %.sink, ptr %.sroa.3153.0..sroa_idx, align 8, !tbaa !3
   br label %76
 

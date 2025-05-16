@@ -5730,8 +5730,7 @@ define void @_ZNK9FaceGroup5UVBoxEv(ptr dead_on_unwind noalias writable sret(%"c
 19:                                               ; preds = %.lr.ph
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
-  %.pre14 = load double, ptr %0, align 8
-  %.pre15 = load double, ptr %3, align 8
+  %.pre1424 = load double, ptr %12, align 8
   %.pre16 = load double, ptr %4, align 8
   %.pre17 = load double, ptr %5, align 8
   br label %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit
@@ -5775,10 +5774,10 @@ define void @_ZNK9FaceGroup5UVBoxEv(ptr dead_on_unwind noalias writable sret(%"c
   br label %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit
 
 _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit:        ; preds = %19, %34, %37
-  %38 = phi double [ %.pre14, %19 ], [ %25, %34 ], [ %25, %37 ]
+  %38 = phi double [ %.pre1424, %19 ], [ %25, %34 ], [ %25, %37 ]
   %39 = phi double [ %.pre17, %19 ], [ %16, %34 ], [ %27, %37 ]
   %40 = phi double [ %.pre16, %19 ], [ %31, %34 ], [ %31, %37 ]
-  %41 = phi double [ %.pre15, %19 ], [ %35, %34 ], [ %35, %37 ]
+  %41 = phi double [ %.pre1424, %19 ], [ %35, %34 ], [ %35, %37 ]
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %43 = fcmp ogt double %38, %41
   %44 = fcmp ogt double %40, %39
@@ -5788,8 +5787,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit:        ; preds = %19, %34, %37
 46:                                               ; preds = %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false)
-  %.pre18 = load double, ptr %0, align 8
-  %.pre19 = load double, ptr %3, align 8
+  %.pre1825 = load double, ptr %42, align 8
   %.pre20 = load double, ptr %4, align 8
   %.pre21 = load double, ptr %5, align 8
   br label %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit6
@@ -5835,8 +5833,8 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit:        ; preds = %19, %34, %37
 _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit6:       ; preds = %46, %61, %64
   %65 = phi double [ %.pre21, %46 ], [ %39, %61 ], [ %54, %64 ]
   %66 = phi double [ %.pre20, %46 ], [ %58, %61 ], [ %58, %64 ]
-  %67 = phi double [ %.pre19, %46 ], [ %62, %61 ], [ %62, %64 ]
-  %68 = phi double [ %.pre18, %46 ], [ %52, %61 ], [ %52, %64 ]
+  %67 = phi double [ %.pre1825, %46 ], [ %62, %61 ], [ %62, %64 ]
+  %68 = phi double [ %.pre1825, %46 ], [ %52, %61 ], [ %52, %64 ]
   %69 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %70 = fcmp ogt double %68, %67
   %71 = fcmp ogt double %66, %65
@@ -5846,7 +5844,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit6:       ; preds = %46, %61, %64
 73:                                               ; preds = %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  %.pre = load double, ptr %0, align 8
+  %.pre26 = load double, ptr %69, align 8
   br label %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit7
 
 74:                                               ; preds = %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit6
@@ -5886,7 +5884,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit6:       ; preds = %46, %61, %64
   br label %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit7
 
 _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit7:       ; preds = %73, %87, %89
-  %90 = phi double [ %.pre, %73 ], [ %79, %87 ], [ %79, %89 ]
+  %90 = phi double [ %.pre26, %73 ], [ %79, %87 ], [ %79, %89 ]
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 8
   %.not = icmp eq ptr %91, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph

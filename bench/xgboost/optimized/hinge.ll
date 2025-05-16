@@ -2692,63 +2692,68 @@ _ZN7xgboost6common16AssertGPUSupportEv.exit:      ; preds = %_ZN4dmlc15LogMessag
 
 23:                                               ; preds = %_ZN7xgboost6common16AssertGPUSupportEv.exit, %3
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !23
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.3.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.0..sroa_idx5, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.0..sroa_idx, i64 40, i1 false)
   %24 = call noundef i32 @_ZNK7xgboost7Context7ThreadsEv(ptr noundef nonnull align 8 dereferenceable(84) %0)
+  %.sroa.2.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %25, align 8, !tbaa !44
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %27 = load i64, ptr %26, align 8, !tbaa !44
-  store i64 %27, ptr %4, align 16, !tbaa !44
+  store i64 %.sroa.2.0.copyload, ptr %4, align 16, !tbaa !44
   br label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i.i
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i.i, %23
-  %.sroa.6.021.i.i.i = phi i64 [ 0, %23 ], [ %32, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i.i ]
-  %28 = getelementptr inbounds nuw i64, ptr %8, i64 %.sroa.6.021.i.i.i
+  %.sroa.6.021.i.i.i = phi i64 [ 0, %23 ], [ %30, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i.i ]
+  %26 = getelementptr inbounds nuw i64, ptr %8, i64 %.sroa.6.021.i.i.i
+  %27 = load i64, ptr %26, align 8, !tbaa !44
+  %28 = getelementptr inbounds nuw i64, ptr %4, i64 %.sroa.6.021.i.i.i
   %29 = load i64, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds nuw i64, ptr %4, i64 %.sroa.6.021.i.i.i
-  %31 = load i64, ptr %30, align 8, !tbaa !44
-  %.not4.i.i.i = icmp eq i64 %29, %31
-  %32 = add nuw nsw i64 %.sroa.6.021.i.i.i, 1
-  %.not18.i.i.i = icmp ne i64 %32, 2
+  %.not4.i.i.i = icmp eq i64 %27, %29
+  %30 = add nuw nsw i64 %.sroa.6.021.i.i.i, 1
+  %.not18.i.i.i = icmp ne i64 %30, 2
   %or.cond.not.i.i = select i1 %.not4.i.i.i, i1 %.not18.i.i.i, i1 false
   br i1 %or.cond.not.i.i, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i.i, label %_ZNK7xgboost6linalg10TensorViewIKfLi2EE11CContiguousEv.exit.i, !llvm.loop !128
 
 _ZNK7xgboost6linalg10TensorViewIKfLi2EE11CContiguousEv.exit.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  br i1 %.not4.i.i.i, label %33, label %40
+  br i1 %.not4.i.i.i, label %31, label %38
 
-33:                                               ; preds = %_ZNK7xgboost6linalg10TensorViewIKfLi2EE11CContiguousEv.exit.i
-  %34 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %35 = load i64, ptr %34, align 8, !tbaa !44
-  %36 = shl i64 %27, 6
-  %37 = icmp ugt i64 %35, %36
-  br i1 %37, label %38, label %40
+31:                                               ; preds = %_ZNK7xgboost6linalg10TensorViewIKfLi2EE11CContiguousEv.exit.i
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %33 = load i64, ptr %32, align 8, !tbaa !44
+  %34 = shl i64 %.sroa.2.0.copyload, 6
+  %35 = icmp ugt i64 %33, %34
+  br i1 %35, label %36, label %38
 
-38:                                               ; preds = %33
+36:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
-  store i64 %27, ptr %5, align 8, !tbaa !44
+  store i64 %.sroa.2.0.copyload, ptr %5, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #20
   store ptr %5, ptr %6, align 8, !tbaa !129
-  %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %2, ptr %39, align 8, !tbaa !51
-  call void @_ZN7xgboost6common11ParallelForImZNS_6linalg21ElementWiseKernelHostIKfLi2ERZNS_3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS2_6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmmE_EEvNS2_10TensorViewIT_XT0_EEEiOT1_EUlmE_EEvSN_iNS0_5SchedEOT0_(i64 noundef %35, i32 noundef %24, i32 2, i64 0, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %2, ptr %37, align 8, !tbaa !51
+  call void @_ZN7xgboost6common11ParallelForImZNS_6linalg21ElementWiseKernelHostIKfLi2ERZNS_3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS2_6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmmE_EEvNS2_10TensorViewIT_XT0_EEEiOT1_EUlmE_EEvSN_iNS0_5SchedEOT0_(i64 noundef %33, i32 noundef %24, i32 2, i64 0, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
   br label %_ZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS_3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS0_6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmmE_EEvNS0_10TensorViewIT_XT0_EEEiOT1_.exit
 
-40:                                               ; preds = %33, %_ZNK7xgboost6linalg10TensorViewIKfLi2EE11CContiguousEv.exit.i
-  %41 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %42 = load i64, ptr %41, align 8, !tbaa !89
+38:                                               ; preds = %31, %_ZNK7xgboost6linalg10TensorViewIKfLi2EE11CContiguousEv.exit.i
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %40 = load i64, ptr %39, align 8, !tbaa !89
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #20
   store ptr %8, ptr %7, align 8, !tbaa !131
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %2, ptr %43, align 8, !tbaa !51
-  call void @_ZN7xgboost6common11ParallelForImZNS_6linalg21ElementWiseKernelHostIKfLi2ERZNS_3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS2_6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmmE_EEvNS2_10TensorViewIT_XT0_EEEiOT1_EUlmE0_EEvSN_iNS0_5SchedEOT0_(i64 noundef %42, i32 noundef %24, i32 2, i64 0, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %2, ptr %41, align 8, !tbaa !51
+  call void @_ZN7xgboost6common11ParallelForImZNS_6linalg21ElementWiseKernelHostIKfLi2ERZNS_3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS2_6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmmE_EEvNS2_10TensorViewIT_XT0_EEEiOT1_EUlmE0_EEvSN_iNS0_5SchedEOT0_(i64 noundef %40, i32 noundef %24, i32 2, i64 0, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #20
   br label %_ZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS_3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS0_6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmmE_EEvNS0_10TensorViewIT_XT0_EEEiOT1_.exit
 
-_ZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS_3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS0_6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmmE_EEvNS0_10TensorViewIT_XT0_EEEiOT1_.exit: ; preds = %38, %40
+_ZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS_3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS0_6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmmE_EEvNS0_10TensorViewIT_XT0_EEEiOT1_.exit: ; preds = %36, %38
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8)
   ret void
 }

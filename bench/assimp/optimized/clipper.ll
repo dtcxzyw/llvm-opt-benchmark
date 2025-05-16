@@ -1757,7 +1757,7 @@ define hidden void @_ZN10ClipperLib10SwapPointsERNS_8IntPointES1_(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN10ClipperLib17GetOverlapSegmentENS_8IntPointES0_S0_S0_RS0_S1_(i64 %0, i64 %1, i64 %2, i64 %3, i64 %4, i64 %5, ptr noundef byval(%"struct.ClipperLib::IntPoint") align 8 captures(none) %6, ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %7, ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %8) local_unnamed_addr #8 {
+define hidden noundef zeroext i1 @_ZN10ClipperLib17GetOverlapSegmentENS_8IntPointES0_S0_S0_RS0_S1_(i64 %0, i64 %1, i64 %2, i64 %3, i64 %4, i64 %5, ptr noundef byval(%"struct.ClipperLib::IntPoint") align 8 captures(none) %6, ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %7, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %8) local_unnamed_addr #8 {
   %10 = sub nsw i64 %0, %2
   %11 = tail call noundef i64 @llvm.abs.i64(i64 %10, i1 true)
   %12 = sub nsw i64 %1, %3
@@ -1794,10 +1794,10 @@ define hidden noundef zeroext i1 @_ZN10ClipperLib17GetOverlapSegmentENS_8IntPoin
   %.sroa.0.0 = phi i64 [ %19, %21 ], [ %4, %18 ]
   %24 = icmp sgt i64 %.sroa.050.0, %.sroa.0.0
   %spec.select = tail call i64 @llvm.smax.i64(i64 %.sroa.050.0, i64 %.sroa.0.0)
-  %spec.select73 = select i1 %24, i64 %.sroa.1056.0, i64 %.sroa.9.0
+  %spec.select75 = select i1 %24, i64 %.sroa.1056.0, i64 %.sroa.9.0
   store i64 %spec.select, ptr %7, align 8
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %spec.select73, ptr %25, align 8
+  store i64 %spec.select75, ptr %25, align 8
   %26 = icmp slt i64 %.sroa.030.0, %23
   br i1 %26, label %27, label %28
 
@@ -1809,14 +1809,14 @@ define hidden noundef zeroext i1 @_ZN10ClipperLib17GetOverlapSegmentENS_8IntPoin
 
 28:                                               ; preds = %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  %.pre72 = load i64, ptr %8, align 8
+  %.pre7274 = load i64, ptr %6, align 8
   br label %29
 
 29:                                               ; preds = %28, %27
-  %30 = phi i64 [ %.pre72, %28 ], [ %.sroa.030.0, %27 ]
+  %30 = phi i64 [ %.pre7274, %28 ], [ %.sroa.030.0, %27 ]
   %31 = load i64, ptr %7, align 8
   %32 = icmp slt i64 %31, %30
-  br label %52
+  br label %53
 
 33:                                               ; preds = %9
   %34 = icmp slt i64 %1, %3
@@ -1846,33 +1846,34 @@ define hidden noundef zeroext i1 @_ZN10ClipperLib17GetOverlapSegmentENS_8IntPoin
   %.sroa.9.1 = phi i64 [ %38, %40 ], [ %5, %36 ]
   %.sroa.0.1 = phi i64 [ %.sroa.0.0.copyload18, %40 ], [ %4, %36 ]
   %43 = icmp slt i64 %.sroa.1056.1, %.sroa.9.1
-  %spec.select74 = select i1 %43, i64 %.sroa.050.1, i64 %.sroa.0.1
-  %spec.select75 = tail call i64 @llvm.smin.i64(i64 %.sroa.1056.1, i64 %.sroa.9.1)
-  store i64 %spec.select74, ptr %7, align 8
+  %spec.select76 = select i1 %43, i64 %.sroa.050.1, i64 %.sroa.0.1
+  %spec.select77 = tail call i64 @llvm.smin.i64(i64 %.sroa.1056.1, i64 %.sroa.9.1)
+  store i64 %spec.select76, ptr %7, align 8
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %spec.select75, ptr %44, align 8
+  store i64 %spec.select77, ptr %44, align 8
   %45 = icmp sgt i64 %.sroa.10.1, %42
-  %.sroa.10.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %41
   store i64 %.sroa.030.1, ptr %8, align 8
+  %.sroa.10.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %.sroa.10.1, ptr %.sroa.10.0..sroa_idx38, align 8
-  br label %48
+  br label %49
 
 47:                                               ; preds = %41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  %.pre = load i64, ptr %.sroa.10.0..sroa_idx38, align 8
-  br label %48
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.pre73 = load i64, ptr %48, align 8
+  br label %49
 
-48:                                               ; preds = %47, %46
-  %49 = phi i64 [ %.pre, %47 ], [ %.sroa.10.1, %46 ]
-  %50 = load i64, ptr %44, align 8
-  %51 = icmp sgt i64 %50, %49
-  br label %52
+49:                                               ; preds = %47, %46
+  %50 = phi i64 [ %.pre73, %47 ], [ %.sroa.10.1, %46 ]
+  %51 = load i64, ptr %44, align 8
+  %52 = icmp sgt i64 %51, %50
+  br label %53
 
-52:                                               ; preds = %48, %29
-  %.0 = phi i1 [ %32, %29 ], [ %51, %48 ]
+53:                                               ; preds = %49, %29
+  %.0 = phi i1 [ %32, %29 ], [ %52, %49 ]
   ret i1 %.0
 }
 

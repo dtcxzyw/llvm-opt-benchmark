@@ -2321,15 +2321,20 @@ _ZN5faiss12simd16uint16C2Ei.exit:
   %8 = icmp ugt i64 %1, 15
   br i1 %8, label %.lr.ph, label %_ZN5faiss12simd16uint16C2Ei.exit32._crit_edge
 
-_ZN5faiss12simd16uint16C2Ei.exit32._crit_edge:    ; preds = %_ZN5faiss12simd16uint168accu_maxERKS0_.exit, %_ZN5faiss12simd16uint16C2Ei.exit
+_ZN5faiss12simd16uint16C2Ei.exit32._crit_edge.loopexit: ; preds = %_ZN5faiss12simd16uint168accu_maxERKS0_.exit
+  %.pre = load i16, ptr %4, align 4
+  %.pre49 = load i16, ptr %5, align 4
+  br label %_ZN5faiss12simd16uint16C2Ei.exit32._crit_edge
+
+_ZN5faiss12simd16uint16C2Ei.exit32._crit_edge:    ; preds = %_ZN5faiss12simd16uint16C2Ei.exit32._crit_edge.loopexit, %_ZN5faiss12simd16uint16C2Ei.exit
+  %9 = phi i16 [ %.pre49, %_ZN5faiss12simd16uint16C2Ei.exit32._crit_edge.loopexit ], [ 0, %_ZN5faiss12simd16uint16C2Ei.exit ]
+  %10 = phi i16 [ %.pre, %_ZN5faiss12simd16uint16C2Ei.exit32._crit_edge.loopexit ], [ -1, %_ZN5faiss12simd16uint16C2Ei.exit ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %7, ptr noundef nonnull align 4 dereferenceable(32) %4, i64 32, i1 false)
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %9, ptr noundef nonnull align 4 dereferenceable(32) %5, i64 32, i1 false)
-  %10 = load i16, ptr %7, align 32, !tbaa !31
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %5, i64 32, i1 false)
   store i16 %10, ptr %2, align 2, !tbaa !31
-  %11 = load i16, ptr %9, align 32, !tbaa !31
-  store i16 %11, ptr %3, align 2, !tbaa !31
+  store i16 %9, ptr %3, align 2, !tbaa !31
   br label %27
 
 .lr.ph:                                           ; preds = %_ZN5faiss12simd16uint16C2Ei.exit, %_ZN5faiss12simd16uint168accu_maxERKS0_.exit
@@ -2368,7 +2373,7 @@ _ZN5faiss12simd16uint168accu_maxERKS0_.exit:      ; preds = %_ZN5faiss12simd16ui
   %22 = add i64 %.02744, 16
   %23 = or disjoint i64 %22, 15
   %24 = icmp ult i64 %23, %1
-  br i1 %24, label %.lr.ph, label %_ZN5faiss12simd16uint16C2Ei.exit32._crit_edge, !llvm.loop !51
+  br i1 %24, label %.lr.ph, label %_ZN5faiss12simd16uint16C2Ei.exit32._crit_edge.loopexit, !llvm.loop !51
 
 25:                                               ; preds = %27
   %26 = and i64 %1, -16

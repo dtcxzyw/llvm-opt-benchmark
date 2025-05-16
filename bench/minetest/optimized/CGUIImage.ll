@@ -575,23 +575,23 @@ if.then7:                                         ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %sourceRect, ptr noundef nonnull align 8 dereferenceable(16) %SourceRect, i64 16, i1 false), !tbaa.struct !50
   %LowerRightCorner.i = getelementptr inbounds nuw i8, ptr %sourceRect, i64 8
   %6 = load i32, ptr %LowerRightCorner.i, align 4, !tbaa !51
-  %7 = load i32, ptr %sourceRect, align 4, !tbaa !52
+  %7 = load i32, ptr %SourceRect, align 8
   %cmp = icmp eq i32 %6, %7
   br i1 %cmp, label %if.then11, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then7
   %Y.i = getelementptr inbounds nuw i8, ptr %sourceRect, i64 12
-  %8 = load i32, ptr %Y.i, align 4, !tbaa !53
+  %8 = load i32, ptr %Y.i, align 4, !tbaa !52
   %Y2.i = getelementptr inbounds nuw i8, ptr %sourceRect, i64 4
-  %9 = load i32, ptr %Y2.i, align 4, !tbaa !54
+  %9 = load i32, ptr %Y2.i, align 4, !tbaa !53
   %cmp10 = icmp eq i32 %8, %9
   br i1 %cmp10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %lor.lhs.false, %if.then7
   %OriginalSize.i = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %10 = load i32, ptr %OriginalSize.i, align 4, !tbaa !55
+  %10 = load i32, ptr %OriginalSize.i, align 4, !tbaa !54
   %Height3.i = getelementptr inbounds nuw i8, ptr %5, i64 76
-  %11 = load i32, ptr %Height3.i, align 4, !tbaa !56
+  %11 = load i32, ptr %Height3.i, align 4, !tbaa !55
   store i32 0, ptr %sourceRect, align 4, !tbaa !45
   %ref.tmp.sroa.4.0.sourceRect.sroa_idx = getelementptr inbounds nuw i8, ptr %sourceRect, i64 4
   store i32 0, ptr %ref.tmp.sroa.4.0.sourceRect.sroa_idx, align 4, !tbaa !45
@@ -618,14 +618,13 @@ if.then17:                                        ; preds = %if.end15
   store <4 x i32> %18, ptr %Colors, align 16, !tbaa !45
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %clippingRect) #18
   %AbsoluteClippingRect = getelementptr inbounds nuw i8, ptr %this, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %clippingRect, ptr noundef nonnull align 8 dereferenceable(16) %AbsoluteClippingRect, i64 16, i1 false), !tbaa.struct !50
   %DrawBounds.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   %19 = load <4 x float>, ptr %DrawBounds.i, align 8
   %bc = bitcast <4 x float> %19 to <2 x i64>
   %20 = extractelement <2 x i64> %bc, i64 1
   %21 = bitcast i64 %20 to <2 x float>
   %22 = fsub <2 x float> splat (float 1.000000e+00), %21
-  %23 = load <4 x i32>, ptr %clippingRect, align 16, !tbaa !45
+  %23 = load <4 x i32>, ptr %AbsoluteClippingRect, align 8
   %24 = shufflevector <4 x i32> %23, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
   %25 = shufflevector <4 x i32> %23, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
   %26 = sub nsw <2 x i32> %24, %25
@@ -670,13 +669,13 @@ if.else:                                          ; preds = %if.end15
   %Y2.i.i78 = getelementptr inbounds nuw i8, ptr %clippingRect27, i64 4
   %conv3.i80 = sitofp i32 %sub.i4.i to float
   %DrawBounds.i81 = getelementptr inbounds nuw i8, ptr %this, i64 344
-  %44 = load float, ptr %DrawBounds.i81, align 8, !tbaa !57
+  %44 = load float, ptr %DrawBounds.i81, align 8, !tbaa !56
   %mul.i82 = fmul float %44, %conv.i76
   %add.i.i.i83 = fadd float %mul.i82, 5.000000e-01
   %45 = tail call noundef float @llvm.floor.f32(float %add.i.i.i83)
   %conv.i.i84 = fptosi float %45 to i32
   %add.i85 = add nsw i32 %conv.i.i84, %41
-  store i32 %add.i85, ptr %clippingRect27, align 4, !tbaa !52
+  store i32 %add.i85, ptr %clippingRect27, align 4, !tbaa !57
   %Y.i86 = getelementptr inbounds nuw i8, ptr %this, i64 348
   %46 = load float, ptr %Y.i86, align 4, !tbaa !58
   %mul9.i87 = fmul float %46, %conv3.i80
@@ -684,7 +683,7 @@ if.else:                                          ; preds = %if.end15
   %47 = tail call noundef float @llvm.floor.f32(float %add.i.i38.i88)
   %conv.i39.i89 = fptosi float %47 to i32
   %add13.i90 = add nsw i32 %conv.i39.i89, %43
-  store i32 %add13.i90, ptr %Y2.i.i78, align 4, !tbaa !54
+  store i32 %add13.i90, ptr %Y2.i.i78, align 4, !tbaa !53
   %LowerRightCorner.i91 = getelementptr inbounds nuw i8, ptr %this, i64 352
   %48 = load float, ptr %LowerRightCorner.i91, align 8, !tbaa !59
   %sub.i92 = fsub float 1.000000e+00, %48
@@ -702,7 +701,7 @@ if.else:                                          ; preds = %if.end15
   %51 = tail call noundef float @llvm.floor.f32(float %add.i.i42.i100)
   %conv.i43.i101 = fptosi float %51 to i32
   %sub29.i102 = sub i32 %add2.i, %conv.i43.i101
-  store i32 %sub29.i102, ptr %Y.i.i73, align 4, !tbaa !53
+  store i32 %sub29.i102, ptr %Y.i.i73, align 4, !tbaa !52
   %AbsoluteClippingRect31 = getelementptr inbounds nuw i8, ptr %this, i64 80
   %LowerRightCorner.i103 = getelementptr inbounds nuw i8, ptr %this, i64 88
   %52 = load i32, ptr %LowerRightCorner.i103, align 8, !tbaa !51
@@ -716,17 +715,17 @@ if.then.i:                                        ; preds = %if.else
 if.end.i:                                         ; preds = %if.then.i, %if.else
   %53 = phi i32 [ %52, %if.then.i ], [ %sub20.i96, %if.else ]
   %Y.i104 = getelementptr inbounds nuw i8, ptr %this, i64 92
-  %54 = load i32, ptr %Y.i104, align 4, !tbaa !53
+  %54 = load i32, ptr %Y.i104, align 4, !tbaa !52
   %cmp11.i = icmp slt i32 %54, %sub29.i102
   br i1 %cmp11.i, label %if.then12.i, label %if.end17.i
 
 if.then12.i:                                      ; preds = %if.end.i
-  store i32 %54, ptr %Y.i.i73, align 4, !tbaa !53
+  store i32 %54, ptr %Y.i.i73, align 4, !tbaa !52
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
   %55 = phi i32 [ %54, %if.then12.i ], [ %sub29.i102, %if.end.i ]
-  %56 = load i32, ptr %AbsoluteClippingRect31, align 8, !tbaa !52
+  %56 = load i32, ptr %AbsoluteClippingRect31, align 8, !tbaa !57
   %cmp21.i = icmp sgt i32 %56, %53
   br i1 %cmp21.i, label %if.then22.i, label %if.end27.i
 
@@ -736,12 +735,12 @@ if.then22.i:                                      ; preds = %if.end17.i
 
 if.end27.i:                                       ; preds = %if.then22.i, %if.end17.i
   %Y29.i = getelementptr inbounds nuw i8, ptr %this, i64 84
-  %57 = load i32, ptr %Y29.i, align 4, !tbaa !54
+  %57 = load i32, ptr %Y29.i, align 4, !tbaa !53
   %cmp32.i = icmp sgt i32 %57, %55
   br i1 %cmp32.i, label %if.then33.i, label %if.end38.i
 
 if.then33.i:                                      ; preds = %if.end27.i
-  store i32 %57, ptr %Y.i.i73, align 4, !tbaa !53
+  store i32 %57, ptr %Y.i.i73, align 4, !tbaa !52
   br label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.then33.i, %if.end27.i
@@ -749,7 +748,7 @@ if.end38.i:                                       ; preds = %if.then33.i, %if.en
   br i1 %cmp43.i, label %if.then44.i, label %if.end49.i
 
 if.then44.i:                                      ; preds = %if.end38.i
-  store i32 %52, ptr %clippingRect27, align 4, !tbaa !52
+  store i32 %52, ptr %clippingRect27, align 4, !tbaa !57
   br label %if.end49.i
 
 if.end49.i:                                       ; preds = %if.then44.i, %if.end38.i
@@ -758,7 +757,7 @@ if.end49.i:                                       ; preds = %if.then44.i, %if.en
   br i1 %cmp54.i, label %if.then55.i, label %if.end60.i
 
 if.then55.i:                                      ; preds = %if.end49.i
-  store i32 %54, ptr %Y2.i.i78, align 4, !tbaa !54
+  store i32 %54, ptr %Y2.i.i78, align 4, !tbaa !53
   br label %if.end60.i
 
 if.end60.i:                                       ; preds = %if.then55.i, %if.end49.i
@@ -767,7 +766,7 @@ if.end60.i:                                       ; preds = %if.then55.i, %if.en
   br i1 %cmp65.i, label %if.then66.i, label %if.end71.i
 
 if.then66.i:                                      ; preds = %if.end60.i
-  store i32 %56, ptr %clippingRect27, align 4, !tbaa !52
+  store i32 %56, ptr %clippingRect27, align 4, !tbaa !57
   br label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.then66.i, %if.end60.i
@@ -775,7 +774,7 @@ if.end71.i:                                       ; preds = %if.then66.i, %if.en
   br i1 %cmp76.i, label %if.then77.i, label %_ZN3irr4core4rectIiE11clipAgainstERKS2_.exit
 
 if.then77.i:                                      ; preds = %if.end71.i
-  store i32 %57, ptr %Y2.i.i78, align 4, !tbaa !54
+  store i32 %57, ptr %Y2.i.i78, align 4, !tbaa !53
   br label %_ZN3irr4core4rectIiE11clipAgainstERKS2_.exit
 
 _ZN3irr4core4rectIiE11clipAgainstERKS2_.exit:     ; preds = %if.then77.i, %if.end71.i
@@ -804,14 +803,13 @@ if.else41:                                        ; preds = %if.end
 if.then43:                                        ; preds = %if.else41
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %clippingRect44) #18
   %AbsoluteClippingRect45 = getelementptr inbounds nuw i8, ptr %this, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %clippingRect44, ptr noundef nonnull align 8 dereferenceable(16) %AbsoluteClippingRect45, i64 16, i1 false), !tbaa.struct !50
   %DrawBounds.i112 = getelementptr inbounds nuw i8, ptr %this, i64 344
   %63 = load <4 x float>, ptr %DrawBounds.i112, align 8
   %bc13 = bitcast <4 x float> %63 to <2 x i64>
   %64 = extractelement <2 x i64> %bc13, i64 1
   %65 = bitcast i64 %64 to <2 x float>
   %66 = fsub <2 x float> splat (float 1.000000e+00), %65
-  %67 = load <4 x i32>, ptr %clippingRect44, align 16, !tbaa !45
+  %67 = load <4 x i32>, ptr %AbsoluteClippingRect45, align 8
   %68 = shufflevector <4 x i32> %67, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
   %69 = shufflevector <4 x i32> %67, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
   %70 = sub nsw <2 x i32> %68, %69
@@ -969,7 +967,7 @@ entry:
   %DrawBounds = getelementptr inbounds nuw i8, ptr %this, i64 344
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %DrawBounds, ptr noundef nonnull align 4 dereferenceable(16) %drawBoundUVs, i64 16, i1 false), !tbaa.struct !64
   %Y = getelementptr inbounds nuw i8, ptr %this, i64 348
-  %0 = load <2 x float>, ptr %DrawBounds, align 8
+  %0 = load <2 x float>, ptr %drawBoundUVs, align 4
   %1 = fcmp olt <2 x float> %0, zeroinitializer
   %2 = select <2 x i1> %1, <2 x float> zeroinitializer, <2 x float> %0
   %3 = fcmp olt <2 x float> %2, splat (float 1.000000e+00)
@@ -987,7 +985,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store float %7, ptr %DrawBounds, align 8, !tbaa !57
+  store float %7, ptr %DrawBounds, align 8, !tbaa !56
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1133,14 +1131,14 @@ cleanup20:                                        ; preds = %while.body, %land.l
 define linkonce_odr noundef zeroext i1 @_ZNK3irr3gui11IGUIElement13isPointInsideERKNS_4core8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull align 4 dereferenceable(8) %point) unnamed_addr #0 comdat align 2 {
 entry:
   %AbsoluteClippingRect = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %0 = load i32, ptr %AbsoluteClippingRect, align 8, !tbaa !52
+  %0 = load i32, ptr %AbsoluteClippingRect, align 8, !tbaa !57
   %1 = load i32, ptr %point, align 4, !tbaa !73
   %cmp.not.i = icmp sgt i32 %0, %1
   br i1 %cmp.not.i, label %_ZNK3irr4core4rectIiE13isPointInsideERKNS0_8vector2dIiEE.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %Y.i = getelementptr inbounds nuw i8, ptr %this, i64 84
-  %2 = load i32, ptr %Y.i, align 4, !tbaa !54
+  %2 = load i32, ptr %Y.i, align 4, !tbaa !53
   %Y4.i = getelementptr inbounds nuw i8, ptr %point, i64 4
   %3 = load i32, ptr %Y4.i, align 4, !tbaa !74
   %cmp5.not.i = icmp sgt i32 %2, %3
@@ -1152,7 +1150,7 @@ land.lhs.true.i:                                  ; preds = %entry
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %Y11.i = getelementptr inbounds nuw i8, ptr %this, i64 92
-  %5 = load i32, ptr %Y11.i, align 4, !tbaa !53
+  %5 = load i32, ptr %Y11.i, align 4, !tbaa !52
   %cmp13.i = icmp sge i32 %5, %3
   br label %_ZNK3irr4core4rectIiE13isPointInsideERKNS0_8vector2dIiEE.exit
 
@@ -2204,9 +2202,9 @@ entry:
   %LastParentRect = getelementptr inbounds nuw i8, ptr %this, i64 112
   %MinSize = getelementptr inbounds nuw i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %LastParentRect, i8 0, i64 40, i1 false)
-  store i32 1, ptr %MinSize, align 8, !tbaa !55
+  store i32 1, ptr %MinSize, align 8, !tbaa !54
   %Height.i10 = getelementptr inbounds nuw i8, ptr %this, i64 156
-  store i32 1, ptr %Height.i10, align 4, !tbaa !56
+  store i32 1, ptr %Height.i10, align 4, !tbaa !55
   %IsVisible = getelementptr inbounds nuw i8, ptr %this, i64 160
   store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %IsVisible, align 8, !tbaa !110
   %Text = getelementptr inbounds nuw i8, ptr %this, i64 168
@@ -2333,14 +2331,14 @@ if.end10:                                         ; preds = %if.end10.sink.split
   %LastParentRect = getelementptr inbounds nuw i8, ptr %this, i64 112
   %LowerRightCorner.i215 = getelementptr inbounds nuw i8, ptr %this, i64 120
   %3 = load i32, ptr %LowerRightCorner.i215, align 8, !tbaa !51
-  %4 = load i32, ptr %LastParentRect, align 8, !tbaa !52
+  %4 = load i32, ptr %LastParentRect, align 8, !tbaa !57
   %sub.i216.neg = sub i32 %4, %3
   %sub = add i32 %sub.i216.neg, %sub.i
   %sub.i217 = sub nsw i32 %parentAbsolute.sroa.15.0, %parentAbsolute.sroa.8.0
   %Y.i218 = getelementptr inbounds nuw i8, ptr %this, i64 124
-  %5 = load i32, ptr %Y.i218, align 4, !tbaa !53
+  %5 = load i32, ptr %Y.i218, align 4, !tbaa !52
   %Y2.i219 = getelementptr inbounds nuw i8, ptr %this, i64 116
-  %6 = load i32, ptr %Y2.i219, align 4, !tbaa !54
+  %6 = load i32, ptr %Y2.i219, align 4, !tbaa !53
   %sub.i220.neg = sub i32 %6, %5
   %sub15 = add i32 %sub.i220.neg, %sub.i217
   %AlignLeft = getelementptr inbounds nuw i8, ptr %this, i64 280
@@ -2498,12 +2496,12 @@ sw.epilog103:                                     ; preds = %sw.bb94, %sw.bb88, 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %RelativeRect, ptr noundef nonnull align 8 dereferenceable(16) %DesiredRect104, i64 16, i1 false), !tbaa.struct !50
   %LowerRightCorner.i232 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %27 = load i32, ptr %LowerRightCorner.i232, align 8, !tbaa !51
-  %28 = load i32, ptr %RelativeRect, align 8, !tbaa !52
+  %28 = load i32, ptr %DesiredRect104, align 8
   %sub.i233 = sub nsw i32 %27, %28
   %Y.i234 = getelementptr inbounds nuw i8, ptr %this, i64 60
-  %29 = load i32, ptr %Y.i234, align 4, !tbaa !53
+  %29 = load i32, ptr %Y.i234, align 4, !tbaa !52
   %Y2.i235 = getelementptr inbounds nuw i8, ptr %this, i64 52
-  %30 = load i32, ptr %Y2.i235, align 4, !tbaa !54
+  %30 = load i32, ptr %Y2.i235, align 4, !tbaa !53
   %sub.i236 = sub nsw i32 %29, %30
   %MinSize = getelementptr inbounds nuw i8, ptr %this, i64 152
   %31 = load i32, ptr %MinSize, align 8, !tbaa !120
@@ -2562,7 +2560,7 @@ if.end167:                                        ; preds = %if.then157, %if.end
 
 if.then.i:                                        ; preds = %if.end167
   store i32 %28, ptr %LowerRightCorner.i232, align 8, !tbaa !51
-  store i32 %36, ptr %RelativeRect, align 8, !tbaa !52
+  store i32 %36, ptr %RelativeRect, align 8, !tbaa !57
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end167
@@ -2570,8 +2568,8 @@ if.end.i:                                         ; preds = %if.then.i, %if.end1
   br i1 %cmp14.i, label %if.then15.i, label %_ZN3irr4core4rectIiE6repairEv.exit
 
 if.then15.i:                                      ; preds = %if.end.i
-  store i32 %30, ptr %Y.i234, align 4, !tbaa !53
-  store i32 %38, ptr %Y2.i235, align 4, !tbaa !54
+  store i32 %30, ptr %Y.i234, align 4, !tbaa !52
+  store i32 %38, ptr %Y2.i235, align 4, !tbaa !53
   br label %_ZN3irr4core4rectIiE6repairEv.exit
 
 _ZN3irr4core4rectIiE6repairEv.exit:               ; preds = %if.then15.i, %if.end.i
@@ -2623,12 +2621,12 @@ if.then.i243:                                     ; preds = %if.end177
 if.end.i241:                                      ; preds = %if.then.i243, %if.end177
   %40 = phi i32 [ %parentAbsoluteClip.sroa.10.1, %if.then.i243 ], [ %39, %if.end177 ]
   %Y10.i = getelementptr inbounds nuw i8, ptr %this, i64 92
-  %41 = load i32, ptr %Y10.i, align 4, !tbaa !53
+  %41 = load i32, ptr %Y10.i, align 4, !tbaa !52
   %cmp11.i = icmp slt i32 %parentAbsoluteClip.sroa.12.1, %41
   br i1 %cmp11.i, label %if.then12.i, label %if.end17.i
 
 if.then12.i:                                      ; preds = %if.end.i241
-  store i32 %parentAbsoluteClip.sroa.12.1, ptr %Y10.i, align 4, !tbaa !53
+  store i32 %parentAbsoluteClip.sroa.12.1, ptr %Y10.i, align 4, !tbaa !52
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i241
@@ -2645,27 +2643,27 @@ if.end27.i:                                       ; preds = %if.then22.i, %if.en
   br i1 %cmp32.i, label %if.then33.i, label %if.end38.i
 
 if.then33.i:                                      ; preds = %if.end27.i
-  store i32 %parentAbsoluteClip.sroa.8.1, ptr %Y10.i, align 4, !tbaa !53
+  store i32 %parentAbsoluteClip.sroa.8.1, ptr %Y10.i, align 4, !tbaa !52
   br label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.then33.i, %if.end27.i
-  %43 = load i32, ptr %AbsoluteClippingRect179, align 8, !tbaa !52
+  %43 = load i32, ptr %AbsoluteClippingRect179, align 8, !tbaa !57
   %cmp43.i = icmp slt i32 %parentAbsoluteClip.sroa.10.1, %43
   br i1 %cmp43.i, label %if.then44.i, label %if.end49.i
 
 if.then44.i:                                      ; preds = %if.end38.i
-  store i32 %parentAbsoluteClip.sroa.10.1, ptr %AbsoluteClippingRect179, align 8, !tbaa !52
+  store i32 %parentAbsoluteClip.sroa.10.1, ptr %AbsoluteClippingRect179, align 8, !tbaa !57
   br label %if.end49.i
 
 if.end49.i:                                       ; preds = %if.then44.i, %if.end38.i
   %44 = phi i32 [ %parentAbsoluteClip.sroa.10.1, %if.then44.i ], [ %43, %if.end38.i ]
   %Y53.i = getelementptr inbounds nuw i8, ptr %this, i64 84
-  %45 = load i32, ptr %Y53.i, align 4, !tbaa !54
+  %45 = load i32, ptr %Y53.i, align 4, !tbaa !53
   %cmp54.i = icmp slt i32 %parentAbsoluteClip.sroa.12.1, %45
   br i1 %cmp54.i, label %if.then55.i, label %if.end60.i
 
 if.then55.i:                                      ; preds = %if.end49.i
-  store i32 %parentAbsoluteClip.sroa.12.1, ptr %Y53.i, align 4, !tbaa !54
+  store i32 %parentAbsoluteClip.sroa.12.1, ptr %Y53.i, align 4, !tbaa !53
   br label %if.end60.i
 
 if.end60.i:                                       ; preds = %if.then55.i, %if.end49.i
@@ -2674,7 +2672,7 @@ if.end60.i:                                       ; preds = %if.then55.i, %if.en
   br i1 %cmp65.i, label %if.then66.i, label %if.end71.i
 
 if.then66.i:                                      ; preds = %if.end60.i
-  store i32 %parentAbsoluteClip.sroa.0.1, ptr %AbsoluteClippingRect179, align 8, !tbaa !52
+  store i32 %parentAbsoluteClip.sroa.0.1, ptr %AbsoluteClippingRect179, align 8, !tbaa !57
   br label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.then66.i, %if.end60.i
@@ -2682,7 +2680,7 @@ if.end71.i:                                       ; preds = %if.then66.i, %if.en
   br i1 %cmp76.i, label %if.then77.i, label %_ZN3irr4core4rectIiE11clipAgainstERKS2_.exit
 
 if.then77.i:                                      ; preds = %if.end71.i
-  store i32 %parentAbsoluteClip.sroa.8.1, ptr %Y53.i, align 4, !tbaa !54
+  store i32 %parentAbsoluteClip.sroa.8.1, ptr %Y53.i, align 4, !tbaa !53
   br label %_ZN3irr4core4rectIiE11clipAgainstERKS2_.exit
 
 _ZN3irr4core4rectIiE11clipAgainstERKS2_.exit:     ; preds = %if.then77.i, %if.end71.i
@@ -2972,12 +2970,12 @@ attributes #22 = { nounwind willreturn memory(read) }
 !49 = !{!9, !16, i64 296}
 !50 = !{i64 0, i64 4, !45, i64 4, i64 4, !45, i64 8, i64 4, !45, i64 12, i64 4, !45}
 !51 = !{!20, !22, i64 8}
-!52 = !{!20, !22, i64 0}
-!53 = !{!20, !22, i64 12}
-!54 = !{!20, !22, i64 4}
-!55 = !{!26, !22, i64 0}
-!56 = !{!26, !22, i64 4}
-!57 = !{!7, !25, i64 344}
+!52 = !{!20, !22, i64 12}
+!53 = !{!20, !22, i64 4}
+!54 = !{!26, !22, i64 0}
+!55 = !{!26, !22, i64 4}
+!56 = !{!7, !25, i64 344}
+!57 = !{!20, !22, i64 0}
 !58 = !{!7, !25, i64 348}
 !59 = !{!7, !25, i64 352}
 !60 = !{!7, !25, i64 356}

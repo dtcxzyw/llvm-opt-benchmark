@@ -1515,11 +1515,11 @@ define void @gvrender_box(ptr noundef %0, ptr noundef readonly byval(%struct.box
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !126
-  %7 = load double, ptr %4, align 16, !tbaa !76
+  %7 = load double, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store double %7, ptr %8, align 16, !tbaa !76
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %10 = load double, ptr %9, align 8, !tbaa !75
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %10 = load double, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store double %10, ptr %11, align 8, !tbaa !75
   %12 = load double, ptr %5, align 16, !tbaa !76
@@ -1874,16 +1874,15 @@ define void @gvrender_usershape(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !126
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.promoted = load double, ptr %8, align 8
-  %.promoted120 = load double, ptr %30, align 8
+  %.promoted128 = load double, ptr %30, align 8
   %31 = icmp ugt i64 %3, 1
-  br i1 %31, label %.lr.ph, label %._crit_edge132
+  br i1 %31, label %.lr.ph, label %._crit_edge133
 
-._crit_edge132:                                   ; preds = %29
+._crit_edge133:                                   ; preds = %29
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !135
-  %.phi.trans.insert133 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.pre134 = load double, ptr %.phi.trans.insert133, align 8, !tbaa !136
+  %.phi.trans.insert134 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.pre135 = load double, ptr %.phi.trans.insert134, align 8, !tbaa !136
   br label %34
 
 .lr.ph:                                           ; preds = %29
@@ -1898,11 +1897,11 @@ define void @gvrender_usershape(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   store double %66, ptr %33, align 8, !tbaa !135
   br label %34
 
-34:                                               ; preds = %._crit_edge132, %._crit_edge
-  %35 = phi double [ %64, %._crit_edge ], [ %.pre134, %._crit_edge132 ]
-  %36 = phi double [ %66, %._crit_edge ], [ %.pre, %._crit_edge132 ]
-  %.lcssa121 = phi double [ %65, %._crit_edge ], [ %.promoted120, %._crit_edge132 ]
-  %.lcssa = phi double [ %63, %._crit_edge ], [ %.promoted, %._crit_edge132 ]
+34:                                               ; preds = %._crit_edge133, %._crit_edge
+  %35 = phi double [ %64, %._crit_edge ], [ %.pre135, %._crit_edge133 ]
+  %36 = phi double [ %66, %._crit_edge ], [ %.pre, %._crit_edge133 ]
+  %.lcssa121 = phi double [ %65, %._crit_edge ], [ %.promoted128, %._crit_edge133 ]
+  %.lcssa = phi double [ %63, %._crit_edge ], [ %.promoted128, %._crit_edge133 ]
   store double %.lcssa, ptr %8, align 8
   store double %.lcssa121, ptr %30, align 8
   %37 = fsub double %.lcssa121, %.lcssa
@@ -1940,8 +1939,8 @@ get_imagescale.exit:                              ; preds = %51
   %55 = phi double [ %.promoted126, %.lr.ph ], [ %66, %54 ]
   %56 = phi double [ %.promoted124, %.lr.ph ], [ %64, %54 ]
   %.084122 = phi i64 [ 1, %.lr.ph ], [ %67, %54 ]
-  %57 = phi double [ %.promoted, %.lr.ph ], [ %63, %54 ]
-  %58 = phi double [ %.promoted120, %.lr.ph ], [ %65, %54 ]
+  %57 = phi double [ %.promoted128, %.lr.ph ], [ %63, %54 ]
+  %58 = phi double [ %.promoted128, %.lr.ph ], [ %65, %54 ]
   %59 = getelementptr inbounds nuw %struct.pointf_s, ptr %2, i64 %.084122
   %60 = load double, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
@@ -2070,13 +2069,13 @@ get_imagepos.exit:                                ; preds = %get_imagescale.exit
 
 .sink.split:                                      ; preds = %108, %104, %102
   %.sink = phi double [ %103, %102 ], [ %107, %104 ], [ %112, %108 ]
-  %.ph146 = phi double [ %.lcssa, %102 ], [ %106, %104 ], [ %111, %108 ]
+  %.ph147 = phi double [ %.lcssa, %102 ], [ %106, %104 ], [ %111, %108 ]
   store double %.sink, ptr %30, align 8, !tbaa !139
   br label %113
 
 113:                                              ; preds = %.sink.split, %get_imagepos.exit
   %114 = phi double [ %.lcssa121, %get_imagepos.exit ], [ %.sink, %.sink.split ]
-  %115 = phi double [ %.lcssa, %get_imagepos.exit ], [ %.ph146, %.sink.split ]
+  %115 = phi double [ %.lcssa, %get_imagepos.exit ], [ %.ph147, %.sink.split ]
   %116 = fcmp olt double %.083, %40
   br i1 %116, label %117, label %128
 
@@ -2156,16 +2155,16 @@ get_imagepos.exit:                                ; preds = %get_imagescale.exit
   %156 = fmul double %155, %140
   %157 = fadd double %130, %.sroa.55.0.copyload.i
   %158 = fmul double %137, %142
-  %.sroa.316.0.i137 = fmul double %158, %157
+  %.sroa.316.0.i138 = fmul double %158, %157
   store double %156, ptr %8, align 8, !tbaa !70
-  store double %.sroa.316.0.i137, ptr %39, align 8, !tbaa !70
+  store double %.sroa.316.0.i138, ptr %39, align 8, !tbaa !70
   %159 = fadd double %.sroa.03.0.copyload.i, %114
   br label %gvrender_ptf.exit112
 
 gvrender_ptf.exit112:                             ; preds = %146, %154
-  %.sroa.316.0.i140 = phi double [ %.sroa.316.0.i, %146 ], [ %.sroa.316.0.i137, %154 ]
+  %.sroa.316.0.i141 = phi double [ %.sroa.316.0.i, %146 ], [ %.sroa.316.0.i138, %154 ]
   %160 = phi double [ %151, %146 ], [ %158, %154 ]
-  %.sroa.015.0.i138 = phi double [ %149, %146 ], [ %156, %154 ]
+  %.sroa.015.0.i139 = phi double [ %149, %146 ], [ %156, %154 ]
   %.pn = phi double [ %152, %146 ], [ %159, %154 ]
   %.pn.i108 = phi double [ %153, %146 ], [ %145, %154 ]
   %.sroa.015.0.i107 = fmul double %140, %.pn
@@ -2176,9 +2175,9 @@ gvrender_ptf.exit112:                             ; preds = %146, %154
 
 161:                                              ; preds = %gvrender_ptf.exit112, %128
   %162 = phi double [ %.sroa.316.0.i109, %gvrender_ptf.exit112 ], [ %129, %128 ]
-  %163 = phi double [ %.sroa.316.0.i140, %gvrender_ptf.exit112 ], [ %130, %128 ]
+  %163 = phi double [ %.sroa.316.0.i141, %gvrender_ptf.exit112 ], [ %130, %128 ]
   %164 = phi double [ %.sroa.015.0.i107, %gvrender_ptf.exit112 ], [ %114, %128 ]
-  %165 = phi double [ %.sroa.015.0.i138, %gvrender_ptf.exit112 ], [ %115, %128 ]
+  %165 = phi double [ %.sroa.015.0.i139, %gvrender_ptf.exit112 ], [ %115, %128 ]
   %166 = fcmp ogt double %165, %164
   br i1 %166, label %167, label %168
 

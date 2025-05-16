@@ -1686,18 +1686,17 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re23NFA6SearchERKNS_11StringPieceE
 15:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !160
-  %16 = load ptr, ptr %8, align 8, !tbaa !162
+  %16 = load ptr, ptr %2, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !160
-  %.val87.pre = load ptr, ptr %8, align 8, !tbaa !162
   br label %19
 
 19:                                               ; preds = %18, %15
-  %.val87 = phi ptr [ %.val87.pre, %18 ], [ %16, %15 ]
   %.val = load ptr, ptr %1, align 8, !tbaa !162
+  %.val87 = load ptr, ptr %8, align 8, !tbaa !162
   %20 = icmp ult ptr %.val, %.val87
   br i1 %20, label %27, label %21
 

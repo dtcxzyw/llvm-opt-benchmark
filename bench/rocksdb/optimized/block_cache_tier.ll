@@ -8528,8 +8528,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %41, ptr noundef nonnull align 8 dereferenceable(57) %42, i64 57, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %45 = load i64, ptr %44, align 8, !tbaa !346
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %45 = load i64, ptr %44, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb12BoundedQueueINS_14BlockCacheTier8InsertOpEEE, i64 16), ptr %43, align 8, !tbaa !122
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %47 = load i8, ptr @_ZN7rocksdb23kDefaultToAdaptiveMutexE, align 1, !tbaa !26, !range !27, !noundef !28
@@ -8584,10 +8584,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
 75:                                               ; preds = %52
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %78 = load i32, ptr %77, align 4, !tbaa !347
+  %78 = load i32, ptr %77, align 4, !tbaa !346
   %79 = zext i32 %78 to i64
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %81 = load i64, ptr %80, align 8, !tbaa !348
+  %81 = load i64, ptr %80, align 8, !tbaa !347
   invoke void @_ZN7rocksdb14ThreadedWriterC1EPNS_19PersistentCacheTierEmm(ptr noundef nonnull align 8 dereferenceable(192) %76, ptr noundef nonnull %0, i64 noundef %79, i64 noundef %81)
           to label %82 unwind label %149
 
@@ -8714,7 +8714,7 @@ _ZN7rocksdb22BlockCacheTierMetadataC2Ejj.exit:    ; preds = %.noexc20
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 6624
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %127, i8 0, i64 32, i1 false)
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %129 = load i32, ptr %128, align 8, !tbaa !349
+  %129 = load i32, ptr %128, align 8, !tbaa !348
   %130 = load i32, ptr %77, align 4, !tbaa !146
   %131 = uitofp i32 %130 to double
   %132 = fadd double %131, 1.200000e+00
@@ -8829,7 +8829,7 @@ define linkonce_odr void @_ZN7rocksdb25CacheWriteBufferAllocatorC2Emm(ptr nounde
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 %1, ptr %9, align 8, !tbaa !350
+  store i64 %1, ptr %9, align 8, !tbaa !349
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %10, ptr %11, align 8, !tbaa !307
@@ -8840,7 +8840,7 @@ define linkonce_odr void @_ZN7rocksdb25CacheWriteBufferAllocatorC2Emm(ptr nounde
           to label %_ZN7rocksdb9MutexLockC2EPNS_4port5MutexE.exit unwind label %18
 
 _ZN7rocksdb9MutexLockC2EPNS_4port5MutexE.exit:    ; preds = %8
-  store i64 %1, ptr %9, align 8, !tbaa !350
+  store i64 %1, ptr %9, align 8, !tbaa !349
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -8874,14 +8874,14 @@ _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %._crit_edge
           to label %21 unwind label %34
 
 21:                                               ; preds = %.lr.ph
-  %22 = load i64, ptr %9, align 8, !tbaa !350
+  %22 = load i64, ptr %9, align 8, !tbaa !349
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb16CacheWriteBufferE, i64 16), ptr %20, align 8, !tbaa !122
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr null, ptr %23, align 8, !tbaa !351
+  store ptr null, ptr %23, align 8, !tbaa !350
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i64 %22, ptr %24, align 8, !tbaa !353
+  store i64 %22, ptr %24, align 8, !tbaa !352
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store i64 0, ptr %25, align 8, !tbaa !360
+  store i64 0, ptr %25, align 8, !tbaa !359
   %26 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %22) #21
           to label %28 unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i
 
@@ -8900,9 +8900,9 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %21
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %20, ptr %31, align 8, !tbaa !318
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(24) %10) #19
-  %32 = load i64, ptr %12, align 8, !tbaa !361
+  %32 = load i64, ptr %12, align 8, !tbaa !360
   %33 = add i64 %32, 1
-  store i64 %33, ptr %12, align 8, !tbaa !361
+  store i64 %33, ptr %12, align 8, !tbaa !360
   invoke void @_ZN7rocksdb4port7CondVar6SignalEv(ptr noundef nonnull align 8 dereferenceable(56) %7)
           to label %36 unwind label %34
 
@@ -8915,7 +8915,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %21
   %37 = add i32 %.017, 1
   %38 = zext i32 %37 to i64
   %39 = icmp ugt i64 %2, %38
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !362
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !361
 
 40:                                               ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i, %34
   %.pn = phi { ptr, i32 } [ %35, %34 ], [ %27, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i ]
@@ -8999,7 +8999,7 @@ define linkonce_odr void @_ZN7rocksdb18EvictableHashTableINS_14BlockCacheFileENS
   tail call void @_ZN7rocksdb9HashTableIPNS_14BlockCacheFileENS_22BlockCacheTierMetadata18BlockCacheFileHashENS3_19BlockCacheFileEqualEEC2Emfj(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, float noundef %2, i32 noundef %3)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7rocksdb18EvictableHashTableINS_14BlockCacheFileENS_22BlockCacheTierMetadata18BlockCacheFileHashENS2_19BlockCacheFileEqualEEE, i64 16), ptr %0, align 8, !tbaa !122
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i32, ptr %5, align 8, !tbaa !363
+  %6 = load i32, ptr %5, align 8, !tbaa !362
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 6
   %9 = or disjoint i64 %8, 8
@@ -9077,13 +9077,13 @@ define linkonce_odr void @_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTi
   %8 = fdiv float %7, %2
   %9 = select i1 %6, float %8, float 0.000000e+00
   %10 = fptoui float %9 to i32
-  store i32 %10, ptr %5, align 8, !tbaa !364
+  store i32 %10, ptr %5, align 8, !tbaa !363
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %11, align 8, !tbaa !365
+  store ptr null, ptr %11, align 8, !tbaa !364
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %3, ptr %12, align 8, !tbaa !366
+  store i32 %3, ptr %12, align 8, !tbaa !365
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr null, ptr %13, align 8, !tbaa !367
+  store ptr null, ptr %13, align 8, !tbaa !366
   %14 = zext i32 %10 to i64
   %15 = mul nuw nsw i64 %14, 24
   %16 = add nuw nsw i64 %15, 8
@@ -9114,7 +9114,7 @@ define linkonce_odr void @_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTi
 _ZNSt10unique_ptrIA_N7rocksdb9HashTableIPNS0_9BlockInfoENS0_22BlockCacheTierMetadata4HashENS4_5EqualEE6BucketESt14default_deleteIS9_EE5resetIPS8_vEEvT_.exit: ; preds = %23, %18
   store ptr %19, ptr %11, align 8, !tbaa !321
   %29 = tail call i32 @mlock(ptr noundef nonnull %19, i64 noundef %15) #19
-  %30 = load i32, ptr %12, align 8, !tbaa !366
+  %30 = load i32, ptr %12, align 8, !tbaa !365
   %31 = zext i32 %30 to i64
   %32 = mul nuw nsw i64 %31, 56
   %33 = add nuw nsw i64 %32, 8
@@ -9175,7 +9175,7 @@ _ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_c
 
 _ZNSt10unique_ptrIA_N7rocksdb4port7RWMutexESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit: ; preds = %.loopexit21, %_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
   %53 = phi ptr [ %.ptr12, %.loopexit21 ], [ %.pre, %_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i ]
-  %54 = load i32, ptr %12, align 8, !tbaa !366
+  %54 = load i32, ptr %12, align 8, !tbaa !365
   %55 = zext i32 %54 to i64
   %56 = mul nuw nsw i64 %55, 56
   %57 = tail call i32 @mlock(ptr noundef %53, i64 noundef %56) #19
@@ -9220,13 +9220,13 @@ define linkonce_odr void @_ZN7rocksdb9HashTableIPNS_14BlockCacheFileENS_22BlockC
   %8 = fdiv float %7, %2
   %9 = select i1 %6, float %8, float 0.000000e+00
   %10 = fptoui float %9 to i32
-  store i32 %10, ptr %5, align 8, !tbaa !368
+  store i32 %10, ptr %5, align 8, !tbaa !367
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %11, align 8, !tbaa !369
+  store ptr null, ptr %11, align 8, !tbaa !368
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %3, ptr %12, align 8, !tbaa !363
+  store i32 %3, ptr %12, align 8, !tbaa !362
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr null, ptr %13, align 8, !tbaa !367
+  store ptr null, ptr %13, align 8, !tbaa !366
   %14 = zext i32 %10 to i64
   %15 = mul nuw nsw i64 %14, 24
   %16 = add nuw nsw i64 %15, 8
@@ -9257,7 +9257,7 @@ define linkonce_odr void @_ZN7rocksdb9HashTableIPNS_14BlockCacheFileENS_22BlockC
 _ZNSt10unique_ptrIA_N7rocksdb9HashTableIPNS0_14BlockCacheFileENS0_22BlockCacheTierMetadata18BlockCacheFileHashENS4_19BlockCacheFileEqualEE6BucketESt14default_deleteIS9_EE5resetIPS8_vEEvT_.exit: ; preds = %23, %18
   store ptr %19, ptr %11, align 8, !tbaa !324
   %29 = tail call i32 @mlock(ptr noundef nonnull %19, i64 noundef %15) #19
-  %30 = load i32, ptr %12, align 8, !tbaa !363
+  %30 = load i32, ptr %12, align 8, !tbaa !362
   %31 = zext i32 %30 to i64
   %32 = mul nuw nsw i64 %31, 56
   %33 = add nuw nsw i64 %32, 8
@@ -9318,7 +9318,7 @@ _ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_c
 
 _ZNSt10unique_ptrIA_N7rocksdb4port7RWMutexESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit: ; preds = %.loopexit21, %_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
   %53 = phi ptr [ %.ptr12, %.loopexit21 ], [ %.pre, %_ZNKSt14default_deleteIA_N7rocksdb4port7RWMutexEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i ]
-  %54 = load i32, ptr %12, align 8, !tbaa !363
+  %54 = load i32, ptr %12, align 8, !tbaa !362
   %55 = zext i32 %54 to i64
   %56 = mul nuw nsw i64 %55, 56
   %57 = tail call i32 @mlock(ptr noundef %53, i64 noundef %56) #19
@@ -9754,27 +9754,26 @@ attributes #24 = { nounwind willreturn memory(read) }
 !343 = !{!230, !231, i64 0}
 !344 = distinct !{!344, !170}
 !345 = !{!44, !45, i64 0}
-!346 = !{!35, !45, i64 184}
-!347 = !{!35, !55, i64 172}
-!348 = !{!35, !45, i64 200}
-!349 = !{!35, !55, i64 192}
-!350 = !{!69, !45, i64 104}
-!351 = !{!352, !6, i64 0}
-!352 = !{!"_ZTSSt10_Head_baseILm0EPcLb0EE", !6, i64 0}
-!353 = !{!354, !45, i64 16}
-!354 = !{!"_ZTSN7rocksdb16CacheWriteBufferE", !355, i64 8, !45, i64 16, !45, i64 24}
-!355 = !{!"_ZTSSt10unique_ptrIA_cSt14default_deleteIS0_EE", !356, i64 0}
-!356 = !{!"_ZTSSt15__uniq_ptr_dataIcSt14default_deleteIA_cELb1ELb1EE", !357, i64 0}
-!357 = !{!"_ZTSSt15__uniq_ptr_implIcSt14default_deleteIA_cEE", !358, i64 0}
-!358 = !{!"_ZTSSt5tupleIJPcSt14default_deleteIA_cEEE", !359, i64 0}
-!359 = !{!"_ZTSSt11_Tuple_implILm0EJPcSt14default_deleteIA_cEEE", !352, i64 0}
-!360 = !{!354, !45, i64 24}
-!361 = !{!71, !45, i64 16}
-!362 = distinct !{!362, !170}
-!363 = !{!86, !55, i64 24}
-!364 = !{!108, !55, i64 8}
-!365 = !{!114, !115, i64 0}
-!366 = !{!108, !55, i64 24}
-!367 = !{!99, !100, i64 0}
-!368 = !{!86, !55, i64 8}
-!369 = !{!92, !93, i64 0}
+!346 = !{!35, !55, i64 172}
+!347 = !{!35, !45, i64 200}
+!348 = !{!35, !55, i64 192}
+!349 = !{!69, !45, i64 104}
+!350 = !{!351, !6, i64 0}
+!351 = !{!"_ZTSSt10_Head_baseILm0EPcLb0EE", !6, i64 0}
+!352 = !{!353, !45, i64 16}
+!353 = !{!"_ZTSN7rocksdb16CacheWriteBufferE", !354, i64 8, !45, i64 16, !45, i64 24}
+!354 = !{!"_ZTSSt10unique_ptrIA_cSt14default_deleteIS0_EE", !355, i64 0}
+!355 = !{!"_ZTSSt15__uniq_ptr_dataIcSt14default_deleteIA_cELb1ELb1EE", !356, i64 0}
+!356 = !{!"_ZTSSt15__uniq_ptr_implIcSt14default_deleteIA_cEE", !357, i64 0}
+!357 = !{!"_ZTSSt5tupleIJPcSt14default_deleteIA_cEEE", !358, i64 0}
+!358 = !{!"_ZTSSt11_Tuple_implILm0EJPcSt14default_deleteIA_cEEE", !351, i64 0}
+!359 = !{!353, !45, i64 24}
+!360 = !{!71, !45, i64 16}
+!361 = distinct !{!361, !170}
+!362 = !{!86, !55, i64 24}
+!363 = !{!108, !55, i64 8}
+!364 = !{!114, !115, i64 0}
+!365 = !{!108, !55, i64 24}
+!366 = !{!99, !100, i64 0}
+!367 = !{!86, !55, i64 8}
+!368 = !{!92, !93, i64 0}

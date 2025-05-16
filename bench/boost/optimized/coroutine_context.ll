@@ -16,14 +16,14 @@ define void @_ZN5boost10coroutines6detail17coroutine_contextC2Ev(ptr noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost10coroutines6detail17coroutine_contextC2EPFvNS_7context6detail10transfer_tEERKNS1_12preallocatedE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 align 2 {
+define void @_ZN5boost10coroutines6detail17coroutine_contextC2EPFvNS_7context6detail10transfer_tEERKNS1_12preallocatedE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %0, align 8, !tbaa !10
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !14
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %7 = load i64, ptr %6, align 8
   %8 = tail call ptr @make_fcontext(ptr noundef %5, i64 noundef %7, ptr noundef %1)
-  store ptr %8, ptr %4, align 8, !tbaa !15
+  store ptr %8, ptr %4, align 8, !tbaa !10
   ret void
 }
 
@@ -37,8 +37,8 @@ define void @_ZN5boost10coroutines6detail17coroutine_contextC2ERKS2_(ptr noundef
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !15
-  store ptr %5, ptr %3, align 8, !tbaa !15
+  %5 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %5, ptr %3, align 8, !tbaa !10
   ret void
 }
 
@@ -50,9 +50,9 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN5boost10coroutines6de
 4:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !15
+  %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %6, ptr %7, align 8, !tbaa !15
+  store ptr %6, ptr %7, align 8, !tbaa !10
   br label %8
 
 8:                                                ; preds = %2, %4
@@ -63,19 +63,19 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN5boost10coroutines6de
 define noundef ptr @_ZN5boost10coroutines6detail17coroutine_context4jumpERS2_Pv(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"struct.boost::coroutines::detail::data_t", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
-  store ptr %0, ptr %4, align 8, !tbaa !16
+  store ptr %0, ptr %4, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %2, ptr %5, align 8, !tbaa !18
+  store ptr %2, ptr %5, align 8, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !15
+  %7 = load ptr, ptr %6, align 8, !tbaa !10
   %8 = call { ptr, ptr } @jump_fcontext(ptr noundef %7, ptr noundef nonnull %4)
   %9 = extractvalue { ptr, ptr } %8, 0
   %10 = extractvalue { ptr, ptr } %8, 1
-  %11 = load ptr, ptr %10, align 8, !tbaa !16
+  %11 = load ptr, ptr %10, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store ptr %9, ptr %12, align 8, !tbaa !15
+  store ptr %9, ptr %12, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !18
+  %14 = load ptr, ptr %13, align 8, !tbaa !16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
   ret ptr %14
 }
@@ -114,12 +114,10 @@ attributes #7 = { nounwind }
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"long", !6, i64 0}
-!10 = !{!11, !5, i64 0}
+!10 = !{!11, !5, i64 32}
 !11 = !{!"_ZTSN5boost10coroutines6detail17coroutine_contextE", !12, i64 0, !5, i64 32}
 !12 = !{!"_ZTSN5boost10coroutines6detail12preallocatedE", !5, i64 0, !9, i64 8, !13, i64 16}
 !13 = !{!"_ZTSN5boost10coroutines13stack_contextE", !9, i64 0, !5, i64 8}
-!14 = !{!11, !9, i64 8}
-!15 = !{!11, !5, i64 32}
-!16 = !{!17, !5, i64 0}
-!17 = !{!"_ZTSN5boost10coroutines6detail6data_tE", !5, i64 0, !5, i64 8}
-!18 = !{!17, !5, i64 8}
+!14 = !{!15, !5, i64 0}
+!15 = !{!"_ZTSN5boost10coroutines6detail6data_tE", !5, i64 0, !5, i64 8}
+!16 = !{!15, !5, i64 8}

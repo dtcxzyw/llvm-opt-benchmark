@@ -3757,7 +3757,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_ad
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hbf2000e87be6a788E"(ptr dead_on_unwind noalias noundef writable sret([280 x i8]) align 8 captures(none) dereferenceable(280) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hbf2000e87be6a788E"(ptr dead_on_unwind noalias noundef writable writeonly sret([280 x i8]) align 8 captures(none) dereferenceable(280) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !995)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !995, !noundef !4
@@ -3871,37 +3871,38 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hbf2000e87be6a78
   %56 = shl nuw nsw i64 1, %53
   %57 = and i64 %55, %56
   %.not.i5 = icmp eq i64 %57, 0
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  br i1 %.not.i5, label %59, label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7605943990e7709dE.llvm.9814727790501108674.exit"
+  br i1 %.not.i5, label %58, label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7605943990e7709dE.llvm.9814727790501108674.exit"
 
-59:                                               ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h84d05d86a34fc140E.llvm.9814727790501108674.exit"
-  %60 = and i64 %55, 8589934592
-  %.not1.i = icmp eq i64 %60, 0
+58:                                               ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h84d05d86a34fc140E.llvm.9814727790501108674.exit"
+  %59 = and i64 %55, 8589934592
+  %.not1.i = icmp eq i64 %59, 0
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br i1 %.not1.i, label %61, label %62
 
-61:                                               ; preds = %59
-  store i64 4, ptr %58, align 8, !alias.scope !1006
+61:                                               ; preds = %58
+  store i64 4, ptr %60, align 8, !alias.scope !1006
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7605943990e7709dE.llvm.9814727790501108674.exit.thread"
 
-62:                                               ; preds = %59
-  store i64 3, ptr %58, align 8, !alias.scope !1006
+62:                                               ; preds = %58
+  store i64 3, ptr %60, align 8, !alias.scope !1006
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7605943990e7709dE.llvm.9814727790501108674.exit.thread"
 
 "_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7605943990e7709dE.llvm.9814727790501108674.exit": ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h84d05d86a34fc140E.llvm.9814727790501108674.exit"
   %63 = getelementptr inbounds nuw [0 x { { { [35 x i64] } } }], ptr %51, i64 0, i64 %53
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull readonly align 8 dereferenceable(280) %63, i64 280, i1 false)
-  %.pre7 = load i64, ptr %58, align 8, !range !47
-  %64 = add nsw i64 %.pre7, -3
-  %65 = icmp ult i64 %64, 2
-  br i1 %65, label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7605943990e7709dE.llvm.9814727790501108674.exit.thread", label %66
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 256
+  %.pre78 = load i64, ptr %64, align 8
+  %65 = add nsw i64 %.pre78, -3
+  %66 = icmp ult i64 %65, 2
+  br i1 %66, label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7605943990e7709dE.llvm.9814727790501108674.exit.thread", label %67
 
-"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7605943990e7709dE.llvm.9814727790501108674.exit.thread": ; preds = %62, %61, %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7605943990e7709dE.llvm.9814727790501108674.exit", %66, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17hc8768b5838fb34b4E.llvm.9814727790501108674.exit"
+"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7605943990e7709dE.llvm.9814727790501108674.exit.thread": ; preds = %62, %61, %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7605943990e7709dE.llvm.9814727790501108674.exit", %67, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17hc8768b5838fb34b4E.llvm.9814727790501108674.exit"
   ret void
 
-66:                                               ; preds = %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7605943990e7709dE.llvm.9814727790501108674.exit"
-  %67 = load i64, ptr %4, align 8, !noundef !4
-  %68 = add i64 %67, 1
-  store i64 %68, ptr %4, align 8
+67:                                               ; preds = %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7605943990e7709dE.llvm.9814727790501108674.exit"
+  %68 = load i64, ptr %4, align 8, !noundef !4
+  %69 = add i64 %68, 1
+  store i64 %69, ptr %4, align 8
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7605943990e7709dE.llvm.9814727790501108674.exit.thread"
 }
 

@@ -840,11 +840,11 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 define ptr @ossl_decoder_instance_dup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 40, ptr noundef nonnull @.str, i32 noundef 290) #8
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %18, label %4
+  br i1 %3, label %19, label %4
 
 4:                                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false), !tbaa.struct !49
-  %5 = load ptr, ptr %2, align 8, !tbaa !23
+  %5 = load ptr, ptr %0, align 8
   %6 = tail call i32 @OSSL_DECODER_up_ref(ptr noundef %5) #8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %8
@@ -853,32 +853,33 @@ define ptr @ossl_decoder_instance_dup(ptr noundef readonly captures(none) %0) lo
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 295, ptr noundef nonnull @__func__.ossl_decoder_instance_dup) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 60, i32 noundef 786691, ptr noundef null) #8
-  br label %17
+  br label %18
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @OSSL_DECODER_get0_provider(ptr noundef %5) #8
-  %10 = tail call ptr @OSSL_PROVIDER_get0_provider_ctx(ptr noundef %9) #8
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !54
-  %13 = tail call ptr %12(ptr noundef %10) #8
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %13, ptr %14, align 8, !tbaa !32
-  %15 = icmp eq ptr %13, null
-  br i1 %15, label %16, label %18
+  %9 = load ptr, ptr %2, align 8, !tbaa !23
+  %10 = tail call ptr @OSSL_DECODER_get0_provider(ptr noundef %9) #8
+  %11 = tail call ptr @OSSL_PROVIDER_get0_provider_ctx(ptr noundef %10) #8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %13 = load ptr, ptr %12, align 8, !tbaa !54
+  %14 = tail call ptr %13(ptr noundef %11) #8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %14, ptr %15, align 8, !tbaa !32
+  %16 = icmp eq ptr %14, null
+  br i1 %16, label %17, label %19
 
-16:                                               ; preds = %8
+17:                                               ; preds = %8
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 303, ptr noundef nonnull @__func__.ossl_decoder_instance_dup) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 60, i32 noundef 786691, ptr noundef null) #8
-  tail call void @OSSL_DECODER_free(ptr noundef nonnull %5) #8
-  br label %17
-
-17:                                               ; preds = %16, %7
-  tail call void @CRYPTO_free(ptr noundef nonnull %2, ptr noundef nonnull @.str, i32 noundef 311) #8
+  tail call void @OSSL_DECODER_free(ptr noundef nonnull %9) #8
   br label %18
 
-18:                                               ; preds = %8, %1, %17
-  %.0 = phi ptr [ null, %17 ], [ null, %1 ], [ %2, %8 ]
+18:                                               ; preds = %17, %7
+  tail call void @CRYPTO_free(ptr noundef nonnull %2, ptr noundef nonnull @.str, i32 noundef 311) #8
+  br label %19
+
+19:                                               ; preds = %8, %1, %18
+  %.0 = phi ptr [ null, %18 ], [ null, %1 ], [ %2, %8 ]
   ret ptr %.0
 }
 

@@ -20,8 +20,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 333, 332) i32 @filtered_base_yylex() local_unnamed_addr #0 {
-  %.sroa.0 = alloca %struct.this_type, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0)
+  %.sroa.0.sroa.7 = alloca { i32, ptr, ptr, ptr, ptr }, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.0.sroa.7)
   %.b23 = load i1, ptr @have_lookahead, align 1
   br i1 %.b23, label %1, label %5
 
@@ -75,7 +75,7 @@ define dso_local range(i32 333, 332) i32 @filtered_base_yylex() local_unnamed_ad
 
 base_yylex_location.exit:                         ; preds = %17, %10, %7, %1
   %.022 = phi i32 [ %2, %1 ], [ %6, %7 ], [ %6, %10 ], [ %6, %17 ]
-  switch i32 %.022, label %84 [
+  switch i32 %.022, label %83 [
     i32 500, label %20
     i32 618, label %20
     i32 625, label %20
@@ -86,7 +86,8 @@ base_yylex_location.exit:                         ; preds = %17, %10, %7, %1
   ]
 
 20:                                               ; preds = %base_yylex_location.exit, %base_yylex_location.exit, %base_yylex_location.exit, %base_yylex_location.exit, %base_yylex_location.exit, %base_yylex_location.exit, %base_yylex_location.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(48) @base_yylval, i64 48, i1 false)
+  %.sroa.0.sroa.0.0.copyload = load ptr, ptr @base_yylval, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.sroa.7, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @base_yylval, i64 8), i64 40, i1 false)
   %21 = load ptr, ptr @base_yylloc, align 8
   %22 = load ptr, ptr @base_yytext, align 8
   %23 = tail call i32 @base_yylex() #6
@@ -136,11 +137,12 @@ base_yylex_location.exit37:                       ; preds = %base_yylex_location
   store ptr %37, ptr @lookahead_yylloc, align 8
   %38 = load ptr, ptr @base_yytext, align 8
   store ptr %38, ptr @lookahead_yytext, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @base_yylval, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0, i64 48, i1 false)
+  store ptr %.sroa.0.sroa.0.0.copyload, ptr @base_yylval, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @base_yylval, i64 8), ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.sroa.7, i64 40, i1 false)
   store ptr %21, ptr @base_yylloc, align 8
   store ptr %22, ptr @base_yytext, align 8
   store i1 true, ptr @have_lookahead, align 1
-  switch i32 %.022, label %84 [
+  switch i32 %.022, label %83 [
     i32 500, label %39
     i32 618, label %40
     i32 625, label %42
@@ -153,10 +155,10 @@ base_yylex_location.exit37:                       ; preds = %base_yylex_location
 39:                                               ; preds = %base_yylex_location.exit37
   %cond1 = icmp eq i32 %23, 554
   %spec.select = select i1 %cond1, i32 838, i32 500
-  br label %84
+  br label %83
 
 40:                                               ; preds = %base_yylex_location.exit37
-  switch i32 %23, label %84 [
+  switch i32 %23, label %83 [
     i32 377, label %41
     i32 527, label %41
     i32 578, label %41
@@ -165,30 +167,30 @@ base_yylex_location.exit37:                       ; preds = %base_yylex_location
   ]
 
 41:                                               ; preds = %40, %40, %40, %40, %40
-  br label %84
+  br label %83
 
 42:                                               ; preds = %base_yylex_location.exit37
   %switch.selectcmp.case1 = icmp eq i32 %23, 494
   %switch.selectcmp.case2 = icmp eq i32 %23, 571
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
   %43 = select i1 %switch.selectcmp, i32 840, i32 625
-  br label %84
+  br label %83
 
 44:                                               ; preds = %base_yylex_location.exit37
   %switch.selectcmp.case125 = icmp eq i32 %23, 770
   %switch.selectcmp.case226 = icmp eq i32 %23, 641
   %switch.selectcmp27 = or i1 %switch.selectcmp.case125, %switch.selectcmp.case226
   %45 = select i1 %switch.selectcmp27, i32 841, i32 817
-  br label %84
+  br label %83
 
 46:                                               ; preds = %base_yylex_location.exit37
   %cond = icmp eq i32 %23, 770
   %spec.select28 = select i1 %cond, i32 842, i32 819
-  br label %84
+  br label %83
 
 47:                                               ; preds = %base_yylex_location.exit37, %base_yylex_location.exit37
   %48 = icmp eq i32 %23, 784
-  br i1 %48, label %49, label %80
+  br i1 %48, label %49, label %79
 
 49:                                               ; preds = %47
   %50 = tail call i32 @base_yylex() #6
@@ -272,29 +274,29 @@ check_uescapechar.exit.thread:                    ; preds = %switch.early.test.i
   br label %76
 
 76:                                               ; preds = %switch.early.test.i, %check_uescapechar.exit.thread
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @base_yylval, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0, i64 48, i1 false)
+  store ptr %.sroa.0.sroa.0.0.copyload, ptr @base_yylval, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @base_yylval, i64 8), ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.sroa.7, i64 40, i1 false)
   store ptr %21, ptr @base_yylloc, align 8
   store ptr %22, ptr @base_yytext, align 8
-  %77 = load ptr, ptr @base_yylval, align 8
-  %78 = tail call ptr @make3_str(ptr noundef %77, ptr noundef nonnull @.str.2, ptr noundef nonnull %65) #6
-  store ptr %78, ptr @base_yylval, align 8
-  %79 = tail call ptr @loc_strdup(ptr noundef %78) #6
-  store ptr %79, ptr @base_yylloc, align 8
+  %77 = tail call ptr @make3_str(ptr noundef %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull @.str.2, ptr noundef nonnull %65) #6
+  store ptr %77, ptr @base_yylval, align 8
+  %78 = tail call ptr @loc_strdup(ptr noundef %77) #6
+  store ptr %78, ptr @base_yylloc, align 8
   store i1 false, ptr @have_lookahead, align 1
-  br label %80
+  br label %79
 
-80:                                               ; preds = %76, %47
-  %81 = icmp eq i32 %.022, 329
-  br i1 %81, label %84, label %82
+79:                                               ; preds = %76, %47
+  %80 = icmp eq i32 %.022, 329
+  br i1 %80, label %83, label %81
 
-82:                                               ; preds = %80
-  %83 = icmp eq i32 %.022, 332
-  %spec.store.select = select i1 %83, i32 331, i32 %.022
-  br label %84
+81:                                               ; preds = %79
+  %82 = icmp eq i32 %.022, 332
+  %spec.store.select = select i1 %82, i32 331, i32 %.022
+  br label %83
 
-84:                                               ; preds = %46, %39, %base_yylex_location.exit37, %41, %40, %82, %42, %44, %80, %base_yylex_location.exit
-  %.0 = phi i32 [ %.022, %base_yylex_location.exit ], [ %.022, %base_yylex_location.exit37 ], [ %spec.store.select, %82 ], [ 618, %40 ], [ 839, %41 ], [ %spec.select, %39 ], [ %43, %42 ], [ %45, %44 ], [ %spec.select28, %46 ], [ 328, %80 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0)
+83:                                               ; preds = %46, %39, %base_yylex_location.exit37, %41, %40, %81, %42, %44, %79, %base_yylex_location.exit
+  %.0 = phi i32 [ %.022, %base_yylex_location.exit ], [ %.022, %base_yylex_location.exit37 ], [ %spec.store.select, %81 ], [ 618, %40 ], [ 839, %41 ], [ %spec.select, %39 ], [ %43, %42 ], [ %45, %44 ], [ %spec.select28, %46 ], [ 328, %79 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.0.sroa.7)
   ret i32 %.0
 }
 

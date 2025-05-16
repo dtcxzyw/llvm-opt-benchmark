@@ -5,35 +5,40 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define nonnull align 8 ptr @"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h7a2ffbb9a19eb4e3E"(ptr returned align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = alloca { i64, [2 x i64] }, align 8
-  %4 = load i64, ptr %0, align 8, !range !3, !noundef !4
-  %.not = icmp eq i64 %4, -9223372036854775808
-  br i1 %.not, label %5, label %11
+  %.sroa.4 = alloca [2 x i64], align 8
+  %3 = load i64, ptr %0, align 8, !range !3, !noundef !4
+  %.not = icmp eq i64 %3, -9223372036854775808
+  br i1 %.not, label %4, label %9
 
-5:                                                ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+4:                                                ; preds = %2
+  %.sroa.010.0.copyload = load i64, ptr %1, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, i64 16, i1 false)
   invoke void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$$GT$17hbad8b8468280d2a6E"(ptr nonnull align 8 %0)
-          to label %.thread unwind label %6
+          to label %.thread unwind label %5
 
-6:                                                ; preds = %5
-  %7 = landingpad { ptr, i32 }
+5:                                                ; preds = %4
+  %6 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  resume { ptr, i32 } %7
+  store i64 %.sroa.010.0.copyload, ptr %0, align 8
+  %.sroa.4.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
+  resume { ptr, i32 } %6
 
-.thread:                                          ; preds = %5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %8 = load i64, ptr %0, align 8, !range !3, !noundef !4
-  %9 = icmp ne i64 %8, -9223372036854775808
-  tail call void @llvm.assume(i1 %9)
-  br label %10
+.thread:                                          ; preds = %4
+  store i64 %.sroa.010.0.copyload, ptr %0, align 8
+  %.sroa.4.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
+  %7 = icmp ne i64 %.sroa.010.0.copyload, -9223372036854775808
+  tail call void @llvm.assume(i1 %7)
+  br label %8
 
-10:                                               ; preds = %.thread, %11
+8:                                                ; preds = %.thread, %9
   ret ptr %0
 
-11:                                               ; preds = %2
+9:                                                ; preds = %2
   tail call void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$17h278e8b9d4cd94394E"(ptr align 8 %1)
-  br label %10
+  br label %8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

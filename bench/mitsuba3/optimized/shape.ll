@@ -597,46 +597,48 @@ define weak_odr noundef float @_ZNK7mitsuba5ShapeIfN5drjit6MatrixINS_8SpectrumIf
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7mitsuba5ShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE16sample_directionERKNS_11InteractionIfS5_EERKNS_5PointIfLm2EEEb(ptr dead_on_unwind noalias writable sret(%"struct.mitsuba::DirectionSample") align 16 %0, ptr noundef nonnull align 16 dereferenceable(403) %1, ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(8) %3, i1 noundef zeroext %4) unnamed_addr #4 comdat align 2 {
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %7 = load float, ptr %6, align 4
-  %8 = load ptr, ptr %1, align 16
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr dead_on_unwind nonnull writable sret(%"struct.mitsuba::PositionSample") align 16 %0, ptr noundef nonnull align 16 dereferenceable(403) %1, float noundef %7, ptr noundef nonnull align 4 dereferenceable(8) %3, i1 noundef zeroext true)
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %13 = load <4 x float>, ptr %0, align 16
-  %14 = load <4 x float>, ptr %12, align 16
-  %15 = fsub contract <4 x float> %13, %14
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = fmul contract <4 x float> %15, %15
-  %shift = shufflevector <4 x float> %17, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %18 = fadd contract <4 x float> %17, %shift
-  %shift85 = shufflevector <4 x float> %17, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %19 = fadd contract <4 x float> %shift85, %18
-  %20 = extractelement <4 x float> %19, i64 0
-  %21 = tail call contract noundef float @llvm.sqrt.f32(float %20)
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store float %21, ptr %22, align 16
-  %23 = fdiv contract float 1.000000e+00, %21
-  %24 = insertelement <4 x float> poison, float %23, i64 0
-  %25 = shufflevector <4 x float> %24, <4 x float> poison, <4 x i32> zeroinitializer
-  %26 = fmul contract <4 x float> %15, %25
-  store <4 x float> %26, ptr %16, align 16
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load <4 x float>, ptr %27, align 16
-  %29 = tail call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %26, <4 x float> %28, i8 113)
-  %30 = extractelement <4 x float> %29, i64 0
-  %31 = tail call contract noundef float @llvm.fabs.f32(float %30)
-  %32 = fdiv contract float %20, %31
-  %33 = tail call contract noundef float @llvm.fabs.f32(float %32)
-  %34 = fcmp contract ueq float %33, 0x7FF0000000000000
-  %35 = select contract i1 %34, float 0.000000e+00, float %32
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %37 = load float, ptr %36, align 4
-  %38 = fmul contract float %37, %35
-  store float %38, ptr %36, align 4
+  %6 = alloca %"struct.mitsuba::PositionSample", align 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %8 = load float, ptr %7, align 4
+  %9 = load ptr, ptr %1, align 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %11 = load ptr, ptr %10, align 8
+  call void %11(ptr dead_on_unwind nonnull writable sret(%"struct.mitsuba::PositionSample") align 16 %6, ptr noundef nonnull align 16 dereferenceable(403) %1, float noundef %8, ptr noundef nonnull align 4 dereferenceable(8) %3, i1 noundef zeroext true)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %0, ptr noundef nonnull align 16 dereferenceable(64) %6, i64 64, i1 false)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr null, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %14 = load <4 x float>, ptr %6, align 16
+  %15 = load <4 x float>, ptr %13, align 16
+  %16 = fsub contract <4 x float> %14, %15
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %18 = fmul contract <4 x float> %16, %16
+  %shift = shufflevector <4 x float> %18, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %19 = fadd contract <4 x float> %18, %shift
+  %shift85 = shufflevector <4 x float> %18, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %20 = fadd contract <4 x float> %shift85, %19
+  %21 = extractelement <4 x float> %20, i64 0
+  %22 = call contract noundef float @llvm.sqrt.f32(float %21)
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store float %22, ptr %23, align 16
+  %24 = fdiv contract float 1.000000e+00, %22
+  %25 = insertelement <4 x float> poison, float %24, i64 0
+  %26 = shufflevector <4 x float> %25, <4 x float> poison, <4 x i32> zeroinitializer
+  %27 = fmul contract <4 x float> %16, %26
+  store <4 x float> %27, ptr %17, align 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %29 = load <4 x float>, ptr %28, align 16
+  %30 = call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %27, <4 x float> %29, i8 113)
+  %31 = extractelement <4 x float> %30, i64 0
+  %32 = call contract noundef float @llvm.fabs.f32(float %31)
+  %33 = fdiv contract float %21, %32
+  %34 = call contract noundef float @llvm.fabs.f32(float %33)
+  %35 = fcmp contract ueq float %34, 0x7FF0000000000000
+  %36 = select contract i1 %35, float 0.000000e+00, float %33
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %38 = load float, ptr %37, align 4
+  %39 = fmul contract float %38, %36
+  store float %39, ptr %37, align 4
   ret void
 }
 

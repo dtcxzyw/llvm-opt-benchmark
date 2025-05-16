@@ -3673,7 +3673,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !96
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #17
-  %484 = load i32, ptr %3, align 8, !tbaa !62
+  %484 = load i32, ptr %2, align 8
   store i32 %484, ptr %35, align 4, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #17
   %485 = load atomic i8, ptr @_ZGVZN4entt10type_indexIivE5valueEvE5value acquire, align 8
@@ -4299,22 +4299,21 @@ _ZN4entt7type_idIiEERKNS_9type_infoEv.exit:       ; preds = %1, %18, %20
 _ZN4entt7type_idIcEERKNS_9type_infoEv.exit:       ; preds = %_ZN4entt7type_idIiEERKNS_9type_infoEv.exit, %24, %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4entt7type_idIcEERKNS_9type_infoEvE8instance, i64 24, i1 false), !tbaa.struct !96
   %28 = load i32, ptr %2, align 8, !tbaa !62
-  %29 = load i32, ptr %3, align 8, !tbaa !62
+  %29 = load i32, ptr @_ZZN4entt7type_idIcEERKNS_9type_infoEvE8instance, align 8
   %30 = icmp ult i32 %28, %29
   br i1 %30, label %32, label %31
 
 31:                                               ; preds = %_ZN4entt7type_idIcEERKNS_9type_infoEv.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4entt7type_idIcEERKNS_9type_infoEvE8instance, i64 24, i1 false)
-  %.pre = load i32, ptr %2, align 8, !tbaa !62, !noalias !107
-  %.pre165 = load i32, ptr %3, align 8, !tbaa !62, !noalias !107
+  %.pre165 = load i32, ptr @_ZZN4entt7type_idIcEERKNS_9type_infoEvE8instance, align 8
   br label %32
 
 32:                                               ; preds = %_ZN4entt7type_idIcEERKNS_9type_infoEv.exit, %31
-  %33 = phi i32 [ %29, %_ZN4entt7type_idIcEERKNS_9type_infoEv.exit ], [ %.pre165, %31 ]
-  %34 = phi i32 [ %28, %_ZN4entt7type_idIcEERKNS_9type_infoEv.exit ], [ %.pre, %31 ]
+  %33 = phi i32 [ %28, %_ZN4entt7type_idIcEERKNS_9type_infoEv.exit ], [ %.pre165, %31 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
-  %35 = icmp ult i32 %34, %33
+  %34 = load i32, ptr %3, align 8, !tbaa !62, !noalias !107
+  %35 = icmp ult i32 %33, %34
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %32

@@ -151,21 +151,22 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr14SurfaceFactoryC2ENS0_3Sdc10SchemeTypeER
   %42 = or disjoint i8 %41, %39
   store i8 %42, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %8, ptr noundef nonnull readonly align 8 dereferenceable(19) %3, i64 19, i1 false)
-  %43 = load i8, ptr %10, align 8
-  %44 = and i8 %43, 1
-  %.not2.i = icmp eq i8 %44, 0
-  br i1 %.not2.i, label %_ZN10OpenSubdiv6v3_6_03Bfr14SurfaceFactory17setFactoryOptionsERKNS2_7OptionsE.exit, label %45
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %44 = load i8, ptr %43, align 8
+  %45 = and i8 %44, 1
+  %.not2.i = icmp eq i8 %45, 0
+  br i1 %.not2.i, label %_ZN10OpenSubdiv6v3_6_03Bfr14SurfaceFactory17setFactoryOptionsERKNS2_7OptionsE.exit, label %46
 
-45:                                               ; preds = %.noexc
-  %46 = load ptr, ptr %9, align 8
-  %.not.i = icmp eq ptr %46, null
-  br i1 %.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr14SurfaceFactory17setFactoryOptionsERKNS2_7OptionsE.exit, label %47
+46:                                               ; preds = %.noexc
+  %47 = load ptr, ptr %9, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr14SurfaceFactory17setFactoryOptionsERKNS2_7OptionsE.exit, label %48
 
-47:                                               ; preds = %45
-  store ptr %46, ptr %15, align 8
+48:                                               ; preds = %46
+  store ptr %47, ptr %15, align 8
   br label %_ZN10OpenSubdiv6v3_6_03Bfr14SurfaceFactory17setFactoryOptionsERKNS2_7OptionsE.exit
 
-_ZN10OpenSubdiv6v3_6_03Bfr14SurfaceFactory17setFactoryOptionsERKNS2_7OptionsE.exit: ; preds = %47, %45, %.noexc
+_ZN10OpenSubdiv6v3_6_03Bfr14SurfaceFactory17setFactoryOptionsERKNS2_7OptionsE.exit: ; preds = %48, %46, %.noexc
   ret void
 }
 
@@ -216,7 +217,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr14SurfaceFactory21setSubdivisionOptionsEN
 define void @_ZN10OpenSubdiv6v3_6_03Bfr14SurfaceFactory17setFactoryOptionsERKNS2_7OptionsE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((16, 35)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(19) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %3, ptr noundef nonnull align 8 dereferenceable(19) %1, i64 19, i1 false)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i8, ptr %4, align 8
   %6 = and i8 %5, 1
   %.not2 = icmp eq i8 %6, 0

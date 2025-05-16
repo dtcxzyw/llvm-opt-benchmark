@@ -1065,18 +1065,15 @@ define hidden void @"_ZN89_$LT$toml_edit..ser..map..SerializeInlineTable$u20$as$
 
 42:                                               ; preds = %5
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sroa.0.0.copyload = load i64, ptr %43, align 8
-  %44 = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775806
+  %.val3645 = load i64, ptr %43, align 8
+  %44 = icmp eq i64 %.val3645, -9223372036854775806
   %45 = load i8, ptr %13, align 1, !range !208
   %46 = trunc nuw i8 %45 to i1
   %or.cond = select i1 %44, i1 %46, i1 false
   br i1 %or.cond, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..ser..Error$GT$17hbcee45955ad8b151E.exit", label %47
 
 47:                                               ; preds = %42
-  %.sroa.6.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 %.sroa.0.0.copyload, ptr %0, align 8
-  %.sroa.449.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.449.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx46, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %43, i64 24, i1 false)
   br label %48
 
 48:                                               ; preds = %47, %"_ZN4core3ptr42drop_in_place$LT$toml_edit..ser..Error$GT$17hbcee45955ad8b151E.exit"

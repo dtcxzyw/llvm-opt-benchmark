@@ -14819,7 +14819,7 @@ vorbis_init.exit:                                 ; preds = %5, %7
   %storemerge = select i1 %.not14, i32 %27, i32 1
   store i32 %storemerge, ptr %3, align 4, !tbaa !21
   call void @vorbis_deinit(ptr noundef nonnull %6)
-  br label %53
+  br label %52
 
 28:                                               ; preds = %vorbis_init.exit
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -14857,21 +14857,20 @@ vorbis_alloc.exit:                                ; preds = %41, %44
 
 46:                                               ; preds = %vorbis_alloc.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1904) %.1.i.i, ptr noundef nonnull align 8 dereferenceable(1904) %6, i64 1904, i1 false), !tbaa.struct !300
-  %47 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 64
-  %48 = load ptr, ptr %47, align 8, !tbaa !59
-  %49 = ptrtoint ptr %48 to i64
-  %50 = ptrtoint ptr %0 to i64
-  %51 = sub i64 %49, %50
-  %52 = trunc i64 %51 to i32
-  store i32 %52, ptr %2, align 4, !tbaa !21
+  %47 = load ptr, ptr %15, align 8
+  %48 = ptrtoint ptr %47 to i64
+  %49 = ptrtoint ptr %0 to i64
+  %50 = sub i64 %48, %49
+  %51 = trunc i64 %50 to i32
+  store i32 %51, ptr %2, align 4, !tbaa !21
   store i32 0, ptr %3, align 4, !tbaa !21
-  br label %53
+  br label %52
 
 vorbis_alloc.exit.thread:                         ; preds = %34, %vorbis_alloc.exit
   call void @vorbis_deinit(ptr noundef nonnull %6)
-  br label %53
+  br label %52
 
-53:                                               ; preds = %vorbis_alloc.exit.thread, %46, %25
+52:                                               ; preds = %vorbis_alloc.exit.thread, %46, %25
   %.0 = phi ptr [ %.1.i.i, %46 ], [ null, %vorbis_alloc.exit.thread ], [ null, %25 ]
   call void @llvm.lifetime.end.p0(i64 1904, ptr nonnull %6) #33
   ret ptr %.0

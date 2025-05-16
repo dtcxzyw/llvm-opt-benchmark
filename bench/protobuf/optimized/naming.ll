@@ -392,6 +392,7 @@ entry:
   %ref.tmp.i = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp2.i = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp3.i = alloca %"class.std::__cxx11::basic_string", align 8
+  %agg.tmp4 = alloca %"class.google::protobuf::compiler::rust::Context.2", align 8
   %desc_.i = getelementptr inbounds nuw i8, ptr %field, i64 8
   %0 = load ptr, ptr %desc_.i, align 8
   %type_once_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -443,26 +444,28 @@ lor.lhs.false:                                    ; preds = %_ZNK6google8protobu
   br i1 %cmp.i3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %_ZNK6google8protobuf15FieldDescriptor6is_mapEv.exit
-  %agg.tmp4.sroa.0.0.copyload = load ptr, ptr %field, align 8
-  %agg.tmp4.sroa.4.0.field.sroa_idx = getelementptr inbounds nuw i8, ptr %field, i64 8
-  %agg.tmp4.sroa.4.0.copyload = load ptr, ptr %agg.tmp4.sroa.4.0.field.sroa_idx, align 8
+  %agg.tmp.sroa.0.0.copyload = load ptr, ptr %field, align 8
+  %agg.tmp.sroa.3.0.agg.tmp4.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp4, i64 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp4)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.sroa.3.0.agg.tmp4.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %desc_.i, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %thunk.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp2.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3.i)
-  %9 = load i32, ptr %agg.tmp4.sroa.0.0.copyload, align 4, !noalias !6
+  store ptr %agg.tmp.sroa.0.0.copyload, ptr %agg.tmp4, align 8
+  %9 = load i32, ptr %agg.tmp.sroa.0.0.copyload, align 4, !noalias !6
   %cmp.i.i = icmp eq i32 %9, 0
   br i1 %cmp.i.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  tail call fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_15ThunkINS0_15FieldDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7ContextIT_EESt17basic_string_viewIcS9_E(ptr noalias align 8 %agg.result, ptr noundef nonnull byval(%"class.google::protobuf::compiler::rust::Context.2") align 8 %field, i64 %op.coerce0, ptr %op.coerce1)
+  tail call fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_15ThunkINS0_15FieldDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7ContextIT_EESt17basic_string_viewIcS9_E(ptr noalias align 8 %agg.result, ptr noundef nonnull byval(%"class.google::protobuf::compiler::rust::Context.2") align 8 %agg.tmp4, i64 %op.coerce0, ptr %op.coerce1)
   br label %_ZN6google8protobuf8compiler4rust12_GLOBAL__N_118ThunkMapOrRepeatedB5cxx11ENS2_7ContextINS0_15FieldDescriptorEEESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 if.end.i:                                         ; preds = %if.then
   store i64 1, ptr %ref.tmp.i, align 8, !noalias !6
   %10 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store ptr @.str.1, ptr %10, align 8, !noalias !6
-  call fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_111FieldPrefixINS0_15FieldDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7ContextIT_EE(ptr noalias nonnull align 8 %ref.tmp3.i, ptr noundef nonnull byval(%"class.google::protobuf::compiler::rust::Context.2") align 8 %field)
+  call fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_111FieldPrefixINS0_15FieldDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7ContextIT_EE(ptr noalias nonnull align 8 %ref.tmp3.i, ptr noundef nonnull byval(%"class.google::protobuf::compiler::rust::Context.2") align 8 %agg.tmp4), !noalias !6
   %call.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i) #21, !noalias !6
   %11 = extractvalue { i64, ptr } %call.i.i, 0
   store i64 %11, ptr %ref.tmp2.i, align 8, !noalias !6
@@ -485,23 +488,24 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %invoke.cont5.i
   br i1 %cmp.i.i.i, label %if.then9.i, label %if.else26.i
 
 if.then9.i:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  %type_once_.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp4.sroa.4.0.copyload, i64 24
-  %14 = load ptr, ptr %type_once_.i.i.i, align 8, !noalias !6
-  %tobool.not.i.i.i = icmp eq ptr %14, null
+  %14 = load ptr, ptr %agg.tmp.sroa.3.0.agg.tmp4.sroa_idx, align 8, !noalias !6
+  %type_once_.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %15 = load ptr, ptr %type_once_.i.i.i, align 8, !noalias !6
+  %tobool.not.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then9.i
-  %15 = load atomic i32, ptr %14 acquire, align 4, !noalias !6
-  %cmp.not.i.i.i.i = icmp eq i32 %15, 221
+  %16 = load atomic i32, ptr %15 acquire, align 4, !noalias !6
+  %cmp.not.i.i.i.i = icmp eq i32 %16, 221
   br i1 %cmp.not.i.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %if.then.i.i.i.i5
 
 if.then.i.i.i.i5:                                 ; preds = %if.then.i.i7.i
-  %16 = cmpxchg ptr %14, i32 0, i32 1707250555 monotonic monotonic, align 4, !noalias !6
-  %17 = extractvalue { i32, i1 } %16, 1
-  br i1 %17, label %if.then.i.i.i.i.i, label %lor.lhs.false.i.i.i.i.i
+  %17 = cmpxchg ptr %15, i32 0, i32 1707250555 monotonic monotonic, align 4, !noalias !6
+  %18 = extractvalue { i32, i1 } %17, 1
+  br i1 %18, label %if.then.i.i.i.i.i, label %lor.lhs.false.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i5
-  %call1.i.i.i.i10.i = invoke noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %14, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
+  %call1.i.i.i.i10.i = invoke noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %15, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
           to label %call1.i.i.i.i.noexc.i unwind label %lpad11.i, !noalias !6
 
 call1.i.i.i.i.noexc.i:                            ; preds = %lor.lhs.false.i.i.i.i.i
@@ -509,26 +513,26 @@ call1.i.i.i.i.noexc.i:                            ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %call1.i.i.i.i.noexc.i, %if.then.i.i.i.i5
-  invoke void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef nonnull align 8 dereferenceable(88) %agg.tmp4.sroa.4.0.copyload)
+  invoke void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef nonnull align 8 dereferenceable(88) %14)
           to label %.noexc.i unwind label %lpad11.i, !noalias !6
 
 .noexc.i:                                         ; preds = %if.then.i.i.i.i.i
-  %18 = atomicrmw xchg ptr %14, i32 221 release, align 4, !noalias !6
-  %cmp4.i.i.i.i.i = icmp eq i32 %18, 94570706
+  %19 = atomicrmw xchg ptr %15, i32 221 release, align 4, !noalias !6
+  %cmp4.i.i.i.i.i = icmp eq i32 %19, 94570706
   br i1 %cmp4.i.i.i.i.i, label %if.then5.i.i.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 if.then5.i.i.i.i.i:                               ; preds = %.noexc.i
-  invoke void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull align 4 dereferenceable(4) %14, i1 noundef zeroext true)
+  invoke void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull align 4 dereferenceable(4) %15, i1 noundef zeroext true)
           to label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i unwind label %lpad11.i, !noalias !6
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %if.then5.i.i.i.i.i, %.noexc.i, %call1.i.i.i.i.noexc.i, %if.then.i.i7.i, %if.then9.i
-  %type_.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp4.sroa.4.0.copyload, i64 2
-  %19 = load i8, ptr %type_.i.i.i, align 2, !noalias !6
-  %cmp.i8.i = icmp eq i8 %19, 11
+  %type_.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 2
+  %20 = load i8, ptr %type_.i.i.i, align 2, !noalias !6
+  %cmp.i8.i = icmp eq i8 %20, 11
   br i1 %cmp.i8.i, label %land.rhs.i9.i, label %if.end31.i
 
 land.rhs.i9.i:                                    ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
-  %call2.i12.i = invoke noundef zeroext i1 @_ZNK6google8protobuf15FieldDescriptor19is_map_message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %agg.tmp4.sroa.4.0.copyload)
+  %call2.i12.i = invoke noundef zeroext i1 @_ZNK6google8protobuf15FieldDescriptor19is_map_message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %14)
           to label %invoke.cont14.i unwind label %lpad11.i, !noalias !6
 
 invoke.cont14.i:                                  ; preds = %land.rhs.i9.i
@@ -536,12 +540,12 @@ invoke.cont14.i:                                  ; preds = %land.rhs.i9.i
   br label %if.end31.i
 
 lpad.i:                                           ; preds = %if.end.i
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume.i
 
 lpad11.i:                                         ; preds = %if.end31.i, %if.else26.i, %land.rhs.i36.i, %if.then5.i.i.i.i39.i, %if.then.i.i.i.i37.i, %lor.lhs.false.i.i.i.i31.i, %land.rhs.i9.i, %if.then5.i.i.i.i.i, %if.then.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume.i
 
@@ -551,23 +555,24 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i20.i: ; preds = %invoke.cont5.i
   br i1 %cmp.i.i22.i, label %if.then19.i, label %if.else26.i
 
 if.then19.i:                                      ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i20.i
-  %type_once_.i.i26.i = getelementptr inbounds nuw i8, ptr %agg.tmp4.sroa.4.0.copyload, i64 24
-  %22 = load ptr, ptr %type_once_.i.i26.i, align 8, !noalias !6
-  %tobool.not.i.i27.i = icmp eq ptr %22, null
+  %23 = load ptr, ptr %agg.tmp.sroa.3.0.agg.tmp4.sroa_idx, align 8, !noalias !6
+  %type_once_.i.i26.i = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %24 = load ptr, ptr %type_once_.i.i26.i, align 8, !noalias !6
+  %tobool.not.i.i27.i = icmp eq ptr %24, null
   br i1 %tobool.not.i.i27.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i33.i, label %if.then.i.i28.i
 
 if.then.i.i28.i:                                  ; preds = %if.then19.i
-  %23 = load atomic i32, ptr %22 acquire, align 4, !noalias !6
-  %cmp.not.i.i.i29.i = icmp eq i32 %23, 221
+  %25 = load atomic i32, ptr %24 acquire, align 4, !noalias !6
+  %cmp.not.i.i.i29.i = icmp eq i32 %25, 221
   br i1 %cmp.not.i.i.i29.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i33.i, label %if.then.i.i.i30.i
 
 if.then.i.i.i30.i:                                ; preds = %if.then.i.i28.i
-  %24 = cmpxchg ptr %22, i32 0, i32 1707250555 monotonic monotonic, align 4, !noalias !6
-  %25 = extractvalue { i32, i1 } %24, 1
-  br i1 %25, label %if.then.i.i.i.i37.i, label %lor.lhs.false.i.i.i.i31.i
+  %26 = cmpxchg ptr %24, i32 0, i32 1707250555 monotonic monotonic, align 4, !noalias !6
+  %27 = extractvalue { i32, i1 } %26, 1
+  br i1 %27, label %if.then.i.i.i.i37.i, label %lor.lhs.false.i.i.i.i31.i
 
 lor.lhs.false.i.i.i.i31.i:                        ; preds = %if.then.i.i.i30.i
-  %call1.i.i.i.i41.i = invoke noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %22, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
+  %call1.i.i.i.i41.i = invoke noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %24, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
           to label %call1.i.i.i.i.noexc40.i unwind label %lpad11.i, !noalias !6
 
 call1.i.i.i.i.noexc40.i:                          ; preds = %lor.lhs.false.i.i.i.i31.i
@@ -575,26 +580,26 @@ call1.i.i.i.i.noexc40.i:                          ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp.i.i.i.i32.i, label %if.then.i.i.i.i37.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i33.i
 
 if.then.i.i.i.i37.i:                              ; preds = %call1.i.i.i.i.noexc40.i, %if.then.i.i.i30.i
-  invoke void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef nonnull align 8 dereferenceable(88) %agg.tmp4.sroa.4.0.copyload)
+  invoke void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef nonnull align 8 dereferenceable(88) %23)
           to label %.noexc42.i unwind label %lpad11.i, !noalias !6
 
 .noexc42.i:                                       ; preds = %if.then.i.i.i.i37.i
-  %26 = atomicrmw xchg ptr %22, i32 221 release, align 4, !noalias !6
-  %cmp4.i.i.i.i38.i = icmp eq i32 %26, 94570706
+  %28 = atomicrmw xchg ptr %24, i32 221 release, align 4, !noalias !6
+  %cmp4.i.i.i.i38.i = icmp eq i32 %28, 94570706
   br i1 %cmp4.i.i.i.i38.i, label %if.then5.i.i.i.i39.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i33.i
 
 if.then5.i.i.i.i39.i:                             ; preds = %.noexc42.i
-  invoke void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull align 4 dereferenceable(4) %22, i1 noundef zeroext true)
+  invoke void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull align 4 dereferenceable(4) %24, i1 noundef zeroext true)
           to label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i33.i unwind label %lpad11.i, !noalias !6
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i33.i: ; preds = %if.then5.i.i.i.i39.i, %.noexc42.i, %call1.i.i.i.i.noexc40.i, %if.then.i.i28.i, %if.then19.i
-  %type_.i.i34.i = getelementptr inbounds nuw i8, ptr %agg.tmp4.sroa.4.0.copyload, i64 2
-  %27 = load i8, ptr %type_.i.i34.i, align 2, !noalias !6
-  %cmp.i35.i = icmp eq i8 %27, 11
+  %type_.i.i34.i = getelementptr inbounds nuw i8, ptr %23, i64 2
+  %29 = load i8, ptr %type_.i.i34.i, align 2, !noalias !6
+  %cmp.i35.i = icmp eq i8 %29, 11
   br i1 %cmp.i35.i, label %land.rhs.i36.i, label %if.end31.i
 
 land.rhs.i36.i:                                   ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i33.i
-  %call2.i45.i = invoke noundef zeroext i1 @_ZNK6google8protobuf15FieldDescriptor19is_map_message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %agg.tmp4.sroa.4.0.copyload)
+  %call2.i45.i = invoke noundef zeroext i1 @_ZNK6google8protobuf15FieldDescriptor19is_map_message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %23)
           to label %invoke.cont23.i unwind label %lpad11.i, !noalias !6
 
 invoke.cont23.i:                                  ; preds = %land.rhs.i36.i
@@ -602,25 +607,26 @@ invoke.cont23.i:                                  ; preds = %land.rhs.i36.i
   br label %if.end31.i
 
 if.else26.i:                                      ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i20.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %invoke.cont5.i
-  invoke fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_15ThunkINS0_15FieldDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7ContextIT_EESt17basic_string_viewIcS9_E(ptr noalias align 8 %agg.result, ptr noundef nonnull byval(%"class.google::protobuf::compiler::rust::Context.2") align 8 %field, i64 %op.coerce0, ptr %op.coerce1)
+  invoke fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_15ThunkINS0_15FieldDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_7ContextIT_EESt17basic_string_viewIcS9_E(ptr noalias align 8 %agg.result, ptr noundef nonnull byval(%"class.google::protobuf::compiler::rust::Context.2") align 8 %agg.tmp4, i64 %op.coerce0, ptr %op.coerce1)
           to label %cleanup.i unwind label %lpad11.i
 
 if.end31.i:                                       ; preds = %invoke.cont23.i, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i33.i, %invoke.cont14.i, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
   %.sink.i = phi ptr [ @.str.31, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i ], [ %spec.select.i, %invoke.cont14.i ], [ @.str.34, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i33.i ], [ %spec.select52.i, %invoke.cont23.i ]
   %call.i.i47.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink.i) #21, !noalias !6
-  %all_names_.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp4.sroa.4.0.copyload, i64 8
-  %28 = load ptr, ptr %all_names_.i.i, align 8, !noalias !6
-  %call.i50.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #21, !noalias !6
-  %29 = extractvalue { i64, ptr } %call.i50.i, 0
-  %30 = extractvalue { i64, ptr } %call.i50.i, 1
+  %30 = load ptr, ptr %agg.tmp.sroa.3.0.agg.tmp4.sroa_idx, align 8, !noalias !6
+  %all_names_.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %31 = load ptr, ptr %all_names_.i.i, align 8, !noalias !6
+  %call.i50.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #21, !noalias !6
+  %32 = extractvalue { i64, ptr } %call.i50.i, 0
+  %33 = extractvalue { i64, ptr } %call.i50.i, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %args.i.i), !noalias !6
   store i64 %op.coerce0, ptr %args.i.i, align 16, !noalias !6
-  %31 = getelementptr inbounds nuw i8, ptr %args.i.i, i64 8
-  store ptr %op.coerce1, ptr %31, align 8, !noalias !6
+  %34 = getelementptr inbounds nuw i8, ptr %args.i.i, i64 8
+  store ptr %op.coerce1, ptr %34, align 8, !noalias !6
   %arrayinit.element.i.i = getelementptr inbounds nuw i8, ptr %args.i.i, i64 16
-  store i64 %29, ptr %arrayinit.element.i.i, align 16, !noalias !6
-  %32 = getelementptr inbounds nuw i8, ptr %args.i.i, i64 24
-  store ptr %30, ptr %32, align 8, !noalias !6
+  store i64 %32, ptr %arrayinit.element.i.i, align 16, !noalias !6
+  %35 = getelementptr inbounds nuw i8, ptr %args.i.i, i64 24
+  store ptr %33, ptr %35, align 8, !noalias !6
   invoke void @_ZN4absl12lts_2023080219substitute_internal24SubstituteAndAppendArrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS5_EPKSA_m(ptr noundef nonnull %thunk.i, i64 %call.i.i47.i, ptr nonnull %.sink.i, ptr noundef nonnull %args.i.i, i64 noundef 2)
           to label %invoke.cont41.i unwind label %lpad11.i, !noalias !6
 
@@ -635,11 +641,12 @@ cleanup.i:                                        ; preds = %invoke.cont41.i, %i
 
 eh.resume.i:                                      ; preds = %lpad11.i, %lpad.i
   %thunk.sink.i = phi ptr [ %thunk.i, %lpad11.i ], [ %ref.tmp3.i, %lpad.i ]
-  %.pn.i = phi { ptr, i32 } [ %21, %lpad11.i ], [ %20, %lpad.i ]
+  %.pn.i = phi { ptr, i32 } [ %22, %lpad11.i ], [ %21, %lpad.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %thunk.sink.i) #21
   resume { ptr, i32 } %.pn.i
 
 _ZN6google8protobuf8compiler4rust12_GLOBAL__N_118ThunkMapOrRepeatedB5cxx11ENS2_7ContextINS0_15FieldDescriptorEEESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %if.then.i, %cleanup.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %thunk.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp2.i)

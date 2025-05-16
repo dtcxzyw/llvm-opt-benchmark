@@ -668,7 +668,7 @@ define internal i32 @encryptor(ptr noundef readonly captures(none) %0, ptr nound
   %85 = add i32 %84, -1
   %86 = and i32 %85, %13
   %87 = icmp eq i32 %13, %86
-  br i1 %87, label %128, label %88
+  br i1 %87, label %126, label %88
 
 88:                                               ; preds = %51
   %89 = sub i32 %13, %86
@@ -697,13 +697,13 @@ define internal i32 @encryptor(ptr noundef readonly captures(none) %0, ptr nound
   %106 = load ptr, ptr %5, align 8
   %107 = tail call i32 @crypto_skcipher_encrypt(ptr noundef %106) #8
   %108 = icmp eq i32 %107, 0
-  br i1 %108, label %109, label %128
+  br i1 %108, label %109, label %126
 
 109:                                              ; preds = %88
   tail call void @sg_init_table(ptr noundef nonnull %46, i32 noundef 4) #8
   tail call void @sg_init_table(ptr noundef nonnull %60, i32 noundef 4) #8
   %110 = icmp eq i32 %86, 0
-  br i1 %110, label %126, label %111
+  br i1 %110, label %124, label %111
 
 111:                                              ; preds = %109
   %112 = load i64, ptr %0, align 8
@@ -721,21 +721,19 @@ define internal i32 @encryptor(ptr noundef readonly captures(none) %0, ptr nound
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 188
   store i32 %86, ptr %122, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %60, i64 32, i1 false)
-  %123 = load i64, ptr %46, align 8
-  %124 = and i64 %123, 3
-  %125 = or disjoint i64 %124, %45
-  store i64 %125, ptr %46, align 8
+  %123 = or disjoint i64 %119, %45
+  store i64 %123, ptr %46, align 8
+  br label %124
+
+124:                                              ; preds = %111, %109
+  %125 = phi i32 [ 1, %111 ], [ 0, %109 ]
+  store i32 %125, ptr %14, align 8
+  store i32 %86, ptr %9, align 4
   br label %126
 
-126:                                              ; preds = %111, %109
-  %127 = phi i32 [ 1, %111 ], [ 0, %109 ]
-  store i32 %127, ptr %14, align 8
-  store i32 %86, ptr %9, align 4
-  br label %128
-
-128:                                              ; preds = %126, %88, %51
-  %129 = phi i32 [ 0, %126 ], [ 0, %51 ], [ %107, %88 ]
-  ret i32 %129
+126:                                              ; preds = %124, %88, %51
+  %127 = phi i32 [ 0, %124 ], [ 0, %51 ], [ %107, %88 ]
+  ret i32 %127
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

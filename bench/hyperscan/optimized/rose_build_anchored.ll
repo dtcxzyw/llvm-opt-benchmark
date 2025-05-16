@@ -8126,8 +8126,9 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
 
 173:                                              ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !419)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %148, i64 32, i1 false)
-  %174 = load i64, ptr %4, align 8, !alias.scope !419
+  %174 = load i64, ptr %148, align 8, !noalias !419
   %175 = and i64 %174, %158
   store i64 %175, ptr %4, align 8, !alias.scope !419
   %176 = load i64, ptr %134, align 8, !alias.scope !419

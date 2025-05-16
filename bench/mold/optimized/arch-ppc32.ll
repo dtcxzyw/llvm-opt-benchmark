@@ -3357,19 +3357,19 @@ _ZNK4mold6SymbolINS_5PPC32EE7has_pltERNS_7ContextIS1_EE.exit.thread33: ; preds =
 
 116:                                              ; preds = %_ZNK4mold6SymbolINS_5PPC32EE7has_pltERNS_7ContextIS1_EE.exit.thread33, %113
   %.pn = phi i64 [ %115, %_ZNK4mold6SymbolINS_5PPC32EE7has_pltERNS_7ContextIS1_EE.exit.thread33 ], [ %114, %113 ]
-  %.sink = sub i64 %.pn, %.02836
-  %117 = trunc i64 %.sink to i32
+  %.sink51 = sub i64 %.pn, %.02836
+  %117 = trunc i64 %.sink51 to i32
   %118 = add i32 %117, 32760
-  %119 = lshr i32 %118, 16
-  %120 = getelementptr inbounds nuw i8, ptr %.038, i64 17
-  %121 = getelementptr inbounds nuw i8, ptr %.038, i64 18
-  %122 = getelementptr inbounds nuw i8, ptr %.038, i64 19
-  store i8 108, ptr %120, align 1, !tbaa !259
-  %123 = lshr i32 %118, 24
-  %124 = trunc nuw i32 %123 to i8
-  store i8 %124, ptr %121, align 1, !tbaa !259
-  %125 = trunc i32 %119 to i8
-  store i8 %125, ptr %122, align 1, !tbaa !259
+  %119 = getelementptr inbounds nuw i8, ptr %.038, i64 17
+  %120 = getelementptr inbounds nuw i8, ptr %.038, i64 18
+  %121 = getelementptr inbounds nuw i8, ptr %.038, i64 19
+  %122 = tail call i32 @llvm.fshl.i32(i32 108, i32 %118, i32 16)
+  store i8 108, ptr %119, align 1, !tbaa !259
+  %123 = lshr i32 %122, 8
+  %124 = trunc i32 %123 to i8
+  store i8 %124, ptr %120, align 1, !tbaa !259
+  %125 = trunc i32 %122 to i8
+  store i8 %125, ptr %121, align 1, !tbaa !259
   %126 = add i32 %117, 65528
   %127 = getelementptr inbounds nuw i8, ptr %.038, i64 21
   %128 = getelementptr inbounds nuw i8, ptr %.038, i64 22
@@ -4265,6 +4265,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #16
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

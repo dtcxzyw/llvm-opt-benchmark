@@ -1219,68 +1219,70 @@ define dso_local range(i32 -1, 1) i32 @php_dom_xpath_callbacks_update_single_met
 
 php_dom_xpath_is_callback_name_valid_and_throw.exit: ; preds = %7, %14, %18
   tail call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.4) #9
-  br label %44
+  br label %46
 
 20:                                               ; preds = %12, %17, %18
   %21 = tail call fastcc ptr @php_dom_xpath_callbacks_ensure_ns(ptr noundef %0, ptr noundef %2)
   %22 = tail call noalias ptr @_emalloc_40() #9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
-  %23 = load ptr, ptr %22, align 8, !tbaa !14, !nonnull !56, !noundef !56
+  %23 = load ptr, ptr %4, align 8
   %24 = icmp eq ptr %23, getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1384)
-  br i1 %24, label %25, label %27, !prof !21
+  br i1 %24, label %25, label %29, !prof !21
 
 25:                                               ; preds = %20
   %26 = tail call noalias ptr @_emalloc_256() #9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %26, ptr noundef nonnull align 8 dereferenceable(256) getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1384), i64 256, i1 false)
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1392), align 8, !tbaa !13
+  %27 = load ptr, ptr %22, align 8, !tbaa !14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %26, ptr noundef nonnull align 8 dereferenceable(256) %27, i64 256, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr null, ptr %28, align 8, !tbaa !13
   store ptr %26, ptr %22, align 8, !tbaa !14
-  br label %27
+  br label %29
 
-27:                                               ; preds = %25, %20
-  %28 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !19
-  %.not.i = icmp eq ptr %29, null
-  br i1 %.not.i, label %33, label %30
+29:                                               ; preds = %25, %20
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %31 = load ptr, ptr %30, align 8, !tbaa !19
+  %.not.i = icmp eq ptr %31, null
+  br i1 %.not.i, label %35, label %32
 
-30:                                               ; preds = %27
-  %31 = load i32, ptr %29, align 4, !tbaa !20
-  %32 = add i32 %31, 1
-  store i32 %32, ptr %29, align 4, !tbaa !20
-  br label %33
+32:                                               ; preds = %29
+  %33 = load i32, ptr %31, align 4, !tbaa !20
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %31, align 4, !tbaa !20
+  br label %35
 
-33:                                               ; preds = %30, %27
-  %34 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !22
-  %.not12.i = icmp eq ptr %35, null
-  br i1 %.not12.i, label %zend_fcc_addref.exit, label %36
+35:                                               ; preds = %32, %29
+  %36 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %37 = load ptr, ptr %36, align 8, !tbaa !22
+  %.not12.i = icmp eq ptr %37, null
+  br i1 %.not12.i, label %zend_fcc_addref.exit, label %38
 
-36:                                               ; preds = %33
-  %37 = load i32, ptr %35, align 4, !tbaa !20
-  %38 = add i32 %37, 1
-  store i32 %38, ptr %35, align 4, !tbaa !20
+38:                                               ; preds = %35
+  %39 = load i32, ptr %37, align 4, !tbaa !20
+  %40 = add i32 %39, 1
+  store i32 %40, ptr %37, align 4, !tbaa !20
   br label %zend_fcc_addref.exit
 
-zend_fcc_addref.exit:                             ; preds = %33, %36
+zend_fcc_addref.exit:                             ; preds = %35, %38
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #9
   store ptr %22, ptr %8, align 8, !tbaa !13
-  %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 13, ptr %39, align 8, !tbaa !13
-  %40 = call ptr @zend_hash_update(ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull %8) #9
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 13, ptr %41, align 8, !tbaa !13
+  %42 = call ptr @zend_hash_update(ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull %8) #9
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %42, label %41
+  br i1 %.not, label %44, label %43
 
-41:                                               ; preds = %zend_fcc_addref.exit
+43:                                               ; preds = %zend_fcc_addref.exit
   call void %6(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) #9
-  br label %42
-
-42:                                               ; preds = %41, %zend_fcc_addref.exit
-  %43 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  store i32 2, ptr %43, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #9
   br label %44
 
-44:                                               ; preds = %php_dom_xpath_is_callback_name_valid_and_throw.exit, %42
-  %.0 = phi i32 [ 0, %42 ], [ -1, %php_dom_xpath_is_callback_name_valid_and_throw.exit ]
+44:                                               ; preds = %43, %zend_fcc_addref.exit
+  %45 = getelementptr inbounds nuw i8, ptr %21, i64 56
+  store i32 2, ptr %45, align 8, !tbaa !4
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #9
+  br label %46
+
+46:                                               ; preds = %php_dom_xpath_is_callback_name_valid_and_throw.exit, %44
+  %.0 = phi i32 [ 0, %44 ], [ -1, %php_dom_xpath_is_callback_name_valid_and_throw.exit ]
   ret i32 %.0
 }
 
@@ -1659,8 +1661,8 @@ zend_string_release_ex.exit:                      ; preds = %zend_string_alloc.e
   %53 = tail call noalias ptr @_emalloc_256() #9
   %54 = load ptr, ptr %47, align 8, !tbaa !14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %53, ptr noundef nonnull align 8 dereferenceable(256) %54, i64 256, i1 false)
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !13
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load i32, ptr %57, align 4, !tbaa !13
   %59 = and i32 %58, 64

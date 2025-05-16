@@ -2185,106 +2185,105 @@ define linkonce_odr hidden noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE7b
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 48
-  br label %31
+  br label %30
 
-31:                                               ; preds = %13, %62
-  %.03966 = phi i64 [ 0, %13 ], [ %63, %62 ]
-  %32 = sub nsw i64 %9, %.03966
-  %.sroa.speculated = call i64 @llvm.smin.i64(i64 %32, i64 %.sroa.speculated49)
-  %33 = sub nsw i64 %32, %.sroa.speculated
+30:                                               ; preds = %13, %61
+  %.03966 = phi i64 [ 0, %13 ], [ %62, %61 ]
+  %31 = sub nsw i64 %9, %.03966
+  %.sroa.speculated = call i64 @llvm.smin.i64(i64 %31, i64 %.sroa.speculated49)
+  %32 = sub nsw i64 %31, %.sroa.speculated
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #32
-  %34 = load ptr, ptr %0, align 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !90
-  %36 = getelementptr inbounds nuw double, ptr %35, i64 %.03966
-  %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %38 = load i64, ptr %37, align 8, !tbaa !89
-  %39 = mul nsw i64 %38, %.03966
-  %40 = getelementptr inbounds double, ptr %36, i64 %39
-  store ptr %40, ptr %2, align 8, !tbaa !162
+  %33 = load ptr, ptr %0, align 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !90
+  %35 = getelementptr inbounds nuw double, ptr %34, i64 %.03966
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %37 = load i64, ptr %36, align 8, !tbaa !89
+  %38 = mul nsw i64 %37, %.03966
+  %39 = getelementptr inbounds double, ptr %35, i64 %38
+  store ptr %39, ptr %2, align 8, !tbaa !162
   store i64 %.sroa.speculated, ptr %18, align 8, !tbaa !82
   store i64 %.sroa.speculated, ptr %19, align 8, !tbaa !82
-  %41 = ptrtoint ptr %34 to i64
-  store i64 %41, ptr %20, align 8
+  %40 = ptrtoint ptr %33 to i64
+  store i64 %40, ptr %20, align 8
   store i64 %.03966, ptr %21, align 8, !tbaa !82
   store i64 %.03966, ptr %22, align 8, !tbaa !82
-  %42 = load i64, ptr %37, align 8, !tbaa !89
-  store i64 %42, ptr %23, align 8, !tbaa !164
+  %41 = load i64, ptr %36, align 8, !tbaa !89
+  store i64 %41, ptr %23, align 8, !tbaa !164
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #32
-  %43 = add nsw i64 %.sroa.speculated, %.03966
-  %44 = load ptr, ptr %34, align 8, !tbaa !90
-  %45 = getelementptr inbounds double, ptr %44, i64 %43
-  %46 = mul nsw i64 %42, %.03966
-  %47 = getelementptr inbounds double, ptr %45, i64 %46
-  store ptr %47, ptr %3, align 8, !tbaa !162
-  store i64 %33, ptr %24, align 8, !tbaa !82
+  %42 = add nsw i64 %.sroa.speculated, %.03966
+  %43 = load ptr, ptr %33, align 8, !tbaa !90
+  %44 = getelementptr inbounds double, ptr %43, i64 %42
+  %45 = mul nsw i64 %41, %.03966
+  %46 = getelementptr inbounds double, ptr %44, i64 %45
+  store ptr %46, ptr %3, align 8, !tbaa !162
+  store i64 %32, ptr %24, align 8, !tbaa !82
   store i64 %.sroa.speculated, ptr %25, align 8, !tbaa !82
-  store i64 %41, ptr %26, align 8
-  store i64 %43, ptr %27, align 8, !tbaa !82
+  store i64 %40, ptr %26, align 8
+  store i64 %42, ptr %27, align 8, !tbaa !82
   store i64 %.03966, ptr %28, align 8, !tbaa !82
-  %48 = load i64, ptr %37, align 8, !tbaa !89
-  store i64 %48, ptr %29, align 8, !tbaa !164
-  %49 = load ptr, ptr %34, align 8, !tbaa !90
-  %50 = getelementptr inbounds double, ptr %49, i64 %43
-  %51 = mul nsw i64 %48, %43
-  %52 = getelementptr inbounds double, ptr %50, i64 %51
-  %53 = call noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE9unblockedINS_5BlockINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELin1ELin1ELb0EEEEElRT_(ptr noundef nonnull align 8 dereferenceable(56) %2)
-  %54 = icmp slt i64 %53, 0
-  br i1 %54, label %55, label %.critedge
+  %47 = load i64, ptr %36, align 8, !tbaa !89
+  store i64 %47, ptr %29, align 8, !tbaa !164
+  %48 = load ptr, ptr %33, align 8, !tbaa !90
+  %49 = getelementptr inbounds double, ptr %48, i64 %42
+  %50 = mul nsw i64 %47, %42
+  %51 = getelementptr inbounds double, ptr %49, i64 %50
+  %52 = call noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE9unblockedINS_5BlockINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELin1ELin1ELb0EEEEElRT_(ptr noundef nonnull align 8 dereferenceable(56) %2)
+  %53 = icmp slt i64 %52, 0
+  br i1 %53, label %54, label %.critedge
 
-55:                                               ; preds = %31
-  %56 = icmp sgt i64 %33, 0
-  br i1 %56, label %57, label %62
+54:                                               ; preds = %30
+  %55 = icmp sgt i64 %32, 0
+  br i1 %55, label %56, label %61
 
-57:                                               ; preds = %55
+56:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
-  %58 = load i64, ptr %30, align 8, !tbaa !82
-  %59 = icmp eq i64 %58, 0
-  br i1 %59, label %_ZNK5Eigen18TriangularViewImplIKNS_9TransposeIKNS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELin1ELin1ELb0EEEEELj2ENS_5DenseEE12solveInPlaceILi2ES6_EEvRKNS_10MatrixBaseIT0_EE.exit, label %60
+  %57 = load i64, ptr %18, align 8
+  %58 = icmp eq i64 %57, 0
+  br i1 %58, label %_ZNK5Eigen18TriangularViewImplIKNS_9TransposeIKNS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELin1ELin1ELb0EEEEELj2ENS_5DenseEE12solveInPlaceILi2ES6_EEvRKNS_10MatrixBaseIT0_EE.exit, label %59
 
-60:                                               ; preds = %57
+59:                                               ; preds = %56
   call void @_ZN5Eigen8internal26triangular_solver_selectorIKNS_9TransposeIKNS_5BlockINS2_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELin1ELin1ELb0EEEEES7_Li2ELi2ELi0ELin1EE3runERSA_RS7_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %3)
   br label %_ZNK5Eigen18TriangularViewImplIKNS_9TransposeIKNS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELin1ELin1ELb0EEEEELj2ENS_5DenseEE12solveInPlaceILi2ES6_EEvRKNS_10MatrixBaseIT0_EE.exit
 
-_ZNK5Eigen18TriangularViewImplIKNS_9TransposeIKNS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELin1ELin1ELb0EEEEELj2ENS_5DenseEE12solveInPlaceILi2ES6_EEvRKNS_10MatrixBaseIT0_EE.exit: ; preds = %57, %60
+_ZNK5Eigen18TriangularViewImplIKNS_9TransposeIKNS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELin1ELin1ELb0EEEEELj2ENS_5DenseEE12solveInPlaceILi2ES6_EEvRKNS_10MatrixBaseIT0_EE.exit: ; preds = %56, %59
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #32
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #32
-  store ptr %52, ptr %5, align 8
-  store i64 %33, ptr %.sroa.4.0..sroa_idx, align 8
-  store i64 %33, ptr %.sroa.5.0..sroa_idx, align 8
-  store i64 %41, ptr %.sroa.6.0..sroa_idx, align 8
-  store i64 %43, ptr %.sroa.7.0..sroa_idx, align 8
-  store i64 %43, ptr %.sroa.8.0..sroa_idx, align 8
-  store i64 %48, ptr %.sroa.9.0..sroa_idx, align 8
+  store ptr %51, ptr %5, align 8
+  store i64 %32, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %32, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %40, ptr %.sroa.6.0..sroa_idx, align 8
+  store i64 %42, ptr %.sroa.7.0..sroa_idx, align 8
+  store i64 %42, ptr %.sroa.8.0..sroa_idx, align 8
+  store i64 %47, ptr %.sroa.9.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #32
   store double -1.000000e+00, ptr %6, align 8, !tbaa !83
   call void @_ZN5Eigen28selfadjoint_product_selectorINS_5BlockINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELin1ELin1ELb0EEES6_Li1ELb0EE3runERS6_RKS6_RKd(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #32
-  br label %62
+  br label %61
 
-.critedge:                                        ; preds = %31
-  %61 = add nuw nsw i64 %53, %.03966
+.critedge:                                        ; preds = %30
+  %60 = add nuw nsw i64 %52, %.03966
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #32
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #32
   br label %.loopexit
 
-62:                                               ; preds = %_ZNK5Eigen18TriangularViewImplIKNS_9TransposeIKNS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELin1ELin1ELb0EEEEELj2ENS_5DenseEE12solveInPlaceILi2ES6_EEvRKNS_10MatrixBaseIT0_EE.exit, %55
+61:                                               ; preds = %_ZNK5Eigen18TriangularViewImplIKNS_9TransposeIKNS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELin1ELin1ELb0EEEEELj2ENS_5DenseEE12solveInPlaceILi2ES6_EEvRKNS_10MatrixBaseIT0_EE.exit, %54
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #32
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #32
-  %63 = add nuw nsw i64 %.03966, %.sroa.speculated49
-  %.not = icmp slt i64 %63, %9
-  br i1 %.not, label %31, label %.loopexit, !llvm.loop !167
+  %62 = add nuw nsw i64 %.03966, %.sroa.speculated49
+  %.not = icmp slt i64 %62, %9
+  br i1 %.not, label %30, label %.loopexit, !llvm.loop !167
 
-.loopexit:                                        ; preds = %62, %.critedge, %11
-  %.0 = phi i64 [ %12, %11 ], [ %61, %.critedge ], [ -1, %62 ]
+.loopexit:                                        ; preds = %61, %.critedge, %11
+  %.0 = phi i64 [ %12, %11 ], [ %60, %.critedge ], [ -1, %61 ]
   ret i64 %.0
 }
 

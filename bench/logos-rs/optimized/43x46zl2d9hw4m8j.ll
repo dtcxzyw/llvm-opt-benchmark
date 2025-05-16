@@ -567,36 +567,41 @@ define ptr @"_ZN128_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tra
 define ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h6eba204d17139096E"(ptr readnone align 1 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %4 = load i64, ptr %3, align 8
+  %4 = load i64, ptr %1, align 8
   %.not.i = icmp eq i64 %4, -9223372036854775808
   br i1 %.not.i, label %"_ZN128_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..FromIterator$LT$proc_macro2..imp..TokenStream$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h5a4c9392c0ab1f09E.exit", label %5
 
 5:                                                ; preds = %2
   invoke void @_ZN11proc_macro23imp8mismatch17h4a96c6474117408fE(i32 216) #7
-          to label %6 unwind label %8
+          to label %10 unwind label %6
 
 6:                                                ; preds = %5
+  %7 = landingpad { ptr, i32 }
+          cleanup
+  %8 = load i64, ptr %3, align 8
+  %9 = icmp eq i64 %8, -9223372036854775808
+  br i1 %9, label %11, label %12
+
+10:                                               ; preds = %5
   unreachable
 
-7:                                                ; preds = %8
-  resume { ptr, i32 } %9
+11:                                               ; preds = %12, %6
+  resume { ptr, i32 } %7
 
-8:                                                ; preds = %5
-  %9 = landingpad { ptr, i32 }
-          cleanup
+12:                                               ; preds = %6
   invoke void @"_ZN4core3ptr50drop_in_place$LT$proc_macro2..imp..TokenStream$GT$17h67611183cc9d7712E"(ptr nonnull align 8 %3) #5
-          to label %7 unwind label %10
+          to label %11 unwind label %13
 
-10:                                               ; preds = %8
-  %11 = landingpad { ptr, i32 }
+13:                                               ; preds = %12
+  %14 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
 "_ZN128_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..FromIterator$LT$proc_macro2..imp..TokenStream$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h5a4c9392c0ab1f09E.exit": ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %13 = load ptr, ptr %12, align 8
-  ret ptr %13
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %16 = load ptr, ptr %15, align 8
+  ret ptr %16
 }
 
 ; Function Attrs: nonlazybind uwtable

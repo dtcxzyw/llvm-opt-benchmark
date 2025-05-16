@@ -3970,37 +3970,34 @@ _ZN10ockam_core7routing7message13opentelemetry20OpenTelemetryContext7extract17hc
 define void @_ZN10ockam_core7routing7message13opentelemetry20OpenTelemetryContext19from_remote_context17hae6b7ece3f9fb3bbE(ptr noalias noundef sret({ { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } } }) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } } }, align 8
   %5 = alloca { ptr, [5 x i64] }, align 8
-  %.sroa.5 = alloca [5 x i64], align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.5)
+  %6 = alloca { ptr, [5 x i64] }, align 8
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @_ZN10ockam_core7routing7message13opentelemetry28opentelemetry_context_parser17hbc01f78d6a3cd0c9E(ptr noalias noundef nonnull sret({ ptr, [5 x i64] }) align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-  %6 = load ptr, ptr %5, align 8, !noundef !5
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %.thread, label %8
+  %7 = load ptr, ptr %5, align 8, !noundef !5
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %.thread, label %9
 
-8:                                                ; preds = %3
-  %.sroa.0.0.copyload12 = load ptr, ptr %5, align 8
-  %.sroa.5.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx13, i64 40, i1 false)
-  %9 = icmp eq ptr %.sroa.0.0.copyload12, null
+9:                                                ; preds = %3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
+  %.pre1112 = load ptr, ptr %5, align 8
+  %10 = icmp eq ptr %.pre1112, null
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  br i1 %9, label %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17h1902d7af837a24e5E.exit", label %10
+  br i1 %10, label %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17h1902d7af837a24e5E.exit", label %11
 
 .thread:                                          ; preds = %3
   call void @"_ZN4core3ptr141drop_in_place$LT$core..result..Result$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$C$ockam_core..error..Error$GT$$GT$17h16b943e0a9ef7bc1E.llvm.9046935466133531089"(ptr noalias noundef nonnull align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   br label %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17h1902d7af837a24e5E.exit"
 
-10:                                               ; preds = %8
-  store ptr %.sroa.0.0.copyload12, ptr %4, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5, i64 40, i1 false)
+11:                                               ; preds = %9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
   call void @_ZN10ockam_core7routing7message13opentelemetry20OpenTelemetryContext21set_as_parent_context17hec7b9d21b7cb8baeE.llvm.9046935466133531089(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   br label %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17h1902d7af837a24e5E.exit"
 
-"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17h1902d7af837a24e5E.exit": ; preds = %.thread, %10, %8
+"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17h1902d7af837a24e5E.exit": ; preds = %.thread, %11, %9
   call void @_ZN10ockam_core7routing7message13opentelemetry20OpenTelemetryContext7current17h2291a5e54e809fefE(ptr noalias noundef nonnull sret({ { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } } }) align 8 captures(none) dereferenceable(48) %0)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   ret void
 }
 

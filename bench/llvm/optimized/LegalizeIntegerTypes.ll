@@ -31782,7 +31782,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit._crit_edge:   ; preds = %_ZN4llvm5SDLocC2EPK
   %36 = zext i1 %32 to i64
   %37 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %34, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false), !tbaa.struct !192
-  %38 = load ptr, ptr %14, align 8, !tbaa !155
+  %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %40 = load i32, ptr %39, align 8, !tbaa !156
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 48
@@ -31802,12 +31802,13 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit._crit_edge:   ; preds = %_ZN4llvm5SDLocC2EPK
   %50 = load i8, ptr %12, align 8, !tbaa !149
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #18
   %51 = icmp eq i8 %50, 8
+  %.pre114 = load ptr, ptr %14, align 8, !tbaa !155
   br i1 %51, label %52, label %86
 
 52:                                               ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit._crit_edge
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 904
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #18
-  %54 = call noundef i32 @_ZN4llvm16DAGTypeLegalizer10getTableIdENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nonnull %38, i32 %40)
+  %54 = call noundef i32 @_ZN4llvm16DAGTypeLegalizer10getTableIdENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr %.pre114, i32 %40)
   store i32 %54, ptr %11, align 4, !tbaa !28
   %55 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixEOj(ptr noundef nonnull align 1 dereferenceable(1) %53, ptr noundef nonnull align 4 dereferenceable(4) %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #18
@@ -31866,13 +31867,13 @@ _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %76, %
   %.sroa.25.0.copyload.i = load i32, ptr %.sroa.25.0..sroa_idx.i, align 8, !tbaa !28
   store ptr %.sroa.04.0.copyload.i, ptr %14, align 8, !tbaa !34
   store i32 %.sroa.25.0.copyload.i, ptr %39, align 8, !tbaa !28
-  %.pre114 = zext i32 %.sroa.25.0.copyload.i to i64
+  %.pre115 = zext i32 %.sroa.25.0.copyload.i to i64
   br label %86
 
 86:                                               ; preds = %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit._crit_edge
-  %.pre-phi = phi i64 [ %.pre114, %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit ], [ %43, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit._crit_edge ]
+  %.pre-phi = phi i64 [ %.pre115, %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit ], [ %43, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit._crit_edge ]
   %.sroa.227.0.copyload = phi i32 [ %.sroa.25.0.copyload.i, %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit ], [ %40, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit._crit_edge ]
-  %.sroa.026.0.copyload = phi ptr [ %.sroa.04.0.copyload.i, %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit ], [ %38, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit._crit_edge ]
+  %.sroa.026.0.copyload = phi ptr [ %.sroa.04.0.copyload.i, %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit ], [ %.pre114, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit._crit_edge ]
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.026.0.copyload, i64 48
   %88 = load ptr, ptr %87, align 8, !tbaa !3
   %89 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %88, i64 %.pre-phi
@@ -31947,11 +31948,11 @@ _ZN4llvm5SDLocC2ERKS0_.exit:                      ; preds = %.critedge, %100
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %.sroa.227.0.copyload, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !28
   %112 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(952) %104, i32 noundef 233, ptr noundef nonnull align 8 dereferenceable(12) %15, i16 12, ptr null, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %9) #18
-  %.pre115 = extractvalue { ptr, i32 } %112, 0
+  %.pre116 = extractvalue { ptr, i32 } %112, 0
   br label %_ZL14fpExtendHelperN4llvm7SDValueERS0_bNS_3EVTENS_5SDLocERNS_12SelectionDAGE.exit
 
 _ZL14fpExtendHelperN4llvm7SDValueERS0_bNS_3EVTENS_5SDLocERNS_12SelectionDAGE.exit: ; preds = %105, %111
-  %.fca.0.extract.pre-phi = phi ptr [ %.fca.0.extract4.i, %105 ], [ %.pre115, %111 ]
+  %.fca.0.extract.pre-phi = phi ptr [ %.fca.0.extract4.i, %105 ], [ %.pre116, %111 ]
   %.sroa.8.2 = phi i32 [ 1, %105 ], [ %.sroa.8.0, %111 ]
   %.sroa.0103.2 = phi ptr [ %.fca.0.extract4.i, %105 ], [ %.sroa.0103.0, %111 ]
   %.fca.1.insert.merged.i = phi { ptr, i32 } [ %110, %105 ], [ %112, %111 ]
@@ -46483,15 +46484,15 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %4, %35
   %.sroa.0.0.copyload.i.i303 = load i16, ptr %51, align 8, !tbaa !23
   %.sroa.21.0..sroa_idx.i.i304 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %.sroa.21.0.copyload.i.i305 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i304, align 8, !tbaa !25
-  %.sroa.0.0.copyload = load i16, ptr %7, align 8, !tbaa !23
-  %.sroa.5386.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.5386.0.copyload = load ptr, ptr %.sroa.5386.0..sroa_idx, align 8, !tbaa !25
+  %.sroa.4387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.4387.0.copyload = load ptr, ptr %.sroa.4387.0..sroa_idx, align 8, !tbaa !25
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.0276.0.copyload.pre380 = load i16, ptr %7, align 8
   br label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit
 
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.backedge, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
-  %.sroa.2278.0.copyload = phi ptr [ %.sroa.5386.0.copyload, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ %62, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.backedge ]
-  %.sroa.0276.0.copyload = phi i16 [ %.sroa.0.0.copyload, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ %61, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.backedge ]
+  %.sroa.2278.0.copyload = phi ptr [ %.sroa.4387.0.copyload, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ %62, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.backedge ]
+  %.sroa.0276.0.copyload = phi i16 [ %.sroa.0276.0.copyload.pre380, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ %61, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.backedge ]
   %53 = load ptr, ptr %0, align 8, !tbaa !60
   %54 = load ptr, ptr %52, align 8, !tbaa !37
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 64

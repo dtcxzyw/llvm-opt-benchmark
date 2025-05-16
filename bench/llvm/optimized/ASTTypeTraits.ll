@@ -2129,7 +2129,7 @@ define linkonce_odr hidden i64 @_ZNK5clang16ConceptReference14getSourceRangeEv(p
   %2 = alloca %"class.clang::NestedNameSpecifierLoc", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(72) %0, i64 16, i1 false), !tbaa.struct !50
-  %3 = load ptr, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %6, label %4
 
@@ -2148,7 +2148,7 @@ define linkonce_odr hidden i64 @_ZNK5clang16ConceptReference14getSourceRangeEv(p
 _ZNK5clang16ConceptReference11getBeginLocEv.exit: ; preds = %4, %6
   %.sroa.0.1.i = phi i32 [ %.sroa.0.0.extract.trunc.i.i, %4 ], [ %.sroa.0.0.copyload.i.i, %6 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %9 = load ptr, ptr %8, align 8, !tbaa !55
+  %9 = load ptr, ptr %8, align 8, !tbaa !53
   %.not.i2 = icmp eq ptr %9, null
   br i1 %.not.i2, label %12, label %10
 
@@ -2258,13 +2258,12 @@ attributes #14 = { nounwind willreturn memory(read) }
 !50 = !{i64 0, i64 8, !51, i64 8, i64 8, !47}
 !51 = !{!52, !52, i64 0}
 !52 = !{!"p1 _ZTSN5clang19NestedNameSpecifierE", !11, i64 0}
-!53 = !{!54, !52, i64 0}
-!54 = !{!"_ZTSN5clang22NestedNameSpecifierLocE", !52, i64 0, !11, i64 8}
-!55 = !{!56, !62, i64 64}
-!56 = !{!"_ZTSN5clang16ConceptReferenceE", !54, i64 0, !30, i64 16, !57, i64 24, !60, i64 48, !61, i64 56, !62, i64 64}
-!57 = !{!"_ZTSN5clang19DeclarationNameInfoE", !58, i64 0, !30, i64 8, !59, i64 16}
-!58 = !{!"_ZTSN5clang15DeclarationNameE", !39, i64 0}
-!59 = !{!"_ZTSN5clang18DeclarationNameLocE", !6, i64 0}
-!60 = !{!"p1 _ZTSN5clang9NamedDeclE", !11, i64 0}
-!61 = !{!"p1 _ZTSN5clang11ConceptDeclE", !11, i64 0}
-!62 = !{!"p1 _ZTSN5clang27ASTTemplateArgumentListInfoE", !11, i64 0}
+!53 = !{!54, !61, i64 64}
+!54 = !{!"_ZTSN5clang16ConceptReferenceE", !55, i64 0, !30, i64 16, !56, i64 24, !59, i64 48, !60, i64 56, !61, i64 64}
+!55 = !{!"_ZTSN5clang22NestedNameSpecifierLocE", !52, i64 0, !11, i64 8}
+!56 = !{!"_ZTSN5clang19DeclarationNameInfoE", !57, i64 0, !30, i64 8, !58, i64 16}
+!57 = !{!"_ZTSN5clang15DeclarationNameE", !39, i64 0}
+!58 = !{!"_ZTSN5clang18DeclarationNameLocE", !6, i64 0}
+!59 = !{!"p1 _ZTSN5clang9NamedDeclE", !11, i64 0}
+!60 = !{!"p1 _ZTSN5clang11ConceptDeclE", !11, i64 0}
+!61 = !{!"p1 _ZTSN5clang27ASTTemplateArgumentListInfoE", !11, i64 0}

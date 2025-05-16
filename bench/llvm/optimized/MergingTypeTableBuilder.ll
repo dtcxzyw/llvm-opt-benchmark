@@ -388,14 +388,10 @@ define dso_local i32 @_ZN4llvm8codeview23MergingTypeTableBuilder12insertRecordER
   %8 = load ptr, ptr %3, align 8, !tbaa !61
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !61
-  %.not9 = icmp eq ptr %8, %10
-  br i1 %.not9, label %._crit_edge, label %.lr.ph
+  %.not11 = icmp eq ptr %8, %10
+  br i1 %.not11, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %18
-
-._crit_edge.loopexit:                             ; preds = %18
+._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %3, align 8, !tbaa !63
   br label %._crit_edge
 
@@ -418,19 +414,20 @@ _ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EED2Ev.exit: ; 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17
   ret i32 %.sroa.08.0.lcssa
 
-18:                                               ; preds = %.lr.ph, %18
-  %.sroa.05.010 = phi ptr [ %8, %.lr.ph ], [ %22, %18 ]
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.sroa.05.012 = phi ptr [ %22, %.lr.ph ], [ %8, %2 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.010, i64 16, i1 false), !tbaa.struct !28
-  %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8, !tbaa !19
-  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !21
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
-  %20 = call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %.sroa.0.0.copyload.i, ptr noundef %19)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.012, i64 16, i1 false), !tbaa.struct !28
+  %.sroa.0.0.copyload.i9 = load ptr, ptr %.sroa.05.012, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.05.012, i64 8
+  %.sroa.2.0.copyload.i10 = load i64, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i9, i64 %.sroa.2.0.copyload.i10
+  %20 = call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %.sroa.0.0.copyload.i9, ptr noundef %19)
   %21 = call i32 @_ZN4llvm8codeview23MergingTypeTableBuilder14insertRecordAsENS_9hash_codeERNS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 %20, ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.05.010, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.05.012, i64 16
   %.not = icmp eq ptr %22, %10
-  br i1 %.not, label %._crit_edge.loopexit, label %18
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 }
 
 declare void @_ZN4llvm8codeview25ContinuationRecordBuilder3endENS0_9TypeIndexE(ptr dead_on_unwind writable sret(%"class.std::vector.15") align 8, ptr noundef nonnull align 8 dereferenceable(248), i32) local_unnamed_addr #2
