@@ -332,7 +332,7 @@ define void @_ZN6LibRaw17canon_600_auto_wbEv(ptr noundef nonnull align 8 capture
   %65 = add nsw i32 %64, 1024
   %66 = mul nsw i32 %65, %62
   %67 = ashr i32 %66, 10
-  %.reass145 = or i64 %59, %invariant.op144
+  %.reass145 = or disjoint i64 %59, %invariant.op144
   %68 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %.reass145
   store i32 %67, ptr %68, align 4, !tbaa !77
   br i1 %58, label %57, label %.loopexit85.us, !llvm.loop !84
@@ -432,7 +432,7 @@ _ZN6LibRaw15canon_600_colorEPii.exit.us:          ; preds = %104, %101, %97, %72
   %107 = phi i1 [ true, %.preheader86.us ], [ false, %106 ]
   %indvars.iv116 = phi i64 [ 0, %.preheader86.us ], [ 2, %106 ]
   %108 = or disjoint i64 %indvars.iv116, %158
-  %.reass = or i64 %indvars.iv116, %invariant.op
+  %.reass = or disjoint i64 %indvars.iv116, %invariant.op
   %109 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %.reass
   %110 = load i32, ptr %109, align 4, !tbaa !77
   %111 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %108
@@ -502,7 +502,7 @@ _ZN6LibRaw15canon_600_colorEPii.exit.us:          ; preds = %104, %101, %97, %72
 
 .preheader.us:                                    ; preds = %.preheader88.us
   %156 = shl nuw nsw i64 %indvars.iv125, 2
-  %invariant.op144 = or i64 %156, 1
+  %invariant.op144 = or disjoint i64 %156, 1
   br label %57
 
 .preheader86.us:                                  ; preds = %41, %_ZN6LibRaw15canon_600_colorEPii.exit.us
@@ -511,7 +511,7 @@ _ZN6LibRaw15canon_600_colorEPii.exit.us:          ; preds = %104, %101, %97, %72
   %indvars.iv119.sroa.phi142 = phi ptr [ %indvars.iv119.sroa.gep, %_ZN6LibRaw15canon_600_colorEPii.exit.us ], [ %5, %41 ]
   %indvars.iv119 = phi i64 [ 1, %_ZN6LibRaw15canon_600_colorEPii.exit.us ], [ 0, %41 ]
   %158 = shl nuw nsw i64 %indvars.iv119, 2
-  %invariant.op = or i64 %158, 1
+  %invariant.op = or disjoint i64 %158, 1
   br label %106
 
 .preheader87.us:                                  ; preds = %.loopexit85.us

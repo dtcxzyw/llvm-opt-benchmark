@@ -252,7 +252,7 @@ define hidden void @_ZN2dd11bdd_managerC2Ej(ptr noundef nonnull align 8 derefere
   %49 = icmp ne i64 %indvars.iv99, %indvars.iv95
   %50 = or i1 %38, %46
   %51 = and i1 %38, %46
-  %invariant.op = or i64 %48, %indvars.iv99
+  %invariant.op = or disjoint i64 %48, %indvars.iv99
   br label %54
 
 52:                                               ; preds = %53
@@ -271,7 +271,7 @@ define hidden void @_ZN2dd11bdd_managerC2Ej(ptr noundef nonnull align 8 derefere
   %55 = phi ptr [ %.pre, %.preheader85 ], [ %112, %_ZN2dd11bdd_manager11apply_constEjjNS0_6bdd_opE.exit ]
   %indvars.iv = phi i64 [ 2, %.preheader85 ], [ %indvars.iv.next, %_ZN2dd11bdd_manager11apply_constEjjNS0_6bdd_opE.exit ]
   %56 = shl nuw nsw i64 %indvars.iv, 2
-  %.reass = or i64 %56, %invariant.op
+  %.reass = or disjoint i64 %56, %invariant.op
   %57 = add nuw nsw i64 %.reass, 1
   %58 = icmp eq ptr %55, null
   br i1 %58, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.preheader, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i

@@ -2642,7 +2642,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
 202:                                              ; preds = %201
   %203 = shl i32 %188, 16
   %204 = add i32 %203, 33554432
-  %invariant.op = or i32 %204, %179
+  %invariant.op = or disjoint i32 %204, %179
   br label %253
 
 205:                                              ; preds = %180
@@ -2651,7 +2651,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
 206:                                              ; preds = %205
   %207 = shl i32 %188, 16
   %208 = add i32 %207, 33554432
-  %invariant.op95 = or i32 %208, %179
+  %invariant.op95 = or disjoint i32 %208, %179
   br label %241
 
 209:                                              ; preds = %180
@@ -2660,7 +2660,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
 210:                                              ; preds = %209
   %211 = shl i32 %188, 16
   %212 = add i32 %211, 33554432
-  %invariant.op96 = or i32 %212, %179
+  %invariant.op96 = or disjoint i32 %212, %179
   br label %231
 
 213:                                              ; preds = %180
@@ -2669,7 +2669,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
 214:                                              ; preds = %213
   %215 = shl i32 %188, 16
   %216 = add i32 %215, 33554432
-  %invariant.op97 = or i32 %216, %179
+  %invariant.op97 = or disjoint i32 %216, %179
   br label %222
 
 217:                                              ; preds = %180
@@ -2679,7 +2679,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %219 = shl i32 %188, 16
   %220 = add i32 %219, 33554432
   %221 = zext i32 %199 to i64
-  %invariant.op98 = or i32 %220, %179
+  %invariant.op98 = or disjoint i32 %220, %179
   br label %267
 
 222:                                              ; preds = %222, %214
@@ -2688,7 +2688,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %225 = load i8, ptr %224, align 1
   %226 = zext i8 %225 to i32
   %227 = shl nuw nsw i32 %226, 8
-  %.reass20.reass.i.reass.reass = or i32 %227, %invariant.op97
+  %.reass20.reass.i.reass.reass = or disjoint i32 %227, %invariant.op97
   %228 = getelementptr i8, ptr %223, i64 4
   store i32 %.reass20.reass.i.reass.reass, ptr %223, align 2
   %229 = getelementptr i8, ptr %224, i64 1
@@ -2701,7 +2701,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %234 = load i8, ptr %233, align 1
   %235 = zext i8 %234 to i32
   %236 = shl nuw nsw i32 %235, 8
-  %.reass17.reass.i.reass.reass = or i32 %236, %invariant.op96
+  %.reass17.reass.i.reass.reass = or disjoint i32 %236, %invariant.op96
   store i32 %.reass17.reass.i.reass.reass, ptr %232, align 2
   %237 = getelementptr i8, ptr %232, i64 4
   store i32 %.reass17.reass.i.reass.reass, ptr %237, align 2
@@ -2716,7 +2716,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %244 = load i8, ptr %243, align 1
   %245 = zext i8 %244 to i32
   %246 = shl nuw nsw i32 %245, 8
-  %.reass14.reass.i.reass.reass = or i32 %246, %invariant.op95
+  %.reass14.reass.i.reass.reass = or disjoint i32 %246, %invariant.op95
   %247 = zext i32 %.reass14.reass.i.reass.reass to i64
   %248 = mul nuw i64 %247, 4294967297
   store i64 %248, ptr %242, align 2
@@ -2733,7 +2733,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %256 = load i8, ptr %255, align 1
   %257 = zext i8 %256 to i32
   %258 = shl nuw nsw i32 %257, 8
-  %.reass.reass.i.reass.reass = or i32 %258, %invariant.op
+  %.reass.reass.i.reass.reass = or disjoint i32 %258, %invariant.op
   %259 = zext i32 %.reass.reass.i.reass.reass to i64
   %260 = mul nuw i64 %259, 4294967297
   store i64 %260, ptr %254, align 2
@@ -2754,7 +2754,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %270 = load i8, ptr %269, align 1
   %271 = zext i8 %270 to i32
   %272 = shl nuw nsw i32 %271, 8
-  %.reass.reass = or i32 %272, %invariant.op98
+  %.reass.reass = or disjoint i32 %272, %invariant.op98
   %273 = zext i32 %.reass.reass to i64
   %274 = mul nuw i64 %273, 4294967297
   %275 = getelementptr %struct.HUF_DEltX2, ptr %268, i64 %221

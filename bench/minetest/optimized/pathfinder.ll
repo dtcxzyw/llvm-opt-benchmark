@@ -2317,7 +2317,7 @@ if.else:                                          ; preds = %_ZNK14NodeDefManage
   br i1 %cmp49.not535, label %cleanup225, label %land.lhs.true.preheader
 
 land.lhs.true.preheader:                          ; preds = %if.else
-  %invariant.op107 = or i48 %retval.sroa.0.0.insert.ext.i, %retval.sroa.3.0.insert.shift.i
+  %invariant.op107 = or disjoint i48 %retval.sroa.0.0.insert.ext.i, %retval.sroa.3.0.insert.shift.i
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.lhs.true.preheader, %while.body59
@@ -2362,7 +2362,7 @@ while.body59:                                     ; preds = %_ZNK14NodeDefManage
   %41 = load ptr, ptr %m_map, align 8, !tbaa !18
   %testpos.sroa.6.0.insert.ext = zext i16 %add8.i336 to i48
   %testpos.sroa.6.0.insert.shift = shl nuw nsw i48 %testpos.sroa.6.0.insert.ext, 16
-  %testpos.sroa.0.0.insert.insert.reass.reass.reass = or i48 %testpos.sroa.6.0.insert.shift, %invariant.op107
+  %testpos.sroa.0.0.insert.insert.reass.reass.reass = or disjoint i48 %testpos.sroa.6.0.insert.shift, %invariant.op107
   %call65 = tail call i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %41, i48 %testpos.sroa.0.0.insert.insert.reass.reass.reass, ptr noundef null)
   %42 = and i32 %call65, 65535
   %cmp49.not = icmp eq i32 %42, 127
@@ -2463,7 +2463,7 @@ if.else123:                                       ; preds = %_ZNK14NodeDefManage
 
 land.lhs.true134.lr.ph:                           ; preds = %if.else123
   %55 = and i48 %pos.coerce, -4294901761
-  %invariant.op = or i48 %retval.sroa.0.0.insert.ext.i, %retval.sroa.3.0.insert.shift.i
+  %invariant.op = or disjoint i48 %retval.sroa.0.0.insert.ext.i, %retval.sroa.3.0.insert.shift.i
   br label %land.lhs.true134
 
 land.lhs.true134:                                 ; preds = %if.end156, %land.lhs.true134.lr.ph
@@ -2540,7 +2540,7 @@ if.end156:                                        ; preds = %_ZNK14NodeDefManage
   %64 = load ptr, ptr %m_map, align 8, !tbaa !18
   %targetpos.sroa.7.0.insert.ext = zext i16 %add8.i398 to i48
   %targetpos.sroa.7.0.insert.shift = shl nuw nsw i48 %targetpos.sroa.7.0.insert.ext, 16
-  %targetpos.sroa.0.0.insert.insert.reass.reass.reass = or i48 %targetpos.sroa.7.0.insert.shift, %invariant.op
+  %targetpos.sroa.0.0.insert.insert.reass.reass.reass = or disjoint i48 %targetpos.sroa.7.0.insert.shift, %invariant.op
   %call164 = tail call i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %64, i48 %targetpos.sroa.0.0.insert.insert.reass.reass.reass, ptr noundef null)
   %65 = load ptr, ptr %m_map, align 8, !tbaa !18
   %jumppos.sroa.7.0.insert.ext = zext i16 %add8.i407 to i48

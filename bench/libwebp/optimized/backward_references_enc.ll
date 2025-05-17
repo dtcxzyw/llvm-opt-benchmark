@@ -950,7 +950,7 @@ GetBackwardReferencesLowEffort.exit:              ; preds = %72, %VP8LRefsCursor
   %118 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %119 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %120 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %invariant.op = or i64 %.sroa.3.0.insert.shift.i.i.i, 2
+  %invariant.op = or disjoint i64 %.sroa.3.0.insert.shift.i.i.i, 2
   br label %126
 
 .preheader.loopexit.i:                            ; preds = %.loopexit.i
@@ -1169,7 +1169,7 @@ BackwardRefsNewBlock.exit.i.i.i:                  ; preds = %199, %196
 215:                                              ; preds = %211
   %216 = shl i32 %173, 16
   %.sroa.22.0.insert.shift.i68.i.i = zext i32 %216 to i64
-  %.sroa.0.0.insert.insert.i70.reass.reass.i.reass.reass.i.reass.reass.reass = or i64 %.sroa.22.0.insert.shift.i68.i.i, %invariant.op
+  %.sroa.0.0.insert.insert.i70.reass.reass.i.reass.reass.i.reass.reass.reass = or disjoint i64 %.sroa.22.0.insert.shift.i68.i.i, %invariant.op
   br i1 %214, label %222, label %217
 
 217:                                              ; preds = %215

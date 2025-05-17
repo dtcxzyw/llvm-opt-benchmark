@@ -575,7 +575,7 @@ define dso_local i32 @kbd_init() local_unnamed_addr #5 section ".init.text" alig
   %6 = select i1 %5, i8 0, i8 48
   %.masked = and i8 %3, 4
   %.masked3 = and i8 %2, 2
-  %invariant.op = or i8 %.masked3, %6
+  %invariant.op = or disjoint i8 %.masked3, %6
   br label %7
 
 7:                                                ; preds = %7, %0
@@ -597,7 +597,7 @@ define dso_local i32 @kbd_init() local_unnamed_addr #5 section ".init.text" alig
   %20 = and i8 %19, -32
   %21 = or disjoint i8 %20, 20
   store i8 %21, ptr %18, align 1
-  %.reass = or i8 %15, %invariant.op
+  %.reass = or disjoint i8 %15, %invariant.op
   store i8 %.reass, ptr %13, align 1
   %22 = add nuw nsw i64 %8, 1
   %23 = icmp eq i64 %22, 63

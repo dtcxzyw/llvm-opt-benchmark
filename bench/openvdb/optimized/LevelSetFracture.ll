@@ -73503,7 +73503,7 @@ for.cond17.preheader:                             ; preds = %for.cond9.preheader
   %retval.sroa.2.0.insert.ext.i.i50 = zext i32 %and4.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i51 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i50, 32
   %retval.sroa.0.0.insert.insert.i.i53 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i51, %retval.sroa.0.0.insert.ext.i.i52
-  %invariant.op257 = or i32 %shl4.i, %shl.i
+  %invariant.op257 = or disjoint i32 %shl4.i, %shl.i
   br label %for.body21
 
 for.body21:                                       ; preds = %for.cond17.preheader, %for.inc
@@ -73511,7 +73511,7 @@ for.body21:                                       ; preds = %for.cond17.preheade
   %and6.i = lshr i32 %z.0224, 3
   %shr7.i = and i32 %and6.i, 15
   %18 = or disjoint i32 %shr7.i, %shl4.i
-  %add8.i.reass = or i32 %shr7.i, %invariant.op257
+  %add8.i.reass = or disjoint i32 %shr7.i, %invariant.op257
   %and3.i.i = shl nuw nsw i32 %shr7.i, 3
   %19 = load i32, ptr %mOrigin.i, align 8
   %add.i.i = add nsw i32 %19, %16
@@ -74346,7 +74346,7 @@ for.cond17.preheader:                             ; preds = %for.cond9.preheader
   %18 = shl nuw nsw i32 %shl4.i, 2
   %invariant.op149 = or disjoint i32 %18, 127
   %and3.i = and i32 %y.0153, -128
-  %invariant.op189 = or i32 %shl4.i, %shl.i
+  %invariant.op189 = or disjoint i32 %shl4.i, %shl.i
   br label %for.body21
 
 for.body21:                                       ; preds = %for.cond17.preheader, %for.inc
@@ -74354,7 +74354,7 @@ for.body21:                                       ; preds = %for.cond17.preheade
   %and6.i = lshr i32 %z.0147, 7
   %shr7.i = and i32 %and6.i, 31
   %19 = or disjoint i32 %shr7.i, %shl4.i
-  %add8.i.reass = or i32 %shr7.i, %invariant.op189
+  %add8.i.reass = or disjoint i32 %shr7.i, %invariant.op189
   %and3.i.i = shl nuw nsw i32 %shr7.i, 7
   %20 = load i32, ptr %mOrigin.i, align 8
   %add.i.i = add nsw i32 %20, %16
@@ -195211,7 +195211,7 @@ for.cond17.preheader:                             ; preds = %for.cond9.preheader
   %retval.sroa.2.0.insert.ext.i.i50 = zext i32 %and4.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i51 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i50, 32
   %retval.sroa.0.0.insert.insert.i.i53 = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i51, %retval.sroa.0.0.insert.ext.i.i52
-  %invariant.op257 = or i32 %shl4.i, %shl.i
+  %invariant.op257 = or disjoint i32 %shl4.i, %shl.i
   br label %for.body21
 
 for.body21:                                       ; preds = %for.cond17.preheader, %for.inc
@@ -195219,7 +195219,7 @@ for.body21:                                       ; preds = %for.cond17.preheade
   %and6.i = lshr i32 %z.0224, 3
   %shr7.i = and i32 %and6.i, 15
   %18 = or disjoint i32 %shr7.i, %shl4.i
-  %add8.i.reass = or i32 %shr7.i, %invariant.op257
+  %add8.i.reass = or disjoint i32 %shr7.i, %invariant.op257
   %and3.i.i = shl nuw nsw i32 %shr7.i, 3
   %19 = load i32, ptr %mOrigin.i, align 8
   %add.i.i = add nsw i32 %19, %16
@@ -196054,7 +196054,7 @@ for.cond17.preheader:                             ; preds = %for.cond9.preheader
   %18 = shl nuw nsw i32 %shl4.i, 2
   %invariant.op150 = or disjoint i32 %18, 127
   %and3.i = and i32 %y.0154, -128
-  %invariant.op190 = or i32 %shl4.i, %shl.i
+  %invariant.op190 = or disjoint i32 %shl4.i, %shl.i
   br label %for.body21
 
 for.body21:                                       ; preds = %for.cond17.preheader, %for.inc
@@ -196062,7 +196062,7 @@ for.body21:                                       ; preds = %for.cond17.preheade
   %and6.i = lshr i32 %z.0148, 7
   %shr7.i = and i32 %and6.i, 31
   %19 = or disjoint i32 %shr7.i, %shl4.i
-  %add8.i.reass = or i32 %shr7.i, %invariant.op190
+  %add8.i.reass = or disjoint i32 %shr7.i, %invariant.op190
   %and3.i.i = shl nuw nsw i32 %shr7.i, 7
   %20 = load i32, ptr %mOrigin.i, align 8
   %add.i.i = add nsw i32 %20, %16

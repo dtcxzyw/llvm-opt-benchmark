@@ -5874,14 +5874,14 @@ for.cond9.preheader.i.i.i:                        ; preds = %for.cond9.for.inc23
 for.cond16.preheader.us385.i.i.i:                 ; preds = %for.cond9.preheader.i.i.i, %for.cond16.for.inc234_crit_edge.split.us.us.i.i.i
   %bx.0384.us386.i.i.i = phi i16 [ %inc235.us387.i.i.i, %for.cond16.for.inc234_crit_edge.split.us.us.i.i.i ], [ %bpmin.sroa.0.0.extract.trunc.i.i.i, %for.cond9.preheader.i.i.i ]
   %bp.sroa.0.0.insert.ext.us.i.i.i = zext i16 %bx.0384.us386.i.i.i to i48
-  %invariant.op172 = or i48 %bp.sroa.0.0.insert.ext.us.i.i.i, %bp.sroa.7.0.insert.shift.i.i.i
+  %invariant.op172 = or disjoint i48 %bp.sroa.0.0.insert.ext.us.i.i.i, %bp.sroa.7.0.insert.shift.i.i.i
   br label %for.body22.us.us.i.i.i
 
 for.body22.us.us.i.i.i:                           ; preds = %call24.us.us.i.i.noexc.i, %for.cond16.preheader.us385.i.i.i
   %by.0381.us.us.i.i.i = phi i16 [ %bpmin.sroa.4.0.extract.trunc.i.i.i, %for.cond16.preheader.us385.i.i.i ], [ %inc230.us.us.i.i.i, %call24.us.us.i.i.noexc.i ]
   %bp.sroa.5.0.insert.ext.us.us.i.i.i = zext i16 %by.0381.us.us.i.i.i to i48
   %bp.sroa.5.0.insert.shift.us.us.i.i.i = shl nuw nsw i48 %bp.sroa.5.0.insert.ext.us.us.i.i.i, 16
-  %bp.sroa.0.0.insert.insert.us.us.i.i.i.reass.reass.reass = or i48 %bp.sroa.5.0.insert.shift.us.us.i.i.i, %invariant.op172
+  %bp.sroa.0.0.insert.insert.us.us.i.i.i.reass.reass.reass = or disjoint i48 %bp.sroa.5.0.insert.shift.us.us.i.i.i, %invariant.op172
   %call24.us.us.i.i100.i = invoke noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %call6, i48 %bp.sroa.0.0.insert.insert.us.us.i.i.i.reass.reass.reass)
           to label %call24.us.us.i.i.noexc.i unwind label %lpad7.loopexit.split-lp.loopexit.i
 
@@ -6393,14 +6393,14 @@ for.cond9.preheader.i.i205.i:                     ; preds = %for.cond9.for.inc23
 for.cond16.preheader.us383.i.i.i:                 ; preds = %for.cond9.preheader.i.i205.i, %for.cond16.for.inc234_crit_edge.split.us.us.i.i367.i
   %bx.0382.us384.i.i.i = phi i16 [ %inc235.us385.i.i.i, %for.cond16.for.inc234_crit_edge.split.us.us.i.i367.i ], [ %bpmin.sroa.0.0.extract.trunc.i.i171.i, %for.cond9.preheader.i.i205.i ]
   %bp.sroa.0.0.insert.ext.us.i.i359.i = zext i16 %bx.0382.us384.i.i.i to i48
-  %invariant.op = or i48 %bp.sroa.0.0.insert.ext.us.i.i359.i, %bp.sroa.7.0.insert.shift.i.i207.i
+  %invariant.op = or disjoint i48 %bp.sroa.0.0.insert.ext.us.i.i359.i, %bp.sroa.7.0.insert.shift.i.i207.i
   br label %for.body22.us.us.i.i360.i
 
 for.body22.us.us.i.i360.i:                        ; preds = %call24.us.us.i.i.noexc368.i, %for.cond16.preheader.us383.i.i.i
   %by.0379.us.us.i.i.i = phi i16 [ %bpmin.sroa.4.0.extract.trunc.i.i172.i, %for.cond16.preheader.us383.i.i.i ], [ %inc230.us.us.i.i364.i, %call24.us.us.i.i.noexc368.i ]
   %bp.sroa.5.0.insert.ext.us.us.i.i361.i = zext i16 %by.0379.us.us.i.i.i to i48
   %bp.sroa.5.0.insert.shift.us.us.i.i362.i = shl nuw nsw i48 %bp.sroa.5.0.insert.ext.us.us.i.i361.i, 16
-  %bp.sroa.0.0.insert.insert.us.us.i.i363.i.reass.reass.reass = or i48 %bp.sroa.5.0.insert.shift.us.us.i.i362.i, %invariant.op
+  %bp.sroa.0.0.insert.insert.us.us.i.i363.i.reass.reass.reass = or disjoint i48 %bp.sroa.5.0.insert.shift.us.us.i.i362.i, %invariant.op
   %call24.us.us.i.i369.i = invoke noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %call6, i48 %bp.sroa.0.0.insert.insert.us.us.i.i363.i.reass.reass.reass)
           to label %call24.us.us.i.i.noexc368.i unwind label %lpad33.loopexit.split-lp.loopexit.i
 
@@ -7061,14 +7061,14 @@ for.cond7.preheader.lr.ph.split.i:                ; preds = %for.cond7.preheader
 for.cond7.preheader.us119.i:                      ; preds = %for.cond7.preheader.lr.ph.split.i, %for.cond7.for.inc57_crit_edge.split.us.us.i
   %storemerge117.us121.i = phi i16 [ %inc59.us122.i, %for.cond7.for.inc57_crit_edge.split.us.us.i ], [ %minp.sroa.0.0.extract.trunc.i, %for.cond7.preheader.lr.ph.split.i ]
   %p.sroa.0.0.insert.ext80.us.i = zext i16 %storemerge117.us121.i to i48
-  %invariant.op85 = or i48 %p.sroa.0.0.insert.ext80.us.i, %p.sroa.8.0.insert.shift84.i
+  %invariant.op85 = or disjoint i48 %p.sroa.0.0.insert.ext80.us.i, %p.sroa.8.0.insert.shift84.i
   br label %for.body13.us.us.i
 
 for.body13.us.us.i:                               ; preds = %call.i.us.us.i.noexc, %for.cond7.preheader.us119.i
   %storemerge67112.us.us.i = phi i16 [ %33, %for.cond7.preheader.us119.i ], [ %inc55.us.us.i, %call.i.us.us.i.noexc ]
   %p.sroa.14.0.insert.ext89.us.us.i = zext i16 %storemerge67112.us.us.i to i48
   %p.sroa.14.0.insert.shift90.us.us.i = shl nuw i48 %p.sroa.14.0.insert.ext89.us.us.i, 32
-  %p.sroa.0.0.insert.insert82.us.us.i.reass.reass.reass = or i48 %p.sroa.14.0.insert.shift90.us.us.i, %invariant.op85
+  %p.sroa.0.0.insert.insert82.us.us.i.reass.reass.reass = or disjoint i48 %p.sroa.14.0.insert.shift90.us.us.i, %invariant.op85
   %call.i.us.us.i39 = invoke i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %call6, i48 %p.sroa.0.0.insert.insert82.us.us.i.reass.reass.reass, ptr noundef null)
           to label %call.i.us.us.i.noexc unwind label %lpad18.loopexit
 
@@ -7101,8 +7101,8 @@ for.body13.i:                                     ; preds = %for.cond16.for.end_
 
 call.i.i.noexc:                                   ; preds = %for.body13.i
   %ref.tmp.sroa.0.0.extract.trunc.i = trunc i32 %call.i.i40 to i16
-  %invariant.op = or i48 %p.sroa.0.0.insert.ext80.i, %p.sroa.14.0.insert.shift90.i
-  %invariant.op84 = or i48 %p.sroa.0.0.insert.ext80.i, %p.sroa.14.0.insert.shift90.i
+  %invariant.op = or disjoint i48 %p.sroa.0.0.insert.ext80.i, %p.sroa.14.0.insert.shift90.i
+  %invariant.op84 = or disjoint i48 %p.sroa.0.0.insert.ext80.i, %p.sroa.14.0.insert.shift90.i
   br label %for.body22.i
 
 for.body22.i:                                     ; preds = %if.end.i38, %call.i.i.noexc
@@ -7112,7 +7112,7 @@ for.body22.i:                                     ; preds = %if.end.i38, %call.i
   %add.i = add i16 %p.sroa.8.0107.i, 1
   %psurf.sroa.4.0.insert.ext.i = zext i16 %add.i to i48
   %psurf.sroa.4.0.insert.shift.i = shl nuw nsw i48 %psurf.sroa.4.0.insert.ext.i, 16
-  %psurf.sroa.0.0.insert.insert.i.reass.reass.reass = or i48 %psurf.sroa.4.0.insert.shift.i, %invariant.op
+  %psurf.sroa.0.0.insert.insert.i.reass.reass.reass = or disjoint i48 %psurf.sroa.4.0.insert.shift.i, %invariant.op
   %call.i73.i41 = invoke i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %call6, i48 %psurf.sroa.0.0.insert.insert.i.reass.reass.reass, ptr noundef null)
           to label %call.i73.i.noexc unwind label %lpad18.loopexit.split-lp.loopexit
 
@@ -7230,7 +7230,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKtSt6vectorItSaItEEEEtET_S8_S8_RKT0_.e
 if.then.i:                                        ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKtSt6vectorItSaItEEEEtET_S8_S8_RKT0_.exit.i
   %p.sroa.8.0.insert.ext.i = zext i16 %p.sroa.8.0107.i to i48
   %p.sroa.8.0.insert.shift.i = shl nuw nsw i48 %p.sroa.8.0.insert.ext.i, 16
-  %p.sroa.0.0.insert.insert.i.reass.reass.reass = or i48 %p.sroa.8.0.insert.shift.i, %invariant.op84
+  %p.sroa.0.0.insert.insert.i.reass.reass.reass = or disjoint i48 %p.sroa.8.0.insert.shift.i, %invariant.op84
   invoke void @_Z10push_v3s16P9lua_StateN3irr4core8vector3dIsEE(ptr noundef %L, i48 %p.sroa.0.0.insert.insert.i.reass.reass.reass)
           to label %.noexc42 unwind label %lpad18.loopexit.split-lp.loopexit
 
@@ -12189,7 +12189,7 @@ if.end6.i.i.i:                                    ; preds = %if.end.i.i.i
 "_ZZN11ModApiEnvVM30l_find_nodes_in_area_under_airEP9lua_StateENK3$_0clEN3irr4core8vector3dIsEE.exit.i": ; preds = %if.end6.i.i.i, %if.end.i.i.i, %land.lhs.true22.i.i.i.i, %land.lhs.true9.i.i.i.i, %for.body13.i
   %retval.sroa.0.0.i.i.i = phi i16 [ %45, %if.end6.i.i.i ], [ 127, %if.end.i.i.i ], [ 127, %land.lhs.true22.i.i.i.i ], [ 127, %land.lhs.true9.i.i.i.i ], [ 127, %for.body13.i ]
   %conv23.i.i.i95.i = sext i16 %storemerge67167.i to i32
-  %invariant.op = or i48 %p.sroa.14.0.insert.shift145.i, %p.sroa.0.0.insert.ext135.i
+  %invariant.op = or disjoint i48 %p.sroa.14.0.insert.shift145.i, %p.sroa.0.0.insert.ext135.i
   br label %for.body22.i
 
 for.body22.i:                                     ; preds = %if.end.i23, %"_ZZN11ModApiEnvVM30l_find_nodes_in_area_under_airEP9lua_StateENK3$_0clEN3irr4core8vector3dIsEE.exit.i"
@@ -12369,7 +12369,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKtSt6vectorItSaItEEEEtET_S8_S8_RKT0_.e
 if.then.i24:                                      ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKtSt6vectorItSaItEEEEtET_S8_S8_RKT0_.exit.i
   %p.sroa.8.0.insert.ext.i = zext i16 %p.sroa.8.0162.i to i48
   %p.sroa.8.0.insert.shift.i = shl nuw nsw i48 %p.sroa.8.0.insert.ext.i, 16
-  %p.sroa.0.0.insert.insert.i.reass.reass.reass = or i48 %p.sroa.8.0.insert.shift.i, %invariant.op
+  %p.sroa.0.0.insert.insert.i.reass.reass.reass = or disjoint i48 %p.sroa.8.0.insert.shift.i, %invariant.op
   invoke void @_Z10push_v3s16P9lua_StateN3irr4core8vector3dIsEE(ptr noundef %L, i48 %p.sroa.0.0.insert.insert.i.reass.reass.reass)
           to label %.noexc25 unwind label %lpad7.loopexit
 

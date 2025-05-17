@@ -1158,8 +1158,8 @@ for.cond223.preheader:                            ; preds = %for.cond223.for.inc
   %98 = insertelement <2 x float> poison, float %mul2.i1416, i64 0
   %invariant.op = or disjoint i48 %p2.sroa.19.0.insert.shift2019, %p.sroa.0.0.insert.ext2064
   %invariant.op117 = or disjoint i48 %p2.sroa.19.0.insert.shift2015, %p.sroa.0.0.insert.ext2064
-  %invariant.op365 = or i48 %p.sroa.0.0.insert.ext2064, %p.sroa.20.0.insert.shift2075
-  %invariant.op366 = or i48 %p.sroa.0.0.insert.ext2064, %p.sroa.20.0.insert.shift2075
+  %invariant.op365 = or disjoint i48 %p.sroa.0.0.insert.ext2064, %p.sroa.20.0.insert.shift2075
+  %invariant.op366 = or disjoint i48 %p.sroa.0.0.insert.ext2064, %p.sroa.20.0.insert.shift2075
   br label %for.body229
 
 for.body229:                                      ; preds = %cleanup348, %for.cond223.preheader
@@ -1450,7 +1450,7 @@ call3.i.noexc1370:                                ; preds = %call.i.noexc1368
   %agg.tmp276.sroa.0.0.copyload = load i32, ptr %n, align 4, !tbaa.struct !113
   %p2.sroa.23.0.insert.ext2041 = zext i16 %dec275 to i48
   %p2.sroa.23.0.insert.shift2042 = shl nuw i48 %p2.sroa.23.0.insert.ext2041, 32
-  %p2.sroa.0.0.insert.insert1985.reass.reass.reass = or i48 %p2.sroa.23.0.insert.shift2042, %invariant.op365
+  %p2.sroa.0.0.insert.insert1985.reass.reass.reass = or disjoint i48 %p2.sroa.23.0.insert.shift2042, %invariant.op365
   %call.i1377 = invoke i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %call, i48 %p2.sroa.0.0.insert.insert1985.reass.reass.reass, ptr noundef null)
           to label %call.i.noexc1376 unwind label %lpad269
 
@@ -1477,7 +1477,7 @@ call3.i.noexc1386:                                ; preds = %call.i.noexc1384
   %agg.tmp284.sroa.0.0.copyload = load i32, ptr %n, align 4, !tbaa.struct !113
   %p2.sroa.23.0.insert.ext2033 = zext i16 %inc283 to i48
   %p2.sroa.23.0.insert.shift2034 = shl nuw i48 %p2.sroa.23.0.insert.ext2033, 32
-  %p2.sroa.0.0.insert.insert1979.reass.reass.reass = or i48 %p2.sroa.23.0.insert.shift2034, %invariant.op366
+  %p2.sroa.0.0.insert.insert1979.reass.reass.reass = or disjoint i48 %p2.sroa.23.0.insert.shift2034, %invariant.op366
   %call.i1393 = invoke i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %call, i48 %p2.sroa.0.0.insert.insert1979.reass.reass.reass, ptr noundef null)
           to label %call.i.noexc1392 unwind label %lpad269
 

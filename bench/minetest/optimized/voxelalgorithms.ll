@@ -2414,8 +2414,8 @@ invoke.cont144:                                   ; preds = %_ZNSt6vectorIN7voxa
   br i1 %or.cond, label %for.cond153.preheader, label %cleanup296
 
 for.cond153.preheader:                            ; preds = %invoke.cont144
-  %invariant.op45 = or i48 %p.sroa.0.0.insert.ext963, %p.sroa.12.0.insert.shift973
-  %invariant.op46 = or i48 %rel_pos.sroa.0.0.insert.ext934, %rel_pos.sroa.11.0.insert.shift958
+  %invariant.op45 = or disjoint i48 %p.sroa.0.0.insert.ext963, %p.sroa.12.0.insert.shift973
+  %invariant.op46 = or disjoint i48 %rel_pos.sroa.0.0.insert.ext934, %rel_pos.sroa.11.0.insert.shift958
   br label %for.cond153
 
 for.cond153:                                      ; preds = %for.cond153.backedge, %for.cond153.preheader
@@ -2423,7 +2423,7 @@ for.cond153:                                      ; preds = %for.cond153.backedg
   %y.0 = add i16 %y.0.in, -1
   %n2pos.sroa.7.0.insert.ext916 = zext i16 %y.0 to i48
   %n2pos.sroa.7.0.insert.shift917 = shl nuw nsw i48 %n2pos.sroa.7.0.insert.ext916, 16
-  %n2pos.sroa.0.0.insert.insert911.reass.reass.reass = or i48 %n2pos.sroa.7.0.insert.shift917, %invariant.op45
+  %n2pos.sroa.0.0.insert.insert911.reass.reass.reass = or disjoint i48 %n2pos.sroa.7.0.insert.shift917, %invariant.op45
   %call161 = invoke i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %map, i48 %n2pos.sroa.0.0.insert.insert911.reass.reass.reass, ptr noundef nonnull %is_valid_position)
           to label %invoke.cont160 unwind label %lpad159
 
@@ -2495,7 +2495,7 @@ invoke.cont190:                                   ; preds = %invoke.cont187
   %and.i24.i.i642 = and i16 %y.0, 15
   %rel_pos2.sroa.6.0.insert.ext = zext nneg i16 %and.i24.i.i642 to i48
   %rel_pos2.sroa.6.0.insert.shift = shl nuw nsw i48 %rel_pos2.sroa.6.0.insert.ext, 16
-  %rel_pos2.sroa.0.0.insert.insert.reass.reass.reass = or i48 %rel_pos2.sroa.6.0.insert.shift, %invariant.op46
+  %rel_pos2.sroa.0.0.insert.insert.reass.reass.reass = or disjoint i48 %rel_pos2.sroa.6.0.insert.shift, %invariant.op46
   %128 = load ptr, ptr %_M_finish.i.i653, align 8, !tbaa !13
   %129 = load ptr, ptr %_M_end_of_storage.i.i654, align 8, !tbaa !70
   %cmp.not.i.i655 = icmp eq ptr %128, %129
@@ -2601,8 +2601,8 @@ if.else208:                                       ; preds = %if.end132
   br i1 %or.cond1020, label %for.cond223.preheader, label %cleanup296
 
 for.cond223.preheader:                            ; preds = %if.else208
-  %invariant.op = or i48 %p.sroa.0.0.insert.ext963, %p.sroa.12.0.insert.shift973
-  %invariant.op44 = or i48 %rel_pos.sroa.0.0.insert.ext934, %rel_pos.sroa.11.0.insert.shift958
+  %invariant.op = or disjoint i48 %p.sroa.0.0.insert.ext963, %p.sroa.12.0.insert.shift973
+  %invariant.op44 = or disjoint i48 %rel_pos.sroa.0.0.insert.ext934, %rel_pos.sroa.11.0.insert.shift958
   br label %for.cond223
 
 for.cond223:                                      ; preds = %for.cond223.backedge, %for.cond223.preheader
@@ -2610,7 +2610,7 @@ for.cond223:                                      ; preds = %for.cond223.backedg
   %y218.0 = add i16 %y218.0.in, -1
   %n2pos224.sroa.6.0.insert.ext886 = zext i16 %y218.0 to i48
   %n2pos224.sroa.6.0.insert.shift887 = shl nuw nsw i48 %n2pos224.sroa.6.0.insert.ext886, 16
-  %n2pos224.sroa.0.0.insert.insert885.reass.reass.reass = or i48 %n2pos224.sroa.6.0.insert.shift887, %invariant.op
+  %n2pos224.sroa.0.0.insert.insert885.reass.reass.reass = or disjoint i48 %n2pos224.sroa.6.0.insert.shift887, %invariant.op
   %call234 = invoke i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %map, i48 %n2pos224.sroa.0.0.insert.insert885.reass.reass.reass, ptr noundef nonnull %is_valid_position)
           to label %invoke.cont233 unwind label %lpad232
 
@@ -2660,7 +2660,7 @@ invoke.cont268:                                   ; preds = %invoke.cont264
   %and.i24.i.i737 = and i16 %y218.0, 15
   %rel_pos2257.sroa.6.0.insert.ext = zext nneg i16 %and.i24.i.i737 to i48
   %rel_pos2257.sroa.6.0.insert.shift = shl nuw nsw i48 %rel_pos2257.sroa.6.0.insert.ext, 16
-  %rel_pos2257.sroa.0.0.insert.insert.reass.reass.reass = or i48 %rel_pos2257.sroa.6.0.insert.shift, %invariant.op44
+  %rel_pos2257.sroa.0.0.insert.insert.reass.reass.reass = or disjoint i48 %rel_pos2257.sroa.6.0.insert.shift, %invariant.op44
   %143 = load ptr, ptr %_M_finish.i.i748, align 8, !tbaa !13
   %144 = load ptr, ptr %_M_end_of_storage.i.i749, align 8, !tbaa !70
   %cmp.not.i.i750 = icmp eq ptr %143, %144
@@ -5083,7 +5083,7 @@ for.body37:                                       ; preds = %for.inc63
   %indvars.iv.next27 = add nsw i64 %indvars.iv2653, -1
   %26 = trunc nuw nsw i64 %indvars.iv.next27 to i48
   %current_pos.sroa.9.0.insert.shift269 = shl nuw nsw i48 %26, 16
-  %current_pos.sroa.0.0.insert.insert254.reass.reass = or i48 %current_pos.sroa.9.0.insert.shift269, %invariant.op34
+  %current_pos.sroa.0.0.insert.insert254.reass.reass = or disjoint i48 %current_pos.sroa.9.0.insert.shift269, %invariant.op34
   %27 = load ptr, ptr %data.i.i, align 8, !tbaa !23
   %sext2.i142 = shl nuw nsw i64 %indvars.iv.next27, 4
   %add5.i.i147 = add nsw i64 %sext2.i142, %add.i.i146
@@ -5926,7 +5926,7 @@ for.cond26.preheader:                             ; preds = %for.cond26.preheade
   %agg.tmp33.sroa.0.0.insert.ext = zext i16 %x.0580 to i48
   %mul.i = shl i16 %x.0580, 4
   %offset.sroa.0.0.insert.ext = zext i16 %mul.i to i32
-  %invariant.op88 = or i48 %agg.tmp33.sroa.0.0.insert.ext, %retval.sroa.2.0.insert.shift.i.i410
+  %invariant.op88 = or disjoint i48 %agg.tmp33.sroa.0.0.insert.ext, %retval.sroa.2.0.insert.shift.i.i410
   br label %for.body32
 
 for.cond112.preheader.lr.ph:                      ; preds = %for.cond26.for.cond.cleanup31_crit_edge
@@ -5954,7 +5954,7 @@ for.body32:                                       ; preds = %while.end, %for.con
   %z.0578 = phi i16 [ %minblock.sroa.9.0.extract.trunc, %for.cond26.preheader ], [ %inc90, %while.end ]
   %agg.tmp33.sroa.3.0.insert.ext = zext i16 %z.0578 to i48
   %agg.tmp33.sroa.3.0.insert.shift = shl nuw i48 %agg.tmp33.sroa.3.0.insert.ext, 32
-  %agg.tmp33.sroa.0.0.insert.insert.reass.reass.reass = or i48 %agg.tmp33.sroa.3.0.insert.shift, %invariant.op88
+  %agg.tmp33.sroa.0.0.insert.insert.reass.reass.reass = or disjoint i48 %agg.tmp33.sroa.3.0.insert.shift, %invariant.op88
   invoke void @_ZN7voxalgo23is_sunlight_above_blockEP3MapN3irr4core8vector3dIsEEPK14NodeDefManagerPA16_b(ptr noundef nonnull %map, i48 %agg.tmp33.sroa.0.0.insert.insert.reass.reass.reass, ptr noundef %0, ptr noundef nonnull %lights)
           to label %invoke.cont36 unwind label %lpad34
 

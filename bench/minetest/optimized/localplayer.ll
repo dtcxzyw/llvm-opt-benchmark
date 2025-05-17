@@ -1643,7 +1643,7 @@ if.then66:                                        ; preds = %if.end64
   br i1 %cmp75.not517, label %cleanup113.thread, label %for.body77.preheader
 
 for.body77.preheader:                             ; preds = %if.then66
-  %invariant.op = or i48 %retval.sroa.0.0.insert.ext.i253, %retval.sroa.3.0.insert.shift.i249
+  %invariant.op = or disjoint i48 %retval.sroa.0.0.insert.ext.i253, %retval.sroa.3.0.insert.shift.i249
   br label %for.body77
 
 for.cond72:                                       ; preds = %_ZNK14NodeDefManager3getERK7MapNode.exit320
@@ -1656,7 +1656,7 @@ for.body77:                                       ; preds = %for.body77.preheade
   %add8.i295 = add i16 %y.0518, %31
   %retval.sroa.2.0.insert.ext.i301 = zext i16 %add8.i295 to i48
   %retval.sroa.2.0.insert.shift.i302 = shl nuw nsw i48 %retval.sroa.2.0.insert.ext.i301, 16
-  %retval.sroa.0.0.insert.insert.i305.reass.reass.reass = or i48 %retval.sroa.2.0.insert.shift.i302, %invariant.op
+  %retval.sroa.0.0.insert.insert.i305.reass.reass.reass = or disjoint i48 %retval.sroa.2.0.insert.shift.i302, %invariant.op
   %call83 = call i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %map, i48 %retval.sroa.0.0.insert.insert.i305.reass.reass.reass, ptr noundef nonnull %is_valid_position)
   store i32 %call83, ptr %node, align 4, !tbaa.struct !79
   %69 = load i8, ptr %is_valid_position, align 1, !tbaa !81, !range !74, !noundef !75

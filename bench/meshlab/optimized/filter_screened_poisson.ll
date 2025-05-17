@@ -22672,7 +22672,7 @@ define linkonce_odr noundef i32 @_ZN7OctNodeI12TreeNodeDataE12initChildrenEPFvRS
   %44 = or disjoint i64 %indvars.iv69, %36
   %45 = shl nuw nsw i64 %44, 5
   %46 = trunc nuw nsw i64 %indvars.iv69 to i32
-  %invariant.op82 = or i64 %45, %38
+  %invariant.op82 = or disjoint i64 %45, %38
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %.split.us.us.us, %.preheader41.us
@@ -22681,7 +22681,7 @@ define linkonce_odr noundef i32 @_ZN7OctNodeI12TreeNodeDataE12initChildrenEPFvRS
   %48 = or disjoint i64 %indvars.iv66, %41
   %49 = shl nuw nsw i64 %48, 24
   %50 = trunc nuw nsw i64 %indvars.iv66 to i32
-  %invariant.op.reass83 = or i64 %49, %invariant.op82
+  %invariant.op.reass83 = or disjoint i64 %49, %invariant.op82
   br label %51
 
 51:                                               ; preds = %51, %.preheader.us.us
@@ -22698,7 +22698,7 @@ define linkonce_odr noundef i32 @_ZN7OctNodeI12TreeNodeDataE12initChildrenEPFvRS
   store ptr null, ptr %59, align 8
   %60 = or disjoint i64 %indvars.iv63, %42
   %61 = shl nuw nsw i64 %60, 43
-  %.reass81 = or i64 %61, %invariant.op.reass83
+  %.reass81 = or disjoint i64 %61, %invariant.op.reass83
   %62 = load ptr, ptr %33, align 8
   %63 = getelementptr inbounds %class.OctNode, ptr %62, i64 %56
   store i64 %.reass81, ptr %63, align 8
@@ -22716,7 +22716,7 @@ define linkonce_odr noundef i32 @_ZN7OctNodeI12TreeNodeDataE12initChildrenEPFvRS
   %65 = or disjoint i64 %indvars.iv60, %36
   %66 = shl nuw nsw i64 %65, 5
   %67 = trunc nuw nsw i64 %indvars.iv60 to i32
-  %invariant.op80 = or i64 %66, %38
+  %invariant.op80 = or disjoint i64 %66, %38
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader41, %.split
@@ -22725,7 +22725,7 @@ define linkonce_odr noundef i32 @_ZN7OctNodeI12TreeNodeDataE12initChildrenEPFvRS
   %69 = or disjoint i64 %indvars.iv57, %40
   %70 = shl nuw nsw i64 %69, 24
   %71 = trunc nuw nsw i64 %indvars.iv57 to i32
-  %invariant.op.reass = or i64 %70, %invariant.op80
+  %invariant.op.reass = or disjoint i64 %70, %invariant.op80
   br label %72
 
 72:                                               ; preds = %.preheader, %72
@@ -22745,7 +22745,7 @@ define linkonce_odr noundef i32 @_ZN7OctNodeI12TreeNodeDataE12initChildrenEPFvRS
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %82)
   %83 = or disjoint i64 %indvars.iv, %39
   %84 = shl nuw nsw i64 %83, 43
-  %.reass = or i64 %84, %invariant.op.reass
+  %.reass = or disjoint i64 %84, %invariant.op.reass
   %85 = load ptr, ptr %33, align 8
   %86 = getelementptr inbounds %class.OctNode, ptr %85, i64 %77
   store i64 %.reass, ptr %86, align 8

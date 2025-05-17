@@ -902,11 +902,11 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge597, %40
   %437 = shl nuw nsw i64 %436, 32
   %438 = zext nneg i32 %431 to i64
   %wide.trip.count733 = zext nneg i32 %431 to i64
-  %invariant.op852 = or i64 %437, %436
-  %invariant.op855 = or i64 %437, %436
-  %invariant.op858 = or i64 %437, %436
-  %invariant.op861 = or i64 %437, %436
-  %invariant.op864 = or i64 %437, %436
+  %invariant.op852 = or disjoint i64 %437, %436
+  %invariant.op855 = or disjoint i64 %437, %436
+  %invariant.op858 = or disjoint i64 %437, %436
+  %invariant.op861 = or disjoint i64 %437, %436
+  %invariant.op864 = or disjoint i64 %437, %436
   br label %502
 
 439:                                              ; preds = %.lr.ph609, %._crit_edge605
@@ -923,11 +923,11 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge597, %40
 .preheader.us.preheader:                          ; preds = %439
   %445 = and i64 %indvars.iv712, 255
   %wide.trip.count710 = zext nneg i32 %443 to i64
-  %invariant.op = or i64 %434, %445
-  %invariant.op840 = or i64 %434, %445
-  %invariant.op843 = or i64 %434, %445
-  %invariant.op846 = or i64 %434, %445
-  %invariant.op849 = or i64 %434, %445
+  %invariant.op = or disjoint i64 %434, %445
+  %invariant.op840 = or disjoint i64 %434, %445
+  %invariant.op843 = or disjoint i64 %434, %445
+  %invariant.op846 = or disjoint i64 %434, %445
+  %invariant.op849 = or disjoint i64 %434, %445
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge601.us
@@ -937,11 +937,11 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge597, %40
   %447 = shl i64 %indvars.iv707, 8
   %448 = and i64 %447, 1048320
   %449 = sext i32 %.3604.us to i64
-  %invariant.op839 = or i64 %invariant.op, %448
-  %invariant.op842 = or i64 %invariant.op840, %448
-  %invariant.op845 = or i64 %invariant.op843, %448
-  %invariant.op848 = or i64 %invariant.op846, %448
-  %invariant.op851 = or i64 %invariant.op849, %448
+  %invariant.op839 = or disjoint i64 %invariant.op, %448
+  %invariant.op842 = or disjoint i64 %invariant.op840, %448
+  %invariant.op845 = or disjoint i64 %invariant.op843, %448
+  %invariant.op848 = or disjoint i64 %invariant.op846, %448
+  %invariant.op851 = or disjoint i64 %invariant.op849, %448
   br label %450
 
 450:                                              ; preds = %.preheader.us, %450
@@ -958,7 +958,7 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge597, %40
   %458 = and i64 %457, -4503599627370496
   %459 = shl i64 %indvars.iv700, 40
   %460 = and i64 %459, 4502500115742720
-  %.reass779.reass = or i64 %458, %invariant.op839
+  %.reass779.reass = or disjoint i64 %458, %invariant.op839
   %461 = or disjoint i64 %.reass779.reass, %460
   store i64 %461, ptr %455, align 8
   %462 = load i64, ptr %446, align 8, !tbaa !14
@@ -970,7 +970,7 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge597, %40
   store i64 %465, ptr %467, align 8, !tbaa !14
   %468 = load i64, ptr %466, align 8
   %469 = and i64 %468, -4503599627370496
-  %.reass783.reass = or i64 %469, %invariant.op842
+  %.reass783.reass = or disjoint i64 %469, %invariant.op842
   %470 = or disjoint i64 %.reass783.reass, %460
   %471 = or disjoint i64 %470, 1048576
   store i64 %471, ptr %466, align 8
@@ -983,7 +983,7 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge597, %40
   store i64 %475, ptr %477, align 8, !tbaa !14
   %478 = load i64, ptr %476, align 8
   %479 = and i64 %478, -4503599627370496
-  %.reass787.reass = or i64 %479, %invariant.op845
+  %.reass787.reass = or disjoint i64 %479, %invariant.op845
   %480 = or disjoint i64 %.reass787.reass, %460
   %481 = or disjoint i64 %480, 2097152
   store i64 %481, ptr %476, align 8
@@ -996,7 +996,7 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge597, %40
   store i64 %484, ptr %486, align 8, !tbaa !14
   %487 = load i64, ptr %485, align 8
   %488 = and i64 %487, -4503599627370496
-  %.reass791.reass = or i64 %488, %invariant.op848
+  %.reass791.reass = or disjoint i64 %488, %invariant.op848
   %489 = or disjoint i64 %.reass791.reass, %460
   %490 = or disjoint i64 %489, 3145728
   store i64 %490, ptr %485, align 8
@@ -1009,7 +1009,7 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge597, %40
   %496 = load i64, ptr %494, align 8
   %497 = and i64 %496, -4503599627370496
   %indvars.iv.next699 = add nsw i64 %indvars.iv698, 5
-  %.reass795.reass = or i64 %497, %invariant.op851
+  %.reass795.reass = or disjoint i64 %497, %invariant.op851
   %498 = or disjoint i64 %.reass795.reass, %460
   %499 = or disjoint i64 %498, 4194304
   store i64 %499, ptr %494, align 8
@@ -1052,11 +1052,11 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge597, %40
   %505 = shl i64 %indvars.iv730, 8
   %506 = and i64 %505, 1048320
   %507 = sext i32 %.5625 to i64
-  %invariant.op854 = or i64 %invariant.op852, %506
-  %invariant.op857 = or i64 %invariant.op855, %506
-  %invariant.op860 = or i64 %invariant.op858, %506
-  %invariant.op863 = or i64 %invariant.op861, %506
-  %invariant.op866 = or i64 %invariant.op864, %506
+  %invariant.op854 = or disjoint i64 %invariant.op852, %506
+  %invariant.op857 = or disjoint i64 %invariant.op855, %506
+  %invariant.op860 = or disjoint i64 %invariant.op858, %506
+  %invariant.op863 = or disjoint i64 %invariant.op861, %506
+  %invariant.op866 = or disjoint i64 %invariant.op864, %506
   br label %508
 
 508:                                              ; preds = %.lr.ph622, %508
@@ -1073,7 +1073,7 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge597, %40
   %516 = and i64 %515, -4503599627370496
   %517 = shl i64 %indvars.iv723, 40
   %518 = and i64 %517, 4502500115742720
-  %.reass799.reass = or i64 %516, %invariant.op854
+  %.reass799.reass = or disjoint i64 %516, %invariant.op854
   %519 = or disjoint i64 %.reass799.reass, %518
   store i64 %519, ptr %513, align 8
   %520 = load i64, ptr %504, align 8, !tbaa !14
@@ -1085,7 +1085,7 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge597, %40
   store i64 %523, ptr %525, align 8, !tbaa !14
   %526 = load i64, ptr %524, align 8
   %527 = and i64 %526, -4503599627370496
-  %.reass803.reass = or i64 %527, %invariant.op857
+  %.reass803.reass = or disjoint i64 %527, %invariant.op857
   %528 = or disjoint i64 %.reass803.reass, %518
   %529 = or disjoint i64 %528, 1048576
   store i64 %529, ptr %524, align 8
@@ -1098,7 +1098,7 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge597, %40
   store i64 %533, ptr %535, align 8, !tbaa !14
   %536 = load i64, ptr %534, align 8
   %537 = and i64 %536, -4503599627370496
-  %.reass807.reass = or i64 %537, %invariant.op860
+  %.reass807.reass = or disjoint i64 %537, %invariant.op860
   %538 = or disjoint i64 %.reass807.reass, %518
   %539 = or disjoint i64 %538, 2097152
   store i64 %539, ptr %534, align 8
@@ -1111,7 +1111,7 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge597, %40
   store i64 %542, ptr %544, align 8, !tbaa !14
   %545 = load i64, ptr %543, align 8
   %546 = and i64 %545, -4503599627370496
-  %.reass811.reass = or i64 %546, %invariant.op863
+  %.reass811.reass = or disjoint i64 %546, %invariant.op863
   %547 = or disjoint i64 %.reass811.reass, %518
   %548 = or disjoint i64 %547, 3145728
   store i64 %548, ptr %543, align 8
@@ -1124,7 +1124,7 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge597, %40
   %554 = load i64, ptr %552, align 8
   %555 = and i64 %554, -4503599627370496
   %indvars.iv.next720 = add nsw i64 %indvars.iv719, 5
-  %.reass815.reass = or i64 %555, %invariant.op866
+  %.reass815.reass = or disjoint i64 %555, %invariant.op866
   %556 = or disjoint i64 %.reass815.reass, %518
   %557 = or disjoint i64 %556, 4194304
   store i64 %557, ptr %552, align 8

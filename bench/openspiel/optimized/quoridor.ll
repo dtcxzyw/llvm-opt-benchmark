@@ -2654,7 +2654,7 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS
   %117 = trunc i64 %indvars.iv130 to i32
   %118 = or disjoint i32 %117, 1
   %119 = add nsw i32 %116, %118
-  %.sroa.0.0.insert.insert.i54.reass = or i64 %indvars.iv130, %invariant.op
+  %.sroa.0.0.insert.insert.i54.reass = or disjoint i64 %indvars.iv130, %invariant.op
   %.sroa.5.8.insert.ext.i56 = zext i32 %115 to i64
   %.sroa.5.8.insert.shift.i57 = shl nuw i64 %.sroa.5.8.insert.ext.i56, 32
   %.sroa.3.8.insert.ext.i58 = zext i32 %119 to i64
