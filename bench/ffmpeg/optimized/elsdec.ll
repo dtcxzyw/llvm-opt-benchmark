@@ -1,0 +1,547 @@
+; ModuleID = 'bench/ffmpeg/original/elsdec.ll'
+source_filename = "bench/ffmpeg/original/elsdec.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.Ladder = type { i8, i8, i8, i8 }
+%struct.ElsRungNode = type { i8, i16 }
+
+@els_exp_tab = internal unnamed_addr constant [145 x i32] [i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 1, i32 1, i32 1, i32 1, i32 2, i32 2, i32 2, i32 3, i32 4, i32 4, i32 5, i32 6, i32 7, i32 8, i32 10, i32 11, i32 13, i32 16, i32 18, i32 21, i32 25, i32 29, i32 34, i32 40, i32 47, i32 54, i32 64, i32 74, i32 87, i32 101, i32 118, i32 138, i32 161, i32 188, i32 219, i32 256, i32 298, i32 348, i32 406, i32 474, i32 552, i32 645, i32 752, i32 877, i32 1024, i32 1194, i32 1393, i32 1625, i32 1896, i32 2211, i32 2580, i32 3010, i32 3511, i32 4096, i32 4778, i32 5573, i32 6501, i32 7584, i32 8847, i32 10321, i32 12040, i32 14045, i32 16384, i32 19112, i32 22295, i32 26007, i32 30339, i32 35391, i32 41285, i32 48160, i32 56180, i32 65536, i32 76288, i32 89088, i32 103936, i32 121344, i32 141312, i32 165120, i32 192512, i32 224512, i32 262144, i32 305664, i32 356608, i32 416000, i32 485376, i32 566016, i32 660480, i32 770560, i32 898816, i32 1048576, i32 1223168, i32 1426688, i32 1664256, i32 1941504, i32 2264832, i32 2642176, i32 3082240, i32 3595520, i32 4194304, i32 4892672, i32 5707520, i32 6657792, i32 7766784, i32 9060096, i32 10568960, i32 12328960, i32 14382080, i32 16777216], align 16
+@Ladder = internal unnamed_addr constant [174 x %struct.Ladder] [%struct.Ladder { i8 -6, i8 -5, i8 2, i8 1 }, %struct.Ladder { i8 -2, i8 -12, i8 3, i8 6 }, %struct.Ladder { i8 -2, i8 -12, i8 4, i8 6 }, %struct.Ladder { i8 -1, i8 -16, i8 7, i8 5 }, %struct.Ladder { i8 -1, i8 -16, i8 8, i8 10 }, %struct.Ladder { i8 -5, i8 -6, i8 11, i8 9 }, %struct.Ladder { i8 -6, i8 -5, i8 10, i8 5 }, %struct.Ladder { i8 -1, i8 -18, i8 13, i8 11 }, %struct.Ladder { i8 -1, i8 -18, i8 12, i8 14 }, %struct.Ladder { i8 -6, i8 -5, i8 15, i8 18 }, %struct.Ladder { i8 -5, i8 -6, i8 14, i8 9 }, %struct.Ladder { i8 -3, i8 -8, i8 17, i8 15 }, %struct.Ladder { i8 -1, i8 -20, i8 20, i8 16 }, %struct.Ladder { i8 -1, i8 -20, i8 23, i8 17 }, %struct.Ladder { i8 -3, i8 -8, i8 16, i8 18 }, %struct.Ladder { i8 -5, i8 -6, i8 19, i8 26 }, %struct.Ladder { i8 -3, i8 -9, i8 22, i8 24 }, %struct.Ladder { i8 -3, i8 -9, i8 21, i8 19 }, %struct.Ladder { i8 -5, i8 -6, i8 24, i8 26 }, %struct.Ladder { i8 -4, i8 -7, i8 27, i8 25 }, %struct.Ladder { i8 -1, i8 -22, i8 34, i8 28 }, %struct.Ladder { i8 -2, i8 -11, i8 29, i8 27 }, %struct.Ladder { i8 -2, i8 -11, i8 28, i8 30 }, %struct.Ladder { i8 -1, i8 -22, i8 39, i8 29 }, %struct.Ladder { i8 -4, i8 -7, i8 30, i8 32 }, %struct.Ladder { i8 -6, i8 -5, i8 33, i8 31 }, %struct.Ladder { i8 -6, i8 -5, i8 32, i8 25 }, %struct.Ladder { i8 -3, i8 -8, i8 35, i8 33 }, %struct.Ladder { i8 -2, i8 -12, i8 36, i8 38 }, %struct.Ladder { i8 -2, i8 -12, i8 37, i8 35 }, %struct.Ladder { i8 -3, i8 -8, i8 38, i8 40 }, %struct.Ladder { i8 -6, i8 -5, i8 41, i8 48 }, %struct.Ladder { i8 -6, i8 -5, i8 40, i8 31 }, %struct.Ladder { i8 -5, i8 -6, i8 43, i8 41 }, %struct.Ladder { i8 -1, i8 -24, i8 94, i8 42 }, %struct.Ladder { i8 -3, i8 -8, i8 45, i8 43 }, %struct.Ladder { i8 -2, i8 -12, i8 42, i8 44 }, %struct.Ladder { i8 -2, i8 -12, i8 47, i8 45 }, %struct.Ladder { i8 -3, i8 -8, i8 44, i8 46 }, %struct.Ladder { i8 -1, i8 -24, i8 125, i8 47 }, %struct.Ladder { i8 -5, i8 -6, i8 46, i8 48 }, %struct.Ladder { i8 -6, i8 -5, i8 49, i8 49 }, %struct.Ladder { i8 -2, i8 -13, i8 -104, i8 -92 }, %struct.Ladder { i8 -4, i8 -7, i8 51, i8 49 }, %struct.Ladder { i8 -3, i8 -9, i8 -92, i8 -88 }, %struct.Ladder { i8 -3, i8 -9, i8 55, i8 51 }, %struct.Ladder { i8 -4, i8 -7, i8 -88, i8 -86 }, %struct.Ladder { i8 -2, i8 -13, i8 67, i8 55 }, %struct.Ladder { i8 -6, i8 -5, i8 -86, i8 49 }, %struct.Ladder { i8 -6, i8 -5, i8 51, i8 -86 }, %struct.Ladder { i8 -1, i8 -72, i8 50, i8 74 }, %struct.Ladder { i8 -4, i8 -7, i8 53, i8 49 }, %struct.Ladder { i8 -1, i8 -61, i8 50, i8 74 }, %struct.Ladder { i8 -3, i8 -8, i8 55, i8 49 }, %struct.Ladder { i8 -1, i8 -51, i8 52, i8 76 }, %struct.Ladder { i8 -3, i8 -9, i8 57, i8 51 }, %struct.Ladder { i8 -1, i8 -46, i8 54, i8 76 }, %struct.Ladder { i8 -2, i8 -10, i8 59, i8 53 }, %struct.Ladder { i8 -1, i8 -43, i8 56, i8 78 }, %struct.Ladder { i8 -2, i8 -11, i8 61, i8 53 }, %struct.Ladder { i8 -1, i8 -41, i8 58, i8 80 }, %struct.Ladder { i8 -2, i8 -12, i8 63, i8 55 }, %struct.Ladder { i8 -1, i8 -39, i8 60, i8 82 }, %struct.Ladder { i8 -2, i8 -12, i8 65, i8 55 }, %struct.Ladder { i8 -1, i8 -37, i8 62, i8 84 }, %struct.Ladder { i8 -2, i8 -13, i8 67, i8 57 }, %struct.Ladder { i8 -1, i8 -36, i8 64, i8 86 }, %struct.Ladder { i8 -1, i8 -14, i8 69, i8 59 }, %struct.Ladder { i8 -1, i8 -35, i8 66, i8 88 }, %struct.Ladder { i8 -1, i8 -14, i8 71, i8 59 }, %struct.Ladder { i8 -1, i8 -34, i8 68, i8 90 }, %struct.Ladder { i8 -1, i8 -15, i8 73, i8 61 }, %struct.Ladder { i8 -1, i8 -33, i8 70, i8 92 }, %struct.Ladder { i8 -1, i8 -15, i8 75, i8 61 }, %struct.Ladder { i8 -1, i8 -32, i8 72, i8 94 }, %struct.Ladder { i8 -1, i8 -15, i8 77, i8 63 }, %struct.Ladder { i8 -1, i8 -31, i8 74, i8 96 }, %struct.Ladder { i8 -1, i8 -16, i8 79, i8 65 }, %struct.Ladder { i8 -1, i8 -31, i8 76, i8 98 }, %struct.Ladder { i8 -1, i8 -16, i8 81, i8 67 }, %struct.Ladder { i8 -1, i8 -30, i8 78, i8 100 }, %struct.Ladder { i8 -1, i8 -17, i8 83, i8 67 }, %struct.Ladder { i8 -1, i8 -29, i8 80, i8 102 }, %struct.Ladder { i8 -1, i8 -17, i8 85, i8 69 }, %struct.Ladder { i8 -1, i8 -29, i8 82, i8 104 }, %struct.Ladder { i8 -1, i8 -18, i8 87, i8 71 }, %struct.Ladder { i8 -1, i8 -28, i8 84, i8 104 }, %struct.Ladder { i8 -1, i8 -18, i8 89, i8 73 }, %struct.Ladder { i8 -1, i8 -28, i8 86, i8 108 }, %struct.Ladder { i8 -1, i8 -18, i8 91, i8 73 }, %struct.Ladder { i8 -1, i8 -27, i8 88, i8 108 }, %struct.Ladder { i8 -1, i8 -19, i8 93, i8 75 }, %struct.Ladder { i8 -1, i8 -27, i8 90, i8 112 }, %struct.Ladder { i8 -1, i8 -19, i8 95, i8 77 }, %struct.Ladder { i8 -1, i8 -26, i8 92, i8 112 }, %struct.Ladder { i8 -1, i8 -20, i8 97, i8 79 }, %struct.Ladder { i8 -1, i8 -26, i8 94, i8 114 }, %struct.Ladder { i8 -1, i8 -20, i8 99, i8 81 }, %struct.Ladder { i8 -1, i8 -25, i8 96, i8 116 }, %struct.Ladder { i8 -1, i8 -20, i8 101, i8 83 }, %struct.Ladder { i8 -1, i8 -25, i8 98, i8 118 }, %struct.Ladder { i8 -1, i8 -21, i8 103, i8 83 }, %struct.Ladder { i8 -1, i8 -24, i8 100, i8 120 }, %struct.Ladder { i8 -1, i8 -21, i8 105, i8 85 }, %struct.Ladder { i8 -1, i8 -24, i8 102, i8 122 }, %struct.Ladder { i8 -1, i8 -22, i8 107, i8 87 }, %struct.Ladder { i8 -1, i8 -23, i8 104, i8 124 }, %struct.Ladder { i8 -1, i8 -22, i8 109, i8 89 }, %struct.Ladder { i8 -1, i8 -23, i8 106, i8 126 }, %struct.Ladder { i8 -1, i8 -22, i8 111, i8 91 }, %struct.Ladder { i8 -1, i8 -22, i8 108, i8 -128 }, %struct.Ladder { i8 -1, i8 -23, i8 113, i8 93 }, %struct.Ladder { i8 -1, i8 -22, i8 110, i8 -126 }, %struct.Ladder { i8 -1, i8 -23, i8 115, i8 95 }, %struct.Ladder { i8 -1, i8 -22, i8 112, i8 -124 }, %struct.Ladder { i8 -1, i8 -24, i8 117, i8 97 }, %struct.Ladder { i8 -1, i8 -21, i8 114, i8 -122 }, %struct.Ladder { i8 -1, i8 -24, i8 119, i8 99 }, %struct.Ladder { i8 -1, i8 -21, i8 116, i8 -120 }, %struct.Ladder { i8 -1, i8 -25, i8 121, i8 101 }, %struct.Ladder { i8 -1, i8 -20, i8 118, i8 -120 }, %struct.Ladder { i8 -1, i8 -25, i8 123, i8 103 }, %struct.Ladder { i8 -1, i8 -20, i8 120, i8 -118 }, %struct.Ladder { i8 -1, i8 -26, i8 125, i8 105 }, %struct.Ladder { i8 -1, i8 -20, i8 122, i8 -116 }, %struct.Ladder { i8 -1, i8 -26, i8 127, i8 107 }, %struct.Ladder { i8 -1, i8 -19, i8 124, i8 -114 }, %struct.Ladder { i8 -1, i8 -27, i8 -127, i8 107 }, %struct.Ladder { i8 -1, i8 -19, i8 126, i8 -112 }, %struct.Ladder { i8 -1, i8 -27, i8 -125, i8 111 }, %struct.Ladder { i8 -1, i8 -18, i8 -128, i8 -110 }, %struct.Ladder { i8 -1, i8 -28, i8 -123, i8 111 }, %struct.Ladder { i8 -1, i8 -18, i8 -126, i8 -110 }, %struct.Ladder { i8 -1, i8 -28, i8 -121, i8 115 }, %struct.Ladder { i8 -1, i8 -18, i8 -124, i8 -108 }, %struct.Ladder { i8 -1, i8 -29, i8 -119, i8 115 }, %struct.Ladder { i8 -1, i8 -17, i8 -122, i8 -106 }, %struct.Ladder { i8 -1, i8 -29, i8 -117, i8 117 }, %struct.Ladder { i8 -1, i8 -17, i8 -120, i8 -104 }, %struct.Ladder { i8 -1, i8 -30, i8 -115, i8 119 }, %struct.Ladder { i8 -1, i8 -16, i8 -118, i8 -104 }, %struct.Ladder { i8 -1, i8 -31, i8 -113, i8 121 }, %struct.Ladder { i8 -1, i8 -16, i8 -116, i8 -102 }, %struct.Ladder { i8 -1, i8 -31, i8 -111, i8 123 }, %struct.Ladder { i8 -1, i8 -15, i8 -114, i8 -100 }, %struct.Ladder { i8 -1, i8 -32, i8 -109, i8 125 }, %struct.Ladder { i8 -1, i8 -15, i8 -112, i8 -98 }, %struct.Ladder { i8 -1, i8 -33, i8 -107, i8 127 }, %struct.Ladder { i8 -1, i8 -15, i8 -110, i8 -98 }, %struct.Ladder { i8 -1, i8 -34, i8 -105, i8 -127 }, %struct.Ladder { i8 -1, i8 -14, i8 -108, i8 -96 }, %struct.Ladder { i8 -1, i8 -35, i8 -103, i8 -125 }, %struct.Ladder { i8 -1, i8 -14, i8 -106, i8 -96 }, %struct.Ladder { i8 -1, i8 -36, i8 -101, i8 -123 }, %struct.Ladder { i8 -2, i8 -13, i8 -104, i8 -94 }, %struct.Ladder { i8 -1, i8 -37, i8 -99, i8 -121 }, %struct.Ladder { i8 -2, i8 -12, i8 -102, i8 -92 }, %struct.Ladder { i8 -1, i8 -39, i8 -97, i8 -119 }, %struct.Ladder { i8 -2, i8 -12, i8 -100, i8 -92 }, %struct.Ladder { i8 -1, i8 -41, i8 -95, i8 -117 }, %struct.Ladder { i8 -2, i8 -11, i8 -98, i8 -90 }, %struct.Ladder { i8 -1, i8 -43, i8 -93, i8 -115 }, %struct.Ladder { i8 -2, i8 -10, i8 -96, i8 -90 }, %struct.Ladder { i8 -1, i8 -46, i8 -91, i8 -113 }, %struct.Ladder { i8 -3, i8 -9, i8 -94, i8 -88 }, %struct.Ladder { i8 -1, i8 -51, i8 -89, i8 -113 }, %struct.Ladder { i8 -3, i8 -8, i8 -92, i8 -86 }, %struct.Ladder { i8 -1, i8 -61, i8 -87, i8 -111 }, %struct.Ladder { i8 -4, i8 -7, i8 -90, i8 -86 }, %struct.Ladder { i8 -1, i8 -72, i8 -87, i8 -111 }, %struct.Ladder { i8 -6, i8 -5, i8 -88, i8 49 }, %struct.Ladder { i8 0, i8 -108, i8 -85, i8 -85 }, %struct.Ladder { i8 0, i8 -108, i8 -84, i8 -84 }, %struct.Ladder { i8 -6, i8 -5, i8 -83, i8 -83 }], align 16
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define void @ff_els_decoder_init(ptr noundef writeonly captures(none) initializes((0, 12), (16, 40)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = icmp ugt i64 %2, 2
+  br i1 %4, label %5, label %18
+
+5:                                                ; preds = %3
+  %6 = load i8, ptr %1, align 1, !tbaa !4
+  %7 = zext i8 %6 to i32
+  %8 = shl nuw nsw i32 %7, 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %10 = load i8, ptr %9, align 1, !tbaa !4
+  %11 = zext i8 %10 to i32
+  %12 = shl nuw nsw i32 %11, 8
+  %13 = or disjoint i32 %12, %8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %15 = load i8, ptr %14, align 1, !tbaa !4
+  %16 = zext i8 %15 to i32
+  %17 = or disjoint i32 %13, %16
+  br label %27
+
+18:                                               ; preds = %3
+  %19 = icmp eq i64 %2, 2
+  br i1 %19, label %20, label %24
+
+20:                                               ; preds = %18
+  %21 = load i16, ptr %1, align 1, !tbaa !4
+  %22 = tail call i16 @llvm.bswap.i16(i16 %21)
+  %23 = zext i16 %22 to i32
+  br label %27
+
+24:                                               ; preds = %18
+  %25 = load i8, ptr %1, align 1, !tbaa !4
+  %26 = zext i8 %25 to i32
+  br label %27
+
+27:                                               ; preds = %20, %24, %5
+  %.sink = phi i32 [ %23, %20 ], [ %26, %24 ], [ %17, %5 ]
+  %.0 = phi i64 [ 2, %20 ], [ 1, %24 ], [ 3, %5 ]
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.sink, ptr %28, align 8, !tbaa !7
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 %.0
+  store ptr %29, ptr %0, align 8, !tbaa !13
+  %30 = sub i64 %2, %.0
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %30, ptr %31, align 8, !tbaa !14
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 0, ptr %32, align 4, !tbaa !15
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 36, ptr %33, align 8, !tbaa !16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 16777216, ptr %34, align 4, !tbaa !17
+  %35 = sub nuw nsw i32 16777216, %.sink
+  %. = tail call i32 @llvm.umin.i32(i32 %35, i32 2395136)
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %., ptr %36, align 8, !tbaa !18
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define void @ff_els_decoder_uninit(ptr noundef %0) local_unnamed_addr #1 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @av_freep(ptr noundef nonnull %2) #7
+  ret void
+}
+
+declare void @av_freep(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define range(i32 -541478725, 2) i32 @ff_els_decode_bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %4 = load i32, ptr %3, align 4, !tbaa !15
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %5, label %110
+
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = load i32, ptr %6, align 8, !tbaa !16
+  %8 = load i8, ptr %1, align 1, !tbaa !4
+  %9 = zext i8 %8 to i64
+  %10 = getelementptr inbounds nuw [174 x %struct.Ladder], ptr @Ladder, i64 0, i64 %9, i32 1
+  %11 = load i8, ptr %10, align 1, !tbaa !19
+  %12 = sext i8 %11 to i32
+  %13 = add nsw i32 %7, %12
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds i32, ptr getelementptr inbounds nuw (i8, ptr @els_exp_tab, i64 432), i64 %14
+  %16 = load i32, ptr %15, align 4, !tbaa !21
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %18 = load i32, ptr %17, align 4, !tbaa !17
+  %19 = sub nsw i32 %18, %16
+  store i32 %19, ptr %17, align 4, !tbaa !17
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %21 = load i32, ptr %20, align 8, !tbaa !18
+  %22 = sub nsw i32 %21, %16
+  store i32 %22, ptr %20, align 8, !tbaa !18
+  %23 = icmp sgt i32 %22, 0
+  br i1 %23, label %24, label %28
+
+24:                                               ; preds = %5
+  %25 = load i8, ptr %1, align 1, !tbaa !4
+  %26 = and i8 %25, 1
+  %27 = zext nneg i8 %26 to i32
+  br label %110
+
+28:                                               ; preds = %5
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load i32, ptr %29, align 8, !tbaa !7
+  %31 = icmp ugt i32 %19, %30
+  br i1 %31, label %32, label %65
+
+32:                                               ; preds = %28
+  %33 = load i8, ptr %1, align 1, !tbaa !4
+  %34 = zext i8 %33 to i64
+  %35 = getelementptr inbounds nuw [174 x %struct.Ladder], ptr @Ladder, i64 0, i64 %34
+  %36 = load i8, ptr %35, align 4, !tbaa !22
+  %37 = sext i8 %36 to i32
+  %38 = add i32 %7, %37
+  %39 = sext i32 %38 to i64
+  br label %40
+
+40:                                               ; preds = %40, %32
+  %indvars.iv83 = phi i64 [ %indvars.iv.next84, %40 ], [ %39, %32 ]
+  %41 = getelementptr inbounds i32, ptr getelementptr inbounds nuw (i8, ptr @els_exp_tab, i64 432), i64 %indvars.iv83
+  %42 = load i32, ptr %41, align 4, !tbaa !21
+  %43 = icmp ugt i32 %19, %42
+  %indvars.iv.next84 = add nsw i64 %indvars.iv83, 1
+  br i1 %43, label %40, label %44, !llvm.loop !23
+
+44:                                               ; preds = %40
+  %45 = trunc nsw i64 %indvars.iv83 to i32
+  store i32 %45, ptr %6, align 8, !tbaa !16
+  %46 = icmp slt i64 %indvars.iv83, 1
+  br i1 %46, label %47, label %59
+
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %49 = load i64, ptr %48, align 8, !tbaa !14
+  %.not.i = icmp eq i64 %49, 0
+  br i1 %.not.i, label %els_import_byte.exit.thread, label %els_import_byte.exit
+
+els_import_byte.exit.thread:                      ; preds = %47
+  store i32 -541478725, ptr %3, align 4, !tbaa !15
+  br label %110
+
+els_import_byte.exit:                             ; preds = %47
+  %50 = shl i32 %30, 8
+  %51 = load ptr, ptr %0, align 8, !tbaa !13
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1
+  store ptr %52, ptr %0, align 8, !tbaa !13
+  %53 = load i8, ptr %51, align 1, !tbaa !4
+  %54 = zext i8 %53 to i32
+  %55 = or disjoint i32 %50, %54
+  store i32 %55, ptr %29, align 8, !tbaa !7
+  %56 = add i64 %49, -1
+  store i64 %56, ptr %48, align 8, !tbaa !14
+  %57 = add nsw i32 %45, 36
+  store i32 %57, ptr %6, align 8, !tbaa !16
+  %58 = shl i32 %19, 8
+  store i32 %58, ptr %17, align 4, !tbaa !17
+  br label %59
+
+59:                                               ; preds = %els_import_byte.exit, %44
+  %60 = phi i32 [ %58, %els_import_byte.exit ], [ %19, %44 ]
+  %61 = load i8, ptr %1, align 1, !tbaa !4
+  %62 = and i8 %61, 1
+  %63 = zext i8 %61 to i64
+  %64 = getelementptr inbounds nuw [174 x %struct.Ladder], ptr @Ladder, i64 0, i64 %63, i32 2
+  br label %101
+
+65:                                               ; preds = %28
+  %66 = sub nuw i32 %30, %19
+  store i32 %66, ptr %29, align 8, !tbaa !7
+  store i32 %16, ptr %17, align 4, !tbaa !17
+  %67 = load i8, ptr %1, align 1, !tbaa !4
+  %68 = zext i8 %67 to i64
+  %69 = getelementptr inbounds nuw [174 x %struct.Ladder], ptr @Ladder, i64 0, i64 %68, i32 1
+  %70 = load i8, ptr %69, align 1, !tbaa !19
+  %71 = sext i8 %70 to i32
+  %72 = add nsw i32 %7, %71
+  store i32 %72, ptr %6, align 8, !tbaa !16
+  %73 = icmp slt i32 %72, 1
+  br i1 %73, label %74, label %.loopexit
+
+74:                                               ; preds = %65
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %76 = load i64, ptr %75, align 8, !tbaa !14
+  %.not.i74 = icmp eq i64 %76, 0
+  br i1 %.not.i74, label %els_import_byte.exit76.thread, label %77
+
+els_import_byte.exit76.thread:                    ; preds = %74
+  store i32 -541478725, ptr %3, align 4, !tbaa !15
+  br label %110
+
+77:                                               ; preds = %74
+  %78 = shl i32 %66, 8
+  %79 = load ptr, ptr %0, align 8, !tbaa !13
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 1
+  store ptr %80, ptr %0, align 8, !tbaa !13
+  %81 = load i8, ptr %79, align 1, !tbaa !4
+  %82 = zext i8 %81 to i32
+  %83 = or disjoint i32 %78, %82
+  store i32 %83, ptr %29, align 8, !tbaa !7
+  %84 = add i64 %76, -1
+  store i64 %84, ptr %75, align 8, !tbaa !14
+  %85 = add nsw i32 %72, 36
+  store i32 %85, ptr %6, align 8, !tbaa !16
+  %86 = shl i32 %16, 8
+  store i32 %86, ptr %17, align 4, !tbaa !17
+  %87 = icmp slt i32 %72, -35
+  br i1 %87, label %88, label %.loopexit
+
+88:                                               ; preds = %77
+  %89 = shl i32 %16, 16
+  %90 = tail call fastcc i32 @els_import_byte(ptr noundef nonnull %0)
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %110, label %.preheader
+
+.preheader:                                       ; preds = %88
+  %.promoted = load i32, ptr %6, align 8, !tbaa !16
+  %92 = sext i32 %.promoted to i64
+  %gep79 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @els_exp_tab, i64 428), i64 %92
+  %93 = load i32, ptr %gep79, align 4, !tbaa !21
+  %.not7180 = icmp ult i32 %93, %89
+  br i1 %.not7180, label %.loopexit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %92, %.preheader ]
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %gep = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @els_exp_tab, i64 428), i64 %indvars.iv.next
+  %94 = load i32, ptr %gep, align 4, !tbaa !21
+  %.not71 = icmp ult i32 %94, %89
+  br i1 %.not71, label %..loopexit_crit_edge, label %.lr.ph, !llvm.loop !25
+
+..loopexit_crit_edge:                             ; preds = %.lr.ph
+  %95 = trunc nsw i64 %indvars.iv.next to i32
+  store i32 %95, ptr %6, align 8, !tbaa !16
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.preheader, %..loopexit_crit_edge, %77, %65
+  %.1 = phi i32 [ %86, %77 ], [ %16, %65 ], [ %89, %..loopexit_crit_edge ], [ %89, %.preheader ]
+  %96 = load i8, ptr %1, align 1, !tbaa !4
+  %97 = and i8 %96, 1
+  %98 = xor i8 %97, 1
+  %99 = zext i8 %96 to i64
+  %100 = getelementptr inbounds nuw [174 x %struct.Ladder], ptr @Ladder, i64 0, i64 %99, i32 3
+  br label %101
+
+101:                                              ; preds = %.loopexit, %59
+  %storemerge.in = phi ptr [ %100, %.loopexit ], [ %64, %59 ]
+  %.062 = phi i32 [ %.1, %.loopexit ], [ %60, %59 ]
+  %.061.in = phi i8 [ %98, %.loopexit ], [ %62, %59 ]
+  %.061 = zext nneg i8 %.061.in to i32
+  %storemerge = load i8, ptr %storemerge.in, align 1, !tbaa !4
+  store i8 %storemerge, ptr %1, align 1, !tbaa !4
+  %102 = load i32, ptr %29, align 8, !tbaa !7
+  %103 = sub i32 %.062, %102
+  %104 = load i32, ptr %6, align 8, !tbaa !16
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @els_exp_tab, i64 432), i64 %105
+  %107 = getelementptr i8, ptr %106, i64 -4
+  %108 = load i32, ptr %107, align 4, !tbaa !21
+  %109 = sub i32 %.062, %108
+  %. = tail call i32 @llvm.umin.i32(i32 %103, i32 %109)
+  store i32 %., ptr %20, align 8, !tbaa !18
+  br label %110
+
+110:                                              ; preds = %els_import_byte.exit76.thread, %els_import_byte.exit.thread, %88, %2, %101, %24
+  %.0 = phi i32 [ %27, %24 ], [ %.061, %101 ], [ 0, %2 ], [ %90, %88 ], [ -541478725, %els_import_byte.exit.thread ], [ -541478725, %els_import_byte.exit76.thread ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc range(i32 -541478725, 1) i32 @els_import_byte(ptr noundef captures(none) %0) unnamed_addr #4 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load i64, ptr %2, align 8, !tbaa !14
+  %.not = icmp eq i64 %3, 0
+  br i1 %.not, label %4, label %6
+
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 -541478725, ptr %5, align 4, !tbaa !15
+  br label %22
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load i32, ptr %7, align 8, !tbaa !7
+  %9 = shl i32 %8, 8
+  %10 = load ptr, ptr %0, align 8, !tbaa !13
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  store ptr %11, ptr %0, align 8, !tbaa !13
+  %12 = load i8, ptr %10, align 1, !tbaa !4
+  %13 = zext i8 %12 to i32
+  %14 = or disjoint i32 %9, %13
+  store i32 %14, ptr %7, align 8, !tbaa !7
+  %15 = add i64 %3, -1
+  store i64 %15, ptr %2, align 8, !tbaa !14
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = load i32, ptr %16, align 8, !tbaa !16
+  %18 = add nsw i32 %17, 36
+  store i32 %18, ptr %16, align 8, !tbaa !16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %20 = load i32, ptr %19, align 4, !tbaa !17
+  %21 = shl i32 %20, 8
+  store i32 %21, ptr %19, align 4, !tbaa !17
+  br label %22
+
+22:                                               ; preds = %6, %4
+  %.0 = phi i32 [ 0, %6 ], [ -541478725, %4 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define range(i32 -2147483647, -2147483648) i32 @ff_els_decode_unsigned(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %4 = load i32, ptr %3, align 4, !tbaa !15
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %.preheader, label %.loopexit
+
+.preheader:                                       ; preds = %2, %7
+  %indvars.iv85 = phi i32 [ %indvars.iv.next86, %7 ], [ 0, %2 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %2 ]
+  %5 = getelementptr inbounds nuw [11 x i8], ptr %1, i64 0, i64 %indvars.iv
+  %6 = tail call i32 @ff_els_decode_bit(ptr noundef %0, ptr noundef %5)
+  %.not65 = icmp eq i32 %6, 0
+  br i1 %.not65, label %7, label %8
+
+7:                                                ; preds = %.preheader
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 11
+  %indvars.iv.next86 = add nuw nsw i32 %indvars.iv85, 1
+  br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !26
+
+8:                                                ; preds = %.preheader
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
+  %10 = load i32, ptr %3, align 4, !tbaa !15
+  %11 = icmp ne i32 %10, 0
+  %12 = icmp eq i64 %indvars.iv, 10
+  %or.cond = or i1 %12, %11
+  br i1 %or.cond, label %.thread, label %13
+
+.thread:                                          ; preds = %7, %8
+  store i32 -1094995529, ptr %3, align 4, !tbaa !15
+  br label %.loopexit
+
+13:                                               ; preds = %8
+  %.not66 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not66, label %.loopexit, label %14
+
+14:                                               ; preds = %13
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !27
+  %.not67 = icmp eq ptr %16, null
+  br i1 %.not67, label %17, label %23
+
+17:                                               ; preds = %14
+  %18 = tail call ptr @av_realloc(ptr noundef null, i64 noundef 256) #7
+  store ptr %18, ptr %15, align 8, !tbaa !27
+  %.not68 = icmp eq ptr %18, null
+  br i1 %.not68, label %19, label %20
+
+19:                                               ; preds = %17
+  store i32 -12, ptr %3, align 4, !tbaa !15
+  br label %.loopexit
+
+20:                                               ; preds = %17
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %18, i8 0, i64 256, i1 false)
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 256, ptr %21, align 8, !tbaa !31
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i16 10, ptr %22, align 8, !tbaa !32
+  br label %23
+
+23:                                               ; preds = %20, %14
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %26 = and i64 %indvars.iv, 4294967295
+  %umax = tail call i32 @llvm.umax.i32(i32 %indvars.iv85, i32 1)
+  br label %27
+
+27:                                               ; preds = %23, %69
+  %.05482 = phi ptr [ undef, %23 ], [ %.155, %69 ]
+  %.05981 = phi i32 [ 0, %23 ], [ %67, %69 ]
+  %.06080 = phi i32 [ 0, %23 ], [ %71, %69 ]
+  %.06279 = phi i32 [ 0, %23 ], [ %72, %69 ]
+  %.not69 = icmp eq i32 %.06279, 0
+  br i1 %.not69, label %28, label %31
+
+28:                                               ; preds = %27
+  %29 = load ptr, ptr %15, align 8, !tbaa !27
+  %30 = getelementptr inbounds nuw %struct.ElsRungNode, ptr %29, i64 %26
+  br label %66
+
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds nuw i8, ptr %.05482, i64 2
+  %33 = load i16, ptr %32, align 2, !tbaa !33
+  %.not70 = icmp eq i16 %33, 0
+  br i1 %.not70, label %34, label %59
+
+34:                                               ; preds = %31
+  %35 = load i64, ptr %24, align 8, !tbaa !31
+  %36 = load i16, ptr %25, align 8, !tbaa !32
+  %37 = zext i16 %36 to i64
+  %38 = shl nuw nsw i64 %37, 2
+  %39 = add nuw nsw i64 %38, 8
+  %.not71 = icmp ugt i64 %35, %39
+  br i1 %.not71, label %55, label %40
+
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %15, align 8, !tbaa !27
+  %42 = add nuw nsw i64 %35, 256
+  %43 = tail call i32 @av_reallocp(ptr noundef nonnull %15, i64 noundef %42) #7
+  store i32 %43, ptr %3, align 4, !tbaa !15
+  %44 = icmp sgt i32 %43, -1
+  br i1 %44, label %.thread74, label %.loopexit
+
+.thread74:                                        ; preds = %40
+  %45 = ptrtoint ptr %.05482 to i64
+  %46 = ptrtoint ptr %41 to i64
+  %47 = sub i64 %45, %46
+  %48 = load ptr, ptr %15, align 8, !tbaa !27
+  %49 = load i64, ptr %24, align 8, !tbaa !31
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 %49
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %50, i8 0, i64 256, i1 false)
+  %51 = load i64, ptr %24, align 8, !tbaa !31
+  %52 = add i64 %51, 256
+  store i64 %52, ptr %24, align 8, !tbaa !31
+  %53 = load ptr, ptr %15, align 8, !tbaa !27
+  %54 = getelementptr inbounds i8, ptr %53, i64 %47
+  %.pre = load i16, ptr %25, align 8, !tbaa !32
+  br label %55
+
+55:                                               ; preds = %.thread74, %34
+  %56 = phi i16 [ %36, %34 ], [ %.pre, %.thread74 ]
+  %.357 = phi ptr [ %.05482, %34 ], [ %54, %.thread74 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.357, i64 2
+  store i16 %56, ptr %57, align 2, !tbaa !33
+  %58 = add i16 %56, 2
+  store i16 %58, ptr %25, align 8, !tbaa !32
+  br label %59
+
+59:                                               ; preds = %55, %31
+  %60 = phi i16 [ %33, %31 ], [ %56, %55 ]
+  %61 = load ptr, ptr %15, align 8, !tbaa !27
+  %62 = zext i16 %60 to i32
+  %63 = add nsw i32 %.05981, %62
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds %struct.ElsRungNode, ptr %61, i64 %64
+  br label %66
+
+66:                                               ; preds = %59, %28
+  %.155 = phi ptr [ %65, %59 ], [ %30, %28 ]
+  %67 = tail call i32 @ff_els_decode_bit(ptr noundef nonnull %0, ptr noundef %.155)
+  %68 = load i32, ptr %3, align 4, !tbaa !15
+  %.not72 = icmp eq i32 %68, 0
+  br i1 %.not72, label %69, label %.loopexit
+
+69:                                               ; preds = %66
+  %70 = shl i32 %.06080, 1
+  %71 = add nsw i32 %67, %70
+  %72 = add nuw nsw i32 %.06279, 1
+  %exitcond88.not = icmp eq i32 %72, %umax
+  br i1 %exitcond88.not, label %73, label %27, !llvm.loop !35
+
+73:                                               ; preds = %69
+  %notmask = shl nsw i32 -1, %9
+  %74 = xor i32 %notmask, -1
+  %75 = add nsw i32 %71, %74
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %40, %66, %13, %2, %73, %19, %.thread
+  %.0 = phi i32 [ 0, %.thread ], [ %75, %73 ], [ 0, %19 ], [ 0, %2 ], [ 0, %13 ], [ 0, %40 ], [ %67, %66 ]
+  ret i32 %.0
+}
+
+declare ptr @av_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+
+declare i32 @av_reallocp(ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.bswap.i16(i16) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #6
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 1, !"override-stack-alignment", i32 16}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !11, i64 8}
+!8 = !{!"ElsDecCtx", !9, i64 0, !11, i64 8, !12, i64 16, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !5, i64 0}
+!11 = !{!"int", !5, i64 0}
+!12 = !{!"long", !5, i64 0}
+!13 = !{!8, !9, i64 0}
+!14 = !{!8, !12, i64 16}
+!15 = !{!8, !11, i64 36}
+!16 = !{!8, !11, i64 24}
+!17 = !{!8, !11, i64 28}
+!18 = !{!8, !11, i64 32}
+!19 = !{!20, !5, i64 1}
+!20 = !{!"Ladder", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3}
+!21 = !{!11, !11, i64 0}
+!22 = !{!20, !5, i64 0}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.mustprogress"}
+!25 = distinct !{!25, !24}
+!26 = distinct !{!26, !24}
+!27 = !{!28, !29, i64 16}
+!28 = !{!"ElsUnsignedRung", !5, i64 0, !29, i64 16, !12, i64 24, !30, i64 32}
+!29 = !{!"p1 _ZTS11ElsRungNode", !10, i64 0}
+!30 = !{!"short", !5, i64 0}
+!31 = !{!28, !12, i64 24}
+!32 = !{!28, !30, i64 32}
+!33 = !{!34, !30, i64 2}
+!34 = !{!"ElsRungNode", !5, i64 0, !30, i64 2}
+!35 = distinct !{!35, !24}

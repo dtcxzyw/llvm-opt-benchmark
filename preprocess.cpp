@@ -25,27 +25,30 @@ class DumpPass : public PassInfoMixin<DumpPass> {
 public:
   PreservedAnalyses run(Module &M, ModuleAnalysisManager &MAM) {
     const char *Prefix = getenv("DUMP_PREFIX");
-    if (!Prefix)
+    if (!Prefix || M.getSourceFileName().empty())
       return PreservedAnalyses::none();
-    std::string FileName = M.getSourceFileName();
-    if (FileName.find("CMakeTmp") != std::string::npos ||
-        FileName.find("CMakeScratch") != std::string::npos)
-      return PreservedAnalyses::none();
-    M.setModuleIdentifier("");
-    M.setSourceFileName("");
-    StripDebugInfo(M);
-
     if (M.empty())
       return PreservedAnalyses::none();
-    auto TargetFileName =
-        (Prefix / fs::path(FileName).filename().replace_extension(".ll"))
-            .string();
+
+    std::string FileName = M.getSourceFileName();
+    if (FileName.find("CMakeTmp") != std::string::npos ||
+        FileName.find("CMakeScratch") != std::string::npos ||
+        FileName.starts_with("/tmp/"))
+      return PreservedAnalyses::none();
+
+    auto AbsFileName = Prefix / fs::path(FileName).filename();
+    auto TargetFileName = AbsFileName.has_extension()
+                              ? AbsFileName.replace_extension(".ll").string()
+                              : AbsFileName.string() + ".ll";
     Expected<sys::fs::TempFile> Temp =
         sys::fs::TempFile::create("opt-%%%%%%%.ll");
     if (!Temp)
       return PreservedAnalyses::none();
     {
       raw_fd_ostream OS(Temp->FD, false);
+      M.setModuleIdentifier("");
+      M.setSourceFileName("");
+      StripDebugInfo(M);
       M.print(OS, /*AAW=*/nullptr);
     }
     (void)Temp->keep(TargetFileName);

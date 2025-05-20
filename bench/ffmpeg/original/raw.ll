@@ -1,0 +1,170 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.PixelFormatTag = type { i32, i32 }
+
+@raw_pix_fmt_tags = internal constant [268 x %struct.PixelFormatTag] [%struct.PixelFormatTag { i32 0, i32 808596553 }, %struct.PixelFormatTag { i32 0, i32 1448433993 }, %struct.PixelFormatTag { i32 0, i32 842102393 }, %struct.PixelFormatTag { i32 0, i32 842094169 }, %struct.PixelFormatTag { i32 6, i32 961959257 }, %struct.PixelFormatTag { i32 6, i32 961893977 }, %struct.PixelFormatTag { i32 7, i32 1110520921 }, %struct.PixelFormatTag { i32 4, i32 1110586457 }, %struct.PixelFormatTag { i32 4, i32 842150992 }, %struct.PixelFormatTag { i32 4, i32 909203033 }, %struct.PixelFormatTag { i32 12, i32 808596553 }, %struct.PixelFormatTag { i32 12, i32 1448433993 }, %struct.PixelFormatTag { i32 12, i32 842094169 }, %struct.PixelFormatTag { i32 13, i32 1110586457 }, %struct.PixelFormatTag { i32 13, i32 842150992 }, %struct.PixelFormatTag { i32 8, i32 808466521 }, %struct.PixelFormatTag { i32 8, i32 538982489 }, %struct.PixelFormatTag { i32 1, i32 844715353 }, %struct.PixelFormatTag { i32 1, i32 842151001 }, %struct.PixelFormatTag { i32 1, i32 842150998 }, %struct.PixelFormatTag { i32 1, i32 1498765654 }, %struct.PixelFormatTag { i32 1, i32 1447974233 }, %struct.PixelFormatTag { i32 1, i32 1448695129 }, %struct.PixelFormatTag { i32 108, i32 1431918169 }, %struct.PixelFormatTag { i32 15, i32 1498831189 }, %struct.PixelFormatTag { i32 15, i32 1129923656 }, %struct.PixelFormatTag { i32 15, i32 1447975253 }, %struct.PixelFormatTag { i32 15, i32 1498306901 }, %struct.PixelFormatTag { i32 15, i32 829847925 }, %struct.PixelFormatTag { i32 15, i32 829773362 }, %struct.PixelFormatTag { i32 15, i32 1850889793 }, %struct.PixelFormatTag { i32 15, i32 2016499265 }, %struct.PixelFormatTag { i32 15, i32 1886737985 }, %struct.PixelFormatTag { i32 15, i32 1515471958 }, %struct.PixelFormatTag { i32 15, i32 846624097 }, %struct.PixelFormatTag { i32 15, i32 1987410275 }, %struct.PixelFormatTag { i32 16, i32 825308249 }, %struct.PixelFormatTag { i32 8, i32 1497715271 }, %struct.PixelFormatTag { i32 23, i32 842094158 }, %struct.PixelFormatTag { i32 24, i32 825382478 }, %struct.PixelFormatTag { i32 205, i32 1448433985 }, %struct.PixelFormatTag { i32 214, i32 808531033 }, %struct.PixelFormatTag { i32 242, i32 909194329 }, %struct.PixelFormatTag { i32 192, i32 808530521 }, %struct.PixelFormatTag { i32 240, i32 909193817 }, %struct.PixelFormatTag { i32 39, i32 256001874 }, %struct.PixelFormatTag { i32 43, i32 257050434 }, %struct.PixelFormatTag { i32 37, i32 272779090 }, %struct.PixelFormatTag { i32 41, i32 273827650 }, %struct.PixelFormatTag { i32 38, i32 1380401679 }, %struct.PixelFormatTag { i32 42, i32 1111970319 }, %struct.PixelFormatTag { i32 36, i32 1380401680 }, %struct.PixelFormatTag { i32 40, i32 1111970320 }, %struct.PixelFormatTag { i32 52, i32 205670226 }, %struct.PixelFormatTag { i32 54, i32 206718786 }, %struct.PixelFormatTag { i32 53, i32 1380401676 }, %struct.PixelFormatTag { i32 55, i32 1111970316 }, %struct.PixelFormatTag { i32 105, i32 1078018642 }, %struct.PixelFormatTag { i32 107, i32 1078022722 }, %struct.PixelFormatTag { i32 104, i32 1094865472 }, %struct.PixelFormatTag { i32 106, i32 1095909952 }, %struct.PixelFormatTag { i32 26, i32 1094862674 }, %struct.PixelFormatTag { i32 119, i32 4343634 }, %struct.PixelFormatTag { i32 28, i32 1095911234 }, %struct.PixelFormatTag { i32 121, i32 5392194 }, %struct.PixelFormatTag { i32 27, i32 1380401729 }, %struct.PixelFormatTag { i32 120, i32 1380401664 }, %struct.PixelFormatTag { i32 25, i32 1111970369 }, %struct.PixelFormatTag { i32 118, i32 1111970304 }, %struct.PixelFormatTag { i32 2, i32 406996818 }, %struct.PixelFormatTag { i32 3, i32 408045378 }, %struct.PixelFormatTag { i32 7, i32 1345401140 }, %struct.PixelFormatTag { i32 4, i32 1345466932 }, %struct.PixelFormatTag { i32 13, i32 1345466932 }, %struct.PixelFormatTag { i32 31, i32 1345336372 }, %struct.PixelFormatTag { i32 32, i32 1345336372 }, %struct.PixelFormatTag { i32 5, i32 1345598516 }, %struct.PixelFormatTag { i32 14, i32 1345598516 }, %struct.PixelFormatTag { i32 9, i32 811020610 }, %struct.PixelFormatTag { i32 10, i32 827797570 }, %struct.PixelFormatTag { i32 17, i32 139609922 }, %struct.PixelFormatTag { i32 20, i32 138561362 }, %struct.PixelFormatTag { i32 18, i32 72501058 }, %struct.PixelFormatTag { i32 21, i32 71452498 }, %struct.PixelFormatTag { i32 22, i32 1497510978 }, %struct.PixelFormatTag { i32 19, i32 1497510994 }, %struct.PixelFormatTag { i32 35, i32 809650002 }, %struct.PixelFormatTag { i32 34, i32 1111970352 }, %struct.PixelFormatTag { i32 58, i32 810698562 }, %struct.PixelFormatTag { i32 57, i32 1380401712 }, %struct.PixelFormatTag { i32 173, i32 151007577 }, %struct.PixelFormatTag { i32 172, i32 1496383497 }, %struct.PixelFormatTag { i32 168, i32 167784793 }, %struct.PixelFormatTag { i32 167, i32 1496383498 }, %struct.PixelFormatTag { i32 166, i32 201339225 }, %struct.PixelFormatTag { i32 165, i32 1496383500 }, %struct.PixelFormatTag { i32 181, i32 234893657 }, %struct.PixelFormatTag { i32 180, i32 1496383502 }, %struct.PixelFormatTag { i32 30, i32 268448089 }, %struct.PixelFormatTag { i32 29, i32 1496383504 }, %struct.PixelFormatTag { i32 60, i32 151728985 }, %struct.PixelFormatTag { i32 59, i32 1496517385 }, %struct.PixelFormatTag { i32 70, i32 151663449 }, %struct.PixelFormatTag { i32 69, i32 1496517129 }, %struct.PixelFormatTag { i32 66, i32 151008089 }, %struct.PixelFormatTag { i32 65, i32 1496514569 }, %struct.PixelFormatTag { i32 62, i32 168506201 }, %struct.PixelFormatTag { i32 61, i32 1496517386 }, %struct.PixelFormatTag { i32 64, i32 168440665 }, %struct.PixelFormatTag { i32 63, i32 1496517130 }, %struct.PixelFormatTag { i32 68, i32 167785305 }, %struct.PixelFormatTag { i32 67, i32 1496514570 }, %struct.PixelFormatTag { i32 123, i32 202060633 }, %struct.PixelFormatTag { i32 122, i32 1496517388 }, %struct.PixelFormatTag { i32 127, i32 201995097 }, %struct.PixelFormatTag { i32 126, i32 1496517132 }, %struct.PixelFormatTag { i32 131, i32 201339737 }, %struct.PixelFormatTag { i32 130, i32 1496514572 }, %struct.PixelFormatTag { i32 125, i32 235615065 }, %struct.PixelFormatTag { i32 124, i32 1496517390 }, %struct.PixelFormatTag { i32 129, i32 235549529 }, %struct.PixelFormatTag { i32 128, i32 1496517134 }, %struct.PixelFormatTag { i32 133, i32 234894169 }, %struct.PixelFormatTag { i32 132, i32 1496514574 }, %struct.PixelFormatTag { i32 45, i32 269169497 }, %struct.PixelFormatTag { i32 46, i32 1496517392 }, %struct.PixelFormatTag { i32 47, i32 269103961 }, %struct.PixelFormatTag { i32 48, i32 1496517136 }, %struct.PixelFormatTag { i32 49, i32 268448601 }, %struct.PixelFormatTag { i32 50, i32 1496514576 }, %struct.PixelFormatTag { i32 33, i32 134952025 }, %struct.PixelFormatTag { i32 78, i32 134886489 }, %struct.PixelFormatTag { i32 79, i32 134231129 }, %struct.PixelFormatTag { i32 56, i32 134230617 }, %struct.PixelFormatTag { i32 11, i32 139215184 }, %struct.PixelFormatTag { i32 81, i32 151729241 }, %struct.PixelFormatTag { i32 80, i32 1496582921 }, %struct.PixelFormatTag { i32 83, i32 151663705 }, %struct.PixelFormatTag { i32 82, i32 1496582665 }, %struct.PixelFormatTag { i32 85, i32 151008345 }, %struct.PixelFormatTag { i32 84, i32 1496580105 }, %struct.PixelFormatTag { i32 87, i32 168506457 }, %struct.PixelFormatTag { i32 86, i32 1496582922 }, %struct.PixelFormatTag { i32 89, i32 168440921 }, %struct.PixelFormatTag { i32 88, i32 1496582666 }, %struct.PixelFormatTag { i32 91, i32 167785561 }, %struct.PixelFormatTag { i32 90, i32 1496580106 }, %struct.PixelFormatTag { i32 185, i32 201995353 }, %struct.PixelFormatTag { i32 184, i32 1496582668 }, %struct.PixelFormatTag { i32 187, i32 201339993 }, %struct.PixelFormatTag { i32 186, i32 1496580108 }, %struct.PixelFormatTag { i32 93, i32 269169753 }, %struct.PixelFormatTag { i32 92, i32 1496582928 }, %struct.PixelFormatTag { i32 95, i32 269104217 }, %struct.PixelFormatTag { i32 94, i32 1496582672 }, %struct.PixelFormatTag { i32 97, i32 268448857 }, %struct.PixelFormatTag { i32 96, i32 1496580112 }, %struct.PixelFormatTag { i32 71, i32 134230855 }, %struct.PixelFormatTag { i32 73, i32 151008071 }, %struct.PixelFormatTag { i32 72, i32 1194524681 }, %struct.PixelFormatTag { i32 75, i32 167785287 }, %struct.PixelFormatTag { i32 74, i32 1194524682 }, %struct.PixelFormatTag { i32 135, i32 201339719 }, %struct.PixelFormatTag { i32 134, i32 1194524684 }, %struct.PixelFormatTag { i32 137, i32 234894151 }, %struct.PixelFormatTag { i32 136, i32 1194524686 }, %struct.PixelFormatTag { i32 77, i32 268448583 }, %struct.PixelFormatTag { i32 76, i32 1194524688 }, %struct.PixelFormatTag { i32 244, i32 285225799 }, %struct.PixelFormatTag { i32 243, i32 1194524689 }, %struct.PixelFormatTag { i32 175, i32 553661255 }, %struct.PixelFormatTag { i32 174, i32 1194524705 }, %struct.PixelFormatTag { i32 111, i32 134231111 }, %struct.PixelFormatTag { i32 163, i32 167785543 }, %struct.PixelFormatTag { i32 162, i32 1194590218 }, %struct.PixelFormatTag { i32 161, i32 201339975 }, %struct.PixelFormatTag { i32 160, i32 1194590220 }, %struct.PixelFormatTag { i32 226, i32 234894407 }, %struct.PixelFormatTag { i32 225, i32 1194590222 }, %struct.PixelFormatTag { i32 113, i32 268448839 }, %struct.PixelFormatTag { i32 112, i32 1194590224 }, %struct.PixelFormatTag { i32 246, i32 285226055 }, %struct.PixelFormatTag { i32 245, i32 1194590225 }, %struct.PixelFormatTag { i32 177, i32 553661511 }, %struct.PixelFormatTag { i32 176, i32 1194590241 }, %struct.PixelFormatTag { i32 99, i32 609900888 }, %struct.PixelFormatTag { i32 100, i32 1482250788 }, %struct.PixelFormatTag { i32 139, i32 138887866 }, %struct.PixelFormatTag { i32 143, i32 273105594 }, %struct.PixelFormatTag { i32 144, i32 -1170061552 }, %struct.PixelFormatTag { i32 140, i32 138891962 }, %struct.PixelFormatTag { i32 145, i32 273109690 }, %struct.PixelFormatTag { i32 146, i32 -1169012976 }, %struct.PixelFormatTag { i32 141, i32 138561466 }, %struct.PixelFormatTag { i32 147, i32 272779194 }, %struct.PixelFormatTag { i32 148, i32 -1169735152 }, %struct.PixelFormatTag { i32 142, i32 139610042 }, %struct.PixelFormatTag { i32 149, i32 273827770 }, %struct.PixelFormatTag { i32 150, i32 -1169731056 }, %struct.PixelFormatTag { i32 0, i32 808596562 }, %struct.PixelFormatTag { i32 7, i32 825308242 }, %struct.PixelFormatTag { i32 15, i32 2037741106 }, %struct.PixelFormatTag { i32 15, i32 2037732914 }, %struct.PixelFormatTag { i32 15, i32 1230329409 }, %struct.PixelFormatTag { i32 15, i32 1987672162 }, %struct.PixelFormatTag { i32 1, i32 846624121 }, %struct.PixelFormatTag { i32 1, i32 1937143161 }, %struct.PixelFormatTag { i32 1, i32 1330599492 }, %struct.PixelFormatTag { i32 230, i32 942682998 }, %struct.PixelFormatTag { i32 229, i32 942683254 }, %struct.PixelFormatTag { i32 232, i32 808531062 }, %struct.PixelFormatTag { i32 228, i32 942683257 }, %struct.PixelFormatTag { i32 39, i32 892679500 }, %struct.PixelFormatTag { i32 37, i32 892745036 }, %struct.PixelFormatTag { i32 36, i32 892745026 }, %struct.PixelFormatTag { i32 3, i32 1195521074 }, %struct.PixelFormatTag { i32 3, i32 1734506594 }, %struct.PixelFormatTag { i32 28, i32 1095911234 }, %struct.PixelFormatTag { i32 26, i32 1094862674 }, %struct.PixelFormatTag { i32 2, i32 1735555170 }, %struct.PixelFormatTag { i32 27, i32 1380401729 }, %struct.PixelFormatTag { i32 29, i32 1731604834 }, %struct.PixelFormatTag { i32 34, i32 1916286050 }, %struct.PixelFormatTag { i32 104, i32 1630811746 }, %struct.PixelFormatTag { i32 146, i32 1380403010 }, %struct.PixelFormatTag { i32 6, i32 808531017 }, %struct.PixelFormatTag { i32 7, i32 825308233 }, %struct.PixelFormatTag { i32 4, i32 842150985 }, %struct.PixelFormatTag { i32 31, i32 808727625 }, %struct.PixelFormatTag { i32 5, i32 875836489 }, %struct.PixelFormatTag { i32 12, i32 808596554 }, %struct.PixelFormatTag { i32 13, i32 842150986 }, %struct.PixelFormatTag { i32 32, i32 808727626 }, %struct.PixelFormatTag { i32 14, i32 875836490 }, %struct.PixelFormatTag { i32 79, i32 1096176985 }, %struct.PixelFormatTag { i32 33, i32 1093678153 }, %struct.PixelFormatTag { i32 78, i32 1093809225 }, %struct.PixelFormatTag { i32 20, i32 843204434 }, %struct.PixelFormatTag { i32 39, i32 892425810 }, %struct.PixelFormatTag { i32 37, i32 909203026 }, %struct.PixelFormatTag { i32 3, i32 875714130 }, %struct.PixelFormatTag { i32 121, i32 842225234 }, %struct.PixelFormatTag { i32 26, i32 842225217 }, %struct.PixelFormatTag { i32 60, i32 1278816329 }, %struct.PixelFormatTag { i32 59, i32 1111044169 }, %struct.PixelFormatTag { i32 70, i32 1278816841 }, %struct.PixelFormatTag { i32 69, i32 1111044681 }, %struct.PixelFormatTag { i32 66, i32 1278817353 }, %struct.PixelFormatTag { i32 65, i32 1111045193 }, %struct.PixelFormatTag { i32 62, i32 1279340617 }, %struct.PixelFormatTag { i32 61, i32 1111568457 }, %struct.PixelFormatTag { i32 64, i32 1279341129 }, %struct.PixelFormatTag { i32 63, i32 1111568969 }, %struct.PixelFormatTag { i32 68, i32 1279341641 }, %struct.PixelFormatTag { i32 67, i32 1111569481 }, %struct.PixelFormatTag { i32 123, i32 1279471689 }, %struct.PixelFormatTag { i32 122, i32 1111699529 }, %struct.PixelFormatTag { i32 127, i32 1279472201 }, %struct.PixelFormatTag { i32 126, i32 1111700041 }, %struct.PixelFormatTag { i32 131, i32 1279472713 }, %struct.PixelFormatTag { i32 130, i32 1111700553 }, %struct.PixelFormatTag { i32 45, i32 1279668297 }, %struct.PixelFormatTag { i32 46, i32 1111896137 }, %struct.PixelFormatTag { i32 49, i32 1279669321 }, %struct.PixelFormatTag { i32 50, i32 1111897161 }, %struct.PixelFormatTag { i32 37, i32 3 }, %struct.PixelFormatTag { i32 5, i32 875714137 }, %struct.PixelFormatTag { i32 -1, i32 0 }], align 16
+@pix_fmt_bps_avi = internal constant [10 x %struct.PixelFormatTag] [%struct.PixelFormatTag { i32 11, i32 1 }, %struct.PixelFormatTag { i32 11, i32 2 }, %struct.PixelFormatTag { i32 11, i32 4 }, %struct.PixelFormatTag { i32 11, i32 8 }, %struct.PixelFormatTag { i32 52, i32 12 }, %struct.PixelFormatTag { i32 39, i32 15 }, %struct.PixelFormatTag { i32 39, i32 16 }, %struct.PixelFormatTag { i32 3, i32 24 }, %struct.PixelFormatTag { i32 28, i32 32 }, %struct.PixelFormatTag { i32 -1, i32 0 }], align 16
+@pix_fmt_bps_mov = internal constant [9 x %struct.PixelFormatTag] [%struct.PixelFormatTag { i32 11, i32 1 }, %struct.PixelFormatTag { i32 11, i32 2 }, %struct.PixelFormatTag { i32 11, i32 4 }, %struct.PixelFormatTag { i32 11, i32 8 }, %struct.PixelFormatTag { i32 38, i32 16 }, %struct.PixelFormatTag { i32 2, i32 24 }, %struct.PixelFormatTag { i32 25, i32 32 }, %struct.PixelFormatTag { i32 11, i32 33 }, %struct.PixelFormatTag { i32 -1, i32 0 }], align 16
+
+; Function Attrs: nounwind uwtable
+define i32 @avcodec_pix_fmt_to_codec_tag(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #2
+  store ptr @raw_pix_fmt_tags, ptr %4, align 8, !tbaa !8
+  br label %6
+
+6:                                                ; preds = %21, %1
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw %struct.PixelFormatTag, ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %8, align 4, !tbaa !11
+  %10 = icmp sge i32 %9, 0
+  br i1 %10, label %11, label %24
+
+11:                                               ; preds = %6
+  %12 = load ptr, ptr %4, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.PixelFormatTag, ptr %12, i32 0, i32 0
+  %14 = load i32, ptr %13, align 4, !tbaa !11
+  %15 = load i32, ptr %3, align 4, !tbaa !4
+  %16 = icmp eq i32 %14, %15
+  br i1 %16, label %17, label %21
+
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %4, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw %struct.PixelFormatTag, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 4, !tbaa !13
+  store i32 %20, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %25
+
+21:                                               ; preds = %11
+  %22 = load ptr, ptr %4, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw %struct.PixelFormatTag, ptr %22, i32 1
+  store ptr %23, ptr %4, align 8, !tbaa !8
+  br label %6, !llvm.loop !14
+
+24:                                               ; preds = %6
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %25
+
+25:                                               ; preds = %24, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #2
+  %26 = load i32, ptr %2, align 4
+  ret i32 %26
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define i32 @avpriv_pix_fmt_find(i32 noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #2
+  %6 = load i32, ptr %3, align 4, !tbaa !4
+  switch i32 %6, label %10 [
+    i32 0, label %7
+    i32 1, label %8
+    i32 2, label %9
+  ]
+
+7:                                                ; preds = %2
+  store ptr @raw_pix_fmt_tags, ptr %5, align 8, !tbaa !8
+  br label %10
+
+8:                                                ; preds = %2
+  store ptr @pix_fmt_bps_avi, ptr %5, align 8, !tbaa !8
+  br label %10
+
+9:                                                ; preds = %2
+  store ptr @pix_fmt_bps_mov, ptr %5, align 8, !tbaa !8
+  br label %10
+
+10:                                               ; preds = %2, %9, %8, %7
+  %11 = load ptr, ptr %5, align 8, !tbaa !8
+  %12 = load i32, ptr %4, align 4, !tbaa !4
+  %13 = call i32 @find_pix_fmt(ptr noundef %11, i32 noundef %12)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #2
+  ret i32 %13
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @find_pix_fmt(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !4
+  br label %6
+
+6:                                                ; preds = %21, %2
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw %struct.PixelFormatTag, ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %8, align 4, !tbaa !11
+  %10 = icmp ne i32 %9, -1
+  br i1 %10, label %11, label %24
+
+11:                                               ; preds = %6
+  %12 = load ptr, ptr %4, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.PixelFormatTag, ptr %12, i32 0, i32 1
+  %14 = load i32, ptr %13, align 4, !tbaa !13
+  %15 = load i32, ptr %5, align 4, !tbaa !4
+  %16 = icmp eq i32 %14, %15
+  br i1 %16, label %17, label %21
+
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %4, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw %struct.PixelFormatTag, ptr %18, i32 0, i32 0
+  %20 = load i32, ptr %19, align 4, !tbaa !11
+  store i32 %20, ptr %3, align 4
+  br label %25
+
+21:                                               ; preds = %11
+  %22 = load ptr, ptr %4, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw %struct.PixelFormatTag, ptr %22, i32 1
+  store ptr %23, ptr %4, align 8, !tbaa !8
+  br label %6, !llvm.loop !16
+
+24:                                               ; preds = %6
+  store i32 -1, ptr %3, align 4
+  br label %25
+
+25:                                               ; preds = %24, %17
+  %26 = load i32, ptr %3, align 4
+  ret i32 %26
+}
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 1, !"override-stack-alignment", i32 16}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS14PixelFormatTag", !10, i64 0}
+!10 = !{!"any pointer", !6, i64 0}
+!11 = !{!12, !5, i64 0}
+!12 = !{!"PixelFormatTag", !5, i64 0, !5, i64 4}
+!13 = !{!12, !5, i64 4}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = distinct !{!16, !15}

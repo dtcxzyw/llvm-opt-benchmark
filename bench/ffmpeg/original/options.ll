@@ -1,0 +1,129 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%union.anon = type { i64 }
+
+@.str = private unnamed_addr constant [9 x i8] c"SWScaler\00", align 1
+@ff_sws_context_class = constant { ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr, ptr, ptr, i32, [4 x i8] } { ptr @.str, ptr @sws_context_to_name, ptr @swscale_options, i32 3932772, i32 0, i32 112, i32 9, ptr null, ptr null, ptr null, ptr null, i32 0, [4 x i8] zeroinitializer }, align 8
+@.str.1 = private unnamed_addr constant [9 x i8] c"swscaler\00", align 1
+@.str.2 = private unnamed_addr constant [10 x i8] c"sws_flags\00", align 1
+@.str.3 = private unnamed_addr constant [14 x i8] c"swscale flags\00", align 1
+@.str.4 = private unnamed_addr constant [14 x i8] c"fast_bilinear\00", align 1
+@.str.5 = private unnamed_addr constant [14 x i8] c"fast bilinear\00", align 1
+@.str.6 = private unnamed_addr constant [9 x i8] c"bilinear\00", align 1
+@.str.7 = private unnamed_addr constant [8 x i8] c"bicubic\00", align 1
+@.str.8 = private unnamed_addr constant [13 x i8] c"experimental\00", align 1
+@.str.9 = private unnamed_addr constant [9 x i8] c"neighbor\00", align 1
+@.str.10 = private unnamed_addr constant [17 x i8] c"nearest neighbor\00", align 1
+@.str.11 = private unnamed_addr constant [5 x i8] c"area\00", align 1
+@.str.12 = private unnamed_addr constant [15 x i8] c"averaging area\00", align 1
+@.str.13 = private unnamed_addr constant [9 x i8] c"bicublin\00", align 1
+@.str.14 = private unnamed_addr constant [30 x i8] c"luma bicubic, chroma bilinear\00", align 1
+@.str.15 = private unnamed_addr constant [6 x i8] c"gauss\00", align 1
+@.str.16 = private unnamed_addr constant [23 x i8] c"gaussian approximation\00", align 1
+@.str.17 = private unnamed_addr constant [5 x i8] c"sinc\00", align 1
+@.str.18 = private unnamed_addr constant [8 x i8] c"lanczos\00", align 1
+@.str.19 = private unnamed_addr constant [20 x i8] c"lanczos (sinc/sinc)\00", align 1
+@.str.20 = private unnamed_addr constant [7 x i8] c"spline\00", align 1
+@.str.21 = private unnamed_addr constant [23 x i8] c"natural bicubic spline\00", align 1
+@.str.22 = private unnamed_addr constant [11 x i8] c"print_info\00", align 1
+@.str.23 = private unnamed_addr constant [11 x i8] c"print info\00", align 1
+@.str.24 = private unnamed_addr constant [13 x i8] c"accurate_rnd\00", align 1
+@.str.25 = private unnamed_addr constant [18 x i8] c"accurate rounding\00", align 1
+@.str.26 = private unnamed_addr constant [16 x i8] c"full_chroma_int\00", align 1
+@.str.27 = private unnamed_addr constant [26 x i8] c"full chroma interpolation\00", align 1
+@.str.28 = private unnamed_addr constant [16 x i8] c"full_chroma_inp\00", align 1
+@.str.29 = private unnamed_addr constant [18 x i8] c"full chroma input\00", align 1
+@.str.30 = private unnamed_addr constant [9 x i8] c"bitexact\00", align 1
+@.str.31 = private unnamed_addr constant [15 x i8] c"bit-exact mode\00", align 1
+@.str.32 = private unnamed_addr constant [16 x i8] c"error_diffusion\00", align 1
+@.str.33 = private unnamed_addr constant [23 x i8] c"error diffusion dither\00", align 1
+@.str.34 = private unnamed_addr constant [7 x i8] c"param0\00", align 1
+@.str.35 = private unnamed_addr constant [15 x i8] c"scaler param 0\00", align 1
+@.str.36 = private unnamed_addr constant [7 x i8] c"param1\00", align 1
+@.str.37 = private unnamed_addr constant [15 x i8] c"scaler param 1\00", align 1
+@.str.38 = private unnamed_addr constant [5 x i8] c"srcw\00", align 1
+@.str.39 = private unnamed_addr constant [13 x i8] c"source width\00", align 1
+@.str.40 = private unnamed_addr constant [5 x i8] c"srch\00", align 1
+@.str.41 = private unnamed_addr constant [14 x i8] c"source height\00", align 1
+@.str.42 = private unnamed_addr constant [5 x i8] c"dstw\00", align 1
+@.str.43 = private unnamed_addr constant [18 x i8] c"destination width\00", align 1
+@.str.44 = private unnamed_addr constant [5 x i8] c"dsth\00", align 1
+@.str.45 = private unnamed_addr constant [19 x i8] c"destination height\00", align 1
+@.str.46 = private unnamed_addr constant [11 x i8] c"src_format\00", align 1
+@.str.47 = private unnamed_addr constant [14 x i8] c"source format\00", align 1
+@.str.48 = private unnamed_addr constant [11 x i8] c"dst_format\00", align 1
+@.str.49 = private unnamed_addr constant [19 x i8] c"destination format\00", align 1
+@.str.50 = private unnamed_addr constant [10 x i8] c"src_range\00", align 1
+@.str.51 = private unnamed_addr constant [21 x i8] c"source is full range\00", align 1
+@.str.52 = private unnamed_addr constant [10 x i8] c"dst_range\00", align 1
+@.str.53 = private unnamed_addr constant [26 x i8] c"destination is full range\00", align 1
+@.str.54 = private unnamed_addr constant [6 x i8] c"gamma\00", align 1
+@.str.55 = private unnamed_addr constant [22 x i8] c"gamma correct scaling\00", align 1
+@.str.56 = private unnamed_addr constant [14 x i8] c"src_v_chr_pos\00", align 1
+@.str.57 = private unnamed_addr constant [49 x i8] c"source vertical chroma position in luma grid/256\00", align 1
+@.str.58 = private unnamed_addr constant [14 x i8] c"src_h_chr_pos\00", align 1
+@.str.59 = private unnamed_addr constant [51 x i8] c"source horizontal chroma position in luma grid/256\00", align 1
+@.str.60 = private unnamed_addr constant [14 x i8] c"dst_v_chr_pos\00", align 1
+@.str.61 = private unnamed_addr constant [54 x i8] c"destination vertical chroma position in luma grid/256\00", align 1
+@.str.62 = private unnamed_addr constant [14 x i8] c"dst_h_chr_pos\00", align 1
+@.str.63 = private unnamed_addr constant [56 x i8] c"destination horizontal chroma position in luma grid/256\00", align 1
+@.str.64 = private unnamed_addr constant [11 x i8] c"sws_dither\00", align 1
+@.str.65 = private unnamed_addr constant [24 x i8] c"set dithering algorithm\00", align 1
+@.str.66 = private unnamed_addr constant [5 x i8] c"auto\00", align 1
+@.str.67 = private unnamed_addr constant [20 x i8] c"automatic selection\00", align 1
+@.str.68 = private unnamed_addr constant [5 x i8] c"none\00", align 1
+@.str.69 = private unnamed_addr constant [13 x i8] c"no dithering\00", align 1
+@.str.70 = private unnamed_addr constant [6 x i8] c"bayer\00", align 1
+@.str.71 = private unnamed_addr constant [22 x i8] c"ordered matrix dither\00", align 1
+@.str.72 = private unnamed_addr constant [3 x i8] c"ed\00", align 1
+@.str.73 = private unnamed_addr constant [21 x i8] c"full error diffusion\00", align 1
+@.str.74 = private unnamed_addr constant [9 x i8] c"a_dither\00", align 1
+@.str.75 = private unnamed_addr constant [27 x i8] c"arithmetic addition dither\00", align 1
+@.str.76 = private unnamed_addr constant [9 x i8] c"x_dither\00", align 1
+@.str.77 = private unnamed_addr constant [22 x i8] c"arithmetic xor dither\00", align 1
+@.str.78 = private unnamed_addr constant [11 x i8] c"alphablend\00", align 1
+@.str.79 = private unnamed_addr constant [28 x i8] c"mode for alpha -> non alpha\00", align 1
+@.str.80 = private unnamed_addr constant [13 x i8] c"ignore alpha\00", align 1
+@.str.81 = private unnamed_addr constant [14 x i8] c"uniform_color\00", align 1
+@.str.82 = private unnamed_addr constant [27 x i8] c"blend onto a uniform color\00", align 1
+@.str.83 = private unnamed_addr constant [13 x i8] c"checkerboard\00", align 1
+@.str.84 = private unnamed_addr constant [26 x i8] c"blend onto a checkerboard\00", align 1
+@.str.85 = private unnamed_addr constant [8 x i8] c"threads\00", align 1
+@.str.86 = private unnamed_addr constant [18 x i8] c"number of threads\00", align 1
+@.str.87 = private unnamed_addr constant [7 x i8] c"intent\00", align 1
+@.str.88 = private unnamed_addr constant [21 x i8] c"color mapping intent\00", align 1
+@.str.89 = private unnamed_addr constant [11 x i8] c"perceptual\00", align 1
+@.str.90 = private unnamed_addr constant [24 x i8] c"perceptual tone mapping\00", align 1
+@.str.91 = private unnamed_addr constant [22 x i8] c"relative_colorimetric\00", align 1
+@.str.92 = private unnamed_addr constant [31 x i8] c"relative colorimetric clipping\00", align 1
+@.str.93 = private unnamed_addr constant [11 x i8] c"saturation\00", align 1
+@.str.94 = private unnamed_addr constant [19 x i8] c"saturation mapping\00", align 1
+@.str.95 = private unnamed_addr constant [22 x i8] c"absolute_colorimetric\00", align 1
+@.str.96 = private unnamed_addr constant [31 x i8] c"absolute colorimetric clipping\00", align 1
+@swscale_options = internal constant <{ { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, { double }, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, { double }, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } }> <{ { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.2, ptr @.str.3, i32 16, i32 1, %union.anon { i64 4 }, double 0.000000e+00, double 0x41EFFFFFFFE00000, i32 17, [4 x i8] zeroinitializer, ptr @.str.2 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.4, ptr @.str.5, i32 0, i32 11, %union.anon { i64 1 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.2 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.6, ptr @.str.6, i32 0, i32 11, %union.anon { i64 2 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.2 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.7, ptr @.str.7, i32 0, i32 11, %union.anon { i64 4 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.2 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.8, ptr @.str.8, i32 0, i32 11, %union.anon { i64 8 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.2 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.9, ptr @.str.10, i32 0, i32 11, %union.anon { i64 16 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.2 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.11, ptr @.str.12, i32 0, i32 11, %union.anon { i64 32 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.2 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.13, ptr @.str.14, i32 0, i32 11, %union.anon { i64 64 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.2 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.15, ptr @.str.16, i32 0, i32 11, %union.anon { i64 128 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.2 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.17, ptr @.str.17, i32 0, i32 11, %union.anon { i64 256 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.2 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.18, ptr @.str.19, i32 0, i32 11, %union.anon { i64 512 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.2 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.20, ptr @.str.21, i32 0, i32 11, %union.anon { i64 1024 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.2 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.22, ptr @.str.23, i32 0, i32 11, %union.anon { i64 4096 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.2 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.24, ptr @.str.25, i32 0, i32 11, %union.anon { i64 262144 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.2 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.26, ptr @.str.27, i32 0, i32 11, %union.anon { i64 8192 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.2 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.28, ptr @.str.29, i32 0, i32 11, %union.anon { i64 16384 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.2 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.30, ptr @.str.31, i32 0, i32 11, %union.anon { i64 524288 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.2 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.32, ptr @.str.33, i32 0, i32 11, %union.anon { i64 8388608 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.2 }, { ptr, ptr, i32, i32, { double }, double, double, i32, [4 x i8], ptr } { ptr @.str.34, ptr @.str.35, i32 24, i32 4, { double } { double 1.234560e+05 }, double 0xC1E0000000000000, double 0x41DFFFFFFFC00000, i32 17, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, i32, { double }, double, double, i32, [4 x i8], ptr } { ptr @.str.36, ptr @.str.37, i32 32, i32 4, { double } { double 1.234560e+05 }, double 0xC1E0000000000000, double 0x41DFFFFFFFC00000, i32 17, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.38, ptr @.str.39, i32 56, i32 2, %union.anon { i64 16 }, double 1.000000e+00, double 0x41DFFFFFFFC00000, i32 17, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.40, ptr @.str.41, i32 60, i32 2, %union.anon { i64 16 }, double 1.000000e+00, double 0x41DFFFFFFFC00000, i32 17, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.42, ptr @.str.43, i32 64, i32 2, %union.anon { i64 16 }, double 1.000000e+00, double 0x41DFFFFFFFC00000, i32 17, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.44, ptr @.str.45, i32 68, i32 2, %union.anon { i64 16 }, double 1.000000e+00, double 0x41DFFFFFFFC00000, i32 17, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.46, ptr @.str.47, i32 72, i32 13, %union.anon zeroinitializer, double 0.000000e+00, double 0x41DFFFFFFFC00000, i32 17, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.48, ptr @.str.49, i32 76, i32 13, %union.anon zeroinitializer, double 0.000000e+00, double 0x41DFFFFFFFC00000, i32 17, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.50, ptr @.str.51, i32 80, i32 18, %union.anon zeroinitializer, double 0.000000e+00, double 1.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.52, ptr @.str.53, i32 84, i32 18, %union.anon zeroinitializer, double 0.000000e+00, double 1.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.54, ptr @.str.55, i32 52, i32 18, %union.anon zeroinitializer, double 0.000000e+00, double 1.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.56, ptr @.str.57, i32 88, i32 2, %union.anon { i64 -513 }, double -5.130000e+02, double 1.024000e+03, i32 17, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.58, ptr @.str.59, i32 92, i32 2, %union.anon { i64 -513 }, double -5.130000e+02, double 1.024000e+03, i32 17, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.60, ptr @.str.61, i32 96, i32 2, %union.anon { i64 -513 }, double -5.130000e+02, double 1.024000e+03, i32 17, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.62, ptr @.str.63, i32 100, i32 2, %union.anon { i64 -513 }, double -5.130000e+02, double 1.024000e+03, i32 17, [4 x i8] zeroinitializer, ptr null }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.64, ptr @.str.65, i32 44, i32 2, %union.anon { i64 1 }, double 0.000000e+00, double 5.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.64 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.66, ptr @.str.67, i32 0, i32 11, %union.anon { i64 1 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.64 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.68, ptr @.str.69, i32 0, i32 11, %union.anon zeroinitializer, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.64 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.70, ptr @.str.71, i32 0, i32 11, %union.anon { i64 2 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.64 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.72, ptr @.str.73, i32 0, i32 11, %union.anon { i64 3 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.64 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.74, ptr @.str.75, i32 0, i32 11, %union.anon { i64 4 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.64 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.76, ptr @.str.77, i32 0, i32 11, %union.anon { i64 5 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.64 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.78, ptr @.str.79, i32 48, i32 2, %union.anon zeroinitializer, double 0.000000e+00, double 2.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.78 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.68, ptr @.str.80, i32 0, i32 11, %union.anon zeroinitializer, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.78 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.81, ptr @.str.82, i32 0, i32 11, %union.anon { i64 1 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.78 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.83, ptr @.str.84, i32 0, i32 11, %union.anon { i64 2 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.78 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.85, ptr @.str.86, i32 40, i32 2, %union.anon { i64 1 }, double 0.000000e+00, double 0x41DFFFFFFFC00000, i32 17, [4 x i8] zeroinitializer, ptr @.str.85 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.66, ptr @.str.67, i32 0, i32 11, %union.anon zeroinitializer, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.85 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.87, ptr @.str.88, i32 104, i32 2, %union.anon { i64 1 }, double 0.000000e+00, double 3.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.87 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.89, ptr @.str.90, i32 0, i32 11, %union.anon zeroinitializer, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.87 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.91, ptr @.str.92, i32 0, i32 11, %union.anon { i64 1 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.87 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.93, ptr @.str.94, i32 0, i32 11, %union.anon { i64 2 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.87 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } { ptr @.str.95, ptr @.str.96, i32 0, i32 11, %union.anon { i64 3 }, double 0.000000e+00, double 0.000000e+00, i32 17, [4 x i8] zeroinitializer, ptr @.str.87 }, { ptr, ptr, i32, i32, %union.anon, double, double, i32, [4 x i8], ptr } zeroinitializer }>, align 16
+
+; Function Attrs: nounwind uwtable
+define internal ptr @sws_context_to_name(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  ret ptr @.str.1
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @sws_get_class() #0 {
+  ret ptr @ff_sws_context_class
+}
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 1, !"override-stack-alignment", i32 16}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}

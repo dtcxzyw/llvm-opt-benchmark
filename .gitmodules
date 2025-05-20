@@ -711,3 +711,6 @@
 [submodule "bench/uv-rs/uv"]
 	path = bench/uv-rs/uv
 	url = https://github.com/astral-sh/uv.git
+[submodule "bench/ffmpeg/FFmpeg"]
+	path = bench/ffmpeg/FFmpeg
+	url = https://github.com/FFmpeg/FFmpeg.git

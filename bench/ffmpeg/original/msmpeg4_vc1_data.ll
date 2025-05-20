@@ -1,0 +1,185 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.VLCElem = type { %union.anon }
+%union.anon = type { %struct.anon }
+%struct.anon = type { i16, i16 }
+%struct.VLCInitState = type { ptr, i32 }
+
+@ff_msmp4_vc1_vlcs_init_once.init_static_once = internal global i32 0, align 4
+@ff_msmp4_mb_i_table = hidden constant [64 x [2 x i16]] [[2 x i16] [i16 1, i16 1], [2 x i16] [i16 23, i16 6], [2 x i16] [i16 9, i16 5], [2 x i16] [i16 5, i16 5], [2 x i16] [i16 6, i16 5], [2 x i16] [i16 71, i16 9], [2 x i16] [i16 32, i16 7], [2 x i16] [i16 16, i16 7], [2 x i16] [i16 2, i16 5], [2 x i16] [i16 124, i16 9], [2 x i16] [i16 58, i16 7], [2 x i16] [i16 29, i16 7], [2 x i16] [i16 2, i16 6], [2 x i16] [i16 236, i16 9], [2 x i16] [i16 119, i16 8], [2 x i16] [i16 0, i16 8], [2 x i16] [i16 3, i16 5], [2 x i16] [i16 183, i16 9], [2 x i16] [i16 44, i16 7], [2 x i16] [i16 19, i16 7], [2 x i16] [i16 1, i16 6], [2 x i16] [i16 360, i16 10], [2 x i16] [i16 70, i16 8], [2 x i16] [i16 63, i16 8], [2 x i16] [i16 30, i16 6], [2 x i16] [i16 1810, i16 13], [2 x i16] [i16 181, i16 9], [2 x i16] [i16 66, i16 8], [2 x i16] [i16 34, i16 7], [2 x i16] [i16 453, i16 11], [2 x i16] [i16 286, i16 10], [2 x i16] [i16 135, i16 9], [2 x i16] [i16 6, i16 4], [2 x i16] [i16 3, i16 9], [2 x i16] [i16 30, i16 7], [2 x i16] [i16 28, i16 6], [2 x i16] [i16 18, i16 7], [2 x i16] [i16 904, i16 12], [2 x i16] [i16 68, i16 9], [2 x i16] [i16 112, i16 9], [2 x i16] [i16 31, i16 6], [2 x i16] [i16 574, i16 11], [2 x i16] [i16 57, i16 8], [2 x i16] [i16 142, i16 9], [2 x i16] [i16 1, i16 7], [2 x i16] [i16 454, i16 11], [2 x i16] [i16 182, i16 9], [2 x i16] [i16 69, i16 9], [2 x i16] [i16 20, i16 6], [2 x i16] [i16 575, i16 11], [2 x i16] [i16 125, i16 9], [2 x i16] [i16 24, i16 9], [2 x i16] [i16 7, i16 7], [2 x i16] [i16 455, i16 11], [2 x i16] [i16 134, i16 9], [2 x i16] [i16 25, i16 9], [2 x i16] [i16 21, i16 6], [2 x i16] [i16 475, i16 10], [2 x i16] [i16 2, i16 9], [2 x i16] [i16 70, i16 9], [2 x i16] [i16 13, i16 8], [2 x i16] [i16 1811, i16 13], [2 x i16] [i16 474, i16 10], [2 x i16] [i16 361, i16 10]], align 16
+@ff_msmp4_dc_tables = hidden constant [2 x [2 x [120 x [2 x i32]]]] [[2 x [120 x [2 x i32]]] [[120 x [2 x i32]] [[2 x i32] [i32 1, i32 1], [2 x i32] [i32 1, i32 2], [2 x i32] [i32 1, i32 4], [2 x i32] [i32 1, i32 5], [2 x i32] [i32 5, i32 5], [2 x i32] [i32 7, i32 5], [2 x i32] [i32 8, i32 6], [2 x i32] [i32 12, i32 6], [2 x i32] [i32 0, i32 7], [2 x i32] [i32 2, i32 7], [2 x i32] [i32 18, i32 7], [2 x i32] [i32 26, i32 7], [2 x i32] [i32 3, i32 8], [2 x i32] [i32 7, i32 8], [2 x i32] [i32 39, i32 8], [2 x i32] [i32 55, i32 8], [2 x i32] [i32 5, i32 9], [2 x i32] [i32 76, i32 9], [2 x i32] [i32 108, i32 9], [2 x i32] [i32 109, i32 9], [2 x i32] [i32 8, i32 10], [2 x i32] [i32 25, i32 10], [2 x i32] [i32 155, i32 10], [2 x i32] [i32 27, i32 10], [2 x i32] [i32 154, i32 10], [2 x i32] [i32 19, i32 11], [2 x i32] [i32 52, i32 11], [2 x i32] [i32 53, i32 11], [2 x i32] [i32 97, i32 12], [2 x i32] [i32 72, i32 13], [2 x i32] [i32 196, i32 13], [2 x i32] [i32 74, i32 13], [2 x i32] [i32 198, i32 13], [2 x i32] [i32 199, i32 13], [2 x i32] [i32 146, i32 14], [2 x i32] [i32 395, i32 14], [2 x i32] [i32 147, i32 14], [2 x i32] [i32 387, i32 14], [2 x i32] [i32 386, i32 14], [2 x i32] [i32 150, i32 14], [2 x i32] [i32 151, i32 14], [2 x i32] [i32 384, i32 14], [2 x i32] [i32 788, i32 15], [2 x i32] [i32 789, i32 15], [2 x i32] [i32 1541, i32 16], [2 x i32] [i32 1540, i32 16], [2 x i32] [i32 1542, i32 16], [2 x i32] [i32 3086, i32 17], [2 x i32] [i32 197581, i32 23], [2 x i32] [i32 197577, i32 23], [2 x i32] [i32 197576, i32 23], [2 x i32] [i32 197578, i32 23], [2 x i32] [i32 197579, i32 23], [2 x i32] [i32 197580, i32 23], [2 x i32] [i32 197582, i32 23], [2 x i32] [i32 197583, i32 23], [2 x i32] [i32 197584, i32 23], [2 x i32] [i32 197585, i32 23], [2 x i32] [i32 197586, i32 23], [2 x i32] [i32 197587, i32 23], [2 x i32] [i32 197588, i32 23], [2 x i32] [i32 197589, i32 23], [2 x i32] [i32 197590, i32 23], [2 x i32] [i32 197591, i32 23], [2 x i32] [i32 197592, i32 23], [2 x i32] [i32 197593, i32 23], [2 x i32] [i32 197594, i32 23], [2 x i32] [i32 197595, i32 23], [2 x i32] [i32 197596, i32 23], [2 x i32] [i32 197597, i32 23], [2 x i32] [i32 197598, i32 23], [2 x i32] [i32 197599, i32 23], [2 x i32] [i32 197600, i32 23], [2 x i32] [i32 197601, i32 23], [2 x i32] [i32 197602, i32 23], [2 x i32] [i32 197603, i32 23], [2 x i32] [i32 197604, i32 23], [2 x i32] [i32 197605, i32 23], [2 x i32] [i32 197606, i32 23], [2 x i32] [i32 197607, i32 23], [2 x i32] [i32 197608, i32 23], [2 x i32] [i32 197609, i32 23], [2 x i32] [i32 197610, i32 23], [2 x i32] [i32 197611, i32 23], [2 x i32] [i32 197612, i32 23], [2 x i32] [i32 197613, i32 23], [2 x i32] [i32 197614, i32 23], [2 x i32] [i32 197615, i32 23], [2 x i32] [i32 197616, i32 23], [2 x i32] [i32 197617, i32 23], [2 x i32] [i32 197618, i32 23], [2 x i32] [i32 197619, i32 23], [2 x i32] [i32 197620, i32 23], [2 x i32] [i32 197621, i32 23], [2 x i32] [i32 197622, i32 23], [2 x i32] [i32 197623, i32 23], [2 x i32] [i32 197624, i32 23], [2 x i32] [i32 197625, i32 23], [2 x i32] [i32 197626, i32 23], [2 x i32] [i32 197627, i32 23], [2 x i32] [i32 197628, i32 23], [2 x i32] [i32 197629, i32 23], [2 x i32] [i32 197630, i32 23], [2 x i32] [i32 197631, i32 23], [2 x i32] [i32 395136, i32 24], [2 x i32] [i32 395137, i32 24], [2 x i32] [i32 395138, i32 24], [2 x i32] [i32 395139, i32 24], [2 x i32] [i32 395140, i32 24], [2 x i32] [i32 395141, i32 24], [2 x i32] [i32 395142, i32 24], [2 x i32] [i32 395143, i32 24], [2 x i32] [i32 395144, i32 24], [2 x i32] [i32 395145, i32 24], [2 x i32] [i32 395146, i32 24], [2 x i32] [i32 395147, i32 24], [2 x i32] [i32 395148, i32 24], [2 x i32] [i32 395149, i32 24], [2 x i32] [i32 395150, i32 24], [2 x i32] [i32 395151, i32 24]], [120 x [2 x i32]] [[2 x i32] [i32 0, i32 2], [2 x i32] [i32 1, i32 2], [2 x i32] [i32 5, i32 3], [2 x i32] [i32 9, i32 4], [2 x i32] [i32 13, i32 4], [2 x i32] [i32 17, i32 5], [2 x i32] [i32 29, i32 5], [2 x i32] [i32 31, i32 5], [2 x i32] [i32 33, i32 6], [2 x i32] [i32 49, i32 6], [2 x i32] [i32 56, i32 6], [2 x i32] [i32 51, i32 6], [2 x i32] [i32 57, i32 6], [2 x i32] [i32 61, i32 6], [2 x i32] [i32 97, i32 7], [2 x i32] [i32 121, i32 7], [2 x i32] [i32 128, i32 8], [2 x i32] [i32 200, i32 8], [2 x i32] [i32 202, i32 8], [2 x i32] [i32 240, i32 8], [2 x i32] [i32 129, i32 8], [2 x i32] [i32 192, i32 8], [2 x i32] [i32 201, i32 8], [2 x i32] [i32 263, i32 9], [2 x i32] [i32 262, i32 9], [2 x i32] [i32 406, i32 9], [2 x i32] [i32 387, i32 9], [2 x i32] [i32 483, i32 9], [2 x i32] [i32 482, i32 9], [2 x i32] [i32 522, i32 10], [2 x i32] [i32 523, i32 10], [2 x i32] [i32 1545, i32 11], [2 x i32] [i32 1042, i32 11], [2 x i32] [i32 1043, i32 11], [2 x i32] [i32 1547, i32 11], [2 x i32] [i32 1041, i32 11], [2 x i32] [i32 1546, i32 11], [2 x i32] [i32 1631, i32 11], [2 x i32] [i32 1040, i32 11], [2 x i32] [i32 1629, i32 11], [2 x i32] [i32 1630, i32 11], [2 x i32] [i32 3256, i32 12], [2 x i32] [i32 3088, i32 12], [2 x i32] [i32 3257, i32 12], [2 x i32] [i32 6179, i32 13], [2 x i32] [i32 12357, i32 14], [2 x i32] [i32 24713, i32 15], [2 x i32] [i32 49424, i32 16], [2 x i32] [i32 3163208, i32 22], [2 x i32] [i32 3163209, i32 22], [2 x i32] [i32 3163210, i32 22], [2 x i32] [i32 3163211, i32 22], [2 x i32] [i32 3163212, i32 22], [2 x i32] [i32 3163213, i32 22], [2 x i32] [i32 3163214, i32 22], [2 x i32] [i32 3163215, i32 22], [2 x i32] [i32 3163216, i32 22], [2 x i32] [i32 3163217, i32 22], [2 x i32] [i32 3163218, i32 22], [2 x i32] [i32 3163219, i32 22], [2 x i32] [i32 3163220, i32 22], [2 x i32] [i32 3163221, i32 22], [2 x i32] [i32 3163222, i32 22], [2 x i32] [i32 3163223, i32 22], [2 x i32] [i32 3163224, i32 22], [2 x i32] [i32 3163225, i32 22], [2 x i32] [i32 3163226, i32 22], [2 x i32] [i32 3163227, i32 22], [2 x i32] [i32 3163228, i32 22], [2 x i32] [i32 3163229, i32 22], [2 x i32] [i32 3163230, i32 22], [2 x i32] [i32 3163231, i32 22], [2 x i32] [i32 3163232, i32 22], [2 x i32] [i32 3163233, i32 22], [2 x i32] [i32 3163234, i32 22], [2 x i32] [i32 3163235, i32 22], [2 x i32] [i32 3163236, i32 22], [2 x i32] [i32 3163237, i32 22], [2 x i32] [i32 3163238, i32 22], [2 x i32] [i32 3163239, i32 22], [2 x i32] [i32 3163240, i32 22], [2 x i32] [i32 3163241, i32 22], [2 x i32] [i32 3163242, i32 22], [2 x i32] [i32 3163243, i32 22], [2 x i32] [i32 3163244, i32 22], [2 x i32] [i32 3163245, i32 22], [2 x i32] [i32 3163246, i32 22], [2 x i32] [i32 3163247, i32 22], [2 x i32] [i32 3163248, i32 22], [2 x i32] [i32 3163249, i32 22], [2 x i32] [i32 3163250, i32 22], [2 x i32] [i32 3163251, i32 22], [2 x i32] [i32 3163252, i32 22], [2 x i32] [i32 3163253, i32 22], [2 x i32] [i32 3163254, i32 22], [2 x i32] [i32 3163255, i32 22], [2 x i32] [i32 3163256, i32 22], [2 x i32] [i32 3163257, i32 22], [2 x i32] [i32 3163258, i32 22], [2 x i32] [i32 3163259, i32 22], [2 x i32] [i32 3163260, i32 22], [2 x i32] [i32 3163261, i32 22], [2 x i32] [i32 3163262, i32 22], [2 x i32] [i32 3163263, i32 22], [2 x i32] [i32 6326400, i32 23], [2 x i32] [i32 6326401, i32 23], [2 x i32] [i32 6326402, i32 23], [2 x i32] [i32 6326403, i32 23], [2 x i32] [i32 6326404, i32 23], [2 x i32] [i32 6326405, i32 23], [2 x i32] [i32 6326406, i32 23], [2 x i32] [i32 6326407, i32 23], [2 x i32] [i32 6326408, i32 23], [2 x i32] [i32 6326409, i32 23], [2 x i32] [i32 6326410, i32 23], [2 x i32] [i32 6326411, i32 23], [2 x i32] [i32 6326412, i32 23], [2 x i32] [i32 6326413, i32 23], [2 x i32] [i32 6326414, i32 23], [2 x i32] [i32 6326415, i32 23]]], [2 x [120 x [2 x i32]]] [[120 x [2 x i32]] [[2 x i32] [i32 2, i32 2], [2 x i32] [i32 3, i32 2], [2 x i32] [i32 3, i32 3], [2 x i32] [i32 2, i32 4], [2 x i32] [i32 5, i32 4], [2 x i32] [i32 1, i32 5], [2 x i32] [i32 3, i32 5], [2 x i32] [i32 8, i32 5], [2 x i32] [i32 0, i32 6], [2 x i32] [i32 5, i32 6], [2 x i32] [i32 13, i32 6], [2 x i32] [i32 15, i32 6], [2 x i32] [i32 19, i32 6], [2 x i32] [i32 8, i32 7], [2 x i32] [i32 24, i32 7], [2 x i32] [i32 28, i32 7], [2 x i32] [i32 36, i32 7], [2 x i32] [i32 4, i32 8], [2 x i32] [i32 6, i32 8], [2 x i32] [i32 18, i32 8], [2 x i32] [i32 50, i32 8], [2 x i32] [i32 59, i32 8], [2 x i32] [i32 74, i32 8], [2 x i32] [i32 75, i32 8], [2 x i32] [i32 11, i32 9], [2 x i32] [i32 38, i32 9], [2 x i32] [i32 39, i32 9], [2 x i32] [i32 102, i32 9], [2 x i32] [i32 116, i32 9], [2 x i32] [i32 117, i32 9], [2 x i32] [i32 20, i32 10], [2 x i32] [i32 28, i32 10], [2 x i32] [i32 31, i32 10], [2 x i32] [i32 29, i32 10], [2 x i32] [i32 43, i32 11], [2 x i32] [i32 61, i32 11], [2 x i32] [i32 413, i32 11], [2 x i32] [i32 415, i32 11], [2 x i32] [i32 84, i32 12], [2 x i32] [i32 825, i32 12], [2 x i32] [i32 824, i32 12], [2 x i32] [i32 829, i32 12], [2 x i32] [i32 171, i32 13], [2 x i32] [i32 241, i32 13], [2 x i32] [i32 1656, i32 13], [2 x i32] [i32 242, i32 13], [2 x i32] [i32 480, i32 14], [2 x i32] [i32 481, i32 14], [2 x i32] [i32 340, i32 14], [2 x i32] [i32 3314, i32 14], [2 x i32] [i32 972, i32 15], [2 x i32] [i32 683, i32 15], [2 x i32] [i32 6631, i32 15], [2 x i32] [i32 974, i32 15], [2 x i32] [i32 6630, i32 15], [2 x i32] [i32 1364, i32 16], [2 x i32] [i32 1951, i32 16], [2 x i32] [i32 1365, i32 16], [2 x i32] [i32 3901, i32 17], [2 x i32] [i32 3895, i32 17], [2 x i32] [i32 3900, i32 17], [2 x i32] [i32 3893, i32 17], [2 x i32] [i32 7789, i32 18], [2 x i32] [i32 7784, i32 18], [2 x i32] [i32 15576, i32 19], [2 x i32] [i32 15571, i32 19], [2 x i32] [i32 15577, i32 19], [2 x i32] [i32 31140, i32 20], [2 x i32] [i32 996538, i32 25], [2 x i32] [i32 996532, i32 25], [2 x i32] [i32 996533, i32 25], [2 x i32] [i32 996534, i32 25], [2 x i32] [i32 996535, i32 25], [2 x i32] [i32 996536, i32 25], [2 x i32] [i32 996537, i32 25], [2 x i32] [i32 996539, i32 25], [2 x i32] [i32 996540, i32 25], [2 x i32] [i32 996541, i32 25], [2 x i32] [i32 996542, i32 25], [2 x i32] [i32 996543, i32 25], [2 x i32] [i32 1993024, i32 26], [2 x i32] [i32 1993025, i32 26], [2 x i32] [i32 1993026, i32 26], [2 x i32] [i32 1993027, i32 26], [2 x i32] [i32 1993028, i32 26], [2 x i32] [i32 1993029, i32 26], [2 x i32] [i32 1993030, i32 26], [2 x i32] [i32 1993031, i32 26], [2 x i32] [i32 1993032, i32 26], [2 x i32] [i32 1993033, i32 26], [2 x i32] [i32 1993034, i32 26], [2 x i32] [i32 1993035, i32 26], [2 x i32] [i32 1993036, i32 26], [2 x i32] [i32 1993037, i32 26], [2 x i32] [i32 1993038, i32 26], [2 x i32] [i32 1993039, i32 26], [2 x i32] [i32 1993040, i32 26], [2 x i32] [i32 1993041, i32 26], [2 x i32] [i32 1993042, i32 26], [2 x i32] [i32 1993043, i32 26], [2 x i32] [i32 1993044, i32 26], [2 x i32] [i32 1993045, i32 26], [2 x i32] [i32 1993046, i32 26], [2 x i32] [i32 1993047, i32 26], [2 x i32] [i32 1993048, i32 26], [2 x i32] [i32 1993049, i32 26], [2 x i32] [i32 1993050, i32 26], [2 x i32] [i32 1993051, i32 26], [2 x i32] [i32 1993052, i32 26], [2 x i32] [i32 1993053, i32 26], [2 x i32] [i32 1993054, i32 26], [2 x i32] [i32 1993055, i32 26], [2 x i32] [i32 1993056, i32 26], [2 x i32] [i32 1993057, i32 26], [2 x i32] [i32 1993058, i32 26], [2 x i32] [i32 1993059, i32 26], [2 x i32] [i32 1993060, i32 26], [2 x i32] [i32 1993061, i32 26], [2 x i32] [i32 1993062, i32 26], [2 x i32] [i32 1993063, i32 26]], [120 x [2 x i32]] [[2 x i32] [i32 0, i32 2], [2 x i32] [i32 1, i32 2], [2 x i32] [i32 4, i32 3], [2 x i32] [i32 7, i32 3], [2 x i32] [i32 11, i32 4], [2 x i32] [i32 13, i32 4], [2 x i32] [i32 21, i32 5], [2 x i32] [i32 40, i32 6], [2 x i32] [i32 48, i32 6], [2 x i32] [i32 50, i32 6], [2 x i32] [i32 82, i32 7], [2 x i32] [i32 98, i32 7], [2 x i32] [i32 102, i32 7], [2 x i32] [i32 166, i32 8], [2 x i32] [i32 198, i32 8], [2 x i32] [i32 207, i32 8], [2 x i32] [i32 335, i32 9], [2 x i32] [i32 398, i32 9], [2 x i32] [i32 412, i32 9], [2 x i32] [i32 669, i32 10], [2 x i32] [i32 826, i32 10], [2 x i32] [i32 1336, i32 11], [2 x i32] [i32 1596, i32 11], [2 x i32] [i32 1598, i32 11], [2 x i32] [i32 1599, i32 11], [2 x i32] [i32 1654, i32 11], [2 x i32] [i32 2675, i32 12], [2 x i32] [i32 3194, i32 12], [2 x i32] [i32 3311, i32 12], [2 x i32] [i32 5349, i32 13], [2 x i32] [i32 6621, i32 13], [2 x i32] [i32 10696, i32 14], [2 x i32] [i32 10697, i32 14], [2 x i32] [i32 25565, i32 15], [2 x i32] [i32 13240, i32 14], [2 x i32] [i32 13241, i32 14], [2 x i32] [i32 51126, i32 16], [2 x i32] [i32 25560, i32 15], [2 x i32] [i32 25567, i32 15], [2 x i32] [i32 51123, i32 16], [2 x i32] [i32 51124, i32 16], [2 x i32] [i32 51125, i32 16], [2 x i32] [i32 25566, i32 15], [2 x i32] [i32 51127, i32 16], [2 x i32] [i32 51128, i32 16], [2 x i32] [i32 51129, i32 16], [2 x i32] [i32 102245, i32 17], [2 x i32] [i32 204488, i32 18], [2 x i32] [i32 13087304, i32 24], [2 x i32] [i32 13087305, i32 24], [2 x i32] [i32 13087306, i32 24], [2 x i32] [i32 13087307, i32 24], [2 x i32] [i32 13087308, i32 24], [2 x i32] [i32 13087309, i32 24], [2 x i32] [i32 13087310, i32 24], [2 x i32] [i32 13087311, i32 24], [2 x i32] [i32 13087312, i32 24], [2 x i32] [i32 13087313, i32 24], [2 x i32] [i32 13087314, i32 24], [2 x i32] [i32 13087315, i32 24], [2 x i32] [i32 13087316, i32 24], [2 x i32] [i32 13087317, i32 24], [2 x i32] [i32 13087318, i32 24], [2 x i32] [i32 13087319, i32 24], [2 x i32] [i32 13087320, i32 24], [2 x i32] [i32 13087321, i32 24], [2 x i32] [i32 13087322, i32 24], [2 x i32] [i32 13087323, i32 24], [2 x i32] [i32 13087324, i32 24], [2 x i32] [i32 13087325, i32 24], [2 x i32] [i32 13087326, i32 24], [2 x i32] [i32 13087327, i32 24], [2 x i32] [i32 13087328, i32 24], [2 x i32] [i32 13087329, i32 24], [2 x i32] [i32 13087330, i32 24], [2 x i32] [i32 13087331, i32 24], [2 x i32] [i32 13087332, i32 24], [2 x i32] [i32 13087333, i32 24], [2 x i32] [i32 13087334, i32 24], [2 x i32] [i32 13087335, i32 24], [2 x i32] [i32 13087336, i32 24], [2 x i32] [i32 13087337, i32 24], [2 x i32] [i32 13087338, i32 24], [2 x i32] [i32 13087339, i32 24], [2 x i32] [i32 13087340, i32 24], [2 x i32] [i32 13087341, i32 24], [2 x i32] [i32 13087342, i32 24], [2 x i32] [i32 13087343, i32 24], [2 x i32] [i32 13087344, i32 24], [2 x i32] [i32 13087345, i32 24], [2 x i32] [i32 13087346, i32 24], [2 x i32] [i32 13087347, i32 24], [2 x i32] [i32 13087348, i32 24], [2 x i32] [i32 13087349, i32 24], [2 x i32] [i32 13087350, i32 24], [2 x i32] [i32 13087351, i32 24], [2 x i32] [i32 13087352, i32 24], [2 x i32] [i32 13087353, i32 24], [2 x i32] [i32 13087354, i32 24], [2 x i32] [i32 13087355, i32 24], [2 x i32] [i32 13087356, i32 24], [2 x i32] [i32 13087357, i32 24], [2 x i32] [i32 13087358, i32 24], [2 x i32] [i32 13087359, i32 24], [2 x i32] [i32 26174592, i32 25], [2 x i32] [i32 26174593, i32 25], [2 x i32] [i32 26174594, i32 25], [2 x i32] [i32 26174595, i32 25], [2 x i32] [i32 26174596, i32 25], [2 x i32] [i32 26174597, i32 25], [2 x i32] [i32 26174598, i32 25], [2 x i32] [i32 26174599, i32 25], [2 x i32] [i32 26174600, i32 25], [2 x i32] [i32 26174601, i32 25], [2 x i32] [i32 26174602, i32 25], [2 x i32] [i32 26174603, i32 25], [2 x i32] [i32 26174604, i32 25], [2 x i32] [i32 26174605, i32 25], [2 x i32] [i32 26174606, i32 25], [2 x i32] [i32 26174607, i32 25]]]], align 16
+@ff_wmv1_scantable = hidden constant [4 x [64 x i8]] [[64 x i8] c"\00\08\01\02\09\10\18\11\0A\03\04\0B\12\19 (08)!\1A\13\0C\05\06\0D\14\1B\2219:2*#\1C\15\0E\07\0F\16\1D$+3;<4,%\1E\17\1F&-5=>6.'/7?", [64 x i8] c"\00\08\01\02\09\10\18\11\0A\03\04\0B\12\19 (!0\1A\13\0C\05\06\0D\14\1B\22)819*#\1C\15\0E\07\0F\16\1D$+2:3;,%\1E\17\1F&-4<5=.'/6>7?", [64 x i8] c"\00\01\08\02\03\09\10\18\11\0A\04\05\0B\12\19 (0!\1A\13\0C\06\07\0D\14\1B\22)819*#\1C\15\0E\0F\16\1D$+2:3,%\1E\17\1F&-4;<5.'/6=>7?", [64 x i8] c"\00\08\10\01\18 (\09\02\03\0A\11\1908)!\1A\12\0B\04\05\0C\13\1B\22192*#\1C\14\0D\06\07\0E\15\1D$+3:;4,%\1E\16\0F\17\1F&-<5.'/6=>7?"], align 16
+@ff_msmp4_mb_i_vlc = hidden global [536 x %struct.VLCElem] zeroinitializer, align 16
+@ff_msmp4_dc_vlc = hidden global [2 x [2 x ptr]] zeroinitializer, align 16
+@msmp4_vc1_vlcs_init.vlc_buf = internal global [4968 x %struct.VLCElem] zeroinitializer, align 16
+@__const.msmp4_vc1_vlcs_init.state = private unnamed_addr constant { ptr, i32, [4 x i8] } { ptr @msmp4_vc1_vlcs_init.vlc_buf, i32 4968, [4 x i8] zeroinitializer }, align 8
+
+; Function Attrs: cold nounwind optsize uwtable
+define hidden void @ff_msmp4_vc1_vlcs_init_once() #0 {
+  %1 = call i32 @pthread_once(ptr noundef @ff_msmp4_vc1_vlcs_init_once.init_static_once, ptr noundef @msmp4_vc1_vlcs_init)
+  ret void
+}
+
+declare i32 @pthread_once(ptr noundef, ptr noundef) #1
+
+; Function Attrs: cold nounwind optsize uwtable
+define internal void @msmp4_vc1_vlcs_init() #0 {
+  %1 = alloca %struct.VLCInitState, align 8
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %1) #5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr align 8 @__const.msmp4_vc1_vlcs_init.state, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %2) #5
+  store i32 0, ptr %2, align 4, !tbaa !4
+  br label %5
+
+5:                                                ; preds = %42, %0
+  %6 = load i32, ptr %2, align 4, !tbaa !4
+  %7 = icmp slt i32 %6, 2
+  br i1 %7, label %9, label %8
+
+8:                                                ; preds = %5
+  store i32 2, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %2) #5
+  br label %45
+
+9:                                                ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #5
+  store i32 0, ptr %4, align 4, !tbaa !4
+  br label %10
+
+10:                                               ; preds = %38, %9
+  %11 = load i32, ptr %4, align 4, !tbaa !4
+  %12 = icmp slt i32 %11, 2
+  br i1 %12, label %14, label %13
+
+13:                                               ; preds = %10
+  store i32 5, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #5
+  br label %41
+
+14:                                               ; preds = %10
+  %15 = load i32, ptr %2, align 4, !tbaa !4
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds [2 x [2 x [120 x [2 x i32]]]], ptr @ff_msmp4_dc_tables, i64 0, i64 %16
+  %18 = load i32, ptr %4, align 4, !tbaa !4
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds [2 x [120 x [2 x i32]]], ptr %17, i64 0, i64 %19
+  %21 = getelementptr inbounds [120 x [2 x i32]], ptr %20, i64 0, i64 0
+  %22 = getelementptr inbounds [2 x i32], ptr %21, i64 0, i64 1
+  %23 = load i32, ptr %2, align 4, !tbaa !4
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds [2 x [2 x [120 x [2 x i32]]]], ptr @ff_msmp4_dc_tables, i64 0, i64 %24
+  %26 = load i32, ptr %4, align 4, !tbaa !4
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds [2 x [120 x [2 x i32]]], ptr %25, i64 0, i64 %27
+  %29 = getelementptr inbounds [120 x [2 x i32]], ptr %28, i64 0, i64 0
+  %30 = getelementptr inbounds [2 x i32], ptr %29, i64 0, i64 0
+  %31 = call ptr @ff_vlc_init_tables(ptr noundef %1, i32 noundef 9, i32 noundef 120, ptr noundef %22, i32 noundef 8, i32 noundef 4, ptr noundef %30, i32 noundef 8, i32 noundef 4, i32 noundef 0)
+  %32 = load i32, ptr %2, align 4, !tbaa !4
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds [2 x [2 x ptr]], ptr @ff_msmp4_dc_vlc, i64 0, i64 %33
+  %35 = load i32, ptr %4, align 4, !tbaa !4
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds [2 x ptr], ptr %34, i64 0, i64 %36
+  store ptr %31, ptr %37, align 8, !tbaa !8
+  br label %38
+
+38:                                               ; preds = %14
+  %39 = load i32, ptr %4, align 4, !tbaa !4
+  %40 = add nsw i32 %39, 1
+  store i32 %40, ptr %4, align 4, !tbaa !4
+  br label %10, !llvm.loop !11
+
+41:                                               ; preds = %13
+  br label %42
+
+42:                                               ; preds = %41
+  %43 = load i32, ptr %2, align 4, !tbaa !4
+  %44 = add nsw i32 %43, 1
+  store i32 %44, ptr %2, align 4, !tbaa !4
+  br label %5, !llvm.loop !13
+
+45:                                               ; preds = %8
+  call void @ff_vlc_init_table_sparse(ptr noundef @ff_msmp4_mb_i_vlc, i32 noundef 536, i32 noundef 9, i32 noundef 64, ptr noundef getelementptr inbounds ([2 x i16], ptr @ff_msmp4_mb_i_table, i64 0, i64 1), i32 noundef 4, i32 noundef 2, ptr noundef @ff_msmp4_mb_i_table, i32 noundef 4, i32 noundef 2, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %1) #5
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @ff_vlc_init_tables(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) #4 {
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  store ptr %0, ptr %11, align 8, !tbaa !14
+  store i32 %1, ptr %12, align 4, !tbaa !4
+  store i32 %2, ptr %13, align 4, !tbaa !4
+  store ptr %3, ptr %14, align 8, !tbaa !16
+  store i32 %4, ptr %15, align 4, !tbaa !4
+  store i32 %5, ptr %16, align 4, !tbaa !4
+  store ptr %6, ptr %17, align 8, !tbaa !16
+  store i32 %7, ptr %18, align 4, !tbaa !4
+  store i32 %8, ptr %19, align 4, !tbaa !4
+  store i32 %9, ptr %20, align 4, !tbaa !4
+  %21 = load ptr, ptr %11, align 8, !tbaa !14
+  %22 = load i32, ptr %12, align 4, !tbaa !4
+  %23 = load i32, ptr %13, align 4, !tbaa !4
+  %24 = load ptr, ptr %14, align 8, !tbaa !16
+  %25 = load i32, ptr %15, align 4, !tbaa !4
+  %26 = load i32, ptr %16, align 4, !tbaa !4
+  %27 = load ptr, ptr %17, align 8, !tbaa !16
+  %28 = load i32, ptr %18, align 4, !tbaa !4
+  %29 = load i32, ptr %19, align 4, !tbaa !4
+  %30 = load i32, ptr %20, align 4, !tbaa !4
+  %31 = call ptr @ff_vlc_init_tables_sparse(ptr noundef %21, i32 noundef %22, i32 noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef %29, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %30)
+  ret ptr %31
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+declare void @ff_vlc_init_table_sparse(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+
+declare ptr @ff_vlc_init_tables_sparse(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+
+attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 1, !"override-stack-alignment", i32 16}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS7VLCElem", !10, i64 0}
+!10 = !{!"any pointer", !6, i64 0}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = distinct !{!13, !12}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS12VLCInitState", !10, i64 0}
+!16 = !{!10, !10, i64 0}

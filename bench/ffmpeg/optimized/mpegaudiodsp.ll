@@ -1,0 +1,231 @@
+; ModuleID = 'bench/ffmpeg/original/mpegaudiodsp.ll'
+source_filename = "bench/ffmpeg/original/mpegaudiodsp.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+@mpadsp_table_init = internal global i32 0, align 4
+@ff_mdct_win_float = external hidden local_unnamed_addr global [8 x [40 x float]], align 16
+@ff_mdct_win_fixed = external hidden local_unnamed_addr global [8 x [40 x i32]], align 16
+
+; Function Attrs: cold nounwind optsize uwtable
+define hidden void @ff_mpadsp_init(ptr noundef writeonly captures(none) initializes((0, 48)) %0) local_unnamed_addr #0 {
+  %2 = tail call i32 @pthread_once(ptr noundef nonnull @mpadsp_table_init, ptr noundef nonnull @mpadsp_init_tabs) #4
+  store ptr @ff_mpadsp_apply_window_float, ptr %0, align 8, !tbaa !4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @ff_mpadsp_apply_window_fixed, ptr %3, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr @ff_dct32_float, ptr %4, align 8, !tbaa !10
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr @ff_dct32_fixed, ptr %5, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr @ff_imdct36_blocks_float, ptr %6, align 8, !tbaa !12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr @ff_imdct36_blocks_fixed, ptr %7, align 8, !tbaa !13
+  ret void
+}
+
+declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+define internal void @mpadsp_init_tabs() #2 {
+  br label %.preheader59
+
+.preheader59:                                     ; preds = %0, %61
+  %.061 = phi i32 [ 0, %0 ], [ %62, %61 ]
+  %1 = urem i32 %.061, 3
+  %.not = icmp eq i32 %1, 1
+  %2 = uitofp nneg i32 %.061 to double
+  %3 = fadd nsz double %2, 5.000000e-01
+  %4 = fmul nsz double %3, 0x400921FB54442D18
+  %5 = fdiv nsz double %4, 3.600000e+01
+  %6 = tail call nsz double @llvm.sin.f64(double %5)
+  %7 = icmp samesign ult i32 %.061, 6
+  %8 = icmp samesign ult i32 %.061, 12
+  %9 = add nsw i32 %.061, -6
+  %10 = uitofp nneg i32 %9 to double
+  %11 = fadd nsz double %10, 5.000000e-01
+  %12 = fmul nsz double %11, 0x400921FB54442D18
+  %13 = fdiv nsz double %12, 1.200000e+01
+  %14 = tail call nsz double @llvm.sin.f64(double %13)
+  %15 = icmp samesign ugt i32 %.061, 29
+  %16 = icmp samesign ugt i32 %.061, 23
+  %17 = add nsw i32 %.061, -18
+  %18 = uitofp nneg i32 %17 to double
+  %19 = fadd nsz double %18, 5.000000e-01
+  %20 = fmul nsz double %19, 0x400921FB54442D18
+  %21 = fdiv nsz double %20, 1.200000e+01
+  %22 = tail call nsz double @llvm.sin.f64(double %21)
+  %23 = shl nuw nsw i32 %.061, 1
+  %24 = add nuw nsw i32 %23, 19
+  %25 = uitofp nneg i32 %24 to double
+  %26 = fmul nsz double %25, 0x400921FB54442D18
+  %27 = fdiv nsz double %26, 7.200000e+01
+  %28 = tail call nsz double @llvm.cos.f64(double %27)
+  %29 = fdiv nsz double 0x3FEC24DD2F1A9FBE, %28
+  %30 = udiv i32 %.061, 3
+  %31 = zext nneg i32 %30 to i64
+  %32 = getelementptr inbounds nuw [40 x float], ptr getelementptr inbounds nuw (i8, ptr @ff_mdct_win_float, i64 320), i64 0, i64 %31
+  %33 = getelementptr inbounds nuw [40 x i32], ptr getelementptr inbounds nuw (i8, ptr @ff_mdct_win_fixed, i64 320), i64 0, i64 %31
+  %34 = icmp samesign ult i32 %.061, 18
+  %35 = add nuw nsw i32 %.061, 2
+  %36 = select i1 %34, i32 %.061, i32 %35
+  %37 = zext nneg i32 %36 to i64
+  %.mux67 = select i1 %8, double %14, double %6
+  %.mux = select i1 %16, double %22, double %6
+  %38 = add nsw i32 %.061, -18
+  %brmerge79 = icmp ult i32 %38, -6
+  %.mux80 = select i1 %7, double 0.000000e+00, double %.mux67
+  %39 = add nsw i32 %.061, -24
+  %brmerge77 = icmp ult i32 %39, -6
+  %.mux78 = select i1 %15, double 0.000000e+00, double %.mux
+  br label %40
+
+40:                                               ; preds = %.preheader59, %60
+  %indvars.iv = phi i64 [ 0, %.preheader59 ], [ %indvars.iv.next, %60 ]
+  %41 = icmp ne i64 %indvars.iv, 2
+  %or.cond = or i1 %.not, %41
+  br i1 %or.cond, label %42, label %60
+
+42:                                               ; preds = %40
+  %43 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %43, label %48 [
+    i32 1, label %44
+    i32 3, label %46
+  ]
+
+44:                                               ; preds = %42
+  br i1 %brmerge77, label %48, label %45
+
+45:                                               ; preds = %44
+  br label %48
+
+46:                                               ; preds = %42
+  br i1 %brmerge79, label %48, label %47
+
+47:                                               ; preds = %46
+  br label %48
+
+48:                                               ; preds = %46, %44, %42, %47, %45
+  %.054 = phi nsz double [ 1.000000e+00, %45 ], [ 1.000000e+00, %47 ], [ %.mux78, %44 ], [ %6, %42 ], [ %.mux80, %46 ]
+  %49 = fmul nsz double %29, %.054
+  %50 = fmul nsz double %49, 3.125000e-02
+  %51 = fptrunc nsz double %50 to float
+  br i1 %41, label %55, label %52
+
+52:                                               ; preds = %48
+  store float %51, ptr %32, align 4, !tbaa !14
+  %53 = tail call nsz double @llvm.fmuladd.f64(double %50, double 0x41F0000000000000, double 5.000000e-01)
+  %54 = fptosi double %53 to i32
+  store i32 %54, ptr %33, align 4, !tbaa !16
+  br label %60
+
+55:                                               ; preds = %48
+  %56 = getelementptr inbounds nuw [8 x [40 x float]], ptr @ff_mdct_win_float, i64 0, i64 %indvars.iv, i64 %37
+  store float %51, ptr %56, align 4, !tbaa !14
+  %57 = tail call nsz double @llvm.fmuladd.f64(double %50, double 0x41F0000000000000, double 5.000000e-01)
+  %58 = fptosi double %57 to i32
+  %59 = getelementptr inbounds nuw [8 x [40 x i32]], ptr @ff_mdct_win_fixed, i64 0, i64 %indvars.iv, i64 %37
+  store i32 %58, ptr %59, align 4, !tbaa !16
+  br label %60
+
+60:                                               ; preds = %52, %55, %40
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 4
+  br i1 %exitcond.not, label %61, label %40, !llvm.loop !18
+
+61:                                               ; preds = %60
+  %62 = add nuw nsw i32 %.061, 1
+  %exitcond69.not = icmp eq i32 %62, 36
+  br i1 %exitcond69.not, label %.preheader, label %.preheader59, !llvm.loop !20
+
+.preheader:                                       ; preds = %61, %81
+  %indvars.iv73 = phi i64 [ %indvars.iv.next74, %81 ], [ 0, %61 ]
+  %63 = or disjoint i64 %indvars.iv73, 4
+  br label %64
+
+64:                                               ; preds = %.preheader, %64
+  %indvars.iv70 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next71, %64 ]
+  %65 = getelementptr inbounds nuw [8 x [40 x float]], ptr @ff_mdct_win_float, i64 0, i64 %indvars.iv73, i64 %indvars.iv70
+  %66 = load float, ptr %65, align 8, !tbaa !14
+  %67 = getelementptr inbounds nuw [8 x [40 x float]], ptr @ff_mdct_win_float, i64 0, i64 %63, i64 %indvars.iv70
+  store float %66, ptr %67, align 8, !tbaa !14
+  %68 = or disjoint i64 %indvars.iv70, 1
+  %69 = getelementptr inbounds nuw [8 x [40 x float]], ptr @ff_mdct_win_float, i64 0, i64 %indvars.iv73, i64 %68
+  %70 = load float, ptr %69, align 4, !tbaa !14
+  %71 = fneg nsz float %70
+  %72 = getelementptr inbounds nuw [8 x [40 x float]], ptr @ff_mdct_win_float, i64 0, i64 %63, i64 %68
+  store float %71, ptr %72, align 4, !tbaa !14
+  %73 = getelementptr inbounds nuw [8 x [40 x i32]], ptr @ff_mdct_win_fixed, i64 0, i64 %indvars.iv73, i64 %indvars.iv70
+  %74 = load i32, ptr %73, align 8, !tbaa !16
+  %75 = getelementptr inbounds nuw [8 x [40 x i32]], ptr @ff_mdct_win_fixed, i64 0, i64 %63, i64 %indvars.iv70
+  store i32 %74, ptr %75, align 8, !tbaa !16
+  %76 = getelementptr inbounds nuw [8 x [40 x i32]], ptr @ff_mdct_win_fixed, i64 0, i64 %indvars.iv73, i64 %68
+  %77 = load i32, ptr %76, align 4, !tbaa !16
+  %78 = sub nsw i32 0, %77
+  %79 = getelementptr inbounds nuw [8 x [40 x i32]], ptr @ff_mdct_win_fixed, i64 0, i64 %63, i64 %68
+  store i32 %78, ptr %79, align 4, !tbaa !16
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 2
+  %80 = icmp samesign ult i64 %indvars.iv70, 38
+  br i1 %80, label %64, label %81, !llvm.loop !21
+
+81:                                               ; preds = %64
+  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
+  %exitcond76.not = icmp eq i64 %indvars.iv.next74, 4
+  br i1 %exitcond76.not, label %82, label %.preheader, !llvm.loop !22
+
+82:                                               ; preds = %81
+  ret void
+}
+
+declare hidden void @ff_mpadsp_apply_window_float(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) #1
+
+declare hidden void @ff_mpadsp_apply_window_fixed(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) #1
+
+declare void @ff_dct32_float(ptr noundef, ptr noundef) #1
+
+declare void @ff_dct32_fixed(ptr noundef, ptr noundef) #1
+
+declare hidden void @ff_imdct36_blocks_float(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+
+declare hidden void @ff_imdct36_blocks_fixed(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sin.f64(double) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.cos.f64(double) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #3
+
+attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold nofree norecurse nosync nounwind optsize memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 1, !"override-stack-alignment", i32 16}
+!4 = !{!5, !6, i64 0}
+!5 = !{!"MPADSPContext", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!5, !6, i64 8}
+!10 = !{!5, !6, i64 16}
+!11 = !{!5, !6, i64 24}
+!12 = !{!5, !6, i64 32}
+!13 = !{!5, !6, i64 40}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"float", !7, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"int", !7, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.mustprogress"}
+!20 = distinct !{!20, !19}
+!21 = distinct !{!21, !19}
+!22 = distinct !{!22, !19}
