@@ -708,3 +708,6 @@
 [submodule "bench/salsa-rs/salsa"]
 	path = bench/salsa-rs/salsa
 	url = https://github.com/salsa-rs/salsa.git
+[submodule "bench/uv-rs/uv"]
+	path = bench/uv-rs/uv
+	url = https://github.com/astral-sh/uv.git
