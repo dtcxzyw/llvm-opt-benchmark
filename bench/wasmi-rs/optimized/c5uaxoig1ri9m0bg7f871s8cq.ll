@@ -1,0 +1,1191 @@
+; ModuleID = './bench/wasmi-rs/original/c5uaxoig1ri9m0bg7f871s8cq.ll'
+source_filename = "./bench/wasmi-rs/original/c5uaxoig1ri9m0bg7f871s8cq.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+@anon.1aabfa233b6f75c7907752b74109b64e.2 = private unnamed_addr constant [28 x i8] c"crates/core/src/table/mod.rs", align 1
+@anon.1aabfa233b6f75c7907752b74109b64e.3 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.1aabfa233b6f75c7907752b74109b64e.2, [16 x i8] c"\1C\00\00\00\00\00\00\007\00\00\00\12\00\00\00" }>, align 8
+@anon.1aabfa233b6f75c7907752b74109b64e.5 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.1aabfa233b6f75c7907752b74109b64e.2, [16 x i8] c"\1C\00\00\00\00\00\00\00\B6\00\00\00\17\00\00\00" }>, align 8
+@anon.1aabfa233b6f75c7907752b74109b64e.8 = private unnamed_addr constant [43 x i8] c"table.init currently only works on reftypes", align 1
+@anon.1aabfa233b6f75c7907752b74109b64e.9 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.1aabfa233b6f75c7907752b74109b64e.8, [8 x i8] c"+\00\00\00\00\00\00\00" }>, align 8
+@anon.1aabfa233b6f75c7907752b74109b64e.10 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.1aabfa233b6f75c7907752b74109b64e.2, [16 x i8] c"\1C\00\00\00\00\00\00\00\FB\00\00\00\09\00\00\00" }>, align 8
+@anon.1aabfa233b6f75c7907752b74109b64e.15 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.1aabfa233b6f75c7907752b74109b64e.2, [16 x i8] c"\1C\00\00\00\00\00\00\00s\01\00\00\0E\00\00\00" }>, align 8
+
+; Function Attrs: nonlazybind uwtable
+define void @_ZN10wasmi_core5table5Table3new17hcd9450d9ae3c6b5fE(ptr dead_on_unwind noalias noundef writable writeonly sret([56 x i8]) align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef align 8 dereferenceable(16) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %5 = alloca [24 x i8], align 8
+  %6 = alloca [24 x i8], align 8
+  %7 = alloca [56 x i8], align 8
+  %8 = alloca [16 x i8], align 8
+  %9 = alloca [24 x i8], align 8
+  %10 = alloca [16 x i8], align 8
+  %11 = tail call noundef i8 @_ZN10wasmi_core5typed8TypedVal2ty17h8659aa5a17318e9dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+  %12 = tail call { i64, i64 } @_ZN10wasmi_core5table2ty9TableType27ensure_element_type_matches17h71de66eea0855543E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i8 noundef %11)
+  %13 = extractvalue { i64, i64 } %12, 0
+  %.not = icmp eq i64 %13, 11
+  br i1 %.not, label %18, label %14
+
+14:                                               ; preds = %4
+  %15 = extractvalue { i64, i64 } %12, 1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %13, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %15, ptr %17, align 8
+  store i64 2, ptr %0, align 8
+  br label %48
+
+18:                                               ; preds = %4
+  %19 = tail call noundef i64 @_ZN10wasmi_core5table2ty9TableType7minimum17hf3b5f46b9cc27d4fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
+  %20 = tail call { i64, i64 } @_ZN10wasmi_core5table2ty9TableType7maximum17h9e63ffcdea955863E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
+  %21 = tail call { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  %22 = extractvalue { ptr, ptr } %21, 0
+  %.not33 = icmp eq ptr %22, null
+  br i1 %.not33, label %33, label %23
+
+23:                                               ; preds = %18
+  %24 = extractvalue { i64, i64 } %20, 0
+  %25 = trunc nuw i64 %24 to i1
+  %26 = extractvalue { i64, i64 } %20, 1
+  %.sroa.55.0 = select i1 %25, i64 %26, i64 undef
+  %.sroa.04.0 = and i64 %24, 1
+  %27 = extractvalue { ptr, ptr } %21, 1
+  %28 = icmp ne ptr %27, null
+  tail call void @llvm.assume(i1 %28)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %30 = load ptr, ptr %29, align 8, !invariant.load !3, !nonnull !3
+  call void %30(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %10, ptr noundef nonnull align 1 %22, i64 noundef 0, i64 noundef %19, i64 noundef %.sroa.04.0, i64 %.sroa.55.0)
+  %31 = load i64, ptr %10, align 8, !range !4, !noundef !3
+  %.not34 = icmp eq i64 %31, 4
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  br i1 %.not34, label %43, label %37
+
+33:                                               ; preds = %43, %18
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  store i64 0, ptr %9, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr inttoptr (i64 8 to ptr), ptr %34, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i64 0, ptr %35, align 8
+  %36 = invoke { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$11try_reserve17hba463c03ae392e37E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9, i64 noundef 0, i64 noundef %19, i64 noundef 8, i64 noundef 16)
+          to label %51 unwind label %49
+
+37:                                               ; preds = %23
+  %38 = load i64, ptr %32, align 8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  %39 = tail call { i64, i64 } @"_ZN117_$LT$wasmi_core..table..error..TableError$u20$as$u20$core..convert..From$LT$wasmi_core..limiter..LimiterError$GT$$GT$4from17h1170990316660598E"(i64 noundef %31, i64 %38)
+  %40 = extractvalue { i64, i64 } %39, 0
+  %41 = extractvalue { i64, i64 } %39, 1
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %40, ptr %42, align 8
+  br label %46
+
+43:                                               ; preds = %23
+  %44 = load i8, ptr %32, align 8, !range !5, !noundef !3
+  %45 = trunc nuw i8 %44 to i1
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  br i1 %45, label %33, label %46
+
+46:                                               ; preds = %43, %37
+  %.sink38 = phi i64 [ 16, %37 ], [ 8, %43 ]
+  %.sink = phi i64 [ %41, %37 ], [ 3, %43 ]
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink38
+  store i64 %.sink, ptr %47, align 8
+  store i64 2, ptr %0, align 8
+  br label %48
+
+48:                                               ; preds = %73, %65, %46, %14
+  ret void
+
+49:                                               ; preds = %75, %70, %63, %55, %53, %33
+  %50 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$wasmi_core..untyped..UntypedVal$GT$$GT$17hc4c413d999fe3920E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #14
+          to label %84 unwind label %82
+
+51:                                               ; preds = %33
+  %52 = extractvalue { i64, i64 } %36, 0
+  %.not35 = icmp eq i64 %52, -9223372036854775807
+  br i1 %.not35, label %53, label %55
+
+53:                                               ; preds = %51
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %54 = invoke { i64, i64 } @"_ZN10wasmi_core5typed116_$LT$impl$u20$core..convert..From$LT$wasmi_core..typed..TypedVal$GT$$u20$for$u20$wasmi_core..untyped..UntypedVal$GT$4from17h2cea427d5dea6085E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
+          to label %57 unwind label %49
+
+55:                                               ; preds = %51
+  %56 = invoke { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+          to label %67 unwind label %49
+
+57:                                               ; preds = %53
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  %58 = icmp eq i64 %19, 0
+  br i1 %58, label %63, label %59
+
+59:                                               ; preds = %57
+  %60 = extractvalue { i64, i64 } %54, 1
+  %61 = extractvalue { i64, i64 } %54, 0
+  store i64 %61, ptr %6, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %60, ptr %62, align 8
+  br label %63
+
+63:                                               ; preds = %57, %59
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %19, ptr %64, align 8
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h57c4855b1bb4c368E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1aabfa233b6f75c7907752b74109b64e.3)
+          to label %65 unwind label %49
+
+65:                                               ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  br label %48
+
+67:                                               ; preds = %55
+  %68 = extractvalue { ptr, ptr } %56, 0
+  %69 = extractvalue { ptr, ptr } %56, 1
+  %.not36 = icmp eq ptr %68, null
+  br i1 %.not36, label %73, label %70
+
+70:                                               ; preds = %67
+  %71 = icmp ne ptr %69, null
+  call void @llvm.assume(i1 %71)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  %72 = invoke { i64, i64 } @"_ZN117_$LT$wasmi_core..limiter..LimiterError$u20$as$u20$core..convert..From$LT$wasmi_core..table..error..TableError$GT$$GT$4from17h6f809e6f9aa760e4E"(i64 noundef 0, i64 undef)
+          to label %75 unwind label %49
+
+73:                                               ; preds = %81, %67
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %74, align 8
+  store i64 2, ptr %0, align 8
+  call void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$wasmi_core..untyped..UntypedVal$GT$$GT$17hc4c413d999fe3920E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  br label %48
+
+75:                                               ; preds = %70
+  %76 = extractvalue { i64, i64 } %72, 0
+  %77 = extractvalue { i64, i64 } %72, 1
+  store i64 %76, ptr %8, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %77, ptr %78, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %69, i64 48
+  %80 = load ptr, ptr %79, align 8, !invariant.load !3, !nonnull !3
+  invoke void %80(ptr noundef nonnull align 1 %68, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8)
+          to label %81 unwind label %49
+
+81:                                               ; preds = %75
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  br label %73
+
+82:                                               ; preds = %49
+  %83 = landingpad { ptr, i32 }
+          filter [0 x ptr] zeroinitializer
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
+  unreachable
+
+84:                                               ; preds = %49
+  resume { ptr, i32 } %50
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
+define void @_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #1 {
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  ret void
+}
+
+; Function Attrs: nonlazybind uwtable
+define void @_ZN10wasmi_core5table5Table10dynamic_ty17h4ea22b09df966f6cE(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #0 {
+  %3 = alloca [32 x i8], align 8
+  %4 = alloca [32 x i8], align 8
+  %5 = alloca [32 x i8], align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 32, i1 false), !alias.scope !6
+  %6 = call noundef i8 @_ZN10wasmi_core5table2ty9TableType7element17hdcdcc2a71b3464baE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 32, i1 false), !alias.scope !10
+  %7 = call noundef zeroext i1 @_ZN10wasmi_core5table2ty9TableType8index_ty17h6d26922e999d2b64E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4)
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %9 = load i64, ptr %8, align 8, !alias.scope !14, !noundef !3
+  %10 = icmp ult i64 %9, 576460752303423488
+  call void @llvm.assume(i1 %10)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 32, i1 false), !alias.scope !17
+  %11 = call { i64, i64 } @_ZN10wasmi_core5table2ty9TableType7maximum17h9e63ffcdea955863E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3)
+  %12 = extractvalue { i64, i64 } %11, 0
+  %13 = extractvalue { i64, i64 } %11, 1
+  call void @_ZN10wasmi_core5table2ty9TableType8new_impl17h3d89aa4268240193E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i8 noundef %6, i1 noundef zeroext %7, i64 noundef %9, i64 noundef %12, i64 %13)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
+define noundef range(i64 0, 576460752303423488) i64 @_ZN10wasmi_core5table5Table4size17h2dd8d9550d6ae5afE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = load i64, ptr %2, align 8, !noundef !3
+  %4 = icmp ult i64 %3, 576460752303423488
+  tail call void @llvm.assume(i1 %4)
+  ret i64 %3
+}
+
+; Function Attrs: nonlazybind uwtable
+define void @_ZN10wasmi_core5table5Table4grow17ha8ff623a308e2410E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(56) %1, i64 noundef %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef align 8 dereferenceable_or_null(32) %4, ptr noalias noundef align 8 dereferenceable(16) %5) unnamed_addr #0 {
+  %7 = alloca [24 x i8], align 8
+  %8 = alloca [32 x i8], align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 32, i1 false), !alias.scope !21
+  %9 = tail call noundef i8 @_ZN10wasmi_core5typed8TypedVal2ty17h8659aa5a17318e9dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
+  %10 = call { i64, i64 } @_ZN10wasmi_core5table2ty9TableType27ensure_element_type_matches17h71de66eea0855543E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i8 noundef %9)
+  %11 = extractvalue { i64, i64 } %10, 0
+  %.not = icmp eq i64 %11, 11
+  br i1 %.not, label %15, label %12
+
+12:                                               ; preds = %6
+  %13 = extractvalue { i64, i64 } %10, 1
+  store i64 %11, ptr %0, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %13, ptr %14, align 8
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  br label %19
+
+15:                                               ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  %16 = call { i64, i64 } @"_ZN10wasmi_core5typed116_$LT$impl$u20$core..convert..From$LT$wasmi_core..typed..TypedVal$GT$$u20$for$u20$wasmi_core..untyped..UntypedVal$GT$4from17h2cea427d5dea6085E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  %17 = extractvalue { i64, i64 } %16, 0
+  %18 = extractvalue { i64, i64 } %16, 1
+  call void @_ZN10wasmi_core5table5Table12grow_untyped17hb4a6106c316e03dcE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %2, i64 noundef %17, i64 noundef %18, ptr noalias noundef align 8 dereferenceable_or_null(32) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  br label %19
+
+19:                                               ; preds = %15, %12
+  ret void
+}
+
+; Function Attrs: nonlazybind uwtable
+define void @_ZN10wasmi_core5table5Table12grow_untyped17hb4a6106c316e03dcE(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(56) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noalias noundef align 8 dereferenceable_or_null(32) %5, ptr noalias noundef align 8 dereferenceable(16) %6) unnamed_addr #0 {
+  %8 = alloca [16 x i8], align 8
+  %9 = alloca [16 x i8], align 8
+  %10 = alloca [16 x i8], align 8
+  %11 = alloca [16 x i8], align 8
+  %12 = alloca [16 x i8], align 8
+  %13 = alloca [1 x i8], align 1
+  %14 = alloca [8 x i8], align 8
+  store i64 %2, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %16 = load i64, ptr %15, align 8, !alias.scope !25, !noundef !3
+  %17 = icmp ult i64 %16, 576460752303423488
+  tail call void @llvm.assume(i1 %17)
+  %18 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %2)
+  %19 = extractvalue { i64, i1 } %18, 1
+  br i1 %19, label %28, label %20, !prof !28
+
+20:                                               ; preds = %7
+  %21 = add nuw i64 %16, %2
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13)
+  %22 = tail call noundef zeroext i1 @_ZN10wasmi_core5table2ty9TableType8index_ty17h6d26922e999d2b64E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
+  %23 = zext i1 %22 to i8
+  store i8 %23, ptr %13, align 1
+  %24 = call noundef i128 @_ZN10wasmi_core8index_ty9IndexType8max_size17h82f9eb72397040feE(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %13)
+  %25 = lshr i128 %24, 3
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
+  %26 = zext i64 %21 to i128
+  %27 = icmp samesign ult i128 %25, %26
+  br i1 %27, label %39, label %29
+
+28:                                               ; preds = %7
+  store i64 4, ptr %0, align 8
+  br label %54
+
+29:                                               ; preds = %20
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %31 = load i64, ptr %15, align 8, !noundef !3
+  %32 = icmp ult i64 %31, 576460752303423488
+  call void @llvm.assume(i1 %32)
+  %33 = call { i64, i64 } @_ZN10wasmi_core5table2ty9TableType7maximum17h9e63ffcdea955863E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
+  %34 = extractvalue { i64, i64 } %33, 0
+  %35 = trunc i64 %34 to i1
+  %36 = extractvalue { i64, i64 } %33, 1
+  %.sroa.5.0 = select i1 %35, i64 %36, i64 undef
+  %37 = call { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
+  %38 = extractvalue { ptr, ptr } %37, 0
+  %.not = icmp eq ptr %38, null
+  br i1 %.not, label %46, label %40
+
+39:                                               ; preds = %20
+  store i64 4, ptr %0, align 8
+  br label %54
+
+40:                                               ; preds = %29
+  %.sroa.010.0 = and i64 %34, 1
+  %41 = extractvalue { ptr, ptr } %37, 1
+  %42 = icmp ne ptr %41, null
+  call void @llvm.assume(i1 %42)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  %44 = load ptr, ptr %43, align 8, !invariant.load !3, !nonnull !3
+  call void %44(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noundef nonnull align 1 %38, i64 noundef %31, i64 noundef %21, i64 noundef %.sroa.010.0, i64 %.sroa.5.0)
+  %45 = load i64, ptr %12, align 8, !range !4, !noundef !3
+  %.not34 = icmp eq i64 %45, 4
+  br i1 %.not34, label %48, label %53
+
+46:                                               ; preds = %52, %29
+  %47 = icmp ugt i64 %21, %.sroa.5.0
+  %or.cond4 = select i1 %35, i1 %47, i1 false
+  br i1 %or.cond4, label %56, label %55
+
+48:                                               ; preds = %40
+  %49 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %50 = load i8, ptr %49, align 8, !range !5, !noundef !3
+  %51 = trunc nuw i8 %50 to i1
+  br i1 %51, label %52, label %53
+
+52:                                               ; preds = %48
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  br label %46
+
+53:                                               ; preds = %48, %40
+  %storemerge = phi i64 [ 3, %40 ], [ 4, %48 ]
+  store i64 %storemerge, ptr %0, align 8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  br label %54
+
+54:                                               ; preds = %109, %93, %91, %68, %53, %39, %28
+  ret void
+
+55:                                               ; preds = %46
+  %.not35 = icmp eq ptr %5, null
+  br i1 %.not35, label %72, label %69
+
+56:                                               ; preds = %46
+  %57 = call { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
+  %58 = extractvalue { ptr, ptr } %57, 0
+  %.not39 = icmp eq ptr %58, null
+  br i1 %.not39, label %68, label %59
+
+59:                                               ; preds = %56
+  %60 = extractvalue { ptr, ptr } %57, 1
+  %61 = icmp ne ptr %60, null
+  call void @llvm.assume(i1 %61)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  %62 = call { i64, i64 } @"_ZN117_$LT$wasmi_core..limiter..LimiterError$u20$as$u20$core..convert..From$LT$wasmi_core..table..error..TableError$GT$$GT$4from17h6f809e6f9aa760e4E"(i64 noundef 4, i64 undef)
+  %63 = extractvalue { i64, i64 } %62, 0
+  %64 = extractvalue { i64, i64 } %62, 1
+  store i64 %63, ptr %10, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 %64, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 48
+  %67 = load ptr, ptr %66, align 8, !invariant.load !3, !nonnull !3
+  call void %67(ptr noundef nonnull align 1 %58, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  br label %68
+
+68:                                               ; preds = %59, %56
+  store i64 4, ptr %0, align 8
+  br label %54
+
+69:                                               ; preds = %55
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
+  call void @_ZN10wasmi_core4fuel4Fuel12consume_fuel17he3e7a335bfe12a85E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %14)
+  %70 = load i64, ptr %11, align 8, !range !29, !noundef !3
+  %71 = and i64 %70, 1
+  %or.cond.not = icmp eq i64 %71, 0
+  br i1 %or.cond.not, label %76, label %77
+
+72:                                               ; preds = %76, %55
+  %73 = load i64, ptr %15, align 8, !noundef !3
+  %74 = call { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$11try_reserve17hba463c03ae392e37E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %30, i64 noundef %73, i64 noundef %2, i64 noundef 8, i64 noundef 16)
+  %75 = extractvalue { i64, i64 } %74, 0
+  %.not36 = icmp eq i64 %75, -9223372036854775807
+  br i1 %.not36, label %93, label %97
+
+76:                                               ; preds = %69
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  br label %72
+
+77:                                               ; preds = %69
+  %78 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %79 = load i64, ptr %78, align 8, !noundef !3
+  %80 = call { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
+  %81 = extractvalue { ptr, ptr } %80, 0
+  %.not38 = icmp eq ptr %81, null
+  br i1 %.not38, label %91, label %82
+
+82:                                               ; preds = %77
+  %83 = extractvalue { ptr, ptr } %80, 1
+  %84 = icmp ne ptr %83, null
+  call void @llvm.assume(i1 %84)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  %85 = call { i64, i64 } @"_ZN117_$LT$wasmi_core..limiter..LimiterError$u20$as$u20$core..convert..From$LT$wasmi_core..table..error..TableError$GT$$GT$4from17h6f809e6f9aa760e4E"(i64 noundef 10, i64 %79)
+  %86 = extractvalue { i64, i64 } %85, 0
+  %87 = extractvalue { i64, i64 } %85, 1
+  store i64 %86, ptr %9, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 %87, ptr %88, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %83, i64 48
+  %90 = load ptr, ptr %89, align 8, !invariant.load !3, !nonnull !3
+  call void %90(ptr noundef nonnull align 1 %81, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  br label %91
+
+91:                                               ; preds = %82, %77
+  store i64 10, ptr %0, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %79, ptr %92, align 8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  br label %54
+
+93:                                               ; preds = %72
+  %94 = load i64, ptr %15, align 8, !alias.scope !30, !noundef !3
+  %95 = icmp ult i64 %94, 576460752303423488
+  call void @llvm.assume(i1 %95)
+  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hb6f4580267b547cbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30, i64 noundef %21, i64 noundef %3, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1aabfa233b6f75c7907752b74109b64e.5)
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %94, ptr %96, align 8
+  store i64 11, ptr %0, align 8
+  br label %54
+
+97:                                               ; preds = %72
+  %98 = call { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
+  %99 = extractvalue { ptr, ptr } %98, 0
+  %.not37 = icmp eq ptr %99, null
+  br i1 %.not37, label %109, label %100
+
+100:                                              ; preds = %97
+  %101 = extractvalue { ptr, ptr } %98, 1
+  %102 = icmp ne ptr %101, null
+  call void @llvm.assume(i1 %102)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  %103 = call { i64, i64 } @"_ZN117_$LT$wasmi_core..limiter..LimiterError$u20$as$u20$core..convert..From$LT$wasmi_core..table..error..TableError$GT$$GT$4from17h6f809e6f9aa760e4E"(i64 noundef 0, i64 undef)
+  %104 = extractvalue { i64, i64 } %103, 0
+  %105 = extractvalue { i64, i64 } %103, 1
+  store i64 %104, ptr %8, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %105, ptr %106, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %101, i64 48
+  %108 = load ptr, ptr %107, align 8, !invariant.load !3, !nonnull !3
+  call void %108(ptr noundef nonnull align 1 %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  br label %109
+
+109:                                              ; preds = %100, %97
+  store i64 0, ptr %0, align 8
+  br label %54
+}
+
+; Function Attrs: nonlazybind uwtable
+define void @_ZN10wasmi_core5table5Table3get17h245addeab3c4c758E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %1, i64 noundef %2) unnamed_addr #0 {
+  %4 = alloca [32 x i8], align 8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %6 = load i64, ptr %5, align 8, !alias.scope !33, !noalias !36, !noundef !3
+  %7 = icmp ult i64 %2, %6
+  br i1 %7, label %8, label %_ZN10wasmi_core5table5Table11get_untyped17hcac74ebb078e8059E.exit
+
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %10 = load ptr, ptr %9, align 8, !alias.scope !33, !noalias !36, !nonnull !3, !noundef !3
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %10, i64 %2
+  %12 = load i64, ptr %11, align 8, !noalias !38, !noundef !3
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %14 = load i64, ptr %13, align 8, !noalias !38, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 32, i1 false), !alias.scope !39
+  %15 = call noundef i8 @_ZN10wasmi_core5table2ty9TableType7element17hdcdcc2a71b3464baE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4)
+  call void @_ZN10wasmi_core5typed8TypedVal3new17h54e0e5f8447aad8fE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, i8 noundef %15, i64 noundef %12, i64 noundef %14)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  br label %17
+
+_ZN10wasmi_core5table5Table11get_untyped17hcac74ebb078e8059E.exit: ; preds = %3
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 7, ptr %16, align 8
+  br label %17
+
+17:                                               ; preds = %_ZN10wasmi_core5table5Table11get_untyped17hcac74ebb078e8059E.exit, %8
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @_ZN10wasmi_core5table5Table11get_untyped17hcac74ebb078e8059E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %1, i64 noundef %2) unnamed_addr #3 {
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %5 = load i64, ptr %4, align 8, !noundef !3
+  %6 = icmp ult i64 %2, %5
+  br i1 %6, label %7, label %16
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %9 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
+  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %9, i64 %2
+  %11 = load i64, ptr %10, align 8, !noundef !3
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %13 = load i64, ptr %12, align 8, !noundef !3
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %11, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %13, ptr %15, align 8
+  br label %16
+
+16:                                               ; preds = %3, %7
+  %storemerge = phi i64 [ 1, %7 ], [ 0, %3 ]
+  store i64 %storemerge, ptr %0, align 8
+  ret void
+}
+
+; Function Attrs: nonlazybind uwtable
+define { i64, i64 } @_ZN10wasmi_core5table5Table3set17hd6d07a598c8b0bc2E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2) unnamed_addr #0 {
+  %4 = alloca [24 x i8], align 8
+  %5 = alloca [32 x i8], align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 32, i1 false), !alias.scope !43
+  %6 = tail call noundef i8 @_ZN10wasmi_core5typed8TypedVal2ty17h8659aa5a17318e9dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+  %7 = call { i64, i64 } @_ZN10wasmi_core5table2ty9TableType27ensure_element_type_matches17h71de66eea0855543E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5, i8 noundef %6)
+  %8 = extractvalue { i64, i64 } %7, 0
+  %.not = icmp eq i64 %8, 11
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  br i1 %.not, label %9, label %23
+
+9:                                                ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %10 = call { i64, i64 } @"_ZN10wasmi_core5typed116_$LT$impl$u20$core..convert..From$LT$wasmi_core..typed..TypedVal$GT$$u20$for$u20$wasmi_core..untyped..UntypedVal$GT$4from17h2cea427d5dea6085E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.experimental.noalias.scope.decl(metadata !47)
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %12 = load i64, ptr %11, align 8, !alias.scope !47, !noundef !3
+  %13 = icmp ult i64 %1, %12
+  br i1 %13, label %14, label %_ZN10wasmi_core5table5Table11set_untyped17h252630c7a7c266b2E.exit
+
+14:                                               ; preds = %9
+  %15 = extractvalue { i64, i64 } %10, 1
+  %16 = extractvalue { i64, i64 } %10, 0
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %18 = load ptr, ptr %17, align 8, !alias.scope !47, !nonnull !3, !noundef !3
+  %19 = getelementptr inbounds nuw { i64, i64 }, ptr %18, i64 %1
+  store i64 %16, ptr %19, align 8, !noalias !47
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i64 %15, ptr %20, align 8, !noalias !47
+  br label %_ZN10wasmi_core5table5Table11set_untyped17h252630c7a7c266b2E.exit
+
+_ZN10wasmi_core5table5Table11set_untyped17h252630c7a7c266b2E.exit: ; preds = %9, %14
+  %.sroa.0.0.i = phi i64 [ 11, %14 ], [ 7, %9 ]
+  %21 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
+  %22 = insertvalue { i64, i64 } %21, i64 undef, 1
+  br label %23
+
+23:                                               ; preds = %3, %_ZN10wasmi_core5table5Table11set_untyped17h252630c7a7c266b2E.exit
+  %.merged = phi { i64, i64 } [ %22, %_ZN10wasmi_core5table5Table11set_untyped17h252630c7a7c266b2E.exit ], [ %7, %3 ]
+  ret { i64, i64 } %.merged
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define { i64, i64 } @_ZN10wasmi_core5table5Table11set_untyped17h252630c7a7c266b2E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %6 = load i64, ptr %5, align 8, !noundef !3
+  %7 = icmp ult i64 %1, %6
+  br i1 %7, label %8, label %13
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %10, i64 %1
+  store i64 %2, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 %3, ptr %12, align 8
+  br label %13
+
+13:                                               ; preds = %4, %8
+  %.sroa.0.0 = phi i64 [ 11, %8 ], [ 7, %4 ]
+  %14 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %15 = insertvalue { i64, i64 } %14, i64 undef, 1
+  ret { i64, i64 } %15
+}
+
+; Function Attrs: nonlazybind uwtable
+define { i64, i64 } @_ZN10wasmi_core5table5Table4init17hfdedac7c19035517E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noalias noundef align 8 dereferenceable_or_null(32) %5) unnamed_addr #0 {
+  %7 = alloca [24 x i8], align 8
+  %8 = alloca [32 x i8], align 8
+  %9 = alloca [48 x i8], align 8
+  %10 = alloca [1 x i8], align 1
+  %11 = alloca [32 x i8], align 8
+  %12 = alloca [4 x i8], align 4
+  store i32 %4, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 32, i1 false), !alias.scope !50
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
+  %13 = call noundef i8 @_ZN10wasmi_core5table2ty9TableType7element17hdcdcc2a71b3464baE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %11)
+  store i8 %13, ptr %10, align 1
+  %14 = call noundef zeroext i1 @_ZN10wasmi_core5value7ValType6is_ref17h5c62cf447d4fd01aE(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %10)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
+  br i1 %14, label %20, label %15, !prof !54
+
+15:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
+  store ptr @anon.1aabfa233b6f75c7907752b74109b64e.9, ptr %9, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 1, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store ptr null, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i64 0, ptr %19, align 8
+  call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1aabfa233b6f75c7907752b74109b64e.10) #16
+  unreachable
+
+20:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 32, i1 false), !alias.scope !55
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  %21 = call noundef i8 @_ZN10wasmi_core5table7element17ElementSegmentRef2ty17h2858e700cf8bd54cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  %22 = call { i64, i64 } @_ZN10wasmi_core5table2ty9TableType27ensure_element_type_matches17h71de66eea0855543E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i8 noundef %21)
+  %23 = extractvalue { i64, i64 } %22, 0
+  %.not = icmp eq i64 %23, 11
+  br i1 %.not, label %26, label %24
+
+24:                                               ; preds = %20
+  %25 = extractvalue { i64, i64 } %22, 1
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  br label %55
+
+26:                                               ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  %27 = zext i32 %4 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %29 = load i64, ptr %28, align 8, !noundef !3
+  %30 = icmp ult i64 %29, %2
+  %31 = sub nuw i64 %29, %2
+  %.not5765 = icmp ult i64 %31, %27
+  %or.cond = select i1 %30, i1 true, i1 %.not5765
+  br i1 %or.cond, label %55, label %32
+
+32:                                               ; preds = %26
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !nonnull !3, !noundef !3
+  %35 = getelementptr inbounds nuw { i64, i64 }, ptr %34, i64 %2
+  %36 = zext i32 %3 to i64
+  %37 = call { ptr, i64 } @_ZN10wasmi_core5table7element17ElementSegmentRef5items17h29e46ebb2f2a4cb7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1)
+  %38 = extractvalue { ptr, i64 } %37, 0
+  %39 = extractvalue { ptr, i64 } %37, 1
+  %.not69 = icmp ult i64 %39, %36
+  %40 = sub nuw i64 %39, %36
+  %41 = getelementptr inbounds nuw { i64, i64 }, ptr %38, i64 %36
+  %.not5968 = icmp eq ptr %38, null
+  %.not59 = select i1 %.not69, i1 true, i1 %.not5968
+  %.not6066 = icmp ult i64 %40, %27
+  %or.cond64 = select i1 %.not59, i1 true, i1 %.not6066
+  br i1 %or.cond64, label %55, label %42
+
+42:                                               ; preds = %32
+  %43 = icmp eq i32 %4, 0
+  br i1 %43, label %55, label %44
+
+44:                                               ; preds = %42
+  %.not62 = icmp eq ptr %5, null
+  br i1 %.not62, label %48, label %45
+
+45:                                               ; preds = %44
+  %46 = call { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17h2408c6f78846bca8E(ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %12)
+  %47 = extractvalue { i64, i64 } %46, 0
+  %.not63 = icmp eq i64 %47, 2
+  br i1 %.not63, label %48, label %50
+
+48:                                               ; preds = %45, %44
+  %49 = shl nuw nsw i64 %27, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %35, ptr nonnull readonly align 8 %41, i64 %49, i1 false), !alias.scope !59, !noalias !63
+  br label %55
+
+50:                                               ; preds = %45
+  %51 = extractvalue { i64, i64 } %46, 1
+  %52 = call { i64, i64 } @"_ZN111_$LT$wasmi_core..table..error..TableError$u20$as$u20$core..convert..From$LT$wasmi_core..fuel..FuelError$GT$$GT$4from17h5f3b4c4d12c502d9E"(i64 noundef %47, i64 %51)
+  %53 = extractvalue { i64, i64 } %52, 0
+  %54 = extractvalue { i64, i64 } %52, 1
+  br label %55
+
+55:                                               ; preds = %24, %50, %26, %32, %42, %48
+  %.sroa.7.1 = phi i64 [ undef, %48 ], [ %25, %24 ], [ %54, %50 ], [ %27, %26 ], [ %27, %32 ], [ undef, %42 ]
+  %.sroa.03.1 = phi i64 [ 11, %48 ], [ %23, %24 ], [ %53, %50 ], [ 5, %26 ], [ 5, %32 ], [ 11, %42 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
+  %56 = insertvalue { i64, i64 } poison, i64 %.sroa.03.1, 0
+  %57 = insertvalue { i64, i64 } %56, i64 %.sroa.7.1, 1
+  ret { i64, i64 } %57
+}
+
+; Function Attrs: nonlazybind uwtable
+define { i64, i64 } @_ZN10wasmi_core5table5Table4copy17h26e63aa95c484007E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %2, i64 noundef %3, i64 noundef %4, ptr noalias noundef align 8 dereferenceable_or_null(32) %5) unnamed_addr #0 {
+  %7 = alloca [32 x i8], align 8
+  %8 = alloca [32 x i8], align 8
+  %9 = alloca [8 x i8], align 8
+  store i64 %4, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 32, i1 false), !alias.scope !65
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %2, i64 32, i1 false), !alias.scope !69
+  %10 = call noundef i8 @_ZN10wasmi_core5table2ty9TableType7element17hdcdcc2a71b3464baE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7)
+  %11 = call { i64, i64 } @_ZN10wasmi_core5table2ty9TableType27ensure_element_type_matches17h71de66eea0855543E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i8 noundef %10)
+  %12 = extractvalue { i64, i64 } %11, 0
+  %.not = icmp eq i64 %12, 11
+  br i1 %.not, label %15, label %13
+
+13:                                               ; preds = %6
+  %14 = extractvalue { i64, i64 } %11, 1
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  br label %42
+
+15:                                               ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %17 = load i64, ptr %16, align 8, !noundef !3
+  %18 = icmp ult i64 %17, %1
+  %19 = sub nuw i64 %17, %1
+  %.not5765 = icmp ult i64 %19, %4
+  %or.cond = select i1 %18, i1 true, i1 %.not5765
+  br i1 %or.cond, label %42, label %20
+
+20:                                               ; preds = %15
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %22 = load ptr, ptr %21, align 8, !nonnull !3, !noundef !3
+  %23 = getelementptr inbounds nuw { i64, i64 }, ptr %22, i64 %1
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %25 = load i64, ptr %24, align 8, !noundef !3
+  %26 = icmp ult i64 %25, %3
+  %27 = sub nuw i64 %25, %3
+  %.not6066 = icmp ult i64 %27, %4
+  %or.cond64 = select i1 %26, i1 true, i1 %.not6066
+  br i1 %or.cond64, label %42, label %28
+
+28:                                               ; preds = %20
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %30 = load ptr, ptr %29, align 8, !nonnull !3, !noundef !3
+  %31 = getelementptr inbounds nuw { i64, i64 }, ptr %30, i64 %3
+  %.not62 = icmp eq ptr %5, null
+  br i1 %.not62, label %35, label %32
+
+32:                                               ; preds = %28
+  %33 = call { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17h5ba0bc70bb82700aE(ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9)
+  %34 = extractvalue { i64, i64 } %33, 0
+  %.not63 = icmp eq i64 %34, 2
+  br i1 %.not63, label %35, label %37
+
+35:                                               ; preds = %32, %28
+  %36 = shl i64 %4, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull readonly align 8 %31, i64 %36, i1 false), !alias.scope !73, !noalias !77
+  br label %42
+
+37:                                               ; preds = %32
+  %38 = extractvalue { i64, i64 } %33, 1
+  %39 = call { i64, i64 } @"_ZN111_$LT$wasmi_core..table..error..TableError$u20$as$u20$core..convert..From$LT$wasmi_core..fuel..FuelError$GT$$GT$4from17h5f3b4c4d12c502d9E"(i64 noundef %34, i64 %38)
+  %40 = extractvalue { i64, i64 } %39, 0
+  %41 = extractvalue { i64, i64 } %39, 1
+  br label %42
+
+42:                                               ; preds = %20, %15, %37, %35, %13
+  %.sroa.6.0 = phi i64 [ %14, %13 ], [ %41, %37 ], [ undef, %35 ], [ %4, %15 ], [ %4, %20 ]
+  %.sroa.03.0 = phi i64 [ %12, %13 ], [ %40, %37 ], [ 11, %35 ], [ 8, %15 ], [ 8, %20 ]
+  %43 = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
+  %44 = insertvalue { i64, i64 } %43, i64 %.sroa.6.0, 1
+  ret { i64, i64 } %44
+}
+
+; Function Attrs: nonlazybind uwtable
+define { i64, i64 } @_ZN10wasmi_core5table5Table11copy_within17h70f2ff3b7370c841E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noalias noundef align 8 dereferenceable_or_null(32) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %6 = alloca [8 x i8], align 8
+  store i64 %3, ptr %6, align 8
+  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %2, i64 %1)
+  %7 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.0.0.sroa.speculated.i, i64 %3)
+  %8 = extractvalue { i64, i1 } %7, 1
+  br i1 %8, label %.critedge, label %.split23, !prof !28
+
+.split23:                                         ; preds = %5
+  %9 = add nuw i64 %.sroa.0.0.sroa.speculated.i, %3
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.val = load i64, ptr %10, align 8
+  %11 = icmp ult i64 %.val, 576460752303423488
+  tail call void @llvm.assume(i1 %11)
+  %.not.i.not = icmp ugt i64 %9, %.val
+  br i1 %.not.i.not, label %.critedge, label %12
+
+12:                                               ; preds = %.split23
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %18, label %15
+
+.critedge:                                        ; preds = %5, %.split23, %22, %18
+  %.sroa.4.0 = phi i64 [ %26, %22 ], [ undef, %18 ], [ undef, %.split23 ], [ undef, %5 ]
+  %.sroa.02.0 = phi i64 [ %25, %22 ], [ 11, %18 ], [ 8, %.split23 ], [ 8, %5 ]
+  %13 = insertvalue { i64, i64 } poison, i64 %.sroa.02.0, 0
+  %14 = insertvalue { i64, i64 } %13, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %14
+
+15:                                               ; preds = %12
+  %16 = call { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17h1fa8c36e25d4aa26E(ptr noalias noundef nonnull align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
+  %17 = extractvalue { i64, i64 } %16, 0
+  %.not24 = icmp eq i64 %17, 2
+  br i1 %.not24, label %18, label %22
+
+18:                                               ; preds = %15, %12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %20 = load ptr, ptr %19, align 8, !nonnull !3, !noundef !3
+  %21 = add i64 %3, %2
+  call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11copy_within17hef9420c6a5df4495E"(ptr noalias noundef nonnull align 8 %20, i64 noundef %.val, i64 noundef %2, i64 noundef %21, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1aabfa233b6f75c7907752b74109b64e.15)
+  br label %.critedge
+
+22:                                               ; preds = %15
+  %23 = extractvalue { i64, i64 } %16, 1
+  %24 = call { i64, i64 } @"_ZN111_$LT$wasmi_core..table..error..TableError$u20$as$u20$core..convert..From$LT$wasmi_core..fuel..FuelError$GT$$GT$4from17h5f3b4c4d12c502d9E"(i64 noundef %17, i64 %23)
+  %25 = extractvalue { i64, i64 } %24, 0
+  %26 = extractvalue { i64, i64 } %24, 1
+  br label %.critedge
+}
+
+; Function Attrs: nonlazybind uwtable
+define { i64, i64 } @_ZN10wasmi_core5table5Table4fill17hf3514b69d449a7b3E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2, i64 noundef %3, ptr noalias noundef align 8 dereferenceable_or_null(32) %4) unnamed_addr #0 {
+  %6 = alloca [8 x i8], align 8
+  %7 = alloca [24 x i8], align 8
+  %8 = alloca [32 x i8], align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 32, i1 false), !alias.scope !79
+  %9 = tail call noundef i8 @_ZN10wasmi_core5typed8TypedVal2ty17h8659aa5a17318e9dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+  %10 = call { i64, i64 } @_ZN10wasmi_core5table2ty9TableType27ensure_element_type_matches17h71de66eea0855543E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i8 noundef %9)
+  %11 = extractvalue { i64, i64 } %10, 0
+  %.not = icmp eq i64 %11, 11
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  br i1 %.not, label %12, label %36
+
+12:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %13 = call { i64, i64 } @"_ZN10wasmi_core5typed116_$LT$impl$u20$core..convert..From$LT$wasmi_core..typed..TypedVal$GT$$u20$for$u20$wasmi_core..untyped..UntypedVal$GT$4from17h2cea427d5dea6085E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  %14 = extractvalue { i64, i64 } %13, 0
+  %15 = extractvalue { i64, i64 } %13, 1
+  call void @llvm.experimental.noalias.scope.decl(metadata !83)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  store i64 %3, ptr %6, align 8, !noalias !86
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %17 = load i64, ptr %16, align 8, !alias.scope !83, !noalias !88, !noundef !3
+  %18 = icmp ult i64 %17, %1
+  br i1 %18, label %_ZN10wasmi_core5table5Table12fill_untyped17hed78d2b2b6ffb045E.exit, label %19
+
+19:                                               ; preds = %12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %21 = load ptr, ptr %20, align 8, !alias.scope !83, !noalias !88, !nonnull !3, !noundef !3
+  %22 = sub nuw i64 %17, %1
+  %23 = getelementptr inbounds nuw { i64, i64 }, ptr %21, i64 %1
+  %.not.i = icmp ugt i64 %3, %22
+  br i1 %.not.i, label %_ZN10wasmi_core5table5Table12fill_untyped17hed78d2b2b6ffb045E.exit, label %24
+
+24:                                               ; preds = %19
+  %.not26.i = icmp eq ptr %4, null
+  br i1 %.not26.i, label %28, label %25
+
+25:                                               ; preds = %24
+  %26 = call { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17h9ab94a58f6def27aE(ptr noalias noundef nonnull align 8 dereferenceable(32) dereferenceable_or_null(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6), !noalias !83
+  %27 = extractvalue { i64, i64 } %26, 0
+  %.not27.i = icmp eq i64 %27, 2
+  br i1 %.not27.i, label %28, label %29
+
+28:                                               ; preds = %25, %24
+  call void @"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17he562f4909fd0ba0eE"(ptr noalias noundef nonnull align 8 %23, i64 noundef %3, i64 noundef %14, i64 noundef %15), !noalias !83
+  br label %_ZN10wasmi_core5table5Table12fill_untyped17hed78d2b2b6ffb045E.exit
+
+29:                                               ; preds = %25
+  %30 = extractvalue { i64, i64 } %26, 1
+  %31 = call { i64, i64 } @"_ZN111_$LT$wasmi_core..table..error..TableError$u20$as$u20$core..convert..From$LT$wasmi_core..fuel..FuelError$GT$$GT$4from17h5f3b4c4d12c502d9E"(i64 noundef %27, i64 %30), !noalias !83
+  %32 = extractvalue { i64, i64 } %31, 0
+  %33 = extractvalue { i64, i64 } %31, 1
+  br label %_ZN10wasmi_core5table5Table12fill_untyped17hed78d2b2b6ffb045E.exit
+
+_ZN10wasmi_core5table5Table12fill_untyped17hed78d2b2b6ffb045E.exit: ; preds = %12, %19, %28, %29
+  %.sroa.4.0.i = phi i64 [ %33, %29 ], [ undef, %28 ], [ undef, %19 ], [ undef, %12 ]
+  %.sroa.02.0.i = phi i64 [ %32, %29 ], [ 11, %28 ], [ 6, %19 ], [ 6, %12 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  %34 = insertvalue { i64, i64 } poison, i64 %.sroa.02.0.i, 0
+  %35 = insertvalue { i64, i64 } %34, i64 %.sroa.4.0.i, 1
+  br label %36
+
+36:                                               ; preds = %5, %_ZN10wasmi_core5table5Table12fill_untyped17hed78d2b2b6ffb045E.exit
+  %.merged = phi { i64, i64 } [ %35, %_ZN10wasmi_core5table5Table12fill_untyped17hed78d2b2b6ffb045E.exit ], [ %10, %5 ]
+  ret { i64, i64 } %.merged
+}
+
+; Function Attrs: nonlazybind uwtable
+define { i64, i64 } @_ZN10wasmi_core5table5Table12fill_untyped17hed78d2b2b6ffb045E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noalias noundef align 8 dereferenceable_or_null(32) %5) unnamed_addr #0 {
+  %7 = alloca [8 x i8], align 8
+  store i64 %4, ptr %7, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %9 = load i64, ptr %8, align 8, !noundef !3
+  %10 = icmp ult i64 %9, %1
+  br i1 %10, label %26, label %11
+
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %13 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
+  %14 = sub nuw i64 %9, %1
+  %15 = getelementptr inbounds nuw { i64, i64 }, ptr %13, i64 %1
+  %.not = icmp ugt i64 %4, %14
+  br i1 %.not, label %26, label %16
+
+16:                                               ; preds = %11
+  %.not26 = icmp eq ptr %5, null
+  br i1 %.not26, label %20, label %17
+
+17:                                               ; preds = %16
+  %18 = call { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17h9ab94a58f6def27aE(ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7)
+  %19 = extractvalue { i64, i64 } %18, 0
+  %.not27 = icmp eq i64 %19, 2
+  br i1 %.not27, label %20, label %21
+
+20:                                               ; preds = %17, %16
+  call void @"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17he562f4909fd0ba0eE"(ptr noalias noundef nonnull align 8 %15, i64 noundef %4, i64 noundef %2, i64 noundef %3)
+  br label %26
+
+21:                                               ; preds = %17
+  %22 = extractvalue { i64, i64 } %18, 1
+  %23 = call { i64, i64 } @"_ZN111_$LT$wasmi_core..table..error..TableError$u20$as$u20$core..convert..From$LT$wasmi_core..fuel..FuelError$GT$$GT$4from17h5f3b4c4d12c502d9E"(i64 noundef %19, i64 %22)
+  %24 = extractvalue { i64, i64 } %23, 0
+  %25 = extractvalue { i64, i64 } %23, 1
+  br label %26
+
+26:                                               ; preds = %6, %11, %21, %20
+  %.sroa.4.0 = phi i64 [ %25, %21 ], [ undef, %20 ], [ undef, %11 ], [ undef, %6 ]
+  %.sroa.02.0 = phi i64 [ %24, %21 ], [ 11, %20 ], [ 6, %11 ], [ 6, %6 ]
+  %27 = insertvalue { i64, i64 } poison, i64 %.sroa.02.0, 0
+  %28 = insertvalue { i64, i64 } %27, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %28
+}
+
+; Function Attrs: nounwind nonlazybind uwtable
+declare noundef range(i32 0, 10) i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+
+; Function Attrs: nonlazybind uwtable
+declare noundef range(i8 0, 7) i8 @_ZN10wasmi_core5typed8TypedVal2ty17h8659aa5a17318e9dE(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare hidden { i64, i64 } @_ZN10wasmi_core5table2ty9TableType27ensure_element_type_matches17h71de66eea0855543E(ptr noalias noundef readonly align 8 dereferenceable(32), i8 noundef range(i8 0, 7)) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare noundef i64 @_ZN10wasmi_core5table2ty9TableType7minimum17hf3b5f46b9cc27d4fE(ptr noalias noundef readonly align 8 dereferenceable(32)) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare { i64, i64 } @_ZN10wasmi_core5table2ty9TableType7maximum17h9e63ffcdea955863E(ptr noalias noundef readonly align 8 dereferenceable(32)) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare { i64, i64 } @"_ZN117_$LT$wasmi_core..table..error..TableError$u20$as$u20$core..convert..From$LT$wasmi_core..limiter..LimiterError$GT$$GT$4from17h1170990316660598E"(i64 noundef range(i64 0, 4), i64) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$11try_reserve17hba463c03ae392e37E"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef, i64 noundef, i64 noundef range(i64 1, -9223372036854775807), i64 noundef) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare { i64, i64 } @"_ZN10wasmi_core5typed116_$LT$impl$u20$core..convert..From$LT$wasmi_core..typed..TypedVal$GT$$u20$for$u20$wasmi_core..untyped..UntypedVal$GT$4from17h2cea427d5dea6085E"(ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h57c4855b1bb4c368E"(ptr noalias noundef align 8 dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare { i64, i64 } @"_ZN117_$LT$wasmi_core..limiter..LimiterError$u20$as$u20$core..convert..From$LT$wasmi_core..table..error..TableError$GT$$GT$4from17h6f809e6f9aa760e4E"(i64 noundef range(i64 0, 11), i64) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare hidden void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$wasmi_core..untyped..UntypedVal$GT$$GT$17hc4c413d999fe3920E"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
+
+; Function Attrs: cold minsize noreturn nounwind nonlazybind optsize uwtable
+declare void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() unnamed_addr #7
+
+; Function Attrs: nonlazybind uwtable
+declare noundef range(i8 0, 7) i8 @_ZN10wasmi_core5table2ty9TableType7element17hdcdcc2a71b3464baE(ptr noalias noundef readonly align 8 dereferenceable(32)) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare noundef zeroext i1 @_ZN10wasmi_core5table2ty9TableType8index_ty17h6d26922e999d2b64E(ptr noalias noundef readonly align 8 dereferenceable(32)) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare hidden void @_ZN10wasmi_core5table2ty9TableType8new_impl17h3d89aa4268240193E(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32), i8 noundef range(i8 0, 7), i1 noundef zeroext, i64 noundef, i64 noundef range(i64 0, 2), i64) unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #9
+
+; Function Attrs: nonlazybind uwtable
+declare noundef i128 @_ZN10wasmi_core8index_ty9IndexType8max_size17h82f9eb72397040feE(ptr noalias noundef readonly align 1 dereferenceable(1)) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare hidden void @_ZN10wasmi_core4fuel4Fuel12consume_fuel17he3e7a335bfe12a85E(ptr dead_on_unwind noalias noundef writable sret([16 x i8]) align 8 captures(none) dereferenceable(16), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef readonly align 8 dereferenceable(8)) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hb6f4580267b547cbE"(ptr noalias noundef align 8 dereferenceable(24), i64 noundef, i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare void @_ZN10wasmi_core5typed8TypedVal3new17h54e0e5f8447aad8fE(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), i8 noundef range(i8 0, 7), i64 noundef, i64 noundef) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare noundef zeroext i1 @_ZN10wasmi_core5value7ValType6is_ref17h5c62cf447d4fd01aE(ptr noalias noundef readonly align 1 dereferenceable(1)) unnamed_addr #0
+
+; Function Attrs: cold noreturn nonlazybind uwtable
+declare void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef align 8 captures(none) dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #10
+
+; Function Attrs: nonlazybind uwtable
+declare noundef range(i8 0, 7) i8 @_ZN10wasmi_core5table7element17ElementSegmentRef2ty17h2858e700cf8bd54cE(ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare { ptr, i64 } @_ZN10wasmi_core5table7element17ElementSegmentRef5items17h29e46ebb2f2a4cb7E(ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare hidden { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17h2408c6f78846bca8E(ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef readonly align 4 dereferenceable(4)) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare { i64, i64 } @"_ZN111_$LT$wasmi_core..table..error..TableError$u20$as$u20$core..convert..From$LT$wasmi_core..fuel..FuelError$GT$$GT$4from17h5f3b4c4d12c502d9E"(i64 noundef range(i64 0, 2), i64) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare hidden { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17h5ba0bc70bb82700aE(ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef readonly align 8 dereferenceable(8)) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare hidden { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17h1fa8c36e25d4aa26E(ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef readonly align 8 dereferenceable(8)) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11copy_within17hef9420c6a5df4495E"(ptr noalias noundef nonnull align 8, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare hidden { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17h9ab94a58f6def27aE(ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef readonly align 8 dereferenceable(8)) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare hidden void @"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17he562f4909fd0ba0eE"(ptr noalias noundef nonnull align 8, i64 noundef, i64 noundef, i64 noundef) unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
+declare void @llvm.experimental.noalias.scope.decl(metadata) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #13
+
+attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { cold minsize noreturn nounwind nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { cold }
+attributes #15 = { cold noreturn nounwind }
+attributes #16 = { noreturn }
+
+!llvm.module.flags = !{!0, !1}
+!llvm.ident = !{!2}
+
+!0 = !{i32 8, !"PIC Level", i32 2}
+!1 = !{i32 2, !"RtLibUseGOT", i32 1}
+!2 = !{!"rustc version 1.89.0-nightly (60dabef95 2025-05-19)"}
+!3 = !{}
+!4 = !{i64 0, i64 5}
+!5 = !{i8 0, i8 2}
+!6 = !{!7, !9}
+!7 = distinct !{!7, !8, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E: argument 0"}
+!8 = distinct !{!8, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E"}
+!9 = distinct !{!9, !8, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E: argument 1"}
+!10 = !{!11, !13}
+!11 = distinct !{!11, !12, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E: argument 0"}
+!12 = distinct !{!12, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E"}
+!13 = distinct !{!13, !12, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E: argument 1"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZN10wasmi_core5table5Table4size17h2dd8d9550d6ae5afE: argument 0"}
+!16 = distinct !{!16, !"_ZN10wasmi_core5table5Table4size17h2dd8d9550d6ae5afE"}
+!17 = !{!18, !20}
+!18 = distinct !{!18, !19, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E: argument 0"}
+!19 = distinct !{!19, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E"}
+!20 = distinct !{!20, !19, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E: argument 1"}
+!21 = !{!22, !24}
+!22 = distinct !{!22, !23, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E: argument 0"}
+!23 = distinct !{!23, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E"}
+!24 = distinct !{!24, !23, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E: argument 1"}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZN10wasmi_core5table5Table4size17h2dd8d9550d6ae5afE: argument 0"}
+!27 = distinct !{!27, !"_ZN10wasmi_core5table5Table4size17h2dd8d9550d6ae5afE"}
+!28 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!29 = !{i64 0, i64 3}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZN10wasmi_core5table5Table4size17h2dd8d9550d6ae5afE: argument 0"}
+!32 = distinct !{!32, !"_ZN10wasmi_core5table5Table4size17h2dd8d9550d6ae5afE"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZN10wasmi_core5table5Table11get_untyped17hcac74ebb078e8059E: argument 1"}
+!35 = distinct !{!35, !"_ZN10wasmi_core5table5Table11get_untyped17hcac74ebb078e8059E"}
+!36 = !{!37}
+!37 = distinct !{!37, !35, !"_ZN10wasmi_core5table5Table11get_untyped17hcac74ebb078e8059E: argument 0"}
+!38 = !{!37, !34}
+!39 = !{!40, !42}
+!40 = distinct !{!40, !41, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E: argument 0"}
+!41 = distinct !{!41, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E"}
+!42 = distinct !{!42, !41, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E: argument 1"}
+!43 = !{!44, !46}
+!44 = distinct !{!44, !45, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E: argument 0"}
+!45 = distinct !{!45, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E"}
+!46 = distinct !{!46, !45, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E: argument 1"}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZN10wasmi_core5table5Table11set_untyped17h252630c7a7c266b2E: argument 0"}
+!49 = distinct !{!49, !"_ZN10wasmi_core5table5Table11set_untyped17h252630c7a7c266b2E"}
+!50 = !{!51, !53}
+!51 = distinct !{!51, !52, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E: argument 0"}
+!52 = distinct !{!52, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E"}
+!53 = distinct !{!53, !52, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E: argument 1"}
+!54 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!55 = !{!56, !58}
+!56 = distinct !{!56, !57, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E: argument 0"}
+!57 = distinct !{!57, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E"}
+!58 = distinct !{!58, !57, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E: argument 1"}
+!59 = !{!60, !62}
+!60 = distinct !{!60, !61, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ea528dc91dcb225E: argument 0"}
+!61 = distinct !{!61, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ea528dc91dcb225E"}
+!62 = distinct !{!62, !61, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ea528dc91dcb225E: argument 1"}
+!63 = !{!64}
+!64 = distinct !{!64, !61, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ea528dc91dcb225E: argument 2"}
+!65 = !{!66, !68}
+!66 = distinct !{!66, !67, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E: argument 0"}
+!67 = distinct !{!67, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E"}
+!68 = distinct !{!68, !67, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E: argument 1"}
+!69 = !{!70, !72}
+!70 = distinct !{!70, !71, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E: argument 0"}
+!71 = distinct !{!71, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E"}
+!72 = distinct !{!72, !71, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E: argument 1"}
+!73 = !{!74, !76}
+!74 = distinct !{!74, !75, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ea528dc91dcb225E: argument 0"}
+!75 = distinct !{!75, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ea528dc91dcb225E"}
+!76 = distinct !{!76, !75, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ea528dc91dcb225E: argument 1"}
+!77 = !{!78}
+!78 = distinct !{!78, !75, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2ea528dc91dcb225E: argument 2"}
+!79 = !{!80, !82}
+!80 = distinct !{!80, !81, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E: argument 0"}
+!81 = distinct !{!81, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E"}
+!82 = distinct !{!82, !81, !"_ZN10wasmi_core5table5Table2ty17h1a9a14434ac25e36E: argument 1"}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"_ZN10wasmi_core5table5Table12fill_untyped17hed78d2b2b6ffb045E: argument 0"}
+!85 = distinct !{!85, !"_ZN10wasmi_core5table5Table12fill_untyped17hed78d2b2b6ffb045E"}
+!86 = !{!84, !87}
+!87 = distinct !{!87, !85, !"_ZN10wasmi_core5table5Table12fill_untyped17hed78d2b2b6ffb045E: argument 1"}
+!88 = !{!87}
