@@ -672,3 +672,6 @@
 [submodule "bench/tikv-rs/tikv"]
 	path = bench/tikv-rs/tikv
 	url = https://github.com/tikv/tikv.git
+[submodule "bench/raft-rs/raft-rs"]
+	path = bench/raft-rs/raft-rs
+	url = https://github.com/tikv/raft-rs.git
