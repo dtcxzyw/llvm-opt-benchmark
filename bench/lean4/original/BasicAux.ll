@@ -1,0 +1,7061 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.lean_closure_object = type { %struct.lean_object, ptr, i16, i16, [0 x ptr] }
+%struct.lean_object = type { i32, i32 }
+%struct.lean_array_object = type { %struct.lean_object, i64, i64, [0 x ptr] }
+%struct.lean_ctor_object = type { %struct.lean_object, [0 x ptr] }
+
+@l_List_get_x21___rarg___closed__4 = internal global ptr null, align 8
+@l_List_getLast_x21___rarg___closed__3 = internal global ptr null, align 8
+@l_List_head_x21___rarg___closed__2 = internal global ptr null, align 8
+@l_List_tail_x21___rarg___closed__2 = internal global ptr null, align 8
+@l_List_partitionM___rarg___closed__1 = internal global ptr null, align 8
+@l_List_tacticSizeOf__list__dec___closed__3 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__4 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__10 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__17 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__18 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__22 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__21 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__25 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__19 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__26 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__27 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__28 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__29 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__30 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__7 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__14 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__12 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__16 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__9 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__38 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__35 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__40 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__43 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__46 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__49 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__48 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__45 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__33 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__50 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__42 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__51 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__52 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__57 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__55 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__58 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__53 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__59 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__67 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__70 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__69 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__66 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__64 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__62 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__60 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__5 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__tacticDecreasing__trivial__1___closed__2 = internal global ptr null, align 8
+@l_List_tacticSizeOf__list__dec___closed__4 = internal global ptr null, align 8
+@_G_initialized = internal global i8 0, align 1
+@l_List_get_x21___rarg___closed__1 = internal global ptr null, align 8
+@l_List_get_x21___rarg___closed__2 = internal global ptr null, align 8
+@l_List_get_x21___rarg___closed__3 = internal global ptr null, align 8
+@l_List_getLast_x21___rarg___closed__1 = internal global ptr null, align 8
+@l_List_getLast_x21___rarg___closed__2 = internal global ptr null, align 8
+@l_List_head_x21___rarg___closed__1 = internal global ptr null, align 8
+@l_List_tail_x21___rarg___closed__1 = internal global ptr null, align 8
+@l_List_tacticSizeOf__list__dec___closed__1 = internal global ptr null, align 8
+@l_List_tacticSizeOf__list__dec___closed__2 = internal global ptr null, align 8
+@l_List_tacticSizeOf__list__dec___closed__5 = internal global ptr null, align 8
+@l_List_tacticSizeOf__list__dec___closed__6 = internal global ptr null, align 8
+@l_List_tacticSizeOf__list__dec = global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__1 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__2 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__3 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__6 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__8 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__11 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__13 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__15 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__20 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__23 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__24 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__31 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__32 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__34 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__36 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__37 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__39 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__41 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__44 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__47 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__54 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__56 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__61 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__63 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__65 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__68 = internal global ptr null, align 8
+@l_List___aux__Init__Data__List__BasicAux______macroRules__tacticDecreasing__trivial__1___closed__1 = internal global ptr null, align 8
+@.str = private unnamed_addr constant [24 x i8] c"Init.Data.List.BasicAux\00", align 1
+@.str.1 = private unnamed_addr constant [10 x i8] c"List.get!\00", align 1
+@.str.2 = private unnamed_addr constant [14 x i8] c"invalid index\00", align 1
+@.str.3 = private unnamed_addr constant [14 x i8] c"List.getLast!\00", align 1
+@.str.4 = private unnamed_addr constant [11 x i8] c"empty list\00", align 1
+@.str.5 = private unnamed_addr constant [11 x i8] c"List.head!\00", align 1
+@.str.6 = private unnamed_addr constant [11 x i8] c"List.tail!\00", align 1
+@.str.7 = private unnamed_addr constant [5 x i8] c"List\00", align 1
+@.str.8 = private unnamed_addr constant [22 x i8] c"tacticSizeOf_list_dec\00", align 1
+@.str.9 = private unnamed_addr constant [16 x i8] c"sizeOf_list_dec\00", align 1
+@.str.10 = private unnamed_addr constant [5 x i8] c"Lean\00", align 1
+@.str.11 = private unnamed_addr constant [7 x i8] c"Parser\00", align 1
+@.str.12 = private unnamed_addr constant [7 x i8] c"Tactic\00", align 1
+@.str.13 = private unnamed_addr constant [6 x i8] c"first\00", align 1
+@.str.14 = private unnamed_addr constant [5 x i8] c"null\00", align 1
+@.str.15 = private unnamed_addr constant [6 x i8] c"group\00", align 1
+@.str.16 = private unnamed_addr constant [2 x i8] c"|\00", align 1
+@.str.17 = private unnamed_addr constant [10 x i8] c"tacticSeq\00", align 1
+@.str.18 = private unnamed_addr constant [19 x i8] c"tacticSeq1Indented\00", align 1
+@.str.19 = private unnamed_addr constant [14 x i8] c"withReducible\00", align 1
+@.str.20 = private unnamed_addr constant [15 x i8] c"with_reducible\00", align 1
+@.str.21 = private unnamed_addr constant [6 x i8] c"apply\00", align 1
+@.str.22 = private unnamed_addr constant [17 x i8] c"sizeOf_lt_of_mem\00", align 1
+@.str.23 = private unnamed_addr constant [2 x i8] c";\00", align 1
+@.str.24 = private unnamed_addr constant [11 x i8] c"assumption\00", align 1
+@.str.25 = private unnamed_addr constant [5 x i8] c"done\00", align 1
+@.str.26 = private unnamed_addr constant [5 x i8] c"Term\00", align 1
+@.str.27 = private unnamed_addr constant [4 x i8] c"app\00", align 1
+@.str.28 = private unnamed_addr constant [19 x i8] c"Nat.lt_of_lt_of_le\00", align 1
+@.str.29 = private unnamed_addr constant [4 x i8] c"Nat\00", align 1
+@.str.30 = private unnamed_addr constant [15 x i8] c"lt_of_lt_of_le\00", align 1
+@.str.31 = private unnamed_addr constant [6 x i8] c"paren\00", align 1
+@.str.32 = private unnamed_addr constant [2 x i8] c"(\00", align 1
+@.str.33 = private unnamed_addr constant [14 x i8] c"syntheticHole\00", align 1
+@.str.34 = private unnamed_addr constant [2 x i8] c"?\00", align 1
+@.str.35 = private unnamed_addr constant [2 x i8] c"h\00", align 1
+@.str.36 = private unnamed_addr constant [2 x i8] c")\00", align 1
+@.str.37 = private unnamed_addr constant [6 x i8] c"case'\00", align 1
+@.str.38 = private unnamed_addr constant [8 x i8] c"caseArg\00", align 1
+@.str.39 = private unnamed_addr constant [12 x i8] c"binderIdent\00", align 1
+@.str.40 = private unnamed_addr constant [3 x i8] c"=>\00", align 1
+@.str.41 = private unnamed_addr constant [5 x i8] c"simp\00", align 1
+@.str.42 = private unnamed_addr constant [10 x i8] c"optConfig\00", align 1
+@.str.43 = private unnamed_addr constant [11 x i8] c"configItem\00", align 1
+@.str.44 = private unnamed_addr constant [14 x i8] c"posConfigItem\00", align 1
+@.str.45 = private unnamed_addr constant [2 x i8] c"+\00", align 1
+@.str.46 = private unnamed_addr constant [6 x i8] c"arith\00", align 1
+@.str.47 = private unnamed_addr constant [25 x i8] c"tacticDecreasing_trivial\00", align 1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i8 @lean_usize_dec_eq(i64 noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !4
+  %5 = load i64, ptr %3, align 8, !tbaa !4
+  %6 = load i64, ptr %4, align 8, !tbaa !4
+  %7 = icmp eq i64 %5, %6
+  %8 = zext i1 %7 to i32
+  %9 = trunc i32 %8 to i8
+  ret i8 %9
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @lean_ptr_addr(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = ptrtoint ptr %3 to i64
+  ret i64 %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i8 @lean_nat_dec_eq(ptr noundef %0, ptr noundef %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !8
+  %6 = load ptr, ptr %4, align 8, !tbaa !8
+  %7 = call zeroext i1 @lean_nat_eq(ptr noundef %5, ptr noundef %6)
+  %8 = zext i1 %7 to i8
+  ret i8 %8
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @lean_nat_sub(ptr noundef %0, ptr noundef %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  %9 = load ptr, ptr %4, align 8, !tbaa !8
+  %10 = call zeroext i1 @lean_is_scalar(ptr noundef %9)
+  br i1 %10, label %11, label %14
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !8
+  %13 = call zeroext i1 @lean_is_scalar(ptr noundef %12)
+  br label %14
+
+14:                                               ; preds = %11, %2
+  %15 = phi i1 [ false, %2 ], [ %13, %11 ]
+  %16 = zext i1 %15 to i32
+  %17 = sext i32 %16 to i64
+  %18 = call i64 @llvm.expect.i64(i64 %17, i64 1)
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %20, label %36
+
+20:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %21 = load ptr, ptr %4, align 8, !tbaa !8
+  %22 = call i64 @lean_unbox(ptr noundef %21)
+  store i64 %22, ptr %6, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %23 = load ptr, ptr %5, align 8, !tbaa !8
+  %24 = call i64 @lean_unbox(ptr noundef %23)
+  store i64 %24, ptr %7, align 8, !tbaa !4
+  %25 = load i64, ptr %6, align 8, !tbaa !4
+  %26 = load i64, ptr %7, align 8, !tbaa !4
+  %27 = icmp ult i64 %25, %26
+  br i1 %27, label %28, label %30
+
+28:                                               ; preds = %20
+  %29 = call ptr @lean_box(i64 noundef 0)
+  store ptr %29, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %35
+
+30:                                               ; preds = %20
+  %31 = load i64, ptr %6, align 8, !tbaa !4
+  %32 = load i64, ptr %7, align 8, !tbaa !4
+  %33 = sub i64 %31, %32
+  %34 = call ptr @lean_box(i64 noundef %33)
+  store ptr %34, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %35
+
+35:                                               ; preds = %30, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  br label %40
+
+36:                                               ; preds = %14
+  %37 = load ptr, ptr %4, align 8, !tbaa !8
+  %38 = load ptr, ptr %5, align 8, !tbaa !8
+  %39 = call ptr @lean_nat_big_sub(ptr noundef %37, ptr noundef %38)
+  store ptr %39, ptr %3, align 8
+  br label %40
+
+40:                                               ; preds = %36, %35
+  %41 = load ptr, ptr %3, align 8
+  ret ptr %41
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_mk_empty_array_with_capacity(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = call zeroext i1 @lean_is_scalar(ptr noundef %3)
+  br i1 %4, label %6, label %5
+
+5:                                                ; preds = %1
+  call void @lean_internal_panic_out_of_memory() #8
+  unreachable
+
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !8
+  %8 = call i64 @lean_unbox(ptr noundef %7)
+  %9 = call ptr @lean_alloc_array(i64 noundef 0, i64 noundef %8)
+  ret ptr %9
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_get_x3f___rarg(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i8, align 1
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  br label %15
+
+15:                                               ; preds = %50, %2
+  %16 = load ptr, ptr %4, align 8, !tbaa !8
+  %17 = call i32 @lean_obj_tag(ptr noundef %16)
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %23
+
+19:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %20 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %20)
+  %21 = call ptr @lean_box(i64 noundef 0)
+  store ptr %21, ptr %6, align 8, !tbaa !8
+  %22 = load ptr, ptr %6, align 8, !tbaa !8
+  store ptr %22, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  br label %52
+
+23:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #7
+  %24 = load ptr, ptr %4, align 8, !tbaa !8
+  %25 = call ptr @lean_ctor_get(ptr noundef %24, i32 noundef 0)
+  store ptr %25, ptr %7, align 8, !tbaa !8
+  %26 = load ptr, ptr %4, align 8, !tbaa !8
+  %27 = call ptr @lean_ctor_get(ptr noundef %26, i32 noundef 1)
+  store ptr %27, ptr %8, align 8, !tbaa !8
+  %28 = call ptr @lean_unsigned_to_nat(i32 noundef 0)
+  store ptr %28, ptr %9, align 8, !tbaa !8
+  %29 = load ptr, ptr %5, align 8, !tbaa !8
+  %30 = load ptr, ptr %9, align 8, !tbaa !8
+  %31 = call zeroext i8 @lean_nat_dec_eq(ptr noundef %29, ptr noundef %30)
+  store i8 %31, ptr %10, align 1, !tbaa !10
+  %32 = load i8, ptr %10, align 1, !tbaa !10
+  %33 = zext i8 %32 to i32
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %43
+
+35:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %36 = call ptr @lean_unsigned_to_nat(i32 noundef 1)
+  store ptr %36, ptr %11, align 8, !tbaa !8
+  %37 = load ptr, ptr %5, align 8, !tbaa !8
+  %38 = load ptr, ptr %11, align 8, !tbaa !8
+  %39 = call ptr @lean_nat_sub(ptr noundef %37, ptr noundef %38)
+  store ptr %39, ptr %12, align 8, !tbaa !8
+  %40 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %40)
+  %41 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %41, ptr %4, align 8, !tbaa !8
+  %42 = load ptr, ptr %12, align 8, !tbaa !8
+  store ptr %42, ptr %5, align 8, !tbaa !8
+  store i32 2, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  br label %50
+
+43:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %44 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %44)
+  %45 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %45)
+  %46 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  store ptr %46, ptr %14, align 8, !tbaa !8
+  %47 = load ptr, ptr %14, align 8, !tbaa !8
+  %48 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %47, i32 noundef 0, ptr noundef %48)
+  %49 = load ptr, ptr %14, align 8, !tbaa !8
+  store ptr %49, ptr %3, align 8
+  store i32 1, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  br label %50
+
+50:                                               ; preds = %43, %35
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  %51 = load i32, ptr %13, align 4
+  switch i32 %51, label %54 [
+    i32 2, label %15
+    i32 1, label %52
+  ]
+
+52:                                               ; preds = %50, %19
+  %53 = load ptr, ptr %3, align 8
+  ret ptr %53
+
+54:                                               ; preds = %50
+  unreachable
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @lean_obj_tag(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  %4 = load ptr, ptr %3, align 8, !tbaa !8
+  %5 = call zeroext i1 @lean_is_scalar(ptr noundef %4)
+  br i1 %5, label %6, label %10
+
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %3, align 8, !tbaa !8
+  %8 = call i64 @lean_unbox(ptr noundef %7)
+  %9 = trunc i64 %8 to i32
+  store i32 %9, ptr %2, align 4
+  br label %14
+
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %3, align 8, !tbaa !8
+  %12 = call zeroext i8 @lean_ptr_tag(ptr noundef %11)
+  %13 = zext i8 %12 to i32
+  store i32 %13, ptr %2, align 4
+  br label %14
+
+14:                                               ; preds = %10, %6
+  %15 = load i32, ptr %2, align 4
+  ret i32 %15
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @lean_dec(ptr noundef %0) #1 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = call zeroext i1 @lean_is_scalar(ptr noundef %3)
+  br i1 %4, label %7, label %5
+
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @lean_dec_ref(ptr noundef %6)
+  br label %7
+
+7:                                                ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_box(i64 noundef %0) #0 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !4
+  %3 = load i64, ptr %2, align 8, !tbaa !4
+  %4 = shl i64 %3, 1
+  %5 = or i64 %4, 1
+  %6 = inttoptr i64 %5 to ptr
+  ret ptr %6
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_ctor_get(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !8
+  %6 = call ptr @lean_ctor_obj_cptr(ptr noundef %5)
+  %7 = load i32, ptr %4, align 4, !tbaa !11
+  %8 = zext i32 %7 to i64
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %10 = load ptr, ptr %9, align 8, !tbaa !8
+  ret ptr %10
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_unsigned_to_nat(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !11
+  %3 = load i32, ptr %2, align 4, !tbaa !11
+  %4 = zext i32 %3 to i64
+  %5 = call ptr @lean_usize_to_nat(i64 noundef %4)
+  ret ptr %5
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @lean_inc(ptr noundef %0) #1 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = call zeroext i1 @lean_is_scalar(ptr noundef %3)
+  br i1 %4, label %7, label %5
+
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @lean_inc_ref(ptr noundef %6)
+  br label %7
+
+7:                                                ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_alloc_ctor(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store i32 %0, ptr %4, align 4, !tbaa !11
+  store i32 %1, ptr %5, align 4, !tbaa !11
+  store i32 %2, ptr %6, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %8 = load i32, ptr %5, align 4, !tbaa !11
+  %9 = zext i32 %8 to i64
+  %10 = mul i64 8, %9
+  %11 = add i64 8, %10
+  %12 = load i32, ptr %6, align 4, !tbaa !11
+  %13 = zext i32 %12 to i64
+  %14 = add i64 %11, %13
+  %15 = trunc i64 %14 to i32
+  %16 = call ptr @lean_alloc_ctor_memory(i32 noundef %15)
+  store ptr %16, ptr %7, align 8, !tbaa !8
+  %17 = load ptr, ptr %7, align 8, !tbaa !8
+  %18 = load i32, ptr %4, align 4, !tbaa !11
+  %19 = load i32, ptr %5, align 4, !tbaa !11
+  call void @lean_set_st_header(ptr noundef %17, i32 noundef %18, i32 noundef %19)
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  ret ptr %20
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @lean_ctor_set(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !8
+  %7 = load ptr, ptr %6, align 8, !tbaa !8
+  %8 = load ptr, ptr %4, align 8, !tbaa !8
+  %9 = call ptr @lean_ctor_obj_cptr(ptr noundef %8)
+  %10 = load i32, ptr %5, align 4, !tbaa !11
+  %11 = zext i32 %10 to i64
+  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  store ptr %7, ptr %12, align 8, !tbaa !8
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_get_x3f(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  br label %4
+
+4:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = call ptr @lean_alloc_closure(ptr noundef @l_List_get_x3f___rarg___boxed, i32 noundef 2, i32 noundef 0)
+  store ptr %5, ptr %3, align 8, !tbaa !8
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret ptr %6
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_alloc_closure(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !11
+  store i32 %2, ptr %6, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %8 = load i32, ptr %6, align 4, !tbaa !11
+  %9 = zext i32 %8 to i64
+  %10 = mul i64 8, %9
+  %11 = add i64 24, %10
+  %12 = trunc i64 %11 to i32
+  %13 = call ptr @lean_alloc_small_object(i32 noundef %12)
+  store ptr %13, ptr %7, align 8, !tbaa !8
+  %14 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_set_st_header(ptr noundef %14, i32 noundef 245, i32 noundef 0)
+  %15 = load ptr, ptr %4, align 8, !tbaa !8
+  %16 = load ptr, ptr %7, align 8, !tbaa !8
+  %17 = getelementptr inbounds nuw %struct.lean_closure_object, ptr %16, i32 0, i32 1
+  store ptr %15, ptr %17, align 8, !tbaa !8
+  %18 = load i32, ptr %5, align 4, !tbaa !11
+  %19 = trunc i32 %18 to i16
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  %21 = getelementptr inbounds nuw %struct.lean_closure_object, ptr %20, i32 0, i32 2
+  store i16 %19, ptr %21, align 8, !tbaa !13
+  %22 = load i32, ptr %6, align 4, !tbaa !11
+  %23 = trunc i32 %22 to i16
+  %24 = load ptr, ptr %7, align 8, !tbaa !8
+  %25 = getelementptr inbounds nuw %struct.lean_closure_object, ptr %24, i32 0, i32 3
+  store i16 %23, ptr %25, align 2, !tbaa !13
+  %26 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  ret ptr %26
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_get_x3f___rarg___boxed(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  br label %6
+
+6:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = load ptr, ptr %3, align 8, !tbaa !8
+  %8 = load ptr, ptr %4, align 8, !tbaa !8
+  %9 = call ptr @l_List_get_x3f___rarg(ptr noundef %7, ptr noundef %8)
+  store ptr %9, ptr %5, align 8, !tbaa !8
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %10)
+  %11 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret ptr %11
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_get_x21___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i8, align 1
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  br label %17
+
+17:                                               ; preds = %53, %3
+  %18 = load ptr, ptr %6, align 8, !tbaa !8
+  %19 = call i32 @lean_obj_tag(ptr noundef %18)
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %28
+
+21:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %22 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %22)
+  %23 = load ptr, ptr @l_List_get_x21___rarg___closed__4, align 8, !tbaa !8
+  store ptr %23, ptr %8, align 8, !tbaa !8
+  %24 = load ptr, ptr %5, align 8, !tbaa !8
+  %25 = load ptr, ptr %8, align 8, !tbaa !8
+  %26 = call ptr @l_panic___rarg(ptr noundef %24, ptr noundef %25)
+  store ptr %26, ptr %9, align 8, !tbaa !8
+  %27 = load ptr, ptr %9, align 8, !tbaa !8
+  store ptr %27, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  br label %55
+
+28:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #7
+  %29 = load ptr, ptr %6, align 8, !tbaa !8
+  %30 = call ptr @lean_ctor_get(ptr noundef %29, i32 noundef 0)
+  store ptr %30, ptr %10, align 8, !tbaa !8
+  %31 = load ptr, ptr %6, align 8, !tbaa !8
+  %32 = call ptr @lean_ctor_get(ptr noundef %31, i32 noundef 1)
+  store ptr %32, ptr %11, align 8, !tbaa !8
+  %33 = call ptr @lean_unsigned_to_nat(i32 noundef 0)
+  store ptr %33, ptr %12, align 8, !tbaa !8
+  %34 = load ptr, ptr %7, align 8, !tbaa !8
+  %35 = load ptr, ptr %12, align 8, !tbaa !8
+  %36 = call zeroext i8 @lean_nat_dec_eq(ptr noundef %34, ptr noundef %35)
+  store i8 %36, ptr %13, align 1, !tbaa !10
+  %37 = load i8, ptr %13, align 1, !tbaa !10
+  %38 = zext i8 %37 to i32
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %48
+
+40:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %41 = call ptr @lean_unsigned_to_nat(i32 noundef 1)
+  store ptr %41, ptr %14, align 8, !tbaa !8
+  %42 = load ptr, ptr %7, align 8, !tbaa !8
+  %43 = load ptr, ptr %14, align 8, !tbaa !8
+  %44 = call ptr @lean_nat_sub(ptr noundef %42, ptr noundef %43)
+  store ptr %44, ptr %15, align 8, !tbaa !8
+  %45 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %45)
+  %46 = load ptr, ptr %11, align 8, !tbaa !8
+  store ptr %46, ptr %6, align 8, !tbaa !8
+  %47 = load ptr, ptr %15, align 8, !tbaa !8
+  store ptr %47, ptr %7, align 8, !tbaa !8
+  store i32 2, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  br label %53
+
+48:                                               ; preds = %28
+  %49 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %49)
+  %50 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %50)
+  %51 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %51)
+  %52 = load ptr, ptr %10, align 8, !tbaa !8
+  store ptr %52, ptr %4, align 8
+  store i32 1, ptr %16, align 4
+  br label %53
+
+53:                                               ; preds = %48, %40
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %54 = load i32, ptr %16, align 4
+  switch i32 %54, label %57 [
+    i32 2, label %17
+    i32 1, label %55
+  ]
+
+55:                                               ; preds = %53, %21
+  %56 = load ptr, ptr %4, align 8
+  ret ptr %56
+
+57:                                               ; preds = %53
+  unreachable
+}
+
+declare ptr @l_panic___rarg(ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_get_x21(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  br label %4
+
+4:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = call ptr @lean_alloc_closure(ptr noundef @l_List_get_x21___rarg___boxed, i32 noundef 3, i32 noundef 0)
+  store ptr %5, ptr %3, align 8, !tbaa !8
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret ptr %6
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_get_x21___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !8
+  br label %8
+
+8:                                                ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %9 = load ptr, ptr %4, align 8, !tbaa !8
+  %10 = load ptr, ptr %5, align 8, !tbaa !8
+  %11 = load ptr, ptr %6, align 8, !tbaa !8
+  %12 = call ptr @l_List_get_x21___rarg(ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  store ptr %12, ptr %7, align 8, !tbaa !8
+  %13 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %13)
+  %14 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  ret ptr %14
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_getD___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  br label %11
+
+11:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %12 = load ptr, ptr %5, align 8, !tbaa !8
+  %13 = load ptr, ptr %6, align 8, !tbaa !8
+  %14 = call ptr @l___private_Init_GetElem_0__List_get_x3fInternal___rarg(ptr noundef %12, ptr noundef %13)
+  store ptr %14, ptr %8, align 8, !tbaa !8
+  %15 = load ptr, ptr %8, align 8, !tbaa !8
+  %16 = call i32 @lean_obj_tag(ptr noundef %15)
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %21
+
+18:                                               ; preds = %11
+  %19 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %19)
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %20, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %27
+
+21:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %22 = load ptr, ptr %8, align 8, !tbaa !8
+  %23 = call ptr @lean_ctor_get(ptr noundef %22, i32 noundef 0)
+  store ptr %23, ptr %10, align 8, !tbaa !8
+  %24 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %24)
+  %25 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %25)
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  store ptr %26, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  br label %27
+
+27:                                               ; preds = %21, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %28 = load ptr, ptr %4, align 8
+  ret ptr %28
+}
+
+declare ptr @l___private_Init_GetElem_0__List_get_x3fInternal___rarg(ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_getD(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  br label %4
+
+4:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = call ptr @lean_alloc_closure(ptr noundef @l_List_getD___rarg___boxed, i32 noundef 3, i32 noundef 0)
+  store ptr %5, ptr %3, align 8, !tbaa !8
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret ptr %6
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_getD___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !8
+  br label %8
+
+8:                                                ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %9 = load ptr, ptr %4, align 8, !tbaa !8
+  %10 = load ptr, ptr %5, align 8, !tbaa !8
+  %11 = load ptr, ptr %6, align 8, !tbaa !8
+  %12 = call ptr @l_List_getD___rarg(ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  store ptr %12, ptr %7, align 8, !tbaa !8
+  %13 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %13)
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %14)
+  %15 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  ret ptr %15
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_getLast_x21___rarg(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i8, align 1
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  br label %15
+
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %5, align 8, !tbaa !8
+  %17 = call i32 @lean_obj_tag(ptr noundef %16)
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %25
+
+19:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %20 = load ptr, ptr @l_List_getLast_x21___rarg___closed__3, align 8, !tbaa !8
+  store ptr %20, ptr %6, align 8, !tbaa !8
+  %21 = load ptr, ptr %4, align 8, !tbaa !8
+  %22 = load ptr, ptr %6, align 8, !tbaa !8
+  %23 = call ptr @l_panic___rarg(ptr noundef %21, ptr noundef %22)
+  store ptr %23, ptr %7, align 8, !tbaa !8
+  %24 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %24, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  br label %58
+
+25:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #7
+  %26 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %26)
+  %27 = load ptr, ptr %5, align 8, !tbaa !8
+  %28 = call zeroext i1 @lean_is_exclusive(ptr noundef %27)
+  %29 = xor i1 %28, true
+  %30 = zext i1 %29 to i32
+  %31 = trunc i32 %30 to i8
+  store i8 %31, ptr %8, align 1, !tbaa !10
+  %32 = load i8, ptr %8, align 1, !tbaa !10
+  %33 = zext i8 %32 to i32
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %40
+
+35:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %36 = load ptr, ptr %5, align 8, !tbaa !8
+  %37 = call ptr @lean_box(i64 noundef 0)
+  %38 = call ptr @l_List_getLast___rarg(ptr noundef %36, ptr noundef %37)
+  store ptr %38, ptr %9, align 8, !tbaa !8
+  %39 = load ptr, ptr %9, align 8, !tbaa !8
+  store ptr %39, ptr %3, align 8
+  store i32 1, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  br label %57
+
+40:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %41 = load ptr, ptr %5, align 8, !tbaa !8
+  %42 = call ptr @lean_ctor_get(ptr noundef %41, i32 noundef 0)
+  store ptr %42, ptr %11, align 8, !tbaa !8
+  %43 = load ptr, ptr %5, align 8, !tbaa !8
+  %44 = call ptr @lean_ctor_get(ptr noundef %43, i32 noundef 1)
+  store ptr %44, ptr %12, align 8, !tbaa !8
+  %45 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %45)
+  %46 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %46)
+  %47 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %47)
+  %48 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %48, ptr %13, align 8, !tbaa !8
+  %49 = load ptr, ptr %13, align 8, !tbaa !8
+  %50 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %49, i32 noundef 0, ptr noundef %50)
+  %51 = load ptr, ptr %13, align 8, !tbaa !8
+  %52 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %51, i32 noundef 1, ptr noundef %52)
+  %53 = load ptr, ptr %13, align 8, !tbaa !8
+  %54 = call ptr @lean_box(i64 noundef 0)
+  %55 = call ptr @l_List_getLast___rarg(ptr noundef %53, ptr noundef %54)
+  store ptr %55, ptr %14, align 8, !tbaa !8
+  %56 = load ptr, ptr %14, align 8, !tbaa !8
+  store ptr %56, ptr %3, align 8
+  store i32 1, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  br label %57
+
+57:                                               ; preds = %40, %35
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #7
+  br label %58
+
+58:                                               ; preds = %57, %19
+  %59 = load ptr, ptr %3, align 8
+  ret ptr %59
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @lean_is_exclusive(ptr noundef %0) #0 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  %4 = load ptr, ptr %3, align 8, !tbaa !8
+  %5 = call zeroext i1 @lean_is_st(ptr noundef %4)
+  %6 = zext i1 %5 to i64
+  %7 = call i64 @llvm.expect.i64(i64 %6, i64 1)
+  %8 = icmp ne i64 %7, 0
+  br i1 %8, label %9, label %14
+
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw %struct.lean_object, ptr %10, i32 0, i32 0
+  %12 = load i32, ptr %11, align 4, !tbaa !15
+  %13 = icmp eq i32 %12, 1
+  store i1 %13, ptr %2, align 1
+  br label %15
+
+14:                                               ; preds = %1
+  store i1 false, ptr %2, align 1
+  br label %15
+
+15:                                               ; preds = %14, %9
+  %16 = load i1, ptr %2, align 1
+  ret i1 %16
+}
+
+declare ptr @l_List_getLast___rarg(ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_getLast_x21(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  br label %4
+
+4:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = call ptr @lean_alloc_closure(ptr noundef @l_List_getLast_x21___rarg, i32 noundef 2, i32 noundef 0)
+  store ptr %5, ptr %3, align 8, !tbaa !8
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret ptr %6
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_head_x21___rarg(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  br label %9
+
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %5, align 8, !tbaa !8
+  %11 = call i32 @lean_obj_tag(ptr noundef %10)
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %19
+
+13:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %14 = load ptr, ptr @l_List_head_x21___rarg___closed__2, align 8, !tbaa !8
+  store ptr %14, ptr %6, align 8, !tbaa !8
+  %15 = load ptr, ptr %4, align 8, !tbaa !8
+  %16 = load ptr, ptr %6, align 8, !tbaa !8
+  %17 = call ptr @l_panic___rarg(ptr noundef %15, ptr noundef %16)
+  store ptr %17, ptr %7, align 8, !tbaa !8
+  %18 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %18, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  br label %25
+
+19:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %20 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %20)
+  %21 = load ptr, ptr %5, align 8, !tbaa !8
+  %22 = call ptr @lean_ctor_get(ptr noundef %21, i32 noundef 0)
+  store ptr %22, ptr %8, align 8, !tbaa !8
+  %23 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %23)
+  %24 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %24, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  br label %25
+
+25:                                               ; preds = %19, %13
+  %26 = load ptr, ptr %3, align 8
+  ret ptr %26
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_head_x21(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  br label %4
+
+4:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = call ptr @lean_alloc_closure(ptr noundef @l_List_head_x21___rarg___boxed, i32 noundef 2, i32 noundef 0)
+  store ptr %5, ptr %3, align 8, !tbaa !8
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret ptr %6
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_head_x21___rarg___boxed(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  br label %6
+
+6:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = load ptr, ptr %3, align 8, !tbaa !8
+  %8 = load ptr, ptr %4, align 8, !tbaa !8
+  %9 = call ptr @l_List_head_x21___rarg(ptr noundef %7, ptr noundef %8)
+  store ptr %9, ptr %5, align 8, !tbaa !8
+  %10 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %10)
+  %11 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret ptr %11
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_panic___at_List_tail_x21___spec__1___rarg(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  br label %5
+
+5:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %6 = call ptr @lean_box(i64 noundef 0)
+  store ptr %6, ptr %3, align 8, !tbaa !8
+  %7 = load ptr, ptr %3, align 8, !tbaa !8
+  %8 = load ptr, ptr %2, align 8, !tbaa !8
+  %9 = call ptr @lean_panic_fn(ptr noundef %7, ptr noundef %8)
+  store ptr %9, ptr %4, align 8, !tbaa !8
+  %10 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret ptr %10
+}
+
+declare ptr @lean_panic_fn(ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define ptr @l_panic___at_List_tail_x21___spec__1(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  br label %4
+
+4:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = call ptr @lean_alloc_closure(ptr noundef @l_panic___at_List_tail_x21___spec__1___rarg, i32 noundef 1, i32 noundef 0)
+  store ptr %5, ptr %3, align 8, !tbaa !8
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret ptr %6
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_tail_x21___rarg(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  br label %7
+
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
+  %9 = call i32 @lean_obj_tag(ptr noundef %8)
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %12 = load ptr, ptr @l_List_tail_x21___rarg___closed__2, align 8, !tbaa !8
+  store ptr %12, ptr %4, align 8, !tbaa !8
+  %13 = load ptr, ptr %4, align 8, !tbaa !8
+  %14 = call ptr @l_panic___at_List_tail_x21___spec__1___rarg(ptr noundef %13)
+  store ptr %14, ptr %5, align 8, !tbaa !8
+  %15 = load ptr, ptr %5, align 8, !tbaa !8
+  store ptr %15, ptr %2, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  br label %21
+
+16:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %17 = load ptr, ptr %3, align 8, !tbaa !8
+  %18 = call ptr @lean_ctor_get(ptr noundef %17, i32 noundef 1)
+  store ptr %18, ptr %6, align 8, !tbaa !8
+  %19 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %19)
+  %20 = load ptr, ptr %6, align 8, !tbaa !8
+  store ptr %20, ptr %2, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  br label %21
+
+21:                                               ; preds = %16, %11
+  %22 = load ptr, ptr %2, align 8
+  ret ptr %22
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_tail_x21(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  br label %4
+
+4:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = call ptr @lean_alloc_closure(ptr noundef @l_List_tail_x21___rarg___boxed, i32 noundef 1, i32 noundef 0)
+  store ptr %5, ptr %3, align 8, !tbaa !8
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret ptr %6
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_tail_x21___rarg___boxed(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  br label %4
+
+4:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = load ptr, ptr %2, align 8, !tbaa !8
+  %6 = call ptr @l_List_tail_x21___rarg(ptr noundef %5)
+  store ptr %6, ptr %3, align 8, !tbaa !8
+  %7 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %7)
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret ptr %8
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_partitionM_go___rarg___lambda__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6) #2 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i8, align 1
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  store ptr %0, ptr %9, align 8, !tbaa !8
+  store ptr %1, ptr %10, align 8, !tbaa !8
+  store ptr %2, ptr %11, align 8, !tbaa !8
+  store ptr %3, ptr %12, align 8, !tbaa !8
+  store ptr %4, ptr %13, align 8, !tbaa !8
+  store ptr %5, ptr %14, align 8, !tbaa !8
+  store i8 %6, ptr %15, align 1, !tbaa !10
+  br label %20
+
+20:                                               ; preds = %7
+  %21 = load i8, ptr %15, align 1, !tbaa !10
+  %22 = zext i8 %21 to i32
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %35
+
+24:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  %25 = load ptr, ptr %9, align 8, !tbaa !8
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = call ptr @lean_array_push(ptr noundef %25, ptr noundef %26)
+  store ptr %27, ptr %16, align 8, !tbaa !8
+  %28 = load ptr, ptr %11, align 8, !tbaa !8
+  %29 = load ptr, ptr %12, align 8, !tbaa !8
+  %30 = load ptr, ptr %13, align 8, !tbaa !8
+  %31 = load ptr, ptr %14, align 8, !tbaa !8
+  %32 = load ptr, ptr %16, align 8, !tbaa !8
+  %33 = call ptr @l_List_partitionM_go___rarg(ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32)
+  store ptr %33, ptr %17, align 8, !tbaa !8
+  %34 = load ptr, ptr %17, align 8, !tbaa !8
+  store ptr %34, ptr %8, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  br label %46
+
+35:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  %36 = load ptr, ptr %14, align 8, !tbaa !8
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  %38 = call ptr @lean_array_push(ptr noundef %36, ptr noundef %37)
+  store ptr %38, ptr %18, align 8, !tbaa !8
+  %39 = load ptr, ptr %11, align 8, !tbaa !8
+  %40 = load ptr, ptr %12, align 8, !tbaa !8
+  %41 = load ptr, ptr %13, align 8, !tbaa !8
+  %42 = load ptr, ptr %18, align 8, !tbaa !8
+  %43 = load ptr, ptr %9, align 8, !tbaa !8
+  %44 = call ptr @l_List_partitionM_go___rarg(ptr noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43)
+  store ptr %44, ptr %19, align 8, !tbaa !8
+  %45 = load ptr, ptr %19, align 8, !tbaa !8
+  store ptr %45, ptr %8, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  br label %46
+
+46:                                               ; preds = %35, %24
+  %47 = load ptr, ptr %8, align 8
+  ret ptr %47
+}
+
+declare ptr @lean_array_push(ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_partitionM_go___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !8
+  store ptr %1, ptr %8, align 8, !tbaa !8
+  store ptr %2, ptr %9, align 8, !tbaa !8
+  store ptr %3, ptr %10, align 8, !tbaa !8
+  store ptr %4, ptr %11, align 8, !tbaa !8
+  br label %24
+
+24:                                               ; preds = %5
+  %25 = load ptr, ptr %9, align 8, !tbaa !8
+  %26 = call i32 @lean_obj_tag(ptr noundef %25)
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %52
+
+28:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  %29 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %29)
+  %30 = load ptr, ptr %7, align 8, !tbaa !8
+  %31 = call ptr @lean_ctor_get(ptr noundef %30, i32 noundef 0)
+  store ptr %31, ptr %12, align 8, !tbaa !8
+  %32 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %32)
+  %33 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %33)
+  %34 = load ptr, ptr %12, align 8, !tbaa !8
+  %35 = call ptr @lean_ctor_get(ptr noundef %34, i32 noundef 1)
+  store ptr %35, ptr %13, align 8, !tbaa !8
+  %36 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %36)
+  %37 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %37)
+  %38 = load ptr, ptr %10, align 8, !tbaa !8
+  %39 = call ptr @lean_array_to_list(ptr noundef %38)
+  store ptr %39, ptr %14, align 8, !tbaa !8
+  %40 = load ptr, ptr %11, align 8, !tbaa !8
+  %41 = call ptr @lean_array_to_list(ptr noundef %40)
+  store ptr %41, ptr %15, align 8, !tbaa !8
+  %42 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %42, ptr %16, align 8, !tbaa !8
+  %43 = load ptr, ptr %16, align 8, !tbaa !8
+  %44 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %43, i32 noundef 0, ptr noundef %44)
+  %45 = load ptr, ptr %16, align 8, !tbaa !8
+  %46 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %45, i32 noundef 1, ptr noundef %46)
+  %47 = load ptr, ptr %13, align 8, !tbaa !8
+  %48 = call ptr @lean_box(i64 noundef 0)
+  %49 = load ptr, ptr %16, align 8, !tbaa !8
+  %50 = call ptr @lean_apply_2(ptr noundef %47, ptr noundef %48, ptr noundef %49)
+  store ptr %50, ptr %17, align 8, !tbaa !8
+  %51 = load ptr, ptr %17, align 8, !tbaa !8
+  store ptr %51, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  br label %88
+
+52:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #7
+  %53 = load ptr, ptr %9, align 8, !tbaa !8
+  %54 = call ptr @lean_ctor_get(ptr noundef %53, i32 noundef 0)
+  store ptr %54, ptr %18, align 8, !tbaa !8
+  %55 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %55)
+  %56 = load ptr, ptr %9, align 8, !tbaa !8
+  %57 = call ptr @lean_ctor_get(ptr noundef %56, i32 noundef 1)
+  store ptr %57, ptr %19, align 8, !tbaa !8
+  %58 = load ptr, ptr %19, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %58)
+  %59 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %59)
+  %60 = load ptr, ptr %7, align 8, !tbaa !8
+  %61 = call ptr @lean_ctor_get(ptr noundef %60, i32 noundef 1)
+  store ptr %61, ptr %20, align 8, !tbaa !8
+  %62 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %62)
+  %63 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %63)
+  %64 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %64)
+  %65 = load ptr, ptr %8, align 8, !tbaa !8
+  %66 = load ptr, ptr %18, align 8, !tbaa !8
+  %67 = call ptr @lean_apply_1(ptr noundef %65, ptr noundef %66)
+  store ptr %67, ptr %21, align 8, !tbaa !8
+  %68 = call ptr @lean_alloc_closure(ptr noundef @l_List_partitionM_go___rarg___lambda__1___boxed, i32 noundef 7, i32 noundef 6)
+  store ptr %68, ptr %22, align 8, !tbaa !8
+  %69 = load ptr, ptr %22, align 8, !tbaa !8
+  %70 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_closure_set(ptr noundef %69, i32 noundef 0, ptr noundef %70)
+  %71 = load ptr, ptr %22, align 8, !tbaa !8
+  %72 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_closure_set(ptr noundef %71, i32 noundef 1, ptr noundef %72)
+  %73 = load ptr, ptr %22, align 8, !tbaa !8
+  %74 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_closure_set(ptr noundef %73, i32 noundef 2, ptr noundef %74)
+  %75 = load ptr, ptr %22, align 8, !tbaa !8
+  %76 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_closure_set(ptr noundef %75, i32 noundef 3, ptr noundef %76)
+  %77 = load ptr, ptr %22, align 8, !tbaa !8
+  %78 = load ptr, ptr %19, align 8, !tbaa !8
+  call void @lean_closure_set(ptr noundef %77, i32 noundef 4, ptr noundef %78)
+  %79 = load ptr, ptr %22, align 8, !tbaa !8
+  %80 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_closure_set(ptr noundef %79, i32 noundef 5, ptr noundef %80)
+  %81 = load ptr, ptr %20, align 8, !tbaa !8
+  %82 = call ptr @lean_box(i64 noundef 0)
+  %83 = call ptr @lean_box(i64 noundef 0)
+  %84 = load ptr, ptr %21, align 8, !tbaa !8
+  %85 = load ptr, ptr %22, align 8, !tbaa !8
+  %86 = call ptr @lean_apply_4(ptr noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef %84, ptr noundef %85)
+  store ptr %86, ptr %23, align 8, !tbaa !8
+  %87 = load ptr, ptr %23, align 8, !tbaa !8
+  store ptr %87, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  br label %88
+
+88:                                               ; preds = %52, %28
+  %89 = load ptr, ptr %6, align 8
+  ret ptr %89
+}
+
+declare ptr @lean_array_to_list(ptr noundef) #4
+
+declare ptr @lean_apply_2(ptr noundef, ptr noundef, ptr noundef) #4
+
+declare ptr @lean_apply_1(ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_partitionM_go___rarg___lambda__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #2 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i8, align 1
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !8
+  store ptr %1, ptr %9, align 8, !tbaa !8
+  store ptr %2, ptr %10, align 8, !tbaa !8
+  store ptr %3, ptr %11, align 8, !tbaa !8
+  store ptr %4, ptr %12, align 8, !tbaa !8
+  store ptr %5, ptr %13, align 8, !tbaa !8
+  store ptr %6, ptr %14, align 8, !tbaa !8
+  br label %17
+
+17:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %18 = load ptr, ptr %14, align 8, !tbaa !8
+  %19 = call i64 @lean_unbox(ptr noundef %18)
+  %20 = trunc i64 %19 to i8
+  store i8 %20, ptr %15, align 1, !tbaa !10
+  %21 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %21)
+  %22 = load ptr, ptr %8, align 8, !tbaa !8
+  %23 = load ptr, ptr %9, align 8, !tbaa !8
+  %24 = load ptr, ptr %10, align 8, !tbaa !8
+  %25 = load ptr, ptr %11, align 8, !tbaa !8
+  %26 = load ptr, ptr %12, align 8, !tbaa !8
+  %27 = load ptr, ptr %13, align 8, !tbaa !8
+  %28 = load i8, ptr %15, align 1, !tbaa !10
+  %29 = call ptr @l_List_partitionM_go___rarg___lambda__1(ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, i8 noundef zeroext %28)
+  store ptr %29, ptr %16, align 8, !tbaa !8
+  %30 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #7
+  ret ptr %30
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @lean_closure_set(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !8
+  %7 = load ptr, ptr %6, align 8, !tbaa !8
+  %8 = load ptr, ptr %4, align 8, !tbaa !8
+  %9 = call ptr @lean_to_closure(ptr noundef %8)
+  %10 = getelementptr inbounds nuw %struct.lean_closure_object, ptr %9, i32 0, i32 4
+  %11 = load i32, ptr %5, align 4, !tbaa !11
+  %12 = zext i32 %11 to i64
+  %13 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %12
+  store ptr %7, ptr %13, align 8, !tbaa !8
+  ret void
+}
+
+declare ptr @lean_apply_4(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_partitionM_go(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  br label %6
+
+6:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = call ptr @lean_alloc_closure(ptr noundef @l_List_partitionM_go___rarg, i32 noundef 5, i32 noundef 0)
+  store ptr %7, ptr %5, align 8, !tbaa !8
+  %8 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret ptr %8
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @lean_unbox(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = ptrtoint ptr %3 to i64
+  %5 = lshr i64 %4, 1
+  ret i64 %5
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_partitionM___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !8
+  br label %9
+
+9:                                                ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %10 = load ptr, ptr @l_List_partitionM___rarg___closed__1, align 8, !tbaa !8
+  store ptr %10, ptr %7, align 8, !tbaa !8
+  %11 = load ptr, ptr %4, align 8, !tbaa !8
+  %12 = load ptr, ptr %5, align 8, !tbaa !8
+  %13 = load ptr, ptr %6, align 8, !tbaa !8
+  %14 = load ptr, ptr %7, align 8, !tbaa !8
+  %15 = load ptr, ptr %7, align 8, !tbaa !8
+  %16 = call ptr @l_List_partitionM_go___rarg(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15)
+  store ptr %16, ptr %8, align 8, !tbaa !8
+  %17 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  ret ptr %17
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_partitionM(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  br label %6
+
+6:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = call ptr @lean_alloc_closure(ptr noundef @l_List_partitionM___rarg, i32 noundef 3, i32 noundef 0)
+  store ptr %7, ptr %5, align 8, !tbaa !8
+  %8 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret ptr %8
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_partitionMap_go___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  store ptr %3, ptr %8, align 8, !tbaa !8
+  br label %20
+
+20:                                               ; preds = %71, %4
+  %21 = load ptr, ptr %6, align 8, !tbaa !8
+  %22 = call i32 @lean_obj_tag(ptr noundef %21)
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %36
+
+24:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %25 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %25)
+  %26 = load ptr, ptr %7, align 8, !tbaa !8
+  %27 = call ptr @lean_array_to_list(ptr noundef %26)
+  store ptr %27, ptr %9, align 8, !tbaa !8
+  %28 = load ptr, ptr %8, align 8, !tbaa !8
+  %29 = call ptr @lean_array_to_list(ptr noundef %28)
+  store ptr %29, ptr %10, align 8, !tbaa !8
+  %30 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %30, ptr %11, align 8, !tbaa !8
+  %31 = load ptr, ptr %11, align 8, !tbaa !8
+  %32 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %31, i32 noundef 0, ptr noundef %32)
+  %33 = load ptr, ptr %11, align 8, !tbaa !8
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %33, i32 noundef 1, ptr noundef %34)
+  %35 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  ret ptr %35
+
+36:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %37 = load ptr, ptr %6, align 8, !tbaa !8
+  %38 = call ptr @lean_ctor_get(ptr noundef %37, i32 noundef 0)
+  store ptr %38, ptr %12, align 8, !tbaa !8
+  %39 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %39)
+  %40 = load ptr, ptr %6, align 8, !tbaa !8
+  %41 = call ptr @lean_ctor_get(ptr noundef %40, i32 noundef 1)
+  store ptr %41, ptr %13, align 8, !tbaa !8
+  %42 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %42)
+  %43 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %43)
+  %44 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %44)
+  %45 = load ptr, ptr %5, align 8, !tbaa !8
+  %46 = load ptr, ptr %12, align 8, !tbaa !8
+  %47 = call ptr @lean_apply_1(ptr noundef %45, ptr noundef %46)
+  store ptr %47, ptr %14, align 8, !tbaa !8
+  %48 = load ptr, ptr %14, align 8, !tbaa !8
+  %49 = call i32 @lean_obj_tag(ptr noundef %48)
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %61
+
+51:                                               ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %52 = load ptr, ptr %14, align 8, !tbaa !8
+  %53 = call ptr @lean_ctor_get(ptr noundef %52, i32 noundef 0)
+  store ptr %53, ptr %15, align 8, !tbaa !8
+  %54 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %54)
+  %55 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %55)
+  %56 = load ptr, ptr %7, align 8, !tbaa !8
+  %57 = load ptr, ptr %15, align 8, !tbaa !8
+  %58 = call ptr @lean_array_push(ptr noundef %56, ptr noundef %57)
+  store ptr %58, ptr %16, align 8, !tbaa !8
+  %59 = load ptr, ptr %13, align 8, !tbaa !8
+  store ptr %59, ptr %6, align 8, !tbaa !8
+  %60 = load ptr, ptr %16, align 8, !tbaa !8
+  store ptr %60, ptr %7, align 8, !tbaa !8
+  store i32 2, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  br label %71
+
+61:                                               ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  %62 = load ptr, ptr %14, align 8, !tbaa !8
+  %63 = call ptr @lean_ctor_get(ptr noundef %62, i32 noundef 0)
+  store ptr %63, ptr %18, align 8, !tbaa !8
+  %64 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %64)
+  %65 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %65)
+  %66 = load ptr, ptr %8, align 8, !tbaa !8
+  %67 = load ptr, ptr %18, align 8, !tbaa !8
+  %68 = call ptr @lean_array_push(ptr noundef %66, ptr noundef %67)
+  store ptr %68, ptr %19, align 8, !tbaa !8
+  %69 = load ptr, ptr %13, align 8, !tbaa !8
+  store ptr %69, ptr %6, align 8, !tbaa !8
+  %70 = load ptr, ptr %19, align 8, !tbaa !8
+  store ptr %70, ptr %8, align 8, !tbaa !8
+  store i32 2, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  br label %71
+
+71:                                               ; preds = %61, %51
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  br label %20
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_partitionMap_go(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !8
+  br label %8
+
+8:                                                ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %9 = call ptr @lean_alloc_closure(ptr noundef @l_List_partitionMap_go___rarg, i32 noundef 4, i32 noundef 0)
+  store ptr %9, ptr %7, align 8, !tbaa !8
+  %10 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  ret ptr %10
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_partitionMap___rarg(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  br label %7
+
+7:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %8 = load ptr, ptr @l_List_partitionM___rarg___closed__1, align 8, !tbaa !8
+  store ptr %8, ptr %5, align 8, !tbaa !8
+  %9 = load ptr, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr %4, align 8, !tbaa !8
+  %11 = load ptr, ptr %5, align 8, !tbaa !8
+  %12 = load ptr, ptr %5, align 8, !tbaa !8
+  %13 = call ptr @l_List_partitionMap_go___rarg(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
+  store ptr %13, ptr %6, align 8, !tbaa !8
+  %14 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret ptr %14
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_partitionMap(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !8
+  br label %8
+
+8:                                                ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %9 = call ptr @lean_alloc_closure(ptr noundef @l_List_partitionMap___rarg, i32 noundef 2, i32 noundef 0)
+  store ptr %9, ptr %7, align 8, !tbaa !8
+  %10 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  ret ptr %10
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l___private_Init_Data_List_BasicAux_0__List_mapMonoMImp___rarg___lambda__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i8, align 1
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  %22 = alloca i64, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i8, align 1
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca ptr, align 8
+  %29 = alloca ptr, align 8
+  %30 = alloca ptr, align 8
+  %31 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !8
+  store ptr %1, ptr %9, align 8, !tbaa !8
+  store ptr %2, ptr %10, align 8, !tbaa !8
+  store ptr %3, ptr %11, align 8, !tbaa !8
+  store ptr %4, ptr %12, align 8, !tbaa !8
+  store ptr %5, ptr %13, align 8, !tbaa !8
+  br label %32
+
+32:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #7
+  %33 = load ptr, ptr %8, align 8, !tbaa !8
+  %34 = call i64 @lean_ptr_addr(ptr noundef %33)
+  store i64 %34, ptr %14, align 8, !tbaa !4
+  %35 = load ptr, ptr %9, align 8, !tbaa !8
+  %36 = call i64 @lean_ptr_addr(ptr noundef %35)
+  store i64 %36, ptr %15, align 8, !tbaa !4
+  %37 = load i64, ptr %14, align 8, !tbaa !4
+  %38 = load i64, ptr %15, align 8, !tbaa !4
+  %39 = call zeroext i8 @lean_usize_dec_eq(i64 noundef %37, i64 noundef %38)
+  store i8 %39, ptr %16, align 1, !tbaa !10
+  %40 = load i8, ptr %16, align 1, !tbaa !10
+  %41 = zext i8 %40 to i32
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %63
+
+43:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  %44 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %44)
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  %46 = call ptr @lean_ctor_get(ptr noundef %45, i32 noundef 0)
+  store ptr %46, ptr %17, align 8, !tbaa !8
+  %47 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %47)
+  %48 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %48)
+  %49 = load ptr, ptr %17, align 8, !tbaa !8
+  %50 = call ptr @lean_ctor_get(ptr noundef %49, i32 noundef 1)
+  store ptr %50, ptr %18, align 8, !tbaa !8
+  %51 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %51)
+  %52 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %52)
+  %53 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %53, ptr %19, align 8, !tbaa !8
+  %54 = load ptr, ptr %19, align 8, !tbaa !8
+  %55 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %54, i32 noundef 0, ptr noundef %55)
+  %56 = load ptr, ptr %19, align 8, !tbaa !8
+  %57 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %56, i32 noundef 1, ptr noundef %57)
+  %58 = load ptr, ptr %18, align 8, !tbaa !8
+  %59 = call ptr @lean_box(i64 noundef 0)
+  %60 = load ptr, ptr %19, align 8, !tbaa !8
+  %61 = call ptr @lean_apply_2(ptr noundef %58, ptr noundef %59, ptr noundef %60)
+  store ptr %61, ptr %20, align 8, !tbaa !8
+  %62 = load ptr, ptr %20, align 8, !tbaa !8
+  store ptr %62, ptr %7, align 8
+  store i32 1, ptr %21, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  br label %111
+
+63:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %24) #7
+  %64 = load ptr, ptr %13, align 8, !tbaa !8
+  %65 = call i64 @lean_ptr_addr(ptr noundef %64)
+  store i64 %65, ptr %22, align 8, !tbaa !4
+  %66 = load ptr, ptr %11, align 8, !tbaa !8
+  %67 = call i64 @lean_ptr_addr(ptr noundef %66)
+  store i64 %67, ptr %23, align 8, !tbaa !4
+  %68 = load i64, ptr %22, align 8, !tbaa !4
+  %69 = load i64, ptr %23, align 8, !tbaa !4
+  %70 = call zeroext i8 @lean_usize_dec_eq(i64 noundef %68, i64 noundef %69)
+  store i8 %70, ptr %24, align 1, !tbaa !10
+  %71 = load i8, ptr %24, align 1, !tbaa !10
+  %72 = zext i8 %71 to i32
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %74, label %94
+
+74:                                               ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #7
+  %75 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %75)
+  %76 = load ptr, ptr %10, align 8, !tbaa !8
+  %77 = call ptr @lean_ctor_get(ptr noundef %76, i32 noundef 0)
+  store ptr %77, ptr %25, align 8, !tbaa !8
+  %78 = load ptr, ptr %25, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %78)
+  %79 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %79)
+  %80 = load ptr, ptr %25, align 8, !tbaa !8
+  %81 = call ptr @lean_ctor_get(ptr noundef %80, i32 noundef 1)
+  store ptr %81, ptr %26, align 8, !tbaa !8
+  %82 = load ptr, ptr %26, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %82)
+  %83 = load ptr, ptr %25, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %83)
+  %84 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %84, ptr %27, align 8, !tbaa !8
+  %85 = load ptr, ptr %27, align 8, !tbaa !8
+  %86 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %85, i32 noundef 0, ptr noundef %86)
+  %87 = load ptr, ptr %27, align 8, !tbaa !8
+  %88 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %87, i32 noundef 1, ptr noundef %88)
+  %89 = load ptr, ptr %26, align 8, !tbaa !8
+  %90 = call ptr @lean_box(i64 noundef 0)
+  %91 = load ptr, ptr %27, align 8, !tbaa !8
+  %92 = call ptr @lean_apply_2(ptr noundef %89, ptr noundef %90, ptr noundef %91)
+  store ptr %92, ptr %28, align 8, !tbaa !8
+  %93 = load ptr, ptr %28, align 8, !tbaa !8
+  store ptr %93, ptr %7, align 8
+  store i32 1, ptr %21, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #7
+  br label %110
+
+94:                                               ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #7
+  %95 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %95)
+  %96 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %96)
+  %97 = load ptr, ptr %10, align 8, !tbaa !8
+  %98 = call ptr @lean_ctor_get(ptr noundef %97, i32 noundef 0)
+  store ptr %98, ptr %29, align 8, !tbaa !8
+  %99 = load ptr, ptr %29, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %99)
+  %100 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %100)
+  %101 = load ptr, ptr %29, align 8, !tbaa !8
+  %102 = call ptr @lean_ctor_get(ptr noundef %101, i32 noundef 1)
+  store ptr %102, ptr %30, align 8, !tbaa !8
+  %103 = load ptr, ptr %30, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %103)
+  %104 = load ptr, ptr %29, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %104)
+  %105 = load ptr, ptr %30, align 8, !tbaa !8
+  %106 = call ptr @lean_box(i64 noundef 0)
+  %107 = load ptr, ptr %12, align 8, !tbaa !8
+  %108 = call ptr @lean_apply_2(ptr noundef %105, ptr noundef %106, ptr noundef %107)
+  store ptr %108, ptr %31, align 8, !tbaa !8
+  %109 = load ptr, ptr %31, align 8, !tbaa !8
+  store ptr %109, ptr %7, align 8
+  store i32 1, ptr %21, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #7
+  br label %110
+
+110:                                              ; preds = %94, %74
+  call void @llvm.lifetime.end.p0(i64 1, ptr %24) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  br label %111
+
+111:                                              ; preds = %110, %43
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  %112 = load ptr, ptr %7, align 8
+  ret ptr %112
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l___private_Init_Data_List_BasicAux_0__List_mapMonoMImp___rarg___lambda__2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #2 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !8
+  store ptr %1, ptr %9, align 8, !tbaa !8
+  store ptr %2, ptr %10, align 8, !tbaa !8
+  store ptr %3, ptr %11, align 8, !tbaa !8
+  store ptr %4, ptr %12, align 8, !tbaa !8
+  store ptr %5, ptr %13, align 8, !tbaa !8
+  store ptr %6, ptr %14, align 8, !tbaa !8
+  br label %18
+
+18:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  %19 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %19)
+  %20 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %20)
+  %21 = load ptr, ptr %8, align 8, !tbaa !8
+  %22 = load ptr, ptr %9, align 8, !tbaa !8
+  %23 = load ptr, ptr %10, align 8, !tbaa !8
+  %24 = call ptr @l___private_Init_Data_List_BasicAux_0__List_mapMonoMImp___rarg(ptr noundef %21, ptr noundef %22, ptr noundef %23)
+  store ptr %24, ptr %15, align 8, !tbaa !8
+  %25 = call ptr @lean_alloc_closure(ptr noundef @l___private_Init_Data_List_BasicAux_0__List_mapMonoMImp___rarg___lambda__1___boxed, i32 noundef 6, i32 noundef 5)
+  store ptr %25, ptr %16, align 8, !tbaa !8
+  %26 = load ptr, ptr %16, align 8, !tbaa !8
+  %27 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @lean_closure_set(ptr noundef %26, i32 noundef 0, ptr noundef %27)
+  %28 = load ptr, ptr %16, align 8, !tbaa !8
+  %29 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_closure_set(ptr noundef %28, i32 noundef 1, ptr noundef %29)
+  %30 = load ptr, ptr %16, align 8, !tbaa !8
+  %31 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_closure_set(ptr noundef %30, i32 noundef 2, ptr noundef %31)
+  %32 = load ptr, ptr %16, align 8, !tbaa !8
+  %33 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_closure_set(ptr noundef %32, i32 noundef 3, ptr noundef %33)
+  %34 = load ptr, ptr %16, align 8, !tbaa !8
+  %35 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_closure_set(ptr noundef %34, i32 noundef 4, ptr noundef %35)
+  %36 = load ptr, ptr %13, align 8, !tbaa !8
+  %37 = call ptr @lean_box(i64 noundef 0)
+  %38 = call ptr @lean_box(i64 noundef 0)
+  %39 = load ptr, ptr %15, align 8, !tbaa !8
+  %40 = load ptr, ptr %16, align 8, !tbaa !8
+  %41 = call ptr @lean_apply_4(ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %40)
+  store ptr %41, ptr %17, align 8, !tbaa !8
+  %42 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  ret ptr %42
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l___private_Init_Data_List_BasicAux_0__List_mapMonoMImp___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  br label %17
+
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %6, align 8, !tbaa !8
+  %19 = call i32 @lean_obj_tag(ptr noundef %18)
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %36
+
+21:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %22 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %22)
+  %23 = load ptr, ptr %5, align 8, !tbaa !8
+  %24 = call ptr @lean_ctor_get(ptr noundef %23, i32 noundef 0)
+  store ptr %24, ptr %8, align 8, !tbaa !8
+  %25 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %25)
+  %26 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %26)
+  %27 = load ptr, ptr %8, align 8, !tbaa !8
+  %28 = call ptr @lean_ctor_get(ptr noundef %27, i32 noundef 1)
+  store ptr %28, ptr %9, align 8, !tbaa !8
+  %29 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %29)
+  %30 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %30)
+  %31 = load ptr, ptr %9, align 8, !tbaa !8
+  %32 = call ptr @lean_box(i64 noundef 0)
+  %33 = load ptr, ptr %6, align 8, !tbaa !8
+  %34 = call ptr @lean_apply_2(ptr noundef %31, ptr noundef %32, ptr noundef %33)
+  store ptr %34, ptr %10, align 8, !tbaa !8
+  %35 = load ptr, ptr %10, align 8, !tbaa !8
+  store ptr %35, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  br label %72
+
+36:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %37 = load ptr, ptr %6, align 8, !tbaa !8
+  %38 = call ptr @lean_ctor_get(ptr noundef %37, i32 noundef 0)
+  store ptr %38, ptr %11, align 8, !tbaa !8
+  %39 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %39)
+  %40 = load ptr, ptr %6, align 8, !tbaa !8
+  %41 = call ptr @lean_ctor_get(ptr noundef %40, i32 noundef 1)
+  store ptr %41, ptr %12, align 8, !tbaa !8
+  %42 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %42)
+  %43 = load ptr, ptr %5, align 8, !tbaa !8
+  %44 = call ptr @lean_ctor_get(ptr noundef %43, i32 noundef 1)
+  store ptr %44, ptr %13, align 8, !tbaa !8
+  %45 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %45)
+  %46 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %46)
+  %47 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %47)
+  %48 = load ptr, ptr %7, align 8, !tbaa !8
+  %49 = load ptr, ptr %11, align 8, !tbaa !8
+  %50 = call ptr @lean_apply_1(ptr noundef %48, ptr noundef %49)
+  store ptr %50, ptr %14, align 8, !tbaa !8
+  %51 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %51)
+  %52 = call ptr @lean_alloc_closure(ptr noundef @l___private_Init_Data_List_BasicAux_0__List_mapMonoMImp___rarg___lambda__2, i32 noundef 7, i32 noundef 6)
+  store ptr %52, ptr %15, align 8, !tbaa !8
+  %53 = load ptr, ptr %15, align 8, !tbaa !8
+  %54 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @lean_closure_set(ptr noundef %53, i32 noundef 0, ptr noundef %54)
+  %55 = load ptr, ptr %15, align 8, !tbaa !8
+  %56 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_closure_set(ptr noundef %55, i32 noundef 1, ptr noundef %56)
+  %57 = load ptr, ptr %15, align 8, !tbaa !8
+  %58 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_closure_set(ptr noundef %57, i32 noundef 2, ptr noundef %58)
+  %59 = load ptr, ptr %15, align 8, !tbaa !8
+  %60 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_closure_set(ptr noundef %59, i32 noundef 3, ptr noundef %60)
+  %61 = load ptr, ptr %15, align 8, !tbaa !8
+  %62 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_closure_set(ptr noundef %61, i32 noundef 4, ptr noundef %62)
+  %63 = load ptr, ptr %15, align 8, !tbaa !8
+  %64 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_closure_set(ptr noundef %63, i32 noundef 5, ptr noundef %64)
+  %65 = load ptr, ptr %13, align 8, !tbaa !8
+  %66 = call ptr @lean_box(i64 noundef 0)
+  %67 = call ptr @lean_box(i64 noundef 0)
+  %68 = load ptr, ptr %14, align 8, !tbaa !8
+  %69 = load ptr, ptr %15, align 8, !tbaa !8
+  %70 = call ptr @lean_apply_4(ptr noundef %65, ptr noundef %66, ptr noundef %67, ptr noundef %68, ptr noundef %69)
+  store ptr %70, ptr %16, align 8, !tbaa !8
+  %71 = load ptr, ptr %16, align 8, !tbaa !8
+  store ptr %71, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  br label %72
+
+72:                                               ; preds = %36, %21
+  %73 = load ptr, ptr %4, align 8
+  ret ptr %73
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l___private_Init_Data_List_BasicAux_0__List_mapMonoMImp___rarg___lambda__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !8
+  store ptr %1, ptr %8, align 8, !tbaa !8
+  store ptr %2, ptr %9, align 8, !tbaa !8
+  store ptr %3, ptr %10, align 8, !tbaa !8
+  store ptr %4, ptr %11, align 8, !tbaa !8
+  store ptr %5, ptr %12, align 8, !tbaa !8
+  br label %14
+
+14:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %15 = load ptr, ptr %7, align 8, !tbaa !8
+  %16 = load ptr, ptr %8, align 8, !tbaa !8
+  %17 = load ptr, ptr %9, align 8, !tbaa !8
+  %18 = load ptr, ptr %10, align 8, !tbaa !8
+  %19 = load ptr, ptr %11, align 8, !tbaa !8
+  %20 = load ptr, ptr %12, align 8, !tbaa !8
+  %21 = call ptr @l___private_Init_Data_List_BasicAux_0__List_mapMonoMImp___rarg___lambda__1(ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20)
+  store ptr %21, ptr %13, align 8, !tbaa !8
+  %22 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %22)
+  %23 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %23)
+  %24 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  ret ptr %24
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l___private_Init_Data_List_BasicAux_0__List_mapMonoMImp(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  br label %6
+
+6:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = call ptr @lean_alloc_closure(ptr noundef @l___private_Init_Data_List_BasicAux_0__List_mapMonoMImp___rarg, i32 noundef 3, i32 noundef 0)
+  store ptr %7, ptr %5, align 8, !tbaa !8
+  %8 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret ptr %8
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l___private_Init_Data_List_BasicAux_0__List_mapMonoMImp___at_List_mapMono___spec__1___rarg(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i8, align 1
+  %13 = alloca i8, align 1
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca i8, align 1
+  %21 = alloca i8, align 1
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  br label %25
+
+25:                                               ; preds = %2
+  %26 = load ptr, ptr %5, align 8, !tbaa !8
+  %27 = call i32 @lean_obj_tag(ptr noundef %26)
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %32
+
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %30)
+  %31 = load ptr, ptr %5, align 8, !tbaa !8
+  store ptr %31, ptr %3, align 8
+  br label %138
+
+32:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #7
+  %33 = load ptr, ptr %5, align 8, !tbaa !8
+  %34 = call ptr @lean_ctor_get(ptr noundef %33, i32 noundef 0)
+  store ptr %34, ptr %6, align 8, !tbaa !8
+  %35 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %35)
+  %36 = load ptr, ptr %5, align 8, !tbaa !8
+  %37 = call ptr @lean_ctor_get(ptr noundef %36, i32 noundef 1)
+  store ptr %37, ptr %7, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %38)
+  %39 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %39)
+  %40 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %40)
+  %41 = load ptr, ptr %4, align 8, !tbaa !8
+  %42 = load ptr, ptr %6, align 8, !tbaa !8
+  %43 = call ptr @lean_apply_1(ptr noundef %41, ptr noundef %42)
+  store ptr %43, ptr %8, align 8, !tbaa !8
+  %44 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %44)
+  %45 = load ptr, ptr %4, align 8, !tbaa !8
+  %46 = load ptr, ptr %7, align 8, !tbaa !8
+  %47 = call ptr @l___private_Init_Data_List_BasicAux_0__List_mapMonoMImp___at_List_mapMono___spec__1___rarg(ptr noundef %45, ptr noundef %46)
+  store ptr %47, ptr %9, align 8, !tbaa !8
+  %48 = load ptr, ptr %8, align 8, !tbaa !8
+  %49 = call i64 @lean_ptr_addr(ptr noundef %48)
+  store i64 %49, ptr %10, align 8, !tbaa !4
+  %50 = load ptr, ptr %6, align 8, !tbaa !8
+  %51 = call i64 @lean_ptr_addr(ptr noundef %50)
+  store i64 %51, ptr %11, align 8, !tbaa !4
+  %52 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %52)
+  %53 = load i64, ptr %10, align 8, !tbaa !4
+  %54 = load i64, ptr %11, align 8, !tbaa !4
+  %55 = call zeroext i8 @lean_usize_dec_eq(i64 noundef %53, i64 noundef %54)
+  store i8 %55, ptr %12, align 1, !tbaa !10
+  %56 = load i8, ptr %12, align 1, !tbaa !10
+  %57 = zext i8 %56 to i32
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %90
+
+59:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #7
+  %60 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %60)
+  %61 = load ptr, ptr %5, align 8, !tbaa !8
+  %62 = call zeroext i1 @lean_is_exclusive(ptr noundef %61)
+  %63 = xor i1 %62, true
+  %64 = zext i1 %63 to i32
+  %65 = trunc i32 %64 to i8
+  store i8 %65, ptr %13, align 1, !tbaa !10
+  %66 = load i8, ptr %13, align 1, !tbaa !10
+  %67 = zext i8 %66 to i32
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %81
+
+69:                                               ; preds = %59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %70 = load ptr, ptr %5, align 8, !tbaa !8
+  %71 = call ptr @lean_ctor_get(ptr noundef %70, i32 noundef 1)
+  store ptr %71, ptr %14, align 8, !tbaa !8
+  %72 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %72)
+  %73 = load ptr, ptr %5, align 8, !tbaa !8
+  %74 = call ptr @lean_ctor_get(ptr noundef %73, i32 noundef 0)
+  store ptr %74, ptr %15, align 8, !tbaa !8
+  %75 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %75)
+  %76 = load ptr, ptr %5, align 8, !tbaa !8
+  %77 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %76, i32 noundef 1, ptr noundef %77)
+  %78 = load ptr, ptr %5, align 8, !tbaa !8
+  %79 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %78, i32 noundef 0, ptr noundef %79)
+  %80 = load ptr, ptr %5, align 8, !tbaa !8
+  store ptr %80, ptr %3, align 8
+  store i32 1, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  br label %89
+
+81:                                               ; preds = %59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  %82 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %82)
+  %83 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %83, ptr %17, align 8, !tbaa !8
+  %84 = load ptr, ptr %17, align 8, !tbaa !8
+  %85 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %84, i32 noundef 0, ptr noundef %85)
+  %86 = load ptr, ptr %17, align 8, !tbaa !8
+  %87 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %86, i32 noundef 1, ptr noundef %87)
+  %88 = load ptr, ptr %17, align 8, !tbaa !8
+  store ptr %88, ptr %3, align 8
+  store i32 1, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  br label %89
+
+89:                                               ; preds = %81, %69
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #7
+  br label %137
+
+90:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %20) #7
+  %91 = load ptr, ptr %9, align 8, !tbaa !8
+  %92 = call i64 @lean_ptr_addr(ptr noundef %91)
+  store i64 %92, ptr %18, align 8, !tbaa !4
+  %93 = load ptr, ptr %7, align 8, !tbaa !8
+  %94 = call i64 @lean_ptr_addr(ptr noundef %93)
+  store i64 %94, ptr %19, align 8, !tbaa !4
+  %95 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %95)
+  %96 = load i64, ptr %18, align 8, !tbaa !4
+  %97 = load i64, ptr %19, align 8, !tbaa !4
+  %98 = call zeroext i8 @lean_usize_dec_eq(i64 noundef %96, i64 noundef %97)
+  store i8 %98, ptr %20, align 1, !tbaa !10
+  %99 = load i8, ptr %20, align 1, !tbaa !10
+  %100 = zext i8 %99 to i32
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %102, label %132
+
+102:                                              ; preds = %90
+  call void @llvm.lifetime.start.p0(i64 1, ptr %21) #7
+  %103 = load ptr, ptr %5, align 8, !tbaa !8
+  %104 = call zeroext i1 @lean_is_exclusive(ptr noundef %103)
+  %105 = xor i1 %104, true
+  %106 = zext i1 %105 to i32
+  %107 = trunc i32 %106 to i8
+  store i8 %107, ptr %21, align 1, !tbaa !10
+  %108 = load i8, ptr %21, align 1, !tbaa !10
+  %109 = zext i8 %108 to i32
+  %110 = icmp eq i32 %109, 0
+  br i1 %110, label %111, label %123
+
+111:                                              ; preds = %102
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #7
+  %112 = load ptr, ptr %5, align 8, !tbaa !8
+  %113 = call ptr @lean_ctor_get(ptr noundef %112, i32 noundef 1)
+  store ptr %113, ptr %22, align 8, !tbaa !8
+  %114 = load ptr, ptr %22, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %114)
+  %115 = load ptr, ptr %5, align 8, !tbaa !8
+  %116 = call ptr @lean_ctor_get(ptr noundef %115, i32 noundef 0)
+  store ptr %116, ptr %23, align 8, !tbaa !8
+  %117 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %117)
+  %118 = load ptr, ptr %5, align 8, !tbaa !8
+  %119 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %118, i32 noundef 1, ptr noundef %119)
+  %120 = load ptr, ptr %5, align 8, !tbaa !8
+  %121 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %120, i32 noundef 0, ptr noundef %121)
+  %122 = load ptr, ptr %5, align 8, !tbaa !8
+  store ptr %122, ptr %3, align 8
+  store i32 1, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  br label %131
+
+123:                                              ; preds = %102
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #7
+  %124 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %124)
+  %125 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %125, ptr %24, align 8, !tbaa !8
+  %126 = load ptr, ptr %24, align 8, !tbaa !8
+  %127 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %126, i32 noundef 0, ptr noundef %127)
+  %128 = load ptr, ptr %24, align 8, !tbaa !8
+  %129 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %128, i32 noundef 1, ptr noundef %129)
+  %130 = load ptr, ptr %24, align 8, !tbaa !8
+  store ptr %130, ptr %3, align 8
+  store i32 1, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #7
+  br label %131
+
+131:                                              ; preds = %123, %111
+  call void @llvm.lifetime.end.p0(i64 1, ptr %21) #7
+  br label %136
+
+132:                                              ; preds = %90
+  %133 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %133)
+  %134 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %134)
+  %135 = load ptr, ptr %5, align 8, !tbaa !8
+  store ptr %135, ptr %3, align 8
+  store i32 1, ptr %16, align 4
+  br label %136
+
+136:                                              ; preds = %132, %131
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  br label %137
+
+137:                                              ; preds = %136, %89
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  br label %138
+
+138:                                              ; preds = %137, %29
+  %139 = load ptr, ptr %3, align 8
+  ret ptr %139
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l___private_Init_Data_List_BasicAux_0__List_mapMonoMImp___at_List_mapMono___spec__1(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  br label %4
+
+4:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = call ptr @lean_alloc_closure(ptr noundef @l___private_Init_Data_List_BasicAux_0__List_mapMonoMImp___at_List_mapMono___spec__1___rarg, i32 noundef 2, i32 noundef 0)
+  store ptr %5, ptr %3, align 8, !tbaa !8
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret ptr %6
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_mapMono___rarg(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  br label %6
+
+6:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
+  %9 = call ptr @l___private_Init_Data_List_BasicAux_0__List_mapMonoMImp___at_List_mapMono___spec__1___rarg(ptr noundef %7, ptr noundef %8)
+  store ptr %9, ptr %5, align 8, !tbaa !8
+  %10 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret ptr %10
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_mapMono(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  br label %4
+
+4:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = call ptr @lean_alloc_closure(ptr noundef @l_List_mapMono___rarg, i32 noundef 2, i32 noundef 0)
+  store ptr %5, ptr %3, align 8, !tbaa !8
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret ptr %6
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l___private_Init_Data_List_BasicAux_0__List_get_match__1_splitter___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i8, align 1
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !8
+  br label %19
+
+19:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #7
+  %20 = load ptr, ptr %6, align 8, !tbaa !8
+  %21 = call ptr @lean_ctor_get(ptr noundef %20, i32 noundef 0)
+  store ptr %21, ptr %10, align 8, !tbaa !8
+  %22 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %22)
+  %23 = load ptr, ptr %6, align 8, !tbaa !8
+  %24 = call ptr @lean_ctor_get(ptr noundef %23, i32 noundef 1)
+  store ptr %24, ptr %11, align 8, !tbaa !8
+  %25 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %25)
+  %26 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %26)
+  %27 = call ptr @lean_unsigned_to_nat(i32 noundef 0)
+  store ptr %27, ptr %12, align 8, !tbaa !8
+  %28 = load ptr, ptr %7, align 8, !tbaa !8
+  %29 = load ptr, ptr %12, align 8, !tbaa !8
+  %30 = call zeroext i8 @lean_nat_dec_eq(ptr noundef %28, ptr noundef %29)
+  store i8 %30, ptr %13, align 1, !tbaa !10
+  %31 = load i8, ptr %13, align 1, !tbaa !10
+  %32 = zext i8 %31 to i32
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %47
+
+34:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %35 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %35)
+  %36 = call ptr @lean_unsigned_to_nat(i32 noundef 1)
+  store ptr %36, ptr %14, align 8, !tbaa !8
+  %37 = load ptr, ptr %7, align 8, !tbaa !8
+  %38 = load ptr, ptr %14, align 8, !tbaa !8
+  %39 = call ptr @lean_nat_sub(ptr noundef %37, ptr noundef %38)
+  store ptr %39, ptr %15, align 8, !tbaa !8
+  %40 = load ptr, ptr %9, align 8, !tbaa !8
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  %42 = load ptr, ptr %11, align 8, !tbaa !8
+  %43 = load ptr, ptr %15, align 8, !tbaa !8
+  %44 = call ptr @lean_box(i64 noundef 0)
+  %45 = call ptr @lean_apply_4(ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef %44)
+  store ptr %45, ptr %16, align 8, !tbaa !8
+  %46 = load ptr, ptr %16, align 8, !tbaa !8
+  store ptr %46, ptr %5, align 8
+  store i32 1, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  br label %55
+
+47:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  %48 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %48)
+  %49 = load ptr, ptr %8, align 8, !tbaa !8
+  %50 = load ptr, ptr %10, align 8, !tbaa !8
+  %51 = load ptr, ptr %11, align 8, !tbaa !8
+  %52 = call ptr @lean_box(i64 noundef 0)
+  %53 = call ptr @lean_apply_3(ptr noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef %52)
+  store ptr %53, ptr %18, align 8, !tbaa !8
+  %54 = load ptr, ptr %18, align 8, !tbaa !8
+  store ptr %54, ptr %5, align 8
+  store i32 1, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  br label %55
+
+55:                                               ; preds = %47, %34
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %56 = load ptr, ptr %5, align 8
+  ret ptr %56
+}
+
+declare ptr @lean_apply_3(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define ptr @l___private_Init_Data_List_BasicAux_0__List_get_match__1_splitter(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  br label %6
+
+6:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = call ptr @lean_alloc_closure(ptr noundef @l___private_Init_Data_List_BasicAux_0__List_get_match__1_splitter___rarg___boxed, i32 noundef 4, i32 noundef 0)
+  store ptr %7, ptr %5, align 8, !tbaa !8
+  %8 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret ptr %8
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l___private_Init_Data_List_BasicAux_0__List_get_match__1_splitter___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  store ptr %3, ptr %8, align 8, !tbaa !8
+  br label %10
+
+10:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %11 = load ptr, ptr %5, align 8, !tbaa !8
+  %12 = load ptr, ptr %6, align 8, !tbaa !8
+  %13 = load ptr, ptr %7, align 8, !tbaa !8
+  %14 = load ptr, ptr %8, align 8, !tbaa !8
+  %15 = call ptr @l___private_Init_Data_List_BasicAux_0__List_get_match__1_splitter___rarg(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %9, align 8, !tbaa !8
+  %16 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %16)
+  %17 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  ret ptr %17
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i8, align 1
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i8, align 1
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca ptr, align 8
+  %29 = alloca ptr, align 8
+  %30 = alloca ptr, align 8
+  %31 = alloca ptr, align 8
+  %32 = alloca ptr, align 8
+  %33 = alloca ptr, align 8
+  %34 = alloca ptr, align 8
+  %35 = alloca ptr, align 8
+  %36 = alloca ptr, align 8
+  %37 = alloca ptr, align 8
+  %38 = alloca ptr, align 8
+  %39 = alloca ptr, align 8
+  %40 = alloca ptr, align 8
+  %41 = alloca ptr, align 8
+  %42 = alloca ptr, align 8
+  %43 = alloca ptr, align 8
+  %44 = alloca ptr, align 8
+  %45 = alloca ptr, align 8
+  %46 = alloca ptr, align 8
+  %47 = alloca ptr, align 8
+  %48 = alloca ptr, align 8
+  %49 = alloca ptr, align 8
+  %50 = alloca ptr, align 8
+  %51 = alloca ptr, align 8
+  %52 = alloca ptr, align 8
+  %53 = alloca ptr, align 8
+  %54 = alloca ptr, align 8
+  %55 = alloca ptr, align 8
+  %56 = alloca ptr, align 8
+  %57 = alloca ptr, align 8
+  %58 = alloca ptr, align 8
+  %59 = alloca ptr, align 8
+  %60 = alloca ptr, align 8
+  %61 = alloca ptr, align 8
+  %62 = alloca ptr, align 8
+  %63 = alloca ptr, align 8
+  %64 = alloca ptr, align 8
+  %65 = alloca ptr, align 8
+  %66 = alloca ptr, align 8
+  %67 = alloca ptr, align 8
+  %68 = alloca ptr, align 8
+  %69 = alloca ptr, align 8
+  %70 = alloca ptr, align 8
+  %71 = alloca ptr, align 8
+  %72 = alloca ptr, align 8
+  %73 = alloca ptr, align 8
+  %74 = alloca ptr, align 8
+  %75 = alloca ptr, align 8
+  %76 = alloca ptr, align 8
+  %77 = alloca ptr, align 8
+  %78 = alloca ptr, align 8
+  %79 = alloca ptr, align 8
+  %80 = alloca ptr, align 8
+  %81 = alloca ptr, align 8
+  %82 = alloca ptr, align 8
+  %83 = alloca ptr, align 8
+  %84 = alloca ptr, align 8
+  %85 = alloca ptr, align 8
+  %86 = alloca ptr, align 8
+  %87 = alloca ptr, align 8
+  %88 = alloca ptr, align 8
+  %89 = alloca ptr, align 8
+  %90 = alloca ptr, align 8
+  %91 = alloca ptr, align 8
+  %92 = alloca ptr, align 8
+  %93 = alloca ptr, align 8
+  %94 = alloca ptr, align 8
+  %95 = alloca ptr, align 8
+  %96 = alloca ptr, align 8
+  %97 = alloca ptr, align 8
+  %98 = alloca ptr, align 8
+  %99 = alloca ptr, align 8
+  %100 = alloca ptr, align 8
+  %101 = alloca ptr, align 8
+  %102 = alloca ptr, align 8
+  %103 = alloca ptr, align 8
+  %104 = alloca ptr, align 8
+  %105 = alloca ptr, align 8
+  %106 = alloca ptr, align 8
+  %107 = alloca ptr, align 8
+  %108 = alloca ptr, align 8
+  %109 = alloca ptr, align 8
+  %110 = alloca ptr, align 8
+  %111 = alloca ptr, align 8
+  %112 = alloca ptr, align 8
+  %113 = alloca ptr, align 8
+  %114 = alloca ptr, align 8
+  %115 = alloca ptr, align 8
+  %116 = alloca ptr, align 8
+  %117 = alloca ptr, align 8
+  %118 = alloca ptr, align 8
+  %119 = alloca ptr, align 8
+  %120 = alloca ptr, align 8
+  %121 = alloca ptr, align 8
+  %122 = alloca ptr, align 8
+  %123 = alloca ptr, align 8
+  %124 = alloca ptr, align 8
+  %125 = alloca ptr, align 8
+  %126 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  br label %127
+
+127:                                              ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #7
+  %128 = load ptr, ptr @l_List_tacticSizeOf__list__dec___closed__3, align 8, !tbaa !8
+  store ptr %128, ptr %8, align 8, !tbaa !8
+  %129 = load ptr, ptr %5, align 8, !tbaa !8
+  %130 = load ptr, ptr %8, align 8, !tbaa !8
+  %131 = call zeroext i8 @l_Lean_Syntax_isOfKind(ptr noundef %129, ptr noundef %130)
+  store i8 %131, ptr %9, align 1, !tbaa !10
+  %132 = load i8, ptr %9, align 1, !tbaa !10
+  %133 = zext i8 %132 to i32
+  %134 = icmp eq i32 %133, 0
+  br i1 %134, label %135, label %144
+
+135:                                              ; preds = %127
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %136 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %136)
+  %137 = call ptr @lean_box(i64 noundef 1)
+  store ptr %137, ptr %10, align 8, !tbaa !8
+  %138 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %138, ptr %11, align 8, !tbaa !8
+  %139 = load ptr, ptr %11, align 8, !tbaa !8
+  %140 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %139, i32 noundef 0, ptr noundef %140)
+  %141 = load ptr, ptr %11, align 8, !tbaa !8
+  %142 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %141, i32 noundef 1, ptr noundef %142)
+  %143 = load ptr, ptr %11, align 8, !tbaa !8
+  store ptr %143, ptr %4, align 8
+  store i32 1, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  br label %604
+
+144:                                              ; preds = %127
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %40) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %41) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %42) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %43) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %44) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %45) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %46) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %47) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %48) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %49) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %50) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %51) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %52) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %53) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %54) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %55) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %56) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %57) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %58) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %59) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %60) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %61) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %62) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %63) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %64) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %65) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %66) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %67) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %68) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %69) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %70) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %71) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %72) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %73) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %74) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %75) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %76) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %77) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %78) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %79) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %80) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %81) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %82) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %83) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %84) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %85) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %86) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %87) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %88) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %89) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %90) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %91) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %92) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %93) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %94) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %95) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %96) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %97) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %98) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %99) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %100) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %101) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %102) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %103) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %104) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %105) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %106) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %107) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %108) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %109) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %110) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %111) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %112) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %113) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %114) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %115) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %116) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %117) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %118) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %119) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %120) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %121) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %122) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %123) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %124) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %125) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %126) #7
+  %145 = load ptr, ptr %6, align 8, !tbaa !8
+  %146 = call ptr @lean_ctor_get(ptr noundef %145, i32 noundef 5)
+  store ptr %146, ptr %13, align 8, !tbaa !8
+  %147 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %147)
+  store i8 0, ptr %14, align 1, !tbaa !10
+  %148 = load ptr, ptr %13, align 8, !tbaa !8
+  %149 = load i8, ptr %14, align 1, !tbaa !10
+  %150 = call ptr @l_Lean_SourceInfo_fromRef(ptr noundef %148, i8 noundef zeroext %149)
+  store ptr %150, ptr %15, align 8, !tbaa !8
+  %151 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %151)
+  %152 = load ptr, ptr %6, align 8, !tbaa !8
+  %153 = call ptr @lean_ctor_get(ptr noundef %152, i32 noundef 2)
+  store ptr %153, ptr %16, align 8, !tbaa !8
+  %154 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %154)
+  %155 = load ptr, ptr %6, align 8, !tbaa !8
+  %156 = call ptr @lean_ctor_get(ptr noundef %155, i32 noundef 1)
+  store ptr %156, ptr %17, align 8, !tbaa !8
+  %157 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %157)
+  %158 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %158)
+  %159 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__4, align 8, !tbaa !8
+  store ptr %159, ptr %18, align 8, !tbaa !8
+  %160 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %160)
+  %161 = call ptr @lean_alloc_ctor(i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  store ptr %161, ptr %19, align 8, !tbaa !8
+  %162 = load ptr, ptr %19, align 8, !tbaa !8
+  %163 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %162, i32 noundef 0, ptr noundef %163)
+  %164 = load ptr, ptr %19, align 8, !tbaa !8
+  %165 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %164, i32 noundef 1, ptr noundef %165)
+  %166 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__10, align 8, !tbaa !8
+  store ptr %166, ptr %20, align 8, !tbaa !8
+  %167 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %167)
+  %168 = call ptr @lean_alloc_ctor(i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  store ptr %168, ptr %21, align 8, !tbaa !8
+  %169 = load ptr, ptr %21, align 8, !tbaa !8
+  %170 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %169, i32 noundef 0, ptr noundef %170)
+  %171 = load ptr, ptr %21, align 8, !tbaa !8
+  %172 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %171, i32 noundef 1, ptr noundef %172)
+  %173 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__17, align 8, !tbaa !8
+  store ptr %173, ptr %22, align 8, !tbaa !8
+  %174 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %174)
+  %175 = call ptr @lean_alloc_ctor(i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  store ptr %175, ptr %23, align 8, !tbaa !8
+  %176 = load ptr, ptr %23, align 8, !tbaa !8
+  %177 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %176, i32 noundef 0, ptr noundef %177)
+  %178 = load ptr, ptr %23, align 8, !tbaa !8
+  %179 = load ptr, ptr %22, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %178, i32 noundef 1, ptr noundef %179)
+  %180 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__18, align 8, !tbaa !8
+  store ptr %180, ptr %24, align 8, !tbaa !8
+  %181 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %181)
+  %182 = call ptr @lean_alloc_ctor(i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  store ptr %182, ptr %25, align 8, !tbaa !8
+  %183 = load ptr, ptr %25, align 8, !tbaa !8
+  %184 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %183, i32 noundef 0, ptr noundef %184)
+  %185 = load ptr, ptr %25, align 8, !tbaa !8
+  %186 = load ptr, ptr %24, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %185, i32 noundef 1, ptr noundef %186)
+  %187 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__22, align 8, !tbaa !8
+  store ptr %187, ptr %26, align 8, !tbaa !8
+  %188 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %188)
+  %189 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %189)
+  %190 = load ptr, ptr %17, align 8, !tbaa !8
+  %191 = load ptr, ptr %26, align 8, !tbaa !8
+  %192 = load ptr, ptr %16, align 8, !tbaa !8
+  %193 = call ptr @l_Lean_addMacroScope(ptr noundef %190, ptr noundef %191, ptr noundef %192)
+  store ptr %193, ptr %27, align 8, !tbaa !8
+  %194 = call ptr @lean_box(i64 noundef 0)
+  store ptr %194, ptr %28, align 8, !tbaa !8
+  %195 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__21, align 8, !tbaa !8
+  store ptr %195, ptr %29, align 8, !tbaa !8
+  %196 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__25, align 8, !tbaa !8
+  store ptr %196, ptr %30, align 8, !tbaa !8
+  %197 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %197)
+  %198 = call ptr @lean_alloc_ctor(i32 noundef 3, i32 noundef 4, i32 noundef 0)
+  store ptr %198, ptr %31, align 8, !tbaa !8
+  %199 = load ptr, ptr %31, align 8, !tbaa !8
+  %200 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %199, i32 noundef 0, ptr noundef %200)
+  %201 = load ptr, ptr %31, align 8, !tbaa !8
+  %202 = load ptr, ptr %29, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %201, i32 noundef 1, ptr noundef %202)
+  %203 = load ptr, ptr %31, align 8, !tbaa !8
+  %204 = load ptr, ptr %27, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %203, i32 noundef 2, ptr noundef %204)
+  %205 = load ptr, ptr %31, align 8, !tbaa !8
+  %206 = load ptr, ptr %30, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %205, i32 noundef 3, ptr noundef %206)
+  %207 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__19, align 8, !tbaa !8
+  store ptr %207, ptr %32, align 8, !tbaa !8
+  %208 = load ptr, ptr %31, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %208)
+  %209 = load ptr, ptr %25, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %209)
+  %210 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %210)
+  %211 = load ptr, ptr %15, align 8, !tbaa !8
+  %212 = load ptr, ptr %32, align 8, !tbaa !8
+  %213 = load ptr, ptr %25, align 8, !tbaa !8
+  %214 = load ptr, ptr %31, align 8, !tbaa !8
+  %215 = call ptr @l_Lean_Syntax_node2(ptr noundef %211, ptr noundef %212, ptr noundef %213, ptr noundef %214)
+  store ptr %215, ptr %33, align 8, !tbaa !8
+  %216 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__26, align 8, !tbaa !8
+  store ptr %216, ptr %34, align 8, !tbaa !8
+  %217 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %217)
+  %218 = call ptr @lean_alloc_ctor(i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  store ptr %218, ptr %35, align 8, !tbaa !8
+  %219 = load ptr, ptr %35, align 8, !tbaa !8
+  %220 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %219, i32 noundef 0, ptr noundef %220)
+  %221 = load ptr, ptr %35, align 8, !tbaa !8
+  %222 = load ptr, ptr %34, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %221, i32 noundef 1, ptr noundef %222)
+  %223 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__27, align 8, !tbaa !8
+  store ptr %223, ptr %36, align 8, !tbaa !8
+  %224 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %224)
+  %225 = call ptr @lean_alloc_ctor(i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  store ptr %225, ptr %37, align 8, !tbaa !8
+  %226 = load ptr, ptr %37, align 8, !tbaa !8
+  %227 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %226, i32 noundef 0, ptr noundef %227)
+  %228 = load ptr, ptr %37, align 8, !tbaa !8
+  %229 = load ptr, ptr %36, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %228, i32 noundef 1, ptr noundef %229)
+  %230 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__28, align 8, !tbaa !8
+  store ptr %230, ptr %38, align 8, !tbaa !8
+  %231 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %231)
+  %232 = load ptr, ptr %15, align 8, !tbaa !8
+  %233 = load ptr, ptr %38, align 8, !tbaa !8
+  %234 = load ptr, ptr %37, align 8, !tbaa !8
+  %235 = call ptr @l_Lean_Syntax_node1(ptr noundef %232, ptr noundef %233, ptr noundef %234)
+  store ptr %235, ptr %39, align 8, !tbaa !8
+  %236 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__29, align 8, !tbaa !8
+  store ptr %236, ptr %40, align 8, !tbaa !8
+  %237 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %237)
+  %238 = call ptr @lean_alloc_ctor(i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  store ptr %238, ptr %41, align 8, !tbaa !8
+  %239 = load ptr, ptr %41, align 8, !tbaa !8
+  %240 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %239, i32 noundef 0, ptr noundef %240)
+  %241 = load ptr, ptr %41, align 8, !tbaa !8
+  %242 = load ptr, ptr %40, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %241, i32 noundef 1, ptr noundef %242)
+  %243 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__30, align 8, !tbaa !8
+  store ptr %243, ptr %42, align 8, !tbaa !8
+  %244 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %244)
+  %245 = load ptr, ptr %15, align 8, !tbaa !8
+  %246 = load ptr, ptr %42, align 8, !tbaa !8
+  %247 = load ptr, ptr %41, align 8, !tbaa !8
+  %248 = call ptr @l_Lean_Syntax_node1(ptr noundef %245, ptr noundef %246, ptr noundef %247)
+  store ptr %248, ptr %43, align 8, !tbaa !8
+  %249 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__7, align 8, !tbaa !8
+  store ptr %249, ptr %44, align 8, !tbaa !8
+  %250 = load ptr, ptr %39, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %250)
+  %251 = load ptr, ptr %35, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %251)
+  %252 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %252)
+  %253 = load ptr, ptr %15, align 8, !tbaa !8
+  %254 = load ptr, ptr %44, align 8, !tbaa !8
+  %255 = load ptr, ptr %33, align 8, !tbaa !8
+  %256 = load ptr, ptr %35, align 8, !tbaa !8
+  %257 = load ptr, ptr %39, align 8, !tbaa !8
+  %258 = load ptr, ptr %35, align 8, !tbaa !8
+  %259 = load ptr, ptr %43, align 8, !tbaa !8
+  %260 = call ptr @l_Lean_Syntax_node5(ptr noundef %253, ptr noundef %254, ptr noundef %255, ptr noundef %256, ptr noundef %257, ptr noundef %258, ptr noundef %259)
+  store ptr %260, ptr %45, align 8, !tbaa !8
+  %261 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__14, align 8, !tbaa !8
+  store ptr %261, ptr %46, align 8, !tbaa !8
+  %262 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %262)
+  %263 = load ptr, ptr %15, align 8, !tbaa !8
+  %264 = load ptr, ptr %46, align 8, !tbaa !8
+  %265 = load ptr, ptr %45, align 8, !tbaa !8
+  %266 = call ptr @l_Lean_Syntax_node1(ptr noundef %263, ptr noundef %264, ptr noundef %265)
+  store ptr %266, ptr %47, align 8, !tbaa !8
+  %267 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__12, align 8, !tbaa !8
+  store ptr %267, ptr %48, align 8, !tbaa !8
+  %268 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %268)
+  %269 = load ptr, ptr %15, align 8, !tbaa !8
+  %270 = load ptr, ptr %48, align 8, !tbaa !8
+  %271 = load ptr, ptr %47, align 8, !tbaa !8
+  %272 = call ptr @l_Lean_Syntax_node1(ptr noundef %269, ptr noundef %270, ptr noundef %271)
+  store ptr %272, ptr %49, align 8, !tbaa !8
+  %273 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__16, align 8, !tbaa !8
+  store ptr %273, ptr %50, align 8, !tbaa !8
+  %274 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %274)
+  %275 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %275)
+  %276 = load ptr, ptr %15, align 8, !tbaa !8
+  %277 = load ptr, ptr %50, align 8, !tbaa !8
+  %278 = load ptr, ptr %23, align 8, !tbaa !8
+  %279 = load ptr, ptr %49, align 8, !tbaa !8
+  %280 = call ptr @l_Lean_Syntax_node2(ptr noundef %276, ptr noundef %277, ptr noundef %278, ptr noundef %279)
+  store ptr %280, ptr %51, align 8, !tbaa !8
+  %281 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %281)
+  %282 = load ptr, ptr %15, align 8, !tbaa !8
+  %283 = load ptr, ptr %44, align 8, !tbaa !8
+  %284 = load ptr, ptr %51, align 8, !tbaa !8
+  %285 = call ptr @l_Lean_Syntax_node1(ptr noundef %282, ptr noundef %283, ptr noundef %284)
+  store ptr %285, ptr %52, align 8, !tbaa !8
+  %286 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %286)
+  %287 = load ptr, ptr %15, align 8, !tbaa !8
+  %288 = load ptr, ptr %46, align 8, !tbaa !8
+  %289 = load ptr, ptr %52, align 8, !tbaa !8
+  %290 = call ptr @l_Lean_Syntax_node1(ptr noundef %287, ptr noundef %288, ptr noundef %289)
+  store ptr %290, ptr %53, align 8, !tbaa !8
+  %291 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %291)
+  %292 = load ptr, ptr %15, align 8, !tbaa !8
+  %293 = load ptr, ptr %48, align 8, !tbaa !8
+  %294 = load ptr, ptr %53, align 8, !tbaa !8
+  %295 = call ptr @l_Lean_Syntax_node1(ptr noundef %292, ptr noundef %293, ptr noundef %294)
+  store ptr %295, ptr %54, align 8, !tbaa !8
+  %296 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__9, align 8, !tbaa !8
+  store ptr %296, ptr %55, align 8, !tbaa !8
+  %297 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %297)
+  %298 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %298)
+  %299 = load ptr, ptr %15, align 8, !tbaa !8
+  %300 = load ptr, ptr %55, align 8, !tbaa !8
+  %301 = load ptr, ptr %21, align 8, !tbaa !8
+  %302 = load ptr, ptr %54, align 8, !tbaa !8
+  %303 = call ptr @l_Lean_Syntax_node2(ptr noundef %299, ptr noundef %300, ptr noundef %301, ptr noundef %302)
+  store ptr %303, ptr %56, align 8, !tbaa !8
+  %304 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__38, align 8, !tbaa !8
+  store ptr %304, ptr %57, align 8, !tbaa !8
+  %305 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %305)
+  %306 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %306)
+  %307 = load ptr, ptr %17, align 8, !tbaa !8
+  %308 = load ptr, ptr %57, align 8, !tbaa !8
+  %309 = load ptr, ptr %16, align 8, !tbaa !8
+  %310 = call ptr @l_Lean_addMacroScope(ptr noundef %307, ptr noundef %308, ptr noundef %309)
+  store ptr %310, ptr %58, align 8, !tbaa !8
+  %311 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__35, align 8, !tbaa !8
+  store ptr %311, ptr %59, align 8, !tbaa !8
+  %312 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__40, align 8, !tbaa !8
+  store ptr %312, ptr %60, align 8, !tbaa !8
+  %313 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %313)
+  %314 = call ptr @lean_alloc_ctor(i32 noundef 3, i32 noundef 4, i32 noundef 0)
+  store ptr %314, ptr %61, align 8, !tbaa !8
+  %315 = load ptr, ptr %61, align 8, !tbaa !8
+  %316 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %315, i32 noundef 0, ptr noundef %316)
+  %317 = load ptr, ptr %61, align 8, !tbaa !8
+  %318 = load ptr, ptr %59, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %317, i32 noundef 1, ptr noundef %318)
+  %319 = load ptr, ptr %61, align 8, !tbaa !8
+  %320 = load ptr, ptr %58, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %319, i32 noundef 2, ptr noundef %320)
+  %321 = load ptr, ptr %61, align 8, !tbaa !8
+  %322 = load ptr, ptr %60, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %321, i32 noundef 3, ptr noundef %322)
+  %323 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__43, align 8, !tbaa !8
+  store ptr %323, ptr %62, align 8, !tbaa !8
+  %324 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %324)
+  %325 = call ptr @lean_alloc_ctor(i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  store ptr %325, ptr %63, align 8, !tbaa !8
+  %326 = load ptr, ptr %63, align 8, !tbaa !8
+  %327 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %326, i32 noundef 0, ptr noundef %327)
+  %328 = load ptr, ptr %63, align 8, !tbaa !8
+  %329 = load ptr, ptr %62, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %328, i32 noundef 1, ptr noundef %329)
+  %330 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__46, align 8, !tbaa !8
+  store ptr %330, ptr %64, align 8, !tbaa !8
+  %331 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %331)
+  %332 = call ptr @lean_alloc_ctor(i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  store ptr %332, ptr %65, align 8, !tbaa !8
+  %333 = load ptr, ptr %65, align 8, !tbaa !8
+  %334 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %333, i32 noundef 0, ptr noundef %334)
+  %335 = load ptr, ptr %65, align 8, !tbaa !8
+  %336 = load ptr, ptr %64, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %335, i32 noundef 1, ptr noundef %336)
+  %337 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__49, align 8, !tbaa !8
+  store ptr %337, ptr %66, align 8, !tbaa !8
+  %338 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %338)
+  %339 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %339)
+  %340 = load ptr, ptr %17, align 8, !tbaa !8
+  %341 = load ptr, ptr %66, align 8, !tbaa !8
+  %342 = load ptr, ptr %16, align 8, !tbaa !8
+  %343 = call ptr @l_Lean_addMacroScope(ptr noundef %340, ptr noundef %341, ptr noundef %342)
+  store ptr %343, ptr %67, align 8, !tbaa !8
+  %344 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__48, align 8, !tbaa !8
+  store ptr %344, ptr %68, align 8, !tbaa !8
+  %345 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %345)
+  %346 = call ptr @lean_alloc_ctor(i32 noundef 3, i32 noundef 4, i32 noundef 0)
+  store ptr %346, ptr %69, align 8, !tbaa !8
+  %347 = load ptr, ptr %69, align 8, !tbaa !8
+  %348 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %347, i32 noundef 0, ptr noundef %348)
+  %349 = load ptr, ptr %69, align 8, !tbaa !8
+  %350 = load ptr, ptr %68, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %349, i32 noundef 1, ptr noundef %350)
+  %351 = load ptr, ptr %69, align 8, !tbaa !8
+  %352 = load ptr, ptr %67, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %351, i32 noundef 2, ptr noundef %352)
+  %353 = load ptr, ptr %69, align 8, !tbaa !8
+  %354 = load ptr, ptr %28, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %353, i32 noundef 3, ptr noundef %354)
+  %355 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__45, align 8, !tbaa !8
+  store ptr %355, ptr %70, align 8, !tbaa !8
+  %356 = load ptr, ptr %69, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %356)
+  %357 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %357)
+  %358 = load ptr, ptr %15, align 8, !tbaa !8
+  %359 = load ptr, ptr %70, align 8, !tbaa !8
+  %360 = load ptr, ptr %65, align 8, !tbaa !8
+  %361 = load ptr, ptr %69, align 8, !tbaa !8
+  %362 = call ptr @l_Lean_Syntax_node2(ptr noundef %358, ptr noundef %359, ptr noundef %360, ptr noundef %361)
+  store ptr %362, ptr %71, align 8, !tbaa !8
+  %363 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %363)
+  %364 = load ptr, ptr %15, align 8, !tbaa !8
+  %365 = load ptr, ptr %44, align 8, !tbaa !8
+  %366 = load ptr, ptr %71, align 8, !tbaa !8
+  %367 = call ptr @l_Lean_Syntax_node1(ptr noundef %364, ptr noundef %365, ptr noundef %366)
+  store ptr %367, ptr %72, align 8, !tbaa !8
+  %368 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__33, align 8, !tbaa !8
+  store ptr %368, ptr %73, align 8, !tbaa !8
+  %369 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %369)
+  %370 = load ptr, ptr %15, align 8, !tbaa !8
+  %371 = load ptr, ptr %73, align 8, !tbaa !8
+  %372 = load ptr, ptr %31, align 8, !tbaa !8
+  %373 = load ptr, ptr %72, align 8, !tbaa !8
+  %374 = call ptr @l_Lean_Syntax_node2(ptr noundef %370, ptr noundef %371, ptr noundef %372, ptr noundef %373)
+  store ptr %374, ptr %74, align 8, !tbaa !8
+  %375 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__50, align 8, !tbaa !8
+  store ptr %375, ptr %75, align 8, !tbaa !8
+  %376 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %376)
+  %377 = call ptr @lean_alloc_ctor(i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  store ptr %377, ptr %76, align 8, !tbaa !8
+  %378 = load ptr, ptr %76, align 8, !tbaa !8
+  %379 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %378, i32 noundef 0, ptr noundef %379)
+  %380 = load ptr, ptr %76, align 8, !tbaa !8
+  %381 = load ptr, ptr %75, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %380, i32 noundef 1, ptr noundef %381)
+  %382 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__42, align 8, !tbaa !8
+  store ptr %382, ptr %77, align 8, !tbaa !8
+  %383 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %383)
+  %384 = load ptr, ptr %15, align 8, !tbaa !8
+  %385 = load ptr, ptr %77, align 8, !tbaa !8
+  %386 = load ptr, ptr %63, align 8, !tbaa !8
+  %387 = load ptr, ptr %74, align 8, !tbaa !8
+  %388 = load ptr, ptr %76, align 8, !tbaa !8
+  %389 = call ptr @l_Lean_Syntax_node3(ptr noundef %384, ptr noundef %385, ptr noundef %386, ptr noundef %387, ptr noundef %388)
+  store ptr %389, ptr %78, align 8, !tbaa !8
+  %390 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %390)
+  %391 = load ptr, ptr %15, align 8, !tbaa !8
+  %392 = load ptr, ptr %44, align 8, !tbaa !8
+  %393 = load ptr, ptr %78, align 8, !tbaa !8
+  %394 = call ptr @l_Lean_Syntax_node1(ptr noundef %391, ptr noundef %392, ptr noundef %393)
+  store ptr %394, ptr %79, align 8, !tbaa !8
+  %395 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %395)
+  %396 = load ptr, ptr %15, align 8, !tbaa !8
+  %397 = load ptr, ptr %73, align 8, !tbaa !8
+  %398 = load ptr, ptr %61, align 8, !tbaa !8
+  %399 = load ptr, ptr %79, align 8, !tbaa !8
+  %400 = call ptr @l_Lean_Syntax_node2(ptr noundef %396, ptr noundef %397, ptr noundef %398, ptr noundef %399)
+  store ptr %400, ptr %80, align 8, !tbaa !8
+  %401 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %401)
+  %402 = load ptr, ptr %15, align 8, !tbaa !8
+  %403 = load ptr, ptr %32, align 8, !tbaa !8
+  %404 = load ptr, ptr %25, align 8, !tbaa !8
+  %405 = load ptr, ptr %80, align 8, !tbaa !8
+  %406 = call ptr @l_Lean_Syntax_node2(ptr noundef %402, ptr noundef %403, ptr noundef %404, ptr noundef %405)
+  store ptr %406, ptr %81, align 8, !tbaa !8
+  %407 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__51, align 8, !tbaa !8
+  store ptr %407, ptr %82, align 8, !tbaa !8
+  %408 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %408)
+  %409 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 3, i32 noundef 0)
+  store ptr %409, ptr %83, align 8, !tbaa !8
+  %410 = load ptr, ptr %83, align 8, !tbaa !8
+  %411 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %410, i32 noundef 0, ptr noundef %411)
+  %412 = load ptr, ptr %83, align 8, !tbaa !8
+  %413 = load ptr, ptr %44, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %412, i32 noundef 1, ptr noundef %413)
+  %414 = load ptr, ptr %83, align 8, !tbaa !8
+  %415 = load ptr, ptr %82, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %414, i32 noundef 2, ptr noundef %415)
+  %416 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__52, align 8, !tbaa !8
+  store ptr %416, ptr %84, align 8, !tbaa !8
+  %417 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %417)
+  %418 = call ptr @lean_alloc_ctor(i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  store ptr %418, ptr %85, align 8, !tbaa !8
+  %419 = load ptr, ptr %85, align 8, !tbaa !8
+  %420 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %419, i32 noundef 0, ptr noundef %420)
+  %421 = load ptr, ptr %85, align 8, !tbaa !8
+  %422 = load ptr, ptr %84, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %421, i32 noundef 1, ptr noundef %422)
+  %423 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__57, align 8, !tbaa !8
+  store ptr %423, ptr %86, align 8, !tbaa !8
+  %424 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %424)
+  %425 = load ptr, ptr %15, align 8, !tbaa !8
+  %426 = load ptr, ptr %86, align 8, !tbaa !8
+  %427 = load ptr, ptr %69, align 8, !tbaa !8
+  %428 = call ptr @l_Lean_Syntax_node1(ptr noundef %425, ptr noundef %426, ptr noundef %427)
+  store ptr %428, ptr %87, align 8, !tbaa !8
+  %429 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__55, align 8, !tbaa !8
+  store ptr %429, ptr %88, align 8, !tbaa !8
+  %430 = load ptr, ptr %83, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %430)
+  %431 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %431)
+  %432 = load ptr, ptr %15, align 8, !tbaa !8
+  %433 = load ptr, ptr %88, align 8, !tbaa !8
+  %434 = load ptr, ptr %87, align 8, !tbaa !8
+  %435 = load ptr, ptr %83, align 8, !tbaa !8
+  %436 = call ptr @l_Lean_Syntax_node2(ptr noundef %432, ptr noundef %433, ptr noundef %434, ptr noundef %435)
+  store ptr %436, ptr %89, align 8, !tbaa !8
+  %437 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %437)
+  %438 = load ptr, ptr %15, align 8, !tbaa !8
+  %439 = load ptr, ptr %44, align 8, !tbaa !8
+  %440 = load ptr, ptr %89, align 8, !tbaa !8
+  %441 = call ptr @l_Lean_Syntax_node1(ptr noundef %438, ptr noundef %439, ptr noundef %440)
+  store ptr %441, ptr %90, align 8, !tbaa !8
+  %442 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__58, align 8, !tbaa !8
+  store ptr %442, ptr %91, align 8, !tbaa !8
+  %443 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %443)
+  %444 = call ptr @lean_alloc_ctor(i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  store ptr %444, ptr %92, align 8, !tbaa !8
+  %445 = load ptr, ptr %92, align 8, !tbaa !8
+  %446 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %445, i32 noundef 0, ptr noundef %446)
+  %447 = load ptr, ptr %92, align 8, !tbaa !8
+  %448 = load ptr, ptr %91, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %447, i32 noundef 1, ptr noundef %448)
+  %449 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %449)
+  %450 = load ptr, ptr %15, align 8, !tbaa !8
+  %451 = load ptr, ptr %44, align 8, !tbaa !8
+  %452 = load ptr, ptr %39, align 8, !tbaa !8
+  %453 = call ptr @l_Lean_Syntax_node1(ptr noundef %450, ptr noundef %451, ptr noundef %452)
+  store ptr %453, ptr %93, align 8, !tbaa !8
+  %454 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %454)
+  %455 = load ptr, ptr %15, align 8, !tbaa !8
+  %456 = load ptr, ptr %46, align 8, !tbaa !8
+  %457 = load ptr, ptr %93, align 8, !tbaa !8
+  %458 = call ptr @l_Lean_Syntax_node1(ptr noundef %455, ptr noundef %456, ptr noundef %457)
+  store ptr %458, ptr %94, align 8, !tbaa !8
+  %459 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %459)
+  %460 = load ptr, ptr %15, align 8, !tbaa !8
+  %461 = load ptr, ptr %48, align 8, !tbaa !8
+  %462 = load ptr, ptr %94, align 8, !tbaa !8
+  %463 = call ptr @l_Lean_Syntax_node1(ptr noundef %460, ptr noundef %461, ptr noundef %462)
+  store ptr %463, ptr %95, align 8, !tbaa !8
+  %464 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__53, align 8, !tbaa !8
+  store ptr %464, ptr %96, align 8, !tbaa !8
+  %465 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %465)
+  %466 = load ptr, ptr %15, align 8, !tbaa !8
+  %467 = load ptr, ptr %96, align 8, !tbaa !8
+  %468 = load ptr, ptr %85, align 8, !tbaa !8
+  %469 = load ptr, ptr %90, align 8, !tbaa !8
+  %470 = load ptr, ptr %92, align 8, !tbaa !8
+  %471 = load ptr, ptr %95, align 8, !tbaa !8
+  %472 = call ptr @l_Lean_Syntax_node4(ptr noundef %466, ptr noundef %467, ptr noundef %468, ptr noundef %469, ptr noundef %470, ptr noundef %471)
+  store ptr %472, ptr %97, align 8, !tbaa !8
+  %473 = load ptr, ptr %83, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %473)
+  %474 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %474)
+  %475 = load ptr, ptr %15, align 8, !tbaa !8
+  %476 = load ptr, ptr %44, align 8, !tbaa !8
+  %477 = load ptr, ptr %81, align 8, !tbaa !8
+  %478 = load ptr, ptr %83, align 8, !tbaa !8
+  %479 = load ptr, ptr %97, align 8, !tbaa !8
+  %480 = call ptr @l_Lean_Syntax_node3(ptr noundef %475, ptr noundef %476, ptr noundef %477, ptr noundef %478, ptr noundef %479)
+  store ptr %480, ptr %98, align 8, !tbaa !8
+  %481 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %481)
+  %482 = load ptr, ptr %15, align 8, !tbaa !8
+  %483 = load ptr, ptr %46, align 8, !tbaa !8
+  %484 = load ptr, ptr %98, align 8, !tbaa !8
+  %485 = call ptr @l_Lean_Syntax_node1(ptr noundef %482, ptr noundef %483, ptr noundef %484)
+  store ptr %485, ptr %99, align 8, !tbaa !8
+  %486 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %486)
+  %487 = load ptr, ptr %15, align 8, !tbaa !8
+  %488 = load ptr, ptr %48, align 8, !tbaa !8
+  %489 = load ptr, ptr %99, align 8, !tbaa !8
+  %490 = call ptr @l_Lean_Syntax_node1(ptr noundef %487, ptr noundef %488, ptr noundef %489)
+  store ptr %490, ptr %100, align 8, !tbaa !8
+  %491 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %491)
+  %492 = load ptr, ptr %15, align 8, !tbaa !8
+  %493 = load ptr, ptr %50, align 8, !tbaa !8
+  %494 = load ptr, ptr %23, align 8, !tbaa !8
+  %495 = load ptr, ptr %100, align 8, !tbaa !8
+  %496 = call ptr @l_Lean_Syntax_node2(ptr noundef %492, ptr noundef %493, ptr noundef %494, ptr noundef %495)
+  store ptr %496, ptr %101, align 8, !tbaa !8
+  %497 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__59, align 8, !tbaa !8
+  store ptr %497, ptr %102, align 8, !tbaa !8
+  %498 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %498)
+  %499 = call ptr @lean_alloc_ctor(i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  store ptr %499, ptr %103, align 8, !tbaa !8
+  %500 = load ptr, ptr %103, align 8, !tbaa !8
+  %501 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %500, i32 noundef 0, ptr noundef %501)
+  %502 = load ptr, ptr %103, align 8, !tbaa !8
+  %503 = load ptr, ptr %102, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %502, i32 noundef 1, ptr noundef %503)
+  %504 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__67, align 8, !tbaa !8
+  store ptr %504, ptr %104, align 8, !tbaa !8
+  %505 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %505)
+  %506 = call ptr @lean_alloc_ctor(i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  store ptr %506, ptr %105, align 8, !tbaa !8
+  %507 = load ptr, ptr %105, align 8, !tbaa !8
+  %508 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %507, i32 noundef 0, ptr noundef %508)
+  %509 = load ptr, ptr %105, align 8, !tbaa !8
+  %510 = load ptr, ptr %104, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %509, i32 noundef 1, ptr noundef %510)
+  %511 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__70, align 8, !tbaa !8
+  store ptr %511, ptr %106, align 8, !tbaa !8
+  %512 = load ptr, ptr %17, align 8, !tbaa !8
+  %513 = load ptr, ptr %106, align 8, !tbaa !8
+  %514 = load ptr, ptr %16, align 8, !tbaa !8
+  %515 = call ptr @l_Lean_addMacroScope(ptr noundef %512, ptr noundef %513, ptr noundef %514)
+  store ptr %515, ptr %107, align 8, !tbaa !8
+  %516 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__69, align 8, !tbaa !8
+  store ptr %516, ptr %108, align 8, !tbaa !8
+  %517 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %517)
+  %518 = call ptr @lean_alloc_ctor(i32 noundef 3, i32 noundef 4, i32 noundef 0)
+  store ptr %518, ptr %109, align 8, !tbaa !8
+  %519 = load ptr, ptr %109, align 8, !tbaa !8
+  %520 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %519, i32 noundef 0, ptr noundef %520)
+  %521 = load ptr, ptr %109, align 8, !tbaa !8
+  %522 = load ptr, ptr %108, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %521, i32 noundef 1, ptr noundef %522)
+  %523 = load ptr, ptr %109, align 8, !tbaa !8
+  %524 = load ptr, ptr %107, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %523, i32 noundef 2, ptr noundef %524)
+  %525 = load ptr, ptr %109, align 8, !tbaa !8
+  %526 = load ptr, ptr %28, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %525, i32 noundef 3, ptr noundef %526)
+  %527 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__66, align 8, !tbaa !8
+  store ptr %527, ptr %110, align 8, !tbaa !8
+  %528 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %528)
+  %529 = load ptr, ptr %15, align 8, !tbaa !8
+  %530 = load ptr, ptr %110, align 8, !tbaa !8
+  %531 = load ptr, ptr %105, align 8, !tbaa !8
+  %532 = load ptr, ptr %109, align 8, !tbaa !8
+  %533 = call ptr @l_Lean_Syntax_node2(ptr noundef %529, ptr noundef %530, ptr noundef %531, ptr noundef %532)
+  store ptr %533, ptr %111, align 8, !tbaa !8
+  %534 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__64, align 8, !tbaa !8
+  store ptr %534, ptr %112, align 8, !tbaa !8
+  %535 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %535)
+  %536 = load ptr, ptr %15, align 8, !tbaa !8
+  %537 = load ptr, ptr %112, align 8, !tbaa !8
+  %538 = load ptr, ptr %111, align 8, !tbaa !8
+  %539 = call ptr @l_Lean_Syntax_node1(ptr noundef %536, ptr noundef %537, ptr noundef %538)
+  store ptr %539, ptr %113, align 8, !tbaa !8
+  %540 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %540)
+  %541 = load ptr, ptr %15, align 8, !tbaa !8
+  %542 = load ptr, ptr %44, align 8, !tbaa !8
+  %543 = load ptr, ptr %113, align 8, !tbaa !8
+  %544 = call ptr @l_Lean_Syntax_node1(ptr noundef %541, ptr noundef %542, ptr noundef %543)
+  store ptr %544, ptr %114, align 8, !tbaa !8
+  %545 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__62, align 8, !tbaa !8
+  store ptr %545, ptr %115, align 8, !tbaa !8
+  %546 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %546)
+  %547 = load ptr, ptr %15, align 8, !tbaa !8
+  %548 = load ptr, ptr %115, align 8, !tbaa !8
+  %549 = load ptr, ptr %114, align 8, !tbaa !8
+  %550 = call ptr @l_Lean_Syntax_node1(ptr noundef %547, ptr noundef %548, ptr noundef %549)
+  store ptr %550, ptr %116, align 8, !tbaa !8
+  %551 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__60, align 8, !tbaa !8
+  store ptr %551, ptr %117, align 8, !tbaa !8
+  %552 = load ptr, ptr %83, align 8, !tbaa !8
+  call void @lean_inc_n(ptr noundef %552, i64 noundef 4)
+  %553 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %553)
+  %554 = load ptr, ptr %15, align 8, !tbaa !8
+  %555 = load ptr, ptr %117, align 8, !tbaa !8
+  %556 = load ptr, ptr %103, align 8, !tbaa !8
+  %557 = load ptr, ptr %116, align 8, !tbaa !8
+  %558 = load ptr, ptr %83, align 8, !tbaa !8
+  %559 = load ptr, ptr %83, align 8, !tbaa !8
+  %560 = load ptr, ptr %83, align 8, !tbaa !8
+  %561 = load ptr, ptr %83, align 8, !tbaa !8
+  %562 = call ptr @l_Lean_Syntax_node6(ptr noundef %554, ptr noundef %555, ptr noundef %556, ptr noundef %557, ptr noundef %558, ptr noundef %559, ptr noundef %560, ptr noundef %561)
+  store ptr %562, ptr %118, align 8, !tbaa !8
+  %563 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %563)
+  %564 = load ptr, ptr %15, align 8, !tbaa !8
+  %565 = load ptr, ptr %44, align 8, !tbaa !8
+  %566 = load ptr, ptr %101, align 8, !tbaa !8
+  %567 = load ptr, ptr %83, align 8, !tbaa !8
+  %568 = load ptr, ptr %118, align 8, !tbaa !8
+  %569 = call ptr @l_Lean_Syntax_node3(ptr noundef %564, ptr noundef %565, ptr noundef %566, ptr noundef %567, ptr noundef %568)
+  store ptr %569, ptr %119, align 8, !tbaa !8
+  %570 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %570)
+  %571 = load ptr, ptr %15, align 8, !tbaa !8
+  %572 = load ptr, ptr %46, align 8, !tbaa !8
+  %573 = load ptr, ptr %119, align 8, !tbaa !8
+  %574 = call ptr @l_Lean_Syntax_node1(ptr noundef %571, ptr noundef %572, ptr noundef %573)
+  store ptr %574, ptr %120, align 8, !tbaa !8
+  %575 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %575)
+  %576 = load ptr, ptr %15, align 8, !tbaa !8
+  %577 = load ptr, ptr %48, align 8, !tbaa !8
+  %578 = load ptr, ptr %120, align 8, !tbaa !8
+  %579 = call ptr @l_Lean_Syntax_node1(ptr noundef %576, ptr noundef %577, ptr noundef %578)
+  store ptr %579, ptr %121, align 8, !tbaa !8
+  %580 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %580)
+  %581 = load ptr, ptr %15, align 8, !tbaa !8
+  %582 = load ptr, ptr %55, align 8, !tbaa !8
+  %583 = load ptr, ptr %21, align 8, !tbaa !8
+  %584 = load ptr, ptr %121, align 8, !tbaa !8
+  %585 = call ptr @l_Lean_Syntax_node2(ptr noundef %581, ptr noundef %582, ptr noundef %583, ptr noundef %584)
+  store ptr %585, ptr %122, align 8, !tbaa !8
+  %586 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %586)
+  %587 = load ptr, ptr %15, align 8, !tbaa !8
+  %588 = load ptr, ptr %44, align 8, !tbaa !8
+  %589 = load ptr, ptr %56, align 8, !tbaa !8
+  %590 = load ptr, ptr %122, align 8, !tbaa !8
+  %591 = call ptr @l_Lean_Syntax_node2(ptr noundef %587, ptr noundef %588, ptr noundef %589, ptr noundef %590)
+  store ptr %591, ptr %123, align 8, !tbaa !8
+  %592 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__5, align 8, !tbaa !8
+  store ptr %592, ptr %124, align 8, !tbaa !8
+  %593 = load ptr, ptr %15, align 8, !tbaa !8
+  %594 = load ptr, ptr %124, align 8, !tbaa !8
+  %595 = load ptr, ptr %19, align 8, !tbaa !8
+  %596 = load ptr, ptr %123, align 8, !tbaa !8
+  %597 = call ptr @l_Lean_Syntax_node2(ptr noundef %593, ptr noundef %594, ptr noundef %595, ptr noundef %596)
+  store ptr %597, ptr %125, align 8, !tbaa !8
+  %598 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %598, ptr %126, align 8, !tbaa !8
+  %599 = load ptr, ptr %126, align 8, !tbaa !8
+  %600 = load ptr, ptr %125, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %599, i32 noundef 0, ptr noundef %600)
+  %601 = load ptr, ptr %126, align 8, !tbaa !8
+  %602 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %601, i32 noundef 1, ptr noundef %602)
+  %603 = load ptr, ptr %126, align 8, !tbaa !8
+  store ptr %603, ptr %4, align 8
+  store i32 1, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %126) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %125) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %124) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %123) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %122) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %121) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %120) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %119) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %118) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %117) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %116) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %115) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %114) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %113) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %112) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %111) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %110) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %109) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %108) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %107) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %106) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %105) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %104) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %103) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %102) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %101) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %100) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %99) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %98) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %97) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %96) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %95) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %94) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %93) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %92) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %91) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %90) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %89) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %88) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %87) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %86) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %85) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %84) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %83) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %82) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %81) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %80) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %79) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %78) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %77) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %76) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %75) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %74) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %73) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %72) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %71) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %70) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %69) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %68) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %67) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %66) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %65) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %64) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %63) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %62) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %61) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %60) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %59) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %58) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %57) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %56) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %55) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %54) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %53) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %52) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %51) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %50) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %49) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %48) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %47) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %46) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %45) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %44) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %43) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %42) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %41) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %40) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  br label %604
+
+604:                                              ; preds = %144, %135
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %605 = load ptr, ptr %4, align 8
+  ret ptr %605
+}
+
+declare zeroext i8 @l_Lean_Syntax_isOfKind(ptr noundef, ptr noundef) #4
+
+declare ptr @l_Lean_SourceInfo_fromRef(ptr noundef, i8 noundef zeroext) #4
+
+declare ptr @l_Lean_addMacroScope(ptr noundef, ptr noundef, ptr noundef) #4
+
+declare ptr @l_Lean_Syntax_node2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+
+declare ptr @l_Lean_Syntax_node1(ptr noundef, ptr noundef, ptr noundef) #4
+
+declare ptr @l_Lean_Syntax_node5(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+
+declare ptr @l_Lean_Syntax_node3(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+
+declare ptr @l_Lean_Syntax_node4(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @lean_inc_n(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i64 %1, ptr %4, align 8, !tbaa !4
+  %5 = load ptr, ptr %3, align 8, !tbaa !8
+  %6 = call zeroext i1 @lean_is_scalar(ptr noundef %5)
+  br i1 %6, label %10, label %7
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
+  %9 = load i64, ptr %4, align 8, !tbaa !4
+  call void @lean_inc_ref_n(ptr noundef %8, i64 noundef %9)
+  br label %10
+
+10:                                               ; preds = %7, %2
+  ret void
+}
+
+declare ptr @l_Lean_Syntax_node6(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__tacticDecreasing__trivial__1(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i8, align 1
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i8, align 1
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  br label %21
+
+21:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #7
+  %22 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__tacticDecreasing__trivial__1___closed__2, align 8, !tbaa !8
+  store ptr %22, ptr %8, align 8, !tbaa !8
+  %23 = load ptr, ptr %5, align 8, !tbaa !8
+  %24 = load ptr, ptr %8, align 8, !tbaa !8
+  %25 = call zeroext i8 @l_Lean_Syntax_isOfKind(ptr noundef %23, ptr noundef %24)
+  store i8 %25, ptr %9, align 1, !tbaa !10
+  %26 = load i8, ptr %9, align 1, !tbaa !10
+  %27 = zext i8 %26 to i32
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %37
+
+29:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %30 = call ptr @lean_box(i64 noundef 1)
+  store ptr %30, ptr %10, align 8, !tbaa !8
+  %31 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %31, ptr %11, align 8, !tbaa !8
+  %32 = load ptr, ptr %11, align 8, !tbaa !8
+  %33 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %32, i32 noundef 0, ptr noundef %33)
+  %34 = load ptr, ptr %11, align 8, !tbaa !8
+  %35 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %34, i32 noundef 1, ptr noundef %35)
+  %36 = load ptr, ptr %11, align 8, !tbaa !8
+  store ptr %36, ptr %4, align 8
+  store i32 1, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  br label %61
+
+37:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  %38 = load ptr, ptr %6, align 8, !tbaa !8
+  %39 = call ptr @lean_ctor_get(ptr noundef %38, i32 noundef 5)
+  store ptr %39, ptr %13, align 8, !tbaa !8
+  store i8 0, ptr %14, align 1, !tbaa !10
+  %40 = load ptr, ptr %13, align 8, !tbaa !8
+  %41 = load i8, ptr %14, align 1, !tbaa !10
+  %42 = call ptr @l_Lean_SourceInfo_fromRef(ptr noundef %40, i8 noundef zeroext %41)
+  store ptr %42, ptr %15, align 8, !tbaa !8
+  %43 = load ptr, ptr @l_List_tacticSizeOf__list__dec___closed__4, align 8, !tbaa !8
+  store ptr %43, ptr %16, align 8, !tbaa !8
+  %44 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %44)
+  %45 = call ptr @lean_alloc_ctor(i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  store ptr %45, ptr %17, align 8, !tbaa !8
+  %46 = load ptr, ptr %17, align 8, !tbaa !8
+  %47 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %46, i32 noundef 0, ptr noundef %47)
+  %48 = load ptr, ptr %17, align 8, !tbaa !8
+  %49 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %48, i32 noundef 1, ptr noundef %49)
+  %50 = load ptr, ptr @l_List_tacticSizeOf__list__dec___closed__3, align 8, !tbaa !8
+  store ptr %50, ptr %18, align 8, !tbaa !8
+  %51 = load ptr, ptr %15, align 8, !tbaa !8
+  %52 = load ptr, ptr %18, align 8, !tbaa !8
+  %53 = load ptr, ptr %17, align 8, !tbaa !8
+  %54 = call ptr @l_Lean_Syntax_node1(ptr noundef %51, ptr noundef %52, ptr noundef %53)
+  store ptr %54, ptr %19, align 8, !tbaa !8
+  %55 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %55, ptr %20, align 8, !tbaa !8
+  %56 = load ptr, ptr %20, align 8, !tbaa !8
+  %57 = load ptr, ptr %19, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %56, i32 noundef 0, ptr noundef %57)
+  %58 = load ptr, ptr %20, align 8, !tbaa !8
+  %59 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %58, i32 noundef 1, ptr noundef %59)
+  %60 = load ptr, ptr %20, align 8, !tbaa !8
+  store ptr %60, ptr %4, align 8
+  store i32 1, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  br label %61
+
+61:                                               ; preds = %37, %29
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %62 = load ptr, ptr %4, align 8
+  ret ptr %62
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__tacticDecreasing__trivial__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !8
+  br label %8
+
+8:                                                ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %9 = load ptr, ptr %4, align 8, !tbaa !8
+  %10 = load ptr, ptr %5, align 8, !tbaa !8
+  %11 = load ptr, ptr %6, align 8, !tbaa !8
+  %12 = call ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__tacticDecreasing__trivial__1(ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  store ptr %12, ptr %7, align 8, !tbaa !8
+  %13 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %13)
+  %14 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  ret ptr %14
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @initialize_Init_Data_List_BasicAux(i8 noundef zeroext %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store i8 %0, ptr %4, align 1, !tbaa !10
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %8 = load i8, ptr @_G_initialized, align 1, !tbaa !17, !range !19, !noundef !20
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %13
+
+10:                                               ; preds = %2
+  %11 = call ptr @lean_box(i64 noundef 0)
+  %12 = call ptr @lean_io_result_mk_ok(ptr noundef %11)
+  store ptr %12, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %207
+
+13:                                               ; preds = %2
+  store i8 1, ptr @_G_initialized, align 1, !tbaa !17
+  %14 = load i8, ptr %4, align 1, !tbaa !10
+  %15 = call ptr @lean_io_mk_world()
+  %16 = call ptr @initialize_Init_Data_Nat_Linear(i8 noundef zeroext %14, ptr noundef %15)
+  store ptr %16, ptr %6, align 8, !tbaa !8
+  %17 = load ptr, ptr %6, align 8, !tbaa !8
+  %18 = call zeroext i1 @lean_io_result_is_error(ptr noundef %17)
+  br i1 %18, label %19, label %21
+
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %6, align 8, !tbaa !8
+  store ptr %20, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %207
+
+21:                                               ; preds = %13
+  %22 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec_ref(ptr noundef %22)
+  %23 = call ptr @_init_l_List_get_x21___rarg___closed__1()
+  store ptr %23, ptr @l_List_get_x21___rarg___closed__1, align 8, !tbaa !8
+  %24 = load ptr, ptr @l_List_get_x21___rarg___closed__1, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %24)
+  %25 = call ptr @_init_l_List_get_x21___rarg___closed__2()
+  store ptr %25, ptr @l_List_get_x21___rarg___closed__2, align 8, !tbaa !8
+  %26 = load ptr, ptr @l_List_get_x21___rarg___closed__2, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %26)
+  %27 = call ptr @_init_l_List_get_x21___rarg___closed__3()
+  store ptr %27, ptr @l_List_get_x21___rarg___closed__3, align 8, !tbaa !8
+  %28 = load ptr, ptr @l_List_get_x21___rarg___closed__3, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %28)
+  %29 = call ptr @_init_l_List_get_x21___rarg___closed__4()
+  store ptr %29, ptr @l_List_get_x21___rarg___closed__4, align 8, !tbaa !8
+  %30 = load ptr, ptr @l_List_get_x21___rarg___closed__4, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %30)
+  %31 = call ptr @_init_l_List_getLast_x21___rarg___closed__1()
+  store ptr %31, ptr @l_List_getLast_x21___rarg___closed__1, align 8, !tbaa !8
+  %32 = load ptr, ptr @l_List_getLast_x21___rarg___closed__1, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %32)
+  %33 = call ptr @_init_l_List_getLast_x21___rarg___closed__2()
+  store ptr %33, ptr @l_List_getLast_x21___rarg___closed__2, align 8, !tbaa !8
+  %34 = load ptr, ptr @l_List_getLast_x21___rarg___closed__2, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %34)
+  %35 = call ptr @_init_l_List_getLast_x21___rarg___closed__3()
+  store ptr %35, ptr @l_List_getLast_x21___rarg___closed__3, align 8, !tbaa !8
+  %36 = load ptr, ptr @l_List_getLast_x21___rarg___closed__3, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %36)
+  %37 = call ptr @_init_l_List_head_x21___rarg___closed__1()
+  store ptr %37, ptr @l_List_head_x21___rarg___closed__1, align 8, !tbaa !8
+  %38 = load ptr, ptr @l_List_head_x21___rarg___closed__1, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %38)
+  %39 = call ptr @_init_l_List_head_x21___rarg___closed__2()
+  store ptr %39, ptr @l_List_head_x21___rarg___closed__2, align 8, !tbaa !8
+  %40 = load ptr, ptr @l_List_head_x21___rarg___closed__2, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %40)
+  %41 = call ptr @_init_l_List_tail_x21___rarg___closed__1()
+  store ptr %41, ptr @l_List_tail_x21___rarg___closed__1, align 8, !tbaa !8
+  %42 = load ptr, ptr @l_List_tail_x21___rarg___closed__1, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %42)
+  %43 = call ptr @_init_l_List_tail_x21___rarg___closed__2()
+  store ptr %43, ptr @l_List_tail_x21___rarg___closed__2, align 8, !tbaa !8
+  %44 = load ptr, ptr @l_List_tail_x21___rarg___closed__2, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %44)
+  %45 = call ptr @_init_l_List_partitionM___rarg___closed__1()
+  store ptr %45, ptr @l_List_partitionM___rarg___closed__1, align 8, !tbaa !8
+  %46 = load ptr, ptr @l_List_partitionM___rarg___closed__1, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %46)
+  %47 = call ptr @_init_l_List_tacticSizeOf__list__dec___closed__1()
+  store ptr %47, ptr @l_List_tacticSizeOf__list__dec___closed__1, align 8, !tbaa !8
+  %48 = load ptr, ptr @l_List_tacticSizeOf__list__dec___closed__1, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %48)
+  %49 = call ptr @_init_l_List_tacticSizeOf__list__dec___closed__2()
+  store ptr %49, ptr @l_List_tacticSizeOf__list__dec___closed__2, align 8, !tbaa !8
+  %50 = load ptr, ptr @l_List_tacticSizeOf__list__dec___closed__2, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %50)
+  %51 = call ptr @_init_l_List_tacticSizeOf__list__dec___closed__3()
+  store ptr %51, ptr @l_List_tacticSizeOf__list__dec___closed__3, align 8, !tbaa !8
+  %52 = load ptr, ptr @l_List_tacticSizeOf__list__dec___closed__3, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %52)
+  %53 = call ptr @_init_l_List_tacticSizeOf__list__dec___closed__4()
+  store ptr %53, ptr @l_List_tacticSizeOf__list__dec___closed__4, align 8, !tbaa !8
+  %54 = load ptr, ptr @l_List_tacticSizeOf__list__dec___closed__4, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %54)
+  %55 = call ptr @_init_l_List_tacticSizeOf__list__dec___closed__5()
+  store ptr %55, ptr @l_List_tacticSizeOf__list__dec___closed__5, align 8, !tbaa !8
+  %56 = load ptr, ptr @l_List_tacticSizeOf__list__dec___closed__5, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %56)
+  %57 = call ptr @_init_l_List_tacticSizeOf__list__dec___closed__6()
+  store ptr %57, ptr @l_List_tacticSizeOf__list__dec___closed__6, align 8, !tbaa !8
+  %58 = load ptr, ptr @l_List_tacticSizeOf__list__dec___closed__6, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %58)
+  %59 = call ptr @_init_l_List_tacticSizeOf__list__dec()
+  store ptr %59, ptr @l_List_tacticSizeOf__list__dec, align 8, !tbaa !8
+  %60 = load ptr, ptr @l_List_tacticSizeOf__list__dec, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %60)
+  %61 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__1()
+  store ptr %61, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__1, align 8, !tbaa !8
+  %62 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__1, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %62)
+  %63 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__2()
+  store ptr %63, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__2, align 8, !tbaa !8
+  %64 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__2, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %64)
+  %65 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__3()
+  store ptr %65, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__3, align 8, !tbaa !8
+  %66 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__3, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %66)
+  %67 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__4()
+  store ptr %67, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__4, align 8, !tbaa !8
+  %68 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__4, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %68)
+  %69 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__5()
+  store ptr %69, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__5, align 8, !tbaa !8
+  %70 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__5, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %70)
+  %71 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__6()
+  store ptr %71, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__6, align 8, !tbaa !8
+  %72 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__6, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %72)
+  %73 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__7()
+  store ptr %73, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__7, align 8, !tbaa !8
+  %74 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__7, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %74)
+  %75 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__8()
+  store ptr %75, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__8, align 8, !tbaa !8
+  %76 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__8, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %76)
+  %77 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__9()
+  store ptr %77, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__9, align 8, !tbaa !8
+  %78 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__9, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %78)
+  %79 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__10()
+  store ptr %79, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__10, align 8, !tbaa !8
+  %80 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__10, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %80)
+  %81 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__11()
+  store ptr %81, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__11, align 8, !tbaa !8
+  %82 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__11, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %82)
+  %83 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__12()
+  store ptr %83, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__12, align 8, !tbaa !8
+  %84 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__12, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %84)
+  %85 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__13()
+  store ptr %85, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__13, align 8, !tbaa !8
+  %86 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__13, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %86)
+  %87 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__14()
+  store ptr %87, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__14, align 8, !tbaa !8
+  %88 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__14, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %88)
+  %89 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__15()
+  store ptr %89, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__15, align 8, !tbaa !8
+  %90 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__15, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %90)
+  %91 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__16()
+  store ptr %91, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__16, align 8, !tbaa !8
+  %92 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__16, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %92)
+  %93 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__17()
+  store ptr %93, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__17, align 8, !tbaa !8
+  %94 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__17, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %94)
+  %95 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__18()
+  store ptr %95, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__18, align 8, !tbaa !8
+  %96 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__18, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %96)
+  %97 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__19()
+  store ptr %97, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__19, align 8, !tbaa !8
+  %98 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__19, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %98)
+  %99 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__20()
+  store ptr %99, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__20, align 8, !tbaa !8
+  %100 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__20, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %100)
+  %101 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__21()
+  store ptr %101, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__21, align 8, !tbaa !8
+  %102 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__21, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %102)
+  %103 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__22()
+  store ptr %103, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__22, align 8, !tbaa !8
+  %104 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__22, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %104)
+  %105 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__23()
+  store ptr %105, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__23, align 8, !tbaa !8
+  %106 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__23, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %106)
+  %107 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__24()
+  store ptr %107, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__24, align 8, !tbaa !8
+  %108 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__24, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %108)
+  %109 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__25()
+  store ptr %109, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__25, align 8, !tbaa !8
+  %110 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__25, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %110)
+  %111 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__26()
+  store ptr %111, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__26, align 8, !tbaa !8
+  %112 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__26, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %112)
+  %113 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__27()
+  store ptr %113, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__27, align 8, !tbaa !8
+  %114 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__27, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %114)
+  %115 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__28()
+  store ptr %115, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__28, align 8, !tbaa !8
+  %116 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__28, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %116)
+  %117 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__29()
+  store ptr %117, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__29, align 8, !tbaa !8
+  %118 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__29, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %118)
+  %119 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__30()
+  store ptr %119, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__30, align 8, !tbaa !8
+  %120 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__30, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %120)
+  %121 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__31()
+  store ptr %121, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__31, align 8, !tbaa !8
+  %122 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__31, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %122)
+  %123 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__32()
+  store ptr %123, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__32, align 8, !tbaa !8
+  %124 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__32, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %124)
+  %125 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__33()
+  store ptr %125, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__33, align 8, !tbaa !8
+  %126 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__33, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %126)
+  %127 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__34()
+  store ptr %127, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__34, align 8, !tbaa !8
+  %128 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__34, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %128)
+  %129 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__35()
+  store ptr %129, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__35, align 8, !tbaa !8
+  %130 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__35, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %130)
+  %131 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__36()
+  store ptr %131, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__36, align 8, !tbaa !8
+  %132 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__36, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %132)
+  %133 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__37()
+  store ptr %133, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__37, align 8, !tbaa !8
+  %134 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__37, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %134)
+  %135 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__38()
+  store ptr %135, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__38, align 8, !tbaa !8
+  %136 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__38, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %136)
+  %137 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__39()
+  store ptr %137, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__39, align 8, !tbaa !8
+  %138 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__39, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %138)
+  %139 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__40()
+  store ptr %139, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__40, align 8, !tbaa !8
+  %140 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__40, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %140)
+  %141 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__41()
+  store ptr %141, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__41, align 8, !tbaa !8
+  %142 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__41, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %142)
+  %143 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__42()
+  store ptr %143, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__42, align 8, !tbaa !8
+  %144 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__42, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %144)
+  %145 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__43()
+  store ptr %145, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__43, align 8, !tbaa !8
+  %146 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__43, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %146)
+  %147 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__44()
+  store ptr %147, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__44, align 8, !tbaa !8
+  %148 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__44, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %148)
+  %149 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__45()
+  store ptr %149, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__45, align 8, !tbaa !8
+  %150 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__45, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %150)
+  %151 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__46()
+  store ptr %151, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__46, align 8, !tbaa !8
+  %152 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__46, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %152)
+  %153 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__47()
+  store ptr %153, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__47, align 8, !tbaa !8
+  %154 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__47, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %154)
+  %155 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__48()
+  store ptr %155, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__48, align 8, !tbaa !8
+  %156 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__48, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %156)
+  %157 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__49()
+  store ptr %157, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__49, align 8, !tbaa !8
+  %158 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__49, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %158)
+  %159 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__50()
+  store ptr %159, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__50, align 8, !tbaa !8
+  %160 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__50, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %160)
+  %161 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__51()
+  store ptr %161, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__51, align 8, !tbaa !8
+  %162 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__51, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %162)
+  %163 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__52()
+  store ptr %163, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__52, align 8, !tbaa !8
+  %164 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__52, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %164)
+  %165 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__53()
+  store ptr %165, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__53, align 8, !tbaa !8
+  %166 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__53, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %166)
+  %167 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__54()
+  store ptr %167, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__54, align 8, !tbaa !8
+  %168 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__54, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %168)
+  %169 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__55()
+  store ptr %169, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__55, align 8, !tbaa !8
+  %170 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__55, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %170)
+  %171 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__56()
+  store ptr %171, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__56, align 8, !tbaa !8
+  %172 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__56, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %172)
+  %173 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__57()
+  store ptr %173, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__57, align 8, !tbaa !8
+  %174 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__57, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %174)
+  %175 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__58()
+  store ptr %175, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__58, align 8, !tbaa !8
+  %176 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__58, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %176)
+  %177 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__59()
+  store ptr %177, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__59, align 8, !tbaa !8
+  %178 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__59, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %178)
+  %179 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__60()
+  store ptr %179, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__60, align 8, !tbaa !8
+  %180 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__60, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %180)
+  %181 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__61()
+  store ptr %181, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__61, align 8, !tbaa !8
+  %182 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__61, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %182)
+  %183 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__62()
+  store ptr %183, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__62, align 8, !tbaa !8
+  %184 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__62, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %184)
+  %185 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__63()
+  store ptr %185, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__63, align 8, !tbaa !8
+  %186 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__63, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %186)
+  %187 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__64()
+  store ptr %187, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__64, align 8, !tbaa !8
+  %188 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__64, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %188)
+  %189 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__65()
+  store ptr %189, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__65, align 8, !tbaa !8
+  %190 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__65, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %190)
+  %191 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__66()
+  store ptr %191, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__66, align 8, !tbaa !8
+  %192 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__66, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %192)
+  %193 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__67()
+  store ptr %193, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__67, align 8, !tbaa !8
+  %194 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__67, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %194)
+  %195 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__68()
+  store ptr %195, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__68, align 8, !tbaa !8
+  %196 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__68, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %196)
+  %197 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__69()
+  store ptr %197, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__69, align 8, !tbaa !8
+  %198 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__69, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %198)
+  %199 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__70()
+  store ptr %199, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__70, align 8, !tbaa !8
+  %200 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__70, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %200)
+  %201 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__tacticDecreasing__trivial__1___closed__1()
+  store ptr %201, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__tacticDecreasing__trivial__1___closed__1, align 8, !tbaa !8
+  %202 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__tacticDecreasing__trivial__1___closed__1, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %202)
+  %203 = call ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__tacticDecreasing__trivial__1___closed__2()
+  store ptr %203, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__tacticDecreasing__trivial__1___closed__2, align 8, !tbaa !8
+  %204 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__tacticDecreasing__trivial__1___closed__2, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %204)
+  %205 = call ptr @lean_box(i64 noundef 0)
+  %206 = call ptr @lean_io_result_mk_ok(ptr noundef %205)
+  store ptr %206, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %207
+
+207:                                              ; preds = %21, %19, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  %208 = load ptr, ptr %3, align 8
+  ret ptr %208
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_io_result_mk_ok(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %4, ptr %3, align 8, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !8
+  %6 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %5, i32 noundef 0, ptr noundef %6)
+  %7 = load ptr, ptr %3, align 8, !tbaa !8
+  %8 = call ptr @lean_box(i64 noundef 0)
+  call void @lean_ctor_set(ptr noundef %7, i32 noundef 1, ptr noundef %8)
+  %9 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret ptr %9
+}
+
+declare ptr @initialize_Init_Data_Nat_Linear(i8 noundef zeroext, ptr noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @lean_io_result_is_error(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = call zeroext i8 @lean_ptr_tag(ptr noundef %3)
+  %5 = zext i8 %4 to i32
+  %6 = icmp eq i32 %5, 1
+  ret i1 %6
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @lean_dec_ref(ptr noundef %0) #1 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %struct.lean_object, ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 4, !tbaa !15
+  %6 = icmp sgt i32 %5, 1
+  %7 = zext i1 %6 to i32
+  %8 = sext i32 %7 to i64
+  %9 = call i64 @llvm.expect.i64(i64 %8, i64 1)
+  %10 = icmp ne i64 %9, 0
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %2, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.lean_object, ptr %12, i32 0, i32 0
+  %14 = load i32, ptr %13, align 4, !tbaa !15
+  %15 = add i32 %14, -1
+  store i32 %15, ptr %13, align 4, !tbaa !15
+  br label %24
+
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %2, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.lean_object, ptr %17, i32 0, i32 0
+  %19 = load i32, ptr %18, align 4, !tbaa !15
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %23
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @lean_dec_ref_cold(ptr noundef %22)
+  br label %23
+
+23:                                               ; preds = %21, %16
+  br label %24
+
+24:                                               ; preds = %23, %11
+  ret void
+}
+
+declare void @lean_mark_persistent(ptr noundef) #4
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i1 @lean_nat_eq(ptr noundef %0, ptr noundef %1) #1 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  %6 = load ptr, ptr %4, align 8, !tbaa !8
+  %7 = call zeroext i1 @lean_is_scalar(ptr noundef %6)
+  br i1 %7, label %8, label %11
+
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %5, align 8, !tbaa !8
+  %10 = call zeroext i1 @lean_is_scalar(ptr noundef %9)
+  br label %11
+
+11:                                               ; preds = %8, %2
+  %12 = phi i1 [ false, %2 ], [ %10, %8 ]
+  %13 = zext i1 %12 to i32
+  %14 = sext i32 %13 to i64
+  %15 = call i64 @llvm.expect.i64(i64 %14, i64 1)
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %21
+
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %4, align 8, !tbaa !8
+  %19 = load ptr, ptr %5, align 8, !tbaa !8
+  %20 = icmp eq ptr %18, %19
+  store i1 %20, ptr %3, align 1
+  br label %25
+
+21:                                               ; preds = %11
+  %22 = load ptr, ptr %4, align 8, !tbaa !8
+  %23 = load ptr, ptr %5, align 8, !tbaa !8
+  %24 = call zeroext i1 @lean_nat_big_eq(ptr noundef %22, ptr noundef %23)
+  store i1 %24, ptr %3, align 1
+  br label %25
+
+25:                                               ; preds = %21, %17
+  %26 = load i1, ptr %3, align 1
+  ret i1 %26
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i1 @lean_is_scalar(ptr noundef %0) #1 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = ptrtoint ptr %3 to i64
+  %5 = and i64 %4, 1
+  %6 = icmp eq i64 %5, 1
+  ret i1 %6
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #5
+
+declare zeroext i1 @lean_nat_big_eq(ptr noundef, ptr noundef) #4
+
+declare ptr @lean_nat_big_sub(ptr noundef, ptr noundef) #4
+
+; Function Attrs: noreturn
+declare void @lean_internal_panic_out_of_memory() #6
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_alloc_array(i64 noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load i64, ptr %4, align 8, !tbaa !4
+  %7 = mul i64 8, %6
+  %8 = add i64 24, %7
+  %9 = call ptr @lean_alloc_object(i64 noundef %8)
+  store ptr %9, ptr %5, align 8, !tbaa !8
+  %10 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @lean_set_st_header(ptr noundef %10, i32 noundef 246, i32 noundef 0)
+  %11 = load i64, ptr %3, align 8, !tbaa !4
+  %12 = load ptr, ptr %5, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.lean_array_object, ptr %12, i32 0, i32 1
+  store i64 %11, ptr %13, align 8, !tbaa !4
+  %14 = load i64, ptr %4, align 8, !tbaa !4
+  %15 = load ptr, ptr %5, align 8, !tbaa !8
+  %16 = getelementptr inbounds nuw %struct.lean_array_object, ptr %15, i32 0, i32 2
+  store i64 %14, ptr %16, align 8, !tbaa !4
+  %17 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret ptr %17
+}
+
+declare ptr @lean_alloc_object(i64 noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @lean_set_st_header(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !11
+  store i32 %2, ptr %6, align 4, !tbaa !11
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw %struct.lean_object, ptr %7, i32 0, i32 0
+  store i32 1, ptr %8, align 4, !tbaa !15
+  %9 = load i32, ptr %5, align 4, !tbaa !11
+  %10 = load ptr, ptr %4, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw %struct.lean_object, ptr %10, i32 0, i32 1
+  %12 = load i32, ptr %11, align 4
+  %13 = and i32 %9, 255
+  %14 = shl i32 %13, 24
+  %15 = and i32 %12, 16777215
+  %16 = or i32 %15, %14
+  store i32 %16, ptr %11, align 4
+  %17 = load i32, ptr %6, align 4, !tbaa !11
+  %18 = load ptr, ptr %4, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw %struct.lean_object, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 4
+  %21 = and i32 %17, 255
+  %22 = shl i32 %21, 16
+  %23 = and i32 %20, -16711681
+  %24 = or i32 %23, %22
+  store i32 %24, ptr %19, align 4
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i8 @lean_ptr_tag(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %struct.lean_object, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4
+  %6 = lshr i32 %5, 24
+  %7 = trunc i32 %6 to i8
+  ret i8 %7
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_ctor_obj_cptr(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = call ptr @lean_to_ctor(ptr noundef %3)
+  %5 = getelementptr inbounds nuw %struct.lean_ctor_object, ptr %4, i32 0, i32 1
+  %6 = getelementptr inbounds [0 x ptr], ptr %5, i64 0, i64 0
+  ret ptr %6
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_to_ctor(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  ret ptr %3
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_usize_to_nat(i64 noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !4
+  %4 = load i64, ptr %3, align 8, !tbaa !4
+  %5 = icmp ule i64 %4, 9223372036854775807
+  %6 = zext i1 %5 to i32
+  %7 = sext i32 %6 to i64
+  %8 = call i64 @llvm.expect.i64(i64 %7, i64 1)
+  %9 = icmp ne i64 %8, 0
+  br i1 %9, label %10, label %13
+
+10:                                               ; preds = %1
+  %11 = load i64, ptr %3, align 8, !tbaa !4
+  %12 = call ptr @lean_box(i64 noundef %11)
+  store ptr %12, ptr %2, align 8
+  br label %16
+
+13:                                               ; preds = %1
+  %14 = load i64, ptr %3, align 8, !tbaa !4
+  %15 = call ptr @lean_big_usize_to_nat(i64 noundef %14)
+  store ptr %15, ptr %2, align 8
+  br label %16
+
+16:                                               ; preds = %13, %10
+  %17 = load ptr, ptr %2, align 8
+  ret ptr %17
+}
+
+declare ptr @lean_big_usize_to_nat(i64 noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @lean_inc_ref(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = call zeroext i1 @lean_is_st(ptr noundef %3)
+  %5 = zext i1 %4 to i64
+  %6 = call i64 @llvm.expect.i64(i64 %5, i64 1)
+  %7 = icmp ne i64 %6, 0
+  br i1 %7, label %8, label %13
+
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %2, align 8, !tbaa !8
+  %10 = getelementptr inbounds nuw %struct.lean_object, ptr %9, i32 0, i32 0
+  %11 = load i32, ptr %10, align 4, !tbaa !15
+  %12 = add i32 %11, 1
+  store i32 %12, ptr %10, align 4, !tbaa !15
+  br label %21
+
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %2, align 8, !tbaa !8
+  %15 = getelementptr inbounds nuw %struct.lean_object, ptr %14, i32 0, i32 0
+  %16 = load i32, ptr %15, align 4, !tbaa !15
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %20
+
+18:                                               ; preds = %13
+  %19 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @lean_inc_ref_cold(ptr noundef %19)
+  br label %20
+
+20:                                               ; preds = %18, %13
+  br label %21
+
+21:                                               ; preds = %20, %8
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @lean_is_st(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %struct.lean_object, ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 4, !tbaa !15
+  %6 = icmp sgt i32 %5, 0
+  ret i1 %6
+}
+
+declare void @lean_inc_ref_cold(ptr noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_alloc_ctor_memory(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store i32 %0, ptr %2, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  %6 = load i32, ptr %2, align 4, !tbaa !11
+  %7 = zext i32 %6 to i64
+  %8 = call i64 @lean_align(i64 noundef %7, i64 noundef 8)
+  %9 = trunc i64 %8 to i32
+  store i32 %9, ptr %3, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %10 = load i32, ptr %2, align 4, !tbaa !11
+  %11 = call ptr @lean_alloc_small_object(i32 noundef %10)
+  store ptr %11, ptr %4, align 8, !tbaa !8
+  %12 = load i32, ptr %3, align 4, !tbaa !11
+  %13 = load i32, ptr %2, align 4, !tbaa !11
+  %14 = icmp ugt i32 %12, %13
+  br i1 %14, label %15, label %22
+
+15:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %16 = load ptr, ptr %4, align 8, !tbaa !8
+  %17 = load i32, ptr %3, align 4, !tbaa !11
+  %18 = zext i32 %17 to i64
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %18
+  store ptr %19, ptr %5, align 8, !tbaa !21
+  %20 = load ptr, ptr %5, align 8, !tbaa !21
+  %21 = getelementptr inbounds i64, ptr %20, i64 -1
+  store i64 0, ptr %21, align 8, !tbaa !4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  br label %22
+
+22:                                               ; preds = %15, %1
+  %23 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret ptr %23
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @lean_align(i64 noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !4
+  %5 = load i64, ptr %3, align 8, !tbaa !4
+  %6 = load i64, ptr %4, align 8, !tbaa !4
+  %7 = udiv i64 %5, %6
+  %8 = load i64, ptr %4, align 8, !tbaa !4
+  %9 = mul i64 %7, %8
+  %10 = load i64, ptr %4, align 8, !tbaa !4
+  %11 = load i64, ptr %3, align 8, !tbaa !4
+  %12 = load i64, ptr %4, align 8, !tbaa !4
+  %13 = urem i64 %11, %12
+  %14 = icmp ne i64 %13, 0
+  %15 = zext i1 %14 to i32
+  %16 = sext i32 %15 to i64
+  %17 = mul i64 %10, %16
+  %18 = add i64 %9, %17
+  ret i64 %18
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_alloc_small_object(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store i32 %0, ptr %2, align 4, !tbaa !11
+  call void @lean_inc_heartbeat()
+  %5 = load i32, ptr %2, align 4, !tbaa !11
+  %6 = zext i32 %5 to i64
+  %7 = call i64 @lean_align(i64 noundef %6, i64 noundef 8)
+  %8 = trunc i64 %7 to i32
+  store i32 %8, ptr %2, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %9 = load i32, ptr %2, align 4, !tbaa !11
+  %10 = zext i32 %9 to i64
+  %11 = call noalias ptr @mi_malloc_small(i64 noundef %10)
+  store ptr %11, ptr %3, align 8, !tbaa !8
+  %12 = load ptr, ptr %3, align 8, !tbaa !8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %1
+  call void @lean_internal_panic_out_of_memory() #8
+  unreachable
+
+15:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %16 = load ptr, ptr %3, align 8, !tbaa !8
+  store ptr %16, ptr %4, align 8, !tbaa !8
+  %17 = load i32, ptr %2, align 4, !tbaa !11
+  %18 = load ptr, ptr %4, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw %struct.lean_object, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 4
+  %21 = and i32 %17, 65535
+  %22 = and i32 %20, -65536
+  %23 = or i32 %22, %21
+  store i32 %23, ptr %19, align 4
+  %24 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret ptr %24
+}
+
+declare void @lean_inc_heartbeat() #4
+
+declare noalias ptr @mi_malloc_small(i64 noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_to_closure(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  ret ptr %3
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @lean_inc_ref_n(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i64 %1, ptr %4, align 8, !tbaa !4
+  %5 = load ptr, ptr %3, align 8, !tbaa !8
+  %6 = call zeroext i1 @lean_is_st(ptr noundef %5)
+  %7 = zext i1 %6 to i64
+  %8 = call i64 @llvm.expect.i64(i64 %7, i64 1)
+  %9 = icmp ne i64 %8, 0
+  br i1 %9, label %10, label %18
+
+10:                                               ; preds = %2
+  %11 = load i64, ptr %4, align 8, !tbaa !4
+  %12 = load ptr, ptr %3, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.lean_object, ptr %12, i32 0, i32 0
+  %14 = load i32, ptr %13, align 4, !tbaa !15
+  %15 = sext i32 %14 to i64
+  %16 = add i64 %15, %11
+  %17 = trunc i64 %16 to i32
+  store i32 %17, ptr %13, align 4, !tbaa !15
+  br label %28
+
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %3, align 8, !tbaa !8
+  %20 = getelementptr inbounds nuw %struct.lean_object, ptr %19, i32 0, i32 0
+  %21 = load i32, ptr %20, align 4, !tbaa !15
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %27
+
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %3, align 8, !tbaa !8
+  %25 = load i64, ptr %4, align 8, !tbaa !4
+  %26 = trunc i64 %25 to i32
+  call void @lean_inc_ref_n_cold(ptr noundef %24, i32 noundef %26)
+  br label %27
+
+27:                                               ; preds = %23, %18
+  br label %28
+
+28:                                               ; preds = %27, %10
+  ret void
+}
+
+declare void @lean_inc_ref_n_cold(ptr noundef, i32 noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_io_mk_world() #0 {
+  %1 = call ptr @lean_box(i64 noundef 0)
+  ret ptr %1
+}
+
+declare void @lean_dec_ref_cold(ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_get_x21___rarg___closed__1() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str, i64 noundef 23, i64 noundef 23)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+declare ptr @lean_mk_string_unchecked(ptr noundef, i64 noundef, i64 noundef) #4
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_get_x21___rarg___closed__2() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.1, i64 noundef 9, i64 noundef 9)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_get_x21___rarg___closed__3() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.2, i64 noundef 13, i64 noundef 13)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_get_x21___rarg___closed__4() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  br label %7
+
+7:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %8 = load ptr, ptr @l_List_get_x21___rarg___closed__1, align 8, !tbaa !8
+  store ptr %8, ptr %1, align 8, !tbaa !8
+  %9 = load ptr, ptr @l_List_get_x21___rarg___closed__2, align 8, !tbaa !8
+  store ptr %9, ptr %2, align 8, !tbaa !8
+  %10 = call ptr @lean_unsigned_to_nat(i32 noundef 68)
+  store ptr %10, ptr %3, align 8, !tbaa !8
+  %11 = call ptr @lean_unsigned_to_nat(i32 noundef 18)
+  store ptr %11, ptr %4, align 8, !tbaa !8
+  %12 = load ptr, ptr @l_List_get_x21___rarg___closed__3, align 8, !tbaa !8
+  store ptr %12, ptr %5, align 8, !tbaa !8
+  %13 = load ptr, ptr %1, align 8, !tbaa !8
+  %14 = load ptr, ptr %2, align 8, !tbaa !8
+  %15 = load ptr, ptr %3, align 8, !tbaa !8
+  %16 = load ptr, ptr %4, align 8, !tbaa !8
+  %17 = load ptr, ptr %5, align 8, !tbaa !8
+  %18 = call ptr @l___private_Init_Util_0__mkPanicMessageWithDecl(ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17)
+  store ptr %18, ptr %6, align 8, !tbaa !8
+  %19 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %19
+}
+
+declare ptr @l___private_Init_Util_0__mkPanicMessageWithDecl(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_getLast_x21___rarg___closed__1() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.3, i64 noundef 13, i64 noundef 13)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_getLast_x21___rarg___closed__2() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.4, i64 noundef 10, i64 noundef 10)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_getLast_x21___rarg___closed__3() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  br label %7
+
+7:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %8 = load ptr, ptr @l_List_get_x21___rarg___closed__1, align 8, !tbaa !8
+  store ptr %8, ptr %1, align 8, !tbaa !8
+  %9 = load ptr, ptr @l_List_getLast_x21___rarg___closed__1, align 8, !tbaa !8
+  store ptr %9, ptr %2, align 8, !tbaa !8
+  %10 = call ptr @lean_unsigned_to_nat(i32 noundef 115)
+  store ptr %10, ptr %3, align 8, !tbaa !8
+  %11 = call ptr @lean_unsigned_to_nat(i32 noundef 13)
+  store ptr %11, ptr %4, align 8, !tbaa !8
+  %12 = load ptr, ptr @l_List_getLast_x21___rarg___closed__2, align 8, !tbaa !8
+  store ptr %12, ptr %5, align 8, !tbaa !8
+  %13 = load ptr, ptr %1, align 8, !tbaa !8
+  %14 = load ptr, ptr %2, align 8, !tbaa !8
+  %15 = load ptr, ptr %3, align 8, !tbaa !8
+  %16 = load ptr, ptr %4, align 8, !tbaa !8
+  %17 = load ptr, ptr %5, align 8, !tbaa !8
+  %18 = call ptr @l___private_Init_Util_0__mkPanicMessageWithDecl(ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17)
+  store ptr %18, ptr %6, align 8, !tbaa !8
+  %19 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %19
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_head_x21___rarg___closed__1() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.5, i64 noundef 10, i64 noundef 10)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_head_x21___rarg___closed__2() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  br label %7
+
+7:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %8 = load ptr, ptr @l_List_get_x21___rarg___closed__1, align 8, !tbaa !8
+  store ptr %8, ptr %1, align 8, !tbaa !8
+  %9 = load ptr, ptr @l_List_head_x21___rarg___closed__1, align 8, !tbaa !8
+  store ptr %9, ptr %2, align 8, !tbaa !8
+  %10 = call ptr @lean_unsigned_to_nat(i32 noundef 131)
+  store ptr %10, ptr %3, align 8, !tbaa !8
+  %11 = call ptr @lean_unsigned_to_nat(i32 noundef 12)
+  store ptr %11, ptr %4, align 8, !tbaa !8
+  %12 = load ptr, ptr @l_List_getLast_x21___rarg___closed__2, align 8, !tbaa !8
+  store ptr %12, ptr %5, align 8, !tbaa !8
+  %13 = load ptr, ptr %1, align 8, !tbaa !8
+  %14 = load ptr, ptr %2, align 8, !tbaa !8
+  %15 = load ptr, ptr %3, align 8, !tbaa !8
+  %16 = load ptr, ptr %4, align 8, !tbaa !8
+  %17 = load ptr, ptr %5, align 8, !tbaa !8
+  %18 = call ptr @l___private_Init_Util_0__mkPanicMessageWithDecl(ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17)
+  store ptr %18, ptr %6, align 8, !tbaa !8
+  %19 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %19
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_tail_x21___rarg___closed__1() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.6, i64 noundef 10, i64 noundef 10)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_tail_x21___rarg___closed__2() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  br label %7
+
+7:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %8 = load ptr, ptr @l_List_get_x21___rarg___closed__1, align 8, !tbaa !8
+  store ptr %8, ptr %1, align 8, !tbaa !8
+  %9 = load ptr, ptr @l_List_tail_x21___rarg___closed__1, align 8, !tbaa !8
+  store ptr %9, ptr %2, align 8, !tbaa !8
+  %10 = call ptr @lean_unsigned_to_nat(i32 noundef 150)
+  store ptr %10, ptr %3, align 8, !tbaa !8
+  %11 = call ptr @lean_unsigned_to_nat(i32 noundef 13)
+  store ptr %11, ptr %4, align 8, !tbaa !8
+  %12 = load ptr, ptr @l_List_getLast_x21___rarg___closed__2, align 8, !tbaa !8
+  store ptr %12, ptr %5, align 8, !tbaa !8
+  %13 = load ptr, ptr %1, align 8, !tbaa !8
+  %14 = load ptr, ptr %2, align 8, !tbaa !8
+  %15 = load ptr, ptr %3, align 8, !tbaa !8
+  %16 = load ptr, ptr %4, align 8, !tbaa !8
+  %17 = load ptr, ptr %5, align 8, !tbaa !8
+  %18 = call ptr @l___private_Init_Util_0__mkPanicMessageWithDecl(ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17)
+  store ptr %18, ptr %6, align 8, !tbaa !8
+  %19 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %19
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_partitionM___rarg___closed__1() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  br label %3
+
+3:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  %4 = call ptr @lean_box(i64 noundef 0)
+  store ptr %4, ptr %1, align 8, !tbaa !8
+  %5 = load ptr, ptr %1, align 8, !tbaa !8
+  %6 = call ptr @lean_array_mk(ptr noundef %5)
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %7
+}
+
+declare ptr @lean_array_mk(ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_tacticSizeOf__list__dec___closed__1() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.7, i64 noundef 4, i64 noundef 4)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_tacticSizeOf__list__dec___closed__2() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.8, i64 noundef 21, i64 noundef 21)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_tacticSizeOf__list__dec___closed__3() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  br label %4
+
+4:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = load ptr, ptr @l_List_tacticSizeOf__list__dec___closed__1, align 8, !tbaa !8
+  store ptr %5, ptr %1, align 8, !tbaa !8
+  %6 = load ptr, ptr @l_List_tacticSizeOf__list__dec___closed__2, align 8, !tbaa !8
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr %2, align 8, !tbaa !8
+  %9 = call ptr @l_Lean_Name_mkStr2(ptr noundef %7, ptr noundef %8)
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %10
+}
+
+declare ptr @l_Lean_Name_mkStr2(ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_tacticSizeOf__list__dec___closed__4() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.9, i64 noundef 15, i64 noundef 15)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_tacticSizeOf__list__dec___closed__5() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca i8, align 1
+  %3 = alloca ptr, align 8
+  br label %4
+
+4:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = load ptr, ptr @l_List_tacticSizeOf__list__dec___closed__4, align 8, !tbaa !8
+  store ptr %5, ptr %1, align 8, !tbaa !8
+  store i8 0, ptr %2, align 1, !tbaa !10
+  %6 = call ptr @lean_alloc_ctor(i32 noundef 6, i32 noundef 1, i32 noundef 1)
+  store ptr %6, ptr %3, align 8, !tbaa !8
+  %7 = load ptr, ptr %3, align 8, !tbaa !8
+  %8 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %7, i32 noundef 0, ptr noundef %8)
+  %9 = load ptr, ptr %3, align 8, !tbaa !8
+  %10 = load i8, ptr %2, align 1, !tbaa !10
+  call void @lean_ctor_set_uint8(ptr noundef %9, i32 noundef 8, i8 noundef zeroext %10)
+  %11 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %11
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @lean_ctor_set_uint8(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !11
+  store i8 %2, ptr %6, align 1, !tbaa !10
+  %7 = load i8, ptr %6, align 1, !tbaa !10
+  %8 = load ptr, ptr %4, align 8, !tbaa !8
+  %9 = call ptr @lean_ctor_obj_cptr(ptr noundef %8)
+  %10 = load i32, ptr %5, align 4, !tbaa !11
+  %11 = zext i32 %10 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %11
+  store i8 %7, ptr %12, align 1, !tbaa !10
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_tacticSizeOf__list__dec___closed__6() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  br label %5
+
+5:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %6 = load ptr, ptr @l_List_tacticSizeOf__list__dec___closed__3, align 8, !tbaa !8
+  store ptr %6, ptr %1, align 8, !tbaa !8
+  %7 = call ptr @lean_unsigned_to_nat(i32 noundef 1024)
+  store ptr %7, ptr %2, align 8, !tbaa !8
+  %8 = load ptr, ptr @l_List_tacticSizeOf__list__dec___closed__5, align 8, !tbaa !8
+  store ptr %8, ptr %3, align 8, !tbaa !8
+  %9 = call ptr @lean_alloc_ctor(i32 noundef 3, i32 noundef 3, i32 noundef 0)
+  store ptr %9, ptr %4, align 8, !tbaa !8
+  %10 = load ptr, ptr %4, align 8, !tbaa !8
+  %11 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %10, i32 noundef 0, ptr noundef %11)
+  %12 = load ptr, ptr %4, align 8, !tbaa !8
+  %13 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %12, i32 noundef 1, ptr noundef %13)
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %14, i32 noundef 2, ptr noundef %15)
+  %16 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %16
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_tacticSizeOf__list__dec() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = load ptr, ptr @l_List_tacticSizeOf__list__dec___closed__6, align 8, !tbaa !8
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__1() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.10, i64 noundef 4, i64 noundef 4)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__2() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.11, i64 noundef 6, i64 noundef 6)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__3() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.12, i64 noundef 6, i64 noundef 6)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__4() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.13, i64 noundef 5, i64 noundef 5)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__5() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  br label %6
+
+6:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__1, align 8, !tbaa !8
+  store ptr %7, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__2, align 8, !tbaa !8
+  store ptr %8, ptr %2, align 8, !tbaa !8
+  %9 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__3, align 8, !tbaa !8
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__4, align 8, !tbaa !8
+  store ptr %10, ptr %4, align 8, !tbaa !8
+  %11 = load ptr, ptr %1, align 8, !tbaa !8
+  %12 = load ptr, ptr %2, align 8, !tbaa !8
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = call ptr @l_Lean_Name_mkStr4(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %5, align 8, !tbaa !8
+  %16 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %16
+}
+
+declare ptr @l_Lean_Name_mkStr4(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__6() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.14, i64 noundef 4, i64 noundef 4)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__7() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  br label %4
+
+4:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = call ptr @lean_box(i64 noundef 0)
+  store ptr %5, ptr %1, align 8, !tbaa !8
+  %6 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__6, align 8, !tbaa !8
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr %2, align 8, !tbaa !8
+  %9 = call ptr @l_Lean_Name_str___override(ptr noundef %7, ptr noundef %8)
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %10
+}
+
+declare ptr @l_Lean_Name_str___override(ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__8() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.15, i64 noundef 5, i64 noundef 5)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__9() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  br label %4
+
+4:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = call ptr @lean_box(i64 noundef 0)
+  store ptr %5, ptr %1, align 8, !tbaa !8
+  %6 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__8, align 8, !tbaa !8
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr %2, align 8, !tbaa !8
+  %9 = call ptr @l_Lean_Name_str___override(ptr noundef %7, ptr noundef %8)
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %10
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__10() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.16, i64 noundef 1, i64 noundef 1)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__11() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.17, i64 noundef 9, i64 noundef 9)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__12() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  br label %6
+
+6:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__1, align 8, !tbaa !8
+  store ptr %7, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__2, align 8, !tbaa !8
+  store ptr %8, ptr %2, align 8, !tbaa !8
+  %9 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__3, align 8, !tbaa !8
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__11, align 8, !tbaa !8
+  store ptr %10, ptr %4, align 8, !tbaa !8
+  %11 = load ptr, ptr %1, align 8, !tbaa !8
+  %12 = load ptr, ptr %2, align 8, !tbaa !8
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = call ptr @l_Lean_Name_mkStr4(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %5, align 8, !tbaa !8
+  %16 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %16
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__13() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.18, i64 noundef 18, i64 noundef 18)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__14() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  br label %6
+
+6:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__1, align 8, !tbaa !8
+  store ptr %7, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__2, align 8, !tbaa !8
+  store ptr %8, ptr %2, align 8, !tbaa !8
+  %9 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__3, align 8, !tbaa !8
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__13, align 8, !tbaa !8
+  store ptr %10, ptr %4, align 8, !tbaa !8
+  %11 = load ptr, ptr %1, align 8, !tbaa !8
+  %12 = load ptr, ptr %2, align 8, !tbaa !8
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = call ptr @l_Lean_Name_mkStr4(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %5, align 8, !tbaa !8
+  %16 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %16
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__15() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.19, i64 noundef 13, i64 noundef 13)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__16() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  br label %6
+
+6:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__1, align 8, !tbaa !8
+  store ptr %7, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__2, align 8, !tbaa !8
+  store ptr %8, ptr %2, align 8, !tbaa !8
+  %9 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__3, align 8, !tbaa !8
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__15, align 8, !tbaa !8
+  store ptr %10, ptr %4, align 8, !tbaa !8
+  %11 = load ptr, ptr %1, align 8, !tbaa !8
+  %12 = load ptr, ptr %2, align 8, !tbaa !8
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = call ptr @l_Lean_Name_mkStr4(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %5, align 8, !tbaa !8
+  %16 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %16
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__17() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.20, i64 noundef 14, i64 noundef 14)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__18() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.21, i64 noundef 5, i64 noundef 5)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__19() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  br label %6
+
+6:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__1, align 8, !tbaa !8
+  store ptr %7, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__2, align 8, !tbaa !8
+  store ptr %8, ptr %2, align 8, !tbaa !8
+  %9 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__3, align 8, !tbaa !8
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__18, align 8, !tbaa !8
+  store ptr %10, ptr %4, align 8, !tbaa !8
+  %11 = load ptr, ptr %1, align 8, !tbaa !8
+  %12 = load ptr, ptr %2, align 8, !tbaa !8
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = call ptr @l_Lean_Name_mkStr4(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %5, align 8, !tbaa !8
+  %16 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %16
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__20() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.22, i64 noundef 16, i64 noundef 16)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__21() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  br label %3
+
+3:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  %4 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__20, align 8, !tbaa !8
+  store ptr %4, ptr %1, align 8, !tbaa !8
+  %5 = load ptr, ptr %1, align 8, !tbaa !8
+  %6 = call ptr @l_String_toSubstring_x27(ptr noundef %5)
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %7
+}
+
+declare ptr @l_String_toSubstring_x27(ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__22() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  br label %4
+
+4:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = call ptr @lean_box(i64 noundef 0)
+  store ptr %5, ptr %1, align 8, !tbaa !8
+  %6 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__20, align 8, !tbaa !8
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr %2, align 8, !tbaa !8
+  %9 = call ptr @l_Lean_Name_str___override(ptr noundef %7, ptr noundef %8)
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %10
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__23() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  br label %4
+
+4:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = load ptr, ptr @l_List_tacticSizeOf__list__dec___closed__1, align 8, !tbaa !8
+  store ptr %5, ptr %1, align 8, !tbaa !8
+  %6 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__20, align 8, !tbaa !8
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr %2, align 8, !tbaa !8
+  %9 = call ptr @l_Lean_Name_mkStr2(ptr noundef %7, ptr noundef %8)
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %10
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__24() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  br label %4
+
+4:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = call ptr @lean_box(i64 noundef 0)
+  store ptr %5, ptr %1, align 8, !tbaa !8
+  %6 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__23, align 8, !tbaa !8
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %7, ptr %3, align 8, !tbaa !8
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
+  %9 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %8, i32 noundef 0, ptr noundef %9)
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  %11 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %10, i32 noundef 1, ptr noundef %11)
+  %12 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %12
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__25() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  br label %4
+
+4:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = call ptr @lean_box(i64 noundef 0)
+  store ptr %5, ptr %1, align 8, !tbaa !8
+  %6 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__24, align 8, !tbaa !8
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %7, ptr %3, align 8, !tbaa !8
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
+  %9 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %8, i32 noundef 0, ptr noundef %9)
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  %11 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %10, i32 noundef 1, ptr noundef %11)
+  %12 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %12
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__26() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.23, i64 noundef 1, i64 noundef 1)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__27() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.24, i64 noundef 10, i64 noundef 10)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__28() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  br label %6
+
+6:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__1, align 8, !tbaa !8
+  store ptr %7, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__2, align 8, !tbaa !8
+  store ptr %8, ptr %2, align 8, !tbaa !8
+  %9 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__3, align 8, !tbaa !8
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__27, align 8, !tbaa !8
+  store ptr %10, ptr %4, align 8, !tbaa !8
+  %11 = load ptr, ptr %1, align 8, !tbaa !8
+  %12 = load ptr, ptr %2, align 8, !tbaa !8
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = call ptr @l_Lean_Name_mkStr4(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %5, align 8, !tbaa !8
+  %16 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %16
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__29() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.25, i64 noundef 4, i64 noundef 4)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__30() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  br label %6
+
+6:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__1, align 8, !tbaa !8
+  store ptr %7, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__2, align 8, !tbaa !8
+  store ptr %8, ptr %2, align 8, !tbaa !8
+  %9 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__3, align 8, !tbaa !8
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__29, align 8, !tbaa !8
+  store ptr %10, ptr %4, align 8, !tbaa !8
+  %11 = load ptr, ptr %1, align 8, !tbaa !8
+  %12 = load ptr, ptr %2, align 8, !tbaa !8
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = call ptr @l_Lean_Name_mkStr4(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %5, align 8, !tbaa !8
+  %16 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %16
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__31() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.26, i64 noundef 4, i64 noundef 4)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__32() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.27, i64 noundef 3, i64 noundef 3)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__33() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  br label %6
+
+6:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__1, align 8, !tbaa !8
+  store ptr %7, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__2, align 8, !tbaa !8
+  store ptr %8, ptr %2, align 8, !tbaa !8
+  %9 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__31, align 8, !tbaa !8
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__32, align 8, !tbaa !8
+  store ptr %10, ptr %4, align 8, !tbaa !8
+  %11 = load ptr, ptr %1, align 8, !tbaa !8
+  %12 = load ptr, ptr %2, align 8, !tbaa !8
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = call ptr @l_Lean_Name_mkStr4(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %5, align 8, !tbaa !8
+  %16 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %16
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__34() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.28, i64 noundef 18, i64 noundef 18)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__35() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  br label %3
+
+3:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  %4 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__34, align 8, !tbaa !8
+  store ptr %4, ptr %1, align 8, !tbaa !8
+  %5 = load ptr, ptr %1, align 8, !tbaa !8
+  %6 = call ptr @l_String_toSubstring_x27(ptr noundef %5)
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %7
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__36() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.29, i64 noundef 3, i64 noundef 3)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__37() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.30, i64 noundef 14, i64 noundef 14)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__38() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  br label %4
+
+4:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__36, align 8, !tbaa !8
+  store ptr %5, ptr %1, align 8, !tbaa !8
+  %6 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__37, align 8, !tbaa !8
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr %2, align 8, !tbaa !8
+  %9 = call ptr @l_Lean_Name_mkStr2(ptr noundef %7, ptr noundef %8)
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %10
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__39() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  br label %4
+
+4:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = call ptr @lean_box(i64 noundef 0)
+  store ptr %5, ptr %1, align 8, !tbaa !8
+  %6 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__38, align 8, !tbaa !8
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %7, ptr %3, align 8, !tbaa !8
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
+  %9 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %8, i32 noundef 0, ptr noundef %9)
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  %11 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %10, i32 noundef 1, ptr noundef %11)
+  %12 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %12
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__40() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  br label %4
+
+4:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = call ptr @lean_box(i64 noundef 0)
+  store ptr %5, ptr %1, align 8, !tbaa !8
+  %6 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__39, align 8, !tbaa !8
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %7, ptr %3, align 8, !tbaa !8
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
+  %9 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %8, i32 noundef 0, ptr noundef %9)
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  %11 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %10, i32 noundef 1, ptr noundef %11)
+  %12 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %12
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__41() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.31, i64 noundef 5, i64 noundef 5)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__42() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  br label %6
+
+6:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__1, align 8, !tbaa !8
+  store ptr %7, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__2, align 8, !tbaa !8
+  store ptr %8, ptr %2, align 8, !tbaa !8
+  %9 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__31, align 8, !tbaa !8
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__41, align 8, !tbaa !8
+  store ptr %10, ptr %4, align 8, !tbaa !8
+  %11 = load ptr, ptr %1, align 8, !tbaa !8
+  %12 = load ptr, ptr %2, align 8, !tbaa !8
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = call ptr @l_Lean_Name_mkStr4(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %5, align 8, !tbaa !8
+  %16 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %16
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__43() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.32, i64 noundef 1, i64 noundef 1)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__44() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.33, i64 noundef 13, i64 noundef 13)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__45() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  br label %6
+
+6:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__1, align 8, !tbaa !8
+  store ptr %7, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__2, align 8, !tbaa !8
+  store ptr %8, ptr %2, align 8, !tbaa !8
+  %9 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__31, align 8, !tbaa !8
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__44, align 8, !tbaa !8
+  store ptr %10, ptr %4, align 8, !tbaa !8
+  %11 = load ptr, ptr %1, align 8, !tbaa !8
+  %12 = load ptr, ptr %2, align 8, !tbaa !8
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = call ptr @l_Lean_Name_mkStr4(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %5, align 8, !tbaa !8
+  %16 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %16
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__46() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.34, i64 noundef 1, i64 noundef 1)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__47() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.35, i64 noundef 1, i64 noundef 1)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__48() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  br label %3
+
+3:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  %4 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__47, align 8, !tbaa !8
+  store ptr %4, ptr %1, align 8, !tbaa !8
+  %5 = load ptr, ptr %1, align 8, !tbaa !8
+  %6 = call ptr @l_String_toSubstring_x27(ptr noundef %5)
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %7
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__49() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  br label %4
+
+4:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = call ptr @lean_box(i64 noundef 0)
+  store ptr %5, ptr %1, align 8, !tbaa !8
+  %6 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__47, align 8, !tbaa !8
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr %2, align 8, !tbaa !8
+  %9 = call ptr @l_Lean_Name_str___override(ptr noundef %7, ptr noundef %8)
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %10
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__50() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.36, i64 noundef 1, i64 noundef 1)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__51() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  br label %3
+
+3:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  %4 = call ptr @lean_unsigned_to_nat(i32 noundef 0)
+  store ptr %4, ptr %1, align 8, !tbaa !8
+  %5 = load ptr, ptr %1, align 8, !tbaa !8
+  %6 = call ptr @lean_mk_empty_array_with_capacity(ptr noundef %5)
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %7
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__52() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.37, i64 noundef 5, i64 noundef 5)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__53() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  br label %6
+
+6:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__1, align 8, !tbaa !8
+  store ptr %7, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__2, align 8, !tbaa !8
+  store ptr %8, ptr %2, align 8, !tbaa !8
+  %9 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__3, align 8, !tbaa !8
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__52, align 8, !tbaa !8
+  store ptr %10, ptr %4, align 8, !tbaa !8
+  %11 = load ptr, ptr %1, align 8, !tbaa !8
+  %12 = load ptr, ptr %2, align 8, !tbaa !8
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = call ptr @l_Lean_Name_mkStr4(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %5, align 8, !tbaa !8
+  %16 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %16
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__54() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.38, i64 noundef 7, i64 noundef 7)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__55() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  br label %6
+
+6:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__1, align 8, !tbaa !8
+  store ptr %7, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__2, align 8, !tbaa !8
+  store ptr %8, ptr %2, align 8, !tbaa !8
+  %9 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__3, align 8, !tbaa !8
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__54, align 8, !tbaa !8
+  store ptr %10, ptr %4, align 8, !tbaa !8
+  %11 = load ptr, ptr %1, align 8, !tbaa !8
+  %12 = load ptr, ptr %2, align 8, !tbaa !8
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = call ptr @l_Lean_Name_mkStr4(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %5, align 8, !tbaa !8
+  %16 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %16
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__56() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.39, i64 noundef 11, i64 noundef 11)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__57() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  br label %4
+
+4:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__1, align 8, !tbaa !8
+  store ptr %5, ptr %1, align 8, !tbaa !8
+  %6 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__56, align 8, !tbaa !8
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr %2, align 8, !tbaa !8
+  %9 = call ptr @l_Lean_Name_mkStr2(ptr noundef %7, ptr noundef %8)
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %10
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__58() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.40, i64 noundef 2, i64 noundef 2)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__59() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.41, i64 noundef 4, i64 noundef 4)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__60() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  br label %6
+
+6:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__1, align 8, !tbaa !8
+  store ptr %7, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__2, align 8, !tbaa !8
+  store ptr %8, ptr %2, align 8, !tbaa !8
+  %9 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__3, align 8, !tbaa !8
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__59, align 8, !tbaa !8
+  store ptr %10, ptr %4, align 8, !tbaa !8
+  %11 = load ptr, ptr %1, align 8, !tbaa !8
+  %12 = load ptr, ptr %2, align 8, !tbaa !8
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = call ptr @l_Lean_Name_mkStr4(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %5, align 8, !tbaa !8
+  %16 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %16
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__61() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.42, i64 noundef 9, i64 noundef 9)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__62() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  br label %6
+
+6:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__1, align 8, !tbaa !8
+  store ptr %7, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__2, align 8, !tbaa !8
+  store ptr %8, ptr %2, align 8, !tbaa !8
+  %9 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__3, align 8, !tbaa !8
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__61, align 8, !tbaa !8
+  store ptr %10, ptr %4, align 8, !tbaa !8
+  %11 = load ptr, ptr %1, align 8, !tbaa !8
+  %12 = load ptr, ptr %2, align 8, !tbaa !8
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = call ptr @l_Lean_Name_mkStr4(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %5, align 8, !tbaa !8
+  %16 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %16
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__63() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.43, i64 noundef 10, i64 noundef 10)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__64() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  br label %6
+
+6:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__1, align 8, !tbaa !8
+  store ptr %7, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__2, align 8, !tbaa !8
+  store ptr %8, ptr %2, align 8, !tbaa !8
+  %9 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__3, align 8, !tbaa !8
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__63, align 8, !tbaa !8
+  store ptr %10, ptr %4, align 8, !tbaa !8
+  %11 = load ptr, ptr %1, align 8, !tbaa !8
+  %12 = load ptr, ptr %2, align 8, !tbaa !8
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = call ptr @l_Lean_Name_mkStr4(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %5, align 8, !tbaa !8
+  %16 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %16
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__65() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.44, i64 noundef 13, i64 noundef 13)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__66() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  br label %6
+
+6:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__1, align 8, !tbaa !8
+  store ptr %7, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__2, align 8, !tbaa !8
+  store ptr %8, ptr %2, align 8, !tbaa !8
+  %9 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__3, align 8, !tbaa !8
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__65, align 8, !tbaa !8
+  store ptr %10, ptr %4, align 8, !tbaa !8
+  %11 = load ptr, ptr %1, align 8, !tbaa !8
+  %12 = load ptr, ptr %2, align 8, !tbaa !8
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = call ptr @l_Lean_Name_mkStr4(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %5, align 8, !tbaa !8
+  %16 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %16
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__67() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.45, i64 noundef 1, i64 noundef 1)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__68() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.46, i64 noundef 5, i64 noundef 5)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__69() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  br label %3
+
+3:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  %4 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__68, align 8, !tbaa !8
+  store ptr %4, ptr %1, align 8, !tbaa !8
+  %5 = load ptr, ptr %1, align 8, !tbaa !8
+  %6 = call ptr @l_String_toSubstring_x27(ptr noundef %5)
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %7
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__70() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  br label %4
+
+4:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = call ptr @lean_box(i64 noundef 0)
+  store ptr %5, ptr %1, align 8, !tbaa !8
+  %6 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__68, align 8, !tbaa !8
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr %2, align 8, !tbaa !8
+  %9 = call ptr @l_Lean_Name_str___override(ptr noundef %7, ptr noundef %8)
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %10
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__tacticDecreasing__trivial__1___closed__1() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.47, i64 noundef 24, i64 noundef 24)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List___aux__Init__Data__List__BasicAux______macroRules__tacticDecreasing__trivial__1___closed__2() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  br label %4
+
+4:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = call ptr @lean_box(i64 noundef 0)
+  store ptr %5, ptr %1, align 8, !tbaa !8
+  %6 = load ptr, ptr @l_List___aux__Init__Data__List__BasicAux______macroRules__tacticDecreasing__trivial__1___closed__1, align 8, !tbaa !8
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr %2, align 8, !tbaa !8
+  %9 = call ptr @l_Lean_Name_str___override(ptr noundef %7, ptr noundef %8)
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %10
+}
+
+attributes #0 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { alwaysinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 4, !"probe-stack", !"inline-asm"}
+!2 = !{i32 8, !"PIC Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"long", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"any pointer", !6, i64 0}
+!10 = !{!6, !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"short", !6, i64 0}
+!15 = !{!16, !12, i64 0}
+!16 = !{!"", !12, i64 0, !12, i64 4, !12, i64 6, !12, i64 7}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"_Bool", !6, i64 0}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 long", !9, i64 0}

@@ -1,0 +1,497 @@
+; ModuleID = 'bench/lean4/original/projection.ll'
+source_filename = "bench/lean4/original/projection.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+module asm ".globl _ZSt21ios_base_library_initv"
+
+%"class.lean::nat" = type { %"class.lean::object_ref" }
+%"class.lean::object_ref" = type { ptr }
+%"class.lean::elab_environment" = type { %"class.lean::object_ref" }
+%"class.lean::optional" = type { i8, %union.anon }
+%union.anon = type { %"class.lean::projection_info" }
+%"class.lean::projection_info" = type { %"class.lean::object_ref" }
+
+$_ZN4lean11to_optionalINS_15projection_infoEEENS_8optionalIT_EEP11lean_object = comdat any
+
+$__clang_call_terminate = comdat any
+
+$_ZN4lean10object_refD2Ev = comdat any
+
+@_ZN4lean15projection_infoC1ERKNS_4nameEjjb = hidden unnamed_addr alias void (ptr, ptr, i32, i32, i1), ptr @_ZN4lean15projection_infoC2ERKNS_4nameEjjb
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN4lean15projection_infoC2ERKNS_4nameEjjb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca %"class.lean::nat", align 8
+  %7 = alloca %"class.lean::nat", align 8
+  %8 = zext i1 %4 to i8
+  %9 = load ptr, ptr %1, align 8, !tbaa !3
+  %10 = ptrtoint ptr %9 to i64
+  %11 = and i64 %10, 1
+  %.not.i.i = icmp eq i64 %11, 0
+  br i1 %.not.i.i, label %12, label %18
+
+12:                                               ; preds = %5
+  %.val.i.i.i = load i32, ptr %9, align 4, !tbaa !8
+  %13 = icmp sgt i32 %.val.i.i.i, 0
+  br i1 %13, label %14, label %16, !prof !11
+
+14:                                               ; preds = %12
+  %15 = add nuw nsw i32 %.val.i.i.i, 1
+  store i32 %15, ptr %9, align 4, !tbaa !8
+  br label %18
+
+16:                                               ; preds = %12
+  %.not.i.i.i = icmp eq i32 %.val.i.i.i, 0
+  br i1 %.not.i.i.i, label %18, label %17
+
+17:                                               ; preds = %16
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %9)
+  %.pre.i = load ptr, ptr %1, align 8, !tbaa !3
+  br label %18
+
+18:                                               ; preds = %17, %16, %14, %5
+  %19 = phi ptr [ %9, %5 ], [ %9, %14 ], [ %9, %16 ], [ %.pre.i, %17 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  %20 = zext i32 %2 to i64
+  %21 = shl nuw nsw i64 %20, 1
+  %22 = or disjoint i64 %21, 1
+  %23 = inttoptr i64 %22 to ptr
+  store ptr %23, ptr %6, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  %24 = zext i32 %3 to i64
+  %25 = shl nuw nsw i64 %24, 1
+  %26 = or disjoint i64 %25, 1
+  %27 = inttoptr i64 %26 to ptr
+  store ptr %27, ptr %7, align 8, !tbaa !3
+  %28 = invoke ptr @lean_mk_projection_info(ptr noundef %19, ptr noundef nonnull %23, ptr noundef nonnull %27, i8 noundef zeroext %8)
+          to label %_ZN4lean10object_refD2Ev.exit25 unwind label %29
+
+_ZN4lean10object_refD2Ev.exit25:                  ; preds = %18
+  store ptr %28, ptr %0, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  ret void
+
+29:                                               ; preds = %18
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  resume { ptr, i32 } %30
+}
+
+declare ptr @lean_mk_projection_info(ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef zeroext i1 @_ZNK4lean15projection_info16is_inst_implicitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !3
+  %3 = ptrtoint ptr %2 to i64
+  %4 = and i64 %3, 1
+  %.not.i.i = icmp eq i64 %4, 0
+  br i1 %.not.i.i, label %5, label %_ZNK4lean10object_ref10to_obj_argEv.exit
+
+5:                                                ; preds = %1
+  %.val.i.i.i = load i32, ptr %2, align 4, !tbaa !8
+  %6 = icmp sgt i32 %.val.i.i.i, 0
+  br i1 %6, label %7, label %9, !prof !11
+
+7:                                                ; preds = %5
+  %8 = add nuw nsw i32 %.val.i.i.i, 1
+  store i32 %8, ptr %2, align 4, !tbaa !8
+  br label %_ZNK4lean10object_ref10to_obj_argEv.exit
+
+9:                                                ; preds = %5
+  %.not.i.i.i = icmp eq i32 %.val.i.i.i, 0
+  br i1 %.not.i.i.i, label %_ZNK4lean10object_ref10to_obj_argEv.exit, label %10
+
+10:                                               ; preds = %9
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %2)
+  %.pre.i = load ptr, ptr %0, align 8, !tbaa !3
+  br label %_ZNK4lean10object_ref10to_obj_argEv.exit
+
+_ZNK4lean10object_ref10to_obj_argEv.exit:         ; preds = %1, %7, %9, %10
+  %11 = phi ptr [ %2, %1 ], [ %2, %7 ], [ %2, %9 ], [ %.pre.i, %10 ]
+  %12 = tail call zeroext i8 @lean_projection_info_from_class(ptr noundef %11)
+  %13 = icmp ne i8 %12, 0
+  ret i1 %13
+}
+
+declare zeroext i8 @lean_projection_info_from_class(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN4lean20save_projection_infoERKNS_16elab_environmentERKNS_4nameES5_jjb(ptr dead_on_unwind noalias writable writeonly sret(%"class.lean::elab_environment") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+  %8 = load ptr, ptr %1, align 8, !tbaa !3
+  %9 = ptrtoint ptr %8 to i64
+  %10 = and i64 %9, 1
+  %.not.i.i = icmp eq i64 %10, 0
+  br i1 %.not.i.i, label %11, label %_ZNK4lean10object_ref10to_obj_argEv.exit
+
+11:                                               ; preds = %7
+  %.val.i.i.i = load i32, ptr %8, align 4, !tbaa !8
+  %12 = icmp sgt i32 %.val.i.i.i, 0
+  br i1 %12, label %13, label %15, !prof !11
+
+13:                                               ; preds = %11
+  %14 = add nuw nsw i32 %.val.i.i.i, 1
+  store i32 %14, ptr %8, align 4, !tbaa !8
+  br label %_ZNK4lean10object_ref10to_obj_argEv.exit
+
+15:                                               ; preds = %11
+  %.not.i.i.i = icmp eq i32 %.val.i.i.i, 0
+  br i1 %.not.i.i.i, label %_ZNK4lean10object_ref10to_obj_argEv.exit, label %16
+
+16:                                               ; preds = %15
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %8)
+  %.pre.i = load ptr, ptr %1, align 8, !tbaa !3
+  br label %_ZNK4lean10object_ref10to_obj_argEv.exit
+
+_ZNK4lean10object_ref10to_obj_argEv.exit:         ; preds = %7, %13, %15, %16
+  %17 = phi ptr [ %8, %7 ], [ %8, %13 ], [ %8, %15 ], [ %.pre.i, %16 ]
+  %18 = load ptr, ptr %2, align 8, !tbaa !3
+  %19 = ptrtoint ptr %18 to i64
+  %20 = and i64 %19, 1
+  %.not.i.i5 = icmp eq i64 %20, 0
+  br i1 %.not.i.i5, label %21, label %_ZNK4lean10object_ref10to_obj_argEv.exit9
+
+21:                                               ; preds = %_ZNK4lean10object_ref10to_obj_argEv.exit
+  %.val.i.i.i6 = load i32, ptr %18, align 4, !tbaa !8
+  %22 = icmp sgt i32 %.val.i.i.i6, 0
+  br i1 %22, label %23, label %25, !prof !11
+
+23:                                               ; preds = %21
+  %24 = add nuw nsw i32 %.val.i.i.i6, 1
+  store i32 %24, ptr %18, align 4, !tbaa !8
+  br label %_ZNK4lean10object_ref10to_obj_argEv.exit9
+
+25:                                               ; preds = %21
+  %.not.i.i.i7 = icmp eq i32 %.val.i.i.i6, 0
+  br i1 %.not.i.i.i7, label %_ZNK4lean10object_ref10to_obj_argEv.exit9, label %26
+
+26:                                               ; preds = %25
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %18)
+  %.pre.i8 = load ptr, ptr %2, align 8, !tbaa !3
+  br label %_ZNK4lean10object_ref10to_obj_argEv.exit9
+
+_ZNK4lean10object_ref10to_obj_argEv.exit9:        ; preds = %_ZNK4lean10object_ref10to_obj_argEv.exit, %23, %25, %26
+  %27 = phi ptr [ %18, %_ZNK4lean10object_ref10to_obj_argEv.exit ], [ %18, %23 ], [ %18, %25 ], [ %.pre.i8, %26 ]
+  %28 = load ptr, ptr %3, align 8, !tbaa !3
+  %29 = ptrtoint ptr %28 to i64
+  %30 = and i64 %29, 1
+  %.not.i.i10 = icmp eq i64 %30, 0
+  br i1 %.not.i.i10, label %31, label %_ZNK4lean10object_ref10to_obj_argEv.exit14
+
+31:                                               ; preds = %_ZNK4lean10object_ref10to_obj_argEv.exit9
+  %.val.i.i.i11 = load i32, ptr %28, align 4, !tbaa !8
+  %32 = icmp sgt i32 %.val.i.i.i11, 0
+  br i1 %32, label %33, label %35, !prof !11
+
+33:                                               ; preds = %31
+  %34 = add nuw nsw i32 %.val.i.i.i11, 1
+  store i32 %34, ptr %28, align 4, !tbaa !8
+  br label %_ZNK4lean10object_ref10to_obj_argEv.exit14
+
+35:                                               ; preds = %31
+  %.not.i.i.i12 = icmp eq i32 %.val.i.i.i11, 0
+  br i1 %.not.i.i.i12, label %_ZNK4lean10object_ref10to_obj_argEv.exit14, label %36
+
+36:                                               ; preds = %35
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %28)
+  %.pre.i13 = load ptr, ptr %3, align 8, !tbaa !3
+  br label %_ZNK4lean10object_ref10to_obj_argEv.exit14
+
+_ZNK4lean10object_ref10to_obj_argEv.exit14:       ; preds = %_ZNK4lean10object_ref10to_obj_argEv.exit9, %33, %35, %36
+  %37 = phi ptr [ %28, %_ZNK4lean10object_ref10to_obj_argEv.exit9 ], [ %28, %33 ], [ %28, %35 ], [ %.pre.i13, %36 ]
+  %38 = zext i1 %6 to i8
+  %39 = zext i32 %4 to i64
+  %40 = shl nuw nsw i64 %39, 1
+  %41 = or disjoint i64 %40, 1
+  %42 = inttoptr i64 %41 to ptr
+  %43 = zext i32 %5 to i64
+  %44 = shl nuw nsw i64 %43, 1
+  %45 = or disjoint i64 %44, 1
+  %46 = inttoptr i64 %45 to ptr
+  %47 = tail call ptr @lean_add_projection_info(ptr noundef %17, ptr noundef %27, ptr noundef %37, ptr noundef nonnull %42, ptr noundef nonnull %46, i8 noundef zeroext %38)
+  store ptr %47, ptr %0, align 8, !tbaa !3
+  ret void
+}
+
+declare ptr @lean_add_projection_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN4lean19get_projection_infoERKNS_16elab_environmentERKNS_4nameE(ptr dead_on_unwind noalias writable sret(%"class.lean::optional") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #0 {
+  %4 = load ptr, ptr %1, align 8, !tbaa !3
+  %5 = ptrtoint ptr %4 to i64
+  %6 = and i64 %5, 1
+  %.not.i.i = icmp eq i64 %6, 0
+  br i1 %.not.i.i, label %7, label %_ZNK4lean10object_ref10to_obj_argEv.exit
+
+7:                                                ; preds = %3
+  %.val.i.i.i = load i32, ptr %4, align 4, !tbaa !8
+  %8 = icmp sgt i32 %.val.i.i.i, 0
+  br i1 %8, label %9, label %11, !prof !11
+
+9:                                                ; preds = %7
+  %10 = add nuw nsw i32 %.val.i.i.i, 1
+  store i32 %10, ptr %4, align 4, !tbaa !8
+  br label %_ZNK4lean10object_ref10to_obj_argEv.exit
+
+11:                                               ; preds = %7
+  %.not.i.i.i = icmp eq i32 %.val.i.i.i, 0
+  br i1 %.not.i.i.i, label %_ZNK4lean10object_ref10to_obj_argEv.exit, label %12
+
+12:                                               ; preds = %11
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %4)
+  %.pre.i = load ptr, ptr %1, align 8, !tbaa !3
+  br label %_ZNK4lean10object_ref10to_obj_argEv.exit
+
+_ZNK4lean10object_ref10to_obj_argEv.exit:         ; preds = %3, %9, %11, %12
+  %13 = phi ptr [ %4, %3 ], [ %4, %9 ], [ %4, %11 ], [ %.pre.i, %12 ]
+  %14 = load ptr, ptr %2, align 8, !tbaa !3
+  %15 = ptrtoint ptr %14 to i64
+  %16 = and i64 %15, 1
+  %.not.i.i2 = icmp eq i64 %16, 0
+  br i1 %.not.i.i2, label %17, label %_ZNK4lean10object_ref10to_obj_argEv.exit6
+
+17:                                               ; preds = %_ZNK4lean10object_ref10to_obj_argEv.exit
+  %.val.i.i.i3 = load i32, ptr %14, align 4, !tbaa !8
+  %18 = icmp sgt i32 %.val.i.i.i3, 0
+  br i1 %18, label %19, label %21, !prof !11
+
+19:                                               ; preds = %17
+  %20 = add nuw nsw i32 %.val.i.i.i3, 1
+  store i32 %20, ptr %14, align 4, !tbaa !8
+  br label %_ZNK4lean10object_ref10to_obj_argEv.exit6
+
+21:                                               ; preds = %17
+  %.not.i.i.i4 = icmp eq i32 %.val.i.i.i3, 0
+  br i1 %.not.i.i.i4, label %_ZNK4lean10object_ref10to_obj_argEv.exit6, label %22
+
+22:                                               ; preds = %21
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %14)
+  %.pre.i5 = load ptr, ptr %2, align 8, !tbaa !3
+  br label %_ZNK4lean10object_ref10to_obj_argEv.exit6
+
+_ZNK4lean10object_ref10to_obj_argEv.exit6:        ; preds = %_ZNK4lean10object_ref10to_obj_argEv.exit, %19, %21, %22
+  %23 = phi ptr [ %14, %_ZNK4lean10object_ref10to_obj_argEv.exit ], [ %14, %19 ], [ %14, %21 ], [ %.pre.i5, %22 ]
+  %24 = tail call ptr @lean_get_projection_info(ptr noundef %13, ptr noundef %23)
+  tail call void @_ZN4lean11to_optionalINS_15projection_infoEEENS_8optionalIT_EEP11lean_object(ptr dead_on_unwind writable sret(%"class.lean::optional") align 8 %0, ptr noundef %24)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4lean11to_optionalINS_15projection_infoEEENS_8optionalIT_EEP11lean_object(ptr dead_on_unwind noalias writable sret(%"class.lean::optional") align 8 %0, ptr noundef %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.lean::projection_info", align 8
+  %4 = ptrtoint ptr %1 to i64
+  %5 = and i64 %4, 1
+  %.not = icmp eq i64 %5, 0
+  br i1 %.not, label %7, label %6
+
+6:                                                ; preds = %2
+  store i8 0, ptr %0, align 8, !tbaa !12
+  br label %42
+
+7:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !15
+  store ptr %9, ptr %3, align 8, !tbaa !3
+  %10 = ptrtoint ptr %9 to i64
+  %11 = and i64 %10, 1
+  %.not.i.i.i = icmp eq i64 %11, 0
+  br i1 %.not.i.i.i, label %12, label %_ZN4lean15projection_infoC2EP11lean_objectb.exit
+
+12:                                               ; preds = %7
+  %.val.i.i.i.i = load i32, ptr %9, align 4, !tbaa !8
+  %13 = icmp sgt i32 %.val.i.i.i.i, 0
+  br i1 %13, label %14, label %16, !prof !11
+
+14:                                               ; preds = %12
+  %15 = add nuw nsw i32 %.val.i.i.i.i, 1
+  store i32 %15, ptr %9, align 4, !tbaa !8
+  br label %_ZN4lean15projection_infoC2EP11lean_objectb.exit
+
+16:                                               ; preds = %12
+  %.not.i.i.i.i = icmp eq i32 %.val.i.i.i.i, 0
+  br i1 %.not.i.i.i.i, label %_ZN4lean15projection_infoC2EP11lean_objectb.exit, label %17
+
+17:                                               ; preds = %16
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %9)
+  br label %_ZN4lean15projection_infoC2EP11lean_objectb.exit
+
+_ZN4lean15projection_infoC2EP11lean_objectb.exit: ; preds = %17, %16, %14, %7
+  %18 = load i32, ptr %1, align 4, !tbaa !8
+  %19 = icmp sgt i32 %18, 1
+  br i1 %19, label %20, label %22, !prof !11
+
+20:                                               ; preds = %_ZN4lean15projection_infoC2EP11lean_objectb.exit
+  %21 = add nsw i32 %18, -1
+  store i32 %21, ptr %1, align 4, !tbaa !8
+  br label %_ZN4lean3decEP11lean_object.exit
+
+22:                                               ; preds = %_ZN4lean15projection_infoC2EP11lean_objectb.exit
+  %.not.i.i = icmp eq i32 %18, 0
+  br i1 %.not.i.i, label %_ZN4lean3decEP11lean_object.exit, label %23
+
+23:                                               ; preds = %22
+  invoke void @lean_dec_ref_cold(ptr noundef nonnull %1)
+          to label %_ZN4lean3decEP11lean_object.exit unwind label %40
+
+_ZN4lean3decEP11lean_object.exit:                 ; preds = %22, %20, %23
+  store i8 1, ptr %0, align 8, !tbaa !12
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %9, ptr %24, align 8, !tbaa !3
+  br i1 %.not.i.i.i, label %25, label %_ZN4lean10object_refD2Ev.exit
+
+25:                                               ; preds = %_ZN4lean3decEP11lean_object.exit
+  %.val.i.i.i.i.i = load i32, ptr %9, align 4, !tbaa !8
+  %26 = icmp sgt i32 %.val.i.i.i.i.i, 0
+  br i1 %26, label %.thread, label %28, !prof !11
+
+.thread:                                          ; preds = %25
+  %27 = add nuw nsw i32 %.val.i.i.i.i.i, 1
+  store i32 %27, ptr %9, align 4, !tbaa !8
+  br label %32
+
+28:                                               ; preds = %25
+  %.not.i.i.i.i.i = icmp eq i32 %.val.i.i.i.i.i, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN4lean10object_refD2Ev.exit, label %29
+
+29:                                               ; preds = %28
+  invoke void @lean_inc_ref_cold(ptr noundef nonnull %9)
+          to label %30 unwind label %40
+
+30:                                               ; preds = %29
+  %.pr = load i32, ptr %9, align 4, !tbaa !8
+  %31 = icmp sgt i32 %.pr, 1
+  br i1 %31, label %32, label %35, !prof !16
+
+32:                                               ; preds = %.thread, %30
+  %33 = phi i32 [ %27, %.thread ], [ %.pr, %30 ]
+  %34 = add nsw i32 %33, -1
+  store i32 %34, ptr %9, align 4, !tbaa !8
+  br label %_ZN4lean10object_refD2Ev.exit
+
+35:                                               ; preds = %30
+  %.not.i.i.i7 = icmp eq i32 %.pr, 0
+  br i1 %.not.i.i.i7, label %_ZN4lean10object_refD2Ev.exit, label %36
+
+36:                                               ; preds = %35
+  invoke void @lean_dec_ref_cold(ptr noundef nonnull %9)
+          to label %_ZN4lean10object_refD2Ev.exit unwind label %37
+
+37:                                               ; preds = %36
+  %38 = landingpad { ptr, i32 }
+          catch ptr null
+  %39 = extractvalue { ptr, i32 } %38, 0
+  tail call void @__clang_call_terminate(ptr %39) #7
+  unreachable
+
+_ZN4lean10object_refD2Ev.exit:                    ; preds = %28, %_ZN4lean3decEP11lean_object.exit, %32, %35, %36
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  br label %42
+
+40:                                               ; preds = %29, %23
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  resume { ptr, i32 } %41
+
+42:                                               ; preds = %_ZN4lean10object_refD2Ev.exit, %6
+  ret void
+}
+
+declare ptr @lean_get_projection_info(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @lean_inc_ref_cold(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #6
+  tail call void @_ZSt9terminatev() #7
+  unreachable
+}
+
+declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
+
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #4
+
+declare void @lean_dec_ref_cold(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !3
+  %3 = ptrtoint ptr %2 to i64
+  %4 = and i64 %3, 1
+  %.not.i = icmp eq i64 %4, 0
+  br i1 %.not.i, label %5, label %_ZN4lean3decEP11lean_object.exit
+
+5:                                                ; preds = %1
+  %6 = load i32, ptr %2, align 4, !tbaa !8
+  %7 = icmp sgt i32 %6, 1
+  br i1 %7, label %8, label %10, !prof !11
+
+8:                                                ; preds = %5
+  %9 = add nsw i32 %6, -1
+  store i32 %9, ptr %2, align 4, !tbaa !8
+  br label %_ZN4lean3decEP11lean_object.exit
+
+10:                                               ; preds = %5
+  %.not.i.i = icmp eq i32 %6, 0
+  br i1 %.not.i.i, label %_ZN4lean3decEP11lean_object.exit, label %11
+
+11:                                               ; preds = %10
+  invoke void @lean_dec_ref_cold(ptr noundef nonnull %2)
+          to label %_ZN4lean3decEP11lean_object.exit unwind label %12
+
+_ZN4lean3decEP11lean_object.exit:                 ; preds = %10, %8, %1, %11
+  ret void
+
+12:                                               ; preds = %11
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  tail call void @__clang_call_terminate(ptr %14) #7
+  unreachable
+}
+
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold nofree noreturn }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"_ZTSN4lean10object_refE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !10, i64 0}
+!9 = !{!"_ZTS11lean_object", !10, i64 0, !10, i64 4, !10, i64 6, !10, i64 7}
+!10 = !{!"int", !6, i64 0}
+!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!12 = !{!13, !14, i64 0}
+!13 = !{!"_ZTSN4lean8optionalINS_15projection_infoEEE", !14, i64 0, !6, i64 8}
+!14 = !{!"bool", !6, i64 0}
+!15 = !{!5, !5, i64 0}
+!16 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}

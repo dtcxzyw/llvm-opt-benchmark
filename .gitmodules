@@ -714,3 +714,6 @@
 [submodule "bench/ffmpeg/FFmpeg"]
 	path = bench/ffmpeg/FFmpeg
 	url = https://github.com/FFmpeg/FFmpeg.git
+[submodule "bench/lean4/lean4"]
+	path = bench/lean4/lean4
+	url = https://github.com/leanprover/lean4.git

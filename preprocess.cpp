@@ -33,6 +33,9 @@ public:
     std::string FileName = M.getSourceFileName();
     if (FileName.find("CMakeTmp") != std::string::npos ||
         FileName.find("CMakeScratch") != std::string::npos ||
+        FileName.find("CompilerId") != std::string::npos ||
+        FileName.find("CMakeCCompiler") != std::string::npos ||
+        FileName.find("CMakeCXXCompiler") != std::string::npos ||
         FileName.starts_with("/tmp/"))
       return PreservedAnalyses::none();
 

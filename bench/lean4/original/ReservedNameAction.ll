@@ -1,0 +1,8085 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.lean_object = type { i32, i32 }
+%struct.lean_array_object = type { %struct.lean_object, i64, i64, [0 x ptr] }
+%struct.lean_ctor_object = type { %struct.lean_object, [0 x ptr] }
+%struct.lean_closure_object = type { %struct.lean_object, ptr, i16, i16, [0 x ptr] }
+
+@l_Lean_initFn____x40_Lean_ReservedNameAction___hyg_10____closed__1 = internal global ptr null, align 8
+@l_Lean_registerReservedNameAction___lambda__1___closed__1 = internal global ptr null, align 8
+@l_Lean_registerReservedNameAction___closed__2 = internal global ptr null, align 8
+@l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__2 = internal global ptr null, align 8
+@l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__4 = internal global ptr null, align 8
+@l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__6 = internal global ptr null, align 8
+@l_Lean_unknownIdentifierMessageTag = external global ptr, align 8
+@l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__2 = internal global ptr null, align 8
+@l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__4 = internal global ptr null, align 8
+@l_Lean_ensureNoOverload___at_Lean_realizeGlobalConstNoOverloadCore___spec__1___closed__1 = internal global ptr null, align 8
+@l_Lean_ensureNoOverload___at_Lean_realizeGlobalConstNoOverloadCore___spec__1___closed__2 = internal global ptr null, align 8
+@l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__5 = internal global ptr null, align 8
+@l_Lean_preprocessSyntaxAndResolve___at_Lean_realizeGlobalConst___spec__1___closed__3 = internal global ptr null, align 8
+@l_Lean_realizeGlobalConst___closed__1 = internal global ptr null, align 8
+@l_panic___at_Lean_realizeGlobalConstNoOverload___spec__2___closed__1 = internal global ptr null, align 8
+@l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__4 = internal global ptr null, align 8
+@l_Std_Format_defWidth = external global ptr, align 8
+@_G_initialized = internal global i8 0, align 1
+@l___private_Lean_ReservedNameAction_0__Lean_reservedNameActionsRef = global ptr null, align 8
+@l_Lean_registerReservedNameAction___closed__1 = internal global ptr null, align 8
+@l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__1 = internal global ptr null, align 8
+@l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__3 = internal global ptr null, align 8
+@l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__1 = internal global ptr null, align 8
+@l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__3 = internal global ptr null, align 8
+@l_Lean_preprocessSyntaxAndResolve___at_Lean_realizeGlobalConst___spec__1___closed__1 = internal global ptr null, align 8
+@l_Lean_preprocessSyntaxAndResolve___at_Lean_realizeGlobalConst___spec__1___closed__2 = internal global ptr null, align 8
+@l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__1 = internal global ptr null, align 8
+@l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__2 = internal global ptr null, align 8
+@l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__3 = internal global ptr null, align 8
+@.str = private unnamed_addr constant [109 x i8] c"failed to register reserved name action, this kind of extension can only be registered during initialization\00", align 1
+@.str.1 = private unnamed_addr constant [28 x i8] c"Failed to realize constant \00", align 1
+@.str.2 = private unnamed_addr constant [2 x i8] c":\00", align 1
+@.str.3 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.4 = private unnamed_addr constant [19 x i8] c"unknown constant '\00", align 1
+@.str.5 = private unnamed_addr constant [2 x i8] c"'\00", align 1
+@.str.6 = private unnamed_addr constant [23 x i8] c"ambiguous identifier '\00", align 1
+@.str.7 = private unnamed_addr constant [30 x i8] c"', possible interpretations: \00", align 1
+@.str.8 = private unnamed_addr constant [20 x i8] c"expected identifier\00", align 1
+@l_Lean_Core_instMonadCoreM = external global ptr, align 8
+@l_Lean_instInhabitedName = external global ptr, align 8
+@.str.9 = private unnamed_addr constant [17 x i8] c"Lean.ResolveName\00", align 1
+@.str.10 = private unnamed_addr constant [24 x i8] c"Lean.ensureNonAmbiguous\00", align 1
+@.str.11 = private unnamed_addr constant [34 x i8] c"unreachable code has been reached\00", align 1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i8 @lean_usize_dec_eq(i64 noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !4
+  %5 = load i64, ptr %3, align 8, !tbaa !4
+  %6 = load i64, ptr %4, align 8, !tbaa !4
+  %7 = icmp eq i64 %5, %6
+  %8 = zext i1 %7 to i32
+  %9 = trunc i32 %8 to i8
+  ret i8 %9
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @lean_usize_of_nat(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = call zeroext i1 @lean_is_scalar(ptr noundef %3)
+  br i1 %4, label %5, label %8
+
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %2, align 8, !tbaa !8
+  %7 = call i64 @lean_unbox(ptr noundef %6)
+  br label %11
+
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %2, align 8, !tbaa !8
+  %10 = call i64 @lean_usize_of_big_nat(ptr noundef %9)
+  br label %11
+
+11:                                               ; preds = %8, %5
+  %12 = phi i64 [ %7, %5 ], [ %10, %8 ]
+  ret i64 %12
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i8 @lean_nat_dec_lt(ptr noundef %0, ptr noundef %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !8
+  %6 = load ptr, ptr %4, align 8, !tbaa !8
+  %7 = call zeroext i1 @lean_nat_lt(ptr noundef %5, ptr noundef %6)
+  %8 = zext i1 %7 to i8
+  ret i8 %8
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @lean_usize_add(i64 noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !4
+  %5 = load i64, ptr %3, align 8, !tbaa !4
+  %6 = load i64, ptr %4, align 8, !tbaa !4
+  %7 = add i64 %5, %6
+  ret i64 %7
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_array_uget(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i64 %1, ptr %4, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = load i64, ptr %4, align 8, !tbaa !4
+  %8 = call ptr @lean_array_get_core(ptr noundef %6, i64 noundef %7)
+  store ptr %8, ptr %5, align 8, !tbaa !8
+  %9 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %9)
+  %10 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret ptr %10
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_array_get_size(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = call i64 @lean_array_size(ptr noundef %3)
+  %5 = call ptr @lean_box(i64 noundef %4)
+  ret ptr %5
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_initFn____x40_Lean_ReservedNameAction___hyg_10_(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i8, align 1
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  br label %11
+
+11:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #7
+  %12 = load ptr, ptr @l_Lean_initFn____x40_Lean_ReservedNameAction___hyg_10____closed__1, align 8, !tbaa !8
+  store ptr %12, ptr %4, align 8, !tbaa !8
+  %13 = load ptr, ptr %4, align 8, !tbaa !8
+  %14 = load ptr, ptr %3, align 8, !tbaa !8
+  %15 = call ptr @lean_st_mk_ref(ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %5, align 8, !tbaa !8
+  %16 = load ptr, ptr %5, align 8, !tbaa !8
+  %17 = call zeroext i1 @lean_is_exclusive(ptr noundef %16)
+  %18 = xor i1 %17, true
+  %19 = zext i1 %18 to i32
+  %20 = trunc i32 %19 to i8
+  store i8 %20, ptr %6, align 1, !tbaa !10
+  %21 = load i8, ptr %6, align 1, !tbaa !10
+  %22 = zext i8 %21 to i32
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %26
+
+24:                                               ; preds = %11
+  %25 = load ptr, ptr %5, align 8, !tbaa !8
+  store ptr %25, ptr %2, align 8
+  store i32 1, ptr %7, align 4
+  br label %40
+
+26:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %27 = load ptr, ptr %5, align 8, !tbaa !8
+  %28 = call ptr @lean_ctor_get(ptr noundef %27, i32 noundef 0)
+  store ptr %28, ptr %8, align 8, !tbaa !8
+  %29 = load ptr, ptr %5, align 8, !tbaa !8
+  %30 = call ptr @lean_ctor_get(ptr noundef %29, i32 noundef 1)
+  store ptr %30, ptr %9, align 8, !tbaa !8
+  %31 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %31)
+  %32 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %32)
+  %33 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %33)
+  %34 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %34, ptr %10, align 8, !tbaa !8
+  %35 = load ptr, ptr %10, align 8, !tbaa !8
+  %36 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %35, i32 noundef 0, ptr noundef %36)
+  %37 = load ptr, ptr %10, align 8, !tbaa !8
+  %38 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %37, i32 noundef 1, ptr noundef %38)
+  %39 = load ptr, ptr %10, align 8, !tbaa !8
+  store ptr %39, ptr %2, align 8
+  store i32 1, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  br label %40
+
+40:                                               ; preds = %26, %24
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  %41 = load ptr, ptr %2, align 8
+  ret ptr %41
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
+declare ptr @lean_st_mk_ref(ptr noundef, ptr noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @lean_is_exclusive(ptr noundef %0) #0 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  %4 = load ptr, ptr %3, align 8, !tbaa !8
+  %5 = call zeroext i1 @lean_is_st(ptr noundef %4)
+  %6 = zext i1 %5 to i64
+  %7 = call i64 @llvm.expect.i64(i64 %6, i64 1)
+  %8 = icmp ne i64 %7, 0
+  br i1 %8, label %9, label %14
+
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw %struct.lean_object, ptr %10, i32 0, i32 0
+  %12 = load i32, ptr %11, align 4, !tbaa !11
+  %13 = icmp eq i32 %12, 1
+  store i1 %13, ptr %2, align 1
+  br label %15
+
+14:                                               ; preds = %1
+  store i1 false, ptr %2, align 1
+  br label %15
+
+15:                                               ; preds = %14, %9
+  %16 = load i1, ptr %2, align 1
+  ret i1 %16
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_ctor_get(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !8
+  %6 = call ptr @lean_ctor_obj_cptr(ptr noundef %5)
+  %7 = load i32, ptr %4, align 4, !tbaa !14
+  %8 = zext i32 %7 to i64
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %10 = load ptr, ptr %9, align 8, !tbaa !8
+  ret ptr %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @lean_inc(ptr noundef %0) #1 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = call zeroext i1 @lean_is_scalar(ptr noundef %3)
+  br i1 %4, label %7, label %5
+
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @lean_inc_ref(ptr noundef %6)
+  br label %7
+
+7:                                                ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @lean_dec(ptr noundef %0) #1 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = call zeroext i1 @lean_is_scalar(ptr noundef %3)
+  br i1 %4, label %7, label %5
+
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @lean_dec_ref(ptr noundef %6)
+  br label %7
+
+7:                                                ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_alloc_ctor(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store i32 %0, ptr %4, align 4, !tbaa !14
+  store i32 %1, ptr %5, align 4, !tbaa !14
+  store i32 %2, ptr %6, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %8 = load i32, ptr %5, align 4, !tbaa !14
+  %9 = zext i32 %8 to i64
+  %10 = mul i64 8, %9
+  %11 = add i64 8, %10
+  %12 = load i32, ptr %6, align 4, !tbaa !14
+  %13 = zext i32 %12 to i64
+  %14 = add i64 %11, %13
+  %15 = trunc i64 %14 to i32
+  %16 = call ptr @lean_alloc_ctor_memory(i32 noundef %15)
+  store ptr %16, ptr %7, align 8, !tbaa !8
+  %17 = load ptr, ptr %7, align 8, !tbaa !8
+  %18 = load i32, ptr %4, align 4, !tbaa !14
+  %19 = load i32, ptr %5, align 4, !tbaa !14
+  call void @lean_set_st_header(ptr noundef %17, i32 noundef %18, i32 noundef %19)
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  ret ptr %20
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @lean_ctor_set(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !14
+  store ptr %2, ptr %6, align 8, !tbaa !8
+  %7 = load ptr, ptr %6, align 8, !tbaa !8
+  %8 = load ptr, ptr %4, align 8, !tbaa !8
+  %9 = call ptr @lean_ctor_obj_cptr(ptr noundef %8)
+  %10 = load i32, ptr %5, align 4, !tbaa !14
+  %11 = zext i32 %10 to i64
+  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  store ptr %7, ptr %12, align 8, !tbaa !8
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_registerReservedNameAction___lambda__1(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i8, align 1
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  br label %19
+
+19:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #7
+  %20 = load ptr, ptr @l_Lean_registerReservedNameAction___lambda__1___closed__1, align 8, !tbaa !8
+  store ptr %20, ptr %8, align 8, !tbaa !8
+  %21 = load ptr, ptr %8, align 8, !tbaa !8
+  %22 = load ptr, ptr %7, align 8, !tbaa !8
+  %23 = call ptr @lean_st_ref_take(ptr noundef %21, ptr noundef %22)
+  store ptr %23, ptr %9, align 8, !tbaa !8
+  %24 = load ptr, ptr %9, align 8, !tbaa !8
+  %25 = call ptr @lean_ctor_get(ptr noundef %24, i32 noundef 0)
+  store ptr %25, ptr %10, align 8, !tbaa !8
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %26)
+  %27 = load ptr, ptr %9, align 8, !tbaa !8
+  %28 = call ptr @lean_ctor_get(ptr noundef %27, i32 noundef 1)
+  store ptr %28, ptr %11, align 8, !tbaa !8
+  %29 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %29)
+  %30 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %30)
+  %31 = load ptr, ptr %10, align 8, !tbaa !8
+  %32 = load ptr, ptr %5, align 8, !tbaa !8
+  %33 = call ptr @lean_array_push(ptr noundef %31, ptr noundef %32)
+  store ptr %33, ptr %12, align 8, !tbaa !8
+  %34 = load ptr, ptr %8, align 8, !tbaa !8
+  %35 = load ptr, ptr %12, align 8, !tbaa !8
+  %36 = load ptr, ptr %11, align 8, !tbaa !8
+  %37 = call ptr @lean_st_ref_set(ptr noundef %34, ptr noundef %35, ptr noundef %36)
+  store ptr %37, ptr %13, align 8, !tbaa !8
+  %38 = load ptr, ptr %13, align 8, !tbaa !8
+  %39 = call zeroext i1 @lean_is_exclusive(ptr noundef %38)
+  %40 = xor i1 %39, true
+  %41 = zext i1 %40 to i32
+  %42 = trunc i32 %41 to i8
+  store i8 %42, ptr %14, align 1, !tbaa !10
+  %43 = load i8, ptr %14, align 1, !tbaa !10
+  %44 = zext i8 %43 to i32
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %48
+
+46:                                               ; preds = %19
+  %47 = load ptr, ptr %13, align 8, !tbaa !8
+  store ptr %47, ptr %4, align 8
+  store i32 1, ptr %15, align 4
+  br label %62
+
+48:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  %49 = load ptr, ptr %13, align 8, !tbaa !8
+  %50 = call ptr @lean_ctor_get(ptr noundef %49, i32 noundef 0)
+  store ptr %50, ptr %16, align 8, !tbaa !8
+  %51 = load ptr, ptr %13, align 8, !tbaa !8
+  %52 = call ptr @lean_ctor_get(ptr noundef %51, i32 noundef 1)
+  store ptr %52, ptr %17, align 8, !tbaa !8
+  %53 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %53)
+  %54 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %54)
+  %55 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %55)
+  %56 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %56, ptr %18, align 8, !tbaa !8
+  %57 = load ptr, ptr %18, align 8, !tbaa !8
+  %58 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %57, i32 noundef 0, ptr noundef %58)
+  %59 = load ptr, ptr %18, align 8, !tbaa !8
+  %60 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %59, i32 noundef 1, ptr noundef %60)
+  %61 = load ptr, ptr %18, align 8, !tbaa !8
+  store ptr %61, ptr %4, align 8
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  br label %62
+
+62:                                               ; preds = %48, %46
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %63 = load ptr, ptr %4, align 8
+  ret ptr %63
+}
+
+declare ptr @lean_st_ref_take(ptr noundef, ptr noundef) #4
+
+declare ptr @lean_array_push(ptr noundef, ptr noundef) #4
+
+declare ptr @lean_st_ref_set(ptr noundef, ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_registerReservedNameAction(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i8, align 1
+  %9 = alloca i8, align 1
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  br label %19
+
+19:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #7
+  %20 = load ptr, ptr %5, align 8, !tbaa !8
+  %21 = call ptr @l_Lean_initializing(ptr noundef %20)
+  store ptr %21, ptr %6, align 8, !tbaa !8
+  %22 = load ptr, ptr %6, align 8, !tbaa !8
+  %23 = call ptr @lean_ctor_get(ptr noundef %22, i32 noundef 0)
+  store ptr %23, ptr %7, align 8, !tbaa !8
+  %24 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %24)
+  %25 = load ptr, ptr %7, align 8, !tbaa !8
+  %26 = call i64 @lean_unbox(ptr noundef %25)
+  %27 = trunc i64 %26 to i8
+  store i8 %27, ptr %8, align 1, !tbaa !10
+  %28 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %28)
+  %29 = load i8, ptr %8, align 1, !tbaa !10
+  %30 = zext i8 %29 to i32
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %64
+
+32:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #7
+  %33 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %33)
+  %34 = load ptr, ptr %6, align 8, !tbaa !8
+  %35 = call zeroext i1 @lean_is_exclusive(ptr noundef %34)
+  %36 = xor i1 %35, true
+  %37 = zext i1 %36 to i32
+  %38 = trunc i32 %37 to i8
+  store i8 %38, ptr %9, align 1, !tbaa !10
+  %39 = load i8, ptr %9, align 1, !tbaa !10
+  %40 = zext i8 %39 to i32
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %51
+
+42:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %43 = load ptr, ptr %6, align 8, !tbaa !8
+  %44 = call ptr @lean_ctor_get(ptr noundef %43, i32 noundef 0)
+  store ptr %44, ptr %10, align 8, !tbaa !8
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %45)
+  %46 = load ptr, ptr @l_Lean_registerReservedNameAction___closed__2, align 8, !tbaa !8
+  store ptr %46, ptr %11, align 8, !tbaa !8
+  %47 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_ctor_set_tag(ptr noundef %47, i8 noundef zeroext 1)
+  %48 = load ptr, ptr %6, align 8, !tbaa !8
+  %49 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %48, i32 noundef 0, ptr noundef %49)
+  %50 = load ptr, ptr %6, align 8, !tbaa !8
+  store ptr %50, ptr %3, align 8
+  store i32 1, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  br label %63
+
+51:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %52 = load ptr, ptr %6, align 8, !tbaa !8
+  %53 = call ptr @lean_ctor_get(ptr noundef %52, i32 noundef 1)
+  store ptr %53, ptr %13, align 8, !tbaa !8
+  %54 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %54)
+  %55 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %55)
+  %56 = load ptr, ptr @l_Lean_registerReservedNameAction___closed__2, align 8, !tbaa !8
+  store ptr %56, ptr %14, align 8, !tbaa !8
+  %57 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %57, ptr %15, align 8, !tbaa !8
+  %58 = load ptr, ptr %15, align 8, !tbaa !8
+  %59 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %58, i32 noundef 0, ptr noundef %59)
+  %60 = load ptr, ptr %15, align 8, !tbaa !8
+  %61 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %60, i32 noundef 1, ptr noundef %61)
+  %62 = load ptr, ptr %15, align 8, !tbaa !8
+  store ptr %62, ptr %3, align 8
+  store i32 1, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  br label %63
+
+63:                                               ; preds = %51, %42
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #7
+  br label %75
+
+64:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  %65 = load ptr, ptr %6, align 8, !tbaa !8
+  %66 = call ptr @lean_ctor_get(ptr noundef %65, i32 noundef 1)
+  store ptr %66, ptr %16, align 8, !tbaa !8
+  %67 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %67)
+  %68 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %68)
+  %69 = call ptr @lean_box(i64 noundef 0)
+  store ptr %69, ptr %17, align 8, !tbaa !8
+  %70 = load ptr, ptr %4, align 8, !tbaa !8
+  %71 = load ptr, ptr %17, align 8, !tbaa !8
+  %72 = load ptr, ptr %16, align 8, !tbaa !8
+  %73 = call ptr @l_Lean_registerReservedNameAction___lambda__1(ptr noundef %70, ptr noundef %71, ptr noundef %72)
+  store ptr %73, ptr %18, align 8, !tbaa !8
+  %74 = load ptr, ptr %18, align 8, !tbaa !8
+  store ptr %74, ptr %3, align 8
+  store i32 1, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  br label %75
+
+75:                                               ; preds = %64, %63
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  %76 = load ptr, ptr %3, align 8
+  ret ptr %76
+}
+
+declare ptr @l_Lean_initializing(ptr noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @lean_unbox(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = ptrtoint ptr %3 to i64
+  %5 = lshr i64 %4, 1
+  ret i64 %5
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @lean_ctor_set_tag(ptr noundef %0, i8 noundef zeroext %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i8 %1, ptr %4, align 1, !tbaa !10
+  %5 = load i8, ptr %4, align 1, !tbaa !10
+  %6 = zext i8 %5 to i32
+  %7 = load ptr, ptr %3, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw %struct.lean_object, ptr %7, i32 0, i32 1
+  %9 = load i32, ptr %8, align 4
+  %10 = and i32 %6, 255
+  %11 = shl i32 %10, 24
+  %12 = and i32 %9, 16777215
+  %13 = or i32 %12, %11
+  store i32 %13, ptr %8, align 4
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_box(i64 noundef %0) #0 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !4
+  %3 = load i64, ptr %2, align 8, !tbaa !4
+  %4 = shl i64 %3, 1
+  %5 = or i64 %4, 1
+  %6 = inttoptr i64 %5 to ptr
+  ret ptr %6
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_registerReservedNameAction___lambda__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !8
+  br label %8
+
+8:                                                ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %9 = load ptr, ptr %4, align 8, !tbaa !8
+  %10 = load ptr, ptr %5, align 8, !tbaa !8
+  %11 = load ptr, ptr %6, align 8, !tbaa !8
+  %12 = call ptr @l_Lean_registerReservedNameAction___lambda__1(ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  store ptr %12, ptr %7, align 8, !tbaa !8
+  %13 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %13)
+  %14 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  ret ptr %14
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Array_anyMUnsafe_any___at_Lean_executeReservedNameAction___spec__1(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #2 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i8, align 1
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca i8, align 1
+  %21 = alloca ptr, align 8
+  %22 = alloca i64, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca i32, align 4
+  %25 = alloca i8, align 1
+  %26 = alloca ptr, align 8
+  %27 = alloca i8, align 1
+  %28 = alloca ptr, align 8
+  %29 = alloca ptr, align 8
+  %30 = alloca i8, align 1
+  %31 = alloca ptr, align 8
+  %32 = alloca ptr, align 8
+  %33 = alloca i8, align 1
+  %34 = alloca ptr, align 8
+  %35 = alloca ptr, align 8
+  %36 = alloca ptr, align 8
+  %37 = alloca i8, align 1
+  %38 = alloca ptr, align 8
+  %39 = alloca ptr, align 8
+  store ptr %0, ptr %9, align 8, !tbaa !8
+  store ptr %1, ptr %10, align 8, !tbaa !8
+  store i64 %2, ptr %11, align 8, !tbaa !4
+  store i64 %3, ptr %12, align 8, !tbaa !4
+  store ptr %4, ptr %13, align 8, !tbaa !8
+  store ptr %5, ptr %14, align 8, !tbaa !8
+  store ptr %6, ptr %15, align 8, !tbaa !8
+  br label %40
+
+40:                                               ; preds = %165, %7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #7
+  %41 = load i64, ptr %11, align 8, !tbaa !4
+  %42 = load i64, ptr %12, align 8, !tbaa !4
+  %43 = call zeroext i8 @lean_usize_dec_eq(i64 noundef %41, i64 noundef %42)
+  store i8 %43, ptr %16, align 1, !tbaa !10
+  %44 = load i8, ptr %16, align 1, !tbaa !10
+  %45 = zext i8 %44 to i32
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %152
+
+47:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  %48 = load ptr, ptr %10, align 8, !tbaa !8
+  %49 = load i64, ptr %11, align 8, !tbaa !4
+  %50 = call ptr @lean_array_uget(ptr noundef %48, i64 noundef %49)
+  store ptr %50, ptr %17, align 8, !tbaa !8
+  %51 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %51)
+  %52 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %52)
+  %53 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %53)
+  %54 = load ptr, ptr %17, align 8, !tbaa !8
+  %55 = load ptr, ptr %9, align 8, !tbaa !8
+  %56 = load ptr, ptr %13, align 8, !tbaa !8
+  %57 = load ptr, ptr %14, align 8, !tbaa !8
+  %58 = load ptr, ptr %15, align 8, !tbaa !8
+  %59 = call ptr @lean_apply_4(ptr noundef %54, ptr noundef %55, ptr noundef %56, ptr noundef %57, ptr noundef %58)
+  store ptr %59, ptr %18, align 8, !tbaa !8
+  %60 = load ptr, ptr %18, align 8, !tbaa !8
+  %61 = call i32 @lean_obj_tag(ptr noundef %60)
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %122
+
+63:                                               ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %20) #7
+  %64 = load ptr, ptr %18, align 8, !tbaa !8
+  %65 = call ptr @lean_ctor_get(ptr noundef %64, i32 noundef 0)
+  store ptr %65, ptr %19, align 8, !tbaa !8
+  %66 = load ptr, ptr %19, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %66)
+  %67 = load ptr, ptr %19, align 8, !tbaa !8
+  %68 = call i64 @lean_unbox(ptr noundef %67)
+  %69 = trunc i64 %68 to i8
+  store i8 %69, ptr %20, align 1, !tbaa !10
+  %70 = load ptr, ptr %19, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %70)
+  %71 = load i8, ptr %20, align 1, !tbaa !10
+  %72 = zext i8 %71 to i32
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %74, label %84
+
+74:                                               ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #7
+  %75 = load ptr, ptr %18, align 8, !tbaa !8
+  %76 = call ptr @lean_ctor_get(ptr noundef %75, i32 noundef 1)
+  store ptr %76, ptr %21, align 8, !tbaa !8
+  %77 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %77)
+  %78 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %78)
+  store i64 1, ptr %22, align 8, !tbaa !4
+  %79 = load i64, ptr %11, align 8, !tbaa !4
+  %80 = load i64, ptr %22, align 8, !tbaa !4
+  %81 = call i64 @lean_usize_add(i64 noundef %79, i64 noundef %80)
+  store i64 %81, ptr %23, align 8, !tbaa !4
+  %82 = load i64, ptr %23, align 8, !tbaa !4
+  store i64 %82, ptr %11, align 8, !tbaa !4
+  %83 = load ptr, ptr %21, align 8, !tbaa !8
+  store ptr %83, ptr %15, align 8, !tbaa !8
+  store i32 2, ptr %24, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  br label %121
+
+84:                                               ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 1, ptr %25) #7
+  %85 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %85)
+  %86 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %86)
+  %87 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %87)
+  %88 = load ptr, ptr %18, align 8, !tbaa !8
+  %89 = call zeroext i1 @lean_is_exclusive(ptr noundef %88)
+  %90 = xor i1 %89, true
+  %91 = zext i1 %90 to i32
+  %92 = trunc i32 %91 to i8
+  store i8 %92, ptr %25, align 1, !tbaa !10
+  %93 = load i8, ptr %25, align 1, !tbaa !10
+  %94 = zext i8 %93 to i32
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %96, label %106
+
+96:                                               ; preds = %84
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %27) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #7
+  %97 = load ptr, ptr %18, align 8, !tbaa !8
+  %98 = call ptr @lean_ctor_get(ptr noundef %97, i32 noundef 0)
+  store ptr %98, ptr %26, align 8, !tbaa !8
+  %99 = load ptr, ptr %26, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %99)
+  store i8 1, ptr %27, align 1, !tbaa !10
+  %100 = load i8, ptr %27, align 1, !tbaa !10
+  %101 = zext i8 %100 to i64
+  %102 = call ptr @lean_box(i64 noundef %101)
+  store ptr %102, ptr %28, align 8, !tbaa !8
+  %103 = load ptr, ptr %18, align 8, !tbaa !8
+  %104 = load ptr, ptr %28, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %103, i32 noundef 0, ptr noundef %104)
+  %105 = load ptr, ptr %18, align 8, !tbaa !8
+  store ptr %105, ptr %8, align 8
+  store i32 1, ptr %24, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %27) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #7
+  br label %120
+
+106:                                              ; preds = %84
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %30) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #7
+  %107 = load ptr, ptr %18, align 8, !tbaa !8
+  %108 = call ptr @lean_ctor_get(ptr noundef %107, i32 noundef 1)
+  store ptr %108, ptr %29, align 8, !tbaa !8
+  %109 = load ptr, ptr %29, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %109)
+  %110 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %110)
+  store i8 1, ptr %30, align 1, !tbaa !10
+  %111 = load i8, ptr %30, align 1, !tbaa !10
+  %112 = zext i8 %111 to i64
+  %113 = call ptr @lean_box(i64 noundef %112)
+  store ptr %113, ptr %31, align 8, !tbaa !8
+  %114 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %114, ptr %32, align 8, !tbaa !8
+  %115 = load ptr, ptr %32, align 8, !tbaa !8
+  %116 = load ptr, ptr %31, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %115, i32 noundef 0, ptr noundef %116)
+  %117 = load ptr, ptr %32, align 8, !tbaa !8
+  %118 = load ptr, ptr %29, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %117, i32 noundef 1, ptr noundef %118)
+  %119 = load ptr, ptr %32, align 8, !tbaa !8
+  store ptr %119, ptr %8, align 8
+  store i32 1, ptr %24, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %30) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #7
+  br label %120
+
+120:                                              ; preds = %106, %96
+  call void @llvm.lifetime.end.p0(i64 1, ptr %25) #7
+  br label %121
+
+121:                                              ; preds = %120, %74
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  br label %151
+
+122:                                              ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 1, ptr %33) #7
+  %123 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %123)
+  %124 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %124)
+  %125 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %125)
+  %126 = load ptr, ptr %18, align 8, !tbaa !8
+  %127 = call zeroext i1 @lean_is_exclusive(ptr noundef %126)
+  %128 = xor i1 %127, true
+  %129 = zext i1 %128 to i32
+  %130 = trunc i32 %129 to i8
+  store i8 %130, ptr %33, align 1, !tbaa !10
+  %131 = load i8, ptr %33, align 1, !tbaa !10
+  %132 = zext i8 %131 to i32
+  %133 = icmp eq i32 %132, 0
+  br i1 %133, label %134, label %136
+
+134:                                              ; preds = %122
+  %135 = load ptr, ptr %18, align 8, !tbaa !8
+  store ptr %135, ptr %8, align 8
+  store i32 1, ptr %24, align 4
+  br label %150
+
+136:                                              ; preds = %122
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #7
+  %137 = load ptr, ptr %18, align 8, !tbaa !8
+  %138 = call ptr @lean_ctor_get(ptr noundef %137, i32 noundef 0)
+  store ptr %138, ptr %34, align 8, !tbaa !8
+  %139 = load ptr, ptr %18, align 8, !tbaa !8
+  %140 = call ptr @lean_ctor_get(ptr noundef %139, i32 noundef 1)
+  store ptr %140, ptr %35, align 8, !tbaa !8
+  %141 = load ptr, ptr %35, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %141)
+  %142 = load ptr, ptr %34, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %142)
+  %143 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %143)
+  %144 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %144, ptr %36, align 8, !tbaa !8
+  %145 = load ptr, ptr %36, align 8, !tbaa !8
+  %146 = load ptr, ptr %34, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %145, i32 noundef 0, ptr noundef %146)
+  %147 = load ptr, ptr %36, align 8, !tbaa !8
+  %148 = load ptr, ptr %35, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %147, i32 noundef 1, ptr noundef %148)
+  %149 = load ptr, ptr %36, align 8, !tbaa !8
+  store ptr %149, ptr %8, align 8
+  store i32 1, ptr %24, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #7
+  br label %150
+
+150:                                              ; preds = %136, %134
+  call void @llvm.lifetime.end.p0(i64 1, ptr %33) #7
+  br label %151
+
+151:                                              ; preds = %150, %121
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  br label %165
+
+152:                                              ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 1, ptr %37) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #7
+  %153 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %153)
+  %154 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %154)
+  %155 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %155)
+  store i8 0, ptr %37, align 1, !tbaa !10
+  %156 = load i8, ptr %37, align 1, !tbaa !10
+  %157 = zext i8 %156 to i64
+  %158 = call ptr @lean_box(i64 noundef %157)
+  store ptr %158, ptr %38, align 8, !tbaa !8
+  %159 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %159, ptr %39, align 8, !tbaa !8
+  %160 = load ptr, ptr %39, align 8, !tbaa !8
+  %161 = load ptr, ptr %38, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %160, i32 noundef 0, ptr noundef %161)
+  %162 = load ptr, ptr %39, align 8, !tbaa !8
+  %163 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %162, i32 noundef 1, ptr noundef %163)
+  %164 = load ptr, ptr %39, align 8, !tbaa !8
+  store ptr %164, ptr %8, align 8
+  store i32 1, ptr %24, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %37) #7
+  br label %165
+
+165:                                              ; preds = %152, %151
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #7
+  %166 = load i32, ptr %24, align 4
+  switch i32 %166, label %169 [
+    i32 2, label %40
+    i32 1, label %167
+  ]
+
+167:                                              ; preds = %165
+  %168 = load ptr, ptr %8, align 8
+  ret ptr %168
+
+169:                                              ; preds = %165
+  unreachable
+}
+
+declare ptr @lean_apply_4(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @lean_obj_tag(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  %4 = load ptr, ptr %3, align 8, !tbaa !8
+  %5 = call zeroext i1 @lean_is_scalar(ptr noundef %4)
+  br i1 %5, label %6, label %10
+
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %3, align 8, !tbaa !8
+  %8 = call i64 @lean_unbox(ptr noundef %7)
+  %9 = trunc i64 %8 to i32
+  store i32 %9, ptr %2, align 4
+  br label %14
+
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %3, align 8, !tbaa !8
+  %12 = call zeroext i8 @lean_ptr_tag(ptr noundef %11)
+  %13 = zext i8 %12 to i32
+  store i32 %13, ptr %2, align 4
+  br label %14
+
+14:                                               ; preds = %10, %6
+  %15 = load i32, ptr %2, align 4
+  ret i32 %15
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_executeReservedNameAction(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i8, align 1
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i8, align 1
+  %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
+  %20 = alloca i64, align 8
+  %21 = alloca i64, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca i8, align 1
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca ptr, align 8
+  %29 = alloca i8, align 1
+  %30 = alloca ptr, align 8
+  %31 = alloca ptr, align 8
+  %32 = alloca ptr, align 8
+  %33 = alloca ptr, align 8
+  %34 = alloca ptr, align 8
+  %35 = alloca ptr, align 8
+  %36 = alloca ptr, align 8
+  %37 = alloca i8, align 1
+  %38 = alloca ptr, align 8
+  %39 = alloca ptr, align 8
+  %40 = alloca i64, align 8
+  %41 = alloca i64, align 8
+  %42 = alloca ptr, align 8
+  %43 = alloca ptr, align 8
+  %44 = alloca ptr, align 8
+  %45 = alloca ptr, align 8
+  %46 = alloca ptr, align 8
+  %47 = alloca ptr, align 8
+  %48 = alloca ptr, align 8
+  %49 = alloca ptr, align 8
+  %50 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !8
+  br label %51
+
+51:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #7
+  %52 = load ptr, ptr @l_Lean_registerReservedNameAction___lambda__1___closed__1, align 8, !tbaa !8
+  store ptr %52, ptr %10, align 8, !tbaa !8
+  %53 = load ptr, ptr %10, align 8, !tbaa !8
+  %54 = load ptr, ptr %9, align 8, !tbaa !8
+  %55 = call ptr @lean_st_ref_get(ptr noundef %53, ptr noundef %54)
+  store ptr %55, ptr %11, align 8, !tbaa !8
+  %56 = load ptr, ptr %11, align 8, !tbaa !8
+  %57 = call zeroext i1 @lean_is_exclusive(ptr noundef %56)
+  %58 = xor i1 %57, true
+  %59 = zext i1 %58 to i32
+  %60 = trunc i32 %59 to i8
+  store i8 %60, ptr %12, align 1, !tbaa !10
+  %61 = load i8, ptr %12, align 1, !tbaa !10
+  %62 = zext i8 %61 to i32
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %64, label %163
+
+64:                                               ; preds = %51
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #7
+  %65 = load ptr, ptr %11, align 8, !tbaa !8
+  %66 = call ptr @lean_ctor_get(ptr noundef %65, i32 noundef 0)
+  store ptr %66, ptr %13, align 8, !tbaa !8
+  %67 = load ptr, ptr %11, align 8, !tbaa !8
+  %68 = call ptr @lean_ctor_get(ptr noundef %67, i32 noundef 1)
+  store ptr %68, ptr %14, align 8, !tbaa !8
+  %69 = load ptr, ptr %13, align 8, !tbaa !8
+  %70 = call ptr @lean_array_get_size(ptr noundef %69)
+  store ptr %70, ptr %15, align 8, !tbaa !8
+  %71 = call ptr @lean_unsigned_to_nat(i32 noundef 0)
+  store ptr %71, ptr %16, align 8, !tbaa !8
+  %72 = load ptr, ptr %16, align 8, !tbaa !8
+  %73 = load ptr, ptr %15, align 8, !tbaa !8
+  %74 = call zeroext i8 @lean_nat_dec_lt(ptr noundef %72, ptr noundef %73)
+  store i8 %74, ptr %17, align 1, !tbaa !10
+  %75 = load i8, ptr %17, align 1, !tbaa !10
+  %76 = zext i8 %75 to i32
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %88
+
+78:                                               ; preds = %64
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  %79 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %79)
+  %80 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %80)
+  %81 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %81)
+  %82 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %82)
+  %83 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %83)
+  %84 = call ptr @lean_box(i64 noundef 0)
+  store ptr %84, ptr %18, align 8, !tbaa !8
+  %85 = load ptr, ptr %11, align 8, !tbaa !8
+  %86 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %85, i32 noundef 0, ptr noundef %86)
+  %87 = load ptr, ptr %11, align 8, !tbaa !8
+  store ptr %87, ptr %5, align 8
+  store i32 1, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  br label %162
+
+88:                                               ; preds = %64
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  %89 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_free_object(ptr noundef %89)
+  store i64 0, ptr %20, align 8, !tbaa !4
+  %90 = load ptr, ptr %15, align 8, !tbaa !8
+  %91 = call i64 @lean_usize_of_nat(ptr noundef %90)
+  store i64 %91, ptr %21, align 8, !tbaa !4
+  %92 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %92)
+  %93 = load ptr, ptr %6, align 8, !tbaa !8
+  %94 = load ptr, ptr %13, align 8, !tbaa !8
+  %95 = load i64, ptr %20, align 8, !tbaa !4
+  %96 = load i64, ptr %21, align 8, !tbaa !4
+  %97 = load ptr, ptr %7, align 8, !tbaa !8
+  %98 = load ptr, ptr %8, align 8, !tbaa !8
+  %99 = load ptr, ptr %14, align 8, !tbaa !8
+  %100 = call ptr @l_Array_anyMUnsafe_any___at_Lean_executeReservedNameAction___spec__1(ptr noundef %93, ptr noundef %94, i64 noundef %95, i64 noundef %96, ptr noundef %97, ptr noundef %98, ptr noundef %99)
+  store ptr %100, ptr %22, align 8, !tbaa !8
+  %101 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %101)
+  %102 = load ptr, ptr %22, align 8, !tbaa !8
+  %103 = call i32 @lean_obj_tag(ptr noundef %102)
+  %104 = icmp eq i32 %103, 0
+  br i1 %104, label %105, label %135
+
+105:                                              ; preds = %88
+  call void @llvm.lifetime.start.p0(i64 1, ptr %23) #7
+  %106 = load ptr, ptr %22, align 8, !tbaa !8
+  %107 = call zeroext i1 @lean_is_exclusive(ptr noundef %106)
+  %108 = xor i1 %107, true
+  %109 = zext i1 %108 to i32
+  %110 = trunc i32 %109 to i8
+  store i8 %110, ptr %23, align 1, !tbaa !10
+  %111 = load i8, ptr %23, align 1, !tbaa !10
+  %112 = zext i8 %111 to i32
+  %113 = icmp eq i32 %112, 0
+  br i1 %113, label %114, label %122
+
+114:                                              ; preds = %105
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #7
+  %115 = load ptr, ptr %22, align 8, !tbaa !8
+  %116 = call ptr @lean_ctor_get(ptr noundef %115, i32 noundef 0)
+  store ptr %116, ptr %24, align 8, !tbaa !8
+  %117 = load ptr, ptr %24, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %117)
+  %118 = call ptr @lean_box(i64 noundef 0)
+  store ptr %118, ptr %25, align 8, !tbaa !8
+  %119 = load ptr, ptr %22, align 8, !tbaa !8
+  %120 = load ptr, ptr %25, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %119, i32 noundef 0, ptr noundef %120)
+  %121 = load ptr, ptr %22, align 8, !tbaa !8
+  store ptr %121, ptr %5, align 8
+  store i32 1, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #7
+  br label %134
+
+122:                                              ; preds = %105
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #7
+  %123 = load ptr, ptr %22, align 8, !tbaa !8
+  %124 = call ptr @lean_ctor_get(ptr noundef %123, i32 noundef 1)
+  store ptr %124, ptr %26, align 8, !tbaa !8
+  %125 = load ptr, ptr %26, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %125)
+  %126 = load ptr, ptr %22, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %126)
+  %127 = call ptr @lean_box(i64 noundef 0)
+  store ptr %127, ptr %27, align 8, !tbaa !8
+  %128 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %128, ptr %28, align 8, !tbaa !8
+  %129 = load ptr, ptr %28, align 8, !tbaa !8
+  %130 = load ptr, ptr %27, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %129, i32 noundef 0, ptr noundef %130)
+  %131 = load ptr, ptr %28, align 8, !tbaa !8
+  %132 = load ptr, ptr %26, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %131, i32 noundef 1, ptr noundef %132)
+  %133 = load ptr, ptr %28, align 8, !tbaa !8
+  store ptr %133, ptr %5, align 8
+  store i32 1, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #7
+  br label %134
+
+134:                                              ; preds = %122, %114
+  call void @llvm.lifetime.end.p0(i64 1, ptr %23) #7
+  br label %161
+
+135:                                              ; preds = %88
+  call void @llvm.lifetime.start.p0(i64 1, ptr %29) #7
+  %136 = load ptr, ptr %22, align 8, !tbaa !8
+  %137 = call zeroext i1 @lean_is_exclusive(ptr noundef %136)
+  %138 = xor i1 %137, true
+  %139 = zext i1 %138 to i32
+  %140 = trunc i32 %139 to i8
+  store i8 %140, ptr %29, align 1, !tbaa !10
+  %141 = load i8, ptr %29, align 1, !tbaa !10
+  %142 = zext i8 %141 to i32
+  %143 = icmp eq i32 %142, 0
+  br i1 %143, label %144, label %146
+
+144:                                              ; preds = %135
+  %145 = load ptr, ptr %22, align 8, !tbaa !8
+  store ptr %145, ptr %5, align 8
+  store i32 1, ptr %19, align 4
+  br label %160
+
+146:                                              ; preds = %135
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #7
+  %147 = load ptr, ptr %22, align 8, !tbaa !8
+  %148 = call ptr @lean_ctor_get(ptr noundef %147, i32 noundef 0)
+  store ptr %148, ptr %30, align 8, !tbaa !8
+  %149 = load ptr, ptr %22, align 8, !tbaa !8
+  %150 = call ptr @lean_ctor_get(ptr noundef %149, i32 noundef 1)
+  store ptr %150, ptr %31, align 8, !tbaa !8
+  %151 = load ptr, ptr %31, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %151)
+  %152 = load ptr, ptr %30, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %152)
+  %153 = load ptr, ptr %22, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %153)
+  %154 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %154, ptr %32, align 8, !tbaa !8
+  %155 = load ptr, ptr %32, align 8, !tbaa !8
+  %156 = load ptr, ptr %30, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %155, i32 noundef 0, ptr noundef %156)
+  %157 = load ptr, ptr %32, align 8, !tbaa !8
+  %158 = load ptr, ptr %31, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %157, i32 noundef 1, ptr noundef %158)
+  %159 = load ptr, ptr %32, align 8, !tbaa !8
+  store ptr %159, ptr %5, align 8
+  store i32 1, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #7
+  br label %160
+
+160:                                              ; preds = %146, %144
+  call void @llvm.lifetime.end.p0(i64 1, ptr %29) #7
+  br label %161
+
+161:                                              ; preds = %160, %134
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  br label %162
+
+162:                                              ; preds = %161, %78
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  br label %267
+
+163:                                              ; preds = %51
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %37) #7
+  %164 = load ptr, ptr %11, align 8, !tbaa !8
+  %165 = call ptr @lean_ctor_get(ptr noundef %164, i32 noundef 0)
+  store ptr %165, ptr %33, align 8, !tbaa !8
+  %166 = load ptr, ptr %11, align 8, !tbaa !8
+  %167 = call ptr @lean_ctor_get(ptr noundef %166, i32 noundef 1)
+  store ptr %167, ptr %34, align 8, !tbaa !8
+  %168 = load ptr, ptr %34, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %168)
+  %169 = load ptr, ptr %33, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %169)
+  %170 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %170)
+  %171 = load ptr, ptr %33, align 8, !tbaa !8
+  %172 = call ptr @lean_array_get_size(ptr noundef %171)
+  store ptr %172, ptr %35, align 8, !tbaa !8
+  %173 = call ptr @lean_unsigned_to_nat(i32 noundef 0)
+  store ptr %173, ptr %36, align 8, !tbaa !8
+  %174 = load ptr, ptr %36, align 8, !tbaa !8
+  %175 = load ptr, ptr %35, align 8, !tbaa !8
+  %176 = call zeroext i8 @lean_nat_dec_lt(ptr noundef %174, ptr noundef %175)
+  store i8 %176, ptr %37, align 1, !tbaa !10
+  %177 = load i8, ptr %37, align 1, !tbaa !10
+  %178 = zext i8 %177 to i32
+  %179 = icmp eq i32 %178, 0
+  br i1 %179, label %180, label %193
+
+180:                                              ; preds = %163
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #7
+  %181 = load ptr, ptr %35, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %181)
+  %182 = load ptr, ptr %33, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %182)
+  %183 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %183)
+  %184 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %184)
+  %185 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %185)
+  %186 = call ptr @lean_box(i64 noundef 0)
+  store ptr %186, ptr %38, align 8, !tbaa !8
+  %187 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %187, ptr %39, align 8, !tbaa !8
+  %188 = load ptr, ptr %39, align 8, !tbaa !8
+  %189 = load ptr, ptr %38, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %188, i32 noundef 0, ptr noundef %189)
+  %190 = load ptr, ptr %39, align 8, !tbaa !8
+  %191 = load ptr, ptr %34, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %190, i32 noundef 1, ptr noundef %191)
+  %192 = load ptr, ptr %39, align 8, !tbaa !8
+  store ptr %192, ptr %5, align 8
+  store i32 1, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #7
+  br label %266
+
+193:                                              ; preds = %163
+  call void @llvm.lifetime.start.p0(i64 8, ptr %40) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %41) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %42) #7
+  store i64 0, ptr %40, align 8, !tbaa !4
+  %194 = load ptr, ptr %35, align 8, !tbaa !8
+  %195 = call i64 @lean_usize_of_nat(ptr noundef %194)
+  store i64 %195, ptr %41, align 8, !tbaa !4
+  %196 = load ptr, ptr %35, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %196)
+  %197 = load ptr, ptr %6, align 8, !tbaa !8
+  %198 = load ptr, ptr %33, align 8, !tbaa !8
+  %199 = load i64, ptr %40, align 8, !tbaa !4
+  %200 = load i64, ptr %41, align 8, !tbaa !4
+  %201 = load ptr, ptr %7, align 8, !tbaa !8
+  %202 = load ptr, ptr %8, align 8, !tbaa !8
+  %203 = load ptr, ptr %34, align 8, !tbaa !8
+  %204 = call ptr @l_Array_anyMUnsafe_any___at_Lean_executeReservedNameAction___spec__1(ptr noundef %197, ptr noundef %198, i64 noundef %199, i64 noundef %200, ptr noundef %201, ptr noundef %202, ptr noundef %203)
+  store ptr %204, ptr %42, align 8, !tbaa !8
+  %205 = load ptr, ptr %33, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %205)
+  %206 = load ptr, ptr %42, align 8, !tbaa !8
+  %207 = call i32 @lean_obj_tag(ptr noundef %206)
+  %208 = icmp eq i32 %207, 0
+  br i1 %208, label %209, label %236
+
+209:                                              ; preds = %193
+  call void @llvm.lifetime.start.p0(i64 8, ptr %43) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %44) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %45) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %46) #7
+  %210 = load ptr, ptr %42, align 8, !tbaa !8
+  %211 = call ptr @lean_ctor_get(ptr noundef %210, i32 noundef 1)
+  store ptr %211, ptr %43, align 8, !tbaa !8
+  %212 = load ptr, ptr %43, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %212)
+  %213 = load ptr, ptr %42, align 8, !tbaa !8
+  %214 = call zeroext i1 @lean_is_exclusive(ptr noundef %213)
+  br i1 %214, label %215, label %219
+
+215:                                              ; preds = %209
+  %216 = load ptr, ptr %42, align 8, !tbaa !8
+  call void @lean_ctor_release(ptr noundef %216, i32 noundef 0)
+  %217 = load ptr, ptr %42, align 8, !tbaa !8
+  call void @lean_ctor_release(ptr noundef %217, i32 noundef 1)
+  %218 = load ptr, ptr %42, align 8, !tbaa !8
+  store ptr %218, ptr %44, align 8, !tbaa !8
+  br label %222
+
+219:                                              ; preds = %209
+  %220 = load ptr, ptr %42, align 8, !tbaa !8
+  call void @lean_dec_ref(ptr noundef %220)
+  %221 = call ptr @lean_box(i64 noundef 0)
+  store ptr %221, ptr %44, align 8, !tbaa !8
+  br label %222
+
+222:                                              ; preds = %219, %215
+  %223 = call ptr @lean_box(i64 noundef 0)
+  store ptr %223, ptr %45, align 8, !tbaa !8
+  %224 = load ptr, ptr %44, align 8, !tbaa !8
+  %225 = call zeroext i1 @lean_is_scalar(ptr noundef %224)
+  br i1 %225, label %226, label %228
+
+226:                                              ; preds = %222
+  %227 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %227, ptr %46, align 8, !tbaa !8
+  br label %230
+
+228:                                              ; preds = %222
+  %229 = load ptr, ptr %44, align 8, !tbaa !8
+  store ptr %229, ptr %46, align 8, !tbaa !8
+  br label %230
+
+230:                                              ; preds = %228, %226
+  %231 = load ptr, ptr %46, align 8, !tbaa !8
+  %232 = load ptr, ptr %45, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %231, i32 noundef 0, ptr noundef %232)
+  %233 = load ptr, ptr %46, align 8, !tbaa !8
+  %234 = load ptr, ptr %43, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %233, i32 noundef 1, ptr noundef %234)
+  %235 = load ptr, ptr %46, align 8, !tbaa !8
+  store ptr %235, ptr %5, align 8
+  store i32 1, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %46) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %45) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %44) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %43) #7
+  br label %265
+
+236:                                              ; preds = %193
+  call void @llvm.lifetime.start.p0(i64 8, ptr %47) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %48) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %49) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %50) #7
+  %237 = load ptr, ptr %42, align 8, !tbaa !8
+  %238 = call ptr @lean_ctor_get(ptr noundef %237, i32 noundef 0)
+  store ptr %238, ptr %47, align 8, !tbaa !8
+  %239 = load ptr, ptr %47, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %239)
+  %240 = load ptr, ptr %42, align 8, !tbaa !8
+  %241 = call ptr @lean_ctor_get(ptr noundef %240, i32 noundef 1)
+  store ptr %241, ptr %48, align 8, !tbaa !8
+  %242 = load ptr, ptr %48, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %242)
+  %243 = load ptr, ptr %42, align 8, !tbaa !8
+  %244 = call zeroext i1 @lean_is_exclusive(ptr noundef %243)
+  br i1 %244, label %245, label %249
+
+245:                                              ; preds = %236
+  %246 = load ptr, ptr %42, align 8, !tbaa !8
+  call void @lean_ctor_release(ptr noundef %246, i32 noundef 0)
+  %247 = load ptr, ptr %42, align 8, !tbaa !8
+  call void @lean_ctor_release(ptr noundef %247, i32 noundef 1)
+  %248 = load ptr, ptr %42, align 8, !tbaa !8
+  store ptr %248, ptr %49, align 8, !tbaa !8
+  br label %252
+
+249:                                              ; preds = %236
+  %250 = load ptr, ptr %42, align 8, !tbaa !8
+  call void @lean_dec_ref(ptr noundef %250)
+  %251 = call ptr @lean_box(i64 noundef 0)
+  store ptr %251, ptr %49, align 8, !tbaa !8
+  br label %252
+
+252:                                              ; preds = %249, %245
+  %253 = load ptr, ptr %49, align 8, !tbaa !8
+  %254 = call zeroext i1 @lean_is_scalar(ptr noundef %253)
+  br i1 %254, label %255, label %257
+
+255:                                              ; preds = %252
+  %256 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %256, ptr %50, align 8, !tbaa !8
+  br label %259
+
+257:                                              ; preds = %252
+  %258 = load ptr, ptr %49, align 8, !tbaa !8
+  store ptr %258, ptr %50, align 8, !tbaa !8
+  br label %259
+
+259:                                              ; preds = %257, %255
+  %260 = load ptr, ptr %50, align 8, !tbaa !8
+  %261 = load ptr, ptr %47, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %260, i32 noundef 0, ptr noundef %261)
+  %262 = load ptr, ptr %50, align 8, !tbaa !8
+  %263 = load ptr, ptr %48, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %262, i32 noundef 1, ptr noundef %263)
+  %264 = load ptr, ptr %50, align 8, !tbaa !8
+  store ptr %264, ptr %5, align 8
+  store i32 1, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %50) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %49) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %48) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %47) #7
+  br label %265
+
+265:                                              ; preds = %259, %230
+  call void @llvm.lifetime.end.p0(i64 8, ptr %42) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %41) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %40) #7
+  br label %266
+
+266:                                              ; preds = %265, %180
+  call void @llvm.lifetime.end.p0(i64 1, ptr %37) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #7
+  br label %267
+
+267:                                              ; preds = %266, %162
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %268 = load ptr, ptr %5, align 8
+  ret ptr %268
+}
+
+declare ptr @lean_st_ref_get(ptr noundef, ptr noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_unsigned_to_nat(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !14
+  %3 = load i32, ptr %2, align 4, !tbaa !14
+  %4 = zext i32 %3 to i64
+  %5 = call ptr @lean_usize_to_nat(i64 noundef %4)
+  ret ptr %5
+}
+
+declare void @lean_free_object(ptr noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @lean_ctor_release(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = call ptr @lean_ctor_obj_cptr(ptr noundef %6)
+  store ptr %7, ptr %5, align 8, !tbaa !15
+  %8 = load ptr, ptr %5, align 8, !tbaa !15
+  %9 = load i32, ptr %4, align 4, !tbaa !14
+  %10 = zext i32 %9 to i64
+  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %12)
+  %13 = call ptr @lean_box(i64 noundef 0)
+  %14 = load ptr, ptr %5, align 8, !tbaa !15
+  %15 = load i32, ptr %4, align 4, !tbaa !14
+  %16 = zext i32 %15 to i64
+  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %16
+  store ptr %13, ptr %17, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @lean_dec_ref(ptr noundef %0) #1 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %struct.lean_object, ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 4, !tbaa !11
+  %6 = icmp sgt i32 %5, 1
+  %7 = zext i1 %6 to i32
+  %8 = sext i32 %7 to i64
+  %9 = call i64 @llvm.expect.i64(i64 %8, i64 1)
+  %10 = icmp ne i64 %9, 0
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %2, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.lean_object, ptr %12, i32 0, i32 0
+  %14 = load i32, ptr %13, align 4, !tbaa !11
+  %15 = add i32 %14, -1
+  store i32 %15, ptr %13, align 4, !tbaa !11
+  br label %24
+
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %2, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.lean_object, ptr %17, i32 0, i32 0
+  %19 = load i32, ptr %18, align 4, !tbaa !11
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %23
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @lean_dec_ref_cold(ptr noundef %22)
+  br label %23
+
+23:                                               ; preds = %21, %16
+  br label %24
+
+24:                                               ; preds = %23, %11
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i1 @lean_is_scalar(ptr noundef %0) #1 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = ptrtoint ptr %3 to i64
+  %5 = and i64 %4, 1
+  %6 = icmp eq i64 %5, 1
+  ret i1 %6
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Array_anyMUnsafe_any___at_Lean_executeReservedNameAction___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #2 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !8
+  store ptr %1, ptr %9, align 8, !tbaa !8
+  store ptr %2, ptr %10, align 8, !tbaa !8
+  store ptr %3, ptr %11, align 8, !tbaa !8
+  store ptr %4, ptr %12, align 8, !tbaa !8
+  store ptr %5, ptr %13, align 8, !tbaa !8
+  store ptr %6, ptr %14, align 8, !tbaa !8
+  br label %18
+
+18:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  %19 = load ptr, ptr %10, align 8, !tbaa !8
+  %20 = call i64 @lean_unbox_usize(ptr noundef %19)
+  store i64 %20, ptr %15, align 8, !tbaa !4
+  %21 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %21)
+  %22 = load ptr, ptr %11, align 8, !tbaa !8
+  %23 = call i64 @lean_unbox_usize(ptr noundef %22)
+  store i64 %23, ptr %16, align 8, !tbaa !4
+  %24 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %24)
+  %25 = load ptr, ptr %8, align 8, !tbaa !8
+  %26 = load ptr, ptr %9, align 8, !tbaa !8
+  %27 = load i64, ptr %15, align 8, !tbaa !4
+  %28 = load i64, ptr %16, align 8, !tbaa !4
+  %29 = load ptr, ptr %12, align 8, !tbaa !8
+  %30 = load ptr, ptr %13, align 8, !tbaa !8
+  %31 = load ptr, ptr %14, align 8, !tbaa !8
+  %32 = call ptr @l_Array_anyMUnsafe_any___at_Lean_executeReservedNameAction___spec__1(ptr noundef %25, ptr noundef %26, i64 noundef %27, i64 noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31)
+  store ptr %32, ptr %17, align 8, !tbaa !8
+  %33 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %33)
+  %34 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  ret ptr %34
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @lean_unbox_usize(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = call i64 @lean_ctor_get_usize(ptr noundef %3, i32 noundef 0)
+  ret i64 %4
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_resolveGlobalName___at_Lean_realizeGlobalName___spec__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i8, align 1
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !8
+  br label %25
+
+25:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #7
+  %26 = load ptr, ptr %8, align 8, !tbaa !8
+  %27 = load ptr, ptr %9, align 8, !tbaa !8
+  %28 = call ptr @lean_st_ref_get(ptr noundef %26, ptr noundef %27)
+  store ptr %28, ptr %10, align 8, !tbaa !8
+  %29 = load ptr, ptr %10, align 8, !tbaa !8
+  %30 = call zeroext i1 @lean_is_exclusive(ptr noundef %29)
+  %31 = xor i1 %30, true
+  %32 = zext i1 %31 to i32
+  %33 = trunc i32 %32 to i8
+  store i8 %33, ptr %11, align 1, !tbaa !10
+  %34 = load i8, ptr %11, align 1, !tbaa !10
+  %35 = zext i8 %34 to i32
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %59
+
+37:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %38 = load ptr, ptr %10, align 8, !tbaa !8
+  %39 = call ptr @lean_ctor_get(ptr noundef %38, i32 noundef 0)
+  store ptr %39, ptr %12, align 8, !tbaa !8
+  %40 = load ptr, ptr %12, align 8, !tbaa !8
+  %41 = call ptr @lean_ctor_get(ptr noundef %40, i32 noundef 0)
+  store ptr %41, ptr %13, align 8, !tbaa !8
+  %42 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %42)
+  %43 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %43)
+  %44 = load ptr, ptr %7, align 8, !tbaa !8
+  %45 = call ptr @lean_ctor_get(ptr noundef %44, i32 noundef 6)
+  store ptr %45, ptr %14, align 8, !tbaa !8
+  %46 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %46)
+  %47 = load ptr, ptr %7, align 8, !tbaa !8
+  %48 = call ptr @lean_ctor_get(ptr noundef %47, i32 noundef 7)
+  store ptr %48, ptr %15, align 8, !tbaa !8
+  %49 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %49)
+  %50 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %50)
+  %51 = load ptr, ptr %13, align 8, !tbaa !8
+  %52 = load ptr, ptr %14, align 8, !tbaa !8
+  %53 = load ptr, ptr %15, align 8, !tbaa !8
+  %54 = load ptr, ptr %6, align 8, !tbaa !8
+  %55 = call ptr @l_Lean_ResolveName_resolveGlobalName(ptr noundef %51, ptr noundef %52, ptr noundef %53, ptr noundef %54)
+  store ptr %55, ptr %16, align 8, !tbaa !8
+  %56 = load ptr, ptr %10, align 8, !tbaa !8
+  %57 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %56, i32 noundef 0, ptr noundef %57)
+  %58 = load ptr, ptr %10, align 8, !tbaa !8
+  store ptr %58, ptr %5, align 8
+  store i32 1, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  br label %89
+
+59:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #7
+  %60 = load ptr, ptr %10, align 8, !tbaa !8
+  %61 = call ptr @lean_ctor_get(ptr noundef %60, i32 noundef 0)
+  store ptr %61, ptr %18, align 8, !tbaa !8
+  %62 = load ptr, ptr %10, align 8, !tbaa !8
+  %63 = call ptr @lean_ctor_get(ptr noundef %62, i32 noundef 1)
+  store ptr %63, ptr %19, align 8, !tbaa !8
+  %64 = load ptr, ptr %19, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %64)
+  %65 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %65)
+  %66 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %66)
+  %67 = load ptr, ptr %18, align 8, !tbaa !8
+  %68 = call ptr @lean_ctor_get(ptr noundef %67, i32 noundef 0)
+  store ptr %68, ptr %20, align 8, !tbaa !8
+  %69 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %69)
+  %70 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %70)
+  %71 = load ptr, ptr %7, align 8, !tbaa !8
+  %72 = call ptr @lean_ctor_get(ptr noundef %71, i32 noundef 6)
+  store ptr %72, ptr %21, align 8, !tbaa !8
+  %73 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %73)
+  %74 = load ptr, ptr %7, align 8, !tbaa !8
+  %75 = call ptr @lean_ctor_get(ptr noundef %74, i32 noundef 7)
+  store ptr %75, ptr %22, align 8, !tbaa !8
+  %76 = load ptr, ptr %22, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %76)
+  %77 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %77)
+  %78 = load ptr, ptr %20, align 8, !tbaa !8
+  %79 = load ptr, ptr %21, align 8, !tbaa !8
+  %80 = load ptr, ptr %22, align 8, !tbaa !8
+  %81 = load ptr, ptr %6, align 8, !tbaa !8
+  %82 = call ptr @l_Lean_ResolveName_resolveGlobalName(ptr noundef %78, ptr noundef %79, ptr noundef %80, ptr noundef %81)
+  store ptr %82, ptr %23, align 8, !tbaa !8
+  %83 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %83, ptr %24, align 8, !tbaa !8
+  %84 = load ptr, ptr %24, align 8, !tbaa !8
+  %85 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %84, i32 noundef 0, ptr noundef %85)
+  %86 = load ptr, ptr %24, align 8, !tbaa !8
+  %87 = load ptr, ptr %19, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %86, i32 noundef 1, ptr noundef %87)
+  %88 = load ptr, ptr %24, align 8, !tbaa !8
+  store ptr %88, ptr %5, align 8
+  store i32 1, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  br label %89
+
+89:                                               ; preds = %59, %37
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %90 = load ptr, ptr %5, align 8
+  ret ptr %90
+}
+
+declare ptr @l_Lean_ResolveName_resolveGlobalName(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca i8, align 1
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca i8, align 1
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca i8, align 1
+  %27 = alloca i8, align 1
+  %28 = alloca ptr, align 8
+  %29 = alloca ptr, align 8
+  %30 = alloca ptr, align 8
+  %31 = alloca ptr, align 8
+  %32 = alloca ptr, align 8
+  %33 = alloca ptr, align 8
+  %34 = alloca i8, align 1
+  %35 = alloca i32, align 4
+  %36 = alloca i8, align 1
+  %37 = alloca ptr, align 8
+  %38 = alloca ptr, align 8
+  %39 = alloca i8, align 1
+  %40 = alloca i8, align 1
+  %41 = alloca ptr, align 8
+  %42 = alloca ptr, align 8
+  %43 = alloca ptr, align 8
+  %44 = alloca ptr, align 8
+  %45 = alloca ptr, align 8
+  %46 = alloca ptr, align 8
+  %47 = alloca ptr, align 8
+  %48 = alloca ptr, align 8
+  %49 = alloca ptr, align 8
+  %50 = alloca i8, align 1
+  %51 = alloca ptr, align 8
+  %52 = alloca ptr, align 8
+  %53 = alloca i8, align 1
+  %54 = alloca ptr, align 8
+  %55 = alloca ptr, align 8
+  %56 = alloca i8, align 1
+  %57 = alloca i8, align 1
+  %58 = alloca ptr, align 8
+  %59 = alloca ptr, align 8
+  %60 = alloca ptr, align 8
+  %61 = alloca ptr, align 8
+  %62 = alloca ptr, align 8
+  %63 = alloca ptr, align 8
+  %64 = alloca ptr, align 8
+  %65 = alloca ptr, align 8
+  %66 = alloca ptr, align 8
+  %67 = alloca i8, align 1
+  %68 = alloca ptr, align 8
+  %69 = alloca ptr, align 8
+  %70 = alloca i8, align 1
+  %71 = alloca ptr, align 8
+  %72 = alloca ptr, align 8
+  %73 = alloca ptr, align 8
+  %74 = alloca ptr, align 8
+  %75 = alloca ptr, align 8
+  %76 = alloca i8, align 1
+  %77 = alloca i8, align 1
+  %78 = alloca ptr, align 8
+  %79 = alloca ptr, align 8
+  %80 = alloca ptr, align 8
+  %81 = alloca ptr, align 8
+  %82 = alloca ptr, align 8
+  %83 = alloca ptr, align 8
+  %84 = alloca i8, align 1
+  %85 = alloca ptr, align 8
+  %86 = alloca ptr, align 8
+  %87 = alloca ptr, align 8
+  %88 = alloca i8, align 1
+  %89 = alloca i8, align 1
+  %90 = alloca ptr, align 8
+  %91 = alloca ptr, align 8
+  %92 = alloca ptr, align 8
+  %93 = alloca ptr, align 8
+  %94 = alloca ptr, align 8
+  %95 = alloca ptr, align 8
+  %96 = alloca ptr, align 8
+  %97 = alloca ptr, align 8
+  %98 = alloca ptr, align 8
+  %99 = alloca ptr, align 8
+  %100 = alloca i8, align 1
+  %101 = alloca ptr, align 8
+  %102 = alloca ptr, align 8
+  %103 = alloca i8, align 1
+  %104 = alloca ptr, align 8
+  %105 = alloca ptr, align 8
+  %106 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !8
+  store ptr %1, ptr %9, align 8, !tbaa !8
+  store ptr %2, ptr %10, align 8, !tbaa !8
+  store ptr %3, ptr %11, align 8, !tbaa !8
+  store ptr %4, ptr %12, align 8, !tbaa !8
+  store ptr %5, ptr %13, align 8, !tbaa !8
+  br label %107
+
+107:                                              ; preds = %608, %6
+  %108 = load ptr, ptr %9, align 8, !tbaa !8
+  %109 = call i32 @lean_obj_tag(ptr noundef %108)
+  %110 = icmp eq i32 %109, 0
+  br i1 %110, label %111, label %121
+
+111:                                              ; preds = %107
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %112 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %112)
+  %113 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %113)
+  %114 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %114)
+  %115 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %115, ptr %14, align 8, !tbaa !8
+  %116 = load ptr, ptr %14, align 8, !tbaa !8
+  %117 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %116, i32 noundef 0, ptr noundef %117)
+  %118 = load ptr, ptr %14, align 8, !tbaa !8
+  %119 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %118, i32 noundef 1, ptr noundef %119)
+  %120 = load ptr, ptr %14, align 8, !tbaa !8
+  store ptr %120, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  br label %610
+
+121:                                              ; preds = %107
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %22) #7
+  %122 = load ptr, ptr %9, align 8, !tbaa !8
+  %123 = call ptr @lean_ctor_get(ptr noundef %122, i32 noundef 0)
+  store ptr %123, ptr %15, align 8, !tbaa !8
+  %124 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %124)
+  %125 = load ptr, ptr %9, align 8, !tbaa !8
+  %126 = call ptr @lean_ctor_get(ptr noundef %125, i32 noundef 1)
+  store ptr %126, ptr %16, align 8, !tbaa !8
+  %127 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %127)
+  %128 = load ptr, ptr %9, align 8, !tbaa !8
+  %129 = call zeroext i1 @lean_is_exclusive(ptr noundef %128)
+  br i1 %129, label %130, label %134
+
+130:                                              ; preds = %121
+  %131 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_ctor_release(ptr noundef %131, i32 noundef 0)
+  %132 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_ctor_release(ptr noundef %132, i32 noundef 1)
+  %133 = load ptr, ptr %9, align 8, !tbaa !8
+  store ptr %133, ptr %17, align 8, !tbaa !8
+  br label %137
+
+134:                                              ; preds = %121
+  %135 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_dec_ref(ptr noundef %135)
+  %136 = call ptr @lean_box(i64 noundef 0)
+  store ptr %136, ptr %17, align 8, !tbaa !8
+  br label %137
+
+137:                                              ; preds = %134, %130
+  %138 = load ptr, ptr %15, align 8, !tbaa !8
+  %139 = call ptr @lean_ctor_get(ptr noundef %138, i32 noundef 0)
+  store ptr %139, ptr %20, align 8, !tbaa !8
+  %140 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %140)
+  %141 = load ptr, ptr %12, align 8, !tbaa !8
+  %142 = load ptr, ptr %13, align 8, !tbaa !8
+  %143 = call ptr @lean_st_ref_get(ptr noundef %141, ptr noundef %142)
+  store ptr %143, ptr %21, align 8, !tbaa !8
+  %144 = load ptr, ptr %21, align 8, !tbaa !8
+  %145 = call zeroext i1 @lean_is_exclusive(ptr noundef %144)
+  %146 = xor i1 %145, true
+  %147 = zext i1 %146 to i32
+  %148 = trunc i32 %147 to i8
+  store i8 %148, ptr %22, align 1, !tbaa !10
+  %149 = load i8, ptr %22, align 1, !tbaa !10
+  %150 = zext i8 %149 to i32
+  %151 = icmp eq i32 %150, 0
+  br i1 %151, label %152, label %404
+
+152:                                              ; preds = %137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %26) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %27) #7
+  %153 = load ptr, ptr %21, align 8, !tbaa !8
+  %154 = call ptr @lean_ctor_get(ptr noundef %153, i32 noundef 0)
+  store ptr %154, ptr %23, align 8, !tbaa !8
+  %155 = load ptr, ptr %21, align 8, !tbaa !8
+  %156 = call ptr @lean_ctor_get(ptr noundef %155, i32 noundef 1)
+  store ptr %156, ptr %24, align 8, !tbaa !8
+  %157 = load ptr, ptr %23, align 8, !tbaa !8
+  %158 = call ptr @lean_ctor_get(ptr noundef %157, i32 noundef 0)
+  store ptr %158, ptr %25, align 8, !tbaa !8
+  %159 = load ptr, ptr %25, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %159)
+  %160 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %160)
+  store i8 1, ptr %26, align 1, !tbaa !10
+  %161 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %161)
+  %162 = load ptr, ptr %25, align 8, !tbaa !8
+  %163 = load ptr, ptr %20, align 8, !tbaa !8
+  %164 = load i8, ptr %26, align 1, !tbaa !10
+  %165 = call zeroext i8 @l_Lean_Environment_contains(ptr noundef %162, ptr noundef %163, i8 noundef zeroext %164)
+  store i8 %165, ptr %27, align 1, !tbaa !10
+  %166 = load i8, ptr %27, align 1, !tbaa !10
+  %167 = zext i8 %166 to i32
+  %168 = icmp eq i32 %167, 0
+  br i1 %168, label %169, label %397
+
+169:                                              ; preds = %152
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #7
+  %170 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %170)
+  %171 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %171)
+  %172 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %172)
+  %173 = load ptr, ptr %20, align 8, !tbaa !8
+  %174 = load ptr, ptr %11, align 8, !tbaa !8
+  %175 = load ptr, ptr %12, align 8, !tbaa !8
+  %176 = load ptr, ptr %24, align 8, !tbaa !8
+  %177 = call ptr @l_Lean_executeReservedNameAction(ptr noundef %173, ptr noundef %174, ptr noundef %175, ptr noundef %176)
+  store ptr %177, ptr %28, align 8, !tbaa !8
+  %178 = load ptr, ptr %28, align 8, !tbaa !8
+  %179 = call i32 @lean_obj_tag(ptr noundef %178)
+  %180 = icmp eq i32 %179, 0
+  br i1 %180, label %181, label %207
+
+181:                                              ; preds = %169
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %34) #7
+  %182 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_free_object(ptr noundef %182)
+  %183 = load ptr, ptr %28, align 8, !tbaa !8
+  %184 = call ptr @lean_ctor_get(ptr noundef %183, i32 noundef 1)
+  store ptr %184, ptr %29, align 8, !tbaa !8
+  %185 = load ptr, ptr %29, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %185)
+  %186 = load ptr, ptr %28, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %186)
+  %187 = load ptr, ptr %12, align 8, !tbaa !8
+  %188 = load ptr, ptr %29, align 8, !tbaa !8
+  %189 = call ptr @lean_st_ref_get(ptr noundef %187, ptr noundef %188)
+  store ptr %189, ptr %30, align 8, !tbaa !8
+  %190 = load ptr, ptr %30, align 8, !tbaa !8
+  %191 = call ptr @lean_ctor_get(ptr noundef %190, i32 noundef 0)
+  store ptr %191, ptr %31, align 8, !tbaa !8
+  %192 = load ptr, ptr %31, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %192)
+  %193 = load ptr, ptr %30, align 8, !tbaa !8
+  %194 = call ptr @lean_ctor_get(ptr noundef %193, i32 noundef 1)
+  store ptr %194, ptr %32, align 8, !tbaa !8
+  %195 = load ptr, ptr %32, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %195)
+  %196 = load ptr, ptr %30, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %196)
+  %197 = load ptr, ptr %31, align 8, !tbaa !8
+  %198 = call ptr @lean_ctor_get(ptr noundef %197, i32 noundef 0)
+  store ptr %198, ptr %33, align 8, !tbaa !8
+  %199 = load ptr, ptr %33, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %199)
+  %200 = load ptr, ptr %31, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %200)
+  %201 = load ptr, ptr %33, align 8, !tbaa !8
+  %202 = load ptr, ptr %20, align 8, !tbaa !8
+  %203 = call zeroext i8 @l_Lean_Environment_containsOnBranch(ptr noundef %201, ptr noundef %202)
+  store i8 %203, ptr %34, align 1, !tbaa !10
+  %204 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %204)
+  %205 = load i8, ptr %34, align 1, !tbaa !10
+  store i8 %205, ptr %18, align 1, !tbaa !10
+  %206 = load ptr, ptr %32, align 8, !tbaa !8
+  store ptr %206, ptr %19, align 8, !tbaa !8
+  store i32 3, ptr %35, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %34) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #7
+  br label %396
+
+207:                                              ; preds = %169
+  call void @llvm.lifetime.start.p0(i64 1, ptr %36) #7
+  %208 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %208)
+  %209 = load ptr, ptr %28, align 8, !tbaa !8
+  %210 = call zeroext i1 @lean_is_exclusive(ptr noundef %209)
+  %211 = xor i1 %210, true
+  %212 = zext i1 %211 to i32
+  %213 = trunc i32 %212 to i8
+  store i8 %213, ptr %36, align 1, !tbaa !10
+  %214 = load i8, ptr %36, align 1, !tbaa !10
+  %215 = zext i8 %214 to i32
+  %216 = icmp eq i32 %215, 0
+  br i1 %216, label %217, label %300
+
+217:                                              ; preds = %207
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %39) #7
+  %218 = load ptr, ptr %28, align 8, !tbaa !8
+  %219 = call ptr @lean_ctor_get(ptr noundef %218, i32 noundef 0)
+  store ptr %219, ptr %37, align 8, !tbaa !8
+  %220 = load ptr, ptr %28, align 8, !tbaa !8
+  %221 = call ptr @lean_ctor_get(ptr noundef %220, i32 noundef 1)
+  store ptr %221, ptr %38, align 8, !tbaa !8
+  %222 = load ptr, ptr %37, align 8, !tbaa !8
+  %223 = call zeroext i8 @l_Lean_Exception_isInterrupt(ptr noundef %222)
+  store i8 %223, ptr %39, align 1, !tbaa !10
+  %224 = load i8, ptr %39, align 1, !tbaa !10
+  %225 = zext i8 %224 to i32
+  %226 = icmp eq i32 %225, 0
+  br i1 %226, label %227, label %289
+
+227:                                              ; preds = %217
+  call void @llvm.lifetime.start.p0(i64 1, ptr %40) #7
+  %228 = load ptr, ptr %37, align 8, !tbaa !8
+  %229 = call zeroext i8 @l_Lean_Exception_isRuntime(ptr noundef %228)
+  store i8 %229, ptr %40, align 1, !tbaa !10
+  %230 = load i8, ptr %40, align 1, !tbaa !10
+  %231 = zext i8 %230 to i32
+  %232 = icmp eq i32 %231, 0
+  br i1 %232, label %233, label %278
+
+233:                                              ; preds = %227
+  call void @llvm.lifetime.start.p0(i64 8, ptr %41) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %42) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %43) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %44) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %45) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %46) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %47) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %48) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %49) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %50) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %51) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %52) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %53) #7
+  %234 = load ptr, ptr %28, align 8, !tbaa !8
+  call void @lean_free_object(ptr noundef %234)
+  %235 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %235)
+  %236 = load ptr, ptr %8, align 8, !tbaa !8
+  %237 = call ptr @l_Lean_MessageData_ofName(ptr noundef %236)
+  store ptr %237, ptr %41, align 8, !tbaa !8
+  %238 = load ptr, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__2, align 8, !tbaa !8
+  store ptr %238, ptr %42, align 8, !tbaa !8
+  %239 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_ctor_set_tag(ptr noundef %239, i8 noundef zeroext 7)
+  %240 = load ptr, ptr %21, align 8, !tbaa !8
+  %241 = load ptr, ptr %41, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %240, i32 noundef 1, ptr noundef %241)
+  %242 = load ptr, ptr %21, align 8, !tbaa !8
+  %243 = load ptr, ptr %42, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %242, i32 noundef 0, ptr noundef %243)
+  %244 = load ptr, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__4, align 8, !tbaa !8
+  store ptr %244, ptr %43, align 8, !tbaa !8
+  %245 = call ptr @lean_alloc_ctor(i32 noundef 7, i32 noundef 2, i32 noundef 0)
+  store ptr %245, ptr %44, align 8, !tbaa !8
+  %246 = load ptr, ptr %44, align 8, !tbaa !8
+  %247 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %246, i32 noundef 0, ptr noundef %247)
+  %248 = load ptr, ptr %44, align 8, !tbaa !8
+  %249 = load ptr, ptr %43, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %248, i32 noundef 1, ptr noundef %249)
+  %250 = load ptr, ptr %37, align 8, !tbaa !8
+  %251 = call ptr @l_Lean_Exception_toMessageData(ptr noundef %250)
+  store ptr %251, ptr %45, align 8, !tbaa !8
+  %252 = load ptr, ptr %45, align 8, !tbaa !8
+  %253 = call ptr @l_Lean_indentD(ptr noundef %252)
+  store ptr %253, ptr %46, align 8, !tbaa !8
+  %254 = call ptr @lean_alloc_ctor(i32 noundef 7, i32 noundef 2, i32 noundef 0)
+  store ptr %254, ptr %47, align 8, !tbaa !8
+  %255 = load ptr, ptr %47, align 8, !tbaa !8
+  %256 = load ptr, ptr %44, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %255, i32 noundef 0, ptr noundef %256)
+  %257 = load ptr, ptr %47, align 8, !tbaa !8
+  %258 = load ptr, ptr %46, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %257, i32 noundef 1, ptr noundef %258)
+  %259 = load ptr, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__6, align 8, !tbaa !8
+  store ptr %259, ptr %48, align 8, !tbaa !8
+  %260 = call ptr @lean_alloc_ctor(i32 noundef 7, i32 noundef 2, i32 noundef 0)
+  store ptr %260, ptr %49, align 8, !tbaa !8
+  %261 = load ptr, ptr %49, align 8, !tbaa !8
+  %262 = load ptr, ptr %47, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %261, i32 noundef 0, ptr noundef %262)
+  %263 = load ptr, ptr %49, align 8, !tbaa !8
+  %264 = load ptr, ptr %48, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %263, i32 noundef 1, ptr noundef %264)
+  store i8 2, ptr %50, align 1, !tbaa !10
+  %265 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %265)
+  %266 = load ptr, ptr %49, align 8, !tbaa !8
+  %267 = load i8, ptr %50, align 1, !tbaa !10
+  %268 = load ptr, ptr %11, align 8, !tbaa !8
+  %269 = load ptr, ptr %12, align 8, !tbaa !8
+  %270 = load ptr, ptr %38, align 8, !tbaa !8
+  %271 = call ptr @l_Lean_log___at_Lean_Core_wrapAsyncAsSnapshot___spec__13(ptr noundef %266, i8 noundef zeroext %267, ptr noundef %268, ptr noundef %269, ptr noundef %270)
+  store ptr %271, ptr %51, align 8, !tbaa !8
+  %272 = load ptr, ptr %51, align 8, !tbaa !8
+  %273 = call ptr @lean_ctor_get(ptr noundef %272, i32 noundef 1)
+  store ptr %273, ptr %52, align 8, !tbaa !8
+  %274 = load ptr, ptr %52, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %274)
+  %275 = load ptr, ptr %51, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %275)
+  store i8 0, ptr %53, align 1, !tbaa !10
+  %276 = load i8, ptr %53, align 1, !tbaa !10
+  store i8 %276, ptr %18, align 1, !tbaa !10
+  %277 = load ptr, ptr %52, align 8, !tbaa !8
+  store ptr %277, ptr %19, align 8, !tbaa !8
+  store i32 3, ptr %35, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %53) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %52) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %51) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %50) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %49) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %48) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %47) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %46) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %45) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %44) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %43) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %42) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %41) #7
+  br label %288
+
+278:                                              ; preds = %227
+  %279 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_free_object(ptr noundef %279)
+  %280 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %280)
+  %281 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %281)
+  %282 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %282)
+  %283 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %283)
+  %284 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %284)
+  %285 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %285)
+  %286 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %286)
+  %287 = load ptr, ptr %28, align 8, !tbaa !8
+  store ptr %287, ptr %7, align 8
+  store i32 1, ptr %35, align 4
+  br label %288
+
+288:                                              ; preds = %278, %233
+  call void @llvm.lifetime.end.p0(i64 1, ptr %40) #7
+  br label %299
+
+289:                                              ; preds = %217
+  %290 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_free_object(ptr noundef %290)
+  %291 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %291)
+  %292 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %292)
+  %293 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %293)
+  %294 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %294)
+  %295 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %295)
+  %296 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %296)
+  %297 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %297)
+  %298 = load ptr, ptr %28, align 8, !tbaa !8
+  store ptr %298, ptr %7, align 8
+  store i32 1, ptr %35, align 4
+  br label %299
+
+299:                                              ; preds = %289, %288
+  call void @llvm.lifetime.end.p0(i64 1, ptr %39) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #7
+  br label %395
+
+300:                                              ; preds = %207
+  call void @llvm.lifetime.start.p0(i64 8, ptr %54) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %55) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %56) #7
+  %301 = load ptr, ptr %28, align 8, !tbaa !8
+  %302 = call ptr @lean_ctor_get(ptr noundef %301, i32 noundef 0)
+  store ptr %302, ptr %54, align 8, !tbaa !8
+  %303 = load ptr, ptr %28, align 8, !tbaa !8
+  %304 = call ptr @lean_ctor_get(ptr noundef %303, i32 noundef 1)
+  store ptr %304, ptr %55, align 8, !tbaa !8
+  %305 = load ptr, ptr %55, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %305)
+  %306 = load ptr, ptr %54, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %306)
+  %307 = load ptr, ptr %28, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %307)
+  %308 = load ptr, ptr %54, align 8, !tbaa !8
+  %309 = call zeroext i8 @l_Lean_Exception_isInterrupt(ptr noundef %308)
+  store i8 %309, ptr %56, align 1, !tbaa !10
+  %310 = load i8, ptr %56, align 1, !tbaa !10
+  %311 = zext i8 %310 to i32
+  %312 = icmp eq i32 %311, 0
+  br i1 %312, label %313, label %379
+
+313:                                              ; preds = %300
+  call void @llvm.lifetime.start.p0(i64 1, ptr %57) #7
+  %314 = load ptr, ptr %54, align 8, !tbaa !8
+  %315 = call zeroext i8 @l_Lean_Exception_isRuntime(ptr noundef %314)
+  store i8 %315, ptr %57, align 1, !tbaa !10
+  %316 = load i8, ptr %57, align 1, !tbaa !10
+  %317 = zext i8 %316 to i32
+  %318 = icmp eq i32 %317, 0
+  br i1 %318, label %319, label %363
+
+319:                                              ; preds = %313
+  call void @llvm.lifetime.start.p0(i64 8, ptr %58) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %59) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %60) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %61) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %62) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %63) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %64) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %65) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %66) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %67) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %68) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %69) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %70) #7
+  %320 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %320)
+  %321 = load ptr, ptr %8, align 8, !tbaa !8
+  %322 = call ptr @l_Lean_MessageData_ofName(ptr noundef %321)
+  store ptr %322, ptr %58, align 8, !tbaa !8
+  %323 = load ptr, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__2, align 8, !tbaa !8
+  store ptr %323, ptr %59, align 8, !tbaa !8
+  %324 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_ctor_set_tag(ptr noundef %324, i8 noundef zeroext 7)
+  %325 = load ptr, ptr %21, align 8, !tbaa !8
+  %326 = load ptr, ptr %58, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %325, i32 noundef 1, ptr noundef %326)
+  %327 = load ptr, ptr %21, align 8, !tbaa !8
+  %328 = load ptr, ptr %59, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %327, i32 noundef 0, ptr noundef %328)
+  %329 = load ptr, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__4, align 8, !tbaa !8
+  store ptr %329, ptr %60, align 8, !tbaa !8
+  %330 = call ptr @lean_alloc_ctor(i32 noundef 7, i32 noundef 2, i32 noundef 0)
+  store ptr %330, ptr %61, align 8, !tbaa !8
+  %331 = load ptr, ptr %61, align 8, !tbaa !8
+  %332 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %331, i32 noundef 0, ptr noundef %332)
+  %333 = load ptr, ptr %61, align 8, !tbaa !8
+  %334 = load ptr, ptr %60, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %333, i32 noundef 1, ptr noundef %334)
+  %335 = load ptr, ptr %54, align 8, !tbaa !8
+  %336 = call ptr @l_Lean_Exception_toMessageData(ptr noundef %335)
+  store ptr %336, ptr %62, align 8, !tbaa !8
+  %337 = load ptr, ptr %62, align 8, !tbaa !8
+  %338 = call ptr @l_Lean_indentD(ptr noundef %337)
+  store ptr %338, ptr %63, align 8, !tbaa !8
+  %339 = call ptr @lean_alloc_ctor(i32 noundef 7, i32 noundef 2, i32 noundef 0)
+  store ptr %339, ptr %64, align 8, !tbaa !8
+  %340 = load ptr, ptr %64, align 8, !tbaa !8
+  %341 = load ptr, ptr %61, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %340, i32 noundef 0, ptr noundef %341)
+  %342 = load ptr, ptr %64, align 8, !tbaa !8
+  %343 = load ptr, ptr %63, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %342, i32 noundef 1, ptr noundef %343)
+  %344 = load ptr, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__6, align 8, !tbaa !8
+  store ptr %344, ptr %65, align 8, !tbaa !8
+  %345 = call ptr @lean_alloc_ctor(i32 noundef 7, i32 noundef 2, i32 noundef 0)
+  store ptr %345, ptr %66, align 8, !tbaa !8
+  %346 = load ptr, ptr %66, align 8, !tbaa !8
+  %347 = load ptr, ptr %64, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %346, i32 noundef 0, ptr noundef %347)
+  %348 = load ptr, ptr %66, align 8, !tbaa !8
+  %349 = load ptr, ptr %65, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %348, i32 noundef 1, ptr noundef %349)
+  store i8 2, ptr %67, align 1, !tbaa !10
+  %350 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %350)
+  %351 = load ptr, ptr %66, align 8, !tbaa !8
+  %352 = load i8, ptr %67, align 1, !tbaa !10
+  %353 = load ptr, ptr %11, align 8, !tbaa !8
+  %354 = load ptr, ptr %12, align 8, !tbaa !8
+  %355 = load ptr, ptr %55, align 8, !tbaa !8
+  %356 = call ptr @l_Lean_log___at_Lean_Core_wrapAsyncAsSnapshot___spec__13(ptr noundef %351, i8 noundef zeroext %352, ptr noundef %353, ptr noundef %354, ptr noundef %355)
+  store ptr %356, ptr %68, align 8, !tbaa !8
+  %357 = load ptr, ptr %68, align 8, !tbaa !8
+  %358 = call ptr @lean_ctor_get(ptr noundef %357, i32 noundef 1)
+  store ptr %358, ptr %69, align 8, !tbaa !8
+  %359 = load ptr, ptr %69, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %359)
+  %360 = load ptr, ptr %68, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %360)
+  store i8 0, ptr %70, align 1, !tbaa !10
+  %361 = load i8, ptr %70, align 1, !tbaa !10
+  store i8 %361, ptr %18, align 1, !tbaa !10
+  %362 = load ptr, ptr %69, align 8, !tbaa !8
+  store ptr %362, ptr %19, align 8, !tbaa !8
+  store i32 3, ptr %35, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %70) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %69) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %68) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %67) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %66) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %65) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %64) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %63) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %62) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %61) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %60) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %59) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %58) #7
+  br label %378
+
+363:                                              ; preds = %313
+  call void @llvm.lifetime.start.p0(i64 8, ptr %71) #7
+  %364 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_free_object(ptr noundef %364)
+  %365 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %365)
+  %366 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %366)
+  %367 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %367)
+  %368 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %368)
+  %369 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %369)
+  %370 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %370)
+  %371 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %371)
+  %372 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %372, ptr %71, align 8, !tbaa !8
+  %373 = load ptr, ptr %71, align 8, !tbaa !8
+  %374 = load ptr, ptr %54, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %373, i32 noundef 0, ptr noundef %374)
+  %375 = load ptr, ptr %71, align 8, !tbaa !8
+  %376 = load ptr, ptr %55, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %375, i32 noundef 1, ptr noundef %376)
+  %377 = load ptr, ptr %71, align 8, !tbaa !8
+  store ptr %377, ptr %7, align 8
+  store i32 1, ptr %35, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %71) #7
+  br label %378
+
+378:                                              ; preds = %363, %319
+  call void @llvm.lifetime.end.p0(i64 1, ptr %57) #7
+  br label %394
+
+379:                                              ; preds = %300
+  call void @llvm.lifetime.start.p0(i64 8, ptr %72) #7
+  %380 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_free_object(ptr noundef %380)
+  %381 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %381)
+  %382 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %382)
+  %383 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %383)
+  %384 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %384)
+  %385 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %385)
+  %386 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %386)
+  %387 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %387)
+  %388 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %388, ptr %72, align 8, !tbaa !8
+  %389 = load ptr, ptr %72, align 8, !tbaa !8
+  %390 = load ptr, ptr %54, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %389, i32 noundef 0, ptr noundef %390)
+  %391 = load ptr, ptr %72, align 8, !tbaa !8
+  %392 = load ptr, ptr %55, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %391, i32 noundef 1, ptr noundef %392)
+  %393 = load ptr, ptr %72, align 8, !tbaa !8
+  store ptr %393, ptr %7, align 8
+  store i32 1, ptr %35, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %72) #7
+  br label %394
+
+394:                                              ; preds = %379, %378
+  call void @llvm.lifetime.end.p0(i64 1, ptr %56) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %55) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %54) #7
+  br label %395
+
+395:                                              ; preds = %394, %299
+  call void @llvm.lifetime.end.p0(i64 1, ptr %36) #7
+  br label %396
+
+396:                                              ; preds = %395, %181
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #7
+  br label %402
+
+397:                                              ; preds = %152
+  %398 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_free_object(ptr noundef %398)
+  %399 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %399)
+  %400 = load i8, ptr %26, align 1, !tbaa !10
+  store i8 %400, ptr %18, align 1, !tbaa !10
+  %401 = load ptr, ptr %24, align 8, !tbaa !8
+  store ptr %401, ptr %19, align 8, !tbaa !8
+  store i32 3, ptr %35, align 4
+  br label %402
+
+402:                                              ; preds = %397, %396
+  call void @llvm.lifetime.end.p0(i64 1, ptr %27) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %26) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #7
+  %403 = load i32, ptr %35, align 4
+  switch i32 %403, label %608 [
+    i32 3, label %584
+  ]
+
+404:                                              ; preds = %137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %73) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %74) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %75) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %76) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %77) #7
+  %405 = load ptr, ptr %21, align 8, !tbaa !8
+  %406 = call ptr @lean_ctor_get(ptr noundef %405, i32 noundef 0)
+  store ptr %406, ptr %73, align 8, !tbaa !8
+  %407 = load ptr, ptr %21, align 8, !tbaa !8
+  %408 = call ptr @lean_ctor_get(ptr noundef %407, i32 noundef 1)
+  store ptr %408, ptr %74, align 8, !tbaa !8
+  %409 = load ptr, ptr %74, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %409)
+  %410 = load ptr, ptr %73, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %410)
+  %411 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %411)
+  %412 = load ptr, ptr %73, align 8, !tbaa !8
+  %413 = call ptr @lean_ctor_get(ptr noundef %412, i32 noundef 0)
+  store ptr %413, ptr %75, align 8, !tbaa !8
+  %414 = load ptr, ptr %75, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %414)
+  %415 = load ptr, ptr %73, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %415)
+  store i8 1, ptr %76, align 1, !tbaa !10
+  %416 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %416)
+  %417 = load ptr, ptr %75, align 8, !tbaa !8
+  %418 = load ptr, ptr %20, align 8, !tbaa !8
+  %419 = load i8, ptr %76, align 1, !tbaa !10
+  %420 = call zeroext i8 @l_Lean_Environment_contains(ptr noundef %417, ptr noundef %418, i8 noundef zeroext %419)
+  store i8 %420, ptr %77, align 1, !tbaa !10
+  %421 = load i8, ptr %77, align 1, !tbaa !10
+  %422 = zext i8 %421 to i32
+  %423 = icmp eq i32 %422, 0
+  br i1 %423, label %424, label %578
+
+424:                                              ; preds = %404
+  call void @llvm.lifetime.start.p0(i64 8, ptr %78) #7
+  %425 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %425)
+  %426 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %426)
+  %427 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %427)
+  %428 = load ptr, ptr %20, align 8, !tbaa !8
+  %429 = load ptr, ptr %11, align 8, !tbaa !8
+  %430 = load ptr, ptr %12, align 8, !tbaa !8
+  %431 = load ptr, ptr %74, align 8, !tbaa !8
+  %432 = call ptr @l_Lean_executeReservedNameAction(ptr noundef %428, ptr noundef %429, ptr noundef %430, ptr noundef %431)
+  store ptr %432, ptr %78, align 8, !tbaa !8
+  %433 = load ptr, ptr %78, align 8, !tbaa !8
+  %434 = call i32 @lean_obj_tag(ptr noundef %433)
+  %435 = icmp eq i32 %434, 0
+  br i1 %435, label %436, label %461
+
+436:                                              ; preds = %424
+  call void @llvm.lifetime.start.p0(i64 8, ptr %79) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %80) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %81) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %82) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %83) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %84) #7
+  %437 = load ptr, ptr %78, align 8, !tbaa !8
+  %438 = call ptr @lean_ctor_get(ptr noundef %437, i32 noundef 1)
+  store ptr %438, ptr %79, align 8, !tbaa !8
+  %439 = load ptr, ptr %79, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %439)
+  %440 = load ptr, ptr %78, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %440)
+  %441 = load ptr, ptr %12, align 8, !tbaa !8
+  %442 = load ptr, ptr %79, align 8, !tbaa !8
+  %443 = call ptr @lean_st_ref_get(ptr noundef %441, ptr noundef %442)
+  store ptr %443, ptr %80, align 8, !tbaa !8
+  %444 = load ptr, ptr %80, align 8, !tbaa !8
+  %445 = call ptr @lean_ctor_get(ptr noundef %444, i32 noundef 0)
+  store ptr %445, ptr %81, align 8, !tbaa !8
+  %446 = load ptr, ptr %81, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %446)
+  %447 = load ptr, ptr %80, align 8, !tbaa !8
+  %448 = call ptr @lean_ctor_get(ptr noundef %447, i32 noundef 1)
+  store ptr %448, ptr %82, align 8, !tbaa !8
+  %449 = load ptr, ptr %82, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %449)
+  %450 = load ptr, ptr %80, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %450)
+  %451 = load ptr, ptr %81, align 8, !tbaa !8
+  %452 = call ptr @lean_ctor_get(ptr noundef %451, i32 noundef 0)
+  store ptr %452, ptr %83, align 8, !tbaa !8
+  %453 = load ptr, ptr %83, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %453)
+  %454 = load ptr, ptr %81, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %454)
+  %455 = load ptr, ptr %83, align 8, !tbaa !8
+  %456 = load ptr, ptr %20, align 8, !tbaa !8
+  %457 = call zeroext i8 @l_Lean_Environment_containsOnBranch(ptr noundef %455, ptr noundef %456)
+  store i8 %457, ptr %84, align 1, !tbaa !10
+  %458 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %458)
+  %459 = load i8, ptr %84, align 1, !tbaa !10
+  store i8 %459, ptr %18, align 1, !tbaa !10
+  %460 = load ptr, ptr %82, align 8, !tbaa !8
+  store ptr %460, ptr %19, align 8, !tbaa !8
+  store i32 3, ptr %35, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %84) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %83) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %82) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %81) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %80) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %79) #7
+  br label %577
+
+461:                                              ; preds = %424
+  call void @llvm.lifetime.start.p0(i64 8, ptr %85) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %86) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %87) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %88) #7
+  %462 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %462)
+  %463 = load ptr, ptr %78, align 8, !tbaa !8
+  %464 = call ptr @lean_ctor_get(ptr noundef %463, i32 noundef 0)
+  store ptr %464, ptr %85, align 8, !tbaa !8
+  %465 = load ptr, ptr %85, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %465)
+  %466 = load ptr, ptr %78, align 8, !tbaa !8
+  %467 = call ptr @lean_ctor_get(ptr noundef %466, i32 noundef 1)
+  store ptr %467, ptr %86, align 8, !tbaa !8
+  %468 = load ptr, ptr %86, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %468)
+  %469 = load ptr, ptr %78, align 8, !tbaa !8
+  %470 = call zeroext i1 @lean_is_exclusive(ptr noundef %469)
+  br i1 %470, label %471, label %475
+
+471:                                              ; preds = %461
+  %472 = load ptr, ptr %78, align 8, !tbaa !8
+  call void @lean_ctor_release(ptr noundef %472, i32 noundef 0)
+  %473 = load ptr, ptr %78, align 8, !tbaa !8
+  call void @lean_ctor_release(ptr noundef %473, i32 noundef 1)
+  %474 = load ptr, ptr %78, align 8, !tbaa !8
+  store ptr %474, ptr %87, align 8, !tbaa !8
+  br label %478
+
+475:                                              ; preds = %461
+  %476 = load ptr, ptr %78, align 8, !tbaa !8
+  call void @lean_dec_ref(ptr noundef %476)
+  %477 = call ptr @lean_box(i64 noundef 0)
+  store ptr %477, ptr %87, align 8, !tbaa !8
+  br label %478
+
+478:                                              ; preds = %475, %471
+  %479 = load ptr, ptr %85, align 8, !tbaa !8
+  %480 = call zeroext i8 @l_Lean_Exception_isInterrupt(ptr noundef %479)
+  store i8 %480, ptr %88, align 1, !tbaa !10
+  %481 = load i8, ptr %88, align 1, !tbaa !10
+  %482 = zext i8 %481 to i32
+  %483 = icmp eq i32 %482, 0
+  br i1 %483, label %484, label %556
+
+484:                                              ; preds = %478
+  call void @llvm.lifetime.start.p0(i64 1, ptr %89) #7
+  %485 = load ptr, ptr %85, align 8, !tbaa !8
+  %486 = call zeroext i8 @l_Lean_Exception_isRuntime(ptr noundef %485)
+  store i8 %486, ptr %89, align 1, !tbaa !10
+  %487 = load i8, ptr %89, align 1, !tbaa !10
+  %488 = zext i8 %487 to i32
+  %489 = icmp eq i32 %488, 0
+  br i1 %489, label %490, label %535
+
+490:                                              ; preds = %484
+  call void @llvm.lifetime.start.p0(i64 8, ptr %90) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %91) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %92) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %93) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %94) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %95) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %96) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %97) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %98) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %99) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %100) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %101) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %102) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %103) #7
+  %491 = load ptr, ptr %87, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %491)
+  %492 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %492)
+  %493 = load ptr, ptr %8, align 8, !tbaa !8
+  %494 = call ptr @l_Lean_MessageData_ofName(ptr noundef %493)
+  store ptr %494, ptr %90, align 8, !tbaa !8
+  %495 = load ptr, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__2, align 8, !tbaa !8
+  store ptr %495, ptr %91, align 8, !tbaa !8
+  %496 = call ptr @lean_alloc_ctor(i32 noundef 7, i32 noundef 2, i32 noundef 0)
+  store ptr %496, ptr %92, align 8, !tbaa !8
+  %497 = load ptr, ptr %92, align 8, !tbaa !8
+  %498 = load ptr, ptr %91, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %497, i32 noundef 0, ptr noundef %498)
+  %499 = load ptr, ptr %92, align 8, !tbaa !8
+  %500 = load ptr, ptr %90, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %499, i32 noundef 1, ptr noundef %500)
+  %501 = load ptr, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__4, align 8, !tbaa !8
+  store ptr %501, ptr %93, align 8, !tbaa !8
+  %502 = call ptr @lean_alloc_ctor(i32 noundef 7, i32 noundef 2, i32 noundef 0)
+  store ptr %502, ptr %94, align 8, !tbaa !8
+  %503 = load ptr, ptr %94, align 8, !tbaa !8
+  %504 = load ptr, ptr %92, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %503, i32 noundef 0, ptr noundef %504)
+  %505 = load ptr, ptr %94, align 8, !tbaa !8
+  %506 = load ptr, ptr %93, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %505, i32 noundef 1, ptr noundef %506)
+  %507 = load ptr, ptr %85, align 8, !tbaa !8
+  %508 = call ptr @l_Lean_Exception_toMessageData(ptr noundef %507)
+  store ptr %508, ptr %95, align 8, !tbaa !8
+  %509 = load ptr, ptr %95, align 8, !tbaa !8
+  %510 = call ptr @l_Lean_indentD(ptr noundef %509)
+  store ptr %510, ptr %96, align 8, !tbaa !8
+  %511 = call ptr @lean_alloc_ctor(i32 noundef 7, i32 noundef 2, i32 noundef 0)
+  store ptr %511, ptr %97, align 8, !tbaa !8
+  %512 = load ptr, ptr %97, align 8, !tbaa !8
+  %513 = load ptr, ptr %94, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %512, i32 noundef 0, ptr noundef %513)
+  %514 = load ptr, ptr %97, align 8, !tbaa !8
+  %515 = load ptr, ptr %96, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %514, i32 noundef 1, ptr noundef %515)
+  %516 = load ptr, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__6, align 8, !tbaa !8
+  store ptr %516, ptr %98, align 8, !tbaa !8
+  %517 = call ptr @lean_alloc_ctor(i32 noundef 7, i32 noundef 2, i32 noundef 0)
+  store ptr %517, ptr %99, align 8, !tbaa !8
+  %518 = load ptr, ptr %99, align 8, !tbaa !8
+  %519 = load ptr, ptr %97, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %518, i32 noundef 0, ptr noundef %519)
+  %520 = load ptr, ptr %99, align 8, !tbaa !8
+  %521 = load ptr, ptr %98, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %520, i32 noundef 1, ptr noundef %521)
+  store i8 2, ptr %100, align 1, !tbaa !10
+  %522 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %522)
+  %523 = load ptr, ptr %99, align 8, !tbaa !8
+  %524 = load i8, ptr %100, align 1, !tbaa !10
+  %525 = load ptr, ptr %11, align 8, !tbaa !8
+  %526 = load ptr, ptr %12, align 8, !tbaa !8
+  %527 = load ptr, ptr %86, align 8, !tbaa !8
+  %528 = call ptr @l_Lean_log___at_Lean_Core_wrapAsyncAsSnapshot___spec__13(ptr noundef %523, i8 noundef zeroext %524, ptr noundef %525, ptr noundef %526, ptr noundef %527)
+  store ptr %528, ptr %101, align 8, !tbaa !8
+  %529 = load ptr, ptr %101, align 8, !tbaa !8
+  %530 = call ptr @lean_ctor_get(ptr noundef %529, i32 noundef 1)
+  store ptr %530, ptr %102, align 8, !tbaa !8
+  %531 = load ptr, ptr %102, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %531)
+  %532 = load ptr, ptr %101, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %532)
+  store i8 0, ptr %103, align 1, !tbaa !10
+  %533 = load i8, ptr %103, align 1, !tbaa !10
+  store i8 %533, ptr %18, align 1, !tbaa !10
+  %534 = load ptr, ptr %102, align 8, !tbaa !8
+  store ptr %534, ptr %19, align 8, !tbaa !8
+  store i32 3, ptr %35, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %103) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %102) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %101) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %100) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %99) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %98) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %97) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %96) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %95) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %94) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %93) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %92) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %91) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %90) #7
+  br label %555
+
+535:                                              ; preds = %484
+  call void @llvm.lifetime.start.p0(i64 8, ptr %104) #7
+  %536 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %536)
+  %537 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %537)
+  %538 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %538)
+  %539 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %539)
+  %540 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %540)
+  %541 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %541)
+  %542 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %542)
+  %543 = load ptr, ptr %87, align 8, !tbaa !8
+  %544 = call zeroext i1 @lean_is_scalar(ptr noundef %543)
+  br i1 %544, label %545, label %547
+
+545:                                              ; preds = %535
+  %546 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %546, ptr %104, align 8, !tbaa !8
+  br label %549
+
+547:                                              ; preds = %535
+  %548 = load ptr, ptr %87, align 8, !tbaa !8
+  store ptr %548, ptr %104, align 8, !tbaa !8
+  br label %549
+
+549:                                              ; preds = %547, %545
+  %550 = load ptr, ptr %104, align 8, !tbaa !8
+  %551 = load ptr, ptr %85, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %550, i32 noundef 0, ptr noundef %551)
+  %552 = load ptr, ptr %104, align 8, !tbaa !8
+  %553 = load ptr, ptr %86, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %552, i32 noundef 1, ptr noundef %553)
+  %554 = load ptr, ptr %104, align 8, !tbaa !8
+  store ptr %554, ptr %7, align 8
+  store i32 1, ptr %35, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %104) #7
+  br label %555
+
+555:                                              ; preds = %549, %490
+  call void @llvm.lifetime.end.p0(i64 1, ptr %89) #7
+  br label %576
+
+556:                                              ; preds = %478
+  call void @llvm.lifetime.start.p0(i64 8, ptr %105) #7
+  %557 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %557)
+  %558 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %558)
+  %559 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %559)
+  %560 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %560)
+  %561 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %561)
+  %562 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %562)
+  %563 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %563)
+  %564 = load ptr, ptr %87, align 8, !tbaa !8
+  %565 = call zeroext i1 @lean_is_scalar(ptr noundef %564)
+  br i1 %565, label %566, label %568
+
+566:                                              ; preds = %556
+  %567 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %567, ptr %105, align 8, !tbaa !8
+  br label %570
+
+568:                                              ; preds = %556
+  %569 = load ptr, ptr %87, align 8, !tbaa !8
+  store ptr %569, ptr %105, align 8, !tbaa !8
+  br label %570
+
+570:                                              ; preds = %568, %566
+  %571 = load ptr, ptr %105, align 8, !tbaa !8
+  %572 = load ptr, ptr %85, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %571, i32 noundef 0, ptr noundef %572)
+  %573 = load ptr, ptr %105, align 8, !tbaa !8
+  %574 = load ptr, ptr %86, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %573, i32 noundef 1, ptr noundef %574)
+  %575 = load ptr, ptr %105, align 8, !tbaa !8
+  store ptr %575, ptr %7, align 8
+  store i32 1, ptr %35, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %105) #7
+  br label %576
+
+576:                                              ; preds = %570, %555
+  call void @llvm.lifetime.end.p0(i64 1, ptr %88) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %87) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %86) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %85) #7
+  br label %577
+
+577:                                              ; preds = %576, %436
+  call void @llvm.lifetime.end.p0(i64 8, ptr %78) #7
+  br label %582
+
+578:                                              ; preds = %404
+  %579 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %579)
+  %580 = load i8, ptr %76, align 1, !tbaa !10
+  store i8 %580, ptr %18, align 1, !tbaa !10
+  %581 = load ptr, ptr %74, align 8, !tbaa !8
+  store ptr %581, ptr %19, align 8, !tbaa !8
+  store i32 3, ptr %35, align 4
+  br label %582
+
+582:                                              ; preds = %578, %577
+  call void @llvm.lifetime.end.p0(i64 1, ptr %77) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %76) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %75) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %74) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %73) #7
+  %583 = load i32, ptr %35, align 4
+  switch i32 %583, label %608 [
+    i32 3, label %584
+  ]
+
+584:                                              ; preds = %582, %402
+  %585 = load i8, ptr %18, align 1, !tbaa !10
+  %586 = zext i8 %585 to i32
+  %587 = icmp eq i32 %586, 0
+  br i1 %587, label %588, label %593
+
+588:                                              ; preds = %584
+  %589 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %589)
+  %590 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %590)
+  %591 = load ptr, ptr %16, align 8, !tbaa !8
+  store ptr %591, ptr %9, align 8, !tbaa !8
+  %592 = load ptr, ptr %19, align 8, !tbaa !8
+  store ptr %592, ptr %13, align 8, !tbaa !8
+  store i32 2, ptr %35, align 4
+  br label %608
+
+593:                                              ; preds = %584
+  call void @llvm.lifetime.start.p0(i64 8, ptr %106) #7
+  %594 = load ptr, ptr %17, align 8, !tbaa !8
+  %595 = call zeroext i1 @lean_is_scalar(ptr noundef %594)
+  br i1 %595, label %596, label %598
+
+596:                                              ; preds = %593
+  %597 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %597, ptr %106, align 8, !tbaa !8
+  br label %600
+
+598:                                              ; preds = %593
+  %599 = load ptr, ptr %17, align 8, !tbaa !8
+  store ptr %599, ptr %106, align 8, !tbaa !8
+  br label %600
+
+600:                                              ; preds = %598, %596
+  %601 = load ptr, ptr %106, align 8, !tbaa !8
+  %602 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %601, i32 noundef 0, ptr noundef %602)
+  %603 = load ptr, ptr %106, align 8, !tbaa !8
+  %604 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %603, i32 noundef 1, ptr noundef %604)
+  %605 = load ptr, ptr %16, align 8, !tbaa !8
+  store ptr %605, ptr %9, align 8, !tbaa !8
+  %606 = load ptr, ptr %106, align 8, !tbaa !8
+  store ptr %606, ptr %10, align 8, !tbaa !8
+  %607 = load ptr, ptr %19, align 8, !tbaa !8
+  store ptr %607, ptr %13, align 8, !tbaa !8
+  store i32 2, ptr %35, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %106) #7
+  br label %608
+
+608:                                              ; preds = %600, %588, %582, %402
+  call void @llvm.lifetime.end.p0(i64 1, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  %609 = load i32, ptr %35, align 4
+  switch i32 %609, label %612 [
+    i32 1, label %610
+    i32 2, label %107
+  ]
+
+610:                                              ; preds = %608, %111
+  %611 = load ptr, ptr %7, align 8
+  ret ptr %611
+
+612:                                              ; preds = %608
+  unreachable
+}
+
+declare zeroext i8 @l_Lean_Environment_contains(ptr noundef, ptr noundef, i8 noundef zeroext) #4
+
+declare zeroext i8 @l_Lean_Environment_containsOnBranch(ptr noundef, ptr noundef) #4
+
+declare zeroext i8 @l_Lean_Exception_isInterrupt(ptr noundef) #4
+
+declare zeroext i8 @l_Lean_Exception_isRuntime(ptr noundef) #4
+
+declare ptr @l_Lean_MessageData_ofName(ptr noundef) #4
+
+declare ptr @l_Lean_Exception_toMessageData(ptr noundef) #4
+
+declare ptr @l_Lean_indentD(ptr noundef) #4
+
+declare ptr @l_Lean_log___at_Lean_Core_wrapAsyncAsSnapshot___spec__13(ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_realizeGlobalName(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i8, align 1
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca i8, align 1
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !8
+  br label %27
+
+27:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %28 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %28)
+  %29 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %29)
+  %30 = load ptr, ptr %6, align 8, !tbaa !8
+  %31 = load ptr, ptr %7, align 8, !tbaa !8
+  %32 = load ptr, ptr %8, align 8, !tbaa !8
+  %33 = load ptr, ptr %9, align 8, !tbaa !8
+  %34 = call ptr @l_Lean_resolveGlobalName___at_Lean_realizeGlobalName___spec__1(ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33)
+  store ptr %34, ptr %10, align 8, !tbaa !8
+  %35 = load ptr, ptr %10, align 8, !tbaa !8
+  %36 = call ptr @lean_ctor_get(ptr noundef %35, i32 noundef 0)
+  store ptr %36, ptr %11, align 8, !tbaa !8
+  %37 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %37)
+  %38 = load ptr, ptr %10, align 8, !tbaa !8
+  %39 = call ptr @lean_ctor_get(ptr noundef %38, i32 noundef 1)
+  store ptr %39, ptr %12, align 8, !tbaa !8
+  %40 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %40)
+  %41 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %41)
+  %42 = call ptr @lean_box(i64 noundef 0)
+  store ptr %42, ptr %13, align 8, !tbaa !8
+  %43 = load ptr, ptr %6, align 8, !tbaa !8
+  %44 = load ptr, ptr %11, align 8, !tbaa !8
+  %45 = load ptr, ptr %13, align 8, !tbaa !8
+  %46 = load ptr, ptr %7, align 8, !tbaa !8
+  %47 = load ptr, ptr %8, align 8, !tbaa !8
+  %48 = load ptr, ptr %12, align 8, !tbaa !8
+  %49 = call ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2(ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48)
+  store ptr %49, ptr %14, align 8, !tbaa !8
+  %50 = load ptr, ptr %14, align 8, !tbaa !8
+  %51 = call i32 @lean_obj_tag(ptr noundef %50)
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %87
+
+53:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #7
+  %54 = load ptr, ptr %14, align 8, !tbaa !8
+  %55 = call zeroext i1 @lean_is_exclusive(ptr noundef %54)
+  %56 = xor i1 %55, true
+  %57 = zext i1 %56 to i32
+  %58 = trunc i32 %57 to i8
+  store i8 %58, ptr %15, align 1, !tbaa !10
+  %59 = load i8, ptr %15, align 1, !tbaa !10
+  %60 = zext i8 %59 to i32
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %70
+
+62:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  %63 = load ptr, ptr %14, align 8, !tbaa !8
+  %64 = call ptr @lean_ctor_get(ptr noundef %63, i32 noundef 0)
+  store ptr %64, ptr %16, align 8, !tbaa !8
+  %65 = load ptr, ptr %16, align 8, !tbaa !8
+  %66 = call ptr @l_List_reverse___rarg(ptr noundef %65)
+  store ptr %66, ptr %17, align 8, !tbaa !8
+  %67 = load ptr, ptr %14, align 8, !tbaa !8
+  %68 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %67, i32 noundef 0, ptr noundef %68)
+  %69 = load ptr, ptr %14, align 8, !tbaa !8
+  store ptr %69, ptr %5, align 8
+  store i32 1, ptr %18, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  br label %86
+
+70:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  %71 = load ptr, ptr %14, align 8, !tbaa !8
+  %72 = call ptr @lean_ctor_get(ptr noundef %71, i32 noundef 0)
+  store ptr %72, ptr %19, align 8, !tbaa !8
+  %73 = load ptr, ptr %14, align 8, !tbaa !8
+  %74 = call ptr @lean_ctor_get(ptr noundef %73, i32 noundef 1)
+  store ptr %74, ptr %20, align 8, !tbaa !8
+  %75 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %75)
+  %76 = load ptr, ptr %19, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %76)
+  %77 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %77)
+  %78 = load ptr, ptr %19, align 8, !tbaa !8
+  %79 = call ptr @l_List_reverse___rarg(ptr noundef %78)
+  store ptr %79, ptr %21, align 8, !tbaa !8
+  %80 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %80, ptr %22, align 8, !tbaa !8
+  %81 = load ptr, ptr %22, align 8, !tbaa !8
+  %82 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %81, i32 noundef 0, ptr noundef %82)
+  %83 = load ptr, ptr %22, align 8, !tbaa !8
+  %84 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %83, i32 noundef 1, ptr noundef %84)
+  %85 = load ptr, ptr %22, align 8, !tbaa !8
+  store ptr %85, ptr %5, align 8
+  store i32 1, ptr %18, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  br label %86
+
+86:                                               ; preds = %70, %62
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #7
+  br label %113
+
+87:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 1, ptr %23) #7
+  %88 = load ptr, ptr %14, align 8, !tbaa !8
+  %89 = call zeroext i1 @lean_is_exclusive(ptr noundef %88)
+  %90 = xor i1 %89, true
+  %91 = zext i1 %90 to i32
+  %92 = trunc i32 %91 to i8
+  store i8 %92, ptr %23, align 1, !tbaa !10
+  %93 = load i8, ptr %23, align 1, !tbaa !10
+  %94 = zext i8 %93 to i32
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %96, label %98
+
+96:                                               ; preds = %87
+  %97 = load ptr, ptr %14, align 8, !tbaa !8
+  store ptr %97, ptr %5, align 8
+  store i32 1, ptr %18, align 4
+  br label %112
+
+98:                                               ; preds = %87
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #7
+  %99 = load ptr, ptr %14, align 8, !tbaa !8
+  %100 = call ptr @lean_ctor_get(ptr noundef %99, i32 noundef 0)
+  store ptr %100, ptr %24, align 8, !tbaa !8
+  %101 = load ptr, ptr %14, align 8, !tbaa !8
+  %102 = call ptr @lean_ctor_get(ptr noundef %101, i32 noundef 1)
+  store ptr %102, ptr %25, align 8, !tbaa !8
+  %103 = load ptr, ptr %25, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %103)
+  %104 = load ptr, ptr %24, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %104)
+  %105 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %105)
+  %106 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %106, ptr %26, align 8, !tbaa !8
+  %107 = load ptr, ptr %26, align 8, !tbaa !8
+  %108 = load ptr, ptr %24, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %107, i32 noundef 0, ptr noundef %108)
+  %109 = load ptr, ptr %26, align 8, !tbaa !8
+  %110 = load ptr, ptr %25, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %109, i32 noundef 1, ptr noundef %110)
+  %111 = load ptr, ptr %26, align 8, !tbaa !8
+  store ptr %111, ptr %5, align 8
+  store i32 1, ptr %18, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #7
+  br label %112
+
+112:                                              ; preds = %98, %96
+  call void @llvm.lifetime.end.p0(i64 1, ptr %23) #7
+  br label %113
+
+113:                                              ; preds = %112, %86
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %114 = load ptr, ptr %5, align 8
+  ret ptr %114
+}
+
+declare ptr @l_List_reverse___rarg(ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_resolveGlobalName___at_Lean_realizeGlobalName___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  store ptr %3, ptr %8, align 8, !tbaa !8
+  br label %10
+
+10:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %11 = load ptr, ptr %5, align 8, !tbaa !8
+  %12 = load ptr, ptr %6, align 8, !tbaa !8
+  %13 = load ptr, ptr %7, align 8, !tbaa !8
+  %14 = load ptr, ptr %8, align 8, !tbaa !8
+  %15 = call ptr @l_Lean_resolveGlobalName___at_Lean_realizeGlobalName___spec__1(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %9, align 8, !tbaa !8
+  %16 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %16)
+  %17 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  ret ptr %17
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_throwError___at_Lean_realizeGlobalConstCore___spec__4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i8, align 1
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !8
+  br label %20
+
+20:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #7
+  %21 = load ptr, ptr %7, align 8, !tbaa !8
+  %22 = call ptr @lean_ctor_get(ptr noundef %21, i32 noundef 5)
+  store ptr %22, ptr %10, align 8, !tbaa !8
+  %23 = load ptr, ptr %6, align 8, !tbaa !8
+  %24 = load ptr, ptr %7, align 8, !tbaa !8
+  %25 = load ptr, ptr %8, align 8, !tbaa !8
+  %26 = load ptr, ptr %9, align 8, !tbaa !8
+  %27 = call ptr @l_Lean_addMessageContextPartial___at_Lean_Core_instAddMessageContextCoreM___spec__1(ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26)
+  store ptr %27, ptr %11, align 8, !tbaa !8
+  %28 = load ptr, ptr %11, align 8, !tbaa !8
+  %29 = call zeroext i1 @lean_is_exclusive(ptr noundef %28)
+  %30 = xor i1 %29, true
+  %31 = zext i1 %30 to i32
+  %32 = trunc i32 %31 to i8
+  store i8 %32, ptr %12, align 1, !tbaa !10
+  %33 = load i8, ptr %12, align 1, !tbaa !10
+  %34 = zext i8 %33 to i32
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %49
+
+36:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %37 = load ptr, ptr %11, align 8, !tbaa !8
+  %38 = call ptr @lean_ctor_get(ptr noundef %37, i32 noundef 0)
+  store ptr %38, ptr %13, align 8, !tbaa !8
+  %39 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %39)
+  %40 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %40, ptr %14, align 8, !tbaa !8
+  %41 = load ptr, ptr %14, align 8, !tbaa !8
+  %42 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %41, i32 noundef 0, ptr noundef %42)
+  %43 = load ptr, ptr %14, align 8, !tbaa !8
+  %44 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %43, i32 noundef 1, ptr noundef %44)
+  %45 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_ctor_set_tag(ptr noundef %45, i8 noundef zeroext 1)
+  %46 = load ptr, ptr %11, align 8, !tbaa !8
+  %47 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %46, i32 noundef 0, ptr noundef %47)
+  %48 = load ptr, ptr %11, align 8, !tbaa !8
+  store ptr %48, ptr %5, align 8
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  br label %69
+
+49:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  %50 = load ptr, ptr %11, align 8, !tbaa !8
+  %51 = call ptr @lean_ctor_get(ptr noundef %50, i32 noundef 0)
+  store ptr %51, ptr %16, align 8, !tbaa !8
+  %52 = load ptr, ptr %11, align 8, !tbaa !8
+  %53 = call ptr @lean_ctor_get(ptr noundef %52, i32 noundef 1)
+  store ptr %53, ptr %17, align 8, !tbaa !8
+  %54 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %54)
+  %55 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %55)
+  %56 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %56)
+  %57 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %57)
+  %58 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %58, ptr %18, align 8, !tbaa !8
+  %59 = load ptr, ptr %18, align 8, !tbaa !8
+  %60 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %59, i32 noundef 0, ptr noundef %60)
+  %61 = load ptr, ptr %18, align 8, !tbaa !8
+  %62 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %61, i32 noundef 1, ptr noundef %62)
+  %63 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %63, ptr %19, align 8, !tbaa !8
+  %64 = load ptr, ptr %19, align 8, !tbaa !8
+  %65 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %64, i32 noundef 0, ptr noundef %65)
+  %66 = load ptr, ptr %19, align 8, !tbaa !8
+  %67 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %66, i32 noundef 1, ptr noundef %67)
+  %68 = load ptr, ptr %19, align 8, !tbaa !8
+  store ptr %68, ptr %5, align 8
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  br label %69
+
+69:                                               ; preds = %49, %36
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %70 = load ptr, ptr %5, align 8
+  ret ptr %70
+}
+
+declare ptr @l_Lean_addMessageContextPartial___at_Lean_Core_instAddMessageContextCoreM___spec__1(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_throwUnknownIdentifier___at_Lean_realizeGlobalConstCore___spec__3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  store ptr %3, ptr %8, align 8, !tbaa !8
+  br label %12
+
+12:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %13 = load ptr, ptr @l_Lean_unknownIdentifierMessageTag, align 8, !tbaa !8
+  store ptr %13, ptr %9, align 8, !tbaa !8
+  %14 = call ptr @lean_alloc_ctor(i32 noundef 8, i32 noundef 2, i32 noundef 0)
+  store ptr %14, ptr %10, align 8, !tbaa !8
+  %15 = load ptr, ptr %10, align 8, !tbaa !8
+  %16 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %15, i32 noundef 0, ptr noundef %16)
+  %17 = load ptr, ptr %10, align 8, !tbaa !8
+  %18 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %17, i32 noundef 1, ptr noundef %18)
+  %19 = load ptr, ptr %10, align 8, !tbaa !8
+  %20 = load ptr, ptr %6, align 8, !tbaa !8
+  %21 = load ptr, ptr %7, align 8, !tbaa !8
+  %22 = load ptr, ptr %8, align 8, !tbaa !8
+  %23 = call ptr @l_Lean_throwError___at_Lean_realizeGlobalConstCore___spec__4(ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22)
+  store ptr %23, ptr %11, align 8, !tbaa !8
+  %24 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  ret ptr %24
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i8, align 1
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  store ptr %3, ptr %8, align 8, !tbaa !8
+  br label %16
+
+16:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  store i8 0, ptr %9, align 1, !tbaa !10
+  %17 = load ptr, ptr %5, align 8, !tbaa !8
+  %18 = load i8, ptr %9, align 1, !tbaa !10
+  %19 = call ptr @l_Lean_MessageData_ofConstName(ptr noundef %17, i8 noundef zeroext %18)
+  store ptr %19, ptr %10, align 8, !tbaa !8
+  %20 = load ptr, ptr @l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__2, align 8, !tbaa !8
+  store ptr %20, ptr %11, align 8, !tbaa !8
+  %21 = call ptr @lean_alloc_ctor(i32 noundef 7, i32 noundef 2, i32 noundef 0)
+  store ptr %21, ptr %12, align 8, !tbaa !8
+  %22 = load ptr, ptr %12, align 8, !tbaa !8
+  %23 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %22, i32 noundef 0, ptr noundef %23)
+  %24 = load ptr, ptr %12, align 8, !tbaa !8
+  %25 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %24, i32 noundef 1, ptr noundef %25)
+  %26 = load ptr, ptr @l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__4, align 8, !tbaa !8
+  store ptr %26, ptr %13, align 8, !tbaa !8
+  %27 = call ptr @lean_alloc_ctor(i32 noundef 7, i32 noundef 2, i32 noundef 0)
+  store ptr %27, ptr %14, align 8, !tbaa !8
+  %28 = load ptr, ptr %14, align 8, !tbaa !8
+  %29 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %28, i32 noundef 0, ptr noundef %29)
+  %30 = load ptr, ptr %14, align 8, !tbaa !8
+  %31 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %30, i32 noundef 1, ptr noundef %31)
+  %32 = load ptr, ptr %14, align 8, !tbaa !8
+  %33 = load ptr, ptr %6, align 8, !tbaa !8
+  %34 = load ptr, ptr %7, align 8, !tbaa !8
+  %35 = load ptr, ptr %8, align 8, !tbaa !8
+  %36 = call ptr @l_Lean_throwUnknownIdentifier___at_Lean_realizeGlobalConstCore___spec__3(ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35)
+  store ptr %36, ptr %15, align 8, !tbaa !8
+  %37 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #7
+  ret ptr %37
+}
+
+declare ptr @l_Lean_MessageData_ofConstName(ptr noundef, i8 noundef zeroext) #4
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_filterFieldList___at_Lean_realizeGlobalConstCore___spec__1___lambda__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !8
+  store ptr %1, ptr %8, align 8, !tbaa !8
+  store ptr %2, ptr %9, align 8, !tbaa !8
+  store ptr %3, ptr %10, align 8, !tbaa !8
+  store ptr %4, ptr %11, align 8, !tbaa !8
+  store ptr %5, ptr %12, align 8, !tbaa !8
+  br label %15
+
+15:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %16 = load ptr, ptr %7, align 8, !tbaa !8
+  %17 = load ptr, ptr %8, align 8, !tbaa !8
+  %18 = call ptr @l_List_mapTR_loop___at_Lean_filterFieldList___spec__2(ptr noundef %16, ptr noundef %17)
+  store ptr %18, ptr %13, align 8, !tbaa !8
+  %19 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %19, ptr %14, align 8, !tbaa !8
+  %20 = load ptr, ptr %14, align 8, !tbaa !8
+  %21 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %20, i32 noundef 0, ptr noundef %21)
+  %22 = load ptr, ptr %14, align 8, !tbaa !8
+  %23 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %22, i32 noundef 1, ptr noundef %23)
+  %24 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  ret ptr %24
+}
+
+declare ptr @l_List_mapTR_loop___at_Lean_filterFieldList___spec__2(ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_filterFieldList___at_Lean_realizeGlobalConstCore___spec__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i8, align 1
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  %19 = alloca i8, align 1
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !8
+  store ptr %1, ptr %8, align 8, !tbaa !8
+  store ptr %2, ptr %9, align 8, !tbaa !8
+  store ptr %3, ptr %10, align 8, !tbaa !8
+  store ptr %4, ptr %11, align 8, !tbaa !8
+  br label %23
+
+23:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #7
+  %24 = call ptr @lean_box(i64 noundef 0)
+  store ptr %24, ptr %12, align 8, !tbaa !8
+  %25 = load ptr, ptr %8, align 8, !tbaa !8
+  %26 = load ptr, ptr %12, align 8, !tbaa !8
+  %27 = call ptr @l_List_filterTR_loop___at_Lean_filterFieldList___spec__1(ptr noundef %25, ptr noundef %26)
+  store ptr %27, ptr %13, align 8, !tbaa !8
+  %28 = load ptr, ptr %13, align 8, !tbaa !8
+  %29 = call zeroext i8 @l_List_isEmpty___rarg(ptr noundef %28)
+  store i8 %29, ptr %14, align 1, !tbaa !10
+  %30 = load i8, ptr %14, align 1, !tbaa !10
+  %31 = zext i8 %30 to i32
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %44
+
+33:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %34 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %34)
+  %35 = call ptr @lean_box(i64 noundef 0)
+  store ptr %35, ptr %15, align 8, !tbaa !8
+  %36 = load ptr, ptr %13, align 8, !tbaa !8
+  %37 = load ptr, ptr %12, align 8, !tbaa !8
+  %38 = load ptr, ptr %15, align 8, !tbaa !8
+  %39 = load ptr, ptr %9, align 8, !tbaa !8
+  %40 = load ptr, ptr %10, align 8, !tbaa !8
+  %41 = load ptr, ptr %11, align 8, !tbaa !8
+  %42 = call ptr @l_Lean_filterFieldList___at_Lean_realizeGlobalConstCore___spec__1___lambda__1(ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %41)
+  store ptr %42, ptr %16, align 8, !tbaa !8
+  %43 = load ptr, ptr %16, align 8, !tbaa !8
+  store ptr %43, ptr %6, align 8
+  store i32 1, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  br label %76
+
+44:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %19) #7
+  %45 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %45)
+  %46 = load ptr, ptr %7, align 8, !tbaa !8
+  %47 = load ptr, ptr %9, align 8, !tbaa !8
+  %48 = load ptr, ptr %10, align 8, !tbaa !8
+  %49 = load ptr, ptr %11, align 8, !tbaa !8
+  %50 = call ptr @l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2(ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49)
+  store ptr %50, ptr %18, align 8, !tbaa !8
+  %51 = load ptr, ptr %18, align 8, !tbaa !8
+  %52 = call zeroext i1 @lean_is_exclusive(ptr noundef %51)
+  %53 = xor i1 %52, true
+  %54 = zext i1 %53 to i32
+  %55 = trunc i32 %54 to i8
+  store i8 %55, ptr %19, align 1, !tbaa !10
+  %56 = load i8, ptr %19, align 1, !tbaa !10
+  %57 = zext i8 %56 to i32
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %61
+
+59:                                               ; preds = %44
+  %60 = load ptr, ptr %18, align 8, !tbaa !8
+  store ptr %60, ptr %6, align 8
+  store i32 1, ptr %17, align 4
+  br label %75
+
+61:                                               ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  %62 = load ptr, ptr %18, align 8, !tbaa !8
+  %63 = call ptr @lean_ctor_get(ptr noundef %62, i32 noundef 0)
+  store ptr %63, ptr %20, align 8, !tbaa !8
+  %64 = load ptr, ptr %18, align 8, !tbaa !8
+  %65 = call ptr @lean_ctor_get(ptr noundef %64, i32 noundef 1)
+  store ptr %65, ptr %21, align 8, !tbaa !8
+  %66 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %66)
+  %67 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %67)
+  %68 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %68)
+  %69 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %69, ptr %22, align 8, !tbaa !8
+  %70 = load ptr, ptr %22, align 8, !tbaa !8
+  %71 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %70, i32 noundef 0, ptr noundef %71)
+  %72 = load ptr, ptr %22, align 8, !tbaa !8
+  %73 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %72, i32 noundef 1, ptr noundef %73)
+  %74 = load ptr, ptr %22, align 8, !tbaa !8
+  store ptr %74, ptr %6, align 8
+  store i32 1, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  br label %75
+
+75:                                               ; preds = %61, %59
+  call void @llvm.lifetime.end.p0(i64 1, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  br label %76
+
+76:                                               ; preds = %75, %33
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  %77 = load ptr, ptr %6, align 8
+  ret ptr %77
+}
+
+declare ptr @l_List_filterTR_loop___at_Lean_filterFieldList___spec__1(ptr noundef, ptr noundef) #4
+
+declare zeroext i8 @l_List_isEmpty___rarg(ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_realizeGlobalConstCore(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i8, align 1
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !8
+  br label %19
+
+19:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %20 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %20)
+  %21 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %21)
+  %22 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %22)
+  %23 = load ptr, ptr %6, align 8, !tbaa !8
+  %24 = load ptr, ptr %7, align 8, !tbaa !8
+  %25 = load ptr, ptr %8, align 8, !tbaa !8
+  %26 = load ptr, ptr %9, align 8, !tbaa !8
+  %27 = call ptr @l_Lean_realizeGlobalName(ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26)
+  store ptr %27, ptr %10, align 8, !tbaa !8
+  %28 = load ptr, ptr %10, align 8, !tbaa !8
+  %29 = call i32 @lean_obj_tag(ptr noundef %28)
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %48
+
+31:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %32 = load ptr, ptr %10, align 8, !tbaa !8
+  %33 = call ptr @lean_ctor_get(ptr noundef %32, i32 noundef 0)
+  store ptr %33, ptr %11, align 8, !tbaa !8
+  %34 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %34)
+  %35 = load ptr, ptr %10, align 8, !tbaa !8
+  %36 = call ptr @lean_ctor_get(ptr noundef %35, i32 noundef 1)
+  store ptr %36, ptr %12, align 8, !tbaa !8
+  %37 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %37)
+  %38 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %38)
+  %39 = load ptr, ptr %6, align 8, !tbaa !8
+  %40 = load ptr, ptr %11, align 8, !tbaa !8
+  %41 = load ptr, ptr %7, align 8, !tbaa !8
+  %42 = load ptr, ptr %8, align 8, !tbaa !8
+  %43 = load ptr, ptr %12, align 8, !tbaa !8
+  %44 = call ptr @l_Lean_filterFieldList___at_Lean_realizeGlobalConstCore___spec__1(ptr noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43)
+  store ptr %44, ptr %13, align 8, !tbaa !8
+  %45 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %45)
+  %46 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %46)
+  %47 = load ptr, ptr %13, align 8, !tbaa !8
+  store ptr %47, ptr %5, align 8
+  store i32 1, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  br label %77
+
+48:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #7
+  %49 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %49)
+  %50 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %50)
+  %51 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %51)
+  %52 = load ptr, ptr %10, align 8, !tbaa !8
+  %53 = call zeroext i1 @lean_is_exclusive(ptr noundef %52)
+  %54 = xor i1 %53, true
+  %55 = zext i1 %54 to i32
+  %56 = trunc i32 %55 to i8
+  store i8 %56, ptr %15, align 1, !tbaa !10
+  %57 = load i8, ptr %15, align 1, !tbaa !10
+  %58 = zext i8 %57 to i32
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %60, label %62
+
+60:                                               ; preds = %48
+  %61 = load ptr, ptr %10, align 8, !tbaa !8
+  store ptr %61, ptr %5, align 8
+  store i32 1, ptr %14, align 4
+  br label %76
+
+62:                                               ; preds = %48
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  %63 = load ptr, ptr %10, align 8, !tbaa !8
+  %64 = call ptr @lean_ctor_get(ptr noundef %63, i32 noundef 0)
+  store ptr %64, ptr %16, align 8, !tbaa !8
+  %65 = load ptr, ptr %10, align 8, !tbaa !8
+  %66 = call ptr @lean_ctor_get(ptr noundef %65, i32 noundef 1)
+  store ptr %66, ptr %17, align 8, !tbaa !8
+  %67 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %67)
+  %68 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %68)
+  %69 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %69)
+  %70 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %70, ptr %18, align 8, !tbaa !8
+  %71 = load ptr, ptr %18, align 8, !tbaa !8
+  %72 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %71, i32 noundef 0, ptr noundef %72)
+  %73 = load ptr, ptr %18, align 8, !tbaa !8
+  %74 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %73, i32 noundef 1, ptr noundef %74)
+  %75 = load ptr, ptr %18, align 8, !tbaa !8
+  store ptr %75, ptr %5, align 8
+  store i32 1, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  br label %76
+
+76:                                               ; preds = %62, %60
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #7
+  br label %77
+
+77:                                               ; preds = %76, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %78 = load ptr, ptr %5, align 8
+  ret ptr %78
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_throwError___at_Lean_realizeGlobalConstCore___spec__4___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  store ptr %3, ptr %8, align 8, !tbaa !8
+  br label %10
+
+10:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %11 = load ptr, ptr %5, align 8, !tbaa !8
+  %12 = load ptr, ptr %6, align 8, !tbaa !8
+  %13 = load ptr, ptr %7, align 8, !tbaa !8
+  %14 = load ptr, ptr %8, align 8, !tbaa !8
+  %15 = call ptr @l_Lean_throwError___at_Lean_realizeGlobalConstCore___spec__4(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %9, align 8, !tbaa !8
+  %16 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %16)
+  %17 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %17)
+  %18 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  ret ptr %18
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_throwUnknownIdentifier___at_Lean_realizeGlobalConstCore___spec__3___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  store ptr %3, ptr %8, align 8, !tbaa !8
+  br label %10
+
+10:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %11 = load ptr, ptr %5, align 8, !tbaa !8
+  %12 = load ptr, ptr %6, align 8, !tbaa !8
+  %13 = load ptr, ptr %7, align 8, !tbaa !8
+  %14 = load ptr, ptr %8, align 8, !tbaa !8
+  %15 = call ptr @l_Lean_throwUnknownIdentifier___at_Lean_realizeGlobalConstCore___spec__3(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %9, align 8, !tbaa !8
+  %16 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %16)
+  %17 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %17)
+  %18 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  ret ptr %18
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  store ptr %3, ptr %8, align 8, !tbaa !8
+  br label %10
+
+10:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %11 = load ptr, ptr %5, align 8, !tbaa !8
+  %12 = load ptr, ptr %6, align 8, !tbaa !8
+  %13 = load ptr, ptr %7, align 8, !tbaa !8
+  %14 = load ptr, ptr %8, align 8, !tbaa !8
+  %15 = call ptr @l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %9, align 8, !tbaa !8
+  %16 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %16)
+  %17 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %17)
+  %18 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  ret ptr %18
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_filterFieldList___at_Lean_realizeGlobalConstCore___spec__1___lambda__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !8
+  store ptr %1, ptr %8, align 8, !tbaa !8
+  store ptr %2, ptr %9, align 8, !tbaa !8
+  store ptr %3, ptr %10, align 8, !tbaa !8
+  store ptr %4, ptr %11, align 8, !tbaa !8
+  store ptr %5, ptr %12, align 8, !tbaa !8
+  br label %14
+
+14:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %15 = load ptr, ptr %7, align 8, !tbaa !8
+  %16 = load ptr, ptr %8, align 8, !tbaa !8
+  %17 = load ptr, ptr %9, align 8, !tbaa !8
+  %18 = load ptr, ptr %10, align 8, !tbaa !8
+  %19 = load ptr, ptr %11, align 8, !tbaa !8
+  %20 = load ptr, ptr %12, align 8, !tbaa !8
+  %21 = call ptr @l_Lean_filterFieldList___at_Lean_realizeGlobalConstCore___spec__1___lambda__1(ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20)
+  store ptr %21, ptr %13, align 8, !tbaa !8
+  %22 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %22)
+  %23 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %23)
+  %24 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %24)
+  %25 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  ret ptr %25
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_filterFieldList___at_Lean_realizeGlobalConstCore___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !8
+  store ptr %4, ptr %10, align 8, !tbaa !8
+  br label %12
+
+12:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %13 = load ptr, ptr %6, align 8, !tbaa !8
+  %14 = load ptr, ptr %7, align 8, !tbaa !8
+  %15 = load ptr, ptr %8, align 8, !tbaa !8
+  %16 = load ptr, ptr %9, align 8, !tbaa !8
+  %17 = load ptr, ptr %10, align 8, !tbaa !8
+  %18 = call ptr @l_Lean_filterFieldList___at_Lean_realizeGlobalConstCore___spec__1(ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17)
+  store ptr %18, ptr %11, align 8, !tbaa !8
+  %19 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %19)
+  %20 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %20)
+  %21 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  ret ptr %21
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_mapTR_loop___at_Lean_realizeGlobalConstNoOverloadCore___spec__2(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i8, align 1
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !8
+  br label %19
+
+19:                                               ; preds = %73, %3
+  %20 = load ptr, ptr %5, align 8, !tbaa !8
+  %21 = call i32 @lean_obj_tag(ptr noundef %20)
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %28
+
+23:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %24 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %24)
+  %25 = load ptr, ptr %6, align 8, !tbaa !8
+  %26 = call ptr @l_List_reverse___rarg(ptr noundef %25)
+  store ptr %26, ptr %7, align 8, !tbaa !8
+  %27 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  ret ptr %27
+
+28:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #7
+  %29 = load ptr, ptr %5, align 8, !tbaa !8
+  %30 = call zeroext i1 @lean_is_exclusive(ptr noundef %29)
+  %31 = xor i1 %30, true
+  %32 = zext i1 %31 to i32
+  %33 = trunc i32 %32 to i8
+  store i8 %33, ptr %8, align 1, !tbaa !10
+  %34 = load i8, ptr %8, align 1, !tbaa !10
+  %35 = zext i8 %34 to i32
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %54
+
+37:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %38 = load ptr, ptr %5, align 8, !tbaa !8
+  %39 = call ptr @lean_ctor_get(ptr noundef %38, i32 noundef 0)
+  store ptr %39, ptr %9, align 8, !tbaa !8
+  %40 = load ptr, ptr %5, align 8, !tbaa !8
+  %41 = call ptr @lean_ctor_get(ptr noundef %40, i32 noundef 1)
+  store ptr %41, ptr %10, align 8, !tbaa !8
+  %42 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %42)
+  %43 = load ptr, ptr %9, align 8, !tbaa !8
+  %44 = load ptr, ptr %4, align 8, !tbaa !8
+  %45 = call ptr @l_Lean_Expr_const___override(ptr noundef %43, ptr noundef %44)
+  store ptr %45, ptr %11, align 8, !tbaa !8
+  %46 = load ptr, ptr %5, align 8, !tbaa !8
+  %47 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %46, i32 noundef 1, ptr noundef %47)
+  %48 = load ptr, ptr %5, align 8, !tbaa !8
+  %49 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %48, i32 noundef 0, ptr noundef %49)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %50 = load ptr, ptr %10, align 8, !tbaa !8
+  store ptr %50, ptr %12, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %51 = load ptr, ptr %5, align 8, !tbaa !8
+  store ptr %51, ptr %13, align 8, !tbaa !8
+  %52 = load ptr, ptr %12, align 8, !tbaa !8
+  store ptr %52, ptr %5, align 8, !tbaa !8
+  %53 = load ptr, ptr %13, align 8, !tbaa !8
+  store ptr %53, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  store i32 2, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  br label %73
+
+54:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  %55 = load ptr, ptr %5, align 8, !tbaa !8
+  %56 = call ptr @lean_ctor_get(ptr noundef %55, i32 noundef 0)
+  store ptr %56, ptr %15, align 8, !tbaa !8
+  %57 = load ptr, ptr %5, align 8, !tbaa !8
+  %58 = call ptr @lean_ctor_get(ptr noundef %57, i32 noundef 1)
+  store ptr %58, ptr %16, align 8, !tbaa !8
+  %59 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %59)
+  %60 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %60)
+  %61 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %61)
+  %62 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %62)
+  %63 = load ptr, ptr %15, align 8, !tbaa !8
+  %64 = load ptr, ptr %4, align 8, !tbaa !8
+  %65 = call ptr @l_Lean_Expr_const___override(ptr noundef %63, ptr noundef %64)
+  store ptr %65, ptr %17, align 8, !tbaa !8
+  %66 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %66, ptr %18, align 8, !tbaa !8
+  %67 = load ptr, ptr %18, align 8, !tbaa !8
+  %68 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %67, i32 noundef 0, ptr noundef %68)
+  %69 = load ptr, ptr %18, align 8, !tbaa !8
+  %70 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %69, i32 noundef 1, ptr noundef %70)
+  %71 = load ptr, ptr %16, align 8, !tbaa !8
+  store ptr %71, ptr %5, align 8, !tbaa !8
+  %72 = load ptr, ptr %18, align 8, !tbaa !8
+  store ptr %72, ptr %6, align 8, !tbaa !8
+  store i32 2, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  br label %73
+
+73:                                               ; preds = %54, %37
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #7
+  br label %19
+}
+
+declare ptr @l_Lean_Expr_const___override(ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_throwError___at_Lean_realizeGlobalConstNoOverloadCore___spec__3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i8, align 1
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !8
+  br label %20
+
+20:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #7
+  %21 = load ptr, ptr %7, align 8, !tbaa !8
+  %22 = call ptr @lean_ctor_get(ptr noundef %21, i32 noundef 5)
+  store ptr %22, ptr %10, align 8, !tbaa !8
+  %23 = load ptr, ptr %6, align 8, !tbaa !8
+  %24 = load ptr, ptr %7, align 8, !tbaa !8
+  %25 = load ptr, ptr %8, align 8, !tbaa !8
+  %26 = load ptr, ptr %9, align 8, !tbaa !8
+  %27 = call ptr @l_Lean_addMessageContextPartial___at_Lean_Core_instAddMessageContextCoreM___spec__1(ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26)
+  store ptr %27, ptr %11, align 8, !tbaa !8
+  %28 = load ptr, ptr %11, align 8, !tbaa !8
+  %29 = call zeroext i1 @lean_is_exclusive(ptr noundef %28)
+  %30 = xor i1 %29, true
+  %31 = zext i1 %30 to i32
+  %32 = trunc i32 %31 to i8
+  store i8 %32, ptr %12, align 1, !tbaa !10
+  %33 = load i8, ptr %12, align 1, !tbaa !10
+  %34 = zext i8 %33 to i32
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %49
+
+36:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %37 = load ptr, ptr %11, align 8, !tbaa !8
+  %38 = call ptr @lean_ctor_get(ptr noundef %37, i32 noundef 0)
+  store ptr %38, ptr %13, align 8, !tbaa !8
+  %39 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %39)
+  %40 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %40, ptr %14, align 8, !tbaa !8
+  %41 = load ptr, ptr %14, align 8, !tbaa !8
+  %42 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %41, i32 noundef 0, ptr noundef %42)
+  %43 = load ptr, ptr %14, align 8, !tbaa !8
+  %44 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %43, i32 noundef 1, ptr noundef %44)
+  %45 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_ctor_set_tag(ptr noundef %45, i8 noundef zeroext 1)
+  %46 = load ptr, ptr %11, align 8, !tbaa !8
+  %47 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %46, i32 noundef 0, ptr noundef %47)
+  %48 = load ptr, ptr %11, align 8, !tbaa !8
+  store ptr %48, ptr %5, align 8
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  br label %69
+
+49:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  %50 = load ptr, ptr %11, align 8, !tbaa !8
+  %51 = call ptr @lean_ctor_get(ptr noundef %50, i32 noundef 0)
+  store ptr %51, ptr %16, align 8, !tbaa !8
+  %52 = load ptr, ptr %11, align 8, !tbaa !8
+  %53 = call ptr @lean_ctor_get(ptr noundef %52, i32 noundef 1)
+  store ptr %53, ptr %17, align 8, !tbaa !8
+  %54 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %54)
+  %55 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %55)
+  %56 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %56)
+  %57 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %57)
+  %58 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %58, ptr %18, align 8, !tbaa !8
+  %59 = load ptr, ptr %18, align 8, !tbaa !8
+  %60 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %59, i32 noundef 0, ptr noundef %60)
+  %61 = load ptr, ptr %18, align 8, !tbaa !8
+  %62 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %61, i32 noundef 1, ptr noundef %62)
+  %63 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %63, ptr %19, align 8, !tbaa !8
+  %64 = load ptr, ptr %19, align 8, !tbaa !8
+  %65 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %64, i32 noundef 0, ptr noundef %65)
+  %66 = load ptr, ptr %19, align 8, !tbaa !8
+  %67 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %66, i32 noundef 1, ptr noundef %67)
+  %68 = load ptr, ptr %19, align 8, !tbaa !8
+  store ptr %68, ptr %5, align 8
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  br label %69
+
+69:                                               ; preds = %49, %36
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %70 = load ptr, ptr %5, align 8
+  ret ptr %70
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_List_mapTR_loop___at_Lean_realizeGlobalConstNoOverloadCore___spec__4(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i8, align 1
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !8
+  br label %19
+
+19:                                               ; preds = %73, %3
+  %20 = load ptr, ptr %5, align 8, !tbaa !8
+  %21 = call i32 @lean_obj_tag(ptr noundef %20)
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %28
+
+23:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %24 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %24)
+  %25 = load ptr, ptr %6, align 8, !tbaa !8
+  %26 = call ptr @l_List_reverse___rarg(ptr noundef %25)
+  store ptr %26, ptr %7, align 8, !tbaa !8
+  %27 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  ret ptr %27
+
+28:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #7
+  %29 = load ptr, ptr %5, align 8, !tbaa !8
+  %30 = call zeroext i1 @lean_is_exclusive(ptr noundef %29)
+  %31 = xor i1 %30, true
+  %32 = zext i1 %31 to i32
+  %33 = trunc i32 %32 to i8
+  store i8 %33, ptr %8, align 1, !tbaa !10
+  %34 = load i8, ptr %8, align 1, !tbaa !10
+  %35 = zext i8 %34 to i32
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %54
+
+37:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %38 = load ptr, ptr %5, align 8, !tbaa !8
+  %39 = call ptr @lean_ctor_get(ptr noundef %38, i32 noundef 0)
+  store ptr %39, ptr %9, align 8, !tbaa !8
+  %40 = load ptr, ptr %5, align 8, !tbaa !8
+  %41 = call ptr @lean_ctor_get(ptr noundef %40, i32 noundef 1)
+  store ptr %41, ptr %10, align 8, !tbaa !8
+  %42 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %42)
+  %43 = load ptr, ptr %9, align 8, !tbaa !8
+  %44 = load ptr, ptr %4, align 8, !tbaa !8
+  %45 = call ptr @l_Lean_Expr_const___override(ptr noundef %43, ptr noundef %44)
+  store ptr %45, ptr %11, align 8, !tbaa !8
+  %46 = load ptr, ptr %5, align 8, !tbaa !8
+  %47 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %46, i32 noundef 1, ptr noundef %47)
+  %48 = load ptr, ptr %5, align 8, !tbaa !8
+  %49 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %48, i32 noundef 0, ptr noundef %49)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %50 = load ptr, ptr %10, align 8, !tbaa !8
+  store ptr %50, ptr %12, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %51 = load ptr, ptr %5, align 8, !tbaa !8
+  store ptr %51, ptr %13, align 8, !tbaa !8
+  %52 = load ptr, ptr %12, align 8, !tbaa !8
+  store ptr %52, ptr %5, align 8, !tbaa !8
+  %53 = load ptr, ptr %13, align 8, !tbaa !8
+  store ptr %53, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  store i32 2, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  br label %73
+
+54:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  %55 = load ptr, ptr %5, align 8, !tbaa !8
+  %56 = call ptr @lean_ctor_get(ptr noundef %55, i32 noundef 0)
+  store ptr %56, ptr %15, align 8, !tbaa !8
+  %57 = load ptr, ptr %5, align 8, !tbaa !8
+  %58 = call ptr @lean_ctor_get(ptr noundef %57, i32 noundef 1)
+  store ptr %58, ptr %16, align 8, !tbaa !8
+  %59 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %59)
+  %60 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %60)
+  %61 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %61)
+  %62 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %62)
+  %63 = load ptr, ptr %15, align 8, !tbaa !8
+  %64 = load ptr, ptr %4, align 8, !tbaa !8
+  %65 = call ptr @l_Lean_Expr_const___override(ptr noundef %63, ptr noundef %64)
+  store ptr %65, ptr %17, align 8, !tbaa !8
+  %66 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %66, ptr %18, align 8, !tbaa !8
+  %67 = load ptr, ptr %18, align 8, !tbaa !8
+  %68 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %67, i32 noundef 0, ptr noundef %68)
+  %69 = load ptr, ptr %18, align 8, !tbaa !8
+  %70 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %69, i32 noundef 1, ptr noundef %70)
+  %71 = load ptr, ptr %16, align 8, !tbaa !8
+  store ptr %71, ptr %5, align 8, !tbaa !8
+  %72 = load ptr, ptr %18, align 8, !tbaa !8
+  store ptr %72, ptr %6, align 8, !tbaa !8
+  store i32 2, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  br label %73
+
+73:                                               ; preds = %54, %37
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #7
+  br label %19
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_ensureNoOverload___at_Lean_realizeGlobalConstNoOverloadCore___spec__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca i8, align 1
+  %29 = alloca ptr, align 8
+  %30 = alloca i32, align 4
+  %31 = alloca ptr, align 8
+  %32 = alloca ptr, align 8
+  %33 = alloca ptr, align 8
+  %34 = alloca ptr, align 8
+  %35 = alloca ptr, align 8
+  %36 = alloca ptr, align 8
+  %37 = alloca ptr, align 8
+  %38 = alloca ptr, align 8
+  %39 = alloca ptr, align 8
+  %40 = alloca ptr, align 8
+  %41 = alloca ptr, align 8
+  %42 = alloca ptr, align 8
+  %43 = alloca ptr, align 8
+  %44 = alloca ptr, align 8
+  %45 = alloca ptr, align 8
+  %46 = alloca ptr, align 8
+  %47 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !8
+  store ptr %1, ptr %8, align 8, !tbaa !8
+  store ptr %2, ptr %9, align 8, !tbaa !8
+  store ptr %3, ptr %10, align 8, !tbaa !8
+  store ptr %4, ptr %11, align 8, !tbaa !8
+  br label %48
+
+48:                                               ; preds = %5
+  %49 = load ptr, ptr %8, align 8, !tbaa !8
+  %50 = call i32 @lean_obj_tag(ptr noundef %49)
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %95
+
+52:                                               ; preds = %48
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #7
+  %53 = call ptr @lean_box(i64 noundef 0)
+  store ptr %53, ptr %12, align 8, !tbaa !8
+  %54 = load ptr, ptr %7, align 8, !tbaa !8
+  %55 = load ptr, ptr %12, align 8, !tbaa !8
+  %56 = call ptr @l_Lean_Expr_const___override(ptr noundef %54, ptr noundef %55)
+  store ptr %56, ptr %13, align 8, !tbaa !8
+  %57 = load ptr, ptr %13, align 8, !tbaa !8
+  %58 = call ptr @lean_expr_dbg_to_string(ptr noundef %57)
+  store ptr %58, ptr %14, align 8, !tbaa !8
+  %59 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %59)
+  %60 = load ptr, ptr @l_Lean_ensureNoOverload___at_Lean_realizeGlobalConstNoOverloadCore___spec__1___closed__1, align 8, !tbaa !8
+  store ptr %60, ptr %15, align 8, !tbaa !8
+  %61 = load ptr, ptr %15, align 8, !tbaa !8
+  %62 = load ptr, ptr %14, align 8, !tbaa !8
+  %63 = call ptr @lean_string_append(ptr noundef %61, ptr noundef %62)
+  store ptr %63, ptr %16, align 8, !tbaa !8
+  %64 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %64)
+  %65 = load ptr, ptr @l_Lean_ensureNoOverload___at_Lean_realizeGlobalConstNoOverloadCore___spec__1___closed__2, align 8, !tbaa !8
+  store ptr %65, ptr %17, align 8, !tbaa !8
+  %66 = load ptr, ptr %16, align 8, !tbaa !8
+  %67 = load ptr, ptr %17, align 8, !tbaa !8
+  %68 = call ptr @lean_string_append(ptr noundef %66, ptr noundef %67)
+  store ptr %68, ptr %18, align 8, !tbaa !8
+  %69 = load ptr, ptr %12, align 8, !tbaa !8
+  %70 = load ptr, ptr %8, align 8, !tbaa !8
+  %71 = load ptr, ptr %12, align 8, !tbaa !8
+  %72 = call ptr @l_List_mapTR_loop___at_Lean_realizeGlobalConstNoOverloadCore___spec__2(ptr noundef %69, ptr noundef %70, ptr noundef %71)
+  store ptr %72, ptr %19, align 8, !tbaa !8
+  %73 = load ptr, ptr %19, align 8, !tbaa !8
+  %74 = call ptr @l_List_toString___at_Lean_ensureNoOverload___spec__2(ptr noundef %73)
+  store ptr %74, ptr %20, align 8, !tbaa !8
+  %75 = load ptr, ptr %19, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %75)
+  %76 = load ptr, ptr %18, align 8, !tbaa !8
+  %77 = load ptr, ptr %20, align 8, !tbaa !8
+  %78 = call ptr @lean_string_append(ptr noundef %76, ptr noundef %77)
+  store ptr %78, ptr %21, align 8, !tbaa !8
+  %79 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %79)
+  %80 = load ptr, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__5, align 8, !tbaa !8
+  store ptr %80, ptr %22, align 8, !tbaa !8
+  %81 = load ptr, ptr %21, align 8, !tbaa !8
+  %82 = load ptr, ptr %22, align 8, !tbaa !8
+  %83 = call ptr @lean_string_append(ptr noundef %81, ptr noundef %82)
+  store ptr %83, ptr %23, align 8, !tbaa !8
+  %84 = call ptr @lean_alloc_ctor(i32 noundef 3, i32 noundef 1, i32 noundef 0)
+  store ptr %84, ptr %24, align 8, !tbaa !8
+  %85 = load ptr, ptr %24, align 8, !tbaa !8
+  %86 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %85, i32 noundef 0, ptr noundef %86)
+  %87 = load ptr, ptr %24, align 8, !tbaa !8
+  %88 = call ptr @l_Lean_MessageData_ofFormat(ptr noundef %87)
+  store ptr %88, ptr %25, align 8, !tbaa !8
+  %89 = load ptr, ptr %25, align 8, !tbaa !8
+  %90 = load ptr, ptr %9, align 8, !tbaa !8
+  %91 = load ptr, ptr %10, align 8, !tbaa !8
+  %92 = load ptr, ptr %11, align 8, !tbaa !8
+  %93 = call ptr @l_Lean_throwError___at_Lean_realizeGlobalConstNoOverloadCore___spec__3(ptr noundef %89, ptr noundef %90, ptr noundef %91, ptr noundef %92)
+  store ptr %93, ptr %26, align 8, !tbaa !8
+  %94 = load ptr, ptr %26, align 8, !tbaa !8
+  store ptr %94, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  br label %177
+
+95:                                               ; preds = %48
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #7
+  %96 = load ptr, ptr %8, align 8, !tbaa !8
+  %97 = call ptr @lean_ctor_get(ptr noundef %96, i32 noundef 1)
+  store ptr %97, ptr %27, align 8, !tbaa !8
+  %98 = load ptr, ptr %27, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %98)
+  %99 = load ptr, ptr %27, align 8, !tbaa !8
+  %100 = call i32 @lean_obj_tag(ptr noundef %99)
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %102, label %132
+
+102:                                              ; preds = %95
+  call void @llvm.lifetime.start.p0(i64 1, ptr %28) #7
+  %103 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %103)
+  %104 = load ptr, ptr %8, align 8, !tbaa !8
+  %105 = call zeroext i1 @lean_is_exclusive(ptr noundef %104)
+  %106 = xor i1 %105, true
+  %107 = zext i1 %106 to i32
+  %108 = trunc i32 %107 to i8
+  store i8 %108, ptr %28, align 1, !tbaa !10
+  %109 = load i8, ptr %28, align 1, !tbaa !10
+  %110 = zext i8 %109 to i32
+  %111 = icmp eq i32 %110, 0
+  br i1 %111, label %112, label %120
+
+112:                                              ; preds = %102
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #7
+  %113 = load ptr, ptr %8, align 8, !tbaa !8
+  %114 = call ptr @lean_ctor_get(ptr noundef %113, i32 noundef 1)
+  store ptr %114, ptr %29, align 8, !tbaa !8
+  %115 = load ptr, ptr %29, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %115)
+  %116 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_ctor_set_tag(ptr noundef %116, i8 noundef zeroext 0)
+  %117 = load ptr, ptr %8, align 8, !tbaa !8
+  %118 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %117, i32 noundef 1, ptr noundef %118)
+  %119 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %119, ptr %6, align 8
+  store i32 1, ptr %30, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #7
+  br label %131
+
+120:                                              ; preds = %102
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #7
+  %121 = load ptr, ptr %8, align 8, !tbaa !8
+  %122 = call ptr @lean_ctor_get(ptr noundef %121, i32 noundef 0)
+  store ptr %122, ptr %31, align 8, !tbaa !8
+  %123 = load ptr, ptr %31, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %123)
+  %124 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %124)
+  %125 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %125, ptr %32, align 8, !tbaa !8
+  %126 = load ptr, ptr %32, align 8, !tbaa !8
+  %127 = load ptr, ptr %31, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %126, i32 noundef 0, ptr noundef %127)
+  %128 = load ptr, ptr %32, align 8, !tbaa !8
+  %129 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %128, i32 noundef 1, ptr noundef %129)
+  %130 = load ptr, ptr %32, align 8, !tbaa !8
+  store ptr %130, ptr %6, align 8
+  store i32 1, ptr %30, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #7
+  br label %131
+
+131:                                              ; preds = %120, %112
+  call void @llvm.lifetime.end.p0(i64 1, ptr %28) #7
+  br label %176
+
+132:                                              ; preds = %95
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %40) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %41) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %42) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %43) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %44) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %45) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %46) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %47) #7
+  %133 = load ptr, ptr %27, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %133)
+  %134 = call ptr @lean_box(i64 noundef 0)
+  store ptr %134, ptr %33, align 8, !tbaa !8
+  %135 = load ptr, ptr %7, align 8, !tbaa !8
+  %136 = load ptr, ptr %33, align 8, !tbaa !8
+  %137 = call ptr @l_Lean_Expr_const___override(ptr noundef %135, ptr noundef %136)
+  store ptr %137, ptr %34, align 8, !tbaa !8
+  %138 = load ptr, ptr %34, align 8, !tbaa !8
+  %139 = call ptr @lean_expr_dbg_to_string(ptr noundef %138)
+  store ptr %139, ptr %35, align 8, !tbaa !8
+  %140 = load ptr, ptr %34, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %140)
+  %141 = load ptr, ptr @l_Lean_ensureNoOverload___at_Lean_realizeGlobalConstNoOverloadCore___spec__1___closed__1, align 8, !tbaa !8
+  store ptr %141, ptr %36, align 8, !tbaa !8
+  %142 = load ptr, ptr %36, align 8, !tbaa !8
+  %143 = load ptr, ptr %35, align 8, !tbaa !8
+  %144 = call ptr @lean_string_append(ptr noundef %142, ptr noundef %143)
+  store ptr %144, ptr %37, align 8, !tbaa !8
+  %145 = load ptr, ptr %35, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %145)
+  %146 = load ptr, ptr @l_Lean_ensureNoOverload___at_Lean_realizeGlobalConstNoOverloadCore___spec__1___closed__2, align 8, !tbaa !8
+  store ptr %146, ptr %38, align 8, !tbaa !8
+  %147 = load ptr, ptr %37, align 8, !tbaa !8
+  %148 = load ptr, ptr %38, align 8, !tbaa !8
+  %149 = call ptr @lean_string_append(ptr noundef %147, ptr noundef %148)
+  store ptr %149, ptr %39, align 8, !tbaa !8
+  %150 = load ptr, ptr %33, align 8, !tbaa !8
+  %151 = load ptr, ptr %8, align 8, !tbaa !8
+  %152 = load ptr, ptr %33, align 8, !tbaa !8
+  %153 = call ptr @l_List_mapTR_loop___at_Lean_realizeGlobalConstNoOverloadCore___spec__4(ptr noundef %150, ptr noundef %151, ptr noundef %152)
+  store ptr %153, ptr %40, align 8, !tbaa !8
+  %154 = load ptr, ptr %40, align 8, !tbaa !8
+  %155 = call ptr @l_List_toString___at_Lean_ensureNoOverload___spec__2(ptr noundef %154)
+  store ptr %155, ptr %41, align 8, !tbaa !8
+  %156 = load ptr, ptr %40, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %156)
+  %157 = load ptr, ptr %39, align 8, !tbaa !8
+  %158 = load ptr, ptr %41, align 8, !tbaa !8
+  %159 = call ptr @lean_string_append(ptr noundef %157, ptr noundef %158)
+  store ptr %159, ptr %42, align 8, !tbaa !8
+  %160 = load ptr, ptr %41, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %160)
+  %161 = load ptr, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__5, align 8, !tbaa !8
+  store ptr %161, ptr %43, align 8, !tbaa !8
+  %162 = load ptr, ptr %42, align 8, !tbaa !8
+  %163 = load ptr, ptr %43, align 8, !tbaa !8
+  %164 = call ptr @lean_string_append(ptr noundef %162, ptr noundef %163)
+  store ptr %164, ptr %44, align 8, !tbaa !8
+  %165 = call ptr @lean_alloc_ctor(i32 noundef 3, i32 noundef 1, i32 noundef 0)
+  store ptr %165, ptr %45, align 8, !tbaa !8
+  %166 = load ptr, ptr %45, align 8, !tbaa !8
+  %167 = load ptr, ptr %44, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %166, i32 noundef 0, ptr noundef %167)
+  %168 = load ptr, ptr %45, align 8, !tbaa !8
+  %169 = call ptr @l_Lean_MessageData_ofFormat(ptr noundef %168)
+  store ptr %169, ptr %46, align 8, !tbaa !8
+  %170 = load ptr, ptr %46, align 8, !tbaa !8
+  %171 = load ptr, ptr %9, align 8, !tbaa !8
+  %172 = load ptr, ptr %10, align 8, !tbaa !8
+  %173 = load ptr, ptr %11, align 8, !tbaa !8
+  %174 = call ptr @l_Lean_throwError___at_Lean_realizeGlobalConstNoOverloadCore___spec__3(ptr noundef %170, ptr noundef %171, ptr noundef %172, ptr noundef %173)
+  store ptr %174, ptr %47, align 8, !tbaa !8
+  %175 = load ptr, ptr %47, align 8, !tbaa !8
+  store ptr %175, ptr %6, align 8
+  store i32 1, ptr %30, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %47) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %46) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %45) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %44) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %43) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %42) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %41) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %40) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #7
+  br label %176
+
+176:                                              ; preds = %132, %131
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #7
+  br label %177
+
+177:                                              ; preds = %176, %52
+  %178 = load ptr, ptr %6, align 8
+  ret ptr %178
+}
+
+declare ptr @lean_expr_dbg_to_string(ptr noundef) #4
+
+declare ptr @lean_string_append(ptr noundef, ptr noundef) #4
+
+declare ptr @l_List_toString___at_Lean_ensureNoOverload___spec__2(ptr noundef) #4
+
+declare ptr @l_Lean_MessageData_ofFormat(ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_realizeGlobalConstNoOverloadCore(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i8, align 1
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !8
+  br label %19
+
+19:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %20 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %20)
+  %21 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %21)
+  %22 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %22)
+  %23 = load ptr, ptr %6, align 8, !tbaa !8
+  %24 = load ptr, ptr %7, align 8, !tbaa !8
+  %25 = load ptr, ptr %8, align 8, !tbaa !8
+  %26 = load ptr, ptr %9, align 8, !tbaa !8
+  %27 = call ptr @l_Lean_realizeGlobalConstCore(ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26)
+  store ptr %27, ptr %10, align 8, !tbaa !8
+  %28 = load ptr, ptr %10, align 8, !tbaa !8
+  %29 = call i32 @lean_obj_tag(ptr noundef %28)
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %48
+
+31:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %32 = load ptr, ptr %10, align 8, !tbaa !8
+  %33 = call ptr @lean_ctor_get(ptr noundef %32, i32 noundef 0)
+  store ptr %33, ptr %11, align 8, !tbaa !8
+  %34 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %34)
+  %35 = load ptr, ptr %10, align 8, !tbaa !8
+  %36 = call ptr @lean_ctor_get(ptr noundef %35, i32 noundef 1)
+  store ptr %36, ptr %12, align 8, !tbaa !8
+  %37 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %37)
+  %38 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %38)
+  %39 = load ptr, ptr %6, align 8, !tbaa !8
+  %40 = load ptr, ptr %11, align 8, !tbaa !8
+  %41 = load ptr, ptr %7, align 8, !tbaa !8
+  %42 = load ptr, ptr %8, align 8, !tbaa !8
+  %43 = load ptr, ptr %12, align 8, !tbaa !8
+  %44 = call ptr @l_Lean_ensureNoOverload___at_Lean_realizeGlobalConstNoOverloadCore___spec__1(ptr noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43)
+  store ptr %44, ptr %13, align 8, !tbaa !8
+  %45 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %45)
+  %46 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %46)
+  %47 = load ptr, ptr %13, align 8, !tbaa !8
+  store ptr %47, ptr %5, align 8
+  store i32 1, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  br label %77
+
+48:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #7
+  %49 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %49)
+  %50 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %50)
+  %51 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %51)
+  %52 = load ptr, ptr %10, align 8, !tbaa !8
+  %53 = call zeroext i1 @lean_is_exclusive(ptr noundef %52)
+  %54 = xor i1 %53, true
+  %55 = zext i1 %54 to i32
+  %56 = trunc i32 %55 to i8
+  store i8 %56, ptr %15, align 1, !tbaa !10
+  %57 = load i8, ptr %15, align 1, !tbaa !10
+  %58 = zext i8 %57 to i32
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %60, label %62
+
+60:                                               ; preds = %48
+  %61 = load ptr, ptr %10, align 8, !tbaa !8
+  store ptr %61, ptr %5, align 8
+  store i32 1, ptr %14, align 4
+  br label %76
+
+62:                                               ; preds = %48
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  %63 = load ptr, ptr %10, align 8, !tbaa !8
+  %64 = call ptr @lean_ctor_get(ptr noundef %63, i32 noundef 0)
+  store ptr %64, ptr %16, align 8, !tbaa !8
+  %65 = load ptr, ptr %10, align 8, !tbaa !8
+  %66 = call ptr @lean_ctor_get(ptr noundef %65, i32 noundef 1)
+  store ptr %66, ptr %17, align 8, !tbaa !8
+  %67 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %67)
+  %68 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %68)
+  %69 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %69)
+  %70 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %70, ptr %18, align 8, !tbaa !8
+  %71 = load ptr, ptr %18, align 8, !tbaa !8
+  %72 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %71, i32 noundef 0, ptr noundef %72)
+  %73 = load ptr, ptr %18, align 8, !tbaa !8
+  %74 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %73, i32 noundef 1, ptr noundef %74)
+  %75 = load ptr, ptr %18, align 8, !tbaa !8
+  store ptr %75, ptr %5, align 8
+  store i32 1, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  br label %76
+
+76:                                               ; preds = %62, %60
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #7
+  br label %77
+
+77:                                               ; preds = %76, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %78 = load ptr, ptr %5, align 8
+  ret ptr %78
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_throwError___at_Lean_realizeGlobalConstNoOverloadCore___spec__3___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  store ptr %3, ptr %8, align 8, !tbaa !8
+  br label %10
+
+10:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %11 = load ptr, ptr %5, align 8, !tbaa !8
+  %12 = load ptr, ptr %6, align 8, !tbaa !8
+  %13 = load ptr, ptr %7, align 8, !tbaa !8
+  %14 = load ptr, ptr %8, align 8, !tbaa !8
+  %15 = call ptr @l_Lean_throwError___at_Lean_realizeGlobalConstNoOverloadCore___spec__3(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %9, align 8, !tbaa !8
+  %16 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %16)
+  %17 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %17)
+  %18 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  ret ptr %18
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_ensureNoOverload___at_Lean_realizeGlobalConstNoOverloadCore___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !8
+  store ptr %4, ptr %10, align 8, !tbaa !8
+  br label %12
+
+12:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %13 = load ptr, ptr %6, align 8, !tbaa !8
+  %14 = load ptr, ptr %7, align 8, !tbaa !8
+  %15 = load ptr, ptr %8, align 8, !tbaa !8
+  %16 = load ptr, ptr %9, align 8, !tbaa !8
+  %17 = load ptr, ptr %10, align 8, !tbaa !8
+  %18 = call ptr @l_Lean_ensureNoOverload___at_Lean_realizeGlobalConstNoOverloadCore___spec__1(ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17)
+  store ptr %18, ptr %11, align 8, !tbaa !8
+  %19 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %19)
+  %20 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %20)
+  %21 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  ret ptr %21
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_throwError___at_Lean_realizeGlobalConst___spec__3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i8, align 1
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !8
+  br label %20
+
+20:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #7
+  %21 = load ptr, ptr %7, align 8, !tbaa !8
+  %22 = call ptr @lean_ctor_get(ptr noundef %21, i32 noundef 5)
+  store ptr %22, ptr %10, align 8, !tbaa !8
+  %23 = load ptr, ptr %6, align 8, !tbaa !8
+  %24 = load ptr, ptr %7, align 8, !tbaa !8
+  %25 = load ptr, ptr %8, align 8, !tbaa !8
+  %26 = load ptr, ptr %9, align 8, !tbaa !8
+  %27 = call ptr @l_Lean_addMessageContextPartial___at_Lean_Core_instAddMessageContextCoreM___spec__1(ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26)
+  store ptr %27, ptr %11, align 8, !tbaa !8
+  %28 = load ptr, ptr %11, align 8, !tbaa !8
+  %29 = call zeroext i1 @lean_is_exclusive(ptr noundef %28)
+  %30 = xor i1 %29, true
+  %31 = zext i1 %30 to i32
+  %32 = trunc i32 %31 to i8
+  store i8 %32, ptr %12, align 1, !tbaa !10
+  %33 = load i8, ptr %12, align 1, !tbaa !10
+  %34 = zext i8 %33 to i32
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %49
+
+36:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %37 = load ptr, ptr %11, align 8, !tbaa !8
+  %38 = call ptr @lean_ctor_get(ptr noundef %37, i32 noundef 0)
+  store ptr %38, ptr %13, align 8, !tbaa !8
+  %39 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %39)
+  %40 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %40, ptr %14, align 8, !tbaa !8
+  %41 = load ptr, ptr %14, align 8, !tbaa !8
+  %42 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %41, i32 noundef 0, ptr noundef %42)
+  %43 = load ptr, ptr %14, align 8, !tbaa !8
+  %44 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %43, i32 noundef 1, ptr noundef %44)
+  %45 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_ctor_set_tag(ptr noundef %45, i8 noundef zeroext 1)
+  %46 = load ptr, ptr %11, align 8, !tbaa !8
+  %47 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %46, i32 noundef 0, ptr noundef %47)
+  %48 = load ptr, ptr %11, align 8, !tbaa !8
+  store ptr %48, ptr %5, align 8
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  br label %69
+
+49:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  %50 = load ptr, ptr %11, align 8, !tbaa !8
+  %51 = call ptr @lean_ctor_get(ptr noundef %50, i32 noundef 0)
+  store ptr %51, ptr %16, align 8, !tbaa !8
+  %52 = load ptr, ptr %11, align 8, !tbaa !8
+  %53 = call ptr @lean_ctor_get(ptr noundef %52, i32 noundef 1)
+  store ptr %53, ptr %17, align 8, !tbaa !8
+  %54 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %54)
+  %55 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %55)
+  %56 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %56)
+  %57 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %57)
+  %58 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %58, ptr %18, align 8, !tbaa !8
+  %59 = load ptr, ptr %18, align 8, !tbaa !8
+  %60 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %59, i32 noundef 0, ptr noundef %60)
+  %61 = load ptr, ptr %18, align 8, !tbaa !8
+  %62 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %61, i32 noundef 1, ptr noundef %62)
+  %63 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %63, ptr %19, align 8, !tbaa !8
+  %64 = load ptr, ptr %19, align 8, !tbaa !8
+  %65 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %64, i32 noundef 0, ptr noundef %65)
+  %66 = load ptr, ptr %19, align 8, !tbaa !8
+  %67 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %66, i32 noundef 1, ptr noundef %67)
+  %68 = load ptr, ptr %19, align 8, !tbaa !8
+  store ptr %68, ptr %5, align 8
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  br label %69
+
+69:                                               ; preds = %49, %36
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %70 = load ptr, ptr %5, align 8
+  ret ptr %70
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_throwErrorAt___at_Lean_realizeGlobalConst___spec__2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i8, align 1
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca i8, align 1
+  %29 = alloca ptr, align 8
+  %30 = alloca i8, align 1
+  %31 = alloca ptr, align 8
+  %32 = alloca ptr, align 8
+  %33 = alloca ptr, align 8
+  %34 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !8
+  store ptr %1, ptr %8, align 8, !tbaa !8
+  store ptr %2, ptr %9, align 8, !tbaa !8
+  store ptr %3, ptr %10, align 8, !tbaa !8
+  store ptr %4, ptr %11, align 8, !tbaa !8
+  br label %35
+
+35:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #7
+  %36 = load ptr, ptr %9, align 8, !tbaa !8
+  %37 = call zeroext i1 @lean_is_exclusive(ptr noundef %36)
+  %38 = xor i1 %37, true
+  %39 = zext i1 %38 to i32
+  %40 = trunc i32 %39 to i8
+  store i8 %40, ptr %12, align 1, !tbaa !10
+  %41 = load i8, ptr %12, align 1, !tbaa !10
+  %42 = zext i8 %41 to i32
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %60
+
+44:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %45 = load ptr, ptr %9, align 8, !tbaa !8
+  %46 = call ptr @lean_ctor_get(ptr noundef %45, i32 noundef 5)
+  store ptr %46, ptr %13, align 8, !tbaa !8
+  %47 = load ptr, ptr %7, align 8, !tbaa !8
+  %48 = load ptr, ptr %13, align 8, !tbaa !8
+  %49 = call ptr @l_Lean_replaceRef(ptr noundef %47, ptr noundef %48)
+  store ptr %49, ptr %14, align 8, !tbaa !8
+  %50 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %50)
+  %51 = load ptr, ptr %9, align 8, !tbaa !8
+  %52 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %51, i32 noundef 5, ptr noundef %52)
+  %53 = load ptr, ptr %8, align 8, !tbaa !8
+  %54 = load ptr, ptr %9, align 8, !tbaa !8
+  %55 = load ptr, ptr %10, align 8, !tbaa !8
+  %56 = load ptr, ptr %11, align 8, !tbaa !8
+  %57 = call ptr @l_Lean_throwError___at_Lean_realizeGlobalConst___spec__3(ptr noundef %53, ptr noundef %54, ptr noundef %55, ptr noundef %56)
+  store ptr %57, ptr %15, align 8, !tbaa !8
+  %58 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %58)
+  %59 = load ptr, ptr %15, align 8, !tbaa !8
+  store ptr %59, ptr %6, align 8
+  store i32 1, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  br label %147
+
+60:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %28) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %30) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #7
+  %61 = load ptr, ptr %9, align 8, !tbaa !8
+  %62 = call ptr @lean_ctor_get(ptr noundef %61, i32 noundef 0)
+  store ptr %62, ptr %17, align 8, !tbaa !8
+  %63 = load ptr, ptr %9, align 8, !tbaa !8
+  %64 = call ptr @lean_ctor_get(ptr noundef %63, i32 noundef 1)
+  store ptr %64, ptr %18, align 8, !tbaa !8
+  %65 = load ptr, ptr %9, align 8, !tbaa !8
+  %66 = call ptr @lean_ctor_get(ptr noundef %65, i32 noundef 2)
+  store ptr %66, ptr %19, align 8, !tbaa !8
+  %67 = load ptr, ptr %9, align 8, !tbaa !8
+  %68 = call ptr @lean_ctor_get(ptr noundef %67, i32 noundef 3)
+  store ptr %68, ptr %20, align 8, !tbaa !8
+  %69 = load ptr, ptr %9, align 8, !tbaa !8
+  %70 = call ptr @lean_ctor_get(ptr noundef %69, i32 noundef 4)
+  store ptr %70, ptr %21, align 8, !tbaa !8
+  %71 = load ptr, ptr %9, align 8, !tbaa !8
+  %72 = call ptr @lean_ctor_get(ptr noundef %71, i32 noundef 5)
+  store ptr %72, ptr %22, align 8, !tbaa !8
+  %73 = load ptr, ptr %9, align 8, !tbaa !8
+  %74 = call ptr @lean_ctor_get(ptr noundef %73, i32 noundef 6)
+  store ptr %74, ptr %23, align 8, !tbaa !8
+  %75 = load ptr, ptr %9, align 8, !tbaa !8
+  %76 = call ptr @lean_ctor_get(ptr noundef %75, i32 noundef 7)
+  store ptr %76, ptr %24, align 8, !tbaa !8
+  %77 = load ptr, ptr %9, align 8, !tbaa !8
+  %78 = call ptr @lean_ctor_get(ptr noundef %77, i32 noundef 8)
+  store ptr %78, ptr %25, align 8, !tbaa !8
+  %79 = load ptr, ptr %9, align 8, !tbaa !8
+  %80 = call ptr @lean_ctor_get(ptr noundef %79, i32 noundef 9)
+  store ptr %80, ptr %26, align 8, !tbaa !8
+  %81 = load ptr, ptr %9, align 8, !tbaa !8
+  %82 = call ptr @lean_ctor_get(ptr noundef %81, i32 noundef 10)
+  store ptr %82, ptr %27, align 8, !tbaa !8
+  %83 = load ptr, ptr %9, align 8, !tbaa !8
+  %84 = call zeroext i8 @lean_ctor_get_uint8(ptr noundef %83, i32 noundef 104)
+  store i8 %84, ptr %28, align 1, !tbaa !10
+  %85 = load ptr, ptr %9, align 8, !tbaa !8
+  %86 = call ptr @lean_ctor_get(ptr noundef %85, i32 noundef 11)
+  store ptr %86, ptr %29, align 8, !tbaa !8
+  %87 = load ptr, ptr %9, align 8, !tbaa !8
+  %88 = call zeroext i8 @lean_ctor_get_uint8(ptr noundef %87, i32 noundef 105)
+  store i8 %88, ptr %30, align 1, !tbaa !10
+  %89 = load ptr, ptr %9, align 8, !tbaa !8
+  %90 = call ptr @lean_ctor_get(ptr noundef %89, i32 noundef 12)
+  store ptr %90, ptr %31, align 8, !tbaa !8
+  %91 = load ptr, ptr %31, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %91)
+  %92 = load ptr, ptr %29, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %92)
+  %93 = load ptr, ptr %27, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %93)
+  %94 = load ptr, ptr %26, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %94)
+  %95 = load ptr, ptr %25, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %95)
+  %96 = load ptr, ptr %24, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %96)
+  %97 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %97)
+  %98 = load ptr, ptr %22, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %98)
+  %99 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %99)
+  %100 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %100)
+  %101 = load ptr, ptr %19, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %101)
+  %102 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %102)
+  %103 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %103)
+  %104 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %104)
+  %105 = load ptr, ptr %7, align 8, !tbaa !8
+  %106 = load ptr, ptr %22, align 8, !tbaa !8
+  %107 = call ptr @l_Lean_replaceRef(ptr noundef %105, ptr noundef %106)
+  store ptr %107, ptr %32, align 8, !tbaa !8
+  %108 = load ptr, ptr %22, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %108)
+  %109 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 13, i32 noundef 2)
+  store ptr %109, ptr %33, align 8, !tbaa !8
+  %110 = load ptr, ptr %33, align 8, !tbaa !8
+  %111 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %110, i32 noundef 0, ptr noundef %111)
+  %112 = load ptr, ptr %33, align 8, !tbaa !8
+  %113 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %112, i32 noundef 1, ptr noundef %113)
+  %114 = load ptr, ptr %33, align 8, !tbaa !8
+  %115 = load ptr, ptr %19, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %114, i32 noundef 2, ptr noundef %115)
+  %116 = load ptr, ptr %33, align 8, !tbaa !8
+  %117 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %116, i32 noundef 3, ptr noundef %117)
+  %118 = load ptr, ptr %33, align 8, !tbaa !8
+  %119 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %118, i32 noundef 4, ptr noundef %119)
+  %120 = load ptr, ptr %33, align 8, !tbaa !8
+  %121 = load ptr, ptr %32, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %120, i32 noundef 5, ptr noundef %121)
+  %122 = load ptr, ptr %33, align 8, !tbaa !8
+  %123 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %122, i32 noundef 6, ptr noundef %123)
+  %124 = load ptr, ptr %33, align 8, !tbaa !8
+  %125 = load ptr, ptr %24, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %124, i32 noundef 7, ptr noundef %125)
+  %126 = load ptr, ptr %33, align 8, !tbaa !8
+  %127 = load ptr, ptr %25, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %126, i32 noundef 8, ptr noundef %127)
+  %128 = load ptr, ptr %33, align 8, !tbaa !8
+  %129 = load ptr, ptr %26, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %128, i32 noundef 9, ptr noundef %129)
+  %130 = load ptr, ptr %33, align 8, !tbaa !8
+  %131 = load ptr, ptr %27, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %130, i32 noundef 10, ptr noundef %131)
+  %132 = load ptr, ptr %33, align 8, !tbaa !8
+  %133 = load ptr, ptr %29, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %132, i32 noundef 11, ptr noundef %133)
+  %134 = load ptr, ptr %33, align 8, !tbaa !8
+  %135 = load ptr, ptr %31, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %134, i32 noundef 12, ptr noundef %135)
+  %136 = load ptr, ptr %33, align 8, !tbaa !8
+  %137 = load i8, ptr %28, align 1, !tbaa !10
+  call void @lean_ctor_set_uint8(ptr noundef %136, i32 noundef 104, i8 noundef zeroext %137)
+  %138 = load ptr, ptr %33, align 8, !tbaa !8
+  %139 = load i8, ptr %30, align 1, !tbaa !10
+  call void @lean_ctor_set_uint8(ptr noundef %138, i32 noundef 105, i8 noundef zeroext %139)
+  %140 = load ptr, ptr %8, align 8, !tbaa !8
+  %141 = load ptr, ptr %33, align 8, !tbaa !8
+  %142 = load ptr, ptr %10, align 8, !tbaa !8
+  %143 = load ptr, ptr %11, align 8, !tbaa !8
+  %144 = call ptr @l_Lean_throwError___at_Lean_realizeGlobalConst___spec__3(ptr noundef %140, ptr noundef %141, ptr noundef %142, ptr noundef %143)
+  store ptr %144, ptr %34, align 8, !tbaa !8
+  %145 = load ptr, ptr %33, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %145)
+  %146 = load ptr, ptr %34, align 8, !tbaa !8
+  store ptr %146, ptr %6, align 8
+  store i32 1, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %30) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %28) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  br label %147
+
+147:                                              ; preds = %60, %44
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #7
+  %148 = load ptr, ptr %6, align 8
+  ret ptr %148
+}
+
+declare ptr @l_Lean_replaceRef(ptr noundef, ptr noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i8 @lean_ctor_get_uint8(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !8
+  %6 = call ptr @lean_ctor_obj_cptr(ptr noundef %5)
+  %7 = load i32, ptr %4, align 4, !tbaa !14
+  %8 = zext i32 %7 to i64
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %8
+  %10 = load i8, ptr %9, align 1, !tbaa !10
+  ret i8 %10
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @lean_ctor_set_uint8(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !14
+  store i8 %2, ptr %6, align 1, !tbaa !10
+  %7 = load i8, ptr %6, align 1, !tbaa !10
+  %8 = load ptr, ptr %4, align 8, !tbaa !8
+  %9 = call ptr @lean_ctor_obj_cptr(ptr noundef %8)
+  %10 = load i32, ptr %5, align 4, !tbaa !14
+  %11 = zext i32 %10 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %11
+  store i8 %7, ptr %12, align 1, !tbaa !10
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_preprocessSyntaxAndResolve___at_Lean_realizeGlobalConst___spec__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i8, align 1
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i8, align 1
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca ptr, align 8
+  %29 = alloca ptr, align 8
+  %30 = alloca ptr, align 8
+  %31 = alloca ptr, align 8
+  %32 = alloca ptr, align 8
+  %33 = alloca ptr, align 8
+  %34 = alloca i8, align 1
+  %35 = alloca ptr, align 8
+  %36 = alloca i8, align 1
+  %37 = alloca ptr, align 8
+  %38 = alloca ptr, align 8
+  %39 = alloca ptr, align 8
+  %40 = alloca ptr, align 8
+  %41 = alloca ptr, align 8
+  %42 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !8
+  store ptr %1, ptr %8, align 8, !tbaa !8
+  store ptr %2, ptr %9, align 8, !tbaa !8
+  store ptr %3, ptr %10, align 8, !tbaa !8
+  store ptr %4, ptr %11, align 8, !tbaa !8
+  br label %43
+
+43:                                               ; preds = %5
+  %44 = load ptr, ptr %7, align 8, !tbaa !8
+  %45 = call i32 @lean_obj_tag(ptr noundef %44)
+  %46 = icmp eq i32 %45, 3
+  br i1 %46, label %47, label %192
+
+47:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #7
+  %48 = load ptr, ptr %7, align 8, !tbaa !8
+  %49 = call ptr @lean_ctor_get(ptr noundef %48, i32 noundef 2)
+  store ptr %49, ptr %12, align 8, !tbaa !8
+  %50 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %50)
+  %51 = load ptr, ptr %7, align 8, !tbaa !8
+  %52 = call ptr @lean_ctor_get(ptr noundef %51, i32 noundef 3)
+  store ptr %52, ptr %13, align 8, !tbaa !8
+  %53 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %53)
+  %54 = load ptr, ptr @l_Lean_initFn____x40_Lean_ReservedNameAction___hyg_10____closed__1, align 8, !tbaa !8
+  store ptr %54, ptr %14, align 8, !tbaa !8
+  %55 = load ptr, ptr %13, align 8, !tbaa !8
+  %56 = load ptr, ptr %14, align 8, !tbaa !8
+  %57 = call ptr @l_List_filterMapTR_go___at_Lean_preprocessSyntaxAndResolve___spec__1(ptr noundef %55, ptr noundef %56)
+  store ptr %57, ptr %15, align 8, !tbaa !8
+  %58 = load ptr, ptr %15, align 8, !tbaa !8
+  %59 = call zeroext i8 @l_List_isEmpty___rarg(ptr noundef %58)
+  store i8 %59, ptr %16, align 1, !tbaa !10
+  %60 = load i8, ptr %16, align 1, !tbaa !10
+  %61 = zext i8 %60 to i32
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %75
+
+63:                                               ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  %64 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %64)
+  %65 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %65)
+  %66 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %66)
+  %67 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %67)
+  %68 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %68)
+  %69 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %69, ptr %17, align 8, !tbaa !8
+  %70 = load ptr, ptr %17, align 8, !tbaa !8
+  %71 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %70, i32 noundef 0, ptr noundef %71)
+  %72 = load ptr, ptr %17, align 8, !tbaa !8
+  %73 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %72, i32 noundef 1, ptr noundef %73)
+  %74 = load ptr, ptr %17, align 8, !tbaa !8
+  store ptr %74, ptr %6, align 8
+  store i32 1, ptr %18, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  br label %191
+
+75:                                               ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 1, ptr %19) #7
+  %76 = load ptr, ptr %15, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %76)
+  %77 = load ptr, ptr %9, align 8, !tbaa !8
+  %78 = call zeroext i1 @lean_is_exclusive(ptr noundef %77)
+  %79 = xor i1 %78, true
+  %80 = zext i1 %79 to i32
+  %81 = trunc i32 %80 to i8
+  store i8 %81, ptr %19, align 1, !tbaa !10
+  %82 = load i8, ptr %19, align 1, !tbaa !10
+  %83 = zext i8 %82 to i32
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %85, label %102
+
+85:                                               ; preds = %75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  %86 = load ptr, ptr %9, align 8, !tbaa !8
+  %87 = call ptr @lean_ctor_get(ptr noundef %86, i32 noundef 5)
+  store ptr %87, ptr %20, align 8, !tbaa !8
+  %88 = load ptr, ptr %7, align 8, !tbaa !8
+  %89 = load ptr, ptr %20, align 8, !tbaa !8
+  %90 = call ptr @l_Lean_replaceRef(ptr noundef %88, ptr noundef %89)
+  store ptr %90, ptr %21, align 8, !tbaa !8
+  %91 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %91)
+  %92 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %92)
+  %93 = load ptr, ptr %9, align 8, !tbaa !8
+  %94 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %93, i32 noundef 5, ptr noundef %94)
+  %95 = load ptr, ptr %8, align 8, !tbaa !8
+  %96 = load ptr, ptr %12, align 8, !tbaa !8
+  %97 = load ptr, ptr %9, align 8, !tbaa !8
+  %98 = load ptr, ptr %10, align 8, !tbaa !8
+  %99 = load ptr, ptr %11, align 8, !tbaa !8
+  %100 = call ptr @lean_apply_4(ptr noundef %95, ptr noundef %96, ptr noundef %97, ptr noundef %98, ptr noundef %99)
+  store ptr %100, ptr %22, align 8, !tbaa !8
+  %101 = load ptr, ptr %22, align 8, !tbaa !8
+  store ptr %101, ptr %6, align 8
+  store i32 1, ptr %18, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  br label %190
+
+102:                                              ; preds = %75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %34) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %36) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %40) #7
+  %103 = load ptr, ptr %9, align 8, !tbaa !8
+  %104 = call ptr @lean_ctor_get(ptr noundef %103, i32 noundef 0)
+  store ptr %104, ptr %23, align 8, !tbaa !8
+  %105 = load ptr, ptr %9, align 8, !tbaa !8
+  %106 = call ptr @lean_ctor_get(ptr noundef %105, i32 noundef 1)
+  store ptr %106, ptr %24, align 8, !tbaa !8
+  %107 = load ptr, ptr %9, align 8, !tbaa !8
+  %108 = call ptr @lean_ctor_get(ptr noundef %107, i32 noundef 2)
+  store ptr %108, ptr %25, align 8, !tbaa !8
+  %109 = load ptr, ptr %9, align 8, !tbaa !8
+  %110 = call ptr @lean_ctor_get(ptr noundef %109, i32 noundef 3)
+  store ptr %110, ptr %26, align 8, !tbaa !8
+  %111 = load ptr, ptr %9, align 8, !tbaa !8
+  %112 = call ptr @lean_ctor_get(ptr noundef %111, i32 noundef 4)
+  store ptr %112, ptr %27, align 8, !tbaa !8
+  %113 = load ptr, ptr %9, align 8, !tbaa !8
+  %114 = call ptr @lean_ctor_get(ptr noundef %113, i32 noundef 5)
+  store ptr %114, ptr %28, align 8, !tbaa !8
+  %115 = load ptr, ptr %9, align 8, !tbaa !8
+  %116 = call ptr @lean_ctor_get(ptr noundef %115, i32 noundef 6)
+  store ptr %116, ptr %29, align 8, !tbaa !8
+  %117 = load ptr, ptr %9, align 8, !tbaa !8
+  %118 = call ptr @lean_ctor_get(ptr noundef %117, i32 noundef 7)
+  store ptr %118, ptr %30, align 8, !tbaa !8
+  %119 = load ptr, ptr %9, align 8, !tbaa !8
+  %120 = call ptr @lean_ctor_get(ptr noundef %119, i32 noundef 8)
+  store ptr %120, ptr %31, align 8, !tbaa !8
+  %121 = load ptr, ptr %9, align 8, !tbaa !8
+  %122 = call ptr @lean_ctor_get(ptr noundef %121, i32 noundef 9)
+  store ptr %122, ptr %32, align 8, !tbaa !8
+  %123 = load ptr, ptr %9, align 8, !tbaa !8
+  %124 = call ptr @lean_ctor_get(ptr noundef %123, i32 noundef 10)
+  store ptr %124, ptr %33, align 8, !tbaa !8
+  %125 = load ptr, ptr %9, align 8, !tbaa !8
+  %126 = call zeroext i8 @lean_ctor_get_uint8(ptr noundef %125, i32 noundef 104)
+  store i8 %126, ptr %34, align 1, !tbaa !10
+  %127 = load ptr, ptr %9, align 8, !tbaa !8
+  %128 = call ptr @lean_ctor_get(ptr noundef %127, i32 noundef 11)
+  store ptr %128, ptr %35, align 8, !tbaa !8
+  %129 = load ptr, ptr %9, align 8, !tbaa !8
+  %130 = call zeroext i8 @lean_ctor_get_uint8(ptr noundef %129, i32 noundef 105)
+  store i8 %130, ptr %36, align 1, !tbaa !10
+  %131 = load ptr, ptr %9, align 8, !tbaa !8
+  %132 = call ptr @lean_ctor_get(ptr noundef %131, i32 noundef 12)
+  store ptr %132, ptr %37, align 8, !tbaa !8
+  %133 = load ptr, ptr %37, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %133)
+  %134 = load ptr, ptr %35, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %134)
+  %135 = load ptr, ptr %33, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %135)
+  %136 = load ptr, ptr %32, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %136)
+  %137 = load ptr, ptr %31, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %137)
+  %138 = load ptr, ptr %30, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %138)
+  %139 = load ptr, ptr %29, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %139)
+  %140 = load ptr, ptr %28, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %140)
+  %141 = load ptr, ptr %27, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %141)
+  %142 = load ptr, ptr %26, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %142)
+  %143 = load ptr, ptr %25, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %143)
+  %144 = load ptr, ptr %24, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %144)
+  %145 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %145)
+  %146 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %146)
+  %147 = load ptr, ptr %7, align 8, !tbaa !8
+  %148 = load ptr, ptr %28, align 8, !tbaa !8
+  %149 = call ptr @l_Lean_replaceRef(ptr noundef %147, ptr noundef %148)
+  store ptr %149, ptr %38, align 8, !tbaa !8
+  %150 = load ptr, ptr %28, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %150)
+  %151 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %151)
+  %152 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 13, i32 noundef 2)
+  store ptr %152, ptr %39, align 8, !tbaa !8
+  %153 = load ptr, ptr %39, align 8, !tbaa !8
+  %154 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %153, i32 noundef 0, ptr noundef %154)
+  %155 = load ptr, ptr %39, align 8, !tbaa !8
+  %156 = load ptr, ptr %24, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %155, i32 noundef 1, ptr noundef %156)
+  %157 = load ptr, ptr %39, align 8, !tbaa !8
+  %158 = load ptr, ptr %25, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %157, i32 noundef 2, ptr noundef %158)
+  %159 = load ptr, ptr %39, align 8, !tbaa !8
+  %160 = load ptr, ptr %26, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %159, i32 noundef 3, ptr noundef %160)
+  %161 = load ptr, ptr %39, align 8, !tbaa !8
+  %162 = load ptr, ptr %27, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %161, i32 noundef 4, ptr noundef %162)
+  %163 = load ptr, ptr %39, align 8, !tbaa !8
+  %164 = load ptr, ptr %38, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %163, i32 noundef 5, ptr noundef %164)
+  %165 = load ptr, ptr %39, align 8, !tbaa !8
+  %166 = load ptr, ptr %29, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %165, i32 noundef 6, ptr noundef %166)
+  %167 = load ptr, ptr %39, align 8, !tbaa !8
+  %168 = load ptr, ptr %30, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %167, i32 noundef 7, ptr noundef %168)
+  %169 = load ptr, ptr %39, align 8, !tbaa !8
+  %170 = load ptr, ptr %31, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %169, i32 noundef 8, ptr noundef %170)
+  %171 = load ptr, ptr %39, align 8, !tbaa !8
+  %172 = load ptr, ptr %32, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %171, i32 noundef 9, ptr noundef %172)
+  %173 = load ptr, ptr %39, align 8, !tbaa !8
+  %174 = load ptr, ptr %33, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %173, i32 noundef 10, ptr noundef %174)
+  %175 = load ptr, ptr %39, align 8, !tbaa !8
+  %176 = load ptr, ptr %35, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %175, i32 noundef 11, ptr noundef %176)
+  %177 = load ptr, ptr %39, align 8, !tbaa !8
+  %178 = load ptr, ptr %37, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %177, i32 noundef 12, ptr noundef %178)
+  %179 = load ptr, ptr %39, align 8, !tbaa !8
+  %180 = load i8, ptr %34, align 1, !tbaa !10
+  call void @lean_ctor_set_uint8(ptr noundef %179, i32 noundef 104, i8 noundef zeroext %180)
+  %181 = load ptr, ptr %39, align 8, !tbaa !8
+  %182 = load i8, ptr %36, align 1, !tbaa !10
+  call void @lean_ctor_set_uint8(ptr noundef %181, i32 noundef 105, i8 noundef zeroext %182)
+  %183 = load ptr, ptr %8, align 8, !tbaa !8
+  %184 = load ptr, ptr %12, align 8, !tbaa !8
+  %185 = load ptr, ptr %39, align 8, !tbaa !8
+  %186 = load ptr, ptr %10, align 8, !tbaa !8
+  %187 = load ptr, ptr %11, align 8, !tbaa !8
+  %188 = call ptr @lean_apply_4(ptr noundef %183, ptr noundef %184, ptr noundef %185, ptr noundef %186, ptr noundef %187)
+  store ptr %188, ptr %40, align 8, !tbaa !8
+  %189 = load ptr, ptr %40, align 8, !tbaa !8
+  store ptr %189, ptr %6, align 8
+  store i32 1, ptr %18, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %40) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %36) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %34) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #7
+  br label %190
+
+190:                                              ; preds = %102, %85
+  call void @llvm.lifetime.end.p0(i64 1, ptr %19) #7
+  br label %191
+
+191:                                              ; preds = %190, %63
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  br label %204
+
+192:                                              ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 8, ptr %41) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %42) #7
+  %193 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %193)
+  %194 = load ptr, ptr @l_Lean_preprocessSyntaxAndResolve___at_Lean_realizeGlobalConst___spec__1___closed__3, align 8, !tbaa !8
+  store ptr %194, ptr %41, align 8, !tbaa !8
+  %195 = load ptr, ptr %7, align 8, !tbaa !8
+  %196 = load ptr, ptr %41, align 8, !tbaa !8
+  %197 = load ptr, ptr %9, align 8, !tbaa !8
+  %198 = load ptr, ptr %10, align 8, !tbaa !8
+  %199 = load ptr, ptr %11, align 8, !tbaa !8
+  %200 = call ptr @l_Lean_throwErrorAt___at_Lean_realizeGlobalConst___spec__2(ptr noundef %195, ptr noundef %196, ptr noundef %197, ptr noundef %198, ptr noundef %199)
+  store ptr %200, ptr %42, align 8, !tbaa !8
+  %201 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %201)
+  %202 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %202)
+  %203 = load ptr, ptr %42, align 8, !tbaa !8
+  store ptr %203, ptr %6, align 8
+  store i32 1, ptr %18, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %42) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %41) #7
+  br label %204
+
+204:                                              ; preds = %192, %191
+  %205 = load ptr, ptr %6, align 8
+  ret ptr %205
+}
+
+declare ptr @l_List_filterMapTR_go___at_Lean_preprocessSyntaxAndResolve___spec__1(ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_realizeGlobalConst(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i8, align 1
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  %27 = alloca i8, align 1
+  %28 = alloca ptr, align 8
+  %29 = alloca i8, align 1
+  %30 = alloca ptr, align 8
+  %31 = alloca ptr, align 8
+  %32 = alloca ptr, align 8
+  %33 = alloca ptr, align 8
+  %34 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !8
+  br label %35
+
+35:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #7
+  %36 = load ptr, ptr %7, align 8, !tbaa !8
+  %37 = call zeroext i1 @lean_is_exclusive(ptr noundef %36)
+  %38 = xor i1 %37, true
+  %39 = zext i1 %38 to i32
+  %40 = trunc i32 %39 to i8
+  store i8 %40, ptr %10, align 1, !tbaa !10
+  %41 = load i8, ptr %10, align 1, !tbaa !10
+  %42 = zext i8 %41 to i32
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %61
+
+44:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %45 = load ptr, ptr %7, align 8, !tbaa !8
+  %46 = call ptr @lean_ctor_get(ptr noundef %45, i32 noundef 5)
+  store ptr %46, ptr %11, align 8, !tbaa !8
+  %47 = load ptr, ptr %6, align 8, !tbaa !8
+  %48 = load ptr, ptr %11, align 8, !tbaa !8
+  %49 = call ptr @l_Lean_replaceRef(ptr noundef %47, ptr noundef %48)
+  store ptr %49, ptr %12, align 8, !tbaa !8
+  %50 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %50)
+  %51 = load ptr, ptr %7, align 8, !tbaa !8
+  %52 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %51, i32 noundef 5, ptr noundef %52)
+  %53 = load ptr, ptr @l_Lean_realizeGlobalConst___closed__1, align 8, !tbaa !8
+  store ptr %53, ptr %13, align 8, !tbaa !8
+  %54 = load ptr, ptr %6, align 8, !tbaa !8
+  %55 = load ptr, ptr %13, align 8, !tbaa !8
+  %56 = load ptr, ptr %7, align 8, !tbaa !8
+  %57 = load ptr, ptr %8, align 8, !tbaa !8
+  %58 = load ptr, ptr %9, align 8, !tbaa !8
+  %59 = call ptr @l_Lean_preprocessSyntaxAndResolve___at_Lean_realizeGlobalConst___spec__1(ptr noundef %54, ptr noundef %55, ptr noundef %56, ptr noundef %57, ptr noundef %58)
+  store ptr %59, ptr %14, align 8, !tbaa !8
+  %60 = load ptr, ptr %14, align 8, !tbaa !8
+  store ptr %60, ptr %5, align 8
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  br label %149
+
+61:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %27) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %29) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #7
+  %62 = load ptr, ptr %7, align 8, !tbaa !8
+  %63 = call ptr @lean_ctor_get(ptr noundef %62, i32 noundef 0)
+  store ptr %63, ptr %16, align 8, !tbaa !8
+  %64 = load ptr, ptr %7, align 8, !tbaa !8
+  %65 = call ptr @lean_ctor_get(ptr noundef %64, i32 noundef 1)
+  store ptr %65, ptr %17, align 8, !tbaa !8
+  %66 = load ptr, ptr %7, align 8, !tbaa !8
+  %67 = call ptr @lean_ctor_get(ptr noundef %66, i32 noundef 2)
+  store ptr %67, ptr %18, align 8, !tbaa !8
+  %68 = load ptr, ptr %7, align 8, !tbaa !8
+  %69 = call ptr @lean_ctor_get(ptr noundef %68, i32 noundef 3)
+  store ptr %69, ptr %19, align 8, !tbaa !8
+  %70 = load ptr, ptr %7, align 8, !tbaa !8
+  %71 = call ptr @lean_ctor_get(ptr noundef %70, i32 noundef 4)
+  store ptr %71, ptr %20, align 8, !tbaa !8
+  %72 = load ptr, ptr %7, align 8, !tbaa !8
+  %73 = call ptr @lean_ctor_get(ptr noundef %72, i32 noundef 5)
+  store ptr %73, ptr %21, align 8, !tbaa !8
+  %74 = load ptr, ptr %7, align 8, !tbaa !8
+  %75 = call ptr @lean_ctor_get(ptr noundef %74, i32 noundef 6)
+  store ptr %75, ptr %22, align 8, !tbaa !8
+  %76 = load ptr, ptr %7, align 8, !tbaa !8
+  %77 = call ptr @lean_ctor_get(ptr noundef %76, i32 noundef 7)
+  store ptr %77, ptr %23, align 8, !tbaa !8
+  %78 = load ptr, ptr %7, align 8, !tbaa !8
+  %79 = call ptr @lean_ctor_get(ptr noundef %78, i32 noundef 8)
+  store ptr %79, ptr %24, align 8, !tbaa !8
+  %80 = load ptr, ptr %7, align 8, !tbaa !8
+  %81 = call ptr @lean_ctor_get(ptr noundef %80, i32 noundef 9)
+  store ptr %81, ptr %25, align 8, !tbaa !8
+  %82 = load ptr, ptr %7, align 8, !tbaa !8
+  %83 = call ptr @lean_ctor_get(ptr noundef %82, i32 noundef 10)
+  store ptr %83, ptr %26, align 8, !tbaa !8
+  %84 = load ptr, ptr %7, align 8, !tbaa !8
+  %85 = call zeroext i8 @lean_ctor_get_uint8(ptr noundef %84, i32 noundef 104)
+  store i8 %85, ptr %27, align 1, !tbaa !10
+  %86 = load ptr, ptr %7, align 8, !tbaa !8
+  %87 = call ptr @lean_ctor_get(ptr noundef %86, i32 noundef 11)
+  store ptr %87, ptr %28, align 8, !tbaa !8
+  %88 = load ptr, ptr %7, align 8, !tbaa !8
+  %89 = call zeroext i8 @lean_ctor_get_uint8(ptr noundef %88, i32 noundef 105)
+  store i8 %89, ptr %29, align 1, !tbaa !10
+  %90 = load ptr, ptr %7, align 8, !tbaa !8
+  %91 = call ptr @lean_ctor_get(ptr noundef %90, i32 noundef 12)
+  store ptr %91, ptr %30, align 8, !tbaa !8
+  %92 = load ptr, ptr %30, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %92)
+  %93 = load ptr, ptr %28, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %93)
+  %94 = load ptr, ptr %26, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %94)
+  %95 = load ptr, ptr %25, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %95)
+  %96 = load ptr, ptr %24, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %96)
+  %97 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %97)
+  %98 = load ptr, ptr %22, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %98)
+  %99 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %99)
+  %100 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %100)
+  %101 = load ptr, ptr %19, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %101)
+  %102 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %102)
+  %103 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %103)
+  %104 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %104)
+  %105 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %105)
+  %106 = load ptr, ptr %6, align 8, !tbaa !8
+  %107 = load ptr, ptr %21, align 8, !tbaa !8
+  %108 = call ptr @l_Lean_replaceRef(ptr noundef %106, ptr noundef %107)
+  store ptr %108, ptr %31, align 8, !tbaa !8
+  %109 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %109)
+  %110 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 13, i32 noundef 2)
+  store ptr %110, ptr %32, align 8, !tbaa !8
+  %111 = load ptr, ptr %32, align 8, !tbaa !8
+  %112 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %111, i32 noundef 0, ptr noundef %112)
+  %113 = load ptr, ptr %32, align 8, !tbaa !8
+  %114 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %113, i32 noundef 1, ptr noundef %114)
+  %115 = load ptr, ptr %32, align 8, !tbaa !8
+  %116 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %115, i32 noundef 2, ptr noundef %116)
+  %117 = load ptr, ptr %32, align 8, !tbaa !8
+  %118 = load ptr, ptr %19, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %117, i32 noundef 3, ptr noundef %118)
+  %119 = load ptr, ptr %32, align 8, !tbaa !8
+  %120 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %119, i32 noundef 4, ptr noundef %120)
+  %121 = load ptr, ptr %32, align 8, !tbaa !8
+  %122 = load ptr, ptr %31, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %121, i32 noundef 5, ptr noundef %122)
+  %123 = load ptr, ptr %32, align 8, !tbaa !8
+  %124 = load ptr, ptr %22, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %123, i32 noundef 6, ptr noundef %124)
+  %125 = load ptr, ptr %32, align 8, !tbaa !8
+  %126 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %125, i32 noundef 7, ptr noundef %126)
+  %127 = load ptr, ptr %32, align 8, !tbaa !8
+  %128 = load ptr, ptr %24, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %127, i32 noundef 8, ptr noundef %128)
+  %129 = load ptr, ptr %32, align 8, !tbaa !8
+  %130 = load ptr, ptr %25, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %129, i32 noundef 9, ptr noundef %130)
+  %131 = load ptr, ptr %32, align 8, !tbaa !8
+  %132 = load ptr, ptr %26, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %131, i32 noundef 10, ptr noundef %132)
+  %133 = load ptr, ptr %32, align 8, !tbaa !8
+  %134 = load ptr, ptr %28, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %133, i32 noundef 11, ptr noundef %134)
+  %135 = load ptr, ptr %32, align 8, !tbaa !8
+  %136 = load ptr, ptr %30, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %135, i32 noundef 12, ptr noundef %136)
+  %137 = load ptr, ptr %32, align 8, !tbaa !8
+  %138 = load i8, ptr %27, align 1, !tbaa !10
+  call void @lean_ctor_set_uint8(ptr noundef %137, i32 noundef 104, i8 noundef zeroext %138)
+  %139 = load ptr, ptr %32, align 8, !tbaa !8
+  %140 = load i8, ptr %29, align 1, !tbaa !10
+  call void @lean_ctor_set_uint8(ptr noundef %139, i32 noundef 105, i8 noundef zeroext %140)
+  %141 = load ptr, ptr @l_Lean_realizeGlobalConst___closed__1, align 8, !tbaa !8
+  store ptr %141, ptr %33, align 8, !tbaa !8
+  %142 = load ptr, ptr %6, align 8, !tbaa !8
+  %143 = load ptr, ptr %33, align 8, !tbaa !8
+  %144 = load ptr, ptr %32, align 8, !tbaa !8
+  %145 = load ptr, ptr %8, align 8, !tbaa !8
+  %146 = load ptr, ptr %9, align 8, !tbaa !8
+  %147 = call ptr @l_Lean_preprocessSyntaxAndResolve___at_Lean_realizeGlobalConst___spec__1(ptr noundef %142, ptr noundef %143, ptr noundef %144, ptr noundef %145, ptr noundef %146)
+  store ptr %147, ptr %34, align 8, !tbaa !8
+  %148 = load ptr, ptr %34, align 8, !tbaa !8
+  store ptr %148, ptr %5, align 8
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %29) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %27) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  br label %149
+
+149:                                              ; preds = %61, %44
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #7
+  %150 = load ptr, ptr %5, align 8
+  ret ptr %150
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_throwError___at_Lean_realizeGlobalConst___spec__3___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  store ptr %3, ptr %8, align 8, !tbaa !8
+  br label %10
+
+10:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %11 = load ptr, ptr %5, align 8, !tbaa !8
+  %12 = load ptr, ptr %6, align 8, !tbaa !8
+  %13 = load ptr, ptr %7, align 8, !tbaa !8
+  %14 = load ptr, ptr %8, align 8, !tbaa !8
+  %15 = call ptr @l_Lean_throwError___at_Lean_realizeGlobalConst___spec__3(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store ptr %15, ptr %9, align 8, !tbaa !8
+  %16 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %16)
+  %17 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %17)
+  %18 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  ret ptr %18
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_throwErrorAt___at_Lean_realizeGlobalConst___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !8
+  store ptr %4, ptr %10, align 8, !tbaa !8
+  br label %12
+
+12:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %13 = load ptr, ptr %6, align 8, !tbaa !8
+  %14 = load ptr, ptr %7, align 8, !tbaa !8
+  %15 = load ptr, ptr %8, align 8, !tbaa !8
+  %16 = load ptr, ptr %9, align 8, !tbaa !8
+  %17 = load ptr, ptr %10, align 8, !tbaa !8
+  %18 = call ptr @l_Lean_throwErrorAt___at_Lean_realizeGlobalConst___spec__2(ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17)
+  store ptr %18, ptr %11, align 8, !tbaa !8
+  %19 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %19)
+  %20 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %20)
+  %21 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  ret ptr %21
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_panic___at_Lean_realizeGlobalConstNoOverload___spec__2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  store ptr %3, ptr %8, align 8, !tbaa !8
+  br label %12
+
+12:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %13 = load ptr, ptr @l_panic___at_Lean_realizeGlobalConstNoOverload___spec__2___closed__1, align 8, !tbaa !8
+  store ptr %13, ptr %9, align 8, !tbaa !8
+  %14 = load ptr, ptr %9, align 8, !tbaa !8
+  %15 = load ptr, ptr %5, align 8, !tbaa !8
+  %16 = call ptr @lean_panic_fn(ptr noundef %14, ptr noundef %15)
+  store ptr %16, ptr %10, align 8, !tbaa !8
+  %17 = load ptr, ptr %10, align 8, !tbaa !8
+  %18 = load ptr, ptr %6, align 8, !tbaa !8
+  %19 = load ptr, ptr %7, align 8, !tbaa !8
+  %20 = load ptr, ptr %8, align 8, !tbaa !8
+  %21 = call ptr @lean_apply_3(ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20)
+  store ptr %21, ptr %11, align 8, !tbaa !8
+  %22 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  ret ptr %22
+}
+
+declare ptr @lean_panic_fn(ptr noundef, ptr noundef) #4
+
+declare ptr @lean_apply_3(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_throwErrorAt___at_Lean_realizeGlobalConstNoOverload___spec__3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i8, align 1
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca i8, align 1
+  %29 = alloca ptr, align 8
+  %30 = alloca i8, align 1
+  %31 = alloca ptr, align 8
+  %32 = alloca ptr, align 8
+  %33 = alloca ptr, align 8
+  %34 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !8
+  store ptr %1, ptr %8, align 8, !tbaa !8
+  store ptr %2, ptr %9, align 8, !tbaa !8
+  store ptr %3, ptr %10, align 8, !tbaa !8
+  store ptr %4, ptr %11, align 8, !tbaa !8
+  br label %35
+
+35:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #7
+  %36 = load ptr, ptr %9, align 8, !tbaa !8
+  %37 = call zeroext i1 @lean_is_exclusive(ptr noundef %36)
+  %38 = xor i1 %37, true
+  %39 = zext i1 %38 to i32
+  %40 = trunc i32 %39 to i8
+  store i8 %40, ptr %12, align 1, !tbaa !10
+  %41 = load i8, ptr %12, align 1, !tbaa !10
+  %42 = zext i8 %41 to i32
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %60
+
+44:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %45 = load ptr, ptr %9, align 8, !tbaa !8
+  %46 = call ptr @lean_ctor_get(ptr noundef %45, i32 noundef 5)
+  store ptr %46, ptr %13, align 8, !tbaa !8
+  %47 = load ptr, ptr %7, align 8, !tbaa !8
+  %48 = load ptr, ptr %13, align 8, !tbaa !8
+  %49 = call ptr @l_Lean_replaceRef(ptr noundef %47, ptr noundef %48)
+  store ptr %49, ptr %14, align 8, !tbaa !8
+  %50 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %50)
+  %51 = load ptr, ptr %9, align 8, !tbaa !8
+  %52 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %51, i32 noundef 5, ptr noundef %52)
+  %53 = load ptr, ptr %8, align 8, !tbaa !8
+  %54 = load ptr, ptr %9, align 8, !tbaa !8
+  %55 = load ptr, ptr %10, align 8, !tbaa !8
+  %56 = load ptr, ptr %11, align 8, !tbaa !8
+  %57 = call ptr @l_Lean_throwError___at_Lean_realizeGlobalConstNoOverloadCore___spec__3(ptr noundef %53, ptr noundef %54, ptr noundef %55, ptr noundef %56)
+  store ptr %57, ptr %15, align 8, !tbaa !8
+  %58 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %58)
+  %59 = load ptr, ptr %15, align 8, !tbaa !8
+  store ptr %59, ptr %6, align 8
+  store i32 1, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  br label %147
+
+60:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %28) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %30) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #7
+  %61 = load ptr, ptr %9, align 8, !tbaa !8
+  %62 = call ptr @lean_ctor_get(ptr noundef %61, i32 noundef 0)
+  store ptr %62, ptr %17, align 8, !tbaa !8
+  %63 = load ptr, ptr %9, align 8, !tbaa !8
+  %64 = call ptr @lean_ctor_get(ptr noundef %63, i32 noundef 1)
+  store ptr %64, ptr %18, align 8, !tbaa !8
+  %65 = load ptr, ptr %9, align 8, !tbaa !8
+  %66 = call ptr @lean_ctor_get(ptr noundef %65, i32 noundef 2)
+  store ptr %66, ptr %19, align 8, !tbaa !8
+  %67 = load ptr, ptr %9, align 8, !tbaa !8
+  %68 = call ptr @lean_ctor_get(ptr noundef %67, i32 noundef 3)
+  store ptr %68, ptr %20, align 8, !tbaa !8
+  %69 = load ptr, ptr %9, align 8, !tbaa !8
+  %70 = call ptr @lean_ctor_get(ptr noundef %69, i32 noundef 4)
+  store ptr %70, ptr %21, align 8, !tbaa !8
+  %71 = load ptr, ptr %9, align 8, !tbaa !8
+  %72 = call ptr @lean_ctor_get(ptr noundef %71, i32 noundef 5)
+  store ptr %72, ptr %22, align 8, !tbaa !8
+  %73 = load ptr, ptr %9, align 8, !tbaa !8
+  %74 = call ptr @lean_ctor_get(ptr noundef %73, i32 noundef 6)
+  store ptr %74, ptr %23, align 8, !tbaa !8
+  %75 = load ptr, ptr %9, align 8, !tbaa !8
+  %76 = call ptr @lean_ctor_get(ptr noundef %75, i32 noundef 7)
+  store ptr %76, ptr %24, align 8, !tbaa !8
+  %77 = load ptr, ptr %9, align 8, !tbaa !8
+  %78 = call ptr @lean_ctor_get(ptr noundef %77, i32 noundef 8)
+  store ptr %78, ptr %25, align 8, !tbaa !8
+  %79 = load ptr, ptr %9, align 8, !tbaa !8
+  %80 = call ptr @lean_ctor_get(ptr noundef %79, i32 noundef 9)
+  store ptr %80, ptr %26, align 8, !tbaa !8
+  %81 = load ptr, ptr %9, align 8, !tbaa !8
+  %82 = call ptr @lean_ctor_get(ptr noundef %81, i32 noundef 10)
+  store ptr %82, ptr %27, align 8, !tbaa !8
+  %83 = load ptr, ptr %9, align 8, !tbaa !8
+  %84 = call zeroext i8 @lean_ctor_get_uint8(ptr noundef %83, i32 noundef 104)
+  store i8 %84, ptr %28, align 1, !tbaa !10
+  %85 = load ptr, ptr %9, align 8, !tbaa !8
+  %86 = call ptr @lean_ctor_get(ptr noundef %85, i32 noundef 11)
+  store ptr %86, ptr %29, align 8, !tbaa !8
+  %87 = load ptr, ptr %9, align 8, !tbaa !8
+  %88 = call zeroext i8 @lean_ctor_get_uint8(ptr noundef %87, i32 noundef 105)
+  store i8 %88, ptr %30, align 1, !tbaa !10
+  %89 = load ptr, ptr %9, align 8, !tbaa !8
+  %90 = call ptr @lean_ctor_get(ptr noundef %89, i32 noundef 12)
+  store ptr %90, ptr %31, align 8, !tbaa !8
+  %91 = load ptr, ptr %31, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %91)
+  %92 = load ptr, ptr %29, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %92)
+  %93 = load ptr, ptr %27, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %93)
+  %94 = load ptr, ptr %26, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %94)
+  %95 = load ptr, ptr %25, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %95)
+  %96 = load ptr, ptr %24, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %96)
+  %97 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %97)
+  %98 = load ptr, ptr %22, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %98)
+  %99 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %99)
+  %100 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %100)
+  %101 = load ptr, ptr %19, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %101)
+  %102 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %102)
+  %103 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %103)
+  %104 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %104)
+  %105 = load ptr, ptr %7, align 8, !tbaa !8
+  %106 = load ptr, ptr %22, align 8, !tbaa !8
+  %107 = call ptr @l_Lean_replaceRef(ptr noundef %105, ptr noundef %106)
+  store ptr %107, ptr %32, align 8, !tbaa !8
+  %108 = load ptr, ptr %22, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %108)
+  %109 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 13, i32 noundef 2)
+  store ptr %109, ptr %33, align 8, !tbaa !8
+  %110 = load ptr, ptr %33, align 8, !tbaa !8
+  %111 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %110, i32 noundef 0, ptr noundef %111)
+  %112 = load ptr, ptr %33, align 8, !tbaa !8
+  %113 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %112, i32 noundef 1, ptr noundef %113)
+  %114 = load ptr, ptr %33, align 8, !tbaa !8
+  %115 = load ptr, ptr %19, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %114, i32 noundef 2, ptr noundef %115)
+  %116 = load ptr, ptr %33, align 8, !tbaa !8
+  %117 = load ptr, ptr %20, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %116, i32 noundef 3, ptr noundef %117)
+  %118 = load ptr, ptr %33, align 8, !tbaa !8
+  %119 = load ptr, ptr %21, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %118, i32 noundef 4, ptr noundef %119)
+  %120 = load ptr, ptr %33, align 8, !tbaa !8
+  %121 = load ptr, ptr %32, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %120, i32 noundef 5, ptr noundef %121)
+  %122 = load ptr, ptr %33, align 8, !tbaa !8
+  %123 = load ptr, ptr %23, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %122, i32 noundef 6, ptr noundef %123)
+  %124 = load ptr, ptr %33, align 8, !tbaa !8
+  %125 = load ptr, ptr %24, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %124, i32 noundef 7, ptr noundef %125)
+  %126 = load ptr, ptr %33, align 8, !tbaa !8
+  %127 = load ptr, ptr %25, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %126, i32 noundef 8, ptr noundef %127)
+  %128 = load ptr, ptr %33, align 8, !tbaa !8
+  %129 = load ptr, ptr %26, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %128, i32 noundef 9, ptr noundef %129)
+  %130 = load ptr, ptr %33, align 8, !tbaa !8
+  %131 = load ptr, ptr %27, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %130, i32 noundef 10, ptr noundef %131)
+  %132 = load ptr, ptr %33, align 8, !tbaa !8
+  %133 = load ptr, ptr %29, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %132, i32 noundef 11, ptr noundef %133)
+  %134 = load ptr, ptr %33, align 8, !tbaa !8
+  %135 = load ptr, ptr %31, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %134, i32 noundef 12, ptr noundef %135)
+  %136 = load ptr, ptr %33, align 8, !tbaa !8
+  %137 = load i8, ptr %28, align 1, !tbaa !10
+  call void @lean_ctor_set_uint8(ptr noundef %136, i32 noundef 104, i8 noundef zeroext %137)
+  %138 = load ptr, ptr %33, align 8, !tbaa !8
+  %139 = load i8, ptr %30, align 1, !tbaa !10
+  call void @lean_ctor_set_uint8(ptr noundef %138, i32 noundef 105, i8 noundef zeroext %139)
+  %140 = load ptr, ptr %8, align 8, !tbaa !8
+  %141 = load ptr, ptr %33, align 8, !tbaa !8
+  %142 = load ptr, ptr %10, align 8, !tbaa !8
+  %143 = load ptr, ptr %11, align 8, !tbaa !8
+  %144 = call ptr @l_Lean_throwError___at_Lean_realizeGlobalConstNoOverloadCore___spec__3(ptr noundef %140, ptr noundef %141, ptr noundef %142, ptr noundef %143)
+  store ptr %144, ptr %34, align 8, !tbaa !8
+  %145 = load ptr, ptr %33, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %145)
+  %146 = load ptr, ptr %34, align 8, !tbaa !8
+  store ptr %146, ptr %6, align 8
+  store i32 1, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %30) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %28) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  br label %147
+
+147:                                              ; preds = %60, %44
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #7
+  %148 = load ptr, ptr %6, align 8
+  ret ptr %148
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i8, align 1
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i8, align 1
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca ptr, align 8
+  %29 = alloca ptr, align 8
+  %30 = alloca ptr, align 8
+  %31 = alloca ptr, align 8
+  %32 = alloca ptr, align 8
+  %33 = alloca ptr, align 8
+  %34 = alloca ptr, align 8
+  %35 = alloca ptr, align 8
+  %36 = alloca ptr, align 8
+  %37 = alloca ptr, align 8
+  %38 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !8
+  store ptr %1, ptr %8, align 8, !tbaa !8
+  store ptr %2, ptr %9, align 8, !tbaa !8
+  store ptr %3, ptr %10, align 8, !tbaa !8
+  store ptr %4, ptr %11, align 8, !tbaa !8
+  br label %39
+
+39:                                               ; preds = %5
+  %40 = load ptr, ptr %8, align 8, !tbaa !8
+  %41 = call i32 @lean_obj_tag(ptr noundef %40)
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %52
+
+43:                                               ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %44 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %44)
+  %45 = load ptr, ptr @l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__4, align 8, !tbaa !8
+  store ptr %45, ptr %12, align 8, !tbaa !8
+  %46 = load ptr, ptr %12, align 8, !tbaa !8
+  %47 = load ptr, ptr %9, align 8, !tbaa !8
+  %48 = load ptr, ptr %10, align 8, !tbaa !8
+  %49 = load ptr, ptr %11, align 8, !tbaa !8
+  %50 = call ptr @l_panic___at_Lean_realizeGlobalConstNoOverload___spec__2(ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49)
+  store ptr %50, ptr %13, align 8, !tbaa !8
+  %51 = load ptr, ptr %13, align 8, !tbaa !8
+  store ptr %51, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  br label %146
+
+52:                                               ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %53 = load ptr, ptr %8, align 8, !tbaa !8
+  %54 = call ptr @lean_ctor_get(ptr noundef %53, i32 noundef 1)
+  store ptr %54, ptr %14, align 8, !tbaa !8
+  %55 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %55)
+  %56 = load ptr, ptr %14, align 8, !tbaa !8
+  %57 = call i32 @lean_obj_tag(ptr noundef %56)
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %91
+
+59:                                               ; preds = %52
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #7
+  %60 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %60)
+  %61 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %61)
+  %62 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %62)
+  %63 = load ptr, ptr %8, align 8, !tbaa !8
+  %64 = call zeroext i1 @lean_is_exclusive(ptr noundef %63)
+  %65 = xor i1 %64, true
+  %66 = zext i1 %65 to i32
+  %67 = trunc i32 %66 to i8
+  store i8 %67, ptr %15, align 1, !tbaa !10
+  %68 = load i8, ptr %15, align 1, !tbaa !10
+  %69 = zext i8 %68 to i32
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %79
+
+71:                                               ; preds = %59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %72 = load ptr, ptr %8, align 8, !tbaa !8
+  %73 = call ptr @lean_ctor_get(ptr noundef %72, i32 noundef 1)
+  store ptr %73, ptr %16, align 8, !tbaa !8
+  %74 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %74)
+  %75 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_ctor_set_tag(ptr noundef %75, i8 noundef zeroext 0)
+  %76 = load ptr, ptr %8, align 8, !tbaa !8
+  %77 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %76, i32 noundef 1, ptr noundef %77)
+  %78 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %78, ptr %6, align 8
+  store i32 1, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  br label %90
+
+79:                                               ; preds = %59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  %80 = load ptr, ptr %8, align 8, !tbaa !8
+  %81 = call ptr @lean_ctor_get(ptr noundef %80, i32 noundef 0)
+  store ptr %81, ptr %18, align 8, !tbaa !8
+  %82 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %82)
+  %83 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %83)
+  %84 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %84, ptr %19, align 8, !tbaa !8
+  %85 = load ptr, ptr %19, align 8, !tbaa !8
+  %86 = load ptr, ptr %18, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %85, i32 noundef 0, ptr noundef %86)
+  %87 = load ptr, ptr %19, align 8, !tbaa !8
+  %88 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %87, i32 noundef 1, ptr noundef %88)
+  %89 = load ptr, ptr %19, align 8, !tbaa !8
+  store ptr %89, ptr %6, align 8
+  store i32 1, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  br label %90
+
+90:                                               ; preds = %79, %71
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #7
+  br label %145
+
+91:                                               ; preds = %52
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #7
+  %92 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %92)
+  %93 = call ptr @lean_box(i64 noundef 0)
+  store ptr %93, ptr %20, align 8, !tbaa !8
+  store i8 0, ptr %21, align 1, !tbaa !10
+  %94 = call ptr @lean_unsigned_to_nat(i32 noundef 0)
+  store ptr %94, ptr %22, align 8, !tbaa !8
+  %95 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %95)
+  %96 = load ptr, ptr %20, align 8, !tbaa !8
+  %97 = load i8, ptr %21, align 1, !tbaa !10
+  %98 = load ptr, ptr %22, align 8, !tbaa !8
+  %99 = load ptr, ptr %7, align 8, !tbaa !8
+  %100 = call ptr @l_Lean_Syntax_formatStxAux(ptr noundef %96, i8 noundef zeroext %97, ptr noundef %98, ptr noundef %99)
+  store ptr %100, ptr %23, align 8, !tbaa !8
+  %101 = load ptr, ptr @l_Std_Format_defWidth, align 8, !tbaa !8
+  store ptr %101, ptr %24, align 8, !tbaa !8
+  %102 = load ptr, ptr %23, align 8, !tbaa !8
+  %103 = load ptr, ptr %24, align 8, !tbaa !8
+  %104 = load ptr, ptr %22, align 8, !tbaa !8
+  %105 = load ptr, ptr %22, align 8, !tbaa !8
+  %106 = call ptr @lean_format_pretty(ptr noundef %102, ptr noundef %103, ptr noundef %104, ptr noundef %105)
+  store ptr %106, ptr %25, align 8, !tbaa !8
+  %107 = load ptr, ptr @l_Lean_ensureNoOverload___at_Lean_realizeGlobalConstNoOverloadCore___spec__1___closed__1, align 8, !tbaa !8
+  store ptr %107, ptr %26, align 8, !tbaa !8
+  %108 = load ptr, ptr %26, align 8, !tbaa !8
+  %109 = load ptr, ptr %25, align 8, !tbaa !8
+  %110 = call ptr @lean_string_append(ptr noundef %108, ptr noundef %109)
+  store ptr %110, ptr %27, align 8, !tbaa !8
+  %111 = load ptr, ptr %25, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %111)
+  %112 = load ptr, ptr @l_Lean_ensureNoOverload___at_Lean_realizeGlobalConstNoOverloadCore___spec__1___closed__2, align 8, !tbaa !8
+  store ptr %112, ptr %28, align 8, !tbaa !8
+  %113 = load ptr, ptr %27, align 8, !tbaa !8
+  %114 = load ptr, ptr %28, align 8, !tbaa !8
+  %115 = call ptr @lean_string_append(ptr noundef %113, ptr noundef %114)
+  store ptr %115, ptr %29, align 8, !tbaa !8
+  %116 = call ptr @lean_box(i64 noundef 0)
+  store ptr %116, ptr %30, align 8, !tbaa !8
+  %117 = load ptr, ptr %8, align 8, !tbaa !8
+  %118 = load ptr, ptr %30, align 8, !tbaa !8
+  %119 = call ptr @l_List_mapTR_loop___at_Lean_ensureNonAmbiguous___spec__2(ptr noundef %117, ptr noundef %118)
+  store ptr %119, ptr %31, align 8, !tbaa !8
+  %120 = load ptr, ptr %31, align 8, !tbaa !8
+  %121 = call ptr @l_List_toString___at_Lean_ensureNoOverload___spec__2(ptr noundef %120)
+  store ptr %121, ptr %32, align 8, !tbaa !8
+  %122 = load ptr, ptr %31, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %122)
+  %123 = load ptr, ptr %29, align 8, !tbaa !8
+  %124 = load ptr, ptr %32, align 8, !tbaa !8
+  %125 = call ptr @lean_string_append(ptr noundef %123, ptr noundef %124)
+  store ptr %125, ptr %33, align 8, !tbaa !8
+  %126 = load ptr, ptr %32, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %126)
+  %127 = load ptr, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__5, align 8, !tbaa !8
+  store ptr %127, ptr %34, align 8, !tbaa !8
+  %128 = load ptr, ptr %33, align 8, !tbaa !8
+  %129 = load ptr, ptr %34, align 8, !tbaa !8
+  %130 = call ptr @lean_string_append(ptr noundef %128, ptr noundef %129)
+  store ptr %130, ptr %35, align 8, !tbaa !8
+  %131 = call ptr @lean_alloc_ctor(i32 noundef 3, i32 noundef 1, i32 noundef 0)
+  store ptr %131, ptr %36, align 8, !tbaa !8
+  %132 = load ptr, ptr %36, align 8, !tbaa !8
+  %133 = load ptr, ptr %35, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %132, i32 noundef 0, ptr noundef %133)
+  %134 = load ptr, ptr %36, align 8, !tbaa !8
+  %135 = call ptr @l_Lean_MessageData_ofFormat(ptr noundef %134)
+  store ptr %135, ptr %37, align 8, !tbaa !8
+  %136 = load ptr, ptr %7, align 8, !tbaa !8
+  %137 = load ptr, ptr %37, align 8, !tbaa !8
+  %138 = load ptr, ptr %9, align 8, !tbaa !8
+  %139 = load ptr, ptr %10, align 8, !tbaa !8
+  %140 = load ptr, ptr %11, align 8, !tbaa !8
+  %141 = call ptr @l_Lean_throwErrorAt___at_Lean_realizeGlobalConstNoOverload___spec__3(ptr noundef %136, ptr noundef %137, ptr noundef %138, ptr noundef %139, ptr noundef %140)
+  store ptr %141, ptr %38, align 8, !tbaa !8
+  %142 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %142)
+  %143 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %143)
+  %144 = load ptr, ptr %38, align 8, !tbaa !8
+  store ptr %144, ptr %6, align 8
+  store i32 1, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  br label %145
+
+145:                                              ; preds = %91, %90
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  br label %146
+
+146:                                              ; preds = %145, %43
+  %147 = load ptr, ptr %6, align 8
+  ret ptr %147
+}
+
+declare ptr @l_Lean_Syntax_formatStxAux(ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef) #4
+
+declare ptr @lean_format_pretty(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+
+declare ptr @l_List_mapTR_loop___at_Lean_ensureNonAmbiguous___spec__2(ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_realizeGlobalConstNoOverload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i8, align 1
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !8
+  br label %19
+
+19:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %20 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %20)
+  %21 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %21)
+  %22 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %22)
+  %23 = load ptr, ptr %6, align 8, !tbaa !8
+  %24 = load ptr, ptr %7, align 8, !tbaa !8
+  %25 = load ptr, ptr %8, align 8, !tbaa !8
+  %26 = load ptr, ptr %9, align 8, !tbaa !8
+  %27 = call ptr @l_Lean_realizeGlobalConst(ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26)
+  store ptr %27, ptr %10, align 8, !tbaa !8
+  %28 = load ptr, ptr %10, align 8, !tbaa !8
+  %29 = call i32 @lean_obj_tag(ptr noundef %28)
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %46
+
+31:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %32 = load ptr, ptr %10, align 8, !tbaa !8
+  %33 = call ptr @lean_ctor_get(ptr noundef %32, i32 noundef 0)
+  store ptr %33, ptr %11, align 8, !tbaa !8
+  %34 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %34)
+  %35 = load ptr, ptr %10, align 8, !tbaa !8
+  %36 = call ptr @lean_ctor_get(ptr noundef %35, i32 noundef 1)
+  store ptr %36, ptr %12, align 8, !tbaa !8
+  %37 = load ptr, ptr %12, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %37)
+  %38 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %38)
+  %39 = load ptr, ptr %6, align 8, !tbaa !8
+  %40 = load ptr, ptr %11, align 8, !tbaa !8
+  %41 = load ptr, ptr %7, align 8, !tbaa !8
+  %42 = load ptr, ptr %8, align 8, !tbaa !8
+  %43 = load ptr, ptr %12, align 8, !tbaa !8
+  %44 = call ptr @l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1(ptr noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43)
+  store ptr %44, ptr %13, align 8, !tbaa !8
+  %45 = load ptr, ptr %13, align 8, !tbaa !8
+  store ptr %45, ptr %5, align 8
+  store i32 1, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  br label %75
+
+46:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #7
+  %47 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %47)
+  %48 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %48)
+  %49 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %49)
+  %50 = load ptr, ptr %10, align 8, !tbaa !8
+  %51 = call zeroext i1 @lean_is_exclusive(ptr noundef %50)
+  %52 = xor i1 %51, true
+  %53 = zext i1 %52 to i32
+  %54 = trunc i32 %53 to i8
+  store i8 %54, ptr %15, align 1, !tbaa !10
+  %55 = load i8, ptr %15, align 1, !tbaa !10
+  %56 = zext i8 %55 to i32
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %60
+
+58:                                               ; preds = %46
+  %59 = load ptr, ptr %10, align 8, !tbaa !8
+  store ptr %59, ptr %5, align 8
+  store i32 1, ptr %14, align 4
+  br label %74
+
+60:                                               ; preds = %46
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  %61 = load ptr, ptr %10, align 8, !tbaa !8
+  %62 = call ptr @lean_ctor_get(ptr noundef %61, i32 noundef 0)
+  store ptr %62, ptr %16, align 8, !tbaa !8
+  %63 = load ptr, ptr %10, align 8, !tbaa !8
+  %64 = call ptr @lean_ctor_get(ptr noundef %63, i32 noundef 1)
+  store ptr %64, ptr %17, align 8, !tbaa !8
+  %65 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %65)
+  %66 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_inc(ptr noundef %66)
+  %67 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %67)
+  %68 = call ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 2, i32 noundef 0)
+  store ptr %68, ptr %18, align 8, !tbaa !8
+  %69 = load ptr, ptr %18, align 8, !tbaa !8
+  %70 = load ptr, ptr %16, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %69, i32 noundef 0, ptr noundef %70)
+  %71 = load ptr, ptr %18, align 8, !tbaa !8
+  %72 = load ptr, ptr %17, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %71, i32 noundef 1, ptr noundef %72)
+  %73 = load ptr, ptr %18, align 8, !tbaa !8
+  store ptr %73, ptr %5, align 8
+  store i32 1, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  br label %74
+
+74:                                               ; preds = %60, %58
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #7
+  br label %75
+
+75:                                               ; preds = %74, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %76 = load ptr, ptr %5, align 8
+  ret ptr %76
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @l_Lean_throwErrorAt___at_Lean_realizeGlobalConstNoOverload___spec__3___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !8
+  store ptr %4, ptr %10, align 8, !tbaa !8
+  br label %12
+
+12:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %13 = load ptr, ptr %6, align 8, !tbaa !8
+  %14 = load ptr, ptr %7, align 8, !tbaa !8
+  %15 = load ptr, ptr %8, align 8, !tbaa !8
+  %16 = load ptr, ptr %9, align 8, !tbaa !8
+  %17 = load ptr, ptr %10, align 8, !tbaa !8
+  %18 = call ptr @l_Lean_throwErrorAt___at_Lean_realizeGlobalConstNoOverload___spec__3(ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17)
+  store ptr %18, ptr %11, align 8, !tbaa !8
+  %19 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %19)
+  %20 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec(ptr noundef %20)
+  %21 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  ret ptr %21
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @initialize_Lean_ReservedNameAction(i8 noundef zeroext %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store i8 %0, ptr %4, align 1, !tbaa !10
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %8 = load i8, ptr @_G_initialized, align 1, !tbaa !17, !range !19, !noundef !20
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %13
+
+10:                                               ; preds = %2
+  %11 = call ptr @lean_box(i64 noundef 0)
+  %12 = call ptr @lean_io_result_mk_ok(ptr noundef %11)
+  store ptr %12, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %90
+
+13:                                               ; preds = %2
+  store i8 1, ptr @_G_initialized, align 1, !tbaa !17
+  %14 = load i8, ptr %4, align 1, !tbaa !10
+  %15 = call ptr @lean_io_mk_world()
+  %16 = call ptr @initialize_Lean_CoreM(i8 noundef zeroext %14, ptr noundef %15)
+  store ptr %16, ptr %6, align 8, !tbaa !8
+  %17 = load ptr, ptr %6, align 8, !tbaa !8
+  %18 = call zeroext i1 @lean_io_result_is_error(ptr noundef %17)
+  br i1 %18, label %19, label %21
+
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %6, align 8, !tbaa !8
+  store ptr %20, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %90
+
+21:                                               ; preds = %13
+  %22 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec_ref(ptr noundef %22)
+  %23 = call ptr @_init_l_Lean_initFn____x40_Lean_ReservedNameAction___hyg_10____closed__1()
+  store ptr %23, ptr @l_Lean_initFn____x40_Lean_ReservedNameAction___hyg_10____closed__1, align 8, !tbaa !8
+  %24 = load ptr, ptr @l_Lean_initFn____x40_Lean_ReservedNameAction___hyg_10____closed__1, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %24)
+  %25 = load i8, ptr %4, align 1, !tbaa !10
+  %26 = icmp ne i8 %25, 0
+  br i1 %26, label %27, label %39
+
+27:                                               ; preds = %21
+  %28 = call ptr @lean_io_mk_world()
+  %29 = call ptr @l_Lean_initFn____x40_Lean_ReservedNameAction___hyg_10_(ptr noundef %28)
+  store ptr %29, ptr %6, align 8, !tbaa !8
+  %30 = load ptr, ptr %6, align 8, !tbaa !8
+  %31 = call zeroext i1 @lean_io_result_is_error(ptr noundef %30)
+  br i1 %31, label %32, label %34
+
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %6, align 8, !tbaa !8
+  store ptr %33, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %90
+
+34:                                               ; preds = %27
+  %35 = load ptr, ptr %6, align 8, !tbaa !8
+  %36 = call ptr @lean_io_result_get_value(ptr noundef %35)
+  store ptr %36, ptr @l___private_Lean_ReservedNameAction_0__Lean_reservedNameActionsRef, align 8, !tbaa !8
+  %37 = load ptr, ptr @l___private_Lean_ReservedNameAction_0__Lean_reservedNameActionsRef, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %37)
+  %38 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @lean_dec_ref(ptr noundef %38)
+  br label %39
+
+39:                                               ; preds = %34, %21
+  %40 = call ptr @_init_l_Lean_registerReservedNameAction___lambda__1___closed__1()
+  store ptr %40, ptr @l_Lean_registerReservedNameAction___lambda__1___closed__1, align 8, !tbaa !8
+  %41 = load ptr, ptr @l_Lean_registerReservedNameAction___lambda__1___closed__1, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %41)
+  %42 = call ptr @_init_l_Lean_registerReservedNameAction___closed__1()
+  store ptr %42, ptr @l_Lean_registerReservedNameAction___closed__1, align 8, !tbaa !8
+  %43 = load ptr, ptr @l_Lean_registerReservedNameAction___closed__1, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %43)
+  %44 = call ptr @_init_l_Lean_registerReservedNameAction___closed__2()
+  store ptr %44, ptr @l_Lean_registerReservedNameAction___closed__2, align 8, !tbaa !8
+  %45 = load ptr, ptr @l_Lean_registerReservedNameAction___closed__2, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %45)
+  %46 = call ptr @_init_l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__1()
+  store ptr %46, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__1, align 8, !tbaa !8
+  %47 = load ptr, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__1, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %47)
+  %48 = call ptr @_init_l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__2()
+  store ptr %48, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__2, align 8, !tbaa !8
+  %49 = load ptr, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__2, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %49)
+  %50 = call ptr @_init_l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__3()
+  store ptr %50, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__3, align 8, !tbaa !8
+  %51 = load ptr, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__3, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %51)
+  %52 = call ptr @_init_l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__4()
+  store ptr %52, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__4, align 8, !tbaa !8
+  %53 = load ptr, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__4, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %53)
+  %54 = call ptr @_init_l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__5()
+  store ptr %54, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__5, align 8, !tbaa !8
+  %55 = load ptr, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__5, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %55)
+  %56 = call ptr @_init_l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__6()
+  store ptr %56, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__6, align 8, !tbaa !8
+  %57 = load ptr, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__6, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %57)
+  %58 = call ptr @_init_l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__1()
+  store ptr %58, ptr @l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__1, align 8, !tbaa !8
+  %59 = load ptr, ptr @l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__1, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %59)
+  %60 = call ptr @_init_l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__2()
+  store ptr %60, ptr @l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__2, align 8, !tbaa !8
+  %61 = load ptr, ptr @l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__2, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %61)
+  %62 = call ptr @_init_l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__3()
+  store ptr %62, ptr @l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__3, align 8, !tbaa !8
+  %63 = load ptr, ptr @l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__3, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %63)
+  %64 = call ptr @_init_l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__4()
+  store ptr %64, ptr @l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__4, align 8, !tbaa !8
+  %65 = load ptr, ptr @l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__4, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %65)
+  %66 = call ptr @_init_l_Lean_ensureNoOverload___at_Lean_realizeGlobalConstNoOverloadCore___spec__1___closed__1()
+  store ptr %66, ptr @l_Lean_ensureNoOverload___at_Lean_realizeGlobalConstNoOverloadCore___spec__1___closed__1, align 8, !tbaa !8
+  %67 = load ptr, ptr @l_Lean_ensureNoOverload___at_Lean_realizeGlobalConstNoOverloadCore___spec__1___closed__1, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %67)
+  %68 = call ptr @_init_l_Lean_ensureNoOverload___at_Lean_realizeGlobalConstNoOverloadCore___spec__1___closed__2()
+  store ptr %68, ptr @l_Lean_ensureNoOverload___at_Lean_realizeGlobalConstNoOverloadCore___spec__1___closed__2, align 8, !tbaa !8
+  %69 = load ptr, ptr @l_Lean_ensureNoOverload___at_Lean_realizeGlobalConstNoOverloadCore___spec__1___closed__2, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %69)
+  %70 = call ptr @_init_l_Lean_preprocessSyntaxAndResolve___at_Lean_realizeGlobalConst___spec__1___closed__1()
+  store ptr %70, ptr @l_Lean_preprocessSyntaxAndResolve___at_Lean_realizeGlobalConst___spec__1___closed__1, align 8, !tbaa !8
+  %71 = load ptr, ptr @l_Lean_preprocessSyntaxAndResolve___at_Lean_realizeGlobalConst___spec__1___closed__1, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %71)
+  %72 = call ptr @_init_l_Lean_preprocessSyntaxAndResolve___at_Lean_realizeGlobalConst___spec__1___closed__2()
+  store ptr %72, ptr @l_Lean_preprocessSyntaxAndResolve___at_Lean_realizeGlobalConst___spec__1___closed__2, align 8, !tbaa !8
+  %73 = load ptr, ptr @l_Lean_preprocessSyntaxAndResolve___at_Lean_realizeGlobalConst___spec__1___closed__2, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %73)
+  %74 = call ptr @_init_l_Lean_preprocessSyntaxAndResolve___at_Lean_realizeGlobalConst___spec__1___closed__3()
+  store ptr %74, ptr @l_Lean_preprocessSyntaxAndResolve___at_Lean_realizeGlobalConst___spec__1___closed__3, align 8, !tbaa !8
+  %75 = load ptr, ptr @l_Lean_preprocessSyntaxAndResolve___at_Lean_realizeGlobalConst___spec__1___closed__3, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %75)
+  %76 = call ptr @_init_l_Lean_realizeGlobalConst___closed__1()
+  store ptr %76, ptr @l_Lean_realizeGlobalConst___closed__1, align 8, !tbaa !8
+  %77 = load ptr, ptr @l_Lean_realizeGlobalConst___closed__1, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %77)
+  %78 = call ptr @_init_l_panic___at_Lean_realizeGlobalConstNoOverload___spec__2___closed__1()
+  store ptr %78, ptr @l_panic___at_Lean_realizeGlobalConstNoOverload___spec__2___closed__1, align 8, !tbaa !8
+  %79 = load ptr, ptr @l_panic___at_Lean_realizeGlobalConstNoOverload___spec__2___closed__1, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %79)
+  %80 = call ptr @_init_l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__1()
+  store ptr %80, ptr @l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__1, align 8, !tbaa !8
+  %81 = load ptr, ptr @l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__1, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %81)
+  %82 = call ptr @_init_l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__2()
+  store ptr %82, ptr @l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__2, align 8, !tbaa !8
+  %83 = load ptr, ptr @l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__2, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %83)
+  %84 = call ptr @_init_l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__3()
+  store ptr %84, ptr @l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__3, align 8, !tbaa !8
+  %85 = load ptr, ptr @l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__3, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %85)
+  %86 = call ptr @_init_l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__4()
+  store ptr %86, ptr @l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__4, align 8, !tbaa !8
+  %87 = load ptr, ptr @l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__4, align 8, !tbaa !8
+  call void @lean_mark_persistent(ptr noundef %87)
+  %88 = call ptr @lean_box(i64 noundef 0)
+  %89 = call ptr @lean_io_result_mk_ok(ptr noundef %88)
+  store ptr %89, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %90
+
+90:                                               ; preds = %39, %32, %19, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  %91 = load ptr, ptr %3, align 8
+  ret ptr %91
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_io_result_mk_ok(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = call ptr @lean_alloc_ctor(i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  store ptr %4, ptr %3, align 8, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !8
+  %6 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %5, i32 noundef 0, ptr noundef %6)
+  %7 = load ptr, ptr %3, align 8, !tbaa !8
+  %8 = call ptr @lean_box(i64 noundef 0)
+  call void @lean_ctor_set(ptr noundef %7, i32 noundef 1, ptr noundef %8)
+  %9 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret ptr %9
+}
+
+declare ptr @initialize_Lean_CoreM(i8 noundef zeroext, ptr noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @lean_io_result_is_error(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = call zeroext i8 @lean_ptr_tag(ptr noundef %3)
+  %5 = zext i8 %4 to i32
+  %6 = icmp eq i32 %5, 1
+  ret i1 %6
+}
+
+declare void @lean_mark_persistent(ptr noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_io_result_get_value(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = call ptr @lean_ctor_get(ptr noundef %3, i32 noundef 0)
+  ret ptr %4
+}
+
+declare i64 @lean_usize_of_big_nat(ptr noundef) #4
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i1 @lean_nat_lt(ptr noundef %0, ptr noundef %1) #1 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  %6 = load ptr, ptr %4, align 8, !tbaa !8
+  %7 = call zeroext i1 @lean_is_scalar(ptr noundef %6)
+  br i1 %7, label %8, label %11
+
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %5, align 8, !tbaa !8
+  %10 = call zeroext i1 @lean_is_scalar(ptr noundef %9)
+  br label %11
+
+11:                                               ; preds = %8, %2
+  %12 = phi i1 [ false, %2 ], [ %10, %8 ]
+  %13 = zext i1 %12 to i32
+  %14 = sext i32 %13 to i64
+  %15 = call i64 @llvm.expect.i64(i64 %14, i64 1)
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %21
+
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %4, align 8, !tbaa !8
+  %19 = load ptr, ptr %5, align 8, !tbaa !8
+  %20 = icmp ult ptr %18, %19
+  store i1 %20, ptr %3, align 1
+  br label %25
+
+21:                                               ; preds = %11
+  %22 = load ptr, ptr %4, align 8, !tbaa !8
+  %23 = load ptr, ptr %5, align 8, !tbaa !8
+  %24 = call zeroext i1 @lean_nat_big_lt(ptr noundef %22, ptr noundef %23)
+  store i1 %24, ptr %3, align 1
+  br label %25
+
+25:                                               ; preds = %21, %17
+  %26 = load i1, ptr %3, align 1
+  ret i1 %26
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #5
+
+declare zeroext i1 @lean_nat_big_lt(ptr noundef, ptr noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_array_get_core(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i64 %1, ptr %4, align 8, !tbaa !4
+  %5 = load ptr, ptr %3, align 8, !tbaa !8
+  %6 = call ptr @lean_to_array(ptr noundef %5)
+  %7 = getelementptr inbounds nuw %struct.lean_array_object, ptr %6, i32 0, i32 3
+  %8 = load i64, ptr %4, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %8
+  %10 = load ptr, ptr %9, align 8, !tbaa !8
+  ret ptr %10
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_to_array(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  ret ptr %3
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @lean_array_size(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = call ptr @lean_to_array(ptr noundef %3)
+  %5 = getelementptr inbounds nuw %struct.lean_array_object, ptr %4, i32 0, i32 1
+  %6 = load i64, ptr %5, align 8, !tbaa !4
+  ret i64 %6
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @lean_is_st(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %struct.lean_object, ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 4, !tbaa !11
+  %6 = icmp sgt i32 %5, 0
+  ret i1 %6
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_ctor_obj_cptr(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = call ptr @lean_to_ctor(ptr noundef %3)
+  %5 = getelementptr inbounds nuw %struct.lean_ctor_object, ptr %4, i32 0, i32 1
+  %6 = getelementptr inbounds [0 x ptr], ptr %5, i64 0, i64 0
+  ret ptr %6
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_to_ctor(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  ret ptr %3
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @lean_inc_ref(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = call zeroext i1 @lean_is_st(ptr noundef %3)
+  %5 = zext i1 %4 to i64
+  %6 = call i64 @llvm.expect.i64(i64 %5, i64 1)
+  %7 = icmp ne i64 %6, 0
+  br i1 %7, label %8, label %13
+
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %2, align 8, !tbaa !8
+  %10 = getelementptr inbounds nuw %struct.lean_object, ptr %9, i32 0, i32 0
+  %11 = load i32, ptr %10, align 4, !tbaa !11
+  %12 = add i32 %11, 1
+  store i32 %12, ptr %10, align 4, !tbaa !11
+  br label %21
+
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %2, align 8, !tbaa !8
+  %15 = getelementptr inbounds nuw %struct.lean_object, ptr %14, i32 0, i32 0
+  %16 = load i32, ptr %15, align 4, !tbaa !11
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %20
+
+18:                                               ; preds = %13
+  %19 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @lean_inc_ref_cold(ptr noundef %19)
+  br label %20
+
+20:                                               ; preds = %18, %13
+  br label %21
+
+21:                                               ; preds = %20, %8
+  ret void
+}
+
+declare void @lean_inc_ref_cold(ptr noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_alloc_ctor_memory(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store i32 %0, ptr %2, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  %6 = load i32, ptr %2, align 4, !tbaa !14
+  %7 = zext i32 %6 to i64
+  %8 = call i64 @lean_align(i64 noundef %7, i64 noundef 8)
+  %9 = trunc i64 %8 to i32
+  store i32 %9, ptr %3, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %10 = load i32, ptr %2, align 4, !tbaa !14
+  %11 = call ptr @lean_alloc_small_object(i32 noundef %10)
+  store ptr %11, ptr %4, align 8, !tbaa !8
+  %12 = load i32, ptr %3, align 4, !tbaa !14
+  %13 = load i32, ptr %2, align 4, !tbaa !14
+  %14 = icmp ugt i32 %12, %13
+  br i1 %14, label %15, label %22
+
+15:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %16 = load ptr, ptr %4, align 8, !tbaa !8
+  %17 = load i32, ptr %3, align 4, !tbaa !14
+  %18 = zext i32 %17 to i64
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %18
+  store ptr %19, ptr %5, align 8, !tbaa !21
+  %20 = load ptr, ptr %5, align 8, !tbaa !21
+  %21 = getelementptr inbounds i64, ptr %20, i64 -1
+  store i64 0, ptr %21, align 8, !tbaa !4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  br label %22
+
+22:                                               ; preds = %15, %1
+  %23 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret ptr %23
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @lean_set_st_header(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !14
+  store i32 %2, ptr %6, align 4, !tbaa !14
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw %struct.lean_object, ptr %7, i32 0, i32 0
+  store i32 1, ptr %8, align 4, !tbaa !11
+  %9 = load i32, ptr %5, align 4, !tbaa !14
+  %10 = load ptr, ptr %4, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw %struct.lean_object, ptr %10, i32 0, i32 1
+  %12 = load i32, ptr %11, align 4
+  %13 = and i32 %9, 255
+  %14 = shl i32 %13, 24
+  %15 = and i32 %12, 16777215
+  %16 = or i32 %15, %14
+  store i32 %16, ptr %11, align 4
+  %17 = load i32, ptr %6, align 4, !tbaa !14
+  %18 = load ptr, ptr %4, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw %struct.lean_object, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 4
+  %21 = and i32 %17, 255
+  %22 = shl i32 %21, 16
+  %23 = and i32 %20, -16711681
+  %24 = or i32 %23, %22
+  store i32 %24, ptr %19, align 4
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @lean_align(i64 noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !4
+  %5 = load i64, ptr %3, align 8, !tbaa !4
+  %6 = load i64, ptr %4, align 8, !tbaa !4
+  %7 = udiv i64 %5, %6
+  %8 = load i64, ptr %4, align 8, !tbaa !4
+  %9 = mul i64 %7, %8
+  %10 = load i64, ptr %4, align 8, !tbaa !4
+  %11 = load i64, ptr %3, align 8, !tbaa !4
+  %12 = load i64, ptr %4, align 8, !tbaa !4
+  %13 = urem i64 %11, %12
+  %14 = icmp ne i64 %13, 0
+  %15 = zext i1 %14 to i32
+  %16 = sext i32 %15 to i64
+  %17 = mul i64 %10, %16
+  %18 = add i64 %9, %17
+  ret i64 %18
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_alloc_small_object(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store i32 %0, ptr %2, align 4, !tbaa !14
+  call void @lean_inc_heartbeat()
+  %5 = load i32, ptr %2, align 4, !tbaa !14
+  %6 = zext i32 %5 to i64
+  %7 = call i64 @lean_align(i64 noundef %6, i64 noundef 8)
+  %8 = trunc i64 %7 to i32
+  store i32 %8, ptr %2, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %9 = load i32, ptr %2, align 4, !tbaa !14
+  %10 = zext i32 %9 to i64
+  %11 = call noalias ptr @mi_malloc_small(i64 noundef %10)
+  store ptr %11, ptr %3, align 8, !tbaa !8
+  %12 = load ptr, ptr %3, align 8, !tbaa !8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %1
+  call void @lean_internal_panic_out_of_memory() #8
+  unreachable
+
+15:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %16 = load ptr, ptr %3, align 8, !tbaa !8
+  store ptr %16, ptr %4, align 8, !tbaa !8
+  %17 = load i32, ptr %2, align 4, !tbaa !14
+  %18 = load ptr, ptr %4, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw %struct.lean_object, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 4
+  %21 = and i32 %17, 65535
+  %22 = and i32 %20, -65536
+  %23 = or i32 %22, %21
+  store i32 %23, ptr %19, align 4
+  %24 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret ptr %24
+}
+
+declare void @lean_inc_heartbeat() #4
+
+declare noalias ptr @mi_malloc_small(i64 noundef) #4
+
+; Function Attrs: noreturn
+declare void @lean_internal_panic_out_of_memory() #6
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i8 @lean_ptr_tag(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %struct.lean_object, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4
+  %6 = lshr i32 %5, 24
+  %7 = trunc i32 %6 to i8
+  ret i8 %7
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_usize_to_nat(i64 noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !4
+  %4 = load i64, ptr %3, align 8, !tbaa !4
+  %5 = icmp ule i64 %4, 9223372036854775807
+  %6 = zext i1 %5 to i32
+  %7 = sext i32 %6 to i64
+  %8 = call i64 @llvm.expect.i64(i64 %7, i64 1)
+  %9 = icmp ne i64 %8, 0
+  br i1 %9, label %10, label %13
+
+10:                                               ; preds = %1
+  %11 = load i64, ptr %3, align 8, !tbaa !4
+  %12 = call ptr @lean_box(i64 noundef %11)
+  store ptr %12, ptr %2, align 8
+  br label %16
+
+13:                                               ; preds = %1
+  %14 = load i64, ptr %3, align 8, !tbaa !4
+  %15 = call ptr @lean_big_usize_to_nat(i64 noundef %14)
+  store ptr %15, ptr %2, align 8
+  br label %16
+
+16:                                               ; preds = %13, %10
+  %17 = load ptr, ptr %2, align 8
+  ret ptr %17
+}
+
+declare ptr @lean_big_usize_to_nat(i64 noundef) #4
+
+declare void @lean_dec_ref_cold(ptr noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @lean_ctor_get_usize(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !8
+  %6 = call ptr @lean_ctor_obj_cptr(ptr noundef %5)
+  %7 = load i32, ptr %4, align 4, !tbaa !14
+  %8 = zext i32 %7 to i64
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %10 = load i64, ptr %9, align 8, !tbaa !4
+  ret i64 %10
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_io_mk_world() #0 {
+  %1 = call ptr @lean_box(i64 noundef 0)
+  ret ptr %1
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_Lean_initFn____x40_Lean_ReservedNameAction___hyg_10____closed__1() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  br label %3
+
+3:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  %4 = call ptr @lean_box(i64 noundef 0)
+  store ptr %4, ptr %1, align 8, !tbaa !8
+  %5 = load ptr, ptr %1, align 8, !tbaa !8
+  %6 = call ptr @lean_array_mk(ptr noundef %5)
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %7
+}
+
+declare ptr @lean_array_mk(ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_Lean_registerReservedNameAction___lambda__1___closed__1() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = load ptr, ptr @l___private_Lean_ReservedNameAction_0__Lean_reservedNameActionsRef, align 8, !tbaa !8
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_Lean_registerReservedNameAction___closed__1() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str, i64 noundef 108, i64 noundef 108)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+declare ptr @lean_mk_string_unchecked(ptr noundef, i64 noundef, i64 noundef) #4
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_Lean_registerReservedNameAction___closed__2() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  br label %3
+
+3:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  %4 = load ptr, ptr @l_Lean_registerReservedNameAction___closed__1, align 8, !tbaa !8
+  store ptr %4, ptr %1, align 8, !tbaa !8
+  %5 = call ptr @lean_alloc_ctor(i32 noundef 18, i32 noundef 1, i32 noundef 0)
+  store ptr %5, ptr %2, align 8, !tbaa !8
+  %6 = load ptr, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %6, i32 noundef 0, ptr noundef %7)
+  %8 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %8
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__1() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.1, i64 noundef 27, i64 noundef 27)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__2() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  br label %3
+
+3:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  %4 = load ptr, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__1, align 8, !tbaa !8
+  store ptr %4, ptr %1, align 8, !tbaa !8
+  %5 = load ptr, ptr %1, align 8, !tbaa !8
+  %6 = call ptr @l_Lean_stringToMessageData(ptr noundef %5)
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %7
+}
+
+declare ptr @l_Lean_stringToMessageData(ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__3() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.2, i64 noundef 1, i64 noundef 1)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__4() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  br label %3
+
+3:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  %4 = load ptr, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__3, align 8, !tbaa !8
+  store ptr %4, ptr %1, align 8, !tbaa !8
+  %5 = load ptr, ptr %1, align 8, !tbaa !8
+  %6 = call ptr @l_Lean_stringToMessageData(ptr noundef %5)
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %7
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__5() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.3, i64 noundef 0, i64 noundef 0)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__6() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  br label %3
+
+3:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  %4 = load ptr, ptr @l_List_filterAuxM___at_Lean_realizeGlobalName___spec__2___closed__5, align 8, !tbaa !8
+  store ptr %4, ptr %1, align 8, !tbaa !8
+  %5 = load ptr, ptr %1, align 8, !tbaa !8
+  %6 = call ptr @l_Lean_stringToMessageData(ptr noundef %5)
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %7
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__1() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.4, i64 noundef 18, i64 noundef 18)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__2() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  br label %3
+
+3:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  %4 = load ptr, ptr @l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__1, align 8, !tbaa !8
+  store ptr %4, ptr %1, align 8, !tbaa !8
+  %5 = load ptr, ptr %1, align 8, !tbaa !8
+  %6 = call ptr @l_Lean_stringToMessageData(ptr noundef %5)
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %7
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__3() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.5, i64 noundef 1, i64 noundef 1)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__4() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  br label %3
+
+3:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  %4 = load ptr, ptr @l_Lean_throwUnknownConstant___at_Lean_realizeGlobalConstCore___spec__2___closed__3, align 8, !tbaa !8
+  store ptr %4, ptr %1, align 8, !tbaa !8
+  %5 = load ptr, ptr %1, align 8, !tbaa !8
+  %6 = call ptr @l_Lean_stringToMessageData(ptr noundef %5)
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %7
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_Lean_ensureNoOverload___at_Lean_realizeGlobalConstNoOverloadCore___spec__1___closed__1() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.6, i64 noundef 22, i64 noundef 22)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_Lean_ensureNoOverload___at_Lean_realizeGlobalConstNoOverloadCore___spec__1___closed__2() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.7, i64 noundef 29, i64 noundef 29)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_Lean_preprocessSyntaxAndResolve___at_Lean_realizeGlobalConst___spec__1___closed__1() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.8, i64 noundef 19, i64 noundef 19)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_Lean_preprocessSyntaxAndResolve___at_Lean_realizeGlobalConst___spec__1___closed__2() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  br label %3
+
+3:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  %4 = load ptr, ptr @l_Lean_preprocessSyntaxAndResolve___at_Lean_realizeGlobalConst___spec__1___closed__1, align 8, !tbaa !8
+  store ptr %4, ptr %1, align 8, !tbaa !8
+  %5 = call ptr @lean_alloc_ctor(i32 noundef 3, i32 noundef 1, i32 noundef 0)
+  store ptr %5, ptr %2, align 8, !tbaa !8
+  %6 = load ptr, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @lean_ctor_set(ptr noundef %6, i32 noundef 0, ptr noundef %7)
+  %8 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %8
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_Lean_preprocessSyntaxAndResolve___at_Lean_realizeGlobalConst___spec__1___closed__3() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  br label %3
+
+3:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  %4 = load ptr, ptr @l_Lean_preprocessSyntaxAndResolve___at_Lean_realizeGlobalConst___spec__1___closed__2, align 8, !tbaa !8
+  store ptr %4, ptr %1, align 8, !tbaa !8
+  %5 = load ptr, ptr %1, align 8, !tbaa !8
+  %6 = call ptr @l_Lean_MessageData_ofFormat(ptr noundef %5)
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %7
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_Lean_realizeGlobalConst___closed__1() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_alloc_closure(ptr noundef @l_Lean_realizeGlobalConstCore, i32 noundef 4, i32 noundef 0)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lean_alloc_closure(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !14
+  store i32 %2, ptr %6, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %8 = load i32, ptr %6, align 4, !tbaa !14
+  %9 = zext i32 %8 to i64
+  %10 = mul i64 8, %9
+  %11 = add i64 24, %10
+  %12 = trunc i64 %11 to i32
+  %13 = call ptr @lean_alloc_small_object(i32 noundef %12)
+  store ptr %13, ptr %7, align 8, !tbaa !8
+  %14 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @lean_set_st_header(ptr noundef %14, i32 noundef 245, i32 noundef 0)
+  %15 = load ptr, ptr %4, align 8, !tbaa !8
+  %16 = load ptr, ptr %7, align 8, !tbaa !8
+  %17 = getelementptr inbounds nuw %struct.lean_closure_object, ptr %16, i32 0, i32 1
+  store ptr %15, ptr %17, align 8, !tbaa !8
+  %18 = load i32, ptr %5, align 4, !tbaa !14
+  %19 = trunc i32 %18 to i16
+  %20 = load ptr, ptr %7, align 8, !tbaa !8
+  %21 = getelementptr inbounds nuw %struct.lean_closure_object, ptr %20, i32 0, i32 2
+  store i16 %19, ptr %21, align 8, !tbaa !23
+  %22 = load i32, ptr %6, align 4, !tbaa !14
+  %23 = trunc i32 %22 to i16
+  %24 = load ptr, ptr %7, align 8, !tbaa !8
+  %25 = getelementptr inbounds nuw %struct.lean_closure_object, ptr %24, i32 0, i32 3
+  store i16 %23, ptr %25, align 2, !tbaa !23
+  %26 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  ret ptr %26
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_panic___at_Lean_realizeGlobalConstNoOverload___spec__2___closed__1() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  br label %4
+
+4:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %5 = load ptr, ptr @l_Lean_Core_instMonadCoreM, align 8, !tbaa !8
+  store ptr %5, ptr %1, align 8, !tbaa !8
+  %6 = load ptr, ptr @l_Lean_instInhabitedName, align 8, !tbaa !8
+  store ptr %6, ptr %2, align 8, !tbaa !8
+  %7 = load ptr, ptr %1, align 8, !tbaa !8
+  %8 = load ptr, ptr %2, align 8, !tbaa !8
+  %9 = call ptr @l_instInhabitedOfMonad___rarg(ptr noundef %7, ptr noundef %8)
+  store ptr %9, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %10
+}
+
+declare ptr @l_instInhabitedOfMonad___rarg(ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__1() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.9, i64 noundef 16, i64 noundef 16)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__2() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.10, i64 noundef 23, i64 noundef 23)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__3() #2 {
+  %1 = alloca ptr, align 8
+  br label %2
+
+2:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %3 = call ptr @lean_mk_string_unchecked(ptr noundef @.str.11, i64 noundef 33, i64 noundef 33)
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = load ptr, ptr %1, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %4
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @_init_l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__4() #2 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  br label %7
+
+7:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %8 = load ptr, ptr @l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__1, align 8, !tbaa !8
+  store ptr %8, ptr %1, align 8, !tbaa !8
+  %9 = load ptr, ptr @l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__2, align 8, !tbaa !8
+  store ptr %9, ptr %2, align 8, !tbaa !8
+  %10 = call ptr @lean_unsigned_to_nat(i32 noundef 367)
+  store ptr %10, ptr %3, align 8, !tbaa !8
+  %11 = call ptr @lean_unsigned_to_nat(i32 noundef 11)
+  store ptr %11, ptr %4, align 8, !tbaa !8
+  %12 = load ptr, ptr @l_Lean_ensureNonAmbiguous___at_Lean_realizeGlobalConstNoOverload___spec__1___closed__3, align 8, !tbaa !8
+  store ptr %12, ptr %5, align 8, !tbaa !8
+  %13 = load ptr, ptr %1, align 8, !tbaa !8
+  %14 = load ptr, ptr %2, align 8, !tbaa !8
+  %15 = load ptr, ptr %3, align 8, !tbaa !8
+  %16 = load ptr, ptr %4, align 8, !tbaa !8
+  %17 = load ptr, ptr %5, align 8, !tbaa !8
+  %18 = call ptr @l___private_Init_Util_0__mkPanicMessageWithDecl(ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17)
+  store ptr %18, ptr %6, align 8, !tbaa !8
+  %19 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret ptr %19
+}
+
+declare ptr @l___private_Init_Util_0__mkPanicMessageWithDecl(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+
+attributes #0 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { alwaysinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 4, !"probe-stack", !"inline-asm"}
+!2 = !{i32 8, !"PIC Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"long", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"any pointer", !6, i64 0}
+!10 = !{!6, !6, i64 0}
+!11 = !{!12, !13, i64 0}
+!12 = !{!"", !13, i64 0, !13, i64 4, !13, i64 6, !13, i64 7}
+!13 = !{!"int", !6, i64 0}
+!14 = !{!13, !13, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"any p2 pointer", !9, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"_Bool", !6, i64 0}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 long", !9, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"short", !6, i64 0}
