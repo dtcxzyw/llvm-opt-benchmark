@@ -669,3 +669,6 @@
 [submodule "bench/wasmi-rs/wasmi"]
 	path = bench/wasmi-rs/wasmi
 	url = https://github.com/wasmi-labs/wasmi.git
+[submodule "bench/tikv-rs/tikv"]
+	path = bench/tikv-rs/tikv
+	url = https://github.com/tikv/tikv.git
