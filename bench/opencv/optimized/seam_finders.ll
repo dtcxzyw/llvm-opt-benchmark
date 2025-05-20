@@ -12957,8 +12957,8 @@ _ZN2cv6detail7GCGraphIfE14addTermWeightsEiff.exit.us: ; preds = %_ZN2cv6detail7G
   %101 = icmp samesign ult i64 %indvars.iv126, %99
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %102 = trunc nuw i64 %100 to i32
-  %invariant.op = add nuw i32 %102, 1
-  %invariant.op134 = add nuw i32 %12, %102
+  %invariant.op = add nuw nsw i32 %102, 1
+  %invariant.op134 = add nuw nsw i32 %12, %102
   br label %103
 
 103:                                              ; preds = %.preheader.us, %266
@@ -13058,7 +13058,7 @@ _ZN2cv6detail7GCGraphIfE14addTermWeightsEiff.exit.us: ; preds = %_ZN2cv6detail7G
 
 180:                                              ; preds = %177, %174
   %.088.us = phi float [ %155, %174 ], [ %179, %177 ]
-  %.reass = add nuw i32 %invariant.op, %indvars123
+  %.reass = add nuw nsw i32 %invariant.op, %indvars123
   %181 = trunc nuw i64 %104 to i32
   tail call void @_ZN2cv6detail7GCGraphIfE8addEdgesEiiff(ptr noundef nonnull align 8 dereferenceable(52) %5, i32 noundef %181, i32 noundef %.reass, float noundef %.088.us, float noundef %.088.us)
   br label %182
@@ -13163,7 +13163,7 @@ _ZN2cv6detail7GCGraphIfE14addTermWeightsEiff.exit.us: ; preds = %_ZN2cv6detail7G
 
 264:                                              ; preds = %261, %256
   %.0.us = phi float [ %235, %256 ], [ %263, %261 ]
-  %.reass135 = add nuw i32 %invariant.op134, %indvars123
+  %.reass135 = add nuw nsw i32 %invariant.op134, %indvars123
   %265 = trunc nuw i64 %104 to i32
   tail call void @_ZN2cv6detail7GCGraphIfE8addEdgesEiiff(ptr noundef nonnull align 8 dereferenceable(52) %5, i32 noundef %265, i32 noundef %.reass135, float noundef %.0.us, float noundef %.0.us)
   br label %266
@@ -13789,8 +13789,8 @@ _ZN2cv6detail7GCGraphIfE14addTermWeightsEiff.exit.us: ; preds = %_ZN2cv6detail7G
   %113 = icmp samesign ult i64 %indvars.iv152, %111
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %114 = trunc nuw i64 %112 to i32
-  %invariant.op = add nuw i32 %114, 1
-  %invariant.op160 = add nuw i32 %16, %114
+  %invariant.op = add nuw nsw i32 %114, 1
+  %invariant.op160 = add nuw nsw i32 %16, %114
   br label %115
 
 115:                                              ; preds = %.preheader.us, %328
@@ -13913,7 +13913,7 @@ _ZN2cv6detail7GCGraphIfE14addTermWeightsEiff.exit.us: ; preds = %_ZN2cv6detail7G
 
 215:                                              ; preds = %212, %209
   %.0115.us = phi float [ %190, %209 ], [ %214, %212 ]
-  %.reass = add nuw i32 %invariant.op, %indvars149
+  %.reass = add nuw nsw i32 %invariant.op, %indvars149
   %216 = trunc nuw i64 %116 to i32
   tail call void @_ZN2cv6detail7GCGraphIfE8addEdgesEiiff(ptr noundef nonnull align 8 dereferenceable(52) %9, i32 noundef %216, i32 noundef %.reass, float noundef %.0115.us, float noundef %.0115.us)
   br label %217
@@ -14045,7 +14045,7 @@ _ZN2cv6detail7GCGraphIfE14addTermWeightsEiff.exit.us: ; preds = %_ZN2cv6detail7G
 
 326:                                              ; preds = %323, %318
   %.0.us = phi float [ %297, %318 ], [ %325, %323 ]
-  %.reass161 = add nuw i32 %invariant.op160, %indvars149
+  %.reass161 = add nuw nsw i32 %invariant.op160, %indvars149
   %327 = trunc nuw i64 %116 to i32
   tail call void @_ZN2cv6detail7GCGraphIfE8addEdgesEiiff(ptr noundef nonnull align 8 dereferenceable(52) %9, i32 noundef %327, i32 noundef %.reass161, float noundef %.0.us, float noundef %.0.us)
   br label %328

@@ -3237,7 +3237,7 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %48
 
 .preheader139:                                    ; preds = %.preheader139.lr.ph, %_ZN5faiss11simd8uint32pLERKS0_.exit
   %indvars.iv185 = phi i64 [ 0, %.preheader139.lr.ph ], [ %indvars.iv.next186, %_ZN5faiss11simd8uint32pLERKS0_.exit ]
-  %invariant.op = add nuw i64 %indvars.iv185, %43
+  %invariant.op = add nuw nsw i64 %indvars.iv185, %43
   br label %58
 
 .preheader138:                                    ; preds = %71, %.preheader138
@@ -3262,7 +3262,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %indvars.iv182 = phi i64 [ 0, %.preheader139 ], [ 1, %71 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #5
   %60 = shl nuw nsw i64 %indvars.iv182, 3
-  %.reass = add nuw i64 %60, %invariant.op
+  %.reass = add nuw nsw i64 %60, %invariant.op
   br label %62
 
 61:                                               ; preds = %62
@@ -3832,7 +3832,7 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %47
 
 .preheader139:                                    ; preds = %.preheader139.lr.ph, %_ZN5faiss11simd8uint32pLERKS0_.exit
   %indvars.iv187 = phi i64 [ 0, %.preheader139.lr.ph ], [ %indvars.iv.next188, %_ZN5faiss11simd8uint32pLERKS0_.exit ]
-  %invariant.op = add nuw i64 %indvars.iv187, %42
+  %invariant.op = add nuw nsw i64 %indvars.iv187, %42
   br label %57
 
 .preheader138:                                    ; preds = %69, %.preheader138
@@ -3856,7 +3856,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %indvars.iv183 = phi i64 [ 0, %.preheader139 ], [ %indvars.iv.next184, %69 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #5
   %58 = shl nuw nsw i64 %indvars.iv183, 3
-  %.reass = add nuw i64 %58, %invariant.op
+  %.reass = add nuw nsw i64 %58, %invariant.op
   br label %60
 
 59:                                               ; preds = %60
@@ -5862,7 +5862,7 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %48
 
 .preheader139:                                    ; preds = %.preheader139.lr.ph, %_ZN5faiss11simd8uint32pLERKS0_.exit
   %indvars.iv185 = phi i64 [ 0, %.preheader139.lr.ph ], [ %indvars.iv.next186, %_ZN5faiss11simd8uint32pLERKS0_.exit ]
-  %invariant.op = add nuw i64 %indvars.iv185, %43
+  %invariant.op = add nuw nsw i64 %indvars.iv185, %43
   br label %58
 
 .preheader138:                                    ; preds = %72, %.preheader138
@@ -5887,7 +5887,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %indvars.iv182 = phi i64 [ 0, %.preheader139 ], [ 1, %72 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #5
   %60 = shl nuw nsw i64 %indvars.iv182, 3
-  %.reass = add nuw i64 %60, %invariant.op
+  %.reass = add nuw nsw i64 %60, %invariant.op
   br label %62
 
 61:                                               ; preds = %62
@@ -6459,7 +6459,7 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %47
 
 .preheader139:                                    ; preds = %.preheader139.lr.ph, %_ZN5faiss11simd8uint32pLERKS0_.exit
   %indvars.iv187 = phi i64 [ 0, %.preheader139.lr.ph ], [ %indvars.iv.next188, %_ZN5faiss11simd8uint32pLERKS0_.exit ]
-  %invariant.op = add nuw i64 %indvars.iv187, %42
+  %invariant.op = add nuw nsw i64 %indvars.iv187, %42
   br label %57
 
 .preheader138:                                    ; preds = %70, %.preheader138
@@ -6483,7 +6483,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %indvars.iv183 = phi i64 [ 0, %.preheader139 ], [ %indvars.iv.next184, %70 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #5
   %58 = shl nuw nsw i64 %indvars.iv183, 3
-  %.reass = add nuw i64 %58, %invariant.op
+  %.reass = add nuw nsw i64 %58, %invariant.op
   br label %60
 
 59:                                               ; preds = %60
@@ -8537,7 +8537,7 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %50
 
 .preheader139:                                    ; preds = %.preheader139.lr.ph, %_ZN5faiss11simd8uint32pLERKS0_.exit
   %indvars.iv185 = phi i64 [ 0, %.preheader139.lr.ph ], [ %indvars.iv.next186, %_ZN5faiss11simd8uint32pLERKS0_.exit ]
-  %invariant.op = add nuw i64 %indvars.iv185, %44
+  %invariant.op = add nuw nsw i64 %indvars.iv185, %44
   br label %60
 
 .preheader138:                                    ; preds = %80, %.preheader138
@@ -8562,7 +8562,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %indvars.iv182 = phi i64 [ 0, %.preheader139 ], [ 1, %80 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #5
   %62 = shl nuw nsw i64 %indvars.iv182, 3
-  %.reass = add nuw i64 %62, %invariant.op
+  %.reass = add nuw nsw i64 %62, %invariant.op
   br label %64
 
 63:                                               ; preds = %64
@@ -9149,7 +9149,7 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %49
 
 .preheader139:                                    ; preds = %.preheader139.lr.ph, %_ZN5faiss11simd8uint32pLERKS0_.exit
   %indvars.iv187 = phi i64 [ 0, %.preheader139.lr.ph ], [ %indvars.iv.next188, %_ZN5faiss11simd8uint32pLERKS0_.exit ]
-  %invariant.op = add nuw i64 %indvars.iv187, %43
+  %invariant.op = add nuw nsw i64 %indvars.iv187, %43
   br label %59
 
 .preheader138:                                    ; preds = %78, %.preheader138
@@ -9173,7 +9173,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %indvars.iv183 = phi i64 [ 0, %.preheader139 ], [ %indvars.iv.next184, %78 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #5
   %60 = shl nuw nsw i64 %indvars.iv183, 3
-  %.reass = add nuw i64 %60, %invariant.op
+  %.reass = add nuw nsw i64 %60, %invariant.op
   br label %62
 
 61:                                               ; preds = %62
@@ -11278,7 +11278,7 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %52
 
 .preheader139:                                    ; preds = %.preheader139.lr.ph, %_ZN5faiss11simd8uint32pLERKS0_.exit
   %indvars.iv185 = phi i64 [ 0, %.preheader139.lr.ph ], [ %indvars.iv.next186, %_ZN5faiss11simd8uint32pLERKS0_.exit ]
-  %invariant.op = add nuw i64 %indvars.iv185, %45
+  %invariant.op = add nuw nsw i64 %indvars.iv185, %45
   br label %62
 
 .preheader138:                                    ; preds = %87, %.preheader138
@@ -11303,7 +11303,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %indvars.iv182 = phi i64 [ 0, %.preheader139 ], [ 1, %87 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #5
   %64 = shl nuw nsw i64 %indvars.iv182, 3
-  %.reass = add nuw i64 %64, %invariant.op
+  %.reass = add nuw nsw i64 %64, %invariant.op
   br label %66
 
 65:                                               ; preds = %66
@@ -11903,7 +11903,7 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %51
 
 .preheader139:                                    ; preds = %.preheader139.lr.ph, %_ZN5faiss11simd8uint32pLERKS0_.exit
   %indvars.iv187 = phi i64 [ 0, %.preheader139.lr.ph ], [ %indvars.iv.next188, %_ZN5faiss11simd8uint32pLERKS0_.exit ]
-  %invariant.op = add nuw i64 %indvars.iv187, %44
+  %invariant.op = add nuw nsw i64 %indvars.iv187, %44
   br label %61
 
 .preheader138:                                    ; preds = %85, %.preheader138
@@ -11927,7 +11927,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %indvars.iv183 = phi i64 [ 0, %.preheader139 ], [ %indvars.iv.next184, %85 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #5
   %62 = shl nuw nsw i64 %indvars.iv183, 3
-  %.reass = add nuw i64 %62, %invariant.op
+  %.reass = add nuw nsw i64 %62, %invariant.op
   br label %64
 
 63:                                               ; preds = %64
@@ -14091,7 +14091,7 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %54
 
 .preheader139:                                    ; preds = %.preheader139.lr.ph, %_ZN5faiss11simd8uint32pLERKS0_.exit
   %indvars.iv185 = phi i64 [ 0, %.preheader139.lr.ph ], [ %indvars.iv.next186, %_ZN5faiss11simd8uint32pLERKS0_.exit ]
-  %invariant.op = add nuw i64 %indvars.iv185, %46
+  %invariant.op = add nuw nsw i64 %indvars.iv185, %46
   br label %64
 
 .preheader138:                                    ; preds = %96, %.preheader138
@@ -14116,7 +14116,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %indvars.iv182 = phi i64 [ 0, %.preheader139 ], [ 1, %96 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #5
   %66 = shl nuw nsw i64 %indvars.iv182, 3
-  %.reass = add nuw i64 %66, %invariant.op
+  %.reass = add nuw nsw i64 %66, %invariant.op
   br label %68
 
 67:                                               ; preds = %68
@@ -14733,7 +14733,7 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %53
 
 .preheader139:                                    ; preds = %.preheader139.lr.ph, %_ZN5faiss11simd8uint32pLERKS0_.exit
   %indvars.iv187 = phi i64 [ 0, %.preheader139.lr.ph ], [ %indvars.iv.next188, %_ZN5faiss11simd8uint32pLERKS0_.exit ]
-  %invariant.op = add nuw i64 %indvars.iv187, %45
+  %invariant.op = add nuw nsw i64 %indvars.iv187, %45
   br label %63
 
 .preheader138:                                    ; preds = %94, %.preheader138
@@ -14757,7 +14757,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %indvars.iv183 = phi i64 [ 0, %.preheader139 ], [ %indvars.iv.next184, %94 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #5
   %64 = shl nuw nsw i64 %indvars.iv183, 3
-  %.reass = add nuw i64 %64, %invariant.op
+  %.reass = add nuw nsw i64 %64, %invariant.op
   br label %66
 
 65:                                               ; preds = %66
@@ -17108,7 +17108,7 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %62
 
 .preheader139:                                    ; preds = %.preheader139.lr.ph, %_ZN5faiss11simd8uint32pLERKS0_.exit
   %indvars.iv185 = phi i64 [ 0, %.preheader139.lr.ph ], [ %indvars.iv.next186, %_ZN5faiss11simd8uint32pLERKS0_.exit ]
-  %invariant.op = add nuw i64 %indvars.iv185, %50
+  %invariant.op = add nuw nsw i64 %indvars.iv185, %50
   br label %72
 
 .preheader138:                                    ; preds = %128, %.preheader138
@@ -17133,7 +17133,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %indvars.iv182 = phi i64 [ 0, %.preheader139 ], [ 1, %128 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #5
   %74 = shl nuw nsw i64 %indvars.iv182, 3
-  %.reass = add nuw i64 %74, %invariant.op
+  %.reass = add nuw nsw i64 %74, %invariant.op
   br label %76
 
 75:                                               ; preds = %76
@@ -17810,7 +17810,7 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %61
 
 .preheader139:                                    ; preds = %.preheader139.lr.ph, %_ZN5faiss11simd8uint32pLERKS0_.exit
   %indvars.iv187 = phi i64 [ 0, %.preheader139.lr.ph ], [ %indvars.iv.next188, %_ZN5faiss11simd8uint32pLERKS0_.exit ]
-  %invariant.op = add nuw i64 %indvars.iv187, %49
+  %invariant.op = add nuw nsw i64 %indvars.iv187, %49
   br label %71
 
 .preheader138:                                    ; preds = %126, %.preheader138
@@ -17834,7 +17834,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %indvars.iv183 = phi i64 [ 0, %.preheader139 ], [ %indvars.iv.next184, %126 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #5
   %72 = shl nuw nsw i64 %indvars.iv183, 3
-  %.reass = add nuw i64 %72, %invariant.op
+  %.reass = add nuw nsw i64 %72, %invariant.op
   br label %74
 
 73:                                               ; preds = %74
@@ -20205,7 +20205,7 @@ _ZN5faiss11simd8uint32C2Ej.exit108:               ; preds = %54
 
 .preheader140:                                    ; preds = %.preheader140.lr.ph, %_ZN5faiss11simd8uint32pLERKS0_.exit
   %indvars.iv186 = phi i64 [ 0, %.preheader140.lr.ph ], [ %indvars.iv.next187, %_ZN5faiss11simd8uint32pLERKS0_.exit ]
-  %invariant.op = add nuw i64 %indvars.iv186, %50
+  %invariant.op = add nuw nsw i64 %indvars.iv186, %50
   br label %64
 
 .preheader139:                                    ; preds = %75, %.preheader139
@@ -20230,7 +20230,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader139
   %indvars.iv183 = phi i64 [ 0, %.preheader140 ], [ 1, %75 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #5
   %66 = shl nuw nsw i64 %indvars.iv183, 3
-  %.reass = add nuw i64 %66, %invariant.op
+  %.reass = add nuw nsw i64 %66, %invariant.op
   br label %68
 
 67:                                               ; preds = %68
@@ -20798,7 +20798,7 @@ _ZN5faiss11simd8uint32C2Ej.exit108:               ; preds = %53
 
 .preheader140:                                    ; preds = %.preheader140.lr.ph, %_ZN5faiss11simd8uint32pLERKS0_.exit
   %indvars.iv188 = phi i64 [ 0, %.preheader140.lr.ph ], [ %indvars.iv.next189, %_ZN5faiss11simd8uint32pLERKS0_.exit ]
-  %invariant.op = add nuw i64 %indvars.iv188, %49
+  %invariant.op = add nuw nsw i64 %indvars.iv188, %49
   br label %63
 
 .preheader139:                                    ; preds = %73, %.preheader139
@@ -20822,7 +20822,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader139
   %indvars.iv184 = phi i64 [ 0, %.preheader140 ], [ %indvars.iv.next185, %73 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #5
   %64 = shl nuw nsw i64 %indvars.iv184, 3
-  %.reass = add nuw i64 %64, %invariant.op
+  %.reass = add nuw nsw i64 %64, %invariant.op
   br label %66
 
 65:                                               ; preds = %66

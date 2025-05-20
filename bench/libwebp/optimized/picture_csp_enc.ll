@@ -355,7 +355,7 @@ define i32 @WebPPictureYUVAToARGB(ptr noundef %0) local_unnamed_addr #0 {
   %63 = getelementptr inbounds i8, ptr %.09097, i64 %62
   %64 = getelementptr inbounds i8, ptr %.087100, i64 %50
   %65 = add nuw nsw i32 %.086101, 2
-  %.reass = add nuw i32 %.086101, 3
+  %.reass = add nuw nsw i32 %.086101, 3
   %66 = icmp slt i32 %.reass, %31
   br i1 %66, label %51, label %._crit_edge, !llvm.loop !28
 

@@ -4969,7 +4969,7 @@ Gia_ManMulFindGetOverlap2.exit.thread:            ; preds = %.lr.ph24.i, %213, %
   %270 = trunc i64 %indvars.iv234 to i32
   %271 = add i32 %270, 5
   %272 = icmp slt i32 %271, %.val121
-  %indvars.iv.next233 = add nuw i64 %indvars.iv232, 3
+  %indvars.iv.next233 = add i64 %indvars.iv232, 3
   br i1 %272, label %41, label %.critedge6.loopexit, !llvm.loop !89
 
 .critedge6.loopexit:                              ; preds = %.critedge

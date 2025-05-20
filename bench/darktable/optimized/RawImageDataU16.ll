@@ -605,10 +605,10 @@ define hidden void @_ZN8rawspeed15RawImageDataU1615scaleBlackWhiteEv(ptr noundef
   br i1 %66, label %.preheader.lr.ph.split.us, label %._crit_edge54
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
-  %invariant.op = add nuw i32 %47, 250
+  %invariant.op = add nuw nsw i32 %47, 250
   tail call void @llvm.assume(i1 %67)
   %68 = zext nneg i32 %50 to i64
-  %69 = zext i32 %invariant.op to i64
+  %69 = zext nneg i32 %invariant.op to i64
   %70 = zext nneg i32 %30 to i64
   %71 = zext nneg i32 %49 to i64
   %72 = zext nneg i32 %32 to i64

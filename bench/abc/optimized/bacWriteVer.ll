@@ -7539,7 +7539,7 @@ Vec_StrPrintStr.exit304:                          ; preds = %Vec_StrPrintStr.exi
   %317 = trunc i64 %indvars.iv571 to i32
   %318 = add i32 %317, 5
   %319 = icmp slt i32 %318, %.val170
-  %indvars.iv.next570 = add nuw i64 %indvars.iv569, 3
+  %indvars.iv.next570 = add i64 %indvars.iv569, 3
   br i1 %319, label %208, label %.lr.ph.i305, !llvm.loop !72
 
 .lr.ph.i305:                                      ; preds = %Vec_StrPrintStr.exit304, %Vec_StrPrintStr.exit265.preheader

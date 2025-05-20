@@ -231,7 +231,7 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   %.reass.us = or disjoint i32 %79, %71
   %80 = lshr i32 %.0203254.us, 1
   %81 = shl nuw nsw i32 %80, 3
-  %.reass253.us = add nuw i32 %81, %49
+  %.reass253.us = add nuw nsw i32 %81, %49
   %82 = or disjoint i32 %78, %65
   %83 = add nuw nsw i32 %80, %50
   %84 = mul nsw i32 %83, %30

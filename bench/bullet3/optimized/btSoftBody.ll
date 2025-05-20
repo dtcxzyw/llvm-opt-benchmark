@@ -1932,7 +1932,7 @@ _ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit: ; preds = %11, %21, 
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %4, align 4, !tbaa !125
   %46 = add nuw nsw i32 %.020, 1
-  %.reass = add nuw i32 %.020, %invariant.op
+  %.reass = add nuw nsw i32 %.020, %invariant.op
   %.not17 = icmp sgt i32 %.reass, %1
   br i1 %.not17, label %10, label %11, !llvm.loop !312
 }

@@ -7953,7 +7953,7 @@ _ZN6casadi9horzsplitERKNS_2MXEx.exit152:          ; preds = %_ZNSt6vectorIxSaIxE
   %192 = phi i64 [ %290, %._crit_edge ], [ %191, %.preheader225 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ %164, %.preheader225 ]
   %.074246 = phi i64 [ %invariant.op, %._crit_edge ], [ 1, %.preheader225 ]
-  %invariant.op = add nuw i64 %.074246, 1
+  %invariant.op = add nuw nsw i64 %.074246, 1
   %193 = sub i64 %.074246, %165
   %194 = icmp slt i64 %193, -1
   br i1 %194, label %.lr.ph, label %._crit_edge
@@ -8296,7 +8296,7 @@ _ZN6casadi12if_else_zeroERKNS_2MXES2_.exit:       ; preds = %_ZN6casadidvERKNS_2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #27
-  %.reass = add nuw i64 %.073244, %invariant.op
+  %.reass = add nuw nsw i64 %.073244, %invariant.op
   %299 = load ptr, ptr %32, align 8, !tbaa !138
   %300 = getelementptr inbounds nuw %"class.casadi::MX", ptr %299, i64 %.reass
   %301 = add nuw nsw i64 %.073244, 1

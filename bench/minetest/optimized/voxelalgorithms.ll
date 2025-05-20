@@ -4923,7 +4923,7 @@ for.body12:                                       ; preds = %for.body, %for.inc
   %modified.1336 = phi i8 [ 1, %for.inc ], [ %modified.0346, %for.body ]
   %9 = trunc i64 %indvars.iv to i48
   %current_pos.sroa.9.0.insert.shift281 = shl nuw nsw i48 %9, 16
-  %current_pos.sroa.0.0.insert.insert263.reass = add nuw i48 %current_pos.sroa.9.0.insert.shift281, %invariant.op34
+  %current_pos.sroa.0.0.insert.insert263.reass = add nuw nsw i48 %current_pos.sroa.9.0.insert.shift281, %invariant.op34
   %10 = load ptr, ptr %data.i.i, align 8, !tbaa !23
   %sext2.i = shl nuw nsw i64 %indvars.iv, 4
   %add5.i.i = add nsw i64 %sext2.i, %add.i.i146
@@ -5332,7 +5332,7 @@ for.cond41.preheader:                             ; preds = %for.inc77, %for.con
   %2 = trunc i64 %indvars.iv267 to i48
   %relpos.sroa.11.0.insert.shift = shl nuw i48 %2, 32
   %.idx = shl i64 %indvars.iv267, 10
-  %invariant.op = add nuw i48 %relpos.sroa.11.0.insert.shift, %1
+  %invariant.op = add nuw nsw i48 %relpos.sroa.11.0.insert.shift, %1
   br label %for.body45
 
 for.body45:                                       ; preds = %if.end69.1, %for.cond41.preheader
@@ -5355,7 +5355,7 @@ for.body45:                                       ; preds = %if.end69.1, %for.co
   %bf.clear.i = and i8 %retval.sroa.0.0.copyload.i.i, 15
   %9 = trunc i64 %indvars.iv to i48
   %relpos.sroa.7.0.insert.shift = shl nuw nsw i48 %9, 16
-  %relpos.sroa.0.0.insert.insert.reass = add nuw i48 %relpos.sroa.7.0.insert.shift, %invariant.op
+  %relpos.sroa.0.0.insert.insert.reass = add nuw nsw i48 %relpos.sroa.7.0.insert.shift, %invariant.op
   br i1 %bf.cast.not, label %cond.end, label %_ZNK7MapNode8getLightE9LightBank20ContentLightingFlags.exit
 
 _ZNK7MapNode8getLightE9LightBank20ContentLightingFlags.exit: ; preds = %for.body45

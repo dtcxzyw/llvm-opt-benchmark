@@ -304,7 +304,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE5clearEv.exit: ; preds = %6, %15
   %71 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %53, %.preheader ]
   %72 = phi i32 [ %204, %._crit_edge.loopexit ], [ %54, %.preheader ]
   %73 = add nuw nsw i32 %.03481, 4
-  %.reass83 = add nuw i32 %.03481, 28
+  %.reass83 = add nuw nsw i32 %.03481, 28
   %74 = icmp slt i32 %.reass83, %71
   br i1 %74, label %.preheader, label %._crit_edge82, !llvm.loop !55
 
@@ -620,7 +620,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i56: ; preds = %196, %19
 
 202:                                              ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit, %_ZNSt12__shared_ptrIN2cv10xobjdetect18CvFeatureEvaluatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %203 = add nuw nsw i32 %.03380, 4
-  %.reass = add nuw i32 %.03380, 28
+  %.reass = add nuw nsw i32 %.03380, 28
   %204 = load i32, ptr %29, align 4, !tbaa !74
   %205 = icmp slt i32 %.reass, %204
   br i1 %205, label %75, label %._crit_edge.loopexit, !llvm.loop !75
@@ -1065,7 +1065,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   %89 = phi i32 [ %71, %.preheader ], [ %243, %._crit_edge.loopexit ]
   %.2.lcssa = phi float [ %.1123, %.preheader ], [ %.3, %._crit_edge.loopexit ]
   %90 = add nuw nsw i32 %.036124, 4
-  %.reass127 = add nuw i32 %.036124, 28
+  %.reass127 = add nuw nsw i32 %.036124, 28
   %91 = icmp slt i32 %.reass127, %88
   br i1 %91, label %.preheader, label %._crit_edge125, !llvm.loop !91
 
@@ -1450,7 +1450,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i70: ; preds = %238, %23
 
 _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %195, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i, %_ZNSt12__shared_ptrIN2cv10xobjdetect18CvFeatureEvaluatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %242 = add nuw nsw i32 %.035122, 4
-  %.reass = add nuw i32 %.035122, 28
+  %.reass = add nuw nsw i32 %.035122, 28
   %243 = load i32, ptr %30, align 4, !tbaa !74
   %244 = icmp slt i32 %.reass, %243
   br i1 %244, label %92, label %._crit_edge.loopexit, !llvm.loop !99

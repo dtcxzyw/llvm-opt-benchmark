@@ -417,7 +417,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   br label %247
 
 .preheader1088:                                   ; preds = %.loopexit1089
-  %invariant.op = add nuw i32 %.1846, 1
+  %invariant.op = add nuw nsw i32 %.1846, 1
   br label %289
 
 247:                                              ; preds = %245, %.loopexit1089
@@ -514,7 +514,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 8
   %296 = load double, ptr %295, align 8
   %297 = load double, ptr %294, align 16
-  %.reass = add nuw i32 %.58571115, %invariant.op
+  %.reass = add nuw nsw i32 %.58571115, %invariant.op
   %298 = and i32 %.reass, 3
   %299 = zext nneg i32 %298 to i64
   %300 = getelementptr inbounds nuw [4 x [2 x double]], ptr %14, i64 0, i64 %299

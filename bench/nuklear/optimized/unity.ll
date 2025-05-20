@@ -72984,33 +72984,36 @@ stbtt__csctx_rline_to.exit293:                    ; preds = %stbtt__track_vertex
 
 292:                                              ; preds = %stbtt__buf_get8.exit
   %293 = icmp slt i32 %.0241489, 6
-  br i1 %293, label %.critedge, label %.preheader457
+  br i1 %293, label %.critedge, label %.preheader457.preheader
 
-.preheader457:                                    ; preds = %292, %.preheader457
-  %indvars.iv542 = phi i64 [ %indvars.iv.next543, %.preheader457 ], [ 0, %292 ]
-  %indvars.iv540 = phi i64 [ %indvars.iv.next541, %.preheader457 ], [ 5, %292 ]
-  %294 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv542
-  %295 = load float, ptr %294, align 8, !tbaa !3
-  %296 = or disjoint i64 %indvars.iv542, 1
-  %297 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %296
-  %298 = load float, ptr %297, align 4, !tbaa !3
-  %299 = add nuw nsw i64 %indvars.iv542, 2
-  %300 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %299
-  %301 = load float, ptr %300, align 8, !tbaa !3
-  %302 = add nuw nsw i64 %indvars.iv542, 3
-  %303 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %302
-  %304 = load float, ptr %303, align 4, !tbaa !3
-  %305 = add nuw nsw i64 %indvars.iv542, 4
-  %306 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %305
-  %307 = load float, ptr %306, align 8, !tbaa !3
-  %308 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv540
-  %309 = load float, ptr %308, align 4, !tbaa !3
-  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %295, float noundef %298, float noundef %301, float noundef %304, float noundef %307, float noundef %309)
+.preheader457.preheader:                          ; preds = %292
+  %294 = zext nneg i32 %.0241489 to i64
+  br label %.preheader457
+
+.preheader457:                                    ; preds = %.preheader457.preheader, %.preheader457
+  %indvars.iv542 = phi i64 [ 0, %.preheader457.preheader ], [ %indvars.iv.next543, %.preheader457 ]
+  %indvars.iv540 = phi i64 [ 5, %.preheader457.preheader ], [ %indvars.iv.next541, %.preheader457 ]
+  %295 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv542
+  %296 = load float, ptr %295, align 8, !tbaa !3
+  %297 = or disjoint i64 %indvars.iv542, 1
+  %298 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %297
+  %299 = load float, ptr %298, align 4, !tbaa !3
+  %300 = add nuw nsw i64 %indvars.iv542, 2
+  %301 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %300
+  %302 = load float, ptr %301, align 8, !tbaa !3
+  %303 = add nuw nsw i64 %indvars.iv542, 3
+  %304 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %303
+  %305 = load float, ptr %304, align 4, !tbaa !3
+  %306 = add nuw nsw i64 %indvars.iv542, 4
+  %307 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %306
+  %308 = load float, ptr %307, align 8, !tbaa !3
+  %309 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv540
+  %310 = load float, ptr %309, align 4, !tbaa !3
+  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %296, float noundef %299, float noundef %302, float noundef %305, float noundef %308, float noundef %310)
   %indvars.iv.next543 = add nuw nsw i64 %indvars.iv542, 6
-  %310 = trunc i64 %indvars.iv542 to i32
-  %311 = add i32 %310, 11
-  %312 = icmp slt i32 %311, %.0241489
-  %indvars.iv.next541 = add nuw i64 %indvars.iv540, 6
+  %311 = add nuw nsw i64 %indvars.iv542, 11
+  %312 = icmp samesign ult i64 %311, %294
+  %indvars.iv.next541 = add nuw nsw i64 %indvars.iv540, 6
   br i1 %312, label %.preheader457, label %.thread, !llvm.loop !1273
 
 313:                                              ; preds = %stbtt__buf_get8.exit

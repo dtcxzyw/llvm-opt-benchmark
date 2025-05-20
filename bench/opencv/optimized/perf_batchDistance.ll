@@ -2912,7 +2912,7 @@ _ZNK2cv3Mat3rowEi.exit:                           ; preds = %66
   %75 = add nuw nsw i32 %.04261, %68
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %21) #31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #31, !noalias !181
-  %.reass = add nuw i32 %.04261, %invariant.op
+  %.reass = add nuw nsw i32 %.04261, %invariant.op
   store i32 %75, ptr %9, align 4, !tbaa !177, !noalias !181
   store i32 %.reass, ptr %48, align 4, !tbaa !179, !noalias !181
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #31, !noalias !181

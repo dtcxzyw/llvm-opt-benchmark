@@ -11408,7 +11408,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2314:       ; preds = %3073
   store i64 1, ptr %3045, align 8, !tbaa !44, !alias.scope !96
   store i8 0, ptr %3046, align 1, !tbaa !45
   %3106 = trunc i64 %indvars.iv to i8
-  %.reass = add nuw i8 %3106, 49
+  %.reass = add nuw nsw i8 %3106, 49
   store i8 %.reass, ptr %3044, align 8, !tbaa !45
   br i1 %3052, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcm.exit.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcm.exit94.i.thread
 

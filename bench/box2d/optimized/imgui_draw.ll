@@ -29699,33 +29699,36 @@ _ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit293: ; preds = %_ZL19stbtt__trac
 
 288:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
   %289 = icmp slt i32 %.0241481, 6
-  br i1 %289, label %.critedge, label %.preheader449
+  br i1 %289, label %.critedge, label %.preheader449.preheader
 
-.preheader449:                                    ; preds = %288, %.preheader449
-  %indvars.iv535 = phi i64 [ %indvars.iv.next536, %.preheader449 ], [ 0, %288 ]
-  %indvars.iv533 = phi i64 [ %indvars.iv.next534, %.preheader449 ], [ 5, %288 ]
-  %290 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv535
-  %291 = load float, ptr %290, align 8, !tbaa !4
-  %292 = or disjoint i64 %indvars.iv535, 1
-  %293 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %292
-  %294 = load float, ptr %293, align 4, !tbaa !4
-  %295 = add nuw nsw i64 %indvars.iv535, 2
-  %296 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %295
-  %297 = load float, ptr %296, align 8, !tbaa !4
-  %298 = add nuw nsw i64 %indvars.iv535, 3
-  %299 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %298
-  %300 = load float, ptr %299, align 4, !tbaa !4
-  %301 = add nuw nsw i64 %indvars.iv535, 4
-  %302 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %301
-  %303 = load float, ptr %302, align 8, !tbaa !4
-  %304 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv533
-  %305 = load float, ptr %304, align 4, !tbaa !4
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %291, float noundef %294, float noundef %297, float noundef %300, float noundef %303, float noundef %305)
+.preheader449.preheader:                          ; preds = %288
+  %290 = zext nneg i32 %.0241481 to i64
+  br label %.preheader449
+
+.preheader449:                                    ; preds = %.preheader449.preheader, %.preheader449
+  %indvars.iv535 = phi i64 [ 0, %.preheader449.preheader ], [ %indvars.iv.next536, %.preheader449 ]
+  %indvars.iv533 = phi i64 [ 5, %.preheader449.preheader ], [ %indvars.iv.next534, %.preheader449 ]
+  %291 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv535
+  %292 = load float, ptr %291, align 8, !tbaa !4
+  %293 = or disjoint i64 %indvars.iv535, 1
+  %294 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %293
+  %295 = load float, ptr %294, align 4, !tbaa !4
+  %296 = add nuw nsw i64 %indvars.iv535, 2
+  %297 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %296
+  %298 = load float, ptr %297, align 8, !tbaa !4
+  %299 = add nuw nsw i64 %indvars.iv535, 3
+  %300 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %299
+  %301 = load float, ptr %300, align 4, !tbaa !4
+  %302 = add nuw nsw i64 %indvars.iv535, 4
+  %303 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %302
+  %304 = load float, ptr %303, align 8, !tbaa !4
+  %305 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv533
+  %306 = load float, ptr %305, align 4, !tbaa !4
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %292, float noundef %295, float noundef %298, float noundef %301, float noundef %304, float noundef %306)
   %indvars.iv.next536 = add nuw nsw i64 %indvars.iv535, 6
-  %306 = trunc i64 %indvars.iv535 to i32
-  %307 = add i32 %306, 11
-  %308 = icmp slt i32 %307, %.0241481
-  %indvars.iv.next534 = add nuw i64 %indvars.iv533, 6
+  %307 = add nuw nsw i64 %indvars.iv535, 11
+  %308 = icmp samesign ult i64 %307, %290
+  %indvars.iv.next534 = add nuw nsw i64 %indvars.iv533, 6
   br i1 %308, label %.preheader449, label %.thread, !llvm.loop !589
 
 309:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit

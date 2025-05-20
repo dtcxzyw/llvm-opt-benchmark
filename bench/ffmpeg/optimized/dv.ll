@@ -75,7 +75,7 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
   %36 = add nuw nsw i32 %35, %26
   %37 = add nuw nsw i64 %indvars.iv69, %21
   %38 = mul nuw nsw i64 %37, 27
-  %39 = add nuw i64 %38, %27
+  %39 = add nuw nsw i64 %38, %27
   %or.cond.i.us = and i1 %25, %31
   %40 = zext i32 %36 to i64
   %invariant.op = and i1 %13, %31

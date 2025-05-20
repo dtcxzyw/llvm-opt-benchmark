@@ -3303,7 +3303,7 @@ _ZNK11OpenImageIO6v3_1_08TypeDescneERKS1_.exit:   ; preds = %283
 
 289:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08TypeDescneERKS1_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.reass = add nuw i64 %indvars.iv, %invariant.op
+  %.reass = add nuw nsw i64 %indvars.iv, %invariant.op
   %290 = icmp slt i64 %.reass, %232
   %291 = trunc nsw i64 %.reass to i32
   br i1 %290, label %275, label %_ZNK11OpenImageIO6v3_1_08TypeDescneERKS1_.exit.thread, !llvm.loop !150

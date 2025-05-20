@@ -1464,7 +1464,7 @@ jv_copy.exit56:                                   ; preds = %20, %21
   br i1 %.not5186, label %.lr.ph.preheader, label %.loopexit.thread
 
 .lr.ph.preheader:                                 ; preds = %jv_copy.exit56
-  %invariant.op = add nuw i64 %indvars.iv99, %19
+  %invariant.op = add nuw nsw i64 %indvars.iv99, %19
   %24 = trunc nuw nsw i64 %indvars.iv99 to i32
   br label %.lr.ph
 
@@ -1516,7 +1516,7 @@ jv_copy.exit68:                                   ; preds = %38, %39
   br i1 %.not, label %44, label %jv_array_get.exit77
 
 44:                                               ; preds = %jv_copy.exit68
-  %.reass = add nuw i64 %indvars.iv, %invariant.op
+  %.reass = add nuw nsw i64 %indvars.iv, %invariant.op
   %45 = getelementptr inbounds nuw [0 x %struct.jv], ptr %16, i64 0, i64 %.reass
   %46 = load i64, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8

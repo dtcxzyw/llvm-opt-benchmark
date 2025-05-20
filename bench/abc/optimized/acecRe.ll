@@ -1878,7 +1878,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %65 = trunc i64 %indvars.iv239 to i32
   %66 = add i32 %65, 5
   %67 = icmp slt i32 %66, %.val152216
-  %indvars.iv.next = add nuw i64 %indvars.iv, 3
+  %indvars.iv.next = add i64 %indvars.iv, 3
   br i1 %67, label %55, label %.critedge.preheader, !llvm.loop !66
 
 68:                                               ; preds = %.lr.ph221, %.critedge
@@ -2075,7 +2075,7 @@ Vec_WecStart.exit197:                             ; preds = %Vec_WecStart.exit, 
   %141 = trunc i64 %indvars.iv250 to i32
   %142 = add i32 %141, 5
   %143 = icmp slt i32 %142, %.val150
-  %indvars.iv.next249 = add nuw i64 %indvars.iv248, 3
+  %indvars.iv.next249 = add i64 %indvars.iv248, 3
   br i1 %143, label %125, label %.critedge11, !llvm.loop !72
 
 .critedge11:                                      ; preds = %140, %Vec_WecStart.exit197

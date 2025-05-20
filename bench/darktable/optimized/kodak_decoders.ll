@@ -399,7 +399,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItE
 
 .preheader305:                                    ; preds = %194, %.loopexit300, %159
   %166 = shl nuw nsw i64 %indvars.iv480, 1
-  %167 = add nuw i64 %indvars.iv491, %166
+  %167 = add nuw nsw i64 %indvars.iv491, %166
   %.pre504 = load i16, ptr %6, align 2, !tbaa !6
   br i1 %.not262, label %.preheader295.us, label %.preheader295
 

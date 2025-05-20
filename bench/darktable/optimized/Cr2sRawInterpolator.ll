@@ -557,14 +557,14 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUliiE_clEii.exit6
   %247 = getelementptr inbounds nuw i8, ptr %indvars.iv270.sroa.gep308, i64 20
   store i32 %239, ptr %247, align 4
   %248 = shl nuw nsw i32 %.051.lcssa, 1
-  %invariant.op230 = add nuw i32 %208, 3
+  %invariant.op230 = add nuw nsw i32 %208, 3
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %250 = load i32, ptr %249, align 8, !tbaa !113
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %252 = load i32, ptr %251, align 4, !tbaa !113
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %254 = load i32, ptr %253, align 8, !tbaa !113
-  %255 = zext i32 %invariant.op230 to i64
+  %255 = zext nneg i32 %invariant.op230 to i64
   %256 = zext nneg i32 %13 to i64
   %257 = zext nneg i32 %248 to i64
   %258 = zext nneg i32 %18 to i64
@@ -1036,14 +1036,14 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUliiE_clEii.exit6
   %241 = getelementptr inbounds nuw i8, ptr %indvars.iv268.sroa.gep306, i64 20
   store i32 %233, ptr %241, align 4
   %242 = shl nuw nsw i32 %.051.lcssa, 1
-  %invariant.op228 = add nuw i32 %202, 3
+  %invariant.op228 = add nuw nsw i32 %202, 3
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %244 = load i32, ptr %243, align 8, !tbaa !113
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %246 = load i32, ptr %245, align 4, !tbaa !113
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %248 = load i32, ptr %247, align 8, !tbaa !113
-  %249 = zext i32 %invariant.op228 to i64
+  %249 = zext nneg i32 %invariant.op228 to i64
   %250 = zext nneg i32 %13 to i64
   %251 = zext nneg i32 %242 to i64
   %252 = zext nneg i32 %18 to i64
@@ -2515,14 +2515,14 @@ _ZZN8rawspeed19Cr2sRawInterpolator19interpolate_420_rowILi1EEEviENKUlRKSt5arrayI
   %260 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 %259, ptr %260, align 4, !tbaa !120
   %261 = shl nuw nsw i32 %1, 1
-  %invariant.op225 = add nuw i32 %211, 3
+  %invariant.op225 = add nuw nsw i32 %211, 3
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %263 = load i32, ptr %262, align 8, !tbaa !113
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %265 = load i32, ptr %264, align 4, !tbaa !113
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %267 = load i32, ptr %266, align 8, !tbaa !113
-  %268 = zext i32 %invariant.op225 to i64
+  %268 = zext nneg i32 %invariant.op225 to i64
   %269 = zext nneg i32 %14 to i64
   %270 = zext nneg i32 %261 to i64
   %271 = zext nneg i32 %19 to i64
@@ -3045,14 +3045,14 @@ _ZZN8rawspeed19Cr2sRawInterpolator19interpolate_420_rowILi2EEEviENKUlRKSt5arrayI
   %254 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 %253, ptr %254, align 4, !tbaa !120
   %255 = shl nuw nsw i32 %1, 1
-  %invariant.op223 = add nuw i32 %205, 3
+  %invariant.op223 = add nuw nsw i32 %205, 3
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %257 = load i32, ptr %256, align 8, !tbaa !113
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %259 = load i32, ptr %258, align 4, !tbaa !113
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %261 = load i32, ptr %260, align 8, !tbaa !113
-  %262 = zext i32 %invariant.op223 to i64
+  %262 = zext nneg i32 %invariant.op223 to i64
   %263 = zext nneg i32 %14 to i64
   %264 = zext nneg i32 %255 to i64
   %265 = zext nneg i32 %19 to i64

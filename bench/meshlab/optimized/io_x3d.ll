@@ -33507,7 +33507,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %204 = trunc i64 %indvars.iv1229 to i32
   %205 = add i32 %204, 5
   %206 = icmp slt i32 %205, %203
-  %indvars.iv.next = add nuw i64 %indvars.iv, 3
+  %indvars.iv.next = add i64 %indvars.iv, 3
   br i1 %206, label %.lr.ph1102, label %._crit_edge1103.loopexit, !llvm.loop !233
 
 ._crit_edge1103.loopexit:                         ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
