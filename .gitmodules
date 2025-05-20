@@ -690,3 +690,6 @@
 [submodule "bench/elfshaker-rs/elfshaker"]
 	path = bench/elfshaker-rs/elfshaker
 	url = https://github.com/elfshaker/elfshaker.git
+[submodule "bench/quinn-rs/quinn"]
+	path = bench/quinn-rs/quinn
+	url = https://github.com/quinn-rs/quinn
