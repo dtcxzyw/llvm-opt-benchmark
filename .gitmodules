@@ -693,3 +693,6 @@
 [submodule "bench/quinn-rs/quinn"]
 	path = bench/quinn-rs/quinn
 	url = https://github.com/quinn-rs/quinn
+[submodule "bench/deku-rs/deku"]
+	path = bench/deku-rs/deku
+	url = https://github.com/sharksforarms/deku
