@@ -720,3 +720,6 @@
 [submodule "bench/sdl/SDL"]
 	path = bench/sdl/SDL
 	url = https://github.com/libsdl-org/SDL.git
+[submodule "bench/libigl/libigl"]
+	path = bench/libigl/libigl
+	url = https://github.com/libigl/libigl.git
