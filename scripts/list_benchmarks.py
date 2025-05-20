@@ -46,11 +46,11 @@ def get_last_updated(dir, head="HEAD"):
 
 
 def guess_language(dir: str):
-    if "/llvm" in dir:
+    if "/llvm" in dir or "/libcxx" in dir:
         llvm_dir = os.path.join(bench_dir, "..", "llvm", "llvm-project")
-        llvm_version = open(os.path.join(bench_dir, "llvm", "version")).read().strip()
+        llvm_version = open(os.path.join(dir, "version")).read().strip()
         return (
-            "llvm-project",
+            "llvm-project" if "/llvm" in dir else "libcxx",
             "C++",
             "https://github.com/llvm/llvm-project",
             get_last_updated(llvm_dir, llvm_version),

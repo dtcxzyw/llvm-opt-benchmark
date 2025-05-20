@@ -111,6 +111,7 @@ Currently, this repository contains the following libraries/applications:
 |[redis](https://github.com/redis/redis)|C|![stars](https://img.shields.io/github/stars/redis/redis?style=flat)|2025-02-16|
 |[riscv-isa-sim](https://github.com/riscv-software-src/riscv-isa-sim)|C|![stars](https://img.shields.io/github/stars/riscv-software-src/riscv-isa-sim?style=flat)|2025-02-12|
 |[ruby](https://github.com/ruby/ruby)|C|![stars](https://img.shields.io/github/stars/ruby/ruby?style=flat)|2025-02-18|
+|[sdl](https://github.com/libsdl-org/SDL)|C|![stars](https://img.shields.io/github/stars/libsdl-org/SDL?style=flat)|2025-05-19|
 |[slurm](https://github.com/SchedMD/slurm)|C|![stars](https://img.shields.io/github/stars/SchedMD/slurm?style=flat)|2025-02-17|
 |[sqlite](https://github.com/sqlite/sqlite)|C|![stars](https://img.shields.io/github/stars/sqlite/sqlite?style=flat)|2025-02-18|
 |[stb](https://github.com/nothings/stb)|C|![stars](https://img.shields.io/github/stars/nothings/stb?style=flat)|2024-11-08|
@@ -158,6 +159,8 @@ Currently, this repository contains the following libraries/applications:
 |[ipopt](https://github.com/coin-or/Ipopt)|C++|![stars](https://img.shields.io/github/stars/coin-or/Ipopt?style=flat)|2025-02-23|
 |[json](https://github.com/nlohmann/json)|C++|![stars](https://img.shields.io/github/stars/nlohmann/json?style=flat)|2025-02-21|
 |[jsonnet](https://github.com/google/jsonnet)|C++|![stars](https://img.shields.io/github/stars/google/jsonnet?style=flat)|2025-02-23|
+|[libcxx](https://github.com/llvm/llvm-project)|C++|![stars](https://img.shields.io/github/stars/llvm/llvm-project?style=flat)|2025-05-20|
+|[libigl](https://github.com/libigl/libigl)|C++|![stars](https://img.shields.io/github/stars/libigl/libigl?style=flat)|2025-05-14|
 |[libphonenumber](https://github.com/google/libphonenumber)|C++|![stars](https://img.shields.io/github/stars/google/libphonenumber?style=flat)|2025-02-13|
 |[libzmq](https://github.com/zeromq/libzmq)|C++|![stars](https://img.shields.io/github/stars/zeromq/libzmq?style=flat)|2024-12-30|
 |[lief](https://github.com/lief-project/LIEF)|C++|![stars](https://img.shields.io/github/stars/lief-project/LIEF?style=flat)|2025-02-23|
@@ -181,6 +184,7 @@ Currently, this repository contains the following libraries/applications:
 |[nix](https://github.com/NixOS/nix)|C++|![stars](https://img.shields.io/github/stars/NixOS/nix?style=flat)|2024-03-06|
 |[node](https://github.com/nodejs/node)|C++|![stars](https://img.shields.io/github/stars/nodejs/node?style=flat)|2023-12-17|
 |[nori](https://github.com/wjakob/nori)|C++|![stars](https://img.shields.io/github/stars/wjakob/nori?style=flat)|2023-11-15|
+|[open3d](https://github.com/isl-org/Open3D)|C++|![stars](https://img.shields.io/github/stars/isl-org/Open3D?style=flat)|2025-04-03|
 |[open_spiel](https://github.com/google-deepmind/open_spiel)|C++|![stars](https://img.shields.io/github/stars/google-deepmind/open_spiel?style=flat)|2024-08-27|
 |[opencc](https://github.com/BYVoid/OpenCC)|C++|![stars](https://img.shields.io/github/stars/BYVoid/OpenCC?style=flat)|2025-02-12|
 |[opencolorio](https://github.com/AcademySoftwareFoundation/OpenColorIO)|C++|![stars](https://img.shields.io/github/stars/AcademySoftwareFoundation/OpenColorIO?style=flat)|2025-02-10|
