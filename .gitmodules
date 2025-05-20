@@ -702,3 +702,6 @@
 [submodule "bench/jiff-rs/jiff"]
 	path = bench/jiff-rs/jiff
 	url = https://github.com/BurntSushi/jiff.git
+[submodule "bench/fish-rs/fish-shell"]
+	path = bench/fish-rs/fish-shell
+	url = https://github.com/fish-shell/fish-shell.git
