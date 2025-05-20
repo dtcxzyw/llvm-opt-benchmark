@@ -717,3 +717,6 @@
 [submodule "bench/lean4/lean4"]
 	path = bench/lean4/lean4
 	url = https://github.com/leanprover/lean4.git
+[submodule "bench/sdl/SDL"]
+	path = bench/sdl/SDL
+	url = https://github.com/libsdl-org/SDL.git
