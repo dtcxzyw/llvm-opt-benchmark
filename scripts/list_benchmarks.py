@@ -45,7 +45,7 @@ def get_last_updated(dir, head="HEAD"):
     )
 
 
-def guess_language(dir):
+def guess_language(dir: str):
     if "/llvm" in dir:
         llvm_dir = os.path.join(bench_dir, "..", "llvm", "llvm-project")
         llvm_version = open(os.path.join(bench_dir, "llvm", "version")).read().strip()
@@ -74,6 +74,8 @@ def guess_language(dir):
         name = subdir.lower()
         if name == "jdk":
             name = "openjdk"
+        if dir.endswith("-rs"):
+            return (name, "Rust", url, last_updated)
 
         count_c = 0
         count_cpp = 0
@@ -129,8 +131,14 @@ bench_list = []
 
 for dir in os.listdir(bench_dir):
     if is_not_exist_or_empty(os.path.join(bench_dir, dir, "original")):
+        print(
+            f"Warning: {os.path.join(bench_dir, dir, 'original')} is empty, skipping..."
+        )
         continue
     if is_not_exist_or_empty(os.path.join(bench_dir, dir, "optimized")):
+        print(
+            f"Warning: {os.path.join(bench_dir, dir, 'optimized')} is empty, skipping..."
+        )
         continue
     bench_list.append(guess_language(os.path.join(bench_dir, dir)))
 
@@ -144,7 +152,7 @@ with open("README.md", "r") as f:
     content = f.read()
 
 marker = "<!-- Auto generated -->"
-content = content[:content.find('\n', content.find(marker)) + 1] + info
+content = content[: content.find("\n", content.find(marker)) + 1] + info
 
 with open("README.md", "w") as f:
     f.write(content)
