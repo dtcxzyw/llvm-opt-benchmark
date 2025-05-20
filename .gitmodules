@@ -696,3 +696,6 @@
 [submodule "bench/deku-rs/deku"]
 	path = bench/deku-rs/deku
 	url = https://github.com/sharksforarms/deku
+[submodule "bench/ruff-rs/ruff"]
+	path = bench/ruff-rs/ruff
+	url = https://github.com/astral-sh/ruff.git
