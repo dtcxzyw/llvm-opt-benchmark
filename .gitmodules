@@ -675,3 +675,18 @@
 [submodule "bench/raft-rs/raft-rs"]
 	path = bench/raft-rs/raft-rs
 	url = https://github.com/tikv/raft-rs.git
+[submodule "bench/pola-rs/polars"]
+	path = bench/pola-rs/polars
+	url = https://github.com/pola-rs/polars.git
+[submodule "bench/quiche-rs/quiche"]
+	path = bench/quiche-rs/quiche
+	url = https://github.com/cloudflare/quiche.git
+[submodule "bench/foundations-rs/foundations"]
+	path = bench/foundations-rs/foundations
+	url = https://github.com/cloudflare/foundations.git
+[submodule "bench/pingora-rs/pingora"]
+	path = bench/pingora-rs/pingora
+	url = https://github.com/cloudflare/pingora.git
+[submodule "bench/elfshaker-rs/elfshaker"]
+	path = bench/elfshaker-rs/elfshaker
+	url = https://github.com/elfshaker/elfshaker.git
