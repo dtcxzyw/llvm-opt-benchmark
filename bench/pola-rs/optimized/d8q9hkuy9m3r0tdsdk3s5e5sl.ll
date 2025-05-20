@@ -1,4 +1,4 @@
-; ModuleID = './bench/pola-rs/original/d8q9hkuy9m3r0tdsdk3s5e5sl.ll'
+; ModuleID = 'bench/pola-rs/original/d8q9hkuy9m3r0tdsdk3s5e5sl.ll'
 source_filename = "bench/pola-rs/original/d8q9hkuy9m3r0tdsdk3s5e5sl.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
