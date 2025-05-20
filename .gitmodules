@@ -699,3 +699,6 @@
 [submodule "bench/ruff-rs/ruff"]
 	path = bench/ruff-rs/ruff
 	url = https://github.com/astral-sh/ruff.git
+[submodule "bench/jiff-rs/jiff"]
+	path = bench/jiff-rs/jiff
+	url = https://github.com/BurntSushi/jiff.git
