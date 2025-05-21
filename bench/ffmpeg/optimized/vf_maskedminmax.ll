@@ -326,19 +326,15 @@ define internal void @maskedmin32(ptr noundef readonly captures(none) %0, ptr no
   %9 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   %10 = load float, ptr %9, align 4, !tbaa !54
   %11 = fsub nsz float %8, %10
-  %12 = fcmp nsz ult float %11, 0.000000e+00
-  %13 = fneg nsz float %11
-  %14 = select nsz i1 %12, float %13, float %11
-  %15 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  %16 = load float, ptr %15, align 4, !tbaa !54
-  %17 = fsub nsz float %8, %16
-  %18 = fcmp nsz ult float %17, 0.000000e+00
-  %19 = fneg nsz float %17
-  %20 = select nsz i1 %18, float %19, float %17
-  %21 = fcmp nsz olt float %14, %20
-  %22 = select i1 %21, float %10, float %16
-  %23 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
-  store float %22, ptr %23, align 4, !tbaa !54
+  %12 = tail call nsz float @llvm.fabs.f32(float %11)
+  %13 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %14 = load float, ptr %13, align 4, !tbaa !54
+  %15 = fsub nsz float %8, %14
+  %16 = tail call nsz float @llvm.fabs.f32(float %15)
+  %17 = fcmp nsz olt float %12, %16
+  %18 = select i1 %17, float %10, float %14
+  %19 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  store float %18, ptr %19, align 4, !tbaa !54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
@@ -363,19 +359,15 @@ define internal void @maskedmax32(ptr noundef readonly captures(none) %0, ptr no
   %9 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   %10 = load float, ptr %9, align 4, !tbaa !54
   %11 = fsub nsz float %8, %10
-  %12 = fcmp nsz ult float %11, 0.000000e+00
-  %13 = fneg nsz float %11
-  %14 = select nsz i1 %12, float %13, float %11
-  %15 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  %16 = load float, ptr %15, align 4, !tbaa !54
-  %17 = fsub nsz float %8, %16
-  %18 = fcmp nsz ult float %17, 0.000000e+00
-  %19 = fneg nsz float %17
-  %20 = select nsz i1 %18, float %19, float %17
-  %21 = fcmp nsz ogt float %14, %20
-  %22 = select i1 %21, float %10, float %16
-  %23 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
-  store float %22, ptr %23, align 4, !tbaa !54
+  %12 = tail call nsz float @llvm.fabs.f32(float %11)
+  %13 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %14 = load float, ptr %13, align 4, !tbaa !54
+  %15 = fsub nsz float %8, %14
+  %16 = tail call nsz float @llvm.fabs.f32(float %15)
+  %17 = fcmp nsz ogt float %12, %16
+  %18 = select i1 %17, float %10, float %14
+  %19 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  store float %18, ptr %19, align 4, !tbaa !54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
@@ -753,6 +745,9 @@ declare i32 @ff_framesync_activate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #8

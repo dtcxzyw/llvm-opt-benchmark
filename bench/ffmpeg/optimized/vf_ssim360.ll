@@ -3367,11 +3367,11 @@ declare float @llvm.asin.f32(float) #5
 define internal fastcc void @get_projected_map(float noundef %0, float noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 32)) %3) unnamed_addr #13 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %6 = load i32, ptr %5, align 4, !tbaa !143
-  switch i32 %6, label %221 [
+  switch i32 %6, label %207 [
     i32 1, label %7
-    i32 0, label %79
-    i32 2, label %147
-    i32 3, label %172
+    i32 0, label %73
+    i32 2, label %133
+    i32 3, label %158
   ]
 
 7:                                                ; preds = %4
@@ -3396,372 +3396,356 @@ define internal fastcc void @get_projected_map(float noundef %0, float noundef %
 
 25:                                               ; preds = %7
   %26 = fdiv nsz float %13, %23
-  %27 = fcmp nsz oge float %26, 0.000000e+00
-  %28 = fneg nsz float %26
-  %29 = select nsz i1 %27, float %26, float %28
-  %30 = fcmp nsz ugt float %29, 1.000000e+00
-  br i1 %30, label %.thread.i.i, label %31
+  %27 = fdiv nsz float %18, %20
+  %28 = tail call nsz float @llvm.fabs.f32(float %26)
+  %29 = fcmp nsz ugt float %28, 1.000000e+00
+  %30 = tail call nsz float @llvm.fabs.f32(float %27)
+  %31 = fcmp nsz ugt float %30, 1.000000e+00
+  %or.cond.i.i = or i1 %31, %29
+  br i1 %or.cond.i.i, label %.thread.i.i, label %get_cubemap_face_map.exit.thread.thread.i
 
-31:                                               ; preds = %25
-  %32 = fdiv nsz float %18, %20
-  %33 = fcmp nsz oge float %32, 0.000000e+00
-  %34 = fneg nsz float %32
-  %35 = select nsz i1 %33, float %32, float %34
-  %36 = fcmp nsz ugt float %35, 1.000000e+00
-  br i1 %36, label %.thread.i.i, label %get_cubemap_face_map.exit.thread.thread.i
-
-get_cubemap_face_map.exit.thread.thread.i:        ; preds = %31
-  %37 = fcmp nsz ogt float %20, 0.000000e+00
-  %.2.i4457.i = select i1 %37, i64 2, i64 3
+get_cubemap_face_map.exit.thread.thread.i:        ; preds = %25
+  %32 = fcmp nsz ogt float %20, 0.000000e+00
+  %.2.i4457.i = select i1 %32, i64 2, i64 3
+  %33 = fneg nsz float %26
+  %34 = fneg nsz float %27
   br label %get_rotated_cubemap_map.exit
 
-.thread.i.i:                                      ; preds = %31, %25, %7
-  %38 = fcmp nsz oge float %13, 0.000000e+00
-  %39 = fneg nsz float %13
-  %40 = select nsz i1 %38, float %13, float %39
-  %41 = fcmp nsz ogt float %40, 0x3FE276C8C0000000
-  %42 = fneg nsz float %18
-  br i1 %41, label %43, label %.thread61.i.i
+.thread.i.i:                                      ; preds = %25, %7
+  %35 = fcmp nsz oge float %13, 0.000000e+00
+  %36 = fneg nsz float %13
+  %37 = select nsz i1 %35, float %13, float %36
+  %38 = fcmp nsz ogt float %37, 0x3FE276C8C0000000
+  %39 = fneg nsz float %18
+  br i1 %38, label %40, label %.thread61.i.i
 
-43:                                               ; preds = %.thread.i.i
-  %44 = fdiv nsz float %42, %13
-  %45 = fcmp nsz oge float %44, 0.000000e+00
-  %46 = fneg nsz float %44
-  %47 = select nsz i1 %45, float %44, float %46
-  %48 = fcmp nsz ugt float %47, 1.000000e+00
-  br i1 %48, label %.thread61.i.i, label %49
+40:                                               ; preds = %.thread.i.i
+  %41 = fdiv nsz float %39, %13
+  %42 = tail call nsz float @llvm.fabs.f32(float %41)
+  %43 = fcmp nsz ugt float %42, 1.000000e+00
+  br i1 %43, label %.thread61.i.i, label %44
 
-49:                                               ; preds = %43
-  %50 = fdiv nsz float %20, %40
-  %51 = fcmp nsz oge float %50, 0.000000e+00
-  %52 = fneg nsz float %50
-  %53 = select nsz i1 %51, float %50, float %52
-  %54 = fcmp nsz ugt float %53, 1.000000e+00
-  br i1 %54, label %.thread61.i.i, label %get_cubemap_face_map.exit.i
+44:                                               ; preds = %40
+  %45 = fdiv nsz float %20, %37
+  %46 = tail call nsz float @llvm.fabs.f32(float %45)
+  %47 = fcmp nsz ugt float %46, 1.000000e+00
+  br i1 %47, label %.thread61.i.i, label %get_cubemap_face_map.exit.i
 
-.thread61.i.i:                                    ; preds = %49, %43, %.thread.i.i
-  %55 = fdiv nsz float %13, %18
-  %56 = fcmp nsz oge float %18, 0.000000e+00
-  %57 = select nsz i1 %56, float %18, float %42
-  %58 = fdiv nsz float %22, %57
-  %59 = fcmp nsz ogt float %18, 0.000000e+00
-  br i1 %59, label %get_cubemap_face_map.exit.thread46.i, label %get_rotated_cubemap_map.exit
+.thread61.i.i:                                    ; preds = %44, %40, %.thread.i.i
+  %48 = fdiv nsz float %13, %18
+  %49 = fcmp nsz oge float %18, 0.000000e+00
+  %50 = select nsz i1 %49, float %18, float %39
+  %51 = fdiv nsz float %22, %50
+  %52 = fcmp nsz ogt float %18, 0.000000e+00
+  br i1 %52, label %get_cubemap_face_map.exit.thread46.i, label %get_rotated_cubemap_map.exit
 
-get_cubemap_face_map.exit.i:                      ; preds = %49
-  %60 = fcmp nsz ule float %13, 0.000000e+00
-  %61 = zext i1 %60 to i64
+get_cubemap_face_map.exit.i:                      ; preds = %44
+  %53 = fneg nsz float %45
+  %54 = fcmp nsz ule float %13, 0.000000e+00
+  %55 = zext i1 %54 to i64
   br label %get_cubemap_face_map.exit.thread46.i
 
 get_cubemap_face_map.exit.thread46.i:             ; preds = %get_cubemap_face_map.exit.i, %.thread61.i.i
-  %.2.i52.i = phi i64 [ %61, %get_cubemap_face_map.exit.i ], [ 4, %.thread61.i.i ]
-  %.151.i = phi float [ %52, %get_cubemap_face_map.exit.i ], [ %58, %.thread61.i.i ]
-  %.13750.i = phi float [ %44, %get_cubemap_face_map.exit.i ], [ %55, %.thread61.i.i ]
-  %62 = fneg nsz float %.151.i
+  %.2.i52.i = phi i64 [ %55, %get_cubemap_face_map.exit.i ], [ 4, %.thread61.i.i ]
+  %.151.i = phi float [ %53, %get_cubemap_face_map.exit.i ], [ %51, %.thread61.i.i ]
+  %.13750.i = phi float [ %41, %get_cubemap_face_map.exit.i ], [ %48, %.thread61.i.i ]
+  %56 = fneg nsz float %.151.i
   br label %get_rotated_cubemap_map.exit
 
 get_rotated_cubemap_map.exit:                     ; preds = %get_cubemap_face_map.exit.thread.thread.i, %.thread61.i.i, %get_cubemap_face_map.exit.thread46.i
   %.2.i45.i = phi i64 [ %.2.i4457.i, %get_cubemap_face_map.exit.thread.thread.i ], [ %.2.i52.i, %get_cubemap_face_map.exit.thread46.i ], [ 5, %.thread61.i.i ]
-  %.036.i = phi nsz float [ %28, %get_cubemap_face_map.exit.thread.thread.i ], [ %62, %get_cubemap_face_map.exit.thread46.i ], [ %55, %.thread61.i.i ]
-  %.0.i = phi nsz float [ %34, %get_cubemap_face_map.exit.thread.thread.i ], [ %.13750.i, %get_cubemap_face_map.exit.thread46.i ], [ %58, %.thread61.i.i ]
-  %63 = getelementptr inbounds nuw [6 x i32], ptr @get_rotated_cubemap_map.face_projection_map, i64 0, i64 %.2.i45.i
-  %64 = load i32, ptr %63, align 4, !tbaa !35
-  %65 = and i32 %64, 1
-  %66 = uitofp nneg i32 %65 to float
-  %67 = fmul nsz float %66, 5.000000e-01
-  %68 = ashr i32 %64, 1
-  %69 = sitofp i32 %68 to float
-  %70 = fmul nsz float %69, 0x3FD5555560000000
-  %71 = fdiv nsz float %.036.i, %9
-  %72 = fadd nsz float %71, 1.000000e+00
-  %73 = fmul nsz float %72, 2.500000e-01
-  %74 = fadd nsz float %73, %67
-  %75 = fdiv nsz float %.0.i, %9
-  %76 = fadd nsz float %75, 1.000000e+00
-  %77 = fdiv nsz float %76, 6.000000e+00
-  %78 = fadd nsz float %77, %70
+  %.036.i = phi nsz float [ %33, %get_cubemap_face_map.exit.thread.thread.i ], [ %56, %get_cubemap_face_map.exit.thread46.i ], [ %48, %.thread61.i.i ]
+  %.0.i = phi nsz float [ %34, %get_cubemap_face_map.exit.thread.thread.i ], [ %.13750.i, %get_cubemap_face_map.exit.thread46.i ], [ %51, %.thread61.i.i ]
+  %57 = getelementptr inbounds nuw [6 x i32], ptr @get_rotated_cubemap_map.face_projection_map, i64 0, i64 %.2.i45.i
+  %58 = load i32, ptr %57, align 4, !tbaa !35
+  %59 = and i32 %58, 1
+  %60 = uitofp nneg i32 %59 to float
+  %61 = fmul nsz float %60, 5.000000e-01
+  %62 = ashr i32 %58, 1
+  %63 = sitofp i32 %62 to float
+  %64 = fmul nsz float %63, 0x3FD5555560000000
+  %65 = fdiv nsz float %.036.i, %9
+  %66 = fadd nsz float %65, 1.000000e+00
+  %67 = fmul nsz float %66, 2.500000e-01
+  %68 = fadd nsz float %67, %61
+  %69 = fdiv nsz float %.0.i, %9
+  %70 = fadd nsz float %69, 1.000000e+00
+  %71 = fdiv nsz float %70, 6.000000e+00
+  %72 = fadd nsz float %71, %64
   br label %get_barrel_map.exit
 
-79:                                               ; preds = %4
-  %80 = tail call nsz float @llvm.cos.f32(float %0)
-  %81 = tail call nsz float @llvm.sin.f32(float %1)
-  %82 = fmul nsz float %80, %81
-  %83 = tail call nsz float @llvm.sin.f32(float %0)
-  %84 = tail call nsz float @llvm.cos.f32(float %1)
-  %85 = fmul nsz float %80, %84
-  %86 = fcmp nsz oge float %83, 0.000000e+00
-  %87 = fneg nsz float %83
-  %88 = select nsz i1 %86, float %83, float %87
-  %89 = fcmp nsz ogt float %88, 0x3FE276C8C0000000
-  br i1 %89, label %90, label %.thread.i.i15
+73:                                               ; preds = %4
+  %74 = tail call nsz float @llvm.cos.f32(float %0)
+  %75 = tail call nsz float @llvm.sin.f32(float %1)
+  %76 = fmul nsz float %74, %75
+  %77 = tail call nsz float @llvm.sin.f32(float %0)
+  %78 = tail call nsz float @llvm.cos.f32(float %1)
+  %79 = fmul nsz float %74, %78
+  %80 = fcmp nsz oge float %77, 0.000000e+00
+  %81 = fneg nsz float %77
+  %82 = select nsz i1 %80, float %77, float %81
+  %83 = fcmp nsz ogt float %82, 0x3FE276C8C0000000
+  br i1 %83, label %84, label %.thread.i.i15
 
-90:                                               ; preds = %79
-  %91 = fdiv nsz float %82, %88
-  %92 = fdiv nsz float %85, %83
-  %93 = fcmp nsz oge float %91, 0.000000e+00
-  %94 = fneg nsz float %91
-  %95 = select nsz i1 %93, float %91, float %94
-  %96 = fcmp nsz ugt float %95, 1.000000e+00
-  br i1 %96, label %.thread.i.i15, label %97
+84:                                               ; preds = %73
+  %85 = fdiv nsz float %76, %82
+  %86 = fdiv nsz float %79, %77
+  %87 = tail call nsz float @llvm.fabs.f32(float %85)
+  %88 = fcmp nsz ugt float %87, 1.000000e+00
+  %89 = tail call nsz float @llvm.fabs.f32(float %86)
+  %90 = fcmp nsz ugt float %89, 1.000000e+00
+  %or.cond.i.i19 = or i1 %90, %88
+  br i1 %or.cond.i.i19, label %.thread.i.i15, label %91
 
-97:                                               ; preds = %90
-  %98 = fcmp nsz oge float %92, 0.000000e+00
-  %99 = fneg nsz float %92
-  %100 = select nsz i1 %98, float %92, float %99
-  %101 = fcmp nsz ugt float %100, 1.000000e+00
-  br i1 %101, label %.thread.i.i15, label %102
-
-102:                                              ; preds = %97
-  %103 = fcmp nsz ogt float %83, 0.000000e+00
-  %104 = select i1 %103, i64 2, i64 3
+91:                                               ; preds = %84
+  %92 = fcmp nsz ogt float %77, 0.000000e+00
+  %93 = select i1 %92, i64 2, i64 3
   br label %get_cubemap32_map.exit
 
-.thread.i.i15:                                    ; preds = %97, %90, %79
-  %105 = fcmp nsz oge float %82, 0.000000e+00
-  %106 = fneg nsz float %82
-  %107 = select nsz i1 %105, float %82, float %106
-  %108 = fcmp nsz ogt float %107, 0x3FE276C8C0000000
-  %109 = fneg nsz float %85
-  br i1 %108, label %110, label %.thread61.i.i16
+.thread.i.i15:                                    ; preds = %84, %73
+  %94 = fcmp nsz oge float %76, 0.000000e+00
+  %95 = fneg nsz float %76
+  %96 = select nsz i1 %94, float %76, float %95
+  %97 = fcmp nsz ogt float %96, 0x3FE276C8C0000000
+  %98 = fneg nsz float %79
+  br i1 %97, label %99, label %.thread61.i.i16
 
-110:                                              ; preds = %.thread.i.i15
-  %111 = fdiv nsz float %109, %82
-  %112 = fcmp nsz oge float %111, 0.000000e+00
-  %113 = fneg nsz float %111
-  %114 = select nsz i1 %112, float %111, float %113
-  %115 = fcmp nsz ugt float %114, 1.000000e+00
-  br i1 %115, label %.thread61.i.i16, label %116
+99:                                               ; preds = %.thread.i.i15
+  %100 = fdiv nsz float %98, %76
+  %101 = tail call nsz float @llvm.fabs.f32(float %100)
+  %102 = fcmp nsz ugt float %101, 1.000000e+00
+  br i1 %102, label %.thread61.i.i16, label %103
 
-116:                                              ; preds = %110
-  %117 = fdiv nsz float %83, %107
-  %118 = fcmp nsz oge float %117, 0.000000e+00
-  %119 = fneg nsz float %117
-  %120 = select nsz i1 %118, float %117, float %119
-  %121 = fcmp nsz ugt float %120, 1.000000e+00
-  br i1 %121, label %.thread61.i.i16, label %122
+103:                                              ; preds = %99
+  %104 = fdiv nsz float %77, %96
+  %105 = tail call nsz float @llvm.fabs.f32(float %104)
+  %106 = fcmp nsz ugt float %105, 1.000000e+00
+  br i1 %106, label %.thread61.i.i16, label %107
 
-122:                                              ; preds = %116
-  %123 = fcmp nsz ule float %82, 0.000000e+00
-  %124 = zext i1 %123 to i64
+107:                                              ; preds = %103
+  %108 = fneg nsz float %104
+  %109 = fcmp nsz ule float %76, 0.000000e+00
+  %110 = zext i1 %109 to i64
   br label %get_cubemap32_map.exit
 
-.thread61.i.i16:                                  ; preds = %116, %110, %.thread.i.i15
-  %125 = fdiv nsz float %82, %85
-  %126 = fcmp nsz oge float %85, 0.000000e+00
-  %127 = select nsz i1 %126, float %85, float %109
-  %128 = fdiv nsz float %87, %127
-  %129 = fcmp nsz ogt float %85, 0.000000e+00
-  %130 = select i1 %129, i64 4, i64 5
+.thread61.i.i16:                                  ; preds = %103, %99, %.thread.i.i15
+  %111 = fdiv nsz float %76, %79
+  %112 = fcmp nsz oge float %79, 0.000000e+00
+  %113 = select nsz i1 %112, float %79, float %98
+  %114 = fdiv nsz float %81, %113
+  %115 = fcmp nsz ogt float %79, 0.000000e+00
+  %116 = select i1 %115, i64 4, i64 5
   br label %get_cubemap32_map.exit
 
-get_cubemap32_map.exit:                           ; preds = %102, %122, %.thread61.i.i16
-  %.014.i = phi nsz float [ %125, %.thread61.i.i16 ], [ %111, %122 ], [ %91, %102 ]
-  %.0.i18 = phi nsz float [ %128, %.thread61.i.i16 ], [ %119, %122 ], [ %92, %102 ]
-  %.2.i.i = phi i64 [ %130, %.thread61.i.i16 ], [ %124, %122 ], [ %104, %102 ]
-  %131 = getelementptr inbounds nuw [6 x i32], ptr @get_cubemap32_map.face_projection_map, i64 0, i64 %.2.i.i
-  %132 = load i32, ptr %131, align 4, !tbaa !35
-  %133 = srem i32 %132, 3
-  %134 = sitofp i32 %133 to float
-  %135 = fmul nsz float %134, 0x3FD5555560000000
-  %136 = sdiv i32 %132, 3
-  %137 = sitofp i32 %136 to float
-  %138 = fmul nsz float %137, 5.000000e-01
-  %139 = fdiv nsz float %.014.i, 0x3FF028F5C0000000
-  %140 = fadd nsz float %139, 1.000000e+00
-  %141 = fdiv nsz float %140, 6.000000e+00
-  %142 = fadd nsz float %141, %135
-  %143 = fdiv nsz float %.0.i18, 0x3FF028F5C0000000
-  %144 = fadd nsz float %143, 1.000000e+00
-  %145 = fmul nsz float %144, 2.500000e-01
-  %146 = fadd nsz float %145, %138
+get_cubemap32_map.exit:                           ; preds = %91, %107, %.thread61.i.i16
+  %.014.i = phi nsz float [ %111, %.thread61.i.i16 ], [ %100, %107 ], [ %85, %91 ]
+  %.0.i18 = phi nsz float [ %114, %.thread61.i.i16 ], [ %108, %107 ], [ %86, %91 ]
+  %.2.i.i = phi i64 [ %116, %.thread61.i.i16 ], [ %110, %107 ], [ %93, %91 ]
+  %117 = getelementptr inbounds nuw [6 x i32], ptr @get_cubemap32_map.face_projection_map, i64 0, i64 %.2.i.i
+  %118 = load i32, ptr %117, align 4, !tbaa !35
+  %119 = srem i32 %118, 3
+  %120 = sitofp i32 %119 to float
+  %121 = fmul nsz float %120, 0x3FD5555560000000
+  %122 = sdiv i32 %118, 3
+  %123 = sitofp i32 %122 to float
+  %124 = fmul nsz float %123, 5.000000e-01
+  %125 = fdiv nsz float %.014.i, 0x3FF028F5C0000000
+  %126 = fadd nsz float %125, 1.000000e+00
+  %127 = fdiv nsz float %126, 6.000000e+00
+  %128 = fadd nsz float %127, %121
+  %129 = fdiv nsz float %.0.i18, 0x3FF028F5C0000000
+  %130 = fadd nsz float %129, 1.000000e+00
+  %131 = fmul nsz float %130, 2.500000e-01
+  %132 = fadd nsz float %131, %124
   br label %get_barrel_map.exit
 
-147:                                              ; preds = %4
-  %148 = fcmp nsz oge float %0, 0.000000e+00
-  %149 = fneg nsz float %0
-  %150 = select nsz i1 %148, float %0, float %149
-  %151 = fcmp nsz ugt float %150, 0x3FE921FB60000000
-  br i1 %151, label %158, label %152
+133:                                              ; preds = %4
+  %134 = fcmp nsz oge float %0, 0.000000e+00
+  %135 = fneg nsz float %0
+  %136 = select nsz i1 %134, float %0, float %135
+  %137 = fcmp nsz ugt float %136, 0x3FE921FB60000000
+  br i1 %137, label %144, label %138
 
-152:                                              ; preds = %147
-  %153 = fdiv nsz float %1, 0x4019625260000000
-  %154 = fadd nsz float %153, 5.000000e-01
-  %155 = fmul nsz float %154, 0x3FE99999A0000000
-  %156 = fdiv nsz float %0, 0x3FF9625260000000
-  %157 = fsub nsz float 5.000000e-01, %156
+138:                                              ; preds = %133
+  %139 = fdiv nsz float %1, 0x4019625260000000
+  %140 = fadd nsz float %139, 5.000000e-01
+  %141 = fmul nsz float %140, 0x3FE99999A0000000
+  %142 = fdiv nsz float %0, 0x3FF9625260000000
+  %143 = fsub nsz float 5.000000e-01, %142
   br label %get_barrel_map.exit
 
-158:                                              ; preds = %147
-  %159 = tail call nsz float @llvm.cos.f32(float %150)
-  %160 = tail call nsz float @llvm.sin.f32(float %150)
-  %161 = fmul nsz float %160, 0x3FF028F5C0000000
-  %162 = fdiv nsz float %159, %161
-  %163 = tail call nsz float @llvm.sin.f32(float %1)
-  %164 = fmul nsz float %163, %162
-  %165 = tail call nsz float @llvm.cos.f32(float %1)
-  %166 = fmul nsz float %165, %162
-  %167 = fcmp nsz olt float %0, 0.000000e+00
-  %168 = fneg nsz float %166
-  %.022.i = select nsz i1 %167, float %168, float %166
-  %.0.i19 = select nsz i1 %167, float 7.500000e-01, float 2.500000e-01
-  %169 = fadd nsz float %164, 1.000000e+00
-  %170 = tail call nsz float @llvm.fmuladd.f32(float %169, float 0x3FB99999A0000000, float 0x3FE99999A0000000)
-  %171 = tail call nsz float @llvm.fmuladd.f32(float %.022.i, float 2.500000e-01, float %.0.i19)
+144:                                              ; preds = %133
+  %145 = tail call nsz float @llvm.cos.f32(float %136)
+  %146 = tail call nsz float @llvm.sin.f32(float %136)
+  %147 = fmul nsz float %146, 0x3FF028F5C0000000
+  %148 = fdiv nsz float %145, %147
+  %149 = tail call nsz float @llvm.sin.f32(float %1)
+  %150 = fmul nsz float %149, %148
+  %151 = tail call nsz float @llvm.cos.f32(float %1)
+  %152 = fmul nsz float %151, %148
+  %153 = fcmp nsz olt float %0, 0.000000e+00
+  %154 = fneg nsz float %152
+  %.022.i = select nsz i1 %153, float %154, float %152
+  %.0.i20 = select nsz i1 %153, float 7.500000e-01, float 2.500000e-01
+  %155 = fadd nsz float %150, 1.000000e+00
+  %156 = tail call nsz float @llvm.fmuladd.f32(float %155, float 0x3FB99999A0000000, float 0x3FE99999A0000000)
+  %157 = tail call nsz float @llvm.fmuladd.f32(float %.022.i, float 2.500000e-01, float %.0.i20)
   br label %get_barrel_map.exit
 
-172:                                              ; preds = %4
-  %173 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %174 = load float, ptr %173, align 4, !tbaa !144
-  %175 = fcmp nsz oge float %0, 0.000000e+00
-  %176 = fneg nsz float %0
-  %177 = select nsz i1 %175, float %0, float %176
-  %178 = fdiv nsz float %1, 0x400921FB60000000
-  %179 = fadd nsz float %178, 5.000000e-01
-  %180 = fcmp nsz olt float %179, 0.000000e+00
-  %181 = fadd nsz float %179, 2.000000e+00
-  %.040.i = select nsz i1 %180, float %181, float %179
-  %182 = fcmp nsz oge float %.040.i, 1.000000e+00
-  %183 = fcmp nsz ugt float %177, 0x3FE921FB60000000
-  br i1 %183, label %195, label %184
+158:                                              ; preds = %4
+  %159 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %160 = load float, ptr %159, align 4, !tbaa !144
+  %161 = fcmp nsz oge float %0, 0.000000e+00
+  %162 = fneg nsz float %0
+  %163 = select nsz i1 %161, float %0, float %162
+  %164 = fdiv nsz float %1, 0x400921FB60000000
+  %165 = fadd nsz float %164, 5.000000e-01
+  %166 = fcmp nsz olt float %165, 0.000000e+00
+  %167 = fadd nsz float %165, 2.000000e+00
+  %.040.i = select nsz i1 %166, float %167, float %165
+  %168 = fcmp nsz oge float %.040.i, 1.000000e+00
+  %169 = fcmp nsz ugt float %163, 0x3FE921FB60000000
+  br i1 %169, label %181, label %170
 
-184:                                              ; preds = %172
-  %185 = uitofp i1 %182 to float
-  %186 = fsub nsz float %.040.i, %185
-  %187 = fadd nsz float %186, -5.000000e-01
-  %188 = fdiv nsz float %187, %174
-  %189 = fadd nsz float %188, 5.000000e-01
-  %190 = fmul nsz float %189, 0x3FE5555560000000
-  %191 = tail call nsz float @llvm.fmuladd.f32(float %185, float 5.000000e-01, float 2.500000e-01)
-  %192 = fmul nsz float %174, 0x400921FB60000000
-  %193 = fdiv nsz float %0, %192
-  %194 = fsub nsz float %191, %193
+170:                                              ; preds = %158
+  %171 = uitofp i1 %168 to float
+  %172 = fsub nsz float %.040.i, %171
+  %173 = fadd nsz float %172, -5.000000e-01
+  %174 = fdiv nsz float %173, %160
+  %175 = fadd nsz float %174, 5.000000e-01
+  %176 = fmul nsz float %175, 0x3FE5555560000000
+  %177 = tail call nsz float @llvm.fmuladd.f32(float %171, float 5.000000e-01, float 2.500000e-01)
+  %178 = fmul nsz float %160, 0x400921FB60000000
+  %179 = fdiv nsz float %0, %178
+  %180 = fsub nsz float %177, %179
   br label %get_barrel_map.exit
 
-195:                                              ; preds = %172
-  %196 = tail call nsz float @llvm.cos.f32(float %177)
-  %197 = tail call nsz float @llvm.sin.f32(float %177)
-  %198 = fmul nsz float %197, %174
-  %199 = fdiv nsz float %196, %198
-  %200 = tail call nsz float @llvm.sin.f32(float %1)
-  %201 = fmul nsz float %200, %199
-  %202 = tail call nsz float @llvm.cos.f32(float %1)
-  %203 = fmul nsz float %202, %199
-  br i1 %182, label %204, label %211
+181:                                              ; preds = %158
+  %182 = tail call nsz float @llvm.cos.f32(float %163)
+  %183 = tail call nsz float @llvm.sin.f32(float %163)
+  %184 = fmul nsz float %183, %160
+  %185 = fdiv nsz float %182, %184
+  %186 = tail call nsz float @llvm.sin.f32(float %1)
+  %187 = fmul nsz float %186, %185
+  %188 = tail call nsz float @llvm.cos.f32(float %1)
+  %189 = fmul nsz float %188, %185
+  br i1 %168, label %190, label %197
 
-204:                                              ; preds = %195
-  %205 = fneg nsz float %201
-  %206 = fcmp nsz oge float %203, 0.000000e+00
-  %.v.i = select i1 %206, float 1.000000e+00, float -1.000000e+00
-  %207 = fsub nsz float %.v.i, %203
-  %208 = fcmp nsz olt float %0, 0.000000e+00
-  br i1 %208, label %209, label %215
+190:                                              ; preds = %181
+  %191 = fneg nsz float %187
+  %192 = fcmp nsz oge float %189, 0.000000e+00
+  %.v.i = select i1 %192, float 1.000000e+00, float -1.000000e+00
+  %193 = fsub nsz float %.v.i, %189
+  %194 = fcmp nsz olt float %0, 0.000000e+00
+  br i1 %194, label %195, label %201
 
-209:                                              ; preds = %204
-  %210 = fneg nsz float %207
-  br label %215
+195:                                              ; preds = %190
+  %196 = fneg nsz float %193
+  br label %201
 
-211:                                              ; preds = %195
-  %212 = fcmp nsz olt float %0, 0.000000e+00
-  br i1 %212, label %213, label %215
+197:                                              ; preds = %181
+  %198 = fcmp nsz olt float %0, 0.000000e+00
+  br i1 %198, label %199, label %201
 
-213:                                              ; preds = %211
-  %214 = fneg nsz float %203
-  br label %215
+199:                                              ; preds = %197
+  %200 = fneg nsz float %189
+  br label %201
 
-215:                                              ; preds = %213, %211, %209, %204
-  %.039.i = phi nsz float [ %205, %209 ], [ %205, %204 ], [ %201, %213 ], [ %201, %211 ]
-  %.038.i = phi nsz float [ %210, %209 ], [ %207, %204 ], [ %214, %213 ], [ %203, %211 ]
-  %.0.i21 = phi nsz float [ 7.500000e-01, %209 ], [ 7.500000e-01, %204 ], [ 2.500000e-01, %213 ], [ 2.500000e-01, %211 ]
-  %216 = fadd nsz float %.039.i, 1.000000e+00
-  %217 = tail call nsz float @llvm.fmuladd.f32(float %216, float 0x3FC5555560000000, float 0x3FE5555560000000)
-  %218 = fmul nsz float %.038.i, 2.500000e-01
-  %219 = fdiv nsz float %218, %174
-  %220 = fadd nsz float %.0.i21, %219
+201:                                              ; preds = %199, %197, %195, %190
+  %.039.i = phi nsz float [ %191, %195 ], [ %191, %190 ], [ %187, %199 ], [ %187, %197 ]
+  %.038.i = phi nsz float [ %196, %195 ], [ %193, %190 ], [ %200, %199 ], [ %189, %197 ]
+  %.0.i22 = phi nsz float [ 7.500000e-01, %195 ], [ 7.500000e-01, %190 ], [ 2.500000e-01, %199 ], [ 2.500000e-01, %197 ]
+  %202 = fadd nsz float %.039.i, 1.000000e+00
+  %203 = tail call nsz float @llvm.fmuladd.f32(float %202, float 0x3FC5555560000000, float 0x3FE5555560000000)
+  %204 = fmul nsz float %.038.i, 2.500000e-01
+  %205 = fdiv nsz float %204, %160
+  %206 = fadd nsz float %.0.i22, %205
   br label %get_barrel_map.exit
 
-221:                                              ; preds = %4
-  %222 = fdiv nsz float %1, 0x401921FB60000000
-  %223 = fadd nsz float %222, 5.000000e-01
-  %224 = fdiv nsz float %0, 0x400921FB60000000
-  %225 = fsub nsz float 5.000000e-01, %224
+207:                                              ; preds = %4
+  %208 = fdiv nsz float %1, 0x401921FB60000000
+  %209 = fadd nsz float %208, 5.000000e-01
+  %210 = fdiv nsz float %0, 0x400921FB60000000
+  %211 = fsub nsz float 5.000000e-01, %210
   br label %get_barrel_map.exit
 
-get_barrel_map.exit:                              ; preds = %215, %184, %158, %152, %221, %get_cubemap32_map.exit, %get_rotated_cubemap_map.exit
-  %.023 = phi nsz float [ %223, %221 ], [ %142, %get_cubemap32_map.exit ], [ %74, %get_rotated_cubemap_map.exit ], [ %170, %158 ], [ %155, %152 ], [ %217, %215 ], [ %190, %184 ]
-  %.0 = phi nsz float [ %225, %221 ], [ %146, %get_cubemap32_map.exit ], [ %78, %get_rotated_cubemap_map.exit ], [ %171, %158 ], [ %157, %152 ], [ %220, %215 ], [ %194, %184 ]
-  %226 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %227 = load i32, ptr %226, align 4, !tbaa !141
-  %228 = sitofp i32 %227 to float
-  %229 = fmul nsz float %.023, %228
-  %230 = fcmp nsz ogt float %229, 0.000000e+00
-  %231 = select nsz i1 %230, float %229, float 0.000000e+00
-  %232 = fcmp nsz ogt float %231, %228
-  %..i.i = select nsz i1 %232, float %228, float %231
-  %233 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %234 = load i32, ptr %233, align 4, !tbaa !139
-  %235 = sitofp i32 %234 to float
-  %236 = fadd nsz float %..i.i, %235
-  %237 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %238 = load i32, ptr %237, align 4, !tbaa !142
-  %239 = sitofp i32 %238 to float
-  %240 = fmul nsz float %.0, %239
-  %241 = fcmp nsz ogt float %240, 0.000000e+00
-  %242 = select nsz i1 %241, float %240, float 0.000000e+00
-  %243 = fcmp nsz ogt float %242, %239
-  %..i51.i = select nsz i1 %243, float %239, float %242
-  %244 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %245 = load i32, ptr %244, align 4, !tbaa !140
-  %246 = sitofp i32 %245 to float
-  %247 = fadd nsz float %..i51.i, %246
-  %248 = fptosi float %236 to i32
-  %249 = fptosi float %247 to i32
-  %250 = sitofp i32 %248 to float
-  %251 = fsub nsz float %236, %250
-  %252 = sitofp i32 %249 to float
-  %253 = fsub nsz float %247, %252
-  %254 = fpext nsz float %251 to double
-  %255 = fcmp nsz ogt double %254, 0x3EB0C6F7A0B5ED8D
-  %256 = zext i1 %255 to i32
-  %257 = add nsw i32 %256, %248
-  %258 = fpext nsz float %253 to double
-  %259 = fcmp nsz ogt double %258, 0x3EB0C6F7A0B5ED8D
-  %260 = zext i1 %259 to i32
-  %261 = add nsw i32 %260, %249
-  %262 = fsub nsz float 1.000000e+00, %251
-  %263 = fsub nsz float 1.000000e+00, %253
-  %264 = load i32, ptr %2, align 4, !tbaa !135
-  %265 = mul nsw i32 %264, %249
-  %266 = add nsw i32 %265, %248
-  store i32 %266, ptr %3, align 4, !tbaa !164
-  %267 = add nsw i32 %257, %265
-  %268 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %267, ptr %268, align 4, !tbaa !166
-  %269 = mul nsw i32 %261, %264
-  %270 = add nsw i32 %269, %248
-  %271 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %270, ptr %271, align 4, !tbaa !167
-  %272 = add nsw i32 %269, %257
-  %273 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %272, ptr %273, align 4, !tbaa !168
-  %274 = fmul nsz float %262, %263
-  %275 = fmul nsz float %274, 6.553600e+04
-  %276 = fptosi float %275 to i32
-  %277 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 %276, ptr %277, align 4, !tbaa !169
-  %278 = fmul nsz float %251, %263
-  %279 = fmul nsz float %278, 6.553600e+04
-  %280 = fptosi float %279 to i32
-  %281 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 %280, ptr %281, align 4, !tbaa !170
-  %282 = fmul nsz float %262, %253
-  %283 = fmul nsz float %282, 6.553600e+04
-  %284 = fptosi float %283 to i32
-  %285 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 %284, ptr %285, align 4, !tbaa !171
-  %286 = fmul nsz float %251, %253
-  %287 = fmul nsz float %286, 6.553600e+04
-  %288 = fptosi float %287 to i32
-  %289 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  store i32 %288, ptr %289, align 4, !tbaa !172
+get_barrel_map.exit:                              ; preds = %201, %170, %144, %138, %207, %get_cubemap32_map.exit, %get_rotated_cubemap_map.exit
+  %.024 = phi nsz float [ %209, %207 ], [ %128, %get_cubemap32_map.exit ], [ %68, %get_rotated_cubemap_map.exit ], [ %156, %144 ], [ %141, %138 ], [ %203, %201 ], [ %176, %170 ]
+  %.0 = phi nsz float [ %211, %207 ], [ %132, %get_cubemap32_map.exit ], [ %72, %get_rotated_cubemap_map.exit ], [ %157, %144 ], [ %143, %138 ], [ %206, %201 ], [ %180, %170 ]
+  %212 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %213 = load i32, ptr %212, align 4, !tbaa !141
+  %214 = sitofp i32 %213 to float
+  %215 = fmul nsz float %.024, %214
+  %216 = fcmp nsz ogt float %215, 0.000000e+00
+  %217 = select nsz i1 %216, float %215, float 0.000000e+00
+  %218 = fcmp nsz ogt float %217, %214
+  %..i.i = select nsz i1 %218, float %214, float %217
+  %219 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %220 = load i32, ptr %219, align 4, !tbaa !139
+  %221 = sitofp i32 %220 to float
+  %222 = fadd nsz float %..i.i, %221
+  %223 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %224 = load i32, ptr %223, align 4, !tbaa !142
+  %225 = sitofp i32 %224 to float
+  %226 = fmul nsz float %.0, %225
+  %227 = fcmp nsz ogt float %226, 0.000000e+00
+  %228 = select nsz i1 %227, float %226, float 0.000000e+00
+  %229 = fcmp nsz ogt float %228, %225
+  %..i51.i = select nsz i1 %229, float %225, float %228
+  %230 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %231 = load i32, ptr %230, align 4, !tbaa !140
+  %232 = sitofp i32 %231 to float
+  %233 = fadd nsz float %..i51.i, %232
+  %234 = fptosi float %222 to i32
+  %235 = fptosi float %233 to i32
+  %236 = sitofp i32 %234 to float
+  %237 = fsub nsz float %222, %236
+  %238 = sitofp i32 %235 to float
+  %239 = fsub nsz float %233, %238
+  %240 = fpext nsz float %237 to double
+  %241 = fcmp nsz ogt double %240, 0x3EB0C6F7A0B5ED8D
+  %242 = zext i1 %241 to i32
+  %243 = add nsw i32 %242, %234
+  %244 = fpext nsz float %239 to double
+  %245 = fcmp nsz ogt double %244, 0x3EB0C6F7A0B5ED8D
+  %246 = zext i1 %245 to i32
+  %247 = add nsw i32 %246, %235
+  %248 = fsub nsz float 1.000000e+00, %237
+  %249 = fsub nsz float 1.000000e+00, %239
+  %250 = load i32, ptr %2, align 4, !tbaa !135
+  %251 = mul nsw i32 %250, %235
+  %252 = add nsw i32 %251, %234
+  store i32 %252, ptr %3, align 4, !tbaa !164
+  %253 = add nsw i32 %243, %251
+  %254 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %253, ptr %254, align 4, !tbaa !166
+  %255 = mul nsw i32 %247, %250
+  %256 = add nsw i32 %255, %234
+  %257 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %256, ptr %257, align 4, !tbaa !167
+  %258 = add nsw i32 %255, %243
+  %259 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 %258, ptr %259, align 4, !tbaa !168
+  %260 = fmul nsz float %248, %249
+  %261 = fmul nsz float %260, 6.553600e+04
+  %262 = fptosi float %261 to i32
+  %263 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i32 %262, ptr %263, align 4, !tbaa !169
+  %264 = fmul nsz float %237, %249
+  %265 = fmul nsz float %264, 6.553600e+04
+  %266 = fptosi float %265 to i32
+  %267 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  store i32 %266, ptr %267, align 4, !tbaa !170
+  %268 = fmul nsz float %248, %239
+  %269 = fmul nsz float %268, 6.553600e+04
+  %270 = fptosi float %269 to i32
+  %271 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i32 %270, ptr %271, align 4, !tbaa !171
+  %272 = fmul nsz float %237, %239
+  %273 = fmul nsz float %272, 6.553600e+04
+  %274 = fptosi float %273 to i32
+  %275 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  store i32 %274, ptr %275, align 4, !tbaa !172
   ret void
 }
 
@@ -3784,6 +3768,9 @@ declare void @ff_framesync_uninit(ptr noundef) local_unnamed_addr #3
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare i32 @ff_framesync_activate(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14

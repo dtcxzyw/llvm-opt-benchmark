@@ -143797,107 +143797,103 @@ define linkonce_odr hidden void @_ZNK5boost10test_tools16check_is_close_tclIddNS
   br i1 %or.cond.i.i, label %_ZN5boost4math3fpc10fpc_detail17safe_fpt_divisionIdEET_S4_S4_.exit.i, label %17
 
 17:                                               ; preds = %5
-  %18 = fcmp olt double %10, 0.000000e+00
-  %19 = fneg double %10
-  %20 = select i1 %18, double %19, double %10
-  %21 = fcmp ugt double %20, 0x10000000000000
-  br i1 %21, label %22, label %_ZN5boost4math3fpc10fpc_detail17safe_fpt_divisionIdEET_S4_S4_.exit.i
+  %18 = tail call double @llvm.fabs.f64(double %7)
+  %19 = fcmp ugt double %18, 0x10000000000000
+  br i1 %19, label %20, label %_ZN5boost4math3fpc10fpc_detail17safe_fpt_divisionIdEET_S4_S4_.exit.i
 
-22:                                               ; preds = %17
-  %23 = fcmp ogt double %13, 1.000000e+00
-  %24 = fmul double %13, 0x10000000000000
-  %25 = fcmp olt double %10, %24
-  %or.cond13.i.i = and i1 %23, %25
-  br i1 %or.cond13.i.i, label %_ZN5boost4math3fpc10fpc_detail17safe_fpt_divisionIdEET_S4_S4_.exit.i, label %26
+20:                                               ; preds = %17
+  %21 = fcmp ogt double %13, 1.000000e+00
+  %22 = fmul double %13, 0x10000000000000
+  %23 = fcmp olt double %10, %22
+  %or.cond13.i.i = and i1 %21, %23
+  br i1 %or.cond13.i.i, label %_ZN5boost4math3fpc10fpc_detail17safe_fpt_divisionIdEET_S4_S4_.exit.i, label %24
 
-26:                                               ; preds = %22
-  %27 = fdiv double %10, %13
+24:                                               ; preds = %20
+  %25 = fdiv double %10, %13
   br label %_ZN5boost4math3fpc10fpc_detail17safe_fpt_divisionIdEET_S4_S4_.exit.i
 
-_ZN5boost4math3fpc10fpc_detail17safe_fpt_divisionIdEET_S4_S4_.exit.i: ; preds = %26, %22, %17, %5
-  %.0.i.i = phi double [ %27, %26 ], [ 0.000000e+00, %17 ], [ 0x7FEFFFFFFFFFFFFF, %5 ], [ 0.000000e+00, %22 ]
-  %28 = fcmp olt double %2, 0.000000e+00
-  %29 = fneg double %2
-  %30 = select i1 %28, double %29, double %2
-  %31 = fcmp olt double %30, 1.000000e+00
-  %32 = fmul double %30, 0x7FEFFFFFFFFFFFFF
-  %33 = fcmp ogt double %10, %32
-  %or.cond.i9.i = and i1 %31, %33
-  br i1 %or.cond.i9.i, label %45, label %34
+_ZN5boost4math3fpc10fpc_detail17safe_fpt_divisionIdEET_S4_S4_.exit.i: ; preds = %24, %20, %17, %5
+  %.0.i.i = phi double [ %25, %24 ], [ 0.000000e+00, %17 ], [ 0x7FEFFFFFFFFFFFFF, %5 ], [ 0.000000e+00, %20 ]
+  %26 = fcmp olt double %2, 0.000000e+00
+  %27 = fneg double %2
+  %28 = select i1 %26, double %27, double %2
+  %29 = fcmp olt double %28, 1.000000e+00
+  %30 = fmul double %28, 0x7FEFFFFFFFFFFFFF
+  %31 = fcmp ogt double %10, %30
+  %or.cond.i9.i = and i1 %29, %31
+  br i1 %or.cond.i9.i, label %41, label %32
 
-34:                                               ; preds = %_ZN5boost4math3fpc10fpc_detail17safe_fpt_divisionIdEET_S4_S4_.exit.i
-  %35 = fcmp olt double %10, 0.000000e+00
-  %36 = fneg double %10
-  %37 = select i1 %35, double %36, double %10
-  %38 = fcmp ugt double %37, 0x10000000000000
-  br i1 %38, label %39, label %45
+32:                                               ; preds = %_ZN5boost4math3fpc10fpc_detail17safe_fpt_divisionIdEET_S4_S4_.exit.i
+  %33 = tail call double @llvm.fabs.f64(double %7)
+  %34 = fcmp ugt double %33, 0x10000000000000
+  br i1 %34, label %35, label %41
 
-39:                                               ; preds = %34
-  %40 = fcmp ogt double %30, 1.000000e+00
-  %41 = fmul double %30, 0x10000000000000
-  %42 = fcmp olt double %10, %41
-  %or.cond13.i11.i = and i1 %40, %42
-  br i1 %or.cond13.i11.i, label %45, label %43
+35:                                               ; preds = %32
+  %36 = fcmp ogt double %28, 1.000000e+00
+  %37 = fmul double %28, 0x10000000000000
+  %38 = fcmp olt double %10, %37
+  %or.cond13.i11.i = and i1 %36, %38
+  br i1 %or.cond13.i11.i, label %41, label %39
 
-43:                                               ; preds = %39
-  %44 = fdiv double %10, %30
-  br label %45
+39:                                               ; preds = %35
+  %40 = fdiv double %10, %28
+  br label %41
 
-45:                                               ; preds = %43, %39, %34, %_ZN5boost4math3fpc10fpc_detail17safe_fpt_divisionIdEET_S4_S4_.exit.i
-  %.0.i10.i = phi double [ %44, %43 ], [ 0.000000e+00, %34 ], [ 0x7FEFFFFFFFFFFFFF, %_ZN5boost4math3fpc10fpc_detail17safe_fpt_divisionIdEET_S4_S4_.exit.i ], [ 0.000000e+00, %39 ]
-  %46 = fcmp olt double %.0.i10.i, %.0.i.i
-  %.sroa.speculated17.i = select i1 %46, double %.0.i.i, double %.0.i10.i
-  %47 = fcmp ole double %.sroa.speculated17.i, %6
-  %48 = zext i1 %47 to i8
-  store i8 %48, ptr %0, align 8, !tbaa !395
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
-  br i1 %47, label %_ZN5boostlsIcdEERNS_23basic_wrap_stringstreamIT_EES4_RKT0_.exit, label %50
+41:                                               ; preds = %39, %35, %32, %_ZN5boost4math3fpc10fpc_detail17safe_fpt_divisionIdEET_S4_S4_.exit.i
+  %.0.i10.i = phi double [ %40, %39 ], [ 0.000000e+00, %32 ], [ 0x7FEFFFFFFFFFFFFF, %_ZN5boost4math3fpc10fpc_detail17safe_fpt_divisionIdEET_S4_S4_.exit.i ], [ 0.000000e+00, %35 ]
+  %42 = fcmp olt double %.0.i10.i, %.0.i.i
+  %.sroa.speculated17.i = select i1 %42, double %.0.i.i, double %.0.i10.i
+  %43 = fcmp ole double %.sroa.speculated17.i, %6
+  %44 = zext i1 %43 to i8
+  store i8 %44, ptr %0, align 8, !tbaa !395
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
+  br i1 %43, label %_ZN5boostlsIcdEERNS_23basic_wrap_stringstreamIT_EES4_RKT0_.exit, label %46
 
-50:                                               ; preds = %45
-  %51 = invoke noalias noundef nonnull dereferenceable(408) ptr @_Znwm(i64 noundef 408) #58
-          to label %.noexc unwind label %59
+46:                                               ; preds = %41
+  %47 = invoke noalias noundef nonnull dereferenceable(408) ptr @_Znwm(i64 noundef 408) #58
+          to label %.noexc unwind label %55
 
-.noexc:                                           ; preds = %50
-  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(408) %51)
-          to label %52 unwind label %56
+.noexc:                                           ; preds = %46
+  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(408) %47)
+          to label %48 unwind label %52
+
+48:                                               ; preds = %.noexc
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 376
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 392
+  store ptr %50, ptr %49, align 8, !tbaa !92
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 384
+  store i64 0, ptr %51, align 8, !tbaa !11
+  store i8 0, ptr %50, align 1, !tbaa !24
+  invoke void @_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull %47)
+          to label %_ZN5boost10test_tools16assertion_result7messageEv.exit unwind label %55
 
 52:                                               ; preds = %.noexc
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 376
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 392
-  store ptr %54, ptr %53, align 8, !tbaa !92
-  %55 = getelementptr inbounds nuw i8, ptr %51, i64 384
-  store i64 0, ptr %55, align 8, !tbaa !11
-  store i8 0, ptr %54, align 1, !tbaa !24
-  invoke void @_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEE5resetIS2_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull %51)
-          to label %_ZN5boost10test_tools16assertion_result7messageEv.exit unwind label %59
-
-56:                                               ; preds = %.noexc
-  %57 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %51, i64 noundef 408) #57
+  tail call void @_ZdlPvm(ptr noundef nonnull %47, i64 noundef 408) #57
   br label %.body
 
-_ZN5boost10test_tools16assertion_result7messageEv.exit: ; preds = %52
-  %.pre.i = load ptr, ptr %49, align 8, !tbaa !753
-  %58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(408) %.pre.i, double noundef %.sroa.speculated17.i)
-          to label %_ZN5boostlsIcdEERNS_23basic_wrap_stringstreamIT_EES4_RKT0_.exit unwind label %61
+_ZN5boost10test_tools16assertion_result7messageEv.exit: ; preds = %48
+  %.pre.i = load ptr, ptr %45, align 8, !tbaa !753
+  %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(408) %.pre.i, double noundef %.sroa.speculated17.i)
+          to label %_ZN5boostlsIcdEERNS_23basic_wrap_stringstreamIT_EES4_RKT0_.exit unwind label %57
 
-59:                                               ; preds = %52, %50
-  %60 = landingpad { ptr, i32 }
+55:                                               ; preds = %48, %46
+  %56 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-61:                                               ; preds = %_ZN5boost10test_tools16assertion_result7messageEv.exit
-  %62 = landingpad { ptr, i32 }
+57:                                               ; preds = %_ZN5boost10test_tools16assertion_result7messageEv.exit
+  %58 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZN5boostlsIcdEERNS_23basic_wrap_stringstreamIT_EES4_RKT0_.exit: ; preds = %_ZN5boost10test_tools16assertion_result7messageEv.exit, %45
+_ZN5boostlsIcdEERNS_23basic_wrap_stringstreamIT_EES4_RKT0_.exit: ; preds = %_ZN5boost10test_tools16assertion_result7messageEv.exit, %41
   ret void
 
-.body:                                            ; preds = %59, %56, %61
-  %.pn = phi { ptr, i32 } [ %62, %61 ], [ %60, %59 ], [ %57, %56 ]
+.body:                                            ; preds = %55, %52, %57
+  %.pn = phi { ptr, i32 } [ %58, %57 ], [ %56, %55 ], [ %53, %52 ]
   tail call void @_ZN5boost10test_tools16assertion_resultD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #55
   resume { ptr, i32 } %.pn
 }

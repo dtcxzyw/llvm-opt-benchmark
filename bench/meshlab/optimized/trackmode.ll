@@ -5296,58 +5296,56 @@ define range(i64 0, 8589934592) i64 @_ZN3vcg10trackutils15RayLineDistanceERKNS_4
   %16 = fneg float %15
   %17 = fmul float %15, %16
   %18 = tail call float @llvm.fmuladd.f32(float %9, float %12, float %17)
-  %19 = fcmp oge float %18, 0.000000e+00
-  %20 = fneg float %18
-  %21 = select i1 %19, float %18, float %20
-  %22 = fcmp olt float %21, 0x3EE4F8B580000000
-  br i1 %22, label %23, label %44
+  %19 = tail call float @llvm.fabs.f32(float %18)
+  %20 = fcmp olt float %19, 0x3EE4F8B580000000
+  br i1 %20, label %21, label %42
 
-23:                                               ; preds = %4
-  %24 = fsub float %.sroa.0133.0.copyload, %.sroa.0111.0.copyload
-  %25 = fsub float %.sroa.6138.0.copyload, %.sroa.4.0.copyload
-  %26 = fsub float %.sroa.10.0.copyload, %.sroa.7.0.copyload
-  %27 = fmul float %25, %.sroa.6.0.copyload
-  %28 = tail call float @llvm.fmuladd.f32(float %24, float %.sroa.098.0.copyload, float %27)
-  %29 = tail call noundef float @llvm.fmuladd.f32(float %26, float %.sroa.11.0.copyload, float %28)
-  %30 = fdiv float %29, %12
-  %31 = fmul float %.sroa.098.0.copyload, %30
-  %32 = fmul float %.sroa.6.0.copyload, %30
-  %33 = fmul float %.sroa.11.0.copyload, %30
-  %34 = fadd float %.sroa.0111.0.copyload, %31
-  %35 = fadd float %.sroa.4.0.copyload, %32
-  %36 = fadd float %.sroa.7.0.copyload, %33
-  %37 = fsub float %34, %.sroa.0133.0.copyload
-  %38 = fsub float %35, %.sroa.6138.0.copyload
-  %39 = fsub float %36, %.sroa.10.0.copyload
-  %40 = fmul float %38, %38
-  %41 = tail call float @llvm.fmuladd.f32(float %37, float %37, float %40)
-  %42 = tail call float @llvm.fmuladd.f32(float %39, float %39, float %41)
-  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %42)
-  %43 = bitcast float %sqrt.i.i to i32
-  %.sroa.0.0.insert.ext.i = zext i32 %43 to i64
+21:                                               ; preds = %4
+  %22 = fsub float %.sroa.0133.0.copyload, %.sroa.0111.0.copyload
+  %23 = fsub float %.sroa.6138.0.copyload, %.sroa.4.0.copyload
+  %24 = fsub float %.sroa.10.0.copyload, %.sroa.7.0.copyload
+  %25 = fmul float %23, %.sroa.6.0.copyload
+  %26 = tail call float @llvm.fmuladd.f32(float %22, float %.sroa.098.0.copyload, float %25)
+  %27 = tail call noundef float @llvm.fmuladd.f32(float %24, float %.sroa.11.0.copyload, float %26)
+  %28 = fdiv float %27, %12
+  %29 = fmul float %.sroa.098.0.copyload, %28
+  %30 = fmul float %.sroa.6.0.copyload, %28
+  %31 = fmul float %.sroa.11.0.copyload, %28
+  %32 = fadd float %.sroa.0111.0.copyload, %29
+  %33 = fadd float %.sroa.4.0.copyload, %30
+  %34 = fadd float %.sroa.7.0.copyload, %31
+  %35 = fsub float %32, %.sroa.0133.0.copyload
+  %36 = fsub float %33, %.sroa.6138.0.copyload
+  %37 = fsub float %34, %.sroa.10.0.copyload
+  %38 = fmul float %36, %36
+  %39 = tail call float @llvm.fmuladd.f32(float %35, float %35, float %38)
+  %40 = tail call float @llvm.fmuladd.f32(float %37, float %37, float %39)
+  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %40)
+  %41 = bitcast float %sqrt.i.i to i32
+  %.sroa.0.0.insert.ext.i = zext i32 %41 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.0.insert.ext.i, 4294967296
-  br label %108
+  br label %106
 
-44:                                               ; preds = %4
-  %45 = fsub float %.sroa.0111.0.copyload, %.sroa.0133.0.copyload
-  %46 = fsub float %.sroa.4.0.copyload, %.sroa.6138.0.copyload
-  %47 = fsub float %.sroa.7.0.copyload, %.sroa.10.0.copyload
-  %48 = fmul float %.sroa.6123.0.copyload, %46
-  %49 = tail call float @llvm.fmuladd.f32(float %45, float %.sroa.0118.0.copyload, float %48)
-  %50 = tail call noundef float @llvm.fmuladd.f32(float %47, float %.sroa.11128.0.copyload, float %49)
-  %51 = fsub float %.sroa.0133.0.copyload, %.sroa.0111.0.copyload
-  %52 = fsub float %.sroa.6138.0.copyload, %.sroa.4.0.copyload
-  %53 = fsub float %.sroa.10.0.copyload, %.sroa.7.0.copyload
-  %54 = fmul float %52, %.sroa.6.0.copyload
-  %55 = tail call float @llvm.fmuladd.f32(float %51, float %.sroa.098.0.copyload, float %54)
-  %56 = tail call noundef float @llvm.fmuladd.f32(float %53, float %.sroa.11.0.copyload, float %55)
-  %57 = fmul float %15, %56
-  %58 = tail call float @llvm.fmuladd.f32(float %12, float %50, float %57)
-  %59 = fdiv float %58, %18
-  %60 = fcmp olt float %59, 0.000000e+00
-  br i1 %60, label %61, label %78
+42:                                               ; preds = %4
+  %43 = fsub float %.sroa.0111.0.copyload, %.sroa.0133.0.copyload
+  %44 = fsub float %.sroa.4.0.copyload, %.sroa.6138.0.copyload
+  %45 = fsub float %.sroa.7.0.copyload, %.sroa.10.0.copyload
+  %46 = fmul float %.sroa.6123.0.copyload, %44
+  %47 = tail call float @llvm.fmuladd.f32(float %43, float %.sroa.0118.0.copyload, float %46)
+  %48 = tail call noundef float @llvm.fmuladd.f32(float %45, float %.sroa.11128.0.copyload, float %47)
+  %49 = fsub float %.sroa.0133.0.copyload, %.sroa.0111.0.copyload
+  %50 = fsub float %.sroa.6138.0.copyload, %.sroa.4.0.copyload
+  %51 = fsub float %.sroa.10.0.copyload, %.sroa.7.0.copyload
+  %52 = fmul float %50, %.sroa.6.0.copyload
+  %53 = tail call float @llvm.fmuladd.f32(float %49, float %.sroa.098.0.copyload, float %52)
+  %54 = tail call noundef float @llvm.fmuladd.f32(float %51, float %.sroa.11.0.copyload, float %53)
+  %55 = fmul float %15, %54
+  %56 = tail call float @llvm.fmuladd.f32(float %12, float %48, float %55)
+  %57 = fdiv float %56, %18
+  %58 = fcmp olt float %57, 0.000000e+00
+  br i1 %58, label %59, label %76
 
-61:                                               ; preds = %44
+59:                                               ; preds = %42
   store float %.sroa.0133.0.copyload, ptr %2, align 4
   %.sroa.6138.0..sroa_idx139 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float %.sroa.6138.0.copyload, ptr %.sroa.6138.0..sroa_idx139, align 4
@@ -5359,74 +5357,74 @@ define range(i64 0, 8589934592) i64 @_ZN3vcg10trackutils15RayLineDistanceERKNS_4
   %.sroa.4155.0.copyload = load float, ptr %6, align 4
   %.sroa.5156.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.6157.0.copyload = load float, ptr %.sroa.11.0..sroa_idx, align 4
-  %62 = fsub float %.sroa.0133.0.copyload, %.sroa.0153.0.copyload
-  %63 = fsub float %.sroa.6138.0.copyload, %.sroa.2.0.copyload
-  %64 = fsub float %.sroa.10.0.copyload, %.sroa.3154.0.copyload
-  %65 = fmul float %63, %.sroa.5156.0.copyload
-  %66 = tail call float @llvm.fmuladd.f32(float %62, float %.sroa.4155.0.copyload, float %65)
-  %67 = tail call noundef float @llvm.fmuladd.f32(float %64, float %.sroa.6157.0.copyload, float %66)
-  %68 = fmul float %.sroa.5156.0.copyload, %.sroa.5156.0.copyload
-  %69 = tail call float @llvm.fmuladd.f32(float %.sroa.4155.0.copyload, float %.sroa.4155.0.copyload, float %68)
-  %70 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.6157.0.copyload, float %.sroa.6157.0.copyload, float %69)
-  %71 = fdiv float %67, %70
-  %72 = fmul float %.sroa.4155.0.copyload, %71
-  %73 = fmul float %.sroa.5156.0.copyload, %71
-  %74 = fmul float %.sroa.6157.0.copyload, %71
-  %75 = fadd float %.sroa.0153.0.copyload, %72
-  %76 = fadd float %.sroa.2.0.copyload, %73
-  %77 = fadd float %.sroa.3154.0.copyload, %74
-  br label %94
+  %60 = fsub float %.sroa.0133.0.copyload, %.sroa.0153.0.copyload
+  %61 = fsub float %.sroa.6138.0.copyload, %.sroa.2.0.copyload
+  %62 = fsub float %.sroa.10.0.copyload, %.sroa.3154.0.copyload
+  %63 = fmul float %61, %.sroa.5156.0.copyload
+  %64 = tail call float @llvm.fmuladd.f32(float %60, float %.sroa.4155.0.copyload, float %63)
+  %65 = tail call noundef float @llvm.fmuladd.f32(float %62, float %.sroa.6157.0.copyload, float %64)
+  %66 = fmul float %.sroa.5156.0.copyload, %.sroa.5156.0.copyload
+  %67 = tail call float @llvm.fmuladd.f32(float %.sroa.4155.0.copyload, float %.sroa.4155.0.copyload, float %66)
+  %68 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.6157.0.copyload, float %.sroa.6157.0.copyload, float %67)
+  %69 = fdiv float %65, %68
+  %70 = fmul float %.sroa.4155.0.copyload, %69
+  %71 = fmul float %.sroa.5156.0.copyload, %69
+  %72 = fmul float %.sroa.6157.0.copyload, %69
+  %73 = fadd float %.sroa.0153.0.copyload, %70
+  %74 = fadd float %.sroa.2.0.copyload, %71
+  %75 = fadd float %.sroa.3154.0.copyload, %72
+  br label %92
 
-78:                                               ; preds = %44
-  %79 = fmul float %9, %56
-  %80 = tail call float @llvm.fmuladd.f32(float %15, float %50, float %79)
-  %81 = fdiv float %80, %18
-  %82 = fmul float %.sroa.0118.0.copyload, %59
-  %83 = fmul float %.sroa.6123.0.copyload, %59
-  %84 = fmul float %.sroa.11128.0.copyload, %59
-  %85 = fadd float %.sroa.0133.0.copyload, %82
-  %86 = fadd float %.sroa.6138.0.copyload, %83
-  %87 = fadd float %.sroa.10.0.copyload, %84
-  %.sroa.0.0.vec.insert.i72 = insertelement <2 x float> poison, float %85, i64 0
-  %.sroa.0.4.vec.insert.i73 = insertelement <2 x float> %.sroa.0.0.vec.insert.i72, float %86, i64 1
+76:                                               ; preds = %42
+  %77 = fmul float %9, %54
+  %78 = tail call float @llvm.fmuladd.f32(float %15, float %48, float %77)
+  %79 = fdiv float %78, %18
+  %80 = fmul float %.sroa.0118.0.copyload, %57
+  %81 = fmul float %.sroa.6123.0.copyload, %57
+  %82 = fmul float %.sroa.11128.0.copyload, %57
+  %83 = fadd float %.sroa.0133.0.copyload, %80
+  %84 = fadd float %.sroa.6138.0.copyload, %81
+  %85 = fadd float %.sroa.10.0.copyload, %82
+  %.sroa.0.0.vec.insert.i72 = insertelement <2 x float> poison, float %83, i64 0
+  %.sroa.0.4.vec.insert.i73 = insertelement <2 x float> %.sroa.0.0.vec.insert.i72, float %84, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i73, ptr %2, align 4
   %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float %87, ptr %.sroa.216.0..sroa_idx, align 4
-  %88 = fmul float %.sroa.098.0.copyload, %81
-  %89 = fmul float %.sroa.6.0.copyload, %81
-  %90 = fmul float %.sroa.11.0.copyload, %81
-  %91 = fadd float %.sroa.0111.0.copyload, %88
-  %92 = fadd float %.sroa.4.0.copyload, %89
-  %93 = fadd float %.sroa.7.0.copyload, %90
-  br label %94
+  store float %85, ptr %.sroa.216.0..sroa_idx, align 4
+  %86 = fmul float %.sroa.098.0.copyload, %79
+  %87 = fmul float %.sroa.6.0.copyload, %79
+  %88 = fmul float %.sroa.11.0.copyload, %79
+  %89 = fadd float %.sroa.0111.0.copyload, %86
+  %90 = fadd float %.sroa.4.0.copyload, %87
+  %91 = fadd float %.sroa.7.0.copyload, %88
+  br label %92
 
-94:                                               ; preds = %78, %61
-  %.sink162 = phi float [ %91, %78 ], [ %75, %61 ]
-  %.sink161 = phi float [ %92, %78 ], [ %76, %61 ]
-  %.sink = phi float [ %93, %78 ], [ %77, %61 ]
+92:                                               ; preds = %76, %59
+  %.sink162 = phi float [ %89, %76 ], [ %73, %59 ]
+  %.sink161 = phi float [ %90, %76 ], [ %74, %59 ]
+  %.sink = phi float [ %91, %76 ], [ %75, %59 ]
   %.sroa.0.0.vec.insert.i80 = insertelement <2 x float> poison, float %.sink162, i64 0
   %.sroa.0.4.vec.insert.i81 = insertelement <2 x float> %.sroa.0.0.vec.insert.i80, float %.sink161, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i81, ptr %3, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store float %.sink, ptr %95, align 4
-  %96 = load float, ptr %2, align 4
-  %97 = fsub float %96, %.sink162
-  %98 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %99 = load float, ptr %98, align 4
-  %100 = fsub float %99, %.sink161
-  %101 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %102 = load float, ptr %101, align 4
-  %103 = fsub float %102, %.sink
-  %104 = fmul float %100, %100
-  %105 = tail call float @llvm.fmuladd.f32(float %97, float %97, float %104)
-  %106 = tail call float @llvm.fmuladd.f32(float %103, float %103, float %105)
-  %sqrt.i.i84 = tail call noundef float @llvm.sqrt.f32(float %106)
-  %107 = bitcast float %sqrt.i.i84 to i32
-  %.sroa.0.0.insert.ext.i87 = zext i32 %107 to i64
-  br label %108
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store float %.sink, ptr %93, align 4
+  %94 = load float, ptr %2, align 4
+  %95 = fsub float %94, %.sink162
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %97 = load float, ptr %96, align 4
+  %98 = fsub float %97, %.sink161
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %100 = load float, ptr %99, align 4
+  %101 = fsub float %100, %.sink
+  %102 = fmul float %98, %98
+  %103 = tail call float @llvm.fmuladd.f32(float %95, float %95, float %102)
+  %104 = tail call float @llvm.fmuladd.f32(float %101, float %101, float %103)
+  %sqrt.i.i84 = tail call noundef float @llvm.sqrt.f32(float %104)
+  %105 = bitcast float %sqrt.i.i84 to i32
+  %.sroa.0.0.insert.ext.i87 = zext i32 %105 to i64
+  br label %106
 
-108:                                              ; preds = %94, %23
-  %.sroa.063.0 = phi i64 [ %.sroa.0.0.insert.insert.i, %23 ], [ %.sroa.0.0.insert.ext.i87, %94 ]
+106:                                              ; preds = %92, %21
+  %.sroa.063.0 = phi i64 [ %.sroa.0.0.insert.insert.i, %21 ], [ %.sroa.0.0.insert.ext.i87, %92 ]
   ret i64 %.sroa.063.0
 }
 

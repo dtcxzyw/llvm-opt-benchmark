@@ -726,30 +726,30 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
 
 328:                                              ; preds = %325
   %329 = load double, ptr %37, align 8, !tbaa !33
-  %330 = fcmp nsz ult double %329, 0.000000e+00
-  %331 = fneg nsz double %329
-  %332 = select nsz i1 %330, double %331, double %329
-  %333 = load double, ptr %39, align 8, !tbaa !34
-  %334 = fcmp nsz ult double %333, 0.000000e+00
-  %335 = fneg nsz double %333
-  %336 = select nsz i1 %334, double %335, double %333
-  %337 = fcmp nsz ogt double %332, %336
-  br i1 %337, label %338, label %340
+  %330 = fneg nsz double %329
+  %331 = tail call nsz double @llvm.fabs.f64(double %329)
+  %332 = load double, ptr %39, align 8, !tbaa !34
+  %333 = fneg nsz double %332
+  %334 = tail call nsz double @llvm.fabs.f64(double %332)
+  %335 = fcmp nsz ogt double %331, %334
+  br i1 %335, label %336, label %339
 
-338:                                              ; preds = %328
-  br i1 %330, label %339, label %342
+336:                                              ; preds = %328
+  %337 = fcmp nsz ult double %329, 0.000000e+00
+  br i1 %337, label %338, label %342
 
-339:                                              ; preds = %338
+338:                                              ; preds = %336
   br label %342
 
-340:                                              ; preds = %328
-  br i1 %334, label %341, label %342
+339:                                              ; preds = %328
+  %340 = fcmp nsz ult double %332, 0.000000e+00
+  br i1 %340, label %341, label %342
 
-341:                                              ; preds = %340
+341:                                              ; preds = %339
   br label %342
 
-342:                                              ; preds = %341, %340, %339, %338
-  %343 = phi nsz double [ %331, %339 ], [ %335, %341 ], [ %329, %338 ], [ %333, %340 ]
+342:                                              ; preds = %341, %339, %338, %336
+  %343 = phi nsz double [ %330, %338 ], [ %333, %341 ], [ %329, %336 ], [ %332, %339 ]
   %344 = fmul nsz double %343, 2.000000e+00
   %345 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %346 = load double, ptr %345, align 8, !tbaa !62
@@ -2413,30 +2413,30 @@ bit_depth.exit.i:                                 ; preds = %bit_depth.exit.loop
 
 601:                                              ; preds = %598
   %602 = load double, ptr %210, align 8, !tbaa !33
-  %603 = fcmp nsz ult double %602, 0.000000e+00
-  %604 = fneg nsz double %602
-  %605 = select nsz i1 %603, double %604, double %602
-  %606 = load double, ptr %212, align 8, !tbaa !34
-  %607 = fcmp nsz ult double %606, 0.000000e+00
-  %608 = fneg nsz double %606
-  %609 = select nsz i1 %607, double %608, double %606
-  %610 = fcmp nsz ogt double %605, %609
-  br i1 %610, label %611, label %613
+  %603 = fneg nsz double %602
+  %604 = call nsz double @llvm.fabs.f64(double %602)
+  %605 = load double, ptr %212, align 8, !tbaa !34
+  %606 = fneg nsz double %605
+  %607 = call nsz double @llvm.fabs.f64(double %605)
+  %608 = fcmp nsz ogt double %604, %607
+  br i1 %608, label %609, label %612
 
-611:                                              ; preds = %601
-  br i1 %603, label %612, label %615
+609:                                              ; preds = %601
+  %610 = fcmp nsz ult double %602, 0.000000e+00
+  br i1 %610, label %611, label %615
 
-612:                                              ; preds = %611
+611:                                              ; preds = %609
   br label %615
 
-613:                                              ; preds = %601
-  br i1 %607, label %614, label %615
+612:                                              ; preds = %601
+  %613 = fcmp nsz ult double %605, 0.000000e+00
+  br i1 %613, label %614, label %615
 
-614:                                              ; preds = %613
+614:                                              ; preds = %612
   br label %615
 
-615:                                              ; preds = %614, %613, %612, %611
-  %616 = phi nsz double [ %604, %612 ], [ %608, %614 ], [ %602, %611 ], [ %606, %613 ]
+615:                                              ; preds = %614, %612, %611, %609
+  %616 = phi nsz double [ %603, %611 ], [ %606, %614 ], [ %602, %609 ], [ %605, %612 ]
   %617 = fmul nsz double %616, 2.000000e+00
   %618 = getelementptr inbounds nuw i8, ptr %194, i64 16
   %619 = load double, ptr %618, align 8, !tbaa !62

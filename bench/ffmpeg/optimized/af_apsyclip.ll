@@ -1226,9 +1226,10 @@ calculate_mask_curve.exit.i.i:                    ; preds = %213, %.preheader.i.
   %239 = fmul nsz float %236, %238
   %240 = fcmp nsz oge float %239, 0.000000e+00
   %241 = fneg nsz float %239
-  %242 = select i1 %240, float %239, float %241
+  %242 = tail call nsz float @llvm.fabs.f32(float %239)
   %243 = fcmp nsz ogt float %.0222342.i.i, %242
-  %244 = select i1 %243, float %.0222342.i.i, float %242
+  %.0222.mux.i.i = select i1 %240, float %239, float %241
+  %244 = select i1 %243, float %.0222342.i.i, float %.0222.mux.i.i
   %indvars.iv.next378.i.i = add nuw nsw i64 %indvars.iv377.i.i, 1
   %exitcond381.not.i.i = icmp eq i64 %indvars.iv.next378.i.i, %wide.trip.count380.i.i
   br i1 %exitcond381.not.i.i, label %.lr.ph348.preheader.i.i, label %234, !llvm.loop !107
@@ -1601,9 +1602,10 @@ limit_clip_spectrum.exit.i.i:                     ; preds = %383, %._crit_edge.i
   %411 = fmul nsz float %408, %410
   %412 = fcmp nsz oge float %411, 0.000000e+00
   %413 = fneg nsz float %411
-  %414 = select i1 %412, float %411, float %413
+  %414 = tail call nsz float @llvm.fabs.f32(float %411)
   %415 = fcmp nsz ogt float %.1352.i.i, %414
-  %416 = select i1 %415, float %.1352.i.i, float %414
+  %.1.mux.i.i = select i1 %412, float %411, float %413
+  %416 = select i1 %415, float %.1352.i.i, float %.1.mux.i.i
   %indvars.iv.next391.i.i = add nuw nsw i64 %indvars.iv390.i.i, 1
   %exitcond394.not.i.i = icmp eq i64 %indvars.iv.next391.i.i, %wide.trip.count.i313.i.i
   br i1 %exitcond394.not.i.i, label %._crit_edge354.i.i, label %403, !llvm.loop !116
@@ -1720,6 +1722,9 @@ declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #8
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

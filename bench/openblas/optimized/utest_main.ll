@@ -65,7 +65,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree nounwind uwtable
 define void @CTEST_LOG(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #15
   %3 = load i32, ptr @color_output, align 4, !tbaa !3
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %msg_start.exit, label %4
@@ -79,7 +79,7 @@ msg_start.exit:                                   ; preds = %1, %4
   call void @llvm.va_start.p0(ptr nonnull %2)
   %5 = load ptr, ptr @ctest_errormsg, align 8, !tbaa !7
   %6 = load i64, ptr @ctest_errorsize, align 8, !tbaa !10
-  %7 = call i32 @vsnprintf(ptr noundef %5, i64 noundef %6, ptr noundef readonly %0, ptr noundef nonnull %2) #14
+  %7 = call i32 @vsnprintf(ptr noundef %5, i64 noundef %6, ptr noundef readonly %0, ptr noundef nonnull %2) #15
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %11
 
@@ -113,7 +113,7 @@ vprint_errormsg.exit:                             ; preds = %9, %11
 
 msg_end.exit:                                     ; preds = %vprint_errormsg.exit, %20
   call void (ptr, ...) @print_errormsg(ptr noundef nonnull @.str.32)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #15
   ret void
 }
 
@@ -142,7 +142,7 @@ declare void @llvm.va_start.p0(ptr) #2
 define internal fastcc void @vprint_errormsg(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #3 {
   %3 = load ptr, ptr @ctest_errormsg, align 8, !tbaa !7
   %4 = load i64, ptr @ctest_errorsize, align 8, !tbaa !10
-  %5 = tail call i32 @vsnprintf(ptr noundef %3, i64 noundef %4, ptr noundef %0, ptr noundef nonnull %1) #14
+  %5 = tail call i32 @vsnprintf(ptr noundef %3, i64 noundef %4, ptr noundef %0, ptr noundef nonnull %1) #15
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %9
 
@@ -192,13 +192,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: noreturn nounwind uwtable
 define void @CTEST_ERR(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #4 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #15
   tail call fastcc void @msg_start(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
   call void @llvm.va_start.p0(ptr nonnull %2)
   call fastcc void @vprint_errormsg(ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   call fastcc void @msg_end()
-  call void @longjmp(ptr noundef nonnull @ctest_err, i32 noundef 1) #15
+  call void @longjmp(ptr noundef nonnull @ctest_err, i32 noundef 1) #16
   unreachable
 }
 
@@ -223,7 +223,7 @@ define void @assert_str(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noun
   br i1 %or.cond5, label %11, label %14
 
 11:                                               ; preds = %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #16
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #17
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %14, label %13
 
@@ -345,34 +345,30 @@ define void @assert_interval(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr
 ; Function Attrs: nounwind uwtable
 define void @assert_dbl_near(double noundef %0, double noundef %1, double noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #6 {
   %6 = fsub double %0, %1
-  %7 = fcmp olt double %6, 0.000000e+00
-  %8 = fneg double %6
-  %.0 = select i1 %7, double %8, double %6
-  %9 = fcmp ogt double %.0, %2
-  br i1 %9, label %10, label %11
+  %.0 = tail call double @llvm.fabs.f64(double %6)
+  %7 = fcmp ogt double %.0, %2
+  br i1 %7, label %8, label %9
 
-10:                                               ; preds = %5
+8:                                                ; preds = %5
   tail call void (ptr, ...) @CTEST_ERR(ptr noundef nonnull @.str.12, ptr noundef %3, i32 noundef %4, double noundef %0, double noundef %1, double noundef %6, double noundef %2)
   unreachable
 
-11:                                               ; preds = %5
+9:                                                ; preds = %5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @assert_dbl_far(double noundef %0, double noundef %1, double noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #6 {
   %6 = fsub double %0, %1
-  %7 = fcmp olt double %6, 0.000000e+00
-  %8 = fneg double %6
-  %.0 = select i1 %7, double %8, double %6
-  %9 = fcmp ugt double %.0, %2
-  br i1 %9, label %11, label %10
+  %.0 = tail call double @llvm.fabs.f64(double %6)
+  %7 = fcmp ugt double %.0, %2
+  br i1 %7, label %9, label %8
 
-10:                                               ; preds = %5
+8:                                                ; preds = %5
   tail call void (ptr, ...) @CTEST_ERR(ptr noundef nonnull @.str.12, ptr noundef %3, i32 noundef %4, double noundef %0, double noundef %1, double noundef %6, double noundef %2)
   unreachable
 
-11:                                               ; preds = %5
+9:                                                ; preds = %5
   ret void
 }
 
@@ -440,8 +436,8 @@ define i32 @ctest_main(i32 noundef %0, ptr noundef readonly captures(none) %1) l
   %4 = alloca %struct.timeval, align 8
   %5 = alloca [80 x i8], align 16
   %6 = load i32, ptr @ctest_main.num_fail, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #14
-  %7 = call ptr @signal(i32 noundef 11, ptr noundef nonnull @sighandler) #14
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #15
+  %7 = call ptr @signal(i32 noundef 11, ptr noundef nonnull @sighandler) #15
   switch i32 %0, label %13 [
     i32 2, label %.sink.split
     i32 3, label %8
@@ -464,14 +460,14 @@ define i32 @ctest_main(i32 noundef %0, ptr noundef readonly captures(none) %1) l
   br label %13
 
 13:                                               ; preds = %.sink.split, %2
-  %14 = call i32 @isatty(i32 noundef 1) #14
+  %14 = call i32 @isatty(i32 noundef 1) #15
   store i32 %14, ptr @color_output, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
-  %15 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  %15 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #15
   %16 = load i64, ptr %4, align 8, !tbaa !16
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
   br label %19
 
 19:                                               ; preds = %select.unfold.i, %13
@@ -550,7 +546,7 @@ __ctest_linkTests.exit:                           ; preds = %31, %._crit_edge.lo
 
 41:                                               ; preds = %.lr.ph36
   %42 = load ptr, ptr @ctest_main.filter, align 8, !tbaa !15
-  %43 = call i32 %42(ptr noundef nonnull %storemerge35) #14, !callees !25
+  %43 = call i32 %42(ptr noundef nonnull %storemerge35) #15, !callees !25
   %.not22 = icmp eq i32 %43, 0
   br i1 %.not22, label %47, label %44
 
@@ -582,7 +578,7 @@ __ctest_linkTests.exit:                           ; preds = %31, %._crit_edge.lo
 
 51:                                               ; preds = %.lr.ph41
   %52 = load ptr, ptr @ctest_main.filter, align 8, !tbaa !15
-  %53 = call i32 %52(ptr noundef nonnull %storemerge1439) #14, !callees !25
+  %53 = call i32 %52(ptr noundef nonnull %storemerge1439) #15, !callees !25
   %.not16 = icmp eq i32 %53, 0
   %.pre49 = load ptr, ptr @ctest_main.test, align 8, !tbaa !19
   br i1 %.not16, label %112, label %54
@@ -625,7 +621,7 @@ color_print.exit:                                 ; preds = %68, %70
   br label %109
 
 73:                                               ; preds = %54
-  %74 = call i32 @_setjmp(ptr noundef nonnull @ctest_err) #17
+  %74 = call i32 @_setjmp(ptr noundef nonnull @ctest_err) #18
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %99
 
@@ -639,7 +635,7 @@ color_print.exit:                                 ; preds = %68, %70
 80:                                               ; preds = %76
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %82 = load ptr, ptr %81, align 8, !tbaa !33
-  call void %79(ptr noundef %82) #14
+  call void %79(ptr noundef %82) #15
   %.pre47 = load ptr, ptr @ctest_main.test, align 8, !tbaa !19
   br label %83
 
@@ -653,11 +649,11 @@ color_print.exit:                                 ; preds = %68, %70
   br i1 %.not19, label %90, label %89
 
 89:                                               ; preds = %83
-  call void %88(ptr noundef nonnull %86) #14
+  call void %88(ptr noundef nonnull %86) #15
   br label %91
 
 90:                                               ; preds = %83
-  call void %88() #14
+  call void %88() #15
   br label %91
 
 91:                                               ; preds = %90, %89
@@ -670,7 +666,7 @@ color_print.exit:                                 ; preds = %68, %70
 95:                                               ; preds = %91
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %97 = load ptr, ptr %96, align 8, !tbaa !33
-  call void %94(ptr noundef %97) #14
+  call void %94(ptr noundef %97) #15
   br label %98
 
 98:                                               ; preds = %95, %91
@@ -719,12 +715,12 @@ color_print.exit26:                               ; preds = %103, %101, %98
   br i1 %.not15, label %._crit_edge42, label %.lr.ph41, !llvm.loop !36
 
 ._crit_edge42:                                    ; preds = %112, %._crit_edge.thread, %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
-  %115 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  %115 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #15
   %116 = load i64, ptr %3, align 8, !tbaa !16
   %117 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %118 = load i64, ptr %117, align 8, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
   %119 = load i32, ptr @ctest_main.total, align 4, !tbaa !3
   %120 = load i32, ptr @ctest_main.num_ok, align 4, !tbaa !3
   %121 = load i32, ptr @ctest_main.num_fail, align 4, !tbaa !3
@@ -734,7 +730,7 @@ color_print.exit26:                               ; preds = %103, %101, %98
   %123 = sub i64 %118, %18
   %124 = add i64 %123, %reass.mul
   %125 = udiv i64 %124, 1000
-  %126 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %119, i32 noundef %120, i32 noundef %121, i32 noundef %122, i64 noundef %125) #14
+  %126 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %119, i32 noundef %120, i32 noundef %121, i32 noundef %122, i64 noundef %125) #15
   %127 = load i32, ptr @color_output, align 4, !tbaa !3
   %.not.i27 = icmp eq i32 %127, 0
   br i1 %.not.i27, label %131, label %128
@@ -751,7 +747,7 @@ color_print.exit26:                               ; preds = %103, %101, %98
 
 color_print.exit29:                               ; preds = %128, %131
   %132 = load i32, ptr @ctest_main.num_fail, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #15
   ret i32 %132
 }
 
@@ -766,9 +762,9 @@ declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #9
 ; Function Attrs: nounwind uwtable
 define internal void @sighandler(i32 noundef %0) #6 {
   %2 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #14
-  %3 = tail call ptr @strsignal(i32 noundef %0) #14
-  %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 128, ptr noundef nonnull @.str.33, i32 noundef %0, ptr noundef %3) #14
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #15
+  %3 = tail call ptr @strsignal(i32 noundef %0) #15
+  %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 128, ptr noundef nonnull @.str.33, i32 noundef %0, ptr noundef %3) #15
   %5 = load i32, ptr @color_output, align 4, !tbaa !3
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %8, label %6
@@ -784,10 +780,10 @@ define internal void @sighandler(i32 noundef %0) #6 {
 color_print.exit:                                 ; preds = %6, %8
   %9 = load ptr, ptr @stdout, align 8, !tbaa !29
   %10 = call i32 @fflush(ptr noundef %9)
-  %11 = call ptr @signal(i32 noundef %0, ptr noundef null) #14
-  %12 = call i32 @getpid() #14
-  %13 = call i32 @kill(i32 noundef %12, i32 noundef %0) #14
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #14
+  %11 = call ptr @signal(i32 noundef %0, ptr noundef null) #15
+  %12 = call i32 @getpid() #15
+  %13 = call i32 @kill(i32 noundef %12, i32 noundef %0) #15
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #15
   ret void
 }
 
@@ -795,8 +791,8 @@ color_print.exit:                                 ; preds = %6, %8
 define internal range(i32 0, 2) i32 @suite_filter(ptr noundef readonly captures(none) %0) #10 {
   %2 = load ptr, ptr @suite_name, align 8, !tbaa !7
   %3 = load ptr, ptr %0, align 8, !tbaa !27
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16
-  %5 = tail call i32 @strncmp(ptr noundef nonnull %2, ptr noundef %3, i64 noundef %4) #16
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
+  %5 = tail call i32 @strncmp(ptr noundef nonnull %2, ptr noundef %3, i64 noundef %4) #17
   %6 = icmp eq i32 %5, 0
   %7 = zext i1 %6 to i32
   ret i32 %7
@@ -806,13 +802,13 @@ define internal range(i32 0, 2) i32 @suite_filter(ptr noundef readonly captures(
 define internal range(i32 0, 2) i32 @suite_test_filter(ptr noundef readonly captures(none) %0) #10 {
   %2 = load ptr, ptr @suite_name, align 8, !tbaa !7
   %3 = load ptr, ptr %0, align 8, !tbaa !27
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16
-  %5 = tail call i32 @strncmp(ptr noundef nonnull %2, ptr noundef %3, i64 noundef %4) #16
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
+  %5 = tail call i32 @strncmp(ptr noundef nonnull %2, ptr noundef %3, i64 noundef %4) #17
   %6 = load ptr, ptr @test_name, align 8, !tbaa !7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !28
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #16
-  %10 = tail call i32 @strncmp(ptr noundef nonnull %6, ptr noundef %8, i64 noundef %9) #16
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #17
+  %10 = tail call i32 @strncmp(ptr noundef nonnull %6, ptr noundef %8, i64 noundef %9) #17
   %11 = or i32 %10, %5
   %12 = icmp eq i32 %11, 0
   %13 = zext i1 %12 to i32
@@ -848,11 +844,11 @@ define internal void @__ctest_suite_test_run() #8 {
 ; Function Attrs: inlinehint nofree nounwind uwtable
 define internal void @print_errormsg(ptr noundef readonly captures(none) %0, ...) unnamed_addr #3 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #15
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @ctest_errormsg, align 8, !tbaa !7
   %4 = load i64, ptr @ctest_errorsize, align 8, !tbaa !10
-  %5 = call i32 @vsnprintf(ptr noundef %3, i64 noundef %4, ptr noundef readonly %0, ptr noundef nonnull %2) #14
+  %5 = call i32 @vsnprintf(ptr noundef %3, i64 noundef %4, ptr noundef readonly %0, ptr noundef nonnull %2) #15
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %9
 
@@ -876,7 +872,7 @@ define internal void @print_errormsg(ptr noundef readonly captures(none) %0, ...
 
 vprint_errormsg.exit:                             ; preds = %7, %9
   call void @llvm.va_end.p0(ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #15
   ret void
 }
 
@@ -907,6 +903,9 @@ declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captur
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #13
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #14
+
 attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
@@ -921,10 +920,11 @@ attributes #10 = { mustprogress nofree norecurse nounwind willreturn memory(read
 attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #12 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #13 = { nofree nounwind }
-attributes #14 = { nounwind }
-attributes #15 = { noreturn nounwind }
-attributes #16 = { nounwind willreturn memory(read) }
-attributes #17 = { nounwind returns_twice }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { nounwind returns_twice }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -83,7 +83,7 @@ define weak_odr dso_local void @_ZN3igl11outer_facetIN5Eigen6MatrixIdLin1ELi3ELi
   %13 = load ptr, ptr %2, align 8, !tbaa !12
   br label %20
 
-._crit_edge.loopexit:                             ; preds = %43
+._crit_edge.loopexit:                             ; preds = %41
   %14 = trunc i64 %.127 to i32
   %15 = fcmp olt double %.1, 0.000000e+00
   %16 = zext i1 %15 to i8
@@ -110,56 +110,54 @@ define weak_odr dso_local void @_ZN3igl11outer_facetIN5Eigen6MatrixIdLin1ELi3ELi
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
   resume { ptr, i32 } %18
 
-20:                                               ; preds = %.lr.ph, %43
-  %.02344 = phi i64 [ 0, %.lr.ph ], [ %44, %43 ]
-  %.02643 = phi i64 [ -1, %.lr.ph ], [ %.127, %43 ]
-  %.042 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %43 ]
+20:                                               ; preds = %.lr.ph, %41
+  %.02344 = phi i64 [ 0, %.lr.ph ], [ %42, %41 ]
+  %.02643 = phi i64 [ -1, %.lr.ph ], [ %.127, %41 ]
+  %.042 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %41 ]
   %21 = getelementptr inbounds i64, ptr %.pre, i64 %.02344
   %22 = load i64, ptr %21, align 8, !tbaa !19
   %23 = getelementptr double, ptr %13, i64 %22
   %24 = load double, ptr %23, align 8, !tbaa !20
   %25 = icmp eq i64 %.02643, -1
-  br i1 %25, label %43, label %26
+  br i1 %25, label %41, label %26
 
 26:                                               ; preds = %20
-  %27 = fcmp ult double %24, 0.000000e+00
-  %28 = fneg double %24
-  %.0.i = select i1 %27, double %28, double %24
-  %29 = fcmp oge double %.042, 0.000000e+00
+  %.0.i = call double @llvm.fabs.f64(double %24)
+  %27 = fcmp oge double %.042, 0.000000e+00
+  %.0.i32 = call double @llvm.fabs.f64(double %.042)
+  %28 = fcmp ogt double %.0.i, %.0.i32
+  br i1 %28, label %41, label %29
+
+29:                                               ; preds = %26
   %30 = fneg double %.042
-  %.0.i32 = select i1 %29, double %.042, double %30
-  %31 = fcmp ogt double %.0.i, %.0.i32
-  br i1 %31, label %43, label %32
+  %31 = fcmp oeq double %24, %30
+  %32 = fcmp ogt double %24, 0.000000e+00
+  %or.cond = and i1 %31, %32
+  br i1 %or.cond, label %41, label %33
 
-32:                                               ; preds = %26
-  %33 = fcmp oeq double %24, %30
-  %34 = fcmp ogt double %24, 0.000000e+00
-  %or.cond = and i1 %33, %34
-  br i1 %or.cond, label %43, label %35
+33:                                               ; preds = %29
+  %34 = fcmp oeq double %24, %.042
+  br i1 %34, label %35, label %41
 
-35:                                               ; preds = %32
-  %36 = fcmp oeq double %24, %.042
-  br i1 %36, label %37, label %43
+35:                                               ; preds = %33
+  %36 = icmp ult i64 %.02643, %22
+  %or.cond40 = and i1 %27, %36
+  br i1 %or.cond40, label %40, label %37
 
 37:                                               ; preds = %35
-  %38 = icmp ult i64 %.02643, %22
-  %or.cond40 = and i1 %29, %38
-  br i1 %or.cond40, label %42, label %39
+  %38 = fcmp olt double %.042, 0.000000e+00
+  %39 = icmp ugt i64 %.02643, %22
+  %or.cond41 = and i1 %38, %39
+  br i1 %or.cond41, label %40, label %41
 
-39:                                               ; preds = %37
-  %40 = fcmp olt double %.042, 0.000000e+00
-  %41 = icmp ugt i64 %.02643, %22
-  %or.cond41 = and i1 %40, %41
-  br i1 %or.cond41, label %42, label %43
+40:                                               ; preds = %37, %35
+  br label %41
 
-42:                                               ; preds = %39, %37
-  br label %43
-
-43:                                               ; preds = %32, %26, %20, %35, %42, %39
-  %.1 = phi double [ %24, %42 ], [ %.042, %39 ], [ %.042, %35 ], [ %24, %20 ], [ %24, %26 ], [ %24, %32 ]
-  %.127 = phi i64 [ %22, %42 ], [ %.02643, %39 ], [ %.02643, %35 ], [ %22, %20 ], [ %22, %26 ], [ %22, %32 ]
-  %44 = add nuw i64 %.02344, 1
-  %exitcond.not = icmp eq i64 %44, %12
+41:                                               ; preds = %29, %26, %20, %33, %40, %37
+  %.1 = phi double [ %24, %40 ], [ %.042, %37 ], [ %.042, %33 ], [ %24, %20 ], [ %24, %26 ], [ %24, %29 ]
+  %.127 = phi i64 [ %22, %40 ], [ %.02643, %37 ], [ %.02643, %33 ], [ %22, %20 ], [ %22, %26 ], [ %22, %29 ]
+  %42 = add nuw i64 %.02344, 1
+  %exitcond.not = icmp eq i64 %42, %12
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %20, !llvm.loop !22
 }
 
@@ -460,7 +458,7 @@ define weak_odr dso_local void @_ZN3igl11outer_facetIN5Eigen6MatrixIdLin1ELin1EL
   %15 = load i64, ptr %14, align 8, !tbaa !54
   br label %21
 
-._crit_edge.loopexit:                             ; preds = %45
+._crit_edge.loopexit:                             ; preds = %43
   %16 = fcmp olt double %.1, 0.000000e+00
   %17 = zext i1 %16 to i8
   br label %._crit_edge
@@ -486,57 +484,55 @@ define weak_odr dso_local void @_ZN3igl11outer_facetIN5Eigen6MatrixIdLin1ELin1EL
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
   resume { ptr, i32 } %19
 
-21:                                               ; preds = %.lr.ph, %45
-  %.02344 = phi i64 [ 0, %.lr.ph ], [ %46, %45 ]
-  %.02643 = phi i64 [ -1, %.lr.ph ], [ %.127, %45 ]
-  %.042 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %45 ]
+21:                                               ; preds = %.lr.ph, %43
+  %.02344 = phi i64 [ 0, %.lr.ph ], [ %44, %43 ]
+  %.02643 = phi i64 [ -1, %.lr.ph ], [ %.127, %43 ]
+  %.042 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %43 ]
   %22 = getelementptr inbounds i64, ptr %.pre, i64 %.02344
   %23 = load i64, ptr %22, align 8, !tbaa !19
   %24 = mul nsw i64 %15, %23
   %25 = getelementptr double, ptr %13, i64 %24
   %26 = load double, ptr %25, align 8, !tbaa !20
   %27 = icmp eq i64 %.02643, -1
-  br i1 %27, label %45, label %28
+  br i1 %27, label %43, label %28
 
 28:                                               ; preds = %21
-  %29 = fcmp ult double %26, 0.000000e+00
-  %30 = fneg double %26
-  %.0.i = select i1 %29, double %30, double %26
-  %31 = fcmp oge double %.042, 0.000000e+00
+  %.0.i = call double @llvm.fabs.f64(double %26)
+  %29 = fcmp oge double %.042, 0.000000e+00
+  %.0.i32 = call double @llvm.fabs.f64(double %.042)
+  %30 = fcmp ogt double %.0.i, %.0.i32
+  br i1 %30, label %43, label %31
+
+31:                                               ; preds = %28
   %32 = fneg double %.042
-  %.0.i32 = select i1 %31, double %.042, double %32
-  %33 = fcmp ogt double %.0.i, %.0.i32
-  br i1 %33, label %45, label %34
+  %33 = fcmp oeq double %26, %32
+  %34 = fcmp ogt double %26, 0.000000e+00
+  %or.cond = and i1 %33, %34
+  br i1 %or.cond, label %43, label %35
 
-34:                                               ; preds = %28
-  %35 = fcmp oeq double %26, %32
-  %36 = fcmp ogt double %26, 0.000000e+00
-  %or.cond = and i1 %35, %36
-  br i1 %or.cond, label %45, label %37
+35:                                               ; preds = %31
+  %36 = fcmp oeq double %26, %.042
+  br i1 %36, label %37, label %43
 
-37:                                               ; preds = %34
-  %38 = fcmp oeq double %26, %.042
-  br i1 %38, label %39, label %45
+37:                                               ; preds = %35
+  %38 = icmp ult i64 %.02643, %23
+  %or.cond40 = and i1 %29, %38
+  br i1 %or.cond40, label %42, label %39
 
 39:                                               ; preds = %37
-  %40 = icmp ult i64 %.02643, %23
-  %or.cond40 = and i1 %31, %40
-  br i1 %or.cond40, label %44, label %41
+  %40 = fcmp olt double %.042, 0.000000e+00
+  %41 = icmp ugt i64 %.02643, %23
+  %or.cond41 = and i1 %40, %41
+  br i1 %or.cond41, label %42, label %43
 
-41:                                               ; preds = %39
-  %42 = fcmp olt double %.042, 0.000000e+00
-  %43 = icmp ugt i64 %.02643, %23
-  %or.cond41 = and i1 %42, %43
-  br i1 %or.cond41, label %44, label %45
+42:                                               ; preds = %39, %37
+  br label %43
 
-44:                                               ; preds = %41, %39
-  br label %45
-
-45:                                               ; preds = %34, %28, %21, %37, %44, %41
-  %.1 = phi double [ %26, %44 ], [ %.042, %41 ], [ %.042, %37 ], [ %26, %21 ], [ %26, %28 ], [ %26, %34 ]
-  %.127 = phi i64 [ %23, %44 ], [ %.02643, %41 ], [ %.02643, %37 ], [ %23, %21 ], [ %23, %28 ], [ %23, %34 ]
-  %46 = add nuw i64 %.02344, 1
-  %exitcond.not = icmp eq i64 %46, %12
+43:                                               ; preds = %31, %28, %21, %35, %42, %39
+  %.1 = phi double [ %26, %42 ], [ %.042, %39 ], [ %.042, %35 ], [ %26, %21 ], [ %26, %28 ], [ %26, %31 ]
+  %.127 = phi i64 [ %23, %42 ], [ %.02643, %39 ], [ %.02643, %35 ], [ %23, %21 ], [ %23, %28 ], [ %23, %31 ]
+  %44 = add nuw i64 %.02344, 1
+  %exitcond.not = icmp eq i64 %44, %12
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %21, !llvm.loop !55
 }
 
@@ -823,7 +819,7 @@ define weak_odr dso_local void @_ZN3igl11outer_facetIN5Eigen6MatrixIdLin1ELin1EL
   %13 = load ptr, ptr %2, align 8, !tbaa !12
   br label %20
 
-._crit_edge.loopexit:                             ; preds = %43
+._crit_edge.loopexit:                             ; preds = %41
   %14 = trunc i64 %.127 to i32
   %15 = fcmp olt double %.1, 0.000000e+00
   %16 = zext i1 %15 to i8
@@ -850,56 +846,54 @@ define weak_odr dso_local void @_ZN3igl11outer_facetIN5Eigen6MatrixIdLin1ELin1EL
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
   resume { ptr, i32 } %18
 
-20:                                               ; preds = %.lr.ph, %43
-  %.02344 = phi i64 [ 0, %.lr.ph ], [ %44, %43 ]
-  %.02643 = phi i64 [ -1, %.lr.ph ], [ %.127, %43 ]
-  %.042 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %43 ]
+20:                                               ; preds = %.lr.ph, %41
+  %.02344 = phi i64 [ 0, %.lr.ph ], [ %42, %41 ]
+  %.02643 = phi i64 [ -1, %.lr.ph ], [ %.127, %41 ]
+  %.042 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %41 ]
   %21 = getelementptr inbounds i64, ptr %.pre, i64 %.02344
   %22 = load i64, ptr %21, align 8, !tbaa !19
   %23 = getelementptr double, ptr %13, i64 %22
   %24 = load double, ptr %23, align 8, !tbaa !20
   %25 = icmp eq i64 %.02643, -1
-  br i1 %25, label %43, label %26
+  br i1 %25, label %41, label %26
 
 26:                                               ; preds = %20
-  %27 = fcmp ult double %24, 0.000000e+00
-  %28 = fneg double %24
-  %.0.i = select i1 %27, double %28, double %24
-  %29 = fcmp oge double %.042, 0.000000e+00
+  %.0.i = call double @llvm.fabs.f64(double %24)
+  %27 = fcmp oge double %.042, 0.000000e+00
+  %.0.i32 = call double @llvm.fabs.f64(double %.042)
+  %28 = fcmp ogt double %.0.i, %.0.i32
+  br i1 %28, label %41, label %29
+
+29:                                               ; preds = %26
   %30 = fneg double %.042
-  %.0.i32 = select i1 %29, double %.042, double %30
-  %31 = fcmp ogt double %.0.i, %.0.i32
-  br i1 %31, label %43, label %32
+  %31 = fcmp oeq double %24, %30
+  %32 = fcmp ogt double %24, 0.000000e+00
+  %or.cond = and i1 %31, %32
+  br i1 %or.cond, label %41, label %33
 
-32:                                               ; preds = %26
-  %33 = fcmp oeq double %24, %30
-  %34 = fcmp ogt double %24, 0.000000e+00
-  %or.cond = and i1 %33, %34
-  br i1 %or.cond, label %43, label %35
+33:                                               ; preds = %29
+  %34 = fcmp oeq double %24, %.042
+  br i1 %34, label %35, label %41
 
-35:                                               ; preds = %32
-  %36 = fcmp oeq double %24, %.042
-  br i1 %36, label %37, label %43
+35:                                               ; preds = %33
+  %36 = icmp ult i64 %.02643, %22
+  %or.cond40 = and i1 %27, %36
+  br i1 %or.cond40, label %40, label %37
 
 37:                                               ; preds = %35
-  %38 = icmp ult i64 %.02643, %22
-  %or.cond40 = and i1 %29, %38
-  br i1 %or.cond40, label %42, label %39
+  %38 = fcmp olt double %.042, 0.000000e+00
+  %39 = icmp ugt i64 %.02643, %22
+  %or.cond41 = and i1 %38, %39
+  br i1 %or.cond41, label %40, label %41
 
-39:                                               ; preds = %37
-  %40 = fcmp olt double %.042, 0.000000e+00
-  %41 = icmp ugt i64 %.02643, %22
-  %or.cond41 = and i1 %40, %41
-  br i1 %or.cond41, label %42, label %43
+40:                                               ; preds = %37, %35
+  br label %41
 
-42:                                               ; preds = %39, %37
-  br label %43
-
-43:                                               ; preds = %32, %26, %20, %35, %42, %39
-  %.1 = phi double [ %24, %42 ], [ %.042, %39 ], [ %.042, %35 ], [ %24, %20 ], [ %24, %26 ], [ %24, %32 ]
-  %.127 = phi i64 [ %22, %42 ], [ %.02643, %39 ], [ %.02643, %35 ], [ %22, %20 ], [ %22, %26 ], [ %22, %32 ]
-  %44 = add nuw i64 %.02344, 1
-  %exitcond.not = icmp eq i64 %44, %12
+41:                                               ; preds = %29, %26, %20, %33, %40, %37
+  %.1 = phi double [ %24, %40 ], [ %.042, %37 ], [ %.042, %33 ], [ %24, %20 ], [ %24, %26 ], [ %24, %29 ]
+  %.127 = phi i64 [ %22, %40 ], [ %.02643, %37 ], [ %.02643, %33 ], [ %22, %20 ], [ %22, %26 ], [ %22, %29 ]
+  %42 = add nuw i64 %.02344, 1
+  %exitcond.not = icmp eq i64 %42, %12
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %20, !llvm.loop !69
 }
 
@@ -1190,7 +1184,7 @@ define weak_odr dso_local void @_ZN3igl11outer_facetIN5Eigen6MatrixIdLin1ELin1EL
   %13 = load ptr, ptr %2, align 8, !tbaa !70
   br label %20
 
-._crit_edge.loopexit:                             ; preds = %43
+._crit_edge.loopexit:                             ; preds = %41
   %14 = trunc i64 %.127 to i32
   %15 = fcmp olt double %.1, 0.000000e+00
   %16 = zext i1 %15 to i8
@@ -1217,56 +1211,54 @@ define weak_odr dso_local void @_ZN3igl11outer_facetIN5Eigen6MatrixIdLin1ELin1EL
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
   resume { ptr, i32 } %18
 
-20:                                               ; preds = %.lr.ph, %43
-  %.02344 = phi i64 [ 0, %.lr.ph ], [ %44, %43 ]
-  %.02643 = phi i64 [ -1, %.lr.ph ], [ %.127, %43 ]
-  %.042 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %43 ]
+20:                                               ; preds = %.lr.ph, %41
+  %.02344 = phi i64 [ 0, %.lr.ph ], [ %42, %41 ]
+  %.02643 = phi i64 [ -1, %.lr.ph ], [ %.127, %41 ]
+  %.042 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %41 ]
   %21 = getelementptr inbounds i64, ptr %.pre, i64 %.02344
   %22 = load i64, ptr %21, align 8, !tbaa !19
   %23 = getelementptr double, ptr %13, i64 %22
   %24 = load double, ptr %23, align 8, !tbaa !20
   %25 = icmp eq i64 %.02643, -1
-  br i1 %25, label %43, label %26
+  br i1 %25, label %41, label %26
 
 26:                                               ; preds = %20
-  %27 = fcmp ult double %24, 0.000000e+00
-  %28 = fneg double %24
-  %.0.i = select i1 %27, double %28, double %24
-  %29 = fcmp oge double %.042, 0.000000e+00
+  %.0.i = call double @llvm.fabs.f64(double %24)
+  %27 = fcmp oge double %.042, 0.000000e+00
+  %.0.i32 = call double @llvm.fabs.f64(double %.042)
+  %28 = fcmp ogt double %.0.i, %.0.i32
+  br i1 %28, label %41, label %29
+
+29:                                               ; preds = %26
   %30 = fneg double %.042
-  %.0.i32 = select i1 %29, double %.042, double %30
-  %31 = fcmp ogt double %.0.i, %.0.i32
-  br i1 %31, label %43, label %32
+  %31 = fcmp oeq double %24, %30
+  %32 = fcmp ogt double %24, 0.000000e+00
+  %or.cond = and i1 %31, %32
+  br i1 %or.cond, label %41, label %33
 
-32:                                               ; preds = %26
-  %33 = fcmp oeq double %24, %30
-  %34 = fcmp ogt double %24, 0.000000e+00
-  %or.cond = and i1 %33, %34
-  br i1 %or.cond, label %43, label %35
+33:                                               ; preds = %29
+  %34 = fcmp oeq double %24, %.042
+  br i1 %34, label %35, label %41
 
-35:                                               ; preds = %32
-  %36 = fcmp oeq double %24, %.042
-  br i1 %36, label %37, label %43
+35:                                               ; preds = %33
+  %36 = icmp ult i64 %.02643, %22
+  %or.cond40 = and i1 %27, %36
+  br i1 %or.cond40, label %40, label %37
 
 37:                                               ; preds = %35
-  %38 = icmp ult i64 %.02643, %22
-  %or.cond40 = and i1 %29, %38
-  br i1 %or.cond40, label %42, label %39
+  %38 = fcmp olt double %.042, 0.000000e+00
+  %39 = icmp ugt i64 %.02643, %22
+  %or.cond41 = and i1 %38, %39
+  br i1 %or.cond41, label %40, label %41
 
-39:                                               ; preds = %37
-  %40 = fcmp olt double %.042, 0.000000e+00
-  %41 = icmp ugt i64 %.02643, %22
-  %or.cond41 = and i1 %40, %41
-  br i1 %or.cond41, label %42, label %43
+40:                                               ; preds = %37, %35
+  br label %41
 
-42:                                               ; preds = %39, %37
-  br label %43
-
-43:                                               ; preds = %32, %26, %20, %35, %42, %39
-  %.1 = phi double [ %24, %42 ], [ %.042, %39 ], [ %.042, %35 ], [ %24, %20 ], [ %24, %26 ], [ %24, %32 ]
-  %.127 = phi i64 [ %22, %42 ], [ %.02643, %39 ], [ %.02643, %35 ], [ %22, %20 ], [ %22, %26 ], [ %22, %32 ]
-  %44 = add nuw i64 %.02344, 1
-  %exitcond.not = icmp eq i64 %44, %12
+41:                                               ; preds = %29, %26, %20, %33, %40, %37
+  %.1 = phi double [ %24, %40 ], [ %.042, %37 ], [ %.042, %33 ], [ %24, %20 ], [ %24, %26 ], [ %24, %29 ]
+  %.127 = phi i64 [ %22, %40 ], [ %.02643, %37 ], [ %.02643, %33 ], [ %22, %20 ], [ %22, %26 ], [ %22, %29 ]
+  %42 = add nuw i64 %.02344, 1
+  %exitcond.not = icmp eq i64 %42, %12
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %20, !llvm.loop !85
 }
 
@@ -3389,6 +3381,9 @@ declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #14
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

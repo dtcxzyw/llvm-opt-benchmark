@@ -15146,14 +15146,12 @@ double_equal.exit75.thread.i:                     ; preds = %double_equal.exit75
 
 .lr.ph138.preheader:                              ; preds = %.lr.ph11.i.i, %.preheader.i.i
   %.1.lcssa.i.i = phi double [ %.0.lcssa.i.i, %.preheader.i.i ], [ %112, %.lr.ph11.i.i ]
-  %114 = fcmp reassoc nsz arcp contract afn olt double %.1.lcssa.i.i, 0.000000e+00
-  %115 = fneg reassoc nsz arcp contract afn double %.1.lcssa.i.i
-  %.2.i.i = select nsz i1 %114, double %115, double %.1.lcssa.i.i
-  %116 = fcmp reassoc nsz arcp contract afn ogt double %.2.i.i, 0x3FD921FB54442D18
-  %117 = fadd reassoc nsz arcp contract afn double %106, 0x400921FB54442D18
-  %.064.i = select nsz i1 %116, double %117, double %106
-  %118 = tail call reassoc nsz arcp contract afn double @llvm.cos.f64(double %.064.i)
-  %119 = tail call reassoc nsz arcp contract afn double @llvm.sin.f64(double %.064.i)
+  %.2.i.i = tail call nsz double @llvm.fabs.f64(double %.1.lcssa.i.i)
+  %114 = fcmp reassoc nsz arcp contract afn ogt double %.2.i.i, 0x3FD921FB54442D18
+  %115 = fadd reassoc nsz arcp contract afn double %106, 0x400921FB54442D18
+  %.064.i = select nsz i1 %114, double %115, double %106
+  %116 = tail call reassoc nsz arcp contract afn double @llvm.cos.f64(double %.064.i)
+  %117 = tail call reassoc nsz arcp contract afn double @llvm.sin.f64(double %.064.i)
   %wide.trip.count155 = zext nneg i32 %1 to i64
   br label %.lr.ph138
 
@@ -15163,73 +15161,73 @@ double_equal.exit75.thread.i:                     ; preds = %double_equal.exit75
   %.0105135 = phi double [ 0.000000e+00, %.lr.ph138.preheader ], [ %.1106, %.lr.ph138 ]
   %.0107134 = phi double [ 0.000000e+00, %.lr.ph138.preheader ], [ %.1108, %.lr.ph138 ]
   %.0109133 = phi double [ 0.000000e+00, %.lr.ph138.preheader ], [ %.1110, %.lr.ph138 ]
-  %120 = getelementptr inbounds nuw %struct.point, ptr %0, i64 %indvars.iv152
-  %121 = load i32, ptr %120, align 4, !tbaa !573
-  %122 = sitofp i32 %121 to double
-  %123 = fsub reassoc nsz arcp contract afn double %122, %38
-  %124 = fmul reassoc nsz arcp contract afn double %123, %118
-  %125 = getelementptr inbounds nuw i8, ptr %120, i64 4
-  %126 = load i32, ptr %125, align 4, !tbaa !575
-  %127 = sitofp i32 %126 to double
-  %128 = fsub reassoc nsz arcp contract afn double %127, %39
-  %129 = fmul reassoc nsz arcp contract afn double %128, %119
-  %130 = fadd reassoc nsz arcp contract afn double %129, %124
-  %131 = fmul reassoc nsz arcp contract afn double %128, %118
-  %132 = fmul reassoc nsz arcp contract afn double %123, %119
-  %133 = fsub reassoc nsz arcp contract afn double %131, %132
-  %134 = fcmp reassoc nsz arcp contract afn ogt double %130, %.0107134
-  %.1108 = select nsz i1 %134, double %130, double %.0107134
-  %135 = fcmp reassoc nsz arcp contract afn olt double %130, %.0109133
-  %.1110 = select nsz i1 %135, double %130, double %.0109133
-  %136 = fcmp reassoc nsz arcp contract afn ogt double %133, %.0103136
-  %.1104 = select nsz i1 %136, double %133, double %.0103136
-  %137 = fcmp reassoc nsz arcp contract afn olt double %133, %.0105135
-  %.1106 = select nsz i1 %137, double %133, double %.0105135
+  %118 = getelementptr inbounds nuw %struct.point, ptr %0, i64 %indvars.iv152
+  %119 = load i32, ptr %118, align 4, !tbaa !573
+  %120 = sitofp i32 %119 to double
+  %121 = fsub reassoc nsz arcp contract afn double %120, %38
+  %122 = fmul reassoc nsz arcp contract afn double %121, %116
+  %123 = getelementptr inbounds nuw i8, ptr %118, i64 4
+  %124 = load i32, ptr %123, align 4, !tbaa !575
+  %125 = sitofp i32 %124 to double
+  %126 = fsub reassoc nsz arcp contract afn double %125, %39
+  %127 = fmul reassoc nsz arcp contract afn double %126, %117
+  %128 = fadd reassoc nsz arcp contract afn double %127, %122
+  %129 = fmul reassoc nsz arcp contract afn double %126, %116
+  %130 = fmul reassoc nsz arcp contract afn double %121, %117
+  %131 = fsub reassoc nsz arcp contract afn double %129, %130
+  %132 = fcmp reassoc nsz arcp contract afn ogt double %128, %.0107134
+  %.1108 = select nsz i1 %132, double %128, double %.0107134
+  %133 = fcmp reassoc nsz arcp contract afn olt double %128, %.0109133
+  %.1110 = select nsz i1 %133, double %128, double %.0109133
+  %134 = fcmp reassoc nsz arcp contract afn ogt double %131, %.0103136
+  %.1104 = select nsz i1 %134, double %131, double %.0103136
+  %135 = fcmp reassoc nsz arcp contract afn olt double %131, %.0105135
+  %.1106 = select nsz i1 %135, double %131, double %.0105135
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
   br i1 %exitcond156.not, label %._crit_edge139, label %.lr.ph138
 
 ._crit_edge139:                                   ; preds = %.lr.ph138
-  %138 = fmul reassoc nsz arcp contract afn double %.1110, %118
-  %139 = fadd reassoc nsz arcp contract afn double %138, %38
-  store double %139, ptr %4, align 8, !tbaa !567
-  %140 = fmul reassoc nsz arcp contract afn double %.1110, %119
-  %141 = fadd reassoc nsz arcp contract afn double %140, %39
-  %142 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store double %141, ptr %142, align 8, !tbaa !569
-  %143 = fmul reassoc nsz arcp contract afn double %.1108, %118
-  %144 = fadd reassoc nsz arcp contract afn double %143, %38
-  %145 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store double %144, ptr %145, align 8, !tbaa !570
-  %146 = fmul reassoc nsz arcp contract afn double %.1108, %119
-  %147 = fadd reassoc nsz arcp contract afn double %146, %39
-  %148 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store double %147, ptr %148, align 8, !tbaa !571
-  %149 = fsub reassoc nsz arcp contract afn double %.1104, %.1106
-  %150 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store double %149, ptr %150, align 8, !tbaa !572
-  %151 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store double %38, ptr %151, align 8, !tbaa !576
-  %152 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store double %39, ptr %152, align 8, !tbaa !577
-  %153 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store double %.064.i, ptr %153, align 8, !tbaa !578
-  %154 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store double %118, ptr %154, align 8, !tbaa !579
-  %155 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store double %119, ptr %155, align 8, !tbaa !580
-  %156 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store double 0x3FD921FB54442D18, ptr %156, align 8, !tbaa !582
-  %157 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store double 1.250000e-01, ptr %157, align 8, !tbaa !581
-  %158 = fcmp reassoc nsz arcp contract afn olt double %149, 1.000000e+00
-  br i1 %158, label %159, label %160
+  %136 = fmul reassoc nsz arcp contract afn double %.1110, %116
+  %137 = fadd reassoc nsz arcp contract afn double %136, %38
+  store double %137, ptr %4, align 8, !tbaa !567
+  %138 = fmul reassoc nsz arcp contract afn double %.1110, %117
+  %139 = fadd reassoc nsz arcp contract afn double %138, %39
+  %140 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store double %139, ptr %140, align 8, !tbaa !569
+  %141 = fmul reassoc nsz arcp contract afn double %.1108, %116
+  %142 = fadd reassoc nsz arcp contract afn double %141, %38
+  %143 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store double %142, ptr %143, align 8, !tbaa !570
+  %144 = fmul reassoc nsz arcp contract afn double %.1108, %117
+  %145 = fadd reassoc nsz arcp contract afn double %144, %39
+  %146 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store double %145, ptr %146, align 8, !tbaa !571
+  %147 = fsub reassoc nsz arcp contract afn double %.1104, %.1106
+  %148 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store double %147, ptr %148, align 8, !tbaa !572
+  %149 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store double %38, ptr %149, align 8, !tbaa !576
+  %150 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store double %39, ptr %150, align 8, !tbaa !577
+  %151 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  store double %.064.i, ptr %151, align 8, !tbaa !578
+  %152 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  store double %116, ptr %152, align 8, !tbaa !579
+  %153 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store double %117, ptr %153, align 8, !tbaa !580
+  %154 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store double 0x3FD921FB54442D18, ptr %154, align 8, !tbaa !582
+  %155 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  store double 1.250000e-01, ptr %155, align 8, !tbaa !581
+  %156 = fcmp reassoc nsz arcp contract afn olt double %147, 1.000000e+00
+  br i1 %156, label %157, label %158
 
-159:                                              ; preds = %._crit_edge139
-  store double 1.000000e+00, ptr %150, align 8, !tbaa !572
-  br label %160
+157:                                              ; preds = %._crit_edge139
+  store double 1.000000e+00, ptr %148, align 8, !tbaa !572
+  br label %158
 
-160:                                              ; preds = %159, %._crit_edge139
+158:                                              ; preds = %157, %._crit_edge139
   ret void
 }
 

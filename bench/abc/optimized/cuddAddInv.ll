@@ -37,89 +37,87 @@ define ptr @Cudd_addScalarInverse(ptr noundef %0, ptr noundef %1, ptr noundef %2
 define ptr @cuddAddScalarInverseRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8, !tbaa !3
   %5 = icmp eq i32 %4, 2147483647
-  br i1 %5, label %6, label %18
+  br i1 %5, label %6, label %16
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load double, ptr %7, align 8, !tbaa !28
-  %9 = fcmp olt double %8, 0.000000e+00
-  %10 = fneg double %8
-  %11 = select i1 %9, double %10, double %8
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %13 = load double, ptr %12, align 8, !tbaa !28
-  %14 = fcmp olt double %11, %13
-  br i1 %14, label %55, label %15
+  %9 = tail call double @llvm.fabs.f64(double %8)
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %11 = load double, ptr %10, align 8, !tbaa !28
+  %12 = fcmp olt double %9, %11
+  br i1 %12, label %53, label %13
 
-15:                                               ; preds = %6
-  %16 = fdiv double 1.000000e+00, %8
-  %17 = tail call ptr @cuddUniqueConst(ptr noundef %0, double noundef %16) #3
-  br label %55
+13:                                               ; preds = %6
+  %14 = fdiv double 1.000000e+00, %8
+  %15 = tail call ptr @cuddUniqueConst(ptr noundef %0, double noundef %14) #4
+  br label %53
 
-18:                                               ; preds = %3
-  %19 = tail call ptr @cuddCacheLookup2(ptr noundef %0, ptr noundef nonnull @Cudd_addScalarInverse, ptr noundef nonnull %1, ptr noundef %2) #3
-  %.not = icmp eq ptr %19, null
-  br i1 %.not, label %20, label %55
+16:                                               ; preds = %3
+  %17 = tail call ptr @cuddCacheLookup2(ptr noundef %0, ptr noundef nonnull @Cudd_addScalarInverse, ptr noundef nonnull %1, ptr noundef %2) #4
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %18, label %53
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !28
-  %23 = tail call ptr @cuddAddScalarInverseRecur(ptr noundef %0, ptr noundef %22, ptr noundef %2)
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %55, label %25
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %20 = load ptr, ptr %19, align 8, !tbaa !28
+  %21 = tail call ptr @cuddAddScalarInverseRecur(ptr noundef %0, ptr noundef %20, ptr noundef %2)
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %53, label %23
 
-25:                                               ; preds = %20
-  %26 = ptrtoint ptr %23 to i64
-  %27 = and i64 %26, -2
-  %28 = inttoptr i64 %27 to ptr
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !29
-  %31 = add i32 %30, 1
-  store i32 %31, ptr %29, align 4, !tbaa !29
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !28
-  %34 = tail call ptr @cuddAddScalarInverseRecur(ptr noundef %0, ptr noundef %33, ptr noundef %2)
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %37
+23:                                               ; preds = %18
+  %24 = ptrtoint ptr %21 to i64
+  %25 = and i64 %24, -2
+  %26 = inttoptr i64 %25 to ptr
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %28 = load i32, ptr %27, align 4, !tbaa !29
+  %29 = add i32 %28, 1
+  store i32 %29, ptr %27, align 4, !tbaa !29
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %31 = load ptr, ptr %30, align 8, !tbaa !28
+  %32 = tail call ptr @cuddAddScalarInverseRecur(ptr noundef %0, ptr noundef %31, ptr noundef %2)
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %35
 
-36:                                               ; preds = %25
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %23) #3
-  br label %55
+34:                                               ; preds = %23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %21) #4
+  br label %53
 
-37:                                               ; preds = %25
-  %38 = ptrtoint ptr %34 to i64
-  %39 = and i64 %38, -2
-  %40 = inttoptr i64 %39 to ptr
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %42 = load i32, ptr %41, align 4, !tbaa !29
-  %43 = add i32 %42, 1
-  store i32 %43, ptr %41, align 4, !tbaa !29
-  %44 = icmp eq ptr %23, %34
-  br i1 %44, label %.thread, label %45
+35:                                               ; preds = %23
+  %36 = ptrtoint ptr %32 to i64
+  %37 = and i64 %36, -2
+  %38 = inttoptr i64 %37 to ptr
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %40 = load i32, ptr %39, align 4, !tbaa !29
+  %41 = add i32 %40, 1
+  store i32 %41, ptr %39, align 4, !tbaa !29
+  %42 = icmp eq ptr %21, %32
+  br i1 %42, label %.thread, label %43
 
-45:                                               ; preds = %37
-  %46 = load i32, ptr %1, align 8, !tbaa !3
-  %47 = tail call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %46, ptr noundef nonnull %23, ptr noundef nonnull %34) #3
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %.thread
+43:                                               ; preds = %35
+  %44 = load i32, ptr %1, align 8, !tbaa !3
+  %45 = tail call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %44, ptr noundef nonnull %21, ptr noundef nonnull %32) #4
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %47, label %.thread
 
-49:                                               ; preds = %45
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %23) #3
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %34) #3
-  br label %55
+47:                                               ; preds = %43
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %21) #4
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %32) #4
+  br label %53
 
-.thread:                                          ; preds = %37, %45
-  %50 = phi ptr [ %47, %45 ], [ %23, %37 ]
-  %51 = load i32, ptr %29, align 4, !tbaa !29
+.thread:                                          ; preds = %35, %43
+  %48 = phi ptr [ %45, %43 ], [ %21, %35 ]
+  %49 = load i32, ptr %27, align 4, !tbaa !29
+  %50 = add i32 %49, -1
+  store i32 %50, ptr %27, align 4, !tbaa !29
+  %51 = load i32, ptr %39, align 4, !tbaa !29
   %52 = add i32 %51, -1
-  store i32 %52, ptr %29, align 4, !tbaa !29
-  %53 = load i32, ptr %41, align 4, !tbaa !29
-  %54 = add i32 %53, -1
-  store i32 %54, ptr %41, align 4, !tbaa !29
-  tail call void @cuddCacheInsert2(ptr noundef %0, ptr noundef nonnull @Cudd_addScalarInverse, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %50) #3
-  br label %55
+  store i32 %52, ptr %39, align 4, !tbaa !29
+  tail call void @cuddCacheInsert2(ptr noundef %0, ptr noundef nonnull @Cudd_addScalarInverse, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %48) #4
+  br label %53
 
-55:                                               ; preds = %20, %18, %6, %.thread, %49, %36, %15
-  %.0 = phi ptr [ %17, %15 ], [ null, %36 ], [ null, %49 ], [ %50, %.thread ], [ null, %6 ], [ %19, %18 ], [ null, %20 ]
+53:                                               ; preds = %18, %16, %6, %.thread, %47, %34, %13
+  %.0 = phi ptr [ %15, %13 ], [ null, %34 ], [ null, %47 ], [ %48, %.thread ], [ null, %6 ], [ %17, %16 ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -136,10 +134,14 @@ declare void @cuddCacheInsert2(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { nounwind }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

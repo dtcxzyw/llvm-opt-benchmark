@@ -971,7 +971,7 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %9, %_ZL17calcSlab
   br label %54
 
 54:                                               ; preds = %.lr.ph129, %.loopexit
-  %55 = phi ptr [ %39, %.lr.ph129 ], [ %150, %.loopexit ]
+  %55 = phi ptr [ %39, %.lr.ph129 ], [ %148, %.loopexit ]
   %indvars.iv133 = phi i64 [ 0, %.lr.ph129 ], [ %indvars.iv.next134, %.loopexit ]
   %.048128 = phi i32 [ 0, %.lr.ph129 ], [ %.1, %.loopexit ]
   %.sroa.0.0125 = phi float [ undef, %.lr.ph129 ], [ %.sroa.0.3, %.loopexit ]
@@ -1038,116 +1038,114 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %9, %_ZL17calcSlab
 _ZL12getSlabCoordPKfi.exit57:                     ; preds = %68, %80, %82
   %.0.i56 = phi float [ %81, %80 ], [ %84, %82 ], [ 0.000000e+00, %68 ]
   %85 = fsub float %.0.i, %.0.i56
-  %86 = fcmp olt float %85, 0.000000e+00
-  %87 = fneg float %85
-  %88 = select i1 %86, float %87, float %85
-  %89 = fcmp ogt float %88, 0x3F847AE140000000
-  br i1 %89, label %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97, label %90
+  %86 = tail call float @llvm.fabs.f32(float %85)
+  %87 = fcmp ogt float %86, 0x3F847AE140000000
+  br i1 %87, label %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97, label %88
 
-90:                                               ; preds = %_ZL12getSlabCoordPKfi.exit57
-  %91 = zext i16 %79 to i64
-  %.idx54 = mul nuw nsw i64 %91, 12
-  %92 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx54
+88:                                               ; preds = %_ZL12getSlabCoordPKfi.exit57
+  %89 = zext i16 %79 to i64
+  %.idx54 = mul nuw nsw i64 %89, 12
+  %90 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx54
   switch i32 %10, label %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58 [
-    i32 0, label %93
-    i32 2, label %99
+    i32 0, label %91
+    i32 2, label %97
   ]
 
-93:                                               ; preds = %90
-  %94 = getelementptr inbounds nuw i8, ptr %73, i64 8
+91:                                               ; preds = %88
+  %92 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %93 = load float, ptr %92, align 4
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %95 = load float, ptr %94, align 4
-  %96 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %97 = load float, ptr %96, align 4
-  %98 = fcmp olt float %95, %97
-  %.139 = select i1 %98, ptr %73, ptr %92
-  %.140 = select i1 %98, ptr %92, ptr %73
-  %.141 = select i1 %98, float %95, float %97
-  %.142 = select i1 %98, float %97, float %95
+  %96 = fcmp olt float %93, %95
+  %.139 = select i1 %96, ptr %73, ptr %90
+  %.140 = select i1 %96, ptr %90, ptr %73
+  %.141 = select i1 %96, float %93, float %95
+  %.142 = select i1 %96, float %95, float %93
   br label %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58.sink.split
 
-99:                                               ; preds = %90
-  %100 = load float, ptr %73, align 4
-  %101 = load float, ptr %92, align 4
-  %102 = fcmp olt float %100, %101
-  %.143 = select i1 %102, ptr %73, ptr %92
-  %.144 = select i1 %102, ptr %92, ptr %73
-  %.145 = select i1 %102, float %100, float %101
-  %.146 = select i1 %102, float %101, float %100
+97:                                               ; preds = %88
+  %98 = load float, ptr %73, align 4
+  %99 = load float, ptr %90, align 4
+  %100 = fcmp olt float %98, %99
+  %.143 = select i1 %100, ptr %73, ptr %90
+  %.144 = select i1 %100, ptr %90, ptr %73
+  %.145 = select i1 %100, float %98, float %99
+  %.146 = select i1 %100, float %99, float %98
   br label %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58.sink.split
 
-_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58.sink.split: ; preds = %99, %93
-  %.sink138 = phi ptr [ %.139, %93 ], [ %.143, %99 ]
-  %.sink137 = phi ptr [ %.140, %93 ], [ %.144, %99 ]
-  %.sroa.061.4.ph = phi float [ %.141, %93 ], [ %.145, %99 ]
-  %.sroa.0.4.ph = phi float [ %.142, %93 ], [ %.146, %99 ]
-  %103 = getelementptr inbounds nuw i8, ptr %.sink138, i64 4
+_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58.sink.split: ; preds = %97, %91
+  %.sink138 = phi ptr [ %.139, %91 ], [ %.143, %97 ]
+  %.sink137 = phi ptr [ %.140, %91 ], [ %.144, %97 ]
+  %.sroa.061.4.ph = phi float [ %.141, %91 ], [ %.145, %97 ]
+  %.sroa.0.4.ph = phi float [ %.142, %91 ], [ %.146, %97 ]
+  %101 = getelementptr inbounds nuw i8, ptr %.sink138, i64 4
+  %102 = load float, ptr %101, align 4
+  %103 = getelementptr inbounds nuw i8, ptr %.sink137, i64 4
   %104 = load float, ptr %103, align 4
-  %105 = getelementptr inbounds nuw i8, ptr %.sink137, i64 4
-  %106 = load float, ptr %105, align 4
   br label %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58
 
-_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58:        ; preds = %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58.sink.split, %90
-  %.sroa.663.4 = phi float [ %.sroa.663.1114, %90 ], [ %104, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58.sink.split ]
-  %.sroa.061.4 = phi float [ %.sroa.061.1115, %90 ], [ %.sroa.061.4.ph, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58.sink.split ]
-  %.sroa.6.4 = phi float [ %.sroa.6.1116, %90 ], [ %106, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58.sink.split ]
-  %.sroa.0.4 = phi float [ %.sroa.0.1117, %90 ], [ %.sroa.0.4.ph, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58.sink.split ]
-  %107 = load float, ptr %62, align 4
-  %108 = fadd float %.sroa.061.4, 0x3F847AE140000000
-  %109 = fcmp ogt float %47, %108
-  %110 = select i1 %109, float %47, float %108
-  %111 = fadd float %.sroa.0.4, 0xBF847AE140000000
-  %112 = fcmp olt float %48, %111
-  %113 = select i1 %112, float %48, float %111
-  %114 = fcmp ogt float %110, %113
-  br i1 %114, label %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97, label %115
+_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58:        ; preds = %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58.sink.split, %88
+  %.sroa.663.4 = phi float [ %.sroa.663.1114, %88 ], [ %102, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58.sink.split ]
+  %.sroa.061.4 = phi float [ %.sroa.061.1115, %88 ], [ %.sroa.061.4.ph, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58.sink.split ]
+  %.sroa.6.4 = phi float [ %.sroa.6.1116, %88 ], [ %104, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58.sink.split ]
+  %.sroa.0.4 = phi float [ %.sroa.0.1117, %88 ], [ %.sroa.0.4.ph, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58.sink.split ]
+  %105 = load float, ptr %62, align 4
+  %106 = fadd float %.sroa.061.4, 0x3F847AE140000000
+  %107 = fcmp ogt float %47, %106
+  %108 = select i1 %107, float %47, float %106
+  %109 = fadd float %.sroa.0.4, 0xBF847AE140000000
+  %110 = fcmp olt float %48, %109
+  %111 = select i1 %110, float %48, float %109
+  %112 = fcmp ogt float %108, %111
+  br i1 %112, label %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97, label %113
 
-115:                                              ; preds = %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58
-  %116 = fsub float %.sroa.6.4, %.sroa.663.4
-  %117 = fsub float %.sroa.0.4, %.sroa.061.4
-  %118 = fdiv float %116, %117
-  %119 = fneg float %118
-  %120 = tail call float @llvm.fmuladd.f32(float %119, float %.sroa.061.4, float %.sroa.663.4)
-  %121 = tail call float @llvm.fmuladd.f32(float %51, float %110, float %53)
-  %122 = tail call float @llvm.fmuladd.f32(float %51, float %113, float %53)
-  %123 = tail call float @llvm.fmuladd.f32(float %118, float %110, float %120)
-  %124 = tail call float @llvm.fmuladd.f32(float %118, float %113, float %120)
-  %125 = fsub float %123, %121
-  %126 = fsub float %124, %122
-  %127 = fmul float %125, %126
-  %128 = fcmp olt float %127, 0.000000e+00
-  br i1 %128, label %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread, label %_Z12overlapSlabsPKfS0_S0_S0_ff.exit
+113:                                              ; preds = %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58
+  %114 = fsub float %.sroa.6.4, %.sroa.663.4
+  %115 = fsub float %.sroa.0.4, %.sroa.061.4
+  %116 = fdiv float %114, %115
+  %117 = fneg float %116
+  %118 = tail call float @llvm.fmuladd.f32(float %117, float %.sroa.061.4, float %.sroa.663.4)
+  %119 = tail call float @llvm.fmuladd.f32(float %51, float %108, float %53)
+  %120 = tail call float @llvm.fmuladd.f32(float %51, float %111, float %53)
+  %121 = tail call float @llvm.fmuladd.f32(float %116, float %108, float %118)
+  %122 = tail call float @llvm.fmuladd.f32(float %116, float %111, float %118)
+  %123 = fsub float %121, %119
+  %124 = fsub float %122, %120
+  %125 = fmul float %123, %124
+  %126 = fcmp olt float %125, 0.000000e+00
+  br i1 %126, label %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread, label %_Z12overlapSlabsPKfS0_S0_S0_ff.exit
 
-_Z12overlapSlabsPKfS0_S0_S0_ff.exit:              ; preds = %115
-  %129 = fmul float %107, 2.000000e+00
-  %130 = fmul float %129, %129
-  %131 = fmul float %125, %125
-  %132 = fcmp ole float %131, %130
-  %133 = fmul float %126, %126
-  %134 = fcmp ole float %133, %130
-  %or.cond.not.i = or i1 %132, %134
+_Z12overlapSlabsPKfS0_S0_S0_ff.exit:              ; preds = %113
+  %127 = fmul float %105, 2.000000e+00
+  %128 = fmul float %127, %127
+  %129 = fmul float %123, %123
+  %130 = fcmp ole float %129, %128
+  %131 = fmul float %124, %124
+  %132 = fcmp ole float %131, %128
+  %or.cond.not.i = or i1 %130, %132
   br i1 %or.cond.not.i, label %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread, label %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97
 
-_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread:       ; preds = %115, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit
-  %135 = icmp slt i32 %.048128, %7
-  br i1 %135, label %136, label %.loopexit
+_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread:       ; preds = %113, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit
+  %133 = icmp slt i32 %.048128, %7
+  br i1 %133, label %134, label %.loopexit
 
-136:                                              ; preds = %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread
-  %137 = fcmp ogt float %.sroa.067.077, %.sroa.061.4
-  %138 = select i1 %137, float %.sroa.067.077, float %.sroa.061.4
-  %139 = shl nsw i32 %.048128, 1
-  %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds float, ptr %6, i64 %140
-  store float %138, ptr %141, align 4
-  %142 = fcmp olt float %.sroa.064.081, %.sroa.0.4
-  %143 = select i1 %142, float %.sroa.064.081, float %.sroa.0.4
-  %144 = getelementptr i8, ptr %141, i64 4
-  store float %143, ptr %144, align 4
-  %145 = trunc nuw nsw i64 %indvars.iv133 to i32
-  %146 = or i32 %37, %145
-  %147 = sext i32 %.048128 to i64
-  %148 = getelementptr inbounds i32, ptr %5, i64 %147
-  store i32 %146, ptr %148, align 4
-  %149 = add nsw i32 %.048128, 1
+134:                                              ; preds = %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread
+  %135 = fcmp ogt float %.sroa.067.077, %.sroa.061.4
+  %136 = select i1 %135, float %.sroa.067.077, float %.sroa.061.4
+  %137 = shl nsw i32 %.048128, 1
+  %138 = sext i32 %137 to i64
+  %139 = getelementptr inbounds float, ptr %6, i64 %138
+  store float %136, ptr %139, align 4
+  %140 = fcmp olt float %.sroa.064.081, %.sroa.0.4
+  %141 = select i1 %140, float %.sroa.064.081, float %.sroa.0.4
+  %142 = getelementptr i8, ptr %139, i64 4
+  store float %141, ptr %142, align 4
+  %143 = trunc nuw nsw i64 %indvars.iv133 to i32
+  %144 = or i32 %37, %143
+  %145 = sext i32 %.048128 to i64
+  %146 = getelementptr inbounds i32, ptr %5, i64 %145
+  store i32 %144, ptr %146, align 4
+  %147 = add nsw i32 %.048128, 1
   %.pre = load ptr, ptr %38, align 8
   br label %.loopexit
 
@@ -1160,19 +1158,19 @@ _Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97:     ; preds = %._Z12overlapSlabsPK
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, %63
   br i1 %exitcond.not, label %.loopexit, label %64, !llvm.loop !14
 
-.loopexit:                                        ; preds = %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97, %54, %136, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread
-  %150 = phi ptr [ %.pre, %136 ], [ %55, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %55, %54 ], [ %55, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
-  %.sroa.663.3 = phi float [ %.sroa.663.4, %136 ], [ %.sroa.663.4, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.663.0122, %54 ], [ %.sroa.663.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
-  %.sroa.061.3 = phi float [ %.sroa.061.4, %136 ], [ %.sroa.061.4, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.061.0123, %54 ], [ %.sroa.061.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
-  %.sroa.6.3 = phi float [ %.sroa.6.4, %136 ], [ %.sroa.6.4, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.6.0124, %54 ], [ %.sroa.6.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
-  %.sroa.0.3 = phi float [ %.sroa.0.4, %136 ], [ %.sroa.0.4, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.0.0125, %54 ], [ %.sroa.0.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
-  %.1 = phi i32 [ %149, %136 ], [ %.048128, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.048128, %54 ], [ %.048128, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
+.loopexit:                                        ; preds = %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97, %54, %134, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread
+  %148 = phi ptr [ %.pre, %134 ], [ %55, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %55, %54 ], [ %55, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
+  %.sroa.663.3 = phi float [ %.sroa.663.4, %134 ], [ %.sroa.663.4, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.663.0122, %54 ], [ %.sroa.663.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
+  %.sroa.061.3 = phi float [ %.sroa.061.4, %134 ], [ %.sroa.061.4, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.061.0123, %54 ], [ %.sroa.061.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
+  %.sroa.6.3 = phi float [ %.sroa.6.4, %134 ], [ %.sroa.6.4, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.6.0124, %54 ], [ %.sroa.6.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
+  %.sroa.0.3 = phi float [ %.sroa.0.4, %134 ], [ %.sroa.0.4, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.0.0125, %54 ], [ %.sroa.0.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
+  %.1 = phi i32 [ %147, %134 ], [ %.048128, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.048128, %54 ], [ %.048128, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 24
-  %152 = load i32, ptr %151, align 4
-  %153 = sext i32 %152 to i64
-  %154 = icmp slt i64 %indvars.iv.next134, %153
-  br i1 %154, label %54, label %.loopexit109, !llvm.loop !15
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
+  %150 = load i32, ptr %149, align 4
+  %151 = sext i32 %150 to i64
+  %152 = icmp slt i64 %indvars.iv.next134, %151
+  br i1 %152, label %54, label %.loopexit109, !llvm.loop !15
 
 .loopexit109:                                     ; preds = %.loopexit, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit, %8
   %.0 = phi i32 [ 0, %8 ], [ 0, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit ], [ %.1, %.loopexit ]
@@ -4938,6 +4936,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #17
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
