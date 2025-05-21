@@ -443,7 +443,7 @@ define void @_ZNK6open3d13visualization11ColorMapHot8GetColorEd(ptr dead_on_unwi
 
 6:                                                ; preds = %3
   %7 = fcmp olt double %2, 0x3FD5555555555555
-  br i1 %7, label %8, label %19
+  br i1 %7, label %8, label %17
 
 8:                                                ; preds = %6
   %9 = fcmp ogt double %2, 0x3FD5555555555555
@@ -456,79 +456,79 @@ define void @_ZNK6open3d13visualization11ColorMapHot8GetColorEd(ptr dead_on_unwi
   br label %_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit
 
 11:                                               ; preds = %8
-  %.sroa.3.24.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %2, i64 0
-  %12 = tail call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 0.000000e+00, double poison>, <2 x double> %.sroa.3.24.vec.insert.i.i.i.i.i.i.i)
-  %13 = fdiv <2 x double> %12, <double 0x3FD5555555555555, double poison>
-  %14 = fadd <2 x double> %13, <double 1.000000e+00, double poison>
-  %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
-  store <2 x double> %15, ptr %0, align 8, !tbaa !8, !alias.scope !9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = fdiv double %2, 0x3FD5555555555555
-  %18 = fsub double 1.000000e+00, %17
-  store double %18, ptr %16, align 8, !tbaa !4, !alias.scope !9
+  %.scalar = tail call double @llvm.copysign.f64(double 0.000000e+00, double %2)
+  %.scalar43 = fdiv double %.scalar, 0x3FD5555555555555
+  %.scalar44 = fadd double %.scalar43, 1.000000e+00
+  %12 = insertelement <2 x double> poison, double %.scalar44, i64 0
+  %13 = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> zeroinitializer
+  store <2 x double> %13, ptr %0, align 8, !tbaa !8, !alias.scope !9
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = fdiv double %2, 0x3FD5555555555555
+  %16 = fsub double 1.000000e+00, %15
+  store double %16, ptr %14, align 8, !tbaa !4, !alias.scope !9
   br label %_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit
 
-19:                                               ; preds = %6
-  %20 = fcmp olt double %2, 0x3FE5555555555555
-  br i1 %20, label %21, label %34
+17:                                               ; preds = %6
+  %18 = fcmp olt double %2, 0x3FE5555555555555
+  br i1 %18, label %19, label %32
+
+19:                                               ; preds = %17
+  %20 = fcmp ogt double %2, 0x3FE5555555555555
+  br i1 %20, label %21, label %22
 
 21:                                               ; preds = %19
-  %22 = fcmp ogt double %2, 0x3FE5555555555555
-  br i1 %22, label %23, label %24
-
-23:                                               ; preds = %21
   store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %0, align 8
   %.sroa.24.48..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double 0.000000e+00, ptr %.sroa.24.48..sroa_idx, align 8, !tbaa !8
   br label %_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit
 
-24:                                               ; preds = %21
-  %25 = fadd double %2, 0xBFD5555555555555
-  %.sroa.3.24.vec.insert.i.i.i.i.i.i.i8 = insertelement <2 x double> poison, double %25, i64 0
-  %26 = shufflevector <2 x double> %.sroa.3.24.vec.insert.i.i.i.i.i.i.i8, <2 x double> poison, <2 x i32> zeroinitializer
-  %27 = fmul <2 x double> %26, <double 0.000000e+00, double -1.000000e+00>
-  %28 = fdiv <2 x double> %27, splat (double 0x3FD5555555555555)
-  %29 = fadd <2 x double> %28, splat (double 1.000000e+00)
-  store <2 x double> %29, ptr %0, align 8, !tbaa !8, !alias.scope !12
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = fmul double %25, 0.000000e+00
-  %32 = fdiv double %31, 0x3FD5555555555555
-  %33 = fadd double %32, 0.000000e+00
-  store double %33, ptr %30, align 8, !tbaa !4, !alias.scope !12
+22:                                               ; preds = %19
+  %23 = fadd double %2, 0xBFD5555555555555
+  %.sroa.3.24.vec.insert.i.i.i.i.i.i.i8 = insertelement <2 x double> poison, double %23, i64 0
+  %24 = shufflevector <2 x double> %.sroa.3.24.vec.insert.i.i.i.i.i.i.i8, <2 x double> poison, <2 x i32> zeroinitializer
+  %25 = fmul <2 x double> %24, <double 0.000000e+00, double -1.000000e+00>
+  %26 = fdiv <2 x double> %25, splat (double 0x3FD5555555555555)
+  %27 = fadd <2 x double> %26, splat (double 1.000000e+00)
+  store <2 x double> %27, ptr %0, align 8, !tbaa !8, !alias.scope !12
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %29 = fmul double %23, 0.000000e+00
+  %30 = fdiv double %29, 0x3FD5555555555555
+  %31 = fadd double %30, 0.000000e+00
+  store double %31, ptr %28, align 8, !tbaa !4, !alias.scope !12
   br label %_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit
 
-34:                                               ; preds = %19
-  %35 = fcmp olt double %2, 1.000000e+00
-  br i1 %35, label %36, label %49
+32:                                               ; preds = %17
+  %33 = fcmp olt double %2, 1.000000e+00
+  br i1 %33, label %34, label %47
+
+34:                                               ; preds = %32
+  %35 = fcmp ogt double %2, 1.000000e+00
+  br i1 %35, label %36, label %37
 
 36:                                               ; preds = %34
-  %37 = fcmp ogt double %2, 1.000000e+00
-  br i1 %37, label %38, label %39
-
-38:                                               ; preds = %36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit
 
-39:                                               ; preds = %36
-  %40 = fadd double %2, 0xBFE5555555555555
-  %.sroa.3.24.vec.insert.i.i.i.i.i.i.i10 = insertelement <2 x double> poison, double %40, i64 0
-  %41 = shufflevector <2 x double> %.sroa.3.24.vec.insert.i.i.i.i.i.i.i10, <2 x double> poison, <2 x i32> zeroinitializer
-  %42 = fmul <2 x double> %41, <double -1.000000e+00, double 0.000000e+00>
-  %43 = fdiv <2 x double> %42, splat (double 0x3FD5555555555556)
-  %44 = fadd <2 x double> %43, <double 1.000000e+00, double 0.000000e+00>
-  store <2 x double> %44, ptr %0, align 8, !tbaa !8, !alias.scope !15
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = fmul double %40, 0.000000e+00
-  %47 = fdiv double %46, 0x3FD5555555555556
-  %48 = fadd double %47, 0.000000e+00
-  store double %48, ptr %45, align 8, !tbaa !4, !alias.scope !15
+37:                                               ; preds = %34
+  %38 = fadd double %2, 0xBFE5555555555555
+  %.sroa.3.24.vec.insert.i.i.i.i.i.i.i10 = insertelement <2 x double> poison, double %38, i64 0
+  %39 = shufflevector <2 x double> %.sroa.3.24.vec.insert.i.i.i.i.i.i.i10, <2 x double> poison, <2 x i32> zeroinitializer
+  %40 = fmul <2 x double> %39, <double -1.000000e+00, double 0.000000e+00>
+  %41 = fdiv <2 x double> %40, splat (double 0x3FD5555555555556)
+  %42 = fadd <2 x double> %41, <double 1.000000e+00, double 0.000000e+00>
+  store <2 x double> %42, ptr %0, align 8, !tbaa !8, !alias.scope !15
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %44 = fmul double %38, 0.000000e+00
+  %45 = fdiv double %44, 0x3FD5555555555556
+  %46 = fadd double %45, 0.000000e+00
+  store double %46, ptr %43, align 8, !tbaa !4, !alias.scope !15
   br label %_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit
 
-49:                                               ; preds = %34
+47:                                               ; preds = %32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit
 
-_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit: ; preds = %39, %38, %24, %23, %11, %10, %49, %5
+_ZNK6open3d13visualization8ColorMap11InterpolateEdRKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEdS6_d.exit: ; preds = %37, %36, %22, %21, %11, %10, %47, %5
   ret void
 }
 
@@ -1835,7 +1835,7 @@ define internal void @__cxx_global_var_init.7() #17 section ".text.startup" comd
 declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.copysign.v2f64(<2 x double>, <2 x double>) #19
+declare double @llvm.copysign.f64(double, double) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
