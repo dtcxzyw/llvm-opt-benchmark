@@ -6397,7 +6397,7 @@ define internal float @log10_scale_callback(ptr readnone captures(none) %0, floa
   %18 = fmul reassoc nsz arcp contract afn double %17, 0x40026BB1BBB55516
   %19 = tail call reassoc nsz arcp contract afn double @llvm.exp.f64(double %18)
   %.inv = fcmp reassoc nsz arcp contract afn oge double %19, 1.000000e+00
-  %20 = select reassoc nsz arcp contract afn i1 %.inv, double 1.000000e+00, double %19
+  %20 = select i1 %.inv, double 1.000000e+00, double %19
   %21 = fptrunc double %20 to float
   %22 = fcmp reassoc nsz arcp contract afn ugt float %21, 0x3F1A36E2E0000000
   %.1 = select nsz i1 %22, float %21, float 0.000000e+00

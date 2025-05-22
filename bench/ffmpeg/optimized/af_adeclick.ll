@@ -546,7 +546,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef %0) #2 {
   %19 = fmul nsz double %18, %16
   %20 = fdiv nsz double %19, 1.000000e+03
   %.inv = fcmp nsz ole double %20, 1.000000e+02
-  %21 = select nsz i1 %.inv, double 1.000000e+02, double %20
+  %21 = select i1 %.inv, double 1.000000e+02, double %20
   %22 = fptosi double %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 68
   store i32 %22, ptr %23, align 4, !tbaa !49
@@ -573,7 +573,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef %0) #2 {
   %42 = fsub nsz double 1.000000e+00, %41
   %43 = fmul nsz double %42, %24
   %.inv197 = fcmp nsz ole double %43, 1.000000e+00
-  %44 = select nsz i1 %.inv197, double 1.000000e+00, double %43
+  %44 = select i1 %.inv197, double 1.000000e+00, double %43
   %45 = fptosi double %44 to i32
   %46 = getelementptr inbounds nuw i8, ptr %12, i64 72
   store i32 %45, ptr %46, align 8, !tbaa !74

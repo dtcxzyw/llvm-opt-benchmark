@@ -2644,7 +2644,7 @@ define internal fastcc void @compute_quant_matrix(ptr noundef captures(none) %0,
   %40 = uitofp i8 %39 to double
   %41 = fmul nsz double %6, %40
   %.inv = fcmp nsz ole double %41, 1.000000e+00
-  %42 = select nsz i1 %.inv, double 1.000000e+00, double %41
+  %42 = select i1 %.inv, double 1.000000e+00, double %41
   %43 = fptosi double %42 to i32
   %44 = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %indvars.iv96
   store i32 %43, ptr %44, align 4, !tbaa !72
@@ -2653,7 +2653,7 @@ define internal fastcc void @compute_quant_matrix(ptr noundef captures(none) %0,
   %47 = uitofp i8 %46 to double
   %48 = fmul nsz double %6, %47
   %.inv74 = fcmp nsz ole double %48, 1.000000e+00
-  %49 = select nsz i1 %.inv74, double 1.000000e+00, double %48
+  %49 = select i1 %.inv74, double 1.000000e+00, double %48
   %50 = fptosi double %49 to i32
   %51 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %indvars.iv96
   store i32 %50, ptr %51, align 4, !tbaa !72
@@ -2677,7 +2677,7 @@ define internal fastcc void @compute_quant_matrix(ptr noundef captures(none) %0,
   %62 = fneg nsz double %61
   %63 = tail call nsz double @llvm.fmuladd.f64(double %62, double %6, double 2.550000e+02)
   %.inv75 = fcmp nsz ole double %63, 1.000000e+00
-  %64 = select nsz i1 %.inv75, double 1.000000e+00, double %63
+  %64 = select i1 %.inv75, double 1.000000e+00, double %63
   %65 = fptosi double %64 to i32
   %66 = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %indvars.iv100
   store i32 %65, ptr %66, align 4, !tbaa !72
@@ -2688,7 +2688,7 @@ define internal fastcc void @compute_quant_matrix(ptr noundef captures(none) %0,
   %71 = fneg nsz double %70
   %72 = tail call nsz double @llvm.fmuladd.f64(double %71, double %6, double 2.550000e+02)
   %.inv76 = fcmp nsz ole double %72, 1.000000e+00
-  %73 = select nsz i1 %.inv76, double 1.000000e+00, double %72
+  %73 = select i1 %.inv76, double 1.000000e+00, double %72
   %74 = fptosi double %73 to i32
   %75 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %indvars.iv100
   store i32 %74, ptr %75, align 4, !tbaa !72
