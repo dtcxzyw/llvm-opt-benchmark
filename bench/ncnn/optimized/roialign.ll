@@ -562,8 +562,8 @@ define internal void @_ZNK4ncnn8ROIAlign7forwardERKSt6vectorINS_3MatESaIS2_EERS4
   %26 = call i32 @llvm.smin.i32(i32 %25, i32 %23)
   store i32 %26, ptr %17, align 4, !tbaa !36
   %27 = load i32, ptr %16, align 4, !tbaa !36
-  %.not130 = icmp sgt i32 %27, %26
-  br i1 %.not130, label %._crit_edge, label %.noexc.lr.ph
+  %.not129 = icmp sgt i32 %27, %26
+  br i1 %.not129, label %._crit_edge, label %.noexc.lr.ph
 
 .noexc.lr.ph:                                     ; preds = %22
   %28 = load ptr, ptr %3, align 8, !tbaa !42, !noalias !63
@@ -577,7 +577,7 @@ define internal void @_ZNK4ncnn8ROIAlign7forwardERKSt6vectorINS_3MatESaIS2_EERS4
   %35 = load i64, ptr %34, align 8, !tbaa !43, !noalias !66
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %37 = load i64, ptr %36, align 8, !tbaa !38, !noalias !66
-  %factor.op.mul132 = mul i64 %35, %37
+  %factor.op.mul131 = mul i64 %35, %37
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 212
   %39 = load i32, ptr %38, align 4, !tbaa !27
   %40 = icmp sgt i32 %39, 0
@@ -601,60 +601,60 @@ define internal void @_ZNK4ncnn8ROIAlign7forwardERKSt6vectorINS_3MatESaIS2_EERS4
   %52 = sub i32 %51, %27
   br label %.noexc.us.us
 
-.noexc.us.us:                                     ; preds = %.noexc.us.us.preheader, %._crit_edge121.split.us.us.us
-  %indvars.iv154 = phi i64 [ %47, %.noexc.us.us.preheader ], [ %indvars.iv.next155, %._crit_edge121.split.us.us.us ]
+.noexc.us.us:                                     ; preds = %.noexc.us.us.preheader, %._crit_edge120.split.us.us.us
+  %indvars.iv153 = phi i64 [ %47, %.noexc.us.us.preheader ], [ %indvars.iv.next154, %._crit_edge121.split.us.us.us ]
   %indvar = phi i64 [ 0, %.noexc.us.us.preheader ], [ %indvar.next, %._crit_edge121.split.us.us.us ]
-  %.reass.us.us = mul i64 %factor.op.mul, %indvars.iv154
+  %.reass.us.us = mul i64 %factor.op.mul, %indvars.iv153
   %53 = getelementptr inbounds nuw i8, ptr %28, i64 %.reass.us.us
   %54 = load i32, ptr %6, align 4
   %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %.preheader100.us.us.us.us.preheader, label %.preheader100.us.us139.us.preheader
+  br i1 %55, label %.preheader99.us.us.us.us.preheader, label %.preheader99.us.us138.us.preheader
 
-.preheader100.us.us139.us.preheader:              ; preds = %.noexc.us.us
+.preheader99.us.us138.us.preheader:               ; preds = %.noexc.us.us
   %56 = add i64 %indvar, %47
-  %57 = mul i64 %factor.op.mul132, %56
+  %57 = mul i64 %factor.op.mul131, %56
   %scevgep = getelementptr i8, ptr %33, i64 %57
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %50, i1 false), !tbaa !44
-  br label %._crit_edge121.split.us.us.us
+  br label %._crit_edge120.split.us.us.us
 
-.preheader100.us.us.us.us.preheader:              ; preds = %.noexc.us.us
+.preheader99.us.us.us.us.preheader:               ; preds = %.noexc.us.us
   %58 = sitofp i32 %54 to float
-  %.reass133.us.us = mul i64 %factor.op.mul132, %indvars.iv154
-  %59 = getelementptr i8, ptr %33, i64 %.reass133.us.us
+  %.reass132.us.us = mul i64 %factor.op.mul131, %indvars.iv153
+  %59 = getelementptr i8, ptr %33, i64 %.reass132.us.us
   %60 = fdiv fast float 1.000000e+00, %58
-  br label %.preheader100.us.us.us.us
+  br label %.preheader99.us.us.us.us
 
-._crit_edge121.split.us.us.us:                    ; preds = %._crit_edge.split.us.us.us.us.us, %.preheader100.us.us139.us.preheader
-  %indvars.iv.next155 = add nsw i64 %indvars.iv154, 1
+._crit_edge120.split.us.us.us:                    ; preds = %._crit_edge.split.us.us.us.us.us, %.preheader99.us.us138.us.preheader
+  %indvars.iv.next154 = add nsw i64 %indvars.iv153, 1
   %indvar.next = add nuw nsw i64 %indvar, 1
   %lftr.wideiv = trunc i64 %indvar.next to i32
-  %exitcond157.not = icmp eq i32 %52, %lftr.wideiv
-  br i1 %exitcond157.not, label %._crit_edge, label %.noexc.us.us
+  %exitcond156.not = icmp eq i32 %52, %lftr.wideiv
+  br i1 %exitcond156.not, label %._crit_edge, label %.noexc.us.us
 
-.preheader100.us.us.us.us:                        ; preds = %.preheader100.us.us.us.us.preheader, %._crit_edge.split.us.us.us.us.us
-  %.061120.us.us.us.us = phi i32 [ %67, %._crit_edge.split.us.us.us.us.us ], [ 0, %.preheader100.us.us.us.us.preheader ]
-  %.062117.us.us.us.us = phi ptr [ %66, %._crit_edge.split.us.us.us.us.us ], [ %59, %.preheader100.us.us.us.us.preheader ]
-  %61 = uitofp nneg i32 %.061120.us.us.us.us to float
+.preheader99.us.us.us.us:                         ; preds = %.preheader99.us.us.us.us.preheader, %._crit_edge.split.us.us.us.us.us
+  %.061119.us.us.us.us = phi i32 [ %67, %._crit_edge.split.us.us.us.us.us ], [ 0, %.preheader100.us.us.us.us.preheader ]
+  %.062116.us.us.us.us = phi ptr [ %66, %._crit_edge.split.us.us.us.us.us ], [ %59, %.preheader100.us.us.us.us.preheader ]
+  %61 = uitofp nneg i32 %.061119.us.us.us.us to float
   %62 = load i32, ptr %9, align 4
   %63 = icmp sgt i32 %62, 0
-  br i1 %63, label %.preheader.us.us.us.us.us.us.preheader, label %.preheader.us.us126.us.us.us.preheader
+  br i1 %63, label %.preheader.us.us.us.us.us.us.preheader, label %.preheader.us.us125.us.us.us.preheader
 
-.preheader.us.us126.us.us.us.preheader:           ; preds = %.preheader100.us.us.us.us
-  call void @llvm.memset.p0.i64(ptr align 4 %.062117.us.us.us.us, i8 0, i64 %46, i1 false), !tbaa !44
+.preheader.us.us125.us.us.us.preheader:           ; preds = %.preheader99.us.us.us.us
+  call void @llvm.memset.p0.i64(ptr align 4 %.062116.us.us.us.us, i8 0, i64 %46, i1 false), !tbaa !44
   br label %._crit_edge.split.us.us.us.us.us
 
-.preheader.us.us.us.us.us.us.preheader:           ; preds = %.preheader100.us.us.us.us
+.preheader.us.us.us.us.us.us.preheader:           ; preds = %.preheader99.us.us.us.us
   %64 = sitofp i32 %62 to float
   %65 = fdiv fast float 1.000000e+00, %64
   br label %.preheader.us.us.us.us.us.us
 
-._crit_edge.split.us.us.us.us.us:                 ; preds = %._crit_edge107.split.us.us.us.us.us.us.us, %.preheader.us.us126.us.us.us.preheader
-  %66 = getelementptr float, ptr %.062117.us.us.us.us, i64 %44
-  %67 = add nuw nsw i32 %.061120.us.us.us.us, 1
-  %exitcond153.not = icmp eq i32 %67, %39
-  br i1 %exitcond153.not, label %._crit_edge121.split.us.us.us, label %.preheader100.us.us.us.us, !llvm.loop !69
+._crit_edge.split.us.us.us.us.us:                 ; preds = %._crit_edge106.split.us.us.us.us.us.us.us, %.preheader.us.us125.us.us.us.preheader
+  %66 = getelementptr float, ptr %.062116.us.us.us.us, i64 %44
+  %67 = add nuw nsw i32 %.061119.us.us.us.us, 1
+  %exitcond152.not = icmp eq i32 %67, %39
+  br i1 %exitcond152.not, label %._crit_edge120.split.us.us.us, label %.preheader99.us.us.us.us, !llvm.loop !69
 
-.preheader.us.us.us.us.us.us:                     ; preds = %.preheader.us.us.us.us.us.us.preheader, %._crit_edge107.split.us.us.us.us.us.us.us
+.preheader.us.us.us.us.us.us:                     ; preds = %.preheader.us.us.us.us.us.us.preheader, %._crit_edge106.split.us.us.us.us.us.us.us
   %indvars.iv = phi i64 [ 0, %.preheader.us.us.us.us.us.us.preheader ], [ %indvars.iv.next, %._crit_edge107.split.us.us.us.us.us.us.us ]
   %68 = load float, ptr %7, align 4, !tbaa !44
   %69 = load float, ptr %8, align 4, !tbaa !44
@@ -675,9 +675,9 @@ define internal void @_ZNK4ncnn8ROIAlign7forwardERKSt6vectorINS_3MatESaIS2_EERS4
   br label %.lr.ph.us.us.us.us.us.us.us
 
 .lr.ph.us.us.us.us.us.us.us:                      ; preds = %._crit_edge.us.us.us.us.us.us.us, %.preheader.us.us.us.us.us.us
-  %.056105.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us ], [ %143, %._crit_edge.us.us.us.us.us.us.us ]
-  %.057104.us.us.us.us.us.us.us = phi float [ 0.000000e+00, %.preheader.us.us.us.us.us.us ], [ %.259.us.us.us.us.us.us.us, %._crit_edge.us.us.us.us.us.us.us ]
-  %84 = uitofp nneg i32 %.056105.us.us.us.us.us.us.us to float
+  %.056104.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us ], [ %143, %._crit_edge.us.us.us.us.us.us.us ]
+  %.057103.us.us.us.us.us.us.us = phi float [ 0.000000e+00, %.preheader.us.us.us.us.us.us ], [ %.259.us.us.us.us.us.us.us, %._crit_edge.us.us.us.us.us.us.us ]
+  %84 = uitofp nneg i32 %.056104.us.us.us.us.us.us.us to float
   %85 = fadd fast float %84, 5.000000e-01
   %86 = fmul fast float %69, %85
   %87 = fmul fast float %86, %60
@@ -685,19 +685,19 @@ define internal void @_ZNK4ncnn8ROIAlign7forwardERKSt6vectorINS_3MatESaIS2_EERS4
   br label %89
 
 89:                                               ; preds = %141, %.lr.ph.us.us.us.us.us.us.us
-  %.054103.us.us.us.us.us.us.us = phi i32 [ 0, %.lr.ph.us.us.us.us.us.us.us ], [ %142, %141 ]
-  %.055102.us.us.us.us.us.us.us = phi float [ %88, %.lr.ph.us.us.us.us.us.us.us ], [ %.1.us.us.us.us.us.us.us, %141 ]
-  %.158101.us.us.us.us.us.us.us = phi float [ %.057104.us.us.us.us.us.us.us, %.lr.ph.us.us.us.us.us.us.us ], [ %.259.us.us.us.us.us.us.us, %141 ]
-  %90 = uitofp nneg i32 %.054103.us.us.us.us.us.us.us to float
+  %.054102.us.us.us.us.us.us.us = phi i32 [ 0, %.lr.ph.us.us.us.us.us.us.us ], [ %142, %141 ]
+  %.055101.us.us.us.us.us.us.us = phi float [ %88, %.lr.ph.us.us.us.us.us.us.us ], [ %.1.us.us.us.us.us.us.us, %141 ]
+  %.158100.us.us.us.us.us.us.us = phi float [ %.057103.us.us.us.us.us.us.us, %.lr.ph.us.us.us.us.us.us.us ], [ %.259.us.us.us.us.us.us.us, %141 ]
+  %90 = uitofp nneg i32 %.054102.us.us.us.us.us.us.us to float
   %91 = fadd fast float %90, 5.000000e-01
   %92 = fmul fast float %75, %91
   %93 = fmul fast float %92, %65
   %94 = fadd fast float %77, %93
-  %95 = fcmp fast olt float %.055102.us.us.us.us.us.us.us, -1.000000e+00
+  %95 = fcmp fast olt float %.055101.us.us.us.us.us.us.us, -1.000000e+00
   br i1 %95, label %141, label %96
 
 96:                                               ; preds = %89
-  %97 = fcmp fast ogt float %.055102.us.us.us.us.us.us.us, %79
+  %97 = fcmp fast ogt float %.055101.us.us.us.us.us.us.us, %79
   %98 = fcmp fast olt float %94, -1.000000e+00
   %or.cond.us.us.us.us.us.us.us = select i1 %97, i1 true, i1 %98
   %99 = fcmp fast ogt float %94, %81
@@ -705,7 +705,7 @@ define internal void @_ZNK4ncnn8ROIAlign7forwardERKSt6vectorINS_3MatESaIS2_EERS4
   br i1 %or.cond, label %141, label %100
 
 100:                                              ; preds = %96
-  %.inv.us.us.us.us.us.us.us = fcmp fast ole float %.055102.us.us.us.us.us.us.us, 0.000000e+00
+  %.inv.us.us.us.us.us.us.us = fcmp fast ole float %.055101.us.us.us.us.us.us.us, 0.000000e+00
   %.2.us.us.us.us.us.us.us = select nsz i1 %.inv.us.us.us.us.us.us.us, float 0.000000e+00, float %.055102.us.us.us.us.us.us.us
   %.inv99.us.us.us.us.us.us.us = fcmp fast ole float %94, 0.000000e+00
   %.053.us.us.us.us.us.us.us = select nsz i1 %.inv99.us.us.us.us.us.us.us, float 0.000000e+00, float %94
@@ -755,32 +755,32 @@ define internal void @_ZNK4ncnn8ROIAlign7forwardERKSt6vectorINS_3MatESaIS2_EERS4
   %136 = fadd fast float %135, %130
   %137 = fmul fast float %124, %.045.i.us.us.us.us.us.us.us
   %138 = fmul fast float %136, %.044.i.us.us.us.us.us.us.us
-  %139 = fadd fast float %137, %.158101.us.us.us.us.us.us.us
+  %139 = fadd fast float %137, %.158100.us.us.us.us.us.us.us
   %140 = fadd fast float %139, %138
   br label %141
 
 141:                                              ; preds = %100, %96, %89
-  %.259.us.us.us.us.us.us.us = phi nsz float [ %140, %100 ], [ %.158101.us.us.us.us.us.us.us, %96 ], [ %.158101.us.us.us.us.us.us.us, %89 ]
-  %.1.us.us.us.us.us.us.us = phi nsz float [ %.2.us.us.us.us.us.us.us, %100 ], [ %.055102.us.us.us.us.us.us.us, %96 ], [ %.055102.us.us.us.us.us.us.us, %89 ]
-  %142 = add nuw nsw i32 %.054103.us.us.us.us.us.us.us, 1
+  %.259.us.us.us.us.us.us.us = phi nsz float [ %140, %100 ], [ %.158100.us.us.us.us.us.us.us, %96 ], [ %.158100.us.us.us.us.us.us.us, %89 ]
+  %.1.us.us.us.us.us.us.us = phi nsz float [ %.2.us.us.us.us.us.us.us, %100 ], [ %.055101.us.us.us.us.us.us.us, %96 ], [ %.055101.us.us.us.us.us.us.us, %89 ]
+  %142 = add nuw nsw i32 %.054102.us.us.us.us.us.us.us, 1
   %exitcond.not = icmp eq i32 %142, %62
   br i1 %exitcond.not, label %._crit_edge.us.us.us.us.us.us.us, label %89, !llvm.loop !70
 
 ._crit_edge.us.us.us.us.us.us.us:                 ; preds = %141
-  %143 = add nuw nsw i32 %.056105.us.us.us.us.us.us.us, 1
-  %exitcond150.not = icmp eq i32 %143, %54
-  br i1 %exitcond150.not, label %._crit_edge107.split.us.us.us.us.us.us.us, label %.lr.ph.us.us.us.us.us.us.us, !llvm.loop !71
+  %143 = add nuw nsw i32 %.056104.us.us.us.us.us.us.us, 1
+  %exitcond149.not = icmp eq i32 %143, %54
+  br i1 %exitcond149.not, label %._crit_edge106.split.us.us.us.us.us.us.us, label %.lr.ph.us.us.us.us.us.us.us, !llvm.loop !71
 
-._crit_edge107.split.us.us.us.us.us.us.us:        ; preds = %._crit_edge.us.us.us.us.us.us.us
+._crit_edge106.split.us.us.us.us.us.us.us:        ; preds = %._crit_edge.us.us.us.us.us.us.us
   %144 = load float, ptr %14, align 4, !tbaa !44
   %145 = fdiv fast float %.259.us.us.us.us.us.us.us, %144
-  %146 = getelementptr inbounds nuw float, ptr %.062117.us.us.us.us, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw float, ptr %.062116.us.us.us.us, i64 %indvars.iv
   store float %145, ptr %146, align 4, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond152.not = icmp eq i64 %indvars.iv.next, %45
-  br i1 %exitcond152.not, label %._crit_edge.split.us.us.us.us.us, label %.preheader.us.us.us.us.us.us, !llvm.loop !72
+  %exitcond151.not = icmp eq i64 %indvars.iv.next, %45
+  br i1 %exitcond151.not, label %._crit_edge.split.us.us.us.us.us, label %.preheader.us.us.us.us.us.us, !llvm.loop !72
 
-._crit_edge:                                      ; preds = %._crit_edge121.split.us.us.us, %.noexc.lr.ph.split.us, %.noexc.lr.ph, %22
+._crit_edge:                                      ; preds = %._crit_edge120.split.us.us.us, %.noexc.lr.ph.split.us, %.noexc.lr.ph, %22
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %24)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #6
