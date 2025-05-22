@@ -187,205 +187,200 @@ LZ4F_optimalBSID.exit.thread:                     ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   store i32 1, ptr %11, align 4, !tbaa !12
-  br label %24
+  br label %23
 
 12:                                               ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false), !tbaa.struct !16
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !19
+  %.pre63 = load i32, ptr %8, align 8, !tbaa !20
   %13 = icmp eq i64 %.pre, 0
-  br i1 %13, label %16, label %14
-
-14:                                               ; preds = %12
+  %14 = select i1 %13, i64 0, i64 %4
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %4, ptr %15, align 8, !tbaa !19
-  br label %16
+  store i64 %14, ptr %15, align 8
+  %16 = icmp ugt i32 %.pre63, 4
+  br i1 %16, label %.lr.ph.i, label %LZ4F_optimalBSID.exit
 
-16:                                               ; preds = %14, %12
-  %.pr = load i32, ptr %8, align 8, !tbaa !20
-  %17 = icmp ugt i32 %.pr, 4
-  br i1 %17, label %.lr.ph.i, label %LZ4F_optimalBSID.exit
-
-.lr.ph.i:                                         ; preds = %16, %18
-  %.013.i = phi i64 [ %20, %18 ], [ 65536, %16 ]
-  %.0912.i = phi i32 [ %19, %18 ], [ 4, %16 ]
+.lr.ph.i:                                         ; preds = %12, %17
+  %.013.i = phi i64 [ %19, %17 ], [ 65536, %12 ]
+  %.0912.i = phi i32 [ %18, %17 ], [ 4, %12 ]
   %.not.i = icmp ugt i64 %4, %.013.i
-  br i1 %.not.i, label %18, label %LZ4F_optimalBSID.exit
+  br i1 %.not.i, label %17, label %LZ4F_optimalBSID.exit
 
-18:                                               ; preds = %.lr.ph.i
-  %19 = add nuw i32 %.0912.i, 1
-  %20 = shl i64 %.013.i, 2
-  %exitcond.not.i = icmp eq i32 %19, %.pr
+17:                                               ; preds = %.lr.ph.i
+  %18 = add nuw i32 %.0912.i, 1
+  %19 = shl i64 %.013.i, 2
+  %exitcond.not.i = icmp eq i32 %18, %.pre63
   br i1 %exitcond.not.i, label %LZ4F_optimalBSID.exit, label %.lr.ph.i, !llvm.loop !21
 
-LZ4F_optimalBSID.exit:                            ; preds = %.lr.ph.i, %18, %16
-  %.010.i = phi i32 [ %.pr, %16 ], [ %.0912.i, %.lr.ph.i ], [ %.pr, %18 ]
+LZ4F_optimalBSID.exit:                            ; preds = %.lr.ph.i, %17, %12
+  %.010.i = phi i32 [ %.pre63, %12 ], [ %.0912.i, %.lr.ph.i ], [ %.pre63, %17 ]
   %.else.val40.fr.i.i = freeze i32 %.010.i
   store i32 %.else.val40.fr.i.i, ptr %8, align 8, !tbaa !20
-  %21 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  store i32 1, ptr %21, align 4, !tbaa !12
-  %22 = icmp eq i32 %.else.val40.fr.i.i, 0
-  %spec.store.select.i = select i1 %22, i32 4, i32 %.else.val40.fr.i.i
-  %23 = and i32 %spec.store.select.i, -4
-  %or.cond.not.i = icmp eq i32 %23, 4
-  br i1 %or.cond.not.i, label %24, label %LZ4F_getBlockSize.exit
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 36
+  store i32 1, ptr %20, align 4, !tbaa !12
+  %21 = icmp eq i32 %.else.val40.fr.i.i, 0
+  %spec.store.select.i = select i1 %21, i32 4, i32 %.else.val40.fr.i.i
+  %22 = and i32 %spec.store.select.i, -4
+  %or.cond.not.i = icmp eq i32 %22, 4
+  br i1 %or.cond.not.i, label %23, label %LZ4F_getBlockSize.exit
 
-24:                                               ; preds = %LZ4F_optimalBSID.exit.thread, %LZ4F_optimalBSID.exit
+23:                                               ; preds = %LZ4F_optimalBSID.exit.thread, %LZ4F_optimalBSID.exit
   %spec.store.select.i71 = phi i32 [ 4, %LZ4F_optimalBSID.exit.thread ], [ %spec.store.select.i, %LZ4F_optimalBSID.exit ]
-  %25 = phi i1 [ true, %LZ4F_optimalBSID.exit.thread ], [ %22, %LZ4F_optimalBSID.exit ]
+  %24 = phi i1 [ true, %LZ4F_optimalBSID.exit.thread ], [ %21, %LZ4F_optimalBSID.exit ]
   %.else.val40.fr.i.i70 = phi i32 [ 0, %LZ4F_optimalBSID.exit.thread ], [ %.else.val40.fr.i.i, %LZ4F_optimalBSID.exit ]
-  %26 = add nsw i32 %spec.store.select.i71, -4
-  %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [4 x i64], ptr @LZ4F_getBlockSize.blockSizes, i64 0, i64 %27
-  %29 = load i64, ptr %28, align 8, !tbaa !8
+  %25 = add nsw i32 %spec.store.select.i71, -4
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr inbounds nuw [4 x i64], ptr @LZ4F_getBlockSize.blockSizes, i64 0, i64 %26
+  %28 = load i64, ptr %27, align 8, !tbaa !8
   br label %LZ4F_getBlockSize.exit
 
-LZ4F_getBlockSize.exit:                           ; preds = %LZ4F_optimalBSID.exit, %24
-  %30 = phi i1 [ %25, %24 ], [ %22, %LZ4F_optimalBSID.exit ]
-  %.else.val40.fr.i.i69 = phi i32 [ %.else.val40.fr.i.i70, %24 ], [ %.else.val40.fr.i.i, %LZ4F_optimalBSID.exit ]
-  %.0.i = phi i64 [ %29, %24 ], [ -2, %LZ4F_optimalBSID.exit ]
+LZ4F_getBlockSize.exit:                           ; preds = %LZ4F_optimalBSID.exit, %23
+  %29 = phi i1 [ %24, %23 ], [ %21, %LZ4F_optimalBSID.exit ]
+  %.else.val40.fr.i.i69 = phi i32 [ %.else.val40.fr.i.i70, %23 ], [ %.else.val40.fr.i.i, %LZ4F_optimalBSID.exit ]
+  %.0.i = phi i64 [ %28, %23 ], [ -2, %LZ4F_optimalBSID.exit ]
   %.not53 = icmp ugt i64 %4, %.0.i
-  br i1 %.not53, label %33, label %31
+  br i1 %.not53, label %32, label %30
 
-31:                                               ; preds = %LZ4F_getBlockSize.exit
-  %32 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 1, ptr %32, align 4, !tbaa !23
-  br label %33
+30:                                               ; preds = %LZ4F_getBlockSize.exit
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i32 1, ptr %31, align 4, !tbaa !23
+  br label %32
 
-33:                                               ; preds = %31, %LZ4F_getBlockSize.exit
-  %34 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %34, i8 0, i64 12, i1 false)
+32:                                               ; preds = %30, %LZ4F_getBlockSize.exit
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %33, i8 0, i64 12, i1 false)
   store i32 1, ptr %9, align 4, !tbaa !24
   %.sroa.52.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.52.0.copyload.i = load i32, ptr %.sroa.52.0..sroa_idx.i, align 8, !tbaa !10
   %.sroa.63.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 28
   %.sroa.63.0.copyload.i = load i32, ptr %.sroa.63.0..sroa_idx.i, align 4, !tbaa !10
-  br i1 %30, label %LZ4F_getBlockSize.exit.thread47.i.i, label %35
+  br i1 %29, label %LZ4F_getBlockSize.exit.thread47.i.i, label %34
 
-35:                                               ; preds = %33
-  %36 = and i32 %.else.val40.fr.i.i69, -4
-  %or.cond.not.i.i.i = icmp eq i32 %36, 4
+34:                                               ; preds = %32
+  %35 = and i32 %.else.val40.fr.i.i69, -4
+  %or.cond.not.i.i.i = icmp eq i32 %35, 4
   br i1 %or.cond.not.i.i.i, label %LZ4F_getBlockSize.exit.thread47.i.i, label %LZ4F_compressFrameBound.exit
 
-LZ4F_getBlockSize.exit.thread47.i.i:              ; preds = %35, %33
-  %.ph.i.i = phi i32 [ 4, %33 ], [ %.else.val40.fr.i.i69, %35 ]
-  %37 = add nsw i32 %.ph.i.i, -4
-  %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw [4 x i64], ptr @LZ4F_getBlockSize.blockSizes, i64 0, i64 %38
-  %40 = load i64, ptr %39, align 8, !tbaa !8
+LZ4F_getBlockSize.exit.thread47.i.i:              ; preds = %34, %32
+  %.ph.i.i = phi i32 [ 4, %32 ], [ %.else.val40.fr.i.i69, %34 ]
+  %36 = add nsw i32 %.ph.i.i, -4
+  %37 = zext nneg i32 %36 to i64
+  %38 = getelementptr inbounds nuw [4 x i64], ptr @LZ4F_getBlockSize.blockSizes, i64 0, i64 %37
+  %39 = load i64, ptr %38, align 8, !tbaa !8
   br label %LZ4F_compressFrameBound.exit
 
-LZ4F_compressFrameBound.exit:                     ; preds = %35, %LZ4F_getBlockSize.exit.thread47.i.i
-  %.0.i45.i.i = phi i64 [ %40, %LZ4F_getBlockSize.exit.thread47.i.i ], [ -2, %35 ]
-  %41 = zext i32 %.sroa.63.0.copyload.i to i64
-  %42 = shl nuw nsw i64 %41, 2
-  %43 = zext i32 %.sroa.52.0.copyload.i to i64
-  %44 = shl nuw nsw i64 %43, 2
-  %45 = add nuw nsw i64 %42, 4
-  %46 = add i64 %.0.i45.i.i, -1
-  %47 = udiv i64 %4, %.0.i45.i.i
-  %48 = and i64 %46, %4
-  %49 = icmp ne i64 %48, 0
-  %50 = zext i1 %49 to i64
-  %51 = add i64 %47, %50
-  %52 = and i64 %51, 4294967295
-  %53 = mul i64 %52, %45
-  %54 = and i64 %47, 4294967295
-  %55 = mul i64 %54, %.0.i45.i.i
-  %56 = add nuw nsw i64 %44, 23
-  %57 = add i64 %56, %48
-  %58 = add i64 %57, %55
-  %59 = add i64 %58, %53
-  %60 = icmp ult i64 %2, %59
-  br i1 %60, label %LZ4F_compressEnd.exit.thread, label %61
+LZ4F_compressFrameBound.exit:                     ; preds = %34, %LZ4F_getBlockSize.exit.thread47.i.i
+  %.0.i45.i.i = phi i64 [ %39, %LZ4F_getBlockSize.exit.thread47.i.i ], [ -2, %34 ]
+  %40 = zext i32 %.sroa.63.0.copyload.i to i64
+  %41 = shl nuw nsw i64 %40, 2
+  %42 = zext i32 %.sroa.52.0.copyload.i to i64
+  %43 = shl nuw nsw i64 %42, 2
+  %44 = add nuw nsw i64 %41, 4
+  %45 = add i64 %.0.i45.i.i, -1
+  %46 = udiv i64 %4, %.0.i45.i.i
+  %47 = and i64 %45, %4
+  %48 = icmp ne i64 %47, 0
+  %49 = zext i1 %48 to i64
+  %50 = add i64 %46, %49
+  %51 = and i64 %50, 4294967295
+  %52 = mul i64 %51, %44
+  %53 = and i64 %46, 4294967295
+  %54 = mul i64 %53, %.0.i45.i.i
+  %55 = add nuw nsw i64 %43, 23
+  %56 = add i64 %55, %47
+  %57 = add i64 %56, %54
+  %58 = add i64 %57, %52
+  %59 = icmp ult i64 %2, %58
+  br i1 %59, label %LZ4F_compressEnd.exit.thread, label %60
 
-61:                                               ; preds = %LZ4F_compressFrameBound.exit
-  %62 = call i64 @LZ4F_compressBegin_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef %5, ptr noundef nonnull readonly %8)
-  %63 = icmp ult i64 %62, -23
-  br i1 %63, label %64, label %LZ4F_compressEnd.exit.thread
+60:                                               ; preds = %LZ4F_compressFrameBound.exit
+  %61 = call i64 @LZ4F_compressBegin_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef %5, ptr noundef nonnull readonly %8)
+  %62 = icmp ult i64 %61, -23
+  br i1 %62, label %63, label %LZ4F_compressEnd.exit.thread
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 %62
-  %gepdiff = sub nsw i64 %2, %62
-  %66 = call fastcc i64 @LZ4F_compressUpdateImpl(ptr noundef %0, ptr noundef %65, i64 noundef %gepdiff, ptr noundef %3, i64 noundef %4, ptr noundef nonnull readonly %9, i32 noundef 0)
-  %67 = icmp ult i64 %66, -23
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 %66
-  br i1 %67, label %69, label %LZ4F_compressEnd.exit.thread
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 %61
+  %gepdiff = sub nsw i64 %2, %61
+  %65 = call fastcc i64 @LZ4F_compressUpdateImpl(ptr noundef %0, ptr noundef %64, i64 noundef %gepdiff, ptr noundef %3, i64 noundef %4, ptr noundef nonnull readonly %9, i32 noundef 0)
+  %66 = icmp ult i64 %65, -23
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 %65
+  br i1 %66, label %68, label %LZ4F_compressEnd.exit.thread
 
-69:                                               ; preds = %64
-  %70 = ptrtoint ptr %10 to i64
-  %71 = ptrtoint ptr %68 to i64
-  %72 = sub i64 %70, %71
-  %73 = call i64 @LZ4F_flush(ptr noundef %0, ptr noundef %68, i64 noundef %72, ptr nonnull readnone poison)
-  %74 = icmp ult i64 %73, -23
-  br i1 %74, label %75, label %LZ4F_compressEnd.exit.thread
+68:                                               ; preds = %63
+  %69 = ptrtoint ptr %10 to i64
+  %70 = ptrtoint ptr %67 to i64
+  %71 = sub i64 %69, %70
+  %72 = call i64 @LZ4F_flush(ptr noundef %0, ptr noundef %67, i64 noundef %71, ptr nonnull readnone poison)
+  %73 = icmp ult i64 %72, -23
+  br i1 %73, label %74, label %LZ4F_compressEnd.exit.thread
 
-75:                                               ; preds = %69
-  %76 = sub i64 %72, %73
-  %77 = icmp ult i64 %76, 4
-  br i1 %77, label %LZ4F_compressEnd.exit.thread, label %78
+74:                                               ; preds = %68
+  %75 = sub i64 %71, %72
+  %76 = icmp ult i64 %75, 4
+  br i1 %76, label %LZ4F_compressEnd.exit.thread, label %77
 
-78:                                               ; preds = %75
-  %79 = getelementptr inbounds nuw i8, ptr %68, i64 %73
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %79, align 1
-  %82 = load i32, ptr %81, align 8, !tbaa !26
-  %83 = icmp eq i32 %82, 1
-  br i1 %83, label %84, label %99
+77:                                               ; preds = %74
+  %78 = getelementptr inbounds nuw i8, ptr %67, i64 %72
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %78, align 1
+  %81 = load i32, ptr %80, align 8, !tbaa !26
+  %82 = icmp eq i32 %81, 1
+  br i1 %82, label %83, label %98
 
-84:                                               ; preds = %78
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %86 = call i32 @LZ4_XXH32_digest(ptr noundef nonnull %85) #13
-  %87 = icmp ugt i64 %76, 7
-  br i1 %87, label %.thread.i, label %LZ4F_compressEnd.exit.thread
+83:                                               ; preds = %77
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %85 = call i32 @LZ4_XXH32_digest(ptr noundef nonnull %84) #13
+  %86 = icmp ugt i64 %75, 7
+  br i1 %86, label %.thread.i, label %LZ4F_compressEnd.exit.thread
 
-.thread.i:                                        ; preds = %84
-  %88 = trunc i32 %86 to i8
-  store i8 %88, ptr %80, align 1, !tbaa !18
-  %89 = lshr i32 %86, 8
-  %90 = trunc i32 %89 to i8
-  %91 = getelementptr inbounds nuw i8, ptr %79, i64 5
-  store i8 %90, ptr %91, align 1, !tbaa !18
-  %92 = lshr i32 %86, 16
-  %93 = trunc i32 %92 to i8
-  %94 = getelementptr inbounds nuw i8, ptr %79, i64 6
-  store i8 %93, ptr %94, align 1, !tbaa !18
-  %95 = lshr i32 %86, 24
-  %96 = trunc nuw i32 %95 to i8
-  %97 = getelementptr inbounds nuw i8, ptr %79, i64 7
-  store i8 %96, ptr %97, align 1, !tbaa !18
-  %98 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  br label %99
+.thread.i:                                        ; preds = %83
+  %87 = trunc i32 %85 to i8
+  store i8 %87, ptr %79, align 1, !tbaa !18
+  %88 = lshr i32 %85, 8
+  %89 = trunc i32 %88 to i8
+  %90 = getelementptr inbounds nuw i8, ptr %78, i64 5
+  store i8 %89, ptr %90, align 1, !tbaa !18
+  %91 = lshr i32 %85, 16
+  %92 = trunc i32 %91 to i8
+  %93 = getelementptr inbounds nuw i8, ptr %78, i64 6
+  store i8 %92, ptr %93, align 1, !tbaa !18
+  %94 = lshr i32 %85, 24
+  %95 = trunc nuw i32 %94 to i8
+  %96 = getelementptr inbounds nuw i8, ptr %78, i64 7
+  store i8 %95, ptr %96, align 1, !tbaa !18
+  %97 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  br label %98
 
-99:                                               ; preds = %.thread.i, %78
-  %.029.i = phi ptr [ %80, %78 ], [ %98, %.thread.i ]
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 0, ptr %100, align 4, !tbaa !32
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %102 = load i64, ptr %101, align 8, !tbaa !33
-  %.not33.i = icmp eq i64 %102, 0
-  br i1 %.not33.i, label %LZ4F_compressEnd.exit, label %103
+98:                                               ; preds = %.thread.i, %77
+  %.029.i = phi ptr [ %79, %77 ], [ %97, %.thread.i ]
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  store i32 0, ptr %99, align 4, !tbaa !32
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %101 = load i64, ptr %100, align 8, !tbaa !33
+  %.not33.i = icmp eq i64 %101, 0
+  br i1 %.not33.i, label %LZ4F_compressEnd.exit, label %102
 
-103:                                              ; preds = %99
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %105 = load i64, ptr %104, align 8, !tbaa !34
-  %.not34.i = icmp eq i64 %102, %105
+102:                                              ; preds = %98
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %104 = load i64, ptr %103, align 8, !tbaa !34
+  %.not34.i = icmp eq i64 %101, %104
   br i1 %.not34.i, label %LZ4F_compressEnd.exit, label %LZ4F_compressEnd.exit.thread
 
-LZ4F_compressEnd.exit:                            ; preds = %99, %103
-  %106 = ptrtoint ptr %.029.i to i64
-  %107 = sub i64 %106, %71
-  %108 = icmp ult i64 %107, -23
-  br i1 %108, label %109, label %LZ4F_compressEnd.exit.thread
+LZ4F_compressEnd.exit:                            ; preds = %98, %102
+  %105 = ptrtoint ptr %.029.i to i64
+  %106 = sub i64 %105, %70
+  %107 = icmp ult i64 %106, -23
+  br i1 %107, label %108, label %LZ4F_compressEnd.exit.thread
 
-109:                                              ; preds = %LZ4F_compressEnd.exit
-  %110 = ptrtoint ptr %1 to i64
-  %111 = sub i64 %106, %110
+108:                                              ; preds = %LZ4F_compressEnd.exit
+  %109 = ptrtoint ptr %1 to i64
+  %110 = sub i64 %105, %109
   br label %LZ4F_compressEnd.exit.thread
 
-LZ4F_compressEnd.exit.thread:                     ; preds = %103, %84, %75, %69, %LZ4F_compressFrameBound.exit, %LZ4F_compressEnd.exit, %64, %61, %109
-  %.0 = phi i64 [ %111, %109 ], [ %107, %LZ4F_compressEnd.exit ], [ %66, %64 ], [ %62, %61 ], [ -11, %LZ4F_compressFrameBound.exit ], [ -14, %103 ], [ -11, %84 ], [ -11, %75 ], [ %73, %69 ]
+LZ4F_compressEnd.exit.thread:                     ; preds = %102, %83, %74, %68, %LZ4F_compressFrameBound.exit, %LZ4F_compressEnd.exit, %63, %60, %108
+  %.0 = phi i64 [ %110, %108 ], [ %106, %LZ4F_compressEnd.exit ], [ %65, %63 ], [ %61, %60 ], [ -11, %LZ4F_compressFrameBound.exit ], [ -14, %102 ], [ -11, %83 ], [ -11, %74 ], [ %72, %68 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #13
   ret i64 %.0

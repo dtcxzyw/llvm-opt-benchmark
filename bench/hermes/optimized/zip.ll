@@ -1320,9 +1320,9 @@ entry:
   %1 = load i64, ptr %pDest_len, align 8
   %or.i = or i64 %1, %source_len
   %cmp.i = icmp ugt i64 %or.i, 4294967295
-  br i1 %cmp.i, label %mz_compress2.exit, label %if.end16.i
+  br i1 %cmp.i, label %mz_compress2.exit, label %if.end.i
 
-if.end16.i:                                       ; preds = %entry
+if.end.i:                                         ; preds = %entry
   store ptr %pSource, ptr %stream.i, align 8
   %conv.i = trunc nuw i64 %source_len to i32
   store i32 %conv.i, ptr %0, align 8
@@ -1336,8 +1336,8 @@ if.end16.i:                                       ; preds = %entry
   %reserved.i = getelementptr inbounds nuw i8, ptr %stream.i, i64 104
   store i64 0, ptr %reserved.i, align 8
   %total_out.i3 = getelementptr inbounds nuw i8, ptr %stream.i, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %total_out.i3, i8 0, i64 16, i1 false)
   %zalloc.i = getelementptr inbounds nuw i8, ptr %stream.i, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %total_out.i3, i8 0, i64 16, i1 false)
   store ptr @def_alloc_func, ptr %zalloc.i, align 8
   %zfree.i = getelementptr inbounds nuw i8, ptr %stream.i, i64 72
   store ptr @def_free_func, ptr %zfree.i, align 8
@@ -1346,7 +1346,7 @@ if.end16.i:                                       ; preds = %entry
   %tobool19.not.i = icmp eq ptr %call.i, null
   br i1 %tobool19.not.i, label %mz_compress2.exit, label %if.end5.i
 
-if.end5.i:                                        ; preds = %if.end16.i
+if.end5.i:                                        ; preds = %if.end.i
   %state.i = getelementptr inbounds nuw i8, ptr %stream.i, i64 56
   store ptr %call.i, ptr %state.i, align 8
   %m_flags.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
@@ -1432,8 +1432,8 @@ if.then2.i10.i:                                   ; preds = %if.end13.i
   call void %7(ptr noundef %8, ptr noundef nonnull %6) #31
   br label %mz_compress2.exit
 
-mz_compress2.exit:                                ; preds = %if.end16.i, %entry, %mz_deflateEnd.exit.i, %if.end13.i, %if.then2.i10.i
-  %retval.0.i = phi i32 [ %cond.i, %mz_deflateEnd.exit.i ], [ -10000, %entry ], [ 0, %if.end13.i ], [ 0, %if.then2.i10.i ], [ -4, %if.end16.i ]
+mz_compress2.exit:                                ; preds = %if.end.i, %entry, %mz_deflateEnd.exit.i, %if.end13.i, %if.then2.i10.i
+  %retval.0.i = phi i32 [ %cond.i, %mz_deflateEnd.exit.i ], [ -10000, %entry ], [ 0, %if.end13.i ], [ 0, %if.then2.i10.i ], [ -4, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %stream.i)
   ret i32 %retval.0.i
 }
@@ -4718,9 +4718,9 @@ entry:
   %1 = load i64, ptr %pDest_len, align 8
   %or = or i64 %1, %source_len
   %cmp = icmp ugt i64 %or, 4294967295
-  br i1 %cmp, label %return, label %if.end11.i.i
+  br i1 %cmp, label %return, label %if.end
 
-if.end11.i.i:                                     ; preds = %entry
+if.end:                                           ; preds = %entry
   store ptr %pSource, ptr %stream, align 8
   %conv = trunc nuw i64 %source_len to i32
   store i32 %conv, ptr %0, align 8
@@ -4731,9 +4731,9 @@ if.end11.i.i:                                     ; preds = %entry
   store i32 %conv1, ptr %avail_out, align 8
   %adler.i.i = getelementptr inbounds nuw i8, ptr %stream, i64 96
   %total_out.i.i = getelementptr inbounds nuw i8, ptr %stream, i64 40
+  %zalloc.i.i = getelementptr inbounds nuw i8, ptr %stream, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %total_out.i.i, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %adler.i.i, i8 0, i64 16, i1 false)
-  %zalloc.i.i = getelementptr inbounds nuw i8, ptr %stream, i64 64
   store ptr @def_alloc_func, ptr %zalloc.i.i, align 8
   %zfree.i.i = getelementptr inbounds nuw i8, ptr %stream, i64 72
   store ptr @def_free_func, ptr %zfree.i.i, align 8
@@ -4742,7 +4742,7 @@ if.end11.i.i:                                     ; preds = %entry
   %tobool13.not.i.i = icmp eq ptr %call.i, null
   br i1 %tobool13.not.i.i, label %return, label %if.end5
 
-if.end5:                                          ; preds = %if.end11.i.i
+if.end5:                                          ; preds = %if.end
   %state.i.i = getelementptr inbounds nuw i8, ptr %stream, i64 56
   store ptr %call.i, ptr %state.i.i, align 8
   store i32 0, ptr %call.i, align 8
@@ -4794,8 +4794,8 @@ if.then2.i10:                                     ; preds = %if.end14
   call void %8(ptr noundef %9, ptr noundef nonnull %7) #31
   br label %return
 
-return:                                           ; preds = %if.then2.i10, %if.end14, %if.end11.i.i, %entry, %mz_inflateEnd.exit
-  %retval.0 = phi i32 [ %cond, %mz_inflateEnd.exit ], [ -10000, %entry ], [ -4, %if.end11.i.i ], [ 0, %if.end14 ], [ 0, %if.then2.i10 ]
+return:                                           ; preds = %if.then2.i10, %if.end14, %if.end, %entry, %mz_inflateEnd.exit
+  %retval.0 = phi i32 [ %cond, %mz_inflateEnd.exit ], [ -10000, %entry ], [ -4, %if.end ], [ 0, %if.end14 ], [ 0, %if.then2.i10 ]
   ret i32 %retval.0
 }
 

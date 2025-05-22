@@ -7369,23 +7369,15 @@ define dso_local void @_ZNK4pbrt5Curve9IntersectERKNS_3RayEf(ptr dead_on_unwind 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i8 0, ptr %5, align 8, !tbaa !152
   %6 = invoke noundef zeroext i1 @_ZNK4pbrt5Curve12IntersectRayERKNS_3RayEfPN4pstd8optionalINS_17ShapeIntersectionEEE(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, float noundef %3, ptr noundef nonnull %0)
-          to label %11 unwind label %7
+          to label %8 unwind label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit
 
-7:                                                ; preds = %4
-  %8 = landingpad { ptr, i32 }
+_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit: ; preds = %4
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %9 = load i8, ptr %5, align 8, !tbaa !152, !range !19, !noundef !20
-  %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5valueEv.exit.i.i, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit
+  store i8 0, ptr %5, align 8
+  resume { ptr, i32 } %7
 
-_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5valueEv.exit.i.i: ; preds = %7
-  store i8 0, ptr %5, align 8, !tbaa !152
-  br label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit
-
-_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit: ; preds = %7, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5valueEv.exit.i.i
-  resume { ptr, i32 } %8
-
-11:                                               ; preds = %4
+8:                                                ; preds = %4
   ret void
 }
 

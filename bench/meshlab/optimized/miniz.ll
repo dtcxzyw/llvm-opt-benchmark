@@ -1368,8 +1368,8 @@ define range(i32 -10000, 1) i32 @mz_compress(ptr noundef %0, ptr noundef capture
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i64 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   store ptr @miniz_def_alloc_func, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr @miniz_def_free_func, ptr %19, align 8
@@ -4426,9 +4426,9 @@ define range(i32 -10000, 1) i32 @mz_uncompress(ptr noundef %0, ptr noundef captu
   store i32 %13, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr @miniz_def_alloc_func, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr @miniz_def_free_func, ptr %18, align 8

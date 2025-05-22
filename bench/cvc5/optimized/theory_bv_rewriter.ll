@@ -56685,8 +56685,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal6theory2bv11Rewr
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = and i64 %35, 1023
-  %.not168 = icmp eq i64 %36, 101
-  br i1 %.not168, label %37, label %.critedge76.thread
+  %.not171 = icmp eq i64 %36, 101
+  br i1 %.not171, label %37, label %.critedge76.thread
 
 37:                                               ; preds = %.critedge76
   %38 = load ptr, ptr %0, align 8, !tbaa !29, !noalias !1386
@@ -56823,7 +56823,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal6theory2bv11Rewr
   %117 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #24
-  br label %.loopexit169
+  br label %.loopexit172
 
 118:                                              ; preds = %115, %111, %108
   %119 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !37
@@ -56943,7 +56943,7 @@ _ZNSt11_Tuple_implILm0EJN4cvc58internal12NodeTemplateILb1EEES3_bEED2Ev.exit: ; p
   %176 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #24
-  br label %.loopexit169
+  br label %.loopexit172
 
 177:                                              ; preds = %173, %169, %_ZNSt11_Tuple_implILm0EJN4cvc58internal12NodeTemplateILb1EEES3_bEED2Ev.exit
   %178 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !37
@@ -56963,7 +56963,7 @@ _ZNSt11_Tuple_implILm0EJN4cvc58internal12NodeTemplateILb1EEES3_bEED2Ev.exit: ; p
 184:                                              ; preds = %182, %180
   %.pn58.pn = phi { ptr, i32 } [ %181, %180 ], [ %183, %182 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #24
-  br label %.loopexit169
+  br label %.loopexit172
 
 185:                                              ; preds = %177
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #24
@@ -57076,7 +57076,7 @@ _ZNSt11_Tuple_implILm0EJN4cvc58internal12NodeTemplateILb1EEES3_bEED2Ev.exit104: 
   %239 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #24
-  br label %.loopexit169
+  br label %.loopexit172
 
 240:                                              ; preds = %236, %232, %_ZNSt11_Tuple_implILm0EJN4cvc58internal12NodeTemplateILb1EEES3_bEED2Ev.exit104
   %241 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !37
@@ -57098,7 +57098,7 @@ _ZNSt11_Tuple_implILm0EJN4cvc58internal12NodeTemplateILb1EEES3_bEED2Ev.exit104: 
 247:                                              ; preds = %245, %243
   %.pn61.pn = phi { ptr, i32 } [ %244, %243 ], [ %246, %245 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #24
-  br label %.loopexit169
+  br label %.loopexit172
 
 248:                                              ; preds = %240
   %249 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -57126,7 +57126,7 @@ _ZNSt11_Tuple_implILm0EJN4cvc58internal12NodeTemplateILb1EEES3_bEED2Ev.exit104: 
   %258 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #24
-  br label %.loopexit169
+  br label %.loopexit172
 
 259:                                              ; preds = %255, %251, %248
   %260 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -57154,7 +57154,7 @@ _ZNSt11_Tuple_implILm0EJN4cvc58internal12NodeTemplateILb1EEES3_bEED2Ev.exit104: 
   %269 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #24
-  br label %.loopexit169
+  br label %.loopexit172
 
 270:                                              ; preds = %266, %262, %259
   %271 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -57182,7 +57182,7 @@ _ZNSt11_Tuple_implILm0EJN4cvc58internal12NodeTemplateILb1EEES3_bEED2Ev.exit104: 
   %280 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #24
-  br label %.loopexit169
+  br label %.loopexit172
 
 281:                                              ; preds = %277, %273, %270
   %282 = load ptr, ptr %2, align 16, !tbaa !29
@@ -57226,7 +57226,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit122: ; preds = %281, %288
 309:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit122
   %310 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit169
+  br label %.loopexit172
 
 311:                                              ; preds = %300
   %312 = load ptr, ptr %3, align 16, !tbaa !29
@@ -57276,12 +57276,12 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit129: ; preds = %311, %315
 341:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit129
   %342 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit169
+  br label %.loopexit172
 
 343:                                              ; preds = %329
   %344 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit169
+  br label %.loopexit172
 
 .critedge80:                                      ; preds = %322, %288, %300, %315, %336, %240, %177
   %.140 = phi i1 [ false, %177 ], [ false, %240 ], [ false, %288 ], [ false, %300 ], [ false, %315 ], [ %340, %336 ], [ true, %322 ]
@@ -57289,13 +57289,13 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit129: ; preds = %311, %315
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #24
   br label %.critedge76.thread
 
-.loopexit169:                                     ; preds = %.body86, %184, %247, %238, %175, %268, %309, %343, %341, %279, %257
+.loopexit172:                                     ; preds = %.body86, %184, %247, %238, %175, %268, %309, %343, %341, %279, %257
   %.pn65.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %117, %.body86 ], [ %.pn61.pn, %247 ], [ %.pn58.pn, %184 ], [ %176, %175 ], [ %239, %238 ], [ %258, %257 ], [ %269, %268 ], [ %280, %279 ], [ %310, %309 ], [ %344, %343 ], [ %342, %341 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #24
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.body, %.loopexit169
-  %.pn65.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn65.pn.pn.pn.pn.pn.pn, %.loopexit169 ], [ %103, %.body ]
+.loopexit:                                        ; preds = %.body, %.loopexit172
+  %.pn65.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn65.pn.pn.pn.pn.pn.pn, %.loopexit172 ], [ %103, %.body ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #24
   resume { ptr, i32 } %.pn65.pn.pn.pn.pn.pn.pn.pn
 
@@ -58279,7 +58279,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv11RewriteRuleILNS2_1
   %66 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #24
-  br label %.loopexit205
+  br label %.loopexit208
 
 67:                                               ; preds = %64, %60, %57
   %68 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !37
@@ -58483,7 +58483,7 @@ _ZNSt11_Tuple_implILm0EJN4cvc58internal12NodeTemplateILb1EEES3_bEED2Ev.exit90: ;
   %168 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #24
-  br label %.loopexit205
+  br label %.loopexit208
 
 169:                                              ; preds = %165, %161, %_ZNSt11_Tuple_implILm0EJN4cvc58internal12NodeTemplateILb1EEES3_bEED2Ev.exit90
   %170 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -58511,7 +58511,7 @@ _ZNSt11_Tuple_implILm0EJN4cvc58internal12NodeTemplateILb1EEES3_bEED2Ev.exit90: ;
   %179 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #24
-  br label %.loopexit205
+  br label %.loopexit208
 
 180:                                              ; preds = %176, %172, %169
   %181 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -58539,7 +58539,7 @@ _ZNSt11_Tuple_implILm0EJN4cvc58internal12NodeTemplateILb1EEES3_bEED2Ev.exit90: ;
   %190 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #24
-  br label %.loopexit205
+  br label %.loopexit208
 
 191:                                              ; preds = %187, %183, %180
   %192 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -58567,7 +58567,7 @@ _ZNSt11_Tuple_implILm0EJN4cvc58internal12NodeTemplateILb1EEES3_bEED2Ev.exit90: ;
   %201 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #24
-  br label %.loopexit205
+  br label %.loopexit208
 
 _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit108: ; preds = %198, %194, %191
   %202 = load ptr, ptr %22, align 16, !tbaa !29
@@ -58577,12 +58577,12 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit108: ; preds = %198, %194, %19
   %206 = icmp eq i64 %205, 103
   %207 = load ptr, ptr %85, align 8, !tbaa !29
   %. = select i1 %206, ptr %207, ptr %202
-  %.204 = select i1 %206, ptr %202, ptr %207
+  %.207 = select i1 %206, ptr %202, ptr %207
   %208 = load ptr, ptr %23, align 16, !tbaa !29
   %209 = icmp eq ptr %208, %.
   %.val = load ptr, ptr %129, align 8
   %210 = select i1 %209, ptr %.val, ptr %208
-  %211 = getelementptr inbounds nuw i8, ptr %.204, i64 8
+  %211 = getelementptr inbounds nuw i8, ptr %.207, i64 8
   %212 = load i64, ptr %211, align 8, !noalias !1467
   %213 = trunc i64 %212 to i32
   %214 = and i32 %213, 1023
@@ -58604,7 +58604,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit108: ; preds = %198, %194, %19
 222:                                              ; preds = %220, %218
   %.pn.pn = phi { ptr, i32 } [ %219, %218 ], [ %221, %220 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #24
-  br label %.loopexit205
+  br label %.loopexit208
 
 223:                                              ; preds = %_ZNSt11_Tuple_implILm0EJN4cvc58internal12NodeTemplateILb1EEES3_bEED2Ev.exit
   %224 = landingpad { ptr, i32 }
@@ -58619,11 +58619,11 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit108: ; preds = %198, %194, %19
 227:                                              ; preds = %225, %223
   %.pn49.pn = phi { ptr, i32 } [ %224, %223 ], [ %226, %225 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26) #24
-  br label %.loopexit205
+  br label %.loopexit208
 
 228:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit108
   %229 = icmp eq i32 %217, 2
-  %230 = getelementptr inbounds nuw i8, ptr %.204, i64 24
+  %230 = getelementptr inbounds nuw i8, ptr %.207, i64 24
   %231 = zext i1 %229 to i64
   %232 = getelementptr inbounds nuw [0 x ptr], ptr %230, i64 0, i64 %231
   %233 = load ptr, ptr %232, align 8, !tbaa !37, !noalias !1467
@@ -58993,13 +58993,13 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit147: ; preds = %_ZN4cvc58internal1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #24, !noalias !1494
-  %364 = getelementptr inbounds nuw i8, ptr %.204, i64 16
+  %364 = getelementptr inbounds nuw i8, ptr %.207, i64 16
   %365 = load ptr, ptr %364, align 8, !tbaa !52, !noalias !1494
   invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(124) %9, ptr noundef %365, i32 noundef %257)
           to label %.noexc148 unwind label %500
 
 .noexc148:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit147
-  store ptr %.204, ptr %10, align 8, !tbaa !29, !noalias !1494
+  store ptr %.207, ptr %10, align 8, !tbaa !29, !noalias !1494
   %366 = invoke noundef nonnull align 8 dereferenceable(124) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(124) %9, ptr noundef nonnull %10)
           to label %367 unwind label %372, !noalias !1494
 
@@ -59296,17 +59296,17 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit170: ; preds = %_ZN4cvc58internal1
 476:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit108
   %477 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit205
+  br label %.loopexit208
 
 478:                                              ; preds = %243, %240
   %479 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit205
+  br label %.loopexit208
 
 480:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit122
   %481 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit205
+  br label %.loopexit208
 
 482:                                              ; preds = %250, %248
   %483 = landingpad { ptr, i32 }
@@ -59440,15 +59440,15 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit170: ; preds = %_ZN4cvc58internal1
 513:                                              ; preds = %512, %482
   %.pn64.pn.pn.pn = phi { ptr, i32 } [ %.pn64.pn.pn, %512 ], [ %483, %482 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #24
-  br label %.loopexit205
+  br label %.loopexit208
 
-.loopexit205:                                     ; preds = %.body79, %222, %227, %178, %200, %476, %478, %480, %513, %189, %167
+.loopexit208:                                     ; preds = %.body79, %222, %227, %178, %200, %476, %478, %480, %513, %189, %167
   %.pn64.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %66, %.body79 ], [ %.pn49.pn, %227 ], [ %.pn.pn, %222 ], [ %168, %167 ], [ %179, %178 ], [ %190, %189 ], [ %201, %200 ], [ %.pn64.pn.pn.pn, %513 ], [ %481, %480 ], [ %479, %478 ], [ %477, %476 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #24
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.body, %.loopexit205
-  %.pn64.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn64.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit205 ], [ %52, %.body ]
+.loopexit:                                        ; preds = %.body, %.loopexit208
+  %.pn64.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn64.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit208 ], [ %52, %.body ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #24
   resume { ptr, i32 } %.pn64.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }

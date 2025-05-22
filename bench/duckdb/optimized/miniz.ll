@@ -1371,11 +1371,11 @@ define noundef range(i32 -10000, 1) i32 @_ZN12duckdb_miniz11mz_compressEPhPmPKhm
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i64 0, ptr %16, align 8, !tbaa !21
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr @_ZN12duckdb_miniz20miniz_def_alloc_funcEPvmm, ptr %18, align 8, !tbaa !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
+  store ptr @_ZN12duckdb_miniz20miniz_def_alloc_funcEPvmm, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr @_ZN12duckdb_miniz19miniz_def_free_funcEPvS0_, ptr %19, align 8, !tbaa !24
+  store ptr @_ZN12duckdb_miniz19miniz_def_free_funcEPvS0_, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %21 = tail call noalias noundef dereferenceable_or_null(319352) ptr @malloc(i64 noundef 319352) #26
   %.not37.i = icmp eq ptr %21, null
@@ -4440,12 +4440,12 @@ define noundef range(i32 -10000, 1) i32 @_ZN12duckdb_miniz13mz_uncompressEPhPmPK
   store i32 %13, ptr %14, align 8, !tbaa !50
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr @_ZN12duckdb_miniz20miniz_def_alloc_funcEPvmm, ptr %17, align 8, !tbaa !23
+  store ptr @_ZN12duckdb_miniz20miniz_def_alloc_funcEPvmm, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr @_ZN12duckdb_miniz19miniz_def_free_funcEPvS0_, ptr %18, align 8, !tbaa !24
+  store ptr @_ZN12duckdb_miniz19miniz_def_free_funcEPvS0_, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %20 = tail call noalias noundef dereferenceable_or_null(43792) ptr @malloc(i64 noundef 43792) #26
   %.not33.i.i = icmp eq ptr %20, null

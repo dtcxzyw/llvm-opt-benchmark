@@ -1379,209 +1379,203 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_write_string(ptr noundef readon
 68:                                               ; preds = %66
   %69 = load i16, ptr %26, align 8, !tbaa !10
   %70 = icmp eq i16 %69, -1
-  br i1 %70, label %71, label %72
+  %spec.store.select = select i1 %70, i16 1, i16 %69
+  store i16 %spec.store.select, ptr %26, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %.069, i64 %.050
+  %72 = zext nneg i32 %1 to i64
+  %73 = icmp eq i32 %1, 2
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  br i1 %73, label %.split.us.i, label %.split.i
 
-71:                                               ; preds = %68
-  store i16 1, ptr %26, align 8, !tbaa !10
-  br label %72
-
-72:                                               ; preds = %68, %71
-  %73 = phi i16 [ %69, %68 ], [ 1, %71 ]
-  %74 = getelementptr inbounds nuw i8, ptr %.069, i64 %.050
-  %75 = zext nneg i32 %1 to i64
-  %76 = icmp eq i32 %1, 2
-  %77 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %78 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  br i1 %76, label %.split.us.i, label %.split.i
-
-.split.us.i:                                      ; preds = %72, %mbedtls_mpi_cmp_int.exit.us.i
-  %.019.us.i = phi i64 [ %91, %mbedtls_mpi_cmp_int.exit.us.i ], [ 0, %72 ]
-  %.0.us.i = phi ptr [ %90, %mbedtls_mpi_cmp_int.exit.us.i ], [ %74, %72 ]
+.split.us.i:                                      ; preds = %68, %mbedtls_mpi_cmp_int.exit.us.i
+  %.019.us.i = phi i64 [ %88, %mbedtls_mpi_cmp_int.exit.us.i ], [ 0, %68 ]
+  %.0.us.i = phi ptr [ %87, %mbedtls_mpi_cmp_int.exit.us.i ], [ %71, %68 ]
   %exitcond58.not.i = icmp eq i64 %.019.us.i, %.050
-  br i1 %exitcond58.not.i, label %mpi_write_hlp.exit.thread, label %79
+  br i1 %exitcond58.not.i, label %mpi_write_hlp.exit.thread, label %76
 
-79:                                               ; preds = %.split.us.i
-  %80 = load i16, ptr %27, align 2, !tbaa !3
-  %81 = icmp eq i16 %80, 0
-  br i1 %81, label %mbedtls_mpi_mod_int.exit.us.i, label %82
+76:                                               ; preds = %.split.us.i
+  %77 = load i16, ptr %27, align 2, !tbaa !3
+  %78 = icmp eq i16 %77, 0
+  br i1 %78, label %mbedtls_mpi_mod_int.exit.us.i, label %79
 
-82:                                               ; preds = %79
-  %83 = load ptr, ptr %8, align 8, !tbaa !12
-  %84 = load i64, ptr %83, align 8, !tbaa !17
-  %85 = trunc i64 %84 to i8
-  %86 = and i8 %85, 1
-  %87 = or disjoint i8 %86, 48
+79:                                               ; preds = %76
+  %80 = load ptr, ptr %8, align 8, !tbaa !12
+  %81 = load i64, ptr %80, align 8, !tbaa !17
+  %82 = trunc i64 %81 to i8
+  %83 = and i8 %82, 1
+  %84 = or disjoint i8 %83, 48
   br label %mbedtls_mpi_mod_int.exit.us.i
 
-mbedtls_mpi_mod_int.exit.us.i:                    ; preds = %82, %79
-  %spec.select.sink.i.us.i = phi i8 [ %87, %82 ], [ 48, %79 ]
+mbedtls_mpi_mod_int.exit.us.i:                    ; preds = %79, %76
+  %spec.select.sink.i.us.i = phi i8 [ %84, %79 ], [ 48, %76 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
-  store i64 %75, ptr %7, align 8, !tbaa !17
-  store i16 1, ptr %77, align 8, !tbaa !10
-  store i16 1, ptr %78, align 2, !tbaa !3
+  store i64 %72, ptr %7, align 8, !tbaa !17
+  store i16 1, ptr %74, align 8, !tbaa !10
+  store i16 1, ptr %75, align 2, !tbaa !3
   store ptr %7, ptr %6, align 8, !tbaa !12
-  %88 = call range(i32 -16, 1) i32 @mbedtls_mpi_div_mpi(ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull readonly %8, ptr noundef nonnull %6)
+  %85 = call range(i32 -16, 1) i32 @mbedtls_mpi_div_mpi(ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull readonly %8, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
-  %.not28.us.i = icmp eq i32 %88, 0
-  br i1 %.not28.us.i, label %89, label %mpi_write_hlp.exit.thread
+  %.not28.us.i = icmp eq i32 %85, 0
+  br i1 %.not28.us.i, label %86, label %mpi_write_hlp.exit.thread
 
-89:                                               ; preds = %mbedtls_mpi_mod_int.exit.us.i
-  %90 = getelementptr inbounds i8, ptr %.0.us.i, i64 -1
-  store i8 %spec.select.sink.i.us.i, ptr %90, align 1, !tbaa !24
-  %91 = add i64 %.019.us.i, 1
-  %92 = load i16, ptr %27, align 2, !tbaa !3
-  %.not44.i.i.us.i = icmp eq i16 %92, 0
+86:                                               ; preds = %mbedtls_mpi_mod_int.exit.us.i
+  %87 = getelementptr inbounds i8, ptr %.0.us.i, i64 -1
+  store i8 %spec.select.sink.i.us.i, ptr %87, align 1, !tbaa !24
+  %88 = add i64 %.019.us.i, 1
+  %89 = load i16, ptr %27, align 2, !tbaa !3
+  %.not44.i.i.us.i = icmp eq i16 %89, 0
   br i1 %.not44.i.i.us.i, label %mpi_write_hlp.exit, label %.lr.ph.i.i.us.i
 
-.lr.ph.i.i.us.i:                                  ; preds = %89
-  %93 = zext i16 %92 to i64
-  %94 = load ptr, ptr %8, align 8, !tbaa !12
-  %invariant.gep.i.i.us.i = getelementptr i8, ptr %94, i64 -8
-  br label %95
+.lr.ph.i.i.us.i:                                  ; preds = %86
+  %90 = zext i16 %89 to i64
+  %91 = load ptr, ptr %8, align 8, !tbaa !12
+  %invariant.gep.i.i.us.i = getelementptr i8, ptr %91, i64 -8
+  br label %92
 
-95:                                               ; preds = %98, %.lr.ph.i.i.us.i
-  %.03545.i.i.us.i = phi i64 [ %93, %.lr.ph.i.i.us.i ], [ %99, %98 ]
+92:                                               ; preds = %95, %.lr.ph.i.i.us.i
+  %.03545.i.i.us.i = phi i64 [ %90, %.lr.ph.i.i.us.i ], [ %96, %95 ]
   %gep.i.i.us.i = getelementptr i64, ptr %invariant.gep.i.i.us.i, i64 %.03545.i.i.us.i
-  %96 = load i64, ptr %gep.i.i.us.i, align 8, !tbaa !17
-  %.not39.i.i.us.i = icmp eq i64 %96, 0
-  br i1 %.not39.i.i.us.i, label %98, label %mbedtls_mpi_cmp_int.exit.us.i
+  %93 = load i64, ptr %gep.i.i.us.i, align 8, !tbaa !17
+  %.not39.i.i.us.i = icmp eq i64 %93, 0
+  br i1 %.not39.i.i.us.i, label %95, label %mbedtls_mpi_cmp_int.exit.us.i
 
-mbedtls_mpi_cmp_int.exit.us.i:                    ; preds = %95
-  %97 = load i16, ptr %26, align 8, !tbaa !10
-  %.not29.us.i = icmp eq i16 %97, 0
+mbedtls_mpi_cmp_int.exit.us.i:                    ; preds = %92
+  %94 = load i16, ptr %26, align 8, !tbaa !10
+  %.not29.us.i = icmp eq i16 %94, 0
   br i1 %.not29.us.i, label %mpi_write_hlp.exit, label %.split.us.i, !llvm.loop !30
 
-98:                                               ; preds = %95
-  %99 = add nsw i64 %.03545.i.i.us.i, -1
-  %.not.i.i.us.i = icmp eq i64 %99, 0
-  br i1 %.not.i.i.us.i, label %mpi_write_hlp.exit, label %95, !llvm.loop !31
+95:                                               ; preds = %92
+  %96 = add nsw i64 %.03545.i.i.us.i, -1
+  %.not.i.i.us.i = icmp eq i64 %96, 0
+  br i1 %.not.i.i.us.i, label %mpi_write_hlp.exit, label %92, !llvm.loop !31
 
-.split.i:                                         ; preds = %72, %mbedtls_mpi_cmp_int.exit.i
-  %100 = phi i16 [ %135, %mbedtls_mpi_cmp_int.exit.i ], [ %73, %72 ]
-  %.019.i = phi i64 [ %127, %mbedtls_mpi_cmp_int.exit.i ], [ 0, %72 ]
-  %.0.i = phi ptr [ %124, %mbedtls_mpi_cmp_int.exit.i ], [ %74, %72 ]
+.split.i:                                         ; preds = %68, %mbedtls_mpi_cmp_int.exit.i
+  %97 = phi i16 [ %132, %mbedtls_mpi_cmp_int.exit.i ], [ %spec.store.select, %68 ]
+  %.019.i = phi i64 [ %124, %mbedtls_mpi_cmp_int.exit.i ], [ 0, %68 ]
+  %.0.i = phi ptr [ %121, %mbedtls_mpi_cmp_int.exit.i ], [ %71, %68 ]
   %exitcond.not.i = icmp eq i64 %.019.i, %.050
-  br i1 %exitcond.not.i, label %mpi_write_hlp.exit.thread, label %101
+  br i1 %exitcond.not.i, label %mpi_write_hlp.exit.thread, label %98
 
-101:                                              ; preds = %.split.i
-  %102 = load i16, ptr %27, align 2, !tbaa !3
-  %103 = icmp eq i16 %102, 0
-  br i1 %103, label %mbedtls_mpi_mod_int.exit.i, label %104
+98:                                               ; preds = %.split.i
+  %99 = load i16, ptr %27, align 2, !tbaa !3
+  %100 = icmp eq i16 %99, 0
+  br i1 %100, label %mbedtls_mpi_mod_int.exit.i, label %101
 
-104:                                              ; preds = %101
-  %105 = zext i16 %102 to i64
-  %106 = load ptr, ptr %8, align 8, !tbaa !12
-  %invariant.gep.i.i = getelementptr i8, ptr %106, i64 -8
-  br label %107
+101:                                              ; preds = %98
+  %102 = zext i16 %99 to i64
+  %103 = load ptr, ptr %8, align 8, !tbaa !12
+  %invariant.gep.i.i = getelementptr i8, ptr %103, i64 -8
+  br label %104
 
-107:                                              ; preds = %107, %104
-  %.03542.i.i = phi i64 [ 0, %104 ], [ %114, %107 ]
-  %.03641.i.i = phi i64 [ %105, %104 ], [ %115, %107 ]
+104:                                              ; preds = %104, %101
+  %.03542.i.i = phi i64 [ 0, %101 ], [ %111, %104 ]
+  %.03641.i.i = phi i64 [ %102, %101 ], [ %112, %104 ]
   %gep.i.i = getelementptr i64, ptr %invariant.gep.i.i, i64 %.03641.i.i
-  %108 = load i64, ptr %gep.i.i, align 8, !tbaa !17
-  %.fr40.i.i = freeze i64 %108
-  %109 = call i64 @llvm.fshl.i64(i64 %.03542.i.i, i64 %.fr40.i.i, i64 32)
-  %110 = urem i64 %109, %75
-  %111 = and i64 %.fr40.i.i, 4294967295
-  %112 = shl nuw nsw i64 %110, 32
-  %113 = or disjoint i64 %112, %111
-  %114 = urem i64 %113, %75
-  %115 = add nsw i64 %.03641.i.i, -1
-  %.not.i.i = icmp eq i64 %115, 0
-  br i1 %.not.i.i, label %116, label %107, !llvm.loop !32
+  %105 = load i64, ptr %gep.i.i, align 8, !tbaa !17
+  %.fr40.i.i = freeze i64 %105
+  %106 = call i64 @llvm.fshl.i64(i64 %.03542.i.i, i64 %.fr40.i.i, i64 32)
+  %107 = urem i64 %106, %72
+  %108 = and i64 %.fr40.i.i, 4294967295
+  %109 = shl nuw nsw i64 %107, 32
+  %110 = or disjoint i64 %109, %108
+  %111 = urem i64 %110, %72
+  %112 = add nsw i64 %.03641.i.i, -1
+  %.not.i.i = icmp eq i64 %112, 0
+  br i1 %.not.i.i, label %113, label %104, !llvm.loop !32
 
-116:                                              ; preds = %107
-  %117 = icmp slt i16 %100, 0
-  %118 = icmp ne i64 %114, 0
-  %or.cond.i.i = select i1 %117, i1 %118, i1 false
-  %119 = sub nsw i64 %75, %114
-  %spec.select.i.i = select i1 %or.cond.i.i, i64 %119, i64 %114
+113:                                              ; preds = %104
+  %114 = icmp slt i16 %97, 0
+  %115 = icmp ne i64 %111, 0
+  %or.cond.i.i = select i1 %114, i1 %115, i1 false
+  %116 = sub nsw i64 %72, %111
+  %spec.select.i.i = select i1 %or.cond.i.i, i64 %116, i64 %111
   br label %mbedtls_mpi_mod_int.exit.i
 
-mbedtls_mpi_mod_int.exit.i:                       ; preds = %116, %101
-  %spec.select.sink.i.i = phi i64 [ %spec.select.i.i, %116 ], [ 0, %101 ]
+mbedtls_mpi_mod_int.exit.i:                       ; preds = %113, %98
+  %spec.select.sink.i.i = phi i64 [ %spec.select.i.i, %113 ], [ 0, %98 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
-  store i64 %75, ptr %7, align 8, !tbaa !17
-  store i16 1, ptr %77, align 8, !tbaa !10
-  store i16 1, ptr %78, align 2, !tbaa !3
+  store i64 %72, ptr %7, align 8, !tbaa !17
+  store i16 1, ptr %74, align 8, !tbaa !10
+  store i16 1, ptr %75, align 2, !tbaa !3
   store ptr %7, ptr %6, align 8, !tbaa !12
-  %120 = call range(i32 -16, 1) i32 @mbedtls_mpi_div_mpi(ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull readonly %8, ptr noundef nonnull %6)
+  %117 = call range(i32 -16, 1) i32 @mbedtls_mpi_div_mpi(ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull readonly %8, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
-  %.not28.i = icmp eq i32 %120, 0
-  br i1 %.not28.i, label %121, label %mpi_write_hlp.exit.thread
+  %.not28.i = icmp eq i32 %117, 0
+  br i1 %.not28.i, label %118, label %mpi_write_hlp.exit.thread
 
-121:                                              ; preds = %mbedtls_mpi_mod_int.exit.i
-  %122 = icmp ult i64 %spec.select.sink.i.i, 10
-  %123 = trunc nsw i64 %spec.select.sink.i.i to i8
-  %124 = getelementptr inbounds i8, ptr %.0.i, i64 -1
-  %125 = add nsw i8 %123, 55
-  %126 = or disjoint i8 %123, 48
-  %.sink.i = select i1 %122, i8 %126, i8 %125
-  store i8 %.sink.i, ptr %124, align 1, !tbaa !24
-  %127 = add i64 %.019.i, 1
-  %128 = load i16, ptr %27, align 2, !tbaa !3
-  %.not44.i.i.i = icmp eq i16 %128, 0
+118:                                              ; preds = %mbedtls_mpi_mod_int.exit.i
+  %119 = icmp ult i64 %spec.select.sink.i.i, 10
+  %120 = trunc nsw i64 %spec.select.sink.i.i to i8
+  %121 = getelementptr inbounds i8, ptr %.0.i, i64 -1
+  %122 = add nsw i8 %120, 55
+  %123 = or disjoint i8 %120, 48
+  %.sink.i = select i1 %119, i8 %123, i8 %122
+  store i8 %.sink.i, ptr %121, align 1, !tbaa !24
+  %124 = add i64 %.019.i, 1
+  %125 = load i16, ptr %27, align 2, !tbaa !3
+  %.not44.i.i.i = icmp eq i16 %125, 0
   br i1 %.not44.i.i.i, label %mpi_write_hlp.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %121
-  %129 = zext i16 %128 to i64
-  %130 = load ptr, ptr %8, align 8, !tbaa !12
-  %invariant.gep.i.i.i = getelementptr i8, ptr %130, i64 -8
-  br label %131
+.lr.ph.i.i.i:                                     ; preds = %118
+  %126 = zext i16 %125 to i64
+  %127 = load ptr, ptr %8, align 8, !tbaa !12
+  %invariant.gep.i.i.i = getelementptr i8, ptr %127, i64 -8
+  br label %128
 
-131:                                              ; preds = %133, %.lr.ph.i.i.i
-  %.03545.i.i.i = phi i64 [ %129, %.lr.ph.i.i.i ], [ %134, %133 ]
+128:                                              ; preds = %130, %.lr.ph.i.i.i
+  %.03545.i.i.i = phi i64 [ %126, %.lr.ph.i.i.i ], [ %131, %130 ]
   %gep.i.i.i = getelementptr i64, ptr %invariant.gep.i.i.i, i64 %.03545.i.i.i
-  %132 = load i64, ptr %gep.i.i.i, align 8, !tbaa !17
-  %.not39.i.i.i = icmp eq i64 %132, 0
-  br i1 %.not39.i.i.i, label %133, label %mbedtls_mpi_cmp_int.exit.i
+  %129 = load i64, ptr %gep.i.i.i, align 8, !tbaa !17
+  %.not39.i.i.i = icmp eq i64 %129, 0
+  br i1 %.not39.i.i.i, label %130, label %mbedtls_mpi_cmp_int.exit.i
 
-133:                                              ; preds = %131
-  %134 = add nsw i64 %.03545.i.i.i, -1
-  %.not.i.i.i = icmp eq i64 %134, 0
-  br i1 %.not.i.i.i, label %mpi_write_hlp.exit, label %131, !llvm.loop !31
+130:                                              ; preds = %128
+  %131 = add nsw i64 %.03545.i.i.i, -1
+  %.not.i.i.i = icmp eq i64 %131, 0
+  br i1 %.not.i.i.i, label %mpi_write_hlp.exit, label %128, !llvm.loop !31
 
-mbedtls_mpi_cmp_int.exit.i:                       ; preds = %131
-  %135 = load i16, ptr %26, align 8, !tbaa !10
-  %.not29.i = icmp eq i16 %135, 0
+mbedtls_mpi_cmp_int.exit.i:                       ; preds = %128
+  %132 = load i16, ptr %26, align 8, !tbaa !10
+  %.not29.i = icmp eq i16 %132, 0
   br i1 %.not29.i, label %mpi_write_hlp.exit, label %.split.i, !llvm.loop !30
 
-mpi_write_hlp.exit:                               ; preds = %121, %mbedtls_mpi_cmp_int.exit.i, %133, %89, %mbedtls_mpi_cmp_int.exit.us.i, %98
-  %.139.i = phi ptr [ %90, %98 ], [ %90, %mbedtls_mpi_cmp_int.exit.us.i ], [ %90, %89 ], [ %124, %133 ], [ %124, %mbedtls_mpi_cmp_int.exit.i ], [ %124, %121 ]
-  %136 = phi i64 [ %91, %98 ], [ %91, %mbedtls_mpi_cmp_int.exit.us.i ], [ %91, %89 ], [ %127, %133 ], [ %127, %mbedtls_mpi_cmp_int.exit.i ], [ %127, %121 ]
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.069, ptr noundef nonnull align 1 dereferenceable(1) %.139.i, i64 %136, i1 false)
-  %137 = getelementptr inbounds nuw i8, ptr %.069, i64 %136
+mpi_write_hlp.exit:                               ; preds = %118, %mbedtls_mpi_cmp_int.exit.i, %130, %86, %mbedtls_mpi_cmp_int.exit.us.i, %95
+  %.139.i = phi ptr [ %87, %95 ], [ %87, %mbedtls_mpi_cmp_int.exit.us.i ], [ %87, %86 ], [ %121, %130 ], [ %121, %mbedtls_mpi_cmp_int.exit.i ], [ %121, %118 ]
+  %133 = phi i64 [ %88, %95 ], [ %88, %mbedtls_mpi_cmp_int.exit.us.i ], [ %88, %86 ], [ %124, %130 ], [ %124, %mbedtls_mpi_cmp_int.exit.i ], [ %124, %118 ]
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.069, ptr noundef nonnull align 1 dereferenceable(1) %.139.i, i64 %133, i1 false)
+  %134 = getelementptr inbounds nuw i8, ptr %.069, i64 %133
   br label %.loopexit
 
 .loopexit:                                        ; preds = %64, %36, %mpi_write_hlp.exit
-  %.4 = phi ptr [ %137, %mpi_write_hlp.exit ], [ %.069, %36 ], [ %.3, %64 ]
-  %138 = getelementptr inbounds nuw i8, ptr %.4, i64 1
+  %.4 = phi ptr [ %134, %mpi_write_hlp.exit ], [ %.069, %36 ], [ %.3, %64 ]
+  %135 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   store i8 0, ptr %.4, align 1, !tbaa !24
-  %139 = ptrtoint ptr %138 to i64
-  %140 = ptrtoint ptr %2 to i64
-  %141 = sub i64 %139, %140
-  store i64 %141, ptr %4, align 8, !tbaa !17
+  %136 = ptrtoint ptr %135 to i64
+  %137 = ptrtoint ptr %2 to i64
+  %138 = sub i64 %136, %137
+  store i64 %138, ptr %4, align 8, !tbaa !17
   br label %mpi_write_hlp.exit.thread
 
 mpi_write_hlp.exit.thread:                        ; preds = %.split.i, %mbedtls_mpi_mod_int.exit.i, %.split.us.i, %mbedtls_mpi_mod_int.exit.us.i, %66, %.loopexit
-  %.149 = phi i32 [ 0, %.loopexit ], [ %67, %66 ], [ %88, %mbedtls_mpi_mod_int.exit.us.i ], [ -8, %.split.us.i ], [ %120, %mbedtls_mpi_mod_int.exit.i ], [ -8, %.split.i ]
-  %142 = load ptr, ptr %8, align 8, !tbaa !12
-  %.not.i = icmp eq ptr %142, null
-  br i1 %.not.i, label %mbedtls_mpi_free.exit, label %143
+  %.149 = phi i32 [ 0, %.loopexit ], [ %67, %66 ], [ %85, %mbedtls_mpi_mod_int.exit.us.i ], [ -8, %.split.us.i ], [ %117, %mbedtls_mpi_mod_int.exit.i ], [ -8, %.split.i ]
+  %139 = load ptr, ptr %8, align 8, !tbaa !12
+  %.not.i = icmp eq ptr %139, null
+  br i1 %.not.i, label %mbedtls_mpi_free.exit, label %140
 
-143:                                              ; preds = %mpi_write_hlp.exit.thread
-  %144 = load i16, ptr %27, align 2, !tbaa !3
-  %145 = zext i16 %144 to i64
-  %146 = shl nuw nsw i64 %145, 3
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %142, i64 noundef %146) #16
+140:                                              ; preds = %mpi_write_hlp.exit.thread
+  %141 = load i16, ptr %27, align 2, !tbaa !3
+  %142 = zext i16 %141 to i64
+  %143 = shl nuw nsw i64 %142, 3
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %139, i64 noundef %143) #16
   br label %mbedtls_mpi_free.exit
 
-mbedtls_mpi_free.exit:                            ; preds = %143, %mpi_write_hlp.exit.thread, %5, %24
-  %.045 = phi i32 [ -8, %24 ], [ -4, %5 ], [ %.149, %mpi_write_hlp.exit.thread ], [ %.149, %143 ]
+mbedtls_mpi_free.exit:                            ; preds = %140, %mpi_write_hlp.exit.thread, %5, %24
+  %.045 = phi i32 [ -8, %24 ], [ -4, %5 ], [ %.149, %mpi_write_hlp.exit.thread ], [ %.149, %140 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
   ret i32 %.045
 }

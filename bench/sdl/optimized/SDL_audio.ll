@@ -4488,7 +4488,7 @@ define hidden void @SDL_DefaultAudioDeviceChanged(ptr noundef %0) local_unnamed_
   %3 = alloca %struct.SDL_PendingAudioDeviceEvent, align 8
   %4 = alloca %struct.SDL_AudioSpec, align 4
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %181, label %5
+  br i1 %.not, label %169, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 148
@@ -4518,7 +4518,7 @@ define hidden void @SDL_DefaultAudioDeviceChanged(ptr noundef %0) local_unnamed_
 .critedge:                                        ; preds = %5
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
   tail call void @SDL_UnlockRWLock_REAL(ptr noundef %19) #14
-  br label %181
+  br label %169
 
 ObtainPhysicalAudioDeviceObj.exit:                ; preds = %18, %17
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
@@ -4543,364 +4543,341 @@ ObtainPhysicalAudioDeviceObj.exit:                ; preds = %18, %17
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 208
-  %.084124 = load ptr, ptr %28, align 8
-  %.not96125 = icmp eq ptr %.084124, null
-  br i1 %.not96125, label %.thread, label %.lr.ph129
+  %.084126 = load ptr, ptr %28, align 8
+  %.not96127 = icmp eq ptr %.084126, null
+  br i1 %.not96127, label %.thread, label %.lr.ph131
 
-.lr.ph129:                                        ; preds = %27
+.lr.ph131:                                        ; preds = %27
   %.v = select i1 %8, i64 60, i64 48
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %31
 
 ._crit_edge:                                      ; preds = %.loopexit
-  br i1 %.181, label %62, label %.thread
+  br i1 %.181, label %50, label %.thread
 
-31:                                               ; preds = %.lr.ph129, %.loopexit
-  %.promoted117140 = phi i32 [ 0, %.lr.ph129 ], [ %.promoted117136, %.loopexit ]
-  %.promoted116134 = phi i32 [ 0, %.lr.ph129 ], [ %.promoted116130, %.loopexit ]
-  %.084128 = phi ptr [ %.084124, %.lr.ph129 ], [ %.084, %.loopexit ]
-  %.080127 = phi i1 [ false, %.lr.ph129 ], [ %.181, %.loopexit ]
-  %.promoted123126 = phi i32 [ 0, %.lr.ph129 ], [ %.promoted119, %.loopexit ]
-  %32 = getelementptr inbounds nuw i8, ptr %.084128, i64 32
+31:                                               ; preds = %.lr.ph131, %.loopexit
+  %spec.store.select112.lcssa138 = phi i32 [ 0, %.lr.ph131 ], [ %spec.store.select112.lcssa136, %.loopexit ]
+  %spec.store.select114.lcssa134 = phi i32 [ 0, %.lr.ph131 ], [ %spec.store.select114.lcssa132, %.loopexit ]
+  %.084130 = phi ptr [ %.084126, %.lr.ph131 ], [ %.084, %.loopexit ]
+  %.080129 = phi i1 [ false, %.lr.ph131 ], [ %.181, %.loopexit ]
+  %spec.store.select.lcssa125128 = phi i32 [ 0, %.lr.ph131 ], [ %spec.store.select.lcssa123, %.loopexit ]
+  %32 = getelementptr inbounds nuw i8, ptr %.084130, i64 32
   %33 = load i8, ptr %32, align 8, !range !6, !noundef !7
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %.loopexit
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw i8, ptr %.084128, i64 24
-  %.083113 = load ptr, ptr %36, align 8
-  %.not103114 = icmp eq ptr %.083113, null
-  br i1 %.not103114, label %.loopexit, label %.lr.ph
+  %36 = getelementptr inbounds nuw i8, ptr %.084130, i64 24
+  %.083116 = load ptr, ptr %36, align 8
+  %.not103117 = icmp eq ptr %.083116, null
+  br i1 %.not103117, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %35, %58
-  %.promoted117138 = phi i32 [ %.promoted117137, %58 ], [ %.promoted117140, %35 ]
-  %.promoted116132 = phi i32 [ %.promoted116131, %58 ], [ %.promoted116134, %35 ]
-  %.promoted121 = phi i32 [ %.promoted120, %58 ], [ %.promoted123126, %35 ]
-  %37 = phi i32 [ %59, %58 ], [ %.promoted117140, %35 ]
-  %38 = phi i32 [ %53, %58 ], [ %.promoted116134, %35 ]
-  %.083115 = phi ptr [ %.083, %58 ], [ %.083113, %35 ]
-  %39 = phi i32 [ %47, %58 ], [ %.promoted123126, %35 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.083115, i64 %.v
-  %41 = load i32, ptr %40, align 4
-  %42 = and i32 %41, 255
-  %43 = and i32 %39, 255
-  %44 = icmp samesign ugt i32 %42, %43
-  br i1 %44, label %45, label %46
-
-45:                                               ; preds = %.lr.ph
-  store i32 %41, ptr %4, align 4
-  br label %46
-
-46:                                               ; preds = %45, %.lr.ph
-  %.promoted120 = phi i32 [ %41, %45 ], [ %.promoted121, %.lr.ph ]
-  %47 = phi i32 [ %41, %45 ], [ %39, %.lr.ph ]
-  %48 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp sgt i32 %49, %38
-  br i1 %50, label %51, label %52
-
-51:                                               ; preds = %46
-  store i32 %49, ptr %29, align 4
-  br label %52
-
-52:                                               ; preds = %51, %46
-  %.promoted116131 = phi i32 [ %49, %51 ], [ %.promoted116132, %46 ]
-  %53 = phi i32 [ %49, %51 ], [ %38, %46 ]
-  %54 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp sgt i32 %55, %37
-  br i1 %56, label %57, label %58
-
-57:                                               ; preds = %52
-  store i32 %55, ptr %30, align 4
-  br label %58
-
-58:                                               ; preds = %57, %52
-  %.promoted117137 = phi i32 [ %55, %57 ], [ %.promoted117138, %52 ]
-  %59 = phi i32 [ %55, %57 ], [ %37, %52 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.083115, i64 200
-  %.083 = load ptr, ptr %60, align 8
+.lr.ph:                                           ; preds = %35, %.lr.ph
+  %37 = phi i32 [ %spec.store.select112, %.lr.ph ], [ %spec.store.select112.lcssa138, %35 ]
+  %38 = phi i32 [ %spec.store.select114, %.lr.ph ], [ %spec.store.select114.lcssa134, %35 ]
+  %.083119 = phi ptr [ %.083, %.lr.ph ], [ %.083116, %35 ]
+  %spec.store.select115118 = phi i32 [ %spec.store.select, %.lr.ph ], [ %spec.store.select.lcssa125128, %35 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.083119, i64 %.v
+  %40 = load i32, ptr %39, align 4
+  %41 = and i32 %40, 255
+  %42 = and i32 %spec.store.select115118, 255
+  %43 = icmp samesign ugt i32 %41, %42
+  %spec.store.select = select i1 %43, i32 %40, i32 %spec.store.select115118
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  %45 = load i32, ptr %44, align 4
+  %spec.store.select114 = tail call i32 @llvm.smax.i32(i32 %45, i32 %38)
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %47 = load i32, ptr %46, align 4
+  %spec.store.select112 = tail call i32 @llvm.smax.i32(i32 %47, i32 %37)
+  %48 = getelementptr inbounds nuw i8, ptr %.083119, i64 200
+  %.083 = load ptr, ptr %48, align 8
   %.not103 = icmp eq ptr %.083, null
-  br i1 %.not103, label %.loopexit, label %.lr.ph, !llvm.loop !29
+  br i1 %.not103, label %..loopexit_crit_edge, label %.lr.ph, !llvm.loop !29
 
-.loopexit:                                        ; preds = %58, %35, %31
-  %.promoted117136 = phi i32 [ %.promoted117140, %31 ], [ %.promoted117140, %35 ], [ %.promoted117137, %58 ]
-  %.promoted116130 = phi i32 [ %.promoted116134, %31 ], [ %.promoted116134, %35 ], [ %.promoted116131, %58 ]
-  %.promoted119 = phi i32 [ %.promoted123126, %31 ], [ %.promoted123126, %35 ], [ %.promoted120, %58 ]
-  %.181 = phi i1 [ %.080127, %31 ], [ true, %35 ], [ true, %58 ]
-  %61 = getelementptr inbounds nuw i8, ptr %.084128, i64 80
-  %.084 = load ptr, ptr %61, align 8
+..loopexit_crit_edge:                             ; preds = %.lr.ph
+  store i32 %spec.store.select, ptr %4, align 4
+  store i32 %spec.store.select114, ptr %29, align 4
+  store i32 %spec.store.select112, ptr %30, align 4
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %35, %..loopexit_crit_edge, %31
+  %spec.store.select112.lcssa136 = phi i32 [ %spec.store.select112.lcssa138, %31 ], [ %spec.store.select112, %..loopexit_crit_edge ], [ %spec.store.select112.lcssa138, %35 ]
+  %spec.store.select114.lcssa132 = phi i32 [ %spec.store.select114.lcssa134, %31 ], [ %spec.store.select114, %..loopexit_crit_edge ], [ %spec.store.select114.lcssa134, %35 ]
+  %spec.store.select.lcssa123 = phi i32 [ %spec.store.select.lcssa125128, %31 ], [ %spec.store.select, %..loopexit_crit_edge ], [ %spec.store.select.lcssa125128, %35 ]
+  %.181 = phi i1 [ %.080129, %31 ], [ true, %..loopexit_crit_edge ], [ true, %35 ]
+  %49 = getelementptr inbounds nuw i8, ptr %.084130, i64 80
+  %.084 = load ptr, ptr %49, align 8
   %.not96 = icmp eq ptr %.084, null
   br i1 %.not96, label %._crit_edge, label %31, !llvm.loop !30
 
-62:                                               ; preds = %._crit_edge
-  %63 = call fastcc zeroext i1 @OpenPhysicalAudioDevice(ptr noundef nonnull %0, ptr noundef nonnull %4)
-  br i1 %63, label %64, label %.thread
+50:                                               ; preds = %._crit_edge
+  %51 = call fastcc zeroext i1 @OpenPhysicalAudioDevice(ptr noundef nonnull %0, ptr noundef nonnull %4)
+  br i1 %51, label %52, label %.thread
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds nuw i8, ptr %26, i64 96
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %67 = load i32, ptr %65, align 4
-  %68 = load i32, ptr %66, align 4
-  %.not.i104 = icmp eq i32 %67, %68
-  br i1 %.not.i104, label %69, label %SDL_AudioSpecsEqual.exit
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds nuw i8, ptr %26, i64 96
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %55 = load i32, ptr %53, align 4
+  %56 = load i32, ptr %54, align 4
+  %.not.i104 = icmp eq i32 %55, %56
+  br i1 %.not.i104, label %57, label %SDL_AudioSpecsEqual.exit
 
-69:                                               ; preds = %64
-  %70 = getelementptr inbounds nuw i8, ptr %26, i64 100
-  %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %73 = load i32, ptr %72, align 4
-  %.not15.i = icmp eq i32 %71, %73
-  br i1 %.not15.i, label %74, label %SDL_AudioSpecsEqual.exit
+57:                                               ; preds = %52
+  %58 = getelementptr inbounds nuw i8, ptr %26, i64 100
+  %59 = load i32, ptr %58, align 4
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %61 = load i32, ptr %60, align 4
+  %.not15.i = icmp eq i32 %59, %61
+  br i1 %.not15.i, label %62, label %SDL_AudioSpecsEqual.exit
 
-74:                                               ; preds = %69
-  %75 = getelementptr inbounds nuw i8, ptr %26, i64 104
-  %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %78 = load i32, ptr %77, align 4
-  %.not16.i = icmp eq i32 %76, %78
+62:                                               ; preds = %57
+  %63 = getelementptr inbounds nuw i8, ptr %26, i64 104
+  %64 = load i32, ptr %63, align 4
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %66 = load i32, ptr %65, align 4
+  %.not16.i = icmp eq i32 %64, %66
   br label %SDL_AudioSpecsEqual.exit
 
-SDL_AudioSpecsEqual.exit:                         ; preds = %74, %64, %69
-  %.0.i = phi i1 [ false, %69 ], [ false, %64 ], [ %.not16.i, %74 ]
-  %79 = load ptr, ptr %28, align 8
-  %.not97141 = icmp eq ptr %79, null
-  br i1 %.not97141, label %._crit_edge145, label %.lr.ph144
+SDL_AudioSpecsEqual.exit:                         ; preds = %62, %52, %57
+  %.0.i = phi i1 [ false, %57 ], [ false, %52 ], [ %.not16.i, %62 ]
+  %67 = load ptr, ptr %28, align 8
+  %.not97139 = icmp eq ptr %67, null
+  br i1 %.not97139, label %._crit_edge143, label %.lr.ph142
 
-.lr.ph144:                                        ; preds = %SDL_AudioSpecsEqual.exit
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %81 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %82 = getelementptr inbounds nuw i8, ptr %26, i64 80
-  %83 = getelementptr inbounds nuw i8, ptr %26, i64 148
-  br label %85
+.lr.ph142:                                        ; preds = %SDL_AudioSpecsEqual.exit
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %69 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %26, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %26, i64 148
+  br label %73
 
-._crit_edge145:                                   ; preds = %153, %SDL_AudioSpecsEqual.exit
-  %.2.lcssa = phi ptr [ %3, %SDL_AudioSpecsEqual.exit ], [ %.3, %153 ]
+._crit_edge143:                                   ; preds = %141, %SDL_AudioSpecsEqual.exit
+  %.2.lcssa = phi ptr [ %3, %SDL_AudioSpecsEqual.exit ], [ %.3, %141 ]
   call fastcc void @UpdateAudioStreamFormatsPhysical(ptr noundef nonnull %26)
   call fastcc void @UpdateAudioStreamFormatsPhysical(ptr noundef nonnull %0)
-  %84 = load ptr, ptr %28, align 8
-  %.not98 = icmp eq ptr %84, null
-  br i1 %.not98, label %154, label %.thread
+  %72 = load ptr, ptr %28, align 8
+  %.not98 = icmp eq ptr %72, null
+  br i1 %.not98, label %142, label %.thread
 
-85:                                               ; preds = %.lr.ph144, %153
-  %.0143 = phi ptr [ %79, %.lr.ph144 ], [ %87, %153 ]
-  %.2142 = phi ptr [ %3, %.lr.ph144 ], [ %.3, %153 ]
-  %86 = getelementptr inbounds nuw i8, ptr %.0143, i64 80
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %.0143, i64 32
-  %89 = load i8, ptr %88, align 8, !range !6, !noundef !7
-  %90 = trunc nuw i8 %89 to i1
-  br i1 %90, label %91, label %153
+73:                                               ; preds = %.lr.ph142, %141
+  %.0141 = phi ptr [ %67, %.lr.ph142 ], [ %75, %141 ]
+  %.2140 = phi ptr [ %3, %.lr.ph142 ], [ %.3, %141 ]
+  %74 = getelementptr inbounds nuw i8, ptr %.0141, i64 80
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %.0141, i64 32
+  %77 = load i8, ptr %76, align 8, !range !6, !noundef !7
+  %78 = trunc nuw i8 %77 to i1
+  br i1 %78, label %79, label %141
 
-91:                                               ; preds = %85
-  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
-  call void @SDL_LockRWLockForWriting_REAL(ptr noundef %92) #14
-  %93 = load ptr, ptr %86, align 8
-  %.not100 = icmp eq ptr %93, null
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0143, i64 88
+79:                                               ; preds = %73
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
+  call void @SDL_LockRWLockForWriting_REAL(ptr noundef %80) #14
+  %81 = load ptr, ptr %74, align 8
+  %.not100 = icmp eq ptr %81, null
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0141, i64 88
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %.not100, label %._crit_edge147, label %94
+  br i1 %.not100, label %._crit_edge145, label %82
 
-94:                                               ; preds = %91
-  %95 = getelementptr inbounds nuw i8, ptr %93, i64 88
-  store ptr %.pre, ptr %95, align 8
-  br label %._crit_edge147
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 88
+  store ptr %.pre, ptr %83, align 8
+  br label %._crit_edge145
 
-._crit_edge147:                                   ; preds = %91, %94
-  %96 = getelementptr inbounds nuw i8, ptr %.0143, i64 88
+._crit_edge145:                                   ; preds = %79, %82
+  %84 = getelementptr inbounds nuw i8, ptr %.0141, i64 88
   %.not101 = icmp eq ptr %.pre, null
-  br i1 %.not101, label %100, label %97
+  br i1 %.not101, label %88, label %85
 
-97:                                               ; preds = %._crit_edge147
-  %98 = load ptr, ptr %86, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %.pre, i64 80
-  store ptr %98, ptr %99, align 8
-  br label %100
+85:                                               ; preds = %._crit_edge145
+  %86 = load ptr, ptr %74, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %.pre, i64 80
+  store ptr %86, ptr %87, align 8
+  br label %88
 
-100:                                              ; preds = %97, %._crit_edge147
-  %101 = load ptr, ptr %28, align 8
-  %102 = icmp eq ptr %101, %.0143
-  br i1 %102, label %103, label %105
+88:                                               ; preds = %85, %._crit_edge145
+  %89 = load ptr, ptr %28, align 8
+  %90 = icmp eq ptr %89, %.0141
+  br i1 %90, label %91, label %93
 
-103:                                              ; preds = %100
-  %104 = load ptr, ptr %86, align 8
-  store ptr %104, ptr %28, align 8
-  br label %105
+91:                                               ; preds = %88
+  %92 = load ptr, ptr %74, align 8
+  store ptr %92, ptr %28, align 8
+  br label %93
 
-105:                                              ; preds = %103, %100
-  %106 = getelementptr inbounds nuw i8, ptr %.0143, i64 8
-  store ptr %0, ptr %106, align 8
-  store ptr null, ptr %96, align 8
-  %107 = load ptr, ptr %80, align 8
-  store ptr %107, ptr %86, align 8
-  store ptr %.0143, ptr %80, align 8
-  %108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
-  call void @SDL_UnlockRWLock_REAL(ptr noundef %108) #14
-  %109 = call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull %22, i32 noundef 1) #14
-  %110 = call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull %81, i32 noundef -1) #14
-  %111 = icmp eq i32 %110, 1
-  br i1 %111, label %112, label %UnrefPhysicalAudioDevice.exit
+93:                                               ; preds = %91, %88
+  %94 = getelementptr inbounds nuw i8, ptr %.0141, i64 8
+  store ptr %0, ptr %94, align 8
+  store ptr null, ptr %84, align 8
+  %95 = load ptr, ptr %68, align 8
+  store ptr %95, ptr %74, align 8
+  store ptr %.0141, ptr %68, align 8
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
+  call void @SDL_UnlockRWLock_REAL(ptr noundef %96) #14
+  %97 = call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull %22, i32 noundef 1) #14
+  %98 = call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull %69, i32 noundef -1) #14
+  %99 = icmp eq i32 %98, 1
+  br i1 %99, label %100, label %UnrefPhysicalAudioDevice.exit
 
-112:                                              ; preds = %105
+100:                                              ; preds = %93
+  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
+  call void @SDL_LockRWLockForWriting_REAL(ptr noundef %101) #14
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 144), align 8
+  %103 = load i32, ptr %70, align 8
+  %104 = zext i32 %103 to i64
+  %105 = inttoptr i64 %104 to ptr
+  %106 = call zeroext i1 @SDL_RemoveFromHashTable(ptr noundef %102, ptr noundef %105) #14
+  br i1 %106, label %107, label %112
+
+107:                                              ; preds = %100
+  %108 = load i8, ptr %71, align 4, !range !6, !noundef !7
+  %109 = trunc nuw i8 %108 to i1
+  %110 = select i1 %109, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 196), ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 192)
+  %111 = call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull %110, i32 noundef -1) #14
+  br label %112
+
+112:                                              ; preds = %107, %100
   %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
-  call void @SDL_LockRWLockForWriting_REAL(ptr noundef %113) #14
-  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 144), align 8
-  %115 = load i32, ptr %82, align 8
-  %116 = zext i32 %115 to i64
-  %117 = inttoptr i64 %116 to ptr
-  %118 = call zeroext i1 @SDL_RemoveFromHashTable(ptr noundef %114, ptr noundef %117) #14
-  br i1 %118, label %119, label %124
-
-119:                                              ; preds = %112
-  %120 = load i8, ptr %83, align 4, !range !6, !noundef !7
-  %121 = trunc nuw i8 %120 to i1
-  %122 = select i1 %121, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 196), ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 192)
-  %123 = call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull %122, i32 noundef -1) #14
-  br label %124
-
-124:                                              ; preds = %119, %112
-  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
-  call void @SDL_UnlockRWLock_REAL(ptr noundef %125) #14
+  call void @SDL_UnlockRWLock_REAL(ptr noundef %113) #14
   call fastcc void @DestroyPhysicalAudioDevice(ptr noundef nonnull %26)
   br label %UnrefPhysicalAudioDevice.exit
 
-UnrefPhysicalAudioDevice.exit:                    ; preds = %105, %124
-  %126 = load i32, ptr %.0143, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %.0143, i64 64
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %.0143, i64 72
-  %130 = load ptr, ptr %129, align 8
+UnrefPhysicalAudioDevice.exit:                    ; preds = %93, %112
+  %114 = load i32, ptr %.0141, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %.0141, i64 64
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %.0141, i64 72
+  %118 = load ptr, ptr %117, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store ptr null, ptr %2, align 8
-  %131 = call fastcc ptr @ObtainLogicalAudioDevice(i32 noundef %126, ptr noundef %2)
-  %.not.i105 = icmp eq ptr %131, null
-  br i1 %.not.i105, label %._crit_edge.i, label %132
+  %119 = call fastcc ptr @ObtainLogicalAudioDevice(i32 noundef %114, ptr noundef %2)
+  %.not.i105 = icmp eq ptr %119, null
+  br i1 %.not.i105, label %._crit_edge.i, label %120
 
 ._crit_edge.i:                                    ; preds = %UnrefPhysicalAudioDevice.exit
   %.pre15.i = load ptr, ptr %2, align 8
   br label %SDL_SetAudioPostmixCallback_REAL.exit
 
-132:                                              ; preds = %UnrefPhysicalAudioDevice.exit
-  %.not9.i = icmp eq ptr %128, null
+120:                                              ; preds = %UnrefPhysicalAudioDevice.exit
+  %.not9.i = icmp eq ptr %116, null
   %.pre.pre.i = load ptr, ptr %2, align 8
-  br i1 %.not9.i, label %.thread.i, label %133
+  br i1 %.not9.i, label %.thread.i, label %121
 
-133:                                              ; preds = %132
-  %134 = getelementptr inbounds nuw i8, ptr %.pre.pre.i, i64 168
-  %135 = load ptr, ptr %134, align 8
-  %.not10.i = icmp eq ptr %135, null
-  br i1 %.not10.i, label %136, label %.thread.i
+121:                                              ; preds = %120
+  %122 = getelementptr inbounds nuw i8, ptr %.pre.pre.i, i64 168
+  %123 = load ptr, ptr %122, align 8
+  %.not10.i = icmp eq ptr %123, null
+  br i1 %.not10.i, label %124, label %.thread.i
 
-136:                                              ; preds = %133
-  %137 = call i64 @SDL_GetSIMDAlignment_REAL() #14
-  %138 = getelementptr inbounds nuw i8, ptr %.pre.pre.i, i64 176
-  %139 = load i32, ptr %138, align 8
-  %140 = sext i32 %139 to i64
-  %141 = call noalias ptr @SDL_aligned_alloc_REAL(i64 noundef %137, i64 noundef %140) #14
-  store ptr %141, ptr %134, align 8
-  %.not11.not.i = icmp eq ptr %141, null
-  br i1 %.not11.not.i, label %144, label %.thread.i
+124:                                              ; preds = %121
+  %125 = call i64 @SDL_GetSIMDAlignment_REAL() #14
+  %126 = getelementptr inbounds nuw i8, ptr %.pre.pre.i, i64 176
+  %127 = load i32, ptr %126, align 8
+  %128 = sext i32 %127 to i64
+  %129 = call noalias ptr @SDL_aligned_alloc_REAL(i64 noundef %125, i64 noundef %128) #14
+  store ptr %129, ptr %122, align 8
+  %.not11.not.i = icmp eq ptr %129, null
+  br i1 %.not11.not.i, label %132, label %.thread.i
 
-.thread.i:                                        ; preds = %136, %133, %132
-  %142 = getelementptr inbounds nuw i8, ptr %131, i64 64
-  store ptr %128, ptr %142, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %131, i64 72
-  store ptr %130, ptr %143, align 8
-  br label %144
+.thread.i:                                        ; preds = %124, %121, %120
+  %130 = getelementptr inbounds nuw i8, ptr %119, i64 64
+  store ptr %116, ptr %130, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %119, i64 72
+  store ptr %118, ptr %131, align 8
+  br label %132
 
-144:                                              ; preds = %.thread.i, %136
+132:                                              ; preds = %.thread.i, %124
   call fastcc void @UpdateAudioStreamFormatsPhysical(ptr noundef %.pre.pre.i)
   br label %SDL_SetAudioPostmixCallback_REAL.exit
 
-SDL_SetAudioPostmixCallback_REAL.exit:            ; preds = %._crit_edge.i, %144
-  %145 = phi ptr [ %.pre.pre.i, %144 ], [ %.pre15.i, %._crit_edge.i ]
-  call fastcc void @ReleaseAudioDevice(ptr noundef %145)
+SDL_SetAudioPostmixCallback_REAL.exit:            ; preds = %._crit_edge.i, %132
+  %133 = phi ptr [ %.pre.pre.i, %132 ], [ %.pre15.i, %._crit_edge.i ]
+  call fastcc void @ReleaseAudioDevice(ptr noundef %133)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
-  br i1 %.0.i, label %153, label %146
+  br i1 %.0.i, label %141, label %134
 
-146:                                              ; preds = %SDL_SetAudioPostmixCallback_REAL.exit
-  %147 = call noalias ptr @SDL_malloc_REAL(i64 noundef 16) #14
-  %.not102 = icmp eq ptr %147, null
-  br i1 %.not102, label %153, label %148
+134:                                              ; preds = %SDL_SetAudioPostmixCallback_REAL.exit
+  %135 = call noalias ptr @SDL_malloc_REAL(i64 noundef 16) #14
+  %.not102 = icmp eq ptr %135, null
+  br i1 %.not102, label %141, label %136
 
-148:                                              ; preds = %146
-  store i32 4354, ptr %147, align 8
-  %149 = load i32, ptr %.0143, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %147, i64 4
-  store i32 %149, ptr %150, align 4
-  %151 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  store ptr null, ptr %151, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %.2142, i64 8
-  store ptr %147, ptr %152, align 8
-  br label %153
+136:                                              ; preds = %134
+  store i32 4354, ptr %135, align 8
+  %137 = load i32, ptr %.0141, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 4
+  store i32 %137, ptr %138, align 4
+  %139 = getelementptr inbounds nuw i8, ptr %135, i64 8
+  store ptr null, ptr %139, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %.2140, i64 8
+  store ptr %135, ptr %140, align 8
+  br label %141
 
-153:                                              ; preds = %SDL_SetAudioPostmixCallback_REAL.exit, %148, %146, %85
-  %.3 = phi ptr [ %.2142, %85 ], [ %147, %148 ], [ %.2142, %146 ], [ %.2142, %SDL_SetAudioPostmixCallback_REAL.exit ]
-  %.not97 = icmp eq ptr %87, null
-  br i1 %.not97, label %._crit_edge145, label %85, !llvm.loop !31
+141:                                              ; preds = %SDL_SetAudioPostmixCallback_REAL.exit, %136, %134, %73
+  %.3 = phi ptr [ %.2140, %73 ], [ %135, %136 ], [ %.2140, %134 ], [ %.2140, %SDL_SetAudioPostmixCallback_REAL.exit ]
+  %.not97 = icmp eq ptr %75, null
+  br i1 %.not97, label %._crit_edge143, label %73, !llvm.loop !31
 
-154:                                              ; preds = %._crit_edge145
+142:                                              ; preds = %._crit_edge143
   call fastcc void @ClosePhysicalAudioDevice(ptr noundef nonnull %26)
   br label %.thread
 
-.thread:                                          ; preds = %27, %._crit_edge, %._crit_edge145, %154, %62
-  %.1 = phi ptr [ %3, %62 ], [ %.2.lcssa, %154 ], [ %.2.lcssa, %._crit_edge145 ], [ %3, %._crit_edge ], [ %3, %27 ]
+.thread:                                          ; preds = %27, %._crit_edge, %._crit_edge143, %142, %50
+  %.1 = phi ptr [ %3, %50 ], [ %.2.lcssa, %142 ], [ %.2.lcssa, %._crit_edge143 ], [ %3, %._crit_edge ], [ %3, %27 ]
   call fastcc void @ReleaseAudioDevice(ptr noundef nonnull %26)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #14
   call fastcc void @ReleaseAudioDevice(ptr noundef nonnull %0)
-  %155 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %156 = call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull %155, i32 noundef -1) #14
-  %157 = icmp eq i32 %156, 1
-  br i1 %157, label %158, label %UnrefPhysicalAudioDevice.exit107
+  %143 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %144 = call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull %143, i32 noundef -1) #14
+  %145 = icmp eq i32 %144, 1
+  br i1 %145, label %146, label %UnrefPhysicalAudioDevice.exit107
 
-158:                                              ; preds = %.thread
-  %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
-  call void @SDL_LockRWLockForWriting_REAL(ptr noundef %159) #14
-  %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 144), align 8
-  %161 = getelementptr inbounds nuw i8, ptr %26, i64 80
-  %162 = load i32, ptr %161, align 8
-  %163 = zext i32 %162 to i64
-  %164 = inttoptr i64 %163 to ptr
-  %165 = call zeroext i1 @SDL_RemoveFromHashTable(ptr noundef %160, ptr noundef %164) #14
-  br i1 %165, label %166, label %172
+146:                                              ; preds = %.thread
+  %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
+  call void @SDL_LockRWLockForWriting_REAL(ptr noundef %147) #14
+  %148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 144), align 8
+  %149 = getelementptr inbounds nuw i8, ptr %26, i64 80
+  %150 = load i32, ptr %149, align 8
+  %151 = zext i32 %150 to i64
+  %152 = inttoptr i64 %151 to ptr
+  %153 = call zeroext i1 @SDL_RemoveFromHashTable(ptr noundef %148, ptr noundef %152) #14
+  br i1 %153, label %154, label %160
 
-166:                                              ; preds = %158
-  %167 = getelementptr inbounds nuw i8, ptr %26, i64 148
-  %168 = load i8, ptr %167, align 4, !range !6, !noundef !7
-  %169 = trunc nuw i8 %168 to i1
-  %170 = select i1 %169, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 196), ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 192)
-  %171 = call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull %170, i32 noundef -1) #14
-  br label %172
+154:                                              ; preds = %146
+  %155 = getelementptr inbounds nuw i8, ptr %26, i64 148
+  %156 = load i8, ptr %155, align 4, !range !6, !noundef !7
+  %157 = trunc nuw i8 %156 to i1
+  %158 = select i1 %157, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 196), ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 192)
+  %159 = call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull %158, i32 noundef -1) #14
+  br label %160
 
-172:                                              ; preds = %166, %158
-  %173 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
-  call void @SDL_UnlockRWLock_REAL(ptr noundef %173) #14
+160:                                              ; preds = %154, %146
+  %161 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
+  call void @SDL_UnlockRWLock_REAL(ptr noundef %161) #14
   call fastcc void @DestroyPhysicalAudioDevice(ptr noundef nonnull %26)
   br label %UnrefPhysicalAudioDevice.exit107
 
-UnrefPhysicalAudioDevice.exit107:                 ; preds = %172, %.thread, %.thread109
-  %.079111 = phi ptr [ %3, %.thread109 ], [ %.1, %.thread ], [ %.1, %172 ]
-  %174 = load ptr, ptr %21, align 8
-  %.not99 = icmp eq ptr %174, null
-  br i1 %.not99, label %180, label %175
+UnrefPhysicalAudioDevice.exit107:                 ; preds = %160, %.thread, %.thread109
+  %.079111 = phi ptr [ %3, %.thread109 ], [ %.1, %.thread ], [ %.1, %160 ]
+  %162 = load ptr, ptr %21, align 8
+  %.not99 = icmp eq ptr %162, null
+  br i1 %.not99, label %168, label %163
 
-175:                                              ; preds = %UnrefPhysicalAudioDevice.exit107
-  %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
-  call void @SDL_LockRWLockForWriting_REAL(ptr noundef %176) #14
-  %177 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 184), align 8
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
-  store ptr %174, ptr %178, align 8
+163:                                              ; preds = %UnrefPhysicalAudioDevice.exit107
+  %164 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
+  call void @SDL_LockRWLockForWriting_REAL(ptr noundef %164) #14
+  %165 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 184), align 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  store ptr %162, ptr %166, align 8
   store ptr %.079111, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 184), align 8
-  %179 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
-  call void @SDL_UnlockRWLock_REAL(ptr noundef %179) #14
-  br label %180
+  %167 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
+  call void @SDL_UnlockRWLock_REAL(ptr noundef %167) #14
+  br label %168
 
-180:                                              ; preds = %175, %UnrefPhysicalAudioDevice.exit107
+168:                                              ; preds = %163, %UnrefPhysicalAudioDevice.exit107
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
-  br label %181
+  br label %169
 
-181:                                              ; preds = %180, %.critedge, %1
+169:                                              ; preds = %168, %.critedge, %1
   ret void
 }
 
