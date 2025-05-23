@@ -1445,9 +1445,9 @@ define internal fastcc void @pcie_config_aspm_link(ptr noundef captures(none) %0
   %67 = lshr i32 %34, 4
   %68 = and i32 %67, 2
   %69 = lshr i32 %34, 6
-  %70 = or i32 %69, %64
-  %71 = or i32 %70, %66
-  %72 = or i32 %71, %68
+  %70 = or disjoint i32 %69, %64
+  %71 = or disjoint i32 %70, %66
+  %72 = or disjoint i32 %71, %68
   %73 = load i16, ptr %52, align 8
   %74 = zext i16 %73 to i32
   %75 = add nuw nsw i32 %74, 8

@@ -1375,8 +1375,8 @@ _ZN4llvm14SmallBitVectorD2Ev.exit:                ; preds = %_ZN4llvm11SmallVect
 
 _ZN4llvm11SmallVectorINS_3LLTELj8EED2Ev.exit:     ; preds = %_ZN4llvm14SmallBitVectorD2Ev.exit, %196
   %.sroa.36.0.in.i = and i64 %.sroa.36.0.in.in.i, -4294967296
-  %.sroa.3.0.insert.insert.i = or i64 %.sroa.3.sroa.0.0.i, %.sroa.0.0.insert.ext.pre-phi.i
-  %.sroa.0.0.insert.insert.i = or i64 %.sroa.3.0.insert.insert.i, %.sroa.36.0.in.i
+  %.sroa.3.0.insert.insert.i = or disjoint i64 %.sroa.3.sroa.0.0.i, %.sroa.0.0.insert.ext.pre-phi.i
+  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.3.0.insert.insert.i, %.sroa.36.0.in.i
   %.fca.0.insert.i34 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.insert.insert.i, 0
   %.fca.1.insert.i35 = insertvalue { i64, i64 } %.fca.0.insert.i34, i64 %.sroa.4.0.i, 1
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #16

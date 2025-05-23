@@ -4696,7 +4696,7 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   %42 = or disjoint i32 %41, %36
   %43 = or disjoint i32 %42, %37
   %44 = or disjoint i32 %43, %39
-  %45 = or i32 %44, %33
+  %45 = or disjoint i32 %44, %33
   store i32 %45, ptr %0, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %3, ptr %46, align 4, !tbaa !89

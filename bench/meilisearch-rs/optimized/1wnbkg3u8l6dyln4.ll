@@ -8708,7 +8708,7 @@ _ZN19brotli_decompressor6decode16ReadContextModes17h3525518360f88c9cE.exit.i: ; 
 482:                                              ; preds = %517, %476
   %.sroa.017.077.i.i = phi i64 [ 0, %476 ], [ %530, %517 ]
   %.sroa.08.076.i.i = phi i64 [ 0, %476 ], [ %531, %517 ]
-  %483 = or i64 %.sroa.08.076.i.i, %474
+  %483 = or disjoint i64 %.sroa.08.076.i.i, %474
   %484 = icmp ult i64 %483, %.val46.i.i
   br i1 %484, label %501, label %506, !prof !373
 

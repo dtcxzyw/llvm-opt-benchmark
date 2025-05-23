@@ -1951,9 +1951,9 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   %.sroa.5.0.insert.shift.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %477
   %.sroa.4.0.insert.insert.i = or disjoint i64 %.sroa.5.0.insert.shift.i, %475
   %.sroa.3.0.insert.shift.i = or disjoint i64 %.sroa.4.0.insert.insert.i, %486
-  %.sroa.3.0.insert.insert.i = or i64 %.sroa.3.0.insert.shift.i, %487
-  %.sroa.0.0.insert.ext.i = or i64 %.sroa.3.0.insert.insert.i, %488
-  %.sroa.0.0.insert.insert.i = or i64 %.sroa.0.0.insert.ext.i, %489
+  %.sroa.3.0.insert.insert.i = or disjoint i64 %.sroa.3.0.insert.shift.i, %487
+  %.sroa.0.0.insert.ext.i = or disjoint i64 %.sroa.3.0.insert.insert.i, %488
+  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.0.insert.ext.i, %489
   store i64 %.sroa.0.0.insert.insert.i, ptr %51, align 4
   %492 = load i8, ptr %52, align 4, !tbaa !137
   %493 = zext i8 %492 to i64
@@ -1982,9 +1982,9 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   %.sroa.5.0.insert.shift.i411 = or disjoint i64 %.sroa.4.0.insert.shift.i410, %500
   %.sroa.4.0.insert.insert.i412 = or disjoint i64 %.sroa.5.0.insert.shift.i411, %498
   %.sroa.3.0.insert.shift.i413 = or disjoint i64 %.sroa.4.0.insert.insert.i412, %509
-  %.sroa.3.0.insert.insert.i414 = or i64 %.sroa.3.0.insert.shift.i413, %510
-  %.sroa.0.0.insert.ext.i415 = or i64 %.sroa.3.0.insert.insert.i414, %511
-  %.sroa.0.0.insert.insert.i416 = or i64 %.sroa.0.0.insert.ext.i415, %512
+  %.sroa.3.0.insert.insert.i414 = or disjoint i64 %.sroa.3.0.insert.shift.i413, %510
+  %.sroa.0.0.insert.ext.i415 = or disjoint i64 %.sroa.3.0.insert.insert.i414, %511
+  %.sroa.0.0.insert.insert.i416 = or disjoint i64 %.sroa.0.0.insert.ext.i415, %512
   store i64 %.sroa.0.0.insert.insert.i416, ptr %60, align 4
   %515 = load i8, ptr %61, align 4, !tbaa !137
   %516 = zext i8 %515 to i64
@@ -2013,9 +2013,9 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   %.sroa.5.0.insert.shift.i418 = or disjoint i64 %.sroa.4.0.insert.shift.i417, %523
   %.sroa.4.0.insert.insert.i419 = or disjoint i64 %.sroa.5.0.insert.shift.i418, %521
   %.sroa.3.0.insert.shift.i420 = or disjoint i64 %.sroa.4.0.insert.insert.i419, %532
-  %.sroa.3.0.insert.insert.i421 = or i64 %.sroa.3.0.insert.shift.i420, %533
-  %.sroa.0.0.insert.ext.i422 = or i64 %.sroa.3.0.insert.insert.i421, %534
-  %.sroa.0.0.insert.insert.i423 = or i64 %.sroa.0.0.insert.ext.i422, %535
+  %.sroa.3.0.insert.insert.i421 = or disjoint i64 %.sroa.3.0.insert.shift.i420, %533
+  %.sroa.0.0.insert.ext.i422 = or disjoint i64 %.sroa.3.0.insert.insert.i421, %534
+  %.sroa.0.0.insert.insert.i423 = or disjoint i64 %.sroa.0.0.insert.ext.i422, %535
   store i64 %.sroa.0.0.insert.insert.i423, ptr %69, align 4
   %538 = load i8, ptr %70, align 4, !tbaa !137
   %539 = zext i8 %538 to i64
@@ -2044,9 +2044,9 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   %.sroa.5.0.insert.shift.i425 = or disjoint i64 %.sroa.4.0.insert.shift.i424, %546
   %.sroa.4.0.insert.insert.i426 = or disjoint i64 %.sroa.5.0.insert.shift.i425, %544
   %.sroa.3.0.insert.shift.i427 = or disjoint i64 %.sroa.4.0.insert.insert.i426, %555
-  %.sroa.3.0.insert.insert.i428 = or i64 %.sroa.3.0.insert.shift.i427, %556
-  %.sroa.0.0.insert.ext.i429 = or i64 %.sroa.3.0.insert.insert.i428, %557
-  %.sroa.0.0.insert.insert.i430 = or i64 %.sroa.0.0.insert.ext.i429, %558
+  %.sroa.3.0.insert.insert.i428 = or disjoint i64 %.sroa.3.0.insert.shift.i427, %556
+  %.sroa.0.0.insert.ext.i429 = or disjoint i64 %.sroa.3.0.insert.insert.i428, %557
+  %.sroa.0.0.insert.insert.i430 = or disjoint i64 %.sroa.0.0.insert.ext.i429, %558
   store i64 %.sroa.0.0.insert.insert.i430, ptr %78, align 4
   br label %.thread455thread-pre-split
 

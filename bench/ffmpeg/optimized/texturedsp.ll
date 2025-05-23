@@ -782,8 +782,8 @@ define internal fastcc void @dxt1_block_internal(ptr noundef writeonly captures(
   %101 = add nuw nsw i32 %50, %30
   %102 = shl nuw nsw i32 %101, 15
   %103 = and i32 %102, 16711680
-  %104 = or i32 %97, %103
-  %105 = or i32 %104, %100
+  %104 = or disjoint i32 %97, %103
+  %105 = or disjoint i32 %104, %100
   %106 = shl nuw i32 %89, 24
   br label %extract_color.exit
 
@@ -926,7 +926,7 @@ define internal fastcc void @dxt3_block_internal(ptr noundef writeonly captures(
   %72 = shl nuw nsw i32 %.zext29, 16
   %73 = and i32 %72, 16711680
   %74 = or disjoint i32 %73, %.zext
-  %75 = or i32 %74, %68
+  %75 = or disjoint i32 %74, %68
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %75, ptr %76, align 8, !tbaa !67
   %77 = shl nuw nsw i32 %38, 1
@@ -949,7 +949,7 @@ define internal fastcc void @dxt3_block_internal(ptr noundef writeonly captures(
   %88 = shl nuw nsw i32 %.zext35, 16
   %89 = and i32 %88, 16711680
   %90 = or disjoint i32 %89, %.zext31
-  %91 = or i32 %90, %84
+  %91 = or disjoint i32 %90, %84
   %92 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %91, ptr %92, align 4, !tbaa !67
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -1136,7 +1136,7 @@ decompress_indices.exit:                          ; preds = %32
   %95 = shl nuw nsw i32 %.zext49, 16
   %96 = and i32 %95, 16711680
   %97 = or disjoint i32 %96, %.zext
-  %98 = or i32 %97, %91
+  %98 = or disjoint i32 %97, %91
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %98, ptr %99, align 8, !tbaa !67
   %100 = shl nuw nsw i32 %61, 1
@@ -1159,7 +1159,7 @@ decompress_indices.exit:                          ; preds = %32
   %111 = shl nuw nsw i32 %.zext55, 16
   %112 = and i32 %111, 16711680
   %113 = or disjoint i32 %112, %.zext51
-  %114 = or i32 %113, %107
+  %114 = or disjoint i32 %113, %107
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %114, ptr %115, align 4, !tbaa !67
   %116 = zext i8 %12 to i32

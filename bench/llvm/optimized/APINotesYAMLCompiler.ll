@@ -12073,7 +12073,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit32.i:              ; preds = %532
   %577 = zext nneg i16 %narrow.i to i64
   %578 = or i64 %575, %577
   store i64 %578, ptr %271, align 8, !tbaa !316
-  %579 = or i16 %573, %.0.lcssa.i
+  %579 = or disjoint i16 %573, %.0.lcssa.i
   store i16 %579, ptr %270, align 8
   br label %_ZN12_GLOBAL__N_113YAMLConverter18convertNullabilityERKSt6vectorIN5clang15NullabilityKindESaIS3_EESt8optionalIS3_ERNS2_9api_notes12FunctionInfoEN4llvm9StringRefE.exit
 
@@ -15191,7 +15191,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit32.i.i:            ; preds = %_ZNSt7__cxx1112basi
   %572 = zext nneg i16 %narrow.i.i to i64
   %573 = or i64 %570, %572
   store i64 %573, ptr %221, align 8, !tbaa !316
-  %574 = or i16 %.0.lcssa.i.i, %568
+  %574 = or disjoint i16 %.0.lcssa.i.i, %568
   br label %_ZN12_GLOBAL__N_113YAMLConverter18convertNullabilityERKSt6vectorIN5clang15NullabilityKindESaIS3_EESt8optionalIS3_ERNS2_9api_notes12FunctionInfoEN4llvm9StringRefE.exit.i
 
 _ZN12_GLOBAL__N_113YAMLConverter18convertNullabilityERKSt6vectorIN5clang15NullabilityKindESaIS3_EESt8optionalIS3_ERNS2_9api_notes12FunctionInfoEN4llvm9StringRefE.exit.i: ; preds = %.critedge17.i.i, %540, %_ZN4llvmplERKNS_5TwineES2_.exit32.i.i
@@ -17567,7 +17567,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit32.i:              ; preds = %_ZNSt7__cxx1112basi
   %625 = zext nneg i16 %narrow.i to i64
   %626 = or i64 %623, %625
   store i64 %626, ptr %355, align 8, !tbaa !316
-  %627 = or i16 %621, %.0.lcssa.i
+  %627 = or disjoint i16 %621, %.0.lcssa.i
   store i16 %627, ptr %354, align 8
   br label %_ZN12_GLOBAL__N_113YAMLConverter18convertNullabilityERKSt6vectorIN5clang15NullabilityKindESaIS3_EESt8optionalIS3_ERNS2_9api_notes12FunctionInfoEN4llvm9StringRefE.exit
 

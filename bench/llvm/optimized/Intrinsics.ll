@@ -1007,7 +1007,7 @@ tailrecurse.backedge:                             ; preds = %31, %35, %39, %43, 
 
 164:                                              ; preds = %155, %158
   %165 = phi i64 [ %163, %158 ], [ 0, %155 ]
-  %.sroa.04.0.insert.insert.i = or i64 %.sroa.25.0.insert.shift.i, %165
+  %.sroa.04.0.insert.insert.i = or disjoint i64 %.sroa.25.0.insert.shift.i, %165
   br label %.loopexit.sink.split
 
 166:                                              ; preds = %tailrecurse

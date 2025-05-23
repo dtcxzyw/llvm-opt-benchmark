@@ -1253,9 +1253,9 @@ cdrom_count_tracks.exit:                          ; preds = %82
   %275 = phi i32 [ %.pre41, %257 ], [ %252, %246 ]
   %276 = phi i32 [ %272, %257 ], [ 0, %246 ]
   %277 = and i32 %275, -3670017
-  %278 = or i32 %248, %247
-  %279 = or i32 %278, %276
-  %280 = or i32 %279, %277
+  %278 = or disjoint i32 %248, %247
+  %279 = or disjoint i32 %278, %276
+  %280 = or disjoint i32 %279, %277
   store i32 %280, ptr %76, align 8
   %281 = getelementptr inbounds nuw i8, ptr %274, i64 104
   %282 = load i32, ptr %281, align 8

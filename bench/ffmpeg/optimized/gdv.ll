@@ -1107,7 +1107,7 @@ bytestream2_get_byte.exit45:                      ; preds = %87, %91
 bytestream2_get_byte.exit43:                      ; preds = %101, %102
   %.0.i42 = phi i32 [ 0, %101 ], [ %106, %102 ]
   %107 = or disjoint i32 %98, %.0.i42
-  %108 = or i32 %107, -4096
+  %108 = or disjoint i32 %107, -4096
   tail call fastcc void @lz_copy(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %108, i32 noundef %97)
   %.pre = load ptr, ptr %3, align 8, !tbaa !47
   br label %bytestream2_put_byte.exit
@@ -1394,7 +1394,7 @@ bytestream2_get_byte.exit56:                      ; preds = %83, %84
 bytestream2_get_byte.exit54:                      ; preds = %94, %95
   %.0.i53 = phi i32 [ 0, %94 ], [ %99, %95 ]
   %100 = or disjoint i32 %91, %.0.i53
-  %101 = or i32 %100, -4096
+  %101 = or disjoint i32 %100, -4096
   tail call fastcc void @lz_copy(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef %101, i32 noundef %90)
   br label %bytestream2_put_byte.exit
 

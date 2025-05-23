@@ -3192,8 +3192,8 @@ bytestream2_get_byte.exit24.i:                    ; preds = %968, %bytestream2_g
 bytestream2_get_byte.exit26.i:                    ; preds = %bytestream2_get_byte.exit24.i, %976
   %980 = phi ptr [ %977, %976 ], [ %189, %bytestream2_get_byte.exit24.i ]
   %.0.i25.i = phi i32 [ %979, %976 ], [ 0, %bytestream2_get_byte.exit24.i ]
-  %981 = or i32 %.0.i23.i, %.0.i.i383
-  %982 = or i32 %981, %.0.i25.i
+  %981 = or disjoint i32 %.0.i23.i, %.0.i.i383
+  %982 = or disjoint i32 %981, %.0.i25.i
   %983 = getelementptr inbounds nuw [256 x i32], ptr %59, i64 0, i64 %indvars.iv.i
   store i32 %982, ptr %983, align 4, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

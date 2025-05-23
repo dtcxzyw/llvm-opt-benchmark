@@ -43372,7 +43372,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_126AArch64Ins
   %.masked11.masked.i.i2166 = or disjoint i32 %.masked.masked.masked.i.i2165, %3839
   %.masked.i.i2167 = or disjoint i32 %.masked11.masked.i.i2166, %3837
   %3841 = or disjoint i32 %.masked.i.i2167, %3835
-  %3842 = or i32 %3841, %3833
+  %3842 = or disjoint i32 %3841, %3833
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false), !alias.scope !1902
   store i32 %3842, ptr %17, align 8, !alias.scope !1902
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %3829, ptr noundef nonnull align 8 dereferenceable(1065) %3830, ptr noundef nonnull align 8 dereferenceable(32) %17) #25

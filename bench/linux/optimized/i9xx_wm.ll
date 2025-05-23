@@ -9052,8 +9052,8 @@ define internal void @i845_update_wm(ptr noundef %0) #0 align 16 {
   %65 = load ptr, ptr %44, align 8
   %66 = tail call i32 %65(ptr noundef nonnull %38, i32 8408, i1 noundef zeroext true) #14
   %67 = and i32 %66, -4096
-  %68 = or i32 %64, %67
-  %69 = or i32 %68, 768
+  %68 = or disjoint i32 %64, %67
+  %69 = or disjoint i32 %68, 768
   br i1 %47, label %73, label %70
 
 70:                                               ; preds = %51

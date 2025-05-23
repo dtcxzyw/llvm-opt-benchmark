@@ -668,7 +668,7 @@ define internal noundef zeroext i1 @dissect_peekremote_new(ptr noundef %0, ptr n
   %94 = or disjoint i16 %93, 3
   %95 = zext nneg i16 %94 to i32
   %96 = or disjoint i32 %.0215, %95
-  %97 = or i32 %96, %87
+  %97 = or disjoint i32 %96, %87
   store i32 %97, ptr %88, align 4
   br label %135
 

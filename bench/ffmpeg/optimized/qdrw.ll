@@ -474,8 +474,8 @@ bytestream2_get_byte.exit36.i:                    ; preds = %211, %bytestream2_g
   %..i.i = tail call i64 @llvm.smin.i64(i64 %216, i64 1)
   %217 = getelementptr inbounds i8, ptr %215, i64 %..i.i
   store ptr %217, ptr %5, align 8, !tbaa !21
-  %218 = or i32 %.0.i33.i, %.0.i32.i
-  %219 = or i32 %218, %.0.i35.i
+  %218 = or disjoint i32 %.0.i33.i, %.0.i32.i
+  %219 = or disjoint i32 %218, %.0.i35.i
   %220 = select i1 %.0.i178, i32 %.02641.i, i32 %.0.i39.i
   %221 = zext nneg i32 %220 to i64
   %222 = getelementptr inbounds nuw i32, ptr %166, i64 %221

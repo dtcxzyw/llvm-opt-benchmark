@@ -3737,7 +3737,7 @@ define internal fastcc void @i9xx_load_lut_8(ptr noundef readonly captures(none)
   %46 = add nuw nsw i32 %45, 32767
   %47 = udiv i32 %46, 65535
   %48 = or disjoint i32 %47, %33
-  %49 = or i32 %48, %41
+  %49 = or disjoint i32 %48, %41
   %50 = zext nneg i32 %49 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %71 [label %51], !srcloc !60
@@ -12931,7 +12931,7 @@ define internal fastcc void @ilk_load_lut_8(ptr noundef readonly captures(none) 
   %39 = add nuw nsw i32 %38, 32767
   %40 = udiv i32 %39, 65535
   %41 = or disjoint i32 %40, %26
-  %42 = or i32 %41, %34
+  %42 = or disjoint i32 %41, %34
   %43 = trunc i64 %18 to i32
   %44 = shl i32 %43, 2
   %45 = add i32 %16, %44
@@ -13209,7 +13209,7 @@ ilk_lut_write.exit8:                              ; preds = %49, %78
   %111 = add nuw nsw i32 %110, 32767
   %112 = udiv i32 %111, 65535
   %113 = or disjoint i32 %112, %98
-  %114 = or i32 %113, %106
+  %114 = or disjoint i32 %113, %106
   %.val4 = load ptr, ptr %0, align 8
   %.val5 = load ptr, ptr %10, align 8
   %.val4.val = load ptr, ptr %.val4, align 8
@@ -19120,7 +19120,7 @@ ilk_lut_write.exit:                               ; preds = %22, %50
   %76 = add nuw nsw i32 %75, 32767
   %77 = udiv i32 %76, 65535
   %78 = or disjoint i32 %77, %63
-  %79 = or i32 %78, %71
+  %79 = or disjoint i32 %78, %71
   %.val2 = load ptr, ptr %0, align 8
   %.val3 = load ptr, ptr %14, align 8
   %.val2.val = load ptr, ptr %.val2, align 8
@@ -19934,7 +19934,7 @@ define internal void @ilk_load_luts(ptr noundef readonly captures(none) %0) #0 a
   %52 = add nuw nsw i32 %51, 32767
   %53 = udiv i32 %52, 65535
   %54 = or disjoint i32 %53, %39
-  %55 = or i32 %54, %47
+  %55 = or disjoint i32 %54, %47
   %.val = load ptr, ptr %0, align 8
   %.val1 = load ptr, ptr %26, align 8
   %.val.val = load ptr, ptr %.val, align 8

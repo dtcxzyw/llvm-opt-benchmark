@@ -4491,7 +4491,7 @@ _ZN19brotli_decompressor6decode16ReadContextModes17hc23120565b2cba05E.exit: ; pr
 638:                                              ; preds = %673, %632
   %.078.i = phi i64 [ 0, %632 ], [ %686, %673 ]
   %.02177.i = phi i64 [ 0, %632 ], [ %687, %673 ]
-  %639 = or i64 %.02177.i, %630
+  %639 = or disjoint i64 %.02177.i, %630
   %640 = icmp ult i64 %639, %.val47.i
   br i1 %640, label %657, label %662, !prof !304
 

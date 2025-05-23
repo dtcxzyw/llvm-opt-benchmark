@@ -28134,9 +28134,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
   %123 = icmp eq i32 %93, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #35
   %.sroa.3.0.insert.shift = select i1 %123, i32 65536, i32 0
-  %.sroa.3.0.insert.insert = or i32 %.0.i124, %.sroa.039.0.insert.ext211217238247256
-  %.sroa.240.0.insert.insert = or i32 %.sroa.3.0.insert.insert, %.sroa.3.0.insert.shift
-  %.sroa.039.0.insert.insert = or i32 %.sroa.240.0.insert.insert, %.sroa.441.0.insert.ext274
+  %.sroa.3.0.insert.insert = or disjoint i32 %.0.i124, %.sroa.039.0.insert.ext211217238247256
+  %.sroa.240.0.insert.insert = or disjoint i32 %.sroa.3.0.insert.insert, %.sroa.3.0.insert.shift
+  %.sroa.039.0.insert.insert = or disjoint i32 %.sroa.240.0.insert.insert, %.sroa.441.0.insert.ext274
   ret i32 %.sroa.039.0.insert.insert
 
 124:                                              ; preds = %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread

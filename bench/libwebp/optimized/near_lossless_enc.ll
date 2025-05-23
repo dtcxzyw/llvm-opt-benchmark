@@ -265,9 +265,9 @@ IsSmooth.exit.thread.us:                          ; preds = %.critedge.i.i.us, %
   %105 = icmp samesign ugt i32 %104, 255
   %106 = and i32 %104, %notmask.i.i
   %.0.i13.i.us = select i1 %105, i32 255, i32 %106
-  %107 = or i32 %79, %.0.i13.i.us
-  %108 = or i32 %107, %89
-  %109 = or i32 %108, %99
+  %107 = or disjoint i32 %79, %.0.i13.i.us
+  %108 = or disjoint i32 %107, %89
+  %109 = or disjoint i32 %108, %99
   br label %110
 
 110:                                              ; preds = %IsSmooth.exit.us, %IsSmooth.exit.thread.us

@@ -229,78 +229,81 @@ define internal range(i32 -2147483648, 1) i32 @flashsv2_encode_frame(ptr noundef
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 652
   br label %.preheader19.i.i.i
 
-.preheader19.i.i.i:                               ; preds = %86, %45
-  %.022.i.i.i = phi i32 [ 4, %45 ], [ %87, %86 ]
-  %48 = shl nuw nsw i32 %.022.i.i.i, 7
-  %49 = and i32 %48, 31744
+.preheader19.i.i.i:                               ; preds = %87, %45
+  %indvars.iv27.i.i.i = phi i64 [ 4, %45 ], [ %indvars.iv.next28.i.i.i, %87 ]
+  %48 = shl nuw nsw i64 %indvars.iv27.i.i.i, 7
+  %49 = and i64 %48, 31744
+  %50 = trunc nuw nsw i64 %indvars.iv27.i.i.i to i32
   br label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %83, %.preheader19.i.i.i
-  %.01621.i.i.i = phi i32 [ 4, %.preheader19.i.i.i ], [ %84, %83 ]
-  %50 = shl nuw nsw i32 %.01621.i.i.i, 2
-  %51 = and i32 %50, 992
-  %52 = or disjoint i32 %51, %49
-  %53 = add nuw nsw i32 %.01621.i.i.i, %.022.i.i.i
-  br label %54
-
-54:                                               ; preds = %pixel_color7_slow.exit.i.i.i, %.preheader.i.i.i
-  %.01720.i.i.i = phi i32 [ 4, %.preheader.i.i.i ], [ %81, %pixel_color7_slow.exit.i.i.i ]
-  %55 = add nuw nsw i32 %53, %.01720.i.i.i
+.preheader.i.i.i:                                 ; preds = %85, %.preheader19.i.i.i
+  %indvars.iv24.i.i.i = phi i64 [ 4, %.preheader19.i.i.i ], [ %indvars.iv.next25.i.i.i, %85 ]
+  %51 = shl nuw nsw i64 %indvars.iv24.i.i.i, 2
+  %52 = and i64 %51, 992
+  %53 = or disjoint i64 %52, %49
+  %54 = add nuw nsw i64 %indvars.iv24.i.i.i, %indvars.iv27.i.i.i
+  %55 = trunc nuw nsw i64 %indvars.iv24.i.i.i to i32
   br label %56
 
-56:                                               ; preds = %56, %54
-  %indvars.iv.i.i.i.i = phi i64 [ 0, %54 ], [ %indvars.iv.next.i.i.i.i, %56 ]
-  %.01020.i.i.i.i = phi i32 [ 2147483647, %54 ], [ %spec.select14.i.i.i.i, %56 ]
-  %.01119.i.i.i.i = phi i8 [ -1, %54 ], [ %spec.select.i.i.i.i, %56 ]
-  %57 = getelementptr inbounds nuw [128 x i32], ptr %46, i64 0, i64 %indvars.iv.i.i.i.i
-  %58 = load i32, ptr %57, align 4, !tbaa !56
-  %59 = and i32 %58, 255
-  %60 = lshr i32 %58, 8
-  %61 = and i32 %60, 255
-  %62 = lshr i32 %58, 16
+56:                                               ; preds = %pixel_color7_slow.exit.i.i.i, %.preheader.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 4, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %pixel_color7_slow.exit.i.i.i ]
+  %57 = add nuw nsw i64 %54, %indvars.iv.i.i.i
+  %58 = trunc nuw nsw i64 %57 to i32
+  %59 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
+  br label %60
+
+60:                                               ; preds = %60, %56
+  %indvars.iv.i.i.i.i = phi i64 [ 0, %56 ], [ %indvars.iv.next.i.i.i.i, %60 ]
+  %.01020.i.i.i.i = phi i32 [ 2147483647, %56 ], [ %spec.select14.i.i.i.i, %60 ]
+  %.01119.i.i.i.i = phi i8 [ -1, %56 ], [ %spec.select.i.i.i.i, %60 ]
+  %61 = getelementptr inbounds nuw [128 x i32], ptr %46, i64 0, i64 %indvars.iv.i.i.i.i
+  %62 = load i32, ptr %61, align 4, !tbaa !56
   %63 = and i32 %62, 255
-  %.neg16.i.i.i.i.i = sub nsw i32 %59, %55
-  %.neg17.i.i.i.i.i = add nsw i32 %.neg16.i.i.i.i.i, %61
-  %64 = add nsw i32 %.neg17.i.i.i.i.i, %63
-  %65 = tail call i32 @llvm.abs.i32(i32 %64, i1 true)
-  %66 = sub nsw i32 %59, %.01720.i.i.i
-  %67 = tail call i32 @llvm.abs.i32(i32 %66, i1 true)
-  %68 = sub nsw i32 %61, %.01621.i.i.i
+  %64 = lshr i32 %62, 8
+  %65 = and i32 %64, 255
+  %66 = lshr i32 %62, 16
+  %67 = and i32 %66, 255
+  %.neg16.i.i.i.i.i = sub i32 %63, %58
+  %.neg17.i.i.i.i.i = add nsw i32 %.neg16.i.i.i.i.i, %65
+  %68 = add nsw i32 %.neg17.i.i.i.i.i, %67
   %69 = tail call i32 @llvm.abs.i32(i32 %68, i1 true)
-  %70 = sub nsw i32 %63, %.022.i.i.i
+  %70 = sub nsw i32 %63, %59
   %71 = tail call i32 @llvm.abs.i32(i32 %70, i1 true)
-  %72 = add nuw nsw i32 %69, %67
-  %73 = add nuw nsw i32 %72, %71
-  %74 = add nuw nsw i32 %73, %65
-  %75 = icmp samesign ult i32 %74, %.01020.i.i.i.i
-  %76 = trunc i64 %indvars.iv.i.i.i.i to i8
-  %spec.select.i.i.i.i = select i1 %75, i8 %76, i8 %.01119.i.i.i.i
-  %spec.select14.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %74, i32 %.01020.i.i.i.i)
+  %72 = sub nsw i32 %65, %55
+  %73 = tail call i32 @llvm.abs.i32(i32 %72, i1 true)
+  %74 = sub nsw i32 %67, %50
+  %75 = tail call i32 @llvm.abs.i32(i32 %74, i1 true)
+  %76 = add nuw nsw i32 %73, %71
+  %77 = add nuw nsw i32 %76, %75
+  %78 = add nuw nsw i32 %77, %69
+  %79 = icmp samesign ult i32 %78, %.01020.i.i.i.i
+  %80 = trunc i64 %indvars.iv.i.i.i.i to i8
+  %spec.select.i.i.i.i = select i1 %79, i8 %80, i8 %.01119.i.i.i.i
+  %spec.select14.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %78, i32 %.01020.i.i.i.i)
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 128
-  br i1 %exitcond.not.i.i.i.i, label %pixel_color7_slow.exit.i.i.i, label %56, !llvm.loop !57
+  br i1 %exitcond.not.i.i.i.i, label %pixel_color7_slow.exit.i.i.i, label %60, !llvm.loop !57
 
-pixel_color7_slow.exit.i.i.i:                     ; preds = %56
-  %77 = lshr i32 %.01720.i.i.i, 3
-  %78 = or i32 %52, %77
-  %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds nuw [32768 x i8], ptr %47, i64 0, i64 %79
-  store i8 %spec.select.i.i.i.i, ptr %80, align 1, !tbaa !59
-  %81 = add nuw nsw i32 %.01720.i.i.i, 8
-  %82 = icmp samesign ult i32 %.01720.i.i.i, 248
-  br i1 %82, label %54, label %83, !llvm.loop !60
+pixel_color7_slow.exit.i.i.i:                     ; preds = %60
+  %81 = lshr i64 %indvars.iv.i.i.i, 3
+  %82 = or disjoint i64 %53, %81
+  %83 = getelementptr inbounds nuw [32768 x i8], ptr %47, i64 0, i64 %82
+  store i8 %spec.select.i.i.i.i, ptr %83, align 1, !tbaa !59
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 8
+  %84 = icmp samesign ult i64 %indvars.iv.i.i.i, 248
+  br i1 %84, label %56, label %85, !llvm.loop !60
 
-83:                                               ; preds = %pixel_color7_slow.exit.i.i.i
-  %84 = add nuw nsw i32 %.01621.i.i.i, 8
-  %85 = icmp samesign ult i32 %.01621.i.i.i, 248
-  br i1 %85, label %.preheader.i.i.i, label %86, !llvm.loop !61
+85:                                               ; preds = %pixel_color7_slow.exit.i.i.i
+  %indvars.iv.next25.i.i.i = add nuw nsw i64 %indvars.iv24.i.i.i, 8
+  %86 = icmp samesign ult i64 %indvars.iv24.i.i.i, 248
+  br i1 %86, label %.preheader.i.i.i, label %87, !llvm.loop !61
 
-86:                                               ; preds = %83
-  %87 = add nuw nsw i32 %.022.i.i.i, 8
-  %88 = icmp samesign ult i32 %.022.i.i.i, 248
+87:                                               ; preds = %85
+  %indvars.iv.next28.i.i.i = add nuw nsw i64 %indvars.iv27.i.i.i, 8
+  %88 = icmp samesign ult i64 %indvars.iv27.i.i.i, 248
   br i1 %88, label %.preheader19.i.i.i, label %generate_default_palette.exit.i, !llvm.loop !62
 
-generate_default_palette.exit.i:                  ; preds = %86
+generate_default_palette.exit.i:                  ; preds = %87
   store i8 0, ptr %42, align 2, !tbaa !49
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %.val.i, i32 noundef 48, ptr noundef nonnull @.str.10) #9
   br label %.thread65

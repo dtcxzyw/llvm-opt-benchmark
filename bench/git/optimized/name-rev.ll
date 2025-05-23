@@ -1656,8 +1656,8 @@ add_to_tip_table.exit:                            ; preds = %100, %108
   %118 = load i8, ptr %116, align 8
   %119 = and i8 %117, 1
   %120 = and i8 %118, -4
-  %121 = or i8 %119, %.065108
-  %122 = or i8 %121, %120
+  %121 = or disjoint i8 %119, %.065108
+  %122 = or disjoint i8 %121, %120
   store i8 %122, ptr %116, align 8
   %123 = add nsw i32 %110, 1
   store i32 %123, ptr @tip_table.1, align 8, !tbaa !39

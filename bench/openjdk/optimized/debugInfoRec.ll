@@ -1029,7 +1029,7 @@ _ZN24DebugInformationRecorder7last_pcEv.exit:     ; preds = %14
   %36 = or disjoint i32 %35, %masksel.i36
   %37 = or disjoint i32 %36, %masksel.i37
   %38 = or disjoint i32 %37, %masksel.i38
-  %39 = or i32 %38, %33
+  %39 = or disjoint i32 %38, %33
   store i32 %39, ptr %31, align 4
   %40 = load ptr, ptr %27, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8

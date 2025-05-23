@@ -8865,7 +8865,7 @@ _ZN5clang4Sema21FpPragmaStackSaveRAIIC2ERS0_.exit: ; preds = %._crit_edge, %84
   %118 = or disjoint i32 %117, %105
   %119 = or disjoint i32 %118, %104
   %120 = or disjoint i32 %119, %spec.store.select.i.i
-  %121 = or i32 %120, 56
+  %121 = or disjoint i32 %120, 56
   store i32 %121, ptr %5, align 4, !tbaa !1486
   %122 = icmp eq i32 %.sroa.02.0.copyload, %121
   br i1 %122, label %_ZN5clang4Sema14resetFPOptionsENS_9FPOptionsE.exit, label %123

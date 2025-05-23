@@ -447,13 +447,13 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %368 = or disjoint i32 %367, %362
   %369 = or disjoint i32 %368, %356
   %370 = or disjoint i32 %369, %348
-  %371 = or i32 %370, %347
-  %372 = or i32 %371, %351
-  %373 = or i32 %372, %350
-  %374 = or i32 %373, %345
-  %375 = or i32 %374, %364
-  %376 = or i32 %375, %365
-  %377 = or i32 %376, 4194304
+  %371 = or disjoint i32 %370, %347
+  %372 = or disjoint i32 %371, %351
+  %373 = or disjoint i32 %372, %350
+  %374 = or disjoint i32 %373, %345
+  %375 = or disjoint i32 %374, %364
+  %376 = or disjoint i32 %375, %365
+  %377 = or disjoint i32 %376, 4194304
   %378 = zext i32 %377 to i64
   %379 = or i64 %spec.select, %378
   br label %380

@@ -12594,9 +12594,9 @@ mz_zip_set_error.exit257:                         ; preds = %189
   %308 = or disjoint i64 %307, %291
   %309 = or disjoint i64 %308, %294
   %310 = or disjoint i64 %309, %306
-  %311 = or i64 %310, %305
-  %312 = or i64 %311, %304
-  %313 = or i64 %312, %303
+  %311 = or disjoint i64 %310, %305
+  %312 = or disjoint i64 %311, %304
+  %313 = or disjoint i64 %312, %303
   %.pre = load i64, ptr %43, align 8
   br label %325
 

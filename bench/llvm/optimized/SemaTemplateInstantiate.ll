@@ -63184,7 +63184,7 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_127ExpandPack
   %73 = or disjoint i32 %72, %61
   %74 = or disjoint i32 %73, %60
   %75 = or disjoint i32 %74, %spec.store.select.i.i37
-  %76 = or i32 %75, 56
+  %76 = or disjoint i32 %75, 56
   store i32 %76, ptr %5, align 4, !tbaa !2407
   %77 = icmp eq i32 %50, %76
   br i1 %77, label %_ZN5clang4Sema14resetFPOptionsENS_9FPOptionsE.exit, label %78
@@ -110498,7 +110498,7 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_120TemplateIn
   %73 = or disjoint i32 %72, %61
   %74 = or disjoint i32 %73, %60
   %75 = or disjoint i32 %74, %spec.store.select.i.i37
-  %76 = or i32 %75, 56
+  %76 = or disjoint i32 %75, 56
   store i32 %76, ptr %5, align 4, !tbaa !2407
   %77 = icmp eq i32 %50, %76
   br i1 %77, label %_ZN5clang4Sema14resetFPOptionsENS_9FPOptionsE.exit, label %78

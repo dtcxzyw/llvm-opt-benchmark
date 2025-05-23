@@ -11524,9 +11524,9 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   %309 = or disjoint i64 %308, %292
   %310 = or disjoint i64 %309, %295
   %311 = or disjoint i64 %310, %307
-  %312 = or i64 %311, %306
-  %313 = or i64 %312, %305
-  %314 = or i64 %313, %304
+  %312 = or disjoint i64 %311, %306
+  %313 = or disjoint i64 %312, %305
+  %314 = or disjoint i64 %313, %304
   %.pre = load i64, ptr %43, align 8
   br label %326
 

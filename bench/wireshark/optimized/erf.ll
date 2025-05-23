@@ -3350,8 +3350,8 @@ define internal fastcc noundef zeroext i1 @erf_read_header(ptr noundef %0, ptr n
   %122 = or disjoint i64 %121, %108
   %123 = or disjoint i64 %122, %111
   %124 = or disjoint i64 %123, %114
-  %125 = or i64 %124, %119
-  %126 = or i64 %125, %117
+  %125 = or disjoint i64 %124, %119
+  %126 = or disjoint i64 %125, %117
   %127 = icmp slt i32 %.0146189, 16
   br i1 %127, label %128, label %131
 

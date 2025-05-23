@@ -64068,10 +64068,10 @@ define noundef zeroext i1 @_ZN7hir_def10import_map10SearchMode5check17h626889211
   %.sroa.0.2.insert.ext.i.i.i.us = and i32 %63, 4128768
   %64 = shl i32 %54, 24
   %.sroa.0.3.insert.ext.i.i.i.us = and i32 %64, 1056964608
-  %.sroa.0.1.insert.shift.i.i.i.us = or i32 %61, %.sroa.0.1.insert.ext.i.i.i.us
+  %.sroa.0.1.insert.shift.i.i.i.us = or disjoint i32 %61, %.sroa.0.1.insert.ext.i.i.i.us
   %.sroa.0.2.insert.shift.i.i.i.us = or disjoint i32 %.sroa.0.1.insert.shift.i.i.i.us, %.sroa.0.2.insert.ext.i.i.i.us
   %.sroa.0.3.insert.shift.i.i.i.us = or disjoint i32 %.sroa.0.2.insert.shift.i.i.i.us, %.sroa.0.3.insert.ext.i.i.i.us
-  %.sroa.0.3.insert.insert.i.i.i.us = or i32 %.sroa.0.3.insert.shift.i.i.i.us, -2139062032
+  %.sroa.0.3.insert.insert.i.i.i.us = or disjoint i32 %.sroa.0.3.insert.shift.i.i.i.us, -2139062032
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.11603491536561601675.exit.i.i.i.us
 
 65:                                               ; preds = %58
