@@ -4382,13 +4382,13 @@ default.unreachable1:                             ; preds = %2
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.14789186659444866788"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3) unnamed_addr #5 {
   %5 = icmp eq i64 %3, 0
-  br i1 %5, label %7, label %6
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %4
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %3, i64 noundef %2) #13
-  br label %7
+  br label %9
 
-7:                                                ; preds = %4, %6
+9:                                                ; preds = %4, %6
   ret void
 }
 

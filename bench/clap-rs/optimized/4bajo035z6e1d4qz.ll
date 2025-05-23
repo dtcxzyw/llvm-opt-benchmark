@@ -2003,7 +2003,7 @@ _ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.1283588139133547551.
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.1283588139133547551(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #13 {
   %5 = icmp eq i64 %2, 0
-  br i1 %5, label %6, label %9
+  br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
   %7 = inttoptr i64 %1 to ptr
@@ -2011,10 +2011,10 @@ define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e50
   tail call void @llvm.assume(i1 %8)
   br label %10
 
-9:                                                ; preds = %4
+10:                                               ; preds = %4
   br i1 %3, label %16, label %13
 
-10:                                               ; preds = %13, %16, %6
+19:                                               ; preds = %13, %16, %6
   %.sroa.05.0 = phi ptr [ %7, %6 ], [ %17, %16 ], [ %15, %13 ]
   %11 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
   %12 = insertvalue { ptr, i64 } %11, i64 %2, 1
@@ -7462,8 +7462,8 @@ _ZN4core3ops5range11RangeBounds8contains17h2fa74cf179d6c746E.exit.thread: ; pred
   br i1 %171, label %.thread112, label %212
 
 _ZN4core3ops5range11RangeBounds8contains17h2fa74cf179d6c746E.exit.thread104: ; preds = %.critedge.i, %162, %_ZN4core3ops5range11RangeBounds8contains17h2fa74cf179d6c746E.exit
-  %or.cond.not.i = icmp ugt i64 %151, 255
-  br i1 %or.cond.not.i, label %172, label %477
+  %or.cond.i = icmp ugt i64 %151, 255
+  br i1 %or.cond.i, label %172, label %477
 
 172:                                              ; preds = %_ZN4core3ops5range11RangeBounds8contains17h2fa74cf179d6c746E.exit.thread104
   %173 = icmp eq ptr %3, null

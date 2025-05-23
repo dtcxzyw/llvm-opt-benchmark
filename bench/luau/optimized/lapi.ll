@@ -4763,7 +4763,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
 
 59:                                               ; preds = %.lr.ph72, %81
   %60 = phi i32 [ %55, %.lr.ph72 ], [ %83, %81 ]
-  %.15570 = phi i32 [ %.054.lcssa, %.lr.ph72 ], [ %82, %81 ]
+  %indvars.iv80 = phi i32 [ %.054.lcssa, %.lr.ph72 ], [ %indvars.iv.next81, %81 ]
   %61 = zext nneg i32 %60 to i64
   %62 = getelementptr inbounds nuw %struct.LuaNode, ptr %58, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 12
@@ -4786,21 +4786,21 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
   %76 = and i32 %75, 15
   %77 = getelementptr inbounds nuw i8, ptr %68, i64 12
   store i32 %76, ptr %77, align 4, !tbaa !47
-  %78 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %68, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false), !tbaa.struct !20
-  %79 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  store ptr %79, ptr %67, align 8, !tbaa !19
+  %80 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  store ptr %80, ptr %67, align 8, !tbaa !19
   %80 = add nsw i32 %.15570, 1
   br label %.loopexit
 
-81:                                               ; preds = %59
-  %82 = add nsw i32 %.15570, 1
-  %83 = sub nsw i32 %82, %30
+83:                                               ; preds = %59
+  %indvars.iv.next81 = add nsw i32 %indvars.iv80, 1
+  %83 = sub nsw i32 %indvars.iv.next81, %30
   %.highbits = lshr i32 %83, %54
   %84 = icmp eq i32 %.highbits, 0
   br i1 %84, label %59, label %.loopexit, !llvm.loop !100
 
-.loopexit:                                        ; preds = %81, %._crit_edge, %66, %40
+.loopexit:                                        ; preds = %83, %._crit_edge, %66, %40
   %.2 = phi i32 [ %44, %40 ], [ %80, %66 ], [ -1, %._crit_edge ], [ -1, %81 ]
   ret i32 %.2
 }

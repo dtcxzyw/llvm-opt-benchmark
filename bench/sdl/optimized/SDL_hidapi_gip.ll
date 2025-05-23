@@ -989,49 +989,49 @@ GIP_ReceivePacket.exit:                           ; preds = %33, %GIP_DecodeLeng
   %.not57 = icmp ult i64 %276, %310
   %.not58 = icmp eq i8 %303, 4
   %or.cond = or i1 %.not57, %.not58
-  br i1 %or.cond, label %.thread, label %311
+  br i1 %or.cond, label %.thread97, label %312
 
-311:                                              ; preds = %308
-  %312 = getelementptr inbounds nuw i8, ptr %293, i64 72
-  %313 = load i32, ptr %312, align 8
-  %314 = icmp slt i32 %313, 3
-  br i1 %314, label %315, label %329
+312:                                              ; preds = %308
+  %313 = getelementptr inbounds nuw i8, ptr %293, i64 72
+  %314 = load i32, ptr %313, align 8
+  %315 = icmp slt i32 %314, 3
+  br i1 %315, label %316, label %.thread
 
-315:                                              ; preds = %311
+316:                                              ; preds = %312
   call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 7, ptr noundef nonnull @.str.9) #10
-  %316 = load i32, ptr %312, align 8
-  %317 = add nsw i32 %316, 1
-  store i32 %317, ptr %312, align 8
+  %317 = load i32, ptr %313, align 8
+  %318 = add nsw i32 %317, 1
+  store i32 %318, ptr %313, align 8
   store i64 %283, ptr %309, align 8
-  %318 = load ptr, ptr %293, align 8
-  %319 = getelementptr inbounds nuw i8, ptr %293, i64 8
-  %320 = load i8, ptr %319, align 8
-  %321 = or i8 %320, 32
-  %322 = getelementptr inbounds nuw i8, ptr %293, i64 216
-  %323 = load i8, ptr %322, align 8
-  %324 = add i8 %323, 1
-  %.not27.i.i = icmp eq i8 %323, 0
-  %spec.store.select30.i.i = select i1 %.not27.i.i, i8 2, i8 %324
-  store i8 %spec.store.select30.i.i, ptr %322, align 8
-  %spec.select.i.i = call i8 @llvm.umax.i8(i8 %323, i8 1)
+  %319 = load ptr, ptr %293, align 8
+  %320 = getelementptr inbounds nuw i8, ptr %293, i64 8
+  %321 = load i8, ptr %320, align 8
+  %322 = or i8 %321, 32
+  %323 = getelementptr inbounds nuw i8, ptr %293, i64 216
+  %324 = load i8, ptr %323, align 8
+  %325 = add i8 %324, 1
+  %.not27.i.i = icmp eq i8 %324, 0
+  %spec.store.select30.i.i = select i1 %.not27.i.i, i8 2, i8 %325
+  store i8 %spec.store.select30.i.i, ptr %323, align 8
+  %spec.select.i.i = call i8 @llvm.umax.i8(i8 %324, i8 1)
   call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %4, i8 0, i64 2054, i1 false)
   store i8 4, ptr %4, align 16
-  store i8 %321, ptr %284, align 1
+  store i8 %322, ptr %284, align 1
   store i8 %spec.select.i.i, ptr %285, align 2
-  %325 = load ptr, ptr %318, align 8
-  %326 = getelementptr inbounds nuw i8, ptr %325, i64 128
-  %327 = load ptr, ptr %326, align 8
-  %328 = call i32 @SDL_hid_write_REAL(ptr noundef %327, ptr noundef nonnull %4, i64 noundef 4) #10
+  %326 = load ptr, ptr %319, align 8
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 128
+  %328 = load ptr, ptr %327, align 8
+  %329 = call i32 @SDL_hid_write_REAL(ptr noundef %328, ptr noundef nonnull %4, i64 noundef 4) #10
   call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %4) #10
-  br label %.thread
+  br label %.thread97
 
-329:                                              ; preds = %302, %311
+.thread:                                          ; preds = %302, %312
   %330 = load i8, ptr %286, align 1, !range !3, !noundef !4
   %331 = trunc nuw i8 %330 to i1
   br i1 %331, label %332, label %344
 
-332:                                              ; preds = %329
+332:                                              ; preds = %.thread
   %333 = getelementptr inbounds nuw i8, ptr %293, i64 8
   %334 = load i8, ptr %333, align 8
   %335 = load ptr, ptr %293, align 8
@@ -1055,18 +1055,18 @@ GIP_ReceivePacket.exit:                           ; preds = %33, %GIP_DecodeLeng
   %342 = load ptr, ptr %341, align 8
   %343 = call i32 @SDL_hid_write_REAL(ptr noundef %342, ptr noundef nonnull %3, i64 noundef 5) #10
   call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %3) #10
-  br label %.thread
+  br label %.thread97
 
-344:                                              ; preds = %329
+344:                                              ; preds = %.thread
   call fastcc void @GIP_SetMetadataDefaults(ptr noundef nonnull %293)
   %345 = call fastcc zeroext i1 @GIP_SendInitSequence(ptr noundef nonnull %293)
-  br label %.thread
+  br label %.thread97
 
-.thread:                                          ; preds = %304, %308, %315, %332, %344
+.thread97:                                        ; preds = %304, %308, %316, %332, %344
   %346 = call fastcc zeroext i1 @HIDAPI_DriverGIP_UpdateRumble(ptr noundef %293)
   br label %347
 
-347:                                              ; preds = %291, %.thread
+347:                                              ; preds = %291, %.thread97
   %.2 = phi i1 [ false, %.thread ], [ %.14581, %291 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -1290,8 +1290,8 @@ HIDAPI_DriverGIP_FindAttachment.exit:             ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 332
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 32
-  %.not13 = icmp eq i32 %20, 0
-  br i1 %.not13, label %21, label %23
+  %.not11 = icmp eq i32 %20, 0
+  br i1 %.not11, label %21, label %23
 
 21:                                               ; preds = %HIDAPI_DriverGIP_FindAttachment.exit
   %22 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.53) #10
@@ -1350,15 +1350,15 @@ HIDAPI_DriverGIP_FindAttachment.exit:             ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 332
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 32
-  %.not14 = icmp eq i32 %20, 0
-  br i1 %.not14, label %25, label %21
+  %.not12 = icmp eq i32 %20, 0
+  br i1 %.not12, label %25, label %21
 
 21:                                               ; preds = %HIDAPI_DriverGIP_FindAttachment.exit
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 336
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 4
-  %.not15 = icmp eq i32 %24, 0
-  br i1 %.not15, label %27, label %25
+  %.not13 = icmp eq i32 %24, 0
+  br i1 %.not13, label %27, label %25
 
 25:                                               ; preds = %21, %HIDAPI_DriverGIP_FindAttachment.exit
   %26 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.53) #10

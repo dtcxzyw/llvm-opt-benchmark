@@ -7721,46 +7721,46 @@ define void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull readnone
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 1160
   br label %53
 
-52:                                               ; preds = %82
+52:                                               ; preds = %83
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #24
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #24
   ret void
 
-53:                                               ; preds = %47, %82
-  %indvars.iv111 = phi i64 [ 0, %47 ], [ %indvars.iv.next112, %82 ]
+53:                                               ; preds = %47, %83
+  %.07197 = phi i64 [ 0, %47 ], [ %indvars.iv.next112, %82 ]
   %.07296 = phi i32 [ 1, %47 ], [ %.183, %82 ]
-  %54 = trunc nuw i64 %indvars.iv111 to i32
+  %54 = trunc nuw i64 %.07197 to i32
   %55 = shl i32 %54, %49
   %56 = icmp ult i32 %.07296, 16
   br i1 %56, label %.lr.ph94.preheader, label %.critedge
 
 .lr.ph94.preheader:                               ; preds = %53
-  %57 = zext nneg i32 %.07296 to i64
+  %56 = zext nneg i32 %.07296 to i64
   br label %.lr.ph94
 
-.lr.ph94:                                         ; preds = %.lr.ph94.preheader, %60
-  %indvars.iv107 = phi i64 [ %57, %.lr.ph94.preheader ], [ %indvars.iv.next108, %60 ]
-  %58 = getelementptr inbounds nuw [16 x i32], ptr %11, i64 0, i64 %indvars.iv107
-  %59 = load i32, ptr %58, align 4, !tbaa !93
-  %.not = icmp ult i32 %55, %59
-  br i1 %.not, label %63, label %60
+.lr.ph94:                                         ; preds = %.lr.ph94.preheader, %59
+  %indvars.iv107 = phi i64 [ %56, %.lr.ph94.preheader ], [ %indvars.iv.next108, %60 ]
+  %57 = getelementptr inbounds nuw [16 x i32], ptr %11, i64 0, i64 %indvars.iv107
+  %58 = load i32, ptr %57, align 4, !tbaa !93
+  %.not = icmp ult i32 %55, %58
+  br i1 %.not, label %63, label %59
 
-60:                                               ; preds = %.lr.ph94
+59:                                               ; preds = %.lr.ph94
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 16
   br i1 %exitcond110.not, label %.critedge, label %.lr.ph94, !llvm.loop !236
 
-.critedge:                                        ; preds = %60, %53
+.critedge:                                        ; preds = %59, %53
   %.1.lcssa = phi i32 [ %.07296, %53 ], [ 16, %60 ]
-  %61 = trunc i32 %.1.lcssa to i8
-  %62 = getelementptr inbounds nuw [1024 x i8], ptr %50, i64 0, i64 %indvars.iv111
+  %60 = trunc i32 %.1.lcssa to i8
+  %62 = getelementptr inbounds nuw [1024 x i8], ptr %50, i64 0, i64 %.07197
   store i8 %61, ptr %62, align 1, !tbaa !27
   br label %82
 
 63:                                               ; preds = %.lr.ph94
   %64 = trunc nuw nsw i64 %indvars.iv107 to i32
   %65 = trunc i64 %indvars.iv107 to i8
-  %66 = getelementptr inbounds nuw [1024 x i8], ptr %50, i64 0, i64 %indvars.iv111
+  %66 = getelementptr inbounds nuw [1024 x i8], ptr %50, i64 0, i64 %.07197
   store i8 %65, ptr %66, align 1, !tbaa !27
   %67 = add nuw i64 %indvars.iv107, 4294967295
   %68 = and i64 %67, 4294967295
@@ -7773,7 +7773,7 @@ define void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull readnone
   %75 = load i32, ptr %74, align 4, !tbaa !93
   %76 = add i32 %73, %75
   %77 = icmp ult i32 %76, %3
-  br i1 %77, label %78, label %82
+  br i1 %77, label %78, label %83
 
 78:                                               ; preds = %63
   %79 = zext i32 %76 to i64
@@ -7781,16 +7781,16 @@ define void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull readnone
   %81 = load i16, ptr %80, align 2, !tbaa !73
   br label %82
 
-82:                                               ; preds = %63, %.critedge, %78
-  %.sink116 = phi i16 [ %81, %78 ], [ 0, %.critedge ], [ 0, %63 ]
-  %.183 = phi i32 [ %64, %78 ], [ %.1.lcssa, %.critedge ], [ %64, %63 ]
-  %83 = getelementptr inbounds nuw [1024 x i16], ptr %51, i64 0, i64 %indvars.iv111
-  store i16 %.sink116, ptr %83, align 2, !tbaa !73
+83:                                               ; preds = %63, %.critedge, %78
+  %.sink115 = phi i16 [ %81, %78 ], [ 0, %.critedge ], [ 0, %63 ]
+  %.sink113 = phi i32 [ %64, %78 ], [ %.1.lcssa, %.critedge ], [ %64, %63 ]
+  %83 = getelementptr inbounds nuw [1024 x i16], ptr %51, i64 0, i64 %.07197
+  store i16 %.sink115, ptr %83, align 2, !tbaa !73
   %indvars.iv.next112 = add nuw i64 %indvars.iv111, 1
   %84 = trunc nuw i64 %indvars.iv.next112 to i32
   %.071.highbits = lshr i32 %84, %.sink
-  %85 = icmp eq i32 %.071.highbits, 0
-  br i1 %85, label %53, label %52, !llvm.loop !237
+  %86 = icmp eq i32 %.071.highbits, 0
+  br i1 %86, label %53, label %52, !llvm.loop !237
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

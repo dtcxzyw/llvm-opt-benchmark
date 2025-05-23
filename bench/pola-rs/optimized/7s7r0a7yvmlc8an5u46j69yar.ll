@@ -383,8 +383,8 @@ define hidden void @"_ZN119_$LT$alloc..collections..vec_deque..VecDeque$LT$T$GT$
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.7.0.i, ptr %50, align 8, !alias.scope !84, !noalias !87
   store i64 %.sroa.0.0.i, ptr %0, align 8, !alias.scope !84, !noalias !87
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.5.0.i, ptr %51, align 8, !alias.scope !84, !noalias !87
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.5.0.i, ptr %52, align 8, !alias.scope !84, !noalias !87
   ret void
 }
 
@@ -574,8 +574,8 @@ define hidden void @"_ZN119_$LT$alloc..collections..vec_deque..VecDeque$LT$T$GT$
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.7.0.i, ptr %50, align 8, !alias.scope !140, !noalias !143
   store i64 %.sroa.0.0.i, ptr %0, align 8, !alias.scope !140, !noalias !143
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.5.0.i, ptr %51, align 8, !alias.scope !140, !noalias !143
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.5.0.i, ptr %52, align 8, !alias.scope !140, !noalias !143
   ret void
 }
 

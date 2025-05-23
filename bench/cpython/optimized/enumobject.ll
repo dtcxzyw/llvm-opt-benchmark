@@ -1424,8 +1424,8 @@ define internal ptr @enum_new(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
 
 .thread:                                          ; preds = %3
   %6 = getelementptr i8, ptr %2, i64 16
-  %.val27 = load i64, ptr %6, align 8, !tbaa !113
-  %7 = add i64 %.val27, %.val
+  %.val31 = load i64, ptr %6, align 8, !tbaa !113
+  %7 = add i64 %.val31, %.val
   br label %12
 
 8:                                                ; preds = %3
@@ -1433,23 +1433,23 @@ define internal ptr @enum_new(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   %10 = icmp ult i64 %9, 2
   br i1 %10, label %.thread29, label %12
 
-.thread29:                                        ; preds = %8
+.thread29:; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %16
 
-12:                                               ; preds = %8, %.thread
+12:; preds = %8, %.thread
   %13 = phi i64 [ %7, %.thread ], [ %.val, %8 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %14, i64 noundef %.val, ptr noundef %2, ptr noundef null, ptr noundef nonnull @enum_new._parser, i32 noundef 1, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4) #4
   %.not25 = icmp eq ptr %15, null
   br i1 %.not25, label %25, label %16
 
-16:                                               ; preds = %.thread29, %12
+16:; preds = %.thread29, %12
   %17 = phi ptr [ %11, %.thread29 ], [ %15, %12 ]
   %18 = phi i64 [ %.val, %.thread29 ], [ %13, %12 ]
   %19 = load ptr, ptr %17, align 8, !tbaa !29
-  %.not26 = icmp eq i64 %18, 1
-  br i1 %.not26, label %23, label %20
+  %.not30 = icmp eq i64 %18, 1
+  br i1 %.not30, label %23, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr i8, ptr %17, i64 8
@@ -1462,9 +1462,9 @@ define internal ptr @enum_new(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   br label %25
 
 25:                                               ; preds = %12, %23
-  %.022 = phi ptr [ %24, %23 ], [ null, %12 ]
+  %.026 = phi ptr [ %24, %23 ], [ null, %12 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #4
-  ret ptr %.022
+  ret ptr %.026
 }
 
 declare void @PyObject_GC_Del(ptr noundef) #1

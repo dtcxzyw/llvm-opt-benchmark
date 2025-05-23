@@ -6678,13 +6678,13 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.1 = phi i32 [ %72, %69 ], [ %.0474727, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %76 = icmp samesign ult i64 %indvars.iv.next, %65
-  br i1 %76, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !116
+  br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !116
 
-._crit_edge.loopexit:                             ; preds = %75
+._crit_edge:                                      ; preds = %75
   %77 = and i32 %.1, 63
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %43
+._crit_edge:; preds = %._crit_edge, %43
   %.0474.lcssa = phi i32 [ 0, %43 ], [ %77, %._crit_edge.loopexit ]
   %78 = shl nuw i32 %.0474.lcssa, 26
   %79 = and i32 %63, 67108863

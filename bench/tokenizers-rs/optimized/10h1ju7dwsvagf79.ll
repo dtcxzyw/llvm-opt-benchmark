@@ -5366,13 +5366,13 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817ha1e03118803618fdE(ptr noalia
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hd26e3bd2729fe4c7E.llvm.11083375685992158394"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3) unnamed_addr #7 {
   %5 = icmp eq i64 %3, 0
-  br i1 %5, label %7, label %6
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %4
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %3, i64 noundef %2) #60
-  br label %7
+  br label %9
 
-7:                                                ; preds = %4, %6
+9:                                                ; preds = %4, %6
   ret void
 }
 

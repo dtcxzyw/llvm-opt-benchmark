@@ -1622,10 +1622,10 @@ define void @_ZNK10OpenSubdiv6v3_6_03Far12PatchBuilder28GetIrregularPatchCornerS
 
 128:                                              ; preds = %95, %123
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %129 = load i32, ptr %27, align 8
-  %130 = sext i32 %129 to i64
-  %131 = icmp slt i64 %indvars.iv.next, %130
-  br i1 %131, label %36, label %._crit_edge, !llvm.loop !14
+  %130 = load i32, ptr %27, align 8
+  %131 = sext i32 %130 to i64
+  %132 = icmp slt i64 %indvars.iv.next, %131
+  br i1 %132, label %36, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %128, %22
   ret void

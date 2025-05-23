@@ -9942,11 +9942,11 @@ for.body.epil:                                    ; preds = %if.end, %for.body.e
 
 for.cond40.preheader.loopexit:                    ; preds = %for.body.epil
   %.pre = load float, ptr %Z.i, align 8, !tbaa !50
-  %.pre2 = load float, ptr %Z.i115, align 4, !tbaa !50
+  %.pre1 = load float, ptr %Z.i115, align 4, !tbaa !50
   br label %for.cond40.preheader
 
 for.cond40.preheader:                             ; preds = %for.cond40.preheader.loopexit, %for.cond40.preheader.unr-lcssa.thread
-  %11 = phi float [ %.pre2, %for.cond40.preheader.loopexit ], [ %quad_offset, %for.cond40.preheader.unr-lcssa.thread ]
+  %11 = phi float [ %.pre1, %for.cond40.preheader.loopexit ], [ %quad_offset, %for.cond40.preheader.unr-lcssa.thread ]
   %12 = phi float [ %.pre, %for.cond40.preheader.loopexit ], [ %quad_offset, %for.cond40.preheader.unr-lcssa.thread ]
   %rotate_degree = getelementptr inbounds nuw i8, ptr %this, i64 644
   %13 = load float, ptr %rotate_degree, align 4, !tbaa !177

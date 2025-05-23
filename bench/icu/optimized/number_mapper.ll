@@ -2733,14 +2733,14 @@ define linkonce_odr void @_ZN6icu_776number4impl23DecimalFormatPropertiesC2ERKS2
 12:                                               ; preds = %2
   %13 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 40) #16
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.split.i, label %17
+  br i1 %14, label %15, label %17
 
-.split.i:                                         ; preds = %12
-  %15 = load ptr, ptr %9, align 8, !tbaa !15
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %9, align 8, !tbaa !15
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.sink.split.i, label %.sink.split.sink.split.i
+  br i1 %16, label %.sink15, label %.sink.split.sink15
 
-17:                                               ; preds = %12
+24:                                               ; preds = %12
   %18 = load ptr, ptr %10, align 8, !tbaa !15
   invoke void @_ZN6icu_7718CurrencyPluralInfoC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef nonnull align 8 dereferenceable(36) %18)
           to label %.split6.i unwind label %21
@@ -2754,9 +2754,9 @@ define linkonce_odr void @_ZN6icu_776number4impl23DecimalFormatPropertiesC2ERKS2
   %22 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %13) #16
-  %23 = load ptr, ptr %9, align 8, !tbaa !15
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %.body, label %.body.sink.split
+  %26 = load ptr, ptr %9, align 8, !tbaa !15
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %.body, label %.body.sink.split
 
 .sink.split.sink.split.i:                         ; preds = %.split6.i, %.split.i
   %.sink12.i = phi ptr [ %15, %.split.i ], [ %19, %.split6.i ]
@@ -2928,7 +2928,7 @@ _ZN6icu_776number4impl25CurrencyPluralInfoWrapperC2ERKS2_.exit: ; preds = %.sink
   br i1 %91, label %.body, label %.body.sink.split
 
 .body.sink.split:                                 ; preds = %89, %21
-  %.sink40 = phi ptr [ %23, %21 ], [ %90, %89 ]
+  %.sink40 = phi ptr [ %26, %21 ], [ %90, %89 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %89 ]
   %92 = load ptr, ptr %.sink40, align 8, !tbaa !59
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8

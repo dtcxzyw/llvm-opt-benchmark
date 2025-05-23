@@ -2546,13 +2546,13 @@ define hidden noundef nonnull align 8 ptr @"_ZN5alloc5boxed60Box$LT$core..mem..m
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.4547698320314000967"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3) unnamed_addr #11 {
   %5 = icmp eq i64 %3, 0
-  br i1 %5, label %7, label %6
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %4
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %3, i64 noundef %2) #21
-  br label %7
+  br label %9
 
-7:                                                ; preds = %4, %6
+9:                                                ; preds = %4, %6
   ret void
 }
 

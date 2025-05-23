@@ -191,8 +191,8 @@ default.unreachable25.i.i.i.i.i.i:                ; preds = %25
 
 35:                                               ; preds = %25
   %36 = icmp eq i8 %.sroa.2.0.copyload, %.sroa.2.0.copyload.i.i
-  %cond.fr23.i.i = freeze i1 %36
-  br i1 %cond.fr23.i.i, label %60, label %62
+  %cond.fr24.i.i = freeze i1 %36
+  br i1 %cond.fr24.i.i, label %60, label %62
 
 37:                                               ; preds = %25
   %.not.i7.i.i.i.i.i.i = icmp eq i64 %.sroa.57.0.copyload, %.sroa.56.0.copyload.i.i
@@ -225,8 +225,8 @@ default.unreachable25.i.i.i.i.i.i:                ; preds = %25
 
 46:                                               ; preds = %25
   %47 = icmp eq i8 %.sroa.2.0.copyload, %.sroa.2.0.copyload.i.i
-  %cond.fr22.i.i = freeze i1 %47
-  br i1 %cond.fr22.i.i, label %60, label %62
+  %cond.fr23.i.i = freeze i1 %47
+  br i1 %cond.fr23.i.i, label %60, label %62
 
 48:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdaef701dec81f19dE.exit6.i.i.i.i.i.i"
   %49 = icmp ne ptr %.sroa.67.0.copyload.i.i, null

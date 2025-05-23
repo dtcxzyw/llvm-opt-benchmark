@@ -2475,15 +2475,15 @@ _ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8Loop
 
 _ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit.loopexit: ; preds = %23, %22, %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.us.i
   %.sroa.026.0.i.ph = phi ptr [ null, %22 ], [ %.fca.0.extract.us.i, %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.us.i ], [ %.1.us.i, %23 ]
-  %not..sroa.4.0.i.ph = phi i1 [ false, %22 ], [ false, %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.us.i ], [ true, %23 ]
+  %.sroa.4.0.i.ph = phi i1 [ false, %22 ], [ false, %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.us.i ], [ true, %23 ]
   %25 = icmp eq ptr %.sroa.026.0.i.ph, null
-  %26 = select i1 %not..sroa.4.0.i.ph, i1 %25, i1 false
+  %26 = select i1 %.sroa.4.0.i.ph, i1 %25, i1 false
   br label %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit
 
 _ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit: ; preds = %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit.loopexit, %1
-  %not..sroa.4.0.i = phi i1 [ true, %1 ], [ %26, %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit.loopexit ]
+  %.sroa.4.0.i = phi i1 [ true, %1 ], [ %26, %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit.loopexit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  ret i1 %not..sroa.4.0.i
+  ret i1 %.sroa.4.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

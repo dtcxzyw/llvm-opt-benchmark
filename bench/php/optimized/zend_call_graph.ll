@@ -825,12 +825,12 @@ define internal fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef read
   %11 = load i32, ptr %10, align 8, !tbaa !91
   %12 = lshr i32 %11, 6
   %.zext.i = zext nneg i32 %12 to i64
-  %13 = getelementptr inbounds nuw i64, ptr %2, i64 %.zext.i
-  %14 = load i64, ptr %13, align 8, !tbaa !94
-  %15 = and i32 %11, 63
+  %14 = getelementptr inbounds nuw i64, ptr %2, i64 %.zext.i
+  %15 = load i64, ptr %14, align 8, !tbaa !94
+  %16 = and i32 %11, 63
   %16 = zext nneg i32 %15 to i64
   %17 = shl nuw i64 1, %16
-  %18 = and i64 %17, %14
+  %18 = and i64 %17, %15
   %.not19 = icmp eq i64 %18, 0
   br i1 %.not19, label %19, label %.loopexit
 
@@ -842,26 +842,26 @@ define internal fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef read
   %.not21 = icmp eq ptr %.01520, null
   br i1 %.not21, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %19, %26
+.lr.ph:                                           ; preds = %19, %33
   %.01523 = phi ptr [ %.015, %26 ], [ %.01520, %19 ]
   %.022 = phi i1 [ %.1, %26 ], [ false, %19 ]
-  %22 = load ptr, ptr %.01523, align 8, !tbaa !39
-  %23 = tail call fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef %0, ptr noundef %22, ptr noundef %2)
-  br i1 %23, label %24, label %26
+  %29 = load ptr, ptr %.01523, align 8, !tbaa !39
+  %30 = tail call fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef %0, ptr noundef %29, ptr noundef %2)
+  br i1 %30, label %31, label %33
 
-24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds nuw i8, ptr %.01523, i64 48
-  store i8 1, ptr %25, align 8, !tbaa !92
-  br label %26
+31:                                               ; preds = %.lr.ph
+  %32 = getelementptr inbounds nuw i8, ptr %.01523, i64 48
+  store i8 1, ptr %32, align 8, !tbaa !92
+  br label %33
 
-26:                                               ; preds = %24, %.lr.ph
+33:                                               ; preds = %31, %.lr.ph
   %.1 = phi i1 [ true, %24 ], [ %.022, %.lr.ph ]
-  %27 = getelementptr inbounds nuw i8, ptr %.01523, i64 32
-  %.015 = load ptr, ptr %27, align 8, !tbaa !27
+  %34 = getelementptr inbounds nuw i8, ptr %.01523, i64 32
+  %.015 = load ptr, ptr %34, align 8, !tbaa !27
   %.not = icmp eq ptr %.015, null
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %26, %19, %5, %3
+.loopexit:                                        ; preds = %33, %19, %5, %3
   %.016 = phi i1 [ true, %3 ], [ false, %5 ], [ false, %19 ], [ %.1, %26 ]
   ret i1 %.016
 }

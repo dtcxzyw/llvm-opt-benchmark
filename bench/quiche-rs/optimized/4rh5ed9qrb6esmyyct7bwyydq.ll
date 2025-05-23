@@ -3032,35 +3032,35 @@ define void @_ZN12tokio_quiche6socket12capabilities25SocketCapabilitiesBuilder22
   %4 = load i32, ptr %1, align 4, !range !204, !noundef !3
   %5 = call i64 @"_ZN86_$LT$nix..sys..socket..sockopt..IpFreebind$u20$as$u20$nix..sys..socket..GetSockOpt$GT$3get17h7cef0410606bc4d3E"(ptr noalias noundef nonnull readonly align 1 %3, i32 noundef %4)
   %6 = trunc i64 %5 to i1
-  br i1 %6, label %7, label %11
+  br i1 %6, label %7, label %12
 
 7:                                                ; preds = %2
   %.sroa.623.0.extract.shift = and i64 %5, -4294967296
   %8 = getelementptr i8, ptr null, i64 %.sroa.623.0.extract.shift
   %9 = getelementptr i8, ptr %8, i64 2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %10, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %9, ptr %9, align 8
   br label %26
 
-11:                                               ; preds = %2
-  %12 = and i64 %5, 256
-  %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %13, label %24
+12:                                               ; preds = %2
+  %13 = and i64 %5, 256
+  %.not = icmp eq i64 %13, 0
+  br i1 %.not, label %14, label %24
 
-13:                                               ; preds = %11
-  %14 = call i64 @"_ZN89_$LT$nix..sys..socket..sockopt..IpTransparent$u20$as$u20$nix..sys..socket..GetSockOpt$GT$3get17hba16c56c94f601aaE"(ptr noalias noundef nonnull readonly align 1 %3, i32 noundef %4)
-  %15 = trunc i64 %14 to i1
-  br i1 %15, label %16, label %20
+14:                                               ; preds = %12
+  %15 = call i64 @"_ZN89_$LT$nix..sys..socket..sockopt..IpTransparent$u20$as$u20$nix..sys..socket..GetSockOpt$GT$3get17hba16c56c94f601aaE"(ptr noalias noundef nonnull readonly align 1 %3, i32 noundef %4)
+  %16 = trunc i64 %15 to i1
+  br i1 %16, label %17, label %20
 
-16:                                               ; preds = %13
-  %.sroa.627.0.extract.shift = and i64 %14, -4294967296
+17:                                               ; preds = %14
+  %.sroa.627.0.extract.shift = and i64 %15, -4294967296
   %17 = getelementptr i8, ptr null, i64 %.sroa.627.0.extract.shift
   %18 = getelementptr i8, ptr %17, i64 2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %18, ptr %19, align 8
   br label %26
 
-20:                                               ; preds = %13
+26:                                               ; preds = %13
   %21 = lshr i64 %14, 8
   %22 = trunc i64 %21 to i8
   %23 = and i8 %22, 1
@@ -3072,7 +3072,7 @@ define void @_ZN12tokio_quiche6socket12capabilities25SocketCapabilitiesBuilder22
   store i8 %.sroa.014.0, ptr %25, align 1
   br label %26
 
-26:                                               ; preds = %24, %16, %7
+28:                                               ; preds = %24, %17, %7
   %.sink = phi i8 [ 0, %24 ], [ 1, %16 ], [ 1, %7 ]
   store i8 %.sink, ptr %0, align 8
   ret void

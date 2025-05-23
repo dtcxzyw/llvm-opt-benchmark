@@ -1604,9 +1604,9 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_read_dpcd_caps(ptr nounde
 
 19:                                               ; preds = %16
   %20 = icmp eq i64 %17, 15
-  br i1 %20, label %21, label %.thread8
+  br i1 %20, label %21, label %.thread9
 
-.thread8:                                         ; preds = %19
+.thread9:                                         ; preds = %19
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %3) #18
   br label %61
 
@@ -1681,7 +1681,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_read_dpcd_caps(ptr nounde
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %59, i32 noundef 2, ptr noundef nonnull @.str.16, ptr noundef %60, i32 noundef 15, ptr noundef %1) #18
   br label %61
 
-61:                                               ; preds = %53, %.thread8, %58, %9, %7, %2
+61:                                               ; preds = %53, %.thread9, %58, %9, %7, %2
   %62 = phi i32 [ 0, %58 ], [ %5, %2 ], [ -5, %9 ], [ -5, %7 ], [ %54, %53 ], [ -5, %.thread8 ]
   ret i32 %62
 }
@@ -4425,7 +4425,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_pcon_pps_override_buf(ptr
   %6 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 12544, ptr noundef nonnull %5, i64 noundef 128), !range !12
   %7 = trunc nsw i64 %6 to i32
   %8 = icmp slt i64 %6, 0
-  br i1 %8, label %22, label %9
+  br i1 %8, label %23, label %9
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #18
@@ -4453,9 +4453,9 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_pcon_pps_override_buf(ptr
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #18
   br label %22
 
-22:                                               ; preds = %20, %2
-  %23 = phi i32 [ %7, %2 ], [ %21, %20 ]
-  ret i32 %23
+23:                                               ; preds = %20, %2
+  %24 = phi i32 [ %7, %2 ], [ %21, %20 ]
+  ret i32 %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -4465,21 +4465,21 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_pcon_pps_override_param(p
   %5 = tail call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 12672, ptr noundef %1, i64 noundef 2), !range !12
   %6 = trunc nsw i64 %5 to i32
   %7 = icmp slt i64 %5, 0
-  br i1 %7, label %31, label %8
+  br i1 %7, label %32, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr i8, ptr %1, i64 2
   %10 = tail call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 12674, ptr noundef %9, i64 noundef 2), !range !12
   %11 = trunc nsw i64 %10 to i32
   %12 = icmp slt i64 %10, 0
-  br i1 %12, label %31, label %13
+  br i1 %12, label %32, label %13
 
 13:                                               ; preds = %8
   %14 = getelementptr i8, ptr %1, i64 4
   %15 = tail call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 12676, ptr noundef %14, i64 noundef 2), !range !12
   %16 = trunc nsw i64 %15 to i32
   %17 = icmp slt i64 %15, 0
-  br i1 %17, label %31, label %18
+  br i1 %17, label %32, label %18
 
 18:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #18
@@ -4505,11 +4505,11 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_pcon_pps_override_param(p
 29:                                               ; preds = %22, %18
   %30 = phi i32 [ %20, %18 ], [ %28, %22 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #18
-  br label %31
+  br label %32
 
-31:                                               ; preds = %29, %13, %8, %2
-  %32 = phi i32 [ %6, %2 ], [ %11, %8 ], [ %16, %13 ], [ %30, %29 ]
-  ret i32 %32
+32:                                               ; preds = %29, %13, %8, %2
+  %33 = phi i32 [ %6, %2 ], [ %11, %8 ], [ %16, %13 ], [ %30, %29 ]
+  ret i32 %33
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

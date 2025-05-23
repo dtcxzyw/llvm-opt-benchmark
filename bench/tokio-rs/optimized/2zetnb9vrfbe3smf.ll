@@ -3448,7 +3448,7 @@ define noundef zeroext i1 @_ZN5tokio7runtime7context8blocking23disallow_block_in
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 78), align 2
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17he9ec98b67751fb88E.exit"
 
-8:                                                ; preds = %0
+"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hb0e6719803c54d2fE.exit": ; preds = %0
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
   call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.3f5780a7fef518180bd2fb61a12abd81.54.llvm.9993772341007493287, i64 noundef 70, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.27.llvm.9993772341007493287, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.56.llvm.9993772341007493287) #25
   unreachable

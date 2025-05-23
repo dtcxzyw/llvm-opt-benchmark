@@ -413,7 +413,7 @@ define hidden void @_RINvNtNtNtCsapf13pIxsjn_3std2io5error14repr_bitpacked11deco
     i64 1, label %13
   ]
 
-default.unreachable:                              ; preds = %2
+default.unreachable8:                             ; preds = %2
   unreachable
 
 5:                                                ; preds = %2

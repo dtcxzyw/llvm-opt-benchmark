@@ -4132,39 +4132,39 @@ define internal fastcc range(i32 0, 5) i32 @httpauth(ptr noundef captures(none) 
 
 4:                                                ; preds = %3
   %5 = and i64 %2, 16
-  %sh.diff29 = lshr exact i64 %5, 2
-  %tr.sh.diff30 = trunc nuw nsw i64 %sh.diff29 to i8
+  %6 = lshr exact i64 %5, 2
+  %tr.sh.diff30 = trunc nuw nsw i64 %6 to i8
   %. = select i1 %1, i64 3328, i64 3296
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, -5
-  %9 = or disjoint i8 %8, %tr.sh.diff30
-  store i8 %9, ptr %6, align 8
-  %10 = lshr exact i64 %5, 3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  %9 = load i8, ptr %8, align 8
+  %10 = and i8 %9, -5
+  %11 = or disjoint i8 %10, %tr.sh.diff30
+  store i8 %11, ptr %8, align 8
+  %12 = lshr exact i64 %5, 3
   %.masked = and i64 %2, -21
-  %11 = or i64 %10, %.masked
-  br label %12
+  %14 = or i64 %10, %.masked
+  br label %15
 
-12:                                               ; preds = %13, %4
+15:                                               ; preds = %16, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %4 ]
   %exitcond = icmp eq i64 %indvars.iv, 31
-  br i1 %exitcond, label %.loopexit, label %13
+  br i1 %exitcond, label %.loopexit, label %16
 
-13:                                               ; preds = %12
+16:                                               ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = shl nuw nsw i64 1, %indvars.iv
-  %15 = and i64 %14, %11
-  %.not31 = icmp eq i64 %15, 0
-  br i1 %.not31, label %12, label %.thread, !llvm.loop !217
+  %17 = shl nuw nsw i64 1, %indvars.iv
+  %18 = and i64 %17, %14
+  %.not29 = icmp eq i64 %18, 0
+  br i1 %.not29, label %15, label %.thread, !llvm.loop !217
 
-.thread:                                          ; preds = %13, %3
-  %.024 = phi i64 [ 0, %3 ], [ %11, %13 ]
-  %.39 = select i1 %1, i64 520, i64 512
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.39
-  store i64 %.024, ptr %16, align 8, !tbaa !18
+.thread:                                          ; preds = %16, %3
+  %.024 = phi i64 [ 0, %3 ], [ %14, %13 ]
+  %.37 = select i1 %1, i64 520, i64 512
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.37
+  store i64 %.024, ptr %19, align 8, !tbaa !18
   br label %.loopexit
 
-.loopexit:                                        ; preds = %12, %.thread
+.loopexit:                                        ; preds = %15, %.thread
   %.1 = phi i32 [ 0, %.thread ], [ 4, %12 ]
   ret i32 %.1
 }

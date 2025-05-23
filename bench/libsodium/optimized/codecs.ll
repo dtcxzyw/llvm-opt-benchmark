@@ -29,10 +29,10 @@ define dso_local noundef nonnull ptr @sodium_bin2hex(ptr noundef nonnull returne
   %13 = add nuw nsw i32 %11, 87
   %14 = add nuw nsw i32 %11, 65526
   %15 = lshr i32 %14, 8
-  %16 = and i32 %15, 217
-  %17 = add nuw nsw i32 %13, %16
-  %18 = trunc i32 %17 to i8
-  %19 = add nuw nsw i32 %12, 87
+  %.mask = and i32 %15, 217
+  %16 = add nuw nsw i32 %13, %.mask
+  %18 = trunc i32 %16 to i8
+  %18 = add nuw nsw i32 %12, 87
   %20 = add nuw nsw i32 %12, 65526
   %21 = lshr i32 %20, 8
   %22 = and i32 %21, 217

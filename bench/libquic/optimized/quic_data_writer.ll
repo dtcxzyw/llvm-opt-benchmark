@@ -223,9 +223,9 @@ define noundef zeroext i1 @_ZN3net14QuicDataWriter13WriteUFloat16Em(ptr noundef 
   %.034 = phi i16 [ %12, %.preheader ], [ 16, %6 ]
   %.01333 = phi i16 [ %.1, %.preheader ], [ 0, %6 ]
   %.01432 = phi i64 [ %.115, %.preheader ], [ %1, %6 ]
-  %narrow = add nuw nsw i16 %.034, 11
-  %8 = zext nneg i16 %narrow to i64
-  %.014.highbits = lshr i64 %.01432, %8
+  %8 = add nuw nsw i16 %.034, 11
+  %9 = zext nneg i16 %8 to i64
+  %.014.highbits = lshr i64 %.01432, %9
   %.not19 = icmp eq i64 %.014.highbits, 0
   %9 = zext nneg i16 %.034 to i64
   %10 = select i1 %.not19, i64 0, i64 %9
@@ -256,17 +256,17 @@ define noundef zeroext i1 @_ZN3net14QuicDataWriter13WriteUFloat16Em(ptr noundef 
   %26 = load ptr, ptr %0, align 8
   %.not8.i = icmp ne ptr %26, null
   %.not.i23 = select i1 %or.cond.i.not.i, i1 %.not8.i, i1 false
-  br i1 %.not.i23, label %27, label %_ZN3net14QuicDataWriter10WriteBytesEPKvm.exit
+  br i1 %.not.i23, label %29, label %_ZN3net14QuicDataWriter10WriteBytesEPKvm.exit
 
-27:                                               ; preds = %18
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %20
-  store i16 %.031, ptr %28, align 1
-  %29 = load i64, ptr %19, align 8, !tbaa !11
-  %30 = add i64 %29, 2
-  store i64 %30, ptr %19, align 8, !tbaa !11
+29:                                               ; preds = %18
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 %20
+  store i16 %.031, ptr %30, align 1
+  %31 = load i64, ptr %19, align 8, !tbaa !11
+  %32 = add i64 %31, 2
+  store i64 %32, ptr %19, align 8, !tbaa !11
   br label %_ZN3net14QuicDataWriter10WriteBytesEPKvm.exit
 
-_ZN3net14QuicDataWriter10WriteBytesEPKvm.exit:    ; preds = %18, %27
+_ZN3net14QuicDataWriter10WriteBytesEPKvm.exit:    ; preds = %18, %29
   ret i1 %.not.i23
 }
 

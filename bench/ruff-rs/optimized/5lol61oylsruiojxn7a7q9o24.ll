@@ -660,8 +660,8 @@ default.unreachable41.i.i.i.i.i.i.i.i.i:          ; preds = %51
 
 56:                                               ; preds = %51
   %57 = icmp eq i8 %.sroa.8.i.sroa.0.1.i.i.i, %.sroa.8.i.sroa.0.0.i.i.i.i.i
-  %cond.fr30.i.i.i.i.i = freeze i1 %57
-  br i1 %cond.fr30.i.i.i.i.i, label %84, label %_ZN4core4iter6traits8iterator12iter_compare17h813b7a8bcba60cfbE.exit
+  %cond.fr31.i.i.i.i.i = freeze i1 %57
+  br i1 %cond.fr31.i.i.i.i.i, label %84, label %_ZN4core4iter6traits8iterator12iter_compare17h813b7a8bcba60cfbE.exit
 
 58:                                               ; preds = %51
   %59 = icmp ne ptr %.sroa.812.0.i.i.i.i, null
@@ -681,8 +681,8 @@ default.unreachable41.i.i.i.i.i.i.i.i.i:          ; preds = %51
 
 66:                                               ; preds = %51
   %67 = icmp eq i8 %.sroa.8.i.sroa.0.1.i.i.i, %.sroa.8.i.sroa.0.0.i.i.i.i.i
-  %cond.fr29.i.i.i.i.i = freeze i1 %67
-  br i1 %cond.fr29.i.i.i.i.i, label %84, label %_ZN4core4iter6traits8iterator12iter_compare17h813b7a8bcba60cfbE.exit
+  %cond.fr30.i.i.i.i.i = freeze i1 %67
+  br i1 %cond.fr30.i.i.i.i.i, label %84, label %_ZN4core4iter6traits8iterator12iter_compare17h813b7a8bcba60cfbE.exit
 
 68:                                               ; preds = %52
   %69 = icmp ne ptr %.sroa.10.i.sroa.0.1.i.i.i, null

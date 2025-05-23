@@ -1836,11 +1836,11 @@ define hidden void @"_ZN123_$LT$wasmi_collections..map..Map$LT$K$C$V$GT$$u20$as$
 
 22:                                               ; preds = %20
   invoke void @_ZN4core5slice4sort6stable14driftsort_main17h4057ccd644443c6fE(ptr noalias noundef nonnull align 8 %18, i64 noundef range(i64 1, 384307168202282326) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
-          to label %24 unwind label %39, !noalias !65
+          to label %24 unwind label %40, !noalias !65
 
 23:                                               ; preds = %20
   invoke void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17h10ba2728a1662167E(ptr noalias noundef nonnull align 8 %18, i64 noundef range(i64 1, 384307168202282326) %12, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
-          to label %24 unwind label %39, !noalias !65
+          to label %24 unwind label %40, !noalias !65
 
 24:                                               ; preds = %23, %22, %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !82
@@ -1850,7 +1850,7 @@ define hidden void @"_ZN123_$LT$wasmi_collections..map..Map$LT$K$C$V$GT$$u20$as$
   call void @llvm.experimental.noalias.scope.decl(metadata !89)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !92
   %25 = invoke { ptr, i64 } @"_ZN5alloc11collections5btree4node117NodeRef$LT$alloc..collections..btree..node..marker..Owned$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$8new_leaf17h36b5b85b3b1f76aaE"()
-          to label %26 unwind label %37, !noalias !92
+          to label %26 unwind label %38, !noalias !92
 
 26:                                               ; preds = %24
   %27 = extractvalue { ptr, i64 } %25, 0
@@ -1880,46 +1880,46 @@ define hidden void @"_ZN123_$LT$wasmi_collections..map..Map$LT$K$C$V$GT$$u20$as$
   store i32 5, ptr %.sroa.712.0..sroa_idx.i.i, align 8, !noalias !92
   call void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Owned$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$9bulk_push17h42a2f555ecf5d186E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5), !noalias !65
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !92
-  %32 = load ptr, ptr %6, align 8, !noalias !92, !nonnull !3, !noundef !3
-  %33 = load i64, ptr %29, align 8, !noalias !92, !noundef !3
-  %34 = load i64, ptr %5, align 8, !noalias !92, !noundef !3
+  %33 = load ptr, ptr %6, align 8, !noalias !92, !nonnull !3, !noundef !3
+  %34 = load i64, ptr %29, align 8, !noalias !92, !noundef !3
+  %35 = load i64, ptr %5, align 8, !noalias !92, !noundef !3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !92
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !92
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !65
   br label %"_ZN136_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LP$K$C$V$RP$$GT$$GT$9from_iter17h6c2a5ded770039f7E.exit"
 
-35:                                               ; preds = %37
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %38
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #26, !noalias !94
   unreachable
 
-37:                                               ; preds = %24
-  %38 = landingpad { ptr, i32 }
+38:                                               ; preds = %24
+  %39 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..vec..Vec$LT$$LP$alloc..boxed..Box$LT$str$GT$$C$wasmi..module..export..ExternIdx$RP$$GT$$GT$17hbbe1378fa5e992fdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #25
-          to label %.body.thread.i unwind label %35, !noalias !94
+          to label %.body.thread.i unwind label %36, !noalias !94
 
-.body.thread.i:                                   ; preds = %39, %37
-  %eh.lpad-body6.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %39 ], [ %38, %37 ]
+.body.thread.i:                                   ; preds = %40, %38
+  %eh.lpad-body6.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %39 ], [ %39, %37 ]
   resume { ptr, i32 } %eh.lpad-body6.i
 
-39:                                               ; preds = %23, %22
+40:                                               ; preds = %23, %22
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..vec..Vec$LT$$LP$alloc..boxed..Box$LT$str$GT$$C$wasmi..module..export..ExternIdx$RP$$GT$$GT$17hbbe1378fa5e992fdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #25
-          to label %.body.thread.i unwind label %40, !noalias !65
+          to label %.body.thread.i unwind label %41, !noalias !65
 
-40:                                               ; preds = %39
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %40
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #26, !noalias !65
   unreachable
 
 "_ZN136_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LP$K$C$V$RP$$GT$$GT$9from_iter17h6c2a5ded770039f7E.exit": ; preds = %15, %26
-  %.sroa.6.0 = phi i64 [ 0, %15 ], [ %34, %26 ]
-  %.sroa.5.0 = phi i64 [ undef, %15 ], [ %33, %26 ]
-  %.sroa.0.0 = phi ptr [ null, %15 ], [ %32, %26 ]
+  %.sroa.6.0 = phi i64 [ 0, %15 ], [ %35, %26 ]
+  %.sroa.5.0 = phi i64 [ undef, %15 ], [ %34, %26 ]
+  %.sroa.0.0 = phi ptr [ null, %15 ], [ %33, %26 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !65
   store ptr %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8

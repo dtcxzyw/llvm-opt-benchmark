@@ -56,7 +56,7 @@ define hidden void @_ZN3std2io5error14repr_bitpacked11decode_repr17hef314f5882a8
     i64 1, label %13
   ]
 
-default.unreachable:                              ; preds = %2
+default.unreachable9:                             ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -2904,13 +2904,13 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfd
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.10022686776672290337"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3) unnamed_addr #6 {
   %5 = icmp eq i64 %3, 0
-  br i1 %5, label %7, label %6
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %4
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %3, i64 noundef %2) #22
-  br label %7
+  br label %9
 
-7:                                                ; preds = %4, %6
+9:                                                ; preds = %4, %6
   ret void
 }
 

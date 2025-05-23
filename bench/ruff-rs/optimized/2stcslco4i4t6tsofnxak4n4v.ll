@@ -926,12 +926,12 @@ define void @"_ZN82_$LT$ty_ide..hover..Hover$u20$as$u20$core..iter..traits..coll
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr inbounds nuw { { i8, [15 x i8] } }, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
   store ptr %.sroa.4.0.copyload, ptr %0, align 8, !alias.scope !148, !noalias !151
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.copyload, ptr %5, align 8, !alias.scope !148, !noalias !151
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.4.0.copyload, ptr %6, align 8, !alias.scope !148, !noalias !151
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %4, ptr %7, align 8, !alias.scope !148, !noalias !151
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.0.0.copyload, ptr %6, align 8, !alias.scope !148, !noalias !151
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.4.0.copyload, ptr %7, align 8, !alias.scope !148, !noalias !151
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %4, ptr %8, align 8, !alias.scope !148, !noalias !151
   ret void
 }
 

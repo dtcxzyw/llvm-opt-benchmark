@@ -424,24 +424,24 @@ define dso_local void @amd_flush_garts() #1 align 16 {
   %2 = load i64, ptr @amd_northbridges.1, align 8
   %3 = and i64 %2, 1
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %55, label %5
+  br i1 %4, label %54, label %5
 
 5:                                                ; preds = %0
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @amd_flush_garts.gart_lock) #8
   %7 = load i16, ptr @amd_northbridges.0, align 8
   %8 = icmp eq i16 %7, 0
-  br i1 %8, label %.thread1, label %.preheader4
+  br i1 %8, label %.thread2, label %.preheader4
 
-.thread1:                                         ; preds = %5
+.thread2:                                         ; preds = %5
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @amd_flush_garts.gart_lock, i64 noundef %6) #8
   %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #9
-  br label %55
+  br label %54
 
 10:                                               ; preds = %.preheader4
   %11 = icmp eq i16 %22, 0
   br i1 %11, label %.thread2, label %.preheader3
 
-.thread2:                                         ; preds = %10
+.preheader5:                                      ; preds = %10
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @amd_flush_garts.gart_lock, i64 noundef %6) #8
   br label %55
 
@@ -501,13 +501,13 @@ define dso_local void @amd_flush_garts() #1 align 16 {
   %51 = load i16, ptr @amd_northbridges.0, align 8
   %52 = zext i16 %51 to i64
   %53 = icmp samesign ult i64 %50, %52
-  br i1 %53, label %.preheader3, label %54, !llvm.loop !14
+  br i1 %53, label %.preheader3, label %.loopexit4, !llvm.loop !14
 
-54:                                               ; preds = %.loopexit
+.loopexit4:                                       ; preds = %.loopexit
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @amd_flush_garts.gart_lock, i64 noundef %6) #8
-  br label %55
+  br label %54
 
-55:                                               ; preds = %54, %.thread2, %.thread1, %0
+54:                                               ; preds = %.loopexit4, %.thread2, %.thread1, %0
   ret void
 }
 

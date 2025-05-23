@@ -2174,13 +2174,13 @@ hmac_update_uint64.exit16:                        ; preds = %19
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #10
   %30 = and i64 %29, 4294967295
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %12, i8 0, i64 %30, i1 false)
-  %31 = call i32 @SHA256_Update(ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %30) #10
+  %29 = call i32 @SHA256_Update(ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %30) #10
   %32 = call i32 @SHA256_Update(ptr noundef nonnull %11, ptr noundef %6, i64 noundef %7) #10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #10
-  %33 = call i32 @SHA256_Final(ptr noundef nonnull %13, ptr noundef nonnull %11) #10
+  %30 = call i32 @SHA256_Final(ptr noundef nonnull %13, ptr noundef nonnull %11) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %11, ptr noundef nonnull align 4 dereferenceable(112) %2, i64 112, i1 false)
-  %34 = call i32 @SHA256_Update(ptr noundef nonnull %11, ptr noundef nonnull %13, i64 noundef 32) #10
-  %35 = call i32 @SHA256_Final(ptr noundef nonnull %0, ptr noundef nonnull %11) #10
+  %31 = call i32 @SHA256_Update(ptr noundef nonnull %11, ptr noundef nonnull %13, i64 noundef 32) #10
+  %32 = call i32 @SHA256_Final(ptr noundef nonnull %0, ptr noundef nonnull %11) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #10
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #10
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11) #10

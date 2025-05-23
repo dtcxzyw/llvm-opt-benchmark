@@ -936,12 +936,12 @@ define internal i32 @intel_sdvo_compute_config(ptr noundef %0, ptr noundef %1, p
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 884
   %100 = add i32 %98, -100000
   %101 = icmp ult i32 %100, 40500
-  br i1 %101, label %.thread8, label %102
+  br i1 %101, label %.thread9, label %102
 
 102:                                              ; preds = %95
   %103 = add i32 %98, -140500
   %104 = icmp ult i32 %103, 59501
-  br i1 %104, label %.thread8, label %105
+  br i1 %104, label %.thread9, label %105
 
 105:                                              ; preds = %102
   %106 = icmp eq ptr %97, null
@@ -952,7 +952,7 @@ define internal i32 @intel_sdvo_compute_config(ptr noundef %0, ptr noundef %1, p
   %109 = load ptr, ptr %108, align 8
   br label %118
 
-.thread8:                                         ; preds = %95, %102
+.thread9:                                         ; preds = %95, %102
   %110 = phi i32 [ 2, %95 ], [ 1, %102 ]
   %111 = phi i32 [ 3, %95 ], [ 6, %102 ]
   %112 = phi i32 [ 16, %95 ], [ 12, %102 ]
@@ -974,7 +974,7 @@ define internal i32 @intel_sdvo_compute_config(ptr noundef %0, ptr noundef %1, p
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %119, i32 noundef 2, ptr noundef nonnull @.str.139, i32 noundef %98) #13
   br label %.thread
 
-120:                                              ; preds = %.thread8, %89
+120:                                              ; preds = %.thread9, %89
   %121 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %122 = load i32, ptr %121, align 4
   %123 = icmp eq i32 %122, 0
@@ -4377,7 +4377,7 @@ define internal fastcc range(i64 -6, 256) i64 @intel_sdvo_read_infoframe(ptr nou
   %50 = load i8, ptr %6, align 1
   %51 = zext i8 %50 to i64
   %52 = icmp samesign ult i64 %49, %51
-  br i1 %52, label %.preheader, label %.loopexit.loopexit, !llvm.loop !67
+  br i1 %52, label %.preheader, label %.critedge, !llvm.loop !67
 
 .preheader:                                       ; preds = %41, %48
   %53 = phi i64 [ %49, %48 ], [ 0, %41 ]
@@ -4394,7 +4394,7 @@ define internal fastcc range(i64 -6, 256) i64 @intel_sdvo_read_infoframe(ptr nou
   %62 = call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %0, ptr noundef %56, i32 noundef %61)
   br i1 %62, label %48, label %.critedge
 
-.loopexit.loopexit:                               ; preds = %48
+.critedge:                                        ; preds = %48
   %63 = zext i8 %50 to i64
   br label %.critedge
 

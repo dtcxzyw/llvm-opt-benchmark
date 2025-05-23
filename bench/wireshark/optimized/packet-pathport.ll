@@ -349,8 +349,8 @@ define internal fastcc i32 @dissect_pathport_common(ptr noundef %0, ptr noundef 
 30:                                               ; preds = %20
   %31 = icmp eq i16 %12, 256
   %32 = icmp ugt i32 %7, 31
-  %or.cond5 = select i1 %31, i1 %32, i1 false
-  br i1 %or.cond5, label %33, label %42
+  %or.cond3 = select i1 %31, i1 %32, i1 false
+  br i1 %or.cond3, label %33, label %42
 
 33:                                               ; preds = %30
   %34 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 30)
@@ -359,8 +359,8 @@ define internal fastcc i32 @dissect_pathport_common(ptr noundef %0, ptr noundef 
   %37 = zext i16 %36 to i32
   %38 = zext i16 %34 to i32
   %39 = lshr i16 %34, 9
-  %narrow = add nuw nsw i16 %39, 1
-  %40 = zext nneg i16 %narrow to i32
+  %40 = add nuw nsw i16 %39, 1
+  %40 = zext nneg i16 %40 to i32
   %41 = and i16 %34, 511
   %.zext2 = zext nneg i16 %41 to i32
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %35, i32 noundef 25, ptr noundef nonnull @.str.169, i32 noundef %37, i32 noundef %38, i32 noundef %40, i32 noundef %.zext2)

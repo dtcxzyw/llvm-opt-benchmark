@@ -1304,22 +1304,22 @@ define internal range(i32 -1, 1) i32 @_io_BytesIO___init__(ptr noundef %0, ptr n
   %5 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %5, align 8, !tbaa !33
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %7, label %.thread
+  br i1 %.not, label %8, label %.thread
 
 .thread:                                          ; preds = %3
   %6 = getelementptr i8, ptr %2, i64 16
-  %.val25 = load i64, ptr %6, align 8, !tbaa !34
+  %.val29 = load i64, ptr %6, align 8, !tbaa !34
   br label %10
 
-7:                                                ; preds = %3
-  %8 = icmp ult i64 %.val, 2
+8:                                                ; preds = %3
+  %9 = icmp ult i64 %.val, 2
   br i1 %8, label %.thread27, label %10
 
 .thread27:                                        ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %14
 
-10:                                               ; preds = %7, %.thread
+10:; preds = %7, %.thread
   %11 = phi i64 [ %.val25, %.thread ], [ 0, %7 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %12, i64 noundef %.val, ptr noundef %2, ptr noundef null, ptr noundef nonnull @_io_BytesIO___init__._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4) #10
@@ -1330,8 +1330,8 @@ define internal range(i32 -1, 1) i32 @_io_BytesIO___init__(ptr noundef %0, ptr n
   %15 = phi ptr [ %9, %.thread27 ], [ %13, %10 ]
   %16 = phi i64 [ 0, %.thread27 ], [ %11, %10 ]
   %17 = sub i64 0, %16
-  %.not24 = icmp eq i64 %.val, %17
-  br i1 %.not24, label %20, label %18
+  %.not28 = icmp eq i64 %.val, %17
+  br i1 %.not28, label %20, label %18
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr %15, align 8, !tbaa !17
@@ -1432,9 +1432,9 @@ _io_BytesIO_write.exit.i:                         ; preds = %47
   br label %_io_BytesIO___init___impl.exit
 
 _io_BytesIO___init___impl.exit:                   ; preds = %58, %_io_BytesIO_write.exit.i, %47, %Py_XDECREF.exit.i, %28, %26, %10
-  %.020 = phi i32 [ -1, %10 ], [ -1, %26 ], [ 0, %58 ], [ 0, %Py_XDECREF.exit.i ], [ 0, %28 ], [ -1, %_io_BytesIO_write.exit.i ], [ -1, %47 ]
+  %.024 = phi i32 [ -1, %10 ], [ -1, %26 ], [ 0, %58 ], [ 0, %Py_XDECREF.exit.i ], [ 0, %28 ], [ -1, %_io_BytesIO_write.exit.i ], [ -1, %47 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  ret i32 %.020
+  ret i32 %.024
 }
 
 ; Function Attrs: nounwind uwtable

@@ -8605,7 +8605,7 @@ lpad19.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %sw.epilog.sink.s
           cleanup
   br label %lpad19
 
-lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %cast.notnull, %if.end.i.i, %call2.i.i.noexc, %call3.i.i.noexc, %call4.i.i.noexc, %if.then10.i.i, %if.then15.i.i, %call16.i.i.noexc, %call17.i.i.noexc, %call18.i.i.noexc, %_ZNK7testing8internal13edit_distance12_GLOBAL__N_14Hunk11PrintHeaderEPSo.exit.i
+lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.end86, %if.end.i.i, %call2.i.i.noexc, %call3.i.i.noexc, %call4.i.i.noexc, %if.then10.i.i, %if.then15.i.i, %call16.i.i.noexc, %call17.i.i.noexc, %call18.i.i.noexc, %_ZNK7testing8internal13edit_distance12_GLOBAL__N_14Hunk11PrintHeaderEPSo.exit.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %lpad19
@@ -8770,13 +8770,13 @@ for.end82:                                        ; preds = %if.then, %if.end74,
   %tobool.not.i = icmp ne i64 %hunk.val, 0
   %tobool2.i = icmp ne i64 %hunk.val32, 0
   %34 = select i1 %tobool.not.i, i1 true, i1 %tobool2.i
-  br i1 %34, label %cast.notnull, label %cleanup
+  br i1 %34, label %if.end86, label %cleanup
 
-cast.notnull:                                     ; preds = %for.end82
+if.end86:                                         ; preds = %for.end82
   %call.i.i111 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str.341)
           to label %call.i.i.noexc unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-call.i.i.noexc:                                   ; preds = %cast.notnull
+call.i.i.noexc:                                   ; preds = %if.end86
   %35 = load i64, ptr %removes_.i, align 8
   %tobool.not.i.i = icmp eq i64 %35, 0
   br i1 %tobool.not.i.i, label %if.end.thread.i.i, label %if.end.i.i
@@ -23838,12 +23838,12 @@ if.end15:                                         ; preds = %if.end
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %stream)
           to label %cast.notnull unwind label %lpad2
 
-cast.notnull:                                     ; preds = %if.end15
+invoke.cont16:                                    ; preds = %if.end15
   %add.ptr = getelementptr inbounds nuw i8, ptr %stream, i64 16
   invoke void @_ZN7testing8internal24XmlUnitTestResultPrinter16PrintXmlUnitTestEPSoRKNS_8UnitTestE(ptr noundef nonnull %add.ptr, ptr noundef nonnull align 8 dereferenceable(72) %unit_test)
           to label %invoke.cont18 unwind label %lpad17
 
-invoke.cont18:                                    ; preds = %cast.notnull
+invoke.cont18:                                    ; preds = %invoke.cont16
   invoke void @_ZN7testing8internal20StringStreamToStringEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull %stream)
           to label %invoke.cont19 unwind label %lpad17
 
@@ -23857,7 +23857,7 @@ invoke.cont19:                                    ; preds = %invoke.cont18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_file) #52
   ret void
 
-lpad17:                                           ; preds = %invoke.cont18, %cast.notnull
+lpad17:                                           ; preds = %invoke.cont18, %invoke.cont16
   %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %stream) #52

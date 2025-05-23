@@ -817,7 +817,7 @@ define void @png_do_check_palette_indexes(ptr noalias noundef captures(none) %0,
   %15 = load i32, ptr %1, align 8, !tbaa !43
   %16 = mul i32 %15, %14
   %.fr = freeze i32 %16
-  %.zext = and i32 %.fr, 7
+  %18 = and i32 %.fr, 7
   %17 = sub nuw nsw i32 8, %.zext
   %.cmp.not = icmp eq i32 %.zext, 0
   %18 = select i1 %.cmp.not, i32 0, i32 %17

@@ -3463,11 +3463,11 @@ define internal fastcc range(i32 -9999, 1) i32 @AlsaOpen(ptr noundef readonly ca
   br label %16
 
 16:                                               ; preds = %14, %7
-  %.023.in = phi ptr [ %15, %14 ], [ %13, %7 ]
-  %.023 = load ptr, ptr %.023.in, align 8, !tbaa !114
+  %.025.in = phi ptr [ %15, %14 ], [ %13, %7 ]
+  %.025 = load ptr, ptr %.025.in, align 8, !tbaa !114
   %17 = xor i32 %2, 1
   %18 = load i32, ptr @busyRetries_, align 4
-  %19 = tail call i32 @snd_pcm_open(ptr noundef nonnull %3, ptr noundef %.023, i32 noundef range(i32 0, 2) %17, i32 noundef 1) #25, !callees !165
+  %19 = tail call i32 @snd_pcm_open(ptr noundef nonnull %3, ptr noundef %.025, i32 noundef range(i32 0, 2) %17, i32 noundef 1) #25, !callees !165
   %20 = icmp sgt i32 %18, 0
   %21 = icmp eq i32 %19, -16
   %22 = select i1 %20, i1 %21, i1 false
@@ -3476,7 +3476,7 @@ define internal fastcc range(i32 -9999, 1) i32 @AlsaOpen(ptr noundef readonly ca
 .lr.ph.split.i:                                   ; preds = %16, %.lr.ph.split.i
   %.01617.i = phi i32 [ %24, %.lr.ph.split.i ], [ 0, %16 ]
   tail call void @Pa_Sleep(i64 noundef 10) #25
-  %23 = tail call i32 @snd_pcm_open(ptr noundef nonnull %3, ptr noundef %.023, i32 noundef range(i32 0, 2) %17, i32 noundef 1) #25, !callees !165
+  %23 = tail call i32 @snd_pcm_open(ptr noundef nonnull %3, ptr noundef %.025, i32 noundef range(i32 0, 2) %17, i32 noundef 1) #25, !callees !165
   %24 = add nuw nsw i32 %.01617.i, 1
   %25 = icmp sgt i32 %18, %24
   %26 = icmp eq i32 %23, -16
@@ -3504,8 +3504,8 @@ OpenPcm.exit:                                     ; preds = %.lr.ph.split.i, %16
 36:                                               ; preds = %32
   %37 = tail call i64 @pthread_self() #28
   %38 = load i64, ptr @paUnixMainThread, align 8, !tbaa !108
-  %.not28 = icmp eq i64 %37, %38
-  br i1 %.not28, label %39, label %42
+  %.not30 = icmp eq i64 %37, %38
+  br i1 %.not30, label %39, label %42
 
 39:                                               ; preds = %36
   %40 = sext i32 %34 to i64
@@ -4694,8 +4694,8 @@ define internal fastcc i32 @PaAlsaStreamComponent_InitialConfigure(ptr noundef n
 40:                                               ; preds = %30
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load i32, ptr %41, align 8, !tbaa !215
-  %.not83 = icmp eq i32 %42, 0
-  br i1 %.not83, label %52, label %43
+  %.not84 = icmp eq i32 %42, 0
+  br i1 %.not84, label %52, label %43
 
 43:                                               ; preds = %40
   %44 = call i32 @snd_pcm_hw_params_test_access(ptr noundef %9, ptr noundef nonnull %1, i32 noundef 0) #25, !callees !223
@@ -4753,8 +4753,8 @@ define internal fastcc i32 @PaAlsaStreamComponent_InitialConfigure(ptr noundef n
 
 .thread29:                                        ; preds = %64
   %67 = load i32, ptr %41, align 8, !tbaa !215
-  %.not84 = icmp eq i32 %67, 0
-  %68 = zext i1 %.not84 to i32
+  %.not85 = icmp eq i32 %67, 0
+  %68 = zext i1 %.not85 to i32
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %68, ptr %69, align 4, !tbaa !216
   br label %73
@@ -4790,8 +4790,8 @@ define internal fastcc i32 @PaAlsaStreamComponent_InitialConfigure(ptr noundef n
 
 85:                                               ; preds = %73
   %86 = call fastcc i32 @SetApproximateSampleRate(ptr noundef %9, ptr noundef %1, double noundef %10)
-  %.not86 = icmp eq i32 %86, -9999
-  br i1 %.not86, label %106, label %87
+  %.not87 = icmp eq i32 %86, -9999
+  br i1 %.not87, label %106, label %87
 
 87:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #25
@@ -4856,10 +4856,10 @@ define internal fastcc i32 @PaAlsaStreamComponent_InitialConfigure(ptr noundef n
   br label %115
 
 115:                                              ; preds = %113, %101, %84, %70, %39, %29, %19, %114, %106, %104
-  %.8 = phi i32 [ -9999, %19 ], [ -9999, %29 ], [ -9999, %39 ], [ -9999, %70 ], [ -9999, %84 ], [ -9999, %101 ], [ %105, %104 ], [ -9998, %113 ], [ %86, %114 ], [ %107, %106 ]
+  %.9 = phi i32 [ -9999, %19 ], [ -9999, %29 ], [ -9999, %39 ], [ -9999, %70 ], [ -9999, %84 ], [ -9999, %101 ], [ %105, %104 ], [ -9998, %113 ], [ %86, %114 ], [ %107, %106 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #25
-  ret i32 %.8
+  ret i32 %.9
 }
 
 ; Function Attrs: nounwind uwtable

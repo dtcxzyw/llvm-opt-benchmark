@@ -157,7 +157,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen16forgLoopNodeIterEP9lua_St
 
 14:                                               ; preds = %.lr.ph, %38
   %15 = phi i32 [ %10, %.lr.ph ], [ %40, %38 ]
-  %.02937 = phi i32 [ %2, %.lr.ph ], [ %39, %38 ]
+  %indvars.iv = phi i32 [ %2, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw %struct.LuaNode, ptr %13, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
@@ -192,9 +192,9 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen16forgLoopNodeIterEP9lua_St
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !27
   br label %.loopexit
 
-38:                                               ; preds = %14
-  %39 = add nsw i32 %.02937, 1
-  %40 = sub nsw i32 %39, %6
+39:                                               ; preds = %14
+  %indvars.iv.next = add nsw i32 %indvars.iv, 1
+  %40 = sub nsw i32 %indvars.iv.next, %6
   %.highbits = lshr i32 %40, %9
   %41 = icmp eq i32 %.highbits, 0
   br i1 %41, label %14, label %.loopexit, !llvm.loop !28

@@ -6883,19 +6883,19 @@ define hidden void @"_ZN4core3ptr98drop_in_place$LT$core..slice..sort..merge..Me
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17hfe445f1a6120fabaE.llvm.15241997999693184539(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #6 {
   %4 = icmp eq i64 %0, 0
-  br i1 %4, label %5, label %7
+  br i1 %4, label %5, label %9
 
-5:                                                ; preds = %7, %3
+5:                                                ; preds = %9, %3
   %6 = mul nuw i64 %2, %0
   br label %11
 
-7:                                                ; preds = %3
+9:                                                ; preds = %3
   %8 = sub i64 -9223372036854775808, %1
   %9 = udiv i64 %8, %0
   %10 = icmp ugt i64 %2, %9
   br i1 %10, label %11, label %5
 
-11:                                               ; preds = %7, %5
+11:; preds = %7, %5
   %.sroa.3.0 = phi i64 [ %6, %5 ], [ undef, %7 ]
   %.sroa.0.0 = phi i64 [ %1, %5 ], [ 0, %7 ]
   %12 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
@@ -7466,13 +7466,13 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfc
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.15241997999693184539"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3) unnamed_addr #8 {
   %5 = icmp eq i64 %3, 0
-  br i1 %5, label %7, label %6
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %4
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %3, i64 noundef %2) #22
-  br label %7
+  br label %9
 
-7:                                                ; preds = %4, %6
+9:                                                ; preds = %4, %6
   ret void
 }
 

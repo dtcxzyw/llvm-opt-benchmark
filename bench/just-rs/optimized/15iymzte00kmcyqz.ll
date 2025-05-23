@@ -2573,7 +2573,7 @@ _ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821cE.llvm.5593464411486612011.
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821cE.llvm.5593464411486612011(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #20 {
   %5 = icmp eq i64 %2, 0
-  br i1 %5, label %6, label %9
+  br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
   %7 = inttoptr i64 %1 to ptr
@@ -2581,21 +2581,21 @@ define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821
   tail call void @llvm.assume(i1 %8)
   br label %10
 
-9:                                                ; preds = %4
-  br i1 %3, label %16, label %13
+10:                                               ; preds = %4
+  br i1 %3, label %19, label %14
 
-10:                                               ; preds = %13, %16, %6
-  %.sroa.05.0 = phi ptr [ %7, %6 ], [ %17, %16 ], [ %15, %13 ]
-  %11 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
-  %12 = insertvalue { ptr, i64 } %11, i64 %2, 1
-  ret { ptr, i64 } %12
+11:                                               ; preds = %14, %19, %6
+  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %17, %16 ], [ %15, %13 ]
+  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
+  %13 = insertvalue { ptr, i64 } %12, i64 %2, 1
+  ret { ptr, i64 } %13
 
-13:                                               ; preds = %9
-  %14 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+14:                                               ; preds = %10
+  %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %15 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #54
-  br label %10
+  br label %11
 
-16:                                               ; preds = %9
+19:                                               ; preds = %10
   %17 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #54
   br label %10
 }
@@ -2619,13 +2619,13 @@ define hidden void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIte
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.5593464411486612011"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3) unnamed_addr #20 {
   %5 = icmp eq i64 %3, 0
-  br i1 %5, label %7, label %6
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %4
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %3, i64 noundef %2) #54
-  br label %7
+  br label %9
 
-7:                                                ; preds = %4, %6
+9:                                                ; preds = %4, %6
   ret void
 }
 

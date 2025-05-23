@@ -50,26 +50,26 @@ define { i64, i64 } @_ZN6base646encode11encoded_len17h07374af11e56c9c4E(i64 noun
 define noundef range(i64 0, 5) i64 @_ZN6base646encode11add_padding17h00d4e9c0ee6490feE(i64 noundef %0, ptr noalias noundef nonnull writeonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #1 {
   %4 = and i64 %0, 3
   %5 = sub nuw nsw i64 4, %4
-  %.cmp.not = icmp eq i64 %4, 0
-  br i1 %.cmp.not, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %4, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %7, %3
+._crit_edge:                                      ; preds = %6, %3
   %6 = phi i64 [ 0, %3 ], [ %5, %7 ]
   ret i64 %6
 
-.lr.ph:                                           ; preds = %3, %7
+.lr.ph:; preds = %3, %6
   %.sroa.01.09 = phi i64 [ %8, %7 ], [ 0, %3 ]
   %exitcond.not = icmp eq i64 %.sroa.01.09, %2
-  br i1 %exitcond.not, label %10, label %7, !prof !4
+  br i1 %exitcond.not, label %9, label %6, !prof !4
 
-7:                                                ; preds = %.lr.ph
-  %8 = add nuw nsw i64 %.sroa.01.09, 1
-  %9 = getelementptr inbounds nuw [0 x i8], ptr %1, i64 0, i64 %.sroa.01.09
-  store i8 61, ptr %9, align 1
-  %exitcond11.not = icmp eq i64 %8, %5
+6:                                                ; preds = %.lr.ph
+  %7 = add nuw nsw i64 %.sroa.01.09, 1
+  %8 = getelementptr inbounds nuw [0 x i8], ptr %1, i64 0, i64 %.sroa.01.09
+  store i8 61, ptr %8, align 1
+  %exitcond11.not = icmp eq i64 %7, %5
   br i1 %exitcond11.not, label %._crit_edge, label %.lr.ph
 
-10:                                               ; preds = %.lr.ph
+9:                                                ; preds = %.lr.ph
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %2, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.22e5fd453cee8def79982159f9b88e16.1) #5
   unreachable
 }

@@ -1056,13 +1056,13 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
   %23 = icmp eq i64 %17, %22
   br i1 %23, label %24, label %.loopexit.sink.split.i.i.i.i
 
-24:                                               ; preds = %12
+24:; preds = %12
   switch i64 %17, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h903a9f7b0f3ea51dE.exit.thread19.i.i.i.i.i.i" [
     i64 0, label %25
     i64 4, label %52
   ]
 
-"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h903a9f7b0f3ea51dE.exit.thread19.i.i.i.i.i.i": ; preds = %24
+24:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !290
   br label %59
 
@@ -1094,8 +1094,8 @@ default.unreachable41.i.i.i.i.i.i.i.i.i.i:        ; preds = %27
 32:                                               ; preds = %27
   %33 = icmp eq i8 %.sroa.2.0.copyload.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !290
-  %cond.fr23.i.i.i.i.i.i = freeze i1 %33
-  br i1 %cond.fr23.i.i.i.i.i.i, label %59, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h5c088b38960a1ccfE.exit.thread.i
+  %cond.fr24.i.i.i.i.i.i = freeze i1 %33
+  br i1 %cond.fr24.i.i.i.i.i.i, label %59, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h5c088b38960a1ccfE.exit.thread.i
 
 34:                                               ; preds = %27
   %35 = icmp ne ptr %.sroa.49.0.copyload.i.i.i.i, null
@@ -1117,8 +1117,8 @@ default.unreachable41.i.i.i.i.i.i.i.i.i.i:        ; preds = %27
 42:                                               ; preds = %27
   %43 = icmp eq i8 %.sroa.2.0.copyload.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !290
-  %cond.fr22.i.i.i.i.i.i = freeze i1 %43
-  br i1 %cond.fr22.i.i.i.i.i.i, label %59, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h5c088b38960a1ccfE.exit.thread.i
+  %cond.fr23.i.i.i.i.i.i = freeze i1 %43
+  br i1 %cond.fr23.i.i.i.i.i.i, label %59, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h5c088b38960a1ccfE.exit.thread.i
 
 44:                                               ; preds = %28
   %45 = icmp ne ptr %.sroa.611.0.copyload.i.i.i.i, null

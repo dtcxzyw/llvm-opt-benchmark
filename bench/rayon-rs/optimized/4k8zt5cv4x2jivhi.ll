@@ -695,7 +695,7 @@ _ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.3707938170552112821.
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.3707938170552112821(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #4 {
   %5 = icmp eq i64 %2, 0
-  br i1 %5, label %6, label %9
+  br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
   %7 = inttoptr i64 %1 to ptr
@@ -703,21 +703,21 @@ define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e50
   tail call void @llvm.assume(i1 %8)
   br label %10
 
-9:                                                ; preds = %4
-  br i1 %3, label %16, label %13
+10:                                               ; preds = %4
+  br i1 %3, label %16, label %14
 
-10:                                               ; preds = %13, %16, %6
+11:                                               ; preds = %14, %16, %6
   %.sroa.05.0 = phi ptr [ %7, %6 ], [ %17, %16 ], [ %15, %13 ]
-  %11 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
-  %12 = insertvalue { ptr, i64 } %11, i64 %2, 1
-  ret { ptr, i64 } %12
+  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
+  %13 = insertvalue { ptr, i64 } %12, i64 %2, 1
+  ret { ptr, i64 } %13
 
-13:                                               ; preds = %9
-  %14 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+14:                                               ; preds = %10
+  %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %15 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #19
-  br label %10
+  br label %11
 
-16:                                               ; preds = %9
+16:; preds = %9
   %17 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #19
   br label %10
 }
