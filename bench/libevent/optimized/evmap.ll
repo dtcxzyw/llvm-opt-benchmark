@@ -47,7 +47,7 @@ define hidden void @evmap_io_clear_(ptr noundef captures(none) %0) local_unnamed
   br i1 %.not11.i, label %11, label %10
 
 10:                                               ; preds = %.lr.ph.i
-  tail call void @event_mm_free_(ptr noundef nonnull %9) #7
+  tail call void @event_mm_free_(ptr noundef nonnull %9) #8
   %.pre.i = load i32, ptr %3, align 8
   br label %11
 
@@ -64,7 +64,7 @@ define hidden void @evmap_io_clear_(ptr noundef captures(none) %0) local_unnamed
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
   %15 = phi ptr [ %.pre14.i, %._crit_edge.loopexit.i ], [ %2, %.preheader.i ]
-  tail call void @event_mm_free_(ptr noundef %15) #7
+  tail call void @event_mm_free_(ptr noundef %15) #8
   store ptr null, ptr %0, align 8
   br label %evmap_signal_clear_.exit
 
@@ -96,7 +96,7 @@ define hidden void @evmap_signal_clear_(ptr noundef captures(none) %0) local_unn
   br i1 %.not11, label %11, label %10
 
 10:                                               ; preds = %.lr.ph
-  tail call void @event_mm_free_(ptr noundef nonnull %9) #7
+  tail call void @event_mm_free_(ptr noundef nonnull %9) #8
   %.pre = load i32, ptr %3, align 8
   br label %11
 
@@ -113,7 +113,7 @@ define hidden void @evmap_signal_clear_(ptr noundef captures(none) %0) local_unn
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %15 = phi ptr [ %.pre14, %._crit_edge.loopexit ], [ %2, %.preheader ]
-  tail call void @event_mm_free_(ptr noundef %15) #7
+  tail call void @event_mm_free_(ptr noundef %15) #8
   store ptr null, ptr %0, align 8
   br label %16
 
@@ -161,7 +161,7 @@ define hidden range(i32 -1, 2) i32 @evmap_io_add_(ptr noundef %0, i32 noundef %1
   %16 = load ptr, ptr %5, align 8
   %17 = shl nuw nsw i32 %.025.i, 3
   %18 = zext nneg i32 %17 to i64
-  %19 = tail call ptr @event_mm_realloc_(ptr noundef %16, i64 noundef %18) #7
+  %19 = tail call ptr @event_mm_realloc_(ptr noundef %16, i64 noundef %18) #8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %evmap_make_space.exit.thread, label %21
 
@@ -189,7 +189,7 @@ evmap_make_space.exit:                            ; preds = %21, %7
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, 16
-  %37 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef %36) #7
+  %37 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef %36) #8
   %38 = load ptr, ptr %5, align 8
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %29
   store ptr %37, ptr %39, align 8
@@ -203,129 +203,123 @@ evmap_make_space.exit:                            ; preds = %21, %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %42, i8 0, i64 14, i1 false)
   %.pre = load ptr, ptr %5, align 8
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %29
-  %.pre111 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre115 = load ptr, ptr %.phi.trans.insert, align 8
   br label %45
 
 45:                                               ; preds = %44, %evmap_make_space.exit
-  %46 = phi ptr [ %.pre111, %44 ], [ %31, %evmap_make_space.exit ]
+  %46 = phi ptr [ %.pre115, %44 ], [ %31, %evmap_make_space.exit ]
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i16, ptr %47, align 8
-  %49 = zext i16 %48 to i32
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 10
-  %51 = load i16, ptr %50, align 2
-  %52 = zext i16 %51 to i32
-  %53 = getelementptr inbounds nuw i8, ptr %46, i64 12
-  %54 = load i16, ptr %53, align 4
-  %55 = zext i16 %54 to i32
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 10
+  %50 = load i16, ptr %49, align 2
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 12
+  %52 = load i16, ptr %51, align 4
   %.not89 = icmp eq i16 %48, 0
   %spec.select = select i1 %.not89, i16 0, i16 2
-  %.not90 = icmp eq i16 %51, 0
-  %56 = or disjoint i16 %spec.select, 4
-  %.172 = select i1 %.not90, i16 %spec.select, i16 %56
-  %.not91 = icmp eq i16 %54, 0
-  %57 = or disjoint i16 %.172, 128
-  %.2 = select i1 %.not91, i16 %.172, i16 %57
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 60
-  %59 = load i16, ptr %58, align 4
-  %60 = and i16 %59, 2
-  %.not92.not = icmp eq i16 %60, 0
+  %.not90 = icmp eq i16 %50, 0
+  %53 = or disjoint i16 %spec.select, 4
+  %.172 = select i1 %.not90, i16 %spec.select, i16 %53
+  %.not91 = icmp eq i16 %52, 0
+  %54 = or disjoint i16 %.172, 128
+  %.2 = select i1 %.not91, i16 %.172, i16 %54
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 60
+  %56 = load i16, ptr %55, align 4
+  %57 = and i16 %56, 2
+  %.not92.not = icmp eq i16 %57, 0
   %spec.select102 = select i1 %.not89, i16 2, i16 0
-  %.lobit = lshr exact i16 %60, 1
-  %61 = zext nneg i16 %.lobit to i32
-  %.080 = add nuw nsw i32 %61, %49
+  %.lobit = lshr exact i16 %57, 1
+  %uadd = tail call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %48, i16 %.lobit)
+  %uadd.value = extractvalue { i16, i1 } %uadd, 0
   %.073 = select i1 %.not92.not, i16 0, i16 %spec.select102
-  %62 = and i16 %59, 4
-  %.not93.not = icmp eq i16 %62, 0
-  %63 = or disjoint i16 %.073, 4
-  %spec.select104 = select i1 %.not90, i16 %63, i16 %.073
-  %.lobit109 = lshr exact i16 %62, 2
-  %64 = zext nneg i16 %.lobit109 to i32
-  %.079 = add nuw nsw i32 %64, %52
+  %58 = and i16 %56, 4
+  %.not93.not = icmp eq i16 %58, 0
+  %59 = or disjoint i16 %.073, 4
+  %spec.select104 = select i1 %.not90, i16 %59, i16 %.073
+  %.lobit109 = lshr exact i16 %58, 2
+  %uadd111 = tail call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %50, i16 %.lobit109)
+  %uadd.value112 = extractvalue { i16, i1 } %uadd111, 0
   %.174 = select i1 %.not93.not, i16 %.073, i16 %spec.select104
-  %65 = and i16 %59, 128
-  %.not94.not = icmp eq i16 %65, 0
-  %66 = or disjoint i16 %.174, 128
-  %spec.select106 = select i1 %.not91, i16 %66, i16 %.174
-  %.lobit110 = lshr exact i16 %65, 7
-  %67 = zext nneg i16 %.lobit110 to i32
-  %.078 = add nuw nsw i32 %67, %55
+  %60 = and i16 %56, 128
+  %.not94.not = icmp eq i16 %60, 0
+  %61 = or disjoint i16 %.174, 128
+  %spec.select106 = select i1 %.not91, i16 %61, i16 %.174
+  %.lobit110 = lshr exact i16 %60, 7
+  %uadd113 = tail call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %52, i16 %.lobit110)
+  %uadd.value114 = extractvalue { i16, i1 } %uadd113, 0
   %.275 = select i1 %.not94.not, i16 %.174, i16 %spec.select106
-  %68 = icmp samesign ugt i32 %.080, 65535
-  %69 = icmp samesign ugt i32 %.079, 65535
-  %or.cond = select i1 %68, i1 true, i1 %69
-  %70 = icmp samesign ugt i32 %.078, 65535
-  %spec.select107 = select i1 %or.cond, i1 true, i1 %70, !prof !7
-  br i1 %spec.select107, label %71, label %72, !prof !6
+  %62 = extractvalue { i16, i1 } %uadd, 1
+  %63 = extractvalue { i16, i1 } %uadd111, 1
+  %or.cond = select i1 %62, i1 true, i1 %63
+  %64 = extractvalue { i16, i1 } %uadd113, 1
+  %spec.select107 = select i1 %or.cond, i1 true, i1 %64, !prof !7
+  br i1 %spec.select107, label %65, label %66, !prof !6
 
-71:                                               ; preds = %45
-  tail call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str, i32 noundef %1) #7
+65:                                               ; preds = %45
+  tail call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str, i32 noundef %1) #8
   br label %evmap_make_space.exit.thread
 
-72:                                               ; preds = %45
-  %73 = load i32, ptr @event_debug_mode_on_, align 4
-  %.not95 = icmp eq i32 %73, 0
-  br i1 %.not95, label %82, label %74
+66:                                               ; preds = %45
+  %67 = load i32, ptr @event_debug_mode_on_, align 4
+  %.not95 = icmp eq i32 %67, 0
+  br i1 %.not95, label %76, label %68
 
-74:                                               ; preds = %72
-  %75 = load ptr, ptr %46, align 8
-  %.not96 = icmp eq ptr %75, null
-  br i1 %.not96, label %82, label %76
+68:                                               ; preds = %66
+  %69 = load ptr, ptr %46, align 8
+  %.not96 = icmp eq ptr %69, null
+  br i1 %.not96, label %76, label %70
 
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds nuw i8, ptr %75, i64 60
-  %78 = load i16, ptr %77, align 4
-  %79 = xor i16 %78, %59
-  %80 = and i16 %79, 32
-  %.not97 = icmp eq i16 %80, 0
-  br i1 %.not97, label %82, label %81
+70:                                               ; preds = %68
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 60
+  %72 = load i16, ptr %71, align 4
+  %73 = xor i16 %72, %56
+  %74 = and i16 %73, 32
+  %.not97 = icmp eq i16 %74, 0
+  br i1 %.not97, label %76, label %75
 
-81:                                               ; preds = %76
-  tail call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str.1, i32 noundef %1) #7
+75:                                               ; preds = %70
+  tail call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str.1, i32 noundef %1) #8
   br label %evmap_make_space.exit.thread
 
-82:                                               ; preds = %76, %74, %72
+76:                                               ; preds = %70, %68, %66
   %.not98 = icmp eq i16 %.275, 0
-  br i1 %.not98, label %92, label %83
+  br i1 %.not98, label %86, label %77
 
-83:                                               ; preds = %82
-  %84 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %85 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %88 = load i32, ptr %87, align 8
-  %89 = and i16 %59, 32
-  %90 = or i16 %.275, %89
-  %91 = tail call i32 %86(ptr noundef nonnull %0, i32 noundef %88, i16 noundef signext %.2, i16 noundef signext %90, ptr noundef nonnull %84) #7
-  %.not99 = icmp eq i32 %91, -1
-  br i1 %.not99, label %evmap_make_space.exit.thread, label %92
+77:                                               ; preds = %76
+  %78 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %82 = load i32, ptr %81, align 8
+  %83 = and i16 %56, 32
+  %84 = or i16 %.275, %83
+  %85 = tail call i32 %80(ptr noundef nonnull %0, i32 noundef %82, i16 noundef signext %.2, i16 noundef signext %84, ptr noundef nonnull %78) #8
+  %.not99 = icmp eq i32 %85, -1
+  br i1 %.not99, label %evmap_make_space.exit.thread, label %86
 
-92:                                               ; preds = %83, %82
-  %.076 = phi i32 [ 1, %83 ], [ 0, %82 ]
-  %93 = trunc nuw i32 %.080 to i16
-  store i16 %93, ptr %47, align 8
-  %94 = trunc nuw i32 %.079 to i16
-  store i16 %94, ptr %50, align 2
-  %95 = trunc nuw i32 %.078 to i16
-  store i16 %95, ptr %53, align 4
-  %96 = load ptr, ptr %46, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr %96, ptr %97, align 8
-  %.not100 = icmp eq ptr %96, null
-  br i1 %.not100, label %100, label %98
+86:                                               ; preds = %77, %76
+  %.076 = phi i32 [ 1, %77 ], [ 0, %76 ]
+  store i16 %uadd.value, ptr %47, align 8
+  store i16 %uadd.value112, ptr %49, align 2
+  store i16 %uadd.value114, ptr %51, align 4
+  %87 = load ptr, ptr %46, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr %87, ptr %88, align 8
+  %.not100 = icmp eq ptr %87, null
+  br i1 %.not100, label %91, label %89
 
-98:                                               ; preds = %92
-  %99 = getelementptr inbounds nuw i8, ptr %96, i64 80
-  store ptr %97, ptr %99, align 8
-  br label %100
+89:                                               ; preds = %86
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 80
+  store ptr %88, ptr %90, align 8
+  br label %91
 
-100:                                              ; preds = %98, %92
+91:                                               ; preds = %89, %86
   store ptr %2, ptr %46, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store ptr %46, ptr %101, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store ptr %46, ptr %92, align 8
   br label %evmap_make_space.exit.thread
 
-evmap_make_space.exit.thread:                     ; preds = %15, %13, %10, %33, %3, %83, %100, %81, %71
-  %.0 = phi i32 [ -1, %71 ], [ -1, %81 ], [ %.076, %100 ], [ -1, %83 ], [ 0, %3 ], [ -1, %33 ], [ -1, %10 ], [ -1, %13 ], [ -1, %15 ]
+evmap_make_space.exit.thread:                     ; preds = %15, %13, %10, %33, %3, %77, %91, %75, %65
+  %.0 = phi i32 [ -1, %65 ], [ -1, %75 ], [ %.076, %91 ], [ -1, %77 ], [ 0, %3 ], [ -1, %33 ], [ -1, %10 ], [ -1, %13 ], [ -1, %15 ]
   ret i32 %.0
 }
 
@@ -408,7 +402,7 @@ define hidden range(i32 -1, 2) i32 @evmap_io_del_(ptr noundef %0, i32 noundef %1
   %45 = load i32, ptr %44, align 8
   %46 = and i16 %27, 32
   %47 = or i16 %.24982, %46
-  %48 = tail call i32 %43(ptr noundef nonnull %0, i32 noundef %45, i16 noundef signext %.2, i16 noundef signext %47, ptr noundef nonnull %41) #7
+  %48 = tail call i32 %43(ptr noundef nonnull %0, i32 noundef %45, i16 noundef signext %.2, i16 noundef signext %47, ptr noundef nonnull %41) #8
   %49 = icmp eq i32 %48, -1
   %. = select i1 %49, i32 -1, i32 1
   br label %50
@@ -488,7 +482,7 @@ define hidden void @evmap_io_active_(ptr noundef readonly captures(none) %0, i32
 
 20:                                               ; preds = %16
   %21 = and i32 %19, %15
-  tail call void @event_active_nolock_(ptr noundef nonnull %.020, i32 noundef %21, i16 noundef signext 1) #7
+  tail call void @event_active_nolock_(ptr noundef nonnull %.020, i32 noundef %21, i16 noundef signext 1) #8
   br label %22
 
 22:                                               ; preds = %16, %20
@@ -536,7 +530,7 @@ define hidden range(i32 -1, 2) i32 @evmap_signal_add_(ptr noundef %0, i32 nounde
   %14 = load ptr, ptr %6, align 8
   %15 = shl nuw nsw i32 %.025.i, 3
   %16 = zext nneg i32 %15 to i64
-  %17 = tail call ptr @event_mm_realloc_(ptr noundef %14, i64 noundef %16) #7
+  %17 = tail call ptr @event_mm_realloc_(ptr noundef %14, i64 noundef %16) #8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %evmap_make_space.exit.thread, label %19
 
@@ -565,7 +559,7 @@ evmap_make_space.exit:                            ; preds = %19, %7
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, 8
-  %36 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef %35) #7
+  %36 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef %35) #8
   %37 = load ptr, ptr %6, align 8
   %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %27
   store ptr %36, ptr %38, align 8
@@ -599,7 +593,7 @@ evmap_make_space.exit:                            ; preds = %19, %7
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %53 = load i32, ptr %52, align 8
-  %54 = tail call i32 %51(ptr noundef nonnull %0, i32 noundef %53, i16 noundef signext 0, i16 noundef signext 8, ptr noundef %2) #7
+  %54 = tail call i32 %51(ptr noundef nonnull %0, i32 noundef %53, i16 noundef signext 0, i16 noundef signext 8, ptr noundef %2) #8
   %55 = icmp eq i32 %54, -1
   br i1 %55, label %evmap_make_space.exit.thread, label %56
 
@@ -672,7 +666,7 @@ define hidden range(i32 -1, 2) i32 @evmap_signal_del_(ptr noundef %0, i32 nounde
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %27 = load i32, ptr %26, align 8
-  %28 = tail call i32 %25(ptr noundef nonnull %0, i32 noundef %27, i16 noundef signext 0, i16 noundef signext 8, ptr noundef null) #7
+  %28 = tail call i32 %25(ptr noundef nonnull %0, i32 noundef %27, i16 noundef signext 0, i16 noundef signext 8, ptr noundef null) #8
   %29 = icmp eq i32 %28, -1
   br i1 %29, label %31, label %30
 
@@ -715,7 +709,7 @@ define hidden void @evmap_signal_active_(ptr noundef readonly captures(none) %0,
 
 15:                                               ; preds = %.lr.ph, %15
   %.017 = phi ptr [ %.015, %.lr.ph ], [ %.0, %15 ]
-  tail call void @event_active_nolock_(ptr noundef nonnull %.017, i32 noundef 8, i16 noundef signext %14) #7
+  tail call void @event_active_nolock_(ptr noundef nonnull %.017, i32 noundef 8, i16 noundef signext %14) #8
   %16 = getelementptr inbounds nuw i8, ptr %.017, i64 72
   %.0 = load ptr, ptr %16, align 8
   %.not14 = icmp eq ptr %.0, null
@@ -802,7 +796,7 @@ define hidden range(i32 -1, 1) i32 @evmap_reinit_(ptr noundef %0) local_unnamed_
   %.3.i = phi i16 [ %.2.i, %26 ], [ 0, %25 ], [ %spec.select30.i, %28 ]
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call i32 %33(ptr noundef nonnull %0, i32 noundef %11, i16 noundef signext 0, i16 noundef signext %.3.i, ptr noundef nonnull %13) #7
+  %34 = tail call i32 %33(ptr noundef nonnull %0, i32 noundef %11, i16 noundef signext 0, i16 noundef signext %.3.i, ptr noundef nonnull %13) #8
   %35 = icmp eq i32 %34, -1
   %spec.select = select i1 %35, i32 -1, i32 %.014
   %.pre.i = load i32, ptr %3, align 8
@@ -853,7 +847,7 @@ evmap_io_foreach_fd.exit.thread:                  ; preds = %1, %evmap_io_foreac
   %54 = load ptr, ptr %44, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call i32 %56(ptr noundef nonnull %0, i32 noundef %53, i16 noundef signext 1, i16 noundef signext 8, ptr noundef nonnull %50) #7
+  %57 = tail call i32 %56(ptr noundef nonnull %0, i32 noundef %53, i16 noundef signext 1, i16 noundef signext 8, ptr noundef nonnull %50) #8
   %58 = icmp eq i32 %57, -1
   %spec.select17 = select i1 %58, i32 -1, i32 %.3
   %.pre.i8.pre = load i32, ptr %41, align 8
@@ -903,7 +897,7 @@ define hidden void @evmap_delete_all_(ptr noundef readonly captures(none) %0) lo
 
 .lr.ph.i.i:                                       ; preds = %10, %.lr.ph.i.i
   %12 = phi ptr [ %14, %.lr.ph.i.i ], [ %11, %10 ]
-  %13 = tail call i32 @event_del(ptr noundef nonnull %12) #7
+  %13 = tail call i32 @event_del(ptr noundef nonnull %12) #8
   %14 = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %..thread_crit_edge.i.loopexit, label %.lr.ph.i.i, !llvm.loop !12
@@ -944,7 +938,7 @@ evmap_signal_foreach_signal.exit:                 ; preds = %.thread.i, %1
 
 .lr.ph.i.i12:                                     ; preds = %26, %.lr.ph.i.i12
   %28 = phi ptr [ %30, %.lr.ph.i.i12 ], [ %27, %26 ]
-  %29 = tail call i32 @event_del(ptr noundef nonnull %28) #7
+  %29 = tail call i32 @event_del(ptr noundef nonnull %28) #8
   %30 = load ptr, ptr %25, align 8
   %.not.i.i13 = icmp eq ptr %30, null
   br i1 %.not.i.i13, label %..thread_crit_edge.i7.loopexit, label %.lr.ph.i.i12, !llvm.loop !12
@@ -1014,7 +1008,7 @@ define hidden void @event_changelist_freemem_(ptr noundef captures(none) initial
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @event_mm_free_(ptr noundef nonnull %2) #7
+  tail call void @event_mm_free_(ptr noundef nonnull %2) #8
   br label %4
 
 4:                                                ; preds = %3, %1
@@ -1047,7 +1041,7 @@ define hidden range(i32 -1, 1) i32 @event_changelist_add_(ptr noundef captures(n
   %.09.i.i = select i1 %19, i32 64, i32 %20
   %21 = zext nneg i32 %.09.i.i to i64
   %22 = mul nuw nsw i64 %21, 12
-  %23 = tail call ptr @event_mm_realloc_(ptr noundef %.pre26.i, i64 noundef %22) #7
+  %23 = tail call ptr @event_mm_realloc_(ptr noundef %.pre26.i, i64 noundef %22) #8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %event_changelist_get_or_construct.exit.thread, label %event_changelist_grow.exit.i, !prof !6
 
@@ -1140,7 +1134,7 @@ define hidden range(i32 -1, 1) i32 @event_changelist_del_(ptr noundef captures(n
   %.09.i.i = select i1 %19, i32 64, i32 %20
   %21 = zext nneg i32 %.09.i.i to i64
   %22 = mul nuw nsw i64 %21, 12
-  %23 = tail call ptr @event_mm_realloc_(ptr noundef %.pre26.i, i64 noundef %22) #7
+  %23 = tail call ptr @event_mm_realloc_(ptr noundef %.pre26.i, i64 noundef %22) #8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %event_changelist_get_or_construct.exit.thread, label %event_changelist_grow.exit.i, !prof !6
 
@@ -1260,7 +1254,7 @@ define hidden i32 @evmap_foreach_event_(ptr noundef %0, ptr noundef readonly cap
 
 .lr.ph.i15:                                       ; preds = %12, %13
   %.0914.i = phi ptr [ %.09.i, %13 ], [ %.0912.i, %12 ]
-  %15 = tail call i32 %1(ptr noundef nonnull %0, ptr noundef nonnull %.0914.i, ptr noundef %2) #7
+  %15 = tail call i32 %1(ptr noundef nonnull %0, ptr noundef nonnull %.0914.i, ptr noundef %2) #8
   %.not11.i = icmp eq i32 %15, 0
   br i1 %.not11.i, label %13, label %evmap_io_foreach_fd.exit
 
@@ -1306,7 +1300,7 @@ define hidden i32 @evmap_foreach_event_(ptr noundef %0, ptr noundef readonly cap
 
 .lr.ph.i19:                                       ; preds = %27, %28
   %.0914.i20 = phi ptr [ %.09.i23, %28 ], [ %.0912.i17, %27 ]
-  %30 = tail call i32 %1(ptr noundef nonnull %0, ptr noundef nonnull %.0914.i20, ptr noundef %2) #7
+  %30 = tail call i32 %1(ptr noundef nonnull %0, ptr noundef nonnull %.0914.i20, ptr noundef %2) #8
   %.not11.i21 = icmp eq i32 %30, 0
   br i1 %.not11.i21, label %28, label %evmap_io_foreach_fd.exit
 
@@ -1334,6 +1328,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 declare i32 @event_del(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare { i16, i1 } @llvm.uadd.with.overflow.i16(i16, i16) #7
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1341,7 +1338,8 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 
