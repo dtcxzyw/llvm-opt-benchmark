@@ -16704,7 +16704,7 @@ define linkonce_odr dso_local void @_ZN3CFF15parsed_cs_str_t7compactEv(ptr nound
   %wide.trip.count = zext i32 %4 to i64
   br label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %61
+._crit_edge.loopexit:                             ; preds = %64
   %.pre = load i32, ptr %3, align 4, !tbaa !484
   br label %._crit_edge
 
@@ -16772,7 +16772,7 @@ _ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_
   store i32 %.sink.i.i.i, ptr %2, align 8, !tbaa !483
   br label %_ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE6shrinkEib.exit
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %61
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %64
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %61 ]
   %.03847 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %61 ]
   %27 = load ptr, ptr %6, align 8, !tbaa !590
@@ -16819,7 +16819,7 @@ _ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_
   %52 = extractvalue { i8, i1 } %uadd, 1
   br i1 %52, label %.critedge, label %53
 
-53:                                               ; preds = %49
+53:   ; preds = %49
   %54 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %27, i64 %28, i32 0, i32 2
   %55 = add i8 %44, %51
   store i8 %55, ptr %54, align 4, !tbaa !302
@@ -16828,15 +16828,15 @@ _ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_
   br label %61
 
 .critedge:                                        ; preds = %41, %35, %32, %32, %.lr.ph, %.lr.ph, %49
-  %57 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %27, i64 %indvars.iv
-  %58 = add i32 %.03847, 1
-  %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %27, i64 %59
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false)
-  br label %61
+  %60 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %27, i64 %indvars.iv
+  %61 = add i32 %.03847, 1
+  %62 = zext i32 %61 to i64
+  %63 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %27, i64 %62
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false)
+  br label %64
 
-61:                                               ; preds = %.critedge, %53
-  %.1 = phi i32 [ %.03847, %53 ], [ %58, %.critedge ]
+64:                                               ; preds = %.critedge, %53
+  %.1 = phi i32 [ %.03847, %53 ], [ %61, %.critedge ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !591
@@ -20666,7 +20666,7 @@ define linkonce_odr dso_local void @_ZNK3CFF16subr_subsetter_tI21cff1_subr_subse
   br i1 %.not24, label %._crit_edge37, label %.lr.ph36
 
 .lr.ph31:                                         ; preds = %.lr.ph36, %_ZN3CFF15parsed_cs_str_t7compactEv.exit
-  %.02329 = phi ptr [ %82, %_ZN3CFF15parsed_cs_str_t7compactEv.exit ], [ %16, %.lr.ph36 ]
+  %.02329 = phi ptr [ %85, %_ZN3CFF15parsed_cs_str_t7compactEv.exit ], [ %16, %.lr.ph36 ]
   %22 = getelementptr inbounds nuw i8, ptr %.02329, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %.02329, i64 12
   %24 = load i32, ptr %23, align 4, !tbaa !579
@@ -20682,7 +20682,7 @@ define linkonce_odr dso_local void @_ZNK3CFF16subr_subsetter_tI21cff1_subr_subse
   %wide.trip.count.i = zext i32 %24 to i64
   br label %.lr.ph.i
 
-._crit_edge.loopexit.i:                           ; preds = %81
+._crit_edge.loopexit.i:                           ; preds = %84
   %.pre.i = load i32, ptr %23, align 4, !tbaa !484
   br label %._crit_edge.i
 
@@ -20750,7 +20750,7 @@ _ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_
   store i32 %.sink.i.i.i.i, ptr %22, align 8, !tbaa !483
   br label %_ZN3CFF15parsed_cs_str_t7compactEv.exit
 
-.lr.ph.i:                                         ; preds = %81, %.lr.ph.preheader.i
+.lr.ph.i:                                         ; preds = %84, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %81 ]
   %.03847.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %81 ]
   %47 = load ptr, ptr %26, align 8, !tbaa !590
@@ -20795,33 +20795,33 @@ _ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_
   %71 = load i8, ptr %70, align 4, !tbaa !302
   %uadd.i = tail call { i8, i1 } @llvm.uadd.with.overflow.i8(i8 %64, i8 %71)
   %72 = extractvalue { i8, i1 } %uadd.i, 1
-  br i1 %72, label %.critedge.i, label %73
+  br i1 %72, label %.critedge.i, label %76
 
-73:                                               ; preds = %69
-  %74 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %47, i64 %48, i32 0, i32 2
-  %75 = add i8 %71, %64
-  store i8 %75, ptr %74, align 4, !tbaa !302
-  %76 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %47, i64 %48, i32 0, i32 1
-  store i32 65535, ptr %76, align 8, !tbaa !298
-  br label %81
+76:                                               ; preds = %69
+  %77 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %47, i64 %48, i32 0, i32 2
+  %78 = add i8 %71, %64
+  store i8 %78, ptr %77, align 4, !tbaa !302
+  %79 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %47, i64 %48, i32 0, i32 1
+  store i32 65535, ptr %79, align 8, !tbaa !298
+  br label %84
 
 .critedge.i:                                      ; preds = %69, %61, %55, %52, %52, %.lr.ph.i, %.lr.ph.i
-  %77 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %47, i64 %indvars.iv.i
-  %78 = add i32 %.03847.i, 1
-  %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %47, i64 %79
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %77, i64 16, i1 false)
-  br label %81
+  %80 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %47, i64 %indvars.iv.i
+  %81 = add i32 %.03847.i, 1
+  %82 = zext i32 %81 to i64
+  %83 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %47, i64 %82
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull align 8 dereferenceable(16) %80, i64 16, i1 false)
+  br label %84
 
-81:                                               ; preds = %.critedge.i, %73
-  %.1.i = phi i32 [ %.03847.i, %73 ], [ %78, %.critedge.i ]
+84:                                               ; preds = %.critedge.i, %76
+  %.1.i = phi i32 [ %.03847.i, %73 ], [ %81, %.critedge.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !591
 
 _ZN3CFF15parsed_cs_str_t7compactEv.exit:          ; preds = %.lr.ph31, %._crit_edge.i, %30, %33, %42, %.sink.split.i.i.i.i
-  %82 = getelementptr inbounds nuw i8, ptr %.02329, i64 40
-  %.not25 = icmp eq ptr %82, %20
+  %85 = getelementptr inbounds nuw i8, ptr %.02329, i64 40
+  %.not25 = icmp eq ptr %85, %20
   br i1 %.not25, label %._crit_edge32, label %.lr.ph31
 }
 
