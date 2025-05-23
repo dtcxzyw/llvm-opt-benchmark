@@ -2268,9 +2268,8 @@ if.end125:                                        ; preds = %if.end84
 
 if.then128:                                       ; preds = %if.end125
   %conv126 = zext i16 %18 to i64
-  %sub = add nuw nsw i64 %conv126, 4294967295
-  %conv130 = and i64 %sub, 4294967295
-  store i64 %conv130, ptr %pendingDataFramePaddingBytes_75, align 8
+  %sub = add nsw i64 %conv126, -1
+  store i64 %sub, ptr %pendingDataFramePaddingBytes_75, align 8
   %19 = load i64, ptr %pendingDataFrameBytes_71, align 8
   %dec = add i64 %19, -1
   store i64 %dec, ptr %pendingDataFrameBytes_71, align 8

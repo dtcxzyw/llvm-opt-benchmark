@@ -1319,7 +1319,7 @@ define weak_odr noundef ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11Mach
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17
   %.fca.0.extract.us.i.i = extractvalue { ptr, i8 } %16, 0
   %.fca.1.extract.us.i.i = extractvalue { ptr, i8 } %16, 1
-  %17 = trunc i8 %.fca.1.extract.us.i.i to i1
+  %17 = trunc nuw i8 %.fca.1.extract.us.i.i to i1
   br i1 %17, label %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit, label %18
 
 18:                                               ; preds = %.lr.ph.split.us.i.i
@@ -2083,7 +2083,7 @@ define weak_odr noundef ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11Mach
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17
   %.fca.0.extract.i.i = extractvalue { ptr, i8 } %16, 0
   %.fca.1.extract.i.i = extractvalue { ptr, i8 } %16, 1
-  %17 = trunc i8 %.fca.1.extract.i.i to i1
+  %17 = trunc nuw i8 %.fca.1.extract.i.i to i1
   br i1 %17, label %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit, label %18
 
 18:                                               ; preds = %.lr.ph.split.i.i
@@ -2378,7 +2378,7 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17
   %.fca.0.extract.us.i.i = extractvalue { ptr, i8 } %16, 0
   %.fca.1.extract.us.i.i = extractvalue { ptr, i8 } %16, 1
-  %17 = trunc i8 %.fca.1.extract.us.i.i to i1
+  %17 = trunc nuw i8 %.fca.1.extract.us.i.i to i1
   br i1 %17, label %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit.loopexit, label %18
 
 18:                                               ; preds = %.lr.ph.split.us.i.i
@@ -2397,17 +2397,15 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS
 
 _ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit.loopexit: ; preds = %20, %19, %.lr.ph.split.us.i.i
   %.sroa.026.0.i.i.ph = phi ptr [ %.1.us.i.i, %20 ], [ %.fca.0.extract.us.i.i, %.lr.ph.split.us.i.i ], [ null, %19 ]
-  %.sroa.4.0.i.i.ph = phi i8 [ 0, %20 ], [ %.fca.1.extract.us.i.i, %.lr.ph.split.us.i.i ], [ 1, %19 ]
-  %22 = trunc i8 %.sroa.4.0.i.i.ph to i1
-  %23 = icmp eq ptr %.sroa.026.0.i.i.ph, null
-  %24 = xor i1 %22, true
-  %25 = select i1 %24, i1 %23, i1 false
+  %not..sroa.4.0.i.i.ph = phi i1 [ true, %20 ], [ false, %.lr.ph.split.us.i.i ], [ false, %19 ]
+  %22 = icmp eq ptr %.sroa.026.0.i.i.ph, null
+  %23 = select i1 %not..sroa.4.0.i.i.ph, i1 %22, i1 false
   br label %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit
 
 _ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit: ; preds = %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit.loopexit, %1
-  %.sroa.4.0.i.i = phi i1 [ true, %1 ], [ %25, %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit.loopexit ]
+  %not..sroa.4.0.i.i = phi i1 [ true, %1 ], [ %23, %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit.loopexit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  ret i1 %.sroa.4.0.i.i
+  ret i1 %not..sroa.4.0.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

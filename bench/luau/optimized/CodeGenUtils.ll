@@ -153,58 +153,55 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen16forgLoopNodeIterEP9lua_St
 .lr.ph:                                           ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !22
-  %14 = zext i32 %2 to i64
-  br label %15
+  br label %14
 
-15:                                               ; preds = %.lr.ph, %39
-  %indvars.iv = phi i64 [ %14, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %16 = phi i32 [ %10, %.lr.ph ], [ %41, %39 ]
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %struct.LuaNode, ptr %13, i64 %17
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %20 = load i32, ptr %19, align 4, !tbaa !23
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %39, label %.thread
+14:                                               ; preds = %.lr.ph, %38
+  %15 = phi i32 [ %10, %.lr.ph ], [ %40, %38 ]
+  %.02937 = phi i32 [ %2, %.lr.ph ], [ %39, %38 ]
+  %16 = zext nneg i32 %15 to i64
+  %17 = getelementptr inbounds nuw %struct.LuaNode, ptr %13, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %19 = load i32, ptr %18, align 4, !tbaa !23
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %38, label %.thread
 
-.thread:                                          ; preds = %15
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %23 = shl i64 %indvars.iv, 32
-  %sext = add i64 %23, 4294967296
-  %24 = ashr exact i64 %sext, 32
-  %25 = inttoptr i64 %24 to ptr
-  store ptr %25, ptr %22, align 8, !tbaa !17
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 128, ptr %26, align 8, !tbaa !18
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  store i32 2, ptr %27, align 4, !tbaa !15
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %29 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %30 = load i64, ptr %29, align 8, !tbaa !17
-  store i64 %30, ptr %28, align 8, !tbaa !17
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %32 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %33 = load i32, ptr %32, align 8
-  store i32 %33, ptr %31, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %18, i64 28
-  %35 = load i32, ptr %34, align 4
-  %36 = and i32 %35, 15
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 60
-  store i32 %36, ptr %37, align 4, !tbaa !15
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !27
+.thread:                                          ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %22 = add nsw i32 %.02937, 1
+  %23 = sext i32 %22 to i64
+  %24 = inttoptr i64 %23 to ptr
+  store ptr %24, ptr %21, align 8, !tbaa !17
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i32 128, ptr %25, align 8, !tbaa !18
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 44
+  store i32 2, ptr %26, align 4, !tbaa !15
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %29 = load i64, ptr %28, align 8, !tbaa !17
+  store i64 %29, ptr %27, align 8, !tbaa !17
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %32 = load i32, ptr %31, align 8
+  store i32 %32, ptr %30, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %17, i64 28
+  %34 = load i32, ptr %33, align 4
+  %35 = and i32 %34, 15
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 60
+  store i32 %35, ptr %36, align 4, !tbaa !15
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !27
   br label %.loopexit
 
-39:                                               ; preds = %15
-  %indvars.iv.next = add i64 %indvars.iv, 1
-  %40 = trunc i64 %indvars.iv.next to i32
-  %41 = sub i32 %40, %6
-  %.highbits = lshr i32 %41, %9
-  %42 = icmp eq i32 %.highbits, 0
-  br i1 %42, label %15, label %.loopexit, !llvm.loop !28
+38:                                               ; preds = %14
+  %39 = add nsw i32 %.02937, 1
+  %40 = sub nsw i32 %39, %6
+  %.highbits = lshr i32 %40, %9
+  %41 = icmp eq i32 %.highbits, 0
+  br i1 %41, label %14, label %.loopexit, !llvm.loop !28
 
-.loopexit:                                        ; preds = %39, %4, %.thread
-  %43 = phi i1 [ true, %.thread ], [ false, %4 ], [ false, %39 ]
-  ret i1 %43
+.loopexit:                                        ; preds = %38, %4, %.thread
+  %42 = phi i1 [ true, %.thread ], [ false, %4 ], [ false, %38 ]
+  ret i1 %42
 }
 
 ; Function Attrs: mustprogress uwtable

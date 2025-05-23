@@ -56,9 +56,6 @@ define hidden void @"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deal
   br i1 %5, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.10316259052761615454.exit", label %6
 
 6:                                                ; preds = %4
-  %7 = add i64 %2, -1
-  %8 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %8)
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %3, i64 noundef %2) #18
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.10316259052761615454.exit"
 
@@ -963,16 +960,13 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17from_raw_pa
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.10316259052761615454"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
   %5 = icmp eq i64 %3, 0
-  br i1 %5, label %9, label %6
+  br i1 %5, label %7, label %6
 
 6:                                                ; preds = %4
-  %7 = add i64 %2, -1
-  %8 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %8)
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %3, i64 noundef %2) #18
-  br label %9
+  br label %7
 
-9:                                                ; preds = %4, %6
+7:                                                ; preds = %4, %6
   ret void
 }
 

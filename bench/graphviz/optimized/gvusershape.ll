@@ -900,12 +900,12 @@ get_int_msb_first.exit:                           ; preds = %1, %.backedge
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %5, align 8, !tbaa !14
-  %20 = call fastcc zeroext i1 @get_int_msb_first(ptr noundef %19, i64 noundef 2, ptr noundef %2)
+  %20 = call fastcc zeroext i1 @get_int_msb_first(ptr noundef %19, i64 noundef 2, ptr noundef nonnull %2)
   br i1 %20, label %21, label %get_int_msb_first.exit.thread
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %5, align 8, !tbaa !14
-  %23 = call fastcc zeroext i1 @get_int_msb_first(ptr noundef %22, i64 noundef 2, ptr noundef %3)
+  %23 = call fastcc zeroext i1 @get_int_msb_first(ptr noundef %22, i64 noundef 2, ptr noundef nonnull %3)
   br i1 %23, label %get_int_msb_first.exit.thread.sink.split, label %get_int_msb_first.exit.thread
 
 24:                                               ; preds = %13
@@ -915,12 +915,12 @@ get_int_msb_first.exit:                           ; preds = %1, %.backedge
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr %5, align 8, !tbaa !14
-  %28 = call fastcc zeroext i1 @get_int_msb_first(ptr noundef %27, i64 noundef 2, ptr noundef %2)
+  %28 = call fastcc zeroext i1 @get_int_msb_first(ptr noundef %27, i64 noundef 2, ptr noundef nonnull %2)
   br i1 %28, label %29, label %get_int_msb_first.exit.thread
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %5, align 8, !tbaa !14
-  %31 = call fastcc zeroext i1 @get_int_msb_first(ptr noundef %30, i64 noundef 2, ptr noundef %3)
+  %31 = call fastcc zeroext i1 @get_int_msb_first(ptr noundef %30, i64 noundef 2, ptr noundef nonnull %3)
   br i1 %31, label %get_int_msb_first.exit.thread.sink.split, label %get_int_msb_first.exit.thread
 
 .preheader:                                       ; preds = %13, %34
@@ -1195,21 +1195,21 @@ define internal fastcc void @svg_size(ptr noundef captures(none) %0) unnamed_add
   br label %.preheader.preheader
 
 14:                                               ; preds = %find_attribute.exit.thread
-  %15 = trunc i8 %.sroa.044.3 to i1
-  %16 = trunc i8 %.sroa.051.3 to i1
+  %15 = trunc nuw i8 %.sroa.044.3 to i1
+  %16 = trunc nuw i8 %.sroa.051.3 to i1
   %17 = select i1 %15, i1 %16, i1 false
   %or.cond73 = select i1 %.2.ph, i1 true, i1 %17
   br i1 %or.cond73, label %.critedge, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %1, %14
-  %.sroa.051.0608 = phi i8 [ 0, %1 ], [ %.sroa.051.3, %14 ]
-  %.sroa.1356.0607 = phi double [ 0.000000e+00, %1 ], [ %.sroa.1356.3, %14 ]
-  %.sroa.044.0606 = phi i8 [ 0, %1 ], [ %.sroa.044.3, %14 ]
-  %.sroa.13.0605 = phi double [ 0.000000e+00, %1 ], [ %.sroa.13.3, %14 ]
-  %.sroa.041.0604 = phi i1 [ false, %1 ], [ %.sroa.041.1219, %14 ]
-  %.sroa.643.0603 = phi double [ 0.000000e+00, %1 ], [ %.sroa.643.1225, %14 ]
-  %.sroa.040.0602 = phi i1 [ false, %1 ], [ %.sroa.040.1231, %14 ]
-  %.sroa.6.0601 = phi double [ 0.000000e+00, %1 ], [ %.sroa.6.1237, %14 ]
+  %.sroa.051.0602 = phi i8 [ 0, %1 ], [ %.sroa.051.3, %14 ]
+  %.sroa.1356.0601 = phi double [ 0.000000e+00, %1 ], [ %.sroa.1356.3, %14 ]
+  %.sroa.044.0600 = phi i8 [ 0, %1 ], [ %.sroa.044.3, %14 ]
+  %.sroa.13.0599 = phi double [ 0.000000e+00, %1 ], [ %.sroa.13.3, %14 ]
+  %.sroa.041.0598 = phi i1 [ false, %1 ], [ %.sroa.041.1219, %14 ]
+  %.sroa.643.0597 = phi double [ 0.000000e+00, %1 ], [ %.sroa.643.1225, %14 ]
+  %.sroa.040.0596 = phi i1 [ false, %1 ], [ %.sroa.040.1231, %14 ]
+  %.sroa.6.0595 = phi double [ 0.000000e+00, %1 ], [ %.sroa.6.1237, %14 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.backedge, %.preheader.preheader
@@ -1454,14 +1454,14 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.i, %
 
 .lr.ph.i.preheader:                               ; preds = %agxbuse.exit, %261
   %97 = phi i8 [ %262, %261 ], [ %96, %agxbuse.exit ]
-  %.sroa.051.2280 = phi i8 [ %.sroa.051.4, %261 ], [ %.sroa.051.0608, %agxbuse.exit ]
-  %.sroa.1356.2279 = phi double [ %.sroa.1356.4, %261 ], [ %.sroa.1356.0607, %agxbuse.exit ]
-  %.sroa.044.2278 = phi i8 [ %.sroa.044.5, %261 ], [ %.sroa.044.0606, %agxbuse.exit ]
-  %.sroa.13.2277 = phi double [ %.sroa.13.5, %261 ], [ %.sroa.13.0605, %agxbuse.exit ]
-  %.sroa.041.1276 = phi i1 [ %.sroa.041.2, %261 ], [ %.sroa.041.0604, %agxbuse.exit ]
-  %.sroa.643.1275 = phi double [ %.sroa.643.2, %261 ], [ %.sroa.643.0603, %agxbuse.exit ]
-  %.sroa.040.1274 = phi i1 [ %.sroa.040.2, %261 ], [ %.sroa.040.0602, %agxbuse.exit ]
-  %.sroa.6.1273 = phi double [ %.sroa.6.2, %261 ], [ %.sroa.6.0601, %agxbuse.exit ]
+  %.sroa.051.2280 = phi i8 [ %.sroa.051.4, %261 ], [ %.sroa.051.0602, %agxbuse.exit ]
+  %.sroa.1356.2279 = phi double [ %.sroa.1356.4, %261 ], [ %.sroa.1356.0601, %agxbuse.exit ]
+  %.sroa.044.2278 = phi i8 [ %.sroa.044.5, %261 ], [ %.sroa.044.0600, %agxbuse.exit ]
+  %.sroa.13.2277 = phi double [ %.sroa.13.5, %261 ], [ %.sroa.13.0599, %agxbuse.exit ]
+  %.sroa.041.1276 = phi i1 [ %.sroa.041.2, %261 ], [ %.sroa.041.0598, %agxbuse.exit ]
+  %.sroa.643.1275 = phi double [ %.sroa.643.2, %261 ], [ %.sroa.643.0597, %agxbuse.exit ]
+  %.sroa.040.1274 = phi i1 [ %.sroa.040.2, %261 ], [ %.sroa.040.0596, %agxbuse.exit ]
+  %.sroa.6.1273 = phi double [ %.sroa.6.2, %261 ], [ %.sroa.6.0595, %agxbuse.exit ]
   %.069272 = phi ptr [ %124, %261 ], [ %95, %agxbuse.exit ]
   %invariant.gep.i281 = getelementptr i8, ptr %.069272, i64 2
   br label %.lr.ph.i
@@ -1859,18 +1859,18 @@ strview_str.exit110:                              ; preds = %248
   br i1 %.not62.i, label %find_attribute.exit.thread, label %.lr.ph.i.preheader, !llvm.loop !76
 
 find_attribute.exit.thread:                       ; preds = %svg_units_convert.exit, %svg_units_convert.exit106, %261, %.loopexit57.i, %113, %agxbuse.exit
-  %.sroa.6.1237 = phi double [ %.sroa.6.0601, %agxbuse.exit ], [ %.sroa.6.1273, %113 ], [ %.sroa.6.1273, %.loopexit57.i ], [ %.sroa.6.1273, %svg_units_convert.exit ], [ %.sroa.6.1273, %svg_units_convert.exit106 ], [ %.sroa.6.2, %261 ]
-  %.sroa.040.1231 = phi i1 [ %.sroa.040.0602, %agxbuse.exit ], [ %.sroa.040.1274, %113 ], [ %.sroa.040.1274, %.loopexit57.i ], [ %.sroa.040.1274, %svg_units_convert.exit ], [ %.sroa.040.1274, %svg_units_convert.exit106 ], [ %.sroa.040.2, %261 ]
-  %.sroa.643.1225 = phi double [ %.sroa.643.0603, %agxbuse.exit ], [ %.sroa.643.1275, %113 ], [ %.sroa.643.1275, %.loopexit57.i ], [ %.sroa.643.1275, %svg_units_convert.exit ], [ %.sroa.643.1275, %svg_units_convert.exit106 ], [ %.sroa.643.2, %261 ]
-  %.sroa.041.1219 = phi i1 [ %.sroa.041.0604, %agxbuse.exit ], [ %.sroa.041.1276, %113 ], [ %.sroa.041.1276, %.loopexit57.i ], [ %.sroa.041.1276, %svg_units_convert.exit ], [ %.sroa.041.1276, %svg_units_convert.exit106 ], [ %.sroa.041.2, %261 ]
-  %.sroa.13.3 = phi double [ %.sroa.13.0605, %agxbuse.exit ], [ %.sroa.13.2277, %113 ], [ %.sroa.13.2277, %.loopexit57.i ], [ %.sroa.13.4, %svg_units_convert.exit ], [ %.sroa.13.2277, %svg_units_convert.exit106 ], [ %.sroa.13.5, %261 ]
-  %.sroa.044.3 = phi i8 [ %.sroa.044.0606, %agxbuse.exit ], [ %.sroa.044.2278, %113 ], [ %.sroa.044.2278, %.loopexit57.i ], [ %.sroa.044.4, %svg_units_convert.exit ], [ 1, %svg_units_convert.exit106 ], [ %.sroa.044.5, %261 ]
-  %.sroa.1356.3 = phi double [ %.sroa.1356.0607, %agxbuse.exit ], [ %.sroa.1356.2279, %113 ], [ %.sroa.1356.2279, %.loopexit57.i ], [ %.sroa.1356.2279, %svg_units_convert.exit ], [ %.sroa.1356.5, %svg_units_convert.exit106 ], [ %.sroa.1356.4, %261 ]
-  %.sroa.051.3 = phi i8 [ %.sroa.051.0608, %agxbuse.exit ], [ %.sroa.051.2280, %113 ], [ %.sroa.051.2280, %.loopexit57.i ], [ 1, %svg_units_convert.exit ], [ %.sroa.051.5, %svg_units_convert.exit106 ], [ %.sroa.051.4, %261 ]
+  %.sroa.6.1237 = phi double [ %.sroa.6.0595, %agxbuse.exit ], [ %.sroa.6.1273, %113 ], [ %.sroa.6.1273, %.loopexit57.i ], [ %.sroa.6.1273, %svg_units_convert.exit ], [ %.sroa.6.1273, %svg_units_convert.exit106 ], [ %.sroa.6.2, %261 ]
+  %.sroa.040.1231 = phi i1 [ %.sroa.040.0596, %agxbuse.exit ], [ %.sroa.040.1274, %113 ], [ %.sroa.040.1274, %.loopexit57.i ], [ %.sroa.040.1274, %svg_units_convert.exit ], [ %.sroa.040.1274, %svg_units_convert.exit106 ], [ %.sroa.040.2, %261 ]
+  %.sroa.643.1225 = phi double [ %.sroa.643.0597, %agxbuse.exit ], [ %.sroa.643.1275, %113 ], [ %.sroa.643.1275, %.loopexit57.i ], [ %.sroa.643.1275, %svg_units_convert.exit ], [ %.sroa.643.1275, %svg_units_convert.exit106 ], [ %.sroa.643.2, %261 ]
+  %.sroa.041.1219 = phi i1 [ %.sroa.041.0598, %agxbuse.exit ], [ %.sroa.041.1276, %113 ], [ %.sroa.041.1276, %.loopexit57.i ], [ %.sroa.041.1276, %svg_units_convert.exit ], [ %.sroa.041.1276, %svg_units_convert.exit106 ], [ %.sroa.041.2, %261 ]
+  %.sroa.13.3 = phi double [ %.sroa.13.0599, %agxbuse.exit ], [ %.sroa.13.2277, %113 ], [ %.sroa.13.2277, %.loopexit57.i ], [ %.sroa.13.4, %svg_units_convert.exit ], [ %.sroa.13.2277, %svg_units_convert.exit106 ], [ %.sroa.13.5, %261 ]
+  %.sroa.044.3 = phi i8 [ %.sroa.044.0600, %agxbuse.exit ], [ %.sroa.044.2278, %113 ], [ %.sroa.044.2278, %.loopexit57.i ], [ %.sroa.044.4, %svg_units_convert.exit ], [ 1, %svg_units_convert.exit106 ], [ %.sroa.044.5, %261 ]
+  %.sroa.1356.3 = phi double [ %.sroa.1356.0601, %agxbuse.exit ], [ %.sroa.1356.2279, %113 ], [ %.sroa.1356.2279, %.loopexit57.i ], [ %.sroa.1356.2279, %svg_units_convert.exit ], [ %.sroa.1356.5, %svg_units_convert.exit106 ], [ %.sroa.1356.4, %261 ]
+  %.sroa.051.3 = phi i8 [ %.sroa.051.0602, %agxbuse.exit ], [ %.sroa.051.2280, %113 ], [ %.sroa.051.2280, %.loopexit57.i ], [ 1, %svg_units_convert.exit ], [ %.sroa.051.5, %svg_units_convert.exit106 ], [ %.sroa.051.4, %261 ]
   %or.cond = select i1 %.sroa.041.1219, i1 %.sroa.040.1231, i1 false
-  br i1 %or.cond, label %.thread406, label %14
+  br i1 %or.cond, label %.thread404, label %14
 
-.thread406:                                       ; preds = %find_attribute.exit.thread
+.thread404:                                       ; preds = %find_attribute.exit.thread
   %263 = trunc nuw i8 %.sroa.051.3 to i1
   %.sroa.1356.6 = select i1 %263, double %.sroa.1356.3, double %.sroa.643.1225
   %264 = trunc nuw i8 %.sroa.044.3 to i1
@@ -1881,42 +1881,44 @@ find_attribute.exit.thread:                       ; preds = %svg_units_convert.e
   %267 = sitofp i32 %266 to double
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double %267, ptr %268, align 8, !tbaa !28
-  br label %275
-
-.critedge:                                        ; preds = %14
-  %269 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 0, ptr %269, align 8, !tbaa !27
-  %270 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br i1 %15, label %271, label %274
-
-271:                                              ; preds = %.critedge
-  %272 = fptosi double %.sroa.13.3 to i32
-  %273 = sitofp i32 %272 to double
-  store double %273, ptr %270, align 8, !tbaa !28
-  br i1 %16, label %275, label %277
-
-274:                                              ; preds = %.critedge
-  store double 0.000000e+00, ptr %270, align 8, !tbaa !28
-  br i1 %16, label %275, label %277
-
-275:                                              ; preds = %271, %.thread406, %274
-  %.in.in = phi double [ %.sroa.1356.6, %.thread406 ], [ %.sroa.1356.3, %274 ], [ %.sroa.1356.3, %271 ]
-  %.in = fptosi double %.in.in to i32
-  %276 = sitofp i32 %.in to double
   br label %277
 
-277:                                              ; preds = %271, %274, %275
-  %278 = phi double [ %276, %275 ], [ 0.000000e+00, %274 ], [ 0.000000e+00, %271 ]
-  %279 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store double %278, ptr %279, align 8, !tbaa !29
-  br i1 %94, label %280, label %agxbfree.exit
+.critedge:                                        ; preds = %14
+  %269 = trunc i8 %.sroa.051.3 to i1
+  %270 = trunc i8 %.sroa.044.3 to i1
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 0, ptr %271, align 8, !tbaa !27
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  br i1 %270, label %273, label %276
 
-280:                                              ; preds = %277
+273:                                              ; preds = %.critedge
+  %274 = fptosi double %.sroa.13.3 to i32
+  %275 = sitofp i32 %274 to double
+  store double %275, ptr %272, align 8, !tbaa !28
+  br i1 %269, label %277, label %279
+
+276:                                              ; preds = %.critedge
+  store double 0.000000e+00, ptr %272, align 8, !tbaa !28
+  br i1 %269, label %277, label %279
+
+277:                                              ; preds = %273, %.thread404, %276
+  %.in.in = phi double [ %.sroa.1356.6, %.thread404 ], [ %.sroa.1356.3, %276 ], [ %.sroa.1356.3, %273 ]
+  %.in = fptosi double %.in.in to i32
+  %278 = sitofp i32 %.in to double
+  br label %279
+
+279:                                              ; preds = %273, %276, %277
+  %280 = phi double [ %278, %277 ], [ 0.000000e+00, %276 ], [ 0.000000e+00, %273 ]
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store double %280, ptr %281, align 8, !tbaa !29
+  br i1 %94, label %282, label %agxbfree.exit
+
+282:                                              ; preds = %279
   %.val = load ptr, ptr %4, align 8
   call void @free(ptr noundef %.val) #21
   br label %agxbfree.exit
 
-agxbfree.exit:                                    ; preds = %277, %280
+agxbfree.exit:                                    ; preds = %279, %282
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #21
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21

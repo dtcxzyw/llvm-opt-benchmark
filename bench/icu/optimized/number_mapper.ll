@@ -2733,38 +2733,44 @@ define linkonce_odr void @_ZN6icu_776number4impl23DecimalFormatPropertiesC2ERKS2
 12:                                               ; preds = %2
   %13 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 40) #16
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %17, label %15
+  br i1 %14, label %.split.i, label %17
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr %10, align 8, !tbaa !15
-  invoke void @_ZN6icu_7718CurrencyPluralInfoC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef nonnull align 8 dereferenceable(36) %16)
-          to label %17 unwind label %24
+.split.i:                                         ; preds = %12
+  %15 = load ptr, ptr %9, align 8, !tbaa !15
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %.sink.split.i, label %.sink.split.sink.split.i
 
-17:                                               ; preds = %15, %12
-  %18 = load ptr, ptr %9, align 8, !tbaa !15
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %_ZN6icu_7712LocalPointerINS_18CurrencyPluralInfoEE12adoptInsteadEPS1_.exit.i, label %20
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %10, align 8, !tbaa !15
+  invoke void @_ZN6icu_7718CurrencyPluralInfoC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef nonnull align 8 dereferenceable(36) %18)
+          to label %.split6.i unwind label %21
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %18, align 8, !tbaa !59
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(36) %18) #16
-  br label %_ZN6icu_7712LocalPointerINS_18CurrencyPluralInfoEE12adoptInsteadEPS1_.exit.i
+.split6.i:                                        ; preds = %17
+  %19 = load ptr, ptr %9, align 8, !tbaa !15
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %.sink.split.i, label %.sink.split.sink.split.i
 
-_ZN6icu_7712LocalPointerINS_18CurrencyPluralInfoEE12adoptInsteadEPS1_.exit.i: ; preds = %20, %17
+21:                                               ; preds = %17
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %13) #16
+  %23 = load ptr, ptr %9, align 8, !tbaa !15
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %.body, label %.body.sink.split
+
+.sink.split.sink.split.i:                         ; preds = %.split6.i, %.split.i
+  %.sink12.i = phi ptr [ %15, %.split.i ], [ %19, %.split6.i ]
+  %25 = load ptr, ptr %.sink12.i, align 8, !tbaa !59
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load ptr, ptr %26, align 8
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(36) %.sink12.i) #16
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %.split6.i, %.split.i
   store ptr %13, ptr %9, align 8, !tbaa !15
   br label %_ZN6icu_776number4impl25CurrencyPluralInfoWrapperC2ERKS2_.exit
 
-24:                                               ; preds = %15
-  %25 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %13) #16
-  %26 = load ptr, ptr %9, align 8, !tbaa !15
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %.body, label %.body.sink.split
-
-_ZN6icu_776number4impl25CurrencyPluralInfoWrapperC2ERKS2_.exit: ; preds = %_ZN6icu_7712LocalPointerINS_18CurrencyPluralInfoEE12adoptInsteadEPS1_.exit.i, %2
+_ZN6icu_776number4impl25CurrencyPluralInfoWrapperC2ERKS2_.exit: ; preds = %.sink.split.i, %2
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %28, ptr noundef nonnull align 8 dereferenceable(72) %29, i64 72, i1 false)
@@ -2921,17 +2927,17 @@ _ZN6icu_776number4impl25CurrencyPluralInfoWrapperC2ERKS2_.exit: ; preds = %_ZN6i
   %91 = icmp eq ptr %90, null
   br i1 %91, label %.body, label %.body.sink.split
 
-.body.sink.split:                                 ; preds = %89, %24
-  %.sink40 = phi ptr [ %26, %24 ], [ %90, %89 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %25, %24 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %89 ]
+.body.sink.split:                                 ; preds = %89, %21
+  %.sink40 = phi ptr [ %23, %21 ], [ %90, %89 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %89 ]
   %92 = load ptr, ptr %.sink40, align 8, !tbaa !59
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
   tail call void %94(ptr noundef nonnull align 8 dereferenceable(36) %.sink40) #16
   br label %.body
 
-.body:                                            ; preds = %.body.sink.split, %89, %24
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %89 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body.sink.split ]
+.body:                                            ; preds = %.body.sink.split, %89, %21
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %89 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body.sink.split ]
   tail call void @_ZN6icu_7712CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %7) #16
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }

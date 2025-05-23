@@ -92,9 +92,6 @@ define hidden void @"_ZN106_$LT$allocator_api2..stable..alloc..global..Global$u2
   ret void
 
 7:                                                ; preds = %4
-  %8 = add i64 %2, -1
-  %9 = icmp sgt i64 %8, -1
-  tail call void @llvm.assume(i1 %9)
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %3, i64 noundef %2) #30
   br label %6
 }

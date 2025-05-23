@@ -1003,8 +1003,9 @@ ff_sqrt.exit.thread:                              ; preds = %82
   br i1 %137, label %138, label %141
 
 138:                                              ; preds = %.loopexit
-  %139 = lshr i32 %122, 1
-  store i32 %139, ptr %116, align 4, !tbaa !69
+  %139 = lshr i8 %121, 1
+  %.zext = zext nneg i8 %139 to i32
+  store i32 %.zext, ptr %116, align 4, !tbaa !69
   %140 = and i32 %122, 1
   br label %144
 

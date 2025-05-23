@@ -14407,7 +14407,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
 
 155:                                              ; preds = %153
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #29
-  call fastcc void @_ZL17llama_decode_textRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %64)
+  call fastcc void @_ZL17llama_decode_textRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %64)
   %156 = load ptr, ptr %9, align 8, !tbaa !72
   %157 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %158 = load i64, ptr %157, align 8, !tbaa !11
@@ -14471,7 +14471,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104: ; preds = %_Z
 
 179:                                              ; preds = %62
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #29
-  call fastcc void @_ZL25llama_unescape_rwkv_tokenRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %64)
+  call fastcc void @_ZL25llama_unescape_rwkv_tokenRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %64)
   %180 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %181 = load ptr, ptr %180, align 8, !tbaa !318
   %182 = load ptr, ptr %10, align 8, !tbaa !320
@@ -23893,7 +23893,7 @@ define linkonce_odr ptr @_ZNSt10_HashtableISt4pairINSt7__cxx1112basic_stringIcSt
   %12 = load i64, ptr %11, align 8, !tbaa !332
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = trunc i8 %14 to i1
+  %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
@@ -24568,7 +24568,7 @@ define linkonce_odr ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_t
   %12 = load i64, ptr %11, align 8, !tbaa !93
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = trunc i8 %14 to i1
+  %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
@@ -27839,8 +27839,9 @@ define linkonce_odr void @_ZN17llm_tokenizer_ugmC2ERK11llama_vocabRKSt6vectorIcS
 47:                                               ; preds = %36
   %48 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store ptr %48, ptr %9, align 8, !tbaa !427
-  %49 = lshr i64 %38, 2
-  store i64 %49, ptr %10, align 8, !tbaa !426
+  %49 = lshr i32 %37, 2
+  %.zext = zext nneg i32 %49 to i64
+  store i64 %.zext, ptr %10, align 8, !tbaa !426
   %50 = getelementptr inbounds nuw i8, ptr %32, i64 %39
   store ptr %50, ptr %7, align 8, !tbaa !430
   %51 = sub nuw i64 %35, %39
@@ -28802,7 +28803,7 @@ define linkonce_odr void @_ZN18llm_tokenizer_rwkvC2ERK11llama_vocab(ptr noundef 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw %"struct.llama_vocab::token_data", ptr %26, i64 %32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
-  invoke fastcc void @_ZL25llama_unescape_rwkv_tokenRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %35)
+  invoke fastcc void @_ZL25llama_unescape_rwkv_tokenRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %36 unwind label %61
 
 36:                                               ; preds = %34

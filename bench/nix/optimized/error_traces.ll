@@ -6909,7 +6909,7 @@ define linkonce_odr void @_ZNK3nix8PosTableixENS_6PosIdxE(ptr dead_on_unwind noa
   store i32 0, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 0, ptr %19, align 8
-  br label %79
+  br label %78
 
 20:                                               ; preds = %3
   %21 = load ptr, ptr %1, align 8
@@ -6985,102 +6985,103 @@ _ZN3nix8PosTable6OriginC2ERKS1_.exit:             ; preds = %_ZN3nix8PosTable6Or
   store i8 %50, ptr %46, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %52 = zext i32 %16 to i64
-  %53 = lshr i64 %52, 13
-  %54 = load ptr, ptr %51, align 8
-  %55 = getelementptr inbounds nuw %"class.std::vector.270", ptr %54, i64 %53
-  %56 = and i64 %52, 8191
-  %57 = load ptr, ptr %55, align 8
-  %58 = getelementptr inbounds nuw %"struct.nix::PosTable::Offset", ptr %57, i64 %56
-  %.sroa.0.0.copyload = load i32, ptr %58, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 4
+  %52 = lshr i32 %16, 13
+  %.zext.i = zext nneg i32 %52 to i64
+  %53 = load ptr, ptr %51, align 8
+  %54 = getelementptr inbounds nuw %"class.std::vector.270", ptr %53, i64 %.zext.i
+  %55 = and i32 %16, 8191
+  %.zext2.i = zext nneg i32 %55 to i64
+  %56 = load ptr, ptr %54, align 8
+  %57 = getelementptr inbounds nuw %"struct.nix::PosTable::Offset", ptr %56, i64 %.zext2.i
+  %.sroa.0.0.copyload = load i32, ptr %57, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %59 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store i8 -1, ptr %59, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  store i8 -1, ptr %58, align 8
   store ptr %12, ptr %7, align 8
   invoke void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_15_Copy_ctor_baseILb0EJSt9monostateN3nix3Pos5StdinENS6_6StringENS5_10SourcePathEEEC1ERKSA_EUlOT_T0_E_JRKSt7variantIJS4_S7_S8_S9_EEEEDcOSF_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(49) %44)
-          to label %62 unwind label %60
+          to label %61 unwind label %59
 
-60:                                               ; preds = %_ZN3nix8PosTable6OriginC2ERKS1_.exit
-  %61 = landingpad { ptr, i32 }
+59:                                               ; preds = %_ZN3nix8PosTable6OriginC2ERKS1_.exit
+  %60 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN3nix3Pos5StdinENS4_6StringENS3_10SourcePathEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %12) #26
   br label %.body
 
-62:                                               ; preds = %_ZN3nix8PosTable6OriginC2ERKS1_.exit
-  %63 = load i8, ptr %46, align 8
-  store i8 %63, ptr %59, align 8
+61:                                               ; preds = %_ZN3nix8PosTable6OriginC2ERKS1_.exit
+  %62 = load i8, ptr %46, align 8
+  store i8 %62, ptr %58, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   store i32 %.sroa.0.0.copyload, ptr %0, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.2.0.copyload, ptr %64, align 4
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sroa.2.0.copyload, ptr %63, align 4
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 -1, ptr %66, align 8
-  store ptr %65, ptr %6, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 -1, ptr %65, align 8
+  store ptr %64, ptr %6, align 8
   invoke void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_15_Copy_ctor_baseILb0EJSt9monostateN3nix3Pos5StdinENS6_6StringENS5_10SourcePathEEEC1ERKSA_EUlOT_T0_E_JRKSt7variantIJS4_S7_S8_S9_EEEEDcOSF_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(49) %12)
-          to label %68 unwind label %.body16
+          to label %67 unwind label %.body16
 
-.body16:                                          ; preds = %62
-  %67 = landingpad { ptr, i32 }
+.body16:                                          ; preds = %61
+  %66 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN3nix3Pos5StdinENS4_6StringENS3_10SourcePathEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %65) #26
+  call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN3nix3Pos5StdinENS4_6StringENS3_10SourcePathEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %64) #26
   call void @_ZNSt7variantIJSt9monostateN3nix3Pos5StdinENS2_6StringENS1_10SourcePathEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %12) #26
   br label %.body
 
-68:                                               ; preds = %62
-  %69 = load i8, ptr %59, align 8
-  store i8 %69, ptr %66, align 8
+67:                                               ; preds = %61
+  %68 = load i8, ptr %58, align 8
+  store i8 %68, ptr %65, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %69, -1
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt7variantIJSt9monostateN3nix3Pos5StdinENS2_6StringENS1_10SourcePathEEED2Ev.exit, label %70
+  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %68, -1
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt7variantIJSt9monostateN3nix3Pos5StdinENS2_6StringENS1_10SourcePathEEED2Ev.exit, label %69
 
-70:                                               ; preds = %68
+69:                                               ; preds = %67
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN3nix3Pos5StdinENS5_6StringENS4_10SourcePathEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(49) %12)
-          to label %.noexc.i.i.i.i.i.i.i unwind label %71
+          to label %.noexc.i.i.i.i.i.i.i unwind label %70
 
-.noexc.i.i.i.i.i.i.i:                             ; preds = %70
-  store i8 -1, ptr %59, align 8
+.noexc.i.i.i.i.i.i.i:                             ; preds = %69
+  store i8 -1, ptr %58, align 8
   br label %_ZNSt7variantIJSt9monostateN3nix3Pos5StdinENS2_6StringENS1_10SourcePathEEED2Ev.exit
 
-71:                                               ; preds = %70
-  %72 = landingpad { ptr, i32 }
+70:                                               ; preds = %69
+  %71 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #30
+  %72 = extractvalue { ptr, i32 } %71, 0
+  call void @__clang_call_terminate(ptr %72) #30
   unreachable
 
-_ZNSt7variantIJSt9monostateN3nix3Pos5StdinENS2_6StringENS1_10SourcePathEEED2Ev.exit: ; preds = %68, %.noexc.i.i.i.i.i.i.i
+_ZNSt7variantIJSt9monostateN3nix3Pos5StdinENS2_6StringENS1_10SourcePathEEED2Ev.exit: ; preds = %67, %.noexc.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  %74 = load i8, ptr %46, align 8
-  %.not.i.i.i.i.i.i.i.i.i18 = icmp eq i8 %74, -1
-  br i1 %.not.i.i.i.i.i.i.i.i.i18, label %_ZN3nix8PosTable6OriginD2Ev.exit20, label %75
+  %73 = load i8, ptr %46, align 8
+  %.not.i.i.i.i.i.i.i.i.i18 = icmp eq i8 %73, -1
+  br i1 %.not.i.i.i.i.i.i.i.i.i18, label %_ZN3nix8PosTable6OriginD2Ev.exit20, label %74
 
-75:                                               ; preds = %_ZNSt7variantIJSt9monostateN3nix3Pos5StdinENS2_6StringENS1_10SourcePathEEED2Ev.exit
+74:                                               ; preds = %_ZNSt7variantIJSt9monostateN3nix3Pos5StdinENS2_6StringENS1_10SourcePathEEED2Ev.exit
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN3nix3Pos5StdinENS5_6StringENS4_10SourcePathEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(49) %44)
-          to label %_ZN3nix8PosTable6OriginD2Ev.exit20 unwind label %76
+          to label %_ZN3nix8PosTable6OriginD2Ev.exit20 unwind label %75
 
-76:                                               ; preds = %75
-  %77 = landingpad { ptr, i32 }
+75:                                               ; preds = %74
+  %76 = landingpad { ptr, i32 }
           catch ptr null
-  %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #30
+  %77 = extractvalue { ptr, i32 } %76, 0
+  call void @__clang_call_terminate(ptr %77) #30
   unreachable
 
-_ZN3nix8PosTable6OriginD2Ev.exit20:               ; preds = %75, %_ZNSt7variantIJSt9monostateN3nix3Pos5StdinENS2_6StringENS1_10SourcePathEEED2Ev.exit
+_ZN3nix8PosTable6OriginD2Ev.exit20:               ; preds = %74, %_ZNSt7variantIJSt9monostateN3nix3Pos5StdinENS2_6StringENS1_10SourcePathEEED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br label %79
+  br label %78
 
-.body:                                            ; preds = %60, %.body16
-  %.pn = phi { ptr, i32 } [ %67, %.body16 ], [ %61, %60 ]
+.body:                                            ; preds = %59, %.body16
+  %.pn = phi { ptr, i32 } [ %66, %.body16 ], [ %60, %59 ]
   call void @_ZN3nix8PosTable6OriginD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #26
   br label %common.resume
 
-79:                                               ; preds = %_ZN3nix8PosTable6OriginD2Ev.exit20, %17
+78:                                               ; preds = %_ZN3nix8PosTable6OriginD2Ev.exit20, %17
   ret void
 }
 

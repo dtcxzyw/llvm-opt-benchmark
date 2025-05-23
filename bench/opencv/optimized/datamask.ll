@@ -546,11 +546,14 @@ define linkonce_odr hidden void @_ZN5zxing6qrcode11DataMask110D0Ev(ptr noundef n
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN5zxing6qrcode11DataMask1108isMaskedEmm(ptr noundef nonnull align 8 dereferenceable(12) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #6 comdat align 2 {
   %4 = mul i64 %2, %1
-  %5 = urem i64 %4, 3
-  %6 = add i64 %5, %4
-  %7 = and i64 %6, 1
-  %8 = icmp eq i64 %7, 0
-  ret i1 %8
+  %5 = and i64 %4, 1
+  %6 = urem i64 %4, 3
+  %7 = add nuw nsw i64 %5, %6
+  %.urem = add nsw i64 %7, -2
+  %.cmp = icmp samesign ult i64 %7, 2
+  %8 = select i1 %.cmp, i64 %7, i64 %.urem
+  %9 = icmp eq i64 %8, 0
+  ret i1 %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -567,12 +570,15 @@ define linkonce_odr hidden void @_ZN5zxing6qrcode11DataMask111D0Ev(ptr noundef n
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN5zxing6qrcode11DataMask1118isMaskedEmm(ptr noundef nonnull align 8 dereferenceable(12) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #6 comdat align 2 {
   %4 = add i64 %2, %1
-  %5 = mul i64 %2, %1
-  %6 = urem i64 %5, 3
-  %7 = add i64 %4, %6
-  %8 = and i64 %7, 1
-  %9 = icmp eq i64 %8, 0
-  ret i1 %9
+  %5 = and i64 %4, 1
+  %6 = mul i64 %2, %1
+  %7 = urem i64 %6, 3
+  %8 = add nuw nsw i64 %5, %7
+  %.urem = add nsw i64 %8, -2
+  %.cmp = icmp samesign ult i64 %8, 2
+  %9 = select i1 %.cmp, i64 %8, i64 %.urem
+  %10 = icmp eq i64 %9, 0
+  ret i1 %10
 }
 
 ; Function Attrs: uwtable

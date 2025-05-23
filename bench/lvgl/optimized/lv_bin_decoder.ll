@@ -534,8 +534,8 @@ declare void @lv_image_decoder_set_get_area_cb(ptr noundef, ptr noundef) local_u
 define range(i32 0, 2) i32 @lv_bin_decoder_get_area(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i64, ptr %5, align 8
-  %.fr177 = freeze i64 %6
-  %7 = trunc i64 %.fr177 to i32
+  %.fr178 = freeze i64 %6
+  %7 = trunc i64 %.fr178 to i32
   %8 = lshr i32 %7, 8
   %9 = and i32 %8, 255
   %10 = add nsw i32 %9, -7
@@ -544,11 +544,11 @@ define range(i32 0, 2) i32 @lv_bin_decoder_get_area(ptr readnone captures(none) 
   %12 = and i32 %7, 64512
   %13 = icmp eq i32 %12, 4096
   %14 = icmp eq i32 %9, 20
-  br i1 %13, label %15, label %switch.early.test178
+  br i1 %13, label %15, label %switch.early.test179
 
-switch.early.test178:                             ; preds = %4
-  %trunc179 = trunc i32 %8 to i8
-  switch i8 %trunc179, label %fs_read_file_at.exit.thread [
+switch.early.test179:                             ; preds = %4
+  %trunc180 = trunc i32 %8 to i8
+  switch i8 %trunc180, label %fs_read_file_at.exit.thread [
     i8 20, label %15
     i8 15, label %15
     i8 10, label %15
@@ -557,7 +557,7 @@ switch.early.test178:                             ; preds = %4
     i8 7, label %15
   ]
 
-15:                                               ; preds = %switch.early.test178, %switch.early.test178, %switch.early.test178, %switch.early.test178, %switch.early.test178, %switch.early.test178, %4
+15:                                               ; preds = %switch.early.test179, %switch.early.test179, %switch.early.test179, %switch.early.test179, %switch.early.test179, %switch.early.test179, %4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %17 = load ptr, ptr %16, align 8, !tbaa !23
   %18 = icmp eq ptr %17, null
@@ -639,8 +639,8 @@ switch.early.test178:                             ; preds = %4
 61:                                               ; preds = %60
   %62 = load i32, ptr %3, align 4, !tbaa !56
   %63 = udiv i8 8, %21
-  %.zext = zext nneg i8 %63 to i32
-  %64 = urem i32 %62, %.zext
+  %.zext176 = zext nneg i8 %63 to i32
+  %64 = urem i32 %62, %.zext176
   %65 = mul i32 %23, %22
   %66 = add i32 %65, 7
   %67 = lshr i32 %66, 3
@@ -789,7 +789,7 @@ decode_indexed_line.exit:                         ; preds = %124, %119
   br i1 %11, label %143, label %switch.early.test
 
 switch.early.test:                                ; preds = %141
-  %142 = trunc i64 %.fr177 to i16
+  %142 = trunc i64 %.fr178 to i16
   %trunc = and i16 %142, -512
   switch i16 %trunc, label %159 [
     i16 4608, label %143
@@ -851,8 +851,9 @@ fs_read_file_at.exit:                             ; preds = %143
   %180 = mul nuw nsw i32 %179, %177
   %181 = add nuw i32 %180, 12
   %182 = load i32, ptr %28, align 4, !tbaa !50
-  %183 = lshr i32 %179, 1
-  %184 = mul nsw i32 %183, %182
+  %183 = lshr i32 %178, 1
+  %.zext = and i32 %183, 32767
+  %184 = mul nsw i32 %.zext, %182
   %185 = load i32, ptr %3, align 4, !tbaa !56
   %186 = add i32 %181, %185
   %187 = add i32 %186, %184
@@ -867,8 +868,8 @@ fs_read_file_at.exit:                             ; preds = %143
   store ptr %.2156, ptr %192, align 8, !tbaa !34
   br label %fs_read_file_at.exit.thread
 
-fs_read_file_at.exit.thread:                      ; preds = %switch.early.test178, %143, %40, %15, %159, %191, %160, %174, %157, %fs_read_file_at.exit, %88, %139, %53
-  %.0 = phi i32 [ 0, %switch.early.test178 ], [ 0, %15 ], [ 0, %53 ], [ 0, %88 ], [ 1, %139 ], [ 1, %157 ], [ 0, %fs_read_file_at.exit ], [ 1, %191 ], [ 0, %160 ], [ 0, %174 ], [ 0, %159 ], [ 0, %40 ], [ 0, %143 ]
+fs_read_file_at.exit.thread:                      ; preds = %switch.early.test179, %143, %40, %15, %159, %191, %160, %174, %157, %fs_read_file_at.exit, %88, %139, %53
+  %.0 = phi i32 [ 0, %switch.early.test179 ], [ 0, %15 ], [ 0, %53 ], [ 0, %88 ], [ 1, %139 ], [ 1, %157 ], [ 0, %fs_read_file_at.exit ], [ 1, %191 ], [ 0, %160 ], [ 0, %174 ], [ 0, %159 ], [ 0, %40 ], [ 0, %143 ]
   ret i32 %.0
 }
 

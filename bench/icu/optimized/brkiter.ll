@@ -566,12 +566,12 @@ define noundef ptr @_ZN6icu_7713BreakIterator13buildInstanceERKNS_6LocaleEPKcR10
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %9) #22
   %13 = load i32, ptr %2, align 4, !tbaa !13
   %14 = icmp slt i32 %13, 1
-  br i1 %14, label %17, label %113
+  br i1 %14, label %17, label %112
 
 15:                                               ; preds = %18, %17
   %16 = landingpad { ptr, i32 }
           cleanup
-  br label %114
+  br label %113
 
 17:                                               ; preds = %3
   invoke void @ures_initStackObject_77(ptr noundef nonnull %8)
@@ -622,7 +622,7 @@ define noundef ptr @_ZN6icu_7713BreakIterator13buildInstanceERKNS_6LocaleEPKcR10
 38:                                               ; preds = %65, %.thread91, %45, %43, %30, %28, %26, %19
   %39 = landingpad { ptr, i32 }
           cleanup
-  br label %114
+  br label %113
 
 40:                                               ; preds = %32
   %41 = icmp slt i32 %.pre, 1
@@ -663,12 +663,12 @@ define noundef ptr @_ZN6icu_7713BreakIterator13buildInstanceERKNS_6LocaleEPKcR10
 58:                                               ; preds = %47
   %59 = landingpad { ptr, i32 }
           cleanup
-  br label %114
+  br label %113
 
 60:                                               ; preds = %52, %50
   %61 = landingpad { ptr, i32 }
           cleanup
-  br label %114
+  br label %113
 
 62:                                               ; preds = %52, %49
   %.066 = phi i64 [ %56, %52 ], [ 0, %49 ]
@@ -699,12 +699,12 @@ define noundef ptr @_ZN6icu_7713BreakIterator13buildInstanceERKNS_6LocaleEPKcR10
 
 71:                                               ; preds = %68
   invoke void @ures_close_77(ptr noundef %22)
-          to label %113 unwind label %72
+          to label %112 unwind label %72
 
-72:                                               ; preds = %108, %.thread, %71, %66
+72:                                               ; preds = %107, %.thread, %71, %66
   %73 = landingpad { ptr, i32 }
           cleanup
-  br label %114
+  br label %113
 
 74:                                               ; preds = %68
   %75 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 304) #22
@@ -752,13 +752,13 @@ define noundef ptr @_ZN6icu_7713BreakIterator13buildInstanceERKNS_6LocaleEPKcR10
   %96 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %75) #22
-  br label %114
+  br label %113
 
 97:                                               ; preds = %91, %89, %84
   %98 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #22
-  br label %114
+  br label %113
 
 .thread:                                          ; preds = %74, %94, %81
   invoke void @ures_close_77(ptr noundef %22)
@@ -775,27 +775,26 @@ define noundef ptr @_ZN6icu_7713BreakIterator13buildInstanceERKNS_6LocaleEPKcR10
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = load ptr, ptr %104, align 8
   call void %105(ptr noundef nonnull align 8 dereferenceable(297) %75) #22
-  br label %113
+  br label %112
 
 106:                                              ; preds = %99
-  %107 = icmp eq ptr %75, null
-  br i1 %107, label %108, label %113
+  br i1 %76, label %112, label %107
 
-108:                                              ; preds = %106
+107:                                              ; preds = %106
   invoke void @udata_close_77(ptr noundef %67)
-          to label %109 unwind label %72
+          to label %108 unwind label %72
 
-109:                                              ; preds = %108
-  %110 = load i32, ptr %2, align 4, !tbaa !13
-  %111 = icmp sgt i32 %110, 0
-  br i1 %111, label %113, label %112
+108:                                              ; preds = %107
+  %109 = load i32, ptr %2, align 4, !tbaa !13
+  %110 = icmp sgt i32 %109, 0
+  br i1 %110, label %112, label %111
 
-112:                                              ; preds = %109
+111:                                              ; preds = %108
   store i32 7, ptr %2, align 4, !tbaa !13
-  br label %113
+  br label %112
 
-113:                                              ; preds = %102, %71, %109, %112, %106, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %102 ], [ null, %71 ], [ null, %109 ], [ null, %112 ], [ %75, %106 ]
+112:                                              ; preds = %102, %71, %108, %111, %106, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %102 ], [ null, %71 ], [ null, %108 ], [ null, %111 ], [ %75, %106 ]
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %9) #22
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %8) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #22
@@ -805,7 +804,7 @@ define noundef ptr @_ZN6icu_7713BreakIterator13buildInstanceERKNS_6LocaleEPKcR10
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #22
   ret ptr %.0
 
-114:                                              ; preds = %38, %60, %58, %95, %97, %72, %15
+113:                                              ; preds = %38, %60, %58, %95, %97, %72, %15
   %.pn86.pn.pn = phi { ptr, i32 } [ %16, %15 ], [ %39, %38 ], [ %61, %60 ], [ %59, %58 ], [ %73, %72 ], [ %98, %97 ], [ %96, %95 ]
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %9) #22
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %8) #22

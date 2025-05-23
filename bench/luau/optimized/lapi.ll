@@ -4759,52 +4759,49 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %11, %21, %26
 .lr.ph72:                                         ; preds = %._crit_edge
   %57 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %58 = load ptr, ptr %57, align 8, !tbaa !96
-  %59 = zext i32 %.054.lcssa to i64
-  br label %60
+  br label %59
 
-60:                                               ; preds = %.lr.ph72, %83
-  %indvars.iv80 = phi i64 [ %59, %.lr.ph72 ], [ %indvars.iv.next81, %83 ]
-  %61 = phi i32 [ %55, %.lr.ph72 ], [ %85, %83 ]
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds %struct.LuaNode, ptr %58, i64 %62
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
-  %65 = load i32, ptr %64, align 4, !tbaa !97
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %83, label %67
+59:                                               ; preds = %.lr.ph72, %81
+  %60 = phi i32 [ %55, %.lr.ph72 ], [ %83, %81 ]
+  %.15570 = phi i32 [ %.054.lcssa, %.lr.ph72 ], [ %82, %81 ]
+  %61 = zext nneg i32 %60 to i64
+  %62 = getelementptr inbounds nuw %struct.LuaNode, ptr %58, i64 %61
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 12
+  %64 = load i32, ptr %63, align 4, !tbaa !97
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %81, label %66
 
-67:                                               ; preds = %60
-  %68 = trunc i64 %indvars.iv80 to i32
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !19
-  %71 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %72 = load i64, ptr %71, align 8, !tbaa !21
-  store i64 %72, ptr %70, align 8, !tbaa !21
-  %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %74 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %75 = load i32, ptr %74, align 8
-  store i32 %75, ptr %73, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %63, i64 28
-  %77 = load i32, ptr %76, align 4
-  %78 = and i32 %77, 15
-  %79 = getelementptr inbounds nuw i8, ptr %70, i64 12
-  store i32 %78, ptr %79, align 4, !tbaa !47
-  %80 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false), !tbaa.struct !20
-  %81 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  store ptr %81, ptr %69, align 8, !tbaa !19
-  %82 = add nsw i32 %68, 1
+66:                                               ; preds = %59
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %68 = load ptr, ptr %67, align 8, !tbaa !19
+  %69 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %70 = load i64, ptr %69, align 8, !tbaa !21
+  store i64 %70, ptr %68, align 8, !tbaa !21
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %62, i64 24
+  %73 = load i32, ptr %72, align 8
+  store i32 %73, ptr %71, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %62, i64 28
+  %75 = load i32, ptr %74, align 4
+  %76 = and i32 %75, 15
+  %77 = getelementptr inbounds nuw i8, ptr %68, i64 12
+  store i32 %76, ptr %77, align 4, !tbaa !47
+  %78 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false), !tbaa.struct !20
+  %79 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  store ptr %79, ptr %67, align 8, !tbaa !19
+  %80 = add nsw i32 %.15570, 1
   br label %.loopexit
 
-83:                                               ; preds = %60
-  %indvars.iv.next81 = add i64 %indvars.iv80, 1
-  %84 = trunc i64 %indvars.iv.next81 to i32
-  %85 = sub i32 %84, %30
-  %.highbits = lshr i32 %85, %54
-  %86 = icmp eq i32 %.highbits, 0
-  br i1 %86, label %60, label %.loopexit, !llvm.loop !100
+81:                                               ; preds = %59
+  %82 = add nsw i32 %.15570, 1
+  %83 = sub nsw i32 %82, %30
+  %.highbits = lshr i32 %83, %54
+  %84 = icmp eq i32 %.highbits, 0
+  br i1 %84, label %59, label %.loopexit, !llvm.loop !100
 
-.loopexit:                                        ; preds = %83, %._crit_edge, %67, %40
-  %.2 = phi i32 [ %44, %40 ], [ %82, %67 ], [ -1, %._crit_edge ], [ -1, %83 ]
+.loopexit:                                        ; preds = %81, %._crit_edge, %66, %40
+  %.2 = phi i32 [ %44, %40 ], [ %80, %66 ], [ -1, %._crit_edge ], [ -1, %81 ]
   ret i32 %.2
 }
 

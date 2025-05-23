@@ -613,8 +613,6 @@ _ZN6ty_ide10completion11identifiers17hd360e7e8b17c2f62E.exit: ; preds = %_ZN6ty_
   %72 = icmp ult i64 %.sroa.59.0.copyload, 384307168202282326
   call void @llvm.assume(i1 %72)
   %73 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.sroa.48.0.copyload, i64 %.sroa.59.0.copyload
-  %74 = icmp sgt i64 %.sroa.07.0.copyload, -1
-  call void @llvm.assume(i1 %74)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !62
   store ptr %.sroa.48.0.copyload, ptr %7, align 8, !alias.scope !69, !noalias !73
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -669,7 +667,7 @@ define void @"_ZN119_$LT$ty_ide..completion..identifiers..Visitor$u20$as$u20$ruf
   br i1 %21, label %22, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h16a0de766e19bdf3E.exit"
 
 22:                                               ; preds = %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h257b31b94eadb15bE.exit"
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h47c30c9b5d4eb4f1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca89b2147e078e753357ed3088714164.22)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h47c30c9b5d4eb4f1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ca89b2147e078e753357ed3088714164.22)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h16a0de766e19bdf3E.exit" unwind label %23, !noalias !86
 
 23:                                               ; preds = %22

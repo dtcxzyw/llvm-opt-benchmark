@@ -26,24 +26,23 @@ define dso_local noundef nonnull ptr @sodium_bin2hex(ptr noundef nonnull returne
   %10 = zext i8 %9 to i32
   %11 = and i32 %10, 15
   %12 = lshr i32 %10, 4
-  %13 = add nuw nsw i32 %11, 65526
-  %14 = shl nuw nsw i32 %11, 8
-  %15 = add nuw nsw i32 %14, 22272
-  %.mask = and i32 %13, 55552
-  %16 = add nuw nsw i32 %15, %.mask
-  %17 = add nuw nsw i32 %12, 87
-  %18 = add nuw nsw i32 %12, 65526
-  %19 = lshr i32 %18, 8
-  %20 = and i32 %19, 217
-  %21 = add nuw nsw i32 %17, %20
-  %22 = trunc i32 %21 to i8
-  %23 = shl nuw i64 %.024, 1
-  %24 = getelementptr i8, ptr %0, i64 %23
-  store i8 %22, ptr %24, align 1
-  %25 = lshr exact i32 %16, 8
-  %26 = trunc i32 %25 to i8
-  %27 = getelementptr i8, ptr %24, i64 1
-  store i8 %26, ptr %27, align 1
+  %13 = add nuw nsw i32 %11, 87
+  %14 = add nuw nsw i32 %11, 65526
+  %15 = lshr i32 %14, 8
+  %16 = and i32 %15, 217
+  %17 = add nuw nsw i32 %13, %16
+  %18 = trunc i32 %17 to i8
+  %19 = add nuw nsw i32 %12, 87
+  %20 = add nuw nsw i32 %12, 65526
+  %21 = lshr i32 %20, 8
+  %22 = and i32 %21, 217
+  %23 = add nuw nsw i32 %19, %22
+  %24 = trunc i32 %23 to i8
+  %25 = shl nuw i64 %.024, 1
+  %26 = getelementptr i8, ptr %0, i64 %25
+  store i8 %24, ptr %26, align 1
+  %27 = getelementptr i8, ptr %26, i64 1
+  store i8 %18, ptr %27, align 1
   %28 = add nuw nsw i64 %.024, 1
   %exitcond.not = icmp eq i64 %28, %3
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4

@@ -5973,7 +5973,7 @@ define hidden void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$regex_syn
 8:                                                ; preds = %6
   %9 = getelementptr inbounds [0 x { i64, [35 x i64] }], ptr %3, i64 0, i64 %.0.i.i
   %10 = add i64 %.0.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..parse..ClassState$GT$17ha99574754c7c6427E"(ptr noalias noundef align 8 dereferenceable(288) %9)
+  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..parse..ClassState$GT$17ha99574754c7c6427E"(ptr noalias noundef nonnull align 8 dereferenceable(288) %9)
           to label %6 unwind label %13, !noalias !2947
 
 11:                                               ; preds = %15, %13
@@ -5989,7 +5989,7 @@ define hidden void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$regex_syn
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { i64, [35 x i64] }], ptr %3, i64 0, i64 %.1.i.i
   %17 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..parse..ClassState$GT$17ha99574754c7c6427E"(ptr noalias noundef align 8 dereferenceable(288) %16) #23
+  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..parse..ClassState$GT$17ha99574754c7c6427E"(ptr noalias noundef nonnull align 8 dereferenceable(288) %16) #23
           to label %11 unwind label %18, !noalias !2947
 
 18:                                               ; preds = %15
@@ -6160,7 +6160,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$regex_syn
 6:                                                ; preds = %4
   %7 = getelementptr inbounds [0 x { i64, [5 x i64] }], ptr %.val, i64 0, i64 %.0.i.i
   %8 = add i64 %.0.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$regex_syntax..hir..translate..HirFrame$GT$17hc743ff51c75513c3E"(ptr noalias noundef align 8 dereferenceable(48) %7)
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$regex_syntax..hir..translate..HirFrame$GT$17hc743ff51c75513c3E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %7)
           to label %4 unwind label %11
 
 9:                                                ; preds = %13, %11
@@ -6176,7 +6176,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$regex_syn
 13:                                               ; preds = %9
   %14 = getelementptr inbounds [0 x { i64, [5 x i64] }], ptr %.val, i64 0, i64 %.1.i.i
   %15 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$regex_syntax..hir..translate..HirFrame$GT$17hc743ff51c75513c3E"(ptr noalias noundef align 8 dereferenceable(48) %14) #23
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$regex_syntax..hir..translate..HirFrame$GT$17hc743ff51c75513c3E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %14) #23
           to label %9 unwind label %16
 
 16:                                               ; preds = %13
@@ -6880,34 +6880,27 @@ define hidden void @"_ZN4core3ptr98drop_in_place$LT$core..slice..sort..merge..Me
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17hfe445f1a6120fabaE.llvm.15241997999693184539(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #6 {
   %4 = icmp eq i64 %0, 0
-  br i1 %4, label %5, label %9
+  br i1 %4, label %5, label %7
 
-5:                                                ; preds = %9, %3
+5:                                                ; preds = %7, %3
   %6 = mul nuw i64 %2, %0
-  %7 = icmp ne i64 %1, 0
-  tail call void @llvm.assume(i1 %7)
-  %8 = icmp ult i64 %1, -9223372036854775807
-  tail call void @llvm.assume(i1 %8)
-  br label %15
+  br label %11
 
-9:                                                ; preds = %3
-  %10 = add i64 %1, -1
-  %11 = icmp sgt i64 %10, -1
-  tail call void @llvm.assume(i1 %11)
-  %12 = sub nuw i64 -9223372036854775808, %1
-  %13 = udiv i64 %12, %0
-  %14 = icmp ugt i64 %2, %13
-  br i1 %14, label %15, label %5
+7:                                                ; preds = %3
+  %8 = sub i64 -9223372036854775808, %1
+  %9 = udiv i64 %8, %0
+  %10 = icmp ugt i64 %2, %9
+  br i1 %10, label %11, label %5
 
-15:                                               ; preds = %9, %5
-  %.sroa.3.0 = phi i64 [ %6, %5 ], [ undef, %9 ]
-  %.sroa.0.0 = phi i64 [ %1, %5 ], [ 0, %9 ]
-  %16 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %17 = insertvalue { i64, i64 } %16, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %17
+11:                                               ; preds = %7, %5
+  %.sroa.3.0 = phi i64 [ %6, %5 ], [ undef, %7 ]
+  %.sroa.0.0 = phi i64 [ %1, %5 ], [ 0, %7 ]
+  %12 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, i64 } %12, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -7473,16 +7466,13 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfc
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.15241997999693184539"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3) unnamed_addr #8 {
   %5 = icmp eq i64 %3, 0
-  br i1 %5, label %9, label %6
+  br i1 %5, label %7, label %6
 
 6:                                                ; preds = %4
-  %7 = add i64 %2, -1
-  %8 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %8)
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %3, i64 noundef %2) #22
-  br label %9
+  br label %7
 
-9:                                                ; preds = %4, %6
+7:                                                ; preds = %4, %6
   ret void
 }
 
@@ -7945,7 +7935,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 25:                                               ; preds = %21
   %26 = getelementptr inbounds [0 x { i64, [27 x i64] }], ptr %3, i64 0, i64 %.1.i
   %27 = add i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..parse..GroupState$GT$17hb113873dc88ee7a6E"(ptr noalias noundef readonly align 8 dereferenceable(224) %26) #23
+  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..parse..GroupState$GT$17hb113873dc88ee7a6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %26) #23
           to label %21 unwind label %29
 
 28:                                               ; preds = %21
@@ -7977,7 +7967,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 8:                                                ; preds = %6
   %9 = getelementptr inbounds [0 x { i64, [35 x i64] }], ptr %3, i64 0, i64 %.0.i
   %10 = add i64 %.0.i, 1
-  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..parse..ClassState$GT$17ha99574754c7c6427E"(ptr noalias noundef align 8 dereferenceable(288) %9)
+  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..parse..ClassState$GT$17ha99574754c7c6427E"(ptr noalias noundef nonnull align 8 dereferenceable(288) %9)
           to label %6 unwind label %13
 
 11:                                               ; preds = %15, %13
@@ -7993,7 +7983,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { i64, [35 x i64] }], ptr %3, i64 0, i64 %.1.i
   %17 = add i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..parse..ClassState$GT$17ha99574754c7c6427E"(ptr noalias noundef align 8 dereferenceable(288) %16) #23
+  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..parse..ClassState$GT$17ha99574754c7c6427E"(ptr noalias noundef nonnull align 8 dereferenceable(288) %16) #23
           to label %11 unwind label %19
 
 18:                                               ; preds = %11
@@ -10020,7 +10010,7 @@ define void @"_ZN69_$LT$regex_syntax..ast..ClassSet$u20$as$u20$core..ops..drop..
 
 46:                                               ; preds = %.body, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %eh.lpad-body, %.body ]
-  invoke fastcc void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..ast..ClassSet$GT$$GT$17h63085c26606cf3b8E"(ptr noalias noundef align 8 dereferenceable(24) %7) #23
+  invoke fastcc void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..ast..ClassSet$GT$$GT$17h63085c26606cf3b8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #23
           to label %common.resume unwind label %91
 
 47:                                               ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17ha8bcc7af173a30efE.exit"
@@ -10871,7 +10861,7 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind will
 attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #6 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #6 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { inlinehint nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

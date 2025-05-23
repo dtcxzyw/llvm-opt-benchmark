@@ -1974,7 +1974,6 @@ ehcleanup33:                                      ; preds = %ehcleanup32, %lpad2
   br label %ehcleanup37
 
 cleanup:                                          ; preds = %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEED2Ev.exit76, %invoke.cont18
-  %retval.0 = phi i32 [ 0, %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEED2Ev.exit76 ], [ 1, %invoke.cont18 ]
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8MMVManip, i64 16), ptr %vmanip, align 8, !tbaa !41
   %m_loaded_blocks.i = getelementptr inbounds nuw i8, ptr %vmanip, i64 64
   %_M_parent.i.i.i.i.i81 = getelementptr inbounds nuw i8, ptr %vmanip, i64 80
@@ -1992,7 +1991,7 @@ terminate.lpad.i.i.i:                             ; preds = %cleanup
 _ZN8MMVManipD2Ev.exit:                            ; preds = %cleanup
   call void @_ZN16VoxelManipulatorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %vmanip) #25
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %vmanip) #25
-  ret i32 %retval.0
+  ret i32 %call19
 
 ehcleanup37:                                      ; preds = %ehcleanup33, %lpad17, %lpad10
   %.pn48.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn48.pn.pn, %ehcleanup33 ], [ %1, %lpad17 ], [ %0, %lpad10 ]

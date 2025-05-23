@@ -9928,33 +9928,26 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  br i1 %offset_top_only, label %for.body.epil, label %for.cond40.preheader.unr-lcssa
-
-for.cond40.preheader.unr-lcssa:                   ; preds = %if.end
-  store float %quad_offset, ptr %Z.i111, align 4, !tbaa !50
-  store float %quad_offset, ptr %Z.i113, align 16, !tbaa !50
-  br label %for.cond40.preheader
+  br i1 %offset_top_only, label %for.body.epil, label %for.cond40.preheader.unr-lcssa.thread
 
 for.body.epil:                                    ; preds = %if.end, %for.body.epil
   %indvars.iv.epil = phi i64 [ %indvars.iv.next.epil, %for.body.epil ], [ 0, %if.end ]
-  %epil.iter = phi i64 [ %epil.iter.next, %for.body.epil ], [ 0, %if.end ]
   %Z37.epil = getelementptr inbounds nuw [4 x %"class.irr::core::vector3d.0"], ptr %vertices, i64 0, i64 %indvars.iv.epil, i32 2
   %10 = load float, ptr %Z37.epil, align 4, !tbaa !50
   %add.epil = fadd nsz float %quad_offset, %10
   store float %add.epil, ptr %Z37.epil, align 4, !tbaa !50
   %indvars.iv.next.epil = add nuw nsw i64 %indvars.iv.epil, 1
-  %epil.iter.next = add i64 %epil.iter, 1
-  %epil.iter.cmp.not = icmp eq i64 %epil.iter.next, 2
+  %epil.iter.cmp.not = icmp eq i64 %indvars.iv.next.epil, 2
   br i1 %epil.iter.cmp.not, label %for.cond40.preheader.loopexit, label %for.body.epil, !llvm.loop !175
 
 for.cond40.preheader.loopexit:                    ; preds = %for.body.epil
   %.pre = load float, ptr %Z.i, align 8, !tbaa !50
-  %.pre1 = load float, ptr %Z.i115, align 4, !tbaa !50
+  %.pre2 = load float, ptr %Z.i115, align 4, !tbaa !50
   br label %for.cond40.preheader
 
-for.cond40.preheader:                             ; preds = %for.cond40.preheader.unr-lcssa, %for.cond40.preheader.loopexit
-  %11 = phi float [ %.pre1, %for.cond40.preheader.loopexit ], [ %quad_offset, %for.cond40.preheader.unr-lcssa ]
-  %12 = phi float [ %.pre, %for.cond40.preheader.loopexit ], [ %quad_offset, %for.cond40.preheader.unr-lcssa ]
+for.cond40.preheader:                             ; preds = %for.cond40.preheader.loopexit, %for.cond40.preheader.unr-lcssa.thread
+  %11 = phi float [ %.pre2, %for.cond40.preheader.loopexit ], [ %quad_offset, %for.cond40.preheader.unr-lcssa.thread ]
+  %12 = phi float [ %.pre, %for.cond40.preheader.loopexit ], [ %quad_offset, %for.cond40.preheader.unr-lcssa.thread ]
   %rotate_degree = getelementptr inbounds nuw i8, ptr %this, i64 644
   %13 = load float, ptr %rotate_degree, align 4, !tbaa !177
   %add45 = fadd nsz float %rotation, %13
@@ -10039,6 +10032,11 @@ for.cond40.preheader:                             ; preds = %for.cond40.preheade
     i8 3, label %for.body63.us290.preheader
     i8 4, label %for.body63.us298.preheader
   ]
+
+for.cond40.preheader.unr-lcssa.thread:            ; preds = %if.end
+  store float %quad_offset, ptr %Z.i111, align 4, !tbaa !50
+  store float %quad_offset, ptr %Z.i113, align 16, !tbaa !50
+  br label %for.cond40.preheader
 
 for.body63.us306.preheader:                       ; preds = %for.cond40.preheader
   %51 = fpext <2 x float> %29 to <2 x double>

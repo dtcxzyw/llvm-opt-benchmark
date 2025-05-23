@@ -833,7 +833,7 @@ define void @_ZN6ty_ide5hover5hover17h3c80eefaed96c36bE(ptr dead_on_unwind noali
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %68, ptr %.sroa.5.0..sroa_idx, align 8
-  call fastcc void @"_ZN6ty_ide5hover5hover28_$u7b$$u7b$closure$u7d$$u7d$17haa211eca559c4616E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %22)
+  call fastcc void @"_ZN6ty_ide5hover5hover28_$u7b$$u7b$closure$u7d$$u7d$17haa211eca559c4616E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
@@ -925,15 +925,13 @@ define void @"_ZN82_$LT$ty_ide..hover..Hover$u20$as$u20$core..iter..traits..coll
   %3 = icmp ult i64 %.sroa.5.0.copyload, 576460752303423488
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr inbounds nuw { { i8, [15 x i8] } }, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
-  %5 = icmp sgt i64 %.sroa.0.0.copyload, -1
-  tail call void @llvm.assume(i1 %5)
   store ptr %.sroa.4.0.copyload, ptr %0, align 8, !alias.scope !148, !noalias !151
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.copyload, ptr %6, align 8, !alias.scope !148, !noalias !151
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.4.0.copyload, ptr %7, align 8, !alias.scope !148, !noalias !151
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %4, ptr %8, align 8, !alias.scope !148, !noalias !151
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.0.0.copyload, ptr %5, align 8, !alias.scope !148, !noalias !151
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.4.0.copyload, ptr %6, align 8, !alias.scope !148, !noalias !151
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %4, ptr %7, align 8, !alias.scope !148, !noalias !151
   ret void
 }
 

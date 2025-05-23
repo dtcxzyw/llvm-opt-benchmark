@@ -180,21 +180,19 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
   %14 = zext nneg i8 %8 to i64
   %15 = add nsw i64 %14, -5
   %16 = select i1 %13, i64 %15, i64 0
-  %17 = icmp samesign ult i8 %9, 6
-  %18 = zext nneg i8 %9 to i64
-  %19 = add nsw i64 %18, -5
-  %20 = select i1 %17, i64 0, i64 %19
-  %21 = icmp eq i64 %16, %20
-  br i1 %21, label %22, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17he65ca3e38e2164f5E.exit.thread.i.i"
+  %17 = add nsw i8 %9, -6
+  %18 = icmp ult i8 %17, 4
+  %19 = zext nneg i8 %9 to i64
+  %20 = add nsw i64 %19, -5
+  %21 = select i1 %18, i64 %20, i64 0
+  %22 = icmp eq i64 %16, %21
+  br i1 %22, label %23, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17he65ca3e38e2164f5E.exit.thread.i.i"
 
-22:                                               ; preds = %11
+23:                                               ; preds = %11
   switch i64 %16, label %61 [
-    i64 0, label %23
+    i64 0, label %24
     i64 4, label %57
   ]
-
-23:                                               ; preds = %22
-  br i1 %17, label %24, label %61
 
 24:                                               ; preds = %23
   %25 = icmp eq i8 %8, %9
@@ -295,7 +293,7 @@ default.unreachable63.i.i.i.i.i.i:                ; preds = %26
   %56 = icmp eq i32 %bcmp.i.i.i59.i.i.i.i.i.i, 0
   br i1 %56, label %61, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17he65ca3e38e2164f5E.exit.thread.i.i"
 
-57:                                               ; preds = %22
+57:                                               ; preds = %23
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.59.0.copyload, %.sroa.56.0.copyload.i.i
   br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17he65ca3e38e2164f5E.exit.i.i", label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17he65ca3e38e2164f5E.exit.thread.i.i"
 
@@ -308,7 +306,7 @@ default.unreachable63.i.i.i.i.i.i:                ; preds = %26
   %60 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %60, label %61, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17he65ca3e38e2164f5E.exit.thread.i.i"
 
-61:                                               ; preds = %22, %23, %53, %49, %39, %28, %36, %47, %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17he65ca3e38e2164f5E.exit.i.i"
+61:                                               ; preds = %23, %53, %49, %39, %28, %36, %47, %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17he65ca3e38e2164f5E.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !7
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
@@ -503,7 +501,7 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h2160c1bbab8d3b8a
   %.sink6.i.sroa.phi.i = phi ptr [ %.sink6.i.sroa.gep.i, %14 ], [ %.sink6.i.sroa.gep41.i, %12 ]
   %.sink.i.i = phi i64 [ %15, %14 ], [ 0, %12 ]
   store i64 %.sink.i.i, ptr %.sink6.i.sroa.phi.i, align 8, !alias.scope !89, !noalias !94
-  call fastcc void @_ZN5alloc7raw_vec11finish_grow17hb8ac8c6ded75dd10E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, i64 noundef 8, i64 noundef %8, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3), !noalias !86
+  call fastcc void @_ZN5alloc7raw_vec11finish_grow17hb8ac8c6ded75dd10E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, i64 noundef 8, i64 noundef %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3), !noalias !86
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !86
   %18 = load i64, ptr %4, align 8, !range !95, !noalias !86, !noundef !4
   %trunc.i = trunc nuw i64 %18 to i1
@@ -685,7 +683,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14grow_amort
   %.sink6.i.sroa.phi = phi ptr [ %.sink6.i.sroa.gep, %33 ], [ %.sink6.i.sroa.gep41, %31 ]
   %.sink.i = phi i64 [ %34, %33 ], [ 0, %31 ]
   store i64 %.sink.i, ptr %.sink6.i.sroa.phi, align 8, !alias.scope !102, !noalias !105
-  call fastcc void @_ZN5alloc7raw_vec11finish_grow17hb8ac8c6ded75dd10E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, i64 noundef %3, i64 noundef %26, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6)
+  call fastcc void @_ZN5alloc7raw_vec11finish_grow17hb8ac8c6ded75dd10E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7, i64 noundef %3, i64 noundef %26, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %37 = load i64, ptr %7, align 8, !range !95, !noundef !4
   %trunc = trunc nuw i64 %37 to i1
@@ -931,7 +929,7 @@ define hidden void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve
   %.sink6.i.sroa.phi.i = phi ptr [ %.sink6.i.sroa.gep.i, %30 ], [ %.sink6.i.sroa.gep41.i, %28 ]
   %.sink.i.i = phi i64 [ %31, %30 ], [ 0, %28 ]
   store i64 %.sink.i.i, ptr %.sink6.i.sroa.phi.i, align 8, !alias.scope !115, !noalias !120
-  call fastcc void @_ZN5alloc7raw_vec11finish_grow17hb8ac8c6ded75dd10E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, i64 noundef range(i64 1, -9223372036854775807) %3, i64 noundef %23, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6), !noalias !112
+  call fastcc void @_ZN5alloc7raw_vec11finish_grow17hb8ac8c6ded75dd10E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7, i64 noundef range(i64 1, -9223372036854775807) %3, i64 noundef %23, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6), !noalias !112
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !112
   %34 = load i64, ptr %7, align 8, !range !95, !noalias !112, !noundef !4
   %trunc.i = trunc nuw i64 %34 to i1

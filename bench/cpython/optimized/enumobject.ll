@@ -1420,49 +1420,51 @@ define internal ptr @enum_new(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   %5 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %5, align 8, !tbaa !112
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %9, label %.thread
+  br i1 %.not, label %8, label %.thread
 
 .thread:                                          ; preds = %3
   %6 = getelementptr i8, ptr %2, i64 16
-  %.val31 = load i64, ptr %6, align 8, !tbaa !113
-  %7 = add i64 %.val31, %.val
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %13
+  %.val27 = load i64, ptr %6, align 8, !tbaa !113
+  %7 = add i64 %.val27, %.val
+  br label %12
 
-9:                                                ; preds = %3
-  %10 = add i64 %.val, -1
-  %11 = icmp ult i64 %10, 2
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br i1 %11, label %.thread33, label %13
+8:                                                ; preds = %3
+  %9 = add i64 %.val, -1
+  %10 = icmp ult i64 %9, 2
+  br i1 %10, label %.thread29, label %12
 
-13:                                               ; preds = %9, %.thread
-  %14 = phi ptr [ %8, %.thread ], [ %12, %9 ]
-  %15 = phi i64 [ %7, %.thread ], [ %.val, %9 ]
-  %16 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %14, i64 noundef %.val, ptr noundef %2, ptr noundef null, ptr noundef nonnull @enum_new._parser, i32 noundef 1, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4) #4
-  %.not29 = icmp eq ptr %16, null
-  br i1 %.not29, label %25, label %.thread33
+.thread29:                                        ; preds = %8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  br label %16
 
-.thread33:                                        ; preds = %9, %13
-  %17 = phi ptr [ %16, %13 ], [ %12, %9 ]
-  %18 = phi i64 [ %15, %13 ], [ %.val, %9 ]
+12:                                               ; preds = %8, %.thread
+  %13 = phi i64 [ %7, %.thread ], [ %.val, %8 ]
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %15 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %14, i64 noundef %.val, ptr noundef %2, ptr noundef null, ptr noundef nonnull @enum_new._parser, i32 noundef 1, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4) #4
+  %.not25 = icmp eq ptr %15, null
+  br i1 %.not25, label %25, label %16
+
+16:                                               ; preds = %.thread29, %12
+  %17 = phi ptr [ %11, %.thread29 ], [ %15, %12 ]
+  %18 = phi i64 [ %.val, %.thread29 ], [ %13, %12 ]
   %19 = load ptr, ptr %17, align 8, !tbaa !29
-  %.not30 = icmp eq i64 %18, 1
-  br i1 %.not30, label %23, label %20
+  %.not26 = icmp eq i64 %18, 1
+  br i1 %.not26, label %23, label %20
 
-20:                                               ; preds = %.thread33
+20:                                               ; preds = %16
   %21 = getelementptr i8, ptr %17, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !29
   br label %23
 
-23:                                               ; preds = %.thread33, %20
-  %.0 = phi ptr [ %22, %20 ], [ null, %.thread33 ]
+23:                                               ; preds = %16, %20
+  %.0 = phi ptr [ %22, %20 ], [ null, %16 ]
   %24 = call fastcc ptr @enum_new_impl(ptr noundef %0, ptr noundef %19, ptr noundef %.0)
   br label %25
 
-25:                                               ; preds = %13, %23
-  %.026 = phi ptr [ %24, %23 ], [ null, %13 ]
+25:                                               ; preds = %12, %23
+  %.022 = phi ptr [ %24, %23 ], [ null, %12 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #4
-  ret ptr %.026
+  ret ptr %.022
 }
 
 declare void @PyObject_GC_Del(ptr noundef) #1

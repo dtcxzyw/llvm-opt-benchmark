@@ -823,52 +823,46 @@ define internal fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef read
   %9 = getelementptr inbounds [6 x ptr], ptr %6, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !93
   %11 = load i32, ptr %10, align 8, !tbaa !91
-  %12 = zext i32 %11 to i64
-  %13 = lshr i64 %12, 6
-  %14 = getelementptr inbounds nuw i64, ptr %2, i64 %13
-  %15 = load i64, ptr %14, align 8, !tbaa !94
-  %16 = and i64 %12, 63
+  %12 = lshr i32 %11, 6
+  %.zext.i = zext nneg i32 %12 to i64
+  %13 = getelementptr inbounds nuw i64, ptr %2, i64 %.zext.i
+  %14 = load i64, ptr %13, align 8, !tbaa !94
+  %15 = and i32 %11, 63
+  %16 = zext nneg i32 %15 to i64
   %17 = shl nuw i64 1, %16
-  %18 = and i64 %17, %15
+  %18 = and i64 %17, %14
   %.not19 = icmp eq i64 %18, 0
   br i1 %.not19, label %19, label %.loopexit
 
 19:                                               ; preds = %5
-  %20 = and i32 %11, 63
-  %21 = zext nneg i32 %20 to i64
-  %22 = shl nuw i64 1, %21
-  %23 = lshr i32 %11, 6
-  %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw i64, ptr %2, i64 %24
-  %26 = load i64, ptr %25, align 8, !tbaa !94
-  %27 = or i64 %26, %22
-  store i64 %27, ptr %25, align 8, !tbaa !94
-  %28 = getelementptr inbounds nuw i8, ptr %10, i64 88
-  %.01520 = load ptr, ptr %28, align 8, !tbaa !27
+  %20 = or i64 %17, %14
+  store i64 %20, ptr %13, align 8, !tbaa !94
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 88
+  %.01520 = load ptr, ptr %21, align 8, !tbaa !27
   %.not21 = icmp eq ptr %.01520, null
   br i1 %.not21, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %19, %33
-  %.01523 = phi ptr [ %.015, %33 ], [ %.01520, %19 ]
-  %.022 = phi i1 [ %.1, %33 ], [ false, %19 ]
-  %29 = load ptr, ptr %.01523, align 8, !tbaa !39
-  %30 = tail call fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef %0, ptr noundef %29, ptr noundef %2)
-  br i1 %30, label %31, label %33
+.lr.ph:                                           ; preds = %19, %26
+  %.01523 = phi ptr [ %.015, %26 ], [ %.01520, %19 ]
+  %.022 = phi i1 [ %.1, %26 ], [ false, %19 ]
+  %22 = load ptr, ptr %.01523, align 8, !tbaa !39
+  %23 = tail call fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef %0, ptr noundef %22, ptr noundef %2)
+  br i1 %23, label %24, label %26
 
-31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds nuw i8, ptr %.01523, i64 48
-  store i8 1, ptr %32, align 8, !tbaa !92
-  br label %33
+24:                                               ; preds = %.lr.ph
+  %25 = getelementptr inbounds nuw i8, ptr %.01523, i64 48
+  store i8 1, ptr %25, align 8, !tbaa !92
+  br label %26
 
-33:                                               ; preds = %31, %.lr.ph
-  %.1 = phi i1 [ true, %31 ], [ %.022, %.lr.ph ]
-  %34 = getelementptr inbounds nuw i8, ptr %.01523, i64 32
-  %.015 = load ptr, ptr %34, align 8, !tbaa !27
+26:                                               ; preds = %24, %.lr.ph
+  %.1 = phi i1 [ true, %24 ], [ %.022, %.lr.ph ]
+  %27 = getelementptr inbounds nuw i8, ptr %.01523, i64 32
+  %.015 = load ptr, ptr %27, align 8, !tbaa !27
   %.not = icmp eq ptr %.015, null
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %33, %19, %5, %3
-  %.016 = phi i1 [ true, %3 ], [ false, %5 ], [ false, %19 ], [ %.1, %33 ]
+.loopexit:                                        ; preds = %26, %19, %5, %3
+  %.016 = phi i1 [ true, %3 ], [ false, %5 ], [ false, %19 ], [ %.1, %26 ]
   ret i1 %.016
 }
 

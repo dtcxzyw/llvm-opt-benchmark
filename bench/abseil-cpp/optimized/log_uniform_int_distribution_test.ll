@@ -1279,7 +1279,7 @@ _ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE9push_b
 define internal void @_ZN12_GLOBAL__N_151gtest_AllLogUniformIntChiSquaredTest_EvalGenerator_Ev(ptr dead_on_unwind noalias writable sret(%"class.testing::internal::ParamGenerator") align 8 %0) #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.72", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #35
-  call fastcc void @_ZN12_GLOBAL__N_19GenParamsEv(ptr dead_on_unwind noalias writable align 8 %2)
+  call fastcc void @_ZN12_GLOBAL__N_19GenParamsEv(ptr dead_on_unwind noalias nonnull writable align 8 %2)
   %3 = load ptr, ptr %2, align 8, !tbaa !37, !noalias !39
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !37, !noalias !39
@@ -1333,7 +1333,7 @@ define internal void @_ZN12_GLOBAL__N_154gtest_AllLogUniformIntChiSquaredTest_Ev
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #35
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #35
-  call fastcc void @_ZN12_GLOBAL__N_19GenParamsEv(ptr dead_on_unwind noalias writable align 8 %4)
+  call fastcc void @_ZN12_GLOBAL__N_19GenParamsEv(ptr dead_on_unwind noalias nonnull writable align 8 %4)
   %7 = load ptr, ptr %4, align 8, !tbaa !37, !noalias !44
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !37, !noalias !44
@@ -12494,10 +12494,11 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   br i1 %875, label %876, label %.loopexit.i.i.i48.i, !prof !57
 
 876:                                              ; preds = %869
-  %.lhs.trunc.i.i.i.i = sub nuw nsw i16 256, %872
-  %877 = urem i16 %.lhs.trunc.i.i.i.i, %872
+  %.lhs.trunc.i.i.i.i = xor i8 %858, -1
+  %877 = urem i8 %.lhs.trunc.i.i.i.i, %863
+  %.zext.i.i.i.i = zext i8 %877 to i16
   %878 = and i16 %873, 255
-  %879 = icmp samesign ugt i16 %877, %878
+  %879 = icmp samesign ult i16 %878, %.zext.i.i.i.i
   br i1 %879, label %.lr.ph.i.i.i52.i, label %.loopexit.i.i.i48.i
 
 .lr.ph.i.i.i52.i:                                 ; preds = %876, %.lr.ph.i.i.i52.i
@@ -12520,7 +12521,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %885 = and i16 %884, 255
   %886 = mul nuw i16 %885, %872
   %887 = and i16 %886, 255
-  %888 = icmp samesign ugt i16 %877, %887
+  %888 = icmp samesign ult i16 %887, %.zext.i.i.i.i
   br i1 %888, label %.lr.ph.i.i.i52.i, label %.loopexit.i.i.i48.i, !llvm.loop !365
 
 .loopexit.i.i.i48.i:                              ; preds = %.lr.ph.i.i.i52.i, %876, %869
@@ -40347,10 +40348,11 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   br i1 %875, label %876, label %.loopexit.i.i.i48.i, !prof !57
 
 876:                                              ; preds = %869
-  %.lhs.trunc.i.i.i.i = sub nuw nsw i16 256, %872
-  %877 = urem i16 %.lhs.trunc.i.i.i.i, %872
+  %.lhs.trunc.i.i.i.i = xor i8 %858, -1
+  %877 = urem i8 %.lhs.trunc.i.i.i.i, %863
+  %.zext.i.i.i.i = zext i8 %877 to i16
   %878 = and i16 %873, 255
-  %879 = icmp samesign ugt i16 %877, %878
+  %879 = icmp samesign ult i16 %878, %.zext.i.i.i.i
   br i1 %879, label %.lr.ph.i.i.i52.i, label %.loopexit.i.i.i48.i
 
 .lr.ph.i.i.i52.i:                                 ; preds = %876, %.lr.ph.i.i.i52.i
@@ -40373,7 +40375,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %885 = and i16 %884, 255
   %886 = mul nuw i16 %885, %872
   %887 = and i16 %886, 255
-  %888 = icmp samesign ugt i16 %877, %887
+  %888 = icmp samesign ult i16 %887, %.zext.i.i.i.i
   br i1 %888, label %.lr.ph.i.i.i52.i, label %.loopexit.i.i.i48.i, !llvm.loop !649
 
 .loopexit.i.i.i48.i:                              ; preds = %.lr.ph.i.i.i52.i, %876, %869
@@ -65640,7 +65642,7 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIc
   %12 = load i64, ptr %11, align 8, !tbaa !891
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = trunc i8 %14 to i1
+  %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %31
 
 16:                                               ; preds = %5
@@ -67926,7 +67928,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1
   %794 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %795 = load i32, ptr %556, align 8, !tbaa !32
   store i32 %795, ptr %794, align 8, !tbaa !32
-  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_133LogUniformIntDistributionTypeTestENS0_11TemplateSelINS2_52LogUniformIntDistributionTypeTest_SerializeTest_TestEEENS0_5TypesIlJhtjmEEEE8RegisterEPKcNS0_12CodeLocationESB_SB_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr noundef %33, ptr noundef nonnull readonly align 8 dereferenceable(24) %63)
+  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_133LogUniformIntDistributionTypeTestENS0_11TemplateSelINS2_52LogUniformIntDistributionTypeTest_SerializeTest_TestEEENS0_5TypesIlJhtjmEEEE8RegisterEPKcNS0_12CodeLocationESB_SB_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr noundef nonnull %33, ptr noundef nonnull readonly align 8 dereferenceable(24) %63)
           to label %796 unwind label %878
 
 796:                                              ; preds = %_ZN7testing8internal12CodeLocationC2EOS1_.exit.i.i.i.i
@@ -68902,7 +68904,7 @@ _ZN7testing8internal12CodeLocationC2ENSt7__cxx1112basic_stringIcSt11char_traitsI
   store i8 0, ptr %1114, align 8, !tbaa !17
   %1129 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i32 196, ptr %1129, align 8, !tbaa !32
-  %1130 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_127LogUniformIntChiSquaredTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(80) %1107, ptr noundef %16, ptr noundef %17)
+  %1130 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_127LogUniformIntChiSquaredTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(80) %1107, ptr noundef nonnull %16, ptr noundef nonnull %17)
           to label %1131 unwind label %1272
 
 1131:                                             ; preds = %_ZN7testing8internal12CodeLocationC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i.i
@@ -69468,7 +69470,7 @@ _ZN7testing8internal12CodeLocationC2ENSt7__cxx1112basic_stringIcSt11char_traitsI
   store i8 0, ptr %1316, align 8, !tbaa !17
   %1331 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 247, ptr %1331, align 8, !tbaa !32
-  %1332 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_127LogUniformIntChiSquaredTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(80) %1309, ptr noundef %8, ptr noundef %9)
+  %1332 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN12_GLOBAL__N_127LogUniformIntChiSquaredTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(80) %1309, ptr noundef nonnull %8, ptr noundef nonnull %9)
           to label %._crit_edge.i.i13.i unwind label %1423
 
 ._crit_edge.i.i13.i:                              ; preds = %_ZN7testing8internal12CodeLocationC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i22

@@ -5552,6 +5552,7 @@ entry:
   %conv3.i.i = zext i16 %year.coerce.fr.i to i32
   %add.i.i = add nuw nsw i32 %conv3.i.i, 4800
   %sub5.i.i = sub nsw i32 %add.i.i, %div.i.i
+  %conv6.i.i = trunc i32 %sub5.i.i to i16
   %0 = trunc nsw i32 %div.i.i to i16
   %1 = mul i16 %0, 12
   %2 = add i16 %m.coerce, -3
@@ -5560,21 +5561,21 @@ entry:
   %conv16.i.i = zext i16 %conv13.i.i to i32
   %mul17.i.i = mul nuw nsw i32 %conv16.i.i, 153
   %add18.i.i = add nuw nsw i32 %mul17.i.i, 2
-  %div19.i.i = udiv i32 %add18.i.i, 5
+  %div191.i.i = udiv i32 %add18.i.i, 5
   %conv22.i.i = and i32 %sub5.i.i, 65535
   %mul23.i.i = mul nuw nsw i32 %conv22.i.i, 365
-  %div278.i.i = lshr i32 %conv22.i.i, 2
-  %div31.lhs.trunc.i.i = trunc i32 %sub5.i.i to i16
-  %div319.i.i = udiv i16 %div31.lhs.trunc.i.i, 100
-  %div31.zext.i.i = zext nneg i16 %div319.i.i to i32
-  %div3510.i.i = udiv i16 %div31.lhs.trunc.i.i, 400
-  %div35.zext.i.i = zext nneg i16 %div3510.i.i to i32
+  %div272315.i.i = lshr i32 %sub5.i.i, 2
+  %div272.zext.i.i = and i32 %div272315.i.i, 16383
+  %div3145.i.i = udiv i16 %conv6.i.i, 100
+  %conv32.i.i = zext nneg i16 %div3145.i.i to i32
+  %div3567.i.i = udiv i16 %conv6.i.i, 400
+  %conv36.i.i = zext nneg i16 %div3567.i.i to i32
   %add21.i.i = add nsw i32 %conv15.i.i, -32045
   %add25.i.i = add nsw i32 %add21.i.i, %mul23.i.i
-  %add29.i.i = add nsw i32 %add25.i.i, %div278.i.i
-  %sub33.i.i = sub nsw i32 %add29.i.i, %div31.zext.i.i
-  %add37.i.i = add nsw i32 %sub33.i.i, %div35.zext.i.i
-  %sub38.i.i = add nsw i32 %add37.i.i, %div19.i.i
+  %add29.i.i = add nsw i32 %add25.i.i, %div272.zext.i.i
+  %sub33.i.i = sub nsw i32 %add29.i.i, %conv32.i.i
+  %add37.i.i = add nsw i32 %sub33.i.i, %conv36.i.i
+  %sub38.i.i = add nsw i32 %add37.i.i, %div191.i.i
   store i32 %sub38.i.i, ptr %this, align 4, !tbaa !65
   switch i16 %m.coerce, label %sw.default.i [
     i16 2, label %sw.bb.i
@@ -5585,15 +5586,15 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %3 = and i16 %year.coerce.fr.i, 3
-  %tobool.not.i.i = icmp eq i16 %3, 0
+  %rem12.i.i = and i16 %year.coerce.fr.i, 3
+  %tobool.not.i.i = icmp eq i16 %rem12.i.i, 0
   br i1 %tobool.not.i.i, label %land.rhs.i.i, label %_ZN5boost9date_time23gregorian_calendar_baseINS0_19year_month_day_baseINS_9gregorian9greg_yearENS3_10greg_monthENS3_8greg_dayEEEjE16end_of_month_dayES4_S5_.exit
 
 land.rhs.i.i:                                     ; preds = %sw.bb.i
-  %4 = urem i16 %year.coerce.fr.i, 100
-  %tobool5.not.i.i = icmp ne i16 %4, 0
-  %5 = urem i16 %year.coerce.fr.i, 400
-  %tobool9.not.i.i = icmp eq i16 %5, 0
+  %rem434.i.i = urem i16 %year.coerce.fr.i, 100
+  %tobool5.not.i.i = icmp ne i16 %rem434.i.i, 0
+  %rem856.i.i = urem i16 %year.coerce.fr.i, 400
+  %tobool9.not.i.i = icmp eq i16 %rem856.i.i, 0
   %or.cond.i = or i1 %tobool5.not.i.i, %tobool9.not.i.i
   %spec.select.i = select i1 %or.cond.i, i16 29, i16 28
   br label %_ZN5boost9date_time23gregorian_calendar_baseINS0_19year_month_day_baseINS_9gregorian9greg_yearENS3_10greg_monthENS3_8greg_dayEEEjE16end_of_month_dayES4_S5_.exit
@@ -5623,34 +5624,34 @@ invoke.cont28:                                    ; preds = %invoke.cont26
   unreachable
 
 lpad25:                                           ; preds = %if.then
-  %6 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad27:                                           ; preds = %invoke.cont26
-  %7 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #29
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad27, %lpad25
-  %.pn = phi { ptr, i32 } [ %7, %lpad27 ], [ %6, %lpad25 ]
-  %8 = load ptr, ptr %ref.tmp23, align 8, !tbaa !8
-  %9 = getelementptr inbounds nuw i8, ptr %ref.tmp23, i64 16
-  %cmp.i.i.i = icmp eq ptr %8, %9
+  %.pn = phi { ptr, i32 } [ %4, %lpad27 ], [ %3, %lpad25 ]
+  %5 = load ptr, ptr %ref.tmp23, align 8, !tbaa !8
+  %6 = getelementptr inbounds nuw i8, ptr %ref.tmp23, i64 16
+  %cmp.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %ehcleanup
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp23, i64 8
-  %10 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !12
-  %cmp3.i.i.i = icmp ult i64 %10, 16
+  %7 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !12
+  %cmp3.i.i.i = icmp ult i64 %7, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
   br label %ehcleanup29
 
 if.then.i.i:                                      ; preds = %ehcleanup
-  %11 = load i64, ptr %9, align 8, !tbaa !13
-  %add.i.i.i = add i64 %11, 1
-  call void @_ZdlPvm(ptr noundef %8, i64 noundef %add.i.i.i) #31
+  %8 = load i64, ptr %6, align 8, !tbaa !13
+  %add.i.i.i = add i64 %8, 1
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef %add.i.i.i) #31
   br label %ehcleanup29
 
 ehcleanup29:                                      ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
@@ -15065,18 +15066,19 @@ entry:
   %conv12.i = add i32 %3, %2
   %conv15.i = zext i16 %conv6.i to i32
   %add16.i = add nuw nsw i32 %conv15.i, %ymd.sroa.5.0.extract.trunc
-  %div188.i = lshr i32 %conv15.i, 2
-  %add19.i = add nuw nsw i32 %add16.i, %div188.i
-  %div219.i = udiv i16 %conv6.i, 100
-  %div21.zext.i = zext nneg i16 %div219.i to i32
-  %sub22.i = sub nsw i32 %add19.i, %div21.zext.i
-  %div2410.i = udiv i16 %conv6.i, 400
-  %div24.zext.i = zext nneg i16 %div2410.i to i32
-  %add25.i = add nsw i32 %sub22.i, %div24.zext.i
+  %div181215.i = lshr i16 %conv6.i, 2
+  %div181.zext.i = zext nneg i16 %div181215.i to i32
+  %add19.i = add nuw nsw i32 %add16.i, %div181.zext.i
+  %div2134.i = udiv i16 %conv6.i, 100
+  %div213.zext.i = zext nneg i16 %div2134.i to i32
+  %sub22.i = sub nsw i32 %add19.i, %div213.zext.i
+  %div2456.i = udiv i16 %conv6.i, 400
+  %div245.zext.i = zext nneg i16 %div2456.i to i32
+  %add25.i = add nsw i32 %sub22.i, %div245.zext.i
   %conv26.i = and i32 %conv12.i, 65535
   %mul27.i = mul nuw nsw i32 %conv26.i, 31
-  %div28.i = udiv i32 %mul27.i, 12
-  %add29.i = add nsw i32 %add25.i, %div28.i
+  %div287.i = udiv i32 %mul27.i, 12
+  %add29.i = add nsw i32 %add25.i, %div287.i
   %rem.i = srem i32 %add29.i, 7
   %cmp7.i.i.i = icmp slt i32 %rem.i, 0
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %_ZN5boost9gregorian12greg_weekdayC2Et.exit

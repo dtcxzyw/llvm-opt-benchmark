@@ -14583,12 +14583,14 @@ define internal range(i32 3, 65539) i32 @decode_gtp_ms_time_zone(ptr noundef %0,
   %23 = add nuw nsw i8 %22, %20
   %24 = load i32, ptr @hf_gtp_timezone, align 4
   %25 = zext nneg i8 %23 to i32
-  %26 = lshr i32 %25, 2
-  %27 = and i32 %25, 3
-  %28 = mul nuw nsw i32 %27, 15
-  %29 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %13, i32 noundef %24, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef %25, ptr noundef nonnull @.str.1818, i32 noundef %19, i32 noundef %26, i32 noundef %28)
+  %26 = lshr i8 %23, 2
+  %.zext = zext nneg i8 %26 to i32
+  %27 = and i8 %23, 3
+  %narrow = mul nuw nsw i8 %27, 15
+  %28 = zext nneg i8 %narrow to i32
+  %29 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %13, i32 noundef %24, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef %25, ptr noundef nonnull @.str.1818, i32 noundef %19, i32 noundef %.zext, i32 noundef %28)
   %30 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.1818, i32 noundef %19, i32 noundef %26, i32 noundef %28)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.1818, i32 noundef %19, i32 noundef %.zext, i32 noundef %28)
   %31 = add i32 %1, 4
   %32 = load i32, ptr @hf_gtp_timezone_dst, align 4
   %33 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %32, ptr noundef %0, i32 noundef %31, i32 noundef 1, i32 noundef 0)

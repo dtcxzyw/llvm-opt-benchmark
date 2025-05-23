@@ -2007,16 +2007,13 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h75
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.4129427866461079095"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3) unnamed_addr #10 {
   %5 = icmp eq i64 %3, 0
-  br i1 %5, label %9, label %6
+  br i1 %5, label %7, label %6
 
 6:                                                ; preds = %4
-  %7 = add i64 %2, -1
-  %8 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %8)
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %3, i64 noundef %2) #25
-  br label %9
+  br label %7
 
-9:                                                ; preds = %4, %6
+7:                                                ; preds = %4, %6
   ret void
 }
 
@@ -2660,7 +2657,7 @@ _ZN4ring2ec7suite_b11private_key28scalar_from_big_endian_bytes17hf6ce9f7db3a0bd5
   br i1 %trunc.i, label %31, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h41212762cd90b282E.exit"
 
 31:                                               ; preds = %_ZN4ring2ec7suite_b11private_key28scalar_from_big_endian_bytes17hf6ce9f7db3a0bd52E.exit
-  call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.1862a516eb916f7c09f10e28e7cfd39f.0, i64 noundef 43, ptr noundef nonnull align 1 %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1862a516eb916f7c09f10e28e7cfd39f.1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1862a516eb916f7c09f10e28e7cfd39f.12) #24, !noalias !1135
+  call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.1862a516eb916f7c09f10e28e7cfd39f.0, i64 noundef 43, ptr noundef nonnull align 1 %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1862a516eb916f7c09f10e28e7cfd39f.1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1862a516eb916f7c09f10e28e7cfd39f.12) #24, !noalias !1135
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h41212762cd90b282E.exit": ; preds = %_ZN4ring2ec7suite_b11private_key28scalar_from_big_endian_bytes17hf6ce9f7db3a0bd52E.exit
@@ -3568,13 +3565,13 @@ switch.lookup:
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @_ZN4ring2ec7suite_b4ecdh9p256_ecdh17hafa0e3d109e35c6dE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #2 {
-  %6 = tail call fastcc noundef zeroext i1 @_ZN4ring2ec7suite_b4ecdh4ecdh17ha085280e0cc1ca70E(ptr noalias noundef readonly align 8 dereferenceable(32) @_ZN4ring2ec7suite_b3ops4p25615PRIVATE_KEY_OPS17h70b2070f95c33558E, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN4ring2ec7suite_b3ops4p25614PUBLIC_KEY_OPS17hb164660f63f3e9f7E, ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
+  %6 = tail call fastcc noundef zeroext i1 @_ZN4ring2ec7suite_b4ecdh4ecdh17ha085280e0cc1ca70E(ptr noalias noundef readonly align 8 dereferenceable(32) @_ZN4ring2ec7suite_b3ops4p25615PRIVATE_KEY_OPS17h70b2070f95c33558E, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN4ring2ec7suite_b3ops4p25614PUBLIC_KEY_OPS17hb164660f63f3e9f7E, ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   ret i1 %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @_ZN4ring2ec7suite_b4ecdh9p384_ecdh17hf47b37bcf25189aeE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #2 {
-  %6 = tail call fastcc noundef zeroext i1 @_ZN4ring2ec7suite_b4ecdh4ecdh17ha085280e0cc1ca70E(ptr noalias noundef readonly align 8 dereferenceable(32) @_ZN4ring2ec7suite_b3ops4p38415PRIVATE_KEY_OPS17h32f5a334fe87dd80E, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN4ring2ec7suite_b3ops4p38414PUBLIC_KEY_OPS17ha411ba8b0716c995E, ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
+  %6 = tail call fastcc noundef zeroext i1 @_ZN4ring2ec7suite_b4ecdh4ecdh17ha085280e0cc1ca70E(ptr noalias noundef readonly align 8 dereferenceable(32) @_ZN4ring2ec7suite_b3ops4p38415PRIVATE_KEY_OPS17h32f5a334fe87dd80E, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN4ring2ec7suite_b3ops4p38414PUBLIC_KEY_OPS17ha411ba8b0716c995E, ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   ret i1 %6
 }
 

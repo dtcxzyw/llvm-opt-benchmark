@@ -1496,7 +1496,7 @@ define dso_local i32 @slurm_unpack_received_msg(ptr noundef %0, i32 noundef %1, 
   br i1 %.not59, label %131, label %135
 
 131:                                              ; preds = %122
-  %132 = call fastcc i32 @_check_hash(ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull %0, ptr noundef %.041)
+  %132 = call fastcc i32 @_check_hash(ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef %.041)
   %.not60 = icmp eq i32 %132, 0
   br i1 %.not60, label %133, label %135
 
@@ -2292,7 +2292,7 @@ define dso_local ptr @slurm_receive_msgs(i32 noundef %0, i32 noundef %1, i32 nou
   br i1 %.not103, label %144, label %148
 
 144:                                              ; preds = %129
-  %145 = call fastcc i32 @_check_hash(ptr noundef nonnull %68, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %.068)
+  %145 = call fastcc i32 @_check_hash(ptr noundef nonnull %68, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %.068)
   %.not104 = icmp eq i32 %145, 0
   br i1 %.not104, label %146, label %148
 
@@ -3150,7 +3150,7 @@ define dso_local i32 @slurm_receive_msg_and_forward(i32 noundef %0, ptr noundef 
   br i1 %.not121, label %216, label %220
 
 216:                                              ; preds = %201
-  %217 = call fastcc i32 @_check_hash(ptr noundef nonnull %44, ptr noundef %6, ptr noundef nonnull %2, ptr noundef %.090)
+  %217 = call fastcc i32 @_check_hash(ptr noundef nonnull %44, ptr noundef nonnull %6, ptr noundef nonnull %2, ptr noundef %.090)
   %.not122 = icmp eq i32 %217, 0
   br i1 %.not122, label %218, label %220
 
@@ -4225,13 +4225,13 @@ define dso_local range(i32 -1, 1) i32 @slurm_send_recv_controller_msg(ptr nounde
   br label %.outer
 
 .outer:                                           ; preds = %110, %3
-  %.057.ph = phi i32 [ %106, %110 ], [ 0, %3 ]
-  %.056.ph = phi ptr [ %.056, %110 ], [ %2, %3 ]
+  %.059.ph = phi i32 [ %106, %110 ], [ 0, %3 ]
+  %.058.ph = phi ptr [ %.058, %110 ], [ %2, %3 ]
   br label %17
 
 17:                                               ; preds = %.outer, %118
-  %.056 = phi ptr [ %119, %118 ], [ %.056.ph, %.outer ]
-  %18 = icmp ne ptr %.056, null
+  %.058 = phi ptr [ %119, %118 ], [ %.058.ph, %.outer ]
+  %18 = icmp ne ptr %.058, null
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %17
@@ -4248,19 +4248,20 @@ define dso_local range(i32 -1, 1) i32 @slurm_send_recv_controller_msg(ptr nounde
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 1242
   %28 = load i16, ptr %27, align 2
   tail call void @slurm_conf_unlock() #19
-  %29 = tail call fastcc i32 @_open_controller(ptr noundef nonnull @slurm_send_recv_controller_msg.index, ptr noundef %.056)
+  %29 = tail call fastcc i32 @_open_controller(ptr noundef nonnull @slurm_send_recv_controller_msg.index, ptr noundef %.058)
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22
   %31 = zext i16 %28 to i32
-  %32 = lshr i32 %31, 1
-  %33 = add nuw nsw i32 %32, %31
+  %32 = lshr i16 %28, 1
+  %.zext = zext nneg i16 %32 to i32
+  %33 = add nuw nsw i32 %.zext, %31
   %34 = uitofp nneg i32 %33 to double
   br i1 %18, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %35 = getelementptr inbounds nuw i8, ptr %.056, i64 304
+  %35 = getelementptr inbounds nuw i8, ptr %.058, i64 304
   %36 = load i16, ptr %35, align 8
   store i16 %36, ptr %11, align 2
   tail call void @slurm_msg_t_init(ptr noundef %1) #19
@@ -4363,8 +4364,8 @@ _send_and_recv_msg.exit:                          ; preds = %slurm_send_recv_msg
 
 74:                                               ; preds = %70
   %75 = icmp eq i32 %72, 2131
-  %or.cond3 = select i1 %75, i1 %26, i1 false
-  br i1 %or.cond3, label %77, label %.threadthread-pre-split
+  %or.cond5 = select i1 %75, i1 %26, i1 false
+  br i1 %or.cond5, label %77, label %.threadthread-pre-split
 
 76:                                               ; preds = %70
   br i1 %26, label %77, label %.threadthread-pre-split
@@ -4378,8 +4379,8 @@ _send_and_recv_msg.exit:                          ; preds = %slurm_send_recv_msg
 81:                                               ; preds = %77
   %82 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %83 = and i64 %82, 1024
-  %.not63 = icmp eq i64 %83, 0
-  br i1 %.not63, label %89, label %84
+  %.not65 = icmp eq i64 %83, 0
+  br i1 %.not65, label %89, label %84
 
 84:                                               ; preds = %81
   %85 = tail call i32 @get_log_level() #19
@@ -4401,7 +4402,7 @@ _send_and_recv_msg.exit:                          ; preds = %slurm_send_recv_msg
 
 94:                                               ; preds = %89
   store i32 0, ptr @slurm_send_recv_controller_msg.index, align 4
-  %95 = tail call i32 @sleep(i32 noundef %32) #19
+  %95 = tail call i32 @sleep(i32 noundef %.zext) #19
   br label %96
 
 96:                                               ; preds = %94, %89
@@ -4432,7 +4433,7 @@ _send_and_recv_msg.exit:                          ; preds = %slurm_send_recv_msg
   br i1 %104, label %105, label %.critedge
 
 105:                                              ; preds = %101
-  %106 = add nuw nsw i32 %.057.ph, 1
+  %106 = add nuw nsw i32 %.059.ph, 1
   %107 = tail call i32 @get_log_level() #19
   %108 = icmp sgt i32 %107, 3
   br i1 %108, label %109, label %110
@@ -4449,16 +4450,16 @@ _send_and_recv_msg.exit:                          ; preds = %slurm_send_recv_msg
   %113 = load ptr, ptr %16, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %115 = load ptr, ptr %114, align 8
-  %.not65 = icmp eq ptr %115, null
-  br i1 %.not65, label %.critedge, label %116
+  %.not67 = icmp eq ptr %115, null
+  br i1 %.not67, label %.critedge, label %116
 
 116:                                              ; preds = %112
-  %.not66 = icmp ne ptr %.056, %2
-  %or.cond69.not = and i1 %.not66, %18
-  br i1 %or.cond69.not, label %117, label %118
+  %.not68 = icmp ne ptr %.058, %2
+  %or.cond71.not = and i1 %.not68, %18
+  br i1 %or.cond71.not, label %117, label %118
 
 117:                                              ; preds = %116
-  tail call void @slurmdb_destroy_cluster_rec(ptr noundef nonnull %.056) #19
+  tail call void @slurmdb_destroy_cluster_rec(ptr noundef nonnull %.058) #19
   %.pre = load ptr, ptr %114, align 8
   br label %118
 
@@ -4469,18 +4470,18 @@ _send_and_recv_msg.exit:                          ; preds = %slurm_send_recv_msg
   br label %17
 
 .critedge:                                        ; preds = %101, %.thread, %112, %.split.us, %22, %66, %96
-  %.056100 = phi ptr [ %.056, %66 ], [ null, %96 ], [ %.056, %22 ], [ %.056, %.split.us ], [ %.056, %112 ], [ %.056, %.thread ], [ %.056, %101 ]
-  %.not6474 = phi i1 [ false, %96 ], [ false, %66 ], [ true, %.thread ], [ true, %112 ], [ false, %.split.us ], [ false, %22 ], [ true, %101 ]
-  %.05872 = phi i32 [ -1, %96 ], [ -1, %66 ], [ 0, %.thread ], [ 0, %112 ], [ -1, %.split.us ], [ -1, %22 ], [ 0, %101 ]
-  %.not67 = icmp eq ptr %.056100, %2
-  br i1 %.not67, label %122, label %121
+  %.058102 = phi ptr [ %.058, %66 ], [ null, %96 ], [ %.058, %22 ], [ %.058, %.split.us ], [ %.058, %112 ], [ %.058, %.thread ], [ %.058, %101 ]
+  %.not6676 = phi i1 [ false, %96 ], [ false, %66 ], [ true, %.thread ], [ true, %112 ], [ false, %.split.us ], [ false, %22 ], [ true, %101 ]
+  %.06074 = phi i32 [ -1, %96 ], [ -1, %66 ], [ 0, %.thread ], [ 0, %112 ], [ -1, %.split.us ], [ -1, %22 ], [ 0, %101 ]
+  %.not69 = icmp eq ptr %.058102, %2
+  br i1 %.not69, label %122, label %121
 
 121:                                              ; preds = %.critedge
-  tail call void @slurmdb_destroy_cluster_rec(ptr noundef %.056100) #19
+  tail call void @slurmdb_destroy_cluster_rec(ptr noundef %.058102) #19
   br label %122
 
 122:                                              ; preds = %121, %.critedge
-  br i1 %.not6474, label %_remap_slurmctld_errno.exit, label %123
+  br i1 %.not6676, label %_remap_slurmctld_errno.exit, label %123
 
 123:                                              ; preds = %122
   %124 = tail call ptr @__errno_location() #21
@@ -4495,7 +4496,7 @@ switch.lookup:                                    ; preds = %123
   br label %_remap_slurmctld_errno.exit
 
 _remap_slurmctld_errno.exit:                      ; preds = %123, %switch.lookup, %122
-  ret i32 %.05872
+  ret i32 %.06074
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

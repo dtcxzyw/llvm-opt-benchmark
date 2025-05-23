@@ -1380,7 +1380,7 @@ define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..d
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !337)
   %32 = load ptr, ptr %31, align 8, !alias.scope !337, !noundef !4
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef align 8 dereferenceable(32) %32)
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %32)
           to label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$serde..__private..de..content..Content$GT$$GT$17h524235983c953c67E.exit" unwind label %33, !noalias !337
 
 common.resume:                                    ; preds = %38, %33
@@ -1402,7 +1402,7 @@ common.resume:                                    ; preds = %38, %33
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !340)
   %37 = load ptr, ptr %36, align 8, !alias.scope !340, !noundef !4
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef align 8 dereferenceable(32) %37)
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %37)
           to label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$serde..__private..de..content..Content$GT$$GT$17h524235983c953c67E.exit3" unwind label %38, !noalias !340
 
 38:                                               ; preds = %35
@@ -5366,16 +5366,13 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817ha1e03118803618fdE(ptr noalia
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hd26e3bd2729fe4c7E.llvm.11083375685992158394"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3) unnamed_addr #7 {
   %5 = icmp eq i64 %3, 0
-  br i1 %5, label %9, label %6
+  br i1 %5, label %7, label %6
 
 6:                                                ; preds = %4
-  %7 = add i64 %2, -1
-  %8 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %8)
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %3, i64 noundef %2) #60
-  br label %9
+  br label %7
 
-9:                                                ; preds = %4, %6
+7:                                                ; preds = %4, %6
   ret void
 }
 
@@ -10739,7 +10736,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h9c6c960d05a3c43cE.ex
 31:                                               ; preds = %_ZN4core3ptr19swap_nonoverlapping17h0da1a85550a44f51E.exit
   %32 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr181drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..rehash_in_place..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h98b9a5dada306246E"(ptr noalias noundef align 8 dereferenceable(24) %5) #61
+  invoke fastcc void @"_ZN4core3ptr181drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..rehash_in_place..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h98b9a5dada306246E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #61
           to label %107 unwind label %105
 
 .lr.ph:                                           ; preds = %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h9c6c960d05a3c43cE.exit, %104
@@ -17835,7 +17832,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hb17cd9fc72678458E.exit.
 75:                                               ; preds = %.noexc5, %.noexc4, %.noexc3, %._crit_edge
   %76 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef align 8 dereferenceable(56) %8) #61, !noalias !4317
+  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8) #61, !noalias !4317
   resume { ptr, i32 } %76
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %162
@@ -18225,7 +18222,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hb17cd9fc72678458E.exit.
 76:                                               ; preds = %.noexc5, %.noexc4, %.noexc3, %._crit_edge
   %77 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef align 8 dereferenceable(56) %9) #61, !noalias !4430
+  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %9) #61, !noalias !4430
   resume { ptr, i32 } %77
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %163
@@ -18621,7 +18618,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hb17cd9fc72678458E.exit.
 78:                                               ; preds = %.noexc5, %.noexc4, %.noexc3, %._crit_edge
   %79 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef align 8 dereferenceable(56) %8) #61, !noalias !4551
+  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8) #61, !noalias !4551
   resume { ptr, i32 } %79
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %165
@@ -19014,7 +19011,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hb17cd9fc72678458E.exit.
 78:                                               ; preds = %.noexc5, %.noexc4, %.noexc3, %._crit_edge
   %79 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef align 8 dereferenceable(56) %8) #61, !noalias !4663
+  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8) #61, !noalias !4663
   resume { ptr, i32 } %79
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %165
@@ -19410,7 +19407,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hb17cd9fc72678458E.exit.
 80:                                               ; preds = %.noexc4, %.noexc3, %._crit_edge
   %81 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef align 8 dereferenceable(56) %8) #61, !noalias !4775
+  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8) #61, !noalias !4775
   resume { ptr, i32 } %81
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %166
@@ -19801,7 +19798,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hb17cd9fc72678458E.exit.
 80:                                               ; preds = %.noexc4, %.noexc3, %._crit_edge
   %81 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef align 8 dereferenceable(56) %8) #61, !noalias !4884
+  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8) #61, !noalias !4884
   resume { ptr, i32 } %81
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %166
@@ -20197,7 +20194,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hb17cd9fc72678458E.exit.
 84:                                               ; preds = %.noexc5, %.noexc4, %.noexc3, %._crit_edge
   %85 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef align 8 dereferenceable(56) %9) #61, !noalias !4993
+  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %9) #61, !noalias !4993
   resume { ptr, i32 } %85
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %172
@@ -20595,7 +20592,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hb17cd9fc72678458E.exit.
 80:                                               ; preds = %.noexc5, %.noexc4, %.noexc3, %._crit_edge
   %81 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef align 8 dereferenceable(56) %8) #61, !noalias !5117
+  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8) #61, !noalias !5117
   resume { ptr, i32 } %81
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %167
@@ -20990,7 +20987,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hb17cd9fc72678458E.exit.
 80:                                               ; preds = %.noexc4, %.noexc3, %._crit_edge
   %81 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef align 8 dereferenceable(56) %8) #61, !noalias !5229
+  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8) #61, !noalias !5229
   resume { ptr, i32 } %81
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %167
@@ -21373,7 +21370,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hb17cd9fc72678458E.exit.
 75:                                               ; preds = %.noexc5, %.noexc4, %.noexc3, %._crit_edge
   %76 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef align 8 dereferenceable(56) %8) #61, !noalias !5341
+  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8) #61, !noalias !5341
   resume { ptr, i32 } %76
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %162
@@ -21769,7 +21766,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hb17cd9fc72678458E.exit.
 80:                                               ; preds = %.noexc4, %.noexc3, %._crit_edge
   %81 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef align 8 dereferenceable(56) %8) #61, !noalias !5453
+  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8) #61, !noalias !5453
   resume { ptr, i32 } %81
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %166
@@ -22153,7 +22150,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hb17cd9fc72678458E.exit.
 75:                                               ; preds = %.noexc4, %.noexc3, %._crit_edge
   %76 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef align 8 dereferenceable(56) %8) #61, !noalias !5562
+  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8) #61, !noalias !5562
   resume { ptr, i32 } %76
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %162
@@ -22542,7 +22539,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hb17cd9fc72678458E.exit.
 80:                                               ; preds = %.noexc4, %.noexc3, %._crit_edge
   %81 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef align 8 dereferenceable(56) %8) #61, !noalias !5674
+  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8) #61, !noalias !5674
   resume { ptr, i32 } %81
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %166
@@ -22925,7 +22922,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hb17cd9fc72678458E.exit.
 75:                                               ; preds = %.noexc5, %.noexc4, %.noexc3, %._crit_edge
   %76 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef align 8 dereferenceable(56) %8) #61, !noalias !5783
+  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8) #61, !noalias !5783
   resume { ptr, i32 } %76
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %163
@@ -23321,7 +23318,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hb17cd9fc72678458E.exit.
 80:                                               ; preds = %.noexc4, %.noexc3, %._crit_edge
   %81 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef align 8 dereferenceable(56) %8) #61, !noalias !5898
+  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8) #61, !noalias !5898
   resume { ptr, i32 } %81
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %166
@@ -23709,7 +23706,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hb17cd9fc72678458E.exit.
 78:                                               ; preds = %.noexc5, %.noexc4, %.noexc3, %._crit_edge
   %79 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef align 8 dereferenceable(56) %8) #61, !noalias !6007
+  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8) #61, !noalias !6007
   resume { ptr, i32 } %79
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %165
@@ -24098,7 +24095,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hb17cd9fc72678458E.exit.
 75:                                               ; preds = %.noexc4, %.noexc3, %._crit_edge
   %76 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef align 8 dereferenceable(56) %8) #61, !noalias !6119
+  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8) #61, !noalias !6119
   resume { ptr, i32 } %76
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %162
@@ -24488,7 +24485,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hb17cd9fc72678458E.exit.
 81:                                               ; preds = %.noexc5, %.noexc4, %.noexc3, %._crit_edge
   %82 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef align 8 dereferenceable(56) %9) #61, !noalias !6231
+  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %9) #61, !noalias !6231
   resume { ptr, i32 } %82
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %169
@@ -24880,7 +24877,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hb17cd9fc72678458E.exit.
 75:                                               ; preds = %.noexc4, %.noexc3, %._crit_edge
   %76 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef align 8 dereferenceable(56) %8) #61, !noalias !6355
+  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8) #61, !noalias !6355
   resume { ptr, i32 } %76
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %161
@@ -25270,7 +25267,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hb17cd9fc72678458E.exit.
 80:                                               ; preds = %.noexc4, %.noexc3, %._crit_edge
   %81 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef align 8 dereferenceable(56) %8) #61, !noalias !6464
+  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8) #61, !noalias !6464
   resume { ptr, i32 } %81
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %167
@@ -25654,7 +25651,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hb17cd9fc72678458E.exit.
 75:                                               ; preds = %.noexc4, %.noexc3, %._crit_edge
   %76 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef align 8 dereferenceable(56) %8) #61, !noalias !6576
+  call fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6198bbd3682e0ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8) #61, !noalias !6576
   resume { ptr, i32 } %76
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %161
@@ -30612,7 +30609,7 @@ define hidden void @"_ZN10tokenizers6models1_85_$LT$impl$u20$serde..de..Deserial
 31:                                               ; preds = %86, %82, %80, %68, %64, %62, %50, %46, %44, %23, %19, %17, %96, %92, %74, %56, %39
   %32 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef align 8 dereferenceable(32) %13) #61
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #61
           to label %103 unwind label %101
 
 33:                                               ; preds = %19, %23
@@ -30642,7 +30639,7 @@ define hidden void @"_ZN10tokenizers6models1_85_$LT$impl$u20$serde..de..Deserial
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %.thread44, %37
-  invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$tokenizers..models..ModelWrapper$C$serde_json..error..Error$GT$$GT$17h826ec8041e5636eeE"(ptr noalias noundef align 8 dereferenceable(312) %11)
+  invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$tokenizers..models..ModelWrapper$C$serde_json..error..Error$GT$$GT$17h826ec8041e5636eeE"(ptr noalias noundef nonnull align 8 dereferenceable(312) %11)
           to label %42 unwind label %31
 
 40:                                               ; preds = %37
@@ -30651,7 +30648,7 @@ define hidden void @"_ZN10tokenizers6models1_85_$LT$impl$u20$serde..de..Deserial
   br label %41
 
 41:                                               ; preds = %95, %77, %59, %40
-  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef align 8 dereferenceable(32) %13)
+  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13)
   br label %100
 
 42:                                               ; preds = %39
@@ -30704,7 +30701,7 @@ define hidden void @"_ZN10tokenizers6models1_85_$LT$impl$u20$serde..de..Deserial
   store ptr %57, ptr %58, align 8
   store i64 5, ptr %9, align 8
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %8)
-  invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$tokenizers..models..ModelWrapper$C$serde_json..error..Error$GT$$GT$17h826ec8041e5636eeE"(ptr noalias noundef align 8 dereferenceable(312) %9)
+  invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$tokenizers..models..ModelWrapper$C$serde_json..error..Error$GT$$GT$17h826ec8041e5636eeE"(ptr noalias noundef nonnull align 8 dereferenceable(312) %9)
           to label %60 unwind label %31
 
 59:                                               ; preds = %54
@@ -30766,7 +30763,7 @@ define hidden void @"_ZN10tokenizers6models1_85_$LT$impl$u20$serde..de..Deserial
   store ptr %75, ptr %76, align 8
   store i64 5, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6)
-  invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$tokenizers..models..ModelWrapper$C$serde_json..error..Error$GT$$GT$17h826ec8041e5636eeE"(ptr noalias noundef align 8 dereferenceable(312) %7)
+  invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$tokenizers..models..ModelWrapper$C$serde_json..error..Error$GT$$GT$17h826ec8041e5636eeE"(ptr noalias noundef nonnull align 8 dereferenceable(312) %7)
           to label %78 unwind label %31
 
 77:                                               ; preds = %72
@@ -30828,7 +30825,7 @@ define hidden void @"_ZN10tokenizers6models1_85_$LT$impl$u20$serde..de..Deserial
   store ptr %93, ptr %94, align 8
   store i64 5, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %4)
-  invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$tokenizers..models..ModelWrapper$C$serde_json..error..Error$GT$$GT$17h826ec8041e5636eeE"(ptr noalias noundef align 8 dereferenceable(312) %5)
+  invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$tokenizers..models..ModelWrapper$C$serde_json..error..Error$GT$$GT$17h826ec8041e5636eeE"(ptr noalias noundef nonnull align 8 dereferenceable(312) %5)
           to label %96 unwind label %31
 
 95:                                               ; preds = %90
@@ -30849,7 +30846,7 @@ define hidden void @"_ZN10tokenizers6models1_85_$LT$impl$u20$serde..de..Deserial
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %97, ptr %99, align 8
   store i64 5, ptr %0, align 8
-  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef align 8 dereferenceable(32) %13)
+  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13)
   br label %100
 
 100:                                              ; preds = %27, %41, %98

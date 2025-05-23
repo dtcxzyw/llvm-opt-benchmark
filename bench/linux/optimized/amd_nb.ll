@@ -424,25 +424,29 @@ define dso_local void @amd_flush_garts() #1 align 16 {
   %2 = load i64, ptr @amd_northbridges.1, align 8
   %3 = and i64 %2, 1
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %54, label %5
+  br i1 %4, label %55, label %5
 
 5:                                                ; preds = %0
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @amd_flush_garts.gart_lock) #8
   %7 = load i16, ptr @amd_northbridges.0, align 8
   %8 = icmp eq i16 %7, 0
-  br i1 %8, label %.thread2, label %.preheader5
+  br i1 %8, label %.thread1, label %.preheader4
 
-.thread2:                                         ; preds = %5
+.thread1:                                         ; preds = %5
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @amd_flush_garts.gart_lock, i64 noundef %6) #8
   %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #9
-  br label %54
+  br label %55
 
-10:                                               ; preds = %.preheader5
+10:                                               ; preds = %.preheader4
   %11 = icmp eq i16 %22, 0
-  br i1 %11, label %.loopexit4, label %.preheader3
+  br i1 %11, label %.thread2, label %.preheader3
 
-.preheader5:                                      ; preds = %5, %.preheader5
-  %12 = phi i64 [ %21, %.preheader5 ], [ 0, %5 ]
+.thread2:                                         ; preds = %10
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @amd_flush_garts.gart_lock, i64 noundef %6) #8
+  br label %55
+
+.preheader4:                                      ; preds = %5, %.preheader4
+  %12 = phi i64 [ %21, %.preheader4 ], [ 0, %5 ]
   %13 = load ptr, ptr @amd_northbridges.2, align 8
   %14 = getelementptr %struct.amd_northbridge, ptr %13, i64 %12, i32 1
   %15 = load ptr, ptr %14, align 8
@@ -455,7 +459,7 @@ define dso_local void @amd_flush_garts() #1 align 16 {
   %22 = load i16, ptr @amd_northbridges.0, align 8
   %23 = zext i16 %22 to i64
   %24 = icmp samesign ult i64 %21, %23
-  br i1 %24, label %.preheader5, label %10, !llvm.loop !11
+  br i1 %24, label %.preheader4, label %10, !llvm.loop !11
 
 .preheader3:                                      ; preds = %10, %.loopexit
   %25 = phi i16 [ %51, %.loopexit ], [ %22, %10 ]
@@ -497,13 +501,13 @@ define dso_local void @amd_flush_garts() #1 align 16 {
   %51 = load i16, ptr @amd_northbridges.0, align 8
   %52 = zext i16 %51 to i64
   %53 = icmp samesign ult i64 %50, %52
-  br i1 %53, label %.preheader3, label %.loopexit4, !llvm.loop !14
+  br i1 %53, label %.preheader3, label %54, !llvm.loop !14
 
-.loopexit4:                                       ; preds = %.loopexit, %10
+54:                                               ; preds = %.loopexit
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @amd_flush_garts.gart_lock, i64 noundef %6) #8
-  br label %54
+  br label %55
 
-54:                                               ; preds = %.loopexit4, %.thread2, %0
+55:                                               ; preds = %54, %.thread2, %.thread1, %0
   ret void
 }
 

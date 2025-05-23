@@ -10066,10 +10066,11 @@ _ZN7testing15AssertionResultD2Ev.exit283:         ; preds = %638, %_ZNKSt14defau
   br i1 %672, label %673, label %.loopexit.i.i.i, !prof !40
 
 673:                                              ; preds = %666
-  %.lhs.trunc.i.i.i = sub nuw nsw i16 256, %669
-  %674 = urem i16 %.lhs.trunc.i.i.i, %669
+  %.lhs.trunc.i.i.i = xor i8 %.sroa.4.0.extract.trunc.i, -1
+  %674 = urem i8 %.lhs.trunc.i.i.i, %659
+  %.zext.i.i.i = zext i8 %674 to i16
   %675 = and i16 %670, 255
-  %676 = icmp samesign ugt i16 %674, %675
+  %676 = icmp samesign ult i16 %675, %.zext.i.i.i
   br i1 %676, label %.lr.ph.i.i.i, label %.loopexit.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %673, %.lr.ph.i.i.i
@@ -10092,7 +10093,7 @@ _ZN7testing15AssertionResultD2Ev.exit283:         ; preds = %638, %_ZNKSt14defau
   %682 = and i16 %681, 255
   %683 = mul nuw i16 %682, %669
   %684 = and i16 %683, 255
-  %685 = icmp samesign ugt i16 %674, %684
+  %685 = icmp samesign ult i16 %684, %.zext.i.i.i
   br i1 %685, label %.lr.ph.i.i.i, label %.loopexit.i.i.i, !llvm.loop !350
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i, %673, %666
@@ -15542,10 +15543,11 @@ _ZN7testing15AssertionResultD2Ev.exit283:         ; preds = %638, %_ZNKSt14defau
   br i1 %672, label %673, label %.loopexit.i.i.i, !prof !40
 
 673:                                              ; preds = %666
-  %.lhs.trunc.i.i.i = sub nuw nsw i16 256, %669
-  %674 = urem i16 %.lhs.trunc.i.i.i, %669
+  %.lhs.trunc.i.i.i = xor i8 %.sroa.4.0.extract.trunc.i, -1
+  %674 = urem i8 %.lhs.trunc.i.i.i, %659
+  %.zext.i.i.i = zext i8 %674 to i16
   %675 = and i16 %670, 255
-  %676 = icmp samesign ugt i16 %674, %675
+  %676 = icmp samesign ult i16 %675, %.zext.i.i.i
   br i1 %676, label %.lr.ph.i.i.i, label %.loopexit.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %673, %.lr.ph.i.i.i
@@ -15568,7 +15570,7 @@ _ZN7testing15AssertionResultD2Ev.exit283:         ; preds = %638, %_ZNKSt14defau
   %682 = and i16 %681, 255
   %683 = mul nuw i16 %682, %669
   %684 = and i16 %683, 255
-  %685 = icmp samesign ugt i16 %674, %684
+  %685 = icmp samesign ult i16 %684, %.zext.i.i.i
   br i1 %685, label %.lr.ph.i.i.i, label %.loopexit.i.i.i, !llvm.loop !415
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i, %673, %666
@@ -65632,7 +65634,7 @@ define internal void @_ZN12_GLOBAL__N_143UniformIntDistributionTest_TestMoments_
   %43 = icmp eq i8 %42, 0
   %.sroa.0.0.extract.trunc.i = trunc i16 %40 to i8
   %44 = zext i8 %41 to i16
-  %.lhs.trunc.i.i.i = sub nuw nsw i16 256, %44
+  %.lhs.trunc.i.i.i = xor i8 %.sroa.4.0.extract.trunc.i, -1
   %45 = add i8 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   br label %46
 
@@ -65670,9 +65672,10 @@ define internal void @_ZN12_GLOBAL__N_143UniformIntDistributionTest_TestMoments_
   br i1 %59, label %60, label %.loopexit.i.i.i, !prof !40
 
 60:                                               ; preds = %54
-  %61 = urem i16 %.lhs.trunc.i.i.i, %44
+  %61 = urem i8 %.lhs.trunc.i.i.i, %41
+  %.zext.i.i.i = zext i8 %61 to i16
   %62 = and i16 %57, 255
-  %63 = icmp samesign ugt i16 %61, %62
+  %63 = icmp samesign ult i16 %62, %.zext.i.i.i
   br i1 %63, label %.lr.ph.i.i.i, label %.loopexit.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %60, %.lr.ph.i.i.i
@@ -65695,7 +65698,7 @@ define internal void @_ZN12_GLOBAL__N_143UniformIntDistributionTest_TestMoments_
   %69 = and i16 %68, 255
   %70 = mul nuw i16 %69, %44
   %71 = and i16 %70, 255
-  %72 = icmp samesign ugt i16 %61, %71
+  %72 = icmp samesign ult i16 %71, %.zext.i.i.i
   br i1 %72, label %.lr.ph.i.i.i, label %.loopexit.i.i.i, !llvm.loop !968
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i, %60, %54
@@ -66725,7 +66728,7 @@ define internal void @_ZN12_GLOBAL__N_143UniformIntDistributionTest_TestMoments_
   %43 = icmp eq i8 %42, 0
   %.sroa.0.0.extract.trunc.i = trunc i16 %40 to i8
   %44 = zext i8 %41 to i16
-  %.lhs.trunc.i.i.i = sub nuw nsw i16 256, %44
+  %.lhs.trunc.i.i.i = xor i8 %.sroa.4.0.extract.trunc.i, -1
   %45 = add i8 %.sroa.4.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   br label %46
 
@@ -66763,9 +66766,10 @@ define internal void @_ZN12_GLOBAL__N_143UniformIntDistributionTest_TestMoments_
   br i1 %59, label %60, label %.loopexit.i.i.i, !prof !40
 
 60:                                               ; preds = %54
-  %61 = urem i16 %.lhs.trunc.i.i.i, %44
+  %61 = urem i8 %.lhs.trunc.i.i.i, %41
+  %.zext.i.i.i = zext i8 %61 to i16
   %62 = and i16 %57, 255
-  %63 = icmp samesign ugt i16 %61, %62
+  %63 = icmp samesign ult i16 %62, %.zext.i.i.i
   br i1 %63, label %.lr.ph.i.i.i, label %.loopexit.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %60, %.lr.ph.i.i.i
@@ -66788,7 +66792,7 @@ define internal void @_ZN12_GLOBAL__N_143UniformIntDistributionTest_TestMoments_
   %69 = and i16 %68, 255
   %70 = mul nuw i16 %69, %44
   %71 = and i16 %70, 255
-  %72 = icmp samesign ugt i16 %61, %71
+  %72 = icmp samesign ult i16 %71, %.zext.i.i.i
   br i1 %72, label %.lr.ph.i.i.i, label %.loopexit.i.i.i, !llvm.loop !980
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i, %60, %54
@@ -89375,7 +89379,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1
   %908 = getelementptr inbounds nuw i8, ptr %147, i64 32
   %909 = load i32, ptr %670, align 8, !tbaa !457
   store i32 %909, ptr %908, align 8, !tbaa !457
-  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_126UniformIntDistributionTestENS0_11TemplateSelINS2_50UniformIntDistributionTest_ParamSerializeTest_TestEEENS0_5TypesItJijlmEEEE8RegisterEPKcNS0_12CodeLocationESB_SB_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr noundef %147, ptr noundef nonnull readonly align 8 dereferenceable(24) %177)
+  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_126UniformIntDistributionTestENS0_11TemplateSelINS2_50UniformIntDistributionTest_ParamSerializeTest_TestEEENS0_5TypesItJijlmEEEE8RegisterEPKcNS0_12CodeLocationESB_SB_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr noundef nonnull %147, ptr noundef nonnull readonly align 8 dereferenceable(24) %177)
           to label %910 unwind label %992
 
 910:                                              ; preds = %_ZN7testing8internal12CodeLocationC2EOS1_.exit.i.i.i.i
@@ -92279,7 +92283,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit.i.i.i.i332: ; preds = %_ZNKSt7__c
   %1949 = getelementptr inbounds nuw i8, ptr %104, i64 32
   %1950 = load i32, ptr %1711, align 8, !tbaa !457
   store i32 %1950, ptr %1949, align 8, !tbaa !457
-  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_126UniformIntDistributionTestENS0_11TemplateSelINS2_62UniformIntDistributionTest_ViolatesPreconditionsDeathTest_TestEEENS0_5TypesItJijlmEEEE8RegisterEPKcNS0_12CodeLocationESB_SB_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr noundef %104, ptr noundef nonnull readonly align 8 dereferenceable(24) %134)
+  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_126UniformIntDistributionTestENS0_11TemplateSelINS2_62UniformIntDistributionTest_ViolatesPreconditionsDeathTest_TestEEENS0_5TypesItJijlmEEEE8RegisterEPKcNS0_12CodeLocationESB_SB_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr noundef nonnull %104, ptr noundef nonnull readonly align 8 dereferenceable(24) %134)
           to label %1951 unwind label %2033
 
 1951:                                             ; preds = %_ZN7testing8internal12CodeLocationC2EOS1_.exit.i.i.i.i332
@@ -95179,7 +95183,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit.i.i.i.i731: ; preds = %_ZNKSt7__c
   %2990 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %2991 = load i32, ptr %2752, align 8, !tbaa !457
   store i32 %2991, ptr %2990, align 8, !tbaa !457
-  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_126UniformIntDistributionTestENS0_11TemplateSelINS2_43UniformIntDistributionTest_TestMoments_TestEEENS0_5TypesItJijlmEEEE8RegisterEPKcNS0_12CodeLocationESB_SB_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr noundef %61, ptr noundef nonnull readonly align 8 dereferenceable(24) %91)
+  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_126UniformIntDistributionTestENS0_11TemplateSelINS2_43UniformIntDistributionTest_TestMoments_TestEEENS0_5TypesItJijlmEEEE8RegisterEPKcNS0_12CodeLocationESB_SB_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr noundef nonnull %61, ptr noundef nonnull readonly align 8 dereferenceable(24) %91)
           to label %2992 unwind label %3074
 
 2992:                                             ; preds = %_ZN7testing8internal12CodeLocationC2EOS1_.exit.i.i.i.i731
@@ -98079,7 +98083,7 @@ _ZN7testing8internal12CodeLocationC2EOS1_.exit.i.i.i.i1130: ; preds = %_ZNKSt7__
   %4031 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %4032 = load i32, ptr %3793, align 8, !tbaa !457
   store i32 %4032, ptr %4031, align 8, !tbaa !457
-  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_126UniformIntDistributionTestENS0_11TemplateSelINS2_48UniformIntDistributionTest_ChiSquaredTest50_TestEEENS0_5TypesItJijlmEEEE8RegisterEPKcNS0_12CodeLocationESB_SB_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr noundef %18, ptr noundef nonnull readonly align 8 dereferenceable(24) %48)
+  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN12_GLOBAL__N_126UniformIntDistributionTestENS0_11TemplateSelINS2_48UniformIntDistributionTest_ChiSquaredTest50_TestEEENS0_5TypesItJijlmEEEE8RegisterEPKcNS0_12CodeLocationESB_SB_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr noundef nonnull %18, ptr noundef nonnull readonly align 8 dereferenceable(24) %48)
           to label %4033 unwind label %4115
 
 4033:                                             ; preds = %_ZN7testing8internal12CodeLocationC2EOS1_.exit.i.i.i.i1130

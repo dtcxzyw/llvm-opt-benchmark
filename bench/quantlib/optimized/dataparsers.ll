@@ -3515,6 +3515,7 @@ entry:
   %conv3.i.i = zext i16 %year.coerce.fr.i to i32
   %add.i.i = add nuw nsw i32 %conv3.i.i, 4800
   %sub5.i.i = sub nsw i32 %add.i.i, %div.i.i
+  %conv6.i.i = trunc i32 %sub5.i.i to i16
   %0 = trunc nsw i32 %div.i.i to i16
   %1 = mul i16 %0, 12
   %2 = add i16 %m.coerce, -3
@@ -3523,21 +3524,21 @@ entry:
   %conv16.i.i = zext i16 %conv13.i.i to i32
   %mul17.i.i = mul nuw nsw i32 %conv16.i.i, 153
   %add18.i.i = add nuw nsw i32 %mul17.i.i, 2
-  %div19.i.i = udiv i32 %add18.i.i, 5
+  %div191.i.i = udiv i32 %add18.i.i, 5
   %conv22.i.i = and i32 %sub5.i.i, 65535
   %mul23.i.i = mul nuw nsw i32 %conv22.i.i, 365
-  %div278.i.i = lshr i32 %conv22.i.i, 2
-  %div31.lhs.trunc.i.i = trunc i32 %sub5.i.i to i16
-  %div319.i.i = udiv i16 %div31.lhs.trunc.i.i, 100
-  %div31.zext.i.i = zext nneg i16 %div319.i.i to i32
-  %div3510.i.i = udiv i16 %div31.lhs.trunc.i.i, 400
-  %div35.zext.i.i = zext nneg i16 %div3510.i.i to i32
+  %div272315.i.i = lshr i32 %sub5.i.i, 2
+  %div272.zext.i.i = and i32 %div272315.i.i, 16383
+  %div3145.i.i = udiv i16 %conv6.i.i, 100
+  %conv32.i.i = zext nneg i16 %div3145.i.i to i32
+  %div3567.i.i = udiv i16 %conv6.i.i, 400
+  %conv36.i.i = zext nneg i16 %div3567.i.i to i32
   %add21.i.i = add nsw i32 %conv15.i.i, -32045
   %add25.i.i = add nsw i32 %add21.i.i, %mul23.i.i
-  %add29.i.i = add nsw i32 %add25.i.i, %div278.i.i
-  %sub33.i.i = sub nsw i32 %add29.i.i, %div31.zext.i.i
-  %add37.i.i = add nsw i32 %sub33.i.i, %div35.zext.i.i
-  %sub38.i.i = add nsw i32 %add37.i.i, %div19.i.i
+  %add29.i.i = add nsw i32 %add25.i.i, %div272.zext.i.i
+  %sub33.i.i = sub nsw i32 %add29.i.i, %conv32.i.i
+  %add37.i.i = add nsw i32 %sub33.i.i, %conv36.i.i
+  %sub38.i.i = add nsw i32 %add37.i.i, %div191.i.i
   store i32 %sub38.i.i, ptr %this, align 4, !tbaa !40
   switch i16 %m.coerce, label %sw.default.i [
     i16 2, label %sw.bb.i
@@ -3548,15 +3549,15 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %3 = and i16 %year.coerce.fr.i, 3
-  %tobool.not.i.i = icmp eq i16 %3, 0
+  %rem12.i.i = and i16 %year.coerce.fr.i, 3
+  %tobool.not.i.i = icmp eq i16 %rem12.i.i, 0
   br i1 %tobool.not.i.i, label %land.rhs.i.i, label %_ZN5boost9date_time23gregorian_calendar_baseINS0_19year_month_day_baseINS_9gregorian9greg_yearENS3_10greg_monthENS3_8greg_dayEEEjE16end_of_month_dayES4_S5_.exit
 
 land.rhs.i.i:                                     ; preds = %sw.bb.i
-  %4 = urem i16 %year.coerce.fr.i, 100
-  %tobool5.not.i.i = icmp ne i16 %4, 0
-  %5 = urem i16 %year.coerce.fr.i, 400
-  %tobool9.not.i.i = icmp eq i16 %5, 0
+  %rem434.i.i = urem i16 %year.coerce.fr.i, 100
+  %tobool5.not.i.i = icmp ne i16 %rem434.i.i, 0
+  %rem856.i.i = urem i16 %year.coerce.fr.i, 400
+  %tobool9.not.i.i = icmp eq i16 %rem856.i.i, 0
   %or.cond.i = or i1 %tobool5.not.i.i, %tobool9.not.i.i
   %spec.select.i = select i1 %or.cond.i, i16 29, i16 28
   br label %_ZN5boost9date_time23gregorian_calendar_baseINS0_19year_month_day_baseINS_9gregorian9greg_yearENS3_10greg_monthENS3_8greg_dayEEEjE16end_of_month_dayES4_S5_.exit
@@ -3586,34 +3587,34 @@ invoke.cont28:                                    ; preds = %invoke.cont26
   unreachable
 
 lpad25:                                           ; preds = %if.then
-  %6 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad27:                                           ; preds = %invoke.cont26
-  %7 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #30
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad27, %lpad25
-  %.pn = phi { ptr, i32 } [ %7, %lpad27 ], [ %6, %lpad25 ]
-  %8 = load ptr, ptr %ref.tmp23, align 8, !tbaa !10
-  %9 = getelementptr inbounds nuw i8, ptr %ref.tmp23, i64 16
-  %cmp.i.i.i = icmp eq ptr %8, %9
+  %.pn = phi { ptr, i32 } [ %4, %lpad27 ], [ %3, %lpad25 ]
+  %5 = load ptr, ptr %ref.tmp23, align 8, !tbaa !10
+  %6 = getelementptr inbounds nuw i8, ptr %ref.tmp23, i64 16
+  %cmp.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %ehcleanup
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp23, i64 8
-  %10 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !3
-  %cmp3.i.i.i = icmp ult i64 %10, 16
+  %7 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !3
+  %cmp3.i.i.i = icmp ult i64 %7, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
   br label %ehcleanup29
 
 if.then.i.i:                                      ; preds = %ehcleanup
-  %11 = load i64, ptr %9, align 8, !tbaa !11
-  %add.i.i.i = add i64 %11, 1
-  call void @_ZdlPvm(ptr noundef %8, i64 noundef %add.i.i.i) #32
+  %8 = load i64, ptr %6, align 8, !tbaa !11
+  %add.i.i.i = add i64 %8, 1
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef %add.i.i.i) #32
   br label %ehcleanup29
 
 ehcleanup29:                                      ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
@@ -14917,15 +14918,15 @@ lor.lhs.false20.i.i:                              ; preds = %for.body.i
   br i1 %tobool.not.i.i, label %lor.lhs.false20.if.end_crit_edge.i.i, label %land.lhs.true.i.i
 
 lor.lhs.false20.if.end_crit_edge.i.i:             ; preds = %lor.lhs.false20.i.i
-  %.pre5.i.i = load i16, ptr %6, align 2, !tbaa !201
+  %.pre7.i.i = load i16, ptr %6, align 2, !tbaa !201
   br label %for.inc.i
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false20.i.i
   br i1 %narrow.i.i, label %cleanup77, label %lor.lhs.false23.i.i
 
 lor.lhs.false23.i.i:                              ; preds = %land.lhs.true.i.i
-  %mul4.i.i = call { i16, i1 } @llvm.umul.with.overflow.i16(i16 %conv8.i.i, i16 %mul.i.i)
-  %mul.ov.i.i = extractvalue { i16, i1 } %mul4.i.i, 1
+  %mul6.i.i = call { i16, i1 } @llvm.umul.with.overflow.i16(i16 %conv8.i.i, i16 %mul.i.i)
+  %mul.ov.i.i = extractvalue { i16, i1 } %mul6.i.i, 1
   br i1 %mul.ov.i.i, label %cleanup77, label %lor.lhs.false30.i.i
 
 lor.lhs.false30.i.i:                              ; preds = %lor.lhs.false23.i.i
@@ -14935,7 +14936,7 @@ lor.lhs.false30.i.i:                              ; preds = %lor.lhs.false23.i.i
   br i1 %cmp36.i.i, label %cleanup77, label %for.inc.i
 
 for.inc.i:                                        ; preds = %lor.lhs.false30.i.i, %lor.lhs.false20.if.end_crit_edge.i.i
-  %15 = phi i16 [ %.pre5.i.i, %lor.lhs.false20.if.end_crit_edge.i.i ], [ %14, %lor.lhs.false30.i.i ]
+  %15 = phi i16 [ %.pre7.i.i, %lor.lhs.false20.if.end_crit_edge.i.i ], [ %14, %lor.lhs.false30.i.i ]
   %add.i.i = add i16 %15, %mul12.i.i
   store i16 %add.i.i, ptr %6, align 2, !tbaa !201
   %incdec.ptr.i = getelementptr inbounds i8, ptr %8, i64 -1
@@ -15008,15 +15009,15 @@ lor.lhs.false20.i.i31:                            ; preds = %for.body.i22
   br i1 %tobool.not.i.i32, label %lor.lhs.false20.if.end_crit_edge.i.i44, label %land.lhs.true.i.i33
 
 lor.lhs.false20.if.end_crit_edge.i.i44:           ; preds = %lor.lhs.false20.i.i31
-  %.pre5.i.i45 = load i16, ptr %22, align 2, !tbaa !201
+  %.pre7.i.i45 = load i16, ptr %22, align 2, !tbaa !201
   br label %for.inc.i39
 
 land.lhs.true.i.i33:                              ; preds = %lor.lhs.false20.i.i31
   br i1 %narrow.i.i25, label %cleanup71, label %lor.lhs.false23.i.i34
 
 lor.lhs.false23.i.i34:                            ; preds = %land.lhs.true.i.i33
-  %mul4.i.i35 = call { i16, i1 } @llvm.umul.with.overflow.i16(i16 %conv8.i.i28, i16 %mul.i.i27)
-  %mul.ov.i.i36 = extractvalue { i16, i1 } %mul4.i.i35, 1
+  %mul6.i.i35 = call { i16, i1 } @llvm.umul.with.overflow.i16(i16 %conv8.i.i28, i16 %mul.i.i27)
+  %mul.ov.i.i36 = extractvalue { i16, i1 } %mul6.i.i35, 1
   br i1 %mul.ov.i.i36, label %cleanup71, label %lor.lhs.false30.i.i37
 
 lor.lhs.false30.i.i37:                            ; preds = %lor.lhs.false23.i.i34
@@ -15026,7 +15027,7 @@ lor.lhs.false30.i.i37:                            ; preds = %lor.lhs.false23.i.i
   br i1 %cmp36.i.i38, label %cleanup71, label %for.inc.i39
 
 for.inc.i39:                                      ; preds = %lor.lhs.false30.i.i37, %lor.lhs.false20.if.end_crit_edge.i.i44
-  %31 = phi i16 [ %.pre5.i.i45, %lor.lhs.false20.if.end_crit_edge.i.i44 ], [ %30, %lor.lhs.false30.i.i37 ]
+  %31 = phi i16 [ %.pre7.i.i45, %lor.lhs.false20.if.end_crit_edge.i.i44 ], [ %30, %lor.lhs.false30.i.i37 ]
   %add.i.i40 = add i16 %31, %mul12.i.i29
   store i16 %add.i.i40, ptr %22, align 2, !tbaa !201
   %incdec.ptr.i41 = getelementptr inbounds i8, ptr %24, i64 -1
@@ -15097,15 +15098,15 @@ lor.lhs.false20.i:                                ; preds = %if.then44
   br i1 %tobool.not.i, label %lor.lhs.false20.if.end_crit_edge.i, label %land.lhs.true.i
 
 lor.lhs.false20.if.end_crit_edge.i:               ; preds = %lor.lhs.false20.i
-  %.pre5.i = load i16, ptr %38, align 2, !tbaa !201
+  %.pre7.i = load i16, ptr %38, align 2, !tbaa !201
   br label %if.end47
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false20.i
   br i1 %narrow.i, label %cleanup71, label %lor.lhs.false23.i
 
 lor.lhs.false23.i:                                ; preds = %land.lhs.true.i
-  %mul4.i = call { i16, i1 } @llvm.umul.with.overflow.i16(i16 %conv8.i, i16 %mul.i)
-  %mul.ov.i = extractvalue { i16, i1 } %mul4.i, 1
+  %mul6.i = call { i16, i1 } @llvm.umul.with.overflow.i16(i16 %conv8.i, i16 %mul.i)
+  %mul.ov.i = extractvalue { i16, i1 } %mul6.i, 1
   br i1 %mul.ov.i, label %cleanup71, label %lor.lhs.false30.i
 
 lor.lhs.false30.i:                                ; preds = %lor.lhs.false23.i
@@ -15139,7 +15140,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %ehcleanup78
 
 if.end47:                                         ; preds = %lor.lhs.false30.i, %lor.lhs.false20.if.end_crit_edge.i
-  %51 = phi i16 [ %.pre5.i, %lor.lhs.false20.if.end_crit_edge.i ], [ %45, %lor.lhs.false30.i ]
+  %51 = phi i16 [ %.pre7.i, %lor.lhs.false20.if.end_crit_edge.i ], [ %45, %lor.lhs.false30.i ]
   %add.i = add i16 %51, %mul12.i
   store i16 %add.i, ptr %38, align 2, !tbaa !201
   %dec = add i8 %remained.067, -1
@@ -15261,15 +15262,15 @@ lor.lhs.false20.i:                                ; preds = %for.body
   br i1 %tobool.not.i, label %lor.lhs.false20.if.end_crit_edge.i, label %land.lhs.true.i
 
 lor.lhs.false20.if.end_crit_edge.i:               ; preds = %lor.lhs.false20.i
-  %.pre5.i = load i16, ptr %1, align 2, !tbaa !201
+  %.pre7.i = load i16, ptr %1, align 2, !tbaa !201
   br label %for.inc
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false20.i
   br i1 %narrow.i, label %return, label %lor.lhs.false23.i
 
 lor.lhs.false23.i:                                ; preds = %land.lhs.true.i
-  %mul4.i = tail call { i16, i1 } @llvm.umul.with.overflow.i16(i16 %conv8.i, i16 %mul.i)
-  %mul.ov.i = extractvalue { i16, i1 } %mul4.i, 1
+  %mul6.i = tail call { i16, i1 } @llvm.umul.with.overflow.i16(i16 %conv8.i, i16 %mul.i)
+  %mul.ov.i = extractvalue { i16, i1 } %mul6.i, 1
   br i1 %mul.ov.i, label %return, label %lor.lhs.false30.i
 
 lor.lhs.false30.i:                                ; preds = %lor.lhs.false23.i
@@ -15279,7 +15280,7 @@ lor.lhs.false30.i:                                ; preds = %lor.lhs.false23.i
   br i1 %cmp36.i, label %return, label %for.inc
 
 for.inc:                                          ; preds = %lor.lhs.false30.i, %lor.lhs.false20.if.end_crit_edge.i
-  %10 = phi i16 [ %.pre5.i, %lor.lhs.false20.if.end_crit_edge.i ], [ %9, %lor.lhs.false30.i ]
+  %10 = phi i16 [ %.pre7.i, %lor.lhs.false20.if.end_crit_edge.i ], [ %9, %lor.lhs.false30.i ]
   %add.i = add i16 %10, %mul12.i
   store i16 %add.i, ptr %1, align 2, !tbaa !201
   %incdec.ptr = getelementptr inbounds i8, ptr %3, i64 -1

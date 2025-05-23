@@ -1404,7 +1404,7 @@ _ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8Loop
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #22
   %.fca.0.extract.us.i = extractvalue { ptr, i8 } %19, 0
   %.fca.1.extract.us.i = extractvalue { ptr, i8 } %19, 1
-  %20 = trunc i8 %.fca.1.extract.us.i to i1
+  %20 = trunc nuw i8 %.fca.1.extract.us.i to i1
   br i1 %20, label %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit, label %21
 
 21:                                               ; preds = %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.us.i
@@ -2146,7 +2146,7 @@ _ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8Loop
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #22
   %.fca.0.extract.i = extractvalue { ptr, i8 } %19, 0
   %.fca.1.extract.i = extractvalue { ptr, i8 } %19, 1
-  %20 = trunc i8 %.fca.1.extract.i to i1
+  %20 = trunc nuw i8 %.fca.1.extract.i to i1
   br i1 %20, label %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit, label %21
 
 21:                                               ; preds = %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.i
@@ -2456,7 +2456,7 @@ _ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8Loop
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #22
   %.fca.0.extract.us.i = extractvalue { ptr, i8 } %19, 0
   %.fca.1.extract.us.i = extractvalue { ptr, i8 } %19, 1
-  %20 = trunc i8 %.fca.1.extract.us.i to i1
+  %20 = trunc nuw i8 %.fca.1.extract.us.i to i1
   br i1 %20, label %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit.loopexit, label %21
 
 21:                                               ; preds = %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.us.i
@@ -2475,17 +2475,15 @@ _ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8Loop
 
 _ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit.loopexit: ; preds = %23, %22, %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.us.i
   %.sroa.026.0.i.ph = phi ptr [ null, %22 ], [ %.fca.0.extract.us.i, %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.us.i ], [ %.1.us.i, %23 ]
-  %.sroa.4.0.i.ph = phi i8 [ 1, %22 ], [ %.fca.1.extract.us.i, %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.us.i ], [ 0, %23 ]
-  %25 = trunc i8 %.sroa.4.0.i.ph to i1
-  %26 = icmp eq ptr %.sroa.026.0.i.ph, null
-  %27 = xor i1 %25, true
-  %28 = select i1 %27, i1 %26, i1 false
+  %not..sroa.4.0.i.ph = phi i1 [ false, %22 ], [ false, %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.us.i ], [ true, %23 ]
+  %25 = icmp eq ptr %.sroa.026.0.i.ph, null
+  %26 = select i1 %not..sroa.4.0.i.ph, i1 %25, i1 false
   br label %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit
 
 _ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit: ; preds = %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit.loopexit, %1
-  %.sroa.4.0.i = phi i1 [ true, %1 ], [ %28, %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit.loopexit ]
+  %not..sroa.4.0.i = phi i1 [ true, %1 ], [ %26, %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit.loopexit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  ret i1 %.sroa.4.0.i
+  ret i1 %not..sroa.4.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10134,7 +10132,7 @@ _ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8Loop
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #22
   %.fca.0.extract.i.i = extractvalue { ptr, i8 } %53, 0
   %.fca.1.extract.i.i = extractvalue { ptr, i8 } %53, 1
-  %54 = trunc i8 %.fca.1.extract.i.i to i1
+  %54 = trunc nuw i8 %.fca.1.extract.i.i to i1
   br i1 %54, label %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE18getUniqueExitBlockEv.exit, label %55
 
 55:                                               ; preds = %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.i.i

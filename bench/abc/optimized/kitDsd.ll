@@ -6678,21 +6678,24 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.1 = phi i32 [ %72, %69 ], [ %.0474727, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %76 = icmp samesign ult i64 %indvars.iv.next, %65
-  br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !116
+  br i1 %76, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !116
 
-._crit_edge:                                      ; preds = %75, %43
-  %.0474.lcssa = phi i32 [ 0, %43 ], [ %.1, %75 ]
-  %77 = shl i32 %.0474.lcssa, 26
-  %78 = and i32 %63, 67108863
-  %79 = or disjoint i32 %78, %77
-  store i32 %79, ptr %.tr650.ph, align 4
-  %80 = and i32 %.0474.lcssa, 63
-  %81 = shl nsw i32 -1, %80
+._crit_edge.loopexit:                             ; preds = %75
+  %77 = and i32 %.1, 63
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %43
+  %.0474.lcssa = phi i32 [ 0, %43 ], [ %77, %._crit_edge.loopexit ]
+  %78 = shl nuw i32 %.0474.lcssa, 26
+  %79 = and i32 %63, 67108863
+  %80 = or disjoint i32 %79, %78
+  store i32 %80, ptr %.tr650.ph, align 4
+  %81 = shl nsw i32 -1, %.0474.lcssa
   %82 = xor i32 %81, -1
   br label %83
 
 83:                                               ; preds = %._crit_edge, %tailrecurse
-  %84 = phi i32 [ %79, %._crit_edge ], [ %11, %tailrecurse ]
+  %84 = phi i32 [ %80, %._crit_edge ], [ %11, %tailrecurse ]
   %.0 = phi i32 [ %82, %._crit_edge ], [ %.tr651, %tailrecurse ]
   %85 = lshr i32 %84, 26
   %86 = icmp eq i32 %85, 1

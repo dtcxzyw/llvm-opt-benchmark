@@ -2004,7 +2004,7 @@ aead_aes_ctr_hmac_sha256_crypt.exit:              ; preds = %33, %34
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #10
   %37 = getelementptr inbounds nuw i8, ptr %16, i64 264
   %38 = getelementptr inbounds nuw i8, ptr %16, i64 376
-  call fastcc void @hmac_calculate(ptr noundef %14, ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef %8, i64 noundef %9, ptr noundef nonnull %4, ptr noundef %1, i64 noundef %7)
+  call fastcc void @hmac_calculate(ptr noundef nonnull %14, ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef %8, i64 noundef %9, ptr noundef nonnull %4, ptr noundef %1, i64 noundef %7)
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 %7
   %40 = load i8, ptr %17, align 8, !tbaa !55
   %41 = zext i8 %40 to i64
@@ -2060,7 +2060,7 @@ define internal range(i32 0, 2) i32 @aead_aes_ctr_hmac_sha256_open(ptr noundef r
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #10
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 264
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 376
-  call fastcc void @hmac_calculate(ptr noundef %14, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef %8, i64 noundef %9, ptr noundef %4, ptr noundef %6, i64 noundef %23)
+  call fastcc void @hmac_calculate(ptr noundef nonnull %14, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef %8, i64 noundef %9, ptr noundef %4, ptr noundef %6, i64 noundef %23)
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 %23
   %32 = load i8, ptr %17, align 8, !tbaa !55
   %33 = zext i8 %32 to i64
@@ -2165,17 +2165,22 @@ hmac_update_uint64.exit16:                        ; preds = %19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
   %24 = call i32 @SHA256_Update(ptr noundef nonnull %11, ptr noundef %5, i64 noundef 12) #10
   %25 = call i32 @SHA256_Update(ptr noundef nonnull %11, ptr noundef %3, i64 noundef %4) #10
-  %26 = sub i64 36, %4
+  %26 = add i64 %4, 28
   %27 = and i64 %26, 63
+  %28 = and i64 %4, 63
+  %.cmp.not = icmp eq i64 %28, 36
+  %.v = select i1 %.cmp.not, i64 0, i64 64
+  %29 = sub nsw i64 %.v, %27
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #10
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %12, i8 0, i64 %27, i1 false)
-  %28 = call i32 @SHA256_Update(ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %27) #10
-  %29 = call i32 @SHA256_Update(ptr noundef nonnull %11, ptr noundef %6, i64 noundef %7) #10
+  %30 = and i64 %29, 4294967295
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %12, i8 0, i64 %30, i1 false)
+  %31 = call i32 @SHA256_Update(ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %30) #10
+  %32 = call i32 @SHA256_Update(ptr noundef nonnull %11, ptr noundef %6, i64 noundef %7) #10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #10
-  %30 = call i32 @SHA256_Final(ptr noundef nonnull %13, ptr noundef nonnull %11) #10
+  %33 = call i32 @SHA256_Final(ptr noundef nonnull %13, ptr noundef nonnull %11) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %11, ptr noundef nonnull align 4 dereferenceable(112) %2, i64 112, i1 false)
-  %31 = call i32 @SHA256_Update(ptr noundef nonnull %11, ptr noundef nonnull %13, i64 noundef 32) #10
-  %32 = call i32 @SHA256_Final(ptr noundef nonnull %0, ptr noundef nonnull %11) #10
+  %34 = call i32 @SHA256_Update(ptr noundef nonnull %11, ptr noundef nonnull %13, i64 noundef 32) #10
+  %35 = call i32 @SHA256_Final(ptr noundef nonnull %0, ptr noundef nonnull %11) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #10
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #10
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11) #10

@@ -2282,7 +2282,7 @@ get_bad_and_good_commits.exit.i:                  ; preds = %get_commit_referenc
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @__const.check_ancestors.rev_argv, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 3008, ptr nonnull %8) #22
-  call fastcc void @bisect_rev_setup(ptr noundef %0, ptr noundef %8, ptr noundef %7, ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.13, i32 noundef 0)
+  call fastcc void @bisect_rev_setup(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.13, i32 noundef 0)
   %83 = call i32 @prepare_revision_walk(ptr noundef nonnull %8) #22
   %.not.i.i21.i = icmp eq i32 %83, 0
   br i1 %.not.i.i21.i, label %85, label %84
@@ -2552,12 +2552,12 @@ check_good_are_ancestors_of_bad.exit:             ; preds = %select.unfold.i
 182:                                              ; preds = %_.exit26.i, %180, %58, %51
   call void @free(ptr noundef %49) #22
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #22
-  call fastcc void @bisect_rev_setup(ptr noundef %0, ptr noundef %11, ptr noundef %10, ptr noundef %1, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 1)
+  call fastcc void @bisect_rev_setup(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef %1, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 1)
   %183 = lshr exact i32 %spec.select, 1
-  %184 = load i64, ptr %15, align 8
-  %185 = zext nneg i32 %183 to i64
-  %186 = shl nuw nsw i64 %185, 38
-  %187 = and i64 %184, -274878431233
+  %184 = zext nneg i32 %183 to i64
+  %185 = load i64, ptr %15, align 8
+  %186 = shl nuw nsw i64 %184, 38
+  %187 = and i64 %185, -274878431233
   %188 = or disjoint i64 %187, %186
   %189 = or disjoint i64 %188, 524288
   store i64 %189, ptr %15, align 8
@@ -2642,7 +2642,9 @@ filter_skipped.exit.thread.i:                     ; preds = %204
   %210 = mul i32 %.116.i, 1103515245
   %211 = add i32 %210, 12345
   %212 = lshr i32 %211, 16
-  %213 = and i32 %212, 32767
+  %.urem.i.i.i = add nsw i32 %212, -32768
+  %.cmp2.i.i.i = icmp slt i32 %211, 0
+  %213 = select i1 %.cmp2.i.i.i, i32 %.urem.i.i.i, i32 %212
   %214 = mul nsw i32 %213, %.116.i
   %215 = sdiv i32 %214, 32768
   %216 = uitofp nneg i32 %213 to float

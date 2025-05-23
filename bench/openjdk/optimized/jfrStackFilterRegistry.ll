@@ -47,50 +47,82 @@ define hidden noundef i64 @_ZN22JfrStackFilterRegistry3addEP13_jobjectArrayS1_P1
 11:                                               ; preds = %3
   %12 = call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 24) #6
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %16, label %14
+  br i1 %13, label %.split, label %.split11
 
-14:                                               ; preds = %11
-  %15 = load i64, ptr %4, align 8
-  call void @_ZN14JfrStackFilterC1EPP6SymbolS2_m(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %6, ptr noundef %7, i64 noundef %15) #6
-  br label %16
+.split:                                           ; preds = %11
+  %14 = load i64, ptr @_ZL16_free_list_index, align 8
+  %15 = icmp sgt i64 %14, 0
+  br i1 %15, label %16, label %21
 
-16:                                               ; preds = %14, %11
-  %17 = load i64, ptr @_ZL16_free_list_index, align 8
-  %18 = icmp sgt i64 %17, 0
-  br i1 %18, label %19, label %24
-
-19:                                               ; preds = %16
-  %20 = add nsw i64 %17, -1
-  %21 = getelementptr inbounds nuw [4096 x i64], ptr @_ZL10_free_list, i64 0, i64 %20
-  %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds [4096 x ptr], ptr @_ZL9_elements, i64 0, i64 %22
-  store ptr %12, ptr %23, align 8
-  store i64 %20, ptr @_ZL16_free_list_index, align 8
+16:                                               ; preds = %.split
+  %17 = add nsw i64 %14, -1
+  %18 = getelementptr inbounds nuw [4096 x i64], ptr @_ZL10_free_list, i64 0, i64 %17
+  %19 = load i64, ptr %18, align 8
+  %20 = getelementptr inbounds [4096 x ptr], ptr @_ZL9_elements, i64 0, i64 %19
+  store ptr null, ptr %20, align 8
+  store i64 %17, ptr @_ZL16_free_list_index, align 8
   br label %_ZN22JfrStackFilterRegistry3addEPK14JfrStackFilter.exit
 
-24:                                               ; preds = %16
-  %25 = load i64, ptr @_ZL6_index, align 8
-  %26 = icmp sgt i64 %25, 4094
-  br i1 %26, label %27, label %30
+21:                                               ; preds = %.split
+  %22 = load i64, ptr @_ZL6_index, align 8
+  %23 = icmp sgt i64 %22, 4094
+  br i1 %23, label %24, label %27
 
-27:                                               ; preds = %24
-  %28 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not.i = icmp eq ptr %28, null
-  br i1 %.not.i, label %_ZN22JfrStackFilterRegistry3addEPK14JfrStackFilter.exit, label %29
+24:                                               ; preds = %21
+  %25 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %.not.i = icmp eq ptr %25, null
+  br i1 %.not.i, label %_ZN22JfrStackFilterRegistry3addEPK14JfrStackFilter.exit, label %26
 
-29:                                               ; preds = %27
+26:                                               ; preds = %24
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.4)
   br label %_ZN22JfrStackFilterRegistry3addEPK14JfrStackFilter.exit
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds [4096 x ptr], ptr @_ZL9_elements, i64 0, i64 %25
-  store ptr %12, ptr %31, align 8
-  %32 = add nsw i64 %25, 1
-  store i64 %32, ptr @_ZL6_index, align 8
+27:                                               ; preds = %21
+  %28 = getelementptr inbounds [4096 x ptr], ptr @_ZL9_elements, i64 0, i64 %22
+  store ptr null, ptr %28, align 8
+  %29 = add nsw i64 %22, 1
+  store i64 %29, ptr @_ZL6_index, align 8
   br label %_ZN22JfrStackFilterRegistry3addEPK14JfrStackFilter.exit
 
-_ZN22JfrStackFilterRegistry3addEPK14JfrStackFilter.exit: ; preds = %30, %29, %27, %19, %10
-  %.0 = phi i64 [ -1, %10 ], [ %22, %19 ], [ %25, %30 ], [ -1, %27 ], [ -1, %29 ]
+.split11:                                         ; preds = %11
+  %30 = load i64, ptr %4, align 8
+  call void @_ZN14JfrStackFilterC1EPP6SymbolS2_m(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %6, ptr noundef %7, i64 noundef %30) #6
+  %31 = load i64, ptr @_ZL16_free_list_index, align 8
+  %32 = icmp sgt i64 %31, 0
+  br i1 %32, label %33, label %38
+
+33:                                               ; preds = %.split11
+  %34 = add nsw i64 %31, -1
+  %35 = getelementptr inbounds nuw [4096 x i64], ptr @_ZL10_free_list, i64 0, i64 %34
+  %36 = load i64, ptr %35, align 8
+  %37 = getelementptr inbounds [4096 x ptr], ptr @_ZL9_elements, i64 0, i64 %36
+  store ptr %12, ptr %37, align 8
+  store i64 %34, ptr @_ZL16_free_list_index, align 8
+  br label %_ZN22JfrStackFilterRegistry3addEPK14JfrStackFilter.exit
+
+38:                                               ; preds = %.split11
+  %39 = load i64, ptr @_ZL6_index, align 8
+  %40 = icmp sgt i64 %39, 4094
+  br i1 %40, label %41, label %44
+
+41:                                               ; preds = %38
+  %42 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %.not.i14 = icmp eq ptr %42, null
+  br i1 %.not.i14, label %_ZN22JfrStackFilterRegistry3addEPK14JfrStackFilter.exit, label %43
+
+43:                                               ; preds = %41
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.4)
+  br label %_ZN22JfrStackFilterRegistry3addEPK14JfrStackFilter.exit
+
+44:                                               ; preds = %38
+  %45 = getelementptr inbounds [4096 x ptr], ptr @_ZL9_elements, i64 0, i64 %39
+  store ptr %12, ptr %45, align 8
+  %46 = add nsw i64 %39, 1
+  store i64 %46, ptr @_ZL6_index, align 8
+  br label %_ZN22JfrStackFilterRegistry3addEPK14JfrStackFilter.exit
+
+_ZN22JfrStackFilterRegistry3addEPK14JfrStackFilter.exit: ; preds = %44, %43, %41, %33, %27, %26, %24, %16, %10
+  %.0 = phi i64 [ -1, %10 ], [ %19, %16 ], [ %22, %27 ], [ -1, %24 ], [ -1, %26 ], [ %36, %33 ], [ %39, %44 ], [ -1, %41 ], [ -1, %43 ]
   ret i64 %.0
 }
 

@@ -172,7 +172,7 @@ define void @lv_draw_sw_blend_color_to_i1(ptr noundef readonly captures(none) %0
 
 .preheader160.lr.ph:                              ; preds = %.preheader161
   %86 = icmp sgt i32 %3, 0
-  %87 = zext nneg i8 %.lobit to i32
+  %87 = zext nneg i8 %.lobit to i16
   %88 = zext i32 %13 to i64
   %89 = sext i32 %11 to i64
   br i1 %86, label %.preheader160.us.preheader, label %.loopexit
@@ -207,14 +207,15 @@ define void @lv_draw_sw_blend_color_to_i1(ptr noundef readonly captures(none) %0
   %103 = sub nsw i32 7, %102
   %104 = lshr i32 %101, %103
   %105 = mul nuw nsw i32 %94, %21
-  %106 = udiv i32 %105, 255
-  %107 = and i32 %106, 255
-  %108 = mul nuw nsw i32 %107, %87
-  %109 = xor i32 %107, 255
+  %.lhs.trunc.us = trunc nuw i32 %105 to i16
+  %106 = udiv i16 %.lhs.trunc.us, 255
+  %107 = and i16 %106, 255
+  %108 = mul nuw nsw i16 %107, %87
+  %109 = xor i16 %107, 255
   %110 = trunc i32 %104 to i1
-  %111 = select i1 %110, i32 %109, i32 0
-  %112 = add nuw nsw i32 %111, %108
-  %.not.us = icmp samesign ult i32 %112, 255
+  %111 = select i1 %110, i16 %109, i16 0
+  %112 = add nuw nsw i16 %111, %108
+  %.not.us = icmp samesign ult i16 %112, 255
   %113 = shl nuw nsw i32 1, %103
   %114 = trunc i32 %113 to i8
   %115 = xor i8 %114, -1

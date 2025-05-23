@@ -619,21 +619,19 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
   %39 = zext nneg i8 %.sroa.09.0.i.i.i.i to i64
   %40 = add nsw i64 %39, -5
   %41 = select i1 %38, i64 %40, i64 0
-  %42 = icmp samesign ult i8 %.sroa.09.0.i.i.i.i.i.i, 6
-  %43 = zext nneg i8 %.sroa.09.0.i.i.i.i.i.i to i64
-  %44 = add nsw i64 %43, -5
-  %45 = select i1 %42, i64 0, i64 %44
-  %46 = icmp eq i64 %41, %45
-  br i1 %46, label %47, label %_ZN4core4iter6traits8iterator12iter_compare17h813b7a8bcba60cfbE.exit
+  %42 = add nsw i8 %.sroa.09.0.i.i.i.i.i.i, -6
+  %43 = icmp ult i8 %42, 4
+  %44 = zext nneg i8 %.sroa.09.0.i.i.i.i.i.i to i64
+  %45 = add nsw i64 %44, -5
+  %46 = select i1 %43, i64 %45, i64 0
+  %47 = icmp eq i64 %41, %46
+  br i1 %47, label %48, label %_ZN4core4iter6traits8iterator12iter_compare17h813b7a8bcba60cfbE.exit
 
-47:                                               ; preds = %36
+48:                                               ; preds = %36
   switch i64 %41, label %84 [
-    i64 0, label %48
+    i64 0, label %49
     i64 4, label %76
   ]
-
-48:                                               ; preds = %47
-  br i1 %42, label %49, label %84
 
 49:                                               ; preds = %48
   %50 = icmp eq i8 %.sroa.09.0.i.i.i.i, %.sroa.09.0.i.i.i.i.i.i
@@ -662,8 +660,8 @@ default.unreachable41.i.i.i.i.i.i.i.i.i:          ; preds = %51
 
 56:                                               ; preds = %51
   %57 = icmp eq i8 %.sroa.8.i.sroa.0.1.i.i.i, %.sroa.8.i.sroa.0.0.i.i.i.i.i
-  %cond.fr31.i.i.i.i.i = freeze i1 %57
-  br i1 %cond.fr31.i.i.i.i.i, label %84, label %_ZN4core4iter6traits8iterator12iter_compare17h813b7a8bcba60cfbE.exit
+  %cond.fr30.i.i.i.i.i = freeze i1 %57
+  br i1 %cond.fr30.i.i.i.i.i, label %84, label %_ZN4core4iter6traits8iterator12iter_compare17h813b7a8bcba60cfbE.exit
 
 58:                                               ; preds = %51
   %59 = icmp ne ptr %.sroa.812.0.i.i.i.i, null
@@ -683,8 +681,8 @@ default.unreachable41.i.i.i.i.i.i.i.i.i:          ; preds = %51
 
 66:                                               ; preds = %51
   %67 = icmp eq i8 %.sroa.8.i.sroa.0.1.i.i.i, %.sroa.8.i.sroa.0.0.i.i.i.i.i
-  %cond.fr30.i.i.i.i.i = freeze i1 %67
-  br i1 %cond.fr30.i.i.i.i.i, label %84, label %_ZN4core4iter6traits8iterator12iter_compare17h813b7a8bcba60cfbE.exit
+  %cond.fr29.i.i.i.i.i = freeze i1 %67
+  br i1 %cond.fr29.i.i.i.i.i, label %84, label %_ZN4core4iter6traits8iterator12iter_compare17h813b7a8bcba60cfbE.exit
 
 68:                                               ; preds = %52
   %69 = icmp ne ptr %.sroa.10.i.sroa.0.1.i.i.i, null
@@ -702,7 +700,7 @@ default.unreachable41.i.i.i.i.i.i.i.i.i:          ; preds = %51
   %75 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb79df5934dc5aab4E"(ptr noalias noundef nonnull readonly align 1 %.sroa.10.i.sroa.0.1.i.i.i, i64 noundef %.sroa.10.i.sroa.4.1.i.i.i, ptr noalias noundef nonnull readonly align 1 %.sroa.10.i.sroa.0.0.i.i.i.i.i, i64 noundef %.sroa.10.i.sroa.4.0.i.i.i.i.i), !noalias !50
   br i1 %75, label %84, label %_ZN4core4iter6traits8iterator12iter_compare17h813b7a8bcba60cfbE.exit
 
-76:                                               ; preds = %47
+76:                                               ; preds = %48
   %77 = icmp ne ptr %.sroa.812.0.i.i.i.i, null
   call void @llvm.assume(i1 %77)
   %78 = icmp ne ptr %.sroa.812.0.i.i.i.i.i.i, null
@@ -722,7 +720,7 @@ default.unreachable41.i.i.i.i.i.i.i.i.i:          ; preds = %51
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !41
   br label %_ZN4core4iter6traits8iterator12iter_compare17h813b7a8bcba60cfbE.exit
 
-84:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17he525ef41791f9f89E.exit.i.i.i.i.i", %76, %72, %68, %66, %58, %56, %48, %47
+84:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17he525ef41791f9f89E.exit.i.i.i.i.i", %76, %72, %68, %66, %58, %56, %48
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5), !noalias !27
   call void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0ff127f8b21ed2cE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %7), !noalias !64
   %85 = load i8, ptr %5, align 8, !range !17, !noalias !27, !noundef !16
@@ -1145,7 +1143,7 @@ _ZN5salsa5table5Table3get17hc4d022d764fb9ef8E.exit: ; preds = %_ZN5salsa5table4P
   br i1 %156, label %157, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0f63a7dff11d928eE.exit.i", !prof !6
 
 157:                                              ; preds = %147
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef %151, i64 noundef %155, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.224174b4a1d1d067552592cbf4df4cb6.51) #21
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef %151, i64 noundef %155, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.224174b4a1d1d067552592cbf4df4cb6.51) #21
           to label %.noexc unwind label %166
 
 .noexc:                                           ; preds = %157
@@ -1677,7 +1675,7 @@ define hidden void @_ZN5salsa8database8Database21report_untracked_read17h57f761b
   br i1 %18, label %19, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0f63a7dff11d928eE.exit.i", !prof !6
 
 19:                                               ; preds = %9
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef %13, i64 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.224174b4a1d1d067552592cbf4df4cb6.51) #21
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef %13, i64 noundef %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.224174b4a1d1d067552592cbf4df4cb6.51) #21
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %19

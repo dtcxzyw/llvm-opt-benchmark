@@ -481,38 +481,31 @@ _ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.15921019618450389372
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.15921019618450389372(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #5 {
   %5 = icmp eq i64 %2, 0
-  br i1 %5, label %6, label %10
+  br i1 %5, label %6, label %9
 
 6:                                                ; preds = %4
-  %7 = add i64 %1, -1
-  %8 = icmp sgt i64 %7, -1
+  %7 = inttoptr i64 %1 to ptr
+  %8 = icmp ne i64 %1, 0
   tail call void @llvm.assume(i1 %8)
-  %9 = inttoptr i64 %1 to ptr
-  br label %11
+  br label %10
 
-10:                                               ; preds = %4
-  br i1 %3, label %19, label %14
+9:                                                ; preds = %4
+  br i1 %3, label %16, label %13
 
-11:                                               ; preds = %14, %19, %6
-  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %22, %19 ], [ %18, %14 ]
-  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
-  %13 = insertvalue { ptr, i64 } %12, i64 %2, 1
-  ret { ptr, i64 } %13
+10:                                               ; preds = %13, %16, %6
+  %.sroa.05.0 = phi ptr [ %7, %6 ], [ %17, %16 ], [ %15, %13 ]
+  %11 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
+  %12 = insertvalue { ptr, i64 } %11, i64 %2, 1
+  ret { ptr, i64 } %12
 
-14:                                               ; preds = %10
-  %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %16 = add i64 %1, -1
-  %17 = icmp sgt i64 %16, -1
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #18
-  br label %11
+13:                                               ; preds = %9
+  %14 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %15 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #18
+  br label %10
 
-19:                                               ; preds = %10
-  %20 = add i64 %1, -1
-  %21 = icmp sgt i64 %20, -1
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #18
-  br label %11
+16:                                               ; preds = %9
+  %17 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #18
+  br label %10
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
@@ -677,7 +670,7 @@ define void @_ZN10rayon_core5scope5Scope3new17h31f80d2948bc842bE(ptr noalias nou
 17:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit.i"
   %18 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$GT$17h7fec148915d363b7E"(ptr noalias noundef align 8 dereferenceable(8) %5) #20
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$GT$17h7fec148915d363b7E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #20
           to label %21 unwind label %19, !noalias !80
 
 19:                                               ; preds = %17
@@ -745,7 +738,7 @@ define void @_ZN10rayon_core5scope9ScopeFifo3new17h23b2a5d100b5f67dE(ptr noalias
 19:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit.i"
   %20 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$GT$17h7fec148915d363b7E"(ptr noalias noundef align 8 dereferenceable(8) %5) #20
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$GT$17h7fec148915d363b7E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #20
           to label %common.resume unwind label %21, !noalias !86
 
 21:                                               ; preds = %19

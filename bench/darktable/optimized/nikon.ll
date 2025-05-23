@@ -1622,14 +1622,13 @@ sub_1:                                            ; preds = %sub_0
   %621 = getelementptr inbounds nuw i8, ptr %620, i64 56
   %622 = load ptr, ptr %621, align 8
   %623 = call noundef i32 %622(ptr noundef nonnull align 8 dereferenceable(8) %619)
-  %624 = and i32 %623, 255
-  %.not286 = icmp eq i32 %624, 0
+  %624 = trunc i32 %623 to i8
+  %.not286 = icmp eq i8 %624, 0
   br i1 %.not286, label %.loopexit, label %625
 
 625:                                              ; preds = %608
   %626 = mul i32 %618, %613
-  %.rhs.trunc = trunc i32 %623 to i8
-  %627 = udiv i8 12, %.rhs.trunc
+  %627 = udiv i8 12, %624
   %628 = trunc i32 %626 to i8
   %629 = mul i8 %627, %628
   store i8 %629, ptr %64, align 1, !tbaa !84

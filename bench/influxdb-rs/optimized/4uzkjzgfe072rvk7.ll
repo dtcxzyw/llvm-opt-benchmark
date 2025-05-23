@@ -43,14 +43,14 @@ define hidden void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$
 define hidden void @_ZN3std2io5error14repr_bitpacked11decode_repr17hed8946d714d8edf0E.llvm.11290379560268722015(ptr noalias noundef writeonly sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 3
-  switch i64 %4, label %default.unreachable9 [
+  switch i64 %4, label %default.unreachable [
     i64 2, label %5
     i64 3, label %switch.lookup
     i64 0, label %11
     i64 1, label %13
   ]
 
-default.unreachable9:                             ; preds = %2
+default.unreachable:                              ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -2191,7 +2191,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$$u5b$influxdb_influxql_parse
 25:                                               ; preds = %.body
   %26 = getelementptr inbounds [0 x { { i8, [55 x i8] }, { ptr, [2 x i64] } }], ptr %0, i64 0, i64 %.1
   %27 = add i64 %.1, 1
-  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$influxdb_influxql_parser..select..Field$GT$17h369f8781d9bbf0cfE"(ptr noalias noundef align 8 dereferenceable(80) %26) #16
+  invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$influxdb_influxql_parser..select..Field$GT$17h369f8781d9bbf0cfE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %26) #16
           to label %.body unwind label %29
 
 28:                                               ; preds = %.body
@@ -2488,7 +2488,7 @@ define hidden void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..ex
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17had4a60fe904b7722E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i.i1.i.i", %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call fastcc void @"_ZN4core3ptr98drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h11fc629edb4c4116E"(ptr noalias noundef align 8 dereferenceable(24) %6)
+  tail call fastcc void @"_ZN4core3ptr98drop_in_place$LT$alloc..vec..Vec$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h11fc629edb4c4116E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
   ret void
 }
 
@@ -3717,7 +3717,7 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$influxdb_
 7:                                                ; preds = %5
   %8 = getelementptr inbounds [0 x { i8, [111 x i8] }], ptr %2, i64 0, i64 %.0.i.i
   %9 = add i64 %.0.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$influxdb_influxql_parser..select..Dimension$GT$17hdfde8333c34c2328E"(ptr noalias noundef readonly align 8 dereferenceable(112) %8)
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$influxdb_influxql_parser..select..Dimension$GT$17hdfde8333c34c2328E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %8)
           to label %5 unwind label %12, !noalias !2302
 
 10:                                               ; preds = %14, %12
@@ -3733,7 +3733,7 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$influxdb_
 14:                                               ; preds = %10
   %15 = getelementptr inbounds [0 x { i8, [111 x i8] }], ptr %2, i64 0, i64 %.1.i.i
   %16 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$influxdb_influxql_parser..select..Dimension$GT$17hdfde8333c34c2328E"(ptr noalias noundef readonly align 8 dereferenceable(112) %15) #16
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$influxdb_influxql_parser..select..Dimension$GT$17hdfde8333c34c2328E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %15) #16
           to label %10 unwind label %17, !noalias !2302
 
 17:                                               ; preds = %14
@@ -4937,16 +4937,13 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he9
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3) unnamed_addr #5 {
   %5 = icmp eq i64 %3, 0
-  br i1 %5, label %9, label %6
+  br i1 %5, label %7, label %6
 
 6:                                                ; preds = %4
-  %7 = add i64 %2, -1
-  %8 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %8)
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %3, i64 noundef %2) #13
-  br label %9
+  br label %7
 
-9:                                                ; preds = %4, %6
+7:                                                ; preds = %4, %6
   ret void
 }
 
@@ -5093,7 +5090,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 7:                                                ; preds = %5
   %8 = getelementptr inbounds [0 x { i8, [111 x i8] }], ptr %2, i64 0, i64 %.0.i
   %9 = add i64 %.0.i, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$influxdb_influxql_parser..select..Dimension$GT$17hdfde8333c34c2328E"(ptr noalias noundef readonly align 8 dereferenceable(112) %8)
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$influxdb_influxql_parser..select..Dimension$GT$17hdfde8333c34c2328E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %8)
           to label %5 unwind label %12
 
 10:                                               ; preds = %14, %12
@@ -5109,7 +5106,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 14:                                               ; preds = %10
   %15 = getelementptr inbounds [0 x { i8, [111 x i8] }], ptr %2, i64 0, i64 %.1.i
   %16 = add i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$influxdb_influxql_parser..select..Dimension$GT$17hdfde8333c34c2328E"(ptr noalias noundef readonly align 8 dereferenceable(112) %15) #16
+  invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$influxdb_influxql_parser..select..Dimension$GT$17hdfde8333c34c2328E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %15) #16
           to label %10 unwind label %18
 
 17:                                               ; preds = %10

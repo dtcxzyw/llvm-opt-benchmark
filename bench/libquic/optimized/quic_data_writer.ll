@@ -213,61 +213,60 @@ define noundef zeroext i1 @_ZN3net14QuicDataWriter13WriteUFloat16Em(ptr noundef 
 
 4:                                                ; preds = %2
   %5 = trunc nuw nsw i64 %1 to i16
-  br label %20
+  br label %18
 
 6:                                                ; preds = %2
   %7 = icmp ugt i64 %1, 4396972769279
-  br i1 %7, label %20, label %.preheader
+  br i1 %7, label %18, label %.preheader
 
 .preheader:                                       ; preds = %6, %.preheader
-  %.034 = phi i32 [ %14, %.preheader ], [ 16, %6 ]
+  %.034 = phi i16 [ %12, %.preheader ], [ 16, %6 ]
   %.01333 = phi i16 [ %.1, %.preheader ], [ 0, %6 ]
   %.01432 = phi i64 [ %.115, %.preheader ], [ %1, %6 ]
-  %8 = add nuw nsw i32 %.034, 11
-  %9 = zext nneg i32 %8 to i64
-  %.014.highbits = lshr i64 %.01432, %9
+  %narrow = add nuw nsw i16 %.034, 11
+  %8 = zext nneg i16 %narrow to i64
+  %.014.highbits = lshr i64 %.01432, %8
   %.not19 = icmp eq i64 %.014.highbits, 0
-  %10 = trunc nuw nsw i32 %.034 to i16
-  %11 = zext nneg i32 %.034 to i64
-  %12 = select i1 %.not19, i64 0, i64 %11
-  %.115 = lshr i64 %.01432, %12
-  %13 = select i1 %.not19, i16 0, i16 %10
-  %.1 = add i16 %13, %.01333
-  %14 = lshr i32 %.034, 1
-  %.not = icmp samesign ult i32 %.034, 2
-  br i1 %.not, label %15, label %.preheader, !llvm.loop !12
+  %9 = zext nneg i16 %.034 to i64
+  %10 = select i1 %.not19, i64 0, i64 %9
+  %.115 = lshr i64 %.01432, %10
+  %11 = select i1 %.not19, i16 0, i16 %.034
+  %.1 = add i16 %11, %.01333
+  %12 = lshr i16 %.034, 1
+  %.not = icmp samesign ult i16 %.034, 2
+  br i1 %.not, label %13, label %.preheader, !llvm.loop !12
 
-15:                                               ; preds = %.preheader
-  %16 = zext i16 %.1 to i64
-  %17 = shl nuw nsw i64 %16, 11
-  %18 = add nuw nsw i64 %17, %.115
-  %19 = trunc i64 %18 to i16
-  br label %20
+13:                                               ; preds = %.preheader
+  %14 = zext i16 %.1 to i64
+  %15 = shl nuw nsw i64 %14, 11
+  %16 = add nuw nsw i64 %15, %.115
+  %17 = trunc i64 %16 to i16
+  br label %18
 
-20:                                               ; preds = %6, %15, %4
-  %.031 = phi i16 [ %5, %4 ], [ %19, %15 ], [ -1, %6 ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load i64, ptr %21, align 8, !tbaa !11
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load i64, ptr %23, align 8, !tbaa !10
-  %25 = icmp ule i64 %22, %24
-  %26 = sub nuw i64 %24, %22
-  %27 = icmp ugt i64 %26, 1
-  %or.cond.i.not.i = select i1 %25, i1 %27, i1 false
-  %28 = load ptr, ptr %0, align 8
-  %.not8.i = icmp ne ptr %28, null
+18:                                               ; preds = %6, %13, %4
+  %.031 = phi i16 [ %5, %4 ], [ %17, %13 ], [ -1, %6 ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %20 = load i64, ptr %19, align 8, !tbaa !11
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = load i64, ptr %21, align 8, !tbaa !10
+  %23 = icmp ule i64 %20, %22
+  %24 = sub nuw i64 %22, %20
+  %25 = icmp ugt i64 %24, 1
+  %or.cond.i.not.i = select i1 %23, i1 %25, i1 false
+  %26 = load ptr, ptr %0, align 8
+  %.not8.i = icmp ne ptr %26, null
   %.not.i23 = select i1 %or.cond.i.not.i, i1 %.not8.i, i1 false
-  br i1 %.not.i23, label %29, label %_ZN3net14QuicDataWriter10WriteBytesEPKvm.exit
+  br i1 %.not.i23, label %27, label %_ZN3net14QuicDataWriter10WriteBytesEPKvm.exit
 
-29:                                               ; preds = %20
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %22
-  store i16 %.031, ptr %30, align 1
-  %31 = load i64, ptr %21, align 8, !tbaa !11
-  %32 = add i64 %31, 2
-  store i64 %32, ptr %21, align 8, !tbaa !11
+27:                                               ; preds = %18
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %20
+  store i16 %.031, ptr %28, align 1
+  %29 = load i64, ptr %19, align 8, !tbaa !11
+  %30 = add i64 %29, 2
+  store i64 %30, ptr %19, align 8, !tbaa !11
   br label %_ZN3net14QuicDataWriter10WriteBytesEPKvm.exit
 
-_ZN3net14QuicDataWriter10WriteBytesEPKvm.exit:    ; preds = %20, %29
+_ZN3net14QuicDataWriter10WriteBytesEPKvm.exit:    ; preds = %18, %27
   ret i1 %.not.i23
 }
 

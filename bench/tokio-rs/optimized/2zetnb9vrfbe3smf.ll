@@ -2960,7 +2960,7 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5tokio4loom3std3sys8num_cpus17h124
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %27 = load i8, ptr %26, align 1, !range !595, !noundef !19
-  invoke fastcc void @"_ZN5tokio4loom3std3sys8num_cpus28_$u7b$$u7b$closure$u7d$$u7d$17h835b4718e8f63a91E"(ptr noalias noundef readonly align 8 dereferenceable(24) %8, i8 noundef %27)
+  invoke fastcc void @"_ZN5tokio4loom3std3sys8num_cpus28_$u7b$$u7b$closure$u7d$$u7d$17h835b4718e8f63a91E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i8 noundef %27)
           to label %.thread.unreachable unwind label %21
 
 .thread.unreachable:                              ; preds = %25
@@ -3428,15 +3428,10 @@ define noundef zeroext i1 @_ZN5tokio7runtime7context8blocking25try_enter_blockin
 define noundef zeroext i1 @_ZN5tokio7runtime7context8blocking23disallow_block_in_place17h1c55b0b09dfd36fdE() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
   %2 = load i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h5f8ec821a32f13ccE, align 1, !noundef !19
-  switch i8 %2, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hb0e6719803c54d2fE.exit.thread" [
+  switch i8 %2, label %8 [
     i8 0, label %3
     i8 1, label %4
   ]
-
-"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hb0e6719803c54d2fE.exit.thread": ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
-  call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.3f5780a7fef518180bd2fb61a12abd81.54.llvm.9993772341007493287, i64 noundef 70, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.27.llvm.9993772341007493287, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.56.llvm.9993772341007493287) #25
-  unreachable
 
 3:                                                ; preds = %0
   tail call void @_ZN3std3sys4unix17thread_local_dtor13register_dtor17h386ba5c2183d9221E(ptr noundef nonnull @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, ptr noundef nonnull @_ZN5tokio7runtime7context7CONTEXT7__getit7destroy17hee31cdf84bf17fd5E)
@@ -3445,15 +3440,21 @@ define noundef zeroext i1 @_ZN5tokio7runtime7context8blocking23disallow_block_in
 
 4:                                                ; preds = %3, %0
   %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 78), align 2, !range !199, !noundef !19
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hb0e6719803c54d2fE.exit"
+  %6 = and i8 %5, 1
+  %or.cond.not.i.not.i = icmp ne i8 %6, 0
+  br i1 %or.cond.not.i.not.i, label %7, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17he9ec98b67751fb88E.exit"
 
 7:                                                ; preds = %4
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 78), align 2
-  br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hb0e6719803c54d2fE.exit"
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17he9ec98b67751fb88E.exit"
 
-"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hb0e6719803c54d2fE.exit": ; preds = %4, %7
-  ret i1 %6
+8:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
+  call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.3f5780a7fef518180bd2fb61a12abd81.54.llvm.9993772341007493287, i64 noundef 70, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.27.llvm.9993772341007493287, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.56.llvm.9993772341007493287) #25
+  unreachable
+
+"_ZN4core6result19Result$LT$T$C$E$GT$6expect17he9ec98b67751fb88E.exit": ; preds = %4, %7
+  ret i1 %or.cond.not.i.not.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -4799,7 +4800,7 @@ define void @_ZN5tokio7runtime9scheduler12multi_thread6worker3run17h395eefb01f78
 20:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6f3907895b95f1a6E.exit"
   %21 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tokio..runtime..scheduler..Handle$GT$17h9b41ce396e51ab7eE"(ptr noalias noundef align 8 dereferenceable(16) %2) #27
+  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tokio..runtime..scheduler..Handle$GT$17h9b41ce396e51ab7eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2) #27
           to label %.thread unwind label %26
 
 22:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6f3907895b95f1a6E.exit"
@@ -9799,7 +9800,7 @@ define { ptr, i8 } @_ZN5tokio4task5local8LocalSet3new17h9b906bd441d7e5cdE() unna
   br i1 %6, label %7, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9759726c6e646566E.exit"
 
 7:                                                ; preds = %0
-  call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.3f5780a7fef518180bd2fb61a12abd81.86, i64 noundef 45, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.27.llvm.9993772341007493287, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.88) #25
+  call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.3f5780a7fef518180bd2fb61a12abd81.86, i64 noundef 45, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.27.llvm.9993772341007493287, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.88) #25
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9759726c6e646566E.exit": ; preds = %0
@@ -9972,7 +9973,7 @@ define { ptr, i8 } @_ZN5tokio4task5local8LocalSet5enter17h1f2c73d45ee923ffE(ptr 
 
 11:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.3f5780a7fef518180bd2fb61a12abd81.54.llvm.9993772341007493287, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.27.llvm.9993772341007493287, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.56.llvm.9993772341007493287) #25
+  call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.3f5780a7fef518180bd2fb61a12abd81.54.llvm.9993772341007493287, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.27.llvm.9993772341007493287, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.56.llvm.9993772341007493287) #25
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h1f35b6fd288b63eeE.exit": ; preds = %5
@@ -10412,7 +10413,7 @@ define noundef zeroext i1 @"_ZN77_$LT$tokio..task..local..LocalSet$u20$as$u20$co
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hf97a817e3b657ac6E.exit.thread.i": ; preds = %2
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.3f5780a7fef518180bd2fb61a12abd81.54.llvm.9993772341007493287, i64 noundef 70, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.27.llvm.9993772341007493287, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.56.llvm.9993772341007493287) #25
+  call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.3f5780a7fef518180bd2fb61a12abd81.54.llvm.9993772341007493287, i64 noundef 70, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.27.llvm.9993772341007493287, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.56.llvm.9993772341007493287) #25
   unreachable
 
 11:                                               ; preds = %2
@@ -11341,7 +11342,7 @@ define hidden void @_ZN5tokio4time5clock10with_clock17h4b1fbde4caadbc96E(ptr noa
   unreachable
 
 .critedge:                                        ; preds = %1
-  tail call fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h49b38166abfb6959E(ptr noalias noundef readonly align 8 dereferenceable(24) %0) #25
+  tail call fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h49b38166abfb6959E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0) #25
   unreachable
 
 23:                                               ; preds = %19
@@ -11353,7 +11354,7 @@ define hidden void @_ZN5tokio4time5clock10with_clock17h4b1fbde4caadbc96E(ptr noa
   store ptr %.sroa.0.0, ptr %2, align 8
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.sroa.6.0, ptr %25, align 8
-  call fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h914155c5fce988f7E(ptr noalias noundef readonly align 8 dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0) #25
+  call fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h914155c5fce988f7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0) #25
   unreachable
 
 26:                                               ; preds = %5
@@ -11429,7 +11430,7 @@ define hidden void @_ZN5tokio4time5clock10with_clock17h9ff4b14bf1cff588E(ptr noa
   unreachable
 
 .critedge:                                        ; preds = %1
-  tail call fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h49b38166abfb6959E(ptr noalias noundef readonly align 8 dereferenceable(24) %0) #25
+  tail call fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h49b38166abfb6959E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0) #25
   unreachable
 
 23:                                               ; preds = %19
@@ -11441,7 +11442,7 @@ define hidden void @_ZN5tokio4time5clock10with_clock17h9ff4b14bf1cff588E(ptr noa
   store ptr %.sroa.0.0, ptr %2, align 8
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.sroa.6.0, ptr %25, align 8
-  call fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h914155c5fce988f7E(ptr noalias noundef readonly align 8 dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0) #25
+  call fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h914155c5fce988f7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0) #25
   unreachable
 
 26:                                               ; preds = %5
@@ -11514,7 +11515,7 @@ define hidden { i64, i32 } @_ZN5tokio4time5clock10with_clock17he3856ee9ad98972dE
   unreachable
 
 .critedge:                                        ; preds = %1
-  tail call fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h49b38166abfb6959E(ptr noalias noundef readonly align 8 dereferenceable(24) %0) #25
+  tail call fastcc void @_ZN5tokio4time5clock10with_clock18panic_cold_display17h49b38166abfb6959E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0) #25
   unreachable
 
 22:                                               ; preds = %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..handle..Handle$GT$17hd3e825ab53fbf6c0E.exit", %4
