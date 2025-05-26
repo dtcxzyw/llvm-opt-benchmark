@@ -4058,8 +4058,8 @@ _ZN4jiff5civil8datetime8DateTime20checked_add_duration17hf7c5263b89f7cd41E.exit:
   %235 = mul i128 %234, %233
   %.decomposed = sub i128 %.frozen, %235
   %236 = icmp slt i128 %.decomposed, 0
-  %extract.t84.i.i = trunc i128 %234 to i32
-  %extract.t88.i.i = trunc i128 %234 to i64
+  %extract.t83.i.i = trunc i128 %234 to i32
+  %extract.t87.i.i = trunc i128 %234 to i64
   br i1 %236, label %237, label %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit.i.i"
 
 237:                                              ; preds = %232
@@ -4068,25 +4068,25 @@ _ZN4jiff5civil8datetime8DateTime20checked_add_duration17hf7c5263b89f7cd41E.exit:
 
 239:                                              ; preds = %237
   %240 = add i128 %234, 1
-  %extract.t83.i.i = trunc i128 %240 to i32
-  %extract.t87.i.i = trunc i128 %240 to i64
+  %extract.t82.i.i = trunc i128 %240 to i32
+  %extract.t86.i.i = trunc i128 %240 to i64
   br label %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit.i.i"
 
 241:                                              ; preds = %237
   %242 = add i128 %234, -1
-  %extract.t82.i.i = trunc i128 %242 to i32
-  %extract.t86.i.i = trunc i128 %242 to i64
+  %extract.t81.i.i = trunc i128 %242 to i32
+  %extract.t85.i.i = trunc i128 %242 to i64
   br label %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit.i.i"
 
 "_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit.i.i": ; preds = %241, %239, %232
-  %.sroa.025.0.off0.i.i = phi i32 [ %extract.t82.i.i, %241 ], [ %extract.t83.i.i, %239 ], [ %extract.t84.i.i, %232 ]
-  %.sroa.025.0.off085.i.i = phi i64 [ %extract.t86.i.i, %241 ], [ %extract.t87.i.i, %239 ], [ %extract.t88.i.i, %232 ]
-  %243 = add i64 %.sroa.025.0.off085.i.i, -2147483648
+  %.sroa.025.0.off0.i.i = phi i32 [ %extract.t81.i.i, %241 ], [ %extract.t82.i.i, %239 ], [ %extract.t83.i.i, %232 ]
+  %.sroa.025.0.off084.i.i = phi i64 [ %extract.t85.i.i, %241 ], [ %extract.t86.i.i, %239 ], [ %extract.t87.i.i, %232 ]
+  %243 = add i64 %.sroa.025.0.off084.i.i, -2147483648
   %or.cond.i.i.i19 = icmp ult i64 %243, -4294967296
   br i1 %or.cond.i.i.i19, label %244, label %246, !prof !281
 
 244:                                              ; preds = %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit.i.i"
-  %245 = tail call noundef ptr @_ZN4jiff5error5Error5range17h0ccb607c621919d9E(ptr noalias noundef nonnull readonly align 1 @anon.88db3a078925a85ce51f73b091da25e4.52, i64 noundef 16, i64 noundef %.sroa.025.0.off085.i.i, i32 noundef -7304484, i32 noundef 7304484), !noalias !282
+  %245 = tail call noundef ptr @_ZN4jiff5error5Error5range17h0ccb607c621919d9E(ptr noalias noundef nonnull readonly align 1 @anon.88db3a078925a85ce51f73b091da25e4.52, i64 noundef 16, i64 noundef %.sroa.025.0.off084.i.i, i32 noundef -7304484, i32 noundef 7304484), !noalias !282
   br label %_ZN4jiff5civil4time4Time15overflowing_add17hdded06a9e5d616f1E.exit.i
 
 246:                                              ; preds = %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit.i.i"
@@ -19035,8 +19035,8 @@ _ZN4jiff9timestamp9Timestamp22from_nanosecond_ranged17h4fddaa9d17dd57beE.exit.i:
   br label %_ZN4jiff9timestamp9Timestamp16checked_add_span17hdf57236dda82b1fbE.exit
 
 _ZN4jiff9timestamp9Timestamp16checked_add_span17hdf57236dda82b1fbE.exit: ; preds = %switch.lookup, %137, %278, %291, %_ZN4jiff9timestamp9Timestamp22from_nanosecond_ranged17h4fddaa9d17dd57beE.exit.i
-  %.sink67.i = phi i64 [ 0, %_ZN4jiff9timestamp9Timestamp22from_nanosecond_ranged17h4fddaa9d17dd57beE.exit.i ], [ 1, %291 ], [ %storemerge14.i, %278 ], [ 0, %137 ], [ 1, %switch.lookup ]
-  store i64 %.sink67.i, ptr %0, align 8, !alias.scope !1296, !noalias !1299
+  %.sink66.i = phi i64 [ 0, %_ZN4jiff9timestamp9Timestamp22from_nanosecond_ranged17h4fddaa9d17dd57beE.exit.i ], [ 1, %291 ], [ %storemerge14.i, %278 ], [ 0, %137 ], [ 1, %switch.lookup ]
+  store i64 %.sink66.i, ptr %0, align 8, !alias.scope !1296, !noalias !1299
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br label %314
 

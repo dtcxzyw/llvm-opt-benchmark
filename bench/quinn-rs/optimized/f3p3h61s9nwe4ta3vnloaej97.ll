@@ -750,25 +750,27 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 
 52:                                               ; preds = %49
   %53 = trunc nuw i8 %45 to i1
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  br i1 %53, label %56, label %60
+  br i1 %53, label %54, label %60
 
-56:                                               ; preds = %52
+54:                                               ; preds = %52
   tail call void @llvm.assume(i1 %50)
-  %57 = load i128, ptr %54, align 1, !alias.scope !86, !noalias !87
-  %58 = load i128, ptr %55, align 1, !alias.scope !87, !noalias !86
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 33
+  %57 = load i128, ptr %55, align 1, !alias.scope !86, !noalias !87
+  %58 = load i128, ptr %56, align 1, !alias.scope !87, !noalias !86
   %59 = icmp eq i128 %57, %58
   br label %"_ZN73_$LT$quinn_proto..endpoint..FourTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17he349c2803fb50faaE.exit"
 
 60:                                               ; preds = %52
-  %61 = load i32, ptr %54, align 1, !alias.scope !86, !noalias !87
-  %62 = load i32, ptr %55, align 1, !alias.scope !87, !noalias !86
-  %63 = icmp eq i32 %61, %62
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 33
+  %63 = load i32, ptr %61, align 1, !alias.scope !86, !noalias !87
+  %64 = load i32, ptr %62, align 1, !alias.scope !87, !noalias !86
+  %65 = icmp eq i32 %63, %64
   br label %"_ZN73_$LT$quinn_proto..endpoint..FourTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17he349c2803fb50faaE.exit"
 
-"_ZN73_$LT$quinn_proto..endpoint..FourTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17he349c2803fb50faaE.exit": ; preds = %2, %8, %14, %20, %26, %32, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.i", %43, %49, %56, %60
-  %.sroa.0.0.shrunk.i = phi i1 [ false, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.i" ], [ false, %32 ], [ %59, %56 ], [ %63, %60 ], [ false, %49 ], [ false, %2 ], [ false, %14 ], [ false, %26 ], [ false, %20 ], [ false, %8 ], [ %.mux.i, %43 ]
+"_ZN73_$LT$quinn_proto..endpoint..FourTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17he349c2803fb50faaE.exit": ; preds = %2, %8, %14, %20, %26, %32, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.i", %43, %49, %54, %60
+  %.sroa.0.0.shrunk.i = phi i1 [ false, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.i" ], [ false, %32 ], [ %59, %54 ], [ %65, %60 ], [ false, %49 ], [ false, %2 ], [ false, %14 ], [ false, %26 ], [ false, %20 ], [ false, %8 ], [ %.mux.i, %43 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 

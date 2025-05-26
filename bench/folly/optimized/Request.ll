@@ -10300,7 +10300,7 @@ _ZN5folly14RequestContext5State9LockGuardC2ERS1_.exit: ; preds = %14, %.critedge
 
 22:                                               ; preds = %_ZN5folly14RequestContext5State9LockGuardC2ERS1_.exit
   %23 = invoke noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #41
-          to label %24 unwind label %.body
+          to label %24 unwind label %152
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -10425,7 +10425,7 @@ _ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11read
 
 .noexc10.thread:                                  ; preds = %.noexc4.thread, %.noexc10
   %79 = invoke noundef ptr @_ZN5folly14RequestContext5State6expandEPNS1_8CombinedE(ptr nonnull align 8 poison, ptr noundef nonnull %.0.i7)
-          to label %.noexc11 unwind label %.body
+          to label %.noexc11 unwind label %152
 
 .noexc11:                                         ; preds = %.noexc10.thread
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
@@ -10505,7 +10505,7 @@ _ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterat
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load ptr, ptr %110, align 8
   %112 = invoke noundef zeroext i1 %111(ptr noundef nonnull align 8 dereferenceable(12) %107)
-          to label %.noexc13 unwind label %.body
+          to label %.noexc13 unwind label %152
 
 .noexc13:                                         ; preds = %108
   br i1 %112, label %113, label %.noexc15
@@ -10514,7 +10514,7 @@ _ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterat
   %114 = getelementptr inbounds nuw i8, ptr %.0.i9, i64 56
   %115 = load ptr, ptr %2, align 8, !tbaa !413
   %116 = invoke noundef zeroext i1 @_ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE6insertES2_i(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %115, i32 noundef 1)
-          to label %.noexc14 unwind label %.body
+          to label %.noexc14 unwind label %152
 
 .noexc14:                                         ; preds = %113
   %117 = load ptr, ptr %2, align 8, !tbaa !413
@@ -10522,7 +10522,7 @@ _ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterat
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %120 = load ptr, ptr %119, align 8
   invoke void %120(ptr noundef nonnull align 8 dereferenceable(12) %117)
-          to label %.noexc15 unwind label %.body
+          to label %.noexc15 unwind label %152
 
 .noexc15:                                         ; preds = %.noexc14, %.noexc13
   %.pr = load ptr, ptr %2, align 8, !tbaa !413
@@ -10541,7 +10541,7 @@ _ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterat
   %.sroa.0.0.copyload.i = load i32, ptr %1, align 4, !tbaa !30
   store ptr null, ptr %2, align 8, !tbaa !413
   %126 = invoke noundef zeroext i1 @_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE6insertES1_S3_(ptr noundef nonnull align 8 dereferenceable(32) %125, i32 %.sroa.0.0.copyload.i, ptr noundef %124)
-          to label %.noexc5 unwind label %.body
+          to label %.noexc5 unwind label %152
 
 .noexc5:                                          ; preds = %.noexc15.thread
   %.not39.i = icmp eq ptr %.016.i, null
@@ -10568,12 +10568,12 @@ _ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterat
   store atomic i64 %134, ptr %136 release, align 8
   %137 = load i8, ptr %10, align 8, !tbaa !57, !range !61, !noundef !62
   %138 = trunc nuw i8 %137 to i1
-  br i1 %138, label %139, label %_ZN5folly14RequestContext5State9LockGuardD2Ev.exit
+  br i1 %138, label %139, label %154
 
 139:                                              ; preds = %135
   %140 = load ptr, ptr %8, align 8, !tbaa !54
   %.not.i.i.i22 = icmp eq ptr %140, null
-  br i1 %.not.i.i.i22, label %_ZN5folly14RequestContext5State9LockGuardD2Ev.exit, label %141
+  br i1 %.not.i.i.i22, label %154, label %141
 
 141:                                              ; preds = %139
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
@@ -10590,7 +10590,7 @@ _ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8Iterat
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i.i.i: ; preds = %145, %141
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
-  br label %_ZN5folly14RequestContext5State9LockGuardD2Ev.exit
+  br label %154
 
 146:                                              ; preds = %145
   %147 = landingpad { ptr, i32 }
@@ -10606,34 +10606,34 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockE
   call void @__clang_call_terminate(ptr %151) #36
   unreachable
 
-_ZN5folly14RequestContext5State9LockGuardD2Ev.exit: ; preds = %135, %139, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
-  %.not25.i = icmp eq ptr %.sroa.529.0.i, null
-  br i1 %.not25.i, label %_ZN5folly14RequestContext5State16doSetContextDataERKNS_12RequestTokenERSt10unique_ptrINS_11RequestDataESt14default_deleteIS6_EENS0_14DoSetBehaviourEb.exit, label %153
-
-.body:                                            ; preds = %.noexc15.thread, %.noexc14, %113, %108, %.noexc10.thread, %22
-  %152 = landingpad { ptr, i32 }
+152:                                              ; preds = %.noexc15.thread, %.noexc14, %113, %108, %.noexc10.thread, %22
+  %153 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5folly14RequestContext5State9LockGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
-  resume { ptr, i32 } %152
+  resume { ptr, i32 } %153
 
-153:                                              ; preds = %_ZN5folly14RequestContext5State9LockGuardD2Ev.exit
-  %154 = getelementptr inbounds nuw i8, ptr %.sroa.529.0.i, i64 8
-  %155 = load ptr, ptr %154, align 8, !tbaa !167
-  %.not.i.i.i32 = icmp eq ptr %155, %.sroa.529.0.i
-  br i1 %.not.i.i.i32, label %_ZN5folly15hazptr_obj_baseINS_14RequestContext5State8CombinedESt6atomicSt14default_deleteIS3_EE6retireES6_RNS_13hazptr_domainIS4_EE.exit, label %156
+154:                                              ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv.exit.i.i.i, %139, %135
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
+  %.not25.i = icmp eq ptr %.sroa.529.0.i, null
+  br i1 %.not25.i, label %_ZN5folly14RequestContext5State16doSetContextDataERKNS_12RequestTokenERSt10unique_ptrINS_11RequestDataESt14default_deleteIS6_EENS0_14DoSetBehaviourEb.exit, label %155
 
-156:                                              ; preds = %153
+155:                                              ; preds = %154
+  %156 = getelementptr inbounds nuw i8, ptr %.sroa.529.0.i, i64 8
+  %157 = load ptr, ptr %156, align 8, !tbaa !167
+  %.not.i.i.i32 = icmp eq ptr %157, %.sroa.529.0.i
+  br i1 %.not.i.i.i32, label %_ZN5folly15hazptr_obj_baseINS_14RequestContext5State8CombinedESt6atomicSt14default_deleteIS3_EE6retireES6_RNS_13hazptr_domainIS4_EE.exit, label %158
+
+158:                                              ; preds = %155
   call void @_ZN5folly10hazptr_objISt6atomicE21pre_retire_check_failEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.529.0.i) #10
   br label %_ZN5folly15hazptr_obj_baseINS_14RequestContext5State8CombinedESt6atomicSt14default_deleteIS3_EE6retireES6_RNS_13hazptr_domainIS4_EE.exit
 
-_ZN5folly15hazptr_obj_baseINS_14RequestContext5State8CombinedESt6atomicSt14default_deleteIS3_EE6retireES6_RNS_13hazptr_domainIS4_EE.exit: ; preds = %153, %156
+_ZN5folly15hazptr_obj_baseINS_14RequestContext5State8CombinedESt6atomicSt14default_deleteIS3_EE6retireES6_RNS_13hazptr_domainIS4_EE.exit: ; preds = %155, %158
   store ptr @_ZZN5folly15hazptr_obj_baseINS_14RequestContext5State8CombinedESt6atomicSt14default_deleteIS3_EE11set_reclaimEvENUlPNS_10hazptr_objIS4_EERNS_15hazptr_obj_listIS4_EEE_8__invokeESA_SD_, ptr %.sroa.529.0.i, align 8, !tbaa !172
   call void @_ZN5folly10hazptr_objISt6atomicE8push_objERNS_13hazptr_domainIS1_EE(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.529.0.i, ptr noundef nonnull align 8 dereferenceable(444) @_ZN5folly14default_domainE)
   br label %_ZN5folly14RequestContext5State16doSetContextDataERKNS_12RequestTokenERSt10unique_ptrINS_11RequestDataESt14default_deleteIS6_EENS0_14DoSetBehaviourEb.exit
 
-_ZN5folly14RequestContext5State16doSetContextDataERKNS_12RequestTokenERSt10unique_ptrINS_11RequestDataESt14default_deleteIS6_EENS0_14DoSetBehaviourEb.exit: ; preds = %_ZN5folly14RequestContext5State9LockGuardD2Ev.exit, %_ZN5folly15hazptr_obj_baseINS_14RequestContext5State8CombinedESt6atomicSt14default_deleteIS3_EE6retireES6_RNS_13hazptr_domainIS4_EE.exit
+_ZN5folly14RequestContext5State16doSetContextDataERKNS_12RequestTokenERSt10unique_ptrINS_11RequestDataESt14default_deleteIS6_EENS0_14DoSetBehaviourEb.exit: ; preds = %154, %_ZN5folly15hazptr_obj_baseINS_14RequestContext5State8CombinedESt6atomicSt14default_deleteIS3_EE6retireES6_RNS_13hazptr_domainIS4_EE.exit
   ret i1 %.not70
 }
 

@@ -1290,25 +1290,27 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 
 19:                                               ; preds = %12
   %trunc.i.i = trunc nuw i8 %15 to i1
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  br i1 %trunc.i.i, label %26, label %22
+  br i1 %trunc.i.i, label %26, label %20
 
-22:                                               ; preds = %19
-  %23 = load i32, ptr %20, align 2, !alias.scope !262, !noalias !263
-  %24 = load i32, ptr %21, align 2, !alias.scope !263, !noalias !262
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %23 = load i32, ptr %21, align 2, !alias.scope !262, !noalias !263
+  %24 = load i32, ptr %22, align 2, !alias.scope !263, !noalias !262
   %25 = icmp eq i32 %23, %24
   br label %"_ZN82_$LT$rustls_pki_types..server_name..ServerName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h25993decb7bf591aE.llvm.13587593001660552149.exit"
 
 26:                                               ; preds = %19
   tail call void @llvm.assume(i1 %17)
-  %27 = load i128, ptr %20, align 2, !alias.scope !262, !noalias !263
-  %28 = load i128, ptr %21, align 2, !alias.scope !263, !noalias !262
-  %29 = icmp eq i128 %27, %28
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %29 = load i128, ptr %27, align 2, !alias.scope !262, !noalias !263
+  %30 = load i128, ptr %28, align 2, !alias.scope !263, !noalias !262
+  %31 = icmp eq i128 %29, %30
   br label %"_ZN82_$LT$rustls_pki_types..server_name..ServerName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h25993decb7bf591aE.llvm.13587593001660552149.exit"
 
-"_ZN82_$LT$rustls_pki_types..server_name..ServerName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h25993decb7bf591aE.llvm.13587593001660552149.exit": ; preds = %2, %8, %12, %22, %26
-  %.0.shrunk.i = phi i1 [ %11, %8 ], [ false, %2 ], [ %29, %26 ], [ %25, %22 ], [ false, %12 ]
+"_ZN82_$LT$rustls_pki_types..server_name..ServerName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h25993decb7bf591aE.llvm.13587593001660552149.exit": ; preds = %2, %8, %12, %20, %26
+  %.0.shrunk.i = phi i1 [ %11, %8 ], [ false, %2 ], [ %31, %26 ], [ %25, %20 ], [ false, %12 ]
   ret i1 %.0.shrunk.i
 }
 
@@ -4460,30 +4462,32 @@ define hidden noundef zeroext i1 @"_ZN78_$LT$rustls_pki_types..server_name..IpAd
   %4 = load i8, ptr %1, align 1, !range !256, !noundef !4
   %5 = trunc nuw i8 %4 to i1
   %6 = icmp eq i8 %3, %4
-  br i1 %6, label %7, label %10
+  br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
   %trunc = trunc nuw i8 %3 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  br i1 %trunc, label %15, label %11
+  br i1 %trunc, label %15, label %9
 
-10:                                               ; preds = %2, %15, %11
-  %.0.shrunk = phi i1 [ %18, %15 ], [ %14, %11 ], [ false, %2 ]
+8:                                                ; preds = %2, %15, %9
+  %.0.shrunk = phi i1 [ %20, %15 ], [ %14, %9 ], [ false, %2 ]
   ret i1 %.0.shrunk
 
-11:                                               ; preds = %7
-  %12 = load i32, ptr %8, align 1
-  %13 = load i32, ptr %9, align 1
+9:                                                ; preds = %7
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %12 = load i32, ptr %10, align 1
+  %13 = load i32, ptr %11, align 1
   %14 = icmp eq i32 %12, %13
-  br label %10
+  br label %8
 
 15:                                               ; preds = %7
   tail call void @llvm.assume(i1 %5)
-  %16 = load i128, ptr %8, align 1
-  %17 = load i128, ptr %9, align 1
-  %18 = icmp eq i128 %16, %17
-  br label %10
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %18 = load i128, ptr %16, align 1
+  %19 = load i128, ptr %17, align 1
+  %20 = icmp eq i128 %18, %19
+  br label %8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4728,8 +4732,8 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$rustls_pki_types..server_name..Serv
   %trunc = trunc nuw i8 %3 to i1
   br i1 %trunc, label %12, label %8
 
-"_ZN78_$LT$rustls_pki_types..server_name..IpAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha9d99d938e16f090E.llvm.13587593001660552149.exit": ; preds = %26, %22, %12, %2, %8
-  %.0.shrunk = phi i1 [ %11, %8 ], [ false, %2 ], [ %29, %26 ], [ %25, %22 ], [ false, %12 ]
+"_ZN78_$LT$rustls_pki_types..server_name..IpAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha9d99d938e16f090E.llvm.13587593001660552149.exit": ; preds = %26, %20, %12, %2, %8
+  %.0.shrunk = phi i1 [ %11, %8 ], [ false, %2 ], [ %31, %26 ], [ %25, %20 ], [ false, %12 ]
   ret i1 %.0.shrunk
 
 8:                                                ; preds = %7
@@ -4752,21 +4756,23 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$rustls_pki_types..server_name..Serv
 
 19:                                               ; preds = %12
   %trunc.i = trunc nuw i8 %15 to i1
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  br i1 %trunc.i, label %26, label %22
+  br i1 %trunc.i, label %26, label %20
 
-22:                                               ; preds = %19
-  %23 = load i32, ptr %20, align 2, !alias.scope !694, !noalias !697
-  %24 = load i32, ptr %21, align 2, !alias.scope !697, !noalias !694
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %23 = load i32, ptr %21, align 2, !alias.scope !694, !noalias !697
+  %24 = load i32, ptr %22, align 2, !alias.scope !697, !noalias !694
   %25 = icmp eq i32 %23, %24
   br label %"_ZN78_$LT$rustls_pki_types..server_name..IpAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha9d99d938e16f090E.llvm.13587593001660552149.exit"
 
 26:                                               ; preds = %19
   tail call void @llvm.assume(i1 %17)
-  %27 = load i128, ptr %20, align 2, !alias.scope !694, !noalias !697
-  %28 = load i128, ptr %21, align 2, !alias.scope !697, !noalias !694
-  %29 = icmp eq i128 %27, %28
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %29 = load i128, ptr %27, align 2, !alias.scope !694, !noalias !697
+  %30 = load i128, ptr %28, align 2, !alias.scope !697, !noalias !694
+  %31 = icmp eq i128 %29, %30
   br label %"_ZN78_$LT$rustls_pki_types..server_name..IpAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha9d99d938e16f090E.llvm.13587593001660552149.exit"
 }
 

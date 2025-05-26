@@ -5263,8 +5263,7 @@ define hidden void @"_ZN2h25proto10connection27Connection$LT$T$C$P$C$B$GT$3new17
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %31 = load i32, ptr %30, align 4, !alias.scope !154, !noalias !151
   %32 = icmp ne i32 %31, 0
-  %narrow.i = select i1 %trunc18.i, i1 %32, i1 false
-  %narrow25.i = select i1 %switch21.i, i1 true, i1 %narrow.i
+  %narrow25.i = select i1 %switch21.i, i1 true, i1 %32
   %.014.i = zext i1 %narrow25.i to i8
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %34 = load i32, ptr %33, align 8, !range !20, !alias.scope !154, !noalias !151, !noundef !5
@@ -5272,8 +5271,8 @@ define hidden void @"_ZN2h25proto10connection27Connection$LT$T$C$P$C$B$GT$3new17
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %36 = load i32, ptr %35, align 4, !alias.scope !154, !noalias !151
   %37 = icmp ne i32 %36, 0
-  %narrow27.i = select i1 %trunc19.i, i1 %37, i1 false
-  %.0.i = zext i1 %narrow27.i to i8
+  %narrow26.i = select i1 %trunc19.i, i1 %37, i1 false
+  %.0.i = zext i1 %narrow26.i to i8
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !alias.scope !154, !noalias !151, !noundef !5
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -5646,8 +5645,7 @@ define hidden void @"_ZN2h25proto10connection27Connection$LT$T$C$P$C$B$GT$3new17
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %31 = load i32, ptr %30, align 4, !alias.scope !161, !noalias !158
   %32 = icmp ne i32 %31, 0
-  %narrow.i = select i1 %trunc18.i, i1 %32, i1 false
-  %narrow25.i = select i1 %switch21.i, i1 true, i1 %narrow.i
+  %narrow25.i = select i1 %switch21.i, i1 true, i1 %32
   %.014.i = zext i1 %narrow25.i to i8
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %34 = load i32, ptr %33, align 8, !range !20, !alias.scope !161, !noalias !158, !noundef !5
@@ -5655,8 +5653,8 @@ define hidden void @"_ZN2h25proto10connection27Connection$LT$T$C$P$C$B$GT$3new17
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %36 = load i32, ptr %35, align 4, !alias.scope !161, !noalias !158
   %37 = icmp ne i32 %36, 0
-  %narrow27.i = select i1 %trunc19.i, i1 %37, i1 false
-  %.0.i = zext i1 %narrow27.i to i8
+  %narrow26.i = select i1 %trunc19.i, i1 %37, i1 false
+  %.0.i = zext i1 %narrow26.i to i8
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !alias.scope !161, !noalias !158, !noundef !5
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 24

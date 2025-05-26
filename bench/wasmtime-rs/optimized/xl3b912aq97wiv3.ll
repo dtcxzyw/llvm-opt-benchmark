@@ -11648,10 +11648,9 @@ _ZN18wasmtime_cranelift5debug9transform17address_transform16AddressTransform10fu
 
 44:                                               ; preds = %_ZN18wasmtime_cranelift5debug9transform17address_transform16AddressTransform9translate17h77ae0ec41d3cb990E.exit
   %45 = icmp eq i64 %25, 0
-  %trunc.i = trunc nuw i64 %25 to i1
   %46 = zext i32 %27 to i64
-  %.sroa.4.0 = select i1 %trunc.i, i64 %46, i64 undef
-  %.sroa.37.0 = select i1 %45, i64 0, i64 %.sroa.4.0
+  %trunc.i = trunc nuw i64 %25 to i1
+  %.sroa.37.0 = select i1 %45, i64 0, i64 %46
   %.sink.i = sub nuw nsw i64 2, %25
   %.sroa.05.0 = select i1 %45, i64 0, i64 %.sink.i
   %.sroa.6.0 = select i1 %trunc.i, i64 %29, i64 undef

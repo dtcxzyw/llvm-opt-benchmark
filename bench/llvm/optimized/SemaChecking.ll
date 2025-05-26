@@ -123865,7 +123865,7 @@ _ZN12_GLOBAL__N_115SequenceChecker17EvaluationTracker8evaluateEPKN5clang4ExprERb
   %.1.in.i35.c = getelementptr inbounds nuw i8, ptr %1, i64 %.1.in.v.i34.c
   %.1.i36.c = load ptr, ptr %.1.in.i35.c, align 8, !tbaa !1301
   call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_115SequenceCheckerEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.1.i36.c)
-  br label %95
+  br label %94
 
 _ZN12_GLOBAL__N_115SequenceChecker17EvaluationTracker8evaluateEPKN5clang4ExprERb.exit: ; preds = %60
   %66 = load ptr, ptr %3, align 8, !tbaa !2518
@@ -123894,10 +123894,10 @@ _ZN12_GLOBAL__N_115SequenceChecker17EvaluationTracker8evaluateEPKN5clang4ExprERb
   %87 = trunc nuw i8 %86 to i1
   %not. = xor i1 %84, true
   %88 = select i1 %not., i1 true, i1 %87
-  %89 = select i1 %84, i1 %87, i1 false
-  br i1 %88, label %90, label %94
+  br i1 %88, label %89, label %94
 
-90:                                               ; preds = %_ZN12_GLOBAL__N_115SequenceChecker17EvaluationTracker8evaluateEPKN5clang4ExprERb.exit
+89:                                               ; preds = %_ZN12_GLOBAL__N_115SequenceChecker17EvaluationTracker8evaluateEPKN5clang4ExprERb.exit
+  %90 = select i1 %84, i1 %87, i1 false
   store i32 %29, ptr %7, align 8, !tbaa !1059
   %91 = load i16, ptr %1, align 8
   %92 = and i16 %91, 511
@@ -123906,59 +123906,56 @@ _ZN12_GLOBAL__N_115SequenceChecker17EvaluationTracker8evaluateEPKN5clang4ExprERb
   %.1.in.i35 = getelementptr inbounds nuw i8, ptr %1, i64 %.1.in.v.i34
   %.1.i36 = load ptr, ptr %.1.in.i35, align 8, !tbaa !1301
   call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_115SequenceCheckerEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.1.i36)
-  br i1 %89, label %99, label %95
+  br i1 %90, label %98, label %94
 
-94:                                               ; preds = %_ZN12_GLOBAL__N_115SequenceChecker17EvaluationTracker8evaluateEPKN5clang4ExprERb.exit
-  br i1 %89, label %99, label %95
-
-95:                                               ; preds = %_ZN12_GLOBAL__N_115SequenceChecker17EvaluationTracker8evaluateEPKN5clang4ExprERb.exit.thread, %90, %94
+94:                                               ; preds = %_ZN12_GLOBAL__N_115SequenceChecker17EvaluationTracker8evaluateEPKN5clang4ExprERb.exit, %_ZN12_GLOBAL__N_115SequenceChecker17EvaluationTracker8evaluateEPKN5clang4ExprERb.exit.thread, %89
   store i32 %39, ptr %7, align 8, !tbaa !1059
-  %96 = load i16, ptr %1, align 8
-  %97 = and i16 %96, 511
-  %98 = icmp eq i16 %97, 130
-  %.1.in.v.i37 = select i1 %98, i64 40, i64 48
+  %95 = load i16, ptr %1, align 8
+  %96 = and i16 %95, 511
+  %97 = icmp eq i16 %96, 130
+  %.1.in.v.i37 = select i1 %97, i64 40, i64 48
   %.1.in.i38 = getelementptr inbounds nuw i8, ptr %1, i64 %.1.in.v.i37
   %.1.i39 = load ptr, ptr %.1.in.i38, align 8, !tbaa !1301
   call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_115SequenceCheckerEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.1.i39)
-  br label %99
+  br label %98
 
-99:                                               ; preds = %90, %95, %94
+98:                                               ; preds = %89, %94
   store i32 %.sroa.06.0.copyload, ptr %7, align 8, !tbaa !1059
   %.val20 = load ptr, ptr %6, align 8, !tbaa !1036
-  %100 = zext i32 %19 to i64
-  %101 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SequenceChecker::SequenceTree::Value", ptr %.val20, i64 %100
-  %102 = load i32, ptr %101, align 4
-  %103 = or i32 %102, -2147483648
-  store i32 %103, ptr %101, align 4
+  %99 = zext i32 %19 to i64
+  %100 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SequenceChecker::SequenceTree::Value", ptr %.val20, i64 %99
+  %101 = load i32, ptr %100, align 4
+  %102 = or i32 %101, -2147483648
+  store i32 %102, ptr %100, align 4
   %.val19 = load ptr, ptr %6, align 8, !tbaa !1036
-  %104 = zext i32 %29 to i64
-  %105 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SequenceChecker::SequenceTree::Value", ptr %.val19, i64 %104
-  %106 = load i32, ptr %105, align 4
-  %107 = or i32 %106, -2147483648
-  store i32 %107, ptr %105, align 4
+  %103 = zext i32 %29 to i64
+  %104 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SequenceChecker::SequenceTree::Value", ptr %.val19, i64 %103
+  %105 = load i32, ptr %104, align 4
+  %106 = or i32 %105, -2147483648
+  store i32 %106, ptr %104, align 4
   %.val = load ptr, ptr %6, align 8, !tbaa !1036
-  %108 = zext i32 %39 to i64
-  %109 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SequenceChecker::SequenceTree::Value", ptr %.val, i64 %108
-  %110 = load i32, ptr %109, align 4
-  %111 = or i32 %110, -2147483648
-  store i32 %111, ptr %109, align 4
+  %107 = zext i32 %39 to i64
+  %108 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SequenceChecker::SequenceTree::Value", ptr %.val, i64 %107
+  %109 = load i32, ptr %108, align 4
+  %110 = or i32 %109, -2147483648
+  store i32 %110, ptr %108, align 4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #30
-  %112 = load ptr, ptr %41, align 8, !tbaa !2508
-  %113 = load ptr, ptr %3, align 8, !tbaa !2518
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 1120
-  store ptr %112, ptr %114, align 8, !tbaa !2122
-  %.not.i40 = icmp eq ptr %112, null
-  br i1 %.not.i40, label %_ZN12_GLOBAL__N_115SequenceChecker17EvaluationTrackerD2Ev.exit, label %115
+  %111 = load ptr, ptr %41, align 8, !tbaa !2508
+  %112 = load ptr, ptr %3, align 8, !tbaa !2518
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 1120
+  store ptr %111, ptr %113, align 8, !tbaa !2122
+  %.not.i40 = icmp eq ptr %111, null
+  br i1 %.not.i40, label %_ZN12_GLOBAL__N_115SequenceChecker17EvaluationTrackerD2Ev.exit, label %114
 
-115:                                              ; preds = %99
-  %116 = load i8, ptr %44, align 8, !tbaa !2510, !range !1013, !noundef !1014
-  %117 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  %118 = load i8, ptr %117, align 8, !tbaa !2510, !range !1013, !noundef !1014
-  %119 = and i8 %118, %116
-  store i8 %119, ptr %117, align 8, !tbaa !2510
+114:                                              ; preds = %98
+  %115 = load i8, ptr %44, align 8, !tbaa !2510, !range !1013, !noundef !1014
+  %116 = getelementptr inbounds nuw i8, ptr %111, i64 16
+  %117 = load i8, ptr %116, align 8, !tbaa !2510, !range !1013, !noundef !1014
+  %118 = and i8 %117, %115
+  store i8 %118, ptr %116, align 8, !tbaa !2510
   br label %_ZN12_GLOBAL__N_115SequenceChecker17EvaluationTrackerD2Ev.exit
 
-_ZN12_GLOBAL__N_115SequenceChecker17EvaluationTrackerD2Ev.exit: ; preds = %99, %115
+_ZN12_GLOBAL__N_115SequenceChecker17EvaluationTrackerD2Ev.exit: ; preds = %98, %114
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #30
   ret void
 }

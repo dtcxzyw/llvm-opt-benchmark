@@ -12525,10 +12525,6 @@ define hidden noundef ptr @_ZN18wasmtime_cranelift5debug9transform4attr20clone_d
   br label %.outer
 
 .outer:                                           ; preds = %780, %"_ZN5gimli4read4unit43DebuggingInformationEntry$LT$R$C$Offset$GT$5attrs17h5cf4e204878ace1eE.exit"
-  %.sroa.6585.0.ph = phi i64 [ %.sroa.6585.1, %780 ], [ undef, %"_ZN5gimli4read4unit43DebuggingInformationEntry$LT$R$C$Offset$GT$5attrs17h5cf4e204878ace1eE.exit" ]
-  %.sroa.4584.0.ph = phi i64 [ %.sroa.4584.1, %780 ], [ undef, %"_ZN5gimli4read4unit43DebuggingInformationEntry$LT$R$C$Offset$GT$5attrs17h5cf4e204878ace1eE.exit" ]
-  %.sroa.6582.0.ph = phi i64 [ %.sroa.6582.1, %780 ], [ undef, %"_ZN5gimli4read4unit43DebuggingInformationEntry$LT$R$C$Offset$GT$5attrs17h5cf4e204878ace1eE.exit" ]
-  %.sroa.4.0.ph = phi i64 [ %.sroa.4.1, %780 ], [ undef, %"_ZN5gimli4read4unit43DebuggingInformationEntry$LT$R$C$Offset$GT$5attrs17h5cf4e204878ace1eE.exit" ]
   %.sroa.4240.0.ph = phi i64 [ %.sroa.4240.1, %780 ], [ undef, %"_ZN5gimli4read4unit43DebuggingInformationEntry$LT$R$C$Offset$GT$5attrs17h5cf4e204878ace1eE.exit" ]
   %.sroa.4254.0.ph = phi i64 [ %.sroa.4254.1, %780 ], [ undef, %"_ZN5gimli4read4unit43DebuggingInformationEntry$LT$R$C$Offset$GT$5attrs17h5cf4e204878ace1eE.exit" ]
   br label %225
@@ -12921,18 +12917,15 @@ _ZN18wasmtime_cranelift5debug9transform4refs20PendingDebugInfoRefs6insert17hd63e
 
 .noexc462:                                        ; preds = %343
   %345 = load i64, ptr %36, align 8, !range !202, !noalias !3247, !noundef !4
-  %trunc.i = trunc nuw i64 %345 to i1
   %346 = load i32, ptr %221, align 8
   %347 = load i64, ptr %222, align 8
   %348 = zext i32 %346 to i64
-  %.sroa.6582.2 = select i1 %trunc.i, i64 %347, i64 %.sroa.6582.0.ph
-  %.sroa.4.2 = select i1 %trunc.i, i64 %348, i64 %.sroa.4.0.ph
   %.sink.i = sub nuw nsw i64 2, %345
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36), !noalias !3247
   %349 = icmp eq i64 %345, 0
   %.sroa.0235.0 = select i1 %349, i64 0, i64 %.sink.i
-  %.sroa.3237.0 = select i1 %349, i64 0, i64 %.sroa.4.2
-  %.sroa.4240.2 = select i1 %349, i64 %.sroa.4240.0.ph, i64 %.sroa.6582.2
+  %.sroa.3237.0 = select i1 %349, i64 0, i64 %348
+  %.sroa.4240.2 = select i1 %349, i64 %.sroa.4240.0.ph, i64 %347
   store i64 %.sroa.0235.0, ptr %171, align 8
   store i64 %.sroa.3237.0, ptr %172, align 8
   store i64 %.sroa.4240.2, ptr %.sroa.7669.0..sroa_idx, align 8
@@ -12955,10 +12948,6 @@ _ZN18wasmtime_cranelift5debug9transform4refs20PendingDebugInfoRefs6insert17hd63e
   br label %.body
 
 350:                                              ; preds = %770, %762, %751, %709, %"_ZN4core3ptr95drop_in_place$LT$wasmtime_cranelift..debug..transform..range_info_builder..RangeInfoBuilder$GT$17h8cb6c4afaafa530eE.exit", %651, %551, %.noexc494, %528, %368, %362, %358, %.noexc462, %340, %338, %336, %334, %332, %330, %328, %326, %324, %322, %320, %318, %271, %263, %261, %259, %257
-  %.sroa.6585.1 = phi i64 [ %.sroa.6585.0.ph, %770 ], [ %.sroa.6585.0.ph, %340 ], [ %.sroa.6585.0.ph, %338 ], [ %.sroa.6585.0.ph, %336 ], [ %.sroa.6585.0.ph, %334 ], [ %.sroa.6585.0.ph, %332 ], [ %.sroa.6585.0.ph, %330 ], [ %.sroa.6585.0.ph, %328 ], [ %.sroa.6585.0.ph, %326 ], [ %.sroa.6585.0.ph, %324 ], [ %.sroa.6585.0.ph, %322 ], [ %.sroa.6585.0.ph, %320 ], [ %.sroa.6585.0.ph, %318 ], [ %.sroa.6585.0.ph, %762 ], [ %.sroa.6585.0.ph, %751 ], [ %.sroa.6585.0.ph, %709 ], [ %.sroa.6585.0.ph, %"_ZN4core3ptr95drop_in_place$LT$wasmtime_cranelift..debug..transform..range_info_builder..RangeInfoBuilder$GT$17h8cb6c4afaafa530eE.exit" ], [ %.sroa.6585.0.ph, %651 ], [ %.sroa.6585.0.ph, %551 ], [ %.sroa.6585.2, %.noexc494 ], [ %.sroa.6585.0.ph, %271 ], [ %.sroa.6585.0.ph, %368 ], [ %.sroa.6585.0.ph, %528 ], [ %.sroa.6585.0.ph, %362 ], [ %.sroa.6585.0.ph, %263 ], [ %.sroa.6585.0.ph, %261 ], [ %.sroa.6585.0.ph, %259 ], [ %.sroa.6585.0.ph, %257 ], [ %.sroa.6585.0.ph, %358 ], [ %.sroa.6585.0.ph, %.noexc462 ]
-  %.sroa.4584.1 = phi i64 [ %.sroa.4584.0.ph, %770 ], [ %.sroa.4584.0.ph, %340 ], [ %.sroa.4584.0.ph, %338 ], [ %.sroa.4584.0.ph, %336 ], [ %.sroa.4584.0.ph, %334 ], [ %.sroa.4584.0.ph, %332 ], [ %.sroa.4584.0.ph, %330 ], [ %.sroa.4584.0.ph, %328 ], [ %.sroa.4584.0.ph, %326 ], [ %.sroa.4584.0.ph, %324 ], [ %.sroa.4584.0.ph, %322 ], [ %.sroa.4584.0.ph, %320 ], [ %.sroa.4584.0.ph, %318 ], [ %.sroa.4584.0.ph, %762 ], [ %.sroa.4584.0.ph, %751 ], [ %.sroa.4584.0.ph, %709 ], [ %.sroa.4584.0.ph, %"_ZN4core3ptr95drop_in_place$LT$wasmtime_cranelift..debug..transform..range_info_builder..RangeInfoBuilder$GT$17h8cb6c4afaafa530eE.exit" ], [ %.sroa.4584.0.ph, %651 ], [ %.sroa.4584.0.ph, %551 ], [ %.sroa.4584.2, %.noexc494 ], [ %.sroa.4584.0.ph, %271 ], [ %.sroa.4584.0.ph, %368 ], [ %.sroa.4584.0.ph, %528 ], [ %.sroa.4584.0.ph, %362 ], [ %.sroa.4584.0.ph, %263 ], [ %.sroa.4584.0.ph, %261 ], [ %.sroa.4584.0.ph, %259 ], [ %.sroa.4584.0.ph, %257 ], [ %.sroa.4584.0.ph, %358 ], [ %.sroa.4584.0.ph, %.noexc462 ]
-  %.sroa.6582.1 = phi i64 [ %.sroa.6582.0.ph, %770 ], [ %.sroa.6582.0.ph, %340 ], [ %.sroa.6582.0.ph, %338 ], [ %.sroa.6582.0.ph, %336 ], [ %.sroa.6582.0.ph, %334 ], [ %.sroa.6582.0.ph, %332 ], [ %.sroa.6582.0.ph, %330 ], [ %.sroa.6582.0.ph, %328 ], [ %.sroa.6582.0.ph, %326 ], [ %.sroa.6582.0.ph, %324 ], [ %.sroa.6582.0.ph, %322 ], [ %.sroa.6582.0.ph, %320 ], [ %.sroa.6582.0.ph, %318 ], [ %.sroa.6582.0.ph, %762 ], [ %.sroa.6582.0.ph, %751 ], [ %.sroa.6582.0.ph, %709 ], [ %.sroa.6582.0.ph, %"_ZN4core3ptr95drop_in_place$LT$wasmtime_cranelift..debug..transform..range_info_builder..RangeInfoBuilder$GT$17h8cb6c4afaafa530eE.exit" ], [ %.sroa.6582.0.ph, %651 ], [ %.sroa.6582.0.ph, %551 ], [ %.sroa.6582.0.ph, %.noexc494 ], [ %.sroa.6582.0.ph, %271 ], [ %.sroa.6582.0.ph, %368 ], [ %.sroa.6582.0.ph, %528 ], [ %.sroa.6582.0.ph, %362 ], [ %.sroa.6582.0.ph, %263 ], [ %.sroa.6582.0.ph, %261 ], [ %.sroa.6582.0.ph, %259 ], [ %.sroa.6582.0.ph, %257 ], [ %.sroa.6582.0.ph, %358 ], [ %.sroa.6582.2, %.noexc462 ]
-  %.sroa.4.1 = phi i64 [ %.sroa.4.0.ph, %770 ], [ %.sroa.4.0.ph, %340 ], [ %.sroa.4.0.ph, %338 ], [ %.sroa.4.0.ph, %336 ], [ %.sroa.4.0.ph, %334 ], [ %.sroa.4.0.ph, %332 ], [ %.sroa.4.0.ph, %330 ], [ %.sroa.4.0.ph, %328 ], [ %.sroa.4.0.ph, %326 ], [ %.sroa.4.0.ph, %324 ], [ %.sroa.4.0.ph, %322 ], [ %.sroa.4.0.ph, %320 ], [ %.sroa.4.0.ph, %318 ], [ %.sroa.4.0.ph, %762 ], [ %.sroa.4.0.ph, %751 ], [ %.sroa.4.0.ph, %709 ], [ %.sroa.4.0.ph, %"_ZN4core3ptr95drop_in_place$LT$wasmtime_cranelift..debug..transform..range_info_builder..RangeInfoBuilder$GT$17h8cb6c4afaafa530eE.exit" ], [ %.sroa.4.0.ph, %651 ], [ %.sroa.4.0.ph, %551 ], [ %.sroa.4.0.ph, %.noexc494 ], [ %.sroa.4.0.ph, %271 ], [ %.sroa.4.0.ph, %368 ], [ %.sroa.4.0.ph, %528 ], [ %.sroa.4.0.ph, %362 ], [ %.sroa.4.0.ph, %263 ], [ %.sroa.4.0.ph, %261 ], [ %.sroa.4.0.ph, %259 ], [ %.sroa.4.0.ph, %257 ], [ %.sroa.4.0.ph, %358 ], [ %.sroa.4.2, %.noexc462 ]
   %.sroa.4240.1 = phi i64 [ %.sroa.4240.0.ph, %770 ], [ %.sroa.4240.0.ph, %340 ], [ %.sroa.4240.0.ph, %338 ], [ %.sroa.4240.0.ph, %336 ], [ %.sroa.4240.0.ph, %334 ], [ %.sroa.4240.0.ph, %332 ], [ %.sroa.4240.0.ph, %330 ], [ %.sroa.4240.0.ph, %328 ], [ %.sroa.4240.0.ph, %326 ], [ %.sroa.4240.0.ph, %324 ], [ %.sroa.4240.0.ph, %322 ], [ %.sroa.4240.0.ph, %320 ], [ %.sroa.4240.0.ph, %318 ], [ %.sroa.4240.0.ph, %762 ], [ %.sroa.4240.0.ph, %751 ], [ %.sroa.4240.0.ph, %709 ], [ %.sroa.4240.0.ph, %"_ZN4core3ptr95drop_in_place$LT$wasmtime_cranelift..debug..transform..range_info_builder..RangeInfoBuilder$GT$17h8cb6c4afaafa530eE.exit" ], [ %.sroa.4240.0.ph, %651 ], [ %.sroa.4240.0.ph, %551 ], [ %.sroa.4240.0.ph, %.noexc494 ], [ %.sroa.4240.0.ph, %271 ], [ %.sroa.4240.0.ph, %368 ], [ %.sroa.4240.0.ph, %528 ], [ %.sroa.4240.0.ph, %362 ], [ %.sroa.4240.0.ph, %263 ], [ %.sroa.4240.0.ph, %261 ], [ %.sroa.4240.0.ph, %259 ], [ %.sroa.4240.0.ph, %257 ], [ %.sroa.4240.0.ph, %358 ], [ %.sroa.4240.2, %.noexc462 ]
   %.sroa.4254.1 = phi i64 [ %.sroa.4254.0.ph, %770 ], [ %.sroa.4254.0.ph, %340 ], [ %.sroa.4254.0.ph, %338 ], [ %.sroa.4254.0.ph, %336 ], [ %.sroa.4254.0.ph, %334 ], [ %.sroa.4254.0.ph, %332 ], [ %.sroa.4254.0.ph, %330 ], [ %.sroa.4254.0.ph, %328 ], [ %.sroa.4254.0.ph, %326 ], [ %.sroa.4254.0.ph, %324 ], [ %.sroa.4254.0.ph, %322 ], [ %.sroa.4254.0.ph, %320 ], [ %.sroa.4254.0.ph, %318 ], [ %.sroa.4254.0.ph, %762 ], [ %.sroa.4254.0.ph, %751 ], [ %.sroa.4254.0.ph, %709 ], [ %.sroa.4254.0.ph, %"_ZN4core3ptr95drop_in_place$LT$wasmtime_cranelift..debug..transform..range_info_builder..RangeInfoBuilder$GT$17h8cb6c4afaafa530eE.exit" ], [ %.sroa.4254.0.ph, %651 ], [ %.sroa.4254.0.ph, %551 ], [ %.sroa.4254.2, %.noexc494 ], [ %.sroa.4254.0.ph, %271 ], [ %.sroa.4254.0.ph, %368 ], [ %.sroa.4254.0.ph, %528 ], [ %.sroa.4254.0.ph, %362 ], [ %.sroa.4254.0.ph, %263 ], [ %.sroa.4254.0.ph, %261 ], [ %.sroa.4254.0.ph, %259 ], [ %.sroa.4254.0.ph, %257 ], [ %.sroa.4254.0.ph, %358 ], [ %.sroa.4254.0.ph, %.noexc462 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %91)
@@ -13643,18 +13632,15 @@ _ZN18wasmtime_cranelift5debug9transform10expression18CompiledExpression9is_simpl
 
 .noexc494:                                        ; preds = %535
   %537 = load i64, ptr %31, align 8, !range !202, !noalias !3344, !noundef !4
-  %trunc.i490 = trunc nuw i64 %537 to i1
   %538 = load i32, ptr %207, align 8
   %539 = load i64, ptr %208, align 8
   %540 = zext i32 %538 to i64
-  %.sroa.6585.2 = select i1 %trunc.i490, i64 %539, i64 %.sroa.6585.0.ph
-  %.sroa.4584.2 = select i1 %trunc.i490, i64 %540, i64 %.sroa.4584.0.ph
   %.sink.i491 = sub nuw nsw i64 2, %537
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31), !noalias !3344
   %541 = icmp eq i64 %537, 0
   %.sroa.0249.0 = select i1 %541, i64 0, i64 %.sink.i491
-  %.sroa.3251.0 = select i1 %541, i64 0, i64 %.sroa.4584.2
-  %.sroa.4254.2 = select i1 %541, i64 %.sroa.4254.0.ph, i64 %.sroa.6585.2
+  %.sroa.3251.0 = select i1 %541, i64 0, i64 %540
+  %.sroa.4254.2 = select i1 %541, i64 %.sroa.4254.0.ph, i64 %539
   store i64 %.sroa.0249.0, ptr %171, align 8
   store i64 %.sroa.3251.0, ptr %172, align 8
   store i64 %.sroa.4254.2, ptr %.sroa.7669.0..sroa_idx, align 8

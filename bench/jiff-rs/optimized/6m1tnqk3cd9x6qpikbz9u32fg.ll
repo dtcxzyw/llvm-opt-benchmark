@@ -5132,8 +5132,8 @@ _ZN4jiff2tz2db8zoneinfo5inner14CachedTimeZone10is_expired17hbaf72d488a343293E.ex
   br label %_ZN4jiff2tz2db8zoneinfo5inner8Database3get17hce2d461d65f0fa5aE.exit.thread
 
 222:                                              ; preds = %_ZN4jiff2tz2db8zoneinfo5inner13ZoneInfoNames3get17h3b21db2481e18f3cE.exit.i, %_ZN4jiff2tz2db8zoneinfo5inner13ZoneInfoNames3get17h3b21db2481e18f3cE.exit.thread.i
-  %.sroa.0.0.i4365.i = phi ptr [ %158, %_ZN4jiff2tz2db8zoneinfo5inner13ZoneInfoNames3get17h3b21db2481e18f3cE.exit.thread.i ], [ %200, %_ZN4jiff2tz2db8zoneinfo5inner13ZoneInfoNames3get17h3b21db2481e18f3cE.exit.i ]
-  store ptr %.sroa.0.0.i4365.i, ptr %26, align 8, !noalias !416
+  %.sroa.0.0.i4364.i = phi ptr [ %158, %_ZN4jiff2tz2db8zoneinfo5inner13ZoneInfoNames3get17h3b21db2481e18f3cE.exit.thread.i ], [ %200, %_ZN4jiff2tz2db8zoneinfo5inner13ZoneInfoNames3get17h3b21db2481e18f3cE.exit.i ]
+  store ptr %.sroa.0.0.i4364.i, ptr %26, align 8, !noalias !416
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25), !noalias !416
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24), !noalias !416
   %223 = cmpxchg weak ptr %91, i32 0, i32 1073741823 acquire monotonic, align 4, !noalias !459
@@ -5238,7 +5238,7 @@ _ZN3std4sync6poison4Flag5guard17h5ee6b35770313a6fE.exit.i.i: ; preds = %.noexc47
   br i1 %267, label %271, label %272
 
 268:                                              ; preds = %395, %391, %359, %354, %269
-  %.pn24.i = phi { ptr, i32 } [ %270, %269 ], [ %396, %395 ], [ %360, %359 ], [ %.pn72.i, %354 ], [ %392, %391 ]
+  %.pn24.i = phi { ptr, i32 } [ %270, %269 ], [ %396, %395 ], [ %360, %359 ], [ %.pn71.i, %354 ], [ %392, %391 ]
   invoke void @"_ZN4core3ptr114drop_in_place$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$jiff..tz..db..zoneinfo..inner..CachedZones$GT$$GT$17h28c68235eb4d804dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #32
           to label %.body.i unwind label %357, !noalias !416
 
@@ -5416,13 +5416,13 @@ _ZN3std4sync6poison4Flag5guard17h5ee6b35770313a6fE.exit.i.i: ; preds = %.noexc47
   %348 = load ptr, ptr %347, align 8, !noalias !416, !nonnull !3, !noundef !3
   %349 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { [2 x i32], i32, [1 x i32] } }, ptr, ptr }, ptr %348, i64 %266
   invoke void @"_ZN4core3ptr66drop_in_place$LT$jiff..tz..db..zoneinfo..inner..CachedTimeZone$GT$17h9d5dd5d5efc2cfbcE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %349)
-          to label %352 unwind label %.thread70.i, !noalias !416
+          to label %352 unwind label %.thread69.i, !noalias !416
 
 350:                                              ; preds = %342
   invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %266, i64 noundef %345, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.95a2a2af46fa738d12abe82399562330.85) #31
           to label %301 unwind label %355, !noalias !416
 
-.thread70.i:                                      ; preds = %346
+.thread69.i:                                      ; preds = %346
   %351 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %349, ptr noundef nonnull align 8 dereferenceable(56) %23, i64 56, i1 false), !noalias !416
@@ -5440,8 +5440,8 @@ _ZN3std4sync6poison4Flag5guard17h5ee6b35770313a6fE.exit.i.i: ; preds = %.noexc47
   invoke void @"_ZN4core3ptr114drop_in_place$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$jiff..tz..db..zoneinfo..inner..CachedZones$GT$$GT$17h28c68235eb4d804dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25)
           to label %394 unwind label %237, !noalias !416
 
-354:                                              ; preds = %355, %.thread70.i
-  %.pn72.i = phi { ptr, i32 } [ %351, %.thread70.i ], [ %356, %355 ]
+354:                                              ; preds = %355, %.thread69.i
+  %.pn71.i = phi { ptr, i32 } [ %351, %.thread69.i ], [ %356, %355 ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$jiff..tz..timezone..TimeZone$GT$17h17ffc961aac3f863E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %20) #32
           to label %268 unwind label %357, !noalias !416
 
