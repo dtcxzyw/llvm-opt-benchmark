@@ -347,12 +347,12 @@ define hidden noundef i64 @"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num
   br label %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h0f1702cdd4372b53E.exit"
 
 "_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h0f1702cdd4372b53E.exit": ; preds = %69, %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h08ed5ca6997c389fE.exit.i"
-  %.sroa.0.03.i = phi i64 [ 1, %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h08ed5ca6997c389fE.exit.i" ], [ %70, %69 ]
+  %.sroa.0.04.i = phi i64 [ 1, %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h08ed5ca6997c389fE.exit.i" ], [ %70, %69 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %73
 
 73:                                               ; preds = %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h0f1702cdd4372b53E.exit54", %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h6ed3d71d731b368fE.exit", %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h0f1702cdd4372b53E.exit", %.loopexit, %1
-  %.sroa.0.1 = phi i64 [ %9, %1 ], [ %.sroa.0.03.i, %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h0f1702cdd4372b53E.exit" ], [ %58, %.loopexit ], [ %.sroa.0.03.i52, %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h0f1702cdd4372b53E.exit54" ], [ %114, %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h6ed3d71d731b368fE.exit" ]
+  %.sroa.0.1 = phi i64 [ %9, %1 ], [ %.sroa.0.04.i, %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h0f1702cdd4372b53E.exit" ], [ %58, %.loopexit ], [ %.sroa.0.04.i52, %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h0f1702cdd4372b53E.exit54" ], [ %114, %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h6ed3d71d731b368fE.exit" ]
   ret i64 %.sroa.0.1
 
 74:                                               ; preds = %59
@@ -507,7 +507,7 @@ define hidden noundef i64 @"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num
   br label %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h0f1702cdd4372b53E.exit54"
 
 "_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h0f1702cdd4372b53E.exit54": ; preds = %123, %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h08ed5ca6997c389fE.exit.i53"
-  %.sroa.0.03.i52 = phi i64 [ 1, %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h08ed5ca6997c389fE.exit.i53" ], [ %124, %123 ]
+  %.sroa.0.04.i52 = phi i64 [ 1, %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h08ed5ca6997c389fE.exit.i53" ], [ %124, %123 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %73
 }

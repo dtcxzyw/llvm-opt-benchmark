@@ -74,7 +74,7 @@ define noundef zeroext i1 @_ZN8xml5ever9tokenizer9interface3Tag23equiv_modulo_at
 40:                                               ; preds = %47, %41
   %.pn = phi { ptr, i32 } [ %42, %41 ], [ %48, %47 ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$markup5ever..interface..Attribute$GT$$GT$17h87a0ed1f35de4df1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #8
-          to label %63 unwind label %61
+          to label %63 unwind label %60
 
 41:                                               ; preds = %31, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd19a2f8f519e535bE.exit"
   %42 = landingpad { ptr, i32 }
@@ -90,11 +90,11 @@ define noundef zeroext i1 @_ZN8xml5ever9tokenizer9interface3Tag23equiv_modulo_at
   invoke void @_ZN4core5slice4sort10merge_sort17h79343fe3696549afE(ptr noalias noundef nonnull align 8 %44, i64 noundef %46, ptr noalias noundef nonnull align 1 %3)
           to label %49 unwind label %47
 
-47:                                               ; preds = %.noexc, %55, %49, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7a2297e37f3b8a3aE.exit"
+47:                                               ; preds = %.noexc, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3fba1e84352cc888E.llvm.4428398105249161175.exit.i", %49, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7a2297e37f3b8a3aE.exit"
   %48 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$markup5ever..interface..Attribute$GT$$GT$17h87a0ed1f35de4df1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #8
-          to label %40 unwind label %61
+          to label %40 unwind label %60
 
 49:                                               ; preds = %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7a2297e37f3b8a3aE.exit"
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
@@ -111,48 +111,48 @@ define noundef zeroext i1 @_ZN8xml5ever9tokenizer9interface3Tag23equiv_modulo_at
   %.val11 = load i64, ptr %45, align 8, !noundef !5
   %.val9 = load i64, ptr %52, align 8, !noundef !5
   %.not.i = icmp eq i64 %.val11, %.val9
-  br i1 %.not.i, label %55, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd19a2f8f519e535bE.exit"
+  br i1 %.not.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3fba1e84352cc888E.llvm.4428398105249161175.exit.i", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd19a2f8f519e535bE.exit"
 
-55:                                               ; preds = %54
+"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3fba1e84352cc888E.llvm.4428398105249161175.exit.i": ; preds = %54
   %.val = load ptr, ptr %50, align 8, !nonnull !5, !noundef !5
   %.val10 = load ptr, ptr %43, align 8, !nonnull !5, !noundef !5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
-  %56 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %.val10, i64 %.val11
-  %57 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %.val, i64 %.val11
-  invoke void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17heee0b11b2423bcc1E"(ptr noalias noundef nonnull sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 captures(none) dereferenceable(56) %4, ptr noundef nonnull align 8 %.val10, ptr noundef nonnull %56, ptr noundef nonnull align 8 %.val, ptr noundef nonnull %57)
+  %55 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %.val10, i64 %.val11
+  %56 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %.val, i64 %.val11
+  invoke void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17heee0b11b2423bcc1E"(ptr noalias noundef nonnull sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 captures(none) dereferenceable(56) %4, ptr noundef nonnull align 8 %.val10, ptr noundef nonnull %55, ptr noundef nonnull align 8 %.val, ptr noundef nonnull %56)
           to label %.noexc unwind label %47
 
-.noexc:                                           ; preds = %55
-  %58 = invoke noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h1d18af96b59eb2cbE.llvm.4428398105249161175(ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+.noexc:                                           ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3fba1e84352cc888E.llvm.4428398105249161175.exit.i"
+  %57 = invoke noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h1d18af96b59eb2cbE.llvm.4428398105249161175(ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
           to label %.noexc14 unwind label %47
 
 .noexc14:                                         ; preds = %.noexc
-  %59 = xor i1 %58, true
+  %58 = xor i1 %57, true
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd19a2f8f519e535bE.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd19a2f8f519e535bE.exit": ; preds = %.noexc14, %54
-  %.0.i13 = phi i1 [ %59, %.noexc14 ], [ false, %54 ]
+  %.0.i13 = phi i1 [ %58, %.noexc14 ], [ false, %54 ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$markup5ever..interface..Attribute$GT$$GT$17h87a0ed1f35de4df1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %60 unwind label %41
 
-60:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd19a2f8f519e535bE.exit"
+59:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd19a2f8f519e535bE.exit"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$markup5ever..interface..Attribute$GT$$GT$17h87a0ed1f35de4df1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.thread"
 
-"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.thread": ; preds = %19, %.critedge.i, %21, %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit", %2, %60
+"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.thread": ; preds = %19, %.critedge.i, %21, %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit", %2, %59
   %.0 = phi i1 [ %.0.i13, %60 ], [ false, %2 ], [ false, %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit" ], [ false, %21 ], [ false, %.critedge.i ], [ false, %19 ]
   ret i1 %.0
 
-61:                                               ; preds = %47, %40
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %47, %40
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #9
   unreachable
 
-63:                                               ; preds = %40
+62:                                               ; preds = %40
   resume { ptr, i32 } %.pn
 }
 

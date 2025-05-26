@@ -12707,12 +12707,12 @@ default.unreachable14:                            ; preds = %120, %2
           to label %34 unwind label %33
 
 .body.i:                                          ; preds = %104
-  br i1 %.sroa.06.4.i, label %.body.thread64.i, label %common.resume
+  br i1 %.sroa.06.4.i, label %.body.thread65.i, label %common.resume
 
 33:                                               ; preds = %28
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
-  br label %.body.thread64.i
+  br label %.body.thread65.i
 
 34:                                               ; preds = %28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !377)
@@ -12908,7 +12908,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i: ; preds = %100, %.
 113:                                              ; preds = %"_ZN4core3ptr245drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tokio..sync..oneshot..Sender$LT$core..result..Result$LT$alloc..string..String$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$17h6527ba6cab1775afE.exit.i"
   unreachable
 
-114:                                              ; preds = %.body.thread64.i, %196, %104
+114:                                              ; preds = %.body.thread65.i, %196, %104
   %115 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #30
@@ -13201,12 +13201,12 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i31.i: ; preds = %191, 
   invoke fastcc void @"_ZN4core3ptr93drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$std..sync..mpmc..zero..Inner$GT$$GT$17hc06536e986e94fd9E"(ptr nonnull %50, i8 %52) #29
           to label %.body.thread64.i unwind label %114
 
-common.resume:                                    ; preds = %203, %.body.i, %.body.i.i, %164, %.body.thread64.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn67.i, %.body.thread64.i ], [ %105, %.body.i ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %165, %164 ], [ %204, %203 ]
+common.resume:                                    ; preds = %203, %.body.i, %.body.i.i, %164, %.body.thread65.i
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn68.i, %.body.thread64.i ], [ %105, %.body.i ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %165, %164 ], [ %204, %203 ]
   resume { ptr, i32 } %common.resume.op
 
-.body.thread64.i:                                 ; preds = %196, %43, %33, %.body.i
-  %.pn.pn67.i = phi { ptr, i32 } [ %105, %.body.i ], [ %44, %43 ], [ %lpad.thr_comm.i, %196 ], [ %lpad.thr_comm.split-lp.i, %33 ]
+.body.thread65.i:                                 ; preds = %196, %43, %33, %.body.i
+  %.pn.pn68.i = phi { ptr, i32 } [ %105, %.body.i ], [ %44, %43 ], [ %lpad.thr_comm.i, %196 ], [ %lpad.thr_comm.split-lp.i, %33 ]
   invoke void @"_ZN4core3ptr206drop_in_place$LT$tokio..sync..oneshot..Sender$LT$core..result..Result$LT$alloc..string..String$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hcfb2916a16d58f16E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %18) #29
           to label %common.resume unwind label %114
 

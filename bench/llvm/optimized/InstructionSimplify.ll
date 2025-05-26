@@ -4059,7 +4059,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_7is_zeroEEEbPT_RKT0_.exit: ; preds = 
   %110 = load ptr, ptr %109, align 8, !tbaa !30
   %111 = call noundef ptr @_ZN4llvm8Constant15getAllOnesValueEPNS_4TypeE(ptr noundef %110) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #20
-  br label %374
+  br label %377
 
 112:                                              ; preds = %.thread397, %.thread396, %84
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18) #20
@@ -4098,7 +4098,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_7is_zeroEEEbPT_RKT0_.exit: ; preds = 
 
 128:                                              ; preds = %124
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18) #20
-  br label %374
+  br label %377
 
 _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14specificval_tyES4_Lj25ELb0EEEEEbPT_RKT0_.exit.thread: ; preds = %112, %119, %124, %115
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18) #20
@@ -4138,7 +4138,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14specificval_ty
 
 144:                                              ; preds = %140
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19) #20
-  br label %374
+  br label %377
 
 _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14specificval_tyES4_Lj25ELb0EEEEEbPT_RKT0_.exit182.thread: ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14specificval_tyES4_Lj25ELb0EEEEEbPT_RKT0_.exit.thread, %135, %140, %131
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19) #20
@@ -4183,7 +4183,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14specificval_ty
 
 160:                                              ; preds = %156
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20) #20
-  br label %374
+  br label %377
 
 _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14specificval_tyES4_Lj26ELb0EEEEEbPT_RKT0_.exit.thread: ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14specificval_tyES4_Lj25ELb0EEEEEbPT_RKT0_.exit182.thread, %151, %156, %147
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20) #20
@@ -4191,8 +4191,8 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14specificval_ty
   call void @llvm.experimental.noalias.scope.decl(metadata !101)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   store i32 181, ptr %5, align 8, !tbaa !88, !noalias !104
-  %.4..4..4..4..4..4..4..4..4..4..4..sroa_idx423 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i64 0, ptr %.4..4..4..4..4..4..4..4..4..4..4..sroa_idx423, align 4, !noalias !104
+  %.4..4..4..4..4..4..4..4..4..4..4..sroa_idx424 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i64 0, ptr %.4..4..4..4..4..4..4..4..4..4..4..sroa_idx424, align 4, !noalias !104
   %.0..0..0..0..0..0..0..0..0..0..0..i.i.i.i190 = load i64, ptr %5, align 8, !noalias !104
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   store i64 %.0..0..0..0..0..0..0..0..0..0..0..i.i.i.i190, ptr %21, align 8, !alias.scope !101
@@ -4228,41 +4228,41 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14specificval_ty
 
 176:                                              ; preds = %172
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21) #20
-  br label %374
+  br label %377
 
 _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14specificval_tyES4_Lj26ELb0EEEEEbPT_RKT0_.exit197.thread: ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14specificval_tyES4_Lj26ELb0EEEEEbPT_RKT0_.exit.thread, %167, %172, %163
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21) #20
   %177 = call fastcc noundef ptr @_ZL23simplifyAndOrWithICmpEqjPN4llvm5ValueES1_RKNS_13SimplifyQueryEj(i32 noundef 29, ptr noundef nonnull %.0391, ptr noundef nonnull %.0382387, ptr noundef nonnull align 8 dereferenceable(58) %2, i32 noundef %3)
   %.not141 = icmp eq ptr %177, null
-  br i1 %.not141, label %178, label %374
+  br i1 %.not141, label %178, label %377
 
 178:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14specificval_tyES4_Lj26ELb0EEEEEbPT_RKT0_.exit197.thread
   %179 = call fastcc noundef ptr @_ZL23simplifyAndOrWithICmpEqjPN4llvm5ValueES1_RKNS_13SimplifyQueryEj(i32 noundef 29, ptr noundef nonnull %.0382387, ptr noundef nonnull %.0391, ptr noundef nonnull align 8 dereferenceable(58) %2, i32 noundef %3)
   %.not142 = icmp eq ptr %179, null
-  br i1 %.not142, label %180, label %374
+  br i1 %.not142, label %180, label %377
 
 180:                                              ; preds = %178
   %181 = call fastcc noundef ptr @_ZL19simplifyAndOrOfCmpsRKN4llvm13SimplifyQueryEPNS_5ValueES4_b(ptr noundef nonnull align 8 dereferenceable(58) %2, ptr noundef nonnull %.0391, ptr noundef nonnull %.0382387, i1 noundef zeroext false)
   %.not143 = icmp eq ptr %181, null
-  br i1 %.not143, label %182, label %374
+  br i1 %.not143, label %182, label %377
 
 182:                                              ; preds = %180
   %183 = call noundef zeroext i1 @_ZN4llvm32isCheckForZeroAndMulWithOverflowEPNS_5ValueES1_b(ptr noundef nonnull %.0391, ptr noundef nonnull %.0382387, i1 noundef zeroext false) #20
-  br i1 %183, label %374, label %184
+  br i1 %183, label %377, label %184
 
 184:                                              ; preds = %182
   %185 = call noundef zeroext i1 @_ZN4llvm32isCheckForZeroAndMulWithOverflowEPNS_5ValueES1_b(ptr noundef nonnull %.0382387, ptr noundef nonnull %.0391, i1 noundef zeroext false) #20
-  br i1 %185, label %374, label %186
+  br i1 %185, label %377, label %186
 
 186:                                              ; preds = %184
   %187 = call fastcc noundef ptr @_ZL24simplifyAssociativeBinOpN4llvm11Instruction9BinaryOpsEPNS_5ValueES3_RKNS_13SimplifyQueryEj(i32 noundef 29, ptr noundef nonnull %.0391, ptr noundef nonnull %.0382387, ptr noundef nonnull align 8 dereferenceable(58) %2, i32 noundef %3)
   %.not144 = icmp eq ptr %187, null
-  br i1 %.not144, label %188, label %374
+  br i1 %.not144, label %188, label %377
 
 188:                                              ; preds = %186
   %189 = call fastcc noundef ptr @_ZL22expandCommutativeBinOpN4llvm11Instruction9BinaryOpsEPNS_5ValueES3_S1_RKNS_13SimplifyQueryEj(i32 noundef 29, ptr noundef nonnull %.0391, ptr noundef nonnull %.0382387, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(58) %2, i32 noundef %3)
   %.not145 = icmp eq ptr %189, null
-  br i1 %.not145, label %190, label %374
+  br i1 %.not145, label %190, label %377
 
 190:                                              ; preds = %188
   %191 = load i8, ptr %.0391, align 8, !tbaa !3
@@ -4303,7 +4303,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEj.exit:        ; preds = %196, %203
   store i64 0, ptr %210, align 8, !alias.scope !107
   %211 = call noundef zeroext i1 @_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14ThreeOps_matchINS0_14specificval_tyENS0_14cstval_pred_tyINS0_6is_oneENS_11ConstantIntELb1EEENS0_11class_matchIS2_EELj57ELb0EEEEEbPT_RKT0_(ptr noundef nonnull %.0382387, ptr noundef nonnull align 8 dereferenceable(17) %22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #20
-  br i1 %211, label %374, label %212
+  br i1 %211, label %377, label %212
 
 212:                                              ; preds = %208
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #20
@@ -4313,12 +4313,12 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEj.exit:        ; preds = %196, %203
   store i64 0, ptr %214, align 8, !alias.scope !110
   %215 = call noundef zeroext i1 @_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14ThreeOps_matchINS0_14specificval_tyENS0_14cstval_pred_tyINS0_6is_oneENS_11ConstantIntELb1EEENS0_11class_matchIS2_EELj57ELb0EEEEEbPT_RKT0_(ptr noundef nonnull %.0391, ptr noundef nonnull align 8 dereferenceable(17) %23)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #20
-  br i1 %215, label %374, label %216
+  br i1 %215, label %377, label %216
 
 216:                                              ; preds = %212, %_ZNK4llvm4Type18isIntOrIntVectorTyEj.exit
   %217 = call fastcc noundef ptr @_ZL21threadBinOpOverSelectN4llvm11Instruction9BinaryOpsEPNS_5ValueES3_RKNS_13SimplifyQueryEj(i32 noundef 29, ptr noundef nonnull %.0391, ptr noundef nonnull %.0382387, ptr noundef nonnull align 8 dereferenceable(58) %2, i32 noundef %3)
   %.not146 = icmp eq ptr %217, null
-  br i1 %.not146, label %218, label %374
+  br i1 %.not146, label %218, label %377
 
 218:                                              ; preds = %216, %193
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #20
@@ -4458,7 +4458,7 @@ _ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit.i.i.i: ; preds =
 
 .critedge29.thread408:                            ; preds = %275
   %278 = load ptr, ptr %24, align 8, !tbaa !31
-  br label %.thread413
+  br label %_ZL15simplifyByDomEqjPN4llvm5ValueES1_RKNS_13SimplifyQueryEj.exit
 
 .critedge27:                                      ; preds = %261, %_ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit.i.i.i, %258, %275
   %279 = load ptr, ptr %26, align 8, !tbaa !64
@@ -4496,7 +4496,7 @@ _ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit.i.i.i210: ; pred
   %295 = load ptr, ptr %26, align 8, !tbaa !64
   %296 = call noundef zeroext i1 @_ZN4llvm17MaskedValueIsZeroEPKNS_5ValueERKNS_5APIntERKNS_13SimplifyQueryEj(ptr noundef nonnull %.sink.i.i.i214, ptr noundef nonnull align 8 dereferenceable(12) %295, ptr noundef nonnull align 8 dereferenceable(58) %2, i32 noundef 0) #20
   %297 = load ptr, ptr %25, align 8
-  br i1 %296, label %.thread413, label %.critedge29.thread
+  br i1 %296, label %_ZL15simplifyByDomEqjPN4llvm5ValueES1_RKNS_13SimplifyQueryEj.exit, label %.critedge29.thread
 
 .critedge25:                                      ; preds = %218
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29) #20
@@ -4516,7 +4516,7 @@ _ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit.i.i.i210: ; pred
 303:                                              ; preds = %300, %.critedge29.thread
   %304 = call fastcc noundef ptr @_ZL18threadBinOpOverPHIN4llvm11Instruction9BinaryOpsEPNS_5ValueES3_RKNS_13SimplifyQueryEj(i32 noundef 29, ptr noundef nonnull %.0391, ptr noundef nonnull %.0382387, ptr noundef nonnull align 8 dereferenceable(58) %2, i32 noundef %3)
   %.not147 = icmp eq ptr %304, null
-  br i1 %.not147, label %305, label %.thread413
+  br i1 %.not147, label %305, label %_ZL15simplifyByDomEqjPN4llvm5ValueES1_RKNS_13SimplifyQueryEj.exit
 
 305:                                              ; preds = %303, %300
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32) #20
@@ -4598,7 +4598,7 @@ _ZN4llvm5APIntD2Ev.exit222:                       ; preds = %.critedge150, %323,
   %334 = getelementptr inbounds nuw i8, ptr %.0391, i64 8
   %335 = load ptr, ptr %334, align 8, !tbaa !30
   %336 = call noundef ptr @_ZN4llvm8Constant15getAllOnesValueEPNS_4TypeE(ptr noundef %335) #20
-  br label %.thread413
+  br label %_ZL15simplifyByDomEqjPN4llvm5ValueES1_RKNS_13SimplifyQueryEj.exit
 
 337:                                              ; preds = %.critedge151.thread, %.critedge151
   %338 = getelementptr inbounds nuw i8, ptr %.0391, i64 8
@@ -4619,7 +4619,7 @@ _ZN4llvm5APIntD2Ev.exit222:                       ; preds = %.critedge150, %323,
 _ZNK4llvm4Type18isIntOrIntVectorTyEj.exit226:     ; preds = %337, %344
   %.0.i.i225 = phi ptr [ %347, %344 ], [ %339, %337 ]
   %348 = call noundef zeroext i1 @_ZNK4llvm4Type11isIntegerTyEj(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i225, i32 noundef 1) #20
-  br i1 %348, label %349, label %370
+  br i1 %348, label %349, label %.thread418
 
 349:                                              ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEj.exit226
   %350 = load ptr, ptr %2, align 8, !tbaa !49
@@ -4631,59 +4631,59 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEj.exit226:     ; preds = %337, %344
 353:                                              ; preds = %349
   %354 = and i16 %351, 255
   %355 = icmp eq i16 %354, 0
-  br i1 %355, label %.thread413, label %356
+  br i1 %355, label %_ZL15simplifyByDomEqjPN4llvm5ValueES1_RKNS_13SimplifyQueryEj.exit, label %356
 
 356:                                              ; preds = %353
   %357 = load ptr, ptr %338, align 8, !tbaa !30
   %358 = call noundef ptr @_ZN4llvm11ConstantInt7getTrueEPNS_4TypeE(ptr noundef %357) #20
   br label %.thread413
 
-359:                                              ; preds = %349
+359:; preds = %349
   %360 = load ptr, ptr %2, align 8, !tbaa !49
   %361 = call i16 @_ZN4llvm18isImpliedConditionEPKNS_5ValueES2_RKNS_10DataLayoutEbj(ptr noundef nonnull %.0382387, ptr noundef nonnull %.0391, ptr noundef nonnull align 8 dereferenceable(496) %360, i1 noundef zeroext false, i32 noundef 0) #20
   %362 = and i16 %361, 256
   %.not421 = icmp eq i16 %362, 0
-  br i1 %.not421, label %370, label %363
+  br i1 %.not421, label %.thread418, label %363
 
-363:                                              ; preds = %359
+363:; preds = %359
   %364 = and i16 %361, 255
   %365 = icmp eq i16 %364, 0
   br i1 %365, label %.thread413, label %366
 
-366:                                              ; preds = %363
+368:                                              ; preds = %363
   %367 = getelementptr inbounds nuw i8, ptr %.0382387, i64 8
   %368 = load ptr, ptr %367, align 8, !tbaa !30
   %369 = call noundef ptr @_ZN4llvm11ConstantInt7getTrueEPNS_4TypeE(ptr noundef %368) #20
   br label %.thread413
 
-370:                                              ; preds = %359, %_ZNK4llvm4Type18isIntOrIntVectorTyEj.exit226
+.thread418:                                       ; preds = %359, %_ZNK4llvm4Type18isIntOrIntVectorTyEj.exit226
   %.not.i = icmp eq i32 %3, 3
-  br i1 %.not.i, label %371, label %.thread413
+  br i1 %.not.i, label %374, label %_ZL15simplifyByDomEqjPN4llvm5ValueES1_RKNS_13SimplifyQueryEj.exit
 
-371:                                              ; preds = %370
+374:                                              ; preds = %.thread418
   %.val162 = load ptr, ptr %36, align 8
   %.val161 = load ptr, ptr %2, align 8
-  %372 = call i16 @_ZN4llvm23isImpliedByDomConditionENS_12CmpPredicateEPKNS_5ValueES3_PKNS_11InstructionERKNS_10DataLayoutE(i64 32, ptr noundef nonnull %.0391, ptr noundef nonnull %.0382387, ptr noundef %.val162, ptr noundef nonnull align 8 dereferenceable(496) %.val161) #20
-  %373 = and i16 %372, 257
-  %or.cond.i = icmp eq i16 %373, 257
-  %spec.select420 = select i1 %or.cond.i, ptr %.0382387, ptr null
-  br label %.thread413
+  %375 = call i16 @_ZN4llvm23isImpliedByDomConditionENS_12CmpPredicateEPKNS_5ValueES3_PKNS_11InstructionERKNS_10DataLayoutE(i64 32, ptr noundef nonnull %.0391, ptr noundef nonnull %.0382387, ptr noundef %.val162, ptr noundef nonnull align 8 dereferenceable(496) %.val161) #20
+  %376 = and i16 %375, 257
+  %or.cond.i = icmp eq i16 %376, 257
+  %spec.select421 = select i1 %or.cond.i, ptr %.0382387, ptr null
+  br label %_ZL15simplifyByDomEqjPN4llvm5ValueES1_RKNS_13SimplifyQueryEj.exit
 
-.thread413:                                       ; preds = %370, %371, %363, %366, %353, %356, %.critedge29.thread408, %.critedge29, %303, %333
-  %.17 = phi ptr [ %336, %333 ], [ %304, %303 ], [ %297, %.critedge29 ], [ %278, %.critedge29.thread408 ], [ %.0391, %353 ], [ %358, %356 ], [ %.0382387, %363 ], [ %369, %366 ], [ null, %370 ], [ %spec.select420, %371 ]
+_ZL15simplifyByDomEqjPN4llvm5ValueES1_RKNS_13SimplifyQueryEj.exit: ; preds = %.thread418, %374, %363, %368, %353, %356, %.critedge29.thread408, %.critedge29, %303, %333
+  %.17 = phi ptr [ %336, %333 ], [ %304, %303 ], [ %297, %.critedge29 ], [ %278, %.critedge29.thread408 ], [ %.0391, %353 ], [ %358, %356 ], [ %.0382387, %363 ], [ %369, %366 ], [ null, %370 ], [ %spec.select421, %371 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #20
-  br label %374
+  br label %377
 
-374:                                              ; preds = %212, %208, %184, %182, %107, %216, %188, %186, %180, %178, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14specificval_tyES4_Lj26ELb0EEEEEbPT_RKT0_.exit197.thread, %.thread413, %176, %160, %144, %128
+377:                                              ; preds = %212, %208, %184, %182, %107, %216, %188, %186, %180, %178, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14specificval_tyES4_Lj26ELb0EEEEEbPT_RKT0_.exit197.thread, %_ZL15simplifyByDomEqjPN4llvm5ValueES1_RKNS_13SimplifyQueryEj.exit, %176, %160, %144, %128
   %.7 = phi ptr [ %.0391, %128 ], [ %.0382387, %144 ], [ %.0391, %160 ], [ %.0382387, %176 ], [ %.17, %.thread413 ], [ %217, %216 ], [ %189, %188 ], [ %187, %186 ], [ %181, %180 ], [ %179, %178 ], [ %177, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14specificval_tyES4_Lj26ELb0EEEEEbPT_RKT0_.exit197.thread ], [ %111, %107 ], [ %.0382387, %182 ], [ %.0391, %184 ], [ %.0382387, %208 ], [ %.0391, %212 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #20
   br label %.critedge13
 
-.critedge13:                                      ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_7is_zeroEEEbPT_RKT0_.exit, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_7is_zeroEEEbPT_RKT0_.exit.thread, %58, %_ZL21foldOrCommuteConstantN4llvm11Instruction9BinaryOpsERPNS_5ValueES4_RKNS_13SimplifyQueryE.exit.thread, %73, %71, %69, %_ZL21foldOrCommuteConstantN4llvm11Instruction9BinaryOpsERPNS_5ValueES4_RKNS_13SimplifyQueryE.exit, %374, %54
+.critedge13:                                      ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_7is_zeroEEEbPT_RKT0_.exit, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_7is_zeroEEEbPT_RKT0_.exit.thread, %58, %_ZL21foldOrCommuteConstantN4llvm11Instruction9BinaryOpsERPNS_5ValueES4_RKNS_13SimplifyQueryE.exit.thread, %73, %71, %69, %_ZL21foldOrCommuteConstantN4llvm11Instruction9BinaryOpsERPNS_5ValueES4_RKNS_13SimplifyQueryE.exit, %377, %54
   %.1 = phi ptr [ %42, %_ZL21foldOrCommuteConstantN4llvm11Instruction9BinaryOpsERPNS_5ValueES4_RKNS_13SimplifyQueryE.exit ], [ %57, %54 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %.7, %374 ], [ %.0382387, %_ZL21foldOrCommuteConstantN4llvm11Instruction9BinaryOpsERPNS_5ValueES4_RKNS_13SimplifyQueryE.exit.thread ], [ %.0391, %58 ], [ %.0391, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_7is_zeroEEEbPT_RKT0_.exit.thread ], [ %.0391, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_7is_zeroEEEbPT_RKT0_.exit ]
   ret ptr %.1
 }

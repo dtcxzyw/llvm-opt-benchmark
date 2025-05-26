@@ -13499,12 +13499,12 @@ define noundef zeroext i1 @_ZN14regex_automata4util8alphabet7ByteSet8contains17h
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN14regex_automata4util8alphabet7ByteSet14contains_range17h0acd3c136499bc32E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, i8 noundef %1, i8 noundef %2) unnamed_addr #31 personality ptr @rust_eh_personality {
   %.not.i = icmp ugt i8 %1, %2
-  br i1 %.not.i, label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit", label %.preheader.i
+  br i1 %.not.i, label %.sink.split.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3, %5
   %4 = phi i8 [ %6, %5 ], [ %1, %3 ]
   %exitcond.not = icmp eq i8 %4, %2
-  br i1 %exitcond.not, label %14, label %5
+  br i1 %exitcond.not, label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit", label %5
 
 5:                                                ; preds = %.preheader.i
   %6 = add i8 %4, 1
@@ -13519,20 +13519,20 @@ define hidden noundef zeroext i1 @_ZN14regex_automata4util8alphabet7ByteSet14con
   %.not.i.not.i = icmp eq i128 %13, 0
   br i1 %.not.i.not.i, label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit", label %.preheader.i
 
-14:                                               ; preds = %.preheader.i
+"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit": ; preds = %.preheader.i
   %.lobit.i.i.i13.i = lshr i8 %2, 7
-  %15 = zext nneg i8 %.lobit.i.i.i13.i to i64
-  %16 = getelementptr inbounds nuw [2 x i128], ptr %0, i64 0, i64 %15
-  %17 = load i128, ptr %16, align 8, !alias.scope !3424, !noalias !3422, !noundef !9
-  %18 = and i8 %2, 127
-  %19 = zext nneg i8 %18 to i128
-  %20 = shl nuw i128 1, %19
-  %21 = and i128 %17, %20
-  %22 = icmp ne i128 %21, 0
+  %14 = zext nneg i8 %.lobit.i.i.i13.i to i64
+  %15 = getelementptr inbounds nuw [2 x i128], ptr %0, i64 0, i64 %14
+  %16 = load i128, ptr %15, align 8, !alias.scope !3424, !noalias !3422, !noundef !9
+  %17 = and i8 %2, 127
+  %18 = zext nneg i8 %17 to i128
+  %19 = shl nuw i128 1, %18
+  %20 = and i128 %16, %19
+  %.not.i14.not.i = icmp ne i128 %20, 0
   br label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit"
 
-"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit": ; preds = %5, %3, %14
-  %.0.i = phi i1 [ true, %3 ], [ %22, %14 ], [ false, %5 ]
+"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit":; preds = %5, %3, %14
+  %.0.i = phi i1 [ true, %3 ], [ %.not.i14.not.i, %14 ], [ false, %5 ]
   ret i1 %.0.i
 }
 

@@ -1334,7 +1334,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   %8 = trunc nuw i8 %3 to i1
   br i1 %8, label %9, label %15
 
-9:                                                ; preds = %7
+11:                                               ; preds = %7
   tail call void @llvm.assume(i1 %5)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -1351,7 +1351,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   %20 = icmp eq i32 %18, %19
   br label %"_ZN75_$LT$prometools..serde..Bridge$LT$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf39ea8f661d4f780E.exit"
 
-"_ZN75_$LT$prometools..serde..Bridge$LT$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf39ea8f661d4f780E.exit": ; preds = %2, %9, %15
+"_ZN75_$LT$prometools..serde..Bridge$LT$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf39ea8f661d4f780E.exit": ; preds = %2, %11, %15
   %.sroa.0.0.shrunk.i.i.i = phi i1 [ %14, %9 ], [ %20, %15 ], [ false, %2 ]
   ret i1 %.sroa.0.0.shrunk.i.i.i
 }
@@ -1395,7 +1395,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   %21 = trunc nuw i8 %16 to i1
   br i1 %21, label %22, label %28
 
-22:                                               ; preds = %20
+24:                                               ; preds = %20
   tail call void @llvm.assume(i1 %18)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -1412,7 +1412,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   %33 = icmp eq i32 %31, %32
   br label %"_ZN75_$LT$prometools..serde..Bridge$LT$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0f17a6923630afE.exit"
 
-"_ZN75_$LT$prometools..serde..Bridge$LT$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0f17a6923630afE.exit": ; preds = %2, %15, %22, %28
+"_ZN75_$LT$prometools..serde..Bridge$LT$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0f17a6923630afE.exit": ; preds = %2, %15, %24, %28
   %.sroa.0.0.i.i = phi i1 [ false, %2 ], [ %27, %22 ], [ %33, %28 ], [ false, %15 ]
   ret i1 %.sroa.0.0.i.i
 }

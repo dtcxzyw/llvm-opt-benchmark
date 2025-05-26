@@ -400,12 +400,12 @@ define hidden void @"_ZN72_$LT$diesel..sqlite..backend..SqliteType$u20$as$u20$co
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h781d2f0a335a696eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 captures(none) %2, i64 noundef %3) unnamed_addr #6 personality ptr @rust_eh_personality {
   %.not = icmp eq i64 %1, %3
-  br i1 %.not, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h126e39bd83611248E.llvm.1394800311566639068.exit
+  br i1 %.not, label %.preheader, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbc8ecb96583b806aE.llvm.1394800311566639068.exit"
 
 .preheader:                                       ; preds = %4, %6
   %5 = phi i64 [ %7, %6 ], [ 0, %4 ]
   %exitcond.not = icmp eq i64 %5, %1
-  br i1 %exitcond.not, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h126e39bd83611248E.llvm.1394800311566639068.exit, label %6
+  br i1 %exitcond.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbc8ecb96583b806aE.llvm.1394800311566639068.exit", label %6
 
 6:                                                ; preds = %.preheader
   %7 = add i64 %5, 1
@@ -414,9 +414,9 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %.fca.0.extract.val.i = load i8, ptr %8, align 1, !range !20, !noalias !56, !noundef !4
   %.fca.1.extract.val.i = load i8, ptr %9, align 1, !range !20, !noalias !56, !noundef !4
   %.not.i = icmp eq i8 %.fca.0.extract.val.i, %.fca.1.extract.val.i
-  br i1 %.not.i, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h126e39bd83611248E.llvm.1394800311566639068.exit
+  br i1 %.not.i, label %.preheader, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbc8ecb96583b806aE.llvm.1394800311566639068.exit"
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h126e39bd83611248E.llvm.1394800311566639068.exit: ; preds = %6, %.preheader, %4
+"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbc8ecb96583b806aE.llvm.1394800311566639068.exit": ; preds = %6, %.preheader, %4
   %.0 = phi i1 [ false, %4 ], [ %exitcond.not, %.preheader ], [ %exitcond.not, %6 ]
   ret i1 %.0
 }

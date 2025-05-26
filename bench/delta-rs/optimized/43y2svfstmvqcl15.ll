@@ -107801,7 +107801,7 @@ common.resume:                                    ; preds = %171, %"_ZN63_$LT$al
   invoke void %131(ptr noalias noundef nonnull sret({ i64, [12 x i64] }) align 8 captures(none) dereferenceable(104) %15, ptr noundef nonnull align 1 %113, ptr noalias noundef nonnull readonly align 8 %14, i64 noundef 1)
           to label %138 unwind label %132
 
-132:                                              ; preds = %.thread.i, %142, %141, %127
+132:                                              ; preds = %"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$datafusion_common..scalar..ScalarValue$C$datafusion_common..error..DataFusionError$GT$$GT$17he3bf45609161351aE.exit.i", %142, %141, %127
   %133 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !16386)
@@ -107841,14 +107841,14 @@ common.resume:                                    ; preds = %171, %"_ZN63_$LT$al
 .noexc92:                                         ; preds = %142
   %144 = load i64, ptr %8, align 16, !range !53, !noalias !16396, !noundef !5
   %trunc.i = trunc nuw i64 %144 to i1
-  br i1 %trunc.i, label %.thread.i, label %146
+  br i1 %trunc.i, label %"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$datafusion_common..scalar..ScalarValue$C$datafusion_common..error..DataFusionError$GT$$GT$17he3bf45609161351aE.exit.i", label %146
 
-.thread.i:                                        ; preds = %.noexc92
+"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$datafusion_common..scalar..ScalarValue$C$datafusion_common..error..DataFusionError$GT$$GT$17he3bf45609161351aE.exit.i": ; preds = %.noexc92
   %145 = getelementptr inbounds nuw i8, ptr %8, i64 8
   invoke void @"_ZN4core3ptr62drop_in_place$LT$datafusion_common..error..DataFusionError$GT$17h82b0ca50fd788739E.llvm.3020181528030467296"(ptr noalias noundef nonnull align 8 dereferenceable(104) %145)
           to label %.thread139 unwind label %132
 
-.thread139:                                       ; preds = %.thread.i
+.thread139:                                       ; preds = %"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$datafusion_common..scalar..ScalarValue$C$datafusion_common..error..DataFusionError$GT$$GT$17he3bf45609161351aE.exit.i"
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %8), !noalias !16396
   br label %.thread148
 

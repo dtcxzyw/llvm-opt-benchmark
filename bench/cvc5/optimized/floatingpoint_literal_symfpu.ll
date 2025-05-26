@@ -29696,9 +29696,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6symfpu8orderingIN4cvc58intern
 
 .thread111:                                       ; preds = %.thread119
   %56 = select i1 %53, i1 %18, i1 false
-  br i1 %56, label %.thread, label %.thread114
+  br i1 %56, label %.thread171, label %.thread114
 
-.thread:                                          ; preds = %.thread111
+.thread171:                                       ; preds = %.thread111
   %57 = trunc nuw i8 %12 to i1
   br label %..critedge_crit_edge
 
@@ -29720,7 +29720,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6symfpu8orderingIN4cvc58intern
   %or.cond138.not = select i1 %brmerge134.not, i1 true, i1 %62
   br i1 %or.cond138.not, label %..critedge_crit_edge, label %71
 
-..critedge_crit_edge:                             ; preds = %.thread, %61
+..critedge_crit_edge:                             ; preds = %.thread171, %61
   %69 = phi i1 [ %57, %.thread ], [ %64, %61 ]
   %70 = phi i1 [ true, %.thread ], [ %63, %61 ]
   %.pre170 = trunc nuw i8 %46 to i1
@@ -29734,7 +29734,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6symfpu8orderingIN4cvc58intern
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %71
-  %or.cond138.not173 = phi i1 [ true, %..critedge_crit_edge ], [ false, %71 ]
+  %or.cond138.not174 = phi i1 [ true, %..critedge_crit_edge ], [ false, %71 ]
   %76 = phi i1 [ %69, %..critedge_crit_edge ], [ false, %71 ]
   %77 = phi i1 [ %70, %..critedge_crit_edge ], [ %63, %71 ]
   %.pre-phi = phi i1 [ %.pre170, %..critedge_crit_edge ], [ %73, %71 ]
@@ -29849,7 +29849,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6symfpu8orderingIN4cvc58intern
   %.v = select i1 %3, i1 %144, i1 %145
   %.v161 = select i1 %98, i1 %.v, i1 %143
   %146 = select i1 %78, i1 %.v161, i1 %.0
-  %.v162 = select i1 %or.cond138.not173, i1 %narrow, i1 %146
+  %.v162 = select i1 %or.cond138.not174, i1 %narrow, i1 %146
   ret i1 %.v162
 }
 

@@ -3237,10 +3237,10 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlo
   %or.cond = select i1 %6, i1 %trunc, i1 false
   br i1 %or.cond, label %8, label %7
 
-7:                                                ; preds = %2, %8
+7:; preds = %2, %7
   ret i1 %6
 
-8:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call void @llvm.assume(i1 %5)
   br label %7
 }

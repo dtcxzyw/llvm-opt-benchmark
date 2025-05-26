@@ -89193,24 +89193,24 @@ define internal fastcc noundef zeroext i1 @"_ZN93_$LT$kafka_protocol..messages..
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8, !alias.scope !17572, !noalias !17569, !noundef !4
   %18 = icmp eq i64 %15, %17
-  br i1 %18, label %19, label %"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h317b8e238e49b2c9E.exit"
+  br i1 %18, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4292c23d40abfffaE.llvm.3189713146689755573.exit.i", label %"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h317b8e238e49b2c9E.exit"
 
-19:                                               ; preds = %13
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4292c23d40abfffaE.llvm.3189713146689755573.exit.i": ; preds = %13
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %3), !noalias !17574
-  call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h7042b231fe7ca138E.llvm.3189713146689755573"(ptr noalias noundef nonnull sret({ { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 }) align 8 captures(none) dereferenceable(72) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21), !noalias !17572
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h7042b231fe7ca138E.llvm.3189713146689755573"(ptr noalias noundef nonnull sret({ { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 }) align 8 captures(none) dereferenceable(72) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20), !noalias !17575
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false), !alias.scope !17578, !noalias !17582
-  %24 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7f1929195d9caf08E.llvm.3189713146689755573(ptr noalias noundef nonnull align 8 dereferenceable(168) %3)
-  %25 = xor i1 %24, true
+  call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h7042b231fe7ca138E.llvm.3189713146689755573"(ptr noalias noundef nonnull sret({ { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 }) align 8 captures(none) dereferenceable(72) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20), !noalias !17572
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h7042b231fe7ca138E.llvm.3189713146689755573"(ptr noalias noundef nonnull sret({ { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 }) align 8 captures(none) dereferenceable(72) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19), !noalias !17575
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false), !alias.scope !17578, !noalias !17582
+  %23 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7f1929195d9caf08E.llvm.3189713146689755573(ptr noalias noundef nonnull align 8 dereferenceable(168) %3)
+  %24 = xor i1 %23, true
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %3), !noalias !17574
   br label %"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h317b8e238e49b2c9E.exit"
 
-"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h317b8e238e49b2c9E.exit": ; preds = %19, %13, %2, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ %25, %19 ], [ false, %13 ]
+"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h317b8e238e49b2c9E.exit": ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4292c23d40abfffaE.llvm.3189713146689755573.exit.i", %13, %2, %7
+  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ %24, %19 ], [ false, %13 ]
   ret i1 %.0
 }
 
@@ -89678,24 +89678,24 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$kafka_protocol..messages..
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8, !alias.scope !17736, !noalias !17733, !noundef !4
   %18 = icmp eq i64 %15, %17
-  br i1 %18, label %19, label %"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h317b8e238e49b2c9E.exit"
+  br i1 %18, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4292c23d40abfffaE.llvm.3189713146689755573.exit.i", label %"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h317b8e238e49b2c9E.exit"
 
-19:                                               ; preds = %13
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4292c23d40abfffaE.llvm.3189713146689755573.exit.i": ; preds = %13
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %3), !noalias !17738
-  call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h7042b231fe7ca138E.llvm.3189713146689755573"(ptr noalias noundef nonnull sret({ { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 }) align 8 captures(none) dereferenceable(72) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21), !noalias !17736
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h7042b231fe7ca138E.llvm.3189713146689755573"(ptr noalias noundef nonnull sret({ { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 }) align 8 captures(none) dereferenceable(72) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20), !noalias !17739
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false), !alias.scope !17742, !noalias !17746
-  %24 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7f1929195d9caf08E.llvm.3189713146689755573(ptr noalias noundef nonnull align 8 dereferenceable(168) %3)
-  %25 = xor i1 %24, true
+  call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h7042b231fe7ca138E.llvm.3189713146689755573"(ptr noalias noundef nonnull sret({ { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 }) align 8 captures(none) dereferenceable(72) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20), !noalias !17736
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h7042b231fe7ca138E.llvm.3189713146689755573"(ptr noalias noundef nonnull sret({ { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 }) align 8 captures(none) dereferenceable(72) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19), !noalias !17739
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false), !alias.scope !17742, !noalias !17746
+  %23 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7f1929195d9caf08E.llvm.3189713146689755573(ptr noalias noundef nonnull align 8 dereferenceable(168) %3)
+  %24 = xor i1 %23, true
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %3), !noalias !17738
   br label %"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h317b8e238e49b2c9E.exit"
 
-"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h317b8e238e49b2c9E.exit": ; preds = %19, %13, %2, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %2 ], [ %25, %19 ], [ false, %13 ]
+"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h317b8e238e49b2c9E.exit": ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4292c23d40abfffaE.llvm.3189713146689755573.exit.i", %13, %2, %9
+  %.0 = phi i1 [ false, %9 ], [ false, %2 ], [ %24, %19 ], [ false, %13 ]
   ret i1 %.0
 }
 
@@ -89883,22 +89883,22 @@ define internal fastcc noundef zeroext i1 @"_ZN99_$LT$kafka_protocol..messages..
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i64, ptr %18, align 8, !alias.scope !17771, !noalias !17768, !noundef !4
   %20 = icmp eq i64 %17, %19
-  br i1 %20, label %21, label %"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h317b8e238e49b2c9E.exit"
+  br i1 %20, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4292c23d40abfffaE.llvm.3189713146689755573.exit.i", label %"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h317b8e238e49b2c9E.exit"
 
-21:                                               ; preds = %15
+"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4292c23d40abfffaE.llvm.3189713146689755573.exit.i": ; preds = %15
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %3), !noalias !17773
   call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h7042b231fe7ca138E.llvm.3189713146689755573"(ptr noalias noundef nonnull sret({ { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 }) align 8 captures(none) dereferenceable(72) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0), !noalias !17771
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h7042b231fe7ca138E.llvm.3189713146689755573"(ptr noalias noundef nonnull sret({ { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 }) align 8 captures(none) dereferenceable(72) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !17774
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false), !alias.scope !17777, !noalias !17781
-  %24 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7f1929195d9caf08E.llvm.3189713146689755573(ptr noalias noundef nonnull align 8 dereferenceable(168) %3)
-  %25 = xor i1 %24, true
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h7042b231fe7ca138E.llvm.3189713146689755573"(ptr noalias noundef nonnull sret({ { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 }) align 8 captures(none) dereferenceable(72) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !17774
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false), !alias.scope !17777, !noalias !17781
+  %23 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7f1929195d9caf08E.llvm.3189713146689755573(ptr noalias noundef nonnull align 8 dereferenceable(168) %3)
+  %24 = xor i1 %23, true
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %3), !noalias !17773
   br label %"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h317b8e238e49b2c9E.exit"
 
-"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h317b8e238e49b2c9E.exit": ; preds = %21, %15, %2, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %2 ], [ %25, %21 ], [ false, %15 ]
+"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h317b8e238e49b2c9E.exit": ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4292c23d40abfffaE.llvm.3189713146689755573.exit.i", %15, %2, %9
+  %.0 = phi i1 [ false, %9 ], [ false, %2 ], [ %24, %21 ], [ false, %15 ]
   ret i1 %.0
 }
 

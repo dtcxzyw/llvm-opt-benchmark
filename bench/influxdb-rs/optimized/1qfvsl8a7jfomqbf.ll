@@ -12388,22 +12388,22 @@ define internal fastcc noundef zeroext i1 @"_ZN69_$LT$arrow_schema..fields..Fiel
   %3 = icmp ne ptr %.0.val1, null
   tail call void @llvm.assume(i1 %3)
   %.not.i = icmp eq i64 %.8.val, %.8.val3
-  br i1 %.not.i, label %4, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h66e65675149b6d16E.exit"
+  br i1 %.not.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h843933bde0394dceE.llvm.15769799167173126418.exit.i", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h66e65675149b6d16E.exit"
 
-4:                                                ; preds = %0
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %6 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h843933bde0394dceE.llvm.15769799167173126418.exit.i": ; preds = %0
+  %4 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %1), !noalias !1970
-  %7 = getelementptr inbounds ptr, ptr %6, i64 %.8.val
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %.8.val
-  call void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17hd7b22899acc89544E"(ptr noalias noundef nonnull sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull readonly align 8 %6, ptr noundef nonnull readonly %7, ptr noundef nonnull readonly align 8 %5, ptr noundef nonnull readonly %8)
-  %9 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h18f66aade4fe7bc0E.llvm.15769799167173126418(ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-  %10 = xor i1 %9, true
+  %6 = getelementptr inbounds ptr, ptr %5, i64 %.8.val
+  %7 = getelementptr inbounds ptr, ptr %4, i64 %.8.val
+  call void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17hd7b22899acc89544E"(ptr noalias noundef nonnull sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull readonly align 8 %5, ptr noundef nonnull readonly %6, ptr noundef nonnull readonly align 8 %4, ptr noundef nonnull readonly %7)
+  %8 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h18f66aade4fe7bc0E.llvm.15769799167173126418(ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  %9 = xor i1 %8, true
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %1), !noalias !1970
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h66e65675149b6d16E.exit"
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h66e65675149b6d16E.exit": ; preds = %0, %4
-  %.0.i = phi i1 [ %10, %4 ], [ false, %0 ]
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h66e65675149b6d16E.exit": ; preds = %0, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h843933bde0394dceE.llvm.15769799167173126418.exit.i"
+  %.0.i = phi i1 [ %9, %4 ], [ false, %0 ]
   ret i1 %.0.i
 }
 

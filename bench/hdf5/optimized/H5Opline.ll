@@ -550,47 +550,47 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not.i.i, label %310, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %288
-  %291 = getelementptr inbounds nuw i8, ptr %27, i64 56
-  %292 = load i64, ptr %291, align 8, !tbaa !21
-  %.not34.i.i = icmp eq i64 %292, 0
-  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %293 = getelementptr inbounds nuw i8, ptr %27, i64 56
+  %294 = load i64, ptr %293, align 8, !tbaa !21
+  %.not34.i.i = icmp eq i64 %294, 0
+  br i1 %.not34.i.i, label %.loopexit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %307
-  %.033.i.i = phi i64 [ %308, %307 ], [ 0, %.preheader.i.i ]
-  %293 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %290, i64 %.033.i.i
-  %294 = getelementptr inbounds nuw i8, ptr %293, i64 24
-  %295 = load ptr, ptr %294, align 8, !tbaa !30
-  %296 = getelementptr inbounds nuw i8, ptr %293, i64 8
-  %.not31.i.i = icmp eq ptr %295, %296
-  br i1 %.not31.i.i, label %300, label %297
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %309
+  %.033.i.i = phi i64 [ %310, %307 ], [ 0, %.preheader.i.i ]
+  %295 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %290, i64 %.033.i.i
+  %296 = getelementptr inbounds nuw i8, ptr %295, i64 24
+  %297 = load ptr, ptr %296, align 8, !tbaa !30
+  %298 = getelementptr inbounds nuw i8, ptr %295, i64 8
+  %.not31.i.i = icmp eq ptr %297, %298
+  br i1 %.not31.i.i, label %302, label %299
 
-297:                                              ; preds = %.lr.ph.i.i
-  %298 = tail call ptr @H5MM_xfree(ptr noundef %295) #12
-  %299 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %290, i64 %.033.i.i, i32 3
-  store ptr %298, ptr %299, align 8, !tbaa !30
-  br label %300
+299:                                              ; preds = %.lr.ph.i.i
+  %300 = tail call ptr @H5MM_xfree(ptr noundef %297) #12
+  %301 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %290, i64 %.033.i.i, i32 3
+  store ptr %300, ptr %301, align 8, !tbaa !30
+  br label %302
 
-300:                                              ; preds = %297, %.lr.ph.i.i
-  %301 = getelementptr inbounds nuw i8, ptr %293, i64 56
-  %302 = load ptr, ptr %301, align 8, !tbaa !31
-  %303 = getelementptr inbounds nuw i8, ptr %293, i64 40
-  %.not32.i.i = icmp eq ptr %302, %303
-  br i1 %.not32.i.i, label %307, label %304
+302:                                              ; preds = %299, %.lr.ph.i.i
+  %303 = getelementptr inbounds nuw i8, ptr %295, i64 56
+  %304 = load ptr, ptr %303, align 8, !tbaa !31
+  %305 = getelementptr inbounds nuw i8, ptr %295, i64 40
+  %.not32.i.i = icmp eq ptr %304, %305
+  br i1 %.not32.i.i, label %309, label %306
 
-304:                                              ; preds = %300
-  %305 = tail call ptr @H5MM_xfree(ptr noundef %302) #12
-  %306 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %290, i64 %.033.i.i, i32 6
-  store ptr %305, ptr %306, align 8, !tbaa !31
-  br label %307
+306:                                              ; preds = %302
+  %307 = tail call ptr @H5MM_xfree(ptr noundef %304) #12
+  %308 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %290, i64 %.033.i.i, i32 6
+  store ptr %307, ptr %308, align 8, !tbaa !31
+  br label %309
 
-307:                                              ; preds = %304, %300
-  %308 = add nuw i64 %.033.i.i, 1
-  %exitcond22.not = icmp eq i64 %308, %292
-  br i1 %exitcond22.not, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !35
+309:                                              ; preds = %306, %302
+  %310 = add nuw i64 %.033.i.i, 1
+  %exitcond22.not = icmp eq i64 %310, %294
+  br i1 %exitcond22.not, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !35
 
-._crit_edge.i.i:                                  ; preds = %307, %.preheader.i.i
-  %309 = tail call ptr @H5MM_xfree(ptr noundef nonnull %290) #12
-  store ptr %309, ptr %289, align 8, !tbaa !23
+.loopexit:                                        ; preds = %309, %.preheader.i.i
+  %311 = tail call ptr @H5MM_xfree(ptr noundef nonnull %290) #12
+  store ptr %311, ptr %289, align 8, !tbaa !23
   %.pre.pre.i = load i8, ptr @H5O_init_g, align 1, !tbaa !3, !range !7
   %.pre24.pre.i = load i8, ptr @H5_libterm_g, align 1, !range !7
   %.pre32.i = trunc nuw i8 %.pre.pre.i to i1
@@ -598,7 +598,7 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   %.pre34.i = xor i1 %.pre33.i, true
   br label %310
 
-310:                                              ; preds = %._crit_edge.i.i, %288
+310: ; preds = %.loopexit, %288
   %.pre30.pre-phi.i = phi i1 [ %.pre34.i, %._crit_edge.i.i ], [ %286, %288 ]
   %.pre27.pre-phi.i = phi i1 [ %.pre32.i, %._crit_edge.i.i ], [ %283, %288 ]
   %311 = getelementptr inbounds nuw i8, ptr %27, i64 48

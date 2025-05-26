@@ -2231,11 +2231,11 @@ _ZNR5folly8OptionalImEdeEv.exit7:                 ; preds = %_ZNK5folly7TcpInfo1
 
 _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.thread: ; preds = %2, %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6
   store i8 0, ptr %0, align 8, !tbaa !13
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %23, align 8, !tbaa !60
-  br label %24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %24, align 8, !tbaa !60
+  br label %25
 
-24:                                               ; preds = %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.thread, %_ZNR5folly8OptionalImEdeEv.exit7
+25:                                               ; preds = %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.thread, %_ZNR5folly8OptionalImEdeEv.exit7
   ret void
 }
 

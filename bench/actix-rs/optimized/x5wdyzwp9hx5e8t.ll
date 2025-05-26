@@ -720,8 +720,8 @@ common.resume:                                    ; preds = %.body, %.thread, %2
   br label %30
 
 26:                                               ; preds = %16, %.noexc32
-  %.sroa.0.047 = phi i32 [ 0, %16 ], [ %27, %.noexc32 ]
-  %27 = add nuw nsw i32 %.sroa.0.047, 1
+  %.sroa.0.048 = phi i32 [ 0, %16 ], [ %27, %.noexc32 ]
+  %27 = add nuw nsw i32 %.sroa.0.048, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %28 = load i64, ptr %13, align 8, !noundef !5

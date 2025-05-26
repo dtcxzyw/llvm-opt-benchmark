@@ -150,7 +150,7 @@ define { ptr, i64 } @_ZN18ruff_python_trivia10whitespace21indentation_at_offset1
   %69 = sub nuw i64 %10, %9
   br label %.loopexit10
 
-.loopexit10:                                      ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i", %.loopexit
+73:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i", %.loopexit
   %70 = phi i64 [ %69, %.loopexit ], [ undef, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i" ]
   %71 = phi ptr [ %30, %.loopexit ], [ null, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i" ]
   %72 = insertvalue { ptr, i64 } poison, ptr %71, 0
@@ -225,7 +225,7 @@ define noundef zeroext i1 @_ZN18ruff_python_trivia10whitespace19has_leading_cont
 29:                                               ; preds = %25, %23, %14
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 %10
   %.not.i14.i = icmp samesign eq i64 %9, %10
-  br i1 %.not.i14.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0ca233388e678e4eE.exit, label %.lr.ph.i.preheader
+  br i1 %.not.i14.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h535c342ce7eda452E.exit", label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %29
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 %9
@@ -283,7 +283,7 @@ define noundef zeroext i1 @_ZN18ruff_python_trivia10whitespace19has_leading_cont
   %66 = or disjoint i32 %63, %65
   %67 = or disjoint i32 %66, %62
   %.not.not.i = icmp eq i32 %67, 1114112
-  br i1 %.not.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0ca233388e678e4eE.exit, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i"
+  br i1 %.not.not.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h535c342ce7eda452E.exit", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i.i.i", %46, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i.i"
   %68 = phi ptr [ %59, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i" ], [ %39, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i.i" ], [ %49, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i.i.i" ], [ %33, %46 ]
@@ -296,9 +296,9 @@ define noundef zeroext i1 @_ZN18ruff_python_trivia10whitespace19has_leading_cont
 
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h144e4d7d8871c55eE.exit.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i"
   %.not.i.i = icmp eq ptr %68, %30
-  br i1 %.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0ca233388e678e4eE.exit, label %.lr.ph.i
+  br i1 %.not.i.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h535c342ce7eda452E.exit", label %.lr.ph.i
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h0ca233388e678e4eE.exit: ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i", %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h144e4d7d8871c55eE.exit.i", %29
+"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h535c342ce7eda452E.exit": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i", %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h144e4d7d8871c55eE.exit.i", %29
   %.not8.i = phi i1 [ false, %29 ], [ true, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i" ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i" ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h144e4d7d8871c55eE.exit.i" ]
   ret i1 %.not8.i
 

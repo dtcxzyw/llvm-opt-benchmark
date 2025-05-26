@@ -5403,26 +5403,26 @@ _ZN4core3str7pattern13simd_contains17h36562cb1b21e7ac6E.exit: ; preds = %"_ZN4co
   %.lcssa.i = phi i1 [ %19, %.preheader.i ], [ %62, %59 ]
   %46 = add i64 %1, -33
   %47 = getelementptr inbounds i8, ptr %0, i64 %46
-  %.val3.i65.i = load <16 x i8>, ptr %47, align 1, !alias.scope !872, !noalias !886
+  %.val3.i66.i = load <16 x i8>, ptr %47, align 1, !alias.scope !872, !noalias !886
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 17
-  %.val.i66.i = load <16 x i8>, ptr %48, align 1, !alias.scope !872, !noalias !886
-  %49 = icmp eq <16 x i8> %.val3.i65.i, splat (i8 85)
-  %50 = icmp eq <16 x i8> %.val.i66.i, splat (i8 73)
-  %narrow.i67.i = select <16 x i1> %49, <16 x i1> %50, <16 x i1> zeroinitializer
-  %51 = bitcast <16 x i1> %narrow.i67.i to i16
+  %.val.i67.i = load <16 x i8>, ptr %48, align 1, !alias.scope !872, !noalias !886
+  %49 = icmp eq <16 x i8> %.val3.i66.i, splat (i8 85)
+  %50 = icmp eq <16 x i8> %.val.i67.i, splat (i8 73)
+  %narrow.i68.i = select <16 x i1> %49, <16 x i1> %50, <16 x i1> zeroinitializer
+  %51 = bitcast <16 x i1> %narrow.i68.i to i16
   %52 = icmp eq i16 %51, 0
   br i1 %52, label %66, label %68
 
 .lr.ph55.i:                                       ; preds = %.preheader.i, %59
   %.sroa.06.154.i = phi i64 [ %60, %59 ], [ %.sroa.06.0.lcssa.i, %.preheader.i ]
   %53 = getelementptr inbounds i8, ptr %0, i64 %.sroa.06.154.i
-  %.val3.i68.i = load <16 x i8>, ptr %53, align 1, !alias.scope !872, !noalias !889
+  %.val3.i69.i = load <16 x i8>, ptr %53, align 1, !alias.scope !872, !noalias !889
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 17
-  %.val.i69.i = load <16 x i8>, ptr %54, align 1, !alias.scope !872, !noalias !889
-  %55 = icmp eq <16 x i8> %.val3.i68.i, splat (i8 85)
-  %56 = icmp eq <16 x i8> %.val.i69.i, splat (i8 73)
-  %narrow.i70.i = select <16 x i1> %55, <16 x i1> %56, <16 x i1> zeroinitializer
-  %57 = bitcast <16 x i1> %narrow.i70.i to i16
+  %.val.i70.i = load <16 x i8>, ptr %54, align 1, !alias.scope !872, !noalias !889
+  %55 = icmp eq <16 x i8> %.val3.i69.i, splat (i8 85)
+  %56 = icmp eq <16 x i8> %.val.i70.i, splat (i8 73)
+  %narrow.i71.i = select <16 x i1> %55, <16 x i1> %56, <16 x i1> zeroinitializer
+  %57 = bitcast <16 x i1> %narrow.i71.i to i16
   %58 = icmp eq i16 %57, 0
   br i1 %58, label %59, label %63
 
