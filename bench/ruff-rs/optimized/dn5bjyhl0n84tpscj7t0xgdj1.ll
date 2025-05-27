@@ -3637,7 +3637,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 28:                                               ; preds = %._crit_edge.i
-  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #23
+  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #23, !noalias !686
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h92a1f620363ce6a6E.exit: ; preds = %._crit_edge.i
@@ -3801,7 +3801,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 98:                                               ; preds = %._crit_edge.i
-  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #23
+  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #23, !noalias !700
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hcbccb7b99f2c2086E.exit: ; preds = %._crit_edge.i
@@ -31096,7 +31096,7 @@ define hidden void @_ZN9itertools9Itertools4join17h719bc4dbe575e29dE(ptr dead_on
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bb769d752acea27E.exit.i": ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %33 = tail call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82af495881fb3be9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32), !noalias !2809
+  %33 = tail call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82af495881fb3be9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32), !noalias !2821
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8822d52f593bb378E.exit.thread", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8822d52f593bb378E.exit"
 
@@ -31354,7 +31354,7 @@ define hidden void @_ZN9itertools9Itertools4join17hb700b02c4546af0bE(ptr dead_on
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bb769d752acea27E.exit.i": ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %33 = tail call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82af495881fb3be9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32), !noalias !2870
+  %33 = tail call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82af495881fb3be9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32), !noalias !2882
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he059e294f2703497E.exit.thread", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he059e294f2703497E.exit"
 

@@ -4145,7 +4145,7 @@ define noundef i64 @_ZN4rope4Rope15point_to_offset17hdbb3044344a3fa12E(ptr noali
   %157 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$std..backtrace..Backtrace$GT$17h342b1db4b228a55cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %14) #26
-          to label %.body unwind label %181
+          to label %.body unwind label %181, !noalias !938
 
 .noexc14:                                         ; preds = %155
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14), !noalias !938
@@ -4181,7 +4181,7 @@ define noundef i64 @_ZN4rope4Rope15point_to_offset17hdbb3044344a3fa12E(ptr noali
   store i64 3, ptr %166, align 8, !noalias !938
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11), !noalias !938
   %167 = invoke noundef align 8 dereferenceable(24) ptr @_ZN3log13__private_api3loc17h3fa24c121663d21fE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5150c66fcde2fb7b571b90378eb2eb01.169)
-          to label %168 unwind label %156
+          to label %168 unwind label %156, !noalias !938
 
 168:                                              ; preds = %160
   store ptr @anon.5150c66fcde2fb7b571b90378eb2eb01.170, ptr %11, align 8, !noalias !938
@@ -4194,7 +4194,7 @@ define noundef i64 @_ZN4rope4Rope15point_to_offset17hdbb3044344a3fa12E(ptr noali
   %172 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %167, ptr %172, align 8, !noalias !938
   invoke void @_ZN3log13__private_api8log_impl17hdf09b6c8ef83a2f8E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %11, ptr noalias noundef readonly align 16 null, i64 undef)
-          to label %173 unwind label %156
+          to label %173 unwind label %156, !noalias !938
 
 173:                                              ; preds = %168
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13), !noalias !938
@@ -4241,7 +4241,7 @@ define noundef i64 @_ZN4rope4Rope15point_to_offset17hdbb3044344a3fa12E(ptr noali
 181:                                              ; preds = %190, %156
   %182 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #24
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #24, !noalias !938
   unreachable
 
 183:                                              ; preds = %153
@@ -4261,7 +4261,7 @@ define noundef i64 @_ZN4rope4Rope15point_to_offset17hdbb3044344a3fa12E(ptr noali
   %191 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$std..backtrace..Backtrace$GT$17h342b1db4b228a55cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %10) #26
-          to label %.body unwind label %181
+          to label %.body unwind label %181, !noalias !938
 
 .noexc17:                                         ; preds = %183
   store i32 0, ptr %99, align 4, !noalias !937
@@ -4299,7 +4299,7 @@ define noundef i64 @_ZN4rope4Rope15point_to_offset17hdbb3044344a3fa12E(ptr noali
   store i64 3, ptr %200, align 8, !noalias !938
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7), !noalias !938
   %201 = invoke noundef align 8 dereferenceable(24) ptr @_ZN3log13__private_api3loc17h3fa24c121663d21fE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5150c66fcde2fb7b571b90378eb2eb01.173)
-          to label %202 unwind label %190
+          to label %202 unwind label %190, !noalias !938
 
 202:                                              ; preds = %194
   store ptr @anon.5150c66fcde2fb7b571b90378eb2eb01.170, ptr %7, align 8, !noalias !938
@@ -4312,7 +4312,7 @@ define noundef i64 @_ZN4rope4Rope15point_to_offset17hdbb3044344a3fa12E(ptr noali
   %206 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %201, ptr %206, align 8, !noalias !938
   invoke void @_ZN3log13__private_api8log_impl17hdf09b6c8ef83a2f8E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %7, ptr noalias noundef readonly align 16 null, i64 undef)
-          to label %207 unwind label %190
+          to label %207 unwind label %190, !noalias !938
 
 207:                                              ; preds = %202
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !938
@@ -4725,7 +4725,7 @@ define internal fastcc noundef i64 @_ZN4rope4Rope26point_utf16_to_offset_impl17h
   %166 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$std..backtrace..Backtrace$GT$17h342b1db4b228a55cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %15) #26
-          to label %.body unwind label %190
+          to label %.body unwind label %190, !noalias !1022
 
 .noexc15:                                         ; preds = %157
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15), !noalias !1022
@@ -4761,7 +4761,7 @@ define internal fastcc noundef i64 @_ZN4rope4Rope26point_utf16_to_offset_impl17h
   store i64 3, ptr %175, align 8, !noalias !1022
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12), !noalias !1022
   %176 = invoke noundef align 8 dereferenceable(24) ptr @_ZN3log13__private_api3loc17h3fa24c121663d21fE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5150c66fcde2fb7b571b90378eb2eb01.174)
-          to label %177 unwind label %165
+          to label %177 unwind label %165, !noalias !1022
 
 177:                                              ; preds = %169
   store ptr @anon.5150c66fcde2fb7b571b90378eb2eb01.170, ptr %12, align 8, !noalias !1022
@@ -4774,7 +4774,7 @@ define internal fastcc noundef i64 @_ZN4rope4Rope26point_utf16_to_offset_impl17h
   %181 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %176, ptr %181, align 8, !noalias !1022
   invoke void @_ZN3log13__private_api8log_impl17hdf09b6c8ef83a2f8E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %12, ptr noalias noundef readonly align 16 null, i64 undef)
-          to label %182 unwind label %165
+          to label %182 unwind label %165, !noalias !1022
 
 182:                                              ; preds = %177
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14), !noalias !1022
@@ -4821,7 +4821,7 @@ define internal fastcc noundef i64 @_ZN4rope4Rope26point_utf16_to_offset_impl17h
 190:                                              ; preds = %195, %165
   %191 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #24
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #24, !noalias !1022
   unreachable
 
 192:                                              ; preds = %158
@@ -4837,7 +4837,7 @@ define internal fastcc noundef i64 @_ZN4rope4Rope26point_utf16_to_offset_impl17h
   %196 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$std..backtrace..Backtrace$GT$17h342b1db4b228a55cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11) #26
-          to label %.body unwind label %190
+          to label %.body unwind label %190, !noalias !1022
 
 .noexc18:                                         ; preds = %194
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !1022
@@ -4873,7 +4873,7 @@ define internal fastcc noundef i64 @_ZN4rope4Rope26point_utf16_to_offset_impl17h
   store i64 3, ptr %205, align 8, !noalias !1022
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8), !noalias !1022
   %206 = invoke noundef align 8 dereferenceable(24) ptr @_ZN3log13__private_api3loc17h3fa24c121663d21fE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5150c66fcde2fb7b571b90378eb2eb01.177)
-          to label %207 unwind label %195
+          to label %207 unwind label %195, !noalias !1022
 
 207:                                              ; preds = %199
   store ptr @anon.5150c66fcde2fb7b571b90378eb2eb01.170, ptr %8, align 8, !noalias !1022
@@ -4886,7 +4886,7 @@ define internal fastcc noundef i64 @_ZN4rope4Rope26point_utf16_to_offset_impl17h
   %211 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %206, ptr %211, align 8, !noalias !1022
   invoke void @_ZN3log13__private_api8log_impl17hdf09b6c8ef83a2f8E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %8, ptr noalias noundef readonly align 16 null, i64 undef)
-          to label %212 unwind label %195
+          to label %212 unwind label %195, !noalias !1022
 
 212:                                              ; preds = %207
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !1022

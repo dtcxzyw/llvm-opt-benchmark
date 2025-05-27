@@ -6845,7 +6845,7 @@ define noundef zeroext i1 @"_ZN106_$LT$rustls..crypto..aws_lc_rs..tls13..RingHkd
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2edd3c200d728c6aE.exit.i": ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 %.020.i
   %26 = load ptr, ptr %.sroa.0.019.i, align 8, !alias.scope !1406, !noalias !1411, !nonnull !4, !align !5, !noundef !4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull readonly align 1 %26, i64 %19, i1 false), !noalias !1411
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull readonly align 1 %26, i64 %19, i1 false), !noalias !1410
   %27 = icmp eq ptr %17, %15
   br i1 %27, label %.loopexit, label %.lr.ph.i
 
@@ -6930,7 +6930,7 @@ define void @"_ZN106_$LT$rustls..crypto..aws_lc_rs..tls13..RingHkdfExpander$u20$
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2edd3c200d728c6aE.exit.i": ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 %.020.i
   %33 = load ptr, ptr %.sroa.0.019.i, align 8, !alias.scope !1424, !noalias !1429, !nonnull !4, !align !5, !noundef !4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull readonly align 1 %33, i64 %26, i1 false), !noalias !1429
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull readonly align 1 %33, i64 %26, i1 false), !noalias !1428
   %34 = icmp eq ptr %24, %22
   br i1 %34, label %.loopexit, label %.lr.ph.i
 
@@ -17049,7 +17049,7 @@ attributes #40 = { cold noreturn nounwind }
 !1409 = distinct !{!1409, !1405, !"_ZN9aws_lc_rs4hkdf3Prk6expand17h48d284350c348f7bE: argument 0"}
 !1410 = !{!1409, !1404, !1407}
 !1411 = !{!1409, !1404}
-!1412 = !{!1413, !1409, !1404}
+!1412 = !{!1413, !1409, !1404, !1407}
 !1413 = distinct !{!1413, !1414, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he196bf46852923c1E.llvm.12014582817787848890: argument 0"}
 !1414 = distinct !{!1414, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he196bf46852923c1E.llvm.12014582817787848890"}
 !1415 = !{!1416}
@@ -17067,7 +17067,7 @@ attributes #40 = { cold noreturn nounwind }
 !1427 = distinct !{!1427, !1423, !"_ZN9aws_lc_rs4hkdf3Prk6expand17h48d284350c348f7bE: argument 0"}
 !1428 = !{!1427, !1422, !1425}
 !1429 = !{!1427, !1422}
-!1430 = !{!1431, !1427, !1422}
+!1430 = !{!1431, !1427, !1422, !1425}
 !1431 = distinct !{!1431, !1432, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he196bf46852923c1E.llvm.12014582817787848890: argument 0"}
 !1432 = distinct !{!1432, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he196bf46852923c1E.llvm.12014582817787848890"}
 !1433 = !{!1434, !1436}

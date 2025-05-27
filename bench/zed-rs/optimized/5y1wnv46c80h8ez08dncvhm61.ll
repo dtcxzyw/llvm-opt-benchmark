@@ -2615,7 +2615,7 @@ default.unreachable:                              ; preds = %835
   %894 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %895 = load i32, ptr %894, align 4, !alias.scope !321, !noundef !4
   %896 = getelementptr inbounds nuw i8, ptr %893, i64 8
-  store i32 %895, ptr %896, align 8, !noalias !318
+  store i32 %895, ptr %896, align 8, !noalias !321
   %897 = or disjoint i64 %.pr.pre, 1
   store i64 %897, ptr %39, align 8, !alias.scope !321
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17h426eaf36e7b38a2dE.exit.i.i"
@@ -23549,12 +23549,12 @@ attributes #18 = { noreturn }
 !324 = distinct !{!324, !"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$6inline17hf4e005a4cdf77072E"}
 !325 = distinct !{!325, !324, !"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$6inline17hf4e005a4cdf77072E: argument 1"}
 !326 = !{!323}
-!327 = !{!328, !330, !319}
+!327 = !{!328, !330, !319, !301}
 !328 = distinct !{!328, !329, !"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h6fced12bcf0adea5E: argument 0"}
 !329 = distinct !{!329, !"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h6fced12bcf0adea5E"}
 !330 = distinct !{!330, !331, !"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he5ba02c931f68595E: argument 0"}
 !331 = distinct !{!331, !"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he5ba02c931f68595E"}
-!332 = !{!330, !319}
+!332 = !{!330, !319, !301}
 !333 = !{!334, !336}
 !334 = distinct !{!334, !335, !"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h6fced12bcf0adea5E: argument 0"}
 !335 = distinct !{!335, !"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h6fced12bcf0adea5E"}

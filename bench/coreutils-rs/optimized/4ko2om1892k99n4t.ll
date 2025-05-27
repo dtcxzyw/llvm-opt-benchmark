@@ -1989,7 +1989,7 @@ _ZN6uucore4mods5error12USimpleError3new17h6381c26e7ac7b7dbE.exit.i: ; preds = %.
 .body.i:                                          ; preds = %138, %128
   %eh.lpad-body.i = phi { ptr, i32 } [ %129, %128 ], [ %139, %138 ]
   invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h61542d98d9f42d0eE"(i64 %122, ptr %124) #13
-          to label %.body unwind label %142
+          to label %.body unwind label %142, !noalias !476
 
 130:                                              ; preds = %125
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48), !noalias !479
@@ -2015,7 +2015,7 @@ _ZN6uucore4mods5error12USimpleError3new17h6381c26e7ac7b7dbE.exit.i: ; preds = %.
   %.sroa.1067.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr null, ptr %.sroa.1067.0..sroa_idx.i, align 8, !noalias !549
   invoke void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %39)
-          to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i unwind label %128
+          to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i unwind label %128, !noalias !476
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %130
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %39), !noalias !538
@@ -2060,7 +2060,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %130
 142:                                              ; preds = %.body.i
   %143 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #14, !noalias !476
   unreachable
 
 144:                                              ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h61542d98d9f42d0eE.exit57.i", %125
@@ -3916,21 +3916,21 @@ attributes #15 = { noreturn }
 !500 = distinct !{!500, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E"}
 !501 = distinct !{!501, !500, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E: argument 1"}
 !502 = !{!492, !495, !497, !499, !489, !486, !482, !480, !477}
-!503 = !{!486, !482}
+!503 = !{!486, !482, !477}
 !504 = !{!505, !489, !486, !482, !480, !477}
 !505 = distinct !{!505, !506, !"_ZN6uucore4mods5error12USimpleError3new17h88e81b46d516329fE: argument 0"}
 !506 = distinct !{!506, !"_ZN6uucore4mods5error12USimpleError3new17h88e81b46d516329fE"}
-!507 = !{!505, !486, !482}
+!507 = !{!505, !486, !482, !477}
 !508 = !{i64 0, i64 7}
 !509 = !{!510, !480, !477}
 !510 = distinct !{!510, !511, !"_ZN6uucore4mods5error12USimpleError3new17h6381c26e7ac7b7dbE: argument 0"}
 !511 = distinct !{!511, !"_ZN6uucore4mods5error12USimpleError3new17h6381c26e7ac7b7dbE"}
-!512 = !{!513, !515}
+!512 = !{!513, !515, !477}
 !513 = distinct !{!513, !514, !"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h2819a56d10705f4fE.llvm.5463894714257817395: argument 0"}
 !514 = distinct !{!514, !"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h2819a56d10705f4fE.llvm.5463894714257817395"}
 !515 = distinct !{!515, !516, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h7e7e1cfb3c5eaab6E.llvm.5463894714257817395: argument 0"}
 !516 = distinct !{!516, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h7e7e1cfb3c5eaab6E.llvm.5463894714257817395"}
-!517 = !{!510}
+!517 = !{!510, !477}
 !518 = !{!519}
 !519 = distinct !{!519, !520, !"_ZN3std2fs8metadata17hdb75cdb71aca7c76E: argument 1"}
 !520 = distinct !{!520, !"_ZN3std2fs8metadata17hdb75cdb71aca7c76E"}
@@ -3966,7 +3966,7 @@ attributes #15 = { noreturn }
 !550 = !{!551, !480, !477}
 !551 = distinct !{!551, !552, !"_ZN6uucore4mods5error12USimpleError3new17h88e81b46d516329fE: argument 0"}
 !552 = distinct !{!552, !"_ZN6uucore4mods5error12USimpleError3new17h88e81b46d516329fE"}
-!553 = !{!551}
+!553 = !{!551, !477}
 !554 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !555 = !{!556, !558, !560, !480, !477}
 !556 = distinct !{!556, !557, !"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72b7b095fa452c7bE.llvm.5120585184532578389: argument 0"}

@@ -4484,7 +4484,7 @@ define hidden void @_ZN11polars_pipe8pipeline7convert15create_pipeline17hc6a5819
 119:                                              ; preds = %117
   %120 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #25
+  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #25, !noalias !641
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1fa0a5072d623b6bE.exit": ; preds = %112, %116

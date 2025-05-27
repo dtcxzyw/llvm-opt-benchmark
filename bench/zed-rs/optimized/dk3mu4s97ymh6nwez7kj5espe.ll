@@ -25845,7 +25845,7 @@ common.resume:                                    ; preds = %22, %8, %12, %16
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51, !noalias !7126
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb42190891dcae818E.llvm.15892403711533435760.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he5dc24d5b3919a8cE.llvm.15892403711533435760.exit", %21
@@ -25916,7 +25916,7 @@ common.resume:                                    ; preds = %18, %9
 20:                                               ; preds = %18
   %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51, !noalias !7134
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb42190891dcae818E.llvm.15892403711533435760.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbe5ae6a7a3f250a4E.llvm.15892403711533435760.exit", %17
@@ -25998,7 +25998,7 @@ common.resume:                                    ; preds = %22, %8, %12, %16
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51, !noalias !7157
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb42190891dcae818E.llvm.15892403711533435760.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h93a51b780835adcaE.llvm.15892403711533435760.exit", %21
@@ -26080,7 +26080,7 @@ common.resume:                                    ; preds = %22, %8, %12, %16
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51, !noalias !7180
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb42190891dcae818E.llvm.15892403711533435760.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf283b03374f442f7E.llvm.15892403711533435760.exit", %21
@@ -26162,7 +26162,7 @@ common.resume:                                    ; preds = %22, %8, %12, %16
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51, !noalias !7203
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb42190891dcae818E.llvm.15892403711533435760.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h50eb2b8cc49f4010E.llvm.15892403711533435760.exit", %21
@@ -26244,7 +26244,7 @@ common.resume:                                    ; preds = %22, %8, %12, %16
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51, !noalias !7226
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb42190891dcae818E.llvm.15892403711533435760.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd9349f1a323e4ebaE.llvm.15892403711533435760.exit", %21
@@ -45511,7 +45511,7 @@ _ZN4gpui6styled6Styled14cursor_pointer17hded59456558d1bf1E.exit: ; preds = %4
 48:                                               ; preds = %46
   %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51, !noalias !10830
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51, !noalias !10828
   unreachable
 
 .body.sink.split.i:                               ; preds = %54, %37
@@ -45631,7 +45631,7 @@ _ZN4gpui6styled6Styled14cursor_pointer17hded59456558d1bf1E.exit: ; preds = %4
 89:                                               ; preds = %87
   %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51, !noalias !10894
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51, !noalias !10892
   unreachable
 
 .body.sink.split.i9:                              ; preds = %95, %78
@@ -45864,7 +45864,7 @@ _ZN4gpui6styled6Styled14cursor_pointer17hded59456558d1bf1E.exit: ; preds = %4
 48:                                               ; preds = %46
   %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51, !noalias !10977
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51, !noalias !10975
   unreachable
 
 .body.sink.split.i:                               ; preds = %54, %37
@@ -45984,7 +45984,7 @@ _ZN4gpui6styled6Styled14cursor_pointer17hded59456558d1bf1E.exit: ; preds = %4
 89:                                               ; preds = %87
   %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51, !noalias !11041
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51, !noalias !11039
   unreachable
 
 .body.sink.split.i9:                              ; preds = %95, %78

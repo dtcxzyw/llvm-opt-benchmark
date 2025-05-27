@@ -1501,6 +1501,7 @@ define internal fastcc noundef ptr @"_ZN3std2io5impls58_$LT$impl$u20$std..io..Wr
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3feef1c61f98c017E"(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) initializes((0, 24)) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !223)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %5, label %3
 
@@ -1515,7 +1516,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4laz
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3, %2
-  %6 = tail call { i64, i64 } @_ZN3std3sys4unix4rand19hashmap_random_keys17ha2ae1622ab906f3fE()
+  %6 = tail call { i64, i64 } @_ZN3std3sys4unix4rand19hashmap_random_keys17ha2ae1622ab906f3fE(), !noalias !223
   br label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h0b5d3dee7dde3dbaE.llvm.3890463254259644073.exit"
 
 7:                                                ; preds = %3
@@ -35024,14 +35025,14 @@ attributes #35 = { cold noreturn nounwind }
 !413 = distinct !{!413, !408, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc764942466a53463E: argument 1"}
 !414 = distinct !{!414, !408, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc764942466a53463E: argument 2"}
 !415 = !{!410, !407, !413}
-!416 = !{!412, !414}
+!416 = !{!412, !413, !414}
 !417 = !{!418}
 !418 = distinct !{!418, !419, !"_ZN4core3ops8function6FnOnce9call_once17h0acd322693c7da17E: argument 0"}
 !419 = distinct !{!419, !"_ZN4core3ops8function6FnOnce9call_once17h0acd322693c7da17E"}
 !420 = !{!421}
 !421 = distinct !{!421, !422, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h1b95a6c40bb9f30dE: argument 0"}
 !422 = distinct !{!422, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h1b95a6c40bb9f30dE"}
-!423 = !{!424, !426, !421, !427, !418, !428, !407, !414}
+!423 = !{!424, !426, !421, !427, !418, !428, !407, !413, !414}
 !424 = distinct !{!424, !425, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9c838cc96b95a841E: argument 0"}
 !425 = distinct !{!425, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9c838cc96b95a841E"}
 !426 = distinct !{!426, !425, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9c838cc96b95a841E: argument 1"}
@@ -37106,7 +37107,7 @@ attributes #35 = { cold noreturn nounwind }
 !2495 = distinct !{!2495, !"_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.llvm.3890463254259644073"}
 !2496 = distinct !{!2496, !2495, !"_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.llvm.3890463254259644073: argument 1"}
 !2497 = !{!2487, !2490, !2492, !2494}
-!2498 = !{!2489, !2493, !2496}
+!2498 = !{!2489, !2492, !2493, !2496}
 !2499 = !{!2500, !2502, !2503}
 !2500 = distinct !{!2500, !2501, !"_ZN5image5error13EncodingError3new17h3bd8d82b52cc5fa8E: argument 0"}
 !2501 = distinct !{!2501, !"_ZN5image5error13EncodingError3new17h3bd8d82b52cc5fa8E"}
@@ -37700,8 +37701,8 @@ attributes #35 = { cold noreturn nounwind }
 !3089 = distinct !{!3089, !"_ZN5image6codecs3hdr7decoder123_$LT$impl$u20$core..convert..From$LT$image..codecs..hdr..decoder..DecoderError$GT$$u20$for$u20$image..error..ImageError$GT$4from17h2e8f0a275ea7c4d1E"}
 !3090 = distinct !{!3090, !3089, !"_ZN5image6codecs3hdr7decoder123_$LT$impl$u20$core..convert..From$LT$image..codecs..hdr..decoder..DecoderError$GT$$u20$for$u20$image..error..ImageError$GT$4from17h2e8f0a275ea7c4d1E: argument 1"}
 !3091 = !{!3084, !3087, !3088, !3090, !3072, !3073, !3062, !3010, !3011, !2997, !2983, !2978, !2981, !2972, !2969}
-!3092 = !{!3084, !3086, !3087, !3088, !3090, !3072, !3010, !2983, !2981, !2972, !2969}
-!3093 = !{!3084, !3086, !3088, !3072, !3010, !2983, !2981, !2972, !2969}
+!3092 = !{!3084, !3086, !3087, !3088, !3090, !3072, !3062, !3010, !2997, !2983, !2981, !2972, !2969}
+!3093 = !{!3084, !3086, !3088, !3072, !3062, !3010, !2997, !2983, !2981, !2972, !2969}
 !3094 = !{!3095, !3097, !3098, !3099, !3101, !3072, !3073, !3062, !3010, !3011, !2997, !2983, !2978, !2981, !2972, !2969}
 !3095 = distinct !{!3095, !3096, !"_ZN5image5error13DecodingError3new17hfc97114ea53ab9c1E: argument 0"}
 !3096 = distinct !{!3096, !"_ZN5image5error13DecodingError3new17hfc97114ea53ab9c1E"}
@@ -37711,8 +37712,8 @@ attributes #35 = { cold noreturn nounwind }
 !3100 = distinct !{!3100, !"_ZN5image6codecs3hdr7decoder123_$LT$impl$u20$core..convert..From$LT$image..codecs..hdr..decoder..DecoderError$GT$$u20$for$u20$image..error..ImageError$GT$4from17h2e8f0a275ea7c4d1E"}
 !3101 = distinct !{!3101, !3100, !"_ZN5image6codecs3hdr7decoder123_$LT$impl$u20$core..convert..From$LT$image..codecs..hdr..decoder..DecoderError$GT$$u20$for$u20$image..error..ImageError$GT$4from17h2e8f0a275ea7c4d1E: argument 1"}
 !3102 = !{!3095, !3098, !3099, !3101, !3072, !3073, !3062, !3010, !3011, !2997, !2983, !2978, !2981, !2972, !2969}
-!3103 = !{!3095, !3097, !3098, !3099, !3101, !3072, !3010, !2983, !2981, !2972, !2969}
-!3104 = !{!3095, !3097, !3099, !3072, !3010, !2983, !2981, !2972, !2969}
+!3103 = !{!3095, !3097, !3098, !3099, !3101, !3072, !3062, !3010, !2997, !2983, !2981, !2972, !2969}
+!3104 = !{!3095, !3097, !3099, !3072, !3062, !3010, !2997, !2983, !2981, !2972, !2969}
 !3105 = !{!3106}
 !3106 = distinct !{!3106, !3107, !"_ZN5image6codecs3hdr7decoder16decode_component17h0dd685e6145b09d8E: argument 2"}
 !3107 = distinct !{!3107, !"_ZN5image6codecs3hdr7decoder16decode_component17h0dd685e6145b09d8E"}
@@ -38023,8 +38024,8 @@ attributes #35 = { cold noreturn nounwind }
 !3412 = distinct !{!3412, !"_ZN5image6codecs3hdr7decoder123_$LT$impl$u20$core..convert..From$LT$image..codecs..hdr..decoder..DecoderError$GT$$u20$for$u20$image..error..ImageError$GT$4from17h2e8f0a275ea7c4d1E"}
 !3413 = distinct !{!3413, !3412, !"_ZN5image6codecs3hdr7decoder123_$LT$impl$u20$core..convert..From$LT$image..codecs..hdr..decoder..DecoderError$GT$$u20$for$u20$image..error..ImageError$GT$4from17h2e8f0a275ea7c4d1E: argument 1"}
 !3414 = !{!3407, !3410, !3411, !3413, !3395, !3396, !3385, !3333, !3334, !3320, !3306, !3301, !3304, !3295, !3292}
-!3415 = !{!3407, !3409, !3410, !3411, !3413, !3395, !3333, !3306, !3304, !3295, !3292}
-!3416 = !{!3407, !3409, !3411, !3395, !3333, !3306, !3304, !3295, !3292}
+!3415 = !{!3407, !3409, !3410, !3411, !3413, !3395, !3385, !3333, !3320, !3306, !3304, !3295, !3292}
+!3416 = !{!3407, !3409, !3411, !3395, !3385, !3333, !3320, !3306, !3304, !3295, !3292}
 !3417 = !{!3418, !3420, !3421, !3422, !3424, !3395, !3396, !3385, !3333, !3334, !3320, !3306, !3301, !3304, !3295, !3292}
 !3418 = distinct !{!3418, !3419, !"_ZN5image5error13DecodingError3new17hfc97114ea53ab9c1E: argument 0"}
 !3419 = distinct !{!3419, !"_ZN5image5error13DecodingError3new17hfc97114ea53ab9c1E"}
@@ -38034,8 +38035,8 @@ attributes #35 = { cold noreturn nounwind }
 !3423 = distinct !{!3423, !"_ZN5image6codecs3hdr7decoder123_$LT$impl$u20$core..convert..From$LT$image..codecs..hdr..decoder..DecoderError$GT$$u20$for$u20$image..error..ImageError$GT$4from17h2e8f0a275ea7c4d1E"}
 !3424 = distinct !{!3424, !3423, !"_ZN5image6codecs3hdr7decoder123_$LT$impl$u20$core..convert..From$LT$image..codecs..hdr..decoder..DecoderError$GT$$u20$for$u20$image..error..ImageError$GT$4from17h2e8f0a275ea7c4d1E: argument 1"}
 !3425 = !{!3418, !3421, !3422, !3424, !3395, !3396, !3385, !3333, !3334, !3320, !3306, !3301, !3304, !3295, !3292}
-!3426 = !{!3418, !3420, !3421, !3422, !3424, !3395, !3333, !3306, !3304, !3295, !3292}
-!3427 = !{!3418, !3420, !3422, !3395, !3333, !3306, !3304, !3295, !3292}
+!3426 = !{!3418, !3420, !3421, !3422, !3424, !3395, !3385, !3333, !3320, !3306, !3304, !3295, !3292}
+!3427 = !{!3418, !3420, !3422, !3395, !3385, !3333, !3320, !3306, !3304, !3295, !3292}
 !3428 = !{!3429}
 !3429 = distinct !{!3429, !3430, !"_ZN5image6codecs3hdr7decoder16decode_component17h93304f006d53ca21E: argument 2"}
 !3430 = distinct !{!3430, !"_ZN5image6codecs3hdr7decoder16decode_component17h93304f006d53ca21E"}

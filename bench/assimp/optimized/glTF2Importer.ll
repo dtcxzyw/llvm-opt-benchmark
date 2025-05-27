@@ -75271,16 +75271,16 @@ _ZN9rapidjson7ReallocINS_13GenericMemberINS_4UTF8IcEENS_12CrtAllocatorEEES4_EEPT
   %142 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %143 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %144 = getelementptr inbounds nuw i8, ptr %136, i64 136
-  %145 = load i64, ptr %144, align 8
+  %145 = load i64, ptr %144, align 8, !noalias !753
   store i64 %145, ptr %143, align 8, !alias.scope !753
   %146 = getelementptr inbounds nuw i8, ptr %136, i64 144
-  %147 = load i64, ptr %146, align 8
+  %147 = load i64, ptr %146, align 8, !noalias !753
   store i64 %147, ptr %142, align 8, !alias.scope !753
   %148 = getelementptr inbounds nuw i8, ptr %136, i64 152
-  %149 = load i32, ptr %148, align 8
+  %149 = load i32, ptr %148, align 8, !noalias !753
   store i32 %149, ptr %141, align 8, !alias.scope !753
   %150 = getelementptr inbounds nuw i8, ptr %136, i64 120
-  %151 = load ptr, ptr %150, align 8
+  %151 = load ptr, ptr %150, align 8, !noalias !753
   %.not10.i.i.i = icmp eq ptr %151, null
   br i1 %.not10.i.i.i, label %188, label %152
 
@@ -75365,7 +75365,7 @@ _ZN9rapidjson12CrtAllocator6MallocEm.exit.i:      ; preds = %161, %._crit_edge.i
 
 188:                                              ; preds = %140
   %189 = getelementptr inbounds nuw i8, ptr %136, i64 128
-  %190 = load ptr, ptr %189, align 8
+  %190 = load ptr, ptr %189, align 8, !noalias !753
   store ptr %190, ptr %139, align 8, !alias.scope !753
   br label %_ZNK9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E23GetInvalidSchemaPointerEv.exit
 
@@ -75411,16 +75411,16 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
   %210 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %211 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %212 = getelementptr inbounds nuw i8, ptr %205, i64 136
-  %213 = load i64, ptr %212, align 8
+  %213 = load i64, ptr %212, align 8, !noalias !758
   store i64 %213, ptr %211, align 8, !alias.scope !758
   %214 = getelementptr inbounds nuw i8, ptr %205, i64 144
-  %215 = load i64, ptr %214, align 8
+  %215 = load i64, ptr %214, align 8, !noalias !758
   store i64 %215, ptr %210, align 8, !alias.scope !758
   %216 = getelementptr inbounds nuw i8, ptr %205, i64 152
-  %217 = load i32, ptr %216, align 8
+  %217 = load i32, ptr %216, align 8, !noalias !758
   store i32 %217, ptr %209, align 8, !alias.scope !758
   %218 = getelementptr inbounds nuw i8, ptr %205, i64 120
-  %219 = load ptr, ptr %218, align 8
+  %219 = load ptr, ptr %218, align 8, !noalias !758
   %.not10.i.i.i38 = icmp ne ptr %219, null
   call void @llvm.assume(i1 %.not10.i.i.i38)
   %220 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #40
@@ -75592,16 +75592,16 @@ _ZN9rapidjson14GenericPointerINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAlloc
   %301 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %302 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %303 = getelementptr inbounds nuw i8, ptr %295, i64 136
-  %304 = load i64, ptr %303, align 8
+  %304 = load i64, ptr %303, align 8, !noalias !761
   store i64 %304, ptr %302, align 8, !alias.scope !761
   %305 = getelementptr inbounds nuw i8, ptr %295, i64 144
-  %306 = load i64, ptr %305, align 8
+  %306 = load i64, ptr %305, align 8, !noalias !761
   store i64 %306, ptr %301, align 8, !alias.scope !761
   %307 = getelementptr inbounds nuw i8, ptr %295, i64 152
-  %308 = load i32, ptr %307, align 8
+  %308 = load i32, ptr %307, align 8, !noalias !761
   store i32 %308, ptr %300, align 8, !alias.scope !761
   %309 = getelementptr inbounds nuw i8, ptr %295, i64 120
-  %310 = load ptr, ptr %309, align 8
+  %310 = load ptr, ptr %309, align 8, !noalias !761
   %.not10.i.i.i47 = icmp eq ptr %310, null
   br i1 %.not10.i.i.i47, label %346, label %311
 
@@ -75684,7 +75684,7 @@ _ZN9rapidjson12CrtAllocator6MallocEm.exit.i106:   ; preds = %320, %._crit_edge.i
 
 346:                                              ; preds = %299
   %347 = getelementptr inbounds nuw i8, ptr %295, i64 128
-  %348 = load ptr, ptr %347, align 8
+  %348 = load ptr, ptr %347, align 8, !noalias !761
   store ptr %348, ptr %298, align 8, !alias.scope !761
   br label %350
 
@@ -79630,16 +79630,16 @@ define linkonce_odr hidden void @_ZN9rapidjson22GenericSchemaValidatorINS_21Gene
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %63 = getelementptr inbounds nuw i8, ptr %55, i64 136
-  %64 = load i64, ptr %63, align 8
+  %64 = load i64, ptr %63, align 8, !noalias !780
   store i64 %64, ptr %62, align 8, !alias.scope !780
   %65 = getelementptr inbounds nuw i8, ptr %55, i64 144
-  %66 = load i64, ptr %65, align 8
+  %66 = load i64, ptr %65, align 8, !noalias !780
   store i64 %66, ptr %61, align 8, !alias.scope !780
   %67 = getelementptr inbounds nuw i8, ptr %55, i64 152
-  %68 = load i32, ptr %67, align 8
+  %68 = load i32, ptr %67, align 8, !noalias !780
   store i32 %68, ptr %60, align 8, !alias.scope !780
   %69 = getelementptr inbounds nuw i8, ptr %55, i64 120
-  %70 = load ptr, ptr %69, align 8
+  %70 = load ptr, ptr %69, align 8, !noalias !780
   %.not10.i.i.i = icmp eq ptr %70, null
   br i1 %.not10.i.i.i, label %107, label %71
 
@@ -79724,7 +79724,7 @@ _ZN9rapidjson12CrtAllocator6MallocEm.exit.i:      ; preds = %80, %._crit_edge.i
 
 107:                                              ; preds = %59
   %108 = getelementptr inbounds nuw i8, ptr %55, i64 128
-  %109 = load ptr, ptr %108, align 8
+  %109 = load ptr, ptr %108, align 8, !noalias !780
   store ptr %109, ptr %58, align 8, !alias.scope !780
   br label %_ZNK9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E23GetInvalidSchemaPointerEv.exit
 
@@ -85391,16 +85391,16 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
   %425 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %426 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %427 = getelementptr inbounds nuw i8, ptr %.0612.i, i64 32
-  %428 = load i64, ptr %427, align 8
+  %428 = load i64, ptr %427, align 8, !noalias !848
   store i64 %428, ptr %426, align 8, !alias.scope !848
   %429 = getelementptr inbounds nuw i8, ptr %.0612.i, i64 40
-  %430 = load i64, ptr %429, align 8
+  %430 = load i64, ptr %429, align 8, !noalias !848
   store i64 %430, ptr %425, align 8, !alias.scope !848
   %431 = getelementptr inbounds nuw i8, ptr %.0612.i, i64 48
-  %432 = load i32, ptr %431, align 8
+  %432 = load i32, ptr %431, align 8, !noalias !848
   store i32 %432, ptr %424, align 8, !alias.scope !848
   %433 = getelementptr inbounds nuw i8, ptr %.0612.i, i64 16
-  %434 = load ptr, ptr %433, align 8
+  %434 = load ptr, ptr %433, align 8, !noalias !848
   %.not10.i.i.i = icmp eq ptr %434, null
   br i1 %.not10.i.i.i, label %475, label %435
 
@@ -85490,9 +85490,8 @@ _ZN9rapidjson12CrtAllocator6MallocEm.exit.i:      ; preds = %445, %._crit_edge.i
 
 475:                                              ; preds = %423
   %476 = getelementptr inbounds nuw i8, ptr %.0612.i, i64 24
-  %477 = load ptr, ptr %476, align 8
+  %477 = load ptr, ptr %476, align 8, !noalias !848
   store ptr %477, ptr %422, align 8, !alias.scope !848
-  store ptr null, ptr %421, align 8, !alias.scope !848
   br label %_ZNK9rapidjson21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES5_E10GetPointerEPKNS_8internal6SchemaIS8_EE.exit
 
 478:                                              ; preds = %.lr.ph.i

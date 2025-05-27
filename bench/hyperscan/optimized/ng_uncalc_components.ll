@@ -4595,10 +4595,10 @@ _ZNSt16allocator_traitsISaIN3ue212_GLOBAL__N_112ranking_infoEEE9constructIS2_JRK
 
 81:                                               ; preds = %79
   %82 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  %83 = load i64, ptr %82, align 8
+  %83 = load i64, ptr %82, align 8, !noalias !258
   %84 = urem i64 %83, %65
   %85 = getelementptr inbounds nuw ptr, ptr %80, i64 %84
-  store ptr %66, ptr %85, align 8
+  store ptr %66, ptr %85, align 8, !noalias !258
   br label %_ZSt19__relocate_object_aIN3ue212_GLOBAL__N_112ranking_infoES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i
 
 _ZSt19__relocate_object_aIN3ue212_GLOBAL__N_112ranking_infoES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i: ; preds = %81, %79

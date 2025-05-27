@@ -1386,12 +1386,12 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN15actix_multipart4for
   br i1 %3, label %4, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h4c795c87bb62495aE.exit"
 
 4:                                                ; preds = %1
-  %5 = tail call noundef align 8 dereferenceable_or_null(8) ptr @_ZN9actix_web7request11HttpRequest8app_data17h867ce9a5fff4ed81E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
+  %5 = tail call noundef align 8 dereferenceable_or_null(8) ptr @_ZN9actix_web7request11HttpRequest8app_data17h867ce9a5fff4ed81E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0), !noalias !276
   %6 = icmp eq ptr %5, null
   br i1 %6, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h4c795c87bb62495aE.exit", label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
+  %8 = load ptr, ptr %5, align 8, !noalias !276, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h4c795c87bb62495aE.exit"
 
@@ -1877,3 +1877,6 @@ attributes #23 = { nounwind }
 !273 = distinct !{!273, !"_ZN61_$LT$bytes..bytes..Bytes$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1d79c6c23a1dbab7E.llvm.1711877461099840233"}
 !274 = !{!272, !269, !266}
 !275 = !{i64 0, i64 2}
+!276 = !{!277}
+!277 = distinct !{!277, !278, !"_ZN4core6option15Option$LT$T$GT$7or_else17h4c795c87bb62495aE: argument 0"}
+!278 = distinct !{!278, !"_ZN4core6option15Option$LT$T$GT$7or_else17h4c795c87bb62495aE"}

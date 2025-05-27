@@ -7747,14 +7747,14 @@ if.end53:                                         ; preds = %if.end52, %if.end26
 
 _ZN4node17BaseObjectPtrImplINS_5http29Http2PingELb0EED2Ev.exit.i.i: ; preds = %if.end53, %_ZN4node17BaseObjectPtrImplINS_5http29Http2PingELb0EED2Ev.exit
   %38 = phi ptr [ %64, %_ZN4node17BaseObjectPtrImplINS_5http29Http2PingELb0EED2Ev.exit ], [ %37, %if.end53 ]
-  %39 = load i64, ptr %38, align 8
+  %39 = load i64, ptr %38, align 8, !noalias !100
   %40 = inttoptr i64 %39 to ptr
-  store ptr null, ptr %38, align 8
+  store ptr null, ptr %38, align 8, !noalias !100
   %.pre.i = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !100
   %41 = load ptr, ptr %_M_last.i.i.i, align 8, !noalias !100
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %41, i64 -8
   %cmp.not.i.i2.i = icmp eq ptr %.pre.i, %add.ptr.i.i.i
-  %42 = load ptr, ptr %.pre.i, align 8
+  %42 = load ptr, ptr %.pre.i, align 8, !noalias !100
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %cmp.not.i.i2.i, label %if.else.i.i.i, label %if.then.i.i3.i
 
@@ -7762,7 +7762,7 @@ if.then.i.i3.i:                                   ; preds = %_ZN4node17BaseObjec
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4node17BaseObjectPtrImplINS0_5http29Http2PingELb0EEEEE7destroyIS4_EEvRS5_PT_.exit.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i3.i
-  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %42) #28
+  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %42) #28, !noalias !100
   %.pre.i.i.i = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !100
   br label %_ZNSt16allocator_traitsISaIN4node17BaseObjectPtrImplINS0_5http29Http2PingELb0EEEEE7destroyIS4_EEvRS5_PT_.exit.i.i.i
 
@@ -7775,16 +7775,16 @@ if.else.i.i.i:                                    ; preds = %_ZN4node17BaseObjec
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt5dequeIN4node17BaseObjectPtrImplINS0_5http29Http2PingELb0EEESaIS4_EE16_M_pop_front_auxEv.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.else.i.i.i
-  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %42) #28
+  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %42) #28, !noalias !100
   br label %_ZNSt5dequeIN4node17BaseObjectPtrImplINS0_5http29Http2PingELb0EEESaIS4_EE16_M_pop_front_auxEv.exit.i.i.i
 
 _ZNSt5dequeIN4node17BaseObjectPtrImplINS0_5http29Http2PingELb0EEESaIS4_EE16_M_pop_front_auxEv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %if.else.i.i.i
   %44 = load ptr, ptr %_M_first.i.i.i.i, align 8, !noalias !100
-  call void @_ZdlPv(ptr noundef %44) #33
+  call void @_ZdlPv(ptr noundef %44) #33, !noalias !100
   %45 = load ptr, ptr %_M_node.i.i.i.i, align 8, !noalias !100
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %add.ptr.i.i.i.i, ptr %_M_node.i.i.i.i, align 8, !noalias !100
-  %46 = load ptr, ptr %add.ptr.i.i.i.i, align 8
+  %46 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !noalias !100
   store ptr %46, ptr %_M_first.i.i.i.i, align 8, !noalias !100
   %add.ptr.i.i.i.i.i33 = getelementptr inbounds nuw i8, ptr %46, i64 512
   store ptr %add.ptr.i.i.i.i.i33, ptr %_M_last.i.i.i, align 8, !noalias !100
@@ -10073,15 +10073,15 @@ if.end25:                                         ; preds = %entry
   br i1 %cmp.i.i.i.i, label %cleanup.thread, label %_ZN4node17BaseObjectPtrImplINS_5http213Http2SettingsELb0EED2Ev.exit.i.i
 
 _ZN4node17BaseObjectPtrImplINS_5http213Http2SettingsELb0EED2Ev.exit.i.i: ; preds = %if.end25
-  %14 = load i64, ptr %13, align 8
+  %14 = load i64, ptr %13, align 8, !noalias !112
   %15 = inttoptr i64 %14 to ptr
-  store ptr null, ptr %13, align 8
+  store ptr null, ptr %13, align 8, !noalias !112
   %.pre.i = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !112
   %_M_last.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 496
   %16 = load ptr, ptr %_M_last.i.i.i, align 8, !noalias !112
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %16, i64 -8
   %cmp.not.i.i2.i = icmp eq ptr %.pre.i, %add.ptr.i.i.i
-  %17 = load ptr, ptr %.pre.i, align 8
+  %17 = load ptr, ptr %.pre.i, align 8, !noalias !112
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %cmp.not.i.i2.i, label %if.else.i.i.i, label %if.then.i.i3.i
 
@@ -10089,7 +10089,7 @@ if.then.i.i3.i:                                   ; preds = %_ZN4node17BaseObjec
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4node17BaseObjectPtrImplINS0_5http213Http2SettingsELb0EEEEE7destroyIS4_EEvRS5_PT_.exit.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i3.i
-  tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #28
+  tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #28, !noalias !112
   %.pre.i.i.i = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !112
   br label %_ZNSt16allocator_traitsISaIN4node17BaseObjectPtrImplINS0_5http213Http2SettingsELb0EEEEE7destroyIS4_EEvRS5_PT_.exit.i.i.i
 
@@ -10102,18 +10102,18 @@ if.else.i.i.i:                                    ; preds = %_ZN4node17BaseObjec
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt5dequeIN4node17BaseObjectPtrImplINS0_5http213Http2SettingsELb0EEESaIS4_EE16_M_pop_front_auxEv.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.else.i.i.i
-  tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #28
+  tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #28, !noalias !112
   br label %_ZNSt5dequeIN4node17BaseObjectPtrImplINS0_5http213Http2SettingsELb0EEESaIS4_EE16_M_pop_front_auxEv.exit.i.i.i
 
 _ZNSt5dequeIN4node17BaseObjectPtrImplINS0_5http213Http2SettingsELb0EEESaIS4_EE16_M_pop_front_auxEv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %if.else.i.i.i
   %_M_first.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 488
   %19 = load ptr, ptr %_M_first.i.i.i.i, align 8, !noalias !112
-  tail call void @_ZdlPv(ptr noundef %19) #33
+  tail call void @_ZdlPv(ptr noundef %19) #33, !noalias !112
   %_M_node.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 504
   %20 = load ptr, ptr %_M_node.i.i.i.i, align 8, !noalias !112
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %add.ptr.i.i.i.i, ptr %_M_node.i.i.i.i, align 8, !noalias !112
-  %21 = load ptr, ptr %add.ptr.i.i.i.i, align 8
+  %21 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !noalias !112
   store ptr %21, ptr %_M_first.i.i.i.i, align 8, !noalias !112
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 512
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_last.i.i.i, align 8, !noalias !112
@@ -10433,15 +10433,15 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i.i.i, label %cleanup.thread, label %_ZN4node17BaseObjectPtrImplINS_5http29Http2PingELb0EED2Ev.exit.i.i
 
 _ZN4node17BaseObjectPtrImplINS_5http29Http2PingELb0EED2Ev.exit.i.i: ; preds = %if.then
-  %11 = load i64, ptr %10, align 8
+  %11 = load i64, ptr %10, align 8, !noalias !115
   %12 = inttoptr i64 %11 to ptr
-  store ptr null, ptr %10, align 8
+  store ptr null, ptr %10, align 8, !noalias !115
   %.pre.i = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !115
   %_M_last.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 408
   %13 = load ptr, ptr %_M_last.i.i.i, align 8, !noalias !115
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %13, i64 -8
   %cmp.not.i.i2.i = icmp eq ptr %.pre.i, %add.ptr.i.i.i
-  %14 = load ptr, ptr %.pre.i, align 8
+  %14 = load ptr, ptr %.pre.i, align 8, !noalias !115
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i2.i, label %if.else.i.i.i, label %if.then.i.i3.i
 
@@ -10449,7 +10449,7 @@ if.then.i.i3.i:                                   ; preds = %_ZN4node17BaseObjec
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4node17BaseObjectPtrImplINS0_5http29Http2PingELb0EEEEE7destroyIS4_EEvRS5_PT_.exit.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i3.i
-  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #28
+  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #28, !noalias !115
   %.pre.i.i.i = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !115
   br label %_ZNSt16allocator_traitsISaIN4node17BaseObjectPtrImplINS0_5http29Http2PingELb0EEEEE7destroyIS4_EEvRS5_PT_.exit.i.i.i
 
@@ -10462,18 +10462,18 @@ if.else.i.i.i:                                    ; preds = %_ZN4node17BaseObjec
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt5dequeIN4node17BaseObjectPtrImplINS0_5http29Http2PingELb0EEESaIS4_EE16_M_pop_front_auxEv.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.else.i.i.i
-  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #28
+  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #28, !noalias !115
   br label %_ZNSt5dequeIN4node17BaseObjectPtrImplINS0_5http29Http2PingELb0EEESaIS4_EE16_M_pop_front_auxEv.exit.i.i.i
 
 _ZNSt5dequeIN4node17BaseObjectPtrImplINS0_5http29Http2PingELb0EEESaIS4_EE16_M_pop_front_auxEv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %if.else.i.i.i
   %_M_first.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 400
   %16 = load ptr, ptr %_M_first.i.i.i.i, align 8, !noalias !115
-  call void @_ZdlPv(ptr noundef %16) #33
+  call void @_ZdlPv(ptr noundef %16) #33, !noalias !115
   %_M_node.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 416
   %17 = load ptr, ptr %_M_node.i.i.i.i, align 8, !noalias !115
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %add.ptr.i.i.i.i, ptr %_M_node.i.i.i.i, align 8, !noalias !115
-  %18 = load ptr, ptr %add.ptr.i.i.i.i, align 8
+  %18 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !noalias !115
   store ptr %18, ptr %_M_first.i.i.i.i, align 8, !noalias !115
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 512
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_last.i.i.i, align 8, !noalias !115

@@ -7263,7 +7263,7 @@ define hidden void @_ZN9uv_pep5086marker7algebra19normalize_specifier17hffdee052
   store ptr %.sink15.i, ptr %.sink21.i.sroa.phi32, align 8, !noalias !756
   store i64 %.sink.i, ptr %.sink21.i.sroa.phi35, align 8, !noalias !756
   invoke void @_ZN4core9panicking9panic_fmt17h5764ee7030b7a73dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink21.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %100) #27
-          to label %.cont.i unwind label %84, !noalias !748
+          to label %.cont.i unwind label %84, !noalias !755
 
 .cont.i:                                          ; preds = %.invoke.i
   unreachable
@@ -7316,7 +7316,7 @@ define hidden void @_ZN9uv_pep5086marker7algebra19normalize_specifier17hffdee052
   %.sroa.18.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %.sroa.18.0.i.i, ptr %.sroa.18.0..sroa_idx.i.i, align 8, !alias.scope !762, !noalias !766
   %126 = invoke { ptr, i64 } @"_ZN71_$LT$uv_pep440..version..Release$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd084f99d64626cdbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %6)
-          to label %127 unwind label %84, !noalias !748
+          to label %127 unwind label %84, !noalias !755
 
 127:                                              ; preds = %125
   %128 = extractvalue { ptr, i64 } %126, 1
@@ -7377,7 +7377,7 @@ define hidden void @_ZN9uv_pep5086marker7algebra19normalize_specifier17hffdee052
 
 _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.thread.i: ; preds = %142, %140, %.lr.ph.i
   %156 = invoke noundef align 8 dereferenceable(136) ptr @_ZN9uv_pep4407version7Version9make_full17h80bac72c41a6d3c1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
-          to label %157 unwind label %131, !noalias !748
+          to label %157 unwind label %131, !noalias !755
 
 _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.i: ; preds = %149, %145
   %.sink.i.i = phi i8 [ 1, %145 ], [ %155, %149 ]
@@ -7387,22 +7387,22 @@ _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.i: ; 
 157:                                              ; preds = %_ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.thread.i
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 64
   %159 = getelementptr inbounds nuw i8, ptr %156, i64 80
-  %160 = load i64, ptr %159, align 8, !alias.scope !771, !noalias !748, !noundef !3
-  %161 = load i64, ptr %158, align 8, !range !169, !alias.scope !771, !noalias !748, !noundef !3
+  %160 = load i64, ptr %159, align 8, !alias.scope !771, !noalias !755, !noundef !3
+  %161 = load i64, ptr %158, align 8, !range !169, !alias.scope !771, !noalias !755, !noundef !3
   %162 = icmp eq i64 %160, %161
   br i1 %162, label %163, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2ec91766f09cb922E.exit.i"
 
 163:                                              ; preds = %157
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h9265e5986b702d3fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %158, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.37645feb1718907c65e9c2b7cdbd1757.57)
-          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2ec91766f09cb922E.exit.i" unwind label %131, !noalias !748
+          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2ec91766f09cb922E.exit.i" unwind label %131, !noalias !755
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2ec91766f09cb922E.exit.i": ; preds = %163, %157
   %164 = getelementptr inbounds nuw i8, ptr %156, i64 72
-  %165 = load ptr, ptr %164, align 8, !alias.scope !771, !noalias !748, !nonnull !3, !noundef !3
+  %165 = load ptr, ptr %164, align 8, !alias.scope !771, !noalias !755, !nonnull !3, !noundef !3
   %166 = getelementptr inbounds i64, ptr %165, i64 %160
-  store i64 %134, ptr %166, align 8, !noalias !748
+  store i64 %134, ptr %166, align 8, !noalias !755
   %167 = add i64 %160, 1
-  store i64 %167, ptr %159, align 8, !alias.scope !771, !noalias !748
+  store i64 %167, ptr %159, align 8, !alias.scope !771, !noalias !755
   br label %168
 
 168:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2ec91766f09cb922E.exit.i", %_ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.i
@@ -7428,12 +7428,12 @@ _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.i: ; 
 176:                                              ; preds = %172
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf40a3331c4649117E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
-          to label %.body unwind label %177, !noalias !748
+          to label %.body unwind label %177, !noalias !755
 
 177:                                              ; preds = %176
   %178 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #26, !noalias !748
+  call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #26, !noalias !755
   unreachable
 
 179:                                              ; preds = %81
@@ -10328,7 +10328,7 @@ attributes #29 = { nounwind }
 !761 = distinct !{!761, !759, !"_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE: argument 0"}
 !762 = !{!761}
 !763 = !{!758}
-!764 = !{!761, !758, !749}
+!764 = !{!761, !758, !749, !754}
 !765 = !{!761, !758, !749, !752, !754}
 !766 = !{!758, !749, !752, !754}
 !767 = !{!749, !752}
@@ -10352,7 +10352,7 @@ attributes #29 = { nounwind }
 !785 = distinct !{!785, !786, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0a5da7e579893268E.llvm.5134831039031777693: argument 0"}
 !786 = distinct !{!786, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0a5da7e579893268E.llvm.5134831039031777693"}
 !787 = !{!785, !782, !778, !775, !752}
-!788 = !{!785, !782, !778, !775, !749}
+!788 = !{!785, !782, !778, !775, !749, !754}
 !789 = !{!790}
 !790 = distinct !{!790, !791, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hdb52987f72ef1626E: argument 0"}
 !791 = distinct !{!791, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hdb52987f72ef1626E"}

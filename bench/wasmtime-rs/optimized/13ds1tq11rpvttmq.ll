@@ -1225,7 +1225,7 @@ attributes #5 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cp
 !51 = distinct !{!51, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E"}
 !52 = distinct !{!52, !51, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E: argument 1"}
 !53 = !{!43, !46, !48, !50}
-!54 = !{!45, !49, !52}
+!54 = !{!45, !48, !49, !52}
 !55 = !{!56, !58, !59, !61, !62, !63, !65}
 !56 = distinct !{!56, !57, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h6f777c34c26a532aE: argument 0"}
 !57 = distinct !{!57, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h6f777c34c26a532aE"}
@@ -1238,7 +1238,7 @@ attributes #5 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cp
 !64 = distinct !{!64, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E"}
 !65 = distinct !{!65, !64, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E: argument 1"}
 !66 = !{!56, !59, !61, !63}
-!67 = !{!58, !62, !65}
+!67 = !{!58, !61, !62, !65}
 !68 = !{!69, !71, !72, !74, !75, !76, !78}
 !69 = distinct !{!69, !70, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h6f777c34c26a532aE: argument 0"}
 !70 = distinct !{!70, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h6f777c34c26a532aE"}
@@ -1251,7 +1251,7 @@ attributes #5 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cp
 !77 = distinct !{!77, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E"}
 !78 = distinct !{!78, !77, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E: argument 1"}
 !79 = !{!69, !72, !74, !76}
-!80 = !{!71, !75, !78}
+!80 = !{!71, !74, !75, !78}
 !81 = !{!82, !84, !85, !87, !88, !89, !91}
 !82 = distinct !{!82, !83, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h6f777c34c26a532aE: argument 0"}
 !83 = distinct !{!83, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h6f777c34c26a532aE"}
@@ -1264,7 +1264,7 @@ attributes #5 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cp
 !90 = distinct !{!90, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E"}
 !91 = distinct !{!91, !90, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E: argument 1"}
 !92 = !{!82, !85, !87, !89}
-!93 = !{!84, !88, !91}
+!93 = !{!84, !87, !88, !91}
 !94 = !{!95, !97, !98, !100, !101, !102, !104}
 !95 = distinct !{!95, !96, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h6f777c34c26a532aE: argument 0"}
 !96 = distinct !{!96, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h6f777c34c26a532aE"}
@@ -1277,7 +1277,7 @@ attributes #5 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cp
 !103 = distinct !{!103, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E"}
 !104 = distinct !{!104, !103, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E: argument 1"}
 !105 = !{!95, !98, !100, !102}
-!106 = !{!97, !101, !104}
+!106 = !{!97, !100, !101, !104}
 !107 = !{!108, !110, !111, !113, !114, !115, !117}
 !108 = distinct !{!108, !109, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h6f777c34c26a532aE: argument 0"}
 !109 = distinct !{!109, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h6f777c34c26a532aE"}
@@ -1290,7 +1290,7 @@ attributes #5 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cp
 !116 = distinct !{!116, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E"}
 !117 = distinct !{!117, !116, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E: argument 1"}
 !118 = !{!108, !111, !113, !115}
-!119 = !{!110, !114, !117}
+!119 = !{!110, !113, !114, !117}
 !120 = !{!121, !123, !124, !126, !127, !128, !130}
 !121 = distinct !{!121, !122, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h6f777c34c26a532aE: argument 0"}
 !122 = distinct !{!122, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h6f777c34c26a532aE"}
@@ -1303,7 +1303,7 @@ attributes #5 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cp
 !129 = distinct !{!129, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E"}
 !130 = distinct !{!130, !129, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E: argument 1"}
 !131 = !{!121, !124, !126, !128}
-!132 = !{!123, !127, !130}
+!132 = !{!123, !126, !127, !130}
 !133 = !{!134, !136, !137, !139, !140, !141, !143}
 !134 = distinct !{!134, !135, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h6f777c34c26a532aE: argument 0"}
 !135 = distinct !{!135, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h6f777c34c26a532aE"}
@@ -1316,4 +1316,4 @@ attributes #5 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cp
 !142 = distinct !{!142, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E"}
 !143 = distinct !{!143, !142, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E: argument 1"}
 !144 = !{!134, !137, !139, !141}
-!145 = !{!136, !140, !143}
+!145 = !{!136, !139, !140, !143}

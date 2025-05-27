@@ -8374,12 +8374,12 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN9actix_web5types4form
   br i1 %3, label %4, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h805adc672a3b72bdE.exit"
 
 4:                                                ; preds = %1
-  %5 = tail call noundef align 8 dereferenceable_or_null(8) ptr @_ZN9actix_web7request11HttpRequest8app_data17h75a7248642c4704eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
+  %5 = tail call noundef align 8 dereferenceable_or_null(8) ptr @_ZN9actix_web7request11HttpRequest8app_data17h75a7248642c4704eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0), !noalias !1508
   %6 = icmp eq ptr %5, null
   br i1 %6, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h805adc672a3b72bdE.exit", label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
+  %8 = load ptr, ptr %5, align 8, !noalias !1508, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h805adc672a3b72bdE.exit"
 
@@ -10293,3 +10293,6 @@ attributes #30 = { cold noreturn nounwind }
 !1505 = distinct !{!1505, !"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$17h1c7ecab8e355b829E.llvm.11632439649900387884"}
 !1506 = distinct !{!1506, !1507, !"_ZN4core3ptr105drop_in_place$LT$core..cell..RefMut$LT$core..option..Option$LT$actix_web..scope..ScopeFactory$GT$$GT$$GT$17h1566b3e6aaca2b24E: argument 0"}
 !1507 = distinct !{!1507, !"_ZN4core3ptr105drop_in_place$LT$core..cell..RefMut$LT$core..option..Option$LT$actix_web..scope..ScopeFactory$GT$$GT$$GT$17h1566b3e6aaca2b24E"}
+!1508 = !{!1509}
+!1509 = distinct !{!1509, !1510, !"_ZN4core6option15Option$LT$T$GT$7or_else17h805adc672a3b72bdE: argument 0"}
+!1510 = distinct !{!1510, !"_ZN4core6option15Option$LT$T$GT$7or_else17h805adc672a3b72bdE"}

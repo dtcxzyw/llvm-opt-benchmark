@@ -196,6 +196,7 @@ define hidden void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..v
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h36344003de49a57eE"(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) initializes((0, 24)) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(24) %1) unnamed_addr #0 {
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %5, label %3
 
@@ -210,7 +211,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3, %2
-  %6 = tail call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17h1c14f1faaf3273cbE()
+  %6 = tail call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17h1c14f1faaf3273cbE(), !noalias !45
   br label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17he277fac2b30db192E.llvm.4165080364762598926.exit"
 
 7:                                                ; preds = %3
@@ -1971,7 +1972,7 @@ define hidden { ptr, i64 } @"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$cor
   %10 = load i8, ptr %.sroa.0.06.i, align 1, !alias.scope !411, !noalias !406, !noundef !4
   %11 = load ptr, ptr %3, align 8, !alias.scope !406, !noalias !409, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds i8, ptr %11, i64 %8
-  store i8 %10, ptr %12, align 1
+  store i8 %10, ptr %12, align 1, !noalias !409
   %13 = load i64, ptr %4, align 8, !alias.scope !406, !noalias !409, !noundef !4
   %14 = add i64 %13, 1
   store i64 %14, ptr %4, align 8, !alias.scope !406, !noalias !409

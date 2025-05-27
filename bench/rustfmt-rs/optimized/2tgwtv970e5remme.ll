@@ -3573,10 +3573,10 @@ _ZN4core5slice4sort20provide_sorted_batch17hb8fb3d1c0feda1eaE.exit: ; preds = %.
   %.val.i68 = load ptr, ptr %193, align 8, !noalias !369, !nonnull !10, !align !11, !noundef !10
   %194 = getelementptr i8, ptr %.sroa.18.026.i, i64 -8
   %.val35.i = load ptr, ptr %194, align 8, !alias.scope !369, !nonnull !10, !align !11, !noundef !10
-  %195 = load ptr, ptr %.val.i68, align 8, !nonnull !10, !align !11, !noundef !10
-  %196 = load ptr, ptr %.val35.i, align 8, !nonnull !10, !align !11, !noundef !10
+  %195 = load ptr, ptr %.val.i68, align 8, !noalias !369, !nonnull !10, !align !11, !noundef !10
+  %196 = load ptr, ptr %.val35.i, align 8, !noalias !369, !nonnull !10, !align !11, !noundef !10
   %197 = invoke noundef range(i8 -1, 2) i8 @_ZN15rustfmt_nightly7reorder13compare_items17he278f920362edbffE(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %195, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %196)
-          to label %198 unwind label %.loopexit14.i
+          to label %198 unwind label %.loopexit14.i, !noalias !369
 
 198:                                              ; preds = %.lr.ph29.i
   %199 = icmp eq i8 %197, -1
@@ -3601,10 +3601,10 @@ _ZN4core5slice4sort20provide_sorted_batch17hb8fb3d1c0feda1eaE.exit: ; preds = %.
   %.028.val.i = load ptr, ptr %206, align 8, !alias.scope !369, !nonnull !10, !align !11, !noundef !10
   %207 = getelementptr i8, ptr %.sroa.0.222.i, i64 80
   %.val36.i = load ptr, ptr %207, align 8, !noalias !369, !nonnull !10, !align !11, !noundef !10
-  %208 = load ptr, ptr %.028.val.i, align 8, !nonnull !10, !align !11, !noundef !10
-  %209 = load ptr, ptr %.val36.i, align 8, !nonnull !10, !align !11, !noundef !10
+  %208 = load ptr, ptr %.028.val.i, align 8, !noalias !369, !nonnull !10, !align !11, !noundef !10
+  %209 = load ptr, ptr %.val36.i, align 8, !noalias !369, !nonnull !10, !align !11, !noundef !10
   %210 = invoke noundef range(i8 -1, 2) i8 @_ZN15rustfmt_nightly7reorder13compare_items17he278f920362edbffE(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %208, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %209)
-          to label %211 unwind label %.loopexit.split-lp.i
+          to label %211 unwind label %.loopexit.split-lp.i, !noalias !369
 
 211:                                              ; preds = %.lr.ph.i66
   %212 = icmp eq i8 %210, -1
@@ -4263,7 +4263,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h4797daec42d76e21E.exit: ; preds = %.
   %200 = getelementptr i8, ptr %.sroa.18.026.i, i64 -8
   %.val35.i = load ptr, ptr %200, align 8, !alias.scope !442, !nonnull !10, !align !11, !noundef !10
   %201 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h6c0fc06e62e4f1e1E"(ptr nonnull %.val.i70, ptr nonnull %.val35.i)
-          to label %202 unwind label %.loopexit14.i
+          to label %202 unwind label %.loopexit14.i, !noalias !442
 
 202:                                              ; preds = %.lr.ph29.i
   %.neg.i = sext i1 %201 to i64
@@ -4288,7 +4288,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h4797daec42d76e21E.exit: ; preds = %.
   %210 = getelementptr i8, ptr %.sroa.0.222.i, i64 24
   %.val36.i = load ptr, ptr %210, align 8, !noalias !442, !nonnull !10, !align !11, !noundef !10
   %211 = invoke fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h6c0fc06e62e4f1e1E"(ptr nonnull %.028.val.i, ptr nonnull %.val36.i)
-          to label %212 unwind label %.loopexit.split-lp.i
+          to label %212 unwind label %.loopexit.split-lp.i, !noalias !442
 
 212:                                              ; preds = %.lr.ph.i68
   %.029.i = select i1 %211, ptr %.02823.i, ptr %.sroa.0.222.i
@@ -35730,7 +35730,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
           to label %.noexc238 unwind label %83
 
 .noexc238:                                        ; preds = %402
-  %405 = load ptr, ptr %404, align 8, !nonnull !10, !noundef !10
+  %405 = load ptr, ptr %404, align 8, !noalias !6553, !nonnull !10, !noundef !10
   invoke void %405(i32 noundef %403)
           to label %.noexc239 unwind label %83
 
@@ -43419,14 +43419,14 @@ attributes #29 = { cold }
 !534 = distinct !{!534, !529, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hcd0cc03c5e7f0c1bE.llvm.11825479963814566850: argument 1"}
 !535 = distinct !{!535, !529, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hcd0cc03c5e7f0c1bE.llvm.11825479963814566850: argument 2"}
 !536 = !{!531, !528, !534}
-!537 = !{!533, !535}
+!537 = !{!533, !534, !535}
 !538 = !{!539}
 !539 = distinct !{!539, !540, !"_ZN4core3ops8function6FnOnce9call_once17hcaef9e5b45ad31eeE: argument 0"}
 !540 = distinct !{!540, !"_ZN4core3ops8function6FnOnce9call_once17hcaef9e5b45ad31eeE"}
 !541 = !{!542}
 !542 = distinct !{!542, !543, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h32cabc5ade102df2E: argument 0"}
 !543 = distinct !{!543, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h32cabc5ade102df2E"}
-!544 = !{!545, !547, !542, !548, !539, !549, !528, !535}
+!544 = !{!545, !547, !542, !548, !539, !549, !528, !534, !535}
 !545 = distinct !{!545, !546, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h8e130e274a0c957aE.llvm.11825479963814566850: argument 0"}
 !546 = distinct !{!546, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h8e130e274a0c957aE.llvm.11825479963814566850"}
 !547 = distinct !{!547, !546, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h8e130e274a0c957aE.llvm.11825479963814566850: argument 1"}

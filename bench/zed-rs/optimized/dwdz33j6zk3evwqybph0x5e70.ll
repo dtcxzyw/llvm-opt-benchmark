@@ -1749,7 +1749,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
 
 20:                                               ; preds = %.lr.ph.i
   %.val12.i = load ptr, ptr %.sroa.013.021.i, align 8, !alias.scope !383, !noalias !388, !nonnull !13, !noundef !13
-  %21 = atomicrmw add ptr %.val12.i, i64 1 monotonic, align 8, !noalias !388
+  %21 = atomicrmw add ptr %.val12.i, i64 1 monotonic, align 8, !noalias !386
   %22 = icmp slt i64 %21, 0
   br i1 %22, label %23, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h46172eacc5a1e22dE.exit.i"
 
@@ -1761,7 +1761,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %24 = add nuw nsw i64 %.sroa.7.020.i, 1
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.013.021.i, i64 8
   %26 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %.sroa.7.020.i
-  store ptr %.val12.i, ptr %26, align 8, !noalias !388
+  store ptr %.val12.i, ptr %26, align 8, !noalias !386
   %27 = icmp eq i64 %18, 0
   br i1 %27, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9c5aacf8bf7768e0E.llvm.15254045753746439579.exit", label %.lr.ph.i
 

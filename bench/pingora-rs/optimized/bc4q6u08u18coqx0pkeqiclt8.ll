@@ -764,7 +764,7 @@ define void @_ZN20pingora_header_serde11HeaderSerde9serialize17hf7403978be8838e6
 .noexc23:                                         ; preds = %.lr.ph58.i.i
   %99 = extractvalue { ptr, i64 } %98, 0
   %100 = extractvalue { ptr, i64 } %98, 1
-  %101 = load ptr, ptr %95, align 8, !noundef !7
+  %101 = load ptr, ptr %95, align 8, !noalias !48, !noundef !7
   %.not29.i.i = icmp eq ptr %101, null
   %102 = getelementptr inbounds nuw i8, ptr %95, i64 8
   br i1 %.not29.i.i, label %switch.lookup, label %103
@@ -778,7 +778,7 @@ define void @_ZN20pingora_header_serde11HeaderSerde9serialize17hf7403978be8838e6
   br label %_ZN4http6header4name14StandardHeader6as_str17hf5c1eaba1d6e352fE.exit.i.i
 
 switch.lookup:                                    ; preds = %.noexc23
-  %105 = load i8, ptr %102, align 8, !range !59, !noundef !7
+  %105 = load i8, ptr %102, align 8, !range !59, !noalias !48, !noundef !7
   %106 = zext nneg i8 %105 to i64
   %switch.gep = getelementptr inbounds nuw [81 x ptr], ptr @switch.table._ZN20pingora_header_serde11HeaderSerde9serialize17hf7403978be8838e6E, i64 0, i64 %106
   %107 = zext nneg i8 %105 to i64
@@ -802,9 +802,9 @@ _ZN4http6header4name14StandardHeader6as_str17hf5c1eaba1d6e352fE.exit.i.i: ; pred
 
 .noexc25:                                         ; preds = %.noexc24
   %108 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %109 = load ptr, ptr %108, align 8, !noundef !7
+  %109 = load ptr, ptr %108, align 8, !noalias !48, !noundef !7
   %110 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  %111 = load i64, ptr %110, align 8, !noundef !7
+  %111 = load i64, ptr %110, align 8, !noalias !48, !noundef !7
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h637a424f3360d318E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 1 %109, i64 noundef %111, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1180466d55dae079bf5a8e1783b44ea3.96)
           to label %.noexc26 unwind label %.loopexit
 

@@ -56630,7 +56630,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 82:                                               ; preds = %._crit_edge.i
-  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17hd63a5aaa27f351b7E() #25
+  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17hd63a5aaa27f351b7E() #25, !noalias !7287
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h1aa57748f9852604E.exit: ; preds = %._crit_edge.i
@@ -57369,7 +57369,7 @@ _ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17h66e26d2d95da05
   br i1 %or.cond.i, label %239, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h1aa57748f9852604E.exit, !prof !7290
 
 239:                                              ; preds = %236
-  call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17hd63a5aaa27f351b7E() #25
+  call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17hd63a5aaa27f351b7E() #25, !noalias !7456
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h1aa57748f9852604E.exit: ; preds = %236

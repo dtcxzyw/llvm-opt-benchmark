@@ -14698,7 +14698,7 @@ common.resume:                                    ; preds = %189, %common.resume
 84:                                               ; preds = %82
   %85 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #57, !noalias !4102
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #57, !noalias !4104
   unreachable
 
 86:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h7fd1f6c03f1c8e0cE.exit"
@@ -88952,7 +88952,7 @@ attributes #59 = { "function-inline-cost-multiplier"="2" }
 !11430 = distinct !{!11430, !11429, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h321a1a67cae8a973E: argument 1"}
 !11431 = distinct !{!11431, !11429, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h321a1a67cae8a973E: argument 2"}
 !11432 = !{!11425, !11428, !11430}
-!11433 = !{!11427, !11431}
+!11433 = !{!11427, !11430, !11431}
 !11434 = !{!11435, !11437, !11438, !11440, !11441}
 !11435 = distinct !{!11435, !11436, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17hdc537f1ebdb7740dE: argument 0"}
 !11436 = distinct !{!11436, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17hdc537f1ebdb7740dE"}
@@ -88962,7 +88962,7 @@ attributes #59 = { "function-inline-cost-multiplier"="2" }
 !11440 = distinct !{!11440, !11439, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h321a1a67cae8a973E: argument 1"}
 !11441 = distinct !{!11441, !11439, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h321a1a67cae8a973E: argument 2"}
 !11442 = !{!11435, !11438, !11440}
-!11443 = !{!11437, !11441}
+!11443 = !{!11437, !11440, !11441}
 !11444 = !{!11445}
 !11445 = distinct !{!11445, !11446, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he3b0ca29c3088bb3E: argument 0"}
 !11446 = distinct !{!11446, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he3b0ca29c3088bb3E"}
@@ -92823,7 +92823,7 @@ attributes #59 = { "function-inline-cost-multiplier"="2" }
 !15301 = distinct !{!15301, !15300, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h321a1a67cae8a973E: argument 1"}
 !15302 = distinct !{!15302, !15300, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h321a1a67cae8a973E: argument 2"}
 !15303 = !{!15296, !15299, !15301}
-!15304 = !{!15298, !15302}
+!15304 = !{!15298, !15301, !15302}
 !15305 = !{!15306, !15308}
 !15306 = distinct !{!15306, !15307, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17he7d638834c1b1364E: argument 0"}
 !15307 = distinct !{!15307, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17he7d638834c1b1364E"}

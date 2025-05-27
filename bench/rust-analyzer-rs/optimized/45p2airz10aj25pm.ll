@@ -36488,7 +36488,7 @@ attributes #34 = { "function-inline-cost-multiplier"="2" }
 !3946 = distinct !{!3946, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E"}
 !3947 = distinct !{!3947, !3946, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E: argument 1"}
 !3948 = !{!3938, !3941, !3943, !3945, !3934, !3936}
-!3949 = !{!3940, !3944, !3947, !3934}
+!3949 = !{!3940, !3943, !3944, !3947, !3934}
 !3950 = !{!3934}
 !3951 = !{!3952, !3954, !3955, !3957, !3958, !3959, !3961}
 !3952 = distinct !{!3952, !3953, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h5c26269c59287c68E: argument 0"}
@@ -36502,7 +36502,7 @@ attributes #34 = { "function-inline-cost-multiplier"="2" }
 !3960 = distinct !{!3960, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E"}
 !3961 = distinct !{!3961, !3960, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E: argument 1"}
 !3962 = !{!3952, !3955, !3957, !3959}
-!3963 = !{!3954, !3958, !3961}
+!3963 = !{!3954, !3957, !3958, !3961}
 !3964 = !{i8 0, i8 16}
 !3965 = !{!3966}
 !3966 = distinct !{!3966, !3967, !"_ZN4core3ptr50drop_in_place$LT$triomphe..arc..Arc$LT$str$GT$$GT$17h0a410cd8ed061defE: argument 0"}

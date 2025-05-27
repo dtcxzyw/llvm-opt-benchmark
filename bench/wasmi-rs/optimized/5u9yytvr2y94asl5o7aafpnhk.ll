@@ -2638,8 +2638,9 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h6ca4afa4e9ca8d3aE.exit: ; preds
 
 .thread:                                          ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17h6ca4afa4e9ca8d3aE.exit, %50
   call void @llvm.experimental.noalias.scope.decl(metadata !391)
+  call void @llvm.experimental.noalias.scope.decl(metadata !394)
   %.not62 = icmp ult i64 %3, %.sroa.12.088
-  br i1 %.not62, label %60, label %57, !prof !394
+  br i1 %.not62, label %60, label %57, !prof !396
 
 57:                                               ; preds = %.thread
   %58 = getelementptr { { { { { ptr, i64 } }, {} }, {} }, { i32, [1 x i32] } }, ptr %2, i64 %.sroa.12.088
@@ -2670,14 +2671,14 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h6ca4afa4e9ca8d3aE.exit: ; preds
   %.sroa.19.111.i = phi ptr [ %71, %.lr.ph.i ], [ %.sroa.19.0.i, %61 ]
   %.sroa.5.110.i = phi ptr [ %74, %.lr.ph.i ], [ %.sroa.5.0.i, %61 ]
   %.sroa.11.19.i = phi i64 [ %73, %.lr.ph.i ], [ %.sroa.11.0.i, %61 ]
-  %.val.i = load ptr, ptr %.sroa.5.110.i, align 8, !alias.scope !395, !noalias !391, !nonnull !8, !align !307, !noundef !8
+  %.val.i = load ptr, ptr %.sroa.5.110.i, align 8, !alias.scope !391, !noalias !394, !nonnull !8, !align !307, !noundef !8
   %65 = getelementptr i8, ptr %.sroa.5.110.i, i64 8
-  %.val23.i = load i64, ptr %65, align 8, !alias.scope !395, !noalias !391, !noundef !8
-  %.val24.i = load ptr, ptr %48, align 8, !alias.scope !395, !noalias !391, !nonnull !8, !align !307, !noundef !8
-  %.val25.i = load i64, ptr %59, align 8, !alias.scope !395, !noalias !391, !noundef !8
+  %.val23.i = load i64, ptr %65, align 8, !alias.scope !391, !noalias !394, !noundef !8
+  %.val24.i = load ptr, ptr %48, align 8, !alias.scope !391, !noalias !394, !nonnull !8, !align !307, !noundef !8
+  %.val25.i = load i64, ptr %59, align 8, !alias.scope !391, !noalias !394, !noundef !8
   %..i.i.i.i.i32 = call i64 @llvm.umin.i64(i64 %.val23.i, i64 %.val25.i)
   %66 = sub i64 %.val23.i, %.val25.i
-  %67 = call i32 @memcmp(ptr nonnull readonly align 1 %.val.i, ptr nonnull readonly align 1 %.val24.i, i64 %..i.i.i.i.i32), !alias.scope !397, !noalias !391
+  %67 = call i32 @memcmp(ptr nonnull readonly align 1 %.val.i, ptr nonnull readonly align 1 %.val24.i, i64 %..i.i.i.i.i32), !alias.scope !397, !noalias !401
   %68 = sext i32 %67 to i64
   %69 = icmp eq i32 %67, 0
   %spec.store.select.i.i.i.i.i33 = select i1 %69, i64 %66, i64 %68
@@ -2730,8 +2731,9 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h6ca4afa4e9ca8d3aE.exit: ; preds
 
 .thread59:                                        ; preds = %50, %.loopexit
   call void @llvm.experimental.noalias.scope.decl(metadata !408)
+  call void @llvm.experimental.noalias.scope.decl(metadata !411)
   %.not63 = icmp ult i64 %3, %.sroa.12.088
-  br i1 %.not63, label %94, label %91, !prof !394
+  br i1 %.not63, label %94, label %91, !prof !396
 
 91:                                               ; preds = %.thread59
   %92 = getelementptr { { { { { ptr, i64 } }, {} }, {} }, { i32, [1 x i32] } }, ptr %2, i64 %.sroa.12.088
@@ -2762,14 +2764,14 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h6ca4afa4e9ca8d3aE.exit: ; preds
   %.sroa.19.111.i49 = phi ptr [ %105, %.lr.ph.i48 ], [ %.sroa.19.0.i38, %95 ]
   %.sroa.5.110.i50 = phi ptr [ %109, %.lr.ph.i48 ], [ %.sroa.5.0.i37, %95 ]
   %.sroa.11.19.i51 = phi i64 [ %108, %.lr.ph.i48 ], [ %.sroa.11.0.i36, %95 ]
-  %.val.i52 = load ptr, ptr %.sroa.5.110.i50, align 8, !alias.scope !411, !noalias !408, !nonnull !8, !align !307, !noundef !8
+  %.val.i52 = load ptr, ptr %.sroa.5.110.i50, align 8, !alias.scope !408, !noalias !411, !nonnull !8, !align !307, !noundef !8
   %99 = getelementptr i8, ptr %.sroa.5.110.i50, i64 8
-  %.val23.i53 = load i64, ptr %99, align 8, !alias.scope !411, !noalias !408, !noundef !8
-  %.val24.i54 = load ptr, ptr %48, align 8, !alias.scope !411, !noalias !408, !nonnull !8, !align !307, !noundef !8
-  %.val25.i55 = load i64, ptr %93, align 8, !alias.scope !411, !noalias !408, !noundef !8
+  %.val23.i53 = load i64, ptr %99, align 8, !alias.scope !408, !noalias !411, !noundef !8
+  %.val24.i54 = load ptr, ptr %48, align 8, !alias.scope !408, !noalias !411, !nonnull !8, !align !307, !noundef !8
+  %.val25.i55 = load i64, ptr %93, align 8, !alias.scope !408, !noalias !411, !noundef !8
   %..i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %.val25.i55, i64 %.val23.i53)
   %100 = sub i64 %.val25.i55, %.val23.i53
-  %101 = call i32 @memcmp(ptr nonnull readonly align 1 %.val24.i54, ptr nonnull readonly align 1 %.val.i52, i64 %..i.i.i.i.i.i), !alias.scope !413, !noalias !408
+  %101 = call i32 @memcmp(ptr nonnull readonly align 1 %.val24.i54, ptr nonnull readonly align 1 %.val.i52, i64 %..i.i.i.i.i.i), !alias.scope !413, !noalias !417
   %102 = sext i32 %101 to i64
   %103 = icmp eq i32 %101, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %103, i64 %100, i64 %102
@@ -10732,16 +10734,16 @@ attributes #31 = { cold }
 !389 = distinct !{!389, !"_ZN4core3str6traits48_$LT$impl$u20$core..cmp..Ord$u20$for$u20$str$GT$3cmp17h57372c44d86e49f3E"}
 !390 = distinct !{!390, !389, !"_ZN4core3str6traits48_$LT$impl$u20$core..cmp..Ord$u20$for$u20$str$GT$3cmp17h57372c44d86e49f3E: argument 1"}
 !391 = !{!392}
-!392 = distinct !{!392, !393, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17hb4400dae34cb778fE: argument 1"}
+!392 = distinct !{!392, !393, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17hb4400dae34cb778fE: argument 0"}
 !393 = distinct !{!393, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17hb4400dae34cb778fE"}
-!394 = !{!"branch_weights", i32 4001, i32 4000000}
-!395 = !{!396}
-!396 = distinct !{!396, !393, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17hb4400dae34cb778fE: argument 0"}
+!394 = !{!395}
+!395 = distinct !{!395, !393, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17hb4400dae34cb778fE: argument 1"}
+!396 = !{!"branch_weights", i32 4001, i32 4000000}
 !397 = !{!398, !400}
 !398 = distinct !{!398, !399, !"_ZN4core3str6traits48_$LT$impl$u20$core..cmp..Ord$u20$for$u20$str$GT$3cmp17h57372c44d86e49f3E: argument 0"}
 !399 = distinct !{!399, !"_ZN4core3str6traits48_$LT$impl$u20$core..cmp..Ord$u20$for$u20$str$GT$3cmp17h57372c44d86e49f3E"}
 !400 = distinct !{!400, !399, !"_ZN4core3str6traits48_$LT$impl$u20$core..cmp..Ord$u20$for$u20$str$GT$3cmp17h57372c44d86e49f3E: argument 1"}
-!401 = !{!396, !392}
+!401 = !{!392, !395}
 !402 = !{!403}
 !403 = distinct !{!403, !404, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h5d3e78ffaadb1c08E: argument 0"}
 !404 = distinct !{!404, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h5d3e78ffaadb1c08E"}
@@ -10749,15 +10751,15 @@ attributes #31 = { cold }
 !406 = distinct !{!406, !407, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h5d3e78ffaadb1c08E: argument 0"}
 !407 = distinct !{!407, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h5d3e78ffaadb1c08E"}
 !408 = !{!409}
-!409 = distinct !{!409, !410, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17ha1df77c2791ce5a6E: argument 1"}
+!409 = distinct !{!409, !410, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17ha1df77c2791ce5a6E: argument 0"}
 !410 = distinct !{!410, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17ha1df77c2791ce5a6E"}
 !411 = !{!412}
-!412 = distinct !{!412, !410, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17ha1df77c2791ce5a6E: argument 0"}
+!412 = distinct !{!412, !410, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17ha1df77c2791ce5a6E: argument 1"}
 !413 = !{!414, !416}
 !414 = distinct !{!414, !415, !"_ZN4core3str6traits48_$LT$impl$u20$core..cmp..Ord$u20$for$u20$str$GT$3cmp17h57372c44d86e49f3E: argument 0"}
 !415 = distinct !{!415, !"_ZN4core3str6traits48_$LT$impl$u20$core..cmp..Ord$u20$for$u20$str$GT$3cmp17h57372c44d86e49f3E"}
 !416 = distinct !{!416, !415, !"_ZN4core3str6traits48_$LT$impl$u20$core..cmp..Ord$u20$for$u20$str$GT$3cmp17h57372c44d86e49f3E: argument 1"}
-!417 = !{!412, !409}
+!417 = !{!409, !412}
 !418 = !{!419}
 !419 = distinct !{!419, !420, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h5d3e78ffaadb1c08E: argument 0"}
 !420 = distinct !{!420, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h5d3e78ffaadb1c08E"}

@@ -12357,7 +12357,7 @@ common.resume:                                    ; preds = %23, %9, %13, %17
 25:                                               ; preds = %23
   %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51, !noalias !3332
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2cbdbb7167435c4eE.llvm.17325921636377926839.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd0cc77981c4ac2e0E.llvm.17325921636377926839.exit", %22
@@ -12488,7 +12488,7 @@ common.resume:                                    ; preds = %22, %8, %12, %16
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51, !noalias !3360
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he97e0a31a9689807E.llvm.17325921636377926839.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h833cac9a7bb419a3E.llvm.17325921636377926839.exit", %21
@@ -32307,7 +32307,7 @@ attributes #52 = { "function-inline-cost-multiplier"="2" }
 !2487 = distinct !{!2487, !2486, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc71daadabf97d181E.llvm.17325921636377926839: argument 1"}
 !2488 = distinct !{!2488, !2486, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc71daadabf97d181E.llvm.17325921636377926839: argument 2"}
 !2489 = !{!2482, !2485, !2487}
-!2490 = !{!2484, !2488}
+!2490 = !{!2484, !2487, !2488}
 !2491 = !{!2492}
 !2492 = distinct !{!2492, !2493, !"_ZN67_$LT$gpui..view..View$LT$V$GT$$u20$as$u20$gpui..Entity$LT$V$GT$$GT$9entity_id17haaa0c9c876534240E: argument 0"}
 !2493 = distinct !{!2493, !"_ZN67_$LT$gpui..view..View$LT$V$GT$$u20$as$u20$gpui..Entity$LT$V$GT$$GT$9entity_id17haaa0c9c876534240E"}
@@ -32583,7 +32583,7 @@ attributes #52 = { "function-inline-cost-multiplier"="2" }
 !2763 = distinct !{!2763, !2762, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc71daadabf97d181E.llvm.17325921636377926839: argument 1"}
 !2764 = distinct !{!2764, !2762, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc71daadabf97d181E.llvm.17325921636377926839: argument 2"}
 !2765 = !{!2758, !2761, !2763}
-!2766 = !{!2760, !2764}
+!2766 = !{!2760, !2763, !2764}
 !2767 = !{!2768}
 !2768 = distinct !{!2768, !2769, !"_ZN4core3ptr69drop_in_place$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$17hc3ba2d070838b69dE.llvm.17325921636377926839: argument 0"}
 !2769 = distinct !{!2769, !"_ZN4core3ptr69drop_in_place$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$17hc3ba2d070838b69dE.llvm.17325921636377926839"}

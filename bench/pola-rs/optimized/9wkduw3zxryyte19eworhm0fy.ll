@@ -63664,7 +63664,7 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !3072 = distinct !{!3072, !3071, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 1"}
 !3073 = distinct !{!3073, !3071, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 2"}
 !3074 = !{!3067, !3070, !3072}
-!3075 = !{!3069, !3073}
+!3075 = !{!3069, !3072, !3073}
 !3076 = !{!3077}
 !3077 = distinct !{!3077, !3078, !"_ZN10polars_sql7context10SQLContext22execute_truncate_table17h304ce36db84972acE: argument 0"}
 !3078 = distinct !{!3078, !"_ZN10polars_sql7context10SQLContext22execute_truncate_table17h304ce36db84972acE"}
@@ -63736,7 +63736,7 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !3144 = distinct !{!3144, !3143, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 1"}
 !3145 = distinct !{!3145, !3143, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 2"}
 !3146 = !{!3139, !3142, !3144, !3077, !3080, !3082}
-!3147 = !{!3141, !3145, !3077, !3080, !3082}
+!3147 = !{!3141, !3144, !3145, !3077, !3080, !3082}
 !3148 = !{!3149, !3151, !3152, !3154, !3155, !3077, !3080, !3082}
 !3149 = distinct !{!3149, !3150, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h24954168357f2337E: argument 0"}
 !3150 = distinct !{!3150, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h24954168357f2337E"}
@@ -63789,7 +63789,7 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !3197 = distinct !{!3197, !3196, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 1"}
 !3198 = distinct !{!3198, !3196, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 2"}
 !3199 = !{!3192, !3195, !3197, !3182, !3187, !3185}
-!3200 = !{!3194, !3198, !3182, !3187, !3185}
+!3200 = !{!3194, !3197, !3198, !3182, !3187, !3185}
 !3201 = !{!3182, !3185}
 !3202 = !{!3203}
 !3203 = distinct !{!3203, !3204, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h512d609b38bf9764E: argument 0"}
@@ -63832,7 +63832,7 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !3240 = distinct !{!3240, !3239, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 1"}
 !3241 = distinct !{!3241, !3239, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 2"}
 !3242 = !{!3235, !3238, !3240, !3226, !3231, !3229}
-!3243 = !{!3237, !3241, !3226, !3231, !3229}
+!3243 = !{!3237, !3240, !3241, !3226, !3231, !3229}
 !3244 = !{!3231, !3229}
 !3245 = !{!3246}
 !3246 = distinct !{!3246, !3247, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc726fd1581b06dc0E: argument 0"}
@@ -64071,7 +64071,7 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !3479 = distinct !{!3479, !3478, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 1"}
 !3480 = distinct !{!3480, !3478, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 2"}
 !3481 = !{!3474, !3477, !3479}
-!3482 = !{!3476, !3480}
+!3482 = !{!3476, !3479, !3480}
 !3483 = !{!3484}
 !3484 = distinct !{!3484, !3485, !"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17h52be62f4ce1ca7d3E: argument 1"}
 !3485 = distinct !{!3485, !"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17h52be62f4ce1ca7d3E"}
@@ -64086,7 +64086,7 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !3494 = distinct !{!3494, !3493, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 1"}
 !3495 = distinct !{!3495, !3493, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 2"}
 !3496 = !{!3489, !3492, !3494}
-!3497 = !{!3491, !3495}
+!3497 = !{!3491, !3494, !3495}
 !3498 = !{!3499, !3501, !3502}
 !3499 = distinct !{!3499, !3500, !"_ZN10polars_sql7context10SQLContext15expr_or_ordinal28_$u7b$$u7b$closure$u7d$$u7d$17hb220e1ce39f4b6dcE: argument 0"}
 !3500 = distinct !{!3500, !"_ZN10polars_sql7context10SQLContext15expr_or_ordinal28_$u7b$$u7b$closure$u7d$$u7d$17hb220e1ce39f4b6dcE"}
@@ -64101,7 +64101,7 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !3509 = distinct !{!3509, !3508, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 1"}
 !3510 = distinct !{!3510, !3508, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 2"}
 !3511 = !{!3504, !3507, !3509, !3499, !3501, !3502}
-!3512 = !{!3506, !3510, !3499}
+!3512 = !{!3506, !3509, !3510, !3499}
 !3513 = !{!3514, !3516, !3517}
 !3514 = distinct !{!3514, !3515, !"_ZN10polars_sql7context10SQLContext15expr_or_ordinal28_$u7b$$u7b$closure$u7d$$u7d$17h03e117bcd5a04ea6E: argument 0"}
 !3515 = distinct !{!3515, !"_ZN10polars_sql7context10SQLContext15expr_or_ordinal28_$u7b$$u7b$closure$u7d$$u7d$17h03e117bcd5a04ea6E"}
@@ -64116,7 +64116,7 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !3524 = distinct !{!3524, !3523, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 1"}
 !3525 = distinct !{!3525, !3523, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 2"}
 !3526 = !{!3519, !3522, !3524, !3514, !3516, !3517}
-!3527 = !{!3521, !3525, !3514}
+!3527 = !{!3521, !3524, !3525, !3514}
 !3528 = !{!3529, !3531, !3533}
 !3529 = distinct !{!3529, !3530, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17he6fc88b22043fa3dE: argument 0"}
 !3530 = distinct !{!3530, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17he6fc88b22043fa3dE"}
@@ -64142,7 +64142,7 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !3550 = distinct !{!3550, !3549, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 1"}
 !3551 = distinct !{!3551, !3549, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 2"}
 !3552 = !{!3545, !3548, !3550}
-!3553 = !{!3547, !3551}
+!3553 = !{!3547, !3550, !3551}
 !3554 = !{!3555}
 !3555 = distinct !{!3555, !3556, !"_ZN10polars_sql7context10SQLContext14execute_select17hb26da346bada9220E: argument 0"}
 !3556 = distinct !{!3556, !"_ZN10polars_sql7context10SQLContext14execute_select17hb26da346bada9220E"}
@@ -64456,7 +64456,7 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !3864 = distinct !{!3864, !3863, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 1"}
 !3865 = distinct !{!3865, !3863, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 2"}
 !3866 = !{!3859, !3862, !3864, !3854, !3857}
-!3867 = !{!3861, !3865, !3854}
+!3867 = !{!3861, !3864, !3865, !3854}
 !3868 = !{!3869, !3871, !3854}
 !3869 = distinct !{!3869, !3870, !"_ZN12polars_error9__private8must_use17h028dca1e996f8e6aE: argument 0"}
 !3870 = distinct !{!3870, !"_ZN12polars_error9__private8must_use17h028dca1e996f8e6aE"}
@@ -64914,7 +64914,7 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !4322 = distinct !{!4322, !4321, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 1"}
 !4323 = distinct !{!4323, !4321, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 2"}
 !4324 = !{!4317, !4320, !4322}
-!4325 = !{!4319, !4323}
+!4325 = !{!4319, !4322, !4323}
 !4326 = !{!4327}
 !4327 = distinct !{!4327, !4328, !"_ZN10polars_sql7context10SQLContext22execute_table_function17ha32dfa56facf1d0aE: argument 0"}
 !4328 = distinct !{!4328, !"_ZN10polars_sql7context10SQLContext22execute_table_function17ha32dfa56facf1d0aE"}
@@ -64939,7 +64939,7 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !4347 = distinct !{!4347, !4346, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 1"}
 !4348 = distinct !{!4348, !4346, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 2"}
 !4349 = !{!4342, !4345, !4347}
-!4350 = !{!4344, !4348}
+!4350 = !{!4344, !4347, !4348}
 !4351 = !{!4352, !4354, !4356}
 !4352 = distinct !{!4352, !4353, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17he6fc88b22043fa3dE: argument 0"}
 !4353 = distinct !{!4353, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17he6fc88b22043fa3dE"}
@@ -65290,7 +65290,7 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !4698 = distinct !{!4698, !4697, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 1"}
 !4699 = distinct !{!4699, !4697, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 2"}
 !4700 = !{!4693, !4696, !4698}
-!4701 = !{!4695, !4699}
+!4701 = !{!4695, !4698, !4699}
 !4702 = !{!4703, !4705}
 !4703 = distinct !{!4703, !4704, !"_ZN12polars_error9__private8must_use17h028dca1e996f8e6aE: argument 0"}
 !4704 = distinct !{!4704, !"_ZN12polars_error9__private8must_use17h028dca1e996f8e6aE"}
@@ -65304,7 +65304,7 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !4712 = distinct !{!4712, !4711, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 1"}
 !4713 = distinct !{!4713, !4711, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 2"}
 !4714 = !{!4707, !4710, !4712}
-!4715 = !{!4709, !4713}
+!4715 = !{!4709, !4712, !4713}
 !4716 = !{!4717, !4719}
 !4717 = distinct !{!4717, !4718, !"_ZN12polars_error9__private8must_use17h028dca1e996f8e6aE: argument 0"}
 !4718 = distinct !{!4718, !"_ZN12polars_error9__private8must_use17h028dca1e996f8e6aE"}
@@ -65607,7 +65607,7 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !5015 = distinct !{!5015, !5014, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 1"}
 !5016 = distinct !{!5016, !5014, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 2"}
 !5017 = !{!5010, !5013, !5015}
-!5018 = !{!5012, !5016}
+!5018 = !{!5012, !5015, !5016}
 !5019 = !{!5020, !5022, !5023, !5025, !5026}
 !5020 = distinct !{!5020, !5021, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h24954168357f2337E: argument 0"}
 !5021 = distinct !{!5021, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h24954168357f2337E"}
@@ -65617,7 +65617,7 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !5025 = distinct !{!5025, !5024, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 1"}
 !5026 = distinct !{!5026, !5024, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 2"}
 !5027 = !{!5020, !5023, !5025}
-!5028 = !{!5022, !5026}
+!5028 = !{!5022, !5025, !5026}
 !5029 = !{!5030, !5032, !5033, !5035, !5036}
 !5030 = distinct !{!5030, !5031, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h24954168357f2337E: argument 0"}
 !5031 = distinct !{!5031, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h24954168357f2337E"}
@@ -65627,7 +65627,7 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !5035 = distinct !{!5035, !5034, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 1"}
 !5036 = distinct !{!5036, !5034, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 2"}
 !5037 = !{!5030, !5033, !5035}
-!5038 = !{!5032, !5036}
+!5038 = !{!5032, !5035, !5036}
 !5039 = !{!5040}
 !5040 = distinct !{!5040, !5041, !"_ZN11compact_str4repr4Repr8as_slice17hc7a0720dd5185931E: argument 0"}
 !5041 = distinct !{!5041, !"_ZN11compact_str4repr4Repr8as_slice17hc7a0720dd5185931E"}
@@ -65654,7 +65654,7 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !5062 = distinct !{!5062, !5061, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 1"}
 !5063 = distinct !{!5063, !5061, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h02aabbc0304a8766E: argument 2"}
 !5064 = !{!5057, !5060, !5062, !5046, !5049, !5051, !5054, !5055}
-!5065 = !{!5059, !5063, !5046, !5049, !5051, !5054, !5055}
+!5065 = !{!5059, !5062, !5063, !5046, !5049, !5051, !5054, !5055}
 !5066 = !{!5049, !5051, !5054, !5055}
 !5067 = !{!5046, !5051, !5054, !5055}
 !5068 = !{!5046, !5049, !5054, !5055}

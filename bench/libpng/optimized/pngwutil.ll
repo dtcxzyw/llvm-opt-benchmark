@@ -1695,6 +1695,7 @@ png_write_chunk_header.exit:                      ; preds = %55
 
 .split.us.i:                                      ; preds = %55
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12, !noalias !113
+  call void @llvm.experimental.noalias.scope.decl(metadata !119)
   %.0.us24.i = load ptr, ptr inttoptr (i64 432 to ptr), align 16, !tbaa !36, !alias.scope !119
   %81 = icmp ult i32 %56, 1025
   %82 = icmp eq ptr %.0.us24.i, null
@@ -1709,7 +1710,7 @@ png_write_chunk_header.exit:                      ; preds = %55
 png_write_chunk_data.exit.us.i:                   ; preds = %png_write_chunk_data.exit.us.i, %.lr.ph.i
   %85 = phi i32 [ %83, %.lr.ph.i ], [ %86, %png_write_chunk_data.exit.us.i ]
   %.0.us27.i = phi ptr [ %.0.us24.i, %.lr.ph.i ], [ %.0.us.i, %png_write_chunk_data.exit.us.i ]
-  %.0.us.i = load ptr, ptr %.0.us27.i, align 8, !tbaa !36
+  %.0.us.i = load ptr, ptr %.0.us27.i, align 8, !tbaa !36, !noalias !119
   %86 = call i32 @llvm.usub.sat.i32(i32 %85, i32 %84)
   %87 = icmp ule i32 %85, %84
   %88 = icmp eq ptr %.0.us.i, null
@@ -3235,6 +3236,7 @@ png_write_chunk_header.exit:                      ; preds = %28
 
 .split.us.i:                                      ; preds = %28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12, !noalias !198
+  call void @llvm.experimental.noalias.scope.decl(metadata !204)
   %.0.us24.i = load ptr, ptr inttoptr (i64 432 to ptr), align 16, !tbaa !36, !alias.scope !204
   %54 = icmp ult i32 %29, 1025
   %55 = icmp eq ptr %.0.us24.i, null
@@ -3249,7 +3251,7 @@ png_write_chunk_header.exit:                      ; preds = %28
 png_write_chunk_data.exit.us.i:                   ; preds = %png_write_chunk_data.exit.us.i, %.lr.ph.i
   %58 = phi i32 [ %56, %.lr.ph.i ], [ %59, %png_write_chunk_data.exit.us.i ]
   %.0.us27.i = phi ptr [ %.0.us24.i, %.lr.ph.i ], [ %.0.us.i, %png_write_chunk_data.exit.us.i ]
-  %.0.us.i = load ptr, ptr %.0.us27.i, align 8, !tbaa !36
+  %.0.us.i = load ptr, ptr %.0.us27.i, align 8, !tbaa !36, !noalias !204
   %59 = call i32 @llvm.usub.sat.i32(i32 %58, i32 %57)
   %60 = icmp ule i32 %58, %57
   %61 = icmp eq ptr %.0.us.i, null
@@ -3527,7 +3529,7 @@ png_write_compressed_data_out.exit.thread:        ; preds = %54
 png_write_chunk_data.exit.us.i:                   ; preds = %png_write_chunk_data.exit.us.i, %.lr.ph.i
   %90 = phi i32 [ %88, %.lr.ph.i ], [ %91, %png_write_chunk_data.exit.us.i ]
   %.0.us27.i = phi ptr [ %.0.us24.i, %.lr.ph.i ], [ %.0.us.i, %png_write_chunk_data.exit.us.i ]
-  %.0.us.i = load ptr, ptr %.0.us27.i, align 8, !tbaa !36
+  %.0.us.i = load ptr, ptr %.0.us27.i, align 8, !tbaa !36, !noalias !217
   %91 = call i32 @llvm.usub.sat.i32(i32 %90, i32 %89)
   %92 = icmp ule i32 %90, %89
   %93 = icmp eq ptr %.0.us.i, null

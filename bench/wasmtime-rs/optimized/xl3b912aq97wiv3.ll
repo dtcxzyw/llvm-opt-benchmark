@@ -1119,6 +1119,7 @@ define internal fastcc void @_ZN3std10sys_common9backtrace26__rust_end_short_bac
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h7befee5166dcaa52E"(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) initializes((0, 24)) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(24) %1) unnamed_addr #1 {
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !160)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %5, label %3
 
@@ -1133,7 +1134,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3, %2
-  %6 = tail call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17ha9236b60ee6bd33cE()
+  %6 = tail call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17ha9236b60ee6bd33cE(), !noalias !160
   br label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h4877270a288ca9cbE.llvm.2549290644214205701.exit"
 
 7:                                                ; preds = %3
@@ -14930,7 +14931,7 @@ attributes #37 = { cold noreturn nounwind }
 !2397 = distinct !{!2397, !2398, !"_ZN4core5slice4sort9quicksort17hb8d6d407a6e04771E: argument 0"}
 !2398 = distinct !{!2398, !"_ZN4core5slice4sort9quicksort17hb8d6d407a6e04771E"}
 !2399 = distinct !{!2399, !2398, !"_ZN4core5slice4sort9quicksort17hb8d6d407a6e04771E: argument 1"}
-!2400 = !{!2386, !2392}
+!2400 = !{!2386, !2389, !2392}
 !2401 = !{!2386, !2391, !2392}
 !2402 = !{!2403, !2405, !2406, !2408, !2386, !2389, !2391, !2392}
 !2403 = distinct !{!2403, !2404, !"_ZN18wasmtime_cranelift5debug9transform17address_transform18TransformRangeIter3new17hbaaaf9078909da0cE.llvm.12599983639457799574: argument 0"}
@@ -14949,7 +14950,7 @@ attributes #37 = { cold noreturn nounwind }
 !2416 = distinct !{!2416, !2414, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h21530768847aa348E.llvm.8882213390170994431: argument 1"}
 !2417 = distinct !{!2417, !2414, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h21530768847aa348E.llvm.8882213390170994431: argument 2"}
 !2418 = !{!2408, !2386, !2389, !2391, !2392}
-!2419 = !{!2406, !2386, !2392}
+!2419 = !{!2406, !2386, !2389, !2392}
 !2420 = !{!2406, !2408, !2386, !2389, !2391, !2392}
 !2421 = !{!2389, !2391, !2392}
 !2422 = !{!2423}

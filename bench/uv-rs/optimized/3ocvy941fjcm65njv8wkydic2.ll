@@ -4139,9 +4139,9 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.011.027.i, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %.sroa.514.i, ptr noundef nonnull align 1 dereferenceable(17) %24, i64 17, i1 false), !noalias !533
   %25 = getelementptr inbounds { [18 x i8] }, ptr %15, i64 %.sroa.7.025.i
-  store i8 %23, ptr %25, align 1, !noalias !533
+  store i8 %23, ptr %25, align 1, !noalias !527
   %.sroa.419.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %.sroa.419.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(17) %.sroa.514.i, i64 17, i1 false), !noalias !533
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %.sroa.419.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(17) %.sroa.514.i, i64 17, i1 false), !noalias !527
   %26 = icmp eq i64 %20, 0
   br i1 %26, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h85d88e1d25b2a1a2E.llvm.5695127635217446960.exit", label %.lr.ph.i
 

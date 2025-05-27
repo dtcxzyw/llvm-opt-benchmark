@@ -1700,7 +1700,7 @@ define internal noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17h13
   br i1 %5, label %"_ZN3std3sys12thread_local6native4lazy20Storage$LT$T$C$D$GT$10initialize17h7bf05189d49c9739E.exit.i.i", label %6
 
 6:                                                ; preds = %4, %3
-  %7 = tail call { i64, i64 } @_ZN3std3sys6random5linux19hashmap_random_keys17h771b3cc9cca338bdE()
+  %7 = tail call { i64, i64 } @_ZN3std3sys6random5linux19hashmap_random_keys17h771b3cc9cca338bdE(), !noalias !129
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = extractvalue { i64, i64 } %7, 1
   br label %"_ZN3std3sys12thread_local6native4lazy20Storage$LT$T$C$D$GT$10initialize17h7bf05189d49c9739E.exit.i.i"

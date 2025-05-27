@@ -4221,17 +4221,17 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   ]
 
 46:                                               ; preds = %38
-  %47 = tail call noundef zeroext i1 @_ZN12polars_arrow9datatypes13ArrowDataType10is_numeric17h40dd043536f4b65bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %44), !noalias !311
-  %48 = load i8, ptr %44, align 8, !range !50, !noalias !311, !noundef !6
+  %47 = tail call noundef zeroext i1 @_ZN12polars_arrow9datatypes13ArrowDataType10is_numeric17h40dd043536f4b65bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %44), !noalias !308
+  %48 = load i8, ptr %44, align 8, !range !50, !noalias !308, !noundef !6
   br i1 %47, label %65, label %64
 
 49:                                               ; preds = %38
-  %50 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !311
+  %50 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !308
   %51 = extractvalue { ptr, ptr } %50, 0
   %52 = extractvalue { ptr, ptr } %50, 1
   %53 = getelementptr i8, ptr %52, i64 24
-  %.val121.i = load ptr, ptr %53, align 8, !noalias !311
-  %54 = tail call { i64, i64 } %.val121.i(ptr noundef nonnull align 1 %51), !noalias !311
+  %.val121.i = load ptr, ptr %53, align 8, !noalias !308
+  %54 = tail call { i64, i64 } %.val121.i(ptr noundef nonnull align 1 %51), !noalias !308
   %55 = extractvalue { i64, i64 } %54, 0
   %56 = icmp ne i64 %55, 9047506222392209442
   %57 = extractvalue { i64, i64 } %54, 1
@@ -4243,19 +4243,19 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %25), !noalias !308
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17), !noalias !308
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %17, ptr noundef nonnull align 8 %60), !noalias !311
+  call void @_ZN12polars_arrow6bitmap9immutable6Bitmap4iter17h50a0000836b81d99E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %17, ptr noundef nonnull align 8 %60), !noalias !308
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 64
-  %62 = load ptr, ptr %61, align 8, !noalias !311, !noundef !6
+  %62 = load ptr, ptr %61, align 8, !noalias !308, !noundef !6
   %.not58.i = icmp eq ptr %62, null
   %.88.i = select i1 %.not58.i, ptr null, ptr %61
-  call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hc4e84bba2305e181E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %25, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %17, ptr noundef align 8 %.88.i), !noalias !311
+  call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hc4e84bba2305e181E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %25, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %17, ptr noundef align 8 %.88.i), !noalias !308
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17), !noalias !308
-  call void @_ZN10polars_row5fixed7boolean11encode_bool17hf1666f11653cb1c6E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %25, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6)
+  call void @_ZN10polars_row5fixed7boolean11encode_bool17hf1666f11653cb1c6E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %25, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6), !noalias !305
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %25), !noalias !308
   br label %_ZN10polars_row6encode17encode_flat_array17h0e072128b68a27f1E.exit
 
 63:                                               ; preds = %49
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.67) #19, !noalias !311
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.67) #19, !noalias !308
   unreachable
 
 64:                                               ; preds = %46
@@ -4281,7 +4281,7 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
     i8 36, label %125
     i8 37, label %135
     i8 38, label %136
-  ], !prof !312
+  ], !prof !311
 
 65:                                               ; preds = %46
   %66 = icmp ne i8 %48, 9
@@ -4290,20 +4290,20 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %or.cond.i, label %189, label %191
 
 67:                                               ; preds = %64
-  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.18, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.84) #19, !noalias !311
+  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.18, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.84) #19, !noalias !308
   unreachable
 
 68:                                               ; preds = %64, %64, %64, %64, %64, %64, %64
-  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.18, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.68) #19, !noalias !311
+  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.18, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.68) #19, !noalias !308
   unreachable
 
 69:                                               ; preds = %64
-  %70 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !311
+  %70 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !308
   %71 = extractvalue { ptr, ptr } %70, 0
   %72 = extractvalue { ptr, ptr } %70, 1
   %73 = getelementptr i8, ptr %72, i64 24
-  %.val.i = load ptr, ptr %73, align 8, !noalias !311
-  %74 = tail call { i64, i64 } %.val.i(ptr noundef nonnull align 1 %71), !noalias !311
+  %.val.i = load ptr, ptr %73, align 8, !noalias !308
+  %74 = tail call { i64, i64 } %.val.i(ptr noundef nonnull align 1 %71), !noalias !308
   %75 = extractvalue { i64, i64 } %74, 0
   %76 = icmp ne i64 %75, 8324995987993682601
   %77 = extractvalue { i64, i64 } %74, 1
@@ -4312,16 +4312,16 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %.sroa.0.0.i135.not.i, label %145, label %137, !prof !27
 
 79:                                               ; preds = %64
-  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.70, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.71) #19, !noalias !311
+  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.70, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.71) #19, !noalias !308
   unreachable
 
 80:                                               ; preds = %64
-  %81 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !311
+  %81 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !308
   %82 = extractvalue { ptr, ptr } %81, 0
   %83 = extractvalue { ptr, ptr } %81, 1
   %84 = getelementptr i8, ptr %83, i64 24
-  %.val116.i = load ptr, ptr %84, align 8, !noalias !311
-  %85 = tail call { i64, i64 } %.val116.i(ptr noundef nonnull align 1 %82), !noalias !311
+  %.val116.i = load ptr, ptr %84, align 8, !noalias !308
+  %85 = tail call { i64, i64 } %.val116.i(ptr noundef nonnull align 1 %82), !noalias !308
   %86 = extractvalue { i64, i64 } %85, 0
   %87 = icmp ne i64 %86, -2388166395891534354
   %88 = extractvalue { i64, i64 } %85, 1
@@ -4330,12 +4330,12 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %.sroa.0.0.i136.not.i, label %154, label %146, !prof !27
 
 90:                                               ; preds = %64
-  %91 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !311
+  %91 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !308
   %92 = extractvalue { ptr, ptr } %91, 0
   %93 = extractvalue { ptr, ptr } %91, 1
   %94 = getelementptr i8, ptr %93, i64 24
-  %.val117.i = load ptr, ptr %94, align 8, !noalias !311
-  %95 = tail call { i64, i64 } %.val117.i(ptr noundef nonnull align 1 %92), !noalias !311
+  %.val117.i = load ptr, ptr %94, align 8, !noalias !308
+  %95 = tail call { i64, i64 } %.val117.i(ptr noundef nonnull align 1 %92), !noalias !308
   %96 = extractvalue { i64, i64 } %95, 0
   %97 = icmp ne i64 %96, -4243404910065975496
   %98 = extractvalue { i64, i64 } %95, 1
@@ -4344,12 +4344,12 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %.sroa.0.0.i137.not.i, label %163, label %155, !prof !27
 
 100:                                              ; preds = %64
-  %101 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !311
+  %101 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !308
   %102 = extractvalue { ptr, ptr } %101, 0
   %103 = extractvalue { ptr, ptr } %101, 1
   %104 = getelementptr i8, ptr %103, i64 24
-  %.val118.i = load ptr, ptr %104, align 8, !noalias !311
-  %105 = tail call { i64, i64 } %.val118.i(ptr noundef nonnull align 1 %102), !noalias !311
+  %.val118.i = load ptr, ptr %104, align 8, !noalias !308
+  %105 = tail call { i64, i64 } %.val118.i(ptr noundef nonnull align 1 %102), !noalias !308
   %106 = extractvalue { i64, i64 } %105, 0
   %107 = icmp ne i64 %106, 6585618511097865896
   %108 = extractvalue { i64, i64 } %105, 1
@@ -4358,32 +4358,32 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %.sroa.0.0.i138.not.i, label %172, label %164, !prof !27
 
 110:                                              ; preds = %64
-  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.70, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.75) #19, !noalias !311
+  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.70, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.75) #19, !noalias !308
   unreachable
 
 111:                                              ; preds = %64
-  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.70, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.76) #19, !noalias !311
+  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.70, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.76) #19, !noalias !308
   unreachable
 
 112:                                              ; preds = %64
-  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.70, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.77) #19, !noalias !311
+  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.70, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.77) #19, !noalias !308
   unreachable
 
 113:                                              ; preds = %64
-  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.70, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.78) #19, !noalias !311
+  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.70, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.78) #19, !noalias !308
   unreachable
 
 114:                                              ; preds = %64
-  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.70, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.79) #19, !noalias !311
+  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.70, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.79) #19, !noalias !308
   unreachable
 
 115:                                              ; preds = %64
-  %116 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !311
+  %116 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !308
   %117 = extractvalue { ptr, ptr } %116, 0
   %118 = extractvalue { ptr, ptr } %116, 1
   %119 = getelementptr i8, ptr %118, i64 24
-  %.val119.i = load ptr, ptr %119, align 8, !noalias !311
-  %120 = tail call { i64, i64 } %.val119.i(ptr noundef nonnull align 1 %117), !noalias !311
+  %.val119.i = load ptr, ptr %119, align 8, !noalias !308
+  %120 = tail call { i64, i64 } %.val119.i(ptr noundef nonnull align 1 %117), !noalias !308
   %121 = extractvalue { i64, i64 } %120, 0
   %122 = icmp ne i64 %121, -5133974785058079944
   %123 = extractvalue { i64, i64 } %120, 1
@@ -4392,12 +4392,12 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %.sroa.0.0.i139.not.i, label %180, label %173, !prof !27
 
 125:                                              ; preds = %64
-  %126 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !311
+  %126 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !308
   %127 = extractvalue { ptr, ptr } %126, 0
   %128 = extractvalue { ptr, ptr } %126, 1
   %129 = getelementptr i8, ptr %128, i64 24
-  %.val120.i = load ptr, ptr %129, align 8, !noalias !311
-  %130 = tail call { i64, i64 } %.val120.i(ptr noundef nonnull align 1 %127), !noalias !311
+  %.val120.i = load ptr, ptr %129, align 8, !noalias !308
+  %130 = tail call { i64, i64 } %.val120.i(ptr noundef nonnull align 1 %127), !noalias !308
   %131 = extractvalue { i64, i64 } %130, 0
   %132 = icmp ne i64 %131, -4691702406351074806
   %133 = extractvalue { i64, i64 } %130, 1
@@ -4406,18 +4406,18 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %.sroa.0.0.i140.not.i, label %188, label %181, !prof !27
 
 135:                                              ; preds = %64
-  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.70, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.82) #19, !noalias !311
+  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.70, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.82) #19, !noalias !308
   unreachable
 
 136:                                              ; preds = %64
-  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.70, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.83) #19, !noalias !311
+  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.70, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.83) #19, !noalias !308
   unreachable
 
 137:                                              ; preds = %69
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23), !noalias !308
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16), !noalias !308
   %138 = getelementptr inbounds nuw i8, ptr %71, i64 48
-  %139 = load i64, ptr %138, align 8, !noalias !311, !noundef !6
+  %139 = load i64, ptr %138, align 8, !noalias !308, !noundef !6
   %140 = add i64 %139, -1
   store ptr %71, ptr %16, align 8, !noalias !308
   %141 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -4425,24 +4425,24 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   %142 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 %140, ptr %142, align 8, !noalias !308
   %143 = getelementptr inbounds nuw i8, ptr %71, i64 80
-  %144 = load ptr, ptr %143, align 8, !noalias !311, !noundef !6
+  %144 = load ptr, ptr %143, align 8, !noalias !308, !noundef !6
   %.not70.i = icmp eq ptr %144, null
   %.95.i = select i1 %.not70.i, ptr null, ptr %143
-  call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17he713328b213179deE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %23, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16, ptr noundef align 8 %.95.i), !noalias !311
+  call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17he713328b213179deE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %23, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16, ptr noundef align 8 %.95.i), !noalias !308
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16), !noalias !308
-  call void @_ZN10polars_row6encode11encode_bins17h8f38b2e21c17d9abE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %23, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6)
+  call void @_ZN10polars_row6encode11encode_bins17h8f38b2e21c17d9abE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %23, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6), !noalias !305
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %23), !noalias !308
   br label %_ZN10polars_row6encode17encode_flat_array17h0e072128b68a27f1E.exit
 
 145:                                              ; preds = %69
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.69) #19, !noalias !311
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.69) #19, !noalias !308
   unreachable
 
 146:                                              ; preds = %80
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22), !noalias !308
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !308
   %147 = getelementptr inbounds nuw i8, ptr %82, i64 48
-  %148 = load i64, ptr %147, align 8, !noalias !311, !noundef !6
+  %148 = load i64, ptr %147, align 8, !noalias !308, !noundef !6
   %149 = add i64 %148, -1
   store ptr %82, ptr %15, align 8, !noalias !308
   %150 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -4450,24 +4450,24 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   %151 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 %149, ptr %151, align 8, !noalias !308
   %152 = getelementptr inbounds nuw i8, ptr %82, i64 80
-  %153 = load ptr, ptr %152, align 8, !noalias !311, !noundef !6
+  %153 = load ptr, ptr %152, align 8, !noalias !308, !noundef !6
   %.not68.i = icmp eq ptr %153, null
   %.96.i = select i1 %.not68.i, ptr null, ptr %152
-  call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hcabba42cd27f93c8E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %22, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15, ptr noundef align 8 %.96.i), !noalias !311
+  call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hcabba42cd27f93c8E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %22, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15, ptr noundef align 8 %.96.i), !noalias !308
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !308
-  call void @_ZN10polars_row6encode11encode_bins17h1b50419a43aed8e5E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %22, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6)
+  call void @_ZN10polars_row6encode11encode_bins17h1b50419a43aed8e5E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %22, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6), !noalias !305
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22), !noalias !308
   br label %_ZN10polars_row6encode17encode_flat_array17h0e072128b68a27f1E.exit
 
 154:                                              ; preds = %80
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.72) #19, !noalias !311
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.72) #19, !noalias !308
   unreachable
 
 155:                                              ; preds = %90
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %20), !noalias !308
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !308
   %156 = getelementptr inbounds nuw i8, ptr %92, i64 48
-  %157 = load i64, ptr %156, align 8, !noalias !311, !noundef !6
+  %157 = load i64, ptr %156, align 8, !noalias !308, !noundef !6
   %158 = add i64 %157, -1
   store ptr %92, ptr %13, align 8, !noalias !308
   %159 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -4475,24 +4475,24 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   %160 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %158, ptr %160, align 8, !noalias !308
   %161 = getelementptr inbounds nuw i8, ptr %92, i64 80
-  %162 = load ptr, ptr %161, align 8, !noalias !311, !noundef !6
+  %162 = load ptr, ptr %161, align 8, !noalias !308, !noundef !6
   %.not66.i = icmp eq ptr %162, null
   %.97.i = select i1 %.not66.i, ptr null, ptr %161
-  call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hacc17dd7df837de6E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13, ptr noundef align 8 %.97.i), !noalias !311
+  call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hacc17dd7df837de6E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13, ptr noundef align 8 %.97.i), !noalias !308
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !308
-  call void @_ZN10polars_row6encode11encode_strs17ha7036d1dccab685dE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %20, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6)
+  call void @_ZN10polars_row6encode11encode_strs17ha7036d1dccab685dE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %20, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6), !noalias !305
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %20), !noalias !308
   br label %_ZN10polars_row6encode17encode_flat_array17h0e072128b68a27f1E.exit
 
 163:                                              ; preds = %90
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.73) #19, !noalias !311
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.73) #19, !noalias !308
   unreachable
 
 164:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %19), !noalias !308
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !308
   %165 = getelementptr inbounds nuw i8, ptr %102, i64 48
-  %166 = load i64, ptr %165, align 8, !noalias !311, !noundef !6
+  %166 = load i64, ptr %165, align 8, !noalias !308, !noundef !6
   %167 = add i64 %166, -1
   store ptr %102, ptr %12, align 8, !noalias !308
   %168 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -4500,65 +4500,65 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   %169 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %167, ptr %169, align 8, !noalias !308
   %170 = getelementptr inbounds nuw i8, ptr %102, i64 80
-  %171 = load ptr, ptr %170, align 8, !noalias !311, !noundef !6
+  %171 = load ptr, ptr %170, align 8, !noalias !308, !noundef !6
   %.not64.i = icmp eq ptr %171, null
   %.98.i = select i1 %.not64.i, ptr null, ptr %170
-  call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17h67ead31d3922d420E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12, ptr noundef align 8 %.98.i), !noalias !311
+  call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17h67ead31d3922d420E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12, ptr noundef align 8 %.98.i), !noalias !308
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !308
-  call void @_ZN10polars_row6encode11encode_strs17h082e2363e484a964E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %19, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6)
+  call void @_ZN10polars_row6encode11encode_strs17h082e2363e484a964E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %19, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6), !noalias !305
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19), !noalias !308
   br label %_ZN10polars_row6encode17encode_flat_array17h0e072128b68a27f1E.exit
 
 172:                                              ; preds = %100
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.74) #19, !noalias !311
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.74) #19, !noalias !308
   unreachable
 
 173:                                              ; preds = %115
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21), !noalias !308
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !308
   %174 = getelementptr inbounds nuw i8, ptr %117, i64 48
-  %175 = load i64, ptr %174, align 8, !noalias !311, !noundef !6
+  %175 = load i64, ptr %174, align 8, !noalias !308, !noundef !6
   store ptr %117, ptr %14, align 8, !noalias !308
   %176 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %176, align 8, !noalias !308
   %177 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 %175, ptr %177, align 8, !noalias !308
   %178 = getelementptr inbounds nuw i8, ptr %117, i64 72
-  %179 = load ptr, ptr %178, align 8, !noalias !311, !noundef !6
+  %179 = load ptr, ptr %178, align 8, !noalias !308, !noundef !6
   %.not62.i = icmp eq ptr %179, null
   %.99.i = select i1 %.not62.i, ptr null, ptr %178
-  call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hc4445bb28c27095cE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %21, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14, ptr noundef align 8 %.99.i), !noalias !311
+  call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hc4445bb28c27095cE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %21, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14, ptr noundef align 8 %.99.i), !noalias !308
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !308
-  call void @_ZN10polars_row6encode11encode_bins17hdd3cb195bbf4122aE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %21, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6)
+  call void @_ZN10polars_row6encode11encode_bins17hdd3cb195bbf4122aE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %21, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6), !noalias !305
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %21), !noalias !308
   br label %_ZN10polars_row6encode17encode_flat_array17h0e072128b68a27f1E.exit
 
 180:                                              ; preds = %115
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.80) #19, !noalias !311
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.80) #19, !noalias !308
   unreachable
 
 181:                                              ; preds = %125
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18), !noalias !308
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !308
   %182 = getelementptr inbounds nuw i8, ptr %127, i64 48
-  %183 = load i64, ptr %182, align 8, !noalias !311, !noundef !6
+  %183 = load i64, ptr %182, align 8, !noalias !308, !noundef !6
   store ptr %127, ptr %11, align 8, !noalias !308
   %184 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %184, align 8, !noalias !308
   %185 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 %183, ptr %185, align 8, !noalias !308
   %186 = getelementptr inbounds nuw i8, ptr %127, i64 72
-  %187 = load ptr, ptr %186, align 8, !noalias !311, !noundef !6
+  %187 = load ptr, ptr %186, align 8, !noalias !308, !noundef !6
   %.not60.i = icmp eq ptr %187, null
   %.100.i = select i1 %.not60.i, ptr null, ptr %186
-  call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hc2d4e6730c608cd8E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %11, ptr noundef align 8 %.100.i), !noalias !311
+  call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17hc2d4e6730c608cd8E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %11, ptr noundef align 8 %.100.i), !noalias !308
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !308
-  call void @_ZN10polars_row6encode11encode_strs17hf45cd1cf4ed9cebcE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %18, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6)
+  call void @_ZN10polars_row6encode11encode_strs17hf45cd1cf4ed9cebcE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %18, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6), !noalias !305
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %18), !noalias !308
   br label %_ZN10polars_row6encode17encode_flat_array17h0e072128b68a27f1E.exit
 
 188:                                              ; preds = %125
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.81) #19, !noalias !311
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.81) #19, !noalias !308
   unreachable
 
 189:                                              ; preds = %65
@@ -4567,12 +4567,12 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %or.cond103.i, label %225, label %226
 
 191:                                              ; preds = %65
-  %192 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !311
+  %192 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !308
   %193 = extractvalue { ptr, ptr } %192, 0
   %194 = extractvalue { ptr, ptr } %192, 1
   %195 = getelementptr i8, ptr %194, i64 24
-  %.val123.i = load ptr, ptr %195, align 8, !noalias !311
-  %196 = tail call { i64, i64 } %.val123.i(ptr noundef nonnull align 1 %193), !noalias !311
+  %.val123.i = load ptr, ptr %195, align 8, !noalias !308
+  %196 = tail call { i64, i64 } %.val123.i(ptr noundef nonnull align 1 %193), !noalias !308
   %197 = extractvalue { i64, i64 } %196, 0
   %198 = icmp ne i64 %197, 4396411619942343068
   %199 = extractvalue { i64, i64 } %196, 1
@@ -4581,7 +4581,7 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %.sroa.0.0.i141.not.i, label %206, label %201, !prof !27
 
 201:                                              ; preds = %191
-  %202 = load i64, ptr %4, align 8, !range !51, !alias.scope !305, !noalias !311, !noundef !6
+  %202 = load i64, ptr %4, align 8, !range !51, !alias.scope !305, !noalias !312, !noundef !6
   %203 = add i64 %202, 9223372036854775807
   %204 = icmp ugt i64 %203, 2
   %205 = icmp ne i64 %203, 1
@@ -4589,17 +4589,17 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %204, label %207, label %211, !prof !31
 
 206:                                              ; preds = %191
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.85) #19, !noalias !311
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.85) #19, !noalias !308
   unreachable
 
 207:                                              ; preds = %201
   %208 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %209 = load i8, ptr %208, align 4, !range !90, !alias.scope !305, !noalias !311, !noundef !6
+  %209 = load i8, ptr %208, align 4, !range !90, !alias.scope !305, !noalias !312, !noundef !6
   %210 = trunc nuw i8 %209 to i1
   br i1 %210, label %213, label %212
 
 211:                                              ; preds = %201
-  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.18, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.86) #19, !noalias !311
+  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.18, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.86) #19, !noalias !308
   unreachable
 
 212:                                              ; preds = %207
@@ -4607,23 +4607,23 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %.not86.i, label %224, label %215
 
 213:                                              ; preds = %207
-  %214 = tail call noundef i64 @_ZN10polars_row3row29RowEncodingCategoricalContext15needed_num_bits17h3a216dfc98b7c330E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) dereferenceable_or_null(32) %4), !noalias !311
+  %214 = tail call noundef i64 @_ZN10polars_row3row29RowEncodingCategoricalContext15needed_num_bits17h3a216dfc98b7c330E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) dereferenceable_or_null(32) %4), !noalias !312
   tail call void @_ZN10polars_row5fixed10packed_u326encode17h1fe7d36106a92511E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %193, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6, i64 noundef %214)
   br label %_ZN10polars_row6encode17encode_flat_array17h0e072128b68a27f1E.exit
 
 215:                                              ; preds = %212
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %24), !noalias !308
   %216 = getelementptr inbounds nuw i8, ptr %193, i64 40
-  %217 = load ptr, ptr %216, align 8, !noalias !311, !noundef !6
+  %217 = load ptr, ptr %216, align 8, !noalias !308, !noundef !6
   %218 = getelementptr inbounds nuw i8, ptr %193, i64 48
-  %219 = load i64, ptr %218, align 8, !noalias !311, !noundef !6
+  %219 = load i64, ptr %218, align 8, !noalias !308, !noundef !6
   %220 = getelementptr inbounds nuw i32, ptr %217, i64 %219
   %221 = getelementptr inbounds nuw i8, ptr %193, i64 56
-  %222 = load ptr, ptr %221, align 8, !noalias !311, !noundef !6
+  %222 = load ptr, ptr %221, align 8, !noalias !308, !noundef !6
   %.not87.i = icmp eq ptr %222, null
   %.102.i = select i1 %.not87.i, ptr null, ptr %221
   %223 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17he615fb4439042fa2E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %223, ptr noundef nonnull %217, ptr noundef %220, ptr noundef align 8 %.102.i), !noalias !311
+  call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17he615fb4439042fa2E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %223, ptr noundef nonnull %217, ptr noundef %220, ptr noundef align 8 %.102.i), !noalias !308
   store ptr %4, ptr %24, align 8, !noalias !308
   call void @_ZN10polars_row5fixed7numeric11encode_iter17h86391f22be11dd8eE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %24, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %24), !noalias !308
@@ -4649,7 +4649,7 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   ], !prof !313
 
 226:                                              ; preds = %189
-  %227 = load i64, ptr %4, align 8, !range !51, !alias.scope !305, !noalias !311, !noundef !6
+  %227 = load i64, ptr %4, align 8, !range !51, !alias.scope !305, !noalias !312, !noundef !6
   %228 = add i64 %227, 9223372036854775807
   %229 = icmp ne i64 %228, 1
   tail call void @llvm.assume(i1 %229)
@@ -4657,12 +4657,12 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %230, label %231, label %.thread.i
 
 231:                                              ; preds = %226
-  %232 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !311
+  %232 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !308
   %233 = extractvalue { ptr, ptr } %232, 0
   %234 = extractvalue { ptr, ptr } %232, 1
   %235 = getelementptr i8, ptr %234, i64 24
-  %.val125.i = load ptr, ptr %235, align 8, !noalias !311
-  %236 = tail call { i64, i64 } %.val125.i(ptr noundef nonnull align 1 %233), !noalias !311
+  %.val125.i = load ptr, ptr %235, align 8, !noalias !308
+  %236 = tail call { i64, i64 } %.val125.i(ptr noundef nonnull align 1 %233), !noalias !308
   %237 = extractvalue { i64, i64 } %236, 0
   %238 = icmp ne i64 %237, 1976741281623731233
   %239 = extractvalue { i64, i64 } %236, 1
@@ -4672,25 +4672,25 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
 
 241:                                              ; preds = %231
   %242 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %243 = load i64, ptr %242, align 8, !alias.scope !305, !noalias !311, !noundef !6
-  tail call void @_ZN10polars_row5fixed7decimal6encode17hf310c366a7430b8fE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %233, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6, i64 noundef %243)
+  %243 = load i64, ptr %242, align 8, !alias.scope !305, !noalias !312, !noundef !6
+  tail call void @_ZN10polars_row5fixed7decimal6encode17hf310c366a7430b8fE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %233, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6, i64 noundef %243), !noalias !305
   br label %_ZN10polars_row6encode17encode_flat_array17h0e072128b68a27f1E.exit
 
 244:                                              ; preds = %231
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.87) #19, !noalias !311
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.87) #19, !noalias !308
   unreachable
 
 245:                                              ; preds = %225
-  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.18, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !311
+  tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6677248476aedf820e756f7d600e654b.18, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !308
   unreachable
 
 246:                                              ; preds = %225
-  %247 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !311
+  %247 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !308
   %248 = extractvalue { ptr, ptr } %247, 0
   %249 = extractvalue { ptr, ptr } %247, 1
   %250 = getelementptr i8, ptr %249, i64 24
-  %.val126.i = load ptr, ptr %250, align 8, !noalias !311
-  %251 = tail call { i64, i64 } %.val126.i(ptr noundef nonnull align 1 %248), !noalias !311
+  %.val126.i = load ptr, ptr %250, align 8, !noalias !308
+  %251 = tail call { i64, i64 } %.val126.i(ptr noundef nonnull align 1 %248), !noalias !308
   %252 = extractvalue { i64, i64 } %251, 0
   %253 = icmp ne i64 %252, 1096384672038350596
   %254 = extractvalue { i64, i64 } %251, 1
@@ -4699,12 +4699,12 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %.sroa.0.0.i143.not.i, label %356, label %355, !prof !27
 
 256:                                              ; preds = %225
-  %257 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !311
+  %257 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !308
   %258 = extractvalue { ptr, ptr } %257, 0
   %259 = extractvalue { ptr, ptr } %257, 1
   %260 = getelementptr i8, ptr %259, i64 24
-  %.val127.i = load ptr, ptr %260, align 8, !noalias !311
-  %261 = tail call { i64, i64 } %.val127.i(ptr noundef nonnull align 1 %258), !noalias !311
+  %.val127.i = load ptr, ptr %260, align 8, !noalias !308
+  %261 = tail call { i64, i64 } %.val127.i(ptr noundef nonnull align 1 %258), !noalias !308
   %262 = extractvalue { i64, i64 } %261, 0
   %263 = icmp ne i64 %262, -1112271358999739462
   %264 = extractvalue { i64, i64 } %261, 1
@@ -4713,12 +4713,12 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %.sroa.0.0.i144.not.i, label %358, label %357, !prof !27
 
 266:                                              ; preds = %225
-  %267 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !311
+  %267 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !308
   %268 = extractvalue { ptr, ptr } %267, 0
   %269 = extractvalue { ptr, ptr } %267, 1
   %270 = getelementptr i8, ptr %269, i64 24
-  %.val128.i = load ptr, ptr %270, align 8, !noalias !311
-  %271 = tail call { i64, i64 } %.val128.i(ptr noundef nonnull align 1 %268), !noalias !311
+  %.val128.i = load ptr, ptr %270, align 8, !noalias !308
+  %271 = tail call { i64, i64 } %.val128.i(ptr noundef nonnull align 1 %268), !noalias !308
   %272 = extractvalue { i64, i64 } %271, 0
   %273 = icmp ne i64 %272, 1682257576593402022
   %274 = extractvalue { i64, i64 } %271, 1
@@ -4727,12 +4727,12 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %.sroa.0.0.i145.not.i, label %360, label %359, !prof !27
 
 276:                                              ; preds = %225
-  %277 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !311
+  %277 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !308
   %278 = extractvalue { ptr, ptr } %277, 0
   %279 = extractvalue { ptr, ptr } %277, 1
   %280 = getelementptr i8, ptr %279, i64 24
-  %.val129.i = load ptr, ptr %280, align 8, !noalias !311
-  %281 = tail call { i64, i64 } %.val129.i(ptr noundef nonnull align 1 %278), !noalias !311
+  %.val129.i = load ptr, ptr %280, align 8, !noalias !308
+  %281 = tail call { i64, i64 } %.val129.i(ptr noundef nonnull align 1 %278), !noalias !308
   %282 = extractvalue { i64, i64 } %281, 0
   %283 = icmp ne i64 %282, -4525060659037450304
   %284 = extractvalue { i64, i64 } %281, 1
@@ -4741,12 +4741,12 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %.sroa.0.0.i146.not.i, label %362, label %361, !prof !27
 
 .thread.i:                                        ; preds = %226, %225
-  %286 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !311
+  %286 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !308
   %287 = extractvalue { ptr, ptr } %286, 0
   %288 = extractvalue { ptr, ptr } %286, 1
   %289 = getelementptr i8, ptr %288, i64 24
-  %.val124.i = load ptr, ptr %289, align 8, !noalias !311
-  %290 = tail call { i64, i64 } %.val124.i(ptr noundef nonnull align 1 %287), !noalias !311
+  %.val124.i = load ptr, ptr %289, align 8, !noalias !308
+  %290 = tail call { i64, i64 } %.val124.i(ptr noundef nonnull align 1 %287), !noalias !308
   %291 = extractvalue { i64, i64 } %290, 0
   %292 = icmp ne i64 %291, 1976741281623731233
   %293 = extractvalue { i64, i64 } %290, 1
@@ -4755,12 +4755,12 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %.sroa.0.0.i147.not.i, label %364, label %363, !prof !27
 
 295:                                              ; preds = %225
-  %296 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !311
+  %296 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !308
   %297 = extractvalue { ptr, ptr } %296, 0
   %298 = extractvalue { ptr, ptr } %296, 1
   %299 = getelementptr i8, ptr %298, i64 24
-  %.val130.i = load ptr, ptr %299, align 8, !noalias !311
-  %300 = tail call { i64, i64 } %.val130.i(ptr noundef nonnull align 1 %297), !noalias !311
+  %.val130.i = load ptr, ptr %299, align 8, !noalias !308
+  %300 = tail call { i64, i64 } %.val130.i(ptr noundef nonnull align 1 %297), !noalias !308
   %301 = extractvalue { i64, i64 } %300, 0
   %302 = icmp ne i64 %301, 5220108315440958501
   %303 = extractvalue { i64, i64 } %300, 1
@@ -4769,12 +4769,12 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %.sroa.0.0.i148.not.i, label %366, label %365, !prof !27
 
 305:                                              ; preds = %225
-  %306 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !311
+  %306 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !308
   %307 = extractvalue { ptr, ptr } %306, 0
   %308 = extractvalue { ptr, ptr } %306, 1
   %309 = getelementptr i8, ptr %308, i64 24
-  %.val131.i = load ptr, ptr %309, align 8, !noalias !311
-  %310 = tail call { i64, i64 } %.val131.i(ptr noundef nonnull align 1 %307), !noalias !311
+  %.val131.i = load ptr, ptr %309, align 8, !noalias !308
+  %310 = tail call { i64, i64 } %.val131.i(ptr noundef nonnull align 1 %307), !noalias !308
   %311 = extractvalue { i64, i64 } %310, 0
   %312 = icmp ne i64 %311, -8363051946164901273
   %313 = extractvalue { i64, i64 } %310, 1
@@ -4783,12 +4783,12 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %.sroa.0.0.i149.not.i, label %368, label %367, !prof !27
 
 315:                                              ; preds = %225
-  %316 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !311
+  %316 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !308
   %317 = extractvalue { ptr, ptr } %316, 0
   %318 = extractvalue { ptr, ptr } %316, 1
   %319 = getelementptr i8, ptr %318, i64 24
-  %.val122.i = load ptr, ptr %319, align 8, !noalias !311
-  %320 = tail call { i64, i64 } %.val122.i(ptr noundef nonnull align 1 %317), !noalias !311
+  %.val122.i = load ptr, ptr %319, align 8, !noalias !308
+  %320 = tail call { i64, i64 } %.val122.i(ptr noundef nonnull align 1 %317), !noalias !308
   %321 = extractvalue { i64, i64 } %320, 0
   %322 = icmp ne i64 %321, 4396411619942343068
   %323 = extractvalue { i64, i64 } %320, 1
@@ -4797,12 +4797,12 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %.sroa.0.0.i150.not.i, label %370, label %369, !prof !27
 
 325:                                              ; preds = %225
-  %326 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !311
+  %326 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !308
   %327 = extractvalue { ptr, ptr } %326, 0
   %328 = extractvalue { ptr, ptr } %326, 1
   %329 = getelementptr i8, ptr %328, i64 24
-  %.val132.i = load ptr, ptr %329, align 8, !noalias !311
-  %330 = tail call { i64, i64 } %.val132.i(ptr noundef nonnull align 1 %327), !noalias !311
+  %.val132.i = load ptr, ptr %329, align 8, !noalias !308
+  %330 = tail call { i64, i64 } %.val132.i(ptr noundef nonnull align 1 %327), !noalias !308
   %331 = extractvalue { i64, i64 } %330, 0
   %332 = icmp ne i64 %331, -1775404271045328892
   %333 = extractvalue { i64, i64 } %330, 1
@@ -4811,12 +4811,12 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %.sroa.0.0.i151.not.i, label %372, label %371, !prof !27
 
 335:                                              ; preds = %225
-  %336 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !311
+  %336 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !308
   %337 = extractvalue { ptr, ptr } %336, 0
   %338 = extractvalue { ptr, ptr } %336, 1
   %339 = getelementptr i8, ptr %338, i64 24
-  %.val133.i = load ptr, ptr %339, align 8, !noalias !311
-  %340 = tail call { i64, i64 } %.val133.i(ptr noundef nonnull align 1 %337), !noalias !311
+  %.val133.i = load ptr, ptr %339, align 8, !noalias !308
+  %340 = tail call { i64, i64 } %.val133.i(ptr noundef nonnull align 1 %337), !noalias !308
   %341 = extractvalue { i64, i64 } %340, 0
   %342 = icmp ne i64 %341, 8322892714386034678
   %343 = extractvalue { i64, i64 } %340, 1
@@ -4825,12 +4825,12 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %.sroa.0.0.i152.not.i, label %374, label %373, !prof !27
 
 345:                                              ; preds = %225
-  %346 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !311
+  %346 = tail call { ptr, ptr } %.val(ptr noundef nonnull align 1 %39), !noalias !308
   %347 = extractvalue { ptr, ptr } %346, 0
   %348 = extractvalue { ptr, ptr } %346, 1
   %349 = getelementptr i8, ptr %348, i64 24
-  %.val134.i = load ptr, ptr %349, align 8, !noalias !311
-  %350 = tail call { i64, i64 } %.val134.i(ptr noundef nonnull align 1 %347), !noalias !311
+  %.val134.i = load ptr, ptr %349, align 8, !noalias !308
+  %350 = tail call { i64, i64 } %.val134.i(ptr noundef nonnull align 1 %347), !noalias !308
   %351 = extractvalue { i64, i64 } %350, 0
   %352 = icmp ne i64 %351, 6939381404861589916
   %353 = extractvalue { i64, i64 } %350, 1
@@ -4839,91 +4839,91 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   br i1 %.sroa.0.0.i153.not.i, label %376, label %375, !prof !27
 
 355:                                              ; preds = %246
-  tail call void @_ZN10polars_row5fixed7numeric6encode17ha93f6a4a5e64f2f5E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %248, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6)
+  tail call void @_ZN10polars_row5fixed7numeric6encode17ha93f6a4a5e64f2f5E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %248, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6), !noalias !305
   br label %_ZN10polars_row6encode17encode_flat_array17h0e072128b68a27f1E.exit
 
 356:                                              ; preds = %246
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !311
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !308
   unreachable
 
 357:                                              ; preds = %256
-  tail call void @_ZN10polars_row5fixed7numeric6encode17h3ef3d41ad00ea7e9E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %258, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6)
+  tail call void @_ZN10polars_row5fixed7numeric6encode17h3ef3d41ad00ea7e9E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %258, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6), !noalias !305
   br label %_ZN10polars_row6encode17encode_flat_array17h0e072128b68a27f1E.exit
 
 358:                                              ; preds = %256
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !311
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !308
   unreachable
 
 359:                                              ; preds = %266
-  tail call void @_ZN10polars_row5fixed7numeric6encode17h6cb984f8e8888117E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %268, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6)
+  tail call void @_ZN10polars_row5fixed7numeric6encode17h6cb984f8e8888117E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %268, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6), !noalias !305
   br label %_ZN10polars_row6encode17encode_flat_array17h0e072128b68a27f1E.exit
 
 360:                                              ; preds = %266
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !311
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !308
   unreachable
 
 361:                                              ; preds = %276
-  tail call void @_ZN10polars_row5fixed7numeric6encode17h05e65af4927e4c04E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %278, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6)
+  tail call void @_ZN10polars_row5fixed7numeric6encode17h05e65af4927e4c04E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %278, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6), !noalias !305
   br label %_ZN10polars_row6encode17encode_flat_array17h0e072128b68a27f1E.exit
 
 362:                                              ; preds = %276
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !311
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !308
   unreachable
 
 363:                                              ; preds = %.thread.i
-  tail call void @_ZN10polars_row5fixed7numeric6encode17h2b018411cd651f67E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %287, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6)
+  tail call void @_ZN10polars_row5fixed7numeric6encode17h2b018411cd651f67E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %287, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6), !noalias !305
   br label %_ZN10polars_row6encode17encode_flat_array17h0e072128b68a27f1E.exit
 
 364:                                              ; preds = %.thread.i
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !311
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !308
   unreachable
 
 365:                                              ; preds = %295
-  tail call void @_ZN10polars_row5fixed7numeric6encode17h637859c4e74de78eE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %297, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6)
+  tail call void @_ZN10polars_row5fixed7numeric6encode17h637859c4e74de78eE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %297, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6), !noalias !305
   br label %_ZN10polars_row6encode17encode_flat_array17h0e072128b68a27f1E.exit
 
 366:                                              ; preds = %295
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !311
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !308
   unreachable
 
 367:                                              ; preds = %305
-  tail call void @_ZN10polars_row5fixed7numeric6encode17h08baa694a18518f9E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %307, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6)
+  tail call void @_ZN10polars_row5fixed7numeric6encode17h08baa694a18518f9E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %307, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6), !noalias !305
   br label %_ZN10polars_row6encode17encode_flat_array17h0e072128b68a27f1E.exit
 
 368:                                              ; preds = %305
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !311
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !308
   unreachable
 
 369:                                              ; preds = %315
-  tail call void @_ZN10polars_row5fixed7numeric6encode17h346e0d3e8578fdefE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %317, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6)
+  tail call void @_ZN10polars_row5fixed7numeric6encode17h346e0d3e8578fdefE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %317, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6), !noalias !305
   br label %_ZN10polars_row6encode17encode_flat_array17h0e072128b68a27f1E.exit
 
 370:                                              ; preds = %315
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !311
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !308
   unreachable
 
 371:                                              ; preds = %325
-  tail call void @_ZN10polars_row5fixed7numeric6encode17hfe5cb36df913f89bE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %327, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6)
+  tail call void @_ZN10polars_row5fixed7numeric6encode17hfe5cb36df913f89bE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %327, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6), !noalias !305
   br label %_ZN10polars_row6encode17encode_flat_array17h0e072128b68a27f1E.exit
 
 372:                                              ; preds = %325
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !311
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !308
   unreachable
 
 373:                                              ; preds = %335
-  tail call void @_ZN10polars_row5fixed7numeric6encode17hae2af98be06415f7E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %337, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6)
+  tail call void @_ZN10polars_row5fixed7numeric6encode17hae2af98be06415f7E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %337, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6), !noalias !305
   br label %_ZN10polars_row6encode17encode_flat_array17h0e072128b68a27f1E.exit
 
 374:                                              ; preds = %335
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !311
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !308
   unreachable
 
 375:                                              ; preds = %345
-  tail call void @_ZN10polars_row5fixed7numeric6encode17h2d5cdf18826d3f5bE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %347, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6)
+  tail call void @_ZN10polars_row5fixed7numeric6encode17h2d5cdf18826d3f5bE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noundef nonnull align 8 %347, i8 noundef %3, ptr noalias noundef nonnull align 8 %5, i64 noundef %6), !noalias !305
   br label %_ZN10polars_row6encode17encode_flat_array17h0e072128b68a27f1E.exit
 
 376:                                              ; preds = %345
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !311
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6677248476aedf820e756f7d600e654b.88) #19, !noalias !308
   unreachable
 
 377:                                              ; preds = %32
@@ -6589,8 +6589,8 @@ attributes #20 = { nounwind }
 !308 = !{!309, !306, !310}
 !309 = distinct !{!309, !307, !"_ZN10polars_row6encode17encode_flat_array17h0e072128b68a27f1E: argument 0"}
 !310 = distinct !{!310, !307, !"_ZN10polars_row6encode17encode_flat_array17h0e072128b68a27f1E: argument 2"}
-!311 = !{!309, !310}
-!312 = !{!"branch_weights", i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 2000, i32 1, i32 2000, i32 2000, i32 2000, i32 1, i32 1, i32 1, i32 1, i32 1, i32 2000, i32 2000, i32 1, i32 1}
+!311 = !{!"branch_weights", i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 2000, i32 1, i32 2000, i32 2000, i32 2000, i32 1, i32 1, i32 1, i32 1, i32 1, i32 2000, i32 2000, i32 1, i32 1}
+!312 = !{!309, !310}
 !313 = !{!"branch_weights", i32 107368, i32 214737628, i32 214737628, i32 214737628, i32 214737628, i32 0, i32 214737628, i32 214737628, i32 214737628, i32 214737628, i32 214737628, i32 214737628}
 !314 = !{!315}
 !315 = distinct !{!315, !316, !"_ZN10polars_row6encode15EncodeScratches5clear17h0cd3e97a258cfaafE: argument 0"}

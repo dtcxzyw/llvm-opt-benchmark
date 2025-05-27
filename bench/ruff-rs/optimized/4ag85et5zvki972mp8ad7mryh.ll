@@ -819,6 +819,7 @@ define hidden void @_ZN22ruff_annotate_snippets8renderer13styled_buffer12StyledB
   br i1 %.not, label %51, label %9
 
 9:                                                ; preds = %5
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   %11 = icmp samesign eq i64 %3, 0
   br i1 %11, label %_ZN22ruff_annotate_snippets8renderer13styled_buffer12StyledBuffer4puts17hee36f4ce97816e63E.exit, label %.lr.ph.i
@@ -882,7 +883,7 @@ define hidden void @_ZN22ruff_annotate_snippets8renderer13styled_buffer12StyledB
   %.sroa.4.0.i.ph.i = phi i32 [ %23, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h983aaa6352e42c19E.exit12.i.i" ], [ %35, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h983aaa6352e42c19E.exit14.i.i" ], [ %46, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h983aaa6352e42c19E.exit16.i.i" ], [ %26, %25 ]
   %48 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 1114112
   tail call void @llvm.assume(i1 %48)
-  tail call void @_ZN22ruff_annotate_snippets8renderer13styled_buffer12StyledBuffer4putc17h53c93bbd8e6eede4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %.sroa.0.011.i, i32 noundef %.sroa.4.0.i.ph.i, ptr noalias noundef nonnull readonly align 2 captures(none) dereferenceable(14) %4)
+  tail call void @_ZN22ruff_annotate_snippets8renderer13styled_buffer12StyledBuffer4putc17h53c93bbd8e6eede4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %.sroa.0.011.i, i32 noundef %.sroa.4.0.i.ph.i, ptr noalias noundef nonnull readonly align 2 captures(none) dereferenceable(14) %4), !noalias !61
   %49 = add i64 %.sroa.0.011.i, 1
   %50 = icmp eq ptr %.sroa.0.1.ph.i, %10
   br i1 %50, label %_ZN22ruff_annotate_snippets8renderer13styled_buffer12StyledBuffer4puts17hee36f4ce97816e63E.exit, label %.lr.ph.i
@@ -894,6 +895,7 @@ define hidden void @_ZN22ruff_annotate_snippets8renderer13styled_buffer12StyledB
   %55 = load i64, ptr %54, align 8, !noundef !12
   %56 = icmp ult i64 %55, 461168601842738791
   tail call void @llvm.assume(i1 %56)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   %58 = icmp samesign eq i64 %3, 0
   br i1 %58, label %_ZN22ruff_annotate_snippets8renderer13styled_buffer12StyledBuffer4puts17hee36f4ce97816e63E.exit, label %.lr.ph.i2
@@ -957,7 +959,7 @@ define hidden void @_ZN22ruff_annotate_snippets8renderer13styled_buffer12StyledB
   %.sroa.4.0.i.ph.i7 = phi i32 [ %70, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h983aaa6352e42c19E.exit12.i.i5" ], [ %82, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h983aaa6352e42c19E.exit14.i.i8" ], [ %93, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h983aaa6352e42c19E.exit16.i.i9" ], [ %73, %72 ]
   %95 = icmp samesign ult i32 %.sroa.4.0.i.ph.i7, 1114112
   tail call void @llvm.assume(i1 %95)
-  tail call void @_ZN22ruff_annotate_snippets8renderer13styled_buffer12StyledBuffer4putc17h53c93bbd8e6eede4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %.sroa.0.011.i3, i32 noundef %.sroa.4.0.i.ph.i7, ptr noalias noundef nonnull readonly align 2 captures(none) dereferenceable(14) %4)
+  tail call void @_ZN22ruff_annotate_snippets8renderer13styled_buffer12StyledBuffer4putc17h53c93bbd8e6eede4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %.sroa.0.011.i3, i32 noundef %.sroa.4.0.i.ph.i7, ptr noalias noundef nonnull readonly align 2 captures(none) dereferenceable(14) %4), !noalias !69
   %96 = add i64 %.sroa.0.011.i3, 1
   %97 = icmp eq ptr %.sroa.0.1.ph.i6, %57
   br i1 %97, label %_ZN22ruff_annotate_snippets8renderer13styled_buffer12StyledBuffer4puts17hee36f4ce97816e63E.exit, label %.lr.ph.i2

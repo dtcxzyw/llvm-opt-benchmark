@@ -64531,7 +64531,7 @@ attributes #34 = { cold "function-inline-cost-multiplier"="2" }
 !6554 = !{!6543, !6546}
 !6555 = !{!6543, !6548}
 !6556 = !{!6552}
-!6557 = !{!6552, !6546}
+!6557 = !{!6552, !6546, !6548}
 !6558 = !{!6559}
 !6559 = distinct !{!6559, !6560, !"_ZN12polars_arrow6bitmap9immutable6Bitmap8as_slice17h81250cb7ba2cc8daE: argument 0"}
 !6560 = distinct !{!6560, !"_ZN12polars_arrow6bitmap9immutable6Bitmap8as_slice17h81250cb7ba2cc8daE"}
@@ -64559,7 +64559,7 @@ attributes #34 = { cold "function-inline-cost-multiplier"="2" }
 !6582 = !{!6571, !6574}
 !6583 = !{!6571, !6576}
 !6584 = !{!6580}
-!6585 = !{!6580, !6574}
+!6585 = !{!6580, !6574, !6576}
 !6586 = !{!6587}
 !6587 = distinct !{!6587, !6588, !"_ZN12polars_arrow6bitmap9immutable6Bitmap8as_slice17h81250cb7ba2cc8daE: argument 0"}
 !6588 = distinct !{!6588, !"_ZN12polars_arrow6bitmap9immutable6Bitmap8as_slice17h81250cb7ba2cc8daE"}
@@ -64665,7 +64665,7 @@ attributes #34 = { cold "function-inline-cost-multiplier"="2" }
 !6688 = distinct !{!6688, !6687, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf4266919b56f5873E: argument 1"}
 !6689 = distinct !{!6689, !6687, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf4266919b56f5873E: argument 2"}
 !6690 = !{!6683, !6686, !6688}
-!6691 = !{!6685, !6689}
+!6691 = !{!6685, !6688, !6689}
 !6692 = !{!6693, !6695}
 !6693 = distinct !{!6693, !6694, !"_ZN4core4iter6traits8iterator8Iterator7collect17h8b2dde5c5844eb07E: argument 0"}
 !6694 = distinct !{!6694, !"_ZN4core4iter6traits8iterator8Iterator7collect17h8b2dde5c5844eb07E"}

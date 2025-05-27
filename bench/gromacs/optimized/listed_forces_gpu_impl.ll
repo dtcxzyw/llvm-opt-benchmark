@@ -1056,7 +1056,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; pr
   %226 = ptrtoint ptr %225 to i64
   %227 = ptrtoint ptr %222 to i64
   %228 = sub i64 %226, %227
-  call void @_ZdlPvm(ptr noundef nonnull %222, i64 noundef %228) #16
+  call void @_ZdlPvm(ptr noundef nonnull %222, i64 noundef %228) #16, !noalias !122
   br label %_ZN15InteractionListD2Ev.exit.i.i.i.i.i.i.i
 
 _ZN15InteractionListD2Ev.exit.i.i.i.i.i.i.i:      ; preds = %223, %.preheader.i.i.i.i.i.i.i
@@ -1104,7 +1104,7 @@ _ZN15InteractionListD2Ev.exit.i.i3.i.i.i.i:       ; preds = %235, %231
   %250 = ptrtoint ptr %249 to i64
   %251 = ptrtoint ptr %246 to i64
   %252 = sub i64 %250, %251
-  call void @_ZdlPvm(ptr noundef nonnull %246, i64 noundef %252) #16
+  call void @_ZdlPvm(ptr noundef nonnull %246, i64 noundef %252) #16, !noalias !122
   br label %_ZN15InteractionListD2Ev.exit.i.i5.i.i.i.i
 
 _ZN15InteractionListD2Ev.exit.i.i5.i.i.i.i:       ; preds = %247, %243

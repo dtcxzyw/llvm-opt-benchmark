@@ -19522,7 +19522,7 @@ define internal { ptr, ptr } @"_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$wo
 28:                                               ; preds = %26
   %29 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33, !noalias !4222
   unreachable
 
 _ZN4gpui6window13WindowContext9subscribe17hcf89a29198aa9e59E.exit: ; preds = %"_ZN67_$LT$gpui..view..View$LT$V$GT$$u20$as$u20$gpui..Entity$LT$V$GT$$GT$9downgrade17h97f889ae96455ad4E.exit.i"
@@ -20673,14 +20673,14 @@ define internal noundef zeroext i1 @"_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$
 75:                                               ; preds = %79, %77, %73
   %76 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33, !noalias !4416
   unreachable
 
 77:                                               ; preds = %73, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16694743745626734303.exit.i1.i.i.i.i", %65, %46
   %.pn.ph.i = phi { ptr, i32 } [ %47, %46 ], [ %74, %73 ], [ %66, %65 ], [ %66, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16694743745626734303.exit.i1.i.i.i.i" ]
   %.sroa.02.1.ph.i = phi i1 [ true, %46 ], [ false, %73 ], [ false, %65 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16694743745626734303.exit.i1.i.i.i.i" ]
   invoke void @"_ZN4core3ptr117drop_in_place$LT$gpui..app..entity_map..Lease$LT$markdown_preview..markdown_preview_view..MarkdownPreviewView$GT$$GT$17hb23b0e0480b67fd9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #35
-          to label %38 unwind label %75
+          to label %38 unwind label %75, !noalias !4416
 
 78:                                               ; preds = %79, %38
   %.pn.pn6.i = phi { ptr, i32 } [ %.pn.pn7.i, %79 ], [ %.pn.ph.i, %38 ]
@@ -21509,7 +21509,7 @@ common.resume:                                    ; preds = %24, %16, %12
 26:                                               ; preds = %24
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33, !noalias !4559
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h27c3e05ea1ede2d3E.llvm.3795885818253505526.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he2501da0b1bf703bE.llvm.3795885818253505526.exit", %23
@@ -21599,7 +21599,7 @@ common.resume:                                    ; preds = %24, %16, %12
 26:                                               ; preds = %24
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33, !noalias !4574
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h27c3e05ea1ede2d3E.llvm.3795885818253505526.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hca070d3ba7e8ce8eE.llvm.3795885818253505526.exit", %23
@@ -22035,7 +22035,7 @@ common.resume:                                    ; preds = %43, %47, %52, %56, 
 38:                                               ; preds = %14
   %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33, !noalias !4659
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33, !noalias !4657
   unreachable
 
 "_ZN16markdown_preview21markdown_preview_view19MarkdownPreviewView38resolve_active_item_as_markdown_editor28_$u7b$$u7b$closure$u7d$$u7d$17h9a2877986f5ab976E.exit": ; preds = %28, %21

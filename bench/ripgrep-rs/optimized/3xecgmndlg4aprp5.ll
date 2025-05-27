@@ -316,7 +316,7 @@ define hidden void @_ZN10grep_regex6config13ConfiguredHIR3new17hc55ef79fea154375
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22), !noalias !21
   store ptr %.val16.us40.i, ptr %22, align 8, !noalias !21
   store ptr %122, ptr %73, align 8, !noalias !21
-  %163 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17he4c9c9f66e38f0d7E.llvm.6027615119203585168(ptr noalias noundef nonnull align 8 dereferenceable(16) %22), !noalias !5
+  %163 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17he4c9c9f66e38f0d7E.llvm.6027615119203585168(ptr noalias noundef nonnull align 8 dereferenceable(16) %22), !noalias !20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22), !noalias !21
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %23), !noalias !20
   %164 = icmp eq ptr %120, %64
@@ -430,7 +430,7 @@ _ZN10grep_regex6config19has_line_terminator17h560a706d7356fb25E.exit.i: ; preds 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21), !noalias !21
   store ptr %.val16.i, ptr %21, align 8, !noalias !21
   store ptr %167, ptr %72, align 8, !noalias !21
-  %208 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb3d2ac6f51dafbb5E.llvm.6027615119203585168(ptr noalias noundef nonnull align 8 dereferenceable(16) %21, ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %23), !noalias !5
+  %208 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb3d2ac6f51dafbb5E.llvm.6027615119203585168(ptr noalias noundef nonnull align 8 dereferenceable(16) %21, ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %23), !noalias !20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21), !noalias !21
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %23), !noalias !20
   %209 = icmp eq ptr %165, %64
@@ -461,7 +461,7 @@ _ZN10grep_regex6config19has_line_terminator17h560a706d7356fb25E.exit.i: ; preds 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19), !noalias !24
   store ptr %.val.us.i, ptr %19, align 8, !noalias !24
   store ptr %220, ptr %218, align 8, !noalias !24
-  %221 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17he4c9c9f66e38f0d7E.llvm.6027615119203585168(ptr noalias noundef nonnull align 8 dereferenceable(16) %19), !noalias !5
+  %221 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17he4c9c9f66e38f0d7E.llvm.6027615119203585168(ptr noalias noundef nonnull align 8 dereferenceable(16) %19), !noalias !20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19), !noalias !24
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %20), !noalias !20
   %222 = getelementptr inbounds nuw i8, ptr %.sroa.0.051.us.i, i64 16
@@ -481,7 +481,7 @@ _ZN10grep_regex6config19has_line_terminator17h560a706d7356fb25E.exit24.i: ; pred
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !24
   store ptr %.val.i, ptr %18, align 8, !noalias !24
   store ptr %225, ptr %217, align 8, !noalias !24
-  %226 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb3d2ac6f51dafbb5E.llvm.6027615119203585168(ptr noalias noundef nonnull align 8 dereferenceable(16) %18, ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %20), !noalias !5
+  %226 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb3d2ac6f51dafbb5E.llvm.6027615119203585168(ptr noalias noundef nonnull align 8 dereferenceable(16) %18, ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %20), !noalias !20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !24
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %20), !noalias !20
   %227 = getelementptr inbounds nuw i8, ptr %.sroa.0.051.i, i64 16
@@ -1618,7 +1618,7 @@ attributes #13 = { nounwind }
 !10 = !{i8 0, i8 2}
 !11 = !{i8 0, i8 3}
 !12 = !{i64 1}
-!13 = !{!14, !16, !18, !6}
+!13 = !{!14, !16, !18, !6, !9}
 !14 = distinct !{!14, !15, !"_ZN4core3str11validations15next_code_point17ha295294acd2cb6e7E: argument 0"}
 !15 = distinct !{!15, !"_ZN4core3str11validations15next_code_point17ha295294acd2cb6e7E"}
 !16 = distinct !{!16, !17, !"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E: argument 0"}

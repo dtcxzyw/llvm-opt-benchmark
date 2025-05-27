@@ -4015,6 +4015,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.011.0.i38, i64 16, i1 false)
   %75 = getelementptr i8, ptr %2, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.01.0.i26, i64 16, i1 false)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !925)
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 112
   br label %.lr.ph.i
 
@@ -4075,7 +4076,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 100:                                              ; preds = %._crit_edge.i
-  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4e03188016ac0891E() #47
+  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4e03188016ac0891E() #47, !noalias !925
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h402e3a4ab905a763E.exit: ; preds = %._crit_edge.i
@@ -23077,7 +23078,7 @@ attributes #49 = { cold }
 !4769 = distinct !{!4769, !4768, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hbf4dc354bab9519cE.llvm.7674728272632859446: argument 1"}
 !4770 = distinct !{!4770, !4768, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hbf4dc354bab9519cE.llvm.7674728272632859446: argument 2"}
 !4771 = !{!4764, !4767, !4769}
-!4772 = !{!4766, !4770}
+!4772 = !{!4766, !4769, !4770}
 !4773 = !{!4774, !4776, !4777, !4779, !4780, !4782, !4783, !4785}
 !4774 = distinct !{!4774, !4775, !"_ZN5serde2de5impls87_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..ops..range..Range$LT$Idx$GT$$GT$11deserialize17hbc8dda2358f46dd9E: argument 0"}
 !4775 = distinct !{!4775, !"_ZN5serde2de5impls87_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..ops..range..Range$LT$Idx$GT$$GT$11deserialize17hbc8dda2358f46dd9E"}

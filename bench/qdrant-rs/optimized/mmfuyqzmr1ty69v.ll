@@ -1785,6 +1785,7 @@ define noundef zeroext i1 @_ZN6sparse5index14search_context13SearchContext26prun
   ret i1 %.0
 
 16:                                               ; preds = %6
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
   %17 = getelementptr { { { ptr, i64 }, i64 }, i32, float }, ptr %8, i64 %4
   %18 = icmp eq i64 %4, 1
   br i1 %18, label %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread, label %.lr.ph.i.preheader
@@ -1799,17 +1800,17 @@ define noundef zeroext i1 @_ZN6sparse5index14search_context13SearchContext26prun
   %.sroa.0.01014.i = phi ptr [ %19, %.lr.ph.i.preheader ], [ %20, %.lr.ph.i.backedge ]
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.01014.i, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.01014.i, i64 8
-  %22 = load i64, ptr %21, align 8, !alias.scope !200, !noundef !5
+  %22 = load i64, ptr %21, align 8, !alias.scope !203, !noundef !5
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.01014.i, i64 16
-  %24 = load i64, ptr %23, align 8, !alias.scope !200, !noundef !5
+  %24 = load i64, ptr %23, align 8, !alias.scope !203, !noundef !5
   %.not.i = icmp ult i64 %24, %22
   br i1 %.not.i, label %25, label %29
 
 25:                                               ; preds = %.lr.ph.i
-  %26 = load ptr, ptr %.sroa.0.01014.i, align 8, !alias.scope !200, !nonnull !5, !align !156
+  %26 = load ptr, ptr %.sroa.0.01014.i, align 8, !alias.scope !203, !nonnull !5, !align !156
   %27 = getelementptr inbounds { i32, float, float }, ptr %26, i64 %24
   %switch.i = icmp eq i32 %.sroa.0.016.i, 0
-  %28 = load i32, ptr %27, align 4, !noundef !5
+  %28 = load i32, ptr %27, align 4, !noalias !200, !noundef !5
   br i1 %switch.i, label %.thread, label %32
 
 29:                                               ; preds = %32, %.lr.ph.i
@@ -1856,7 +1857,7 @@ _ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E
   br i1 %switch37, label %45, label %15
 
 44:                                               ; preds = %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread
-  store i64 %10, ptr %11, align 8, !alias.scope !205
+  store i64 %10, ptr %11, align 8, !alias.scope !206
   br label %15
 
 45:                                               ; preds = %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread45
@@ -2247,11 +2248,12 @@ attributes #23 = { cold noreturn nounwind }
 !197 = !{!198}
 !198 = distinct !{!198, !199, !"_ZN6sparse5index12posting_list19PostingListIterator4peek17h89ecc50a4adba717E: argument 0"}
 !199 = distinct !{!199, !"_ZN6sparse5index12posting_list19PostingListIterator4peek17h89ecc50a4adba717E"}
-!200 = !{!201, !203}
-!201 = distinct !{!201, !202, !"_ZN6sparse5index12posting_list19PostingListIterator4peek17h89ecc50a4adba717E: argument 0"}
-!202 = distinct !{!202, !"_ZN6sparse5index12posting_list19PostingListIterator4peek17h89ecc50a4adba717E"}
-!203 = distinct !{!203, !204, !"_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E: argument 0"}
-!204 = distinct !{!204, !"_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E"}
-!205 = !{!206}
-!206 = distinct !{!206, !207, !"_ZN6sparse5index12posting_list19PostingListIterator11skip_to_end17h68956a23d2706d2cE: argument 0"}
-!207 = distinct !{!207, !"_ZN6sparse5index12posting_list19PostingListIterator11skip_to_end17h68956a23d2706d2cE"}
+!200 = !{!201}
+!201 = distinct !{!201, !202, !"_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E: argument 0"}
+!202 = distinct !{!202, !"_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E"}
+!203 = !{!204, !201}
+!204 = distinct !{!204, !205, !"_ZN6sparse5index12posting_list19PostingListIterator4peek17h89ecc50a4adba717E: argument 0"}
+!205 = distinct !{!205, !"_ZN6sparse5index12posting_list19PostingListIterator4peek17h89ecc50a4adba717E"}
+!206 = !{!207}
+!207 = distinct !{!207, !208, !"_ZN6sparse5index12posting_list19PostingListIterator11skip_to_end17h68956a23d2706d2cE: argument 0"}
+!208 = distinct !{!208, !"_ZN6sparse5index12posting_list19PostingListIterator11skip_to_end17h68956a23d2706d2cE"}

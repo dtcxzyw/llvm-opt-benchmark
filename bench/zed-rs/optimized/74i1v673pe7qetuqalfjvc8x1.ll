@@ -17106,16 +17106,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
   %.val16.i = load ptr, ptr %23, align 8, !alias.scope !4501, !noalias !4504
   %.val5.i.i = load ptr, ptr %.val32, align 8, !noalias !4506, !nonnull !11, !align !4500, !noundef !11
   %.val6.i.i = load ptr, ptr %71, align 8, !noalias !4506
-  %79 = load i32, ptr %.val5.i.i, align 4, !noalias !4504, !noundef !11
+  %79 = load i32, ptr %.val5.i.i, align 4, !noalias !4506, !noundef !11
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i", label %81
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %.val5.i.i, i64 4
-  %83 = load i32, ptr %82, align 4, !noalias !4504
+  %83 = load i32, ptr %82, align 4, !noalias !4506
   %84 = getelementptr i8, ptr %.val14.i, i64 192
-  %.val.i.i.i = load ptr, ptr %84, align 8, !noalias !4504
-  %85 = call { i32, i32 } %.val.i.i.i(ptr noundef nonnull align 1 %.val13.i), !noalias !4504
+  %.val.i.i.i = load ptr, ptr %84, align 8, !noalias !4506
+  %85 = call { i32, i32 } %.val.i.i.i(ptr noundef nonnull align 1 %.val13.i), !noalias !4506
   %86 = extractvalue { i32, i32 } %85, 1
   %87 = icmp eq i32 %83, %86
   br i1 %87, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i"
@@ -17130,10 +17130,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i.i", %81, %77
   %91 = icmp ne ptr %.val6.i.i, null
   call void @llvm.assume(i1 %91)
-  %92 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val6.i.i), !noalias !4504
+  %92 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val6.i.i), !noalias !4506
   %93 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 128
-  %94 = load ptr, ptr %93, align 8, !invariant.load !11, !noalias !4504, !nonnull !11
-  %95 = call noundef zeroext i1 %94(ptr noundef nonnull align 1 %.val13.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %92), !noalias !4504
+  %94 = load ptr, ptr %93, align 8, !invariant.load !11, !noalias !4506, !nonnull !11
+  %95 = call noundef zeroext i1 %94(ptr noundef nonnull align 1 %.val13.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %92), !noalias !4506
   %96 = xor i1 %95, true
   %97 = zext i1 %96 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i"
@@ -17146,16 +17146,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
   call void @llvm.assume(i1 %98)
   %99 = icmp ne ptr %.val16.i, null
   call void @llvm.assume(i1 %99)
-  %100 = load i32, ptr %.val.i.i34, align 4, !noalias !4504, !noundef !11
+  %100 = load i32, ptr %.val.i.i34, align 4, !noalias !4506, !noundef !11
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i.i", label %102
 
 102:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i"
   %103 = getelementptr inbounds nuw i8, ptr %.val.i.i34, i64 4
-  %104 = load i32, ptr %103, align 4, !noalias !4504
+  %104 = load i32, ptr %103, align 4, !noalias !4506
   %105 = getelementptr i8, ptr %.val16.i, i64 192
-  %.val.i11.i.i = load ptr, ptr %105, align 8, !noalias !4504
-  %106 = call { i32, i32 } %.val.i11.i.i(ptr noundef nonnull align 1 %.val15.i), !noalias !4504
+  %.val.i11.i.i = load ptr, ptr %105, align 8, !noalias !4506
+  %106 = call { i32, i32 } %.val.i11.i.i(ptr noundef nonnull align 1 %.val15.i), !noalias !4506
   %107 = extractvalue { i32, i32 } %106, 1
   %108 = icmp eq i32 %104, %107
   br i1 %108, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i14.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i.i"
@@ -17170,10 +17170,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i14.i.i", %102, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i"
   %112 = icmp ne ptr %.val2.i.i, null
   call void @llvm.assume(i1 %112)
-  %113 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val2.i.i), !noalias !4504
+  %113 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val2.i.i), !noalias !4506
   %114 = getelementptr inbounds nuw i8, ptr %.val16.i, i64 128
-  %115 = load ptr, ptr %114, align 8, !invariant.load !11, !noalias !4504, !nonnull !11
-  %116 = call noundef zeroext i1 %115(ptr noundef nonnull align 1 %.val15.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %113), !noalias !4504
+  %115 = load ptr, ptr %114, align 8, !invariant.load !11, !noalias !4506, !nonnull !11
+  %116 = call noundef zeroext i1 %115(ptr noundef nonnull align 1 %.val15.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %113), !noalias !4506
   %117 = xor i1 %116, true
   %.neg.i.i = sext i1 %117 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3d95e9c7c567d5a5E.exit.i"
@@ -17196,16 +17196,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
   %.val21.i = load ptr, ptr %23, align 8, !alias.scope !4501, !noalias !4504
   %.val5.i37.i = load ptr, ptr %.val32, align 8, !noalias !4506, !nonnull !11, !align !4500, !noundef !11
   %.val6.i38.i = load ptr, ptr %71, align 8, !noalias !4506
-  %126 = load i32, ptr %.val5.i37.i, align 4, !noalias !4504, !noundef !11
+  %126 = load i32, ptr %.val5.i37.i, align 4, !noalias !4506, !noundef !11
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i40.i", label %128
 
 128:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3d95e9c7c567d5a5E.exit.i"
   %129 = getelementptr inbounds nuw i8, ptr %.val5.i37.i, i64 4
-  %130 = load i32, ptr %129, align 4, !noalias !4504
+  %130 = load i32, ptr %129, align 4, !noalias !4506
   %131 = getelementptr i8, ptr %.val19.i, i64 192
-  %.val.i.i39.i = load ptr, ptr %131, align 8, !noalias !4504
-  %132 = call { i32, i32 } %.val.i.i39.i(ptr noundef nonnull align 1 %.val18.i), !noalias !4504
+  %.val.i.i39.i = load ptr, ptr %131, align 8, !noalias !4506
+  %132 = call { i32, i32 } %.val.i.i39.i(ptr noundef nonnull align 1 %.val18.i), !noalias !4506
   %133 = extractvalue { i32, i32 } %132, 1
   %134 = icmp eq i32 %130, %133
   br i1 %134, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i50.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i40.i"
@@ -17220,10 +17220,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i40.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i50.i", %128, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3d95e9c7c567d5a5E.exit.i"
   %138 = icmp ne ptr %.val6.i38.i, null
   call void @llvm.assume(i1 %138)
-  %139 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val6.i38.i), !noalias !4504
+  %139 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val6.i38.i), !noalias !4506
   %140 = getelementptr inbounds nuw i8, ptr %.val19.i, i64 128
-  %141 = load ptr, ptr %140, align 8, !invariant.load !11, !noalias !4504, !nonnull !11
-  %142 = call noundef zeroext i1 %141(ptr noundef nonnull align 1 %.val18.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %139), !noalias !4504
+  %141 = load ptr, ptr %140, align 8, !invariant.load !11, !noalias !4506, !nonnull !11
+  %142 = call noundef zeroext i1 %141(ptr noundef nonnull align 1 %.val18.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %139), !noalias !4506
   %143 = xor i1 %142, true
   %144 = zext i1 %143 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i41.i"
@@ -17236,16 +17236,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
   call void @llvm.assume(i1 %145)
   %146 = icmp ne ptr %.val21.i, null
   call void @llvm.assume(i1 %146)
-  %147 = load i32, ptr %.val.i43.i, align 4, !noalias !4504, !noundef !11
+  %147 = load i32, ptr %.val.i43.i, align 4, !noalias !4506, !noundef !11
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i46.i", label %149
 
 149:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i41.i"
   %150 = getelementptr inbounds nuw i8, ptr %.val.i43.i, i64 4
-  %151 = load i32, ptr %150, align 4, !noalias !4504
+  %151 = load i32, ptr %150, align 4, !noalias !4506
   %152 = getelementptr i8, ptr %.val21.i, i64 192
-  %.val.i11.i45.i = load ptr, ptr %152, align 8, !noalias !4504
-  %153 = call { i32, i32 } %.val.i11.i45.i(ptr noundef nonnull align 1 %.val20.i), !noalias !4504
+  %.val.i11.i45.i = load ptr, ptr %152, align 8, !noalias !4506
+  %153 = call { i32, i32 } %.val.i11.i45.i(ptr noundef nonnull align 1 %.val20.i), !noalias !4506
   %154 = extractvalue { i32, i32 } %153, 1
   %155 = icmp eq i32 %151, %154
   br i1 %155, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i14.i49.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i46.i"
@@ -17260,10 +17260,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i46.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i14.i49.i", %149, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i41.i"
   %159 = icmp ne ptr %.val2.i44.i, null
   call void @llvm.assume(i1 %159)
-  %160 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val2.i44.i), !noalias !4504
+  %160 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val2.i44.i), !noalias !4506
   %161 = getelementptr inbounds nuw i8, ptr %.val21.i, i64 128
-  %162 = load ptr, ptr %161, align 8, !invariant.load !11, !noalias !4504, !nonnull !11
-  %163 = call noundef zeroext i1 %162(ptr noundef nonnull align 1 %.val20.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %160), !noalias !4504
+  %162 = load ptr, ptr %161, align 8, !invariant.load !11, !noalias !4506, !nonnull !11
+  %163 = call noundef zeroext i1 %162(ptr noundef nonnull align 1 %.val20.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %160), !noalias !4506
   %164 = xor i1 %163, true
   %.neg.i47.i = sext i1 %164 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3d95e9c7c567d5a5E.exit51.i"
@@ -17286,16 +17286,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
   %.val26.i = load ptr, ptr %23, align 8, !alias.scope !4501, !noalias !4504
   %.val5.i53.i = load ptr, ptr %.val32, align 8, !noalias !4506, !nonnull !11, !align !4500, !noundef !11
   %.val6.i54.i = load ptr, ptr %71, align 8, !noalias !4506
-  %173 = load i32, ptr %.val5.i53.i, align 4, !noalias !4504, !noundef !11
+  %173 = load i32, ptr %.val5.i53.i, align 4, !noalias !4506, !noundef !11
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i56.i", label %175
 
 175:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3d95e9c7c567d5a5E.exit51.i"
   %176 = getelementptr inbounds nuw i8, ptr %.val5.i53.i, i64 4
-  %177 = load i32, ptr %176, align 4, !noalias !4504
+  %177 = load i32, ptr %176, align 4, !noalias !4506
   %178 = getelementptr i8, ptr %.val24.i, i64 192
-  %.val.i.i55.i = load ptr, ptr %178, align 8, !noalias !4504
-  %179 = call { i32, i32 } %.val.i.i55.i(ptr noundef nonnull align 1 %.val23.i), !noalias !4504
+  %.val.i.i55.i = load ptr, ptr %178, align 8, !noalias !4506
+  %179 = call { i32, i32 } %.val.i.i55.i(ptr noundef nonnull align 1 %.val23.i), !noalias !4506
   %180 = extractvalue { i32, i32 } %179, 1
   %181 = icmp eq i32 %177, %180
   br i1 %181, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i66.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i56.i"
@@ -17310,10 +17310,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i56.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i66.i", %175, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3d95e9c7c567d5a5E.exit51.i"
   %185 = icmp ne ptr %.val6.i54.i, null
   call void @llvm.assume(i1 %185)
-  %186 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val6.i54.i), !noalias !4504
+  %186 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val6.i54.i), !noalias !4506
   %187 = getelementptr inbounds nuw i8, ptr %.val24.i, i64 128
-  %188 = load ptr, ptr %187, align 8, !invariant.load !11, !noalias !4504, !nonnull !11
-  %189 = call noundef zeroext i1 %188(ptr noundef nonnull align 1 %.val23.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %186), !noalias !4504
+  %188 = load ptr, ptr %187, align 8, !invariant.load !11, !noalias !4506, !nonnull !11
+  %189 = call noundef zeroext i1 %188(ptr noundef nonnull align 1 %.val23.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %186), !noalias !4506
   %190 = xor i1 %189, true
   %191 = zext i1 %190 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i57.i"
@@ -17326,16 +17326,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
   call void @llvm.assume(i1 %192)
   %193 = icmp ne ptr %.val26.i, null
   call void @llvm.assume(i1 %193)
-  %194 = load i32, ptr %.val.i59.i, align 4, !noalias !4504, !noundef !11
+  %194 = load i32, ptr %.val.i59.i, align 4, !noalias !4506, !noundef !11
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i62.i", label %196
 
 196:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i57.i"
   %197 = getelementptr inbounds nuw i8, ptr %.val.i59.i, i64 4
-  %198 = load i32, ptr %197, align 4, !noalias !4504
+  %198 = load i32, ptr %197, align 4, !noalias !4506
   %199 = getelementptr i8, ptr %.val26.i, i64 192
-  %.val.i11.i61.i = load ptr, ptr %199, align 8, !noalias !4504
-  %200 = call { i32, i32 } %.val.i11.i61.i(ptr noundef nonnull align 1 %.val25.i), !noalias !4504
+  %.val.i11.i61.i = load ptr, ptr %199, align 8, !noalias !4506
+  %200 = call { i32, i32 } %.val.i11.i61.i(ptr noundef nonnull align 1 %.val25.i), !noalias !4506
   %201 = extractvalue { i32, i32 } %200, 1
   %202 = icmp eq i32 %198, %201
   br i1 %202, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i14.i65.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i62.i"
@@ -17350,10 +17350,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i62.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i14.i65.i", %196, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i57.i"
   %206 = icmp ne ptr %.val2.i60.i, null
   call void @llvm.assume(i1 %206)
-  %207 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val2.i60.i), !noalias !4504
+  %207 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val2.i60.i), !noalias !4506
   %208 = getelementptr inbounds nuw i8, ptr %.val26.i, i64 128
-  %209 = load ptr, ptr %208, align 8, !invariant.load !11, !noalias !4504, !nonnull !11
-  %210 = call noundef zeroext i1 %209(ptr noundef nonnull align 1 %.val25.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %207), !noalias !4504
+  %209 = load ptr, ptr %208, align 8, !invariant.load !11, !noalias !4506, !nonnull !11
+  %210 = call noundef zeroext i1 %209(ptr noundef nonnull align 1 %.val25.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %207), !noalias !4506
   %211 = xor i1 %210, true
   %.neg.i63.i = sext i1 %211 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3d95e9c7c567d5a5E.exit67.i"
@@ -17376,16 +17376,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
   %.val31.i = load ptr, ptr %23, align 8, !alias.scope !4501, !noalias !4504
   %.val5.i69.i = load ptr, ptr %.val32, align 8, !noalias !4506, !nonnull !11, !align !4500, !noundef !11
   %.val6.i70.i = load ptr, ptr %71, align 8, !noalias !4506
-  %220 = load i32, ptr %.val5.i69.i, align 4, !noalias !4504, !noundef !11
+  %220 = load i32, ptr %.val5.i69.i, align 4, !noalias !4506, !noundef !11
   %221 = icmp eq i32 %220, 0
   br i1 %221, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i72.i", label %222
 
 222:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3d95e9c7c567d5a5E.exit67.i"
   %223 = getelementptr inbounds nuw i8, ptr %.val5.i69.i, i64 4
-  %224 = load i32, ptr %223, align 4, !noalias !4504
+  %224 = load i32, ptr %223, align 4, !noalias !4506
   %225 = getelementptr i8, ptr %.val29.i, i64 192
-  %.val.i.i71.i = load ptr, ptr %225, align 8, !noalias !4504
-  %226 = call { i32, i32 } %.val.i.i71.i(ptr noundef nonnull align 1 %.val28.i), !noalias !4504
+  %.val.i.i71.i = load ptr, ptr %225, align 8, !noalias !4506
+  %226 = call { i32, i32 } %.val.i.i71.i(ptr noundef nonnull align 1 %.val28.i), !noalias !4506
   %227 = extractvalue { i32, i32 } %226, 1
   %228 = icmp eq i32 %224, %227
   br i1 %228, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i82.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i72.i"
@@ -17400,10 +17400,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i72.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i82.i", %222, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3d95e9c7c567d5a5E.exit67.i"
   %232 = icmp ne ptr %.val6.i70.i, null
   call void @llvm.assume(i1 %232)
-  %233 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val6.i70.i), !noalias !4504
+  %233 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val6.i70.i), !noalias !4506
   %234 = getelementptr inbounds nuw i8, ptr %.val29.i, i64 128
-  %235 = load ptr, ptr %234, align 8, !invariant.load !11, !noalias !4504, !nonnull !11
-  %236 = call noundef zeroext i1 %235(ptr noundef nonnull align 1 %.val28.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %233), !noalias !4504
+  %235 = load ptr, ptr %234, align 8, !invariant.load !11, !noalias !4506, !nonnull !11
+  %236 = call noundef zeroext i1 %235(ptr noundef nonnull align 1 %.val28.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %233), !noalias !4506
   %237 = xor i1 %236, true
   %238 = zext i1 %237 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i73.i"
@@ -17416,16 +17416,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
   call void @llvm.assume(i1 %239)
   %240 = icmp ne ptr %.val31.i, null
   call void @llvm.assume(i1 %240)
-  %241 = load i32, ptr %.val.i75.i, align 4, !noalias !4504, !noundef !11
+  %241 = load i32, ptr %.val.i75.i, align 4, !noalias !4506, !noundef !11
   %242 = icmp eq i32 %241, 0
   br i1 %242, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i78.i", label %243
 
 243:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i73.i"
   %244 = getelementptr inbounds nuw i8, ptr %.val.i75.i, i64 4
-  %245 = load i32, ptr %244, align 4, !noalias !4504
+  %245 = load i32, ptr %244, align 4, !noalias !4506
   %246 = getelementptr i8, ptr %.val31.i, i64 192
-  %.val.i11.i77.i = load ptr, ptr %246, align 8, !noalias !4504
-  %247 = call { i32, i32 } %.val.i11.i77.i(ptr noundef nonnull align 1 %.val30.i), !noalias !4504
+  %.val.i11.i77.i = load ptr, ptr %246, align 8, !noalias !4506
+  %247 = call { i32, i32 } %.val.i11.i77.i(ptr noundef nonnull align 1 %.val30.i), !noalias !4506
   %248 = extractvalue { i32, i32 } %247, 1
   %249 = icmp eq i32 %245, %248
   br i1 %249, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i14.i81.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i78.i"
@@ -17440,10 +17440,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i78.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i14.i81.i", %243, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i73.i"
   %253 = icmp ne ptr %.val2.i76.i, null
   call void @llvm.assume(i1 %253)
-  %254 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val2.i76.i), !noalias !4504
+  %254 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val2.i76.i), !noalias !4506
   %255 = getelementptr inbounds nuw i8, ptr %.val31.i, i64 128
-  %256 = load ptr, ptr %255, align 8, !invariant.load !11, !noalias !4504, !nonnull !11
-  %257 = call noundef zeroext i1 %256(ptr noundef nonnull align 1 %.val30.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %254), !noalias !4504
+  %256 = load ptr, ptr %255, align 8, !invariant.load !11, !noalias !4506, !nonnull !11
+  %257 = call noundef zeroext i1 %256(ptr noundef nonnull align 1 %.val30.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %254), !noalias !4506
   %258 = xor i1 %257, true
   %.neg.i79.i = sext i1 %258 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3d95e9c7c567d5a5E.exit83.i"
@@ -17492,16 +17492,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
   %.val36.i = load ptr, ptr %23, align 8, !alias.scope !4501, !noalias !4504
   %.val5.i85.i = load ptr, ptr %.val32, align 8, !noalias !4506, !nonnull !11, !align !4500, !noundef !11
   %.val6.i86.i = load ptr, ptr %71, align 8, !noalias !4506
-  %272 = load i32, ptr %.val5.i85.i, align 4, !noalias !4504, !noundef !11
+  %272 = load i32, ptr %.val5.i85.i, align 4, !noalias !4506, !noundef !11
   %273 = icmp eq i32 %272, 0
   br i1 %273, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i88.i", label %274
 
 274:                                              ; preds = %270
   %275 = getelementptr inbounds nuw i8, ptr %.val5.i85.i, i64 4
-  %276 = load i32, ptr %275, align 4, !noalias !4504
+  %276 = load i32, ptr %275, align 4, !noalias !4506
   %277 = getelementptr i8, ptr %.val34.i, i64 192
-  %.val.i.i87.i = load ptr, ptr %277, align 8, !noalias !4504
-  %278 = call { i32, i32 } %.val.i.i87.i(ptr noundef nonnull align 1 %.val33.i), !noalias !4504
+  %.val.i.i87.i = load ptr, ptr %277, align 8, !noalias !4506
+  %278 = call { i32, i32 } %.val.i.i87.i(ptr noundef nonnull align 1 %.val33.i), !noalias !4506
   %279 = extractvalue { i32, i32 } %278, 1
   %280 = icmp eq i32 %276, %279
   br i1 %280, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i98.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i88.i"
@@ -17516,10 +17516,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i88.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i98.i", %274, %270
   %284 = icmp ne ptr %.val6.i86.i, null
   call void @llvm.assume(i1 %284)
-  %285 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val6.i86.i), !noalias !4504
+  %285 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val6.i86.i), !noalias !4506
   %286 = getelementptr inbounds nuw i8, ptr %.val34.i, i64 128
-  %287 = load ptr, ptr %286, align 8, !invariant.load !11, !noalias !4504, !nonnull !11
-  %288 = call noundef zeroext i1 %287(ptr noundef nonnull align 1 %.val33.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %285), !noalias !4504
+  %287 = load ptr, ptr %286, align 8, !invariant.load !11, !noalias !4506, !nonnull !11
+  %288 = call noundef zeroext i1 %287(ptr noundef nonnull align 1 %.val33.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %285), !noalias !4506
   %289 = xor i1 %288, true
   %290 = zext i1 %289 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i89.i"
@@ -17532,16 +17532,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
   call void @llvm.assume(i1 %291)
   %292 = icmp ne ptr %.val36.i, null
   call void @llvm.assume(i1 %292)
-  %293 = load i32, ptr %.val.i91.i, align 4, !noalias !4504, !noundef !11
+  %293 = load i32, ptr %.val.i91.i, align 4, !noalias !4506, !noundef !11
   %294 = icmp eq i32 %293, 0
   br i1 %294, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i94.i", label %295
 
 295:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i89.i"
   %296 = getelementptr inbounds nuw i8, ptr %.val.i91.i, i64 4
-  %297 = load i32, ptr %296, align 4, !noalias !4504
+  %297 = load i32, ptr %296, align 4, !noalias !4506
   %298 = getelementptr i8, ptr %.val36.i, i64 192
-  %.val.i11.i93.i = load ptr, ptr %298, align 8, !noalias !4504
-  %299 = call { i32, i32 } %.val.i11.i93.i(ptr noundef nonnull align 1 %.val35.i), !noalias !4504
+  %.val.i11.i93.i = load ptr, ptr %298, align 8, !noalias !4506
+  %299 = call { i32, i32 } %.val.i11.i93.i(ptr noundef nonnull align 1 %.val35.i), !noalias !4506
   %300 = extractvalue { i32, i32 } %299, 1
   %301 = icmp eq i32 %297, %300
   br i1 %301, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i14.i97.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i94.i"
@@ -17556,10 +17556,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i94.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i14.i97.i", %295, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i89.i"
   %305 = icmp ne ptr %.val2.i92.i, null
   call void @llvm.assume(i1 %305)
-  %306 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val2.i92.i), !noalias !4504
+  %306 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val2.i92.i), !noalias !4506
   %307 = getelementptr inbounds nuw i8, ptr %.val36.i, i64 128
-  %308 = load ptr, ptr %307, align 8, !invariant.load !11, !noalias !4504, !nonnull !11
-  %309 = call noundef zeroext i1 %308(ptr noundef nonnull align 1 %.val35.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %306), !noalias !4504
+  %308 = load ptr, ptr %307, align 8, !invariant.load !11, !noalias !4506, !nonnull !11
+  %309 = call noundef zeroext i1 %308(ptr noundef nonnull align 1 %.val35.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %306), !noalias !4506
   %310 = xor i1 %309, true
   %.neg.i95.i = sext i1 %310 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3d95e9c7c567d5a5E.exit99.i"
@@ -17648,19 +17648,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
   %.val15.i66 = load ptr, ptr %21, align 8, !alias.scope !4525, !noalias !4528, !nonnull !11, !align !166, !noundef !11
   %.val16.i67 = load ptr, ptr %23, align 8, !alias.scope !4525, !noalias !4528, !nonnull !11, !align !164, !noundef !11
   %.val.i.i68 = load ptr, ptr %6, align 8, !noalias !4530, !nonnull !11, !align !164, !noundef !11
-  %.val5.i.i.i = load ptr, ptr %.val.i.i68, align 8, !noalias !4528, !nonnull !11, !align !4500, !noundef !11
+  %.val5.i.i.i = load ptr, ptr %.val.i.i68, align 8, !noalias !4530, !nonnull !11, !align !4500, !noundef !11
   %343 = getelementptr i8, ptr %.val.i.i68, i64 8
-  %.val6.i.i.i = load ptr, ptr %343, align 8, !noalias !4528
-  %344 = load i32, ptr %.val5.i.i.i, align 4, !noalias !4528, !noundef !11
+  %.val6.i.i.i = load ptr, ptr %343, align 8, !noalias !4530
+  %344 = load i32, ptr %.val5.i.i.i, align 4, !noalias !4530, !noundef !11
   %345 = icmp eq i32 %344, 0
   br i1 %345, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i.i", label %346
 
 346:                                              ; preds = %.lr.ph.i60
   %347 = getelementptr inbounds nuw i8, ptr %.val5.i.i.i, i64 4
-  %348 = load i32, ptr %347, align 4, !noalias !4528
+  %348 = load i32, ptr %347, align 4, !noalias !4530
   %349 = getelementptr i8, ptr %.val16.i67, i64 192
-  %.val.i.i.i.i = load ptr, ptr %349, align 8, !noalias !4528
-  %350 = call { i32, i32 } %.val.i.i.i.i(ptr noundef nonnull align 1 %.val15.i66), !noalias !4528
+  %.val.i.i.i.i = load ptr, ptr %349, align 8, !noalias !4530
+  %350 = call { i32, i32 } %.val.i.i.i.i(ptr noundef nonnull align 1 %.val15.i66), !noalias !4530
   %351 = extractvalue { i32, i32 } %350, 1
   %352 = icmp eq i32 %348, %351
   br i1 %352, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i.i"
@@ -17675,32 +17675,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i.i.i", %346, %.lr.ph.i60
   %356 = icmp ne ptr %.val6.i.i.i, null
   call void @llvm.assume(i1 %356)
-  %357 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val6.i.i.i), !noalias !4528
+  %357 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val6.i.i.i), !noalias !4530
   %358 = getelementptr inbounds nuw i8, ptr %.val16.i67, i64 128
-  %359 = load ptr, ptr %358, align 8, !invariant.load !11, !noalias !4528, !nonnull !11
-  %360 = call noundef zeroext i1 %359(ptr noundef nonnull align 1 %.val15.i66, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %357), !noalias !4528
+  %359 = load ptr, ptr %358, align 8, !invariant.load !11, !noalias !4530, !nonnull !11
+  %360 = call noundef zeroext i1 %359(ptr noundef nonnull align 1 %.val15.i66, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %357), !noalias !4530
   %361 = xor i1 %360, true
   %362 = zext i1 %361 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i.i.i"
   %.sroa.0.0.i.i.i.i = phi i8 [ %362, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i.i.i" ]
-  %.val.i.i.i69 = load ptr, ptr %.val.i.i68, align 8, !noalias !4528, !nonnull !11, !align !4500, !noundef !11
-  %.val2.i.i.i = load ptr, ptr %343, align 8, !noalias !4528
+  %.val.i.i.i69 = load ptr, ptr %.val.i.i68, align 8, !noalias !4530, !nonnull !11, !align !4500, !noundef !11
+  %.val2.i.i.i = load ptr, ptr %343, align 8, !noalias !4530
   %363 = icmp ne ptr %.val13.i64, null
   call void @llvm.assume(i1 %363)
   %364 = icmp ne ptr %.val14.i65, null
   call void @llvm.assume(i1 %364)
-  %365 = load i32, ptr %.val.i.i.i69, align 4, !noalias !4528, !noundef !11
+  %365 = load i32, ptr %.val.i.i.i69, align 4, !noalias !4530, !noundef !11
   %366 = icmp eq i32 %365, 0
   br i1 %366, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i.i.i", label %367
 
 367:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i.i"
   %368 = getelementptr inbounds nuw i8, ptr %.val.i.i.i69, i64 4
-  %369 = load i32, ptr %368, align 4, !noalias !4528
+  %369 = load i32, ptr %368, align 4, !noalias !4530
   %370 = getelementptr i8, ptr %.val14.i65, i64 192
-  %.val.i11.i.i.i = load ptr, ptr %370, align 8, !noalias !4528
-  %371 = call { i32, i32 } %.val.i11.i.i.i(ptr noundef nonnull align 1 %.val13.i64), !noalias !4528
+  %.val.i11.i.i.i = load ptr, ptr %370, align 8, !noalias !4530
+  %371 = call { i32, i32 } %.val.i11.i.i.i(ptr noundef nonnull align 1 %.val13.i64), !noalias !4530
   %372 = extractvalue { i32, i32 } %371, 1
   %373 = icmp eq i32 %369, %372
   br i1 %373, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i14.i.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i.i.i"
@@ -17715,10 +17715,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i14.i.i.i", %367, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i.i"
   %377 = icmp ne ptr %.val2.i.i.i, null
   call void @llvm.assume(i1 %377)
-  %378 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val2.i.i.i), !noalias !4528
+  %378 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val2.i.i.i), !noalias !4530
   %379 = getelementptr inbounds nuw i8, ptr %.val14.i65, i64 128
-  %380 = load ptr, ptr %379, align 8, !invariant.load !11, !noalias !4528, !nonnull !11
-  %381 = call noundef zeroext i1 %380(ptr noundef nonnull align 1 %.val13.i64, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %378), !noalias !4528
+  %380 = load ptr, ptr %379, align 8, !invariant.load !11, !noalias !4530, !nonnull !11
+  %381 = call noundef zeroext i1 %380(ptr noundef nonnull align 1 %.val13.i64, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %378), !noalias !4530
   %382 = xor i1 %381, true
   %.neg.i.i.i = sext i1 %382 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h7259ba4b9b1f50c0E.exit.i"
@@ -17740,19 +17740,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
   %.val20.i73 = load ptr, ptr %21, align 8, !alias.scope !4525, !noalias !4528, !nonnull !11, !align !166, !noundef !11
   %.val21.i74 = load ptr, ptr %23, align 8, !alias.scope !4525, !noalias !4528, !nonnull !11, !align !164, !noundef !11
   %.val.i37.i = load ptr, ptr %6, align 8, !noalias !4530, !nonnull !11, !align !164, !noundef !11
-  %.val5.i.i38.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4528, !nonnull !11, !align !4500, !noundef !11
+  %.val5.i.i38.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4530, !nonnull !11, !align !4500, !noundef !11
   %391 = getelementptr i8, ptr %.val.i37.i, i64 8
-  %.val6.i.i39.i = load ptr, ptr %391, align 8, !noalias !4528
-  %392 = load i32, ptr %.val5.i.i38.i, align 4, !noalias !4528, !noundef !11
+  %.val6.i.i39.i = load ptr, ptr %391, align 8, !noalias !4530
+  %392 = load i32, ptr %.val5.i.i38.i, align 4, !noalias !4530, !noundef !11
   %393 = icmp eq i32 %392, 0
   br i1 %393, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i41.i", label %394
 
 394:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h7259ba4b9b1f50c0E.exit.i"
   %395 = getelementptr inbounds nuw i8, ptr %.val5.i.i38.i, i64 4
-  %396 = load i32, ptr %395, align 4, !noalias !4528
+  %396 = load i32, ptr %395, align 4, !noalias !4530
   %397 = getelementptr i8, ptr %.val21.i74, i64 192
-  %.val.i.i.i40.i = load ptr, ptr %397, align 8, !noalias !4528
-  %398 = call { i32, i32 } %.val.i.i.i40.i(ptr noundef nonnull align 1 %.val20.i73), !noalias !4528
+  %.val.i.i.i40.i = load ptr, ptr %397, align 8, !noalias !4530
+  %398 = call { i32, i32 } %.val.i.i.i40.i(ptr noundef nonnull align 1 %.val20.i73), !noalias !4530
   %399 = extractvalue { i32, i32 } %398, 1
   %400 = icmp eq i32 %396, %399
   br i1 %400, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i.i51.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i41.i"
@@ -17767,32 +17767,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i41.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i.i51.i", %394, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h7259ba4b9b1f50c0E.exit.i"
   %404 = icmp ne ptr %.val6.i.i39.i, null
   call void @llvm.assume(i1 %404)
-  %405 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val6.i.i39.i), !noalias !4528
+  %405 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val6.i.i39.i), !noalias !4530
   %406 = getelementptr inbounds nuw i8, ptr %.val21.i74, i64 128
-  %407 = load ptr, ptr %406, align 8, !invariant.load !11, !noalias !4528, !nonnull !11
-  %408 = call noundef zeroext i1 %407(ptr noundef nonnull align 1 %.val20.i73, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %405), !noalias !4528
+  %407 = load ptr, ptr %406, align 8, !invariant.load !11, !noalias !4530, !nonnull !11
+  %408 = call noundef zeroext i1 %407(ptr noundef nonnull align 1 %.val20.i73, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %405), !noalias !4530
   %409 = xor i1 %408, true
   %410 = zext i1 %409 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i42.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i42.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i41.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i.i51.i"
   %.sroa.0.0.i.i.i43.i = phi i8 [ %410, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i41.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i.i51.i" ]
-  %.val.i.i44.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4528, !nonnull !11, !align !4500, !noundef !11
-  %.val2.i.i45.i = load ptr, ptr %391, align 8, !noalias !4528
+  %.val.i.i44.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4530, !nonnull !11, !align !4500, !noundef !11
+  %.val2.i.i45.i = load ptr, ptr %391, align 8, !noalias !4530
   %411 = icmp ne ptr %.val18.i71, null
   call void @llvm.assume(i1 %411)
   %412 = icmp ne ptr %.val19.i72, null
   call void @llvm.assume(i1 %412)
-  %413 = load i32, ptr %.val.i.i44.i, align 4, !noalias !4528, !noundef !11
+  %413 = load i32, ptr %.val.i.i44.i, align 4, !noalias !4530, !noundef !11
   %414 = icmp eq i32 %413, 0
   br i1 %414, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i.i47.i", label %415
 
 415:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i42.i"
   %416 = getelementptr inbounds nuw i8, ptr %.val.i.i44.i, i64 4
-  %417 = load i32, ptr %416, align 4, !noalias !4528
+  %417 = load i32, ptr %416, align 4, !noalias !4530
   %418 = getelementptr i8, ptr %.val19.i72, i64 192
-  %.val.i11.i.i46.i = load ptr, ptr %418, align 8, !noalias !4528
-  %419 = call { i32, i32 } %.val.i11.i.i46.i(ptr noundef nonnull align 1 %.val18.i71), !noalias !4528
+  %.val.i11.i.i46.i = load ptr, ptr %418, align 8, !noalias !4530
+  %419 = call { i32, i32 } %.val.i11.i.i46.i(ptr noundef nonnull align 1 %.val18.i71), !noalias !4530
   %420 = extractvalue { i32, i32 } %419, 1
   %421 = icmp eq i32 %417, %420
   br i1 %421, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i14.i.i50.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i.i47.i"
@@ -17807,10 +17807,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i.i47.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i14.i.i50.i", %415, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i42.i"
   %425 = icmp ne ptr %.val2.i.i45.i, null
   call void @llvm.assume(i1 %425)
-  %426 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val2.i.i45.i), !noalias !4528
+  %426 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val2.i.i45.i), !noalias !4530
   %427 = getelementptr inbounds nuw i8, ptr %.val19.i72, i64 128
-  %428 = load ptr, ptr %427, align 8, !invariant.load !11, !noalias !4528, !nonnull !11
-  %429 = call noundef zeroext i1 %428(ptr noundef nonnull align 1 %.val18.i71, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %426), !noalias !4528
+  %428 = load ptr, ptr %427, align 8, !invariant.load !11, !noalias !4530, !nonnull !11
+  %429 = call noundef zeroext i1 %428(ptr noundef nonnull align 1 %.val18.i71, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %426), !noalias !4530
   %430 = xor i1 %429, true
   %.neg.i.i48.i = sext i1 %430 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h7259ba4b9b1f50c0E.exit52.i"
@@ -17832,19 +17832,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
   %.val25.i77 = load ptr, ptr %21, align 8, !alias.scope !4525, !noalias !4528, !nonnull !11, !align !166, !noundef !11
   %.val26.i78 = load ptr, ptr %23, align 8, !alias.scope !4525, !noalias !4528, !nonnull !11, !align !164, !noundef !11
   %.val.i54.i = load ptr, ptr %6, align 8, !noalias !4530, !nonnull !11, !align !164, !noundef !11
-  %.val5.i.i55.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4528, !nonnull !11, !align !4500, !noundef !11
+  %.val5.i.i55.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4530, !nonnull !11, !align !4500, !noundef !11
   %439 = getelementptr i8, ptr %.val.i54.i, i64 8
-  %.val6.i.i56.i = load ptr, ptr %439, align 8, !noalias !4528
-  %440 = load i32, ptr %.val5.i.i55.i, align 4, !noalias !4528, !noundef !11
+  %.val6.i.i56.i = load ptr, ptr %439, align 8, !noalias !4530
+  %440 = load i32, ptr %.val5.i.i55.i, align 4, !noalias !4530, !noundef !11
   %441 = icmp eq i32 %440, 0
   br i1 %441, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i58.i", label %442
 
 442:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h7259ba4b9b1f50c0E.exit52.i"
   %443 = getelementptr inbounds nuw i8, ptr %.val5.i.i55.i, i64 4
-  %444 = load i32, ptr %443, align 4, !noalias !4528
+  %444 = load i32, ptr %443, align 4, !noalias !4530
   %445 = getelementptr i8, ptr %.val26.i78, i64 192
-  %.val.i.i.i57.i = load ptr, ptr %445, align 8, !noalias !4528
-  %446 = call { i32, i32 } %.val.i.i.i57.i(ptr noundef nonnull align 1 %.val25.i77), !noalias !4528
+  %.val.i.i.i57.i = load ptr, ptr %445, align 8, !noalias !4530
+  %446 = call { i32, i32 } %.val.i.i.i57.i(ptr noundef nonnull align 1 %.val25.i77), !noalias !4530
   %447 = extractvalue { i32, i32 } %446, 1
   %448 = icmp eq i32 %444, %447
   br i1 %448, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i.i68.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i58.i"
@@ -17859,32 +17859,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i58.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i.i68.i", %442, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h7259ba4b9b1f50c0E.exit52.i"
   %452 = icmp ne ptr %.val6.i.i56.i, null
   call void @llvm.assume(i1 %452)
-  %453 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val6.i.i56.i), !noalias !4528
+  %453 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val6.i.i56.i), !noalias !4530
   %454 = getelementptr inbounds nuw i8, ptr %.val26.i78, i64 128
-  %455 = load ptr, ptr %454, align 8, !invariant.load !11, !noalias !4528, !nonnull !11
-  %456 = call noundef zeroext i1 %455(ptr noundef nonnull align 1 %.val25.i77, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %453), !noalias !4528
+  %455 = load ptr, ptr %454, align 8, !invariant.load !11, !noalias !4530, !nonnull !11
+  %456 = call noundef zeroext i1 %455(ptr noundef nonnull align 1 %.val25.i77, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %453), !noalias !4530
   %457 = xor i1 %456, true
   %458 = zext i1 %457 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i59.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i59.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i58.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i.i68.i"
   %.sroa.0.0.i.i.i60.i = phi i8 [ %458, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i58.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i.i68.i" ]
-  %.val.i.i61.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4528, !nonnull !11, !align !4500, !noundef !11
-  %.val2.i.i62.i = load ptr, ptr %439, align 8, !noalias !4528
+  %.val.i.i61.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4530, !nonnull !11, !align !4500, !noundef !11
+  %.val2.i.i62.i = load ptr, ptr %439, align 8, !noalias !4530
   %459 = icmp ne ptr %.val23.i75, null
   call void @llvm.assume(i1 %459)
   %460 = icmp ne ptr %.val24.i76, null
   call void @llvm.assume(i1 %460)
-  %461 = load i32, ptr %.val.i.i61.i, align 4, !noalias !4528, !noundef !11
+  %461 = load i32, ptr %.val.i.i61.i, align 4, !noalias !4530, !noundef !11
   %462 = icmp eq i32 %461, 0
   br i1 %462, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i.i64.i", label %463
 
 463:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i59.i"
   %464 = getelementptr inbounds nuw i8, ptr %.val.i.i61.i, i64 4
-  %465 = load i32, ptr %464, align 4, !noalias !4528
+  %465 = load i32, ptr %464, align 4, !noalias !4530
   %466 = getelementptr i8, ptr %.val24.i76, i64 192
-  %.val.i11.i.i63.i = load ptr, ptr %466, align 8, !noalias !4528
-  %467 = call { i32, i32 } %.val.i11.i.i63.i(ptr noundef nonnull align 1 %.val23.i75), !noalias !4528
+  %.val.i11.i.i63.i = load ptr, ptr %466, align 8, !noalias !4530
+  %467 = call { i32, i32 } %.val.i11.i.i63.i(ptr noundef nonnull align 1 %.val23.i75), !noalias !4530
   %468 = extractvalue { i32, i32 } %467, 1
   %469 = icmp eq i32 %465, %468
   br i1 %469, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i14.i.i67.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i.i64.i"
@@ -17899,10 +17899,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i.i64.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i14.i.i67.i", %463, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i59.i"
   %473 = icmp ne ptr %.val2.i.i62.i, null
   call void @llvm.assume(i1 %473)
-  %474 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val2.i.i62.i), !noalias !4528
+  %474 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val2.i.i62.i), !noalias !4530
   %475 = getelementptr inbounds nuw i8, ptr %.val24.i76, i64 128
-  %476 = load ptr, ptr %475, align 8, !invariant.load !11, !noalias !4528, !nonnull !11
-  %477 = call noundef zeroext i1 %476(ptr noundef nonnull align 1 %.val23.i75, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %474), !noalias !4528
+  %476 = load ptr, ptr %475, align 8, !invariant.load !11, !noalias !4530, !nonnull !11
+  %477 = call noundef zeroext i1 %476(ptr noundef nonnull align 1 %.val23.i75, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %474), !noalias !4530
   %478 = xor i1 %477, true
   %.neg.i.i65.i = sext i1 %478 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h7259ba4b9b1f50c0E.exit69.i"
@@ -17924,19 +17924,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
   %.val30.i81 = load ptr, ptr %21, align 8, !alias.scope !4525, !noalias !4528, !nonnull !11, !align !166, !noundef !11
   %.val31.i82 = load ptr, ptr %23, align 8, !alias.scope !4525, !noalias !4528, !nonnull !11, !align !164, !noundef !11
   %.val.i71.i = load ptr, ptr %6, align 8, !noalias !4530, !nonnull !11, !align !164, !noundef !11
-  %.val5.i.i72.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4528, !nonnull !11, !align !4500, !noundef !11
+  %.val5.i.i72.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4530, !nonnull !11, !align !4500, !noundef !11
   %487 = getelementptr i8, ptr %.val.i71.i, i64 8
-  %.val6.i.i73.i = load ptr, ptr %487, align 8, !noalias !4528
-  %488 = load i32, ptr %.val5.i.i72.i, align 4, !noalias !4528, !noundef !11
+  %.val6.i.i73.i = load ptr, ptr %487, align 8, !noalias !4530
+  %488 = load i32, ptr %.val5.i.i72.i, align 4, !noalias !4530, !noundef !11
   %489 = icmp eq i32 %488, 0
   br i1 %489, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i75.i", label %490
 
 490:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h7259ba4b9b1f50c0E.exit69.i"
   %491 = getelementptr inbounds nuw i8, ptr %.val5.i.i72.i, i64 4
-  %492 = load i32, ptr %491, align 4, !noalias !4528
+  %492 = load i32, ptr %491, align 4, !noalias !4530
   %493 = getelementptr i8, ptr %.val31.i82, i64 192
-  %.val.i.i.i74.i = load ptr, ptr %493, align 8, !noalias !4528
-  %494 = call { i32, i32 } %.val.i.i.i74.i(ptr noundef nonnull align 1 %.val30.i81), !noalias !4528
+  %.val.i.i.i74.i = load ptr, ptr %493, align 8, !noalias !4530
+  %494 = call { i32, i32 } %.val.i.i.i74.i(ptr noundef nonnull align 1 %.val30.i81), !noalias !4530
   %495 = extractvalue { i32, i32 } %494, 1
   %496 = icmp eq i32 %492, %495
   br i1 %496, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i.i85.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i75.i"
@@ -17951,32 +17951,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i75.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i.i85.i", %490, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h7259ba4b9b1f50c0E.exit69.i"
   %500 = icmp ne ptr %.val6.i.i73.i, null
   call void @llvm.assume(i1 %500)
-  %501 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val6.i.i73.i), !noalias !4528
+  %501 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val6.i.i73.i), !noalias !4530
   %502 = getelementptr inbounds nuw i8, ptr %.val31.i82, i64 128
-  %503 = load ptr, ptr %502, align 8, !invariant.load !11, !noalias !4528, !nonnull !11
-  %504 = call noundef zeroext i1 %503(ptr noundef nonnull align 1 %.val30.i81, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %501), !noalias !4528
+  %503 = load ptr, ptr %502, align 8, !invariant.load !11, !noalias !4530, !nonnull !11
+  %504 = call noundef zeroext i1 %503(ptr noundef nonnull align 1 %.val30.i81, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %501), !noalias !4530
   %505 = xor i1 %504, true
   %506 = zext i1 %505 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i76.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i76.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i75.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i.i85.i"
   %.sroa.0.0.i.i.i77.i = phi i8 [ %506, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i75.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i.i85.i" ]
-  %.val.i.i78.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4528, !nonnull !11, !align !4500, !noundef !11
-  %.val2.i.i79.i = load ptr, ptr %487, align 8, !noalias !4528
+  %.val.i.i78.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4530, !nonnull !11, !align !4500, !noundef !11
+  %.val2.i.i79.i = load ptr, ptr %487, align 8, !noalias !4530
   %507 = icmp ne ptr %.val28.i79, null
   call void @llvm.assume(i1 %507)
   %508 = icmp ne ptr %.val29.i80, null
   call void @llvm.assume(i1 %508)
-  %509 = load i32, ptr %.val.i.i78.i, align 4, !noalias !4528, !noundef !11
+  %509 = load i32, ptr %.val.i.i78.i, align 4, !noalias !4530, !noundef !11
   %510 = icmp eq i32 %509, 0
   br i1 %510, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i.i81.i", label %511
 
 511:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i76.i"
   %512 = getelementptr inbounds nuw i8, ptr %.val.i.i78.i, i64 4
-  %513 = load i32, ptr %512, align 4, !noalias !4528
+  %513 = load i32, ptr %512, align 4, !noalias !4530
   %514 = getelementptr i8, ptr %.val29.i80, i64 192
-  %.val.i11.i.i80.i = load ptr, ptr %514, align 8, !noalias !4528
-  %515 = call { i32, i32 } %.val.i11.i.i80.i(ptr noundef nonnull align 1 %.val28.i79), !noalias !4528
+  %.val.i11.i.i80.i = load ptr, ptr %514, align 8, !noalias !4530
+  %515 = call { i32, i32 } %.val.i11.i.i80.i(ptr noundef nonnull align 1 %.val28.i79), !noalias !4530
   %516 = extractvalue { i32, i32 } %515, 1
   %517 = icmp eq i32 %513, %516
   br i1 %517, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i14.i.i84.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i.i81.i"
@@ -17991,10 +17991,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i.i81.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i14.i.i84.i", %511, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i76.i"
   %521 = icmp ne ptr %.val2.i.i79.i, null
   call void @llvm.assume(i1 %521)
-  %522 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val2.i.i79.i), !noalias !4528
+  %522 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val2.i.i79.i), !noalias !4530
   %523 = getelementptr inbounds nuw i8, ptr %.val29.i80, i64 128
-  %524 = load ptr, ptr %523, align 8, !invariant.load !11, !noalias !4528, !nonnull !11
-  %525 = call noundef zeroext i1 %524(ptr noundef nonnull align 1 %.val28.i79, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %522), !noalias !4528
+  %524 = load ptr, ptr %523, align 8, !invariant.load !11, !noalias !4530, !nonnull !11
+  %525 = call noundef zeroext i1 %524(ptr noundef nonnull align 1 %.val28.i79, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %522), !noalias !4530
   %526 = xor i1 %525, true
   %.neg.i.i82.i = sext i1 %526 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h7259ba4b9b1f50c0E.exit86.i"
@@ -18038,19 +18038,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
   %.val35.i58 = load ptr, ptr %21, align 8, !alias.scope !4525, !noalias !4528, !nonnull !11, !align !166, !noundef !11
   %.val36.i59 = load ptr, ptr %23, align 8, !alias.scope !4525, !noalias !4528, !nonnull !11, !align !164, !noundef !11
   %.val.i88.i = load ptr, ptr %6, align 8, !noalias !4530, !nonnull !11, !align !164, !noundef !11
-  %.val5.i.i89.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4528, !nonnull !11, !align !4500, !noundef !11
+  %.val5.i.i89.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4530, !nonnull !11, !align !4500, !noundef !11
   %539 = getelementptr i8, ptr %.val.i88.i, i64 8
-  %.val6.i.i90.i = load ptr, ptr %539, align 8, !noalias !4528
-  %540 = load i32, ptr %.val5.i.i89.i, align 4, !noalias !4528, !noundef !11
+  %.val6.i.i90.i = load ptr, ptr %539, align 8, !noalias !4530
+  %540 = load i32, ptr %.val5.i.i89.i, align 4, !noalias !4530, !noundef !11
   %541 = icmp eq i32 %540, 0
   br i1 %541, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i92.i", label %542
 
 542:                                              ; preds = %.lr.ph40.i52
   %543 = getelementptr inbounds nuw i8, ptr %.val5.i.i89.i, i64 4
-  %544 = load i32, ptr %543, align 4, !noalias !4528
+  %544 = load i32, ptr %543, align 4, !noalias !4530
   %545 = getelementptr i8, ptr %.val36.i59, i64 192
-  %.val.i.i.i91.i = load ptr, ptr %545, align 8, !noalias !4528
-  %546 = call { i32, i32 } %.val.i.i.i91.i(ptr noundef nonnull align 1 %.val35.i58), !noalias !4528
+  %.val.i.i.i91.i = load ptr, ptr %545, align 8, !noalias !4530
+  %546 = call { i32, i32 } %.val.i.i.i91.i(ptr noundef nonnull align 1 %.val35.i58), !noalias !4530
   %547 = extractvalue { i32, i32 } %546, 1
   %548 = icmp eq i32 %544, %547
   br i1 %548, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i.i102.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i92.i"
@@ -18065,32 +18065,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i92.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i.i102.i", %542, %.lr.ph40.i52
   %552 = icmp ne ptr %.val6.i.i90.i, null
   call void @llvm.assume(i1 %552)
-  %553 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val6.i.i90.i), !noalias !4528
+  %553 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val6.i.i90.i), !noalias !4530
   %554 = getelementptr inbounds nuw i8, ptr %.val36.i59, i64 128
-  %555 = load ptr, ptr %554, align 8, !invariant.load !11, !noalias !4528, !nonnull !11
-  %556 = call noundef zeroext i1 %555(ptr noundef nonnull align 1 %.val35.i58, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %553), !noalias !4528
+  %555 = load ptr, ptr %554, align 8, !invariant.load !11, !noalias !4530, !nonnull !11
+  %556 = call noundef zeroext i1 %555(ptr noundef nonnull align 1 %.val35.i58, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %553), !noalias !4530
   %557 = xor i1 %556, true
   %558 = zext i1 %557 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i93.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i93.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i92.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i.i102.i"
   %.sroa.0.0.i.i.i94.i = phi i8 [ %558, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i.i.i92.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i.i.i102.i" ]
-  %.val.i.i95.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4528, !nonnull !11, !align !4500, !noundef !11
-  %.val2.i.i96.i = load ptr, ptr %539, align 8, !noalias !4528
+  %.val.i.i95.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4530, !nonnull !11, !align !4500, !noundef !11
+  %.val2.i.i96.i = load ptr, ptr %539, align 8, !noalias !4530
   %559 = icmp ne ptr %.val33.i56, null
   call void @llvm.assume(i1 %559)
   %560 = icmp ne ptr %.val34.i57, null
   call void @llvm.assume(i1 %560)
-  %561 = load i32, ptr %.val.i.i95.i, align 4, !noalias !4528, !noundef !11
+  %561 = load i32, ptr %.val.i.i95.i, align 4, !noalias !4530, !noundef !11
   %562 = icmp eq i32 %561, 0
   br i1 %562, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i.i98.i", label %563
 
 563:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i93.i"
   %564 = getelementptr inbounds nuw i8, ptr %.val.i.i95.i, i64 4
-  %565 = load i32, ptr %564, align 4, !noalias !4528
+  %565 = load i32, ptr %564, align 4, !noalias !4530
   %566 = getelementptr i8, ptr %.val34.i57, i64 192
-  %.val.i11.i.i97.i = load ptr, ptr %566, align 8, !noalias !4528
-  %567 = call { i32, i32 } %.val.i11.i.i97.i(ptr noundef nonnull align 1 %.val33.i56), !noalias !4528
+  %.val.i11.i.i97.i = load ptr, ptr %566, align 8, !noalias !4530
+  %567 = call { i32, i32 } %.val.i11.i.i97.i(ptr noundef nonnull align 1 %.val33.i56), !noalias !4530
   %568 = extractvalue { i32, i32 } %567, 1
   %569 = icmp eq i32 %565, %568
   br i1 %569, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i14.i.i101.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i.i98.i"
@@ -18105,10 +18105,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h08a3e07e162
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.thread.i.i12.i.i98.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1882312f8b8e8465E.exit.i.i14.i.i101.i", %563, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h37957cbdcc829d84E.exit.i.i93.i"
   %573 = icmp ne ptr %.val2.i.i96.i, null
   call void @llvm.assume(i1 %573)
-  %574 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val2.i.i96.i), !noalias !4528
+  %574 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val2.i.i96.i), !noalias !4530
   %575 = getelementptr inbounds nuw i8, ptr %.val34.i57, i64 128
-  %576 = load ptr, ptr %575, align 8, !invariant.load !11, !noalias !4528, !nonnull !11
-  %577 = call noundef zeroext i1 %576(ptr noundef nonnull align 1 %.val33.i56, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %574), !noalias !4528
+  %576 = load ptr, ptr %575, align 8, !invariant.load !11, !noalias !4530, !nonnull !11
+  %577 = call noundef zeroext i1 %576(ptr noundef nonnull align 1 %.val33.i56, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %574), !noalias !4530
   %578 = xor i1 %577, true
   %.neg.i.i99.i = sext i1 %578 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h7259ba4b9b1f50c0E.exit103.i"
@@ -18369,16 +18369,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
   %.val16.i = load ptr, ptr %23, align 8, !alias.scope !4552, !noalias !4555
   %.val7.i.i = load ptr, ptr %.val32, align 8, !noalias !4557, !nonnull !11, !align !4500, !noundef !11
   %.val8.i.i = load ptr, ptr %71, align 8, !noalias !4557
-  %79 = load i32, ptr %.val7.i.i, align 4, !noalias !4555, !noundef !11
+  %79 = load i32, ptr %.val7.i.i, align 4, !noalias !4557, !noundef !11
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i", label %81
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %.val7.i.i, i64 4
-  %83 = load i32, ptr %82, align 4, !noalias !4555
+  %83 = load i32, ptr %82, align 4, !noalias !4557
   %84 = getelementptr i8, ptr %.val14.i, i64 192
-  %.val.i.i.i = load ptr, ptr %84, align 8, !noalias !4555
-  %85 = call { i32, i32 } %.val.i.i.i(ptr noundef nonnull align 1 %.val13.i), !noalias !4555
+  %.val.i.i.i = load ptr, ptr %84, align 8, !noalias !4557
+  %85 = call { i32, i32 } %.val.i.i.i(ptr noundef nonnull align 1 %.val13.i), !noalias !4557
   %86 = extractvalue { i32, i32 } %85, 1
   %87 = icmp eq i32 %83, %86
   br i1 %87, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i"
@@ -18393,10 +18393,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i.i", %81, %77
   %91 = icmp ne ptr %.val8.i.i, null
   call void @llvm.assume(i1 %91)
-  %92 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i), !noalias !4555
+  %92 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i), !noalias !4557
   %93 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 128
-  %94 = load ptr, ptr %93, align 8, !invariant.load !11, !noalias !4555, !nonnull !11
-  %95 = call noundef zeroext i1 %94(ptr noundef nonnull align 1 %.val13.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %92), !noalias !4555
+  %94 = load ptr, ptr %93, align 8, !invariant.load !11, !noalias !4557, !nonnull !11
+  %95 = call noundef zeroext i1 %94(ptr noundef nonnull align 1 %.val13.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %92), !noalias !4557
   %96 = xor i1 %95, true
   %97 = zext i1 %96 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i"
@@ -18409,16 +18409,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
   call void @llvm.assume(i1 %98)
   %99 = icmp ne ptr %.val16.i, null
   call void @llvm.assume(i1 %99)
-  %100 = load i32, ptr %.val3.i.i, align 4, !noalias !4555, !noundef !11
+  %100 = load i32, ptr %.val3.i.i, align 4, !noalias !4557, !noundef !11
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i.i", label %102
 
 102:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i"
   %103 = getelementptr inbounds nuw i8, ptr %.val3.i.i, i64 4
-  %104 = load i32, ptr %103, align 4, !noalias !4555
+  %104 = load i32, ptr %103, align 4, !noalias !4557
   %105 = getelementptr i8, ptr %.val16.i, i64 192
-  %.val.i11.i.i = load ptr, ptr %105, align 8, !noalias !4555
-  %106 = call { i32, i32 } %.val.i11.i.i(ptr noundef nonnull align 1 %.val15.i), !noalias !4555
+  %.val.i11.i.i = load ptr, ptr %105, align 8, !noalias !4557
+  %106 = call { i32, i32 } %.val.i11.i.i(ptr noundef nonnull align 1 %.val15.i), !noalias !4557
   %107 = extractvalue { i32, i32 } %106, 1
   %108 = icmp eq i32 %104, %107
   br i1 %108, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i14.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i.i"
@@ -18433,10 +18433,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i14.i.i", %102, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i"
   %112 = icmp ne ptr %.val4.i.i, null
   call void @llvm.assume(i1 %112)
-  %113 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i), !noalias !4555
+  %113 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i), !noalias !4557
   %114 = getelementptr inbounds nuw i8, ptr %.val16.i, i64 128
-  %115 = load ptr, ptr %114, align 8, !invariant.load !11, !noalias !4555, !nonnull !11
-  %116 = call noundef zeroext i1 %115(ptr noundef nonnull align 1 %.val15.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %113), !noalias !4555
+  %115 = load ptr, ptr %114, align 8, !invariant.load !11, !noalias !4557, !nonnull !11
+  %116 = call noundef zeroext i1 %115(ptr noundef nonnull align 1 %.val15.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %113), !noalias !4557
   %117 = xor i1 %116, true
   %.neg.i.i = sext i1 %117 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6441c96a3d819816E.exit.i"
@@ -18459,16 +18459,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
   %.val21.i = load ptr, ptr %23, align 8, !alias.scope !4552, !noalias !4555
   %.val7.i37.i = load ptr, ptr %.val32, align 8, !noalias !4557, !nonnull !11, !align !4500, !noundef !11
   %.val8.i38.i = load ptr, ptr %71, align 8, !noalias !4557
-  %126 = load i32, ptr %.val7.i37.i, align 4, !noalias !4555, !noundef !11
+  %126 = load i32, ptr %.val7.i37.i, align 4, !noalias !4557, !noundef !11
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i40.i", label %128
 
 128:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6441c96a3d819816E.exit.i"
   %129 = getelementptr inbounds nuw i8, ptr %.val7.i37.i, i64 4
-  %130 = load i32, ptr %129, align 4, !noalias !4555
+  %130 = load i32, ptr %129, align 4, !noalias !4557
   %131 = getelementptr i8, ptr %.val19.i, i64 192
-  %.val.i.i39.i = load ptr, ptr %131, align 8, !noalias !4555
-  %132 = call { i32, i32 } %.val.i.i39.i(ptr noundef nonnull align 1 %.val18.i), !noalias !4555
+  %.val.i.i39.i = load ptr, ptr %131, align 8, !noalias !4557
+  %132 = call { i32, i32 } %.val.i.i39.i(ptr noundef nonnull align 1 %.val18.i), !noalias !4557
   %133 = extractvalue { i32, i32 } %132, 1
   %134 = icmp eq i32 %130, %133
   br i1 %134, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i50.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i40.i"
@@ -18483,10 +18483,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i40.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i50.i", %128, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6441c96a3d819816E.exit.i"
   %138 = icmp ne ptr %.val8.i38.i, null
   call void @llvm.assume(i1 %138)
-  %139 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i38.i), !noalias !4555
+  %139 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i38.i), !noalias !4557
   %140 = getelementptr inbounds nuw i8, ptr %.val19.i, i64 128
-  %141 = load ptr, ptr %140, align 8, !invariant.load !11, !noalias !4555, !nonnull !11
-  %142 = call noundef zeroext i1 %141(ptr noundef nonnull align 1 %.val18.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %139), !noalias !4555
+  %141 = load ptr, ptr %140, align 8, !invariant.load !11, !noalias !4557, !nonnull !11
+  %142 = call noundef zeroext i1 %141(ptr noundef nonnull align 1 %.val18.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %139), !noalias !4557
   %143 = xor i1 %142, true
   %144 = zext i1 %143 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i41.i"
@@ -18499,16 +18499,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
   call void @llvm.assume(i1 %145)
   %146 = icmp ne ptr %.val21.i, null
   call void @llvm.assume(i1 %146)
-  %147 = load i32, ptr %.val3.i43.i, align 4, !noalias !4555, !noundef !11
+  %147 = load i32, ptr %.val3.i43.i, align 4, !noalias !4557, !noundef !11
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i46.i", label %149
 
 149:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i41.i"
   %150 = getelementptr inbounds nuw i8, ptr %.val3.i43.i, i64 4
-  %151 = load i32, ptr %150, align 4, !noalias !4555
+  %151 = load i32, ptr %150, align 4, !noalias !4557
   %152 = getelementptr i8, ptr %.val21.i, i64 192
-  %.val.i11.i45.i = load ptr, ptr %152, align 8, !noalias !4555
-  %153 = call { i32, i32 } %.val.i11.i45.i(ptr noundef nonnull align 1 %.val20.i), !noalias !4555
+  %.val.i11.i45.i = load ptr, ptr %152, align 8, !noalias !4557
+  %153 = call { i32, i32 } %.val.i11.i45.i(ptr noundef nonnull align 1 %.val20.i), !noalias !4557
   %154 = extractvalue { i32, i32 } %153, 1
   %155 = icmp eq i32 %151, %154
   br i1 %155, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i14.i49.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i46.i"
@@ -18523,10 +18523,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i46.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i14.i49.i", %149, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i41.i"
   %159 = icmp ne ptr %.val4.i44.i, null
   call void @llvm.assume(i1 %159)
-  %160 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i44.i), !noalias !4555
+  %160 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i44.i), !noalias !4557
   %161 = getelementptr inbounds nuw i8, ptr %.val21.i, i64 128
-  %162 = load ptr, ptr %161, align 8, !invariant.load !11, !noalias !4555, !nonnull !11
-  %163 = call noundef zeroext i1 %162(ptr noundef nonnull align 1 %.val20.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %160), !noalias !4555
+  %162 = load ptr, ptr %161, align 8, !invariant.load !11, !noalias !4557, !nonnull !11
+  %163 = call noundef zeroext i1 %162(ptr noundef nonnull align 1 %.val20.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %160), !noalias !4557
   %164 = xor i1 %163, true
   %.neg.i47.i = sext i1 %164 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6441c96a3d819816E.exit51.i"
@@ -18549,16 +18549,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
   %.val26.i = load ptr, ptr %23, align 8, !alias.scope !4552, !noalias !4555
   %.val7.i53.i = load ptr, ptr %.val32, align 8, !noalias !4557, !nonnull !11, !align !4500, !noundef !11
   %.val8.i54.i = load ptr, ptr %71, align 8, !noalias !4557
-  %173 = load i32, ptr %.val7.i53.i, align 4, !noalias !4555, !noundef !11
+  %173 = load i32, ptr %.val7.i53.i, align 4, !noalias !4557, !noundef !11
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i56.i", label %175
 
 175:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6441c96a3d819816E.exit51.i"
   %176 = getelementptr inbounds nuw i8, ptr %.val7.i53.i, i64 4
-  %177 = load i32, ptr %176, align 4, !noalias !4555
+  %177 = load i32, ptr %176, align 4, !noalias !4557
   %178 = getelementptr i8, ptr %.val24.i, i64 192
-  %.val.i.i55.i = load ptr, ptr %178, align 8, !noalias !4555
-  %179 = call { i32, i32 } %.val.i.i55.i(ptr noundef nonnull align 1 %.val23.i), !noalias !4555
+  %.val.i.i55.i = load ptr, ptr %178, align 8, !noalias !4557
+  %179 = call { i32, i32 } %.val.i.i55.i(ptr noundef nonnull align 1 %.val23.i), !noalias !4557
   %180 = extractvalue { i32, i32 } %179, 1
   %181 = icmp eq i32 %177, %180
   br i1 %181, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i66.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i56.i"
@@ -18573,10 +18573,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i56.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i66.i", %175, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6441c96a3d819816E.exit51.i"
   %185 = icmp ne ptr %.val8.i54.i, null
   call void @llvm.assume(i1 %185)
-  %186 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i54.i), !noalias !4555
+  %186 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i54.i), !noalias !4557
   %187 = getelementptr inbounds nuw i8, ptr %.val24.i, i64 128
-  %188 = load ptr, ptr %187, align 8, !invariant.load !11, !noalias !4555, !nonnull !11
-  %189 = call noundef zeroext i1 %188(ptr noundef nonnull align 1 %.val23.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %186), !noalias !4555
+  %188 = load ptr, ptr %187, align 8, !invariant.load !11, !noalias !4557, !nonnull !11
+  %189 = call noundef zeroext i1 %188(ptr noundef nonnull align 1 %.val23.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %186), !noalias !4557
   %190 = xor i1 %189, true
   %191 = zext i1 %190 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i57.i"
@@ -18589,16 +18589,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
   call void @llvm.assume(i1 %192)
   %193 = icmp ne ptr %.val26.i, null
   call void @llvm.assume(i1 %193)
-  %194 = load i32, ptr %.val3.i59.i, align 4, !noalias !4555, !noundef !11
+  %194 = load i32, ptr %.val3.i59.i, align 4, !noalias !4557, !noundef !11
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i62.i", label %196
 
 196:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i57.i"
   %197 = getelementptr inbounds nuw i8, ptr %.val3.i59.i, i64 4
-  %198 = load i32, ptr %197, align 4, !noalias !4555
+  %198 = load i32, ptr %197, align 4, !noalias !4557
   %199 = getelementptr i8, ptr %.val26.i, i64 192
-  %.val.i11.i61.i = load ptr, ptr %199, align 8, !noalias !4555
-  %200 = call { i32, i32 } %.val.i11.i61.i(ptr noundef nonnull align 1 %.val25.i), !noalias !4555
+  %.val.i11.i61.i = load ptr, ptr %199, align 8, !noalias !4557
+  %200 = call { i32, i32 } %.val.i11.i61.i(ptr noundef nonnull align 1 %.val25.i), !noalias !4557
   %201 = extractvalue { i32, i32 } %200, 1
   %202 = icmp eq i32 %198, %201
   br i1 %202, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i14.i65.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i62.i"
@@ -18613,10 +18613,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i62.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i14.i65.i", %196, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i57.i"
   %206 = icmp ne ptr %.val4.i60.i, null
   call void @llvm.assume(i1 %206)
-  %207 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i60.i), !noalias !4555
+  %207 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i60.i), !noalias !4557
   %208 = getelementptr inbounds nuw i8, ptr %.val26.i, i64 128
-  %209 = load ptr, ptr %208, align 8, !invariant.load !11, !noalias !4555, !nonnull !11
-  %210 = call noundef zeroext i1 %209(ptr noundef nonnull align 1 %.val25.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %207), !noalias !4555
+  %209 = load ptr, ptr %208, align 8, !invariant.load !11, !noalias !4557, !nonnull !11
+  %210 = call noundef zeroext i1 %209(ptr noundef nonnull align 1 %.val25.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %207), !noalias !4557
   %211 = xor i1 %210, true
   %.neg.i63.i = sext i1 %211 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6441c96a3d819816E.exit67.i"
@@ -18639,16 +18639,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
   %.val31.i = load ptr, ptr %23, align 8, !alias.scope !4552, !noalias !4555
   %.val7.i69.i = load ptr, ptr %.val32, align 8, !noalias !4557, !nonnull !11, !align !4500, !noundef !11
   %.val8.i70.i = load ptr, ptr %71, align 8, !noalias !4557
-  %220 = load i32, ptr %.val7.i69.i, align 4, !noalias !4555, !noundef !11
+  %220 = load i32, ptr %.val7.i69.i, align 4, !noalias !4557, !noundef !11
   %221 = icmp eq i32 %220, 0
   br i1 %221, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i72.i", label %222
 
 222:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6441c96a3d819816E.exit67.i"
   %223 = getelementptr inbounds nuw i8, ptr %.val7.i69.i, i64 4
-  %224 = load i32, ptr %223, align 4, !noalias !4555
+  %224 = load i32, ptr %223, align 4, !noalias !4557
   %225 = getelementptr i8, ptr %.val29.i, i64 192
-  %.val.i.i71.i = load ptr, ptr %225, align 8, !noalias !4555
-  %226 = call { i32, i32 } %.val.i.i71.i(ptr noundef nonnull align 1 %.val28.i), !noalias !4555
+  %.val.i.i71.i = load ptr, ptr %225, align 8, !noalias !4557
+  %226 = call { i32, i32 } %.val.i.i71.i(ptr noundef nonnull align 1 %.val28.i), !noalias !4557
   %227 = extractvalue { i32, i32 } %226, 1
   %228 = icmp eq i32 %224, %227
   br i1 %228, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i82.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i72.i"
@@ -18663,10 +18663,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i72.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i82.i", %222, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6441c96a3d819816E.exit67.i"
   %232 = icmp ne ptr %.val8.i70.i, null
   call void @llvm.assume(i1 %232)
-  %233 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i70.i), !noalias !4555
+  %233 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i70.i), !noalias !4557
   %234 = getelementptr inbounds nuw i8, ptr %.val29.i, i64 128
-  %235 = load ptr, ptr %234, align 8, !invariant.load !11, !noalias !4555, !nonnull !11
-  %236 = call noundef zeroext i1 %235(ptr noundef nonnull align 1 %.val28.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %233), !noalias !4555
+  %235 = load ptr, ptr %234, align 8, !invariant.load !11, !noalias !4557, !nonnull !11
+  %236 = call noundef zeroext i1 %235(ptr noundef nonnull align 1 %.val28.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %233), !noalias !4557
   %237 = xor i1 %236, true
   %238 = zext i1 %237 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i73.i"
@@ -18679,16 +18679,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
   call void @llvm.assume(i1 %239)
   %240 = icmp ne ptr %.val31.i, null
   call void @llvm.assume(i1 %240)
-  %241 = load i32, ptr %.val3.i75.i, align 4, !noalias !4555, !noundef !11
+  %241 = load i32, ptr %.val3.i75.i, align 4, !noalias !4557, !noundef !11
   %242 = icmp eq i32 %241, 0
   br i1 %242, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i78.i", label %243
 
 243:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i73.i"
   %244 = getelementptr inbounds nuw i8, ptr %.val3.i75.i, i64 4
-  %245 = load i32, ptr %244, align 4, !noalias !4555
+  %245 = load i32, ptr %244, align 4, !noalias !4557
   %246 = getelementptr i8, ptr %.val31.i, i64 192
-  %.val.i11.i77.i = load ptr, ptr %246, align 8, !noalias !4555
-  %247 = call { i32, i32 } %.val.i11.i77.i(ptr noundef nonnull align 1 %.val30.i), !noalias !4555
+  %.val.i11.i77.i = load ptr, ptr %246, align 8, !noalias !4557
+  %247 = call { i32, i32 } %.val.i11.i77.i(ptr noundef nonnull align 1 %.val30.i), !noalias !4557
   %248 = extractvalue { i32, i32 } %247, 1
   %249 = icmp eq i32 %245, %248
   br i1 %249, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i14.i81.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i78.i"
@@ -18703,10 +18703,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i78.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i14.i81.i", %243, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i73.i"
   %253 = icmp ne ptr %.val4.i76.i, null
   call void @llvm.assume(i1 %253)
-  %254 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i76.i), !noalias !4555
+  %254 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i76.i), !noalias !4557
   %255 = getelementptr inbounds nuw i8, ptr %.val31.i, i64 128
-  %256 = load ptr, ptr %255, align 8, !invariant.load !11, !noalias !4555, !nonnull !11
-  %257 = call noundef zeroext i1 %256(ptr noundef nonnull align 1 %.val30.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %254), !noalias !4555
+  %256 = load ptr, ptr %255, align 8, !invariant.load !11, !noalias !4557, !nonnull !11
+  %257 = call noundef zeroext i1 %256(ptr noundef nonnull align 1 %.val30.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %254), !noalias !4557
   %258 = xor i1 %257, true
   %.neg.i79.i = sext i1 %258 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6441c96a3d819816E.exit83.i"
@@ -18755,16 +18755,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
   %.val36.i = load ptr, ptr %23, align 8, !alias.scope !4552, !noalias !4555
   %.val7.i85.i = load ptr, ptr %.val32, align 8, !noalias !4557, !nonnull !11, !align !4500, !noundef !11
   %.val8.i86.i = load ptr, ptr %71, align 8, !noalias !4557
-  %272 = load i32, ptr %.val7.i85.i, align 4, !noalias !4555, !noundef !11
+  %272 = load i32, ptr %.val7.i85.i, align 4, !noalias !4557, !noundef !11
   %273 = icmp eq i32 %272, 0
   br i1 %273, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i88.i", label %274
 
 274:                                              ; preds = %270
   %275 = getelementptr inbounds nuw i8, ptr %.val7.i85.i, i64 4
-  %276 = load i32, ptr %275, align 4, !noalias !4555
+  %276 = load i32, ptr %275, align 4, !noalias !4557
   %277 = getelementptr i8, ptr %.val34.i, i64 192
-  %.val.i.i87.i = load ptr, ptr %277, align 8, !noalias !4555
-  %278 = call { i32, i32 } %.val.i.i87.i(ptr noundef nonnull align 1 %.val33.i), !noalias !4555
+  %.val.i.i87.i = load ptr, ptr %277, align 8, !noalias !4557
+  %278 = call { i32, i32 } %.val.i.i87.i(ptr noundef nonnull align 1 %.val33.i), !noalias !4557
   %279 = extractvalue { i32, i32 } %278, 1
   %280 = icmp eq i32 %276, %279
   br i1 %280, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i98.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i88.i"
@@ -18779,10 +18779,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i88.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i98.i", %274, %270
   %284 = icmp ne ptr %.val8.i86.i, null
   call void @llvm.assume(i1 %284)
-  %285 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i86.i), !noalias !4555
+  %285 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i86.i), !noalias !4557
   %286 = getelementptr inbounds nuw i8, ptr %.val34.i, i64 128
-  %287 = load ptr, ptr %286, align 8, !invariant.load !11, !noalias !4555, !nonnull !11
-  %288 = call noundef zeroext i1 %287(ptr noundef nonnull align 1 %.val33.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %285), !noalias !4555
+  %287 = load ptr, ptr %286, align 8, !invariant.load !11, !noalias !4557, !nonnull !11
+  %288 = call noundef zeroext i1 %287(ptr noundef nonnull align 1 %.val33.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %285), !noalias !4557
   %289 = xor i1 %288, true
   %290 = zext i1 %289 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i89.i"
@@ -18795,16 +18795,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
   call void @llvm.assume(i1 %291)
   %292 = icmp ne ptr %.val36.i, null
   call void @llvm.assume(i1 %292)
-  %293 = load i32, ptr %.val3.i91.i, align 4, !noalias !4555, !noundef !11
+  %293 = load i32, ptr %.val3.i91.i, align 4, !noalias !4557, !noundef !11
   %294 = icmp eq i32 %293, 0
   br i1 %294, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i94.i", label %295
 
 295:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i89.i"
   %296 = getelementptr inbounds nuw i8, ptr %.val3.i91.i, i64 4
-  %297 = load i32, ptr %296, align 4, !noalias !4555
+  %297 = load i32, ptr %296, align 4, !noalias !4557
   %298 = getelementptr i8, ptr %.val36.i, i64 192
-  %.val.i11.i93.i = load ptr, ptr %298, align 8, !noalias !4555
-  %299 = call { i32, i32 } %.val.i11.i93.i(ptr noundef nonnull align 1 %.val35.i), !noalias !4555
+  %.val.i11.i93.i = load ptr, ptr %298, align 8, !noalias !4557
+  %299 = call { i32, i32 } %.val.i11.i93.i(ptr noundef nonnull align 1 %.val35.i), !noalias !4557
   %300 = extractvalue { i32, i32 } %299, 1
   %301 = icmp eq i32 %297, %300
   br i1 %301, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i14.i97.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i94.i"
@@ -18819,10 +18819,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i94.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i14.i97.i", %295, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i89.i"
   %305 = icmp ne ptr %.val4.i92.i, null
   call void @llvm.assume(i1 %305)
-  %306 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i92.i), !noalias !4555
+  %306 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i92.i), !noalias !4557
   %307 = getelementptr inbounds nuw i8, ptr %.val36.i, i64 128
-  %308 = load ptr, ptr %307, align 8, !invariant.load !11, !noalias !4555, !nonnull !11
-  %309 = call noundef zeroext i1 %308(ptr noundef nonnull align 1 %.val35.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %306), !noalias !4555
+  %308 = load ptr, ptr %307, align 8, !invariant.load !11, !noalias !4557, !nonnull !11
+  %309 = call noundef zeroext i1 %308(ptr noundef nonnull align 1 %.val35.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %306), !noalias !4557
   %310 = xor i1 %309, true
   %.neg.i95.i = sext i1 %310 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6441c96a3d819816E.exit99.i"
@@ -18911,19 +18911,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
   %.val15.i65 = load ptr, ptr %21, align 8, !alias.scope !4576, !noalias !4579, !nonnull !11, !align !166, !noundef !11
   %.val16.i66 = load ptr, ptr %23, align 8, !alias.scope !4576, !noalias !4579, !nonnull !11, !align !164, !noundef !11
   %.val.i.i67 = load ptr, ptr %6, align 8, !noalias !4581, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !4579, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !4581, !nonnull !11, !align !4500, !noundef !11
   %343 = getelementptr i8, ptr %.val.i.i67, i64 8
-  %.val8.i.i.i = load ptr, ptr %343, align 8, !noalias !4579
-  %344 = load i32, ptr %.val7.i.i.i, align 4, !noalias !4579, !noundef !11
+  %.val8.i.i.i = load ptr, ptr %343, align 8, !noalias !4581
+  %344 = load i32, ptr %.val7.i.i.i, align 4, !noalias !4581, !noundef !11
   %345 = icmp eq i32 %344, 0
   br i1 %345, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i.i", label %346
 
 346:                                              ; preds = %.lr.ph.i59
   %347 = getelementptr inbounds nuw i8, ptr %.val7.i.i.i, i64 4
-  %348 = load i32, ptr %347, align 4, !noalias !4579
+  %348 = load i32, ptr %347, align 4, !noalias !4581
   %349 = getelementptr i8, ptr %.val16.i66, i64 192
-  %.val.i.i.i.i = load ptr, ptr %349, align 8, !noalias !4579
-  %350 = call { i32, i32 } %.val.i.i.i.i(ptr noundef nonnull align 1 %.val15.i65), !noalias !4579
+  %.val.i.i.i.i = load ptr, ptr %349, align 8, !noalias !4581
+  %350 = call { i32, i32 } %.val.i.i.i.i(ptr noundef nonnull align 1 %.val15.i65), !noalias !4581
   %351 = extractvalue { i32, i32 } %350, 1
   %352 = icmp eq i32 %348, %351
   br i1 %352, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i.i"
@@ -18938,32 +18938,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i.i.i", %346, %.lr.ph.i59
   %356 = icmp ne ptr %.val8.i.i.i, null
   call void @llvm.assume(i1 %356)
-  %357 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i.i), !noalias !4579
+  %357 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i.i), !noalias !4581
   %358 = getelementptr inbounds nuw i8, ptr %.val16.i66, i64 128
-  %359 = load ptr, ptr %358, align 8, !invariant.load !11, !noalias !4579, !nonnull !11
-  %360 = call noundef zeroext i1 %359(ptr noundef nonnull align 1 %.val15.i65, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %357), !noalias !4579
+  %359 = load ptr, ptr %358, align 8, !invariant.load !11, !noalias !4581, !nonnull !11
+  %360 = call noundef zeroext i1 %359(ptr noundef nonnull align 1 %.val15.i65, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %357), !noalias !4581
   %361 = xor i1 %360, true
   %362 = zext i1 %361 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i.i.i"
   %.sroa.0.0.i.i.i.i = phi i8 [ %362, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i.i.i" ]
-  %.val3.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !4579, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i.i = load ptr, ptr %343, align 8, !noalias !4579
+  %.val3.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !4581, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i.i = load ptr, ptr %343, align 8, !noalias !4581
   %363 = icmp ne ptr %.val13.i63, null
   call void @llvm.assume(i1 %363)
   %364 = icmp ne ptr %.val14.i64, null
   call void @llvm.assume(i1 %364)
-  %365 = load i32, ptr %.val3.i.i.i, align 4, !noalias !4579, !noundef !11
+  %365 = load i32, ptr %.val3.i.i.i, align 4, !noalias !4581, !noundef !11
   %366 = icmp eq i32 %365, 0
   br i1 %366, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i.i.i", label %367
 
 367:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i.i"
   %368 = getelementptr inbounds nuw i8, ptr %.val3.i.i.i, i64 4
-  %369 = load i32, ptr %368, align 4, !noalias !4579
+  %369 = load i32, ptr %368, align 4, !noalias !4581
   %370 = getelementptr i8, ptr %.val14.i64, i64 192
-  %.val.i11.i.i.i = load ptr, ptr %370, align 8, !noalias !4579
-  %371 = call { i32, i32 } %.val.i11.i.i.i(ptr noundef nonnull align 1 %.val13.i63), !noalias !4579
+  %.val.i11.i.i.i = load ptr, ptr %370, align 8, !noalias !4581
+  %371 = call { i32, i32 } %.val.i11.i.i.i(ptr noundef nonnull align 1 %.val13.i63), !noalias !4581
   %372 = extractvalue { i32, i32 } %371, 1
   %373 = icmp eq i32 %369, %372
   br i1 %373, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i14.i.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i.i.i"
@@ -18978,10 +18978,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i14.i.i.i", %367, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i.i"
   %377 = icmp ne ptr %.val4.i.i.i, null
   call void @llvm.assume(i1 %377)
-  %378 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i.i), !noalias !4579
+  %378 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i.i), !noalias !4581
   %379 = getelementptr inbounds nuw i8, ptr %.val14.i64, i64 128
-  %380 = load ptr, ptr %379, align 8, !invariant.load !11, !noalias !4579, !nonnull !11
-  %381 = call noundef zeroext i1 %380(ptr noundef nonnull align 1 %.val13.i63, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %378), !noalias !4579
+  %380 = load ptr, ptr %379, align 8, !invariant.load !11, !noalias !4581, !nonnull !11
+  %381 = call noundef zeroext i1 %380(ptr noundef nonnull align 1 %.val13.i63, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %378), !noalias !4581
   %382 = xor i1 %381, true
   %.neg.i.i.i = sext i1 %382 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h9f4c27d5fda6a6feE.exit.i"
@@ -19003,19 +19003,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
   %.val20.i71 = load ptr, ptr %21, align 8, !alias.scope !4576, !noalias !4579, !nonnull !11, !align !166, !noundef !11
   %.val21.i72 = load ptr, ptr %23, align 8, !alias.scope !4576, !noalias !4579, !nonnull !11, !align !164, !noundef !11
   %.val.i37.i = load ptr, ptr %6, align 8, !noalias !4581, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i38.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4579, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i38.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4581, !nonnull !11, !align !4500, !noundef !11
   %391 = getelementptr i8, ptr %.val.i37.i, i64 8
-  %.val8.i.i39.i = load ptr, ptr %391, align 8, !noalias !4579
-  %392 = load i32, ptr %.val7.i.i38.i, align 4, !noalias !4579, !noundef !11
+  %.val8.i.i39.i = load ptr, ptr %391, align 8, !noalias !4581
+  %392 = load i32, ptr %.val7.i.i38.i, align 4, !noalias !4581, !noundef !11
   %393 = icmp eq i32 %392, 0
   br i1 %393, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i41.i", label %394
 
 394:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h9f4c27d5fda6a6feE.exit.i"
   %395 = getelementptr inbounds nuw i8, ptr %.val7.i.i38.i, i64 4
-  %396 = load i32, ptr %395, align 4, !noalias !4579
+  %396 = load i32, ptr %395, align 4, !noalias !4581
   %397 = getelementptr i8, ptr %.val21.i72, i64 192
-  %.val.i.i.i40.i = load ptr, ptr %397, align 8, !noalias !4579
-  %398 = call { i32, i32 } %.val.i.i.i40.i(ptr noundef nonnull align 1 %.val20.i71), !noalias !4579
+  %.val.i.i.i40.i = load ptr, ptr %397, align 8, !noalias !4581
+  %398 = call { i32, i32 } %.val.i.i.i40.i(ptr noundef nonnull align 1 %.val20.i71), !noalias !4581
   %399 = extractvalue { i32, i32 } %398, 1
   %400 = icmp eq i32 %396, %399
   br i1 %400, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i.i51.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i41.i"
@@ -19030,32 +19030,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i41.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i.i51.i", %394, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h9f4c27d5fda6a6feE.exit.i"
   %404 = icmp ne ptr %.val8.i.i39.i, null
   call void @llvm.assume(i1 %404)
-  %405 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i39.i), !noalias !4579
+  %405 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i39.i), !noalias !4581
   %406 = getelementptr inbounds nuw i8, ptr %.val21.i72, i64 128
-  %407 = load ptr, ptr %406, align 8, !invariant.load !11, !noalias !4579, !nonnull !11
-  %408 = call noundef zeroext i1 %407(ptr noundef nonnull align 1 %.val20.i71, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %405), !noalias !4579
+  %407 = load ptr, ptr %406, align 8, !invariant.load !11, !noalias !4581, !nonnull !11
+  %408 = call noundef zeroext i1 %407(ptr noundef nonnull align 1 %.val20.i71, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %405), !noalias !4581
   %409 = xor i1 %408, true
   %410 = zext i1 %409 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i42.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i42.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i41.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i.i51.i"
   %.sroa.0.0.i.i.i43.i = phi i8 [ %410, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i41.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i.i51.i" ]
-  %.val3.i.i44.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4579, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i45.i = load ptr, ptr %391, align 8, !noalias !4579
+  %.val3.i.i44.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4581, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i45.i = load ptr, ptr %391, align 8, !noalias !4581
   %411 = icmp ne ptr %.val18.i69, null
   call void @llvm.assume(i1 %411)
   %412 = icmp ne ptr %.val19.i70, null
   call void @llvm.assume(i1 %412)
-  %413 = load i32, ptr %.val3.i.i44.i, align 4, !noalias !4579, !noundef !11
+  %413 = load i32, ptr %.val3.i.i44.i, align 4, !noalias !4581, !noundef !11
   %414 = icmp eq i32 %413, 0
   br i1 %414, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i.i47.i", label %415
 
 415:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i42.i"
   %416 = getelementptr inbounds nuw i8, ptr %.val3.i.i44.i, i64 4
-  %417 = load i32, ptr %416, align 4, !noalias !4579
+  %417 = load i32, ptr %416, align 4, !noalias !4581
   %418 = getelementptr i8, ptr %.val19.i70, i64 192
-  %.val.i11.i.i46.i = load ptr, ptr %418, align 8, !noalias !4579
-  %419 = call { i32, i32 } %.val.i11.i.i46.i(ptr noundef nonnull align 1 %.val18.i69), !noalias !4579
+  %.val.i11.i.i46.i = load ptr, ptr %418, align 8, !noalias !4581
+  %419 = call { i32, i32 } %.val.i11.i.i46.i(ptr noundef nonnull align 1 %.val18.i69), !noalias !4581
   %420 = extractvalue { i32, i32 } %419, 1
   %421 = icmp eq i32 %417, %420
   br i1 %421, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i14.i.i50.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i.i47.i"
@@ -19070,10 +19070,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i.i47.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i14.i.i50.i", %415, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i42.i"
   %425 = icmp ne ptr %.val4.i.i45.i, null
   call void @llvm.assume(i1 %425)
-  %426 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i45.i), !noalias !4579
+  %426 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i45.i), !noalias !4581
   %427 = getelementptr inbounds nuw i8, ptr %.val19.i70, i64 128
-  %428 = load ptr, ptr %427, align 8, !invariant.load !11, !noalias !4579, !nonnull !11
-  %429 = call noundef zeroext i1 %428(ptr noundef nonnull align 1 %.val18.i69, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %426), !noalias !4579
+  %428 = load ptr, ptr %427, align 8, !invariant.load !11, !noalias !4581, !nonnull !11
+  %429 = call noundef zeroext i1 %428(ptr noundef nonnull align 1 %.val18.i69, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %426), !noalias !4581
   %430 = xor i1 %429, true
   %.neg.i.i48.i = sext i1 %430 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h9f4c27d5fda6a6feE.exit52.i"
@@ -19095,19 +19095,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
   %.val25.i75 = load ptr, ptr %21, align 8, !alias.scope !4576, !noalias !4579, !nonnull !11, !align !166, !noundef !11
   %.val26.i76 = load ptr, ptr %23, align 8, !alias.scope !4576, !noalias !4579, !nonnull !11, !align !164, !noundef !11
   %.val.i54.i = load ptr, ptr %6, align 8, !noalias !4581, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i55.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4579, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i55.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4581, !nonnull !11, !align !4500, !noundef !11
   %439 = getelementptr i8, ptr %.val.i54.i, i64 8
-  %.val8.i.i56.i = load ptr, ptr %439, align 8, !noalias !4579
-  %440 = load i32, ptr %.val7.i.i55.i, align 4, !noalias !4579, !noundef !11
+  %.val8.i.i56.i = load ptr, ptr %439, align 8, !noalias !4581
+  %440 = load i32, ptr %.val7.i.i55.i, align 4, !noalias !4581, !noundef !11
   %441 = icmp eq i32 %440, 0
   br i1 %441, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i58.i", label %442
 
 442:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h9f4c27d5fda6a6feE.exit52.i"
   %443 = getelementptr inbounds nuw i8, ptr %.val7.i.i55.i, i64 4
-  %444 = load i32, ptr %443, align 4, !noalias !4579
+  %444 = load i32, ptr %443, align 4, !noalias !4581
   %445 = getelementptr i8, ptr %.val26.i76, i64 192
-  %.val.i.i.i57.i = load ptr, ptr %445, align 8, !noalias !4579
-  %446 = call { i32, i32 } %.val.i.i.i57.i(ptr noundef nonnull align 1 %.val25.i75), !noalias !4579
+  %.val.i.i.i57.i = load ptr, ptr %445, align 8, !noalias !4581
+  %446 = call { i32, i32 } %.val.i.i.i57.i(ptr noundef nonnull align 1 %.val25.i75), !noalias !4581
   %447 = extractvalue { i32, i32 } %446, 1
   %448 = icmp eq i32 %444, %447
   br i1 %448, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i.i68.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i58.i"
@@ -19122,32 +19122,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i58.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i.i68.i", %442, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h9f4c27d5fda6a6feE.exit52.i"
   %452 = icmp ne ptr %.val8.i.i56.i, null
   call void @llvm.assume(i1 %452)
-  %453 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i56.i), !noalias !4579
+  %453 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i56.i), !noalias !4581
   %454 = getelementptr inbounds nuw i8, ptr %.val26.i76, i64 128
-  %455 = load ptr, ptr %454, align 8, !invariant.load !11, !noalias !4579, !nonnull !11
-  %456 = call noundef zeroext i1 %455(ptr noundef nonnull align 1 %.val25.i75, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %453), !noalias !4579
+  %455 = load ptr, ptr %454, align 8, !invariant.load !11, !noalias !4581, !nonnull !11
+  %456 = call noundef zeroext i1 %455(ptr noundef nonnull align 1 %.val25.i75, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %453), !noalias !4581
   %457 = xor i1 %456, true
   %458 = zext i1 %457 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i59.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i59.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i58.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i.i68.i"
   %.sroa.0.0.i.i.i60.i = phi i8 [ %458, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i58.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i.i68.i" ]
-  %.val3.i.i61.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4579, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i62.i = load ptr, ptr %439, align 8, !noalias !4579
+  %.val3.i.i61.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4581, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i62.i = load ptr, ptr %439, align 8, !noalias !4581
   %459 = icmp ne ptr %.val23.i73, null
   call void @llvm.assume(i1 %459)
   %460 = icmp ne ptr %.val24.i74, null
   call void @llvm.assume(i1 %460)
-  %461 = load i32, ptr %.val3.i.i61.i, align 4, !noalias !4579, !noundef !11
+  %461 = load i32, ptr %.val3.i.i61.i, align 4, !noalias !4581, !noundef !11
   %462 = icmp eq i32 %461, 0
   br i1 %462, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i.i64.i", label %463
 
 463:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i59.i"
   %464 = getelementptr inbounds nuw i8, ptr %.val3.i.i61.i, i64 4
-  %465 = load i32, ptr %464, align 4, !noalias !4579
+  %465 = load i32, ptr %464, align 4, !noalias !4581
   %466 = getelementptr i8, ptr %.val24.i74, i64 192
-  %.val.i11.i.i63.i = load ptr, ptr %466, align 8, !noalias !4579
-  %467 = call { i32, i32 } %.val.i11.i.i63.i(ptr noundef nonnull align 1 %.val23.i73), !noalias !4579
+  %.val.i11.i.i63.i = load ptr, ptr %466, align 8, !noalias !4581
+  %467 = call { i32, i32 } %.val.i11.i.i63.i(ptr noundef nonnull align 1 %.val23.i73), !noalias !4581
   %468 = extractvalue { i32, i32 } %467, 1
   %469 = icmp eq i32 %465, %468
   br i1 %469, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i14.i.i67.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i.i64.i"
@@ -19162,10 +19162,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i.i64.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i14.i.i67.i", %463, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i59.i"
   %473 = icmp ne ptr %.val4.i.i62.i, null
   call void @llvm.assume(i1 %473)
-  %474 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i62.i), !noalias !4579
+  %474 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i62.i), !noalias !4581
   %475 = getelementptr inbounds nuw i8, ptr %.val24.i74, i64 128
-  %476 = load ptr, ptr %475, align 8, !invariant.load !11, !noalias !4579, !nonnull !11
-  %477 = call noundef zeroext i1 %476(ptr noundef nonnull align 1 %.val23.i73, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %474), !noalias !4579
+  %476 = load ptr, ptr %475, align 8, !invariant.load !11, !noalias !4581, !nonnull !11
+  %477 = call noundef zeroext i1 %476(ptr noundef nonnull align 1 %.val23.i73, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %474), !noalias !4581
   %478 = xor i1 %477, true
   %.neg.i.i65.i = sext i1 %478 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h9f4c27d5fda6a6feE.exit69.i"
@@ -19187,19 +19187,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
   %.val30.i79 = load ptr, ptr %21, align 8, !alias.scope !4576, !noalias !4579, !nonnull !11, !align !166, !noundef !11
   %.val31.i80 = load ptr, ptr %23, align 8, !alias.scope !4576, !noalias !4579, !nonnull !11, !align !164, !noundef !11
   %.val.i71.i = load ptr, ptr %6, align 8, !noalias !4581, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i72.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4579, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i72.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4581, !nonnull !11, !align !4500, !noundef !11
   %487 = getelementptr i8, ptr %.val.i71.i, i64 8
-  %.val8.i.i73.i = load ptr, ptr %487, align 8, !noalias !4579
-  %488 = load i32, ptr %.val7.i.i72.i, align 4, !noalias !4579, !noundef !11
+  %.val8.i.i73.i = load ptr, ptr %487, align 8, !noalias !4581
+  %488 = load i32, ptr %.val7.i.i72.i, align 4, !noalias !4581, !noundef !11
   %489 = icmp eq i32 %488, 0
   br i1 %489, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i75.i", label %490
 
 490:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h9f4c27d5fda6a6feE.exit69.i"
   %491 = getelementptr inbounds nuw i8, ptr %.val7.i.i72.i, i64 4
-  %492 = load i32, ptr %491, align 4, !noalias !4579
+  %492 = load i32, ptr %491, align 4, !noalias !4581
   %493 = getelementptr i8, ptr %.val31.i80, i64 192
-  %.val.i.i.i74.i = load ptr, ptr %493, align 8, !noalias !4579
-  %494 = call { i32, i32 } %.val.i.i.i74.i(ptr noundef nonnull align 1 %.val30.i79), !noalias !4579
+  %.val.i.i.i74.i = load ptr, ptr %493, align 8, !noalias !4581
+  %494 = call { i32, i32 } %.val.i.i.i74.i(ptr noundef nonnull align 1 %.val30.i79), !noalias !4581
   %495 = extractvalue { i32, i32 } %494, 1
   %496 = icmp eq i32 %492, %495
   br i1 %496, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i.i85.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i75.i"
@@ -19214,32 +19214,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i75.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i.i85.i", %490, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h9f4c27d5fda6a6feE.exit69.i"
   %500 = icmp ne ptr %.val8.i.i73.i, null
   call void @llvm.assume(i1 %500)
-  %501 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i73.i), !noalias !4579
+  %501 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i73.i), !noalias !4581
   %502 = getelementptr inbounds nuw i8, ptr %.val31.i80, i64 128
-  %503 = load ptr, ptr %502, align 8, !invariant.load !11, !noalias !4579, !nonnull !11
-  %504 = call noundef zeroext i1 %503(ptr noundef nonnull align 1 %.val30.i79, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %501), !noalias !4579
+  %503 = load ptr, ptr %502, align 8, !invariant.load !11, !noalias !4581, !nonnull !11
+  %504 = call noundef zeroext i1 %503(ptr noundef nonnull align 1 %.val30.i79, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %501), !noalias !4581
   %505 = xor i1 %504, true
   %506 = zext i1 %505 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i76.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i76.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i75.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i.i85.i"
   %.sroa.0.0.i.i.i77.i = phi i8 [ %506, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i75.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i.i85.i" ]
-  %.val3.i.i78.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4579, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i79.i = load ptr, ptr %487, align 8, !noalias !4579
+  %.val3.i.i78.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4581, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i79.i = load ptr, ptr %487, align 8, !noalias !4581
   %507 = icmp ne ptr %.val28.i77, null
   call void @llvm.assume(i1 %507)
   %508 = icmp ne ptr %.val29.i78, null
   call void @llvm.assume(i1 %508)
-  %509 = load i32, ptr %.val3.i.i78.i, align 4, !noalias !4579, !noundef !11
+  %509 = load i32, ptr %.val3.i.i78.i, align 4, !noalias !4581, !noundef !11
   %510 = icmp eq i32 %509, 0
   br i1 %510, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i.i81.i", label %511
 
 511:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i76.i"
   %512 = getelementptr inbounds nuw i8, ptr %.val3.i.i78.i, i64 4
-  %513 = load i32, ptr %512, align 4, !noalias !4579
+  %513 = load i32, ptr %512, align 4, !noalias !4581
   %514 = getelementptr i8, ptr %.val29.i78, i64 192
-  %.val.i11.i.i80.i = load ptr, ptr %514, align 8, !noalias !4579
-  %515 = call { i32, i32 } %.val.i11.i.i80.i(ptr noundef nonnull align 1 %.val28.i77), !noalias !4579
+  %.val.i11.i.i80.i = load ptr, ptr %514, align 8, !noalias !4581
+  %515 = call { i32, i32 } %.val.i11.i.i80.i(ptr noundef nonnull align 1 %.val28.i77), !noalias !4581
   %516 = extractvalue { i32, i32 } %515, 1
   %517 = icmp eq i32 %513, %516
   br i1 %517, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i14.i.i84.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i.i81.i"
@@ -19254,10 +19254,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i.i81.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i14.i.i84.i", %511, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i76.i"
   %521 = icmp ne ptr %.val4.i.i79.i, null
   call void @llvm.assume(i1 %521)
-  %522 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i79.i), !noalias !4579
+  %522 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i79.i), !noalias !4581
   %523 = getelementptr inbounds nuw i8, ptr %.val29.i78, i64 128
-  %524 = load ptr, ptr %523, align 8, !invariant.load !11, !noalias !4579, !nonnull !11
-  %525 = call noundef zeroext i1 %524(ptr noundef nonnull align 1 %.val28.i77, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %522), !noalias !4579
+  %524 = load ptr, ptr %523, align 8, !invariant.load !11, !noalias !4581, !nonnull !11
+  %525 = call noundef zeroext i1 %524(ptr noundef nonnull align 1 %.val28.i77, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %522), !noalias !4581
   %526 = xor i1 %525, true
   %.neg.i.i82.i = sext i1 %526 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h9f4c27d5fda6a6feE.exit86.i"
@@ -19301,19 +19301,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
   %.val35.i57 = load ptr, ptr %21, align 8, !alias.scope !4576, !noalias !4579, !nonnull !11, !align !166, !noundef !11
   %.val36.i58 = load ptr, ptr %23, align 8, !alias.scope !4576, !noalias !4579, !nonnull !11, !align !164, !noundef !11
   %.val.i88.i = load ptr, ptr %6, align 8, !noalias !4581, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i89.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4579, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i89.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4581, !nonnull !11, !align !4500, !noundef !11
   %539 = getelementptr i8, ptr %.val.i88.i, i64 8
-  %.val8.i.i90.i = load ptr, ptr %539, align 8, !noalias !4579
-  %540 = load i32, ptr %.val7.i.i89.i, align 4, !noalias !4579, !noundef !11
+  %.val8.i.i90.i = load ptr, ptr %539, align 8, !noalias !4581
+  %540 = load i32, ptr %.val7.i.i89.i, align 4, !noalias !4581, !noundef !11
   %541 = icmp eq i32 %540, 0
   br i1 %541, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i92.i", label %542
 
 542:                                              ; preds = %.lr.ph40.i51
   %543 = getelementptr inbounds nuw i8, ptr %.val7.i.i89.i, i64 4
-  %544 = load i32, ptr %543, align 4, !noalias !4579
+  %544 = load i32, ptr %543, align 4, !noalias !4581
   %545 = getelementptr i8, ptr %.val36.i58, i64 192
-  %.val.i.i.i91.i = load ptr, ptr %545, align 8, !noalias !4579
-  %546 = call { i32, i32 } %.val.i.i.i91.i(ptr noundef nonnull align 1 %.val35.i57), !noalias !4579
+  %.val.i.i.i91.i = load ptr, ptr %545, align 8, !noalias !4581
+  %546 = call { i32, i32 } %.val.i.i.i91.i(ptr noundef nonnull align 1 %.val35.i57), !noalias !4581
   %547 = extractvalue { i32, i32 } %546, 1
   %548 = icmp eq i32 %544, %547
   br i1 %548, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i.i102.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i92.i"
@@ -19328,32 +19328,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i92.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i.i102.i", %542, %.lr.ph40.i51
   %552 = icmp ne ptr %.val8.i.i90.i, null
   call void @llvm.assume(i1 %552)
-  %553 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i90.i), !noalias !4579
+  %553 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i90.i), !noalias !4581
   %554 = getelementptr inbounds nuw i8, ptr %.val36.i58, i64 128
-  %555 = load ptr, ptr %554, align 8, !invariant.load !11, !noalias !4579, !nonnull !11
-  %556 = call noundef zeroext i1 %555(ptr noundef nonnull align 1 %.val35.i57, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %553), !noalias !4579
+  %555 = load ptr, ptr %554, align 8, !invariant.load !11, !noalias !4581, !nonnull !11
+  %556 = call noundef zeroext i1 %555(ptr noundef nonnull align 1 %.val35.i57, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %553), !noalias !4581
   %557 = xor i1 %556, true
   %558 = zext i1 %557 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i93.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i93.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i92.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i.i102.i"
   %.sroa.0.0.i.i.i94.i = phi i8 [ %558, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i.i.i92.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i.i.i102.i" ]
-  %.val3.i.i95.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4579, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i96.i = load ptr, ptr %539, align 8, !noalias !4579
+  %.val3.i.i95.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4581, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i96.i = load ptr, ptr %539, align 8, !noalias !4581
   %559 = icmp ne ptr %.val33.i55, null
   call void @llvm.assume(i1 %559)
   %560 = icmp ne ptr %.val34.i56, null
   call void @llvm.assume(i1 %560)
-  %561 = load i32, ptr %.val3.i.i95.i, align 4, !noalias !4579, !noundef !11
+  %561 = load i32, ptr %.val3.i.i95.i, align 4, !noalias !4581, !noundef !11
   %562 = icmp eq i32 %561, 0
   br i1 %562, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i.i98.i", label %563
 
 563:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i93.i"
   %564 = getelementptr inbounds nuw i8, ptr %.val3.i.i95.i, i64 4
-  %565 = load i32, ptr %564, align 4, !noalias !4579
+  %565 = load i32, ptr %564, align 4, !noalias !4581
   %566 = getelementptr i8, ptr %.val34.i56, i64 192
-  %.val.i11.i.i97.i = load ptr, ptr %566, align 8, !noalias !4579
-  %567 = call { i32, i32 } %.val.i11.i.i97.i(ptr noundef nonnull align 1 %.val33.i55), !noalias !4579
+  %.val.i11.i.i97.i = load ptr, ptr %566, align 8, !noalias !4581
+  %567 = call { i32, i32 } %.val.i11.i.i97.i(ptr noundef nonnull align 1 %.val33.i55), !noalias !4581
   %568 = extractvalue { i32, i32 } %567, 1
   %569 = icmp eq i32 %565, %568
   br i1 %569, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i14.i.i101.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i.i98.i"
@@ -19368,10 +19368,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h192da628de2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.thread.i.i12.i.i98.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5dfa1dbe26407e41E.exit.i.i14.i.i101.i", %563, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h6d2456cabef028ebE.exit.i.i93.i"
   %573 = icmp ne ptr %.val4.i.i96.i, null
   call void @llvm.assume(i1 %573)
-  %574 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i96.i), !noalias !4579
+  %574 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i96.i), !noalias !4581
   %575 = getelementptr inbounds nuw i8, ptr %.val34.i56, i64 128
-  %576 = load ptr, ptr %575, align 8, !invariant.load !11, !noalias !4579, !nonnull !11
-  %577 = call noundef zeroext i1 %576(ptr noundef nonnull align 1 %.val33.i55, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %574), !noalias !4579
+  %576 = load ptr, ptr %575, align 8, !invariant.load !11, !noalias !4581, !nonnull !11
+  %577 = call noundef zeroext i1 %576(ptr noundef nonnull align 1 %.val33.i55, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %574), !noalias !4581
   %578 = xor i1 %577, true
   %.neg.i.i99.i = sext i1 %578 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h9f4c27d5fda6a6feE.exit103.i"
@@ -19632,16 +19632,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
   %.val16.i = load ptr, ptr %23, align 8, !alias.scope !4603, !noalias !4606
   %.val7.i.i = load ptr, ptr %.val32, align 8, !noalias !4608, !nonnull !11, !align !4500, !noundef !11
   %.val8.i.i = load ptr, ptr %71, align 8, !noalias !4608
-  %79 = load i32, ptr %.val7.i.i, align 4, !noalias !4606, !noundef !11
+  %79 = load i32, ptr %.val7.i.i, align 4, !noalias !4608, !noundef !11
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i", label %81
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %.val7.i.i, i64 4
-  %83 = load i32, ptr %82, align 4, !noalias !4606
+  %83 = load i32, ptr %82, align 4, !noalias !4608
   %84 = getelementptr i8, ptr %.val14.i, i64 192
-  %.val.i.i.i = load ptr, ptr %84, align 8, !noalias !4606
-  %85 = call { i32, i32 } %.val.i.i.i(ptr noundef nonnull align 1 %.val13.i), !noalias !4606
+  %.val.i.i.i = load ptr, ptr %84, align 8, !noalias !4608
+  %85 = call { i32, i32 } %.val.i.i.i(ptr noundef nonnull align 1 %.val13.i), !noalias !4608
   %86 = extractvalue { i32, i32 } %85, 1
   %87 = icmp eq i32 %83, %86
   br i1 %87, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i"
@@ -19656,10 +19656,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i.i", %81, %77
   %91 = icmp ne ptr %.val8.i.i, null
   call void @llvm.assume(i1 %91)
-  %92 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i), !noalias !4606
+  %92 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i), !noalias !4608
   %93 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 128
-  %94 = load ptr, ptr %93, align 8, !invariant.load !11, !noalias !4606, !nonnull !11
-  %95 = call noundef zeroext i1 %94(ptr noundef nonnull align 1 %.val13.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %92), !noalias !4606
+  %94 = load ptr, ptr %93, align 8, !invariant.load !11, !noalias !4608, !nonnull !11
+  %95 = call noundef zeroext i1 %94(ptr noundef nonnull align 1 %.val13.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %92), !noalias !4608
   %96 = xor i1 %95, true
   %97 = zext i1 %96 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i"
@@ -19672,16 +19672,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
   call void @llvm.assume(i1 %98)
   %99 = icmp ne ptr %.val16.i, null
   call void @llvm.assume(i1 %99)
-  %100 = load i32, ptr %.val3.i.i, align 4, !noalias !4606, !noundef !11
+  %100 = load i32, ptr %.val3.i.i, align 4, !noalias !4608, !noundef !11
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i.i", label %102
 
 102:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i"
   %103 = getelementptr inbounds nuw i8, ptr %.val3.i.i, i64 4
-  %104 = load i32, ptr %103, align 4, !noalias !4606
+  %104 = load i32, ptr %103, align 4, !noalias !4608
   %105 = getelementptr i8, ptr %.val16.i, i64 192
-  %.val.i11.i.i = load ptr, ptr %105, align 8, !noalias !4606
-  %106 = call { i32, i32 } %.val.i11.i.i(ptr noundef nonnull align 1 %.val15.i), !noalias !4606
+  %.val.i11.i.i = load ptr, ptr %105, align 8, !noalias !4608
+  %106 = call { i32, i32 } %.val.i11.i.i(ptr noundef nonnull align 1 %.val15.i), !noalias !4608
   %107 = extractvalue { i32, i32 } %106, 1
   %108 = icmp eq i32 %104, %107
   br i1 %108, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i14.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i.i"
@@ -19696,10 +19696,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i14.i.i", %102, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i"
   %112 = icmp ne ptr %.val4.i.i, null
   call void @llvm.assume(i1 %112)
-  %113 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i), !noalias !4606
+  %113 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i), !noalias !4608
   %114 = getelementptr inbounds nuw i8, ptr %.val16.i, i64 128
-  %115 = load ptr, ptr %114, align 8, !invariant.load !11, !noalias !4606, !nonnull !11
-  %116 = call noundef zeroext i1 %115(ptr noundef nonnull align 1 %.val15.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %113), !noalias !4606
+  %115 = load ptr, ptr %114, align 8, !invariant.load !11, !noalias !4608, !nonnull !11
+  %116 = call noundef zeroext i1 %115(ptr noundef nonnull align 1 %.val15.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %113), !noalias !4608
   %117 = xor i1 %116, true
   %.neg.i.i = sext i1 %117 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59d09aafe1c7a26fE.exit.i"
@@ -19722,16 +19722,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
   %.val21.i = load ptr, ptr %23, align 8, !alias.scope !4603, !noalias !4606
   %.val7.i37.i = load ptr, ptr %.val32, align 8, !noalias !4608, !nonnull !11, !align !4500, !noundef !11
   %.val8.i38.i = load ptr, ptr %71, align 8, !noalias !4608
-  %126 = load i32, ptr %.val7.i37.i, align 4, !noalias !4606, !noundef !11
+  %126 = load i32, ptr %.val7.i37.i, align 4, !noalias !4608, !noundef !11
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i40.i", label %128
 
 128:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59d09aafe1c7a26fE.exit.i"
   %129 = getelementptr inbounds nuw i8, ptr %.val7.i37.i, i64 4
-  %130 = load i32, ptr %129, align 4, !noalias !4606
+  %130 = load i32, ptr %129, align 4, !noalias !4608
   %131 = getelementptr i8, ptr %.val19.i, i64 192
-  %.val.i.i39.i = load ptr, ptr %131, align 8, !noalias !4606
-  %132 = call { i32, i32 } %.val.i.i39.i(ptr noundef nonnull align 1 %.val18.i), !noalias !4606
+  %.val.i.i39.i = load ptr, ptr %131, align 8, !noalias !4608
+  %132 = call { i32, i32 } %.val.i.i39.i(ptr noundef nonnull align 1 %.val18.i), !noalias !4608
   %133 = extractvalue { i32, i32 } %132, 1
   %134 = icmp eq i32 %130, %133
   br i1 %134, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i50.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i40.i"
@@ -19746,10 +19746,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i40.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i50.i", %128, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59d09aafe1c7a26fE.exit.i"
   %138 = icmp ne ptr %.val8.i38.i, null
   call void @llvm.assume(i1 %138)
-  %139 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i38.i), !noalias !4606
+  %139 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i38.i), !noalias !4608
   %140 = getelementptr inbounds nuw i8, ptr %.val19.i, i64 128
-  %141 = load ptr, ptr %140, align 8, !invariant.load !11, !noalias !4606, !nonnull !11
-  %142 = call noundef zeroext i1 %141(ptr noundef nonnull align 1 %.val18.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %139), !noalias !4606
+  %141 = load ptr, ptr %140, align 8, !invariant.load !11, !noalias !4608, !nonnull !11
+  %142 = call noundef zeroext i1 %141(ptr noundef nonnull align 1 %.val18.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %139), !noalias !4608
   %143 = xor i1 %142, true
   %144 = zext i1 %143 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i41.i"
@@ -19762,16 +19762,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
   call void @llvm.assume(i1 %145)
   %146 = icmp ne ptr %.val21.i, null
   call void @llvm.assume(i1 %146)
-  %147 = load i32, ptr %.val3.i43.i, align 4, !noalias !4606, !noundef !11
+  %147 = load i32, ptr %.val3.i43.i, align 4, !noalias !4608, !noundef !11
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i46.i", label %149
 
 149:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i41.i"
   %150 = getelementptr inbounds nuw i8, ptr %.val3.i43.i, i64 4
-  %151 = load i32, ptr %150, align 4, !noalias !4606
+  %151 = load i32, ptr %150, align 4, !noalias !4608
   %152 = getelementptr i8, ptr %.val21.i, i64 192
-  %.val.i11.i45.i = load ptr, ptr %152, align 8, !noalias !4606
-  %153 = call { i32, i32 } %.val.i11.i45.i(ptr noundef nonnull align 1 %.val20.i), !noalias !4606
+  %.val.i11.i45.i = load ptr, ptr %152, align 8, !noalias !4608
+  %153 = call { i32, i32 } %.val.i11.i45.i(ptr noundef nonnull align 1 %.val20.i), !noalias !4608
   %154 = extractvalue { i32, i32 } %153, 1
   %155 = icmp eq i32 %151, %154
   br i1 %155, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i14.i49.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i46.i"
@@ -19786,10 +19786,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i46.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i14.i49.i", %149, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i41.i"
   %159 = icmp ne ptr %.val4.i44.i, null
   call void @llvm.assume(i1 %159)
-  %160 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i44.i), !noalias !4606
+  %160 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i44.i), !noalias !4608
   %161 = getelementptr inbounds nuw i8, ptr %.val21.i, i64 128
-  %162 = load ptr, ptr %161, align 8, !invariant.load !11, !noalias !4606, !nonnull !11
-  %163 = call noundef zeroext i1 %162(ptr noundef nonnull align 1 %.val20.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %160), !noalias !4606
+  %162 = load ptr, ptr %161, align 8, !invariant.load !11, !noalias !4608, !nonnull !11
+  %163 = call noundef zeroext i1 %162(ptr noundef nonnull align 1 %.val20.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %160), !noalias !4608
   %164 = xor i1 %163, true
   %.neg.i47.i = sext i1 %164 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59d09aafe1c7a26fE.exit51.i"
@@ -19812,16 +19812,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
   %.val26.i = load ptr, ptr %23, align 8, !alias.scope !4603, !noalias !4606
   %.val7.i53.i = load ptr, ptr %.val32, align 8, !noalias !4608, !nonnull !11, !align !4500, !noundef !11
   %.val8.i54.i = load ptr, ptr %71, align 8, !noalias !4608
-  %173 = load i32, ptr %.val7.i53.i, align 4, !noalias !4606, !noundef !11
+  %173 = load i32, ptr %.val7.i53.i, align 4, !noalias !4608, !noundef !11
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i56.i", label %175
 
 175:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59d09aafe1c7a26fE.exit51.i"
   %176 = getelementptr inbounds nuw i8, ptr %.val7.i53.i, i64 4
-  %177 = load i32, ptr %176, align 4, !noalias !4606
+  %177 = load i32, ptr %176, align 4, !noalias !4608
   %178 = getelementptr i8, ptr %.val24.i, i64 192
-  %.val.i.i55.i = load ptr, ptr %178, align 8, !noalias !4606
-  %179 = call { i32, i32 } %.val.i.i55.i(ptr noundef nonnull align 1 %.val23.i), !noalias !4606
+  %.val.i.i55.i = load ptr, ptr %178, align 8, !noalias !4608
+  %179 = call { i32, i32 } %.val.i.i55.i(ptr noundef nonnull align 1 %.val23.i), !noalias !4608
   %180 = extractvalue { i32, i32 } %179, 1
   %181 = icmp eq i32 %177, %180
   br i1 %181, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i66.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i56.i"
@@ -19836,10 +19836,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i56.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i66.i", %175, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59d09aafe1c7a26fE.exit51.i"
   %185 = icmp ne ptr %.val8.i54.i, null
   call void @llvm.assume(i1 %185)
-  %186 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i54.i), !noalias !4606
+  %186 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i54.i), !noalias !4608
   %187 = getelementptr inbounds nuw i8, ptr %.val24.i, i64 128
-  %188 = load ptr, ptr %187, align 8, !invariant.load !11, !noalias !4606, !nonnull !11
-  %189 = call noundef zeroext i1 %188(ptr noundef nonnull align 1 %.val23.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %186), !noalias !4606
+  %188 = load ptr, ptr %187, align 8, !invariant.load !11, !noalias !4608, !nonnull !11
+  %189 = call noundef zeroext i1 %188(ptr noundef nonnull align 1 %.val23.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %186), !noalias !4608
   %190 = xor i1 %189, true
   %191 = zext i1 %190 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i57.i"
@@ -19852,16 +19852,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
   call void @llvm.assume(i1 %192)
   %193 = icmp ne ptr %.val26.i, null
   call void @llvm.assume(i1 %193)
-  %194 = load i32, ptr %.val3.i59.i, align 4, !noalias !4606, !noundef !11
+  %194 = load i32, ptr %.val3.i59.i, align 4, !noalias !4608, !noundef !11
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i62.i", label %196
 
 196:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i57.i"
   %197 = getelementptr inbounds nuw i8, ptr %.val3.i59.i, i64 4
-  %198 = load i32, ptr %197, align 4, !noalias !4606
+  %198 = load i32, ptr %197, align 4, !noalias !4608
   %199 = getelementptr i8, ptr %.val26.i, i64 192
-  %.val.i11.i61.i = load ptr, ptr %199, align 8, !noalias !4606
-  %200 = call { i32, i32 } %.val.i11.i61.i(ptr noundef nonnull align 1 %.val25.i), !noalias !4606
+  %.val.i11.i61.i = load ptr, ptr %199, align 8, !noalias !4608
+  %200 = call { i32, i32 } %.val.i11.i61.i(ptr noundef nonnull align 1 %.val25.i), !noalias !4608
   %201 = extractvalue { i32, i32 } %200, 1
   %202 = icmp eq i32 %198, %201
   br i1 %202, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i14.i65.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i62.i"
@@ -19876,10 +19876,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i62.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i14.i65.i", %196, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i57.i"
   %206 = icmp ne ptr %.val4.i60.i, null
   call void @llvm.assume(i1 %206)
-  %207 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i60.i), !noalias !4606
+  %207 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i60.i), !noalias !4608
   %208 = getelementptr inbounds nuw i8, ptr %.val26.i, i64 128
-  %209 = load ptr, ptr %208, align 8, !invariant.load !11, !noalias !4606, !nonnull !11
-  %210 = call noundef zeroext i1 %209(ptr noundef nonnull align 1 %.val25.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %207), !noalias !4606
+  %209 = load ptr, ptr %208, align 8, !invariant.load !11, !noalias !4608, !nonnull !11
+  %210 = call noundef zeroext i1 %209(ptr noundef nonnull align 1 %.val25.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %207), !noalias !4608
   %211 = xor i1 %210, true
   %.neg.i63.i = sext i1 %211 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59d09aafe1c7a26fE.exit67.i"
@@ -19902,16 +19902,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
   %.val31.i = load ptr, ptr %23, align 8, !alias.scope !4603, !noalias !4606
   %.val7.i69.i = load ptr, ptr %.val32, align 8, !noalias !4608, !nonnull !11, !align !4500, !noundef !11
   %.val8.i70.i = load ptr, ptr %71, align 8, !noalias !4608
-  %220 = load i32, ptr %.val7.i69.i, align 4, !noalias !4606, !noundef !11
+  %220 = load i32, ptr %.val7.i69.i, align 4, !noalias !4608, !noundef !11
   %221 = icmp eq i32 %220, 0
   br i1 %221, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i72.i", label %222
 
 222:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59d09aafe1c7a26fE.exit67.i"
   %223 = getelementptr inbounds nuw i8, ptr %.val7.i69.i, i64 4
-  %224 = load i32, ptr %223, align 4, !noalias !4606
+  %224 = load i32, ptr %223, align 4, !noalias !4608
   %225 = getelementptr i8, ptr %.val29.i, i64 192
-  %.val.i.i71.i = load ptr, ptr %225, align 8, !noalias !4606
-  %226 = call { i32, i32 } %.val.i.i71.i(ptr noundef nonnull align 1 %.val28.i), !noalias !4606
+  %.val.i.i71.i = load ptr, ptr %225, align 8, !noalias !4608
+  %226 = call { i32, i32 } %.val.i.i71.i(ptr noundef nonnull align 1 %.val28.i), !noalias !4608
   %227 = extractvalue { i32, i32 } %226, 1
   %228 = icmp eq i32 %224, %227
   br i1 %228, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i82.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i72.i"
@@ -19926,10 +19926,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i72.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i82.i", %222, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59d09aafe1c7a26fE.exit67.i"
   %232 = icmp ne ptr %.val8.i70.i, null
   call void @llvm.assume(i1 %232)
-  %233 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i70.i), !noalias !4606
+  %233 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i70.i), !noalias !4608
   %234 = getelementptr inbounds nuw i8, ptr %.val29.i, i64 128
-  %235 = load ptr, ptr %234, align 8, !invariant.load !11, !noalias !4606, !nonnull !11
-  %236 = call noundef zeroext i1 %235(ptr noundef nonnull align 1 %.val28.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %233), !noalias !4606
+  %235 = load ptr, ptr %234, align 8, !invariant.load !11, !noalias !4608, !nonnull !11
+  %236 = call noundef zeroext i1 %235(ptr noundef nonnull align 1 %.val28.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %233), !noalias !4608
   %237 = xor i1 %236, true
   %238 = zext i1 %237 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i73.i"
@@ -19942,16 +19942,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
   call void @llvm.assume(i1 %239)
   %240 = icmp ne ptr %.val31.i, null
   call void @llvm.assume(i1 %240)
-  %241 = load i32, ptr %.val3.i75.i, align 4, !noalias !4606, !noundef !11
+  %241 = load i32, ptr %.val3.i75.i, align 4, !noalias !4608, !noundef !11
   %242 = icmp eq i32 %241, 0
   br i1 %242, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i78.i", label %243
 
 243:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i73.i"
   %244 = getelementptr inbounds nuw i8, ptr %.val3.i75.i, i64 4
-  %245 = load i32, ptr %244, align 4, !noalias !4606
+  %245 = load i32, ptr %244, align 4, !noalias !4608
   %246 = getelementptr i8, ptr %.val31.i, i64 192
-  %.val.i11.i77.i = load ptr, ptr %246, align 8, !noalias !4606
-  %247 = call { i32, i32 } %.val.i11.i77.i(ptr noundef nonnull align 1 %.val30.i), !noalias !4606
+  %.val.i11.i77.i = load ptr, ptr %246, align 8, !noalias !4608
+  %247 = call { i32, i32 } %.val.i11.i77.i(ptr noundef nonnull align 1 %.val30.i), !noalias !4608
   %248 = extractvalue { i32, i32 } %247, 1
   %249 = icmp eq i32 %245, %248
   br i1 %249, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i14.i81.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i78.i"
@@ -19966,10 +19966,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i78.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i14.i81.i", %243, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i73.i"
   %253 = icmp ne ptr %.val4.i76.i, null
   call void @llvm.assume(i1 %253)
-  %254 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i76.i), !noalias !4606
+  %254 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i76.i), !noalias !4608
   %255 = getelementptr inbounds nuw i8, ptr %.val31.i, i64 128
-  %256 = load ptr, ptr %255, align 8, !invariant.load !11, !noalias !4606, !nonnull !11
-  %257 = call noundef zeroext i1 %256(ptr noundef nonnull align 1 %.val30.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %254), !noalias !4606
+  %256 = load ptr, ptr %255, align 8, !invariant.load !11, !noalias !4608, !nonnull !11
+  %257 = call noundef zeroext i1 %256(ptr noundef nonnull align 1 %.val30.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %254), !noalias !4608
   %258 = xor i1 %257, true
   %.neg.i79.i = sext i1 %258 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59d09aafe1c7a26fE.exit83.i"
@@ -20018,16 +20018,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
   %.val36.i = load ptr, ptr %23, align 8, !alias.scope !4603, !noalias !4606
   %.val7.i85.i = load ptr, ptr %.val32, align 8, !noalias !4608, !nonnull !11, !align !4500, !noundef !11
   %.val8.i86.i = load ptr, ptr %71, align 8, !noalias !4608
-  %272 = load i32, ptr %.val7.i85.i, align 4, !noalias !4606, !noundef !11
+  %272 = load i32, ptr %.val7.i85.i, align 4, !noalias !4608, !noundef !11
   %273 = icmp eq i32 %272, 0
   br i1 %273, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i88.i", label %274
 
 274:                                              ; preds = %270
   %275 = getelementptr inbounds nuw i8, ptr %.val7.i85.i, i64 4
-  %276 = load i32, ptr %275, align 4, !noalias !4606
+  %276 = load i32, ptr %275, align 4, !noalias !4608
   %277 = getelementptr i8, ptr %.val34.i, i64 192
-  %.val.i.i87.i = load ptr, ptr %277, align 8, !noalias !4606
-  %278 = call { i32, i32 } %.val.i.i87.i(ptr noundef nonnull align 1 %.val33.i), !noalias !4606
+  %.val.i.i87.i = load ptr, ptr %277, align 8, !noalias !4608
+  %278 = call { i32, i32 } %.val.i.i87.i(ptr noundef nonnull align 1 %.val33.i), !noalias !4608
   %279 = extractvalue { i32, i32 } %278, 1
   %280 = icmp eq i32 %276, %279
   br i1 %280, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i98.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i88.i"
@@ -20042,10 +20042,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i88.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i98.i", %274, %270
   %284 = icmp ne ptr %.val8.i86.i, null
   call void @llvm.assume(i1 %284)
-  %285 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i86.i), !noalias !4606
+  %285 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i86.i), !noalias !4608
   %286 = getelementptr inbounds nuw i8, ptr %.val34.i, i64 128
-  %287 = load ptr, ptr %286, align 8, !invariant.load !11, !noalias !4606, !nonnull !11
-  %288 = call noundef zeroext i1 %287(ptr noundef nonnull align 1 %.val33.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %285), !noalias !4606
+  %287 = load ptr, ptr %286, align 8, !invariant.load !11, !noalias !4608, !nonnull !11
+  %288 = call noundef zeroext i1 %287(ptr noundef nonnull align 1 %.val33.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %285), !noalias !4608
   %289 = xor i1 %288, true
   %290 = zext i1 %289 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i89.i"
@@ -20058,16 +20058,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
   call void @llvm.assume(i1 %291)
   %292 = icmp ne ptr %.val36.i, null
   call void @llvm.assume(i1 %292)
-  %293 = load i32, ptr %.val3.i91.i, align 4, !noalias !4606, !noundef !11
+  %293 = load i32, ptr %.val3.i91.i, align 4, !noalias !4608, !noundef !11
   %294 = icmp eq i32 %293, 0
   br i1 %294, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i94.i", label %295
 
 295:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i89.i"
   %296 = getelementptr inbounds nuw i8, ptr %.val3.i91.i, i64 4
-  %297 = load i32, ptr %296, align 4, !noalias !4606
+  %297 = load i32, ptr %296, align 4, !noalias !4608
   %298 = getelementptr i8, ptr %.val36.i, i64 192
-  %.val.i11.i93.i = load ptr, ptr %298, align 8, !noalias !4606
-  %299 = call { i32, i32 } %.val.i11.i93.i(ptr noundef nonnull align 1 %.val35.i), !noalias !4606
+  %.val.i11.i93.i = load ptr, ptr %298, align 8, !noalias !4608
+  %299 = call { i32, i32 } %.val.i11.i93.i(ptr noundef nonnull align 1 %.val35.i), !noalias !4608
   %300 = extractvalue { i32, i32 } %299, 1
   %301 = icmp eq i32 %297, %300
   br i1 %301, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i14.i97.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i94.i"
@@ -20082,10 +20082,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i94.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i14.i97.i", %295, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i89.i"
   %305 = icmp ne ptr %.val4.i92.i, null
   call void @llvm.assume(i1 %305)
-  %306 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i92.i), !noalias !4606
+  %306 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i92.i), !noalias !4608
   %307 = getelementptr inbounds nuw i8, ptr %.val36.i, i64 128
-  %308 = load ptr, ptr %307, align 8, !invariant.load !11, !noalias !4606, !nonnull !11
-  %309 = call noundef zeroext i1 %308(ptr noundef nonnull align 1 %.val35.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %306), !noalias !4606
+  %308 = load ptr, ptr %307, align 8, !invariant.load !11, !noalias !4608, !nonnull !11
+  %309 = call noundef zeroext i1 %308(ptr noundef nonnull align 1 %.val35.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %306), !noalias !4608
   %310 = xor i1 %309, true
   %.neg.i95.i = sext i1 %310 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59d09aafe1c7a26fE.exit99.i"
@@ -20174,19 +20174,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
   %.val15.i65 = load ptr, ptr %21, align 8, !alias.scope !4627, !noalias !4630, !nonnull !11, !align !166, !noundef !11
   %.val16.i66 = load ptr, ptr %23, align 8, !alias.scope !4627, !noalias !4630, !nonnull !11, !align !164, !noundef !11
   %.val.i.i67 = load ptr, ptr %6, align 8, !noalias !4632, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !4630, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !4632, !nonnull !11, !align !4500, !noundef !11
   %343 = getelementptr i8, ptr %.val.i.i67, i64 8
-  %.val8.i.i.i = load ptr, ptr %343, align 8, !noalias !4630
-  %344 = load i32, ptr %.val7.i.i.i, align 4, !noalias !4630, !noundef !11
+  %.val8.i.i.i = load ptr, ptr %343, align 8, !noalias !4632
+  %344 = load i32, ptr %.val7.i.i.i, align 4, !noalias !4632, !noundef !11
   %345 = icmp eq i32 %344, 0
   br i1 %345, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i.i", label %346
 
 346:                                              ; preds = %.lr.ph.i59
   %347 = getelementptr inbounds nuw i8, ptr %.val7.i.i.i, i64 4
-  %348 = load i32, ptr %347, align 4, !noalias !4630
+  %348 = load i32, ptr %347, align 4, !noalias !4632
   %349 = getelementptr i8, ptr %.val16.i66, i64 192
-  %.val.i.i.i.i = load ptr, ptr %349, align 8, !noalias !4630
-  %350 = call { i32, i32 } %.val.i.i.i.i(ptr noundef nonnull align 1 %.val15.i65), !noalias !4630
+  %.val.i.i.i.i = load ptr, ptr %349, align 8, !noalias !4632
+  %350 = call { i32, i32 } %.val.i.i.i.i(ptr noundef nonnull align 1 %.val15.i65), !noalias !4632
   %351 = extractvalue { i32, i32 } %350, 1
   %352 = icmp eq i32 %348, %351
   br i1 %352, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i.i"
@@ -20201,32 +20201,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i.i.i", %346, %.lr.ph.i59
   %356 = icmp ne ptr %.val8.i.i.i, null
   call void @llvm.assume(i1 %356)
-  %357 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i.i), !noalias !4630
+  %357 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i.i), !noalias !4632
   %358 = getelementptr inbounds nuw i8, ptr %.val16.i66, i64 128
-  %359 = load ptr, ptr %358, align 8, !invariant.load !11, !noalias !4630, !nonnull !11
-  %360 = call noundef zeroext i1 %359(ptr noundef nonnull align 1 %.val15.i65, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %357), !noalias !4630
+  %359 = load ptr, ptr %358, align 8, !invariant.load !11, !noalias !4632, !nonnull !11
+  %360 = call noundef zeroext i1 %359(ptr noundef nonnull align 1 %.val15.i65, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %357), !noalias !4632
   %361 = xor i1 %360, true
   %362 = zext i1 %361 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i.i.i"
   %.sroa.0.0.i.i.i.i = phi i8 [ %362, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i.i.i" ]
-  %.val3.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !4630, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i.i = load ptr, ptr %343, align 8, !noalias !4630
+  %.val3.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !4632, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i.i = load ptr, ptr %343, align 8, !noalias !4632
   %363 = icmp ne ptr %.val13.i63, null
   call void @llvm.assume(i1 %363)
   %364 = icmp ne ptr %.val14.i64, null
   call void @llvm.assume(i1 %364)
-  %365 = load i32, ptr %.val3.i.i.i, align 4, !noalias !4630, !noundef !11
+  %365 = load i32, ptr %.val3.i.i.i, align 4, !noalias !4632, !noundef !11
   %366 = icmp eq i32 %365, 0
   br i1 %366, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i.i.i", label %367
 
 367:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i.i"
   %368 = getelementptr inbounds nuw i8, ptr %.val3.i.i.i, i64 4
-  %369 = load i32, ptr %368, align 4, !noalias !4630
+  %369 = load i32, ptr %368, align 4, !noalias !4632
   %370 = getelementptr i8, ptr %.val14.i64, i64 192
-  %.val.i11.i.i.i = load ptr, ptr %370, align 8, !noalias !4630
-  %371 = call { i32, i32 } %.val.i11.i.i.i(ptr noundef nonnull align 1 %.val13.i63), !noalias !4630
+  %.val.i11.i.i.i = load ptr, ptr %370, align 8, !noalias !4632
+  %371 = call { i32, i32 } %.val.i11.i.i.i(ptr noundef nonnull align 1 %.val13.i63), !noalias !4632
   %372 = extractvalue { i32, i32 } %371, 1
   %373 = icmp eq i32 %369, %372
   br i1 %373, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i14.i.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i.i.i"
@@ -20241,10 +20241,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i14.i.i.i", %367, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i.i"
   %377 = icmp ne ptr %.val4.i.i.i, null
   call void @llvm.assume(i1 %377)
-  %378 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i.i), !noalias !4630
+  %378 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i.i), !noalias !4632
   %379 = getelementptr inbounds nuw i8, ptr %.val14.i64, i64 128
-  %380 = load ptr, ptr %379, align 8, !invariant.load !11, !noalias !4630, !nonnull !11
-  %381 = call noundef zeroext i1 %380(ptr noundef nonnull align 1 %.val13.i63, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %378), !noalias !4630
+  %380 = load ptr, ptr %379, align 8, !invariant.load !11, !noalias !4632, !nonnull !11
+  %381 = call noundef zeroext i1 %380(ptr noundef nonnull align 1 %.val13.i63, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %378), !noalias !4632
   %382 = xor i1 %381, true
   %.neg.i.i.i = sext i1 %382 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h6611b023576a5cf2E.exit.i"
@@ -20266,19 +20266,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
   %.val20.i71 = load ptr, ptr %21, align 8, !alias.scope !4627, !noalias !4630, !nonnull !11, !align !166, !noundef !11
   %.val21.i72 = load ptr, ptr %23, align 8, !alias.scope !4627, !noalias !4630, !nonnull !11, !align !164, !noundef !11
   %.val.i37.i = load ptr, ptr %6, align 8, !noalias !4632, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i38.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4630, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i38.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4632, !nonnull !11, !align !4500, !noundef !11
   %391 = getelementptr i8, ptr %.val.i37.i, i64 8
-  %.val8.i.i39.i = load ptr, ptr %391, align 8, !noalias !4630
-  %392 = load i32, ptr %.val7.i.i38.i, align 4, !noalias !4630, !noundef !11
+  %.val8.i.i39.i = load ptr, ptr %391, align 8, !noalias !4632
+  %392 = load i32, ptr %.val7.i.i38.i, align 4, !noalias !4632, !noundef !11
   %393 = icmp eq i32 %392, 0
   br i1 %393, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i41.i", label %394
 
 394:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h6611b023576a5cf2E.exit.i"
   %395 = getelementptr inbounds nuw i8, ptr %.val7.i.i38.i, i64 4
-  %396 = load i32, ptr %395, align 4, !noalias !4630
+  %396 = load i32, ptr %395, align 4, !noalias !4632
   %397 = getelementptr i8, ptr %.val21.i72, i64 192
-  %.val.i.i.i40.i = load ptr, ptr %397, align 8, !noalias !4630
-  %398 = call { i32, i32 } %.val.i.i.i40.i(ptr noundef nonnull align 1 %.val20.i71), !noalias !4630
+  %.val.i.i.i40.i = load ptr, ptr %397, align 8, !noalias !4632
+  %398 = call { i32, i32 } %.val.i.i.i40.i(ptr noundef nonnull align 1 %.val20.i71), !noalias !4632
   %399 = extractvalue { i32, i32 } %398, 1
   %400 = icmp eq i32 %396, %399
   br i1 %400, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i.i51.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i41.i"
@@ -20293,32 +20293,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i41.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i.i51.i", %394, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h6611b023576a5cf2E.exit.i"
   %404 = icmp ne ptr %.val8.i.i39.i, null
   call void @llvm.assume(i1 %404)
-  %405 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i39.i), !noalias !4630
+  %405 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i39.i), !noalias !4632
   %406 = getelementptr inbounds nuw i8, ptr %.val21.i72, i64 128
-  %407 = load ptr, ptr %406, align 8, !invariant.load !11, !noalias !4630, !nonnull !11
-  %408 = call noundef zeroext i1 %407(ptr noundef nonnull align 1 %.val20.i71, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %405), !noalias !4630
+  %407 = load ptr, ptr %406, align 8, !invariant.load !11, !noalias !4632, !nonnull !11
+  %408 = call noundef zeroext i1 %407(ptr noundef nonnull align 1 %.val20.i71, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %405), !noalias !4632
   %409 = xor i1 %408, true
   %410 = zext i1 %409 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i42.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i42.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i41.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i.i51.i"
   %.sroa.0.0.i.i.i43.i = phi i8 [ %410, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i41.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i.i51.i" ]
-  %.val3.i.i44.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4630, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i45.i = load ptr, ptr %391, align 8, !noalias !4630
+  %.val3.i.i44.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4632, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i45.i = load ptr, ptr %391, align 8, !noalias !4632
   %411 = icmp ne ptr %.val18.i69, null
   call void @llvm.assume(i1 %411)
   %412 = icmp ne ptr %.val19.i70, null
   call void @llvm.assume(i1 %412)
-  %413 = load i32, ptr %.val3.i.i44.i, align 4, !noalias !4630, !noundef !11
+  %413 = load i32, ptr %.val3.i.i44.i, align 4, !noalias !4632, !noundef !11
   %414 = icmp eq i32 %413, 0
   br i1 %414, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i.i47.i", label %415
 
 415:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i42.i"
   %416 = getelementptr inbounds nuw i8, ptr %.val3.i.i44.i, i64 4
-  %417 = load i32, ptr %416, align 4, !noalias !4630
+  %417 = load i32, ptr %416, align 4, !noalias !4632
   %418 = getelementptr i8, ptr %.val19.i70, i64 192
-  %.val.i11.i.i46.i = load ptr, ptr %418, align 8, !noalias !4630
-  %419 = call { i32, i32 } %.val.i11.i.i46.i(ptr noundef nonnull align 1 %.val18.i69), !noalias !4630
+  %.val.i11.i.i46.i = load ptr, ptr %418, align 8, !noalias !4632
+  %419 = call { i32, i32 } %.val.i11.i.i46.i(ptr noundef nonnull align 1 %.val18.i69), !noalias !4632
   %420 = extractvalue { i32, i32 } %419, 1
   %421 = icmp eq i32 %417, %420
   br i1 %421, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i14.i.i50.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i.i47.i"
@@ -20333,10 +20333,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i.i47.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i14.i.i50.i", %415, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i42.i"
   %425 = icmp ne ptr %.val4.i.i45.i, null
   call void @llvm.assume(i1 %425)
-  %426 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i45.i), !noalias !4630
+  %426 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i45.i), !noalias !4632
   %427 = getelementptr inbounds nuw i8, ptr %.val19.i70, i64 128
-  %428 = load ptr, ptr %427, align 8, !invariant.load !11, !noalias !4630, !nonnull !11
-  %429 = call noundef zeroext i1 %428(ptr noundef nonnull align 1 %.val18.i69, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %426), !noalias !4630
+  %428 = load ptr, ptr %427, align 8, !invariant.load !11, !noalias !4632, !nonnull !11
+  %429 = call noundef zeroext i1 %428(ptr noundef nonnull align 1 %.val18.i69, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %426), !noalias !4632
   %430 = xor i1 %429, true
   %.neg.i.i48.i = sext i1 %430 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h6611b023576a5cf2E.exit52.i"
@@ -20358,19 +20358,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
   %.val25.i75 = load ptr, ptr %21, align 8, !alias.scope !4627, !noalias !4630, !nonnull !11, !align !166, !noundef !11
   %.val26.i76 = load ptr, ptr %23, align 8, !alias.scope !4627, !noalias !4630, !nonnull !11, !align !164, !noundef !11
   %.val.i54.i = load ptr, ptr %6, align 8, !noalias !4632, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i55.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4630, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i55.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4632, !nonnull !11, !align !4500, !noundef !11
   %439 = getelementptr i8, ptr %.val.i54.i, i64 8
-  %.val8.i.i56.i = load ptr, ptr %439, align 8, !noalias !4630
-  %440 = load i32, ptr %.val7.i.i55.i, align 4, !noalias !4630, !noundef !11
+  %.val8.i.i56.i = load ptr, ptr %439, align 8, !noalias !4632
+  %440 = load i32, ptr %.val7.i.i55.i, align 4, !noalias !4632, !noundef !11
   %441 = icmp eq i32 %440, 0
   br i1 %441, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i58.i", label %442
 
 442:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h6611b023576a5cf2E.exit52.i"
   %443 = getelementptr inbounds nuw i8, ptr %.val7.i.i55.i, i64 4
-  %444 = load i32, ptr %443, align 4, !noalias !4630
+  %444 = load i32, ptr %443, align 4, !noalias !4632
   %445 = getelementptr i8, ptr %.val26.i76, i64 192
-  %.val.i.i.i57.i = load ptr, ptr %445, align 8, !noalias !4630
-  %446 = call { i32, i32 } %.val.i.i.i57.i(ptr noundef nonnull align 1 %.val25.i75), !noalias !4630
+  %.val.i.i.i57.i = load ptr, ptr %445, align 8, !noalias !4632
+  %446 = call { i32, i32 } %.val.i.i.i57.i(ptr noundef nonnull align 1 %.val25.i75), !noalias !4632
   %447 = extractvalue { i32, i32 } %446, 1
   %448 = icmp eq i32 %444, %447
   br i1 %448, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i.i68.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i58.i"
@@ -20385,32 +20385,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i58.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i.i68.i", %442, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h6611b023576a5cf2E.exit52.i"
   %452 = icmp ne ptr %.val8.i.i56.i, null
   call void @llvm.assume(i1 %452)
-  %453 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i56.i), !noalias !4630
+  %453 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i56.i), !noalias !4632
   %454 = getelementptr inbounds nuw i8, ptr %.val26.i76, i64 128
-  %455 = load ptr, ptr %454, align 8, !invariant.load !11, !noalias !4630, !nonnull !11
-  %456 = call noundef zeroext i1 %455(ptr noundef nonnull align 1 %.val25.i75, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %453), !noalias !4630
+  %455 = load ptr, ptr %454, align 8, !invariant.load !11, !noalias !4632, !nonnull !11
+  %456 = call noundef zeroext i1 %455(ptr noundef nonnull align 1 %.val25.i75, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %453), !noalias !4632
   %457 = xor i1 %456, true
   %458 = zext i1 %457 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i59.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i59.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i58.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i.i68.i"
   %.sroa.0.0.i.i.i60.i = phi i8 [ %458, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i58.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i.i68.i" ]
-  %.val3.i.i61.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4630, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i62.i = load ptr, ptr %439, align 8, !noalias !4630
+  %.val3.i.i61.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4632, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i62.i = load ptr, ptr %439, align 8, !noalias !4632
   %459 = icmp ne ptr %.val23.i73, null
   call void @llvm.assume(i1 %459)
   %460 = icmp ne ptr %.val24.i74, null
   call void @llvm.assume(i1 %460)
-  %461 = load i32, ptr %.val3.i.i61.i, align 4, !noalias !4630, !noundef !11
+  %461 = load i32, ptr %.val3.i.i61.i, align 4, !noalias !4632, !noundef !11
   %462 = icmp eq i32 %461, 0
   br i1 %462, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i.i64.i", label %463
 
 463:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i59.i"
   %464 = getelementptr inbounds nuw i8, ptr %.val3.i.i61.i, i64 4
-  %465 = load i32, ptr %464, align 4, !noalias !4630
+  %465 = load i32, ptr %464, align 4, !noalias !4632
   %466 = getelementptr i8, ptr %.val24.i74, i64 192
-  %.val.i11.i.i63.i = load ptr, ptr %466, align 8, !noalias !4630
-  %467 = call { i32, i32 } %.val.i11.i.i63.i(ptr noundef nonnull align 1 %.val23.i73), !noalias !4630
+  %.val.i11.i.i63.i = load ptr, ptr %466, align 8, !noalias !4632
+  %467 = call { i32, i32 } %.val.i11.i.i63.i(ptr noundef nonnull align 1 %.val23.i73), !noalias !4632
   %468 = extractvalue { i32, i32 } %467, 1
   %469 = icmp eq i32 %465, %468
   br i1 %469, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i14.i.i67.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i.i64.i"
@@ -20425,10 +20425,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i.i64.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i14.i.i67.i", %463, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i59.i"
   %473 = icmp ne ptr %.val4.i.i62.i, null
   call void @llvm.assume(i1 %473)
-  %474 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i62.i), !noalias !4630
+  %474 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i62.i), !noalias !4632
   %475 = getelementptr inbounds nuw i8, ptr %.val24.i74, i64 128
-  %476 = load ptr, ptr %475, align 8, !invariant.load !11, !noalias !4630, !nonnull !11
-  %477 = call noundef zeroext i1 %476(ptr noundef nonnull align 1 %.val23.i73, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %474), !noalias !4630
+  %476 = load ptr, ptr %475, align 8, !invariant.load !11, !noalias !4632, !nonnull !11
+  %477 = call noundef zeroext i1 %476(ptr noundef nonnull align 1 %.val23.i73, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %474), !noalias !4632
   %478 = xor i1 %477, true
   %.neg.i.i65.i = sext i1 %478 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h6611b023576a5cf2E.exit69.i"
@@ -20450,19 +20450,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
   %.val30.i79 = load ptr, ptr %21, align 8, !alias.scope !4627, !noalias !4630, !nonnull !11, !align !166, !noundef !11
   %.val31.i80 = load ptr, ptr %23, align 8, !alias.scope !4627, !noalias !4630, !nonnull !11, !align !164, !noundef !11
   %.val.i71.i = load ptr, ptr %6, align 8, !noalias !4632, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i72.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4630, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i72.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4632, !nonnull !11, !align !4500, !noundef !11
   %487 = getelementptr i8, ptr %.val.i71.i, i64 8
-  %.val8.i.i73.i = load ptr, ptr %487, align 8, !noalias !4630
-  %488 = load i32, ptr %.val7.i.i72.i, align 4, !noalias !4630, !noundef !11
+  %.val8.i.i73.i = load ptr, ptr %487, align 8, !noalias !4632
+  %488 = load i32, ptr %.val7.i.i72.i, align 4, !noalias !4632, !noundef !11
   %489 = icmp eq i32 %488, 0
   br i1 %489, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i75.i", label %490
 
 490:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h6611b023576a5cf2E.exit69.i"
   %491 = getelementptr inbounds nuw i8, ptr %.val7.i.i72.i, i64 4
-  %492 = load i32, ptr %491, align 4, !noalias !4630
+  %492 = load i32, ptr %491, align 4, !noalias !4632
   %493 = getelementptr i8, ptr %.val31.i80, i64 192
-  %.val.i.i.i74.i = load ptr, ptr %493, align 8, !noalias !4630
-  %494 = call { i32, i32 } %.val.i.i.i74.i(ptr noundef nonnull align 1 %.val30.i79), !noalias !4630
+  %.val.i.i.i74.i = load ptr, ptr %493, align 8, !noalias !4632
+  %494 = call { i32, i32 } %.val.i.i.i74.i(ptr noundef nonnull align 1 %.val30.i79), !noalias !4632
   %495 = extractvalue { i32, i32 } %494, 1
   %496 = icmp eq i32 %492, %495
   br i1 %496, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i.i85.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i75.i"
@@ -20477,32 +20477,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i75.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i.i85.i", %490, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h6611b023576a5cf2E.exit69.i"
   %500 = icmp ne ptr %.val8.i.i73.i, null
   call void @llvm.assume(i1 %500)
-  %501 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i73.i), !noalias !4630
+  %501 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i73.i), !noalias !4632
   %502 = getelementptr inbounds nuw i8, ptr %.val31.i80, i64 128
-  %503 = load ptr, ptr %502, align 8, !invariant.load !11, !noalias !4630, !nonnull !11
-  %504 = call noundef zeroext i1 %503(ptr noundef nonnull align 1 %.val30.i79, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %501), !noalias !4630
+  %503 = load ptr, ptr %502, align 8, !invariant.load !11, !noalias !4632, !nonnull !11
+  %504 = call noundef zeroext i1 %503(ptr noundef nonnull align 1 %.val30.i79, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %501), !noalias !4632
   %505 = xor i1 %504, true
   %506 = zext i1 %505 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i76.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i76.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i75.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i.i85.i"
   %.sroa.0.0.i.i.i77.i = phi i8 [ %506, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i75.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i.i85.i" ]
-  %.val3.i.i78.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4630, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i79.i = load ptr, ptr %487, align 8, !noalias !4630
+  %.val3.i.i78.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4632, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i79.i = load ptr, ptr %487, align 8, !noalias !4632
   %507 = icmp ne ptr %.val28.i77, null
   call void @llvm.assume(i1 %507)
   %508 = icmp ne ptr %.val29.i78, null
   call void @llvm.assume(i1 %508)
-  %509 = load i32, ptr %.val3.i.i78.i, align 4, !noalias !4630, !noundef !11
+  %509 = load i32, ptr %.val3.i.i78.i, align 4, !noalias !4632, !noundef !11
   %510 = icmp eq i32 %509, 0
   br i1 %510, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i.i81.i", label %511
 
 511:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i76.i"
   %512 = getelementptr inbounds nuw i8, ptr %.val3.i.i78.i, i64 4
-  %513 = load i32, ptr %512, align 4, !noalias !4630
+  %513 = load i32, ptr %512, align 4, !noalias !4632
   %514 = getelementptr i8, ptr %.val29.i78, i64 192
-  %.val.i11.i.i80.i = load ptr, ptr %514, align 8, !noalias !4630
-  %515 = call { i32, i32 } %.val.i11.i.i80.i(ptr noundef nonnull align 1 %.val28.i77), !noalias !4630
+  %.val.i11.i.i80.i = load ptr, ptr %514, align 8, !noalias !4632
+  %515 = call { i32, i32 } %.val.i11.i.i80.i(ptr noundef nonnull align 1 %.val28.i77), !noalias !4632
   %516 = extractvalue { i32, i32 } %515, 1
   %517 = icmp eq i32 %513, %516
   br i1 %517, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i14.i.i84.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i.i81.i"
@@ -20517,10 +20517,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i.i81.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i14.i.i84.i", %511, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i76.i"
   %521 = icmp ne ptr %.val4.i.i79.i, null
   call void @llvm.assume(i1 %521)
-  %522 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i79.i), !noalias !4630
+  %522 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i79.i), !noalias !4632
   %523 = getelementptr inbounds nuw i8, ptr %.val29.i78, i64 128
-  %524 = load ptr, ptr %523, align 8, !invariant.load !11, !noalias !4630, !nonnull !11
-  %525 = call noundef zeroext i1 %524(ptr noundef nonnull align 1 %.val28.i77, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %522), !noalias !4630
+  %524 = load ptr, ptr %523, align 8, !invariant.load !11, !noalias !4632, !nonnull !11
+  %525 = call noundef zeroext i1 %524(ptr noundef nonnull align 1 %.val28.i77, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %522), !noalias !4632
   %526 = xor i1 %525, true
   %.neg.i.i82.i = sext i1 %526 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h6611b023576a5cf2E.exit86.i"
@@ -20564,19 +20564,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
   %.val35.i57 = load ptr, ptr %21, align 8, !alias.scope !4627, !noalias !4630, !nonnull !11, !align !166, !noundef !11
   %.val36.i58 = load ptr, ptr %23, align 8, !alias.scope !4627, !noalias !4630, !nonnull !11, !align !164, !noundef !11
   %.val.i88.i = load ptr, ptr %6, align 8, !noalias !4632, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i89.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4630, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i89.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4632, !nonnull !11, !align !4500, !noundef !11
   %539 = getelementptr i8, ptr %.val.i88.i, i64 8
-  %.val8.i.i90.i = load ptr, ptr %539, align 8, !noalias !4630
-  %540 = load i32, ptr %.val7.i.i89.i, align 4, !noalias !4630, !noundef !11
+  %.val8.i.i90.i = load ptr, ptr %539, align 8, !noalias !4632
+  %540 = load i32, ptr %.val7.i.i89.i, align 4, !noalias !4632, !noundef !11
   %541 = icmp eq i32 %540, 0
   br i1 %541, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i92.i", label %542
 
 542:                                              ; preds = %.lr.ph40.i51
   %543 = getelementptr inbounds nuw i8, ptr %.val7.i.i89.i, i64 4
-  %544 = load i32, ptr %543, align 4, !noalias !4630
+  %544 = load i32, ptr %543, align 4, !noalias !4632
   %545 = getelementptr i8, ptr %.val36.i58, i64 192
-  %.val.i.i.i91.i = load ptr, ptr %545, align 8, !noalias !4630
-  %546 = call { i32, i32 } %.val.i.i.i91.i(ptr noundef nonnull align 1 %.val35.i57), !noalias !4630
+  %.val.i.i.i91.i = load ptr, ptr %545, align 8, !noalias !4632
+  %546 = call { i32, i32 } %.val.i.i.i91.i(ptr noundef nonnull align 1 %.val35.i57), !noalias !4632
   %547 = extractvalue { i32, i32 } %546, 1
   %548 = icmp eq i32 %544, %547
   br i1 %548, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i.i102.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i92.i"
@@ -20591,32 +20591,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i92.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i.i102.i", %542, %.lr.ph40.i51
   %552 = icmp ne ptr %.val8.i.i90.i, null
   call void @llvm.assume(i1 %552)
-  %553 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i90.i), !noalias !4630
+  %553 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i90.i), !noalias !4632
   %554 = getelementptr inbounds nuw i8, ptr %.val36.i58, i64 128
-  %555 = load ptr, ptr %554, align 8, !invariant.load !11, !noalias !4630, !nonnull !11
-  %556 = call noundef zeroext i1 %555(ptr noundef nonnull align 1 %.val35.i57, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %553), !noalias !4630
+  %555 = load ptr, ptr %554, align 8, !invariant.load !11, !noalias !4632, !nonnull !11
+  %556 = call noundef zeroext i1 %555(ptr noundef nonnull align 1 %.val35.i57, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %553), !noalias !4632
   %557 = xor i1 %556, true
   %558 = zext i1 %557 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i93.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i93.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i92.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i.i102.i"
   %.sroa.0.0.i.i.i94.i = phi i8 [ %558, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i.i.i92.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i.i.i102.i" ]
-  %.val3.i.i95.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4630, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i96.i = load ptr, ptr %539, align 8, !noalias !4630
+  %.val3.i.i95.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4632, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i96.i = load ptr, ptr %539, align 8, !noalias !4632
   %559 = icmp ne ptr %.val33.i55, null
   call void @llvm.assume(i1 %559)
   %560 = icmp ne ptr %.val34.i56, null
   call void @llvm.assume(i1 %560)
-  %561 = load i32, ptr %.val3.i.i95.i, align 4, !noalias !4630, !noundef !11
+  %561 = load i32, ptr %.val3.i.i95.i, align 4, !noalias !4632, !noundef !11
   %562 = icmp eq i32 %561, 0
   br i1 %562, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i.i98.i", label %563
 
 563:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i93.i"
   %564 = getelementptr inbounds nuw i8, ptr %.val3.i.i95.i, i64 4
-  %565 = load i32, ptr %564, align 4, !noalias !4630
+  %565 = load i32, ptr %564, align 4, !noalias !4632
   %566 = getelementptr i8, ptr %.val34.i56, i64 192
-  %.val.i11.i.i97.i = load ptr, ptr %566, align 8, !noalias !4630
-  %567 = call { i32, i32 } %.val.i11.i.i97.i(ptr noundef nonnull align 1 %.val33.i55), !noalias !4630
+  %.val.i11.i.i97.i = load ptr, ptr %566, align 8, !noalias !4632
+  %567 = call { i32, i32 } %.val.i11.i.i97.i(ptr noundef nonnull align 1 %.val33.i55), !noalias !4632
   %568 = extractvalue { i32, i32 } %567, 1
   %569 = icmp eq i32 %565, %568
   br i1 %569, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i14.i.i101.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i.i98.i"
@@ -20631,10 +20631,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h21de12714c2
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.thread.i.i12.i.i98.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h30df29ef4eb48ba8E.exit.i.i14.i.i101.i", %563, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17hc374c9ce7a708d73E.exit.i.i93.i"
   %573 = icmp ne ptr %.val4.i.i96.i, null
   call void @llvm.assume(i1 %573)
-  %574 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i96.i), !noalias !4630
+  %574 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i96.i), !noalias !4632
   %575 = getelementptr inbounds nuw i8, ptr %.val34.i56, i64 128
-  %576 = load ptr, ptr %575, align 8, !invariant.load !11, !noalias !4630, !nonnull !11
-  %577 = call noundef zeroext i1 %576(ptr noundef nonnull align 1 %.val33.i55, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %574), !noalias !4630
+  %576 = load ptr, ptr %575, align 8, !invariant.load !11, !noalias !4632, !nonnull !11
+  %577 = call noundef zeroext i1 %576(ptr noundef nonnull align 1 %.val33.i55, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %574), !noalias !4632
   %578 = xor i1 %577, true
   %.neg.i.i99.i = sext i1 %578 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h6611b023576a5cf2E.exit103.i"
@@ -20895,16 +20895,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
   %.val16.i = load ptr, ptr %23, align 8, !alias.scope !4654, !noalias !4657
   %.val7.i.i = load ptr, ptr %.val32, align 8, !noalias !4659, !nonnull !11, !align !4500, !noundef !11
   %.val8.i.i = load ptr, ptr %71, align 8, !noalias !4659
-  %79 = load i32, ptr %.val7.i.i, align 4, !noalias !4657, !noundef !11
+  %79 = load i32, ptr %.val7.i.i, align 4, !noalias !4659, !noundef !11
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i", label %81
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %.val7.i.i, i64 4
-  %83 = load i32, ptr %82, align 4, !noalias !4657
+  %83 = load i32, ptr %82, align 4, !noalias !4659
   %84 = getelementptr i8, ptr %.val14.i, i64 192
-  %.val.i.i.i = load ptr, ptr %84, align 8, !noalias !4657
-  %85 = call { i32, i32 } %.val.i.i.i(ptr noundef nonnull align 1 %.val13.i), !noalias !4657
+  %.val.i.i.i = load ptr, ptr %84, align 8, !noalias !4659
+  %85 = call { i32, i32 } %.val.i.i.i(ptr noundef nonnull align 1 %.val13.i), !noalias !4659
   %86 = extractvalue { i32, i32 } %85, 1
   %87 = icmp eq i32 %83, %86
   br i1 %87, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i"
@@ -20919,10 +20919,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i.i", %81, %77
   %91 = icmp ne ptr %.val8.i.i, null
   call void @llvm.assume(i1 %91)
-  %92 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i), !noalias !4657
+  %92 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i), !noalias !4659
   %93 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 128
-  %94 = load ptr, ptr %93, align 8, !invariant.load !11, !noalias !4657, !nonnull !11
-  %95 = call noundef zeroext i1 %94(ptr noundef nonnull align 1 %.val13.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %92), !noalias !4657
+  %94 = load ptr, ptr %93, align 8, !invariant.load !11, !noalias !4659, !nonnull !11
+  %95 = call noundef zeroext i1 %94(ptr noundef nonnull align 1 %.val13.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %92), !noalias !4659
   %96 = xor i1 %95, true
   %97 = zext i1 %96 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i"
@@ -20935,16 +20935,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
   call void @llvm.assume(i1 %98)
   %99 = icmp ne ptr %.val16.i, null
   call void @llvm.assume(i1 %99)
-  %100 = load i32, ptr %.val3.i.i, align 4, !noalias !4657, !noundef !11
+  %100 = load i32, ptr %.val3.i.i, align 4, !noalias !4659, !noundef !11
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i.i", label %102
 
 102:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i"
   %103 = getelementptr inbounds nuw i8, ptr %.val3.i.i, i64 4
-  %104 = load i32, ptr %103, align 4, !noalias !4657
+  %104 = load i32, ptr %103, align 4, !noalias !4659
   %105 = getelementptr i8, ptr %.val16.i, i64 192
-  %.val.i11.i.i = load ptr, ptr %105, align 8, !noalias !4657
-  %106 = call { i32, i32 } %.val.i11.i.i(ptr noundef nonnull align 1 %.val15.i), !noalias !4657
+  %.val.i11.i.i = load ptr, ptr %105, align 8, !noalias !4659
+  %106 = call { i32, i32 } %.val.i11.i.i(ptr noundef nonnull align 1 %.val15.i), !noalias !4659
   %107 = extractvalue { i32, i32 } %106, 1
   %108 = icmp eq i32 %104, %107
   br i1 %108, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i14.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i.i"
@@ -20959,10 +20959,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i14.i.i", %102, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i"
   %112 = icmp ne ptr %.val4.i.i, null
   call void @llvm.assume(i1 %112)
-  %113 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i), !noalias !4657
+  %113 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i), !noalias !4659
   %114 = getelementptr inbounds nuw i8, ptr %.val16.i, i64 128
-  %115 = load ptr, ptr %114, align 8, !invariant.load !11, !noalias !4657, !nonnull !11
-  %116 = call noundef zeroext i1 %115(ptr noundef nonnull align 1 %.val15.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %113), !noalias !4657
+  %115 = load ptr, ptr %114, align 8, !invariant.load !11, !noalias !4659, !nonnull !11
+  %116 = call noundef zeroext i1 %115(ptr noundef nonnull align 1 %.val15.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %113), !noalias !4659
   %117 = xor i1 %116, true
   %.neg.i.i = sext i1 %117 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h902ae2680e764fe0E.exit.i"
@@ -20985,16 +20985,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
   %.val21.i = load ptr, ptr %23, align 8, !alias.scope !4654, !noalias !4657
   %.val7.i37.i = load ptr, ptr %.val32, align 8, !noalias !4659, !nonnull !11, !align !4500, !noundef !11
   %.val8.i38.i = load ptr, ptr %71, align 8, !noalias !4659
-  %126 = load i32, ptr %.val7.i37.i, align 4, !noalias !4657, !noundef !11
+  %126 = load i32, ptr %.val7.i37.i, align 4, !noalias !4659, !noundef !11
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i40.i", label %128
 
 128:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h902ae2680e764fe0E.exit.i"
   %129 = getelementptr inbounds nuw i8, ptr %.val7.i37.i, i64 4
-  %130 = load i32, ptr %129, align 4, !noalias !4657
+  %130 = load i32, ptr %129, align 4, !noalias !4659
   %131 = getelementptr i8, ptr %.val19.i, i64 192
-  %.val.i.i39.i = load ptr, ptr %131, align 8, !noalias !4657
-  %132 = call { i32, i32 } %.val.i.i39.i(ptr noundef nonnull align 1 %.val18.i), !noalias !4657
+  %.val.i.i39.i = load ptr, ptr %131, align 8, !noalias !4659
+  %132 = call { i32, i32 } %.val.i.i39.i(ptr noundef nonnull align 1 %.val18.i), !noalias !4659
   %133 = extractvalue { i32, i32 } %132, 1
   %134 = icmp eq i32 %130, %133
   br i1 %134, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i50.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i40.i"
@@ -21009,10 +21009,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i40.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i50.i", %128, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h902ae2680e764fe0E.exit.i"
   %138 = icmp ne ptr %.val8.i38.i, null
   call void @llvm.assume(i1 %138)
-  %139 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i38.i), !noalias !4657
+  %139 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i38.i), !noalias !4659
   %140 = getelementptr inbounds nuw i8, ptr %.val19.i, i64 128
-  %141 = load ptr, ptr %140, align 8, !invariant.load !11, !noalias !4657, !nonnull !11
-  %142 = call noundef zeroext i1 %141(ptr noundef nonnull align 1 %.val18.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %139), !noalias !4657
+  %141 = load ptr, ptr %140, align 8, !invariant.load !11, !noalias !4659, !nonnull !11
+  %142 = call noundef zeroext i1 %141(ptr noundef nonnull align 1 %.val18.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %139), !noalias !4659
   %143 = xor i1 %142, true
   %144 = zext i1 %143 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i41.i"
@@ -21025,16 +21025,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
   call void @llvm.assume(i1 %145)
   %146 = icmp ne ptr %.val21.i, null
   call void @llvm.assume(i1 %146)
-  %147 = load i32, ptr %.val3.i43.i, align 4, !noalias !4657, !noundef !11
+  %147 = load i32, ptr %.val3.i43.i, align 4, !noalias !4659, !noundef !11
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i46.i", label %149
 
 149:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i41.i"
   %150 = getelementptr inbounds nuw i8, ptr %.val3.i43.i, i64 4
-  %151 = load i32, ptr %150, align 4, !noalias !4657
+  %151 = load i32, ptr %150, align 4, !noalias !4659
   %152 = getelementptr i8, ptr %.val21.i, i64 192
-  %.val.i11.i45.i = load ptr, ptr %152, align 8, !noalias !4657
-  %153 = call { i32, i32 } %.val.i11.i45.i(ptr noundef nonnull align 1 %.val20.i), !noalias !4657
+  %.val.i11.i45.i = load ptr, ptr %152, align 8, !noalias !4659
+  %153 = call { i32, i32 } %.val.i11.i45.i(ptr noundef nonnull align 1 %.val20.i), !noalias !4659
   %154 = extractvalue { i32, i32 } %153, 1
   %155 = icmp eq i32 %151, %154
   br i1 %155, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i14.i49.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i46.i"
@@ -21049,10 +21049,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i46.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i14.i49.i", %149, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i41.i"
   %159 = icmp ne ptr %.val4.i44.i, null
   call void @llvm.assume(i1 %159)
-  %160 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i44.i), !noalias !4657
+  %160 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i44.i), !noalias !4659
   %161 = getelementptr inbounds nuw i8, ptr %.val21.i, i64 128
-  %162 = load ptr, ptr %161, align 8, !invariant.load !11, !noalias !4657, !nonnull !11
-  %163 = call noundef zeroext i1 %162(ptr noundef nonnull align 1 %.val20.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %160), !noalias !4657
+  %162 = load ptr, ptr %161, align 8, !invariant.load !11, !noalias !4659, !nonnull !11
+  %163 = call noundef zeroext i1 %162(ptr noundef nonnull align 1 %.val20.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %160), !noalias !4659
   %164 = xor i1 %163, true
   %.neg.i47.i = sext i1 %164 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h902ae2680e764fe0E.exit51.i"
@@ -21075,16 +21075,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
   %.val26.i = load ptr, ptr %23, align 8, !alias.scope !4654, !noalias !4657
   %.val7.i53.i = load ptr, ptr %.val32, align 8, !noalias !4659, !nonnull !11, !align !4500, !noundef !11
   %.val8.i54.i = load ptr, ptr %71, align 8, !noalias !4659
-  %173 = load i32, ptr %.val7.i53.i, align 4, !noalias !4657, !noundef !11
+  %173 = load i32, ptr %.val7.i53.i, align 4, !noalias !4659, !noundef !11
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i56.i", label %175
 
 175:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h902ae2680e764fe0E.exit51.i"
   %176 = getelementptr inbounds nuw i8, ptr %.val7.i53.i, i64 4
-  %177 = load i32, ptr %176, align 4, !noalias !4657
+  %177 = load i32, ptr %176, align 4, !noalias !4659
   %178 = getelementptr i8, ptr %.val24.i, i64 192
-  %.val.i.i55.i = load ptr, ptr %178, align 8, !noalias !4657
-  %179 = call { i32, i32 } %.val.i.i55.i(ptr noundef nonnull align 1 %.val23.i), !noalias !4657
+  %.val.i.i55.i = load ptr, ptr %178, align 8, !noalias !4659
+  %179 = call { i32, i32 } %.val.i.i55.i(ptr noundef nonnull align 1 %.val23.i), !noalias !4659
   %180 = extractvalue { i32, i32 } %179, 1
   %181 = icmp eq i32 %177, %180
   br i1 %181, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i66.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i56.i"
@@ -21099,10 +21099,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i56.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i66.i", %175, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h902ae2680e764fe0E.exit51.i"
   %185 = icmp ne ptr %.val8.i54.i, null
   call void @llvm.assume(i1 %185)
-  %186 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i54.i), !noalias !4657
+  %186 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i54.i), !noalias !4659
   %187 = getelementptr inbounds nuw i8, ptr %.val24.i, i64 128
-  %188 = load ptr, ptr %187, align 8, !invariant.load !11, !noalias !4657, !nonnull !11
-  %189 = call noundef zeroext i1 %188(ptr noundef nonnull align 1 %.val23.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %186), !noalias !4657
+  %188 = load ptr, ptr %187, align 8, !invariant.load !11, !noalias !4659, !nonnull !11
+  %189 = call noundef zeroext i1 %188(ptr noundef nonnull align 1 %.val23.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %186), !noalias !4659
   %190 = xor i1 %189, true
   %191 = zext i1 %190 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i57.i"
@@ -21115,16 +21115,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
   call void @llvm.assume(i1 %192)
   %193 = icmp ne ptr %.val26.i, null
   call void @llvm.assume(i1 %193)
-  %194 = load i32, ptr %.val3.i59.i, align 4, !noalias !4657, !noundef !11
+  %194 = load i32, ptr %.val3.i59.i, align 4, !noalias !4659, !noundef !11
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i62.i", label %196
 
 196:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i57.i"
   %197 = getelementptr inbounds nuw i8, ptr %.val3.i59.i, i64 4
-  %198 = load i32, ptr %197, align 4, !noalias !4657
+  %198 = load i32, ptr %197, align 4, !noalias !4659
   %199 = getelementptr i8, ptr %.val26.i, i64 192
-  %.val.i11.i61.i = load ptr, ptr %199, align 8, !noalias !4657
-  %200 = call { i32, i32 } %.val.i11.i61.i(ptr noundef nonnull align 1 %.val25.i), !noalias !4657
+  %.val.i11.i61.i = load ptr, ptr %199, align 8, !noalias !4659
+  %200 = call { i32, i32 } %.val.i11.i61.i(ptr noundef nonnull align 1 %.val25.i), !noalias !4659
   %201 = extractvalue { i32, i32 } %200, 1
   %202 = icmp eq i32 %198, %201
   br i1 %202, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i14.i65.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i62.i"
@@ -21139,10 +21139,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i62.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i14.i65.i", %196, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i57.i"
   %206 = icmp ne ptr %.val4.i60.i, null
   call void @llvm.assume(i1 %206)
-  %207 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i60.i), !noalias !4657
+  %207 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i60.i), !noalias !4659
   %208 = getelementptr inbounds nuw i8, ptr %.val26.i, i64 128
-  %209 = load ptr, ptr %208, align 8, !invariant.load !11, !noalias !4657, !nonnull !11
-  %210 = call noundef zeroext i1 %209(ptr noundef nonnull align 1 %.val25.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %207), !noalias !4657
+  %209 = load ptr, ptr %208, align 8, !invariant.load !11, !noalias !4659, !nonnull !11
+  %210 = call noundef zeroext i1 %209(ptr noundef nonnull align 1 %.val25.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %207), !noalias !4659
   %211 = xor i1 %210, true
   %.neg.i63.i = sext i1 %211 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h902ae2680e764fe0E.exit67.i"
@@ -21165,16 +21165,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
   %.val31.i = load ptr, ptr %23, align 8, !alias.scope !4654, !noalias !4657
   %.val7.i69.i = load ptr, ptr %.val32, align 8, !noalias !4659, !nonnull !11, !align !4500, !noundef !11
   %.val8.i70.i = load ptr, ptr %71, align 8, !noalias !4659
-  %220 = load i32, ptr %.val7.i69.i, align 4, !noalias !4657, !noundef !11
+  %220 = load i32, ptr %.val7.i69.i, align 4, !noalias !4659, !noundef !11
   %221 = icmp eq i32 %220, 0
   br i1 %221, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i72.i", label %222
 
 222:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h902ae2680e764fe0E.exit67.i"
   %223 = getelementptr inbounds nuw i8, ptr %.val7.i69.i, i64 4
-  %224 = load i32, ptr %223, align 4, !noalias !4657
+  %224 = load i32, ptr %223, align 4, !noalias !4659
   %225 = getelementptr i8, ptr %.val29.i, i64 192
-  %.val.i.i71.i = load ptr, ptr %225, align 8, !noalias !4657
-  %226 = call { i32, i32 } %.val.i.i71.i(ptr noundef nonnull align 1 %.val28.i), !noalias !4657
+  %.val.i.i71.i = load ptr, ptr %225, align 8, !noalias !4659
+  %226 = call { i32, i32 } %.val.i.i71.i(ptr noundef nonnull align 1 %.val28.i), !noalias !4659
   %227 = extractvalue { i32, i32 } %226, 1
   %228 = icmp eq i32 %224, %227
   br i1 %228, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i82.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i72.i"
@@ -21189,10 +21189,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i72.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i82.i", %222, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h902ae2680e764fe0E.exit67.i"
   %232 = icmp ne ptr %.val8.i70.i, null
   call void @llvm.assume(i1 %232)
-  %233 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i70.i), !noalias !4657
+  %233 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i70.i), !noalias !4659
   %234 = getelementptr inbounds nuw i8, ptr %.val29.i, i64 128
-  %235 = load ptr, ptr %234, align 8, !invariant.load !11, !noalias !4657, !nonnull !11
-  %236 = call noundef zeroext i1 %235(ptr noundef nonnull align 1 %.val28.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %233), !noalias !4657
+  %235 = load ptr, ptr %234, align 8, !invariant.load !11, !noalias !4659, !nonnull !11
+  %236 = call noundef zeroext i1 %235(ptr noundef nonnull align 1 %.val28.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %233), !noalias !4659
   %237 = xor i1 %236, true
   %238 = zext i1 %237 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i73.i"
@@ -21205,16 +21205,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
   call void @llvm.assume(i1 %239)
   %240 = icmp ne ptr %.val31.i, null
   call void @llvm.assume(i1 %240)
-  %241 = load i32, ptr %.val3.i75.i, align 4, !noalias !4657, !noundef !11
+  %241 = load i32, ptr %.val3.i75.i, align 4, !noalias !4659, !noundef !11
   %242 = icmp eq i32 %241, 0
   br i1 %242, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i78.i", label %243
 
 243:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i73.i"
   %244 = getelementptr inbounds nuw i8, ptr %.val3.i75.i, i64 4
-  %245 = load i32, ptr %244, align 4, !noalias !4657
+  %245 = load i32, ptr %244, align 4, !noalias !4659
   %246 = getelementptr i8, ptr %.val31.i, i64 192
-  %.val.i11.i77.i = load ptr, ptr %246, align 8, !noalias !4657
-  %247 = call { i32, i32 } %.val.i11.i77.i(ptr noundef nonnull align 1 %.val30.i), !noalias !4657
+  %.val.i11.i77.i = load ptr, ptr %246, align 8, !noalias !4659
+  %247 = call { i32, i32 } %.val.i11.i77.i(ptr noundef nonnull align 1 %.val30.i), !noalias !4659
   %248 = extractvalue { i32, i32 } %247, 1
   %249 = icmp eq i32 %245, %248
   br i1 %249, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i14.i81.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i78.i"
@@ -21229,10 +21229,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i78.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i14.i81.i", %243, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i73.i"
   %253 = icmp ne ptr %.val4.i76.i, null
   call void @llvm.assume(i1 %253)
-  %254 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i76.i), !noalias !4657
+  %254 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i76.i), !noalias !4659
   %255 = getelementptr inbounds nuw i8, ptr %.val31.i, i64 128
-  %256 = load ptr, ptr %255, align 8, !invariant.load !11, !noalias !4657, !nonnull !11
-  %257 = call noundef zeroext i1 %256(ptr noundef nonnull align 1 %.val30.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %254), !noalias !4657
+  %256 = load ptr, ptr %255, align 8, !invariant.load !11, !noalias !4659, !nonnull !11
+  %257 = call noundef zeroext i1 %256(ptr noundef nonnull align 1 %.val30.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %254), !noalias !4659
   %258 = xor i1 %257, true
   %.neg.i79.i = sext i1 %258 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h902ae2680e764fe0E.exit83.i"
@@ -21281,16 +21281,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
   %.val36.i = load ptr, ptr %23, align 8, !alias.scope !4654, !noalias !4657
   %.val7.i85.i = load ptr, ptr %.val32, align 8, !noalias !4659, !nonnull !11, !align !4500, !noundef !11
   %.val8.i86.i = load ptr, ptr %71, align 8, !noalias !4659
-  %272 = load i32, ptr %.val7.i85.i, align 4, !noalias !4657, !noundef !11
+  %272 = load i32, ptr %.val7.i85.i, align 4, !noalias !4659, !noundef !11
   %273 = icmp eq i32 %272, 0
   br i1 %273, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i88.i", label %274
 
 274:                                              ; preds = %270
   %275 = getelementptr inbounds nuw i8, ptr %.val7.i85.i, i64 4
-  %276 = load i32, ptr %275, align 4, !noalias !4657
+  %276 = load i32, ptr %275, align 4, !noalias !4659
   %277 = getelementptr i8, ptr %.val34.i, i64 192
-  %.val.i.i87.i = load ptr, ptr %277, align 8, !noalias !4657
-  %278 = call { i32, i32 } %.val.i.i87.i(ptr noundef nonnull align 1 %.val33.i), !noalias !4657
+  %.val.i.i87.i = load ptr, ptr %277, align 8, !noalias !4659
+  %278 = call { i32, i32 } %.val.i.i87.i(ptr noundef nonnull align 1 %.val33.i), !noalias !4659
   %279 = extractvalue { i32, i32 } %278, 1
   %280 = icmp eq i32 %276, %279
   br i1 %280, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i98.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i88.i"
@@ -21305,10 +21305,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i88.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i98.i", %274, %270
   %284 = icmp ne ptr %.val8.i86.i, null
   call void @llvm.assume(i1 %284)
-  %285 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i86.i), !noalias !4657
+  %285 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i86.i), !noalias !4659
   %286 = getelementptr inbounds nuw i8, ptr %.val34.i, i64 128
-  %287 = load ptr, ptr %286, align 8, !invariant.load !11, !noalias !4657, !nonnull !11
-  %288 = call noundef zeroext i1 %287(ptr noundef nonnull align 1 %.val33.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %285), !noalias !4657
+  %287 = load ptr, ptr %286, align 8, !invariant.load !11, !noalias !4659, !nonnull !11
+  %288 = call noundef zeroext i1 %287(ptr noundef nonnull align 1 %.val33.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %285), !noalias !4659
   %289 = xor i1 %288, true
   %290 = zext i1 %289 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i89.i"
@@ -21321,16 +21321,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
   call void @llvm.assume(i1 %291)
   %292 = icmp ne ptr %.val36.i, null
   call void @llvm.assume(i1 %292)
-  %293 = load i32, ptr %.val3.i91.i, align 4, !noalias !4657, !noundef !11
+  %293 = load i32, ptr %.val3.i91.i, align 4, !noalias !4659, !noundef !11
   %294 = icmp eq i32 %293, 0
   br i1 %294, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i94.i", label %295
 
 295:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i89.i"
   %296 = getelementptr inbounds nuw i8, ptr %.val3.i91.i, i64 4
-  %297 = load i32, ptr %296, align 4, !noalias !4657
+  %297 = load i32, ptr %296, align 4, !noalias !4659
   %298 = getelementptr i8, ptr %.val36.i, i64 192
-  %.val.i11.i93.i = load ptr, ptr %298, align 8, !noalias !4657
-  %299 = call { i32, i32 } %.val.i11.i93.i(ptr noundef nonnull align 1 %.val35.i), !noalias !4657
+  %.val.i11.i93.i = load ptr, ptr %298, align 8, !noalias !4659
+  %299 = call { i32, i32 } %.val.i11.i93.i(ptr noundef nonnull align 1 %.val35.i), !noalias !4659
   %300 = extractvalue { i32, i32 } %299, 1
   %301 = icmp eq i32 %297, %300
   br i1 %301, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i14.i97.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i94.i"
@@ -21345,10 +21345,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i94.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i14.i97.i", %295, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i89.i"
   %305 = icmp ne ptr %.val4.i92.i, null
   call void @llvm.assume(i1 %305)
-  %306 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i92.i), !noalias !4657
+  %306 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i92.i), !noalias !4659
   %307 = getelementptr inbounds nuw i8, ptr %.val36.i, i64 128
-  %308 = load ptr, ptr %307, align 8, !invariant.load !11, !noalias !4657, !nonnull !11
-  %309 = call noundef zeroext i1 %308(ptr noundef nonnull align 1 %.val35.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %306), !noalias !4657
+  %308 = load ptr, ptr %307, align 8, !invariant.load !11, !noalias !4659, !nonnull !11
+  %309 = call noundef zeroext i1 %308(ptr noundef nonnull align 1 %.val35.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %306), !noalias !4659
   %310 = xor i1 %309, true
   %.neg.i95.i = sext i1 %310 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h902ae2680e764fe0E.exit99.i"
@@ -21437,19 +21437,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
   %.val15.i65 = load ptr, ptr %21, align 8, !alias.scope !4678, !noalias !4681, !nonnull !11, !align !166, !noundef !11
   %.val16.i66 = load ptr, ptr %23, align 8, !alias.scope !4678, !noalias !4681, !nonnull !11, !align !164, !noundef !11
   %.val.i.i67 = load ptr, ptr %6, align 8, !noalias !4683, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !4681, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !4683, !nonnull !11, !align !4500, !noundef !11
   %343 = getelementptr i8, ptr %.val.i.i67, i64 8
-  %.val8.i.i.i = load ptr, ptr %343, align 8, !noalias !4681
-  %344 = load i32, ptr %.val7.i.i.i, align 4, !noalias !4681, !noundef !11
+  %.val8.i.i.i = load ptr, ptr %343, align 8, !noalias !4683
+  %344 = load i32, ptr %.val7.i.i.i, align 4, !noalias !4683, !noundef !11
   %345 = icmp eq i32 %344, 0
   br i1 %345, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i.i", label %346
 
 346:                                              ; preds = %.lr.ph.i59
   %347 = getelementptr inbounds nuw i8, ptr %.val7.i.i.i, i64 4
-  %348 = load i32, ptr %347, align 4, !noalias !4681
+  %348 = load i32, ptr %347, align 4, !noalias !4683
   %349 = getelementptr i8, ptr %.val16.i66, i64 192
-  %.val.i.i.i.i = load ptr, ptr %349, align 8, !noalias !4681
-  %350 = call { i32, i32 } %.val.i.i.i.i(ptr noundef nonnull align 1 %.val15.i65), !noalias !4681
+  %.val.i.i.i.i = load ptr, ptr %349, align 8, !noalias !4683
+  %350 = call { i32, i32 } %.val.i.i.i.i(ptr noundef nonnull align 1 %.val15.i65), !noalias !4683
   %351 = extractvalue { i32, i32 } %350, 1
   %352 = icmp eq i32 %348, %351
   br i1 %352, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i.i"
@@ -21464,32 +21464,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i.i.i", %346, %.lr.ph.i59
   %356 = icmp ne ptr %.val8.i.i.i, null
   call void @llvm.assume(i1 %356)
-  %357 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i.i), !noalias !4681
+  %357 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i.i), !noalias !4683
   %358 = getelementptr inbounds nuw i8, ptr %.val16.i66, i64 128
-  %359 = load ptr, ptr %358, align 8, !invariant.load !11, !noalias !4681, !nonnull !11
-  %360 = call noundef zeroext i1 %359(ptr noundef nonnull align 1 %.val15.i65, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %357), !noalias !4681
+  %359 = load ptr, ptr %358, align 8, !invariant.load !11, !noalias !4683, !nonnull !11
+  %360 = call noundef zeroext i1 %359(ptr noundef nonnull align 1 %.val15.i65, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %357), !noalias !4683
   %361 = xor i1 %360, true
   %362 = zext i1 %361 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i.i.i"
   %.sroa.0.0.i.i.i.i = phi i8 [ %362, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i.i.i" ]
-  %.val3.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !4681, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i.i = load ptr, ptr %343, align 8, !noalias !4681
+  %.val3.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !4683, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i.i = load ptr, ptr %343, align 8, !noalias !4683
   %363 = icmp ne ptr %.val13.i63, null
   call void @llvm.assume(i1 %363)
   %364 = icmp ne ptr %.val14.i64, null
   call void @llvm.assume(i1 %364)
-  %365 = load i32, ptr %.val3.i.i.i, align 4, !noalias !4681, !noundef !11
+  %365 = load i32, ptr %.val3.i.i.i, align 4, !noalias !4683, !noundef !11
   %366 = icmp eq i32 %365, 0
   br i1 %366, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i.i.i", label %367
 
 367:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i.i"
   %368 = getelementptr inbounds nuw i8, ptr %.val3.i.i.i, i64 4
-  %369 = load i32, ptr %368, align 4, !noalias !4681
+  %369 = load i32, ptr %368, align 4, !noalias !4683
   %370 = getelementptr i8, ptr %.val14.i64, i64 192
-  %.val.i11.i.i.i = load ptr, ptr %370, align 8, !noalias !4681
-  %371 = call { i32, i32 } %.val.i11.i.i.i(ptr noundef nonnull align 1 %.val13.i63), !noalias !4681
+  %.val.i11.i.i.i = load ptr, ptr %370, align 8, !noalias !4683
+  %371 = call { i32, i32 } %.val.i11.i.i.i(ptr noundef nonnull align 1 %.val13.i63), !noalias !4683
   %372 = extractvalue { i32, i32 } %371, 1
   %373 = icmp eq i32 %369, %372
   br i1 %373, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i14.i.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i.i.i"
@@ -21504,10 +21504,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i14.i.i.i", %367, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i.i"
   %377 = icmp ne ptr %.val4.i.i.i, null
   call void @llvm.assume(i1 %377)
-  %378 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i.i), !noalias !4681
+  %378 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i.i), !noalias !4683
   %379 = getelementptr inbounds nuw i8, ptr %.val14.i64, i64 128
-  %380 = load ptr, ptr %379, align 8, !invariant.load !11, !noalias !4681, !nonnull !11
-  %381 = call noundef zeroext i1 %380(ptr noundef nonnull align 1 %.val13.i63, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %378), !noalias !4681
+  %380 = load ptr, ptr %379, align 8, !invariant.load !11, !noalias !4683, !nonnull !11
+  %381 = call noundef zeroext i1 %380(ptr noundef nonnull align 1 %.val13.i63, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %378), !noalias !4683
   %382 = xor i1 %381, true
   %.neg.i.i.i = sext i1 %382 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h24c2da88d433a2e6E.exit.i"
@@ -21529,19 +21529,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
   %.val20.i71 = load ptr, ptr %21, align 8, !alias.scope !4678, !noalias !4681, !nonnull !11, !align !166, !noundef !11
   %.val21.i72 = load ptr, ptr %23, align 8, !alias.scope !4678, !noalias !4681, !nonnull !11, !align !164, !noundef !11
   %.val.i37.i = load ptr, ptr %6, align 8, !noalias !4683, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i38.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4681, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i38.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4683, !nonnull !11, !align !4500, !noundef !11
   %391 = getelementptr i8, ptr %.val.i37.i, i64 8
-  %.val8.i.i39.i = load ptr, ptr %391, align 8, !noalias !4681
-  %392 = load i32, ptr %.val7.i.i38.i, align 4, !noalias !4681, !noundef !11
+  %.val8.i.i39.i = load ptr, ptr %391, align 8, !noalias !4683
+  %392 = load i32, ptr %.val7.i.i38.i, align 4, !noalias !4683, !noundef !11
   %393 = icmp eq i32 %392, 0
   br i1 %393, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i41.i", label %394
 
 394:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h24c2da88d433a2e6E.exit.i"
   %395 = getelementptr inbounds nuw i8, ptr %.val7.i.i38.i, i64 4
-  %396 = load i32, ptr %395, align 4, !noalias !4681
+  %396 = load i32, ptr %395, align 4, !noalias !4683
   %397 = getelementptr i8, ptr %.val21.i72, i64 192
-  %.val.i.i.i40.i = load ptr, ptr %397, align 8, !noalias !4681
-  %398 = call { i32, i32 } %.val.i.i.i40.i(ptr noundef nonnull align 1 %.val20.i71), !noalias !4681
+  %.val.i.i.i40.i = load ptr, ptr %397, align 8, !noalias !4683
+  %398 = call { i32, i32 } %.val.i.i.i40.i(ptr noundef nonnull align 1 %.val20.i71), !noalias !4683
   %399 = extractvalue { i32, i32 } %398, 1
   %400 = icmp eq i32 %396, %399
   br i1 %400, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i.i51.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i41.i"
@@ -21556,32 +21556,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i41.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i.i51.i", %394, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h24c2da88d433a2e6E.exit.i"
   %404 = icmp ne ptr %.val8.i.i39.i, null
   call void @llvm.assume(i1 %404)
-  %405 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i39.i), !noalias !4681
+  %405 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i39.i), !noalias !4683
   %406 = getelementptr inbounds nuw i8, ptr %.val21.i72, i64 128
-  %407 = load ptr, ptr %406, align 8, !invariant.load !11, !noalias !4681, !nonnull !11
-  %408 = call noundef zeroext i1 %407(ptr noundef nonnull align 1 %.val20.i71, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %405), !noalias !4681
+  %407 = load ptr, ptr %406, align 8, !invariant.load !11, !noalias !4683, !nonnull !11
+  %408 = call noundef zeroext i1 %407(ptr noundef nonnull align 1 %.val20.i71, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %405), !noalias !4683
   %409 = xor i1 %408, true
   %410 = zext i1 %409 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i42.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i42.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i41.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i.i51.i"
   %.sroa.0.0.i.i.i43.i = phi i8 [ %410, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i41.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i.i51.i" ]
-  %.val3.i.i44.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4681, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i45.i = load ptr, ptr %391, align 8, !noalias !4681
+  %.val3.i.i44.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4683, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i45.i = load ptr, ptr %391, align 8, !noalias !4683
   %411 = icmp ne ptr %.val18.i69, null
   call void @llvm.assume(i1 %411)
   %412 = icmp ne ptr %.val19.i70, null
   call void @llvm.assume(i1 %412)
-  %413 = load i32, ptr %.val3.i.i44.i, align 4, !noalias !4681, !noundef !11
+  %413 = load i32, ptr %.val3.i.i44.i, align 4, !noalias !4683, !noundef !11
   %414 = icmp eq i32 %413, 0
   br i1 %414, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i.i47.i", label %415
 
 415:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i42.i"
   %416 = getelementptr inbounds nuw i8, ptr %.val3.i.i44.i, i64 4
-  %417 = load i32, ptr %416, align 4, !noalias !4681
+  %417 = load i32, ptr %416, align 4, !noalias !4683
   %418 = getelementptr i8, ptr %.val19.i70, i64 192
-  %.val.i11.i.i46.i = load ptr, ptr %418, align 8, !noalias !4681
-  %419 = call { i32, i32 } %.val.i11.i.i46.i(ptr noundef nonnull align 1 %.val18.i69), !noalias !4681
+  %.val.i11.i.i46.i = load ptr, ptr %418, align 8, !noalias !4683
+  %419 = call { i32, i32 } %.val.i11.i.i46.i(ptr noundef nonnull align 1 %.val18.i69), !noalias !4683
   %420 = extractvalue { i32, i32 } %419, 1
   %421 = icmp eq i32 %417, %420
   br i1 %421, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i14.i.i50.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i.i47.i"
@@ -21596,10 +21596,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i.i47.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i14.i.i50.i", %415, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i42.i"
   %425 = icmp ne ptr %.val4.i.i45.i, null
   call void @llvm.assume(i1 %425)
-  %426 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i45.i), !noalias !4681
+  %426 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i45.i), !noalias !4683
   %427 = getelementptr inbounds nuw i8, ptr %.val19.i70, i64 128
-  %428 = load ptr, ptr %427, align 8, !invariant.load !11, !noalias !4681, !nonnull !11
-  %429 = call noundef zeroext i1 %428(ptr noundef nonnull align 1 %.val18.i69, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %426), !noalias !4681
+  %428 = load ptr, ptr %427, align 8, !invariant.load !11, !noalias !4683, !nonnull !11
+  %429 = call noundef zeroext i1 %428(ptr noundef nonnull align 1 %.val18.i69, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %426), !noalias !4683
   %430 = xor i1 %429, true
   %.neg.i.i48.i = sext i1 %430 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h24c2da88d433a2e6E.exit52.i"
@@ -21621,19 +21621,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
   %.val25.i75 = load ptr, ptr %21, align 8, !alias.scope !4678, !noalias !4681, !nonnull !11, !align !166, !noundef !11
   %.val26.i76 = load ptr, ptr %23, align 8, !alias.scope !4678, !noalias !4681, !nonnull !11, !align !164, !noundef !11
   %.val.i54.i = load ptr, ptr %6, align 8, !noalias !4683, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i55.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4681, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i55.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4683, !nonnull !11, !align !4500, !noundef !11
   %439 = getelementptr i8, ptr %.val.i54.i, i64 8
-  %.val8.i.i56.i = load ptr, ptr %439, align 8, !noalias !4681
-  %440 = load i32, ptr %.val7.i.i55.i, align 4, !noalias !4681, !noundef !11
+  %.val8.i.i56.i = load ptr, ptr %439, align 8, !noalias !4683
+  %440 = load i32, ptr %.val7.i.i55.i, align 4, !noalias !4683, !noundef !11
   %441 = icmp eq i32 %440, 0
   br i1 %441, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i58.i", label %442
 
 442:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h24c2da88d433a2e6E.exit52.i"
   %443 = getelementptr inbounds nuw i8, ptr %.val7.i.i55.i, i64 4
-  %444 = load i32, ptr %443, align 4, !noalias !4681
+  %444 = load i32, ptr %443, align 4, !noalias !4683
   %445 = getelementptr i8, ptr %.val26.i76, i64 192
-  %.val.i.i.i57.i = load ptr, ptr %445, align 8, !noalias !4681
-  %446 = call { i32, i32 } %.val.i.i.i57.i(ptr noundef nonnull align 1 %.val25.i75), !noalias !4681
+  %.val.i.i.i57.i = load ptr, ptr %445, align 8, !noalias !4683
+  %446 = call { i32, i32 } %.val.i.i.i57.i(ptr noundef nonnull align 1 %.val25.i75), !noalias !4683
   %447 = extractvalue { i32, i32 } %446, 1
   %448 = icmp eq i32 %444, %447
   br i1 %448, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i.i68.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i58.i"
@@ -21648,32 +21648,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i58.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i.i68.i", %442, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h24c2da88d433a2e6E.exit52.i"
   %452 = icmp ne ptr %.val8.i.i56.i, null
   call void @llvm.assume(i1 %452)
-  %453 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i56.i), !noalias !4681
+  %453 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i56.i), !noalias !4683
   %454 = getelementptr inbounds nuw i8, ptr %.val26.i76, i64 128
-  %455 = load ptr, ptr %454, align 8, !invariant.load !11, !noalias !4681, !nonnull !11
-  %456 = call noundef zeroext i1 %455(ptr noundef nonnull align 1 %.val25.i75, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %453), !noalias !4681
+  %455 = load ptr, ptr %454, align 8, !invariant.load !11, !noalias !4683, !nonnull !11
+  %456 = call noundef zeroext i1 %455(ptr noundef nonnull align 1 %.val25.i75, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %453), !noalias !4683
   %457 = xor i1 %456, true
   %458 = zext i1 %457 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i59.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i59.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i58.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i.i68.i"
   %.sroa.0.0.i.i.i60.i = phi i8 [ %458, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i58.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i.i68.i" ]
-  %.val3.i.i61.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4681, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i62.i = load ptr, ptr %439, align 8, !noalias !4681
+  %.val3.i.i61.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4683, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i62.i = load ptr, ptr %439, align 8, !noalias !4683
   %459 = icmp ne ptr %.val23.i73, null
   call void @llvm.assume(i1 %459)
   %460 = icmp ne ptr %.val24.i74, null
   call void @llvm.assume(i1 %460)
-  %461 = load i32, ptr %.val3.i.i61.i, align 4, !noalias !4681, !noundef !11
+  %461 = load i32, ptr %.val3.i.i61.i, align 4, !noalias !4683, !noundef !11
   %462 = icmp eq i32 %461, 0
   br i1 %462, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i.i64.i", label %463
 
 463:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i59.i"
   %464 = getelementptr inbounds nuw i8, ptr %.val3.i.i61.i, i64 4
-  %465 = load i32, ptr %464, align 4, !noalias !4681
+  %465 = load i32, ptr %464, align 4, !noalias !4683
   %466 = getelementptr i8, ptr %.val24.i74, i64 192
-  %.val.i11.i.i63.i = load ptr, ptr %466, align 8, !noalias !4681
-  %467 = call { i32, i32 } %.val.i11.i.i63.i(ptr noundef nonnull align 1 %.val23.i73), !noalias !4681
+  %.val.i11.i.i63.i = load ptr, ptr %466, align 8, !noalias !4683
+  %467 = call { i32, i32 } %.val.i11.i.i63.i(ptr noundef nonnull align 1 %.val23.i73), !noalias !4683
   %468 = extractvalue { i32, i32 } %467, 1
   %469 = icmp eq i32 %465, %468
   br i1 %469, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i14.i.i67.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i.i64.i"
@@ -21688,10 +21688,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i.i64.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i14.i.i67.i", %463, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i59.i"
   %473 = icmp ne ptr %.val4.i.i62.i, null
   call void @llvm.assume(i1 %473)
-  %474 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i62.i), !noalias !4681
+  %474 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i62.i), !noalias !4683
   %475 = getelementptr inbounds nuw i8, ptr %.val24.i74, i64 128
-  %476 = load ptr, ptr %475, align 8, !invariant.load !11, !noalias !4681, !nonnull !11
-  %477 = call noundef zeroext i1 %476(ptr noundef nonnull align 1 %.val23.i73, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %474), !noalias !4681
+  %476 = load ptr, ptr %475, align 8, !invariant.load !11, !noalias !4683, !nonnull !11
+  %477 = call noundef zeroext i1 %476(ptr noundef nonnull align 1 %.val23.i73, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %474), !noalias !4683
   %478 = xor i1 %477, true
   %.neg.i.i65.i = sext i1 %478 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h24c2da88d433a2e6E.exit69.i"
@@ -21713,19 +21713,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
   %.val30.i79 = load ptr, ptr %21, align 8, !alias.scope !4678, !noalias !4681, !nonnull !11, !align !166, !noundef !11
   %.val31.i80 = load ptr, ptr %23, align 8, !alias.scope !4678, !noalias !4681, !nonnull !11, !align !164, !noundef !11
   %.val.i71.i = load ptr, ptr %6, align 8, !noalias !4683, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i72.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4681, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i72.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4683, !nonnull !11, !align !4500, !noundef !11
   %487 = getelementptr i8, ptr %.val.i71.i, i64 8
-  %.val8.i.i73.i = load ptr, ptr %487, align 8, !noalias !4681
-  %488 = load i32, ptr %.val7.i.i72.i, align 4, !noalias !4681, !noundef !11
+  %.val8.i.i73.i = load ptr, ptr %487, align 8, !noalias !4683
+  %488 = load i32, ptr %.val7.i.i72.i, align 4, !noalias !4683, !noundef !11
   %489 = icmp eq i32 %488, 0
   br i1 %489, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i75.i", label %490
 
 490:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h24c2da88d433a2e6E.exit69.i"
   %491 = getelementptr inbounds nuw i8, ptr %.val7.i.i72.i, i64 4
-  %492 = load i32, ptr %491, align 4, !noalias !4681
+  %492 = load i32, ptr %491, align 4, !noalias !4683
   %493 = getelementptr i8, ptr %.val31.i80, i64 192
-  %.val.i.i.i74.i = load ptr, ptr %493, align 8, !noalias !4681
-  %494 = call { i32, i32 } %.val.i.i.i74.i(ptr noundef nonnull align 1 %.val30.i79), !noalias !4681
+  %.val.i.i.i74.i = load ptr, ptr %493, align 8, !noalias !4683
+  %494 = call { i32, i32 } %.val.i.i.i74.i(ptr noundef nonnull align 1 %.val30.i79), !noalias !4683
   %495 = extractvalue { i32, i32 } %494, 1
   %496 = icmp eq i32 %492, %495
   br i1 %496, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i.i85.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i75.i"
@@ -21740,32 +21740,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i75.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i.i85.i", %490, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h24c2da88d433a2e6E.exit69.i"
   %500 = icmp ne ptr %.val8.i.i73.i, null
   call void @llvm.assume(i1 %500)
-  %501 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i73.i), !noalias !4681
+  %501 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i73.i), !noalias !4683
   %502 = getelementptr inbounds nuw i8, ptr %.val31.i80, i64 128
-  %503 = load ptr, ptr %502, align 8, !invariant.load !11, !noalias !4681, !nonnull !11
-  %504 = call noundef zeroext i1 %503(ptr noundef nonnull align 1 %.val30.i79, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %501), !noalias !4681
+  %503 = load ptr, ptr %502, align 8, !invariant.load !11, !noalias !4683, !nonnull !11
+  %504 = call noundef zeroext i1 %503(ptr noundef nonnull align 1 %.val30.i79, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %501), !noalias !4683
   %505 = xor i1 %504, true
   %506 = zext i1 %505 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i76.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i76.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i75.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i.i85.i"
   %.sroa.0.0.i.i.i77.i = phi i8 [ %506, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i75.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i.i85.i" ]
-  %.val3.i.i78.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4681, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i79.i = load ptr, ptr %487, align 8, !noalias !4681
+  %.val3.i.i78.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4683, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i79.i = load ptr, ptr %487, align 8, !noalias !4683
   %507 = icmp ne ptr %.val28.i77, null
   call void @llvm.assume(i1 %507)
   %508 = icmp ne ptr %.val29.i78, null
   call void @llvm.assume(i1 %508)
-  %509 = load i32, ptr %.val3.i.i78.i, align 4, !noalias !4681, !noundef !11
+  %509 = load i32, ptr %.val3.i.i78.i, align 4, !noalias !4683, !noundef !11
   %510 = icmp eq i32 %509, 0
   br i1 %510, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i.i81.i", label %511
 
 511:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i76.i"
   %512 = getelementptr inbounds nuw i8, ptr %.val3.i.i78.i, i64 4
-  %513 = load i32, ptr %512, align 4, !noalias !4681
+  %513 = load i32, ptr %512, align 4, !noalias !4683
   %514 = getelementptr i8, ptr %.val29.i78, i64 192
-  %.val.i11.i.i80.i = load ptr, ptr %514, align 8, !noalias !4681
-  %515 = call { i32, i32 } %.val.i11.i.i80.i(ptr noundef nonnull align 1 %.val28.i77), !noalias !4681
+  %.val.i11.i.i80.i = load ptr, ptr %514, align 8, !noalias !4683
+  %515 = call { i32, i32 } %.val.i11.i.i80.i(ptr noundef nonnull align 1 %.val28.i77), !noalias !4683
   %516 = extractvalue { i32, i32 } %515, 1
   %517 = icmp eq i32 %513, %516
   br i1 %517, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i14.i.i84.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i.i81.i"
@@ -21780,10 +21780,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i.i81.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i14.i.i84.i", %511, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i76.i"
   %521 = icmp ne ptr %.val4.i.i79.i, null
   call void @llvm.assume(i1 %521)
-  %522 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i79.i), !noalias !4681
+  %522 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i79.i), !noalias !4683
   %523 = getelementptr inbounds nuw i8, ptr %.val29.i78, i64 128
-  %524 = load ptr, ptr %523, align 8, !invariant.load !11, !noalias !4681, !nonnull !11
-  %525 = call noundef zeroext i1 %524(ptr noundef nonnull align 1 %.val28.i77, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %522), !noalias !4681
+  %524 = load ptr, ptr %523, align 8, !invariant.load !11, !noalias !4683, !nonnull !11
+  %525 = call noundef zeroext i1 %524(ptr noundef nonnull align 1 %.val28.i77, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %522), !noalias !4683
   %526 = xor i1 %525, true
   %.neg.i.i82.i = sext i1 %526 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h24c2da88d433a2e6E.exit86.i"
@@ -21827,19 +21827,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
   %.val35.i57 = load ptr, ptr %21, align 8, !alias.scope !4678, !noalias !4681, !nonnull !11, !align !166, !noundef !11
   %.val36.i58 = load ptr, ptr %23, align 8, !alias.scope !4678, !noalias !4681, !nonnull !11, !align !164, !noundef !11
   %.val.i88.i = load ptr, ptr %6, align 8, !noalias !4683, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i89.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4681, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i89.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4683, !nonnull !11, !align !4500, !noundef !11
   %539 = getelementptr i8, ptr %.val.i88.i, i64 8
-  %.val8.i.i90.i = load ptr, ptr %539, align 8, !noalias !4681
-  %540 = load i32, ptr %.val7.i.i89.i, align 4, !noalias !4681, !noundef !11
+  %.val8.i.i90.i = load ptr, ptr %539, align 8, !noalias !4683
+  %540 = load i32, ptr %.val7.i.i89.i, align 4, !noalias !4683, !noundef !11
   %541 = icmp eq i32 %540, 0
   br i1 %541, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i92.i", label %542
 
 542:                                              ; preds = %.lr.ph40.i51
   %543 = getelementptr inbounds nuw i8, ptr %.val7.i.i89.i, i64 4
-  %544 = load i32, ptr %543, align 4, !noalias !4681
+  %544 = load i32, ptr %543, align 4, !noalias !4683
   %545 = getelementptr i8, ptr %.val36.i58, i64 192
-  %.val.i.i.i91.i = load ptr, ptr %545, align 8, !noalias !4681
-  %546 = call { i32, i32 } %.val.i.i.i91.i(ptr noundef nonnull align 1 %.val35.i57), !noalias !4681
+  %.val.i.i.i91.i = load ptr, ptr %545, align 8, !noalias !4683
+  %546 = call { i32, i32 } %.val.i.i.i91.i(ptr noundef nonnull align 1 %.val35.i57), !noalias !4683
   %547 = extractvalue { i32, i32 } %546, 1
   %548 = icmp eq i32 %544, %547
   br i1 %548, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i.i102.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i92.i"
@@ -21854,32 +21854,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i92.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i.i102.i", %542, %.lr.ph40.i51
   %552 = icmp ne ptr %.val8.i.i90.i, null
   call void @llvm.assume(i1 %552)
-  %553 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i90.i), !noalias !4681
+  %553 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i90.i), !noalias !4683
   %554 = getelementptr inbounds nuw i8, ptr %.val36.i58, i64 128
-  %555 = load ptr, ptr %554, align 8, !invariant.load !11, !noalias !4681, !nonnull !11
-  %556 = call noundef zeroext i1 %555(ptr noundef nonnull align 1 %.val35.i57, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %553), !noalias !4681
+  %555 = load ptr, ptr %554, align 8, !invariant.load !11, !noalias !4683, !nonnull !11
+  %556 = call noundef zeroext i1 %555(ptr noundef nonnull align 1 %.val35.i57, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %553), !noalias !4683
   %557 = xor i1 %556, true
   %558 = zext i1 %557 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i93.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i93.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i92.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i.i102.i"
   %.sroa.0.0.i.i.i94.i = phi i8 [ %558, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i.i.i92.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i.i.i102.i" ]
-  %.val3.i.i95.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4681, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i96.i = load ptr, ptr %539, align 8, !noalias !4681
+  %.val3.i.i95.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4683, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i96.i = load ptr, ptr %539, align 8, !noalias !4683
   %559 = icmp ne ptr %.val33.i55, null
   call void @llvm.assume(i1 %559)
   %560 = icmp ne ptr %.val34.i56, null
   call void @llvm.assume(i1 %560)
-  %561 = load i32, ptr %.val3.i.i95.i, align 4, !noalias !4681, !noundef !11
+  %561 = load i32, ptr %.val3.i.i95.i, align 4, !noalias !4683, !noundef !11
   %562 = icmp eq i32 %561, 0
   br i1 %562, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i.i98.i", label %563
 
 563:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i93.i"
   %564 = getelementptr inbounds nuw i8, ptr %.val3.i.i95.i, i64 4
-  %565 = load i32, ptr %564, align 4, !noalias !4681
+  %565 = load i32, ptr %564, align 4, !noalias !4683
   %566 = getelementptr i8, ptr %.val34.i56, i64 192
-  %.val.i11.i.i97.i = load ptr, ptr %566, align 8, !noalias !4681
-  %567 = call { i32, i32 } %.val.i11.i.i97.i(ptr noundef nonnull align 1 %.val33.i55), !noalias !4681
+  %.val.i11.i.i97.i = load ptr, ptr %566, align 8, !noalias !4683
+  %567 = call { i32, i32 } %.val.i11.i.i97.i(ptr noundef nonnull align 1 %.val33.i55), !noalias !4683
   %568 = extractvalue { i32, i32 } %567, 1
   %569 = icmp eq i32 %565, %568
   br i1 %569, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i14.i.i101.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i.i98.i"
@@ -21894,10 +21894,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5c53af56c2e
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.thread.i.i12.i.i98.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb630e223612dd96aE.exit.i.i14.i.i101.i", %563, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h72252dce6ff9caa0E.exit.i.i93.i"
   %573 = icmp ne ptr %.val4.i.i96.i, null
   call void @llvm.assume(i1 %573)
-  %574 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i96.i), !noalias !4681
+  %574 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i96.i), !noalias !4683
   %575 = getelementptr inbounds nuw i8, ptr %.val34.i56, i64 128
-  %576 = load ptr, ptr %575, align 8, !invariant.load !11, !noalias !4681, !nonnull !11
-  %577 = call noundef zeroext i1 %576(ptr noundef nonnull align 1 %.val33.i55, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %574), !noalias !4681
+  %576 = load ptr, ptr %575, align 8, !invariant.load !11, !noalias !4683, !nonnull !11
+  %577 = call noundef zeroext i1 %576(ptr noundef nonnull align 1 %.val33.i55, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %574), !noalias !4683
   %578 = xor i1 %577, true
   %.neg.i.i99.i = sext i1 %578 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h24c2da88d433a2e6E.exit103.i"
@@ -22158,16 +22158,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
   %.val16.i = load ptr, ptr %23, align 8, !alias.scope !4705, !noalias !4708
   %.val7.i.i = load ptr, ptr %.val32, align 8, !noalias !4710, !nonnull !11, !align !4500, !noundef !11
   %.val8.i.i = load ptr, ptr %71, align 8, !noalias !4710
-  %79 = load i32, ptr %.val7.i.i, align 4, !noalias !4708, !noundef !11
+  %79 = load i32, ptr %.val7.i.i, align 4, !noalias !4710, !noundef !11
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i", label %81
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %.val7.i.i, i64 4
-  %83 = load i32, ptr %82, align 4, !noalias !4708
+  %83 = load i32, ptr %82, align 4, !noalias !4710
   %84 = getelementptr i8, ptr %.val14.i, i64 192
-  %.val.i.i.i = load ptr, ptr %84, align 8, !noalias !4708
-  %85 = call { i32, i32 } %.val.i.i.i(ptr noundef nonnull align 1 %.val13.i), !noalias !4708
+  %.val.i.i.i = load ptr, ptr %84, align 8, !noalias !4710
+  %85 = call { i32, i32 } %.val.i.i.i(ptr noundef nonnull align 1 %.val13.i), !noalias !4710
   %86 = extractvalue { i32, i32 } %85, 1
   %87 = icmp eq i32 %83, %86
   br i1 %87, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i"
@@ -22182,10 +22182,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i.i", %81, %77
   %91 = icmp ne ptr %.val8.i.i, null
   call void @llvm.assume(i1 %91)
-  %92 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i), !noalias !4708
+  %92 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i), !noalias !4710
   %93 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 128
-  %94 = load ptr, ptr %93, align 8, !invariant.load !11, !noalias !4708, !nonnull !11
-  %95 = call noundef zeroext i1 %94(ptr noundef nonnull align 1 %.val13.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %92), !noalias !4708
+  %94 = load ptr, ptr %93, align 8, !invariant.load !11, !noalias !4710, !nonnull !11
+  %95 = call noundef zeroext i1 %94(ptr noundef nonnull align 1 %.val13.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %92), !noalias !4710
   %96 = xor i1 %95, true
   %97 = zext i1 %96 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i"
@@ -22198,16 +22198,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
   call void @llvm.assume(i1 %98)
   %99 = icmp ne ptr %.val16.i, null
   call void @llvm.assume(i1 %99)
-  %100 = load i32, ptr %.val3.i.i, align 4, !noalias !4708, !noundef !11
+  %100 = load i32, ptr %.val3.i.i, align 4, !noalias !4710, !noundef !11
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i.i", label %102
 
 102:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i"
   %103 = getelementptr inbounds nuw i8, ptr %.val3.i.i, i64 4
-  %104 = load i32, ptr %103, align 4, !noalias !4708
+  %104 = load i32, ptr %103, align 4, !noalias !4710
   %105 = getelementptr i8, ptr %.val16.i, i64 192
-  %.val.i11.i.i = load ptr, ptr %105, align 8, !noalias !4708
-  %106 = call { i32, i32 } %.val.i11.i.i(ptr noundef nonnull align 1 %.val15.i), !noalias !4708
+  %.val.i11.i.i = load ptr, ptr %105, align 8, !noalias !4710
+  %106 = call { i32, i32 } %.val.i11.i.i(ptr noundef nonnull align 1 %.val15.i), !noalias !4710
   %107 = extractvalue { i32, i32 } %106, 1
   %108 = icmp eq i32 %104, %107
   br i1 %108, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i14.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i.i"
@@ -22222,10 +22222,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i14.i.i", %102, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i"
   %112 = icmp ne ptr %.val4.i.i, null
   call void @llvm.assume(i1 %112)
-  %113 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i), !noalias !4708
+  %113 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i), !noalias !4710
   %114 = getelementptr inbounds nuw i8, ptr %.val16.i, i64 128
-  %115 = load ptr, ptr %114, align 8, !invariant.load !11, !noalias !4708, !nonnull !11
-  %116 = call noundef zeroext i1 %115(ptr noundef nonnull align 1 %.val15.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %113), !noalias !4708
+  %115 = load ptr, ptr %114, align 8, !invariant.load !11, !noalias !4710, !nonnull !11
+  %116 = call noundef zeroext i1 %115(ptr noundef nonnull align 1 %.val15.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %113), !noalias !4710
   %117 = xor i1 %116, true
   %.neg.i.i = sext i1 %117 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6f741e291f7fa35eE.exit.i"
@@ -22248,16 +22248,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
   %.val21.i = load ptr, ptr %23, align 8, !alias.scope !4705, !noalias !4708
   %.val7.i37.i = load ptr, ptr %.val32, align 8, !noalias !4710, !nonnull !11, !align !4500, !noundef !11
   %.val8.i38.i = load ptr, ptr %71, align 8, !noalias !4710
-  %126 = load i32, ptr %.val7.i37.i, align 4, !noalias !4708, !noundef !11
+  %126 = load i32, ptr %.val7.i37.i, align 4, !noalias !4710, !noundef !11
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i40.i", label %128
 
 128:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6f741e291f7fa35eE.exit.i"
   %129 = getelementptr inbounds nuw i8, ptr %.val7.i37.i, i64 4
-  %130 = load i32, ptr %129, align 4, !noalias !4708
+  %130 = load i32, ptr %129, align 4, !noalias !4710
   %131 = getelementptr i8, ptr %.val19.i, i64 192
-  %.val.i.i39.i = load ptr, ptr %131, align 8, !noalias !4708
-  %132 = call { i32, i32 } %.val.i.i39.i(ptr noundef nonnull align 1 %.val18.i), !noalias !4708
+  %.val.i.i39.i = load ptr, ptr %131, align 8, !noalias !4710
+  %132 = call { i32, i32 } %.val.i.i39.i(ptr noundef nonnull align 1 %.val18.i), !noalias !4710
   %133 = extractvalue { i32, i32 } %132, 1
   %134 = icmp eq i32 %130, %133
   br i1 %134, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i50.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i40.i"
@@ -22272,10 +22272,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i40.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i50.i", %128, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6f741e291f7fa35eE.exit.i"
   %138 = icmp ne ptr %.val8.i38.i, null
   call void @llvm.assume(i1 %138)
-  %139 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i38.i), !noalias !4708
+  %139 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i38.i), !noalias !4710
   %140 = getelementptr inbounds nuw i8, ptr %.val19.i, i64 128
-  %141 = load ptr, ptr %140, align 8, !invariant.load !11, !noalias !4708, !nonnull !11
-  %142 = call noundef zeroext i1 %141(ptr noundef nonnull align 1 %.val18.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %139), !noalias !4708
+  %141 = load ptr, ptr %140, align 8, !invariant.load !11, !noalias !4710, !nonnull !11
+  %142 = call noundef zeroext i1 %141(ptr noundef nonnull align 1 %.val18.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %139), !noalias !4710
   %143 = xor i1 %142, true
   %144 = zext i1 %143 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i41.i"
@@ -22288,16 +22288,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
   call void @llvm.assume(i1 %145)
   %146 = icmp ne ptr %.val21.i, null
   call void @llvm.assume(i1 %146)
-  %147 = load i32, ptr %.val3.i43.i, align 4, !noalias !4708, !noundef !11
+  %147 = load i32, ptr %.val3.i43.i, align 4, !noalias !4710, !noundef !11
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i46.i", label %149
 
 149:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i41.i"
   %150 = getelementptr inbounds nuw i8, ptr %.val3.i43.i, i64 4
-  %151 = load i32, ptr %150, align 4, !noalias !4708
+  %151 = load i32, ptr %150, align 4, !noalias !4710
   %152 = getelementptr i8, ptr %.val21.i, i64 192
-  %.val.i11.i45.i = load ptr, ptr %152, align 8, !noalias !4708
-  %153 = call { i32, i32 } %.val.i11.i45.i(ptr noundef nonnull align 1 %.val20.i), !noalias !4708
+  %.val.i11.i45.i = load ptr, ptr %152, align 8, !noalias !4710
+  %153 = call { i32, i32 } %.val.i11.i45.i(ptr noundef nonnull align 1 %.val20.i), !noalias !4710
   %154 = extractvalue { i32, i32 } %153, 1
   %155 = icmp eq i32 %151, %154
   br i1 %155, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i14.i49.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i46.i"
@@ -22312,10 +22312,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i46.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i14.i49.i", %149, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i41.i"
   %159 = icmp ne ptr %.val4.i44.i, null
   call void @llvm.assume(i1 %159)
-  %160 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i44.i), !noalias !4708
+  %160 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i44.i), !noalias !4710
   %161 = getelementptr inbounds nuw i8, ptr %.val21.i, i64 128
-  %162 = load ptr, ptr %161, align 8, !invariant.load !11, !noalias !4708, !nonnull !11
-  %163 = call noundef zeroext i1 %162(ptr noundef nonnull align 1 %.val20.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %160), !noalias !4708
+  %162 = load ptr, ptr %161, align 8, !invariant.load !11, !noalias !4710, !nonnull !11
+  %163 = call noundef zeroext i1 %162(ptr noundef nonnull align 1 %.val20.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %160), !noalias !4710
   %164 = xor i1 %163, true
   %.neg.i47.i = sext i1 %164 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6f741e291f7fa35eE.exit51.i"
@@ -22338,16 +22338,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
   %.val26.i = load ptr, ptr %23, align 8, !alias.scope !4705, !noalias !4708
   %.val7.i53.i = load ptr, ptr %.val32, align 8, !noalias !4710, !nonnull !11, !align !4500, !noundef !11
   %.val8.i54.i = load ptr, ptr %71, align 8, !noalias !4710
-  %173 = load i32, ptr %.val7.i53.i, align 4, !noalias !4708, !noundef !11
+  %173 = load i32, ptr %.val7.i53.i, align 4, !noalias !4710, !noundef !11
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i56.i", label %175
 
 175:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6f741e291f7fa35eE.exit51.i"
   %176 = getelementptr inbounds nuw i8, ptr %.val7.i53.i, i64 4
-  %177 = load i32, ptr %176, align 4, !noalias !4708
+  %177 = load i32, ptr %176, align 4, !noalias !4710
   %178 = getelementptr i8, ptr %.val24.i, i64 192
-  %.val.i.i55.i = load ptr, ptr %178, align 8, !noalias !4708
-  %179 = call { i32, i32 } %.val.i.i55.i(ptr noundef nonnull align 1 %.val23.i), !noalias !4708
+  %.val.i.i55.i = load ptr, ptr %178, align 8, !noalias !4710
+  %179 = call { i32, i32 } %.val.i.i55.i(ptr noundef nonnull align 1 %.val23.i), !noalias !4710
   %180 = extractvalue { i32, i32 } %179, 1
   %181 = icmp eq i32 %177, %180
   br i1 %181, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i66.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i56.i"
@@ -22362,10 +22362,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i56.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i66.i", %175, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6f741e291f7fa35eE.exit51.i"
   %185 = icmp ne ptr %.val8.i54.i, null
   call void @llvm.assume(i1 %185)
-  %186 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i54.i), !noalias !4708
+  %186 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i54.i), !noalias !4710
   %187 = getelementptr inbounds nuw i8, ptr %.val24.i, i64 128
-  %188 = load ptr, ptr %187, align 8, !invariant.load !11, !noalias !4708, !nonnull !11
-  %189 = call noundef zeroext i1 %188(ptr noundef nonnull align 1 %.val23.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %186), !noalias !4708
+  %188 = load ptr, ptr %187, align 8, !invariant.load !11, !noalias !4710, !nonnull !11
+  %189 = call noundef zeroext i1 %188(ptr noundef nonnull align 1 %.val23.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %186), !noalias !4710
   %190 = xor i1 %189, true
   %191 = zext i1 %190 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i57.i"
@@ -22378,16 +22378,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
   call void @llvm.assume(i1 %192)
   %193 = icmp ne ptr %.val26.i, null
   call void @llvm.assume(i1 %193)
-  %194 = load i32, ptr %.val3.i59.i, align 4, !noalias !4708, !noundef !11
+  %194 = load i32, ptr %.val3.i59.i, align 4, !noalias !4710, !noundef !11
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i62.i", label %196
 
 196:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i57.i"
   %197 = getelementptr inbounds nuw i8, ptr %.val3.i59.i, i64 4
-  %198 = load i32, ptr %197, align 4, !noalias !4708
+  %198 = load i32, ptr %197, align 4, !noalias !4710
   %199 = getelementptr i8, ptr %.val26.i, i64 192
-  %.val.i11.i61.i = load ptr, ptr %199, align 8, !noalias !4708
-  %200 = call { i32, i32 } %.val.i11.i61.i(ptr noundef nonnull align 1 %.val25.i), !noalias !4708
+  %.val.i11.i61.i = load ptr, ptr %199, align 8, !noalias !4710
+  %200 = call { i32, i32 } %.val.i11.i61.i(ptr noundef nonnull align 1 %.val25.i), !noalias !4710
   %201 = extractvalue { i32, i32 } %200, 1
   %202 = icmp eq i32 %198, %201
   br i1 %202, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i14.i65.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i62.i"
@@ -22402,10 +22402,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i62.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i14.i65.i", %196, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i57.i"
   %206 = icmp ne ptr %.val4.i60.i, null
   call void @llvm.assume(i1 %206)
-  %207 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i60.i), !noalias !4708
+  %207 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i60.i), !noalias !4710
   %208 = getelementptr inbounds nuw i8, ptr %.val26.i, i64 128
-  %209 = load ptr, ptr %208, align 8, !invariant.load !11, !noalias !4708, !nonnull !11
-  %210 = call noundef zeroext i1 %209(ptr noundef nonnull align 1 %.val25.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %207), !noalias !4708
+  %209 = load ptr, ptr %208, align 8, !invariant.load !11, !noalias !4710, !nonnull !11
+  %210 = call noundef zeroext i1 %209(ptr noundef nonnull align 1 %.val25.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %207), !noalias !4710
   %211 = xor i1 %210, true
   %.neg.i63.i = sext i1 %211 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6f741e291f7fa35eE.exit67.i"
@@ -22428,16 +22428,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
   %.val31.i = load ptr, ptr %23, align 8, !alias.scope !4705, !noalias !4708
   %.val7.i69.i = load ptr, ptr %.val32, align 8, !noalias !4710, !nonnull !11, !align !4500, !noundef !11
   %.val8.i70.i = load ptr, ptr %71, align 8, !noalias !4710
-  %220 = load i32, ptr %.val7.i69.i, align 4, !noalias !4708, !noundef !11
+  %220 = load i32, ptr %.val7.i69.i, align 4, !noalias !4710, !noundef !11
   %221 = icmp eq i32 %220, 0
   br i1 %221, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i72.i", label %222
 
 222:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6f741e291f7fa35eE.exit67.i"
   %223 = getelementptr inbounds nuw i8, ptr %.val7.i69.i, i64 4
-  %224 = load i32, ptr %223, align 4, !noalias !4708
+  %224 = load i32, ptr %223, align 4, !noalias !4710
   %225 = getelementptr i8, ptr %.val29.i, i64 192
-  %.val.i.i71.i = load ptr, ptr %225, align 8, !noalias !4708
-  %226 = call { i32, i32 } %.val.i.i71.i(ptr noundef nonnull align 1 %.val28.i), !noalias !4708
+  %.val.i.i71.i = load ptr, ptr %225, align 8, !noalias !4710
+  %226 = call { i32, i32 } %.val.i.i71.i(ptr noundef nonnull align 1 %.val28.i), !noalias !4710
   %227 = extractvalue { i32, i32 } %226, 1
   %228 = icmp eq i32 %224, %227
   br i1 %228, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i82.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i72.i"
@@ -22452,10 +22452,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i72.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i82.i", %222, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6f741e291f7fa35eE.exit67.i"
   %232 = icmp ne ptr %.val8.i70.i, null
   call void @llvm.assume(i1 %232)
-  %233 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i70.i), !noalias !4708
+  %233 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i70.i), !noalias !4710
   %234 = getelementptr inbounds nuw i8, ptr %.val29.i, i64 128
-  %235 = load ptr, ptr %234, align 8, !invariant.load !11, !noalias !4708, !nonnull !11
-  %236 = call noundef zeroext i1 %235(ptr noundef nonnull align 1 %.val28.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %233), !noalias !4708
+  %235 = load ptr, ptr %234, align 8, !invariant.load !11, !noalias !4710, !nonnull !11
+  %236 = call noundef zeroext i1 %235(ptr noundef nonnull align 1 %.val28.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %233), !noalias !4710
   %237 = xor i1 %236, true
   %238 = zext i1 %237 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i73.i"
@@ -22468,16 +22468,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
   call void @llvm.assume(i1 %239)
   %240 = icmp ne ptr %.val31.i, null
   call void @llvm.assume(i1 %240)
-  %241 = load i32, ptr %.val3.i75.i, align 4, !noalias !4708, !noundef !11
+  %241 = load i32, ptr %.val3.i75.i, align 4, !noalias !4710, !noundef !11
   %242 = icmp eq i32 %241, 0
   br i1 %242, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i78.i", label %243
 
 243:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i73.i"
   %244 = getelementptr inbounds nuw i8, ptr %.val3.i75.i, i64 4
-  %245 = load i32, ptr %244, align 4, !noalias !4708
+  %245 = load i32, ptr %244, align 4, !noalias !4710
   %246 = getelementptr i8, ptr %.val31.i, i64 192
-  %.val.i11.i77.i = load ptr, ptr %246, align 8, !noalias !4708
-  %247 = call { i32, i32 } %.val.i11.i77.i(ptr noundef nonnull align 1 %.val30.i), !noalias !4708
+  %.val.i11.i77.i = load ptr, ptr %246, align 8, !noalias !4710
+  %247 = call { i32, i32 } %.val.i11.i77.i(ptr noundef nonnull align 1 %.val30.i), !noalias !4710
   %248 = extractvalue { i32, i32 } %247, 1
   %249 = icmp eq i32 %245, %248
   br i1 %249, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i14.i81.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i78.i"
@@ -22492,10 +22492,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i78.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i14.i81.i", %243, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i73.i"
   %253 = icmp ne ptr %.val4.i76.i, null
   call void @llvm.assume(i1 %253)
-  %254 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i76.i), !noalias !4708
+  %254 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i76.i), !noalias !4710
   %255 = getelementptr inbounds nuw i8, ptr %.val31.i, i64 128
-  %256 = load ptr, ptr %255, align 8, !invariant.load !11, !noalias !4708, !nonnull !11
-  %257 = call noundef zeroext i1 %256(ptr noundef nonnull align 1 %.val30.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %254), !noalias !4708
+  %256 = load ptr, ptr %255, align 8, !invariant.load !11, !noalias !4710, !nonnull !11
+  %257 = call noundef zeroext i1 %256(ptr noundef nonnull align 1 %.val30.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %254), !noalias !4710
   %258 = xor i1 %257, true
   %.neg.i79.i = sext i1 %258 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6f741e291f7fa35eE.exit83.i"
@@ -22544,16 +22544,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
   %.val36.i = load ptr, ptr %23, align 8, !alias.scope !4705, !noalias !4708
   %.val7.i85.i = load ptr, ptr %.val32, align 8, !noalias !4710, !nonnull !11, !align !4500, !noundef !11
   %.val8.i86.i = load ptr, ptr %71, align 8, !noalias !4710
-  %272 = load i32, ptr %.val7.i85.i, align 4, !noalias !4708, !noundef !11
+  %272 = load i32, ptr %.val7.i85.i, align 4, !noalias !4710, !noundef !11
   %273 = icmp eq i32 %272, 0
   br i1 %273, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i88.i", label %274
 
 274:                                              ; preds = %270
   %275 = getelementptr inbounds nuw i8, ptr %.val7.i85.i, i64 4
-  %276 = load i32, ptr %275, align 4, !noalias !4708
+  %276 = load i32, ptr %275, align 4, !noalias !4710
   %277 = getelementptr i8, ptr %.val34.i, i64 192
-  %.val.i.i87.i = load ptr, ptr %277, align 8, !noalias !4708
-  %278 = call { i32, i32 } %.val.i.i87.i(ptr noundef nonnull align 1 %.val33.i), !noalias !4708
+  %.val.i.i87.i = load ptr, ptr %277, align 8, !noalias !4710
+  %278 = call { i32, i32 } %.val.i.i87.i(ptr noundef nonnull align 1 %.val33.i), !noalias !4710
   %279 = extractvalue { i32, i32 } %278, 1
   %280 = icmp eq i32 %276, %279
   br i1 %280, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i98.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i88.i"
@@ -22568,10 +22568,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i88.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i98.i", %274, %270
   %284 = icmp ne ptr %.val8.i86.i, null
   call void @llvm.assume(i1 %284)
-  %285 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i86.i), !noalias !4708
+  %285 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i86.i), !noalias !4710
   %286 = getelementptr inbounds nuw i8, ptr %.val34.i, i64 128
-  %287 = load ptr, ptr %286, align 8, !invariant.load !11, !noalias !4708, !nonnull !11
-  %288 = call noundef zeroext i1 %287(ptr noundef nonnull align 1 %.val33.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %285), !noalias !4708
+  %287 = load ptr, ptr %286, align 8, !invariant.load !11, !noalias !4710, !nonnull !11
+  %288 = call noundef zeroext i1 %287(ptr noundef nonnull align 1 %.val33.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %285), !noalias !4710
   %289 = xor i1 %288, true
   %290 = zext i1 %289 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i89.i"
@@ -22584,16 +22584,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
   call void @llvm.assume(i1 %291)
   %292 = icmp ne ptr %.val36.i, null
   call void @llvm.assume(i1 %292)
-  %293 = load i32, ptr %.val3.i91.i, align 4, !noalias !4708, !noundef !11
+  %293 = load i32, ptr %.val3.i91.i, align 4, !noalias !4710, !noundef !11
   %294 = icmp eq i32 %293, 0
   br i1 %294, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i94.i", label %295
 
 295:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i89.i"
   %296 = getelementptr inbounds nuw i8, ptr %.val3.i91.i, i64 4
-  %297 = load i32, ptr %296, align 4, !noalias !4708
+  %297 = load i32, ptr %296, align 4, !noalias !4710
   %298 = getelementptr i8, ptr %.val36.i, i64 192
-  %.val.i11.i93.i = load ptr, ptr %298, align 8, !noalias !4708
-  %299 = call { i32, i32 } %.val.i11.i93.i(ptr noundef nonnull align 1 %.val35.i), !noalias !4708
+  %.val.i11.i93.i = load ptr, ptr %298, align 8, !noalias !4710
+  %299 = call { i32, i32 } %.val.i11.i93.i(ptr noundef nonnull align 1 %.val35.i), !noalias !4710
   %300 = extractvalue { i32, i32 } %299, 1
   %301 = icmp eq i32 %297, %300
   br i1 %301, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i14.i97.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i94.i"
@@ -22608,10 +22608,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i94.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i14.i97.i", %295, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i89.i"
   %305 = icmp ne ptr %.val4.i92.i, null
   call void @llvm.assume(i1 %305)
-  %306 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i92.i), !noalias !4708
+  %306 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i92.i), !noalias !4710
   %307 = getelementptr inbounds nuw i8, ptr %.val36.i, i64 128
-  %308 = load ptr, ptr %307, align 8, !invariant.load !11, !noalias !4708, !nonnull !11
-  %309 = call noundef zeroext i1 %308(ptr noundef nonnull align 1 %.val35.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %306), !noalias !4708
+  %308 = load ptr, ptr %307, align 8, !invariant.load !11, !noalias !4710, !nonnull !11
+  %309 = call noundef zeroext i1 %308(ptr noundef nonnull align 1 %.val35.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %306), !noalias !4710
   %310 = xor i1 %309, true
   %.neg.i95.i = sext i1 %310 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6f741e291f7fa35eE.exit99.i"
@@ -22700,19 +22700,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
   %.val15.i65 = load ptr, ptr %21, align 8, !alias.scope !4729, !noalias !4732, !nonnull !11, !align !166, !noundef !11
   %.val16.i66 = load ptr, ptr %23, align 8, !alias.scope !4729, !noalias !4732, !nonnull !11, !align !164, !noundef !11
   %.val.i.i67 = load ptr, ptr %6, align 8, !noalias !4734, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !4732, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !4734, !nonnull !11, !align !4500, !noundef !11
   %343 = getelementptr i8, ptr %.val.i.i67, i64 8
-  %.val8.i.i.i = load ptr, ptr %343, align 8, !noalias !4732
-  %344 = load i32, ptr %.val7.i.i.i, align 4, !noalias !4732, !noundef !11
+  %.val8.i.i.i = load ptr, ptr %343, align 8, !noalias !4734
+  %344 = load i32, ptr %.val7.i.i.i, align 4, !noalias !4734, !noundef !11
   %345 = icmp eq i32 %344, 0
   br i1 %345, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i.i", label %346
 
 346:                                              ; preds = %.lr.ph.i59
   %347 = getelementptr inbounds nuw i8, ptr %.val7.i.i.i, i64 4
-  %348 = load i32, ptr %347, align 4, !noalias !4732
+  %348 = load i32, ptr %347, align 4, !noalias !4734
   %349 = getelementptr i8, ptr %.val16.i66, i64 192
-  %.val.i.i.i.i = load ptr, ptr %349, align 8, !noalias !4732
-  %350 = call { i32, i32 } %.val.i.i.i.i(ptr noundef nonnull align 1 %.val15.i65), !noalias !4732
+  %.val.i.i.i.i = load ptr, ptr %349, align 8, !noalias !4734
+  %350 = call { i32, i32 } %.val.i.i.i.i(ptr noundef nonnull align 1 %.val15.i65), !noalias !4734
   %351 = extractvalue { i32, i32 } %350, 1
   %352 = icmp eq i32 %348, %351
   br i1 %352, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i.i"
@@ -22727,32 +22727,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i.i.i", %346, %.lr.ph.i59
   %356 = icmp ne ptr %.val8.i.i.i, null
   call void @llvm.assume(i1 %356)
-  %357 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i.i), !noalias !4732
+  %357 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i.i), !noalias !4734
   %358 = getelementptr inbounds nuw i8, ptr %.val16.i66, i64 128
-  %359 = load ptr, ptr %358, align 8, !invariant.load !11, !noalias !4732, !nonnull !11
-  %360 = call noundef zeroext i1 %359(ptr noundef nonnull align 1 %.val15.i65, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %357), !noalias !4732
+  %359 = load ptr, ptr %358, align 8, !invariant.load !11, !noalias !4734, !nonnull !11
+  %360 = call noundef zeroext i1 %359(ptr noundef nonnull align 1 %.val15.i65, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %357), !noalias !4734
   %361 = xor i1 %360, true
   %362 = zext i1 %361 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i.i.i"
   %.sroa.0.0.i.i.i.i = phi i8 [ %362, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i.i.i" ]
-  %.val3.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !4732, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i.i = load ptr, ptr %343, align 8, !noalias !4732
+  %.val3.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !4734, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i.i = load ptr, ptr %343, align 8, !noalias !4734
   %363 = icmp ne ptr %.val13.i63, null
   call void @llvm.assume(i1 %363)
   %364 = icmp ne ptr %.val14.i64, null
   call void @llvm.assume(i1 %364)
-  %365 = load i32, ptr %.val3.i.i.i, align 4, !noalias !4732, !noundef !11
+  %365 = load i32, ptr %.val3.i.i.i, align 4, !noalias !4734, !noundef !11
   %366 = icmp eq i32 %365, 0
   br i1 %366, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i.i.i", label %367
 
 367:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i.i"
   %368 = getelementptr inbounds nuw i8, ptr %.val3.i.i.i, i64 4
-  %369 = load i32, ptr %368, align 4, !noalias !4732
+  %369 = load i32, ptr %368, align 4, !noalias !4734
   %370 = getelementptr i8, ptr %.val14.i64, i64 192
-  %.val.i11.i.i.i = load ptr, ptr %370, align 8, !noalias !4732
-  %371 = call { i32, i32 } %.val.i11.i.i.i(ptr noundef nonnull align 1 %.val13.i63), !noalias !4732
+  %.val.i11.i.i.i = load ptr, ptr %370, align 8, !noalias !4734
+  %371 = call { i32, i32 } %.val.i11.i.i.i(ptr noundef nonnull align 1 %.val13.i63), !noalias !4734
   %372 = extractvalue { i32, i32 } %371, 1
   %373 = icmp eq i32 %369, %372
   br i1 %373, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i14.i.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i.i.i"
@@ -22767,10 +22767,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i14.i.i.i", %367, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i.i"
   %377 = icmp ne ptr %.val4.i.i.i, null
   call void @llvm.assume(i1 %377)
-  %378 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i.i), !noalias !4732
+  %378 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i.i), !noalias !4734
   %379 = getelementptr inbounds nuw i8, ptr %.val14.i64, i64 128
-  %380 = load ptr, ptr %379, align 8, !invariant.load !11, !noalias !4732, !nonnull !11
-  %381 = call noundef zeroext i1 %380(ptr noundef nonnull align 1 %.val13.i63, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %378), !noalias !4732
+  %380 = load ptr, ptr %379, align 8, !invariant.load !11, !noalias !4734, !nonnull !11
+  %381 = call noundef zeroext i1 %380(ptr noundef nonnull align 1 %.val13.i63, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %378), !noalias !4734
   %382 = xor i1 %381, true
   %.neg.i.i.i = sext i1 %382 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hbca034cfa08ceddfE.exit.i"
@@ -22792,19 +22792,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
   %.val20.i71 = load ptr, ptr %21, align 8, !alias.scope !4729, !noalias !4732, !nonnull !11, !align !166, !noundef !11
   %.val21.i72 = load ptr, ptr %23, align 8, !alias.scope !4729, !noalias !4732, !nonnull !11, !align !164, !noundef !11
   %.val.i37.i = load ptr, ptr %6, align 8, !noalias !4734, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i38.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4732, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i38.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4734, !nonnull !11, !align !4500, !noundef !11
   %391 = getelementptr i8, ptr %.val.i37.i, i64 8
-  %.val8.i.i39.i = load ptr, ptr %391, align 8, !noalias !4732
-  %392 = load i32, ptr %.val7.i.i38.i, align 4, !noalias !4732, !noundef !11
+  %.val8.i.i39.i = load ptr, ptr %391, align 8, !noalias !4734
+  %392 = load i32, ptr %.val7.i.i38.i, align 4, !noalias !4734, !noundef !11
   %393 = icmp eq i32 %392, 0
   br i1 %393, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i41.i", label %394
 
 394:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hbca034cfa08ceddfE.exit.i"
   %395 = getelementptr inbounds nuw i8, ptr %.val7.i.i38.i, i64 4
-  %396 = load i32, ptr %395, align 4, !noalias !4732
+  %396 = load i32, ptr %395, align 4, !noalias !4734
   %397 = getelementptr i8, ptr %.val21.i72, i64 192
-  %.val.i.i.i40.i = load ptr, ptr %397, align 8, !noalias !4732
-  %398 = call { i32, i32 } %.val.i.i.i40.i(ptr noundef nonnull align 1 %.val20.i71), !noalias !4732
+  %.val.i.i.i40.i = load ptr, ptr %397, align 8, !noalias !4734
+  %398 = call { i32, i32 } %.val.i.i.i40.i(ptr noundef nonnull align 1 %.val20.i71), !noalias !4734
   %399 = extractvalue { i32, i32 } %398, 1
   %400 = icmp eq i32 %396, %399
   br i1 %400, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i.i51.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i41.i"
@@ -22819,32 +22819,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i41.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i.i51.i", %394, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hbca034cfa08ceddfE.exit.i"
   %404 = icmp ne ptr %.val8.i.i39.i, null
   call void @llvm.assume(i1 %404)
-  %405 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i39.i), !noalias !4732
+  %405 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i39.i), !noalias !4734
   %406 = getelementptr inbounds nuw i8, ptr %.val21.i72, i64 128
-  %407 = load ptr, ptr %406, align 8, !invariant.load !11, !noalias !4732, !nonnull !11
-  %408 = call noundef zeroext i1 %407(ptr noundef nonnull align 1 %.val20.i71, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %405), !noalias !4732
+  %407 = load ptr, ptr %406, align 8, !invariant.load !11, !noalias !4734, !nonnull !11
+  %408 = call noundef zeroext i1 %407(ptr noundef nonnull align 1 %.val20.i71, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %405), !noalias !4734
   %409 = xor i1 %408, true
   %410 = zext i1 %409 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i42.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i42.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i41.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i.i51.i"
   %.sroa.0.0.i.i.i43.i = phi i8 [ %410, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i41.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i.i51.i" ]
-  %.val3.i.i44.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4732, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i45.i = load ptr, ptr %391, align 8, !noalias !4732
+  %.val3.i.i44.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4734, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i45.i = load ptr, ptr %391, align 8, !noalias !4734
   %411 = icmp ne ptr %.val18.i69, null
   call void @llvm.assume(i1 %411)
   %412 = icmp ne ptr %.val19.i70, null
   call void @llvm.assume(i1 %412)
-  %413 = load i32, ptr %.val3.i.i44.i, align 4, !noalias !4732, !noundef !11
+  %413 = load i32, ptr %.val3.i.i44.i, align 4, !noalias !4734, !noundef !11
   %414 = icmp eq i32 %413, 0
   br i1 %414, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i.i47.i", label %415
 
 415:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i42.i"
   %416 = getelementptr inbounds nuw i8, ptr %.val3.i.i44.i, i64 4
-  %417 = load i32, ptr %416, align 4, !noalias !4732
+  %417 = load i32, ptr %416, align 4, !noalias !4734
   %418 = getelementptr i8, ptr %.val19.i70, i64 192
-  %.val.i11.i.i46.i = load ptr, ptr %418, align 8, !noalias !4732
-  %419 = call { i32, i32 } %.val.i11.i.i46.i(ptr noundef nonnull align 1 %.val18.i69), !noalias !4732
+  %.val.i11.i.i46.i = load ptr, ptr %418, align 8, !noalias !4734
+  %419 = call { i32, i32 } %.val.i11.i.i46.i(ptr noundef nonnull align 1 %.val18.i69), !noalias !4734
   %420 = extractvalue { i32, i32 } %419, 1
   %421 = icmp eq i32 %417, %420
   br i1 %421, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i14.i.i50.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i.i47.i"
@@ -22859,10 +22859,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i.i47.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i14.i.i50.i", %415, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i42.i"
   %425 = icmp ne ptr %.val4.i.i45.i, null
   call void @llvm.assume(i1 %425)
-  %426 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i45.i), !noalias !4732
+  %426 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i45.i), !noalias !4734
   %427 = getelementptr inbounds nuw i8, ptr %.val19.i70, i64 128
-  %428 = load ptr, ptr %427, align 8, !invariant.load !11, !noalias !4732, !nonnull !11
-  %429 = call noundef zeroext i1 %428(ptr noundef nonnull align 1 %.val18.i69, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %426), !noalias !4732
+  %428 = load ptr, ptr %427, align 8, !invariant.load !11, !noalias !4734, !nonnull !11
+  %429 = call noundef zeroext i1 %428(ptr noundef nonnull align 1 %.val18.i69, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %426), !noalias !4734
   %430 = xor i1 %429, true
   %.neg.i.i48.i = sext i1 %430 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hbca034cfa08ceddfE.exit52.i"
@@ -22884,19 +22884,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
   %.val25.i75 = load ptr, ptr %21, align 8, !alias.scope !4729, !noalias !4732, !nonnull !11, !align !166, !noundef !11
   %.val26.i76 = load ptr, ptr %23, align 8, !alias.scope !4729, !noalias !4732, !nonnull !11, !align !164, !noundef !11
   %.val.i54.i = load ptr, ptr %6, align 8, !noalias !4734, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i55.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4732, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i55.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4734, !nonnull !11, !align !4500, !noundef !11
   %439 = getelementptr i8, ptr %.val.i54.i, i64 8
-  %.val8.i.i56.i = load ptr, ptr %439, align 8, !noalias !4732
-  %440 = load i32, ptr %.val7.i.i55.i, align 4, !noalias !4732, !noundef !11
+  %.val8.i.i56.i = load ptr, ptr %439, align 8, !noalias !4734
+  %440 = load i32, ptr %.val7.i.i55.i, align 4, !noalias !4734, !noundef !11
   %441 = icmp eq i32 %440, 0
   br i1 %441, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i58.i", label %442
 
 442:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hbca034cfa08ceddfE.exit52.i"
   %443 = getelementptr inbounds nuw i8, ptr %.val7.i.i55.i, i64 4
-  %444 = load i32, ptr %443, align 4, !noalias !4732
+  %444 = load i32, ptr %443, align 4, !noalias !4734
   %445 = getelementptr i8, ptr %.val26.i76, i64 192
-  %.val.i.i.i57.i = load ptr, ptr %445, align 8, !noalias !4732
-  %446 = call { i32, i32 } %.val.i.i.i57.i(ptr noundef nonnull align 1 %.val25.i75), !noalias !4732
+  %.val.i.i.i57.i = load ptr, ptr %445, align 8, !noalias !4734
+  %446 = call { i32, i32 } %.val.i.i.i57.i(ptr noundef nonnull align 1 %.val25.i75), !noalias !4734
   %447 = extractvalue { i32, i32 } %446, 1
   %448 = icmp eq i32 %444, %447
   br i1 %448, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i.i68.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i58.i"
@@ -22911,32 +22911,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i58.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i.i68.i", %442, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hbca034cfa08ceddfE.exit52.i"
   %452 = icmp ne ptr %.val8.i.i56.i, null
   call void @llvm.assume(i1 %452)
-  %453 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i56.i), !noalias !4732
+  %453 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i56.i), !noalias !4734
   %454 = getelementptr inbounds nuw i8, ptr %.val26.i76, i64 128
-  %455 = load ptr, ptr %454, align 8, !invariant.load !11, !noalias !4732, !nonnull !11
-  %456 = call noundef zeroext i1 %455(ptr noundef nonnull align 1 %.val25.i75, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %453), !noalias !4732
+  %455 = load ptr, ptr %454, align 8, !invariant.load !11, !noalias !4734, !nonnull !11
+  %456 = call noundef zeroext i1 %455(ptr noundef nonnull align 1 %.val25.i75, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %453), !noalias !4734
   %457 = xor i1 %456, true
   %458 = zext i1 %457 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i59.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i59.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i58.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i.i68.i"
   %.sroa.0.0.i.i.i60.i = phi i8 [ %458, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i58.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i.i68.i" ]
-  %.val3.i.i61.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4732, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i62.i = load ptr, ptr %439, align 8, !noalias !4732
+  %.val3.i.i61.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4734, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i62.i = load ptr, ptr %439, align 8, !noalias !4734
   %459 = icmp ne ptr %.val23.i73, null
   call void @llvm.assume(i1 %459)
   %460 = icmp ne ptr %.val24.i74, null
   call void @llvm.assume(i1 %460)
-  %461 = load i32, ptr %.val3.i.i61.i, align 4, !noalias !4732, !noundef !11
+  %461 = load i32, ptr %.val3.i.i61.i, align 4, !noalias !4734, !noundef !11
   %462 = icmp eq i32 %461, 0
   br i1 %462, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i.i64.i", label %463
 
 463:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i59.i"
   %464 = getelementptr inbounds nuw i8, ptr %.val3.i.i61.i, i64 4
-  %465 = load i32, ptr %464, align 4, !noalias !4732
+  %465 = load i32, ptr %464, align 4, !noalias !4734
   %466 = getelementptr i8, ptr %.val24.i74, i64 192
-  %.val.i11.i.i63.i = load ptr, ptr %466, align 8, !noalias !4732
-  %467 = call { i32, i32 } %.val.i11.i.i63.i(ptr noundef nonnull align 1 %.val23.i73), !noalias !4732
+  %.val.i11.i.i63.i = load ptr, ptr %466, align 8, !noalias !4734
+  %467 = call { i32, i32 } %.val.i11.i.i63.i(ptr noundef nonnull align 1 %.val23.i73), !noalias !4734
   %468 = extractvalue { i32, i32 } %467, 1
   %469 = icmp eq i32 %465, %468
   br i1 %469, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i14.i.i67.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i.i64.i"
@@ -22951,10 +22951,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i.i64.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i14.i.i67.i", %463, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i59.i"
   %473 = icmp ne ptr %.val4.i.i62.i, null
   call void @llvm.assume(i1 %473)
-  %474 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i62.i), !noalias !4732
+  %474 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i62.i), !noalias !4734
   %475 = getelementptr inbounds nuw i8, ptr %.val24.i74, i64 128
-  %476 = load ptr, ptr %475, align 8, !invariant.load !11, !noalias !4732, !nonnull !11
-  %477 = call noundef zeroext i1 %476(ptr noundef nonnull align 1 %.val23.i73, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %474), !noalias !4732
+  %476 = load ptr, ptr %475, align 8, !invariant.load !11, !noalias !4734, !nonnull !11
+  %477 = call noundef zeroext i1 %476(ptr noundef nonnull align 1 %.val23.i73, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %474), !noalias !4734
   %478 = xor i1 %477, true
   %.neg.i.i65.i = sext i1 %478 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hbca034cfa08ceddfE.exit69.i"
@@ -22976,19 +22976,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
   %.val30.i79 = load ptr, ptr %21, align 8, !alias.scope !4729, !noalias !4732, !nonnull !11, !align !166, !noundef !11
   %.val31.i80 = load ptr, ptr %23, align 8, !alias.scope !4729, !noalias !4732, !nonnull !11, !align !164, !noundef !11
   %.val.i71.i = load ptr, ptr %6, align 8, !noalias !4734, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i72.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4732, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i72.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4734, !nonnull !11, !align !4500, !noundef !11
   %487 = getelementptr i8, ptr %.val.i71.i, i64 8
-  %.val8.i.i73.i = load ptr, ptr %487, align 8, !noalias !4732
-  %488 = load i32, ptr %.val7.i.i72.i, align 4, !noalias !4732, !noundef !11
+  %.val8.i.i73.i = load ptr, ptr %487, align 8, !noalias !4734
+  %488 = load i32, ptr %.val7.i.i72.i, align 4, !noalias !4734, !noundef !11
   %489 = icmp eq i32 %488, 0
   br i1 %489, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i75.i", label %490
 
 490:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hbca034cfa08ceddfE.exit69.i"
   %491 = getelementptr inbounds nuw i8, ptr %.val7.i.i72.i, i64 4
-  %492 = load i32, ptr %491, align 4, !noalias !4732
+  %492 = load i32, ptr %491, align 4, !noalias !4734
   %493 = getelementptr i8, ptr %.val31.i80, i64 192
-  %.val.i.i.i74.i = load ptr, ptr %493, align 8, !noalias !4732
-  %494 = call { i32, i32 } %.val.i.i.i74.i(ptr noundef nonnull align 1 %.val30.i79), !noalias !4732
+  %.val.i.i.i74.i = load ptr, ptr %493, align 8, !noalias !4734
+  %494 = call { i32, i32 } %.val.i.i.i74.i(ptr noundef nonnull align 1 %.val30.i79), !noalias !4734
   %495 = extractvalue { i32, i32 } %494, 1
   %496 = icmp eq i32 %492, %495
   br i1 %496, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i.i85.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i75.i"
@@ -23003,32 +23003,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i75.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i.i85.i", %490, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hbca034cfa08ceddfE.exit69.i"
   %500 = icmp ne ptr %.val8.i.i73.i, null
   call void @llvm.assume(i1 %500)
-  %501 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i73.i), !noalias !4732
+  %501 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i73.i), !noalias !4734
   %502 = getelementptr inbounds nuw i8, ptr %.val31.i80, i64 128
-  %503 = load ptr, ptr %502, align 8, !invariant.load !11, !noalias !4732, !nonnull !11
-  %504 = call noundef zeroext i1 %503(ptr noundef nonnull align 1 %.val30.i79, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %501), !noalias !4732
+  %503 = load ptr, ptr %502, align 8, !invariant.load !11, !noalias !4734, !nonnull !11
+  %504 = call noundef zeroext i1 %503(ptr noundef nonnull align 1 %.val30.i79, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %501), !noalias !4734
   %505 = xor i1 %504, true
   %506 = zext i1 %505 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i76.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i76.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i75.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i.i85.i"
   %.sroa.0.0.i.i.i77.i = phi i8 [ %506, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i75.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i.i85.i" ]
-  %.val3.i.i78.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4732, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i79.i = load ptr, ptr %487, align 8, !noalias !4732
+  %.val3.i.i78.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4734, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i79.i = load ptr, ptr %487, align 8, !noalias !4734
   %507 = icmp ne ptr %.val28.i77, null
   call void @llvm.assume(i1 %507)
   %508 = icmp ne ptr %.val29.i78, null
   call void @llvm.assume(i1 %508)
-  %509 = load i32, ptr %.val3.i.i78.i, align 4, !noalias !4732, !noundef !11
+  %509 = load i32, ptr %.val3.i.i78.i, align 4, !noalias !4734, !noundef !11
   %510 = icmp eq i32 %509, 0
   br i1 %510, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i.i81.i", label %511
 
 511:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i76.i"
   %512 = getelementptr inbounds nuw i8, ptr %.val3.i.i78.i, i64 4
-  %513 = load i32, ptr %512, align 4, !noalias !4732
+  %513 = load i32, ptr %512, align 4, !noalias !4734
   %514 = getelementptr i8, ptr %.val29.i78, i64 192
-  %.val.i11.i.i80.i = load ptr, ptr %514, align 8, !noalias !4732
-  %515 = call { i32, i32 } %.val.i11.i.i80.i(ptr noundef nonnull align 1 %.val28.i77), !noalias !4732
+  %.val.i11.i.i80.i = load ptr, ptr %514, align 8, !noalias !4734
+  %515 = call { i32, i32 } %.val.i11.i.i80.i(ptr noundef nonnull align 1 %.val28.i77), !noalias !4734
   %516 = extractvalue { i32, i32 } %515, 1
   %517 = icmp eq i32 %513, %516
   br i1 %517, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i14.i.i84.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i.i81.i"
@@ -23043,10 +23043,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i.i81.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i14.i.i84.i", %511, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i76.i"
   %521 = icmp ne ptr %.val4.i.i79.i, null
   call void @llvm.assume(i1 %521)
-  %522 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i79.i), !noalias !4732
+  %522 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i79.i), !noalias !4734
   %523 = getelementptr inbounds nuw i8, ptr %.val29.i78, i64 128
-  %524 = load ptr, ptr %523, align 8, !invariant.load !11, !noalias !4732, !nonnull !11
-  %525 = call noundef zeroext i1 %524(ptr noundef nonnull align 1 %.val28.i77, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %522), !noalias !4732
+  %524 = load ptr, ptr %523, align 8, !invariant.load !11, !noalias !4734, !nonnull !11
+  %525 = call noundef zeroext i1 %524(ptr noundef nonnull align 1 %.val28.i77, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %522), !noalias !4734
   %526 = xor i1 %525, true
   %.neg.i.i82.i = sext i1 %526 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hbca034cfa08ceddfE.exit86.i"
@@ -23090,19 +23090,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
   %.val35.i57 = load ptr, ptr %21, align 8, !alias.scope !4729, !noalias !4732, !nonnull !11, !align !166, !noundef !11
   %.val36.i58 = load ptr, ptr %23, align 8, !alias.scope !4729, !noalias !4732, !nonnull !11, !align !164, !noundef !11
   %.val.i88.i = load ptr, ptr %6, align 8, !noalias !4734, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i89.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4732, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i89.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4734, !nonnull !11, !align !4500, !noundef !11
   %539 = getelementptr i8, ptr %.val.i88.i, i64 8
-  %.val8.i.i90.i = load ptr, ptr %539, align 8, !noalias !4732
-  %540 = load i32, ptr %.val7.i.i89.i, align 4, !noalias !4732, !noundef !11
+  %.val8.i.i90.i = load ptr, ptr %539, align 8, !noalias !4734
+  %540 = load i32, ptr %.val7.i.i89.i, align 4, !noalias !4734, !noundef !11
   %541 = icmp eq i32 %540, 0
   br i1 %541, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i92.i", label %542
 
 542:                                              ; preds = %.lr.ph40.i51
   %543 = getelementptr inbounds nuw i8, ptr %.val7.i.i89.i, i64 4
-  %544 = load i32, ptr %543, align 4, !noalias !4732
+  %544 = load i32, ptr %543, align 4, !noalias !4734
   %545 = getelementptr i8, ptr %.val36.i58, i64 192
-  %.val.i.i.i91.i = load ptr, ptr %545, align 8, !noalias !4732
-  %546 = call { i32, i32 } %.val.i.i.i91.i(ptr noundef nonnull align 1 %.val35.i57), !noalias !4732
+  %.val.i.i.i91.i = load ptr, ptr %545, align 8, !noalias !4734
+  %546 = call { i32, i32 } %.val.i.i.i91.i(ptr noundef nonnull align 1 %.val35.i57), !noalias !4734
   %547 = extractvalue { i32, i32 } %546, 1
   %548 = icmp eq i32 %544, %547
   br i1 %548, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i.i102.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i92.i"
@@ -23117,32 +23117,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i92.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i.i102.i", %542, %.lr.ph40.i51
   %552 = icmp ne ptr %.val8.i.i90.i, null
   call void @llvm.assume(i1 %552)
-  %553 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i90.i), !noalias !4732
+  %553 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i90.i), !noalias !4734
   %554 = getelementptr inbounds nuw i8, ptr %.val36.i58, i64 128
-  %555 = load ptr, ptr %554, align 8, !invariant.load !11, !noalias !4732, !nonnull !11
-  %556 = call noundef zeroext i1 %555(ptr noundef nonnull align 1 %.val35.i57, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %553), !noalias !4732
+  %555 = load ptr, ptr %554, align 8, !invariant.load !11, !noalias !4734, !nonnull !11
+  %556 = call noundef zeroext i1 %555(ptr noundef nonnull align 1 %.val35.i57, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %553), !noalias !4734
   %557 = xor i1 %556, true
   %558 = zext i1 %557 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i93.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i93.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i92.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i.i102.i"
   %.sroa.0.0.i.i.i94.i = phi i8 [ %558, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i.i.i92.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i.i.i102.i" ]
-  %.val3.i.i95.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4732, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i96.i = load ptr, ptr %539, align 8, !noalias !4732
+  %.val3.i.i95.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4734, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i96.i = load ptr, ptr %539, align 8, !noalias !4734
   %559 = icmp ne ptr %.val33.i55, null
   call void @llvm.assume(i1 %559)
   %560 = icmp ne ptr %.val34.i56, null
   call void @llvm.assume(i1 %560)
-  %561 = load i32, ptr %.val3.i.i95.i, align 4, !noalias !4732, !noundef !11
+  %561 = load i32, ptr %.val3.i.i95.i, align 4, !noalias !4734, !noundef !11
   %562 = icmp eq i32 %561, 0
   br i1 %562, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i.i98.i", label %563
 
 563:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i93.i"
   %564 = getelementptr inbounds nuw i8, ptr %.val3.i.i95.i, i64 4
-  %565 = load i32, ptr %564, align 4, !noalias !4732
+  %565 = load i32, ptr %564, align 4, !noalias !4734
   %566 = getelementptr i8, ptr %.val34.i56, i64 192
-  %.val.i11.i.i97.i = load ptr, ptr %566, align 8, !noalias !4732
-  %567 = call { i32, i32 } %.val.i11.i.i97.i(ptr noundef nonnull align 1 %.val33.i55), !noalias !4732
+  %.val.i11.i.i97.i = load ptr, ptr %566, align 8, !noalias !4734
+  %567 = call { i32, i32 } %.val.i11.i.i97.i(ptr noundef nonnull align 1 %.val33.i55), !noalias !4734
   %568 = extractvalue { i32, i32 } %567, 1
   %569 = icmp eq i32 %565, %568
   br i1 %569, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i14.i.i101.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i.i98.i"
@@ -23157,10 +23157,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7403e3e6a0a
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.thread.i.i12.i.i98.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h264e88711ce40b1aE.exit.i.i14.i.i101.i", %563, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h42137f2db02752f4E.exit.i.i93.i"
   %573 = icmp ne ptr %.val4.i.i96.i, null
   call void @llvm.assume(i1 %573)
-  %574 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i96.i), !noalias !4732
+  %574 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i96.i), !noalias !4734
   %575 = getelementptr inbounds nuw i8, ptr %.val34.i56, i64 128
-  %576 = load ptr, ptr %575, align 8, !invariant.load !11, !noalias !4732, !nonnull !11
-  %577 = call noundef zeroext i1 %576(ptr noundef nonnull align 1 %.val33.i55, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %574), !noalias !4732
+  %576 = load ptr, ptr %575, align 8, !invariant.load !11, !noalias !4734, !nonnull !11
+  %577 = call noundef zeroext i1 %576(ptr noundef nonnull align 1 %.val33.i55, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %574), !noalias !4734
   %578 = xor i1 %577, true
   %.neg.i.i99.i = sext i1 %578 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hbca034cfa08ceddfE.exit103.i"
@@ -23253,8 +23253,8 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h88677cd39ba
   br i1 %10, label %.outer._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit"
-  %.sroa.0.0.ph144 = phi ptr [ %519, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit" ], [ %0, %7 ]
-  %.sroa.12.0.ph143 = phi i64 [ %511, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit" ], [ %1, %7 ]
+  %.sroa.0.0.ph144 = phi ptr [ %495, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit" ], [ %0, %7 ]
+  %.sroa.12.0.ph143 = phi i64 [ %487, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit" ], [ %1, %7 ]
   %.sroa.019.0.ph142 = phi i32 [ %18, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit" ], [ %4, %7 ]
   %.sroa.022.0.ph141 = phi ptr [ null, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit" ], [ %5, %7 ]
   %11 = icmp eq ptr %.sroa.022.0.ph141, null
@@ -23262,15 +23262,15 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h88677cd39ba
   %13 = getelementptr i8, ptr %.sroa.022.0.ph141, i64 12
   br label %14
 
-14:                                               ; preds = %.lr.ph, %526
-  %.sroa.12.0137 = phi i64 [ %.sroa.12.0.ph143, %.lr.ph ], [ %.sroa.27.2.lcssa.i, %526 ]
-  %.sroa.019.0136 = phi i32 [ %.sroa.019.0.ph142, %.lr.ph ], [ %18, %526 ]
+14:                                               ; preds = %.lr.ph, %502
+  %.sroa.12.0137 = phi i64 [ %.sroa.12.0.ph143, %.lr.ph ], [ %.sroa.27.2.lcssa.i, %502 ]
+  %.sroa.019.0136 = phi i32 [ %.sroa.019.0.ph142, %.lr.ph ], [ %18, %502 ]
   %15 = icmp eq i32 %.sroa.019.0136, 0
   br i1 %15, label %16, label %17
 
-.outer._crit_edge:                                ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit", %526, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit.thread", %7
-  %.sroa.0.0.ph.lcssa135 = phi ptr [ %0, %7 ], [ %512, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit.thread" ], [ %.sroa.0.0.ph144, %526 ], [ %519, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit" ]
-  %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit.thread" ], [ %.sroa.27.2.lcssa.i, %526 ], [ %511, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit" ]
+.outer._crit_edge:                                ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit", %502, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit.thread", %7
+  %.sroa.0.0.ph.lcssa135 = phi ptr [ %0, %7 ], [ %488, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit.thread" ], [ %.sroa.0.0.ph144, %502 ], [ %495, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit" ]
+  %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit.thread" ], [ %.sroa.27.2.lcssa.i, %502 ], [ %487, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit" ]
   call void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h630805bf89df4c14E(ptr noalias noundef nonnull align 8 %.sroa.0.0.ph.lcssa135, i64 noundef range(i64 0, 33) %.sroa.12.0.lcssa, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
   br label %22
 
@@ -23429,8 +23429,8 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h88677cd39ba
 
 78:                                               ; preds = %74
   call void @llvm.assume(i1 %71)
-  %79 = load ptr, ptr %72, align 8, !noalias !4767, !nonnull !11, !noundef !11
-  %80 = load i64, ptr %73, align 8, !noalias !4767, !noundef !11
+  %79 = load ptr, ptr %72, align 8, !noalias !4769, !nonnull !11, !noundef !11
+  %80 = load i64, ptr %73, align 8, !noalias !4769, !noundef !11
   %81 = getelementptr inbounds { { i32, i32 } }, ptr %79, i64 %80
   %82 = icmp eq i64 %80, 0
   br i1 %82, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i", label %.lr.ph.i.i.i.i
@@ -23464,8 +23464,8 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h88677cd39ba
 
 92:                                               ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i"
   call void @llvm.assume(i1 %71)
-  %93 = load ptr, ptr %72, align 8, !noalias !4767, !nonnull !11, !noundef !11
-  %94 = load i64, ptr %73, align 8, !noalias !4767, !noundef !11
+  %93 = load ptr, ptr %72, align 8, !noalias !4769, !nonnull !11, !noundef !11
+  %94 = load i64, ptr %73, align 8, !noalias !4769, !noundef !11
   %95 = getelementptr inbounds { { i32, i32 } }, ptr %93, i64 %94
   %96 = icmp eq i64 %94, 0
   br i1 %96, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit.i", label %.lr.ph.i.i7.i.i
@@ -23513,8 +23513,8 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h88677cd39ba
 
 114:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit.i"
   call void @llvm.assume(i1 %71)
-  %115 = load ptr, ptr %72, align 8, !noalias !4767, !nonnull !11, !noundef !11
-  %116 = load i64, ptr %73, align 8, !noalias !4767, !noundef !11
+  %115 = load ptr, ptr %72, align 8, !noalias !4769, !nonnull !11, !noundef !11
+  %116 = load i64, ptr %73, align 8, !noalias !4769, !noundef !11
   %117 = getelementptr inbounds { { i32, i32 } }, ptr %115, i64 %116
   %118 = icmp eq i64 %116, 0
   br i1 %118, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i44.i", label %.lr.ph.i.i.i38.i
@@ -23548,8 +23548,8 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h88677cd39ba
 
 128:                                              ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i44.i"
   call void @llvm.assume(i1 %71)
-  %129 = load ptr, ptr %72, align 8, !noalias !4767, !nonnull !11, !noundef !11
-  %130 = load i64, ptr %73, align 8, !noalias !4767, !noundef !11
+  %129 = load ptr, ptr %72, align 8, !noalias !4769, !nonnull !11, !noundef !11
+  %130 = load i64, ptr %73, align 8, !noalias !4769, !noundef !11
   %131 = getelementptr inbounds { { i32, i32 } }, ptr %129, i64 %130
   %132 = icmp eq i64 %130, 0
   br i1 %132, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit55.i", label %.lr.ph.i.i7.i46.i
@@ -23597,8 +23597,8 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h88677cd39ba
 
 150:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit55.i"
   call void @llvm.assume(i1 %71)
-  %151 = load ptr, ptr %72, align 8, !noalias !4767, !nonnull !11, !noundef !11
-  %152 = load i64, ptr %73, align 8, !noalias !4767, !noundef !11
+  %151 = load ptr, ptr %72, align 8, !noalias !4769, !nonnull !11, !noundef !11
+  %152 = load i64, ptr %73, align 8, !noalias !4769, !noundef !11
   %153 = getelementptr inbounds { { i32, i32 } }, ptr %151, i64 %152
   %154 = icmp eq i64 %152, 0
   br i1 %154, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i64.i", label %.lr.ph.i.i.i58.i
@@ -23632,8 +23632,8 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h88677cd39ba
 
 164:                                              ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i64.i"
   call void @llvm.assume(i1 %71)
-  %165 = load ptr, ptr %72, align 8, !noalias !4767, !nonnull !11, !noundef !11
-  %166 = load i64, ptr %73, align 8, !noalias !4767, !noundef !11
+  %165 = load ptr, ptr %72, align 8, !noalias !4769, !nonnull !11, !noundef !11
+  %166 = load i64, ptr %73, align 8, !noalias !4769, !noundef !11
   %167 = getelementptr inbounds { { i32, i32 } }, ptr %165, i64 %166
   %168 = icmp eq i64 %166, 0
   br i1 %168, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit75.i", label %.lr.ph.i.i7.i66.i
@@ -23681,8 +23681,8 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h88677cd39ba
 
 186:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit75.i"
   call void @llvm.assume(i1 %71)
-  %187 = load ptr, ptr %72, align 8, !noalias !4767, !nonnull !11, !noundef !11
-  %188 = load i64, ptr %73, align 8, !noalias !4767, !noundef !11
+  %187 = load ptr, ptr %72, align 8, !noalias !4769, !nonnull !11, !noundef !11
+  %188 = load i64, ptr %73, align 8, !noalias !4769, !noundef !11
   %189 = getelementptr inbounds { { i32, i32 } }, ptr %187, i64 %188
   %190 = icmp eq i64 %188, 0
   br i1 %190, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i84.i", label %.lr.ph.i.i.i78.i
@@ -23716,8 +23716,8 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h88677cd39ba
 
 200:                                              ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i84.i"
   call void @llvm.assume(i1 %71)
-  %201 = load ptr, ptr %72, align 8, !noalias !4767, !nonnull !11, !noundef !11
-  %202 = load i64, ptr %73, align 8, !noalias !4767, !noundef !11
+  %201 = load ptr, ptr %72, align 8, !noalias !4769, !nonnull !11, !noundef !11
+  %202 = load i64, ptr %73, align 8, !noalias !4769, !noundef !11
   %203 = getelementptr inbounds { { i32, i32 } }, ptr %201, i64 %202
   %204 = icmp eq i64 %202, 0
   br i1 %204, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit95.i", label %.lr.ph.i.i7.i86.i
@@ -23795,8 +23795,8 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h88677cd39ba
 
 230:                                              ; preds = %226
   call void @llvm.assume(i1 %222)
-  %231 = load ptr, ptr %223, align 8, !noalias !4767, !nonnull !11, !noundef !11
-  %232 = load i64, ptr %224, align 8, !noalias !4767, !noundef !11
+  %231 = load ptr, ptr %223, align 8, !noalias !4769, !nonnull !11, !noundef !11
+  %232 = load i64, ptr %224, align 8, !noalias !4769, !noundef !11
   %233 = getelementptr inbounds { { i32, i32 } }, ptr %231, i64 %232
   %234 = icmp eq i64 %232, 0
   br i1 %234, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i104.i", label %.lr.ph.i.i.i98.i
@@ -23830,8 +23830,8 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h88677cd39ba
 
 244:                                              ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i104.i"
   call void @llvm.assume(i1 %222)
-  %245 = load ptr, ptr %223, align 8, !noalias !4767, !nonnull !11, !noundef !11
-  %246 = load i64, ptr %224, align 8, !noalias !4767, !noundef !11
+  %245 = load ptr, ptr %223, align 8, !noalias !4769, !nonnull !11, !noundef !11
+  %246 = load i64, ptr %224, align 8, !noalias !4769, !noundef !11
   %247 = getelementptr inbounds { { i32, i32 } }, ptr %245, i64 %246
   %248 = icmp eq i64 %246, 0
   br i1 %248, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit115.i", label %.lr.ph.i.i7.i106.i
@@ -23905,10 +23905,11 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h88677cd39ba
 
 278:                                              ; preds = %.loopexit
   %.not = icmp ugt i64 %.sroa.27.2.lcssa.i, %.sroa.12.0137
-  br i1 %.not, label %521, label %526
+  br i1 %.not, label %497, label %502
 
 .thread82:                                        ; preds = %.loopexit86, %.loopexit
   call void @llvm.experimental.noalias.scope.decl(metadata !4828)
+  call void @llvm.experimental.noalias.scope.decl(metadata !4831)
   %279 = icmp ult i64 %3, %.sroa.12.0137
   br i1 %279, label %284, label %280
 
@@ -23923,47 +23924,50 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h88677cd39ba
   call void @llvm.trap()
   unreachable
 
-285:                                              ; preds = %504, %280
-  %.sroa.27.0.i35 = phi i64 [ 0, %280 ], [ %507, %504 ]
-  %.sroa.9.0.i36 = phi ptr [ %.sroa.0.0.ph144, %280 ], [ %508, %504 ]
-  %.sroa.43.0.i37 = phi ptr [ %281, %280 ], [ %505, %504 ]
-  %.sroa.02.0.i38 = phi i64 [ %19, %280 ], [ %.sroa.12.0137, %504 ]
+285:                                              ; preds = %480, %280
+  %.sroa.27.0.i35 = phi i64 [ 0, %280 ], [ %483, %480 ]
+  %.sroa.9.0.i36 = phi ptr [ %.sroa.0.0.ph144, %280 ], [ %484, %480 ]
+  %.sroa.43.0.i37 = phi ptr [ %281, %280 ], [ %481, %480 ]
+  %.sroa.02.0.i38 = phi i64 [ %19, %280 ], [ %.sroa.12.0137, %480 ]
   %286 = call i64 @llvm.usub.sat.i64(i64 %.sroa.02.0.i38, i64 3)
   %287 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %.sroa.0.0.ph144, i64 %286
   %288 = icmp ult ptr %.sroa.9.0.i36, %287
-  br i1 %288, label %.lr.ph.i59, label %._crit_edge.i39
+  br i1 %288, label %.lr.ph.i59.preheader, label %._crit_edge.i39
 
-.lr.ph.i59:                                       ; preds = %285, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i"
-  %.sroa.43.143.i60 = phi ptr [ %452, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i" ], [ %.sroa.43.0.i37, %285 ]
-  %.sroa.9.142.i61 = phi ptr [ %456, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i" ], [ %.sroa.9.0.i36, %285 ]
-  %.sroa.27.141.i62 = phi i64 [ %455, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i" ], [ %.sroa.27.0.i35, %285 ]
-  %289 = getelementptr i8, ptr %.sroa.9.142.i61, i64 8
-  %.val13.i63 = load i32, ptr %289, align 8, !alias.scope !4831, !noalias !4828
-  %290 = getelementptr i8, ptr %.sroa.9.142.i61, i64 12
-  %.val14.i64 = load i32, ptr %290, align 4, !alias.scope !4831, !noalias !4828
-  %.val15.i65 = load i32, ptr %282, align 8, !alias.scope !4831, !noalias !4828, !noundef !11
-  %.val16.i66 = load i32, ptr %283, align 4, !alias.scope !4831, !noalias !4828
-  %.val4.i.i.i = load ptr, ptr %.val.i.i, align 8, !noalias !4828
-  %291 = icmp eq i32 %.val15.i65, 0
-  br i1 %291, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i.i", label %292
+.lr.ph.i59.preheader:                             ; preds = %285
+  %.val4.i.i.i = load ptr, ptr %.val.i.i, align 8, !noalias !4833
+  %289 = icmp ne ptr %.val4.i.i.i, null
+  %290 = getelementptr inbounds nuw i8, ptr %.val4.i.i.i, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %.val4.i.i.i, i64 16
+  br label %.lr.ph.i59
 
-292:                                              ; preds = %.lr.ph.i59
-  %293 = icmp ne ptr %.val4.i.i.i, null
-  call void @llvm.assume(i1 %293)
-  %294 = getelementptr inbounds nuw i8, ptr %.val4.i.i.i, i64 8
-  %295 = load ptr, ptr %294, align 8, !noalias !4828, !nonnull !11, !noundef !11
-  %296 = getelementptr inbounds nuw i8, ptr %.val4.i.i.i, i64 16
-  %297 = load i64, ptr %296, align 8, !noalias !4828, !noundef !11
-  %298 = getelementptr inbounds { { i32, i32 } }, ptr %295, i64 %297
+.lr.ph.i59:                                       ; preds = %.lr.ph.i59.preheader, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i"
+  %.sroa.43.143.i60 = phi ptr [ %431, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i" ], [ %.sroa.43.0.i37, %.lr.ph.i59.preheader ]
+  %.sroa.9.142.i61 = phi ptr [ %435, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i" ], [ %.sroa.9.0.i36, %.lr.ph.i59.preheader ]
+  %.sroa.27.141.i62 = phi i64 [ %434, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i" ], [ %.sroa.27.0.i35, %.lr.ph.i59.preheader ]
+  %292 = getelementptr i8, ptr %.sroa.9.142.i61, i64 8
+  %.val13.i63 = load i32, ptr %292, align 8, !alias.scope !4828, !noalias !4831
+  %293 = getelementptr i8, ptr %.sroa.9.142.i61, i64 12
+  %.val14.i64 = load i32, ptr %293, align 4, !alias.scope !4828, !noalias !4831
+  %.val15.i65 = load i32, ptr %282, align 8, !alias.scope !4828, !noalias !4831, !noundef !11
+  %.val16.i66 = load i32, ptr %283, align 4, !alias.scope !4828, !noalias !4831
+  %294 = icmp eq i32 %.val15.i65, 0
+  br i1 %294, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i.i", label %295
+
+295:                                              ; preds = %.lr.ph.i59
+  call void @llvm.assume(i1 %289)
+  %296 = load ptr, ptr %290, align 8, !noalias !4833, !nonnull !11, !noundef !11
+  %297 = load i64, ptr %291, align 8, !noalias !4833, !noundef !11
+  %298 = getelementptr inbounds { { i32, i32 } }, ptr %296, i64 %297
   %299 = icmp eq i64 %297, 0
   br i1 %299, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i.i", label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %292, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i.i"
-  %.sroa.02.015.i.i.i.i.i = phi i64 [ %305, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i.i" ], [ 0, %292 ]
-  %300 = phi ptr [ %304, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i.i" ], [ %295, %292 ]
-  %.val8.i.i.i.i.i = load i32, ptr %300, align 4, !noalias !4833
+.lr.ph.i.i.i.i.i:                                 ; preds = %295, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i.i"
+  %.sroa.02.015.i.i.i.i.i = phi i64 [ %305, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i.i" ], [ 0, %295 ]
+  %300 = phi ptr [ %304, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i.i" ], [ %296, %295 ]
+  %.val8.i.i.i.i.i = load i32, ptr %300, align 4, !noalias !4834
   %301 = getelementptr i8, ptr %300, i64 4
-  %.val9.i.i.i.i.i = load i32, ptr %301, align 4, !noalias !4833, !noundef !11
+  %.val9.i.i.i.i.i = load i32, ptr %301, align 4, !noalias !4834, !noundef !11
   %302 = icmp eq i32 %.val9.i.i.i.i.i, %.val16.i66
   %303 = icmp eq i32 %.val8.i.i.i.i.i, %.val15.i65
   %or.cond.i.i.i.i.i = select i1 %302, i1 %303, i1 false
@@ -23980,507 +23984,483 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h88677cd39ba
   call void @llvm.assume(i1 %307)
   br label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i.i"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i.i", %292, %.lr.ph.i59
-  %.sroa.0.0.i.i.i.i = phi i64 [ -1, %.lr.ph.i59 ], [ %.sroa.02.015.i.i.i.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i.i" ], [ -1, %292 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i.i" ]
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i.i", %295, %.lr.ph.i59
+  %.sroa.0.0.i.i.i.i = phi i64 [ -1, %.lr.ph.i59 ], [ %.sroa.02.015.i.i.i.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i.i" ], [ -1, %295 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i.i" ]
   %308 = icmp eq i32 %.val13.i63, 0
   br i1 %308, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit.i", label %309
 
 309:                                              ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i.i"
-  %310 = icmp ne ptr %.val4.i.i.i, null
-  call void @llvm.assume(i1 %310)
-  %311 = getelementptr inbounds nuw i8, ptr %.val4.i.i.i, i64 8
-  %312 = load ptr, ptr %311, align 8, !noalias !4828, !nonnull !11, !noundef !11
-  %313 = getelementptr inbounds nuw i8, ptr %.val4.i.i.i, i64 16
-  %314 = load i64, ptr %313, align 8, !noalias !4828, !noundef !11
-  %315 = getelementptr inbounds { { i32, i32 } }, ptr %312, i64 %314
-  %316 = icmp eq i64 %314, 0
-  br i1 %316, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit.i", label %.lr.ph.i.i7.i.i.i
+  call void @llvm.assume(i1 %289)
+  %310 = load ptr, ptr %290, align 8, !noalias !4833, !nonnull !11, !noundef !11
+  %311 = load i64, ptr %291, align 8, !noalias !4833, !noundef !11
+  %312 = getelementptr inbounds { { i32, i32 } }, ptr %310, i64 %311
+  %313 = icmp eq i64 %311, 0
+  br i1 %313, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit.i", label %.lr.ph.i.i7.i.i.i
 
 .lr.ph.i.i7.i.i.i:                                ; preds = %309, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i.i"
-  %.sroa.02.015.i.i8.i.i.i = phi i64 [ %322, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i.i" ], [ 0, %309 ]
-  %317 = phi ptr [ %321, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i.i" ], [ %312, %309 ]
-  %.val8.i.i9.i.i.i = load i32, ptr %317, align 4, !noalias !4837
-  %318 = getelementptr i8, ptr %317, i64 4
-  %.val9.i.i10.i.i.i = load i32, ptr %318, align 4, !noalias !4837, !noundef !11
-  %319 = icmp eq i32 %.val9.i.i10.i.i.i, %.val14.i64
-  %320 = icmp eq i32 %.val8.i.i9.i.i.i, %.val13.i63
-  %or.cond.i.i11.i.i.i = select i1 %319, i1 %320, i1 false
+  %.sroa.02.015.i.i8.i.i.i = phi i64 [ %319, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i.i" ], [ 0, %309 ]
+  %314 = phi ptr [ %318, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i.i" ], [ %310, %309 ]
+  %.val8.i.i9.i.i.i = load i32, ptr %314, align 4, !noalias !4838
+  %315 = getelementptr i8, ptr %314, i64 4
+  %.val9.i.i10.i.i.i = load i32, ptr %315, align 4, !noalias !4838, !noundef !11
+  %316 = icmp eq i32 %.val9.i.i10.i.i.i, %.val14.i64
+  %317 = icmp eq i32 %.val8.i.i9.i.i.i, %.val13.i63
+  %or.cond.i.i11.i.i.i = select i1 %316, i1 %317, i1 false
   br i1 %or.cond.i.i11.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i.i"
 
 "_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i.i": ; preds = %.lr.ph.i.i7.i.i.i
-  %321 = getelementptr inbounds nuw i8, ptr %317, i64 8
-  %322 = add nuw nsw i64 %.sroa.02.015.i.i8.i.i.i, 1
-  %323 = icmp eq ptr %321, %315
-  br i1 %323, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit.i", label %.lr.ph.i.i7.i.i.i
+  %318 = getelementptr inbounds nuw i8, ptr %314, i64 8
+  %319 = add nuw nsw i64 %.sroa.02.015.i.i8.i.i.i, 1
+  %320 = icmp eq ptr %318, %312
+  br i1 %320, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit.i", label %.lr.ph.i.i7.i.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i.i": ; preds = %.lr.ph.i.i7.i.i.i
-  %324 = icmp ult i64 %.sroa.02.015.i.i8.i.i.i, %314
-  call void @llvm.assume(i1 %324)
+  %321 = icmp ult i64 %.sroa.02.015.i.i8.i.i.i, %311
+  call void @llvm.assume(i1 %321)
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit.i"
 
 "_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i.i", %309, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i.i"
   %.sroa.0.0.i13.i.i.i = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i.i" ], [ %.sroa.02.015.i.i8.i.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i.i" ], [ -1, %309 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i.i" ]
-  %325 = icmp uge i64 %.sroa.0.0.i.i.i.i, %.sroa.0.0.i13.i.i.i
-  %326 = getelementptr inbounds i8, ptr %.sroa.43.143.i60, i64 -16
-  %.sroa.01.0.i.i67 = select i1 %325, ptr %2, ptr %326
-  %327 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %.sroa.01.0.i.i67, i64 %.sroa.27.141.i62
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %327, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.142.i61, i64 16, i1 false), !alias.scope !4841, !noalias !4842
-  %328 = zext i1 %325 to i64
-  %329 = add i64 %.sroa.27.141.i62, %328
-  %330 = getelementptr inbounds nuw i8, ptr %.sroa.9.142.i61, i64 16
-  %331 = getelementptr i8, ptr %.sroa.9.142.i61, i64 24
-  %.val18.i68 = load i32, ptr %331, align 8, !alias.scope !4831, !noalias !4828
-  %332 = getelementptr i8, ptr %.sroa.9.142.i61, i64 28
-  %.val19.i69 = load i32, ptr %332, align 4, !alias.scope !4831, !noalias !4828
-  %.val20.i70 = load i32, ptr %282, align 8, !alias.scope !4831, !noalias !4828, !noundef !11
-  %.val21.i71 = load i32, ptr %283, align 4, !alias.scope !4831, !noalias !4828
-  %.val4.i.i38.i = load ptr, ptr %.val.i.i, align 8, !noalias !4828
-  %333 = icmp eq i32 %.val20.i70, 0
-  br i1 %333, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i45.i", label %334
+  %322 = icmp uge i64 %.sroa.0.0.i.i.i.i, %.sroa.0.0.i13.i.i.i
+  %323 = getelementptr inbounds i8, ptr %.sroa.43.143.i60, i64 -16
+  %.sroa.01.0.i.i67 = select i1 %322, ptr %2, ptr %323
+  %324 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %.sroa.01.0.i.i67, i64 %.sroa.27.141.i62
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %324, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.142.i61, i64 16, i1 false), !alias.scope !4833, !noalias !4842
+  %325 = zext i1 %322 to i64
+  %326 = add i64 %.sroa.27.141.i62, %325
+  %327 = getelementptr inbounds nuw i8, ptr %.sroa.9.142.i61, i64 16
+  %328 = getelementptr i8, ptr %.sroa.9.142.i61, i64 24
+  %.val18.i68 = load i32, ptr %328, align 8, !alias.scope !4828, !noalias !4831
+  %329 = getelementptr i8, ptr %.sroa.9.142.i61, i64 28
+  %.val19.i69 = load i32, ptr %329, align 4, !alias.scope !4828, !noalias !4831
+  %.val20.i70 = load i32, ptr %282, align 8, !alias.scope !4828, !noalias !4831, !noundef !11
+  %.val21.i71 = load i32, ptr %283, align 4, !alias.scope !4828, !noalias !4831
+  %330 = icmp eq i32 %.val20.i70, 0
+  br i1 %330, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i45.i", label %331
 
-334:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit.i"
-  %335 = icmp ne ptr %.val4.i.i38.i, null
-  call void @llvm.assume(i1 %335)
-  %336 = getelementptr inbounds nuw i8, ptr %.val4.i.i38.i, i64 8
-  %337 = load ptr, ptr %336, align 8, !noalias !4828, !nonnull !11, !noundef !11
-  %338 = getelementptr inbounds nuw i8, ptr %.val4.i.i38.i, i64 16
-  %339 = load i64, ptr %338, align 8, !noalias !4828, !noundef !11
-  %340 = getelementptr inbounds { { i32, i32 } }, ptr %337, i64 %339
-  %341 = icmp eq i64 %339, 0
-  br i1 %341, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i45.i", label %.lr.ph.i.i.i.i39.i
+331:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit.i"
+  call void @llvm.assume(i1 %289)
+  %332 = load ptr, ptr %290, align 8, !noalias !4833, !nonnull !11, !noundef !11
+  %333 = load i64, ptr %291, align 8, !noalias !4833, !noundef !11
+  %334 = getelementptr inbounds { { i32, i32 } }, ptr %332, i64 %333
+  %335 = icmp eq i64 %333, 0
+  br i1 %335, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i45.i", label %.lr.ph.i.i.i.i39.i
 
-.lr.ph.i.i.i.i39.i:                               ; preds = %334, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i44.i"
-  %.sroa.02.015.i.i.i.i40.i = phi i64 [ %347, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i44.i" ], [ 0, %334 ]
-  %342 = phi ptr [ %346, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i44.i" ], [ %337, %334 ]
-  %.val8.i.i.i.i41.i = load i32, ptr %342, align 4, !noalias !4845
-  %343 = getelementptr i8, ptr %342, i64 4
-  %.val9.i.i.i.i42.i = load i32, ptr %343, align 4, !noalias !4845, !noundef !11
-  %344 = icmp eq i32 %.val9.i.i.i.i42.i, %.val21.i71
-  %345 = icmp eq i32 %.val8.i.i.i.i41.i, %.val20.i70
-  %or.cond.i.i.i.i43.i = select i1 %344, i1 %345, i1 false
+.lr.ph.i.i.i.i39.i:                               ; preds = %331, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i44.i"
+  %.sroa.02.015.i.i.i.i40.i = phi i64 [ %341, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i44.i" ], [ 0, %331 ]
+  %336 = phi ptr [ %340, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i44.i" ], [ %332, %331 ]
+  %.val8.i.i.i.i41.i = load i32, ptr %336, align 4, !noalias !4845
+  %337 = getelementptr i8, ptr %336, i64 4
+  %.val9.i.i.i.i42.i = load i32, ptr %337, align 4, !noalias !4845, !noundef !11
+  %338 = icmp eq i32 %.val9.i.i.i.i42.i, %.val21.i71
+  %339 = icmp eq i32 %.val8.i.i.i.i41.i, %.val20.i70
+  %or.cond.i.i.i.i43.i = select i1 %338, i1 %339, i1 false
   br i1 %or.cond.i.i.i.i43.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i55.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i44.i"
 
 "_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i44.i": ; preds = %.lr.ph.i.i.i.i39.i
-  %346 = getelementptr inbounds nuw i8, ptr %342, i64 8
-  %347 = add nuw nsw i64 %.sroa.02.015.i.i.i.i40.i, 1
-  %348 = icmp eq ptr %346, %340
-  br i1 %348, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i45.i", label %.lr.ph.i.i.i.i39.i
+  %340 = getelementptr inbounds nuw i8, ptr %336, i64 8
+  %341 = add nuw nsw i64 %.sroa.02.015.i.i.i.i40.i, 1
+  %342 = icmp eq ptr %340, %334
+  br i1 %342, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i45.i", label %.lr.ph.i.i.i.i39.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i55.i": ; preds = %.lr.ph.i.i.i.i39.i
-  %349 = icmp ult i64 %.sroa.02.015.i.i.i.i40.i, %339
-  call void @llvm.assume(i1 %349)
+  %343 = icmp ult i64 %.sroa.02.015.i.i.i.i40.i, %333
+  call void @llvm.assume(i1 %343)
   br label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i45.i"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i45.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i44.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i55.i", %334, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit.i"
-  %.sroa.0.0.i.i.i46.i = phi i64 [ -1, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit.i" ], [ %.sroa.02.015.i.i.i.i40.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i55.i" ], [ -1, %334 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i44.i" ]
-  %350 = icmp eq i32 %.val18.i68, 0
-  br i1 %350, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit56.i", label %351
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i45.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i44.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i55.i", %331, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit.i"
+  %.sroa.0.0.i.i.i46.i = phi i64 [ -1, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit.i" ], [ %.sroa.02.015.i.i.i.i40.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i55.i" ], [ -1, %331 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i44.i" ]
+  %344 = icmp eq i32 %.val18.i68, 0
+  br i1 %344, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit56.i", label %345
 
-351:                                              ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i45.i"
-  %352 = icmp ne ptr %.val4.i.i38.i, null
-  call void @llvm.assume(i1 %352)
-  %353 = getelementptr inbounds nuw i8, ptr %.val4.i.i38.i, i64 8
-  %354 = load ptr, ptr %353, align 8, !noalias !4828, !nonnull !11, !noundef !11
-  %355 = getelementptr inbounds nuw i8, ptr %.val4.i.i38.i, i64 16
-  %356 = load i64, ptr %355, align 8, !noalias !4828, !noundef !11
-  %357 = getelementptr inbounds { { i32, i32 } }, ptr %354, i64 %356
-  %358 = icmp eq i64 %356, 0
-  br i1 %358, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit56.i", label %.lr.ph.i.i7.i.i47.i
+345:                                              ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i45.i"
+  call void @llvm.assume(i1 %289)
+  %346 = load ptr, ptr %290, align 8, !noalias !4833, !nonnull !11, !noundef !11
+  %347 = load i64, ptr %291, align 8, !noalias !4833, !noundef !11
+  %348 = getelementptr inbounds { { i32, i32 } }, ptr %346, i64 %347
+  %349 = icmp eq i64 %347, 0
+  br i1 %349, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit56.i", label %.lr.ph.i.i7.i.i47.i
 
-.lr.ph.i.i7.i.i47.i:                              ; preds = %351, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i52.i"
-  %.sroa.02.015.i.i8.i.i48.i = phi i64 [ %364, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i52.i" ], [ 0, %351 ]
-  %359 = phi ptr [ %363, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i52.i" ], [ %354, %351 ]
-  %.val8.i.i9.i.i49.i = load i32, ptr %359, align 4, !noalias !4849
-  %360 = getelementptr i8, ptr %359, i64 4
-  %.val9.i.i10.i.i50.i = load i32, ptr %360, align 4, !noalias !4849, !noundef !11
-  %361 = icmp eq i32 %.val9.i.i10.i.i50.i, %.val19.i69
-  %362 = icmp eq i32 %.val8.i.i9.i.i49.i, %.val18.i68
-  %or.cond.i.i11.i.i51.i = select i1 %361, i1 %362, i1 false
+.lr.ph.i.i7.i.i47.i:                              ; preds = %345, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i52.i"
+  %.sroa.02.015.i.i8.i.i48.i = phi i64 [ %355, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i52.i" ], [ 0, %345 ]
+  %350 = phi ptr [ %354, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i52.i" ], [ %346, %345 ]
+  %.val8.i.i9.i.i49.i = load i32, ptr %350, align 4, !noalias !4849
+  %351 = getelementptr i8, ptr %350, i64 4
+  %.val9.i.i10.i.i50.i = load i32, ptr %351, align 4, !noalias !4849, !noundef !11
+  %352 = icmp eq i32 %.val9.i.i10.i.i50.i, %.val19.i69
+  %353 = icmp eq i32 %.val8.i.i9.i.i49.i, %.val18.i68
+  %or.cond.i.i11.i.i51.i = select i1 %352, i1 %353, i1 false
   br i1 %or.cond.i.i11.i.i51.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i54.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i52.i"
 
 "_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i52.i": ; preds = %.lr.ph.i.i7.i.i47.i
-  %363 = getelementptr inbounds nuw i8, ptr %359, i64 8
-  %364 = add nuw nsw i64 %.sroa.02.015.i.i8.i.i48.i, 1
-  %365 = icmp eq ptr %363, %357
-  br i1 %365, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit56.i", label %.lr.ph.i.i7.i.i47.i
+  %354 = getelementptr inbounds nuw i8, ptr %350, i64 8
+  %355 = add nuw nsw i64 %.sroa.02.015.i.i8.i.i48.i, 1
+  %356 = icmp eq ptr %354, %348
+  br i1 %356, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit56.i", label %.lr.ph.i.i7.i.i47.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i54.i": ; preds = %.lr.ph.i.i7.i.i47.i
-  %366 = icmp ult i64 %.sroa.02.015.i.i8.i.i48.i, %356
-  call void @llvm.assume(i1 %366)
+  %357 = icmp ult i64 %.sroa.02.015.i.i8.i.i48.i, %347
+  call void @llvm.assume(i1 %357)
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit56.i"
 
-"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit56.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i52.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i54.i", %351, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i45.i"
-  %.sroa.0.0.i13.i.i53.i = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i45.i" ], [ %.sroa.02.015.i.i8.i.i48.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i54.i" ], [ -1, %351 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i52.i" ]
-  %367 = icmp uge i64 %.sroa.0.0.i.i.i46.i, %.sroa.0.0.i13.i.i53.i
-  %368 = getelementptr inbounds i8, ptr %.sroa.43.143.i60, i64 -32
-  %.sroa.01.0.i57.i = select i1 %367, ptr %2, ptr %368
-  %369 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %.sroa.01.0.i57.i, i64 %329
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %369, ptr noundef nonnull align 8 dereferenceable(16) %330, i64 16, i1 false), !alias.scope !4841, !noalias !4853
-  %370 = zext i1 %367 to i64
-  %371 = add i64 %329, %370
-  %372 = getelementptr inbounds nuw i8, ptr %.sroa.9.142.i61, i64 32
-  %373 = getelementptr i8, ptr %.sroa.9.142.i61, i64 40
-  %.val23.i72 = load i32, ptr %373, align 8, !alias.scope !4831, !noalias !4828
-  %374 = getelementptr i8, ptr %.sroa.9.142.i61, i64 44
-  %.val24.i73 = load i32, ptr %374, align 4, !alias.scope !4831, !noalias !4828
-  %.val25.i74 = load i32, ptr %282, align 8, !alias.scope !4831, !noalias !4828, !noundef !11
-  %.val26.i75 = load i32, ptr %283, align 4, !alias.scope !4831, !noalias !4828
-  %.val4.i.i59.i = load ptr, ptr %.val.i.i, align 8, !noalias !4828
-  %375 = icmp eq i32 %.val25.i74, 0
-  br i1 %375, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i66.i", label %376
+"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit56.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i52.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i54.i", %345, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i45.i"
+  %.sroa.0.0.i13.i.i53.i = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i45.i" ], [ %.sroa.02.015.i.i8.i.i48.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i54.i" ], [ -1, %345 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i52.i" ]
+  %358 = icmp uge i64 %.sroa.0.0.i.i.i46.i, %.sroa.0.0.i13.i.i53.i
+  %359 = getelementptr inbounds i8, ptr %.sroa.43.143.i60, i64 -32
+  %.sroa.01.0.i57.i = select i1 %358, ptr %2, ptr %359
+  %360 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %.sroa.01.0.i57.i, i64 %326
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %360, ptr noundef nonnull align 8 dereferenceable(16) %327, i64 16, i1 false), !alias.scope !4833, !noalias !4853
+  %361 = zext i1 %358 to i64
+  %362 = add i64 %326, %361
+  %363 = getelementptr inbounds nuw i8, ptr %.sroa.9.142.i61, i64 32
+  %364 = getelementptr i8, ptr %.sroa.9.142.i61, i64 40
+  %.val23.i72 = load i32, ptr %364, align 8, !alias.scope !4828, !noalias !4831
+  %365 = getelementptr i8, ptr %.sroa.9.142.i61, i64 44
+  %.val24.i73 = load i32, ptr %365, align 4, !alias.scope !4828, !noalias !4831
+  %.val25.i74 = load i32, ptr %282, align 8, !alias.scope !4828, !noalias !4831, !noundef !11
+  %.val26.i75 = load i32, ptr %283, align 4, !alias.scope !4828, !noalias !4831
+  %366 = icmp eq i32 %.val25.i74, 0
+  br i1 %366, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i66.i", label %367
 
-376:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit56.i"
-  %377 = icmp ne ptr %.val4.i.i59.i, null
-  call void @llvm.assume(i1 %377)
-  %378 = getelementptr inbounds nuw i8, ptr %.val4.i.i59.i, i64 8
-  %379 = load ptr, ptr %378, align 8, !noalias !4828, !nonnull !11, !noundef !11
-  %380 = getelementptr inbounds nuw i8, ptr %.val4.i.i59.i, i64 16
-  %381 = load i64, ptr %380, align 8, !noalias !4828, !noundef !11
-  %382 = getelementptr inbounds { { i32, i32 } }, ptr %379, i64 %381
-  %383 = icmp eq i64 %381, 0
-  br i1 %383, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i66.i", label %.lr.ph.i.i.i.i60.i
+367:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit56.i"
+  call void @llvm.assume(i1 %289)
+  %368 = load ptr, ptr %290, align 8, !noalias !4833, !nonnull !11, !noundef !11
+  %369 = load i64, ptr %291, align 8, !noalias !4833, !noundef !11
+  %370 = getelementptr inbounds { { i32, i32 } }, ptr %368, i64 %369
+  %371 = icmp eq i64 %369, 0
+  br i1 %371, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i66.i", label %.lr.ph.i.i.i.i60.i
 
-.lr.ph.i.i.i.i60.i:                               ; preds = %376, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i65.i"
-  %.sroa.02.015.i.i.i.i61.i = phi i64 [ %389, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i65.i" ], [ 0, %376 ]
-  %384 = phi ptr [ %388, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i65.i" ], [ %379, %376 ]
-  %.val8.i.i.i.i62.i = load i32, ptr %384, align 4, !noalias !4856
-  %385 = getelementptr i8, ptr %384, i64 4
-  %.val9.i.i.i.i63.i = load i32, ptr %385, align 4, !noalias !4856, !noundef !11
-  %386 = icmp eq i32 %.val9.i.i.i.i63.i, %.val26.i75
-  %387 = icmp eq i32 %.val8.i.i.i.i62.i, %.val25.i74
-  %or.cond.i.i.i.i64.i = select i1 %386, i1 %387, i1 false
+.lr.ph.i.i.i.i60.i:                               ; preds = %367, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i65.i"
+  %.sroa.02.015.i.i.i.i61.i = phi i64 [ %377, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i65.i" ], [ 0, %367 ]
+  %372 = phi ptr [ %376, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i65.i" ], [ %368, %367 ]
+  %.val8.i.i.i.i62.i = load i32, ptr %372, align 4, !noalias !4856
+  %373 = getelementptr i8, ptr %372, i64 4
+  %.val9.i.i.i.i63.i = load i32, ptr %373, align 4, !noalias !4856, !noundef !11
+  %374 = icmp eq i32 %.val9.i.i.i.i63.i, %.val26.i75
+  %375 = icmp eq i32 %.val8.i.i.i.i62.i, %.val25.i74
+  %or.cond.i.i.i.i64.i = select i1 %374, i1 %375, i1 false
   br i1 %or.cond.i.i.i.i64.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i76.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i65.i"
 
 "_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i65.i": ; preds = %.lr.ph.i.i.i.i60.i
-  %388 = getelementptr inbounds nuw i8, ptr %384, i64 8
-  %389 = add nuw nsw i64 %.sroa.02.015.i.i.i.i61.i, 1
-  %390 = icmp eq ptr %388, %382
-  br i1 %390, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i66.i", label %.lr.ph.i.i.i.i60.i
+  %376 = getelementptr inbounds nuw i8, ptr %372, i64 8
+  %377 = add nuw nsw i64 %.sroa.02.015.i.i.i.i61.i, 1
+  %378 = icmp eq ptr %376, %370
+  br i1 %378, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i66.i", label %.lr.ph.i.i.i.i60.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i76.i": ; preds = %.lr.ph.i.i.i.i60.i
-  %391 = icmp ult i64 %.sroa.02.015.i.i.i.i61.i, %381
-  call void @llvm.assume(i1 %391)
+  %379 = icmp ult i64 %.sroa.02.015.i.i.i.i61.i, %369
+  call void @llvm.assume(i1 %379)
   br label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i66.i"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i66.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i65.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i76.i", %376, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit56.i"
-  %.sroa.0.0.i.i.i67.i = phi i64 [ -1, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit56.i" ], [ %.sroa.02.015.i.i.i.i61.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i76.i" ], [ -1, %376 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i65.i" ]
-  %392 = icmp eq i32 %.val23.i72, 0
-  br i1 %392, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit77.i", label %393
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i66.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i65.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i76.i", %367, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit56.i"
+  %.sroa.0.0.i.i.i67.i = phi i64 [ -1, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit56.i" ], [ %.sroa.02.015.i.i.i.i61.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i76.i" ], [ -1, %367 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i65.i" ]
+  %380 = icmp eq i32 %.val23.i72, 0
+  br i1 %380, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit77.i", label %381
 
-393:                                              ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i66.i"
-  %394 = icmp ne ptr %.val4.i.i59.i, null
-  call void @llvm.assume(i1 %394)
-  %395 = getelementptr inbounds nuw i8, ptr %.val4.i.i59.i, i64 8
-  %396 = load ptr, ptr %395, align 8, !noalias !4828, !nonnull !11, !noundef !11
-  %397 = getelementptr inbounds nuw i8, ptr %.val4.i.i59.i, i64 16
-  %398 = load i64, ptr %397, align 8, !noalias !4828, !noundef !11
-  %399 = getelementptr inbounds { { i32, i32 } }, ptr %396, i64 %398
-  %400 = icmp eq i64 %398, 0
-  br i1 %400, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit77.i", label %.lr.ph.i.i7.i.i68.i
+381:                                              ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i66.i"
+  call void @llvm.assume(i1 %289)
+  %382 = load ptr, ptr %290, align 8, !noalias !4833, !nonnull !11, !noundef !11
+  %383 = load i64, ptr %291, align 8, !noalias !4833, !noundef !11
+  %384 = getelementptr inbounds { { i32, i32 } }, ptr %382, i64 %383
+  %385 = icmp eq i64 %383, 0
+  br i1 %385, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit77.i", label %.lr.ph.i.i7.i.i68.i
 
-.lr.ph.i.i7.i.i68.i:                              ; preds = %393, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i73.i"
-  %.sroa.02.015.i.i8.i.i69.i = phi i64 [ %406, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i73.i" ], [ 0, %393 ]
-  %401 = phi ptr [ %405, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i73.i" ], [ %396, %393 ]
-  %.val8.i.i9.i.i70.i = load i32, ptr %401, align 4, !noalias !4860
-  %402 = getelementptr i8, ptr %401, i64 4
-  %.val9.i.i10.i.i71.i = load i32, ptr %402, align 4, !noalias !4860, !noundef !11
-  %403 = icmp eq i32 %.val9.i.i10.i.i71.i, %.val24.i73
-  %404 = icmp eq i32 %.val8.i.i9.i.i70.i, %.val23.i72
-  %or.cond.i.i11.i.i72.i = select i1 %403, i1 %404, i1 false
+.lr.ph.i.i7.i.i68.i:                              ; preds = %381, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i73.i"
+  %.sroa.02.015.i.i8.i.i69.i = phi i64 [ %391, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i73.i" ], [ 0, %381 ]
+  %386 = phi ptr [ %390, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i73.i" ], [ %382, %381 ]
+  %.val8.i.i9.i.i70.i = load i32, ptr %386, align 4, !noalias !4860
+  %387 = getelementptr i8, ptr %386, i64 4
+  %.val9.i.i10.i.i71.i = load i32, ptr %387, align 4, !noalias !4860, !noundef !11
+  %388 = icmp eq i32 %.val9.i.i10.i.i71.i, %.val24.i73
+  %389 = icmp eq i32 %.val8.i.i9.i.i70.i, %.val23.i72
+  %or.cond.i.i11.i.i72.i = select i1 %388, i1 %389, i1 false
   br i1 %or.cond.i.i11.i.i72.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i75.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i73.i"
 
 "_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i73.i": ; preds = %.lr.ph.i.i7.i.i68.i
-  %405 = getelementptr inbounds nuw i8, ptr %401, i64 8
-  %406 = add nuw nsw i64 %.sroa.02.015.i.i8.i.i69.i, 1
-  %407 = icmp eq ptr %405, %399
-  br i1 %407, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit77.i", label %.lr.ph.i.i7.i.i68.i
+  %390 = getelementptr inbounds nuw i8, ptr %386, i64 8
+  %391 = add nuw nsw i64 %.sroa.02.015.i.i8.i.i69.i, 1
+  %392 = icmp eq ptr %390, %384
+  br i1 %392, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit77.i", label %.lr.ph.i.i7.i.i68.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i75.i": ; preds = %.lr.ph.i.i7.i.i68.i
-  %408 = icmp ult i64 %.sroa.02.015.i.i8.i.i69.i, %398
-  call void @llvm.assume(i1 %408)
+  %393 = icmp ult i64 %.sroa.02.015.i.i8.i.i69.i, %383
+  call void @llvm.assume(i1 %393)
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit77.i"
 
-"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit77.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i73.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i75.i", %393, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i66.i"
-  %.sroa.0.0.i13.i.i74.i = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i66.i" ], [ %.sroa.02.015.i.i8.i.i69.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i75.i" ], [ -1, %393 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i73.i" ]
-  %409 = icmp uge i64 %.sroa.0.0.i.i.i67.i, %.sroa.0.0.i13.i.i74.i
-  %410 = getelementptr inbounds i8, ptr %.sroa.43.143.i60, i64 -48
-  %.sroa.01.0.i78.i = select i1 %409, ptr %2, ptr %410
-  %411 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %.sroa.01.0.i78.i, i64 %371
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %411, ptr noundef nonnull align 8 dereferenceable(16) %372, i64 16, i1 false), !alias.scope !4841, !noalias !4864
-  %412 = zext i1 %409 to i64
-  %413 = add i64 %371, %412
-  %414 = getelementptr inbounds nuw i8, ptr %.sroa.9.142.i61, i64 48
-  %415 = getelementptr i8, ptr %.sroa.9.142.i61, i64 56
-  %.val28.i76 = load i32, ptr %415, align 8, !alias.scope !4831, !noalias !4828
-  %416 = getelementptr i8, ptr %.sroa.9.142.i61, i64 60
-  %.val29.i77 = load i32, ptr %416, align 4, !alias.scope !4831, !noalias !4828
-  %.val30.i78 = load i32, ptr %282, align 8, !alias.scope !4831, !noalias !4828, !noundef !11
-  %.val31.i79 = load i32, ptr %283, align 4, !alias.scope !4831, !noalias !4828
-  %.val4.i.i80.i = load ptr, ptr %.val.i.i, align 8, !noalias !4828
-  %417 = icmp eq i32 %.val30.i78, 0
-  br i1 %417, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i87.i", label %418
+"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit77.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i73.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i75.i", %381, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i66.i"
+  %.sroa.0.0.i13.i.i74.i = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i66.i" ], [ %.sroa.02.015.i.i8.i.i69.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i75.i" ], [ -1, %381 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i73.i" ]
+  %394 = icmp uge i64 %.sroa.0.0.i.i.i67.i, %.sroa.0.0.i13.i.i74.i
+  %395 = getelementptr inbounds i8, ptr %.sroa.43.143.i60, i64 -48
+  %.sroa.01.0.i78.i = select i1 %394, ptr %2, ptr %395
+  %396 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %.sroa.01.0.i78.i, i64 %362
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %396, ptr noundef nonnull align 8 dereferenceable(16) %363, i64 16, i1 false), !alias.scope !4833, !noalias !4864
+  %397 = zext i1 %394 to i64
+  %398 = add i64 %362, %397
+  %399 = getelementptr inbounds nuw i8, ptr %.sroa.9.142.i61, i64 48
+  %400 = getelementptr i8, ptr %.sroa.9.142.i61, i64 56
+  %.val28.i76 = load i32, ptr %400, align 8, !alias.scope !4828, !noalias !4831
+  %401 = getelementptr i8, ptr %.sroa.9.142.i61, i64 60
+  %.val29.i77 = load i32, ptr %401, align 4, !alias.scope !4828, !noalias !4831
+  %.val30.i78 = load i32, ptr %282, align 8, !alias.scope !4828, !noalias !4831, !noundef !11
+  %.val31.i79 = load i32, ptr %283, align 4, !alias.scope !4828, !noalias !4831
+  %402 = icmp eq i32 %.val30.i78, 0
+  br i1 %402, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i87.i", label %403
 
-418:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit77.i"
-  %419 = icmp ne ptr %.val4.i.i80.i, null
-  call void @llvm.assume(i1 %419)
-  %420 = getelementptr inbounds nuw i8, ptr %.val4.i.i80.i, i64 8
-  %421 = load ptr, ptr %420, align 8, !noalias !4828, !nonnull !11, !noundef !11
-  %422 = getelementptr inbounds nuw i8, ptr %.val4.i.i80.i, i64 16
-  %423 = load i64, ptr %422, align 8, !noalias !4828, !noundef !11
-  %424 = getelementptr inbounds { { i32, i32 } }, ptr %421, i64 %423
-  %425 = icmp eq i64 %423, 0
-  br i1 %425, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i87.i", label %.lr.ph.i.i.i.i81.i
+403:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit77.i"
+  call void @llvm.assume(i1 %289)
+  %404 = load ptr, ptr %290, align 8, !noalias !4833, !nonnull !11, !noundef !11
+  %405 = load i64, ptr %291, align 8, !noalias !4833, !noundef !11
+  %406 = getelementptr inbounds { { i32, i32 } }, ptr %404, i64 %405
+  %407 = icmp eq i64 %405, 0
+  br i1 %407, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i87.i", label %.lr.ph.i.i.i.i81.i
 
-.lr.ph.i.i.i.i81.i:                               ; preds = %418, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i86.i"
-  %.sroa.02.015.i.i.i.i82.i = phi i64 [ %431, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i86.i" ], [ 0, %418 ]
-  %426 = phi ptr [ %430, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i86.i" ], [ %421, %418 ]
-  %.val8.i.i.i.i83.i = load i32, ptr %426, align 4, !noalias !4867
-  %427 = getelementptr i8, ptr %426, i64 4
-  %.val9.i.i.i.i84.i = load i32, ptr %427, align 4, !noalias !4867, !noundef !11
-  %428 = icmp eq i32 %.val9.i.i.i.i84.i, %.val31.i79
-  %429 = icmp eq i32 %.val8.i.i.i.i83.i, %.val30.i78
-  %or.cond.i.i.i.i85.i = select i1 %428, i1 %429, i1 false
+.lr.ph.i.i.i.i81.i:                               ; preds = %403, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i86.i"
+  %.sroa.02.015.i.i.i.i82.i = phi i64 [ %413, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i86.i" ], [ 0, %403 ]
+  %408 = phi ptr [ %412, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i86.i" ], [ %404, %403 ]
+  %.val8.i.i.i.i83.i = load i32, ptr %408, align 4, !noalias !4867
+  %409 = getelementptr i8, ptr %408, i64 4
+  %.val9.i.i.i.i84.i = load i32, ptr %409, align 4, !noalias !4867, !noundef !11
+  %410 = icmp eq i32 %.val9.i.i.i.i84.i, %.val31.i79
+  %411 = icmp eq i32 %.val8.i.i.i.i83.i, %.val30.i78
+  %or.cond.i.i.i.i85.i = select i1 %410, i1 %411, i1 false
   br i1 %or.cond.i.i.i.i85.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i97.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i86.i"
 
 "_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i86.i": ; preds = %.lr.ph.i.i.i.i81.i
-  %430 = getelementptr inbounds nuw i8, ptr %426, i64 8
-  %431 = add nuw nsw i64 %.sroa.02.015.i.i.i.i82.i, 1
-  %432 = icmp eq ptr %430, %424
-  br i1 %432, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i87.i", label %.lr.ph.i.i.i.i81.i
+  %412 = getelementptr inbounds nuw i8, ptr %408, i64 8
+  %413 = add nuw nsw i64 %.sroa.02.015.i.i.i.i82.i, 1
+  %414 = icmp eq ptr %412, %406
+  br i1 %414, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i87.i", label %.lr.ph.i.i.i.i81.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i97.i": ; preds = %.lr.ph.i.i.i.i81.i
-  %433 = icmp ult i64 %.sroa.02.015.i.i.i.i82.i, %423
-  call void @llvm.assume(i1 %433)
+  %415 = icmp ult i64 %.sroa.02.015.i.i.i.i82.i, %405
+  call void @llvm.assume(i1 %415)
   br label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i87.i"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i87.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i86.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i97.i", %418, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit77.i"
-  %.sroa.0.0.i.i.i88.i = phi i64 [ -1, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit77.i" ], [ %.sroa.02.015.i.i.i.i82.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i97.i" ], [ -1, %418 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i86.i" ]
-  %434 = icmp eq i32 %.val28.i76, 0
-  br i1 %434, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i", label %435
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i87.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i86.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i97.i", %403, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit77.i"
+  %.sroa.0.0.i.i.i88.i = phi i64 [ -1, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit77.i" ], [ %.sroa.02.015.i.i.i.i82.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i97.i" ], [ -1, %403 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i86.i" ]
+  %416 = icmp eq i32 %.val28.i76, 0
+  br i1 %416, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i", label %417
 
-435:                                              ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i87.i"
-  %436 = icmp ne ptr %.val4.i.i80.i, null
-  call void @llvm.assume(i1 %436)
-  %437 = getelementptr inbounds nuw i8, ptr %.val4.i.i80.i, i64 8
-  %438 = load ptr, ptr %437, align 8, !noalias !4828, !nonnull !11, !noundef !11
-  %439 = getelementptr inbounds nuw i8, ptr %.val4.i.i80.i, i64 16
-  %440 = load i64, ptr %439, align 8, !noalias !4828, !noundef !11
-  %441 = getelementptr inbounds { { i32, i32 } }, ptr %438, i64 %440
-  %442 = icmp eq i64 %440, 0
-  br i1 %442, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i", label %.lr.ph.i.i7.i.i89.i
+417:                                              ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i87.i"
+  call void @llvm.assume(i1 %289)
+  %418 = load ptr, ptr %290, align 8, !noalias !4833, !nonnull !11, !noundef !11
+  %419 = load i64, ptr %291, align 8, !noalias !4833, !noundef !11
+  %420 = getelementptr inbounds { { i32, i32 } }, ptr %418, i64 %419
+  %421 = icmp eq i64 %419, 0
+  br i1 %421, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i", label %.lr.ph.i.i7.i.i89.i
 
-.lr.ph.i.i7.i.i89.i:                              ; preds = %435, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i94.i"
-  %.sroa.02.015.i.i8.i.i90.i = phi i64 [ %448, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i94.i" ], [ 0, %435 ]
-  %443 = phi ptr [ %447, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i94.i" ], [ %438, %435 ]
-  %.val8.i.i9.i.i91.i = load i32, ptr %443, align 4, !noalias !4871
-  %444 = getelementptr i8, ptr %443, i64 4
-  %.val9.i.i10.i.i92.i = load i32, ptr %444, align 4, !noalias !4871, !noundef !11
-  %445 = icmp eq i32 %.val9.i.i10.i.i92.i, %.val29.i77
-  %446 = icmp eq i32 %.val8.i.i9.i.i91.i, %.val28.i76
-  %or.cond.i.i11.i.i93.i = select i1 %445, i1 %446, i1 false
+.lr.ph.i.i7.i.i89.i:                              ; preds = %417, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i94.i"
+  %.sroa.02.015.i.i8.i.i90.i = phi i64 [ %427, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i94.i" ], [ 0, %417 ]
+  %422 = phi ptr [ %426, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i94.i" ], [ %418, %417 ]
+  %.val8.i.i9.i.i91.i = load i32, ptr %422, align 4, !noalias !4871
+  %423 = getelementptr i8, ptr %422, i64 4
+  %.val9.i.i10.i.i92.i = load i32, ptr %423, align 4, !noalias !4871, !noundef !11
+  %424 = icmp eq i32 %.val9.i.i10.i.i92.i, %.val29.i77
+  %425 = icmp eq i32 %.val8.i.i9.i.i91.i, %.val28.i76
+  %or.cond.i.i11.i.i93.i = select i1 %424, i1 %425, i1 false
   br i1 %or.cond.i.i11.i.i93.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i96.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i94.i"
 
 "_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i94.i": ; preds = %.lr.ph.i.i7.i.i89.i
-  %447 = getelementptr inbounds nuw i8, ptr %443, i64 8
-  %448 = add nuw nsw i64 %.sroa.02.015.i.i8.i.i90.i, 1
-  %449 = icmp eq ptr %447, %441
-  br i1 %449, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i", label %.lr.ph.i.i7.i.i89.i
+  %426 = getelementptr inbounds nuw i8, ptr %422, i64 8
+  %427 = add nuw nsw i64 %.sroa.02.015.i.i8.i.i90.i, 1
+  %428 = icmp eq ptr %426, %420
+  br i1 %428, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i", label %.lr.ph.i.i7.i.i89.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i96.i": ; preds = %.lr.ph.i.i7.i.i89.i
-  %450 = icmp ult i64 %.sroa.02.015.i.i8.i.i90.i, %440
-  call void @llvm.assume(i1 %450)
+  %429 = icmp ult i64 %.sroa.02.015.i.i8.i.i90.i, %419
+  call void @llvm.assume(i1 %429)
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i"
 
-"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i94.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i96.i", %435, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i87.i"
-  %.sroa.0.0.i13.i.i95.i = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i87.i" ], [ %.sroa.02.015.i.i8.i.i90.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i96.i" ], [ -1, %435 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i94.i" ]
-  %451 = icmp uge i64 %.sroa.0.0.i.i.i88.i, %.sroa.0.0.i13.i.i95.i
-  %452 = getelementptr inbounds i8, ptr %.sroa.43.143.i60, i64 -64
-  %.sroa.01.0.i99.i = select i1 %451, ptr %2, ptr %452
-  %453 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %.sroa.01.0.i99.i, i64 %413
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %453, ptr noundef nonnull align 8 dereferenceable(16) %414, i64 16, i1 false), !alias.scope !4841, !noalias !4875
-  %454 = zext i1 %451 to i64
-  %455 = add i64 %413, %454
-  %456 = getelementptr inbounds nuw i8, ptr %.sroa.9.142.i61, i64 64
-  %457 = icmp ult ptr %456, %287
-  br i1 %457, label %.lr.ph.i59, label %._crit_edge.i39
+"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i94.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i96.i", %417, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i87.i"
+  %.sroa.0.0.i13.i.i95.i = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i87.i" ], [ %.sroa.02.015.i.i8.i.i90.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i96.i" ], [ -1, %417 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i94.i" ]
+  %430 = icmp uge i64 %.sroa.0.0.i.i.i88.i, %.sroa.0.0.i13.i.i95.i
+  %431 = getelementptr inbounds i8, ptr %.sroa.43.143.i60, i64 -64
+  %.sroa.01.0.i99.i = select i1 %430, ptr %2, ptr %431
+  %432 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %.sroa.01.0.i99.i, i64 %398
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %432, ptr noundef nonnull align 8 dereferenceable(16) %399, i64 16, i1 false), !alias.scope !4833, !noalias !4875
+  %433 = zext i1 %430 to i64
+  %434 = add i64 %398, %433
+  %435 = getelementptr inbounds nuw i8, ptr %.sroa.9.142.i61, i64 64
+  %436 = icmp ult ptr %435, %287
+  br i1 %436, label %.lr.ph.i59, label %._crit_edge.i39
 
 ._crit_edge.i39:                                  ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i", %285
-  %.sroa.27.1.lcssa.i40 = phi i64 [ %.sroa.27.0.i35, %285 ], [ %455, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i" ]
-  %.sroa.9.1.lcssa.i41 = phi ptr [ %.sroa.9.0.i36, %285 ], [ %456, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i" ]
-  %.sroa.43.1.lcssa.i42 = phi ptr [ %.sroa.43.0.i37, %285 ], [ %452, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i" ]
-  %458 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %.sroa.0.0.ph144, i64 %.sroa.02.0.i38
-  %459 = icmp ult ptr %.sroa.9.1.lcssa.i41, %458
-  br i1 %459, label %.lr.ph50.i51, label %._crit_edge51.i43
+  %.sroa.27.1.lcssa.i40 = phi i64 [ %.sroa.27.0.i35, %285 ], [ %434, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i" ]
+  %.sroa.9.1.lcssa.i41 = phi ptr [ %.sroa.9.0.i36, %285 ], [ %435, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i" ]
+  %.sroa.43.1.lcssa.i42 = phi ptr [ %.sroa.43.0.i37, %285 ], [ %431, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit98.i" ]
+  %437 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %.sroa.0.0.ph144, i64 %.sroa.02.0.i38
+  %438 = icmp ult ptr %.sroa.9.1.lcssa.i41, %437
+  br i1 %438, label %.lr.ph50.i51.preheader, label %._crit_edge51.i43
+
+.lr.ph50.i51.preheader:                           ; preds = %._crit_edge.i39
+  %.val4.i.i101.i = load ptr, ptr %.val.i.i, align 8, !noalias !4833
+  %439 = icmp ne ptr %.val4.i.i101.i, null
+  %440 = getelementptr inbounds nuw i8, ptr %.val4.i.i101.i, i64 8
+  %441 = getelementptr inbounds nuw i8, ptr %.val4.i.i101.i, i64 16
+  br label %.lr.ph50.i51
 
 ._crit_edge51.i43:                                ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i", %._crit_edge.i39
-  %.sroa.27.2.lcssa.i44 = phi i64 [ %.sroa.27.1.lcssa.i40, %._crit_edge.i39 ], [ %501, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i" ]
-  %.sroa.9.2.lcssa.i45 = phi ptr [ %.sroa.9.1.lcssa.i41, %._crit_edge.i39 ], [ %502, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i" ]
-  %.sroa.43.2.lcssa.i46 = phi ptr [ %.sroa.43.1.lcssa.i42, %._crit_edge.i39 ], [ %498, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i" ]
-  %460 = icmp eq i64 %.sroa.02.0.i38, %.sroa.12.0137
-  br i1 %460, label %509, label %504
+  %.sroa.27.2.lcssa.i44 = phi i64 [ %.sroa.27.1.lcssa.i40, %._crit_edge.i39 ], [ %477, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i" ]
+  %.sroa.9.2.lcssa.i45 = phi ptr [ %.sroa.9.1.lcssa.i41, %._crit_edge.i39 ], [ %478, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i" ]
+  %.sroa.43.2.lcssa.i46 = phi ptr [ %.sroa.43.1.lcssa.i42, %._crit_edge.i39 ], [ %474, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i" ]
+  %442 = icmp eq i64 %.sroa.02.0.i38, %.sroa.12.0137
+  br i1 %442, label %485, label %480
 
-.lr.ph50.i51:                                     ; preds = %._crit_edge.i39, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i"
-  %.sroa.43.248.i52 = phi ptr [ %498, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i" ], [ %.sroa.43.1.lcssa.i42, %._crit_edge.i39 ]
-  %.sroa.9.247.i53 = phi ptr [ %502, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i" ], [ %.sroa.9.1.lcssa.i41, %._crit_edge.i39 ]
-  %.sroa.27.246.i54 = phi i64 [ %501, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i" ], [ %.sroa.27.1.lcssa.i40, %._crit_edge.i39 ]
-  %461 = getelementptr i8, ptr %.sroa.9.247.i53, i64 8
-  %.val33.i55 = load i32, ptr %461, align 8, !alias.scope !4831, !noalias !4828
-  %462 = getelementptr i8, ptr %.sroa.9.247.i53, i64 12
-  %.val34.i56 = load i32, ptr %462, align 4, !alias.scope !4831, !noalias !4828
-  %.val35.i57 = load i32, ptr %282, align 8, !alias.scope !4831, !noalias !4828, !noundef !11
-  %.val36.i58 = load i32, ptr %283, align 4, !alias.scope !4831, !noalias !4828
-  %.val4.i.i101.i = load ptr, ptr %.val.i.i, align 8, !noalias !4828
-  %463 = icmp eq i32 %.val35.i57, 0
-  br i1 %463, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i108.i", label %464
+.lr.ph50.i51:                                     ; preds = %.lr.ph50.i51.preheader, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i"
+  %.sroa.43.248.i52 = phi ptr [ %474, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i" ], [ %.sroa.43.1.lcssa.i42, %.lr.ph50.i51.preheader ]
+  %.sroa.9.247.i53 = phi ptr [ %478, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i" ], [ %.sroa.9.1.lcssa.i41, %.lr.ph50.i51.preheader ]
+  %.sroa.27.246.i54 = phi i64 [ %477, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i" ], [ %.sroa.27.1.lcssa.i40, %.lr.ph50.i51.preheader ]
+  %443 = getelementptr i8, ptr %.sroa.9.247.i53, i64 8
+  %.val33.i55 = load i32, ptr %443, align 8, !alias.scope !4828, !noalias !4831
+  %444 = getelementptr i8, ptr %.sroa.9.247.i53, i64 12
+  %.val34.i56 = load i32, ptr %444, align 4, !alias.scope !4828, !noalias !4831
+  %.val35.i57 = load i32, ptr %282, align 8, !alias.scope !4828, !noalias !4831, !noundef !11
+  %.val36.i58 = load i32, ptr %283, align 4, !alias.scope !4828, !noalias !4831
+  %445 = icmp eq i32 %.val35.i57, 0
+  br i1 %445, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i108.i", label %446
 
-464:                                              ; preds = %.lr.ph50.i51
-  %465 = icmp ne ptr %.val4.i.i101.i, null
-  call void @llvm.assume(i1 %465)
-  %466 = getelementptr inbounds nuw i8, ptr %.val4.i.i101.i, i64 8
-  %467 = load ptr, ptr %466, align 8, !noalias !4828, !nonnull !11, !noundef !11
-  %468 = getelementptr inbounds nuw i8, ptr %.val4.i.i101.i, i64 16
-  %469 = load i64, ptr %468, align 8, !noalias !4828, !noundef !11
-  %470 = getelementptr inbounds { { i32, i32 } }, ptr %467, i64 %469
-  %471 = icmp eq i64 %469, 0
-  br i1 %471, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i108.i", label %.lr.ph.i.i.i.i102.i
+446:                                              ; preds = %.lr.ph50.i51
+  call void @llvm.assume(i1 %439)
+  %447 = load ptr, ptr %440, align 8, !noalias !4833, !nonnull !11, !noundef !11
+  %448 = load i64, ptr %441, align 8, !noalias !4833, !noundef !11
+  %449 = getelementptr inbounds { { i32, i32 } }, ptr %447, i64 %448
+  %450 = icmp eq i64 %448, 0
+  br i1 %450, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i108.i", label %.lr.ph.i.i.i.i102.i
 
-.lr.ph.i.i.i.i102.i:                              ; preds = %464, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i107.i"
-  %.sroa.02.015.i.i.i.i103.i = phi i64 [ %477, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i107.i" ], [ 0, %464 ]
-  %472 = phi ptr [ %476, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i107.i" ], [ %467, %464 ]
-  %.val8.i.i.i.i104.i = load i32, ptr %472, align 4, !noalias !4878
-  %473 = getelementptr i8, ptr %472, i64 4
-  %.val9.i.i.i.i105.i = load i32, ptr %473, align 4, !noalias !4878, !noundef !11
-  %474 = icmp eq i32 %.val9.i.i.i.i105.i, %.val36.i58
-  %475 = icmp eq i32 %.val8.i.i.i.i104.i, %.val35.i57
-  %or.cond.i.i.i.i106.i = select i1 %474, i1 %475, i1 false
+.lr.ph.i.i.i.i102.i:                              ; preds = %446, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i107.i"
+  %.sroa.02.015.i.i.i.i103.i = phi i64 [ %456, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i107.i" ], [ 0, %446 ]
+  %451 = phi ptr [ %455, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i107.i" ], [ %447, %446 ]
+  %.val8.i.i.i.i104.i = load i32, ptr %451, align 4, !noalias !4878
+  %452 = getelementptr i8, ptr %451, i64 4
+  %.val9.i.i.i.i105.i = load i32, ptr %452, align 4, !noalias !4878, !noundef !11
+  %453 = icmp eq i32 %.val9.i.i.i.i105.i, %.val36.i58
+  %454 = icmp eq i32 %.val8.i.i.i.i104.i, %.val35.i57
+  %or.cond.i.i.i.i106.i = select i1 %453, i1 %454, i1 false
   br i1 %or.cond.i.i.i.i106.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i118.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i107.i"
 
 "_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i107.i": ; preds = %.lr.ph.i.i.i.i102.i
-  %476 = getelementptr inbounds nuw i8, ptr %472, i64 8
-  %477 = add nuw nsw i64 %.sroa.02.015.i.i.i.i103.i, 1
-  %478 = icmp eq ptr %476, %470
-  br i1 %478, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i108.i", label %.lr.ph.i.i.i.i102.i
+  %455 = getelementptr inbounds nuw i8, ptr %451, i64 8
+  %456 = add nuw nsw i64 %.sroa.02.015.i.i.i.i103.i, 1
+  %457 = icmp eq ptr %455, %449
+  br i1 %457, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i108.i", label %.lr.ph.i.i.i.i102.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i118.i": ; preds = %.lr.ph.i.i.i.i102.i
-  %479 = icmp ult i64 %.sroa.02.015.i.i.i.i103.i, %469
-  call void @llvm.assume(i1 %479)
+  %458 = icmp ult i64 %.sroa.02.015.i.i.i.i103.i, %448
+  call void @llvm.assume(i1 %458)
   br label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i108.i"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i108.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i107.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i118.i", %464, %.lr.ph50.i51
-  %.sroa.0.0.i.i.i109.i = phi i64 [ -1, %.lr.ph50.i51 ], [ %.sroa.02.015.i.i.i.i103.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i118.i" ], [ -1, %464 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i107.i" ]
-  %480 = icmp eq i32 %.val33.i55, 0
-  br i1 %480, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i", label %481
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i108.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i107.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i118.i", %446, %.lr.ph50.i51
+  %.sroa.0.0.i.i.i109.i = phi i64 [ -1, %.lr.ph50.i51 ], [ %.sroa.02.015.i.i.i.i103.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i.i118.i" ], [ -1, %446 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i.i107.i" ]
+  %459 = icmp eq i32 %.val33.i55, 0
+  br i1 %459, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i", label %460
 
-481:                                              ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i108.i"
-  %482 = icmp ne ptr %.val4.i.i101.i, null
-  call void @llvm.assume(i1 %482)
-  %483 = getelementptr inbounds nuw i8, ptr %.val4.i.i101.i, i64 8
-  %484 = load ptr, ptr %483, align 8, !noalias !4828, !nonnull !11, !noundef !11
-  %485 = getelementptr inbounds nuw i8, ptr %.val4.i.i101.i, i64 16
-  %486 = load i64, ptr %485, align 8, !noalias !4828, !noundef !11
-  %487 = getelementptr inbounds { { i32, i32 } }, ptr %484, i64 %486
-  %488 = icmp eq i64 %486, 0
-  br i1 %488, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i", label %.lr.ph.i.i7.i.i110.i
+460:                                              ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i108.i"
+  call void @llvm.assume(i1 %439)
+  %461 = load ptr, ptr %440, align 8, !noalias !4833, !nonnull !11, !noundef !11
+  %462 = load i64, ptr %441, align 8, !noalias !4833, !noundef !11
+  %463 = getelementptr inbounds { { i32, i32 } }, ptr %461, i64 %462
+  %464 = icmp eq i64 %462, 0
+  br i1 %464, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i", label %.lr.ph.i.i7.i.i110.i
 
-.lr.ph.i.i7.i.i110.i:                             ; preds = %481, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i115.i"
-  %.sroa.02.015.i.i8.i.i111.i = phi i64 [ %494, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i115.i" ], [ 0, %481 ]
-  %489 = phi ptr [ %493, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i115.i" ], [ %484, %481 ]
-  %.val8.i.i9.i.i112.i = load i32, ptr %489, align 4, !noalias !4882
-  %490 = getelementptr i8, ptr %489, i64 4
-  %.val9.i.i10.i.i113.i = load i32, ptr %490, align 4, !noalias !4882, !noundef !11
-  %491 = icmp eq i32 %.val9.i.i10.i.i113.i, %.val34.i56
-  %492 = icmp eq i32 %.val8.i.i9.i.i112.i, %.val33.i55
-  %or.cond.i.i11.i.i114.i = select i1 %491, i1 %492, i1 false
+.lr.ph.i.i7.i.i110.i:                             ; preds = %460, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i115.i"
+  %.sroa.02.015.i.i8.i.i111.i = phi i64 [ %470, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i115.i" ], [ 0, %460 ]
+  %465 = phi ptr [ %469, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i115.i" ], [ %461, %460 ]
+  %.val8.i.i9.i.i112.i = load i32, ptr %465, align 4, !noalias !4882
+  %466 = getelementptr i8, ptr %465, i64 4
+  %.val9.i.i10.i.i113.i = load i32, ptr %466, align 4, !noalias !4882, !noundef !11
+  %467 = icmp eq i32 %.val9.i.i10.i.i113.i, %.val34.i56
+  %468 = icmp eq i32 %.val8.i.i9.i.i112.i, %.val33.i55
+  %or.cond.i.i11.i.i114.i = select i1 %467, i1 %468, i1 false
   br i1 %or.cond.i.i11.i.i114.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i117.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i115.i"
 
 "_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i115.i": ; preds = %.lr.ph.i.i7.i.i110.i
-  %493 = getelementptr inbounds nuw i8, ptr %489, i64 8
-  %494 = add nuw nsw i64 %.sroa.02.015.i.i8.i.i111.i, 1
-  %495 = icmp eq ptr %493, %487
-  br i1 %495, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i", label %.lr.ph.i.i7.i.i110.i
+  %469 = getelementptr inbounds nuw i8, ptr %465, i64 8
+  %470 = add nuw nsw i64 %.sroa.02.015.i.i8.i.i111.i, 1
+  %471 = icmp eq ptr %469, %463
+  br i1 %471, label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i", label %.lr.ph.i.i7.i.i110.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i117.i": ; preds = %.lr.ph.i.i7.i.i110.i
-  %496 = icmp ult i64 %.sroa.02.015.i.i8.i.i111.i, %486
-  call void @llvm.assume(i1 %496)
+  %472 = icmp ult i64 %.sroa.02.015.i.i8.i.i111.i, %462
+  call void @llvm.assume(i1 %472)
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i"
 
-"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i115.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i117.i", %481, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i108.i"
-  %.sroa.0.0.i13.i.i116.i = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i108.i" ], [ %.sroa.02.015.i.i8.i.i111.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i117.i" ], [ -1, %481 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i115.i" ]
-  %497 = icmp uge i64 %.sroa.0.0.i.i.i109.i, %.sroa.0.0.i13.i.i116.i
-  %498 = getelementptr inbounds i8, ptr %.sroa.43.248.i52, i64 -16
-  %.sroa.01.0.i120.i = select i1 %497, ptr %2, ptr %498
-  %499 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %.sroa.01.0.i120.i, i64 %.sroa.27.246.i54
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %499, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.247.i53, i64 16, i1 false), !alias.scope !4841, !noalias !4886
-  %500 = zext i1 %497 to i64
-  %501 = add i64 %.sroa.27.246.i54, %500
-  %502 = getelementptr inbounds nuw i8, ptr %.sroa.9.247.i53, i64 16
-  %503 = icmp ult ptr %502, %458
-  br i1 %503, label %.lr.ph50.i51, label %._crit_edge51.i43
+"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hf349705f7a4804e2E.exit119.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i115.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i117.i", %460, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i108.i"
+  %.sroa.0.0.i13.i.i116.i = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i108.i" ], [ %.sroa.02.015.i.i8.i.i111.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i117.i" ], [ -1, %460 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i115.i" ]
+  %473 = icmp uge i64 %.sroa.0.0.i.i.i109.i, %.sroa.0.0.i13.i.i116.i
+  %474 = getelementptr inbounds i8, ptr %.sroa.43.248.i52, i64 -16
+  %.sroa.01.0.i120.i = select i1 %473, ptr %2, ptr %474
+  %475 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %.sroa.01.0.i120.i, i64 %.sroa.27.246.i54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %475, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.247.i53, i64 16, i1 false), !alias.scope !4833, !noalias !4886
+  %476 = zext i1 %473 to i64
+  %477 = add i64 %.sroa.27.246.i54, %476
+  %478 = getelementptr inbounds nuw i8, ptr %.sroa.9.247.i53, i64 16
+  %479 = icmp ult ptr %478, %437
+  br i1 %479, label %.lr.ph50.i51, label %._crit_edge51.i43
 
-504:                                              ; preds = %._crit_edge51.i43
-  %505 = getelementptr inbounds i8, ptr %.sroa.43.2.lcssa.i46, i64 -16
-  %506 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %2, i64 %.sroa.27.2.lcssa.i44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %506, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.2.lcssa.i45, i64 16, i1 false), !alias.scope !4841, !noalias !4889
-  %507 = add i64 %.sroa.27.2.lcssa.i44, 1
-  %508 = getelementptr inbounds nuw i8, ptr %.sroa.9.2.lcssa.i45, i64 16
+480:                                              ; preds = %._crit_edge51.i43
+  %481 = getelementptr inbounds i8, ptr %.sroa.43.2.lcssa.i46, i64 -16
+  %482 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %2, i64 %.sroa.27.2.lcssa.i44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %482, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.2.lcssa.i45, i64 16, i1 false), !alias.scope !4833, !noalias !4889
+  %483 = add i64 %.sroa.27.2.lcssa.i44, 1
+  %484 = getelementptr inbounds nuw i8, ptr %.sroa.9.2.lcssa.i45, i64 16
   br label %285
 
-509:                                              ; preds = %._crit_edge51.i43
-  %510 = shl i64 %.sroa.27.2.lcssa.i44, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph144, ptr nonnull align 8 %2, i64 %510, i1 false), !alias.scope !4841
-  %511 = sub i64 %.sroa.12.0137, %.sroa.27.2.lcssa.i44
+485:                                              ; preds = %._crit_edge51.i43
+  %486 = shl i64 %.sroa.27.2.lcssa.i44, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph144, ptr nonnull align 8 %2, i64 %486, i1 false), !alias.scope !4833
+  %487 = sub i64 %.sroa.12.0137, %.sroa.27.2.lcssa.i44
   %.not.i47 = icmp eq i64 %.sroa.12.0137, %.sroa.27.2.lcssa.i44
-  %512 = getelementptr { ptr, { i32, [1 x i32] } }, ptr %.sroa.0.0.ph144, i64 %.sroa.27.2.lcssa.i44
+  %488 = getelementptr { ptr, { i32, [1 x i32] } }, ptr %.sroa.0.0.ph144, i64 %.sroa.27.2.lcssa.i44
   br i1 %.not.i47, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit.thread", label %.lr.ph57.i48
 
-.lr.ph57.i48:                                     ; preds = %509, %.lr.ph57.i48
-  %.sroa.05.055.i49 = phi i64 [ %513, %.lr.ph57.i48 ], [ 0, %509 ]
-  %513 = add nuw i64 %.sroa.05.055.i49, 1
-  %514 = xor i64 %.sroa.05.055.i49, -1
-  %515 = getelementptr { ptr, { i32, [1 x i32] } }, ptr %281, i64 %514
-  %516 = getelementptr { ptr, { i32, [1 x i32] } }, ptr %512, i64 %.sroa.05.055.i49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %516, ptr noundef nonnull align 8 dereferenceable(16) %515, i64 16, i1 false), !alias.scope !4841
-  %exitcond.not.i50 = icmp eq i64 %513, %511
+.lr.ph57.i48:                                     ; preds = %485, %.lr.ph57.i48
+  %.sroa.05.055.i49 = phi i64 [ %489, %.lr.ph57.i48 ], [ 0, %485 ]
+  %489 = add nuw i64 %.sroa.05.055.i49, 1
+  %490 = xor i64 %.sroa.05.055.i49, -1
+  %491 = getelementptr { ptr, { i32, [1 x i32] } }, ptr %281, i64 %490
+  %492 = getelementptr { ptr, { i32, [1 x i32] } }, ptr %488, i64 %.sroa.05.055.i49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %492, ptr noundef nonnull align 8 dereferenceable(16) %491, i64 16, i1 false), !alias.scope !4833
+  %exitcond.not.i50 = icmp eq i64 %489, %487
   br i1 %exitcond.not.i50, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17hcc3eb3eb6f0e2462E.exit, label %.lr.ph57.i48
 
 _ZN4core5slice4sort6stable9quicksort16stable_partition17hcc3eb3eb6f0e2462E.exit: ; preds = %.lr.ph57.i48
-  %517 = icmp ugt i64 %.sroa.27.2.lcssa.i44, %.sroa.12.0137
-  br i1 %517, label %518, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit"
+  %493 = icmp ugt i64 %.sroa.27.2.lcssa.i44, %.sroa.12.0137
+  br i1 %493, label %494, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit"
 
-"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit.thread": ; preds = %509
+"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit.thread": ; preds = %485
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %.outer._crit_edge
 
-518:                                              ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17hcc3eb3eb6f0e2462E.exit
+494:                                              ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17hcc3eb3eb6f0e2462E.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.27.2.lcssa.i44, i64 noundef range(i64 33, 0) %.sroa.12.0137, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a70d8ebad099a614fc692634f24baa01.27) #27, !noalias !4892
   unreachable
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1395b303705d452E.exit": ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17hcc3eb3eb6f0e2462E.exit
-  %519 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %.sroa.0.0.ph144, i64 %.sroa.27.2.lcssa.i44
+  %495 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %.sroa.0.0.ph144, i64 %.sroa.27.2.lcssa.i44
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %520 = icmp ult i64 %511, 33
-  br i1 %520, label %.outer._crit_edge, label %.lr.ph
+  %496 = icmp ult i64 %487, 33
+  br i1 %496, label %.outer._crit_edge, label %.lr.ph
 
-521:                                              ; preds = %278
+497:                                              ; preds = %278
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   store ptr @anon.a70d8ebad099a614fc692634f24baa01.25, ptr %8, align 8
-  %522 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 1, ptr %522, align 8
-  %523 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr null, ptr %523, align 8
-  %524 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %524, align 8
-  %525 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 0, ptr %525, align 8
+  %498 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 1, ptr %498, align 8
+  %499 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr null, ptr %499, align 8
+  %500 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %500, align 8
+  %501 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 0, ptr %501, align 8
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a70d8ebad099a614fc692634f24baa01.26) #27
   unreachable
 
-526:                                              ; preds = %278
-  %527 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %.sroa.0.0.ph144, i64 %.sroa.27.2.lcssa.i
-  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h88677cd39bab8f0aE(ptr noalias noundef nonnull align 8 %527, i64 noundef %270, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %18, ptr noalias noundef nonnull readonly align 8 dereferenceable_or_null(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
+502:                                              ; preds = %278
+  %503 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %.sroa.0.0.ph144, i64 %.sroa.27.2.lcssa.i
+  call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h88677cd39bab8f0aE(ptr noalias noundef nonnull align 8 %503, i64 noundef %270, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %18, ptr noalias noundef nonnull readonly align 8 dereferenceable_or_null(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %528 = icmp ult i64 %.sroa.27.2.lcssa.i, 33
-  br i1 %528, label %.outer._crit_edge, label %14
+  %504 = icmp ult i64 %.sroa.27.2.lcssa.i, 33
+  br i1 %504, label %.outer._crit_edge, label %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24633,12 +24613,12 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h6235bce8c46cda69E.exit: ; preds
   %.val11.i = load ptr, ptr %59, align 8, !alias.scope !4902, !noalias !4905
   %.val12.i = load i64, ptr %60, align 8, !alias.scope !4902, !noalias !4905
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11), !noalias !4907
-  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %11, ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val10.i), !noalias !4905
+  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %11, ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val10.i), !noalias !4907
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10), !noalias !4907
   %68 = icmp ne ptr %.val11.i, null
   call void @llvm.assume(i1 %68)
-  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %10, ptr noalias noundef nonnull readonly align 1 %.val11.i, i64 noundef %.val12.i), !noalias !4905
-  %69 = call noundef range(i8 -1, 2) i8 @_ZN3std4path18compare_components17h5f4ebbd8e9dc344dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %10), !range !4895, !noalias !4905
+  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %10, ptr noalias noundef nonnull readonly align 1 %.val11.i, i64 noundef %.val12.i), !noalias !4907
+  %69 = call noundef range(i8 -1, 2) i8 @_ZN3std4path18compare_components17h5f4ebbd8e9dc344dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %10), !range !4895, !noalias !4907
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10), !noalias !4907
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11), !noalias !4907
   %70 = icmp eq i8 %69, -1
@@ -24732,12 +24712,12 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h6235bce8c46cda69E.exit: ; preds
   %.val11.i51 = load ptr, ptr %96, align 8, !alias.scope !4914, !noalias !4917, !nonnull !11, !noundef !11
   %.val12.i52 = load i64, ptr %97, align 8, !alias.scope !4914, !noalias !4917, !noundef !11
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !4919
-  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %9, ptr noalias noundef nonnull readonly align 1 %.val11.i51, i64 noundef %.val12.i52), !noalias !4917
+  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %9, ptr noalias noundef nonnull readonly align 1 %.val11.i51, i64 noundef %.val12.i52), !noalias !4919
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !4919
   %105 = icmp ne ptr %.val.i49, null
   call void @llvm.assume(i1 %105)
-  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %8, ptr noalias noundef nonnull readonly align 1 %.val.i49, i64 noundef %.val10.i50), !noalias !4917
-  %106 = call noundef range(i8 -1, 2) i8 @_ZN3std4path18compare_components17h5f4ebbd8e9dc344dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %8), !range !4895, !noalias !4917
+  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %8, ptr noalias noundef nonnull readonly align 1 %.val.i49, i64 noundef %.val10.i50), !noalias !4919
+  %106 = call noundef range(i8 -1, 2) i8 @_ZN3std4path18compare_components17h5f4ebbd8e9dc344dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %8), !range !4895, !noalias !4919
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8), !noalias !4919
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !4919
   %107 = icmp ne i8 %106, -1
@@ -24993,16 +24973,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
   %.val16.i = load ptr, ptr %23, align 8, !alias.scope !4929, !noalias !4932
   %.val7.i.i = load ptr, ptr %.val32, align 8, !noalias !4934, !nonnull !11, !align !4500, !noundef !11
   %.val8.i.i = load ptr, ptr %71, align 8, !noalias !4934
-  %79 = load i32, ptr %.val7.i.i, align 4, !noalias !4932, !noundef !11
+  %79 = load i32, ptr %.val7.i.i, align 4, !noalias !4934, !noundef !11
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i", label %81
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %.val7.i.i, i64 4
-  %83 = load i32, ptr %82, align 4, !noalias !4932
+  %83 = load i32, ptr %82, align 4, !noalias !4934
   %84 = getelementptr i8, ptr %.val14.i, i64 192
-  %.val.i.i.i = load ptr, ptr %84, align 8, !noalias !4932
-  %85 = call { i32, i32 } %.val.i.i.i(ptr noundef nonnull align 1 %.val13.i), !noalias !4932
+  %.val.i.i.i = load ptr, ptr %84, align 8, !noalias !4934
+  %85 = call { i32, i32 } %.val.i.i.i(ptr noundef nonnull align 1 %.val13.i), !noalias !4934
   %86 = extractvalue { i32, i32 } %85, 1
   %87 = icmp eq i32 %83, %86
   br i1 %87, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i"
@@ -25017,10 +24997,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i.i", %81, %77
   %91 = icmp ne ptr %.val8.i.i, null
   call void @llvm.assume(i1 %91)
-  %92 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i), !noalias !4932
+  %92 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i), !noalias !4934
   %93 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 128
-  %94 = load ptr, ptr %93, align 8, !invariant.load !11, !noalias !4932, !nonnull !11
-  %95 = call noundef zeroext i1 %94(ptr noundef nonnull align 1 %.val13.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %92), !noalias !4932
+  %94 = load ptr, ptr %93, align 8, !invariant.load !11, !noalias !4934, !nonnull !11
+  %95 = call noundef zeroext i1 %94(ptr noundef nonnull align 1 %.val13.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %92), !noalias !4934
   %96 = xor i1 %95, true
   %97 = zext i1 %96 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i"
@@ -25033,16 +25013,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
   call void @llvm.assume(i1 %98)
   %99 = icmp ne ptr %.val16.i, null
   call void @llvm.assume(i1 %99)
-  %100 = load i32, ptr %.val3.i.i, align 4, !noalias !4932, !noundef !11
+  %100 = load i32, ptr %.val3.i.i, align 4, !noalias !4934, !noundef !11
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i.i", label %102
 
 102:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i"
   %103 = getelementptr inbounds nuw i8, ptr %.val3.i.i, i64 4
-  %104 = load i32, ptr %103, align 4, !noalias !4932
+  %104 = load i32, ptr %103, align 4, !noalias !4934
   %105 = getelementptr i8, ptr %.val16.i, i64 192
-  %.val.i11.i.i = load ptr, ptr %105, align 8, !noalias !4932
-  %106 = call { i32, i32 } %.val.i11.i.i(ptr noundef nonnull align 1 %.val15.i), !noalias !4932
+  %.val.i11.i.i = load ptr, ptr %105, align 8, !noalias !4934
+  %106 = call { i32, i32 } %.val.i11.i.i(ptr noundef nonnull align 1 %.val15.i), !noalias !4934
   %107 = extractvalue { i32, i32 } %106, 1
   %108 = icmp eq i32 %104, %107
   br i1 %108, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i14.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i.i"
@@ -25057,10 +25037,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i14.i.i", %102, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i"
   %112 = icmp ne ptr %.val4.i.i, null
   call void @llvm.assume(i1 %112)
-  %113 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i), !noalias !4932
+  %113 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i), !noalias !4934
   %114 = getelementptr inbounds nuw i8, ptr %.val16.i, i64 128
-  %115 = load ptr, ptr %114, align 8, !invariant.load !11, !noalias !4932, !nonnull !11
-  %116 = call noundef zeroext i1 %115(ptr noundef nonnull align 1 %.val15.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %113), !noalias !4932
+  %115 = load ptr, ptr %114, align 8, !invariant.load !11, !noalias !4934, !nonnull !11
+  %116 = call noundef zeroext i1 %115(ptr noundef nonnull align 1 %.val15.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %113), !noalias !4934
   %117 = xor i1 %116, true
   %.neg.i.i = sext i1 %117 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5f9ce4546c45d8e0E.exit.i"
@@ -25083,16 +25063,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
   %.val21.i = load ptr, ptr %23, align 8, !alias.scope !4929, !noalias !4932
   %.val7.i37.i = load ptr, ptr %.val32, align 8, !noalias !4934, !nonnull !11, !align !4500, !noundef !11
   %.val8.i38.i = load ptr, ptr %71, align 8, !noalias !4934
-  %126 = load i32, ptr %.val7.i37.i, align 4, !noalias !4932, !noundef !11
+  %126 = load i32, ptr %.val7.i37.i, align 4, !noalias !4934, !noundef !11
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i40.i", label %128
 
 128:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5f9ce4546c45d8e0E.exit.i"
   %129 = getelementptr inbounds nuw i8, ptr %.val7.i37.i, i64 4
-  %130 = load i32, ptr %129, align 4, !noalias !4932
+  %130 = load i32, ptr %129, align 4, !noalias !4934
   %131 = getelementptr i8, ptr %.val19.i, i64 192
-  %.val.i.i39.i = load ptr, ptr %131, align 8, !noalias !4932
-  %132 = call { i32, i32 } %.val.i.i39.i(ptr noundef nonnull align 1 %.val18.i), !noalias !4932
+  %.val.i.i39.i = load ptr, ptr %131, align 8, !noalias !4934
+  %132 = call { i32, i32 } %.val.i.i39.i(ptr noundef nonnull align 1 %.val18.i), !noalias !4934
   %133 = extractvalue { i32, i32 } %132, 1
   %134 = icmp eq i32 %130, %133
   br i1 %134, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i50.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i40.i"
@@ -25107,10 +25087,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i40.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i50.i", %128, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5f9ce4546c45d8e0E.exit.i"
   %138 = icmp ne ptr %.val8.i38.i, null
   call void @llvm.assume(i1 %138)
-  %139 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i38.i), !noalias !4932
+  %139 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i38.i), !noalias !4934
   %140 = getelementptr inbounds nuw i8, ptr %.val19.i, i64 128
-  %141 = load ptr, ptr %140, align 8, !invariant.load !11, !noalias !4932, !nonnull !11
-  %142 = call noundef zeroext i1 %141(ptr noundef nonnull align 1 %.val18.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %139), !noalias !4932
+  %141 = load ptr, ptr %140, align 8, !invariant.load !11, !noalias !4934, !nonnull !11
+  %142 = call noundef zeroext i1 %141(ptr noundef nonnull align 1 %.val18.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %139), !noalias !4934
   %143 = xor i1 %142, true
   %144 = zext i1 %143 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i41.i"
@@ -25123,16 +25103,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
   call void @llvm.assume(i1 %145)
   %146 = icmp ne ptr %.val21.i, null
   call void @llvm.assume(i1 %146)
-  %147 = load i32, ptr %.val3.i43.i, align 4, !noalias !4932, !noundef !11
+  %147 = load i32, ptr %.val3.i43.i, align 4, !noalias !4934, !noundef !11
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i46.i", label %149
 
 149:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i41.i"
   %150 = getelementptr inbounds nuw i8, ptr %.val3.i43.i, i64 4
-  %151 = load i32, ptr %150, align 4, !noalias !4932
+  %151 = load i32, ptr %150, align 4, !noalias !4934
   %152 = getelementptr i8, ptr %.val21.i, i64 192
-  %.val.i11.i45.i = load ptr, ptr %152, align 8, !noalias !4932
-  %153 = call { i32, i32 } %.val.i11.i45.i(ptr noundef nonnull align 1 %.val20.i), !noalias !4932
+  %.val.i11.i45.i = load ptr, ptr %152, align 8, !noalias !4934
+  %153 = call { i32, i32 } %.val.i11.i45.i(ptr noundef nonnull align 1 %.val20.i), !noalias !4934
   %154 = extractvalue { i32, i32 } %153, 1
   %155 = icmp eq i32 %151, %154
   br i1 %155, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i14.i49.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i46.i"
@@ -25147,10 +25127,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i46.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i14.i49.i", %149, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i41.i"
   %159 = icmp ne ptr %.val4.i44.i, null
   call void @llvm.assume(i1 %159)
-  %160 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i44.i), !noalias !4932
+  %160 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i44.i), !noalias !4934
   %161 = getelementptr inbounds nuw i8, ptr %.val21.i, i64 128
-  %162 = load ptr, ptr %161, align 8, !invariant.load !11, !noalias !4932, !nonnull !11
-  %163 = call noundef zeroext i1 %162(ptr noundef nonnull align 1 %.val20.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %160), !noalias !4932
+  %162 = load ptr, ptr %161, align 8, !invariant.load !11, !noalias !4934, !nonnull !11
+  %163 = call noundef zeroext i1 %162(ptr noundef nonnull align 1 %.val20.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %160), !noalias !4934
   %164 = xor i1 %163, true
   %.neg.i47.i = sext i1 %164 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5f9ce4546c45d8e0E.exit51.i"
@@ -25173,16 +25153,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
   %.val26.i = load ptr, ptr %23, align 8, !alias.scope !4929, !noalias !4932
   %.val7.i53.i = load ptr, ptr %.val32, align 8, !noalias !4934, !nonnull !11, !align !4500, !noundef !11
   %.val8.i54.i = load ptr, ptr %71, align 8, !noalias !4934
-  %173 = load i32, ptr %.val7.i53.i, align 4, !noalias !4932, !noundef !11
+  %173 = load i32, ptr %.val7.i53.i, align 4, !noalias !4934, !noundef !11
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i56.i", label %175
 
 175:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5f9ce4546c45d8e0E.exit51.i"
   %176 = getelementptr inbounds nuw i8, ptr %.val7.i53.i, i64 4
-  %177 = load i32, ptr %176, align 4, !noalias !4932
+  %177 = load i32, ptr %176, align 4, !noalias !4934
   %178 = getelementptr i8, ptr %.val24.i, i64 192
-  %.val.i.i55.i = load ptr, ptr %178, align 8, !noalias !4932
-  %179 = call { i32, i32 } %.val.i.i55.i(ptr noundef nonnull align 1 %.val23.i), !noalias !4932
+  %.val.i.i55.i = load ptr, ptr %178, align 8, !noalias !4934
+  %179 = call { i32, i32 } %.val.i.i55.i(ptr noundef nonnull align 1 %.val23.i), !noalias !4934
   %180 = extractvalue { i32, i32 } %179, 1
   %181 = icmp eq i32 %177, %180
   br i1 %181, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i66.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i56.i"
@@ -25197,10 +25177,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i56.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i66.i", %175, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5f9ce4546c45d8e0E.exit51.i"
   %185 = icmp ne ptr %.val8.i54.i, null
   call void @llvm.assume(i1 %185)
-  %186 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i54.i), !noalias !4932
+  %186 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i54.i), !noalias !4934
   %187 = getelementptr inbounds nuw i8, ptr %.val24.i, i64 128
-  %188 = load ptr, ptr %187, align 8, !invariant.load !11, !noalias !4932, !nonnull !11
-  %189 = call noundef zeroext i1 %188(ptr noundef nonnull align 1 %.val23.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %186), !noalias !4932
+  %188 = load ptr, ptr %187, align 8, !invariant.load !11, !noalias !4934, !nonnull !11
+  %189 = call noundef zeroext i1 %188(ptr noundef nonnull align 1 %.val23.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %186), !noalias !4934
   %190 = xor i1 %189, true
   %191 = zext i1 %190 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i57.i"
@@ -25213,16 +25193,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
   call void @llvm.assume(i1 %192)
   %193 = icmp ne ptr %.val26.i, null
   call void @llvm.assume(i1 %193)
-  %194 = load i32, ptr %.val3.i59.i, align 4, !noalias !4932, !noundef !11
+  %194 = load i32, ptr %.val3.i59.i, align 4, !noalias !4934, !noundef !11
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i62.i", label %196
 
 196:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i57.i"
   %197 = getelementptr inbounds nuw i8, ptr %.val3.i59.i, i64 4
-  %198 = load i32, ptr %197, align 4, !noalias !4932
+  %198 = load i32, ptr %197, align 4, !noalias !4934
   %199 = getelementptr i8, ptr %.val26.i, i64 192
-  %.val.i11.i61.i = load ptr, ptr %199, align 8, !noalias !4932
-  %200 = call { i32, i32 } %.val.i11.i61.i(ptr noundef nonnull align 1 %.val25.i), !noalias !4932
+  %.val.i11.i61.i = load ptr, ptr %199, align 8, !noalias !4934
+  %200 = call { i32, i32 } %.val.i11.i61.i(ptr noundef nonnull align 1 %.val25.i), !noalias !4934
   %201 = extractvalue { i32, i32 } %200, 1
   %202 = icmp eq i32 %198, %201
   br i1 %202, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i14.i65.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i62.i"
@@ -25237,10 +25217,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i62.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i14.i65.i", %196, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i57.i"
   %206 = icmp ne ptr %.val4.i60.i, null
   call void @llvm.assume(i1 %206)
-  %207 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i60.i), !noalias !4932
+  %207 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i60.i), !noalias !4934
   %208 = getelementptr inbounds nuw i8, ptr %.val26.i, i64 128
-  %209 = load ptr, ptr %208, align 8, !invariant.load !11, !noalias !4932, !nonnull !11
-  %210 = call noundef zeroext i1 %209(ptr noundef nonnull align 1 %.val25.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %207), !noalias !4932
+  %209 = load ptr, ptr %208, align 8, !invariant.load !11, !noalias !4934, !nonnull !11
+  %210 = call noundef zeroext i1 %209(ptr noundef nonnull align 1 %.val25.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %207), !noalias !4934
   %211 = xor i1 %210, true
   %.neg.i63.i = sext i1 %211 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5f9ce4546c45d8e0E.exit67.i"
@@ -25263,16 +25243,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
   %.val31.i = load ptr, ptr %23, align 8, !alias.scope !4929, !noalias !4932
   %.val7.i69.i = load ptr, ptr %.val32, align 8, !noalias !4934, !nonnull !11, !align !4500, !noundef !11
   %.val8.i70.i = load ptr, ptr %71, align 8, !noalias !4934
-  %220 = load i32, ptr %.val7.i69.i, align 4, !noalias !4932, !noundef !11
+  %220 = load i32, ptr %.val7.i69.i, align 4, !noalias !4934, !noundef !11
   %221 = icmp eq i32 %220, 0
   br i1 %221, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i72.i", label %222
 
 222:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5f9ce4546c45d8e0E.exit67.i"
   %223 = getelementptr inbounds nuw i8, ptr %.val7.i69.i, i64 4
-  %224 = load i32, ptr %223, align 4, !noalias !4932
+  %224 = load i32, ptr %223, align 4, !noalias !4934
   %225 = getelementptr i8, ptr %.val29.i, i64 192
-  %.val.i.i71.i = load ptr, ptr %225, align 8, !noalias !4932
-  %226 = call { i32, i32 } %.val.i.i71.i(ptr noundef nonnull align 1 %.val28.i), !noalias !4932
+  %.val.i.i71.i = load ptr, ptr %225, align 8, !noalias !4934
+  %226 = call { i32, i32 } %.val.i.i71.i(ptr noundef nonnull align 1 %.val28.i), !noalias !4934
   %227 = extractvalue { i32, i32 } %226, 1
   %228 = icmp eq i32 %224, %227
   br i1 %228, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i82.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i72.i"
@@ -25287,10 +25267,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i72.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i82.i", %222, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5f9ce4546c45d8e0E.exit67.i"
   %232 = icmp ne ptr %.val8.i70.i, null
   call void @llvm.assume(i1 %232)
-  %233 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i70.i), !noalias !4932
+  %233 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i70.i), !noalias !4934
   %234 = getelementptr inbounds nuw i8, ptr %.val29.i, i64 128
-  %235 = load ptr, ptr %234, align 8, !invariant.load !11, !noalias !4932, !nonnull !11
-  %236 = call noundef zeroext i1 %235(ptr noundef nonnull align 1 %.val28.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %233), !noalias !4932
+  %235 = load ptr, ptr %234, align 8, !invariant.load !11, !noalias !4934, !nonnull !11
+  %236 = call noundef zeroext i1 %235(ptr noundef nonnull align 1 %.val28.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %233), !noalias !4934
   %237 = xor i1 %236, true
   %238 = zext i1 %237 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i73.i"
@@ -25303,16 +25283,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
   call void @llvm.assume(i1 %239)
   %240 = icmp ne ptr %.val31.i, null
   call void @llvm.assume(i1 %240)
-  %241 = load i32, ptr %.val3.i75.i, align 4, !noalias !4932, !noundef !11
+  %241 = load i32, ptr %.val3.i75.i, align 4, !noalias !4934, !noundef !11
   %242 = icmp eq i32 %241, 0
   br i1 %242, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i78.i", label %243
 
 243:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i73.i"
   %244 = getelementptr inbounds nuw i8, ptr %.val3.i75.i, i64 4
-  %245 = load i32, ptr %244, align 4, !noalias !4932
+  %245 = load i32, ptr %244, align 4, !noalias !4934
   %246 = getelementptr i8, ptr %.val31.i, i64 192
-  %.val.i11.i77.i = load ptr, ptr %246, align 8, !noalias !4932
-  %247 = call { i32, i32 } %.val.i11.i77.i(ptr noundef nonnull align 1 %.val30.i), !noalias !4932
+  %.val.i11.i77.i = load ptr, ptr %246, align 8, !noalias !4934
+  %247 = call { i32, i32 } %.val.i11.i77.i(ptr noundef nonnull align 1 %.val30.i), !noalias !4934
   %248 = extractvalue { i32, i32 } %247, 1
   %249 = icmp eq i32 %245, %248
   br i1 %249, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i14.i81.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i78.i"
@@ -25327,10 +25307,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i78.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i14.i81.i", %243, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i73.i"
   %253 = icmp ne ptr %.val4.i76.i, null
   call void @llvm.assume(i1 %253)
-  %254 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i76.i), !noalias !4932
+  %254 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i76.i), !noalias !4934
   %255 = getelementptr inbounds nuw i8, ptr %.val31.i, i64 128
-  %256 = load ptr, ptr %255, align 8, !invariant.load !11, !noalias !4932, !nonnull !11
-  %257 = call noundef zeroext i1 %256(ptr noundef nonnull align 1 %.val30.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %254), !noalias !4932
+  %256 = load ptr, ptr %255, align 8, !invariant.load !11, !noalias !4934, !nonnull !11
+  %257 = call noundef zeroext i1 %256(ptr noundef nonnull align 1 %.val30.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %254), !noalias !4934
   %258 = xor i1 %257, true
   %.neg.i79.i = sext i1 %258 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5f9ce4546c45d8e0E.exit83.i"
@@ -25379,16 +25359,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
   %.val36.i = load ptr, ptr %23, align 8, !alias.scope !4929, !noalias !4932
   %.val7.i85.i = load ptr, ptr %.val32, align 8, !noalias !4934, !nonnull !11, !align !4500, !noundef !11
   %.val8.i86.i = load ptr, ptr %71, align 8, !noalias !4934
-  %272 = load i32, ptr %.val7.i85.i, align 4, !noalias !4932, !noundef !11
+  %272 = load i32, ptr %.val7.i85.i, align 4, !noalias !4934, !noundef !11
   %273 = icmp eq i32 %272, 0
   br i1 %273, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i88.i", label %274
 
 274:                                              ; preds = %270
   %275 = getelementptr inbounds nuw i8, ptr %.val7.i85.i, i64 4
-  %276 = load i32, ptr %275, align 4, !noalias !4932
+  %276 = load i32, ptr %275, align 4, !noalias !4934
   %277 = getelementptr i8, ptr %.val34.i, i64 192
-  %.val.i.i87.i = load ptr, ptr %277, align 8, !noalias !4932
-  %278 = call { i32, i32 } %.val.i.i87.i(ptr noundef nonnull align 1 %.val33.i), !noalias !4932
+  %.val.i.i87.i = load ptr, ptr %277, align 8, !noalias !4934
+  %278 = call { i32, i32 } %.val.i.i87.i(ptr noundef nonnull align 1 %.val33.i), !noalias !4934
   %279 = extractvalue { i32, i32 } %278, 1
   %280 = icmp eq i32 %276, %279
   br i1 %280, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i98.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i88.i"
@@ -25403,10 +25383,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i88.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i98.i", %274, %270
   %284 = icmp ne ptr %.val8.i86.i, null
   call void @llvm.assume(i1 %284)
-  %285 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i86.i), !noalias !4932
+  %285 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i86.i), !noalias !4934
   %286 = getelementptr inbounds nuw i8, ptr %.val34.i, i64 128
-  %287 = load ptr, ptr %286, align 8, !invariant.load !11, !noalias !4932, !nonnull !11
-  %288 = call noundef zeroext i1 %287(ptr noundef nonnull align 1 %.val33.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %285), !noalias !4932
+  %287 = load ptr, ptr %286, align 8, !invariant.load !11, !noalias !4934, !nonnull !11
+  %288 = call noundef zeroext i1 %287(ptr noundef nonnull align 1 %.val33.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %285), !noalias !4934
   %289 = xor i1 %288, true
   %290 = zext i1 %289 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i89.i"
@@ -25419,16 +25399,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
   call void @llvm.assume(i1 %291)
   %292 = icmp ne ptr %.val36.i, null
   call void @llvm.assume(i1 %292)
-  %293 = load i32, ptr %.val3.i91.i, align 4, !noalias !4932, !noundef !11
+  %293 = load i32, ptr %.val3.i91.i, align 4, !noalias !4934, !noundef !11
   %294 = icmp eq i32 %293, 0
   br i1 %294, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i94.i", label %295
 
 295:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i89.i"
   %296 = getelementptr inbounds nuw i8, ptr %.val3.i91.i, i64 4
-  %297 = load i32, ptr %296, align 4, !noalias !4932
+  %297 = load i32, ptr %296, align 4, !noalias !4934
   %298 = getelementptr i8, ptr %.val36.i, i64 192
-  %.val.i11.i93.i = load ptr, ptr %298, align 8, !noalias !4932
-  %299 = call { i32, i32 } %.val.i11.i93.i(ptr noundef nonnull align 1 %.val35.i), !noalias !4932
+  %.val.i11.i93.i = load ptr, ptr %298, align 8, !noalias !4934
+  %299 = call { i32, i32 } %.val.i11.i93.i(ptr noundef nonnull align 1 %.val35.i), !noalias !4934
   %300 = extractvalue { i32, i32 } %299, 1
   %301 = icmp eq i32 %297, %300
   br i1 %301, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i14.i97.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i94.i"
@@ -25443,10 +25423,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i94.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i14.i97.i", %295, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i89.i"
   %305 = icmp ne ptr %.val4.i92.i, null
   call void @llvm.assume(i1 %305)
-  %306 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i92.i), !noalias !4932
+  %306 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i92.i), !noalias !4934
   %307 = getelementptr inbounds nuw i8, ptr %.val36.i, i64 128
-  %308 = load ptr, ptr %307, align 8, !invariant.load !11, !noalias !4932, !nonnull !11
-  %309 = call noundef zeroext i1 %308(ptr noundef nonnull align 1 %.val35.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %306), !noalias !4932
+  %308 = load ptr, ptr %307, align 8, !invariant.load !11, !noalias !4934, !nonnull !11
+  %309 = call noundef zeroext i1 %308(ptr noundef nonnull align 1 %.val35.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %306), !noalias !4934
   %310 = xor i1 %309, true
   %.neg.i95.i = sext i1 %310 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5f9ce4546c45d8e0E.exit99.i"
@@ -25535,19 +25515,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
   %.val15.i65 = load ptr, ptr %21, align 8, !alias.scope !4953, !noalias !4956, !nonnull !11, !align !166, !noundef !11
   %.val16.i66 = load ptr, ptr %23, align 8, !alias.scope !4953, !noalias !4956, !nonnull !11, !align !164, !noundef !11
   %.val.i.i67 = load ptr, ptr %6, align 8, !noalias !4958, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !4956, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !4958, !nonnull !11, !align !4500, !noundef !11
   %343 = getelementptr i8, ptr %.val.i.i67, i64 8
-  %.val8.i.i.i = load ptr, ptr %343, align 8, !noalias !4956
-  %344 = load i32, ptr %.val7.i.i.i, align 4, !noalias !4956, !noundef !11
+  %.val8.i.i.i = load ptr, ptr %343, align 8, !noalias !4958
+  %344 = load i32, ptr %.val7.i.i.i, align 4, !noalias !4958, !noundef !11
   %345 = icmp eq i32 %344, 0
   br i1 %345, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i.i", label %346
 
 346:                                              ; preds = %.lr.ph.i59
   %347 = getelementptr inbounds nuw i8, ptr %.val7.i.i.i, i64 4
-  %348 = load i32, ptr %347, align 4, !noalias !4956
+  %348 = load i32, ptr %347, align 4, !noalias !4958
   %349 = getelementptr i8, ptr %.val16.i66, i64 192
-  %.val.i.i.i.i = load ptr, ptr %349, align 8, !noalias !4956
-  %350 = call { i32, i32 } %.val.i.i.i.i(ptr noundef nonnull align 1 %.val15.i65), !noalias !4956
+  %.val.i.i.i.i = load ptr, ptr %349, align 8, !noalias !4958
+  %350 = call { i32, i32 } %.val.i.i.i.i(ptr noundef nonnull align 1 %.val15.i65), !noalias !4958
   %351 = extractvalue { i32, i32 } %350, 1
   %352 = icmp eq i32 %348, %351
   br i1 %352, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i.i"
@@ -25562,32 +25542,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i.i.i", %346, %.lr.ph.i59
   %356 = icmp ne ptr %.val8.i.i.i, null
   call void @llvm.assume(i1 %356)
-  %357 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i.i), !noalias !4956
+  %357 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i.i), !noalias !4958
   %358 = getelementptr inbounds nuw i8, ptr %.val16.i66, i64 128
-  %359 = load ptr, ptr %358, align 8, !invariant.load !11, !noalias !4956, !nonnull !11
-  %360 = call noundef zeroext i1 %359(ptr noundef nonnull align 1 %.val15.i65, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %357), !noalias !4956
+  %359 = load ptr, ptr %358, align 8, !invariant.load !11, !noalias !4958, !nonnull !11
+  %360 = call noundef zeroext i1 %359(ptr noundef nonnull align 1 %.val15.i65, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %357), !noalias !4958
   %361 = xor i1 %360, true
   %362 = zext i1 %361 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i.i.i"
   %.sroa.0.0.i.i.i.i = phi i8 [ %362, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i.i.i" ]
-  %.val3.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !4956, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i.i = load ptr, ptr %343, align 8, !noalias !4956
+  %.val3.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !4958, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i.i = load ptr, ptr %343, align 8, !noalias !4958
   %363 = icmp ne ptr %.val13.i63, null
   call void @llvm.assume(i1 %363)
   %364 = icmp ne ptr %.val14.i64, null
   call void @llvm.assume(i1 %364)
-  %365 = load i32, ptr %.val3.i.i.i, align 4, !noalias !4956, !noundef !11
+  %365 = load i32, ptr %.val3.i.i.i, align 4, !noalias !4958, !noundef !11
   %366 = icmp eq i32 %365, 0
   br i1 %366, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i.i.i", label %367
 
 367:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i.i"
   %368 = getelementptr inbounds nuw i8, ptr %.val3.i.i.i, i64 4
-  %369 = load i32, ptr %368, align 4, !noalias !4956
+  %369 = load i32, ptr %368, align 4, !noalias !4958
   %370 = getelementptr i8, ptr %.val14.i64, i64 192
-  %.val.i11.i.i.i = load ptr, ptr %370, align 8, !noalias !4956
-  %371 = call { i32, i32 } %.val.i11.i.i.i(ptr noundef nonnull align 1 %.val13.i63), !noalias !4956
+  %.val.i11.i.i.i = load ptr, ptr %370, align 8, !noalias !4958
+  %371 = call { i32, i32 } %.val.i11.i.i.i(ptr noundef nonnull align 1 %.val13.i63), !noalias !4958
   %372 = extractvalue { i32, i32 } %371, 1
   %373 = icmp eq i32 %369, %372
   br i1 %373, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i14.i.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i.i.i"
@@ -25602,10 +25582,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i14.i.i.i", %367, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i.i"
   %377 = icmp ne ptr %.val4.i.i.i, null
   call void @llvm.assume(i1 %377)
-  %378 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i.i), !noalias !4956
+  %378 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i.i), !noalias !4958
   %379 = getelementptr inbounds nuw i8, ptr %.val14.i64, i64 128
-  %380 = load ptr, ptr %379, align 8, !invariant.load !11, !noalias !4956, !nonnull !11
-  %381 = call noundef zeroext i1 %380(ptr noundef nonnull align 1 %.val13.i63, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %378), !noalias !4956
+  %380 = load ptr, ptr %379, align 8, !invariant.load !11, !noalias !4958, !nonnull !11
+  %381 = call noundef zeroext i1 %380(ptr noundef nonnull align 1 %.val13.i63, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %378), !noalias !4958
   %382 = xor i1 %381, true
   %.neg.i.i.i = sext i1 %382 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h42712c088eb50acfE.exit.i"
@@ -25627,19 +25607,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
   %.val20.i71 = load ptr, ptr %21, align 8, !alias.scope !4953, !noalias !4956, !nonnull !11, !align !166, !noundef !11
   %.val21.i72 = load ptr, ptr %23, align 8, !alias.scope !4953, !noalias !4956, !nonnull !11, !align !164, !noundef !11
   %.val.i37.i = load ptr, ptr %6, align 8, !noalias !4958, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i38.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4956, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i38.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4958, !nonnull !11, !align !4500, !noundef !11
   %391 = getelementptr i8, ptr %.val.i37.i, i64 8
-  %.val8.i.i39.i = load ptr, ptr %391, align 8, !noalias !4956
-  %392 = load i32, ptr %.val7.i.i38.i, align 4, !noalias !4956, !noundef !11
+  %.val8.i.i39.i = load ptr, ptr %391, align 8, !noalias !4958
+  %392 = load i32, ptr %.val7.i.i38.i, align 4, !noalias !4958, !noundef !11
   %393 = icmp eq i32 %392, 0
   br i1 %393, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i41.i", label %394
 
 394:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h42712c088eb50acfE.exit.i"
   %395 = getelementptr inbounds nuw i8, ptr %.val7.i.i38.i, i64 4
-  %396 = load i32, ptr %395, align 4, !noalias !4956
+  %396 = load i32, ptr %395, align 4, !noalias !4958
   %397 = getelementptr i8, ptr %.val21.i72, i64 192
-  %.val.i.i.i40.i = load ptr, ptr %397, align 8, !noalias !4956
-  %398 = call { i32, i32 } %.val.i.i.i40.i(ptr noundef nonnull align 1 %.val20.i71), !noalias !4956
+  %.val.i.i.i40.i = load ptr, ptr %397, align 8, !noalias !4958
+  %398 = call { i32, i32 } %.val.i.i.i40.i(ptr noundef nonnull align 1 %.val20.i71), !noalias !4958
   %399 = extractvalue { i32, i32 } %398, 1
   %400 = icmp eq i32 %396, %399
   br i1 %400, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i.i51.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i41.i"
@@ -25654,32 +25634,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i41.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i.i51.i", %394, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h42712c088eb50acfE.exit.i"
   %404 = icmp ne ptr %.val8.i.i39.i, null
   call void @llvm.assume(i1 %404)
-  %405 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i39.i), !noalias !4956
+  %405 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i39.i), !noalias !4958
   %406 = getelementptr inbounds nuw i8, ptr %.val21.i72, i64 128
-  %407 = load ptr, ptr %406, align 8, !invariant.load !11, !noalias !4956, !nonnull !11
-  %408 = call noundef zeroext i1 %407(ptr noundef nonnull align 1 %.val20.i71, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %405), !noalias !4956
+  %407 = load ptr, ptr %406, align 8, !invariant.load !11, !noalias !4958, !nonnull !11
+  %408 = call noundef zeroext i1 %407(ptr noundef nonnull align 1 %.val20.i71, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %405), !noalias !4958
   %409 = xor i1 %408, true
   %410 = zext i1 %409 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i42.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i42.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i41.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i.i51.i"
   %.sroa.0.0.i.i.i43.i = phi i8 [ %410, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i41.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i.i51.i" ]
-  %.val3.i.i44.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4956, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i45.i = load ptr, ptr %391, align 8, !noalias !4956
+  %.val3.i.i44.i = load ptr, ptr %.val.i37.i, align 8, !noalias !4958, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i45.i = load ptr, ptr %391, align 8, !noalias !4958
   %411 = icmp ne ptr %.val18.i69, null
   call void @llvm.assume(i1 %411)
   %412 = icmp ne ptr %.val19.i70, null
   call void @llvm.assume(i1 %412)
-  %413 = load i32, ptr %.val3.i.i44.i, align 4, !noalias !4956, !noundef !11
+  %413 = load i32, ptr %.val3.i.i44.i, align 4, !noalias !4958, !noundef !11
   %414 = icmp eq i32 %413, 0
   br i1 %414, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i.i47.i", label %415
 
 415:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i42.i"
   %416 = getelementptr inbounds nuw i8, ptr %.val3.i.i44.i, i64 4
-  %417 = load i32, ptr %416, align 4, !noalias !4956
+  %417 = load i32, ptr %416, align 4, !noalias !4958
   %418 = getelementptr i8, ptr %.val19.i70, i64 192
-  %.val.i11.i.i46.i = load ptr, ptr %418, align 8, !noalias !4956
-  %419 = call { i32, i32 } %.val.i11.i.i46.i(ptr noundef nonnull align 1 %.val18.i69), !noalias !4956
+  %.val.i11.i.i46.i = load ptr, ptr %418, align 8, !noalias !4958
+  %419 = call { i32, i32 } %.val.i11.i.i46.i(ptr noundef nonnull align 1 %.val18.i69), !noalias !4958
   %420 = extractvalue { i32, i32 } %419, 1
   %421 = icmp eq i32 %417, %420
   br i1 %421, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i14.i.i50.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i.i47.i"
@@ -25694,10 +25674,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i.i47.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i14.i.i50.i", %415, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i42.i"
   %425 = icmp ne ptr %.val4.i.i45.i, null
   call void @llvm.assume(i1 %425)
-  %426 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i45.i), !noalias !4956
+  %426 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i45.i), !noalias !4958
   %427 = getelementptr inbounds nuw i8, ptr %.val19.i70, i64 128
-  %428 = load ptr, ptr %427, align 8, !invariant.load !11, !noalias !4956, !nonnull !11
-  %429 = call noundef zeroext i1 %428(ptr noundef nonnull align 1 %.val18.i69, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %426), !noalias !4956
+  %428 = load ptr, ptr %427, align 8, !invariant.load !11, !noalias !4958, !nonnull !11
+  %429 = call noundef zeroext i1 %428(ptr noundef nonnull align 1 %.val18.i69, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %426), !noalias !4958
   %430 = xor i1 %429, true
   %.neg.i.i48.i = sext i1 %430 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h42712c088eb50acfE.exit52.i"
@@ -25719,19 +25699,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
   %.val25.i75 = load ptr, ptr %21, align 8, !alias.scope !4953, !noalias !4956, !nonnull !11, !align !166, !noundef !11
   %.val26.i76 = load ptr, ptr %23, align 8, !alias.scope !4953, !noalias !4956, !nonnull !11, !align !164, !noundef !11
   %.val.i54.i = load ptr, ptr %6, align 8, !noalias !4958, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i55.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4956, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i55.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4958, !nonnull !11, !align !4500, !noundef !11
   %439 = getelementptr i8, ptr %.val.i54.i, i64 8
-  %.val8.i.i56.i = load ptr, ptr %439, align 8, !noalias !4956
-  %440 = load i32, ptr %.val7.i.i55.i, align 4, !noalias !4956, !noundef !11
+  %.val8.i.i56.i = load ptr, ptr %439, align 8, !noalias !4958
+  %440 = load i32, ptr %.val7.i.i55.i, align 4, !noalias !4958, !noundef !11
   %441 = icmp eq i32 %440, 0
   br i1 %441, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i58.i", label %442
 
 442:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h42712c088eb50acfE.exit52.i"
   %443 = getelementptr inbounds nuw i8, ptr %.val7.i.i55.i, i64 4
-  %444 = load i32, ptr %443, align 4, !noalias !4956
+  %444 = load i32, ptr %443, align 4, !noalias !4958
   %445 = getelementptr i8, ptr %.val26.i76, i64 192
-  %.val.i.i.i57.i = load ptr, ptr %445, align 8, !noalias !4956
-  %446 = call { i32, i32 } %.val.i.i.i57.i(ptr noundef nonnull align 1 %.val25.i75), !noalias !4956
+  %.val.i.i.i57.i = load ptr, ptr %445, align 8, !noalias !4958
+  %446 = call { i32, i32 } %.val.i.i.i57.i(ptr noundef nonnull align 1 %.val25.i75), !noalias !4958
   %447 = extractvalue { i32, i32 } %446, 1
   %448 = icmp eq i32 %444, %447
   br i1 %448, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i.i68.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i58.i"
@@ -25746,32 +25726,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i58.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i.i68.i", %442, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h42712c088eb50acfE.exit52.i"
   %452 = icmp ne ptr %.val8.i.i56.i, null
   call void @llvm.assume(i1 %452)
-  %453 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i56.i), !noalias !4956
+  %453 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i56.i), !noalias !4958
   %454 = getelementptr inbounds nuw i8, ptr %.val26.i76, i64 128
-  %455 = load ptr, ptr %454, align 8, !invariant.load !11, !noalias !4956, !nonnull !11
-  %456 = call noundef zeroext i1 %455(ptr noundef nonnull align 1 %.val25.i75, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %453), !noalias !4956
+  %455 = load ptr, ptr %454, align 8, !invariant.load !11, !noalias !4958, !nonnull !11
+  %456 = call noundef zeroext i1 %455(ptr noundef nonnull align 1 %.val25.i75, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %453), !noalias !4958
   %457 = xor i1 %456, true
   %458 = zext i1 %457 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i59.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i59.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i58.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i.i68.i"
   %.sroa.0.0.i.i.i60.i = phi i8 [ %458, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i58.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i.i68.i" ]
-  %.val3.i.i61.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4956, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i62.i = load ptr, ptr %439, align 8, !noalias !4956
+  %.val3.i.i61.i = load ptr, ptr %.val.i54.i, align 8, !noalias !4958, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i62.i = load ptr, ptr %439, align 8, !noalias !4958
   %459 = icmp ne ptr %.val23.i73, null
   call void @llvm.assume(i1 %459)
   %460 = icmp ne ptr %.val24.i74, null
   call void @llvm.assume(i1 %460)
-  %461 = load i32, ptr %.val3.i.i61.i, align 4, !noalias !4956, !noundef !11
+  %461 = load i32, ptr %.val3.i.i61.i, align 4, !noalias !4958, !noundef !11
   %462 = icmp eq i32 %461, 0
   br i1 %462, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i.i64.i", label %463
 
 463:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i59.i"
   %464 = getelementptr inbounds nuw i8, ptr %.val3.i.i61.i, i64 4
-  %465 = load i32, ptr %464, align 4, !noalias !4956
+  %465 = load i32, ptr %464, align 4, !noalias !4958
   %466 = getelementptr i8, ptr %.val24.i74, i64 192
-  %.val.i11.i.i63.i = load ptr, ptr %466, align 8, !noalias !4956
-  %467 = call { i32, i32 } %.val.i11.i.i63.i(ptr noundef nonnull align 1 %.val23.i73), !noalias !4956
+  %.val.i11.i.i63.i = load ptr, ptr %466, align 8, !noalias !4958
+  %467 = call { i32, i32 } %.val.i11.i.i63.i(ptr noundef nonnull align 1 %.val23.i73), !noalias !4958
   %468 = extractvalue { i32, i32 } %467, 1
   %469 = icmp eq i32 %465, %468
   br i1 %469, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i14.i.i67.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i.i64.i"
@@ -25786,10 +25766,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i.i64.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i14.i.i67.i", %463, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i59.i"
   %473 = icmp ne ptr %.val4.i.i62.i, null
   call void @llvm.assume(i1 %473)
-  %474 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i62.i), !noalias !4956
+  %474 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i62.i), !noalias !4958
   %475 = getelementptr inbounds nuw i8, ptr %.val24.i74, i64 128
-  %476 = load ptr, ptr %475, align 8, !invariant.load !11, !noalias !4956, !nonnull !11
-  %477 = call noundef zeroext i1 %476(ptr noundef nonnull align 1 %.val23.i73, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %474), !noalias !4956
+  %476 = load ptr, ptr %475, align 8, !invariant.load !11, !noalias !4958, !nonnull !11
+  %477 = call noundef zeroext i1 %476(ptr noundef nonnull align 1 %.val23.i73, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %474), !noalias !4958
   %478 = xor i1 %477, true
   %.neg.i.i65.i = sext i1 %478 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h42712c088eb50acfE.exit69.i"
@@ -25811,19 +25791,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
   %.val30.i79 = load ptr, ptr %21, align 8, !alias.scope !4953, !noalias !4956, !nonnull !11, !align !166, !noundef !11
   %.val31.i80 = load ptr, ptr %23, align 8, !alias.scope !4953, !noalias !4956, !nonnull !11, !align !164, !noundef !11
   %.val.i71.i = load ptr, ptr %6, align 8, !noalias !4958, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i72.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4956, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i72.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4958, !nonnull !11, !align !4500, !noundef !11
   %487 = getelementptr i8, ptr %.val.i71.i, i64 8
-  %.val8.i.i73.i = load ptr, ptr %487, align 8, !noalias !4956
-  %488 = load i32, ptr %.val7.i.i72.i, align 4, !noalias !4956, !noundef !11
+  %.val8.i.i73.i = load ptr, ptr %487, align 8, !noalias !4958
+  %488 = load i32, ptr %.val7.i.i72.i, align 4, !noalias !4958, !noundef !11
   %489 = icmp eq i32 %488, 0
   br i1 %489, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i75.i", label %490
 
 490:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h42712c088eb50acfE.exit69.i"
   %491 = getelementptr inbounds nuw i8, ptr %.val7.i.i72.i, i64 4
-  %492 = load i32, ptr %491, align 4, !noalias !4956
+  %492 = load i32, ptr %491, align 4, !noalias !4958
   %493 = getelementptr i8, ptr %.val31.i80, i64 192
-  %.val.i.i.i74.i = load ptr, ptr %493, align 8, !noalias !4956
-  %494 = call { i32, i32 } %.val.i.i.i74.i(ptr noundef nonnull align 1 %.val30.i79), !noalias !4956
+  %.val.i.i.i74.i = load ptr, ptr %493, align 8, !noalias !4958
+  %494 = call { i32, i32 } %.val.i.i.i74.i(ptr noundef nonnull align 1 %.val30.i79), !noalias !4958
   %495 = extractvalue { i32, i32 } %494, 1
   %496 = icmp eq i32 %492, %495
   br i1 %496, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i.i85.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i75.i"
@@ -25838,32 +25818,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i75.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i.i85.i", %490, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h42712c088eb50acfE.exit69.i"
   %500 = icmp ne ptr %.val8.i.i73.i, null
   call void @llvm.assume(i1 %500)
-  %501 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i73.i), !noalias !4956
+  %501 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i73.i), !noalias !4958
   %502 = getelementptr inbounds nuw i8, ptr %.val31.i80, i64 128
-  %503 = load ptr, ptr %502, align 8, !invariant.load !11, !noalias !4956, !nonnull !11
-  %504 = call noundef zeroext i1 %503(ptr noundef nonnull align 1 %.val30.i79, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %501), !noalias !4956
+  %503 = load ptr, ptr %502, align 8, !invariant.load !11, !noalias !4958, !nonnull !11
+  %504 = call noundef zeroext i1 %503(ptr noundef nonnull align 1 %.val30.i79, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %501), !noalias !4958
   %505 = xor i1 %504, true
   %506 = zext i1 %505 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i76.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i76.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i75.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i.i85.i"
   %.sroa.0.0.i.i.i77.i = phi i8 [ %506, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i75.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i.i85.i" ]
-  %.val3.i.i78.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4956, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i79.i = load ptr, ptr %487, align 8, !noalias !4956
+  %.val3.i.i78.i = load ptr, ptr %.val.i71.i, align 8, !noalias !4958, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i79.i = load ptr, ptr %487, align 8, !noalias !4958
   %507 = icmp ne ptr %.val28.i77, null
   call void @llvm.assume(i1 %507)
   %508 = icmp ne ptr %.val29.i78, null
   call void @llvm.assume(i1 %508)
-  %509 = load i32, ptr %.val3.i.i78.i, align 4, !noalias !4956, !noundef !11
+  %509 = load i32, ptr %.val3.i.i78.i, align 4, !noalias !4958, !noundef !11
   %510 = icmp eq i32 %509, 0
   br i1 %510, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i.i81.i", label %511
 
 511:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i76.i"
   %512 = getelementptr inbounds nuw i8, ptr %.val3.i.i78.i, i64 4
-  %513 = load i32, ptr %512, align 4, !noalias !4956
+  %513 = load i32, ptr %512, align 4, !noalias !4958
   %514 = getelementptr i8, ptr %.val29.i78, i64 192
-  %.val.i11.i.i80.i = load ptr, ptr %514, align 8, !noalias !4956
-  %515 = call { i32, i32 } %.val.i11.i.i80.i(ptr noundef nonnull align 1 %.val28.i77), !noalias !4956
+  %.val.i11.i.i80.i = load ptr, ptr %514, align 8, !noalias !4958
+  %515 = call { i32, i32 } %.val.i11.i.i80.i(ptr noundef nonnull align 1 %.val28.i77), !noalias !4958
   %516 = extractvalue { i32, i32 } %515, 1
   %517 = icmp eq i32 %513, %516
   br i1 %517, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i14.i.i84.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i.i81.i"
@@ -25878,10 +25858,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i.i81.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i14.i.i84.i", %511, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i76.i"
   %521 = icmp ne ptr %.val4.i.i79.i, null
   call void @llvm.assume(i1 %521)
-  %522 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i79.i), !noalias !4956
+  %522 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i79.i), !noalias !4958
   %523 = getelementptr inbounds nuw i8, ptr %.val29.i78, i64 128
-  %524 = load ptr, ptr %523, align 8, !invariant.load !11, !noalias !4956, !nonnull !11
-  %525 = call noundef zeroext i1 %524(ptr noundef nonnull align 1 %.val28.i77, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %522), !noalias !4956
+  %524 = load ptr, ptr %523, align 8, !invariant.load !11, !noalias !4958, !nonnull !11
+  %525 = call noundef zeroext i1 %524(ptr noundef nonnull align 1 %.val28.i77, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %522), !noalias !4958
   %526 = xor i1 %525, true
   %.neg.i.i82.i = sext i1 %526 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h42712c088eb50acfE.exit86.i"
@@ -25925,19 +25905,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
   %.val35.i57 = load ptr, ptr %21, align 8, !alias.scope !4953, !noalias !4956, !nonnull !11, !align !166, !noundef !11
   %.val36.i58 = load ptr, ptr %23, align 8, !alias.scope !4953, !noalias !4956, !nonnull !11, !align !164, !noundef !11
   %.val.i88.i = load ptr, ptr %6, align 8, !noalias !4958, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i89.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4956, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i89.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4958, !nonnull !11, !align !4500, !noundef !11
   %539 = getelementptr i8, ptr %.val.i88.i, i64 8
-  %.val8.i.i90.i = load ptr, ptr %539, align 8, !noalias !4956
-  %540 = load i32, ptr %.val7.i.i89.i, align 4, !noalias !4956, !noundef !11
+  %.val8.i.i90.i = load ptr, ptr %539, align 8, !noalias !4958
+  %540 = load i32, ptr %.val7.i.i89.i, align 4, !noalias !4958, !noundef !11
   %541 = icmp eq i32 %540, 0
   br i1 %541, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i92.i", label %542
 
 542:                                              ; preds = %.lr.ph40.i51
   %543 = getelementptr inbounds nuw i8, ptr %.val7.i.i89.i, i64 4
-  %544 = load i32, ptr %543, align 4, !noalias !4956
+  %544 = load i32, ptr %543, align 4, !noalias !4958
   %545 = getelementptr i8, ptr %.val36.i58, i64 192
-  %.val.i.i.i91.i = load ptr, ptr %545, align 8, !noalias !4956
-  %546 = call { i32, i32 } %.val.i.i.i91.i(ptr noundef nonnull align 1 %.val35.i57), !noalias !4956
+  %.val.i.i.i91.i = load ptr, ptr %545, align 8, !noalias !4958
+  %546 = call { i32, i32 } %.val.i.i.i91.i(ptr noundef nonnull align 1 %.val35.i57), !noalias !4958
   %547 = extractvalue { i32, i32 } %546, 1
   %548 = icmp eq i32 %544, %547
   br i1 %548, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i.i102.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i92.i"
@@ -25952,32 +25932,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i92.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i.i102.i", %542, %.lr.ph40.i51
   %552 = icmp ne ptr %.val8.i.i90.i, null
   call void @llvm.assume(i1 %552)
-  %553 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i90.i), !noalias !4956
+  %553 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i90.i), !noalias !4958
   %554 = getelementptr inbounds nuw i8, ptr %.val36.i58, i64 128
-  %555 = load ptr, ptr %554, align 8, !invariant.load !11, !noalias !4956, !nonnull !11
-  %556 = call noundef zeroext i1 %555(ptr noundef nonnull align 1 %.val35.i57, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %553), !noalias !4956
+  %555 = load ptr, ptr %554, align 8, !invariant.load !11, !noalias !4958, !nonnull !11
+  %556 = call noundef zeroext i1 %555(ptr noundef nonnull align 1 %.val35.i57, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %553), !noalias !4958
   %557 = xor i1 %556, true
   %558 = zext i1 %557 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i93.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i93.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i92.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i.i102.i"
   %.sroa.0.0.i.i.i94.i = phi i8 [ %558, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i.i.i92.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i.i.i102.i" ]
-  %.val3.i.i95.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4956, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i96.i = load ptr, ptr %539, align 8, !noalias !4956
+  %.val3.i.i95.i = load ptr, ptr %.val.i88.i, align 8, !noalias !4958, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i96.i = load ptr, ptr %539, align 8, !noalias !4958
   %559 = icmp ne ptr %.val33.i55, null
   call void @llvm.assume(i1 %559)
   %560 = icmp ne ptr %.val34.i56, null
   call void @llvm.assume(i1 %560)
-  %561 = load i32, ptr %.val3.i.i95.i, align 4, !noalias !4956, !noundef !11
+  %561 = load i32, ptr %.val3.i.i95.i, align 4, !noalias !4958, !noundef !11
   %562 = icmp eq i32 %561, 0
   br i1 %562, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i.i98.i", label %563
 
 563:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i93.i"
   %564 = getelementptr inbounds nuw i8, ptr %.val3.i.i95.i, i64 4
-  %565 = load i32, ptr %564, align 4, !noalias !4956
+  %565 = load i32, ptr %564, align 4, !noalias !4958
   %566 = getelementptr i8, ptr %.val34.i56, i64 192
-  %.val.i11.i.i97.i = load ptr, ptr %566, align 8, !noalias !4956
-  %567 = call { i32, i32 } %.val.i11.i.i97.i(ptr noundef nonnull align 1 %.val33.i55), !noalias !4956
+  %.val.i11.i.i97.i = load ptr, ptr %566, align 8, !noalias !4958
+  %567 = call { i32, i32 } %.val.i11.i.i97.i(ptr noundef nonnull align 1 %.val33.i55), !noalias !4958
   %568 = extractvalue { i32, i32 } %567, 1
   %569 = icmp eq i32 %565, %568
   br i1 %569, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i14.i.i101.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i.i98.i"
@@ -25992,10 +25972,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hdabc8bea239
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.thread.i.i12.i.i98.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb4b78dae892d9ec9E.exit.i.i14.i.i101.i", %563, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h22ecd1931b985d45E.exit.i.i93.i"
   %573 = icmp ne ptr %.val4.i.i96.i, null
   call void @llvm.assume(i1 %573)
-  %574 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i96.i), !noalias !4956
+  %574 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i96.i), !noalias !4958
   %575 = getelementptr inbounds nuw i8, ptr %.val34.i56, i64 128
-  %576 = load ptr, ptr %575, align 8, !invariant.load !11, !noalias !4956, !nonnull !11
-  %577 = call noundef zeroext i1 %576(ptr noundef nonnull align 1 %.val33.i55, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %574), !noalias !4956
+  %576 = load ptr, ptr %575, align 8, !invariant.load !11, !noalias !4958, !nonnull !11
+  %577 = call noundef zeroext i1 %576(ptr noundef nonnull align 1 %.val33.i55, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %574), !noalias !4958
   %578 = xor i1 %577, true
   %.neg.i.i99.i = sext i1 %578 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h42712c088eb50acfE.exit103.i"
@@ -26512,12 +26492,12 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h298bae6e63364be8E.exit: ; preds
   %.val11.i = load ptr, ptr %56, align 8, !alias.scope !5039, !noalias !5042
   %.val12.i = load i64, ptr %57, align 8, !alias.scope !5039, !noalias !5042
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11), !noalias !5044
-  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %11, ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val10.i), !noalias !5042
+  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %11, ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val10.i), !noalias !5044
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10), !noalias !5044
   %65 = icmp ne ptr %.val11.i, null
   call void @llvm.assume(i1 %65)
-  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %10, ptr noalias noundef nonnull readonly align 1 %.val11.i, i64 noundef %.val12.i), !noalias !5042
-  %66 = call noundef range(i8 -1, 2) i8 @_ZN3std4path18compare_components17h5f4ebbd8e9dc344dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %10), !range !4895, !noalias !5042
+  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %10, ptr noalias noundef nonnull readonly align 1 %.val11.i, i64 noundef %.val12.i), !noalias !5044
+  %66 = call noundef range(i8 -1, 2) i8 @_ZN3std4path18compare_components17h5f4ebbd8e9dc344dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %10), !range !4895, !noalias !5044
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10), !noalias !5044
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11), !noalias !5044
   %67 = icmp eq i8 %66, -1
@@ -26611,12 +26591,12 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h298bae6e63364be8E.exit: ; preds
   %.val11.i51 = load ptr, ptr %93, align 8, !alias.scope !5051, !noalias !5054, !nonnull !11, !noundef !11
   %.val12.i52 = load i64, ptr %94, align 8, !alias.scope !5051, !noalias !5054, !noundef !11
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !5056
-  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %9, ptr noalias noundef nonnull readonly align 1 %.val11.i51, i64 noundef %.val12.i52), !noalias !5054
+  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %9, ptr noalias noundef nonnull readonly align 1 %.val11.i51, i64 noundef %.val12.i52), !noalias !5056
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !5056
   %102 = icmp ne ptr %.val.i49, null
   call void @llvm.assume(i1 %102)
-  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %8, ptr noalias noundef nonnull readonly align 1 %.val.i49, i64 noundef %.val10.i50), !noalias !5054
-  %103 = call noundef range(i8 -1, 2) i8 @_ZN3std4path18compare_components17h5f4ebbd8e9dc344dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %8), !range !4895, !noalias !5054
+  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %8, ptr noalias noundef nonnull readonly align 1 %.val.i49, i64 noundef %.val10.i50), !noalias !5056
+  %103 = call noundef range(i8 -1, 2) i8 @_ZN3std4path18compare_components17h5f4ebbd8e9dc344dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %8), !range !4895, !noalias !5056
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8), !noalias !5056
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !5056
   %104 = icmp ne i8 %103, -1
@@ -26872,16 +26852,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
   %.val16.i = load ptr, ptr %23, align 8, !alias.scope !5066, !noalias !5069
   %.val7.i.i = load ptr, ptr %.val32, align 8, !noalias !5071, !nonnull !11, !align !4500, !noundef !11
   %.val8.i.i = load ptr, ptr %71, align 8, !noalias !5071
-  %79 = load i32, ptr %.val7.i.i, align 4, !noalias !5069, !noundef !11
+  %79 = load i32, ptr %.val7.i.i, align 4, !noalias !5071, !noundef !11
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i", label %81
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %.val7.i.i, i64 4
-  %83 = load i32, ptr %82, align 4, !noalias !5069
+  %83 = load i32, ptr %82, align 4, !noalias !5071
   %84 = getelementptr i8, ptr %.val14.i, i64 192
-  %.val.i.i.i = load ptr, ptr %84, align 8, !noalias !5069
-  %85 = call { i32, i32 } %.val.i.i.i(ptr noundef nonnull align 1 %.val13.i), !noalias !5069
+  %.val.i.i.i = load ptr, ptr %84, align 8, !noalias !5071
+  %85 = call { i32, i32 } %.val.i.i.i(ptr noundef nonnull align 1 %.val13.i), !noalias !5071
   %86 = extractvalue { i32, i32 } %85, 1
   %87 = icmp eq i32 %83, %86
   br i1 %87, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i"
@@ -26896,10 +26876,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i.i", %81, %77
   %91 = icmp ne ptr %.val8.i.i, null
   call void @llvm.assume(i1 %91)
-  %92 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i), !noalias !5069
+  %92 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i), !noalias !5071
   %93 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 128
-  %94 = load ptr, ptr %93, align 8, !invariant.load !11, !noalias !5069, !nonnull !11
-  %95 = call noundef zeroext i1 %94(ptr noundef nonnull align 1 %.val13.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %92), !noalias !5069
+  %94 = load ptr, ptr %93, align 8, !invariant.load !11, !noalias !5071, !nonnull !11
+  %95 = call noundef zeroext i1 %94(ptr noundef nonnull align 1 %.val13.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %92), !noalias !5071
   %96 = xor i1 %95, true
   %97 = zext i1 %96 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i"
@@ -26912,16 +26892,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
   call void @llvm.assume(i1 %98)
   %99 = icmp ne ptr %.val16.i, null
   call void @llvm.assume(i1 %99)
-  %100 = load i32, ptr %.val3.i.i, align 4, !noalias !5069, !noundef !11
+  %100 = load i32, ptr %.val3.i.i, align 4, !noalias !5071, !noundef !11
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i.i", label %102
 
 102:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i"
   %103 = getelementptr inbounds nuw i8, ptr %.val3.i.i, i64 4
-  %104 = load i32, ptr %103, align 4, !noalias !5069
+  %104 = load i32, ptr %103, align 4, !noalias !5071
   %105 = getelementptr i8, ptr %.val16.i, i64 192
-  %.val.i11.i.i = load ptr, ptr %105, align 8, !noalias !5069
-  %106 = call { i32, i32 } %.val.i11.i.i(ptr noundef nonnull align 1 %.val15.i), !noalias !5069
+  %.val.i11.i.i = load ptr, ptr %105, align 8, !noalias !5071
+  %106 = call { i32, i32 } %.val.i11.i.i(ptr noundef nonnull align 1 %.val15.i), !noalias !5071
   %107 = extractvalue { i32, i32 } %106, 1
   %108 = icmp eq i32 %104, %107
   br i1 %108, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i14.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i.i"
@@ -26936,10 +26916,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i14.i.i", %102, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i"
   %112 = icmp ne ptr %.val4.i.i, null
   call void @llvm.assume(i1 %112)
-  %113 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i), !noalias !5069
+  %113 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i), !noalias !5071
   %114 = getelementptr inbounds nuw i8, ptr %.val16.i, i64 128
-  %115 = load ptr, ptr %114, align 8, !invariant.load !11, !noalias !5069, !nonnull !11
-  %116 = call noundef zeroext i1 %115(ptr noundef nonnull align 1 %.val15.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %113), !noalias !5069
+  %115 = load ptr, ptr %114, align 8, !invariant.load !11, !noalias !5071, !nonnull !11
+  %116 = call noundef zeroext i1 %115(ptr noundef nonnull align 1 %.val15.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %113), !noalias !5071
   %117 = xor i1 %116, true
   %.neg.i.i = sext i1 %117 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h74fd3f54da57fb67E.exit.i"
@@ -26962,16 +26942,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
   %.val21.i = load ptr, ptr %23, align 8, !alias.scope !5066, !noalias !5069
   %.val7.i37.i = load ptr, ptr %.val32, align 8, !noalias !5071, !nonnull !11, !align !4500, !noundef !11
   %.val8.i38.i = load ptr, ptr %71, align 8, !noalias !5071
-  %126 = load i32, ptr %.val7.i37.i, align 4, !noalias !5069, !noundef !11
+  %126 = load i32, ptr %.val7.i37.i, align 4, !noalias !5071, !noundef !11
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i40.i", label %128
 
 128:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h74fd3f54da57fb67E.exit.i"
   %129 = getelementptr inbounds nuw i8, ptr %.val7.i37.i, i64 4
-  %130 = load i32, ptr %129, align 4, !noalias !5069
+  %130 = load i32, ptr %129, align 4, !noalias !5071
   %131 = getelementptr i8, ptr %.val19.i, i64 192
-  %.val.i.i39.i = load ptr, ptr %131, align 8, !noalias !5069
-  %132 = call { i32, i32 } %.val.i.i39.i(ptr noundef nonnull align 1 %.val18.i), !noalias !5069
+  %.val.i.i39.i = load ptr, ptr %131, align 8, !noalias !5071
+  %132 = call { i32, i32 } %.val.i.i39.i(ptr noundef nonnull align 1 %.val18.i), !noalias !5071
   %133 = extractvalue { i32, i32 } %132, 1
   %134 = icmp eq i32 %130, %133
   br i1 %134, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i50.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i40.i"
@@ -26986,10 +26966,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i40.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i50.i", %128, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h74fd3f54da57fb67E.exit.i"
   %138 = icmp ne ptr %.val8.i38.i, null
   call void @llvm.assume(i1 %138)
-  %139 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i38.i), !noalias !5069
+  %139 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i38.i), !noalias !5071
   %140 = getelementptr inbounds nuw i8, ptr %.val19.i, i64 128
-  %141 = load ptr, ptr %140, align 8, !invariant.load !11, !noalias !5069, !nonnull !11
-  %142 = call noundef zeroext i1 %141(ptr noundef nonnull align 1 %.val18.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %139), !noalias !5069
+  %141 = load ptr, ptr %140, align 8, !invariant.load !11, !noalias !5071, !nonnull !11
+  %142 = call noundef zeroext i1 %141(ptr noundef nonnull align 1 %.val18.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %139), !noalias !5071
   %143 = xor i1 %142, true
   %144 = zext i1 %143 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i41.i"
@@ -27002,16 +26982,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
   call void @llvm.assume(i1 %145)
   %146 = icmp ne ptr %.val21.i, null
   call void @llvm.assume(i1 %146)
-  %147 = load i32, ptr %.val3.i43.i, align 4, !noalias !5069, !noundef !11
+  %147 = load i32, ptr %.val3.i43.i, align 4, !noalias !5071, !noundef !11
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i46.i", label %149
 
 149:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i41.i"
   %150 = getelementptr inbounds nuw i8, ptr %.val3.i43.i, i64 4
-  %151 = load i32, ptr %150, align 4, !noalias !5069
+  %151 = load i32, ptr %150, align 4, !noalias !5071
   %152 = getelementptr i8, ptr %.val21.i, i64 192
-  %.val.i11.i45.i = load ptr, ptr %152, align 8, !noalias !5069
-  %153 = call { i32, i32 } %.val.i11.i45.i(ptr noundef nonnull align 1 %.val20.i), !noalias !5069
+  %.val.i11.i45.i = load ptr, ptr %152, align 8, !noalias !5071
+  %153 = call { i32, i32 } %.val.i11.i45.i(ptr noundef nonnull align 1 %.val20.i), !noalias !5071
   %154 = extractvalue { i32, i32 } %153, 1
   %155 = icmp eq i32 %151, %154
   br i1 %155, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i14.i49.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i46.i"
@@ -27026,10 +27006,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i46.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i14.i49.i", %149, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i41.i"
   %159 = icmp ne ptr %.val4.i44.i, null
   call void @llvm.assume(i1 %159)
-  %160 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i44.i), !noalias !5069
+  %160 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i44.i), !noalias !5071
   %161 = getelementptr inbounds nuw i8, ptr %.val21.i, i64 128
-  %162 = load ptr, ptr %161, align 8, !invariant.load !11, !noalias !5069, !nonnull !11
-  %163 = call noundef zeroext i1 %162(ptr noundef nonnull align 1 %.val20.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %160), !noalias !5069
+  %162 = load ptr, ptr %161, align 8, !invariant.load !11, !noalias !5071, !nonnull !11
+  %163 = call noundef zeroext i1 %162(ptr noundef nonnull align 1 %.val20.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %160), !noalias !5071
   %164 = xor i1 %163, true
   %.neg.i47.i = sext i1 %164 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h74fd3f54da57fb67E.exit51.i"
@@ -27052,16 +27032,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
   %.val26.i = load ptr, ptr %23, align 8, !alias.scope !5066, !noalias !5069
   %.val7.i53.i = load ptr, ptr %.val32, align 8, !noalias !5071, !nonnull !11, !align !4500, !noundef !11
   %.val8.i54.i = load ptr, ptr %71, align 8, !noalias !5071
-  %173 = load i32, ptr %.val7.i53.i, align 4, !noalias !5069, !noundef !11
+  %173 = load i32, ptr %.val7.i53.i, align 4, !noalias !5071, !noundef !11
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i56.i", label %175
 
 175:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h74fd3f54da57fb67E.exit51.i"
   %176 = getelementptr inbounds nuw i8, ptr %.val7.i53.i, i64 4
-  %177 = load i32, ptr %176, align 4, !noalias !5069
+  %177 = load i32, ptr %176, align 4, !noalias !5071
   %178 = getelementptr i8, ptr %.val24.i, i64 192
-  %.val.i.i55.i = load ptr, ptr %178, align 8, !noalias !5069
-  %179 = call { i32, i32 } %.val.i.i55.i(ptr noundef nonnull align 1 %.val23.i), !noalias !5069
+  %.val.i.i55.i = load ptr, ptr %178, align 8, !noalias !5071
+  %179 = call { i32, i32 } %.val.i.i55.i(ptr noundef nonnull align 1 %.val23.i), !noalias !5071
   %180 = extractvalue { i32, i32 } %179, 1
   %181 = icmp eq i32 %177, %180
   br i1 %181, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i66.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i56.i"
@@ -27076,10 +27056,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i56.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i66.i", %175, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h74fd3f54da57fb67E.exit51.i"
   %185 = icmp ne ptr %.val8.i54.i, null
   call void @llvm.assume(i1 %185)
-  %186 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i54.i), !noalias !5069
+  %186 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i54.i), !noalias !5071
   %187 = getelementptr inbounds nuw i8, ptr %.val24.i, i64 128
-  %188 = load ptr, ptr %187, align 8, !invariant.load !11, !noalias !5069, !nonnull !11
-  %189 = call noundef zeroext i1 %188(ptr noundef nonnull align 1 %.val23.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %186), !noalias !5069
+  %188 = load ptr, ptr %187, align 8, !invariant.load !11, !noalias !5071, !nonnull !11
+  %189 = call noundef zeroext i1 %188(ptr noundef nonnull align 1 %.val23.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %186), !noalias !5071
   %190 = xor i1 %189, true
   %191 = zext i1 %190 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i57.i"
@@ -27092,16 +27072,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
   call void @llvm.assume(i1 %192)
   %193 = icmp ne ptr %.val26.i, null
   call void @llvm.assume(i1 %193)
-  %194 = load i32, ptr %.val3.i59.i, align 4, !noalias !5069, !noundef !11
+  %194 = load i32, ptr %.val3.i59.i, align 4, !noalias !5071, !noundef !11
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i62.i", label %196
 
 196:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i57.i"
   %197 = getelementptr inbounds nuw i8, ptr %.val3.i59.i, i64 4
-  %198 = load i32, ptr %197, align 4, !noalias !5069
+  %198 = load i32, ptr %197, align 4, !noalias !5071
   %199 = getelementptr i8, ptr %.val26.i, i64 192
-  %.val.i11.i61.i = load ptr, ptr %199, align 8, !noalias !5069
-  %200 = call { i32, i32 } %.val.i11.i61.i(ptr noundef nonnull align 1 %.val25.i), !noalias !5069
+  %.val.i11.i61.i = load ptr, ptr %199, align 8, !noalias !5071
+  %200 = call { i32, i32 } %.val.i11.i61.i(ptr noundef nonnull align 1 %.val25.i), !noalias !5071
   %201 = extractvalue { i32, i32 } %200, 1
   %202 = icmp eq i32 %198, %201
   br i1 %202, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i14.i65.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i62.i"
@@ -27116,10 +27096,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i62.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i14.i65.i", %196, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i57.i"
   %206 = icmp ne ptr %.val4.i60.i, null
   call void @llvm.assume(i1 %206)
-  %207 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i60.i), !noalias !5069
+  %207 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i60.i), !noalias !5071
   %208 = getelementptr inbounds nuw i8, ptr %.val26.i, i64 128
-  %209 = load ptr, ptr %208, align 8, !invariant.load !11, !noalias !5069, !nonnull !11
-  %210 = call noundef zeroext i1 %209(ptr noundef nonnull align 1 %.val25.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %207), !noalias !5069
+  %209 = load ptr, ptr %208, align 8, !invariant.load !11, !noalias !5071, !nonnull !11
+  %210 = call noundef zeroext i1 %209(ptr noundef nonnull align 1 %.val25.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %207), !noalias !5071
   %211 = xor i1 %210, true
   %.neg.i63.i = sext i1 %211 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h74fd3f54da57fb67E.exit67.i"
@@ -27142,16 +27122,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
   %.val31.i = load ptr, ptr %23, align 8, !alias.scope !5066, !noalias !5069
   %.val7.i69.i = load ptr, ptr %.val32, align 8, !noalias !5071, !nonnull !11, !align !4500, !noundef !11
   %.val8.i70.i = load ptr, ptr %71, align 8, !noalias !5071
-  %220 = load i32, ptr %.val7.i69.i, align 4, !noalias !5069, !noundef !11
+  %220 = load i32, ptr %.val7.i69.i, align 4, !noalias !5071, !noundef !11
   %221 = icmp eq i32 %220, 0
   br i1 %221, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i72.i", label %222
 
 222:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h74fd3f54da57fb67E.exit67.i"
   %223 = getelementptr inbounds nuw i8, ptr %.val7.i69.i, i64 4
-  %224 = load i32, ptr %223, align 4, !noalias !5069
+  %224 = load i32, ptr %223, align 4, !noalias !5071
   %225 = getelementptr i8, ptr %.val29.i, i64 192
-  %.val.i.i71.i = load ptr, ptr %225, align 8, !noalias !5069
-  %226 = call { i32, i32 } %.val.i.i71.i(ptr noundef nonnull align 1 %.val28.i), !noalias !5069
+  %.val.i.i71.i = load ptr, ptr %225, align 8, !noalias !5071
+  %226 = call { i32, i32 } %.val.i.i71.i(ptr noundef nonnull align 1 %.val28.i), !noalias !5071
   %227 = extractvalue { i32, i32 } %226, 1
   %228 = icmp eq i32 %224, %227
   br i1 %228, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i82.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i72.i"
@@ -27166,10 +27146,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i72.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i82.i", %222, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h74fd3f54da57fb67E.exit67.i"
   %232 = icmp ne ptr %.val8.i70.i, null
   call void @llvm.assume(i1 %232)
-  %233 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i70.i), !noalias !5069
+  %233 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i70.i), !noalias !5071
   %234 = getelementptr inbounds nuw i8, ptr %.val29.i, i64 128
-  %235 = load ptr, ptr %234, align 8, !invariant.load !11, !noalias !5069, !nonnull !11
-  %236 = call noundef zeroext i1 %235(ptr noundef nonnull align 1 %.val28.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %233), !noalias !5069
+  %235 = load ptr, ptr %234, align 8, !invariant.load !11, !noalias !5071, !nonnull !11
+  %236 = call noundef zeroext i1 %235(ptr noundef nonnull align 1 %.val28.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %233), !noalias !5071
   %237 = xor i1 %236, true
   %238 = zext i1 %237 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i73.i"
@@ -27182,16 +27162,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
   call void @llvm.assume(i1 %239)
   %240 = icmp ne ptr %.val31.i, null
   call void @llvm.assume(i1 %240)
-  %241 = load i32, ptr %.val3.i75.i, align 4, !noalias !5069, !noundef !11
+  %241 = load i32, ptr %.val3.i75.i, align 4, !noalias !5071, !noundef !11
   %242 = icmp eq i32 %241, 0
   br i1 %242, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i78.i", label %243
 
 243:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i73.i"
   %244 = getelementptr inbounds nuw i8, ptr %.val3.i75.i, i64 4
-  %245 = load i32, ptr %244, align 4, !noalias !5069
+  %245 = load i32, ptr %244, align 4, !noalias !5071
   %246 = getelementptr i8, ptr %.val31.i, i64 192
-  %.val.i11.i77.i = load ptr, ptr %246, align 8, !noalias !5069
-  %247 = call { i32, i32 } %.val.i11.i77.i(ptr noundef nonnull align 1 %.val30.i), !noalias !5069
+  %.val.i11.i77.i = load ptr, ptr %246, align 8, !noalias !5071
+  %247 = call { i32, i32 } %.val.i11.i77.i(ptr noundef nonnull align 1 %.val30.i), !noalias !5071
   %248 = extractvalue { i32, i32 } %247, 1
   %249 = icmp eq i32 %245, %248
   br i1 %249, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i14.i81.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i78.i"
@@ -27206,10 +27186,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i78.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i14.i81.i", %243, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i73.i"
   %253 = icmp ne ptr %.val4.i76.i, null
   call void @llvm.assume(i1 %253)
-  %254 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i76.i), !noalias !5069
+  %254 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i76.i), !noalias !5071
   %255 = getelementptr inbounds nuw i8, ptr %.val31.i, i64 128
-  %256 = load ptr, ptr %255, align 8, !invariant.load !11, !noalias !5069, !nonnull !11
-  %257 = call noundef zeroext i1 %256(ptr noundef nonnull align 1 %.val30.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %254), !noalias !5069
+  %256 = load ptr, ptr %255, align 8, !invariant.load !11, !noalias !5071, !nonnull !11
+  %257 = call noundef zeroext i1 %256(ptr noundef nonnull align 1 %.val30.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %254), !noalias !5071
   %258 = xor i1 %257, true
   %.neg.i79.i = sext i1 %258 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h74fd3f54da57fb67E.exit83.i"
@@ -27258,16 +27238,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
   %.val36.i = load ptr, ptr %23, align 8, !alias.scope !5066, !noalias !5069
   %.val7.i85.i = load ptr, ptr %.val32, align 8, !noalias !5071, !nonnull !11, !align !4500, !noundef !11
   %.val8.i86.i = load ptr, ptr %71, align 8, !noalias !5071
-  %272 = load i32, ptr %.val7.i85.i, align 4, !noalias !5069, !noundef !11
+  %272 = load i32, ptr %.val7.i85.i, align 4, !noalias !5071, !noundef !11
   %273 = icmp eq i32 %272, 0
   br i1 %273, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i88.i", label %274
 
 274:                                              ; preds = %270
   %275 = getelementptr inbounds nuw i8, ptr %.val7.i85.i, i64 4
-  %276 = load i32, ptr %275, align 4, !noalias !5069
+  %276 = load i32, ptr %275, align 4, !noalias !5071
   %277 = getelementptr i8, ptr %.val34.i, i64 192
-  %.val.i.i87.i = load ptr, ptr %277, align 8, !noalias !5069
-  %278 = call { i32, i32 } %.val.i.i87.i(ptr noundef nonnull align 1 %.val33.i), !noalias !5069
+  %.val.i.i87.i = load ptr, ptr %277, align 8, !noalias !5071
+  %278 = call { i32, i32 } %.val.i.i87.i(ptr noundef nonnull align 1 %.val33.i), !noalias !5071
   %279 = extractvalue { i32, i32 } %278, 1
   %280 = icmp eq i32 %276, %279
   br i1 %280, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i98.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i88.i"
@@ -27282,10 +27262,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i88.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i98.i", %274, %270
   %284 = icmp ne ptr %.val8.i86.i, null
   call void @llvm.assume(i1 %284)
-  %285 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i86.i), !noalias !5069
+  %285 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i86.i), !noalias !5071
   %286 = getelementptr inbounds nuw i8, ptr %.val34.i, i64 128
-  %287 = load ptr, ptr %286, align 8, !invariant.load !11, !noalias !5069, !nonnull !11
-  %288 = call noundef zeroext i1 %287(ptr noundef nonnull align 1 %.val33.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %285), !noalias !5069
+  %287 = load ptr, ptr %286, align 8, !invariant.load !11, !noalias !5071, !nonnull !11
+  %288 = call noundef zeroext i1 %287(ptr noundef nonnull align 1 %.val33.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %285), !noalias !5071
   %289 = xor i1 %288, true
   %290 = zext i1 %289 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i89.i"
@@ -27298,16 +27278,16 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
   call void @llvm.assume(i1 %291)
   %292 = icmp ne ptr %.val36.i, null
   call void @llvm.assume(i1 %292)
-  %293 = load i32, ptr %.val3.i91.i, align 4, !noalias !5069, !noundef !11
+  %293 = load i32, ptr %.val3.i91.i, align 4, !noalias !5071, !noundef !11
   %294 = icmp eq i32 %293, 0
   br i1 %294, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i94.i", label %295
 
 295:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i89.i"
   %296 = getelementptr inbounds nuw i8, ptr %.val3.i91.i, i64 4
-  %297 = load i32, ptr %296, align 4, !noalias !5069
+  %297 = load i32, ptr %296, align 4, !noalias !5071
   %298 = getelementptr i8, ptr %.val36.i, i64 192
-  %.val.i11.i93.i = load ptr, ptr %298, align 8, !noalias !5069
-  %299 = call { i32, i32 } %.val.i11.i93.i(ptr noundef nonnull align 1 %.val35.i), !noalias !5069
+  %.val.i11.i93.i = load ptr, ptr %298, align 8, !noalias !5071
+  %299 = call { i32, i32 } %.val.i11.i93.i(ptr noundef nonnull align 1 %.val35.i), !noalias !5071
   %300 = extractvalue { i32, i32 } %299, 1
   %301 = icmp eq i32 %297, %300
   br i1 %301, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i14.i97.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i94.i"
@@ -27322,10 +27302,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i94.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i14.i97.i", %295, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i89.i"
   %305 = icmp ne ptr %.val4.i92.i, null
   call void @llvm.assume(i1 %305)
-  %306 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i92.i), !noalias !5069
+  %306 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i92.i), !noalias !5071
   %307 = getelementptr inbounds nuw i8, ptr %.val36.i, i64 128
-  %308 = load ptr, ptr %307, align 8, !invariant.load !11, !noalias !5069, !nonnull !11
-  %309 = call noundef zeroext i1 %308(ptr noundef nonnull align 1 %.val35.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %306), !noalias !5069
+  %308 = load ptr, ptr %307, align 8, !invariant.load !11, !noalias !5071, !nonnull !11
+  %309 = call noundef zeroext i1 %308(ptr noundef nonnull align 1 %.val35.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %306), !noalias !5071
   %310 = xor i1 %309, true
   %.neg.i95.i = sext i1 %310 to i8
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h74fd3f54da57fb67E.exit99.i"
@@ -27414,19 +27394,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
   %.val15.i65 = load ptr, ptr %21, align 8, !alias.scope !5090, !noalias !5093, !nonnull !11, !align !166, !noundef !11
   %.val16.i66 = load ptr, ptr %23, align 8, !alias.scope !5090, !noalias !5093, !nonnull !11, !align !164, !noundef !11
   %.val.i.i67 = load ptr, ptr %6, align 8, !noalias !5095, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !5093, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !5095, !nonnull !11, !align !4500, !noundef !11
   %343 = getelementptr i8, ptr %.val.i.i67, i64 8
-  %.val8.i.i.i = load ptr, ptr %343, align 8, !noalias !5093
-  %344 = load i32, ptr %.val7.i.i.i, align 4, !noalias !5093, !noundef !11
+  %.val8.i.i.i = load ptr, ptr %343, align 8, !noalias !5095
+  %344 = load i32, ptr %.val7.i.i.i, align 4, !noalias !5095, !noundef !11
   %345 = icmp eq i32 %344, 0
   br i1 %345, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i.i", label %346
 
 346:                                              ; preds = %.lr.ph.i59
   %347 = getelementptr inbounds nuw i8, ptr %.val7.i.i.i, i64 4
-  %348 = load i32, ptr %347, align 4, !noalias !5093
+  %348 = load i32, ptr %347, align 4, !noalias !5095
   %349 = getelementptr i8, ptr %.val16.i66, i64 192
-  %.val.i.i.i.i = load ptr, ptr %349, align 8, !noalias !5093
-  %350 = call { i32, i32 } %.val.i.i.i.i(ptr noundef nonnull align 1 %.val15.i65), !noalias !5093
+  %.val.i.i.i.i = load ptr, ptr %349, align 8, !noalias !5095
+  %350 = call { i32, i32 } %.val.i.i.i.i(ptr noundef nonnull align 1 %.val15.i65), !noalias !5095
   %351 = extractvalue { i32, i32 } %350, 1
   %352 = icmp eq i32 %348, %351
   br i1 %352, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i.i"
@@ -27441,32 +27421,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i.i.i", %346, %.lr.ph.i59
   %356 = icmp ne ptr %.val8.i.i.i, null
   call void @llvm.assume(i1 %356)
-  %357 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i.i), !noalias !5093
+  %357 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i.i), !noalias !5095
   %358 = getelementptr inbounds nuw i8, ptr %.val16.i66, i64 128
-  %359 = load ptr, ptr %358, align 8, !invariant.load !11, !noalias !5093, !nonnull !11
-  %360 = call noundef zeroext i1 %359(ptr noundef nonnull align 1 %.val15.i65, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %357), !noalias !5093
+  %359 = load ptr, ptr %358, align 8, !invariant.load !11, !noalias !5095, !nonnull !11
+  %360 = call noundef zeroext i1 %359(ptr noundef nonnull align 1 %.val15.i65, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %357), !noalias !5095
   %361 = xor i1 %360, true
   %362 = zext i1 %361 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i.i.i"
   %.sroa.0.0.i.i.i.i = phi i8 [ %362, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i.i.i" ]
-  %.val3.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !5093, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i.i = load ptr, ptr %343, align 8, !noalias !5093
+  %.val3.i.i.i = load ptr, ptr %.val.i.i67, align 8, !noalias !5095, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i.i = load ptr, ptr %343, align 8, !noalias !5095
   %363 = icmp ne ptr %.val13.i63, null
   call void @llvm.assume(i1 %363)
   %364 = icmp ne ptr %.val14.i64, null
   call void @llvm.assume(i1 %364)
-  %365 = load i32, ptr %.val3.i.i.i, align 4, !noalias !5093, !noundef !11
+  %365 = load i32, ptr %.val3.i.i.i, align 4, !noalias !5095, !noundef !11
   %366 = icmp eq i32 %365, 0
   br i1 %366, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i.i.i", label %367
 
 367:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i.i"
   %368 = getelementptr inbounds nuw i8, ptr %.val3.i.i.i, i64 4
-  %369 = load i32, ptr %368, align 4, !noalias !5093
+  %369 = load i32, ptr %368, align 4, !noalias !5095
   %370 = getelementptr i8, ptr %.val14.i64, i64 192
-  %.val.i11.i.i.i = load ptr, ptr %370, align 8, !noalias !5093
-  %371 = call { i32, i32 } %.val.i11.i.i.i(ptr noundef nonnull align 1 %.val13.i63), !noalias !5093
+  %.val.i11.i.i.i = load ptr, ptr %370, align 8, !noalias !5095
+  %371 = call { i32, i32 } %.val.i11.i.i.i(ptr noundef nonnull align 1 %.val13.i63), !noalias !5095
   %372 = extractvalue { i32, i32 } %371, 1
   %373 = icmp eq i32 %369, %372
   br i1 %373, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i14.i.i.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i.i.i"
@@ -27481,10 +27461,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i.i.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i14.i.i.i", %367, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i.i"
   %377 = icmp ne ptr %.val4.i.i.i, null
   call void @llvm.assume(i1 %377)
-  %378 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i.i), !noalias !5093
+  %378 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i.i), !noalias !5095
   %379 = getelementptr inbounds nuw i8, ptr %.val14.i64, i64 128
-  %380 = load ptr, ptr %379, align 8, !invariant.load !11, !noalias !5093, !nonnull !11
-  %381 = call noundef zeroext i1 %380(ptr noundef nonnull align 1 %.val13.i63, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %378), !noalias !5093
+  %380 = load ptr, ptr %379, align 8, !invariant.load !11, !noalias !5095, !nonnull !11
+  %381 = call noundef zeroext i1 %380(ptr noundef nonnull align 1 %.val13.i63, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %378), !noalias !5095
   %382 = xor i1 %381, true
   %.neg.i.i.i = sext i1 %382 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h2a996794ff8e176cE.exit.i"
@@ -27506,19 +27486,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
   %.val20.i71 = load ptr, ptr %21, align 8, !alias.scope !5090, !noalias !5093, !nonnull !11, !align !166, !noundef !11
   %.val21.i72 = load ptr, ptr %23, align 8, !alias.scope !5090, !noalias !5093, !nonnull !11, !align !164, !noundef !11
   %.val.i37.i = load ptr, ptr %6, align 8, !noalias !5095, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i38.i = load ptr, ptr %.val.i37.i, align 8, !noalias !5093, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i38.i = load ptr, ptr %.val.i37.i, align 8, !noalias !5095, !nonnull !11, !align !4500, !noundef !11
   %391 = getelementptr i8, ptr %.val.i37.i, i64 8
-  %.val8.i.i39.i = load ptr, ptr %391, align 8, !noalias !5093
-  %392 = load i32, ptr %.val7.i.i38.i, align 4, !noalias !5093, !noundef !11
+  %.val8.i.i39.i = load ptr, ptr %391, align 8, !noalias !5095
+  %392 = load i32, ptr %.val7.i.i38.i, align 4, !noalias !5095, !noundef !11
   %393 = icmp eq i32 %392, 0
   br i1 %393, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i41.i", label %394
 
 394:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h2a996794ff8e176cE.exit.i"
   %395 = getelementptr inbounds nuw i8, ptr %.val7.i.i38.i, i64 4
-  %396 = load i32, ptr %395, align 4, !noalias !5093
+  %396 = load i32, ptr %395, align 4, !noalias !5095
   %397 = getelementptr i8, ptr %.val21.i72, i64 192
-  %.val.i.i.i40.i = load ptr, ptr %397, align 8, !noalias !5093
-  %398 = call { i32, i32 } %.val.i.i.i40.i(ptr noundef nonnull align 1 %.val20.i71), !noalias !5093
+  %.val.i.i.i40.i = load ptr, ptr %397, align 8, !noalias !5095
+  %398 = call { i32, i32 } %.val.i.i.i40.i(ptr noundef nonnull align 1 %.val20.i71), !noalias !5095
   %399 = extractvalue { i32, i32 } %398, 1
   %400 = icmp eq i32 %396, %399
   br i1 %400, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i.i51.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i41.i"
@@ -27533,32 +27513,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i41.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i.i51.i", %394, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h2a996794ff8e176cE.exit.i"
   %404 = icmp ne ptr %.val8.i.i39.i, null
   call void @llvm.assume(i1 %404)
-  %405 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i39.i), !noalias !5093
+  %405 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i39.i), !noalias !5095
   %406 = getelementptr inbounds nuw i8, ptr %.val21.i72, i64 128
-  %407 = load ptr, ptr %406, align 8, !invariant.load !11, !noalias !5093, !nonnull !11
-  %408 = call noundef zeroext i1 %407(ptr noundef nonnull align 1 %.val20.i71, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %405), !noalias !5093
+  %407 = load ptr, ptr %406, align 8, !invariant.load !11, !noalias !5095, !nonnull !11
+  %408 = call noundef zeroext i1 %407(ptr noundef nonnull align 1 %.val20.i71, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %405), !noalias !5095
   %409 = xor i1 %408, true
   %410 = zext i1 %409 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i42.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i42.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i41.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i.i51.i"
   %.sroa.0.0.i.i.i43.i = phi i8 [ %410, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i41.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i.i51.i" ]
-  %.val3.i.i44.i = load ptr, ptr %.val.i37.i, align 8, !noalias !5093, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i45.i = load ptr, ptr %391, align 8, !noalias !5093
+  %.val3.i.i44.i = load ptr, ptr %.val.i37.i, align 8, !noalias !5095, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i45.i = load ptr, ptr %391, align 8, !noalias !5095
   %411 = icmp ne ptr %.val18.i69, null
   call void @llvm.assume(i1 %411)
   %412 = icmp ne ptr %.val19.i70, null
   call void @llvm.assume(i1 %412)
-  %413 = load i32, ptr %.val3.i.i44.i, align 4, !noalias !5093, !noundef !11
+  %413 = load i32, ptr %.val3.i.i44.i, align 4, !noalias !5095, !noundef !11
   %414 = icmp eq i32 %413, 0
   br i1 %414, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i.i47.i", label %415
 
 415:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i42.i"
   %416 = getelementptr inbounds nuw i8, ptr %.val3.i.i44.i, i64 4
-  %417 = load i32, ptr %416, align 4, !noalias !5093
+  %417 = load i32, ptr %416, align 4, !noalias !5095
   %418 = getelementptr i8, ptr %.val19.i70, i64 192
-  %.val.i11.i.i46.i = load ptr, ptr %418, align 8, !noalias !5093
-  %419 = call { i32, i32 } %.val.i11.i.i46.i(ptr noundef nonnull align 1 %.val18.i69), !noalias !5093
+  %.val.i11.i.i46.i = load ptr, ptr %418, align 8, !noalias !5095
+  %419 = call { i32, i32 } %.val.i11.i.i46.i(ptr noundef nonnull align 1 %.val18.i69), !noalias !5095
   %420 = extractvalue { i32, i32 } %419, 1
   %421 = icmp eq i32 %417, %420
   br i1 %421, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i14.i.i50.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i.i47.i"
@@ -27573,10 +27553,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i.i47.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i14.i.i50.i", %415, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i42.i"
   %425 = icmp ne ptr %.val4.i.i45.i, null
   call void @llvm.assume(i1 %425)
-  %426 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i45.i), !noalias !5093
+  %426 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i45.i), !noalias !5095
   %427 = getelementptr inbounds nuw i8, ptr %.val19.i70, i64 128
-  %428 = load ptr, ptr %427, align 8, !invariant.load !11, !noalias !5093, !nonnull !11
-  %429 = call noundef zeroext i1 %428(ptr noundef nonnull align 1 %.val18.i69, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %426), !noalias !5093
+  %428 = load ptr, ptr %427, align 8, !invariant.load !11, !noalias !5095, !nonnull !11
+  %429 = call noundef zeroext i1 %428(ptr noundef nonnull align 1 %.val18.i69, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %426), !noalias !5095
   %430 = xor i1 %429, true
   %.neg.i.i48.i = sext i1 %430 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h2a996794ff8e176cE.exit52.i"
@@ -27598,19 +27578,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
   %.val25.i75 = load ptr, ptr %21, align 8, !alias.scope !5090, !noalias !5093, !nonnull !11, !align !166, !noundef !11
   %.val26.i76 = load ptr, ptr %23, align 8, !alias.scope !5090, !noalias !5093, !nonnull !11, !align !164, !noundef !11
   %.val.i54.i = load ptr, ptr %6, align 8, !noalias !5095, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i55.i = load ptr, ptr %.val.i54.i, align 8, !noalias !5093, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i55.i = load ptr, ptr %.val.i54.i, align 8, !noalias !5095, !nonnull !11, !align !4500, !noundef !11
   %439 = getelementptr i8, ptr %.val.i54.i, i64 8
-  %.val8.i.i56.i = load ptr, ptr %439, align 8, !noalias !5093
-  %440 = load i32, ptr %.val7.i.i55.i, align 4, !noalias !5093, !noundef !11
+  %.val8.i.i56.i = load ptr, ptr %439, align 8, !noalias !5095
+  %440 = load i32, ptr %.val7.i.i55.i, align 4, !noalias !5095, !noundef !11
   %441 = icmp eq i32 %440, 0
   br i1 %441, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i58.i", label %442
 
 442:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h2a996794ff8e176cE.exit52.i"
   %443 = getelementptr inbounds nuw i8, ptr %.val7.i.i55.i, i64 4
-  %444 = load i32, ptr %443, align 4, !noalias !5093
+  %444 = load i32, ptr %443, align 4, !noalias !5095
   %445 = getelementptr i8, ptr %.val26.i76, i64 192
-  %.val.i.i.i57.i = load ptr, ptr %445, align 8, !noalias !5093
-  %446 = call { i32, i32 } %.val.i.i.i57.i(ptr noundef nonnull align 1 %.val25.i75), !noalias !5093
+  %.val.i.i.i57.i = load ptr, ptr %445, align 8, !noalias !5095
+  %446 = call { i32, i32 } %.val.i.i.i57.i(ptr noundef nonnull align 1 %.val25.i75), !noalias !5095
   %447 = extractvalue { i32, i32 } %446, 1
   %448 = icmp eq i32 %444, %447
   br i1 %448, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i.i68.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i58.i"
@@ -27625,32 +27605,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i58.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i.i68.i", %442, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h2a996794ff8e176cE.exit52.i"
   %452 = icmp ne ptr %.val8.i.i56.i, null
   call void @llvm.assume(i1 %452)
-  %453 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i56.i), !noalias !5093
+  %453 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i56.i), !noalias !5095
   %454 = getelementptr inbounds nuw i8, ptr %.val26.i76, i64 128
-  %455 = load ptr, ptr %454, align 8, !invariant.load !11, !noalias !5093, !nonnull !11
-  %456 = call noundef zeroext i1 %455(ptr noundef nonnull align 1 %.val25.i75, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %453), !noalias !5093
+  %455 = load ptr, ptr %454, align 8, !invariant.load !11, !noalias !5095, !nonnull !11
+  %456 = call noundef zeroext i1 %455(ptr noundef nonnull align 1 %.val25.i75, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %453), !noalias !5095
   %457 = xor i1 %456, true
   %458 = zext i1 %457 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i59.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i59.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i58.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i.i68.i"
   %.sroa.0.0.i.i.i60.i = phi i8 [ %458, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i58.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i.i68.i" ]
-  %.val3.i.i61.i = load ptr, ptr %.val.i54.i, align 8, !noalias !5093, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i62.i = load ptr, ptr %439, align 8, !noalias !5093
+  %.val3.i.i61.i = load ptr, ptr %.val.i54.i, align 8, !noalias !5095, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i62.i = load ptr, ptr %439, align 8, !noalias !5095
   %459 = icmp ne ptr %.val23.i73, null
   call void @llvm.assume(i1 %459)
   %460 = icmp ne ptr %.val24.i74, null
   call void @llvm.assume(i1 %460)
-  %461 = load i32, ptr %.val3.i.i61.i, align 4, !noalias !5093, !noundef !11
+  %461 = load i32, ptr %.val3.i.i61.i, align 4, !noalias !5095, !noundef !11
   %462 = icmp eq i32 %461, 0
   br i1 %462, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i.i64.i", label %463
 
 463:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i59.i"
   %464 = getelementptr inbounds nuw i8, ptr %.val3.i.i61.i, i64 4
-  %465 = load i32, ptr %464, align 4, !noalias !5093
+  %465 = load i32, ptr %464, align 4, !noalias !5095
   %466 = getelementptr i8, ptr %.val24.i74, i64 192
-  %.val.i11.i.i63.i = load ptr, ptr %466, align 8, !noalias !5093
-  %467 = call { i32, i32 } %.val.i11.i.i63.i(ptr noundef nonnull align 1 %.val23.i73), !noalias !5093
+  %.val.i11.i.i63.i = load ptr, ptr %466, align 8, !noalias !5095
+  %467 = call { i32, i32 } %.val.i11.i.i63.i(ptr noundef nonnull align 1 %.val23.i73), !noalias !5095
   %468 = extractvalue { i32, i32 } %467, 1
   %469 = icmp eq i32 %465, %468
   br i1 %469, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i14.i.i67.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i.i64.i"
@@ -27665,10 +27645,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i.i64.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i14.i.i67.i", %463, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i59.i"
   %473 = icmp ne ptr %.val4.i.i62.i, null
   call void @llvm.assume(i1 %473)
-  %474 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i62.i), !noalias !5093
+  %474 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i62.i), !noalias !5095
   %475 = getelementptr inbounds nuw i8, ptr %.val24.i74, i64 128
-  %476 = load ptr, ptr %475, align 8, !invariant.load !11, !noalias !5093, !nonnull !11
-  %477 = call noundef zeroext i1 %476(ptr noundef nonnull align 1 %.val23.i73, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %474), !noalias !5093
+  %476 = load ptr, ptr %475, align 8, !invariant.load !11, !noalias !5095, !nonnull !11
+  %477 = call noundef zeroext i1 %476(ptr noundef nonnull align 1 %.val23.i73, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %474), !noalias !5095
   %478 = xor i1 %477, true
   %.neg.i.i65.i = sext i1 %478 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h2a996794ff8e176cE.exit69.i"
@@ -27690,19 +27670,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
   %.val30.i79 = load ptr, ptr %21, align 8, !alias.scope !5090, !noalias !5093, !nonnull !11, !align !166, !noundef !11
   %.val31.i80 = load ptr, ptr %23, align 8, !alias.scope !5090, !noalias !5093, !nonnull !11, !align !164, !noundef !11
   %.val.i71.i = load ptr, ptr %6, align 8, !noalias !5095, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i72.i = load ptr, ptr %.val.i71.i, align 8, !noalias !5093, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i72.i = load ptr, ptr %.val.i71.i, align 8, !noalias !5095, !nonnull !11, !align !4500, !noundef !11
   %487 = getelementptr i8, ptr %.val.i71.i, i64 8
-  %.val8.i.i73.i = load ptr, ptr %487, align 8, !noalias !5093
-  %488 = load i32, ptr %.val7.i.i72.i, align 4, !noalias !5093, !noundef !11
+  %.val8.i.i73.i = load ptr, ptr %487, align 8, !noalias !5095
+  %488 = load i32, ptr %.val7.i.i72.i, align 4, !noalias !5095, !noundef !11
   %489 = icmp eq i32 %488, 0
   br i1 %489, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i75.i", label %490
 
 490:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h2a996794ff8e176cE.exit69.i"
   %491 = getelementptr inbounds nuw i8, ptr %.val7.i.i72.i, i64 4
-  %492 = load i32, ptr %491, align 4, !noalias !5093
+  %492 = load i32, ptr %491, align 4, !noalias !5095
   %493 = getelementptr i8, ptr %.val31.i80, i64 192
-  %.val.i.i.i74.i = load ptr, ptr %493, align 8, !noalias !5093
-  %494 = call { i32, i32 } %.val.i.i.i74.i(ptr noundef nonnull align 1 %.val30.i79), !noalias !5093
+  %.val.i.i.i74.i = load ptr, ptr %493, align 8, !noalias !5095
+  %494 = call { i32, i32 } %.val.i.i.i74.i(ptr noundef nonnull align 1 %.val30.i79), !noalias !5095
   %495 = extractvalue { i32, i32 } %494, 1
   %496 = icmp eq i32 %492, %495
   br i1 %496, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i.i85.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i75.i"
@@ -27717,32 +27697,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i75.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i.i85.i", %490, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h2a996794ff8e176cE.exit69.i"
   %500 = icmp ne ptr %.val8.i.i73.i, null
   call void @llvm.assume(i1 %500)
-  %501 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i73.i), !noalias !5093
+  %501 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i73.i), !noalias !5095
   %502 = getelementptr inbounds nuw i8, ptr %.val31.i80, i64 128
-  %503 = load ptr, ptr %502, align 8, !invariant.load !11, !noalias !5093, !nonnull !11
-  %504 = call noundef zeroext i1 %503(ptr noundef nonnull align 1 %.val30.i79, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %501), !noalias !5093
+  %503 = load ptr, ptr %502, align 8, !invariant.load !11, !noalias !5095, !nonnull !11
+  %504 = call noundef zeroext i1 %503(ptr noundef nonnull align 1 %.val30.i79, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %501), !noalias !5095
   %505 = xor i1 %504, true
   %506 = zext i1 %505 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i76.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i76.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i75.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i.i85.i"
   %.sroa.0.0.i.i.i77.i = phi i8 [ %506, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i75.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i.i85.i" ]
-  %.val3.i.i78.i = load ptr, ptr %.val.i71.i, align 8, !noalias !5093, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i79.i = load ptr, ptr %487, align 8, !noalias !5093
+  %.val3.i.i78.i = load ptr, ptr %.val.i71.i, align 8, !noalias !5095, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i79.i = load ptr, ptr %487, align 8, !noalias !5095
   %507 = icmp ne ptr %.val28.i77, null
   call void @llvm.assume(i1 %507)
   %508 = icmp ne ptr %.val29.i78, null
   call void @llvm.assume(i1 %508)
-  %509 = load i32, ptr %.val3.i.i78.i, align 4, !noalias !5093, !noundef !11
+  %509 = load i32, ptr %.val3.i.i78.i, align 4, !noalias !5095, !noundef !11
   %510 = icmp eq i32 %509, 0
   br i1 %510, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i.i81.i", label %511
 
 511:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i76.i"
   %512 = getelementptr inbounds nuw i8, ptr %.val3.i.i78.i, i64 4
-  %513 = load i32, ptr %512, align 4, !noalias !5093
+  %513 = load i32, ptr %512, align 4, !noalias !5095
   %514 = getelementptr i8, ptr %.val29.i78, i64 192
-  %.val.i11.i.i80.i = load ptr, ptr %514, align 8, !noalias !5093
-  %515 = call { i32, i32 } %.val.i11.i.i80.i(ptr noundef nonnull align 1 %.val28.i77), !noalias !5093
+  %.val.i11.i.i80.i = load ptr, ptr %514, align 8, !noalias !5095
+  %515 = call { i32, i32 } %.val.i11.i.i80.i(ptr noundef nonnull align 1 %.val28.i77), !noalias !5095
   %516 = extractvalue { i32, i32 } %515, 1
   %517 = icmp eq i32 %513, %516
   br i1 %517, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i14.i.i84.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i.i81.i"
@@ -27757,10 +27737,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i.i81.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i14.i.i84.i", %511, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i76.i"
   %521 = icmp ne ptr %.val4.i.i79.i, null
   call void @llvm.assume(i1 %521)
-  %522 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i79.i), !noalias !5093
+  %522 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i79.i), !noalias !5095
   %523 = getelementptr inbounds nuw i8, ptr %.val29.i78, i64 128
-  %524 = load ptr, ptr %523, align 8, !invariant.load !11, !noalias !5093, !nonnull !11
-  %525 = call noundef zeroext i1 %524(ptr noundef nonnull align 1 %.val28.i77, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %522), !noalias !5093
+  %524 = load ptr, ptr %523, align 8, !invariant.load !11, !noalias !5095, !nonnull !11
+  %525 = call noundef zeroext i1 %524(ptr noundef nonnull align 1 %.val28.i77, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %522), !noalias !5095
   %526 = xor i1 %525, true
   %.neg.i.i82.i = sext i1 %526 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h2a996794ff8e176cE.exit86.i"
@@ -27804,19 +27784,19 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
   %.val35.i57 = load ptr, ptr %21, align 8, !alias.scope !5090, !noalias !5093, !nonnull !11, !align !166, !noundef !11
   %.val36.i58 = load ptr, ptr %23, align 8, !alias.scope !5090, !noalias !5093, !nonnull !11, !align !164, !noundef !11
   %.val.i88.i = load ptr, ptr %6, align 8, !noalias !5095, !nonnull !11, !align !164, !noundef !11
-  %.val7.i.i89.i = load ptr, ptr %.val.i88.i, align 8, !noalias !5093, !nonnull !11, !align !4500, !noundef !11
+  %.val7.i.i89.i = load ptr, ptr %.val.i88.i, align 8, !noalias !5095, !nonnull !11, !align !4500, !noundef !11
   %539 = getelementptr i8, ptr %.val.i88.i, i64 8
-  %.val8.i.i90.i = load ptr, ptr %539, align 8, !noalias !5093
-  %540 = load i32, ptr %.val7.i.i89.i, align 4, !noalias !5093, !noundef !11
+  %.val8.i.i90.i = load ptr, ptr %539, align 8, !noalias !5095
+  %540 = load i32, ptr %.val7.i.i89.i, align 4, !noalias !5095, !noundef !11
   %541 = icmp eq i32 %540, 0
   br i1 %541, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i92.i", label %542
 
 542:                                              ; preds = %.lr.ph40.i51
   %543 = getelementptr inbounds nuw i8, ptr %.val7.i.i89.i, i64 4
-  %544 = load i32, ptr %543, align 4, !noalias !5093
+  %544 = load i32, ptr %543, align 4, !noalias !5095
   %545 = getelementptr i8, ptr %.val36.i58, i64 192
-  %.val.i.i.i91.i = load ptr, ptr %545, align 8, !noalias !5093
-  %546 = call { i32, i32 } %.val.i.i.i91.i(ptr noundef nonnull align 1 %.val35.i57), !noalias !5093
+  %.val.i.i.i91.i = load ptr, ptr %545, align 8, !noalias !5095
+  %546 = call { i32, i32 } %.val.i.i.i91.i(ptr noundef nonnull align 1 %.val35.i57), !noalias !5095
   %547 = extractvalue { i32, i32 } %546, 1
   %548 = icmp eq i32 %544, %547
   br i1 %548, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i.i102.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i92.i"
@@ -27831,32 +27811,32 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i92.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i.i102.i", %542, %.lr.ph40.i51
   %552 = icmp ne ptr %.val8.i.i90.i, null
   call void @llvm.assume(i1 %552)
-  %553 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i90.i), !noalias !5093
+  %553 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val8.i.i90.i), !noalias !5095
   %554 = getelementptr inbounds nuw i8, ptr %.val36.i58, i64 128
-  %555 = load ptr, ptr %554, align 8, !invariant.load !11, !noalias !5093, !nonnull !11
-  %556 = call noundef zeroext i1 %555(ptr noundef nonnull align 1 %.val35.i57, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %553), !noalias !5093
+  %555 = load ptr, ptr %554, align 8, !invariant.load !11, !noalias !5095, !nonnull !11
+  %556 = call noundef zeroext i1 %555(ptr noundef nonnull align 1 %.val35.i57, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %553), !noalias !5095
   %557 = xor i1 %556, true
   %558 = zext i1 %557 to i8
   br label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i93.i"
 
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i93.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i92.i", %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i.i102.i"
   %.sroa.0.0.i.i.i94.i = phi i8 [ %558, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i.i.i92.i" ], [ 1, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i.i.i102.i" ]
-  %.val3.i.i95.i = load ptr, ptr %.val.i88.i, align 8, !noalias !5093, !nonnull !11, !align !4500, !noundef !11
-  %.val4.i.i96.i = load ptr, ptr %539, align 8, !noalias !5093
+  %.val3.i.i95.i = load ptr, ptr %.val.i88.i, align 8, !noalias !5095, !nonnull !11, !align !4500, !noundef !11
+  %.val4.i.i96.i = load ptr, ptr %539, align 8, !noalias !5095
   %559 = icmp ne ptr %.val33.i55, null
   call void @llvm.assume(i1 %559)
   %560 = icmp ne ptr %.val34.i56, null
   call void @llvm.assume(i1 %560)
-  %561 = load i32, ptr %.val3.i.i95.i, align 4, !noalias !5093, !noundef !11
+  %561 = load i32, ptr %.val3.i.i95.i, align 4, !noalias !5095, !noundef !11
   %562 = icmp eq i32 %561, 0
   br i1 %562, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i.i98.i", label %563
 
 563:                                              ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i93.i"
   %564 = getelementptr inbounds nuw i8, ptr %.val3.i.i95.i, i64 4
-  %565 = load i32, ptr %564, align 4, !noalias !5093
+  %565 = load i32, ptr %564, align 4, !noalias !5095
   %566 = getelementptr i8, ptr %.val34.i56, i64 192
-  %.val.i11.i.i97.i = load ptr, ptr %566, align 8, !noalias !5093
-  %567 = call { i32, i32 } %.val.i11.i.i97.i(ptr noundef nonnull align 1 %.val33.i55), !noalias !5093
+  %.val.i11.i.i97.i = load ptr, ptr %566, align 8, !noalias !5095
+  %567 = call { i32, i32 } %.val.i11.i.i97.i(ptr noundef nonnull align 1 %.val33.i55), !noalias !5095
   %568 = extractvalue { i32, i32 } %567, 1
   %569 = icmp eq i32 %565, %568
   br i1 %569, label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i14.i.i101.i", label %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i.i98.i"
@@ -27871,10 +27851,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea23678c8bb
 "_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.thread.i.i12.i.i98.i": ; preds = %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec5167d8ab546bc3E.exit.i.i14.i.i101.i", %563, %"_ZN9workspace4pane4Pane11close_items28_$u7b$$u7b$closure$u7d$$u7d$17h9dc10323c62b02cdE.exit.i.i93.i"
   %573 = icmp ne ptr %.val4.i.i96.i, null
   call void @llvm.assume(i1 %573)
-  %574 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i96.i), !noalias !5093
+  %574 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val4.i.i96.i), !noalias !5095
   %575 = getelementptr inbounds nuw i8, ptr %.val34.i56, i64 128
-  %576 = load ptr, ptr %575, align 8, !invariant.load !11, !noalias !5093, !nonnull !11
-  %577 = call noundef zeroext i1 %576(ptr noundef nonnull align 1 %.val33.i55, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %574), !noalias !5093
+  %576 = load ptr, ptr %575, align 8, !invariant.load !11, !noalias !5095, !nonnull !11
+  %577 = call noundef zeroext i1 %576(ptr noundef nonnull align 1 %.val33.i55, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %574), !noalias !5095
   %578 = xor i1 %577, true
   %.neg.i.i99.i = sext i1 %578 to i8
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h2a996794ff8e176cE.exit103.i"
@@ -80635,55 +80615,55 @@ attributes #30 = { nounwind }
 !4767 = !{!4768}
 !4768 = distinct !{!4768, !4766, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17h42468b67477d91acE: argument 1"}
 !4769 = !{!4765, !4768}
-!4770 = !{!4771, !4773, !4768}
+!4770 = !{!4771, !4773, !4765, !4768}
 !4771 = distinct !{!4771, !4772, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 0"}
 !4772 = distinct !{!4772, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E"}
 !4773 = distinct !{!4773, !4772, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 1"}
-!4774 = !{!4775, !4777, !4768}
+!4774 = !{!4775, !4777, !4765, !4768}
 !4775 = distinct !{!4775, !4776, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 0"}
 !4776 = distinct !{!4776, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E"}
 !4777 = distinct !{!4777, !4776, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 1"}
 !4778 = !{!4779}
 !4779 = distinct !{!4779, !4780, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h0febbbc06c244509E: argument 0"}
 !4780 = distinct !{!4780, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h0febbbc06c244509E"}
-!4781 = !{!4782, !4784, !4768}
+!4781 = !{!4782, !4784, !4765, !4768}
 !4782 = distinct !{!4782, !4783, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 0"}
 !4783 = distinct !{!4783, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E"}
 !4784 = distinct !{!4784, !4783, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 1"}
-!4785 = !{!4786, !4788, !4768}
+!4785 = !{!4786, !4788, !4765, !4768}
 !4786 = distinct !{!4786, !4787, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 0"}
 !4787 = distinct !{!4787, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E"}
 !4788 = distinct !{!4788, !4787, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 1"}
 !4789 = !{!4790}
 !4790 = distinct !{!4790, !4791, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h0febbbc06c244509E: argument 0"}
 !4791 = distinct !{!4791, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h0febbbc06c244509E"}
-!4792 = !{!4793, !4795, !4768}
+!4792 = !{!4793, !4795, !4765, !4768}
 !4793 = distinct !{!4793, !4794, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 0"}
 !4794 = distinct !{!4794, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E"}
 !4795 = distinct !{!4795, !4794, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 1"}
-!4796 = !{!4797, !4799, !4768}
+!4796 = !{!4797, !4799, !4765, !4768}
 !4797 = distinct !{!4797, !4798, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 0"}
 !4798 = distinct !{!4798, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E"}
 !4799 = distinct !{!4799, !4798, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 1"}
 !4800 = !{!4801}
 !4801 = distinct !{!4801, !4802, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h0febbbc06c244509E: argument 0"}
 !4802 = distinct !{!4802, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h0febbbc06c244509E"}
-!4803 = !{!4804, !4806, !4768}
+!4803 = !{!4804, !4806, !4765, !4768}
 !4804 = distinct !{!4804, !4805, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 0"}
 !4805 = distinct !{!4805, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E"}
 !4806 = distinct !{!4806, !4805, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 1"}
-!4807 = !{!4808, !4810, !4768}
+!4807 = !{!4808, !4810, !4765, !4768}
 !4808 = distinct !{!4808, !4809, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 0"}
 !4809 = distinct !{!4809, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E"}
 !4810 = distinct !{!4810, !4809, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 1"}
 !4811 = !{!4812}
 !4812 = distinct !{!4812, !4813, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h0febbbc06c244509E: argument 0"}
 !4813 = distinct !{!4813, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h0febbbc06c244509E"}
-!4814 = !{!4815, !4817, !4768}
+!4814 = !{!4815, !4817, !4765, !4768}
 !4815 = distinct !{!4815, !4816, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 0"}
 !4816 = distinct !{!4816, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E"}
 !4817 = distinct !{!4817, !4816, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 1"}
-!4818 = !{!4819, !4821, !4768}
+!4818 = !{!4819, !4821, !4765, !4768}
 !4819 = distinct !{!4819, !4820, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 0"}
 !4820 = distinct !{!4820, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E"}
 !4821 = distinct !{!4821, !4820, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 1"}
@@ -80694,60 +80674,60 @@ attributes #30 = { nounwind }
 !4826 = distinct !{!4826, !4827, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h0febbbc06c244509E: argument 0"}
 !4827 = distinct !{!4827, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h0febbbc06c244509E"}
 !4828 = !{!4829}
-!4829 = distinct !{!4829, !4830, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17hcc3eb3eb6f0e2462E: argument 1"}
+!4829 = distinct !{!4829, !4830, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17hcc3eb3eb6f0e2462E: argument 0"}
 !4830 = distinct !{!4830, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17hcc3eb3eb6f0e2462E"}
 !4831 = !{!4832}
-!4832 = distinct !{!4832, !4830, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17hcc3eb3eb6f0e2462E: argument 0"}
-!4833 = !{!4834, !4836, !4829}
-!4834 = distinct !{!4834, !4835, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 0"}
-!4835 = distinct !{!4835, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E"}
-!4836 = distinct !{!4836, !4835, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 1"}
-!4837 = !{!4838, !4840, !4829}
-!4838 = distinct !{!4838, !4839, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 0"}
-!4839 = distinct !{!4839, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E"}
-!4840 = distinct !{!4840, !4839, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 1"}
-!4841 = !{!4832, !4829}
+!4832 = distinct !{!4832, !4830, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17hcc3eb3eb6f0e2462E: argument 1"}
+!4833 = !{!4829, !4832}
+!4834 = !{!4835, !4837, !4829, !4832}
+!4835 = distinct !{!4835, !4836, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 0"}
+!4836 = distinct !{!4836, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E"}
+!4837 = distinct !{!4837, !4836, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 1"}
+!4838 = !{!4839, !4841, !4829, !4832}
+!4839 = distinct !{!4839, !4840, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 0"}
+!4840 = distinct !{!4840, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E"}
+!4841 = distinct !{!4841, !4840, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 1"}
 !4842 = !{!4843}
 !4843 = distinct !{!4843, !4844, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h0febbbc06c244509E: argument 0"}
 !4844 = distinct !{!4844, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h0febbbc06c244509E"}
-!4845 = !{!4846, !4848, !4829}
+!4845 = !{!4846, !4848, !4829, !4832}
 !4846 = distinct !{!4846, !4847, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 0"}
 !4847 = distinct !{!4847, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E"}
 !4848 = distinct !{!4848, !4847, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 1"}
-!4849 = !{!4850, !4852, !4829}
+!4849 = !{!4850, !4852, !4829, !4832}
 !4850 = distinct !{!4850, !4851, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 0"}
 !4851 = distinct !{!4851, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E"}
 !4852 = distinct !{!4852, !4851, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 1"}
 !4853 = !{!4854}
 !4854 = distinct !{!4854, !4855, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h0febbbc06c244509E: argument 0"}
 !4855 = distinct !{!4855, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h0febbbc06c244509E"}
-!4856 = !{!4857, !4859, !4829}
+!4856 = !{!4857, !4859, !4829, !4832}
 !4857 = distinct !{!4857, !4858, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 0"}
 !4858 = distinct !{!4858, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E"}
 !4859 = distinct !{!4859, !4858, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 1"}
-!4860 = !{!4861, !4863, !4829}
+!4860 = !{!4861, !4863, !4829, !4832}
 !4861 = distinct !{!4861, !4862, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 0"}
 !4862 = distinct !{!4862, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E"}
 !4863 = distinct !{!4863, !4862, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 1"}
 !4864 = !{!4865}
 !4865 = distinct !{!4865, !4866, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h0febbbc06c244509E: argument 0"}
 !4866 = distinct !{!4866, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h0febbbc06c244509E"}
-!4867 = !{!4868, !4870, !4829}
+!4867 = !{!4868, !4870, !4829, !4832}
 !4868 = distinct !{!4868, !4869, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 0"}
 !4869 = distinct !{!4869, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E"}
 !4870 = distinct !{!4870, !4869, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 1"}
-!4871 = !{!4872, !4874, !4829}
+!4871 = !{!4872, !4874, !4829, !4832}
 !4872 = distinct !{!4872, !4873, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 0"}
 !4873 = distinct !{!4873, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E"}
 !4874 = distinct !{!4874, !4873, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 1"}
 !4875 = !{!4876}
 !4876 = distinct !{!4876, !4877, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h0febbbc06c244509E: argument 0"}
 !4877 = distinct !{!4877, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h0febbbc06c244509E"}
-!4878 = !{!4879, !4881, !4829}
+!4878 = !{!4879, !4881, !4829, !4832}
 !4879 = distinct !{!4879, !4880, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 0"}
 !4880 = distinct !{!4880, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E"}
 !4881 = distinct !{!4881, !4880, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 1"}
-!4882 = !{!4883, !4885, !4829}
+!4882 = !{!4883, !4885, !4829, !4832}
 !4883 = distinct !{!4883, !4884, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 0"}
 !4884 = distinct !{!4884, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E"}
 !4885 = distinct !{!4885, !4884, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E: argument 1"}
@@ -81008,17 +80988,17 @@ attributes #30 = { nounwind }
 !5140 = distinct !{!5140, !"_ZN4gpui3app10AppContext6update17hd32d1bc7cc42c813E"}
 !5141 = !{!5131}
 !5142 = !{!5139, !5133}
-!5143 = !{!5144, !5145, !5136, !5131, !5127}
+!5143 = !{!5144, !5145, !5136, !5131, !5124, !5127}
 !5144 = distinct !{!5144, !5140, !"_ZN4gpui3app10AppContext6update17hd32d1bc7cc42c813E: argument 0"}
 !5145 = distinct !{!5145, !5140, !"_ZN4gpui3app10AppContext6update17hd32d1bc7cc42c813E: argument 2"}
 !5146 = !{!5144, !5139, !5145, !5136, !5133, !5131, !5124, !5127}
-!5147 = !{!5144, !5136, !5131, !5127}
+!5147 = !{!5144, !5136, !5131, !5124, !5127}
 !5148 = !{i8 0, i8 2}
 !5149 = !{!5150}
 !5150 = distinct !{!5150, !5151, !"_ZN4core3ptr69drop_in_place$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$17h976de72c7c84d5eeE.llvm.12982194851600844284: argument 0"}
 !5151 = distinct !{!5151, !"_ZN4core3ptr69drop_in_place$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$17h976de72c7c84d5eeE.llvm.12982194851600844284"}
 !5152 = !{!5139, !5145, !5136, !5133, !5131, !5124, !5127}
-!5153 = !{!5136, !5131, !5127}
+!5153 = !{!5136, !5131, !5124, !5127}
 !5154 = !{!5155}
 !5155 = distinct !{!5155, !5156, !"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE: argument 1"}
 !5156 = distinct !{!5156, !"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"}
@@ -81029,16 +81009,16 @@ attributes #30 = { nounwind }
 !5161 = distinct !{!5161, !5162, !"_ZN4gpui3app10AppContext6update17hd32d1bc7cc42c813E: argument 1"}
 !5162 = distinct !{!5162, !"_ZN4gpui3app10AppContext6update17hd32d1bc7cc42c813E"}
 !5163 = !{!5161, !5155}
-!5164 = !{!5165, !5166, !5158, !5127}
+!5164 = !{!5165, !5166, !5158, !5124, !5127}
 !5165 = distinct !{!5165, !5162, !"_ZN4gpui3app10AppContext6update17hd32d1bc7cc42c813E: argument 0"}
 !5166 = distinct !{!5166, !5162, !"_ZN4gpui3app10AppContext6update17hd32d1bc7cc42c813E: argument 2"}
 !5167 = !{!5165, !5161, !5166, !5158, !5155, !5124, !5127}
-!5168 = !{!5165, !5158, !5127}
+!5168 = !{!5165, !5158, !5124, !5127}
 !5169 = !{!5170}
 !5170 = distinct !{!5170, !5171, !"_ZN4core3ptr69drop_in_place$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$17h976de72c7c84d5eeE.llvm.12982194851600844284: argument 0"}
 !5171 = distinct !{!5171, !"_ZN4core3ptr69drop_in_place$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$17h976de72c7c84d5eeE.llvm.12982194851600844284"}
 !5172 = !{!5161, !5166, !5158, !5155, !5124, !5127}
-!5173 = !{!5158, !5127}
+!5173 = !{!5158, !5124, !5127}
 !5174 = !{!5124, !5127}
 !5175 = !{!5176}
 !5176 = distinct !{!5176, !5177, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h40bd63a953020bc2E: argument 0"}
@@ -81055,7 +81035,7 @@ attributes #30 = { nounwind }
 !5187 = distinct !{!5187, !5188, !"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hcf4ec5c1711cf7a7E: argument 0"}
 !5188 = distinct !{!5188, !"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hcf4ec5c1711cf7a7E"}
 !5189 = distinct !{!5189, !5188, !"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hcf4ec5c1711cf7a7E: argument 1"}
-!5190 = !{!5191, !5193, !5187, !5189, !5185}
+!5190 = !{!5191, !5193, !5187, !5189, !5182, !5185}
 !5191 = distinct !{!5191, !5192, !"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h418d9720231e3adeE: argument 0"}
 !5192 = distinct !{!5192, !"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h418d9720231e3adeE"}
 !5193 = distinct !{!5193, !5192, !"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h418d9720231e3adeE: argument 1"}
@@ -81070,17 +81050,17 @@ attributes #30 = { nounwind }
 !5202 = distinct !{!5202, !"_ZN4gpui3app10AppContext6update17hd32d1bc7cc42c813E"}
 !5203 = !{!5193, !5187}
 !5204 = !{!5201, !5195}
-!5205 = !{!5206, !5207, !5198, !5193, !5187, !5185}
+!5205 = !{!5206, !5207, !5198, !5193, !5187, !5182, !5185}
 !5206 = distinct !{!5206, !5202, !"_ZN4gpui3app10AppContext6update17hd32d1bc7cc42c813E: argument 0"}
 !5207 = distinct !{!5207, !5202, !"_ZN4gpui3app10AppContext6update17hd32d1bc7cc42c813E: argument 2"}
 !5208 = !{!5206, !5201, !5207, !5198, !5195, !5193, !5187, !5182, !5185}
-!5209 = !{!5206, !5198, !5193, !5187, !5185}
+!5209 = !{!5206, !5198, !5193, !5187, !5182, !5185}
 !5210 = !{!5211}
 !5211 = distinct !{!5211, !5212, !"_ZN4core3ptr69drop_in_place$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$17h976de72c7c84d5eeE.llvm.12982194851600844284: argument 0"}
 !5212 = distinct !{!5212, !"_ZN4core3ptr69drop_in_place$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$17h976de72c7c84d5eeE.llvm.12982194851600844284"}
 !5213 = !{!5201, !5207, !5198, !5195, !5193, !5187, !5182, !5185}
-!5214 = !{!5198, !5193, !5187, !5185}
-!5215 = !{!5191, !5193, !5187, !5185}
+!5214 = !{!5198, !5193, !5187, !5182, !5185}
+!5215 = !{!5191, !5193, !5187, !5182, !5185}
 !5216 = !{!5217}
 !5217 = distinct !{!5217, !5218, !"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE: argument 1"}
 !5218 = distinct !{!5218, !"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"}
@@ -81091,16 +81071,16 @@ attributes #30 = { nounwind }
 !5223 = distinct !{!5223, !5224, !"_ZN4gpui3app10AppContext6update17hd32d1bc7cc42c813E: argument 1"}
 !5224 = distinct !{!5224, !"_ZN4gpui3app10AppContext6update17hd32d1bc7cc42c813E"}
 !5225 = !{!5223, !5217}
-!5226 = !{!5227, !5228, !5220, !5185}
+!5226 = !{!5227, !5228, !5220, !5182, !5185}
 !5227 = distinct !{!5227, !5224, !"_ZN4gpui3app10AppContext6update17hd32d1bc7cc42c813E: argument 0"}
 !5228 = distinct !{!5228, !5224, !"_ZN4gpui3app10AppContext6update17hd32d1bc7cc42c813E: argument 2"}
 !5229 = !{!5227, !5223, !5228, !5220, !5217, !5182, !5185}
-!5230 = !{!5227, !5220, !5185}
+!5230 = !{!5227, !5220, !5182, !5185}
 !5231 = !{!5232}
 !5232 = distinct !{!5232, !5233, !"_ZN4core3ptr69drop_in_place$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$17h976de72c7c84d5eeE.llvm.12982194851600844284: argument 0"}
 !5233 = distinct !{!5233, !"_ZN4core3ptr69drop_in_place$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$17h976de72c7c84d5eeE.llvm.12982194851600844284"}
 !5234 = !{!5223, !5228, !5220, !5217, !5182, !5185}
-!5235 = !{!5220, !5185}
+!5235 = !{!5220, !5182, !5185}
 !5236 = !{!5182, !5185}
 !5237 = !{!5238}
 !5238 = distinct !{!5238, !5239, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h40bd63a953020bc2E: argument 0"}

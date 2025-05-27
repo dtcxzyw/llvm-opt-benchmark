@@ -373,9 +373,9 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %23 = getelementptr i8, ptr %.sroa.015.024.i, i64 8
   %.val12.i = load i64, ptr %23, align 8, !alias.scope !53, !noalias !44, !noundef !4
   %24 = getelementptr inbounds nuw [0 x { [2 x i64] }], ptr %13, i64 0, i64 %.sroa.7.023.i
-  store i64 %.val.i, ptr %24, align 8, !noalias !44
+  store i64 %.val.i, ptr %24, align 8, !noalias !49
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 %.val12.i, ptr %25, align 8, !noalias !44
+  store i64 %.val12.i, ptr %25, align 8, !noalias !49
   %26 = icmp eq i64 %20, 0
   br i1 %26, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9954553c6a2890adE.llvm.4327276305301521166.exit", label %.lr.ph.i
 

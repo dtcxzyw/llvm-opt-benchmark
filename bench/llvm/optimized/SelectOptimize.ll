@@ -9376,7 +9376,7 @@ _ZN4llvm13SmallDenseMapIPKNS_11InstructionEN12_GLOBAL__N_118SelectOptimizeImpl10
 
 .lr.ph.i.i:                                       ; preds = %76, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_11InstructionEN12_GLOBAL__N_118SelectOptimizeImpl10SelectLikeELj2ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJRKS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbEOS4_DpOT_.exit.i.i
   %.0178.i.i = phi ptr [ %206, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_11InstructionEN12_GLOBAL__N_118SelectOptimizeImpl10SelectLikeELj2ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJRKS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbEOS4_DpOT_.exit.i.i ], [ %.val.i.i, %76 ]
-  %.017.val.i.i = load ptr, ptr %.0178.i.i, align 8, !tbaa !177
+  %.017.val.i.i = load ptr, ptr %.0178.i.i, align 8, !tbaa !177, !noalias !504
   %82 = load i32, ptr %49, align 8, !alias.scope !504, !noalias !511
   %83 = and i32 %82, 1
   %.not.i.i.i.i.i.i.i = icmp eq i32 %83, 0
@@ -9516,7 +9516,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_11InstructionEN12_GLOBAL__N_118Se
   store i32 %149, ptr %49, align 8, !alias.scope !504, !noalias !511
   %150 = zext i32 %.0.i.i.i.i to i64
   %151 = mul nuw nsw i64 %150, 24
-  %152 = call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %151, i64 noundef 8) #21, !noalias !511
+  %152 = call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %151, i64 noundef 8) #21, !noalias !515
   store ptr %152, ptr %74, align 8, !alias.scope !504, !noalias !511
   store i32 %.0.i.i.i.i, ptr %75, align 8, !alias.scope !504, !noalias !511
   br label %153
@@ -9538,7 +9538,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_11InstructionEN12_GLOBAL__N_118Se
 158:                                              ; preds = %154
   %159 = zext i32 %.0.i.i.i.i to i64
   %160 = mul nuw nsw i64 %159, 24
-  %161 = call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %160, i64 noundef 8) #21, !noalias !511
+  %161 = call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %160, i64 noundef 8) #21, !noalias !515
   store ptr %161, ptr %74, align 8, !alias.scope !504, !noalias !511
   store i32 %.0.i.i.i.i, ptr %75, align 8, !alias.scope !504, !noalias !511
   br label %162
@@ -9548,7 +9548,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_11InstructionEN12_GLOBAL__N_118Se
   %164 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.366", ptr %84, i64 %163
   call fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_11InstructionEN12_GLOBAL__N_118SelectOptimizeImpl10SelectLikeELj2ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E18moveFromOldBucketsEPSC_SF_(ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef %84, ptr noundef %164), !noalias !511
   %165 = mul nuw nsw i64 %163, 24
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %84, i64 noundef %165, i64 noundef 8) #21, !noalias !511
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %84, i64 noundef %165, i64 noundef 8) #21, !noalias !515
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_11InstructionEN12_GLOBAL__N_118SelectOptimizeImpl10SelectLikeELj2ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4growEj.exit.i.i
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_11InstructionEN12_GLOBAL__N_118SelectOptimizeImpl10SelectLikeELj2ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4growEj.exit.i.i: ; preds = %162, %153
@@ -9685,7 +9685,7 @@ _ZN4llvm13SmallDenseMapIPKNS_11InstructionEPKN12_GLOBAL__N_118SelectOptimizeImpl
 
 .lr.ph.i174.i:                                    ; preds = %212, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_11InstructionEPKN12_GLOBAL__N_118SelectOptimizeImpl11SelectGroupELj2ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E11try_emplaceIJS9_EEESt4pairINS_16DenseMapIteratorIS4_S9_SB_SE_Lb0EEEbEOS4_DpOT_.exit.i.i
   %.0178.i175.i = phi ptr [ %343, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_11InstructionEPKN12_GLOBAL__N_118SelectOptimizeImpl11SelectGroupELj2ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E11try_emplaceIJS9_EEESt4pairINS_16DenseMapIteratorIS4_S9_SB_SE_Lb0EEEbEOS4_DpOT_.exit.i.i ], [ %.val.i171.i, %212 ]
-  %.017.val.i176.i = load ptr, ptr %.0178.i175.i, align 8, !tbaa !177
+  %.017.val.i176.i = load ptr, ptr %.0178.i175.i, align 8, !tbaa !177, !noalias !518
   %218 = load i32, ptr %50, align 8, !alias.scope !518, !noalias !525
   %219 = and i32 %218, 1
   %.not.i.i.i.i.i.i177.i = icmp eq i32 %219, 0
@@ -9826,7 +9826,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_11InstructionEPKN12_GLOBAL__N_118
   store i32 %286, ptr %50, align 8, !alias.scope !518, !noalias !525
   %287 = zext i32 %.0.i.i.i195.i to i64
   %288 = shl nuw nsw i64 %287, 4
-  %289 = call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %288, i64 noundef 8) #21, !noalias !525
+  %289 = call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %288, i64 noundef 8) #21, !noalias !529
   store ptr %289, ptr %210, align 8, !alias.scope !518, !noalias !525
   store i32 %.0.i.i.i195.i, ptr %211, align 8, !alias.scope !518, !noalias !525
   br label %290
@@ -9848,7 +9848,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_11InstructionEPKN12_GLOBAL__N_118
 295:                                              ; preds = %291
   %296 = zext i32 %.0.i.i.i195.i to i64
   %297 = shl nuw nsw i64 %296, 4
-  %298 = call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %297, i64 noundef 8) #21, !noalias !525
+  %298 = call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %297, i64 noundef 8) #21, !noalias !529
   store ptr %298, ptr %210, align 8, !alias.scope !518, !noalias !525
   store i32 %.0.i.i.i195.i, ptr %211, align 8, !alias.scope !518, !noalias !525
   br label %299
@@ -9858,7 +9858,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_11InstructionEPKN12_GLOBAL__N_118
   %301 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.374", ptr %220, i64 %300
   call fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_11InstructionEPKN12_GLOBAL__N_118SelectOptimizeImpl11SelectGroupELj2ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E18moveFromOldBucketsEPSE_SH_(ptr noundef nonnull align 8 dereferenceable(40) %50, ptr noundef %220, ptr noundef %301), !noalias !525
   %302 = shl nuw nsw i64 %300, 4
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %220, i64 noundef %302, i64 noundef 8) #21, !noalias !525
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %220, i64 noundef %302, i64 noundef 8) #21, !noalias !529
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_11InstructionEPKN12_GLOBAL__N_118SelectOptimizeImpl11SelectGroupELj2ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E4growEj.exit.i.i
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_11InstructionEPKN12_GLOBAL__N_118SelectOptimizeImpl11SelectGroupELj2ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E4growEj.exit.i.i: ; preds = %299, %290

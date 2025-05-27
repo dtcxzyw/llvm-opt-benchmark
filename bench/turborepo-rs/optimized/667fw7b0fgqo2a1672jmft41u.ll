@@ -4004,12 +4004,13 @@ define void @_RNvXsb_NtCseG2FYMysgNb_3wax4walkNtB5_11WaxDirEntryINtNtCs1LoaDTb72
   %6 = alloca [24 x i8], align 8
   %7 = load i64, ptr %1, align 8, !range !4, !noundef !5
   %trunc = trunc nuw i64 %7 to i1
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !694)
   br i1 %trunc, label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRNtNtNtCsapf13pIxsjn_3std2io5error5ErrorE6filterNCNvXsb_NtCseG2FYMysgNb_3wax4walkNtB1C_11WaxDirEntryINtNtB5_7convert7TryFromNtNtCsfDcDyFP4TGa_7walkdir5error5ErrorE8try_from0EB1E_.exit.thread, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i.i = load ptr, ptr %9, align 8, !alias.scope !694, !nonnull !5, !noundef !5
-  %10 = tail call fastcc noundef i8 @_ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E(ptr nonnull %.val.i.i)
+  %10 = tail call fastcc noundef i8 @_ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E(ptr nonnull %.val.i.i), !noalias !694
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRNtNtNtCsapf13pIxsjn_3std2io5error5ErrorE6filterNCNvXsb_NtCseG2FYMysgNb_3wax4walkNtB1C_11WaxDirEntryINtNtB5_7convert7TryFromNtNtCsfDcDyFP4TGa_7walkdir5error5ErrorE8try_from0EB1E_.exit, label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRNtNtNtCsapf13pIxsjn_3std2io5error5ErrorE6filterNCNvXsb_NtCseG2FYMysgNb_3wax4walkNtB1C_11WaxDirEntryINtNtB5_7convert7TryFromNtNtCsfDcDyFP4TGa_7walkdir5error5ErrorE8try_from0EB1E_.exit.thread
 

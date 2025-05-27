@@ -24,25 +24,26 @@ define void @png_destroy_png_struct(ptr noalias noundef %0) local_unnamed_addr #
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 1240, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 1240, ptr nonnull %2) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1240) %2, ptr noundef nonnull align 8 dereferenceable(1240) %0, i64 1240, i1 false), !tbaa.struct !3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1240) %0, i8 0, i64 1240, i1 false)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 1072
-  %5 = load ptr, ptr %4, align 8, !tbaa !27, !alias.scope !34
+  %5 = load ptr, ptr %4, align 8, !tbaa !30, !alias.scope !27
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %png_free_default.exit.i, label %6
 
 6:                                                ; preds = %3
-  call void %5(ptr noundef nonnull %2, ptr noundef nonnull %0) #12
+  call void %5(ptr noundef nonnull %2, ptr noundef nonnull %0) #13
   br label %png_free.exit
 
 png_free_default.exit.i:                          ; preds = %3
-  tail call void @free(ptr noundef nonnull %0) #12
+  tail call void @free(ptr noundef nonnull %0) #13, !noalias !37
   br label %png_free.exit
 
 png_free.exit:                                    ; preds = %6, %png_free_default.exit.i
-  call void @png_free_jmpbuf(ptr noundef nonnull %2) #12
-  call void @llvm.lifetime.end.p0(i64 1240, ptr nonnull %2) #12
+  call void @png_free_jmpbuf(ptr noundef nonnull %2) #13
+  call void @llvm.lifetime.end.p0(i64 1240, ptr nonnull %2) #13
   br label %7
 
 7:                                                ; preds = %png_free.exit, %1
@@ -67,16 +68,16 @@ define void @png_free(ptr noalias noundef %0, ptr noundef %1) local_unnamed_addr
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  %7 = load ptr, ptr %6, align 8, !tbaa !27
+  %7 = load ptr, ptr %6, align 8, !tbaa !30
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %png_free_default.exit, label %8
 
 8:                                                ; preds = %5
-  tail call void %7(ptr noundef nonnull %0, ptr noundef nonnull %1) #12
+  tail call void %7(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   br label %9
 
 png_free_default.exit:                            ; preds = %5
-  tail call void @free(ptr noundef nonnull %1) #12
+  tail call void @free(ptr noundef nonnull %1) #13, !noalias !40
   br label %9
 
 9:                                                ; preds = %2, %png_free_default.exit, %8
@@ -95,16 +96,16 @@ define noalias ptr @png_calloc(ptr noalias noundef %0, i64 noundef %1) local_unn
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %6 = load ptr, ptr %5, align 8, !tbaa !37, !alias.scope !38
+  %6 = load ptr, ptr %5, align 8, !tbaa !43, !alias.scope !44
   %.not9.i.i = icmp eq ptr %6, null
   br i1 %.not9.i.i, label %9, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call ptr %6(ptr noundef nonnull %0, i64 noundef %1) #12
+  %8 = tail call ptr %6(ptr noundef nonnull %0, i64 noundef %1) #13
   br label %png_malloc_base.exit.i
 
 9:                                                ; preds = %4
-  %10 = tail call noalias ptr @malloc(i64 noundef %1) #13
+  %10 = tail call noalias ptr @malloc(i64 noundef %1) #14
   br label %png_malloc_base.exit.i
 
 png_malloc_base.exit.i:                           ; preds = %9, %7
@@ -113,7 +114,7 @@ png_malloc_base.exit.i:                           ; preds = %9, %7
   br i1 %11, label %12, label %png_malloc.exit
 
 12:                                               ; preds = %png_malloc_base.exit.i
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #14
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #15
   unreachable
 
 png_malloc.exit:                                  ; preds = %png_malloc_base.exit.i
@@ -132,16 +133,16 @@ define noalias ptr @png_malloc(ptr noalias noundef %0, i64 noundef %1) local_unn
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %6 = load ptr, ptr %5, align 8, !tbaa !37, !alias.scope !43
+  %6 = load ptr, ptr %5, align 8, !tbaa !43, !alias.scope !49
   %.not9.i = icmp eq ptr %6, null
   br i1 %.not9.i, label %9, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call ptr %6(ptr noundef nonnull %0, i64 noundef %1) #12
+  %8 = tail call ptr %6(ptr noundef nonnull %0, i64 noundef %1) #13
   br label %png_malloc_base.exit
 
 9:                                                ; preds = %4
-  %10 = tail call noalias ptr @malloc(i64 noundef %1) #13
+  %10 = tail call noalias ptr @malloc(i64 noundef %1) #14
   br label %png_malloc_base.exit
 
 png_malloc_base.exit:                             ; preds = %7, %9
@@ -150,7 +151,7 @@ png_malloc_base.exit:                             ; preds = %7, %9
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %png_malloc_base.exit
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #14
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #15
   unreachable
 
 13:                                               ; preds = %png_malloc_base.exit, %2
@@ -165,16 +166,16 @@ define noalias ptr @png_malloc_base(ptr noalias noundef %0, i64 noundef %1) loca
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %5 = load ptr, ptr %4, align 8, !tbaa !37
+  %5 = load ptr, ptr %4, align 8, !tbaa !43
   %.not9 = icmp eq ptr %5, null
   br i1 %.not9, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr %5(ptr noundef nonnull %0, i64 noundef %1) #12
+  %7 = tail call ptr %5(ptr noundef nonnull %0, i64 noundef %1) #13
   br label %10
 
 8:                                                ; preds = %3, %2
-  %9 = tail call noalias ptr @malloc(i64 noundef %1) #13
+  %9 = tail call noalias ptr @malloc(i64 noundef %1) #14
   br label %10
 
 10:                                               ; preds = %8, %6
@@ -193,7 +194,7 @@ define noalias ptr @png_malloc_array(ptr noalias noundef %0, i32 noundef %1, i64
   br i1 %or.cond, label %6, label %7
 
 6:                                                ; preds = %3
-  tail call void @png_error(ptr noundef %0, ptr noundef nonnull @.str) #14
+  tail call void @png_error(ptr noundef %0, ptr noundef nonnull @.str) #15
   unreachable
 
 7:                                                ; preds = %3
@@ -209,16 +210,16 @@ define noalias ptr @png_malloc_array(ptr noalias noundef %0, i32 noundef %1, i64
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %13 = load ptr, ptr %12, align 8, !tbaa !37, !alias.scope !46
+  %13 = load ptr, ptr %12, align 8, !tbaa !43, !alias.scope !52
   %.not9.i.i = icmp eq ptr %13, null
   br i1 %.not9.i.i, label %16, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call ptr %13(ptr noundef nonnull %0, i64 noundef %10) #12
+  %15 = tail call ptr %13(ptr noundef nonnull %0, i64 noundef %10) #13
   br label %png_malloc_array_checked.exit
 
 16:                                               ; preds = %11, %9
-  %17 = tail call noalias ptr @malloc(i64 noundef %10) #13
+  %17 = tail call noalias ptr @malloc(i64 noundef %10) #14
   br label %png_malloc_array_checked.exit
 
 png_malloc_array_checked.exit:                    ; preds = %7, %14, %16
@@ -245,7 +246,7 @@ define noalias ptr @png_realloc_array(ptr noalias noundef %0, ptr noundef readon
   br i1 %or.cond5, label %12, label %13
 
 12:                                               ; preds = %9, %5
-  tail call void @png_error(ptr noundef %0, ptr noundef nonnull @.str.1) #14
+  tail call void @png_error(ptr noundef %0, ptr noundef nonnull @.str.1) #15
   unreachable
 
 13:                                               ; preds = %9
@@ -267,16 +268,16 @@ define noalias ptr @png_realloc_array(ptr noalias noundef %0, ptr noundef readon
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %22 = load ptr, ptr %21, align 8, !tbaa !37, !alias.scope !51
+  %22 = load ptr, ptr %21, align 8, !tbaa !43, !alias.scope !57
   %.not9.i.i = icmp eq ptr %22, null
   br i1 %.not9.i.i, label %25, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call ptr %22(ptr noundef nonnull %0, i64 noundef %19) #12
+  %24 = tail call ptr %22(ptr noundef nonnull %0, i64 noundef %19) #13
   br label %png_malloc_array_checked.exit
 
 25:                                               ; preds = %20, %18
-  %26 = tail call noalias ptr @malloc(i64 noundef %19) #13
+  %26 = tail call noalias ptr @malloc(i64 noundef %19) #14
   br label %png_malloc_array_checked.exit
 
 png_malloc_array_checked.exit:                    ; preds = %23, %25
@@ -312,12 +313,12 @@ define noalias noundef ptr @png_malloc_default(ptr noalias noundef %0, i64 nound
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call noalias ptr @malloc(i64 noundef %1) #13
+  %5 = tail call noalias ptr @malloc(i64 noundef %1) #14
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %4
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #14
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #15
   unreachable
 
 8:                                                ; preds = %4, %2
@@ -332,16 +333,16 @@ define noalias ptr @png_malloc_warn(ptr noalias noundef %0, i64 noundef %1) loca
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %5 = load ptr, ptr %4, align 8, !tbaa !37, !alias.scope !56
+  %5 = load ptr, ptr %4, align 8, !tbaa !43, !alias.scope !62
   %.not9.i = icmp eq ptr %5, null
   br i1 %.not9.i, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr %5(ptr noundef nonnull %0, i64 noundef %1) #12
+  %7 = tail call ptr %5(ptr noundef nonnull %0, i64 noundef %1) #13
   br label %png_malloc_base.exit
 
 8:                                                ; preds = %3
-  %9 = tail call noalias ptr @malloc(i64 noundef %1) #13
+  %9 = tail call noalias ptr @malloc(i64 noundef %1) #14
   br label %png_malloc_base.exit
 
 png_malloc_base.exit:                             ; preds = %6, %8
@@ -350,7 +351,7 @@ png_malloc_base.exit:                             ; preds = %6, %8
   br i1 %.not9.not, label %.thread, label %10
 
 .thread:                                          ; preds = %png_malloc_base.exit
-  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #12
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #13
   br label %10
 
 10:                                               ; preds = %2, %.thread, %png_malloc_base.exit
@@ -368,7 +369,7 @@ define void @png_free_default(ptr noalias noundef readnone captures(address_is_n
   br i1 %or.cond, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @free(ptr noundef nonnull %1) #12
+  tail call void @free(ptr noundef nonnull %1) #13
   br label %6
 
 6:                                                ; preds = %2, %5
@@ -385,11 +386,11 @@ define void @png_set_mem_fn(ptr noalias noundef writeonly captures(address_is_nu
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  store ptr %1, ptr %6, align 8, !tbaa !59
+  store ptr %1, ptr %6, align 8, !tbaa !65
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  store ptr %2, ptr %7, align 8, !tbaa !37
+  store ptr %2, ptr %7, align 8, !tbaa !43
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  store ptr %3, ptr %8, align 8, !tbaa !27
+  store ptr %3, ptr %8, align 8, !tbaa !30
   br label %9
 
 9:                                                ; preds = %5, %4
@@ -403,7 +404,7 @@ define ptr @png_get_mem_ptr(ptr noalias noundef readonly captures(address_is_nul
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  %5 = load ptr, ptr %4, align 8, !tbaa !59
+  %5 = load ptr, ptr %4, align 8, !tbaa !65
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -413,6 +414,9 @@ define ptr @png_get_mem_ptr(ptr noalias noundef readonly captures(address_is_nul
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
+declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -426,9 +430,10 @@ attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind allocsize(0) }
-attributes #14 = { noreturn nounwind }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind allocsize(0) }
+attributes #15 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 
@@ -459,36 +464,42 @@ attributes #14 = { noreturn nounwind }
 !24 = !{!"short", !5, i64 0}
 !25 = !{!26, !26, i64 0}
 !26 = !{!"p2 short", !8, i64 0}
-!27 = !{!28, !8, i64 1072}
-!28 = !{!"png_struct_def", !5, i64 0, !8, i64 200, !10, i64 208, !12, i64 216, !8, i64 224, !8, i64 232, !8, i64 240, !8, i64 248, !8, i64 256, !8, i64 264, !8, i64 272, !8, i64 280, !8, i64 288, !5, i64 296, !5, i64 297, !14, i64 300, !14, i64 304, !14, i64 308, !14, i64 312, !29, i64 320, !20, i64 432, !14, i64 440, !14, i64 444, !14, i64 448, !14, i64 452, !14, i64 456, !14, i64 460, !14, i64 464, !14, i64 468, !14, i64 472, !14, i64 476, !14, i64 480, !14, i64 484, !14, i64 488, !14, i64 492, !14, i64 496, !14, i64 500, !14, i64 504, !14, i64 508, !14, i64 512, !14, i64 516, !14, i64 520, !12, i64 528, !14, i64 536, !14, i64 540, !14, i64 544, !16, i64 552, !16, i64 560, !16, i64 568, !16, i64 576, !12, i64 584, !14, i64 592, !14, i64 596, !22, i64 600, !24, i64 608, !14, i64 612, !24, i64 616, !5, i64 618, !5, i64 619, !5, i64 620, !5, i64 621, !5, i64 622, !5, i64 623, !5, i64 624, !5, i64 625, !5, i64 626, !5, i64 627, !5, i64 628, !5, i64 629, !5, i64 630, !5, i64 631, !5, i64 632, !24, i64 634, !5, i64 636, !14, i64 640, !30, i64 644, !30, i64 654, !8, i64 664, !14, i64 672, !14, i64 676, !31, i64 680, !14, i64 712, !14, i64 716, !14, i64 720, !14, i64 724, !14, i64 728, !16, i64 736, !26, i64 744, !16, i64 752, !16, i64 760, !26, i64 768, !26, i64 776, !32, i64 784, !32, i64 789, !16, i64 800, !30, i64 808, !8, i64 824, !8, i64 832, !8, i64 840, !8, i64 848, !8, i64 856, !16, i64 864, !16, i64 872, !16, i64 880, !16, i64 888, !14, i64 896, !14, i64 900, !12, i64 904, !12, i64 912, !12, i64 920, !12, i64 928, !14, i64 936, !14, i64 940, !16, i64 944, !16, i64 952, !14, i64 960, !5, i64 964, !14, i64 996, !8, i64 1000, !8, i64 1008, !14, i64 1016, !14, i64 1020, !16, i64 1024, !5, i64 1032, !5, i64 1033, !24, i64 1034, !24, i64 1036, !16, i64 1040, !14, i64 1048, !5, i64 1052, !8, i64 1056, !8, i64 1064, !8, i64 1072, !16, i64 1080, !16, i64 1088, !16, i64 1096, !16, i64 1104, !5, i64 1112, !14, i64 1116, !14, i64 1120, !14, i64 1124, !12, i64 1128, !33, i64 1136, !12, i64 1168, !16, i64 1176, !12, i64 1184, !14, i64 1192, !14, i64 1196, !16, i64 1200, !5, i64 1208}
-!29 = !{!"z_stream_s", !16, i64 0, !14, i64 8, !12, i64 16, !16, i64 24, !14, i64 32, !12, i64 40, !16, i64 48, !18, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !14, i64 88, !12, i64 96, !12, i64 104}
-!30 = !{!"png_color_16_struct", !5, i64 0, !24, i64 2, !24, i64 4, !24, i64 6, !24, i64 8}
-!31 = !{!"png_xy", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !14, i64 28}
-!32 = !{!"png_color_8_struct", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !5, i64 4}
-!33 = !{!"png_unknown_chunk_t", !5, i64 0, !16, i64 8, !12, i64 16, !5, i64 24}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"png_free: argument 0"}
-!36 = distinct !{!36, !"png_free"}
-!37 = !{!28, !8, i64 1064}
-!38 = !{!39, !41}
-!39 = distinct !{!39, !40, !"png_malloc_base: argument 0"}
-!40 = distinct !{!40, !"png_malloc_base"}
-!41 = distinct !{!41, !42, !"png_malloc: argument 0"}
-!42 = distinct !{!42, !"png_malloc"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"png_malloc_base: argument 0"}
-!45 = distinct !{!45, !"png_malloc_base"}
-!46 = !{!47, !49}
-!47 = distinct !{!47, !48, !"png_malloc_base: argument 0"}
-!48 = distinct !{!48, !"png_malloc_base"}
-!49 = distinct !{!49, !50, !"png_malloc_array_checked: argument 0"}
-!50 = distinct !{!50, !"png_malloc_array_checked"}
-!51 = !{!52, !54}
-!52 = distinct !{!52, !53, !"png_malloc_base: argument 0"}
-!53 = distinct !{!53, !"png_malloc_base"}
-!54 = distinct !{!54, !55, !"png_malloc_array_checked: argument 0"}
-!55 = distinct !{!55, !"png_malloc_array_checked"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"png_malloc_base: argument 0"}
-!58 = distinct !{!58, !"png_malloc_base"}
-!59 = !{!28, !8, i64 1056}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"png_free: argument 0"}
+!29 = distinct !{!29, !"png_free"}
+!30 = !{!31, !8, i64 1072}
+!31 = !{!"png_struct_def", !5, i64 0, !8, i64 200, !10, i64 208, !12, i64 216, !8, i64 224, !8, i64 232, !8, i64 240, !8, i64 248, !8, i64 256, !8, i64 264, !8, i64 272, !8, i64 280, !8, i64 288, !5, i64 296, !5, i64 297, !14, i64 300, !14, i64 304, !14, i64 308, !14, i64 312, !32, i64 320, !20, i64 432, !14, i64 440, !14, i64 444, !14, i64 448, !14, i64 452, !14, i64 456, !14, i64 460, !14, i64 464, !14, i64 468, !14, i64 472, !14, i64 476, !14, i64 480, !14, i64 484, !14, i64 488, !14, i64 492, !14, i64 496, !14, i64 500, !14, i64 504, !14, i64 508, !14, i64 512, !14, i64 516, !14, i64 520, !12, i64 528, !14, i64 536, !14, i64 540, !14, i64 544, !16, i64 552, !16, i64 560, !16, i64 568, !16, i64 576, !12, i64 584, !14, i64 592, !14, i64 596, !22, i64 600, !24, i64 608, !14, i64 612, !24, i64 616, !5, i64 618, !5, i64 619, !5, i64 620, !5, i64 621, !5, i64 622, !5, i64 623, !5, i64 624, !5, i64 625, !5, i64 626, !5, i64 627, !5, i64 628, !5, i64 629, !5, i64 630, !5, i64 631, !5, i64 632, !24, i64 634, !5, i64 636, !14, i64 640, !33, i64 644, !33, i64 654, !8, i64 664, !14, i64 672, !14, i64 676, !34, i64 680, !14, i64 712, !14, i64 716, !14, i64 720, !14, i64 724, !14, i64 728, !16, i64 736, !26, i64 744, !16, i64 752, !16, i64 760, !26, i64 768, !26, i64 776, !35, i64 784, !35, i64 789, !16, i64 800, !33, i64 808, !8, i64 824, !8, i64 832, !8, i64 840, !8, i64 848, !8, i64 856, !16, i64 864, !16, i64 872, !16, i64 880, !16, i64 888, !14, i64 896, !14, i64 900, !12, i64 904, !12, i64 912, !12, i64 920, !12, i64 928, !14, i64 936, !14, i64 940, !16, i64 944, !16, i64 952, !14, i64 960, !5, i64 964, !14, i64 996, !8, i64 1000, !8, i64 1008, !14, i64 1016, !14, i64 1020, !16, i64 1024, !5, i64 1032, !5, i64 1033, !24, i64 1034, !24, i64 1036, !16, i64 1040, !14, i64 1048, !5, i64 1052, !8, i64 1056, !8, i64 1064, !8, i64 1072, !16, i64 1080, !16, i64 1088, !16, i64 1096, !16, i64 1104, !5, i64 1112, !14, i64 1116, !14, i64 1120, !14, i64 1124, !12, i64 1128, !36, i64 1136, !12, i64 1168, !16, i64 1176, !12, i64 1184, !14, i64 1192, !14, i64 1196, !16, i64 1200, !5, i64 1208}
+!32 = !{!"z_stream_s", !16, i64 0, !14, i64 8, !12, i64 16, !16, i64 24, !14, i64 32, !12, i64 40, !16, i64 48, !18, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !14, i64 88, !12, i64 96, !12, i64 104}
+!33 = !{!"png_color_16_struct", !5, i64 0, !24, i64 2, !24, i64 4, !24, i64 6, !24, i64 8}
+!34 = !{!"png_xy", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !14, i64 28}
+!35 = !{!"png_color_8_struct", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !5, i64 4}
+!36 = !{!"png_unknown_chunk_t", !5, i64 0, !16, i64 8, !12, i64 16, !5, i64 24}
+!37 = !{!38, !28}
+!38 = distinct !{!38, !39, !"png_free_default: argument 0"}
+!39 = distinct !{!39, !"png_free_default"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"png_free_default: argument 0"}
+!42 = distinct !{!42, !"png_free_default"}
+!43 = !{!31, !8, i64 1064}
+!44 = !{!45, !47}
+!45 = distinct !{!45, !46, !"png_malloc_base: argument 0"}
+!46 = distinct !{!46, !"png_malloc_base"}
+!47 = distinct !{!47, !48, !"png_malloc: argument 0"}
+!48 = distinct !{!48, !"png_malloc"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"png_malloc_base: argument 0"}
+!51 = distinct !{!51, !"png_malloc_base"}
+!52 = !{!53, !55}
+!53 = distinct !{!53, !54, !"png_malloc_base: argument 0"}
+!54 = distinct !{!54, !"png_malloc_base"}
+!55 = distinct !{!55, !56, !"png_malloc_array_checked: argument 0"}
+!56 = distinct !{!56, !"png_malloc_array_checked"}
+!57 = !{!58, !60}
+!58 = distinct !{!58, !59, !"png_malloc_base: argument 0"}
+!59 = distinct !{!59, !"png_malloc_base"}
+!60 = distinct !{!60, !61, !"png_malloc_array_checked: argument 0"}
+!61 = distinct !{!61, !"png_malloc_array_checked"}
+!62 = !{!63}
+!63 = distinct !{!63, !64, !"png_malloc_base: argument 0"}
+!64 = distinct !{!64, !"png_malloc_base"}
+!65 = !{!31, !8, i64 1056}

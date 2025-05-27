@@ -12466,11 +12466,12 @@ common.ret:                                       ; preds = %317, %209, %"_ZN4co
   br i1 %72, label %.thread, label %73
 
 73:                                               ; preds = %70
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !2287)
   %.val.i = load ptr, ptr %69, align 8, !alias.scope !2287, !nonnull !5, !align !794, !noundef !5
   %74 = getelementptr i8, ptr %69, i64 8
   %.val3.i = load ptr, ptr %74, align 8, !alias.scope !2287, !nonnull !5, !align !32, !noundef !5
   %75 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 80
-  %76 = load ptr, ptr %75, align 8, !invariant.load !5, !nonnull !5
+  %76 = load ptr, ptr %75, align 8, !invariant.load !5, !noalias !2287, !nonnull !5
   %77 = invoke noundef zeroext i1 %76(ptr noundef nonnull align 1 %.val.i)
           to label %80 unwind label %78
 
@@ -13668,11 +13669,12 @@ common.ret:                                       ; preds = %321, %213, %"_ZN4co
   br i1 %74, label %.thread, label %75
 
 75:                                               ; preds = %72
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !2504)
   %.val.i = load ptr, ptr %71, align 8, !alias.scope !2504, !nonnull !5, !align !794, !noundef !5
   %76 = getelementptr i8, ptr %71, i64 8
   %.val3.i = load ptr, ptr %76, align 8, !alias.scope !2504, !nonnull !5, !align !32, !noundef !5
   %77 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 80
-  %78 = load ptr, ptr %77, align 8, !invariant.load !5, !nonnull !5
+  %78 = load ptr, ptr %77, align 8, !invariant.load !5, !noalias !2504, !nonnull !5
   %79 = invoke noundef zeroext i1 %78(ptr noundef nonnull align 1 %.val.i)
           to label %82 unwind label %80
 
@@ -28524,11 +28526,12 @@ common.ret:                                       ; preds = %288, %200, %"_ZN4co
   br i1 %70, label %.thread, label %71
 
 71:                                               ; preds = %68
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4711)
   %.val.i = load ptr, ptr %67, align 8, !alias.scope !4711, !nonnull !5, !align !794, !noundef !5
   %72 = getelementptr i8, ptr %67, i64 8
   %.val3.i = load ptr, ptr %72, align 8, !alias.scope !4711, !nonnull !5, !align !32, !noundef !5
   %73 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 80
-  %74 = load ptr, ptr %73, align 8, !invariant.load !5, !nonnull !5
+  %74 = load ptr, ptr %73, align 8, !invariant.load !5, !noalias !4711, !nonnull !5
   %75 = invoke noundef zeroext i1 %74(ptr noundef nonnull align 1 %.val.i)
           to label %78 unwind label %76
 
@@ -29616,11 +29619,12 @@ common.ret:                                       ; preds = %292, %204, %"_ZN4co
   br i1 %73, label %.thread, label %74
 
 74:                                               ; preds = %71
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4914)
   %.val.i = load ptr, ptr %70, align 8, !alias.scope !4914, !nonnull !5, !align !794, !noundef !5
   %75 = getelementptr i8, ptr %70, i64 8
   %.val3.i = load ptr, ptr %75, align 8, !alias.scope !4914, !nonnull !5, !align !32, !noundef !5
   %76 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 80
-  %77 = load ptr, ptr %76, align 8, !invariant.load !5, !nonnull !5
+  %77 = load ptr, ptr %76, align 8, !invariant.load !5, !noalias !4914, !nonnull !5
   %78 = invoke noundef zeroext i1 %77(ptr noundef nonnull align 1 %.val.i)
           to label %81 unwind label %79
 
@@ -45088,11 +45092,12 @@ common.ret:                                       ; preds = %283, %195, %"_ZN4co
   br i1 %60, label %.thread, label %61
 
 61:                                               ; preds = %58
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !7818)
   %.val.i = load ptr, ptr %57, align 8, !alias.scope !7818, !nonnull !5, !align !794, !noundef !5
   %62 = getelementptr i8, ptr %57, i64 8
   %.val3.i = load ptr, ptr %62, align 8, !alias.scope !7818, !nonnull !5, !align !32, !noundef !5
   %63 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 80
-  %64 = load ptr, ptr %63, align 8, !invariant.load !5, !nonnull !5
+  %64 = load ptr, ptr %63, align 8, !invariant.load !5, !noalias !7818, !nonnull !5
   %65 = invoke noundef zeroext i1 %64(ptr noundef nonnull align 1 %.val.i)
           to label %68 unwind label %66
 
@@ -49416,7 +49421,7 @@ attributes #23 = { noreturn }
 !1745 = distinct !{!1745, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E"}
 !1746 = distinct !{!1746, !1745, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E: argument 1"}
 !1747 = !{!1737, !1740, !1742, !1744}
-!1748 = !{!1739, !1743, !1746}
+!1748 = !{!1739, !1742, !1743, !1746}
 !1749 = !{!1750}
 !1750 = distinct !{!1750, !1751, !"_ZN11wasi_common3ctx7WasiCtx11insert_file17h3ae0d8e8f973f46dE: argument 0"}
 !1751 = distinct !{!1751, !"_ZN11wasi_common3ctx7WasiCtx11insert_file17h3ae0d8e8f973f46dE"}

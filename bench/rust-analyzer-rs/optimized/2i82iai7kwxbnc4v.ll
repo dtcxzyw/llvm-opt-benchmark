@@ -22406,27 +22406,27 @@ _ZN4core4hash4Hash10hash_slice17h428299b103b90b79E.exit.i: ; preds = %"_ZN59_$LT
   %.0.i = phi i64 [ %34, %"_ZN66_$LT$hir_expand..mod_path..ModPath$u20$as$u20$core..hash..Hash$GT$4hash17h310708254fe90d01E.exit.i" ], [ %storemerge.i.i.i.i, %"_ZN59_$LT$hir_expand..name..Name$u20$as$u20$core..hash..Hash$GT$4hash17hcc37de69ae332cafE.llvm.14093832413505439524.exit.i.i" ]
   %97 = shl i64 %.0.i, 7
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %99 = load i64, ptr %98, align 8, !noundef !9
+  %99 = load i64, ptr %98, align 8, !noalias !4532, !noundef !9
   %100 = and i64 %99, 63
   %101 = lshr i64 %97, %100
   %102 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %103 = load i64, ptr %102, align 8, !noundef !9
+  %103 = load i64, ptr %102, align 8, !noalias !4532, !noundef !9
   %104 = icmp ult i64 %101, %103
   br i1 %104, label %105, label %110, !prof !1745
 
 105:                                              ; preds = %_ZN4core4hash4Hash10hash_slice17h428299b103b90b79E.exit.i
-  %106 = load ptr, ptr %6, align 8, !nonnull !9, !noundef !9
+  %106 = load ptr, ptr %6, align 8, !noalias !4532, !nonnull !9, !noundef !9
   %107 = getelementptr inbounds [0 x { { { i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }], ptr %106, i64 0, i64 %101
-  %108 = cmpxchg weak ptr %107, i64 0, i64 -4 acquire monotonic, align 8
+  %108 = cmpxchg weak ptr %107, i64 0, i64 -4 acquire monotonic, align 8, !noalias !4532
   %.sroa.18.0.in.i.i.i = extractvalue { i64, i1 } %108, 1
   br i1 %.sroa.18.0.in.i.i.i, label %114, label %109
 
 109:                                              ; preds = %105
-  tail call void @_ZN7dashmap4lock9RawRwLock19lock_exclusive_slow17h981f98b75726f688E(ptr noundef nonnull align 8 %107)
+  tail call void @_ZN7dashmap4lock9RawRwLock19lock_exclusive_slow17h981f98b75726f688E(ptr noundef nonnull align 8 %107), !noalias !4532
   br label %114
 
 110:                                              ; preds = %_ZN4core4hash4Hash10hash_slice17h428299b103b90b79E.exit.i
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %101, i64 noundef %103, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.aaa2d72fc36f2f512ceaad87f7a1daf6.173) #52
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %101, i64 noundef %103, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.aaa2d72fc36f2f512ceaad87f7a1daf6.173) #52, !noalias !4532
   unreachable
 
 .loopexit:                                        ; preds = %134

@@ -1800,7 +1800,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 82:                                               ; preds = %._crit_edge.i
-  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17hd63a5aaa27f351b7E() #20
+  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17hd63a5aaa27f351b7E() #20, !noalias !40
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h22d42e517e0f258aE.exit: ; preds = %._crit_edge.i
@@ -25429,7 +25429,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
 
 _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit: ; preds = %._crit_edge190
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1565
-  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6), !noalias !1563
+  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6), !noalias !1565
   %.sroa.0134.0.copyload = load i64, ptr %6, align 8, !noalias !1560
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5135, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5135.0..sroa_idx, i64 24, i1 false), !noalias !1560
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !1565
@@ -25517,7 +25517,7 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
 
 _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit127: ; preds = %129
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !1571
-  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5), !noalias !1569
+  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5), !noalias !1571
   %.sroa.0.0.copyload = load i64, ptr %5, align 8, !noalias !1566
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, i64 24, i1 false), !noalias !1566
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !1571
@@ -34535,7 +34535,7 @@ attributes #20 = { noreturn }
 !1818 = distinct !{!1818, !1810, !"_ZN14polars_parquet7parquet8encoding15delta_bitpacked7decoder13DeltaGatherer12gather_slice17hb4f6226590a824bcE: argument 0"}
 !1819 = !{!1818, !1809, !1791, !1784, !1787, !1789}
 !1820 = !{!1814}
-!1821 = !{!1817, !1814, !1818, !1809, !1791, !1784, !1787}
+!1821 = !{!1817, !1814, !1818, !1809, !1812, !1791, !1784, !1787}
 !1822 = !{!1823}
 !1823 = distinct !{!1823, !1824, !"_ZN14polars_parquet7parquet8encoding15delta_bitpacked7decoder13DeltaGatherer12gather_chunk17h47351a9598676743E: argument 1"}
 !1824 = distinct !{!1824, !"_ZN14polars_parquet7parquet8encoding15delta_bitpacked7decoder13DeltaGatherer12gather_chunk17h47351a9598676743E"}
@@ -34553,7 +34553,7 @@ attributes #20 = { noreturn }
 !1836 = !{!1837}
 !1837 = distinct !{!1837, !1838, !"_ZN199_$LT$polars_parquet..parquet..encoding..delta_bitpacked..decoder..Decoder..collect_n..ExtendGatherer$LT$E$GT$$u20$as$u20$polars_parquet..parquet..encoding..delta_bitpacked..decoder..DeltaGatherer$GT$10gather_one17h4991b2d04d416df6E: argument 1"}
 !1838 = distinct !{!1838, !"_ZN199_$LT$polars_parquet..parquet..encoding..delta_bitpacked..decoder..Decoder..collect_n..ExtendGatherer$LT$E$GT$$u20$as$u20$polars_parquet..parquet..encoding..delta_bitpacked..decoder..DeltaGatherer$GT$10gather_one17h4991b2d04d416df6E"}
-!1839 = !{!1840, !1837, !1834, !1828, !1835, !1823, !1826, !1791, !1784, !1787}
+!1839 = !{!1840, !1837, !1834, !1828, !1831, !1835, !1823, !1826, !1791, !1784, !1787}
 !1840 = distinct !{!1840, !1838, !"_ZN199_$LT$polars_parquet..parquet..encoding..delta_bitpacked..decoder..Decoder..collect_n..ExtendGatherer$LT$E$GT$$u20$as$u20$polars_parquet..parquet..encoding..delta_bitpacked..decoder..DeltaGatherer$GT$10gather_one17h4991b2d04d416df6E: argument 0"}
 !1841 = !{!1837, !1828, !1823, !1784}
 !1842 = !{!1840, !1834, !1831, !1835, !1826, !1791, !1787, !1789}
@@ -34874,7 +34874,7 @@ attributes #20 = { noreturn }
 !2157 = distinct !{!2157, !2155, !"_ZN199_$LT$polars_parquet..parquet..encoding..delta_bitpacked..decoder..Decoder..collect_n..ExtendGatherer$LT$E$GT$$u20$as$u20$polars_parquet..parquet..encoding..delta_bitpacked..decoder..DeltaGatherer$GT$10gather_one17h4991b2d04d416df6E: argument 0"}
 !2158 = !{!2152, !2147}
 !2159 = !{!2154}
-!2160 = !{!2157, !2154, !2152, !2147}
+!2160 = !{!2157, !2154, !2152, !2147, !2150}
 !2161 = !{!2162, !2164}
 !2162 = distinct !{!2162, !2163, !"_ZN136_$LT$polars_parquet..parquet..encoding..bitpacked..decode..ChunkedDecoder$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h762267552fc599a4E: argument 0"}
 !2163 = distinct !{!2163, !"_ZN136_$LT$polars_parquet..parquet..encoding..bitpacked..decode..ChunkedDecoder$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h762267552fc599a4E"}
@@ -34908,7 +34908,7 @@ attributes #20 = { noreturn }
 !2191 = distinct !{!2191, !2189, !"_ZN199_$LT$polars_parquet..parquet..encoding..delta_bitpacked..decoder..Decoder..collect_n..ExtendGatherer$LT$E$GT$$u20$as$u20$polars_parquet..parquet..encoding..delta_bitpacked..decoder..DeltaGatherer$GT$10gather_one17h4991b2d04d416df6E: argument 0"}
 !2192 = !{!2186, !2181}
 !2193 = !{!2188}
-!2194 = !{!2191, !2188, !2186, !2181}
+!2194 = !{!2191, !2188, !2186, !2181, !2184}
 !2195 = !{!2196}
 !2196 = distinct !{!2196, !2197, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h15afc39d2527cf73E: argument 0"}
 !2197 = distinct !{!2197, !"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h15afc39d2527cf73E"}
@@ -34937,7 +34937,7 @@ attributes #20 = { noreturn }
 !2220 = !{!2221}
 !2221 = distinct !{!2221, !2222, !"_ZN199_$LT$polars_parquet..parquet..encoding..delta_bitpacked..decoder..Decoder..collect_n..ExtendGatherer$LT$E$GT$$u20$as$u20$polars_parquet..parquet..encoding..delta_bitpacked..decoder..DeltaGatherer$GT$10gather_one17h4991b2d04d416df6E: argument 1"}
 !2222 = distinct !{!2222, !"_ZN199_$LT$polars_parquet..parquet..encoding..delta_bitpacked..decoder..Decoder..collect_n..ExtendGatherer$LT$E$GT$$u20$as$u20$polars_parquet..parquet..encoding..delta_bitpacked..decoder..DeltaGatherer$GT$10gather_one17h4991b2d04d416df6E"}
-!2223 = !{!2224, !2221, !2218, !2212, !2219, !2207, !2210}
+!2223 = !{!2224, !2221, !2218, !2212, !2215, !2219, !2207, !2210}
 !2224 = distinct !{!2224, !2222, !"_ZN199_$LT$polars_parquet..parquet..encoding..delta_bitpacked..decoder..Decoder..collect_n..ExtendGatherer$LT$E$GT$$u20$as$u20$polars_parquet..parquet..encoding..delta_bitpacked..decoder..DeltaGatherer$GT$10gather_one17h4991b2d04d416df6E: argument 0"}
 !2225 = !{!2221, !2212, !2207}
 !2226 = !{!2224, !2218, !2215, !2219, !2210}

@@ -11526,6 +11526,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h2ba7508275f7e78aE.exit.i.i644
   unreachable
 
 867:                                              ; preds = %.noexc720
+  call void @llvm.experimental.noalias.scope.decl(metadata !3068)
   %868 = getelementptr i8, ptr %856, i64 24
   %869 = load ptr, ptr %868, align 8, !alias.scope !3068, !nonnull !5, !noundef !5
   %870 = getelementptr i8, ptr %856, i64 32
@@ -11540,7 +11541,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h2ba7508275f7e78aE.exit.i.i644
 .lr.ph.i.i.i.i728:                                ; preds = %873, %877
   %.05.i.i.i.i729 = phi i64 [ %878, %877 ], [ 0, %873 ]
   %874 = getelementptr inbounds nuw [0 x i8], ptr %869, i64 0, i64 %.05.i.i.i.i729
-  %875 = load i8, ptr %874, align 1, !alias.scope !3071, !noundef !5
+  %875 = load i8, ptr %874, align 1, !alias.scope !3071, !noalias !3068, !noundef !5
   %876 = icmp eq i8 %875, 58
   br i1 %876, label %"_ZN4core6option15Option$LT$T$GT$6filter17h96c879dfbd019659E.exit.thread936", label %877
 

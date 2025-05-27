@@ -4098,11 +4098,11 @@ _ZNKSt6vectorISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESaIS6_EE12_M_chec
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %48 = load i32, ptr %47, align 4, !tbaa !48
+  %48 = load i32, ptr %47, align 4, !tbaa !48, !noalias !139
   %49 = zext i32 %48 to i64
   %50 = urem i64 %49, %30
   %51 = getelementptr inbounds nuw ptr, ptr %45, i64 %50
-  store ptr %31, ptr %51, align 8, !tbaa !73
+  store ptr %31, ptr %51, align 8, !tbaa !73, !noalias !139
   br label %_ZSt19__relocate_object_aISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %46, %44
@@ -4164,11 +4164,11 @@ _ZNSt6vectorISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESaIS6_EE11_S_reloc
 
 75:                                               ; preds = %73
   %76 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %77 = load i32, ptr %76, align 4, !tbaa !48
+  %77 = load i32, ptr %76, align 4, !tbaa !48, !noalias !146
   %78 = zext i32 %77 to i64
   %79 = urem i64 %78, %59
   %80 = getelementptr inbounds nuw ptr, ptr %74, i64 %79
-  store ptr %60, ptr %80, align 8, !tbaa !73
+  store ptr %60, ptr %80, align 8, !tbaa !73, !noalias !146
   br label %_ZSt19__relocate_object_aISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i32
 
 _ZSt19__relocate_object_aISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i32: ; preds = %75, %73
@@ -5695,11 +5695,11 @@ _ZSt27__uninitialized_default_n_aIPSt13unordered_setIjSt4hashIjESt8equal_toIjESa
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %62 = load i32, ptr %61, align 4, !tbaa !48
+  %62 = load i32, ptr %61, align 4, !tbaa !48, !noalias !162
   %63 = zext i32 %62 to i64
   %64 = urem i64 %63, %44
   %65 = getelementptr inbounds nuw ptr, ptr %59, i64 %64
-  store ptr %45, ptr %65, align 8, !tbaa !73
+  store ptr %45, ptr %65, align 8, !tbaa !73, !noalias !162
   br label %_ZSt19__relocate_object_aISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %60, %58

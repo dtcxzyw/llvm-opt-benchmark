@@ -6315,5 +6315,5 @@ attributes #24 = { noinline noreturn nounwind }
 !607 = distinct !{!607, !"_ZN5alloc3fmt6format17h31a4ee338d1d039bE"}
 !608 = distinct !{!608, !607, !"_ZN5alloc3fmt6format17h31a4ee338d1d039bE: argument 1"}
 !609 = !{!599, !602, !604, !606}
-!610 = !{!601, !605, !608}
+!610 = !{!601, !604, !605, !608}
 !611 = !{i64 0, i64 4}

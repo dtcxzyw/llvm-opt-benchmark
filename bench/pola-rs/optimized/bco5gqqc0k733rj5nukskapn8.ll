@@ -231,7 +231,7 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   %12 = load i32, ptr %11, align 4, !alias.scope !22, !noundef !3
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw i32, ptr %6, i64 %13
-  store i32 %10, ptr %14, align 4
+  store i32 %10, ptr %14, align 4, !noalias !22
   %15 = icmp eq ptr %9, %7
   br i1 %15, label %"_ZN12polars_utils4sort12perfect_sort28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h228ddbd53d9475bcE.exit", label %.lr.ph.i
 

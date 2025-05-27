@@ -5225,7 +5225,7 @@ define hidden void @"_ZN136_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$
   br label %"_ZN73_$LT$std..hash..random..RandomState$u20$as$u20$core..default..Default$GT$7default17h88eafc59ef37454bE.llvm.3225449011375112997.exit"
 
 5:                                                ; preds = %2
-  %6 = tail call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17h77028008a1d3f43bE(), !noalias !1629
+  %6 = tail call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17h77028008a1d3f43bE(), !noalias !1630
   %7 = extractvalue { i64, i64 } %6, 0
   %8 = extractvalue { i64, i64 } %6, 1
   store i64 1, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", align 8, !noalias !1630
@@ -5637,7 +5637,7 @@ define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17hac2e
   br i1 %trunc.i.i.i, label %"_ZN3std3sys12thread_local6native4lazy20Storage$LT$T$C$D$GT$10initialize17h2e0c0795a550e816E.exit.i.i", label %6
 
 6:                                                ; preds = %5, %3
-  %7 = tail call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17h77028008a1d3f43bE()
+  %7 = tail call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17h77028008a1d3f43bE(), !noalias !1736
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = extractvalue { i64, i64 } %7, 1
   br label %"_ZN3std3sys12thread_local6native4lazy20Storage$LT$T$C$D$GT$10initialize17h2e0c0795a550e816E.exit.i.i"
@@ -20463,7 +20463,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull readonly align 8 dereferenceable(48) %26, i64 48, i1 false), !noalias !3885
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull readonly align 8 dereferenceable(96) %.sroa.011.020.i, i64 48, i1 false), !noalias !3885
   %27 = getelementptr inbounds nuw [0 x { [12 x i64] }], ptr %14, i64 0, i64 %.sroa.7.019.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %27, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false), !noalias !3885
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %27, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false), !noalias !3888
   %28 = icmp eq i64 %23, 0
   br i1 %28, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hf0132fbbea40f719E.llvm.3225449011375112997.exit", label %20
 
@@ -20573,7 +20573,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %.val13.i = load ptr, ptr %.sroa.015.023.i, align 8, !alias.scope !3897, !noalias !3902, !nonnull !11, !noundef !11
   %21 = getelementptr i8, ptr %.sroa.015.023.i, i64 8
   %.val14.i = load i64, ptr %21, align 8, !alias.scope !3897, !noalias !3902
-  %22 = atomicrmw add ptr %.val13.i, i64 1 monotonic, align 8, !noalias !3902
+  %22 = atomicrmw add ptr %.val13.i, i64 1 monotonic, align 8, !noalias !3900
   %23 = icmp slt i64 %22, 0
   br i1 %23, label %24, label %25
 
@@ -20585,9 +20585,9 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %26 = add nuw nsw i64 %.sroa.7.022.i, 1
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.015.023.i, i64 16
   %28 = getelementptr inbounds nuw [0 x { [2 x i64] }], ptr %13, i64 0, i64 %.sroa.7.022.i
-  store ptr %.val13.i, ptr %28, align 8, !noalias !3902
+  store ptr %.val13.i, ptr %28, align 8, !noalias !3900
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i64 %.val14.i, ptr %29, align 8, !noalias !3902
+  store i64 %.val14.i, ptr %29, align 8, !noalias !3900
   %30 = icmp eq i64 %18, 0
   br i1 %30, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h4d72bc9d90091d1bE.llvm.3225449011375112997.exit", label %.lr.ph.i
 
@@ -20664,11 +20664,11 @@ _ZN4core5clone5Clone5clone17hbcaf5382d55dc139E.exit.i: ; preds = %21
   %28 = add nuw nsw i64 %.sroa.7.026.i, 1
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.011.027.i, i64 112
   %30 = getelementptr inbounds nuw [0 x { [14 x i64] }], ptr %13, i64 0, i64 %.sroa.7.026.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %30, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.012.i, i64 96, i1 false), !noalias !3911
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %30, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.012.i, i64 96, i1 false), !noalias !3906
   %.sroa.418.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 96
-  store ptr %.val.i.i, ptr %.sroa.418.0..sroa_idx.i, align 8, !noalias !3911
+  store ptr %.val.i.i, ptr %.sroa.418.0..sroa_idx.i, align 8, !noalias !3906
   %.sroa.519.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 104
-  store i64 %.val1.i.i, ptr %.sroa.519.0..sroa_idx.i, align 8, !noalias !3911
+  store i64 %.val1.i.i, ptr %.sroa.519.0..sroa_idx.i, align 8, !noalias !3906
   %31 = icmp eq i64 %19, 0
   br i1 %31, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h914ff1e9474bd43cE.llvm.3225449011375112997.exit", label %18
 
@@ -20798,11 +20798,11 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.011.032.i, i64 8
   %27 = load i32, ptr %26, align 8, !alias.scope !3934, !noalias !3937, !noundef !11
   %28 = getelementptr inbounds nuw [0 x { [2 x i64] }], ptr %13, i64 0, i64 %.sroa.7.031.i
-  store i64 %23, ptr %28, align 8, !noalias !3928
+  store i64 %23, ptr %28, align 8, !noalias !3933
   %.sroa.420.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i32 %27, ptr %.sroa.420.0..sroa_idx.i, align 8, !noalias !3928
+  store i32 %27, ptr %.sroa.420.0..sroa_idx.i, align 8, !noalias !3933
   %.sroa.521.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 12
-  store i8 %25, ptr %.sroa.521.0..sroa_idx.i, align 4, !noalias !3928
+  store i8 %25, ptr %.sroa.521.0..sroa_idx.i, align 4, !noalias !3933
   %29 = icmp eq i64 %20, 0
   br i1 %29, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h2903832eee15d968E.llvm.3225449011375112997.exit", label %.lr.ph.i
 
@@ -20860,9 +20860,9 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %23 = getelementptr i8, ptr %.sroa.015.024.i, i64 8
   %.val14.i = load i64, ptr %23, align 8, !alias.scope !3942, !noalias !3939, !noundef !11
   %24 = getelementptr inbounds nuw [0 x { [2 x i64] }], ptr %13, i64 0, i64 %.sroa.7.023.i
-  store i64 %.val13.i, ptr %24, align 8, !noalias !3939
+  store i64 %.val13.i, ptr %24, align 8, !noalias !3944
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 %.val14.i, ptr %25, align 8, !noalias !3939
+  store i64 %.val14.i, ptr %25, align 8, !noalias !3944
   %26 = icmp eq i64 %20, 0
   br i1 %26, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h3a76c2f3a8b22a9aE.llvm.3225449011375112997.exit", label %.lr.ph.i
 
@@ -37359,7 +37359,7 @@ define hidden { i64, i64 } @"_ZN73_$LT$std..hash..random..RandomState$u20$as$u20
   br label %_ZN4core3ops8function6FnOnce9call_once17hac2e7a02e67f7373E.llvm.3225449011375112997.exit
 
 4:                                                ; preds = %0
-  %5 = tail call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17h77028008a1d3f43bE(), !noalias !7438
+  %5 = tail call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17h77028008a1d3f43bE(), !noalias !7439
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
   store i64 1, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", align 8, !noalias !7439
@@ -49880,7 +49880,7 @@ attributes #39 = { nounwind }
 !3912 = !{!3909, !3904}
 !3913 = !{!3914, !3907}
 !3914 = distinct !{!3914, !3910, !"_ZN4core5clone5Clone5clone17hbcaf5382d55dc139E: argument 0"}
-!3915 = !{!3914, !3909, !3907}
+!3915 = !{!3914, !3909, !3907, !3904}
 !3916 = !{!3917}
 !3917 = distinct !{!3917, !3918, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h4f8ce83d2511a3c2E.llvm.3225449011375112997: argument 0"}
 !3918 = distinct !{!3918, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h4f8ce83d2511a3c2E.llvm.3225449011375112997"}

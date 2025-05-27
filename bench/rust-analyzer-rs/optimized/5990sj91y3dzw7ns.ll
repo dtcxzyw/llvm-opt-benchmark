@@ -2035,7 +2035,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 63:                                               ; preds = %68, %67, %66, %65, %31
   %64 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #20, !noalias !380
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #20, !noalias !395
   unreachable
 
 65:                                               ; preds = %31
@@ -2044,11 +2044,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 66:                                               ; preds = %65
   invoke fastcc void @"_ZN4core3ptr66drop_in_place$LT$core..option..Option$LT$paths..AbsPathBuf$GT$$GT$17hc1361fb4d57c7cb8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #19
-          to label %67 unwind label %63, !noalias !395
+          to label %67 unwind label %63, !noalias !396
 
 67:                                               ; preds = %66
   invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$flycheck..FlycheckConfig$GT$17h17e72bb5050d7223E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %4) #19
-          to label %68 unwind label %63, !noalias !396
+          to label %68 unwind label %63, !noalias !395
 
 68:                                               ; preds = %67
   invoke fastcc void @"_ZN4core3ptr170drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$flycheck..Message$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$GT$17haf252bc61a1d079aE"(ptr nonnull align 1 %2, ptr nonnull readonly align 8 dereferenceable(24) %3) #19
@@ -3602,7 +3602,7 @@ _ZN3std7process7Command11current_dir17h7a15ac82f1872ebdE.exit.i: ; preds = %.noe
 
 442:                                              ; preds = %_ZN3std7process7Command11current_dir17h7a15ac82f1872ebdE.exit.i
   invoke void @_ZN3std3sys3pal4unix7process14process_common7Command3arg17hef9bd4ce9d387290E(ptr noalias noundef nonnull align 8 dereferenceable(208) %38, ptr noalias noundef nonnull readonly align 1 @anon.2fcc40fc2ef42a1851e1e137bb29833c.129, i64 noundef 2)
-          to label %_ZN3std7process7Command3arg17hb1fdcd00cc5c8601E.exit43.invoke.i unwind label %472, !noalias !657
+          to label %_ZN3std7process7Command3arg17hb1fdcd00cc5c8601E.exit43.invoke.i unwind label %472, !noalias !579
 
 _ZN3std7process7Command3arg17hb1fdcd00cc5c8601E.exit.i: ; preds = %_ZN3std7process7Command3arg17hb1fdcd00cc5c8601E.exit43.invoke.i
   %443 = load i8, ptr %176, align 8, !range !260, !alias.scope !576, !noalias !579, !noundef !4
@@ -7001,8 +7001,8 @@ attributes #21 = { noreturn }
 !392 = distinct !{!392, !382, !"_ZN8flycheck13FlycheckActor3new17h3748c88055f44e74E: argument 1"}
 !393 = !{!381, !392, !384, !386}
 !394 = !{!381, !392, !384, !386, !390}
-!395 = !{!381, !392, !384}
-!396 = !{!381, !392}
+!395 = !{!381, !392}
+!396 = !{!381, !392, !384}
 !397 = !{!392, !384, !386, !388, !390}
 !398 = !{!381, !384}
 !399 = !{!392, !386, !388, !390}
@@ -7077,7 +7077,7 @@ attributes #21 = { noreturn }
 !468 = distinct !{!468, !466, !"_ZN17crossbeam_channel6select17SelectedOperation4recv17hf5e8eefcc9806383E: argument 0"}
 !469 = distinct !{!469, !466, !"_ZN17crossbeam_channel6select17SelectedOperation4recv17hf5e8eefcc9806383E: argument 2"}
 !470 = !{!468, !465, !469, !454, !451, !455}
-!471 = !{!468, !465, !454}
+!471 = !{!468, !465, !469, !454}
 !472 = !{!468, !454}
 !473 = !{!474}
 !474 = distinct !{!474, !475, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2a15a9a99e3128dE.llvm.5232973679748665674: argument 1"}
@@ -7091,7 +7091,7 @@ attributes #21 = { noreturn }
 !482 = distinct !{!482, !480, !"_ZN17crossbeam_channel6select17SelectedOperation4recv17hbec6d0c89c12f006E: argument 0"}
 !483 = distinct !{!483, !480, !"_ZN17crossbeam_channel6select17SelectedOperation4recv17hbec6d0c89c12f006E: argument 2"}
 !484 = !{!482, !479, !483, !454, !451, !455}
-!485 = !{!482, !479, !454}
+!485 = !{!482, !479, !483, !454}
 !486 = !{!482, !454}
 !487 = !{!488}
 !488 = distinct !{!488, !489, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3671f38de3ac35edE.llvm.5232973679748665674: argument 1"}

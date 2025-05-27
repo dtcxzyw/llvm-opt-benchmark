@@ -19173,7 +19173,7 @@ common.resume:                                    ; preds = %.thread22, %.thread
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #31
+  tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #31, !noalias !1454
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc03f81797c576e15E.exit": ; preds = %"_ZN4core3ptr90drop_in_place$LT$$u5b$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$u5d$$GT$17h4978d791c4531d02E.exit", %77
@@ -79030,7 +79030,7 @@ default.unreachable3171:                          ; preds = %"_ZN4core3ptr121dro
 710:                                              ; preds = %708
   %711 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #31
+  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #31, !noalias !6673
   unreachable
 
 712:                                              ; preds = %707, %703
@@ -83505,7 +83505,7 @@ _ZN13polars_stream13physical_plan8to_graph12to_graph_rec17hcadc6676dded77e8E.exi
 2119:                                             ; preds = %2117
   %2120 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #31
+  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #31, !noalias !7262
   unreachable
 
 2121:                                             ; preds = %2105
@@ -92036,7 +92036,7 @@ attributes #33 = { "function-inline-cost-multiplier"="2" }
 !1356 = distinct !{!1356, !1355, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hed8771660f7d073eE: argument 1"}
 !1357 = distinct !{!1357, !1355, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hed8771660f7d073eE: argument 2"}
 !1358 = !{!1351, !1354, !1356}
-!1359 = !{!1353, !1357}
+!1359 = !{!1353, !1356, !1357}
 !1360 = !{!1361}
 !1361 = distinct !{!1361, !1362, !"_ZN11polars_core13chunked_array3ops5arity26binary_unchecked_same_type17hf37198b7b4e712ccE: argument 0"}
 !1362 = distinct !{!1362, !"_ZN11polars_core13chunked_array3ops5arity26binary_unchecked_same_type17hf37198b7b4e712ccE"}
@@ -95953,7 +95953,7 @@ attributes #33 = { "function-inline-cost-multiplier"="2" }
 !5273 = distinct !{!5273, !5272, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hed8771660f7d073eE: argument 1"}
 !5274 = distinct !{!5274, !5272, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hed8771660f7d073eE: argument 2"}
 !5275 = !{!5268, !5271, !5273}
-!5276 = !{!5270, !5274}
+!5276 = !{!5270, !5273, !5274}
 !5277 = !{!5278}
 !5278 = distinct !{!5278, !5279, !"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hfae25255f621c63fE: argument 0"}
 !5279 = distinct !{!5279, !"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hfae25255f621c63fE"}

@@ -11441,7 +11441,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %.val13.i = load ptr, ptr %.sroa.015.023.i, align 8, !alias.scope !1938, !noalias !1943, !nonnull !4, !noundef !4
   %21 = getelementptr i8, ptr %.sroa.015.023.i, i64 8
   %.val14.i = load i64, ptr %21, align 8, !alias.scope !1938, !noalias !1943
-  %22 = atomicrmw add ptr %.val13.i, i64 1 monotonic, align 8, !noalias !1943
+  %22 = atomicrmw add ptr %.val13.i, i64 1 monotonic, align 8, !noalias !1941
   %23 = icmp slt i64 %22, 0
   br i1 %23, label %24, label %25
 
@@ -11453,9 +11453,9 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %26 = add nuw nsw i64 %.sroa.7.022.i, 1
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.015.023.i, i64 16
   %28 = getelementptr inbounds nuw [0 x { [2 x i64] }], ptr %13, i64 0, i64 %.sroa.7.022.i
-  store ptr %.val13.i, ptr %28, align 8, !noalias !1943
+  store ptr %.val13.i, ptr %28, align 8, !noalias !1941
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i64 %.val14.i, ptr %29, align 8, !noalias !1943
+  store i64 %.val14.i, ptr %29, align 8, !noalias !1941
   %30 = icmp eq i64 %18, 0
   br i1 %30, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h7f8f59864e5cd42dE.llvm.17421949163919709637.exit", label %.lr.ph.i
 
@@ -18854,7 +18854,7 @@ attributes #43 = { "function-inline-cost-multiplier"="2" }
 !1973 = distinct !{!1973, !1972, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h40254c3052b1f6edE.llvm.17421949163919709637: argument 1"}
 !1974 = distinct !{!1974, !1972, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h40254c3052b1f6edE.llvm.17421949163919709637: argument 2"}
 !1975 = !{!1968, !1971, !1973, !1964, !1966}
-!1976 = !{!1970, !1974}
+!1976 = !{!1970, !1973, !1974}
 !1977 = !{!1978}
 !1978 = distinct !{!1978, !1979, !"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$12from_display17ha55b2826be90f1fdE: argument 1"}
 !1979 = distinct !{!1979, !"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$12from_display17ha55b2826be90f1fdE"}
@@ -18871,7 +18871,7 @@ attributes #43 = { "function-inline-cost-multiplier"="2" }
 !1990 = distinct !{!1990, !1989, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h40254c3052b1f6edE.llvm.17421949163919709637: argument 1"}
 !1991 = distinct !{!1991, !1989, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h40254c3052b1f6edE.llvm.17421949163919709637: argument 2"}
 !1992 = !{!1985, !1988, !1990, !1981, !1983}
-!1993 = !{!1987, !1991}
+!1993 = !{!1987, !1990, !1991}
 !1994 = !{!1995}
 !1995 = distinct !{!1995, !1996, !"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$12from_display17ha55b2826be90f1fdE: argument 1"}
 !1996 = distinct !{!1996, !"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$12from_display17ha55b2826be90f1fdE"}
@@ -19325,7 +19325,7 @@ attributes #43 = { "function-inline-cost-multiplier"="2" }
 !2444 = distinct !{!2444, !2443, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h40254c3052b1f6edE.llvm.17421949163919709637: argument 1"}
 !2445 = distinct !{!2445, !2443, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h40254c3052b1f6edE.llvm.17421949163919709637: argument 2"}
 !2446 = !{!2439, !2442, !2444}
-!2447 = !{!2441, !2445}
+!2447 = !{!2441, !2444, !2445}
 !2448 = !{!2449, !2451, !2452, !2454, !2455}
 !2449 = distinct !{!2449, !2450, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h4f62627180b820aeE.llvm.17421949163919709637: argument 0"}
 !2450 = distinct !{!2450, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h4f62627180b820aeE.llvm.17421949163919709637"}
@@ -19335,7 +19335,7 @@ attributes #43 = { "function-inline-cost-multiplier"="2" }
 !2454 = distinct !{!2454, !2453, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h40254c3052b1f6edE.llvm.17421949163919709637: argument 1"}
 !2455 = distinct !{!2455, !2453, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h40254c3052b1f6edE.llvm.17421949163919709637: argument 2"}
 !2456 = !{!2449, !2452, !2454}
-!2457 = !{!2451, !2455}
+!2457 = !{!2451, !2454, !2455}
 !2458 = !{!2459, !2461}
 !2459 = distinct !{!2459, !2460, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h14b5d6743c70ec3bE: argument 0"}
 !2460 = distinct !{!2460, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h14b5d6743c70ec3bE"}

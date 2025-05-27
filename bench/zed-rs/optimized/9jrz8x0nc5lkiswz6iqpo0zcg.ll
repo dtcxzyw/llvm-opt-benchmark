@@ -2608,7 +2608,7 @@ common.resume:                                    ; preds = %137, %"_ZN4core3ptr
 86:                                               ; preds = %84
   %87 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #32, !noalias !512
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #32, !noalias !514
   unreachable
 
 88:                                               ; preds = %.noexc.i
@@ -2975,7 +2975,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 93:                                               ; preds = %91
   %94 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #32, !noalias !564
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #32, !noalias !566
   unreachable
 
 95:                                               ; preds = %.noexc.i
@@ -3474,7 +3474,7 @@ common.resume:                                    ; preds = %.body67, %225, %"_Z
 98:                                               ; preds = %96
   %99 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #32, !noalias !629
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #32, !noalias !631
   unreachable
 
 100:                                              ; preds = %.noexc.i

@@ -40406,7 +40406,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 126:                                              ; preds = %122
   %.val.i.i.i = load ptr, ptr %.val.i.i53, align 8, !noalias !3598, !nonnull !6, !noundef !6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !3605
-  %127 = load ptr, ptr %.val.i.i.i, align 8, !noalias !3609, !nonnull !6, !noundef !6
+  %127 = load ptr, ptr %.val.i.i.i, align 8, !noalias !3605, !nonnull !6, !noundef !6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !3605
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.6.i.i.i.sroa.7.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !3605

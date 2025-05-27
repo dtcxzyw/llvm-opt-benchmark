@@ -11419,7 +11419,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17he12294bda8d9b14bE.exit.thread64.
   %89 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$u16$GT$$GT$$GT$17ha28d74b73d40b453E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #35
-          to label %.body unwind label %116, !noalias !1473
+          to label %.body unwind label %116, !noalias !1474
 
 .lr.ph99.i:                                       ; preds = %100, %.noexc111
   %.sroa.762.097.i = phi i64 [ %91, %100 ], [ 0, %.noexc111 ]
@@ -11441,7 +11441,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17he12294bda8d9b14bE.exit.thread64.
 
 98:                                               ; preds = %94
   %99 = getelementptr inbounds [0 x { i16, i16 }], ptr %82, i64 0, i64 %.sroa.762.097.i
-  store i16 0, ptr %99, align 2, !noalias !1473
+  store i16 0, ptr %99, align 2, !noalias !1474
   br label %100
 
 100:                                              ; preds = %114, %109, %98
@@ -11459,7 +11459,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17he12294bda8d9b14bE.exit.thread64.
   %107 = phi i64 [ %40, %94 ], [ %40, %102 ], [ 16, %96 ]
   %108 = phi ptr [ @anon.4b579c9d043b721191b412a2a5c930c7.141, %94 ], [ @anon.4b579c9d043b721191b412a2a5c930c7.143, %102 ], [ @anon.4b579c9d043b721191b412a2a5c930c7.142, %96 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %106, i64 noundef %107, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %108) #34
-          to label %.cont.i unwind label %88, !noalias !1473
+          to label %.cont.i unwind label %88, !noalias !1474
 
 .cont.i:                                          ; preds = %.invoke.i
   unreachable
@@ -11468,9 +11468,9 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17he12294bda8d9b14bE.exit.thread64.
   %110 = load i16, ptr %104, align 2, !noalias !1474
   %111 = load i16, ptr %103, align 2, !range !1275, !noalias !1474, !noundef !7
   %112 = getelementptr inbounds [0 x { i16, i16 }], ptr %82, i64 0, i64 %.sroa.762.097.i
-  store i16 %111, ptr %112, align 2, !noalias !1473
+  store i16 %111, ptr %112, align 2, !noalias !1474
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 2
-  store i16 %110, ptr %113, align 2, !noalias !1473
+  store i16 %110, ptr %113, align 2, !noalias !1474
   %trunc.i = trunc nuw i16 %111 to i1
   br i1 %trunc.i, label %114, label %100
 
@@ -11482,7 +11482,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17he12294bda8d9b14bE.exit.thread64.
 116:                                              ; preds = %88
   %117 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #36, !noalias !1473
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #36, !noalias !1474
   unreachable
 
 118:                                              ; preds = %.lr.ph.i

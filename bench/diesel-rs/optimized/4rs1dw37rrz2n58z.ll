@@ -63,7 +63,7 @@ define hidden void @"_ZN101_$LT$diesel..connection..statement_cache..StatementCa
   %29 = zext nneg i8 %28 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !35
   store i64 %29, ptr %3, align 8, !noalias !35
-  call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h6fb922e42246dc02E.llvm.14740734795082417315"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 8), !noalias !27
+  call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h6fb922e42246dc02E.llvm.14740734795082417315"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 8), !noalias !31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !35
   %30 = icmp eq ptr %27, %25
   br i1 %30, label %_ZN4core4hash4Hash10hash_slice17h684845b450071f70E.exit, label %.lr.ph.i

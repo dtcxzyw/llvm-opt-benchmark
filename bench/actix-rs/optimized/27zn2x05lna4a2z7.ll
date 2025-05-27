@@ -1602,11 +1602,11 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %.sroa.6.0.val.i = load ptr, ptr %.sroa.016.030.i, align 8, !alias.scope !229, !noalias !234, !nonnull !4, !noundef !4
   %15 = getelementptr i8, ptr %.sroa.016.030.i, i64 8
   %.sroa.6.0.val15.i = load ptr, ptr %15, align 8, !alias.scope !229, !noalias !234, !nonnull !4, !align !54, !noundef !4
-  %.val.i.i.i = load i64, ptr %.sroa.6.0.val.i, align 8, !noalias !234, !noundef !4
+  %.val.i.i.i = load i64, ptr %.sroa.6.0.val.i, align 8, !noalias !232, !noundef !4
   %16 = icmp ne i64 %.val.i.i.i, 0
   tail call void @llvm.assume(i1 %16)
   %17 = add i64 %.val.i.i.i, 1
-  store i64 %17, ptr %.sroa.6.0.val.i, align 8, !noalias !234
+  store i64 %17, ptr %.sroa.6.0.val.i, align 8, !noalias !232
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %20
 
@@ -1618,9 +1618,9 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %21 = add nuw nsw i64 %.sroa.7.029.i, 1
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.016.030.i, i64 16
   %23 = getelementptr inbounds nuw [0 x { [2 x i64] }], ptr %9, i64 0, i64 %.sroa.7.029.i
-  store ptr %.sroa.6.0.val.i, ptr %23, align 8, !noalias !234
+  store ptr %.sroa.6.0.val.i, ptr %23, align 8, !noalias !232
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr %.sroa.6.0.val15.i, ptr %24, align 8, !noalias !234
+  store ptr %.sroa.6.0.val15.i, ptr %24, align 8, !noalias !232
   %25 = icmp eq i64 %12, 0
   br i1 %25, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h40b75be783859cc6E.llvm.13892041527173094624.exit", label %.lr.ph.i
 

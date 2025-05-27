@@ -69412,7 +69412,7 @@ _ZN4core3ops8function6FnOnce9call_once17h294741de1f43a7d3E.exit.thread2.i.i.i: ;
   br label %.body14
 
 .body14:                                          ; preds = %77, %86, %63
-  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #13
+  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #13, !noalias !4856
   unreachable
 
 65:                                               ; preds = %57, %52, %_ZN4core3ops8function6FnOnce9call_once17h294741de1f43a7d3E.exit.i.i.i

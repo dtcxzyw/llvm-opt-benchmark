@@ -16753,7 +16753,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
 
 _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit: ; preds = %._crit_edge234
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !999
-  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9), !noalias !997
+  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9), !noalias !999
   %.sroa.0167.0.copyload = load i64, ptr %9, align 8, !noalias !994
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5168, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5168.0..sroa_idx, i64 24, i1 false), !noalias !994
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !999
@@ -16910,7 +16910,7 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
 
 _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit159: ; preds = %192
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !1011
-  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8), !noalias !1009
+  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8), !noalias !1011
   %.sroa.0.0.copyload = load i64, ptr %8, align 8, !noalias !1006
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, i64 24, i1 false), !noalias !1006
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !1011
@@ -17331,7 +17331,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
 
 _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit: ; preds = %._crit_edge234
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !1028
-  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9), !noalias !1026
+  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9), !noalias !1028
   %.sroa.0167.0.copyload = load i64, ptr %9, align 8, !noalias !1023
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5168, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5168.0..sroa_idx, i64 24, i1 false), !noalias !1023
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !1028
@@ -17488,7 +17488,7 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
 
 _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit159: ; preds = %192
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !1040
-  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8), !noalias !1038
+  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8), !noalias !1040
   %.sroa.0.0.copyload = load i64, ptr %8, align 8, !noalias !1035
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, i64 24, i1 false), !noalias !1035
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !1040
@@ -17904,7 +17904,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
 
 _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit: ; preds = %._crit_edge248
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !1057
-  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9), !noalias !1055
+  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9), !noalias !1057
   %.sroa.0181.0.copyload = load i64, ptr %9, align 8, !noalias !1052
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5182, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5182.0..sroa_idx, i64 24, i1 false), !noalias !1052
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !1057
@@ -18063,7 +18063,7 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
 
 _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit173: ; preds = %189
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !1066
-  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8), !noalias !1064
+  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8), !noalias !1066
   %.sroa.0.0.copyload = load i64, ptr %8, align 8, !noalias !1061
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, i64 24, i1 false), !noalias !1061
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !1066
@@ -18486,7 +18486,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
 
 _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit: ; preds = %._crit_edge234
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !1081
-  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9), !noalias !1079
+  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9), !noalias !1081
   %.sroa.0167.0.copyload = load i64, ptr %9, align 8, !noalias !1076
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5168, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5168.0..sroa_idx, i64 24, i1 false), !noalias !1076
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !1081
@@ -18643,7 +18643,7 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
 
 _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit159: ; preds = %192
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !1092
-  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8), !noalias !1090
+  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8), !noalias !1092
   %.sroa.0.0.copyload = load i64, ptr %8, align 8, !noalias !1087
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, i64 24, i1 false), !noalias !1087
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !1092
@@ -19057,7 +19057,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
 
 _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit: ; preds = %._crit_edge247
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !1109
-  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8), !noalias !1107
+  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8), !noalias !1109
   %.sroa.0180.0.copyload = load i64, ptr %8, align 8, !noalias !1104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5181, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5181.0..sroa_idx, i64 24, i1 false), !noalias !1104
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !1109
@@ -19209,7 +19209,7 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
 
 _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit172: ; preds = %183
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !1115
-  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %7), !noalias !1113
+  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %7), !noalias !1115
   %.sroa.0.0.copyload = load i64, ptr %7, align 8, !noalias !1110
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, i64 24, i1 false), !noalias !1110
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1115
@@ -19620,7 +19620,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
 
 _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit: ; preds = %._crit_edge248
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !1127
-  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9), !noalias !1125
+  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9), !noalias !1127
   %.sroa.0181.0.copyload = load i64, ptr %9, align 8, !noalias !1122
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5182, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5182.0..sroa_idx, i64 24, i1 false), !noalias !1122
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !1127
@@ -19779,7 +19779,7 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
 
 _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit173: ; preds = %189
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !1137
-  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8), !noalias !1135
+  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8), !noalias !1137
   %.sroa.0.0.copyload = load i64, ptr %8, align 8, !noalias !1132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, i64 24, i1 false), !noalias !1132
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !1137
@@ -20201,7 +20201,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
 
 _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit: ; preds = %._crit_edge244
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !1152
-  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9), !noalias !1150
+  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9), !noalias !1152
   %.sroa.0177.0.copyload = load i64, ptr %9, align 8, !noalias !1147
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5178, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5178.0..sroa_idx, i64 24, i1 false), !noalias !1147
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !1152
@@ -20360,7 +20360,7 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
 
 _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit169: ; preds = %191
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !1161
-  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8), !noalias !1159
+  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8), !noalias !1161
   %.sroa.0.0.copyload = load i64, ptr %8, align 8, !noalias !1156
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, i64 24, i1 false), !noalias !1156
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !1161
@@ -20778,7 +20778,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
 
 _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit: ; preds = %._crit_edge248
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !1176
-  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9), !noalias !1174
+  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9), !noalias !1176
   %.sroa.0181.0.copyload = load i64, ptr %9, align 8, !noalias !1171
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5182, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5182.0..sroa_idx, i64 24, i1 false), !noalias !1171
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !1176
@@ -20937,7 +20937,7 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
 
 _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit173: ; preds = %189
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !1185
-  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8), !noalias !1183
+  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8), !noalias !1185
   %.sroa.0.0.copyload = load i64, ptr %8, align 8, !noalias !1180
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, i64 24, i1 false), !noalias !1180
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !1185
@@ -21360,7 +21360,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
 
 _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit: ; preds = %._crit_edge234
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !1200
-  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9), !noalias !1198
+  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9), !noalias !1200
   %.sroa.0167.0.copyload = load i64, ptr %9, align 8, !noalias !1195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5168, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5168.0..sroa_idx, i64 24, i1 false), !noalias !1195
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !1200
@@ -21517,7 +21517,7 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
 
 _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit159: ; preds = %193
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !1211
-  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8), !noalias !1209
+  call void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded12oob_dict_idx17h1c5a53015b583371E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8), !noalias !1211
   %.sroa.0.0.copyload = load i64, ptr %8, align 8, !noalias !1206
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, i64 24, i1 false), !noalias !1206
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !1211
@@ -70445,7 +70445,7 @@ attributes #29 = { nounwind }
 !4021 = distinct !{!4021, !4020, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha73ba5c48b645b73E: argument 1"}
 !4022 = distinct !{!4022, !4020, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha73ba5c48b645b73E: argument 2"}
 !4023 = !{!4016, !4019, !4021, !4013}
-!4024 = !{!4018, !4022, !4013}
+!4024 = !{!4018, !4021, !4022, !4013}
 !4025 = !{!4026, !4028, !4029, !4031, !4032, !4013}
 !4026 = distinct !{!4026, !4027, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h62965ed6f488e82cE: argument 0"}
 !4027 = distinct !{!4027, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h62965ed6f488e82cE"}
@@ -70455,7 +70455,7 @@ attributes #29 = { nounwind }
 !4031 = distinct !{!4031, !4030, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha73ba5c48b645b73E: argument 1"}
 !4032 = distinct !{!4032, !4030, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha73ba5c48b645b73E: argument 2"}
 !4033 = !{!4026, !4029, !4031, !4013}
-!4034 = !{!4028, !4032, !4013}
+!4034 = !{!4028, !4031, !4032, !4013}
 !4035 = !{!4036}
 !4036 = distinct !{!4036, !4037, !"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$polars_parquet_format..parquet_format..DataPageHeader$GT$$GT$17hfe041b68c11171abE: argument 0"}
 !4037 = distinct !{!4037, !"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$polars_parquet_format..parquet_format..DataPageHeader$GT$$GT$17hfe041b68c11171abE"}
@@ -70474,7 +70474,7 @@ attributes #29 = { nounwind }
 !4050 = distinct !{!4050, !4049, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha73ba5c48b645b73E: argument 1"}
 !4051 = distinct !{!4051, !4049, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha73ba5c48b645b73E: argument 2"}
 !4052 = !{!4045, !4048, !4050, !4042}
-!4053 = !{!4047, !4051, !4042}
+!4053 = !{!4047, !4050, !4051, !4042}
 !4054 = !{!4055, !4057, !4058, !4060, !4061, !4042}
 !4055 = distinct !{!4055, !4056, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h62965ed6f488e82cE: argument 0"}
 !4056 = distinct !{!4056, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h62965ed6f488e82cE"}
@@ -70484,7 +70484,7 @@ attributes #29 = { nounwind }
 !4060 = distinct !{!4060, !4059, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha73ba5c48b645b73E: argument 1"}
 !4061 = distinct !{!4061, !4059, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha73ba5c48b645b73E: argument 2"}
 !4062 = !{!4055, !4058, !4060, !4042}
-!4063 = !{!4057, !4061, !4042}
+!4063 = !{!4057, !4060, !4061, !4042}
 !4064 = !{!4065, !4067, !4068, !4070, !4071}
 !4065 = distinct !{!4065, !4066, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h62965ed6f488e82cE: argument 0"}
 !4066 = distinct !{!4066, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h62965ed6f488e82cE"}
@@ -70494,4 +70494,4 @@ attributes #29 = { nounwind }
 !4070 = distinct !{!4070, !4069, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha73ba5c48b645b73E: argument 1"}
 !4071 = distinct !{!4071, !4069, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha73ba5c48b645b73E: argument 2"}
 !4072 = !{!4065, !4068, !4070}
-!4073 = !{!4067, !4071}
+!4073 = !{!4067, !4070, !4071}

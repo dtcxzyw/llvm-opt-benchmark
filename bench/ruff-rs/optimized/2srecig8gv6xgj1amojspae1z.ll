@@ -321,7 +321,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17ha8732052dc3d7578E(
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !18
   store i32 %.val24.i, ptr %10, align 4, !noalias !18
   store i32 %.val25.i, ptr %20, align 4, !noalias !18
-  %47 = call noundef range(i8 0, 3) i8 @_ZN4core3cmp21default_chaining_impl17h9f053effa4e0fc20E(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %10), !noalias !15
+  %47 = call noundef range(i8 0, 3) i8 @_ZN4core3cmp21default_chaining_impl17h9f053effa4e0fc20E(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %10), !noalias !18
   %.not.i.i.i = icmp eq i8 %47, 2
   %48 = trunc nuw i8 %47 to i1
   %49 = icmp ult i32 %.val23.i, %.val25.i
@@ -420,7 +420,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17ha8732052dc3d7578E(
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !31
   store i32 %.val.i50, ptr %8, align 4, !noalias !31
   store i32 %.val23.i51, ptr %22, align 4, !noalias !31
-  %80 = call noundef range(i8 0, 3) i8 @_ZN4core3cmp21default_chaining_impl17h9f053effa4e0fc20E(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %9, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8), !noalias !29
+  %80 = call noundef range(i8 0, 3) i8 @_ZN4core3cmp21default_chaining_impl17h9f053effa4e0fc20E(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %9, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8), !noalias !31
   %.not.i.i.i.i = icmp eq i8 %80, 2
   %81 = trunc nuw i8 %80 to i1
   %82 = icmp ult i32 %.val25.i53, %.val23.i51

@@ -885,6 +885,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h611105adaafd8b97E.llvm.81
 
 40:                                               ; preds = %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h611105adaafd8b97E.llvm.8191761984736505864.exit
   %41 = getelementptr inbounds i8, ptr %.pre.i, i64 %34
+  call void @llvm.experimental.noalias.scope.decl(metadata !125)
   br label %42
 
 42:                                               ; preds = %54, %40
@@ -1025,6 +1026,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hd88897f0ebf3a2a2E.llvm.81
 
 40:                                               ; preds = %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hd88897f0ebf3a2a2E.llvm.8191761984736505864.exit
   %41 = getelementptr inbounds i8, ptr %.pre.i, i64 %34
+  call void @llvm.experimental.noalias.scope.decl(metadata !152)
   br label %42
 
 42:                                               ; preds = %54, %40
@@ -2312,12 +2314,12 @@ attributes #20 = { noreturn }
 !135 = distinct !{!135, !136, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h8a43d81038add3e9E: argument 0"}
 !136 = distinct !{!136, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h8a43d81038add3e9E"}
 !137 = distinct !{!137, !136, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h8a43d81038add3e9E: argument 1"}
-!138 = !{!139, !140, !141, !129, !130}
+!138 = !{!139, !140, !141, !129, !130, !126}
 !139 = distinct !{!139, !136, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h8a43d81038add3e9E: argument 2"}
 !140 = distinct !{!140, !133, !"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17hfccf960183987eb7E: argument 0"}
 !141 = distinct !{!141, !133, !"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17hfccf960183987eb7E: argument 1"}
-!142 = !{!140, !141, !132, !129, !130}
-!143 = !{!140, !141, !129, !130}
+!142 = !{!140, !141, !132, !129, !130, !126}
+!143 = !{!140, !141, !129, !130, !126}
 !144 = !{!145}
 !145 = distinct !{!145, !146, !"_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hd88897f0ebf3a2a2E.llvm.8191761984736505864: argument 1"}
 !146 = distinct !{!146, !"_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hd88897f0ebf3a2a2E.llvm.8191761984736505864"}
@@ -2339,12 +2341,12 @@ attributes #20 = { noreturn }
 !162 = distinct !{!162, !163, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h8a43d81038add3e9E: argument 0"}
 !163 = distinct !{!163, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h8a43d81038add3e9E"}
 !164 = distinct !{!164, !163, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h8a43d81038add3e9E: argument 1"}
-!165 = !{!166, !167, !168, !156, !157}
+!165 = !{!166, !167, !168, !156, !157, !153}
 !166 = distinct !{!166, !163, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h8a43d81038add3e9E: argument 2"}
 !167 = distinct !{!167, !160, !"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17hfccf960183987eb7E: argument 0"}
 !168 = distinct !{!168, !160, !"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17hfccf960183987eb7E: argument 1"}
-!169 = !{!167, !168, !159, !156, !157}
-!170 = !{!167, !168, !156, !157}
+!169 = !{!167, !168, !159, !156, !157, !153}
+!170 = !{!167, !168, !156, !157, !153}
 !171 = !{!172}
 !172 = distinct !{!172, !173, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h657d153cac5dc99cE: argument 1"}
 !173 = distinct !{!173, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h657d153cac5dc99cE"}

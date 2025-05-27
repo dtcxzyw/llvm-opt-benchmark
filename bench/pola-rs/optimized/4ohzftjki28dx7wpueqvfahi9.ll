@@ -20622,7 +20622,7 @@ common.resume.i.i:                                ; preds = %75, %64, %55, %33
 67:                                               ; preds = %33
   %68 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #24, !noalias !3263
+  tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #24, !noalias !3269
   unreachable
 
 69:                                               ; preds = %19, %18
@@ -21460,7 +21460,7 @@ common.resume.i.i:                                ; preds = %75, %64, %55, %33
 67:                                               ; preds = %33
   %68 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #24, !noalias !3474
+  tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #24, !noalias !3480
   unreachable
 
 69:                                               ; preds = %19, %18
@@ -27017,7 +27017,7 @@ attributes #24 = { cold noreturn nounwind }
 !3001 = distinct !{!3001, !3000, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf4266919b56f5873E: argument 1"}
 !3002 = distinct !{!3002, !3000, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf4266919b56f5873E: argument 2"}
 !3003 = !{!2996, !2999, !3001, !2992, !2994, !2983, !2985, !2986, !2988, !2963, !2966}
-!3004 = !{!2998, !3002, !2992, !2994, !2983, !2986, !2963, !2966}
+!3004 = !{!2998, !3001, !3002, !2992, !2994, !2983, !2986, !2963, !2966}
 !3005 = !{!2994, !2983, !2986, !2963, !2966}
 !3006 = !{!2985, !2986, !2988, !2963, !2966}
 !3007 = !{!2986, !2988, !2963, !2966}
@@ -27178,7 +27178,7 @@ attributes #24 = { cold noreturn nounwind }
 !3162 = distinct !{!3162, !3161, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf4266919b56f5873E: argument 1"}
 !3163 = distinct !{!3163, !3161, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf4266919b56f5873E: argument 2"}
 !3164 = !{!3157, !3160, !3162, !3153, !3155, !3145, !3147, !3148, !3150, !3125, !3128}
-!3165 = !{!3159, !3163, !3153, !3155, !3145, !3148, !3125, !3128}
+!3165 = !{!3159, !3162, !3163, !3153, !3155, !3145, !3148, !3125, !3128}
 !3166 = !{!3155, !3145, !3148, !3125, !3128}
 !3167 = !{!3147, !3148, !3150, !3125, !3128}
 !3168 = !{!3148, !3150, !3125, !3128}
@@ -27355,7 +27355,7 @@ attributes #24 = { cold noreturn nounwind }
 !3339 = distinct !{!3339, !3325, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf4266919b56f5873E: argument 2"}
 !3340 = distinct !{!3340, !3341, !"_ZN12polars_arrow3ffi6schema8to_dtype28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc41e10013e73b999E: argument 0"}
 !3341 = distinct !{!3341, !"_ZN12polars_arrow3ffi6schema8to_dtype28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc41e10013e73b999E"}
-!3342 = !{!3333, !3335, !3330, !3336, !3327, !3337, !3324, !3339, !3340, !3321, !3315, !3312}
+!3342 = !{!3333, !3335, !3330, !3336, !3327, !3337, !3324, !3338, !3339, !3340, !3321, !3315, !3312}
 !3343 = !{!3333, !3330, !3327, !3324, !3339, !3340, !3321, !3315, !3312}
 !3344 = !{!3330, !3327, !3324}
 !3345 = !{!3336, !3337, !3338, !3339, !3340, !3321, !3315, !3312, !3290}
@@ -27439,7 +27439,7 @@ attributes #24 = { cold noreturn nounwind }
 !3423 = distinct !{!3423, !3422, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf4266919b56f5873E: argument 1"}
 !3424 = distinct !{!3424, !3422, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf4266919b56f5873E: argument 2"}
 !3425 = !{!3418, !3421, !3423, !3414, !3416, !3406, !3408, !3409, !3411, !3386, !3389}
-!3426 = !{!3420, !3424, !3414, !3416, !3406, !3409, !3386, !3389}
+!3426 = !{!3420, !3423, !3424, !3414, !3416, !3406, !3409, !3386, !3389}
 !3427 = !{!3416, !3406, !3409, !3386, !3389}
 !3428 = !{!3408, !3409, !3411, !3386, !3389}
 !3429 = !{!3409, !3411, !3386, !3389}

@@ -27744,9 +27744,9 @@ define range(i32 -2, 1) i32 @ma_gainer_process_pcm_frames(ptr noundef captures(a
 40:                                               ; preds = %40, %.lr.ph.i
   %indvars.iv318.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next319.i, %40 ]
   %41 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv318.i
-  %42 = load float, ptr %41, align 4, !tbaa !339
+  %42 = load float, ptr %41, align 4, !tbaa !339, !noalias !706
   %43 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv318.i
-  %44 = load float, ptr %43, align 4, !tbaa !339
+  %44 = load float, ptr %43, align 4, !tbaa !339, !noalias !706
   %45 = fsub float %42, %44
   %46 = fmul float %39, %45
   %47 = fmul float %23, %46
@@ -27985,9 +27985,9 @@ define range(i32 -2, 1) i32 @ma_gainer_process_pcm_frames(ptr noundef captures(a
   %189 = getelementptr inbounds nuw float, ptr %186, i64 %indvars.iv.i
   %190 = load float, ptr %189, align 4, !tbaa !339, !alias.scope !704, !noalias !701
   %191 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv.i
-  %192 = load float, ptr %191, align 4, !tbaa !339
+  %192 = load float, ptr %191, align 4, !tbaa !339, !noalias !706
   %193 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv.i
-  %194 = load float, ptr %193, align 4, !tbaa !339
+  %194 = load float, ptr %193, align 4, !tbaa !339, !noalias !706
   %195 = fsub float %194, %192
   %196 = fmul float %.0250276.i, %195
   %197 = fadd float %192, %196
@@ -28061,7 +28061,7 @@ define range(i32 -2, 1) i32 @ma_gainer_process_pcm_frames(ptr noundef captures(a
 230:                                              ; preds = %230, %.lr.ph305.i
   %indvars.iv338.i = phi i64 [ 0, %.lr.ph305.i ], [ %indvars.iv.next339.i, %230 ]
   %231 = getelementptr inbounds nuw float, ptr %227, i64 %indvars.iv338.i
-  %232 = load float, ptr %231, align 4, !tbaa !339
+  %232 = load float, ptr %231, align 4, !tbaa !339, !noalias !706
   %233 = fmul float %229, %232
   %234 = getelementptr inbounds nuw [32 x float], ptr %7, i64 0, i64 %indvars.iv338.i
   store float %233, ptr %234, align 4, !tbaa !339, !noalias !706
@@ -28112,7 +28112,7 @@ ma_copy_and_apply_volume_factor_per_channel_f32.exit.i: ; preds = %._crit_edge.u
   %248 = getelementptr inbounds nuw float, ptr %.0232.i, i64 %247
   %249 = load float, ptr %248, align 4, !tbaa !339, !alias.scope !704, !noalias !701
   %250 = getelementptr inbounds nuw float, ptr %222, i64 %indvars.iv332.i
-  %251 = load float, ptr %250, align 4, !tbaa !339
+  %251 = load float, ptr %250, align 4, !tbaa !339, !noalias !706
   %252 = fmul float %249, %251
   %253 = fmul float %224, %252
   %254 = getelementptr inbounds nuw float, ptr %.0231.i, i64 %247

@@ -174,7 +174,7 @@ define hidden void @"_ZN102_$LT$hir_ty..CallableSig$u20$as$u20$chalk_ir..fold..T
 
 28:                                               ; preds = %25
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #48
-          to label %.noexc.i unwind label %35, !noalias !13
+          to label %.noexc.i unwind label %35, !noalias !8
 
 .noexc.i:                                         ; preds = %28
   unreachable
@@ -183,14 +183,14 @@ define hidden void @"_ZN102_$LT$hir_ty..CallableSig$u20$as$u20$chalk_ir..fold..T
   %29 = add nuw nsw i64 %.sroa.7.027.i, 1
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.013.028.i, i64 8
   %31 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %.sroa.7.027.i
-  store ptr %.sroa.6.0.val.i, ptr %31, align 8, !noalias !13
+  store ptr %.sroa.6.0.val.i, ptr %31, align 8, !noalias !8
   %32 = icmp eq i64 %23, 0
   br i1 %32, label %.loopexit, label %.lr.ph.i
 
 33:                                               ; preds = %35
   %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #49, !noalias !13
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #49, !noalias !8
   unreachable
 
 35:                                               ; preds = %28
@@ -198,7 +198,7 @@ define hidden void @"_ZN102_$LT$hir_ty..CallableSig$u20$as$u20$chalk_ir..fold..T
           cleanup
   store i64 %.sroa.7.027.i, ptr %20, align 8, !noalias !8
   invoke void @"_ZN4core3ptr90drop_in_place$LT$alloc..vec..Vec$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h7285f1700b99c611E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #50
-          to label %.body unwind label %33, !noalias !13
+          to label %.body unwind label %33, !noalias !8
 
 37:                                               ; preds = %40, %5, %.loopexit
   %38 = landingpad { ptr, i32 }
@@ -10210,18 +10210,18 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h779ccf4c
   %.0.i = phi i64 [ 0, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h79c45345758cbf49E.exit.i" ], [ %30, %.lr.ph.i.i.i.i ]
   %32 = shl i64 %.0.i, 7
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %34 = load i64, ptr %33, align 8, !noundef !4
+  %34 = load i64, ptr %33, align 8, !noalias !2482, !noundef !4
   %35 = and i64 %34, 63
   %36 = lshr i64 %32, %35
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %38 = load i64, ptr %37, align 8, !noundef !4
+  %38 = load i64, ptr %37, align 8, !noalias !2482, !noundef !4
   %39 = icmp ult i64 %36, %38
   br i1 %39, label %40, label %46, !prof !2382
 
 40:                                               ; preds = %"_ZN79_$LT$hir_ty..interner..InternedWrapper$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17haf6b4543ffba28d9E.exit.i"
-  %41 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
+  %41 = load ptr, ptr %5, align 8, !noalias !2482, !nonnull !4, !noundef !4
   %42 = getelementptr inbounds [0 x { { { i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }], ptr %41, i64 0, i64 %36
-  %43 = cmpxchg weak ptr %42, i64 0, i64 -4 acquire monotonic, align 8
+  %43 = cmpxchg weak ptr %42, i64 0, i64 -4 acquire monotonic, align 8, !noalias !2482
   %44 = extractvalue { i64, i1 } %43, 1
   br i1 %44, label %50, label %45
 
@@ -18327,27 +18327,27 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h5abf48ba90c669ccE
   %.0.i = phi i64 [ 0, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h79c45345758cbf49E.exit.i" ], [ %32, %.lr.ph.i.i.i.i ]
   %34 = shl i64 %.0.i, 7
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %36 = load i64, ptr %35, align 8, !noundef !4
+  %36 = load i64, ptr %35, align 8, !noalias !4727, !noundef !4
   %37 = and i64 %36, 63
   %38 = lshr i64 %34, %37
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %40 = load i64, ptr %39, align 8, !noundef !4
+  %40 = load i64, ptr %39, align 8, !noalias !4727, !noundef !4
   %41 = icmp ult i64 %38, %40
   br i1 %41, label %42, label %48, !prof !2382
 
 42:                                               ; preds = %"_ZN79_$LT$hir_ty..interner..InternedWrapper$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17haf6b4543ffba28d9E.exit.i"
-  %43 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
+  %43 = load ptr, ptr %7, align 8, !noalias !4727, !nonnull !4, !noundef !4
   %44 = getelementptr inbounds [0 x { { { i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }], ptr %43, i64 0, i64 %38
-  %45 = cmpxchg weak ptr %44, i64 0, i64 -4 acquire monotonic, align 8
+  %45 = cmpxchg weak ptr %44, i64 0, i64 -4 acquire monotonic, align 8, !noalias !4727
   %46 = extractvalue { i64, i1 } %45, 1
   br i1 %46, label %53, label %47
 
 47:                                               ; preds = %42
-  tail call void @_ZN7dashmap4lock9RawRwLock19lock_exclusive_slow17h981f98b75726f688E(ptr noundef nonnull align 8 %44)
+  tail call void @_ZN7dashmap4lock9RawRwLock19lock_exclusive_slow17h981f98b75726f688E(ptr noundef nonnull align 8 %44), !noalias !4727
   br label %53
 
 48:                                               ; preds = %"_ZN79_$LT$hir_ty..interner..InternedWrapper$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17haf6b4543ffba28d9E.exit.i"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %38, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d956c5605d0835c2cf0b41b76784cf7c.87) #48
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %38, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d956c5605d0835c2cf0b41b76784cf7c.87) #48, !noalias !4727
   unreachable
 
 .loopexit:                                        ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7e1560ce49a0392cE.exit.i.i"
@@ -19559,27 +19559,27 @@ _ZN4core4hash4Hash10hash_slice17h977981566d70a39cE.exit.i: ; preds = %"_ZN59_$LT
   %.0.i = phi i64 [ %35, %"_ZN66_$LT$hir_expand..mod_path..ModPath$u20$as$u20$core..hash..Hash$GT$4hash17h8fc4a407f592de75E.exit.i" ], [ %storemerge.i.i.i.i, %"_ZN59_$LT$hir_expand..name..Name$u20$as$u20$core..hash..Hash$GT$4hash17h3ecd2fe463c21f01E.llvm.10506081396157654736.exit.i.i" ]
   %98 = shl i64 %.0.i, 7
   %99 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %100 = load i64, ptr %99, align 8, !noundef !4
+  %100 = load i64, ptr %99, align 8, !noalias !5035, !noundef !4
   %101 = and i64 %100, 63
   %102 = lshr i64 %98, %101
   %103 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %104 = load i64, ptr %103, align 8, !noundef !4
+  %104 = load i64, ptr %103, align 8, !noalias !5035, !noundef !4
   %105 = icmp ult i64 %102, %104
   br i1 %105, label %106, label %112, !prof !2382
 
 106:                                              ; preds = %_ZN4core4hash4Hash10hash_slice17h977981566d70a39cE.exit.i
-  %107 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
+  %107 = load ptr, ptr %7, align 8, !noalias !5035, !nonnull !4, !noundef !4
   %108 = getelementptr inbounds [0 x { { { i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }], ptr %107, i64 0, i64 %102
-  %109 = cmpxchg weak ptr %108, i64 0, i64 -4 acquire monotonic, align 8
+  %109 = cmpxchg weak ptr %108, i64 0, i64 -4 acquire monotonic, align 8, !noalias !5035
   %110 = extractvalue { i64, i1 } %109, 1
   br i1 %110, label %116, label %111
 
 111:                                              ; preds = %106
-  tail call void @_ZN7dashmap4lock9RawRwLock19lock_exclusive_slow17h981f98b75726f688E(ptr noundef nonnull align 8 %108)
+  tail call void @_ZN7dashmap4lock9RawRwLock19lock_exclusive_slow17h981f98b75726f688E(ptr noundef nonnull align 8 %108), !noalias !5035
   br label %116
 
 112:                                              ; preds = %_ZN4core4hash4Hash10hash_slice17h977981566d70a39cE.exit.i
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %102, i64 noundef %104, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d956c5605d0835c2cf0b41b76784cf7c.87) #48
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %102, i64 noundef %104, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d956c5605d0835c2cf0b41b76784cf7c.87) #48, !noalias !5035
   unreachable
 
 .loopexit:                                        ; preds = %_ZN4core3cmp9PartialEq2ne17h0bcc69b2fbcfdf36E.llvm.10506081396157654736.exit.i.i.i.i.i.i.i.i.i
@@ -47623,7 +47623,7 @@ attributes #51 = { nounwind }
 !11 = distinct !{!11, !12, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf3a6b8d504647f2bE: argument 0"}
 !12 = distinct !{!12, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf3a6b8d504647f2bE"}
 !13 = !{!9}
-!14 = !{!15, !9}
+!14 = !{!15, !9, !6}
 !15 = distinct !{!15, !16, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf3a6b8d504647f2bE: argument 0"}
 !16 = distinct !{!16, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf3a6b8d504647f2bE"}
 !17 = !{i8 0, i8 2}

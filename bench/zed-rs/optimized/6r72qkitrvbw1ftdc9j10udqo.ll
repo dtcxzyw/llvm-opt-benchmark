@@ -3784,7 +3784,7 @@ define hidden void @"_ZN114_$LT$futures_util..stream..stream..ready_chunks..Read
 46:                                               ; preds = %44
   %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #45
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #45, !noalias !634
   unreachable
 
 48:                                               ; preds = %43, %39
@@ -122581,7 +122581,7 @@ attributes #47 = { "function-inline-cost-multiplier"="2" }
 !9906 = distinct !{!9906, !9905, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb27c0468062c9874E.llvm.17120096847998249645: argument 1"}
 !9907 = distinct !{!9907, !9905, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb27c0468062c9874E.llvm.17120096847998249645: argument 2"}
 !9908 = !{!9901, !9904, !9906}
-!9909 = !{!9903, !9907}
+!9909 = !{!9903, !9906, !9907}
 !9910 = !{!9911}
 !9911 = distinct !{!9911, !9912, !"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17hce8688f698e246beE.llvm.17120096847998249645: argument 0"}
 !9912 = distinct !{!9912, !"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17hce8688f698e246beE.llvm.17120096847998249645"}
@@ -122594,7 +122594,7 @@ attributes #47 = { "function-inline-cost-multiplier"="2" }
 !9919 = distinct !{!9919, !9918, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb27c0468062c9874E.llvm.17120096847998249645: argument 1"}
 !9920 = distinct !{!9920, !9918, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb27c0468062c9874E.llvm.17120096847998249645: argument 2"}
 !9921 = !{!9914, !9917, !9919}
-!9922 = !{!9916, !9920}
+!9922 = !{!9916, !9919, !9920}
 !9923 = !{!9924}
 !9924 = distinct !{!9924, !9925, !"_ZN4gpui8executor18ForegroundExecutor5spawn5inner28_$u7b$$u7b$closure$u7d$$u7d$17h89712b08b15fa66dE.llvm.17120096847998249645: argument 0"}
 !9925 = distinct !{!9925, !"_ZN4gpui8executor18ForegroundExecutor5spawn5inner28_$u7b$$u7b$closure$u7d$$u7d$17h89712b08b15fa66dE.llvm.17120096847998249645"}
@@ -127087,7 +127087,7 @@ attributes #47 = { "function-inline-cost-multiplier"="2" }
 !14412 = distinct !{!14412, !14411, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb27c0468062c9874E.llvm.17120096847998249645: argument 1"}
 !14413 = distinct !{!14413, !14411, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb27c0468062c9874E.llvm.17120096847998249645: argument 2"}
 !14414 = !{!14407, !14410, !14412}
-!14415 = !{!14409, !14413}
+!14415 = !{!14409, !14412, !14413}
 !14416 = !{!14417}
 !14417 = distinct !{!14417, !14418, !"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hfb8b9041f4e022c1E: argument 1"}
 !14418 = distinct !{!14418, !"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hfb8b9041f4e022c1E"}

@@ -582,6 +582,7 @@ define noundef zeroext i1 @_RNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB2_7vendors6Vend
 
 _RNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB2_7vendors6Vendor5infer.exit: ; preds = %2, %4
   %5 = load ptr, ptr @_RNvCsjIaN6dkKMFO_12turborepo_ci6VENDOR, align 8, !align !10, !noundef !5
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRNtNtCsjIaN6dkKMFO_12turborepo_ci7vendors6VendorE6map_orbNCNvMBN_BJ_2is0EBN_.exit, label %7
 
@@ -590,7 +591,7 @@ _RNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB2_7vendors6Vendor5infer.exit: ; preds = %2
   %.val6.i = load ptr, ptr %8, align 8, !alias.scope !71, !nonnull !5, !align !11, !noundef !5
   %9 = getelementptr i8, ptr %5, i64 56
   %.val7.i = load i64, ptr %9, align 8, !alias.scope !71, !noundef !5
-  %10 = tail call noundef zeroext i1 @_RNvXs3_NtNtCs1LoaDTb72WA_4core5slice3cmpShINtB5_14SlicePartialEqhE5equalCs51xJtAd1xJV_10num_traits(ptr noalias noundef nonnull readonly align 1 %.val6.i, i64 noundef %.val7.i, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
+  %10 = tail call noundef zeroext i1 @_RNvXs3_NtNtCs1LoaDTb72WA_4core5slice3cmpShINtB5_14SlicePartialEqhE5equalCs51xJtAd1xJV_10num_traits(ptr noalias noundef nonnull readonly align 1 %.val6.i, i64 noundef %.val7.i, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1), !noalias !71
   br label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRNtNtCsjIaN6dkKMFO_12turborepo_ci7vendors6VendorE6map_orbNCNvMBN_BJ_2is0EBN_.exit
 
 _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRNtNtCsjIaN6dkKMFO_12turborepo_ci7vendors6VendorE6map_orbNCNvMBN_BJ_2is0EBN_.exit: ; preds = %_RNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB2_7vendors6Vendor5infer.exit, %7

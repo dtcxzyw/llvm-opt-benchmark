@@ -128392,7 +128392,7 @@ attributes #40 = { cold "function-inline-cost-multiplier"="2" }
 !32625 = distinct !{!32625, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E"}
 !32626 = distinct !{!32626, !32625, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E: argument 1"}
 !32627 = !{!32617, !32620, !32622, !32624}
-!32628 = !{!32619, !32623, !32626}
+!32628 = !{!32619, !32622, !32623, !32626}
 !32629 = !{!32630}
 !32630 = distinct !{!32630, !32631, !"_ZN4core3ptr109drop_in_place$LT$$u5b$$LP$wasmtime_types..ModuleInternedTypeIndex$C$wasmtime_types..WasmFuncType$RP$$u5d$$GT$17h650af9de8a7b8179E.llvm.5456684732158232753: argument 0"}
 !32631 = distinct !{!32631, !"_ZN4core3ptr109drop_in_place$LT$$u5b$$LP$wasmtime_types..ModuleInternedTypeIndex$C$wasmtime_types..WasmFuncType$RP$$u5d$$GT$17h650af9de8a7b8179E.llvm.5456684732158232753"}

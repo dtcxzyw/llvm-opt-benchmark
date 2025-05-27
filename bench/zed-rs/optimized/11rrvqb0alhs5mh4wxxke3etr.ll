@@ -5250,11 +5250,11 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.14036908944705627615.e
 242:                                              ; preds = %241
   %243 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #31, !noalias !893
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #31, !noalias !894
   unreachable
 
 "_ZN96_$LT$ui..components..dropdown_menu..DropdownMenuTrigger$u20$as$u20$gpui..element..RenderOnce$GT$6render28_$u7b$$u7b$closure$u7d$$u7d$17h0899697e6f1292ddE.exit.i": ; preds = %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.14036908944705627615.exit.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %4, ptr noundef nonnull align 8 dereferenceable(720) %5, i64 720, i1 false), !alias.scope !894, !noalias !896
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %4, ptr noundef nonnull align 8 dereferenceable(720) %5, i64 720, i1 false), !alias.scope !895, !noalias !894
   call void @_ZN4gpui8elements3div26StatefulInteractiveElement8on_click17h3d1d87e52f50bea2E(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(720) %4, ptr noundef nonnull align 1 %202, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %204)
   call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %4), !noalias !881
   call void @llvm.lifetime.end.p0(i64 736, ptr nonnull %5), !noalias !877
@@ -8301,13 +8301,13 @@ _ZN4gpui6styled6Styled4py_117hc5e38cb34ebf94e7E.exit: ; preds = %242
 290:                                              ; preds = %289
   %291 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #31, !noalias !1540
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #31, !noalias !1541
   unreachable
 
 "_ZN87_$LT$ui..components..list..list_item..ListItem$u20$as$u20$gpui..element..RenderOnce$GT$6render28_$u7b$$u7b$closure$u7d$$u7d$17h8547414bcf77b6deE.exit.i": ; preds = %281
   %292 = getelementptr inbounds nuw i8, ptr %284, i64 564
   store i8 5, ptr %292, align 4, !noalias !1539
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %45, ptr noundef nonnull align 8 dereferenceable(720) %46, i64 720, i1 false), !alias.scope !1541, !noalias !1543
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %45, ptr noundef nonnull align 8 dereferenceable(720) %46, i64 720, i1 false), !alias.scope !1542, !noalias !1541
   invoke void @_ZN4gpui8elements3div26StatefulInteractiveElement8on_click17h8452eccfa55aa041E(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %79, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(720) %45, ptr noundef nonnull align 1 %277, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %279)
           to label %.noexc104 unwind label %.thread380
 
@@ -18000,9 +18000,9 @@ attributes #33 = { noreturn }
 !891 = distinct !{!891, !892, !"_ZN4gpui8elements3div13Interactivity13on_mouse_down17head041164d42eee9E.llvm.14036908944705627615: argument 0"}
 !892 = distinct !{!892, !"_ZN4gpui8elements3div13Interactivity13on_mouse_down17head041164d42eee9E.llvm.14036908944705627615"}
 !893 = !{!882, !878, !880}
-!894 = !{!887, !895}
-!895 = distinct !{!895, !888, !"_ZN4gpui8elements3div18InteractiveElement13on_mouse_down17h7abbfa30f3191050E: argument 1"}
-!896 = !{!882, !885, !878, !880}
+!894 = !{!882, !885, !878, !880}
+!895 = !{!887, !896}
+!896 = distinct !{!896, !888, !"_ZN4gpui8elements3div18InteractiveElement13on_mouse_down17h7abbfa30f3191050E: argument 1"}
 !897 = !{!898}
 !898 = distinct !{!898, !899, !"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hf0b2fc31b5d13708E: argument 0"}
 !899 = distinct !{!899, !"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hf0b2fc31b5d13708E"}
@@ -18647,9 +18647,9 @@ attributes #33 = { noreturn }
 !1538 = distinct !{!1538, !"_ZN4gpui6styled6Styled14cursor_pointer17hab01ae3209656701E"}
 !1539 = !{!1537, !1532, !1535, !1528, !1530}
 !1540 = !{!1532, !1528, !1530}
-!1541 = !{!1537, !1542}
-!1542 = distinct !{!1542, !1538, !"_ZN4gpui6styled6Styled14cursor_pointer17hab01ae3209656701E: argument 1"}
-!1543 = !{!1532, !1535, !1528, !1530}
+!1541 = !{!1532, !1535, !1528, !1530}
+!1542 = !{!1537, !1543}
+!1543 = distinct !{!1543, !1538, !"_ZN4gpui6styled6Styled14cursor_pointer17hab01ae3209656701E: argument 1"}
 !1544 = !{!1545, !1547, !1548}
 !1545 = distinct !{!1545, !1546, !"_ZN87_$LT$ui..components..list..list_item..ListItem$u20$as$u20$gpui..element..RenderOnce$GT$6render28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he40a49f0044ae2f1E: argument 0"}
 !1546 = distinct !{!1546, !"_ZN87_$LT$ui..components..list..list_item..ListItem$u20$as$u20$gpui..element..RenderOnce$GT$6render28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he40a49f0044ae2f1E"}

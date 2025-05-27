@@ -4402,7 +4402,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 37:                                               ; preds = %35
   %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #46, !noalias !654
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #46, !noalias !638
   unreachable
 
 "_ZN4gpui3app10AppContext15observe_release28_$u7b$$u7b$closure$u7d$$u7d$17h13c46add9292eee8E.exit": ; preds = %27, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.4353189056609371792.exit.i.i.i"
@@ -4564,7 +4564,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 37:                                               ; preds = %35
   %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #46, !noalias !705
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #46, !noalias !689
   unreachable
 
 "_ZN4gpui3app10AppContext15observe_release28_$u7b$$u7b$closure$u7d$$u7d$17hd7cde0ad2530f87dE.exit": ; preds = %27, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.4353189056609371792.exit.i.i.i"
@@ -98350,7 +98350,7 @@ attributes #49 = { cold "function-inline-cost-multiplier"="2" }
 !5724 = distinct !{!5724, !5723, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h321a1a67cae8a973E.llvm.15681087171329068630: argument 1"}
 !5725 = distinct !{!5725, !5723, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h321a1a67cae8a973E.llvm.15681087171329068630: argument 2"}
 !5726 = !{!5719, !5722, !5724}
-!5727 = !{!5721, !5725}
+!5727 = !{!5721, !5724, !5725}
 !5728 = !{!5729, !5731, !5732, !5734, !5735}
 !5729 = distinct !{!5729, !5730, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17hdc537f1ebdb7740dE.llvm.15681087171329068630: argument 0"}
 !5730 = distinct !{!5730, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17hdc537f1ebdb7740dE.llvm.15681087171329068630"}
@@ -98360,7 +98360,7 @@ attributes #49 = { cold "function-inline-cost-multiplier"="2" }
 !5734 = distinct !{!5734, !5733, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h321a1a67cae8a973E.llvm.15681087171329068630: argument 1"}
 !5735 = distinct !{!5735, !5733, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h321a1a67cae8a973E.llvm.15681087171329068630: argument 2"}
 !5736 = !{!5729, !5732, !5734}
-!5737 = !{!5731, !5735}
+!5737 = !{!5731, !5734, !5735}
 !5738 = !{!5739, !5741}
 !5739 = distinct !{!5739, !5740, !"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17h53a1bd537254f964E.llvm.15681087171329068630: argument 0"}
 !5740 = distinct !{!5740, !"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17h53a1bd537254f964E.llvm.15681087171329068630"}
@@ -98828,7 +98828,7 @@ attributes #49 = { cold "function-inline-cost-multiplier"="2" }
 !6202 = distinct !{!6202, !6201, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h321a1a67cae8a973E.llvm.15681087171329068630: argument 1"}
 !6203 = distinct !{!6203, !6201, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h321a1a67cae8a973E.llvm.15681087171329068630: argument 2"}
 !6204 = !{!6197, !6200, !6202}
-!6205 = !{!6199, !6203}
+!6205 = !{!6199, !6202, !6203}
 !6206 = !{!6207, !6209, !6210, !6212, !6213}
 !6207 = distinct !{!6207, !6208, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17hdc537f1ebdb7740dE.llvm.15681087171329068630: argument 0"}
 !6208 = distinct !{!6208, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17hdc537f1ebdb7740dE.llvm.15681087171329068630"}
@@ -98838,7 +98838,7 @@ attributes #49 = { cold "function-inline-cost-multiplier"="2" }
 !6212 = distinct !{!6212, !6211, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h321a1a67cae8a973E.llvm.15681087171329068630: argument 1"}
 !6213 = distinct !{!6213, !6211, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h321a1a67cae8a973E.llvm.15681087171329068630: argument 2"}
 !6214 = !{!6207, !6210, !6212}
-!6215 = !{!6209, !6213}
+!6215 = !{!6209, !6212, !6213}
 !6216 = !{!6217}
 !6217 = distinct !{!6217, !6218, !"_ZN4core3ptr69drop_in_place$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$17h6eae7f0b950f98d6E.llvm.15681087171329068630: argument 0"}
 !6218 = distinct !{!6218, !"_ZN4core3ptr69drop_in_place$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$17h6eae7f0b950f98d6E.llvm.15681087171329068630"}

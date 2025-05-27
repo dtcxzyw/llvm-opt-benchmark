@@ -8721,7 +8721,7 @@ common.resume:                                    ; preds = %.body, %.body43, %1
 77:                                               ; preds = %75
   %78 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33, !noalias !1570
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33, !noalias !1572
   unreachable
 
 79:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hce8df8e221b15584E.exit"
@@ -9037,7 +9037,7 @@ common.resume:                                    ; preds = %213, %.body64, %.bo
 89:                                               ; preds = %87
   %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33, !noalias !1608
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33, !noalias !1610
   unreachable
 
 91:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h1da176bb4f87d11cE.exit"

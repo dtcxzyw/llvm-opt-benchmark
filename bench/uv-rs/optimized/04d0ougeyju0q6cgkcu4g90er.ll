@@ -4242,7 +4242,7 @@ _ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17h657db1a450b14910E.e
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %9), !noalias !672
   %sext63 = shl i64 %.sroa.022.0.copyload, 32
   %449 = ashr exact i64 %sext63, 32
-  call void @_ZN4jiff3fmt4util10Fractional3new17h40e3816bb2a73ea6E(ptr noalias noundef nonnull sret([10 x i8]) align 1 captures(none) dereferenceable(10) %9, ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %13, i64 noundef %449), !noalias !758
+  call void @_ZN4jiff3fmt4util10Fractional3new17h40e3816bb2a73ea6E(ptr noalias noundef nonnull sret([10 x i8]) align 1 captures(none) dereferenceable(10) %9, ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %13, i64 noundef %449), !noalias !672
   %450 = call fastcc { i64, ptr } @_ZN4jiff3fmt8WriteExt16write_fractional17h3fda1ae576e06da6E(ptr nonnull readonly align 8 dereferenceable(8) %26, ptr noalias noundef readonly align 1 dereferenceable(10) %9), !noalias !758
   %451 = extractvalue { i64, ptr } %450, 0
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %9), !noalias !672

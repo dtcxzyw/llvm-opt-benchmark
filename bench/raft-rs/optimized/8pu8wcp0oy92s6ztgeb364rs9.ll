@@ -214,7 +214,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 82:                                               ; preds = %._crit_edge.i
-  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h6cdd52579a576674E() #12
+  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h6cdd52579a576674E() #12, !noalias !19
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17he0e1eb75e43cddcdE.exit: ; preds = %._crit_edge.i
@@ -309,6 +309,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false)
   %61 = getelementptr i8, ptr %2, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 112
   br label %.lr.ph.i
 
@@ -355,7 +356,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 80:                                               ; preds = %._crit_edge.i
-  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h6cdd52579a576674E() #12
+  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h6cdd52579a576674E() #12, !noalias !38
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h19204e8c5c2c4df0E.exit: ; preds = %._crit_edge.i
@@ -1094,7 +1095,7 @@ _ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17h5ea5b35a41f8de
   br i1 %or.cond.i, label %239, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17he0e1eb75e43cddcdE.exit, !prof !22
 
 239:                                              ; preds = %236
-  call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h6cdd52579a576674E() #12
+  call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h6cdd52579a576674E() #12, !noalias !199
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17he0e1eb75e43cddcdE.exit: ; preds = %236

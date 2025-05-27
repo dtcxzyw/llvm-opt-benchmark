@@ -3206,8 +3206,9 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hf49c1d27ab9a4e6cE(
 
 .thread:                                          ; preds = %16, %25
   call void @llvm.experimental.noalias.scope.decl(metadata !315)
+  call void @llvm.experimental.noalias.scope.decl(metadata !318)
   %.not89 = icmp ult i64 %3, %.sroa.12.0125
-  br i1 %.not89, label %36, label %34, !prof !318
+  br i1 %.not89, label %36, label %34, !prof !320
 
 34:                                               ; preds = %.thread
   %35 = getelementptr { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %.sroa.12.0125
@@ -3231,22 +3232,22 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hf49c1d27ab9a4e6cE(
   %.sroa.43.131.i = phi ptr [ %104, %.lr.ph.i ], [ %.sroa.43.0.i, %37 ]
   %.sroa.9.130.i = phi ptr [ %108, %.lr.ph.i ], [ %.sroa.9.0.i, %37 ]
   %.sroa.27.129.i = phi i64 [ %107, %.lr.ph.i ], [ %.sroa.27.0.i, %37 ]
-  %.val.i = load ptr, ptr %.sroa.9.130.i, align 8, !alias.scope !319, !noalias !315, !nonnull !7, !align !27, !noundef !7
+  %.val.i = load ptr, ptr %.sroa.9.130.i, align 8, !alias.scope !315, !noalias !318, !nonnull !7, !align !27, !noundef !7
   %41 = getelementptr i8, ptr %.sroa.9.130.i, i64 8
-  %.val26.i = load ptr, ptr %41, align 8, !alias.scope !319, !noalias !315, !nonnull !7, !align !8, !noundef !7
-  %.val27.i = load ptr, ptr %20, align 8, !alias.scope !319, !noalias !315
-  %.val28.i = load ptr, ptr %22, align 8, !alias.scope !319, !noalias !315
+  %.val26.i = load ptr, ptr %41, align 8, !alias.scope !315, !noalias !318, !nonnull !7, !align !8, !noundef !7
+  %.val27.i = load ptr, ptr %20, align 8, !alias.scope !315, !noalias !318
+  %.val28.i = load ptr, ptr %22, align 8, !alias.scope !315, !noalias !318
   %42 = getelementptr inbounds nuw i8, ptr %.val26.i, i64 24
-  %43 = load ptr, ptr %42, align 8, !invariant.load !7, !noalias !315, !nonnull !7
-  %44 = call noundef i16 %43(ptr noundef nonnull align 1 %.val.i), !noalias !315
+  %43 = load ptr, ptr %42, align 8, !invariant.load !7, !noalias !321, !nonnull !7
+  %44 = call noundef i16 %43(ptr noundef nonnull align 1 %.val.i), !noalias !321
   %45 = sub i16 0, %44
   %46 = icmp ne ptr %.val27.i, null
   call void @llvm.assume(i1 %46)
   %47 = icmp ne ptr %.val28.i, null
   call void @llvm.assume(i1 %47)
   %48 = getelementptr inbounds nuw i8, ptr %.val28.i, i64 24
-  %49 = load ptr, ptr %48, align 8, !invariant.load !7, !noalias !315, !nonnull !7
-  %50 = call noundef i16 %49(ptr noundef nonnull align 1 %.val27.i), !noalias !315
+  %49 = load ptr, ptr %48, align 8, !invariant.load !7, !noalias !321, !nonnull !7
+  %50 = call noundef i16 %49(ptr noundef nonnull align 1 %.val27.i), !noalias !321
   %51 = sub i16 0, %50
   %52 = icmp slt i16 %45, %51
   %53 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -16
@@ -3256,22 +3257,22 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hf49c1d27ab9a4e6cE(
   %55 = zext i1 %52 to i64
   %56 = add i64 %.sroa.27.129.i, %55
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 16
-  %.val29.i = load ptr, ptr %57, align 8, !alias.scope !319, !noalias !315, !nonnull !7, !align !27, !noundef !7
+  %.val29.i = load ptr, ptr %57, align 8, !alias.scope !315, !noalias !318, !nonnull !7, !align !27, !noundef !7
   %58 = getelementptr i8, ptr %.sroa.9.130.i, i64 24
-  %.val30.i = load ptr, ptr %58, align 8, !alias.scope !319, !noalias !315, !nonnull !7, !align !8, !noundef !7
-  %.val31.i = load ptr, ptr %20, align 8, !alias.scope !319, !noalias !315
-  %.val32.i = load ptr, ptr %22, align 8, !alias.scope !319, !noalias !315
+  %.val30.i = load ptr, ptr %58, align 8, !alias.scope !315, !noalias !318, !nonnull !7, !align !8, !noundef !7
+  %.val31.i = load ptr, ptr %20, align 8, !alias.scope !315, !noalias !318
+  %.val32.i = load ptr, ptr %22, align 8, !alias.scope !315, !noalias !318
   %59 = getelementptr inbounds nuw i8, ptr %.val30.i, i64 24
-  %60 = load ptr, ptr %59, align 8, !invariant.load !7, !noalias !315, !nonnull !7
-  %61 = call noundef i16 %60(ptr noundef nonnull align 1 %.val29.i), !noalias !315
+  %60 = load ptr, ptr %59, align 8, !invariant.load !7, !noalias !321, !nonnull !7
+  %61 = call noundef i16 %60(ptr noundef nonnull align 1 %.val29.i), !noalias !321
   %62 = sub i16 0, %61
   %63 = icmp ne ptr %.val31.i, null
   call void @llvm.assume(i1 %63)
   %64 = icmp ne ptr %.val32.i, null
   call void @llvm.assume(i1 %64)
   %65 = getelementptr inbounds nuw i8, ptr %.val32.i, i64 24
-  %66 = load ptr, ptr %65, align 8, !invariant.load !7, !noalias !315, !nonnull !7
-  %67 = call noundef i16 %66(ptr noundef nonnull align 1 %.val31.i), !noalias !315
+  %66 = load ptr, ptr %65, align 8, !invariant.load !7, !noalias !321, !nonnull !7
+  %67 = call noundef i16 %66(ptr noundef nonnull align 1 %.val31.i), !noalias !321
   %68 = sub i16 0, %67
   %69 = icmp slt i16 %62, %68
   %70 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -32
@@ -3281,22 +3282,22 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hf49c1d27ab9a4e6cE(
   %72 = zext i1 %69 to i64
   %73 = add i64 %56, %72
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 32
-  %.val33.i = load ptr, ptr %74, align 8, !alias.scope !319, !noalias !315, !nonnull !7, !align !27, !noundef !7
+  %.val33.i = load ptr, ptr %74, align 8, !alias.scope !315, !noalias !318, !nonnull !7, !align !27, !noundef !7
   %75 = getelementptr i8, ptr %.sroa.9.130.i, i64 40
-  %.val34.i = load ptr, ptr %75, align 8, !alias.scope !319, !noalias !315, !nonnull !7, !align !8, !noundef !7
-  %.val35.i = load ptr, ptr %20, align 8, !alias.scope !319, !noalias !315
-  %.val36.i = load ptr, ptr %22, align 8, !alias.scope !319, !noalias !315
+  %.val34.i = load ptr, ptr %75, align 8, !alias.scope !315, !noalias !318, !nonnull !7, !align !8, !noundef !7
+  %.val35.i = load ptr, ptr %20, align 8, !alias.scope !315, !noalias !318
+  %.val36.i = load ptr, ptr %22, align 8, !alias.scope !315, !noalias !318
   %76 = getelementptr inbounds nuw i8, ptr %.val34.i, i64 24
-  %77 = load ptr, ptr %76, align 8, !invariant.load !7, !noalias !315, !nonnull !7
-  %78 = call noundef i16 %77(ptr noundef nonnull align 1 %.val33.i), !noalias !315
+  %77 = load ptr, ptr %76, align 8, !invariant.load !7, !noalias !321, !nonnull !7
+  %78 = call noundef i16 %77(ptr noundef nonnull align 1 %.val33.i), !noalias !321
   %79 = sub i16 0, %78
   %80 = icmp ne ptr %.val35.i, null
   call void @llvm.assume(i1 %80)
   %81 = icmp ne ptr %.val36.i, null
   call void @llvm.assume(i1 %81)
   %82 = getelementptr inbounds nuw i8, ptr %.val36.i, i64 24
-  %83 = load ptr, ptr %82, align 8, !invariant.load !7, !noalias !315, !nonnull !7
-  %84 = call noundef i16 %83(ptr noundef nonnull align 1 %.val35.i), !noalias !315
+  %83 = load ptr, ptr %82, align 8, !invariant.load !7, !noalias !321, !nonnull !7
+  %84 = call noundef i16 %83(ptr noundef nonnull align 1 %.val35.i), !noalias !321
   %85 = sub i16 0, %84
   %86 = icmp slt i16 %79, %85
   %87 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -48
@@ -3306,22 +3307,22 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hf49c1d27ab9a4e6cE(
   %89 = zext i1 %86 to i64
   %90 = add i64 %73, %89
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 48
-  %.val37.i = load ptr, ptr %91, align 8, !alias.scope !319, !noalias !315, !nonnull !7, !align !27, !noundef !7
+  %.val37.i = load ptr, ptr %91, align 8, !alias.scope !315, !noalias !318, !nonnull !7, !align !27, !noundef !7
   %92 = getelementptr i8, ptr %.sroa.9.130.i, i64 56
-  %.val38.i = load ptr, ptr %92, align 8, !alias.scope !319, !noalias !315, !nonnull !7, !align !8, !noundef !7
-  %.val39.i = load ptr, ptr %20, align 8, !alias.scope !319, !noalias !315
-  %.val40.i = load ptr, ptr %22, align 8, !alias.scope !319, !noalias !315
+  %.val38.i = load ptr, ptr %92, align 8, !alias.scope !315, !noalias !318, !nonnull !7, !align !8, !noundef !7
+  %.val39.i = load ptr, ptr %20, align 8, !alias.scope !315, !noalias !318
+  %.val40.i = load ptr, ptr %22, align 8, !alias.scope !315, !noalias !318
   %93 = getelementptr inbounds nuw i8, ptr %.val38.i, i64 24
-  %94 = load ptr, ptr %93, align 8, !invariant.load !7, !noalias !315, !nonnull !7
-  %95 = call noundef i16 %94(ptr noundef nonnull align 1 %.val37.i), !noalias !315
+  %94 = load ptr, ptr %93, align 8, !invariant.load !7, !noalias !321, !nonnull !7
+  %95 = call noundef i16 %94(ptr noundef nonnull align 1 %.val37.i), !noalias !321
   %96 = sub i16 0, %95
   %97 = icmp ne ptr %.val39.i, null
   call void @llvm.assume(i1 %97)
   %98 = icmp ne ptr %.val40.i, null
   call void @llvm.assume(i1 %98)
   %99 = getelementptr inbounds nuw i8, ptr %.val40.i, i64 24
-  %100 = load ptr, ptr %99, align 8, !invariant.load !7, !noalias !315, !nonnull !7
-  %101 = call noundef i16 %100(ptr noundef nonnull align 1 %.val39.i), !noalias !315
+  %100 = load ptr, ptr %99, align 8, !invariant.load !7, !noalias !321, !nonnull !7
+  %101 = call noundef i16 %100(ptr noundef nonnull align 1 %.val39.i), !noalias !321
   %102 = sub i16 0, %101
   %103 = icmp slt i16 %96, %102
   %104 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -64
@@ -3353,22 +3354,22 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hf49c1d27ab9a4e6cE(
   %.sroa.43.236.i = phi ptr [ %125, %.lr.ph38.i ], [ %.sroa.43.1.lcssa.i, %._crit_edge.i ]
   %.sroa.9.235.i = phi ptr [ %129, %.lr.ph38.i ], [ %.sroa.9.1.lcssa.i, %._crit_edge.i ]
   %.sroa.27.234.i = phi i64 [ %128, %.lr.ph38.i ], [ %.sroa.27.1.lcssa.i, %._crit_edge.i ]
-  %.val41.i = load ptr, ptr %.sroa.9.235.i, align 8, !alias.scope !319, !noalias !315, !nonnull !7, !align !27, !noundef !7
+  %.val41.i = load ptr, ptr %.sroa.9.235.i, align 8, !alias.scope !315, !noalias !318, !nonnull !7, !align !27, !noundef !7
   %113 = getelementptr i8, ptr %.sroa.9.235.i, i64 8
-  %.val42.i = load ptr, ptr %113, align 8, !alias.scope !319, !noalias !315, !nonnull !7, !align !8, !noundef !7
-  %.val43.i = load ptr, ptr %20, align 8, !alias.scope !319, !noalias !315
-  %.val44.i = load ptr, ptr %22, align 8, !alias.scope !319, !noalias !315
+  %.val42.i = load ptr, ptr %113, align 8, !alias.scope !315, !noalias !318, !nonnull !7, !align !8, !noundef !7
+  %.val43.i = load ptr, ptr %20, align 8, !alias.scope !315, !noalias !318
+  %.val44.i = load ptr, ptr %22, align 8, !alias.scope !315, !noalias !318
   %114 = getelementptr inbounds nuw i8, ptr %.val42.i, i64 24
-  %115 = load ptr, ptr %114, align 8, !invariant.load !7, !noalias !315, !nonnull !7
-  %116 = call noundef i16 %115(ptr noundef nonnull align 1 %.val41.i), !noalias !315
+  %115 = load ptr, ptr %114, align 8, !invariant.load !7, !noalias !321, !nonnull !7
+  %116 = call noundef i16 %115(ptr noundef nonnull align 1 %.val41.i), !noalias !321
   %117 = sub i16 0, %116
   %118 = icmp ne ptr %.val43.i, null
   call void @llvm.assume(i1 %118)
   %119 = icmp ne ptr %.val44.i, null
   call void @llvm.assume(i1 %119)
   %120 = getelementptr inbounds nuw i8, ptr %.val44.i, i64 24
-  %121 = load ptr, ptr %120, align 8, !invariant.load !7, !noalias !315, !nonnull !7
-  %122 = call noundef i16 %121(ptr noundef nonnull align 1 %.val43.i), !noalias !315
+  %121 = load ptr, ptr %120, align 8, !invariant.load !7, !noalias !321, !nonnull !7
+  %122 = call noundef i16 %121(ptr noundef nonnull align 1 %.val43.i), !noalias !321
   %123 = sub i16 0, %122
   %124 = icmp slt i16 %117, %123
   %125 = getelementptr inbounds i8, ptr %.sroa.43.236.i, i64 -16
@@ -3419,8 +3420,9 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hf49c1d27ab9a4e6cE(
 
 .thread85:                                        ; preds = %25, %.loopexit
   call void @llvm.experimental.noalias.scope.decl(metadata !340)
+  call void @llvm.experimental.noalias.scope.decl(metadata !343)
   %.not90 = icmp ult i64 %3, %.sroa.12.0125
-  br i1 %.not90, label %148, label %146, !prof !318
+  br i1 %.not90, label %148, label %146, !prof !320
 
 146:                                              ; preds = %.thread85
   %147 = getelementptr { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %.sroa.12.0125
@@ -3444,22 +3446,22 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hf49c1d27ab9a4e6cE(
   %.sroa.43.131.i60 = phi ptr [ %216, %.lr.ph.i59 ], [ %.sroa.43.0.i36, %149 ]
   %.sroa.9.130.i61 = phi ptr [ %220, %.lr.ph.i59 ], [ %.sroa.9.0.i35, %149 ]
   %.sroa.27.129.i62 = phi i64 [ %219, %.lr.ph.i59 ], [ %.sroa.27.0.i34, %149 ]
-  %.val.i63 = load ptr, ptr %.sroa.9.130.i61, align 8, !alias.scope !343, !noalias !340
+  %.val.i63 = load ptr, ptr %.sroa.9.130.i61, align 8, !alias.scope !340, !noalias !343
   %153 = getelementptr i8, ptr %.sroa.9.130.i61, i64 8
-  %.val26.i64 = load ptr, ptr %153, align 8, !alias.scope !343, !noalias !340
-  %.val27.i65 = load ptr, ptr %20, align 8, !alias.scope !343, !noalias !340, !nonnull !7, !align !27, !noundef !7
-  %.val28.i66 = load ptr, ptr %22, align 8, !alias.scope !343, !noalias !340, !nonnull !7, !align !8, !noundef !7
+  %.val26.i64 = load ptr, ptr %153, align 8, !alias.scope !340, !noalias !343
+  %.val27.i65 = load ptr, ptr %20, align 8, !alias.scope !340, !noalias !343, !nonnull !7, !align !27, !noundef !7
+  %.val28.i66 = load ptr, ptr %22, align 8, !alias.scope !340, !noalias !343, !nonnull !7, !align !8, !noundef !7
   %154 = getelementptr inbounds nuw i8, ptr %.val28.i66, i64 24
-  %155 = load ptr, ptr %154, align 8, !invariant.load !7, !noalias !340, !nonnull !7
-  %156 = call noundef i16 %155(ptr noundef nonnull align 1 %.val27.i65), !noalias !340
+  %155 = load ptr, ptr %154, align 8, !invariant.load !7, !noalias !345, !nonnull !7
+  %156 = call noundef i16 %155(ptr noundef nonnull align 1 %.val27.i65), !noalias !345
   %157 = sub i16 0, %156
   %158 = icmp ne ptr %.val.i63, null
   call void @llvm.assume(i1 %158)
   %159 = icmp ne ptr %.val26.i64, null
   call void @llvm.assume(i1 %159)
   %160 = getelementptr inbounds nuw i8, ptr %.val26.i64, i64 24
-  %161 = load ptr, ptr %160, align 8, !invariant.load !7, !noalias !340, !nonnull !7
-  %162 = call noundef i16 %161(ptr noundef nonnull align 1 %.val.i63), !noalias !340
+  %161 = load ptr, ptr %160, align 8, !invariant.load !7, !noalias !345, !nonnull !7
+  %162 = call noundef i16 %161(ptr noundef nonnull align 1 %.val.i63), !noalias !345
   %163 = sub i16 0, %162
   %164 = icmp sge i16 %157, %163
   %165 = getelementptr inbounds i8, ptr %.sroa.43.131.i60, i64 -16
@@ -3469,22 +3471,22 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hf49c1d27ab9a4e6cE(
   %167 = zext i1 %164 to i64
   %168 = add i64 %.sroa.27.129.i62, %167
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i61, i64 16
-  %.val29.i68 = load ptr, ptr %169, align 8, !alias.scope !343, !noalias !340
+  %.val29.i68 = load ptr, ptr %169, align 8, !alias.scope !340, !noalias !343
   %170 = getelementptr i8, ptr %.sroa.9.130.i61, i64 24
-  %.val30.i69 = load ptr, ptr %170, align 8, !alias.scope !343, !noalias !340
-  %.val31.i70 = load ptr, ptr %20, align 8, !alias.scope !343, !noalias !340, !nonnull !7, !align !27, !noundef !7
-  %.val32.i71 = load ptr, ptr %22, align 8, !alias.scope !343, !noalias !340, !nonnull !7, !align !8, !noundef !7
+  %.val30.i69 = load ptr, ptr %170, align 8, !alias.scope !340, !noalias !343
+  %.val31.i70 = load ptr, ptr %20, align 8, !alias.scope !340, !noalias !343, !nonnull !7, !align !27, !noundef !7
+  %.val32.i71 = load ptr, ptr %22, align 8, !alias.scope !340, !noalias !343, !nonnull !7, !align !8, !noundef !7
   %171 = getelementptr inbounds nuw i8, ptr %.val32.i71, i64 24
-  %172 = load ptr, ptr %171, align 8, !invariant.load !7, !noalias !340, !nonnull !7
-  %173 = call noundef i16 %172(ptr noundef nonnull align 1 %.val31.i70), !noalias !340
+  %172 = load ptr, ptr %171, align 8, !invariant.load !7, !noalias !345, !nonnull !7
+  %173 = call noundef i16 %172(ptr noundef nonnull align 1 %.val31.i70), !noalias !345
   %174 = sub i16 0, %173
   %175 = icmp ne ptr %.val29.i68, null
   call void @llvm.assume(i1 %175)
   %176 = icmp ne ptr %.val30.i69, null
   call void @llvm.assume(i1 %176)
   %177 = getelementptr inbounds nuw i8, ptr %.val30.i69, i64 24
-  %178 = load ptr, ptr %177, align 8, !invariant.load !7, !noalias !340, !nonnull !7
-  %179 = call noundef i16 %178(ptr noundef nonnull align 1 %.val29.i68), !noalias !340
+  %178 = load ptr, ptr %177, align 8, !invariant.load !7, !noalias !345, !nonnull !7
+  %179 = call noundef i16 %178(ptr noundef nonnull align 1 %.val29.i68), !noalias !345
   %180 = sub i16 0, %179
   %181 = icmp sge i16 %174, %180
   %182 = getelementptr inbounds i8, ptr %.sroa.43.131.i60, i64 -32
@@ -3494,22 +3496,22 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hf49c1d27ab9a4e6cE(
   %184 = zext i1 %181 to i64
   %185 = add i64 %168, %184
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i61, i64 32
-  %.val33.i73 = load ptr, ptr %186, align 8, !alias.scope !343, !noalias !340
+  %.val33.i73 = load ptr, ptr %186, align 8, !alias.scope !340, !noalias !343
   %187 = getelementptr i8, ptr %.sroa.9.130.i61, i64 40
-  %.val34.i74 = load ptr, ptr %187, align 8, !alias.scope !343, !noalias !340
-  %.val35.i75 = load ptr, ptr %20, align 8, !alias.scope !343, !noalias !340, !nonnull !7, !align !27, !noundef !7
-  %.val36.i76 = load ptr, ptr %22, align 8, !alias.scope !343, !noalias !340, !nonnull !7, !align !8, !noundef !7
+  %.val34.i74 = load ptr, ptr %187, align 8, !alias.scope !340, !noalias !343
+  %.val35.i75 = load ptr, ptr %20, align 8, !alias.scope !340, !noalias !343, !nonnull !7, !align !27, !noundef !7
+  %.val36.i76 = load ptr, ptr %22, align 8, !alias.scope !340, !noalias !343, !nonnull !7, !align !8, !noundef !7
   %188 = getelementptr inbounds nuw i8, ptr %.val36.i76, i64 24
-  %189 = load ptr, ptr %188, align 8, !invariant.load !7, !noalias !340, !nonnull !7
-  %190 = call noundef i16 %189(ptr noundef nonnull align 1 %.val35.i75), !noalias !340
+  %189 = load ptr, ptr %188, align 8, !invariant.load !7, !noalias !345, !nonnull !7
+  %190 = call noundef i16 %189(ptr noundef nonnull align 1 %.val35.i75), !noalias !345
   %191 = sub i16 0, %190
   %192 = icmp ne ptr %.val33.i73, null
   call void @llvm.assume(i1 %192)
   %193 = icmp ne ptr %.val34.i74, null
   call void @llvm.assume(i1 %193)
   %194 = getelementptr inbounds nuw i8, ptr %.val34.i74, i64 24
-  %195 = load ptr, ptr %194, align 8, !invariant.load !7, !noalias !340, !nonnull !7
-  %196 = call noundef i16 %195(ptr noundef nonnull align 1 %.val33.i73), !noalias !340
+  %195 = load ptr, ptr %194, align 8, !invariant.load !7, !noalias !345, !nonnull !7
+  %196 = call noundef i16 %195(ptr noundef nonnull align 1 %.val33.i73), !noalias !345
   %197 = sub i16 0, %196
   %198 = icmp sge i16 %191, %197
   %199 = getelementptr inbounds i8, ptr %.sroa.43.131.i60, i64 -48
@@ -3519,22 +3521,22 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hf49c1d27ab9a4e6cE(
   %201 = zext i1 %198 to i64
   %202 = add i64 %185, %201
   %203 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i61, i64 48
-  %.val37.i78 = load ptr, ptr %203, align 8, !alias.scope !343, !noalias !340
+  %.val37.i78 = load ptr, ptr %203, align 8, !alias.scope !340, !noalias !343
   %204 = getelementptr i8, ptr %.sroa.9.130.i61, i64 56
-  %.val38.i79 = load ptr, ptr %204, align 8, !alias.scope !343, !noalias !340
-  %.val39.i80 = load ptr, ptr %20, align 8, !alias.scope !343, !noalias !340, !nonnull !7, !align !27, !noundef !7
-  %.val40.i81 = load ptr, ptr %22, align 8, !alias.scope !343, !noalias !340, !nonnull !7, !align !8, !noundef !7
+  %.val38.i79 = load ptr, ptr %204, align 8, !alias.scope !340, !noalias !343
+  %.val39.i80 = load ptr, ptr %20, align 8, !alias.scope !340, !noalias !343, !nonnull !7, !align !27, !noundef !7
+  %.val40.i81 = load ptr, ptr %22, align 8, !alias.scope !340, !noalias !343, !nonnull !7, !align !8, !noundef !7
   %205 = getelementptr inbounds nuw i8, ptr %.val40.i81, i64 24
-  %206 = load ptr, ptr %205, align 8, !invariant.load !7, !noalias !340, !nonnull !7
-  %207 = call noundef i16 %206(ptr noundef nonnull align 1 %.val39.i80), !noalias !340
+  %206 = load ptr, ptr %205, align 8, !invariant.load !7, !noalias !345, !nonnull !7
+  %207 = call noundef i16 %206(ptr noundef nonnull align 1 %.val39.i80), !noalias !345
   %208 = sub i16 0, %207
   %209 = icmp ne ptr %.val37.i78, null
   call void @llvm.assume(i1 %209)
   %210 = icmp ne ptr %.val38.i79, null
   call void @llvm.assume(i1 %210)
   %211 = getelementptr inbounds nuw i8, ptr %.val38.i79, i64 24
-  %212 = load ptr, ptr %211, align 8, !invariant.load !7, !noalias !340, !nonnull !7
-  %213 = call noundef i16 %212(ptr noundef nonnull align 1 %.val37.i78), !noalias !340
+  %212 = load ptr, ptr %211, align 8, !invariant.load !7, !noalias !345, !nonnull !7
+  %213 = call noundef i16 %212(ptr noundef nonnull align 1 %.val37.i78), !noalias !345
   %214 = sub i16 0, %213
   %215 = icmp sge i16 %208, %214
   %216 = getelementptr inbounds i8, ptr %.sroa.43.131.i60, i64 -64
@@ -3566,22 +3568,22 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hf49c1d27ab9a4e6cE(
   %.sroa.43.236.i51 = phi ptr [ %237, %.lr.ph38.i50 ], [ %.sroa.43.1.lcssa.i41, %._crit_edge.i38 ]
   %.sroa.9.235.i52 = phi ptr [ %241, %.lr.ph38.i50 ], [ %.sroa.9.1.lcssa.i40, %._crit_edge.i38 ]
   %.sroa.27.234.i53 = phi i64 [ %240, %.lr.ph38.i50 ], [ %.sroa.27.1.lcssa.i39, %._crit_edge.i38 ]
-  %.val41.i54 = load ptr, ptr %.sroa.9.235.i52, align 8, !alias.scope !343, !noalias !340
+  %.val41.i54 = load ptr, ptr %.sroa.9.235.i52, align 8, !alias.scope !340, !noalias !343
   %225 = getelementptr i8, ptr %.sroa.9.235.i52, i64 8
-  %.val42.i55 = load ptr, ptr %225, align 8, !alias.scope !343, !noalias !340
-  %.val43.i56 = load ptr, ptr %20, align 8, !alias.scope !343, !noalias !340, !nonnull !7, !align !27, !noundef !7
-  %.val44.i57 = load ptr, ptr %22, align 8, !alias.scope !343, !noalias !340, !nonnull !7, !align !8, !noundef !7
+  %.val42.i55 = load ptr, ptr %225, align 8, !alias.scope !340, !noalias !343
+  %.val43.i56 = load ptr, ptr %20, align 8, !alias.scope !340, !noalias !343, !nonnull !7, !align !27, !noundef !7
+  %.val44.i57 = load ptr, ptr %22, align 8, !alias.scope !340, !noalias !343, !nonnull !7, !align !8, !noundef !7
   %226 = getelementptr inbounds nuw i8, ptr %.val44.i57, i64 24
-  %227 = load ptr, ptr %226, align 8, !invariant.load !7, !noalias !340, !nonnull !7
-  %228 = call noundef i16 %227(ptr noundef nonnull align 1 %.val43.i56), !noalias !340
+  %227 = load ptr, ptr %226, align 8, !invariant.load !7, !noalias !345, !nonnull !7
+  %228 = call noundef i16 %227(ptr noundef nonnull align 1 %.val43.i56), !noalias !345
   %229 = sub i16 0, %228
   %230 = icmp ne ptr %.val41.i54, null
   call void @llvm.assume(i1 %230)
   %231 = icmp ne ptr %.val42.i55, null
   call void @llvm.assume(i1 %231)
   %232 = getelementptr inbounds nuw i8, ptr %.val42.i55, i64 24
-  %233 = load ptr, ptr %232, align 8, !invariant.load !7, !noalias !340, !nonnull !7
-  %234 = call noundef i16 %233(ptr noundef nonnull align 1 %.val41.i54), !noalias !340
+  %233 = load ptr, ptr %232, align 8, !invariant.load !7, !noalias !345, !nonnull !7
+  %234 = call noundef i16 %233(ptr noundef nonnull align 1 %.val41.i54), !noalias !345
   %235 = sub i16 0, %234
   %236 = icmp sge i16 %229, %235
   %237 = getelementptr inbounds i8, ptr %.sroa.43.236.i51, i64 -16
@@ -13765,12 +13767,12 @@ attributes #30 = { cold noreturn nounwind }
 !313 = !{!307, !309}
 !314 = !{!304, !300, !301}
 !315 = !{!316}
-!316 = distinct !{!316, !317, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17hdfe10634b33b8b34E: argument 1"}
+!316 = distinct !{!316, !317, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17hdfe10634b33b8b34E: argument 0"}
 !317 = distinct !{!317, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17hdfe10634b33b8b34E"}
-!318 = !{!"branch_weights", i32 4001, i32 4000000}
-!319 = !{!320}
-!320 = distinct !{!320, !317, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17hdfe10634b33b8b34E: argument 0"}
-!321 = !{!320, !316}
+!318 = !{!319}
+!319 = distinct !{!319, !317, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17hdfe10634b33b8b34E: argument 1"}
+!320 = !{!"branch_weights", i32 4001, i32 4000000}
+!321 = !{!316, !319}
 !322 = !{!323}
 !323 = distinct !{!323, !324, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17hf5639203b8d6326cE: argument 0"}
 !324 = distinct !{!324, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17hf5639203b8d6326cE"}
@@ -13790,11 +13792,11 @@ attributes #30 = { cold noreturn nounwind }
 !338 = distinct !{!338, !339, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17hf5639203b8d6326cE: argument 0"}
 !339 = distinct !{!339, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17hf5639203b8d6326cE"}
 !340 = !{!341}
-!341 = distinct !{!341, !342, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17h5db8ac2705e3d831E: argument 1"}
+!341 = distinct !{!341, !342, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17h5db8ac2705e3d831E: argument 0"}
 !342 = distinct !{!342, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17h5db8ac2705e3d831E"}
 !343 = !{!344}
-!344 = distinct !{!344, !342, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17h5db8ac2705e3d831E: argument 0"}
-!345 = !{!344, !341}
+!344 = distinct !{!344, !342, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17h5db8ac2705e3d831E: argument 1"}
+!345 = !{!341, !344}
 !346 = !{!347}
 !347 = distinct !{!347, !348, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17hf5639203b8d6326cE: argument 0"}
 !348 = distinct !{!348, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17hf5639203b8d6326cE"}

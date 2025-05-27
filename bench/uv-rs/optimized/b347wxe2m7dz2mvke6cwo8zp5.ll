@@ -2218,7 +2218,7 @@ define hidden void @"_ZN88_$LT$indexmap..serde..IndexMapVisitor$LT$K$C$V$C$S$GT$
   br label %"_ZN73_$LT$std..hash..random..RandomState$u20$as$u20$core..default..Default$GT$7default17h62cbec19e6d8d307E.exit"
 
 12:                                               ; preds = %2
-  %13 = tail call { i64, i64 } @_ZN3std3sys6random5linux19hashmap_random_keys17hb3a57da74f5493e1E(), !noalias !375
+  %13 = tail call { i64, i64 } @_ZN3std3sys6random5linux19hashmap_random_keys17hb3a57da74f5493e1E(), !noalias !376
   %14 = extractvalue { i64, i64 } %13, 0
   %15 = extractvalue { i64, i64 } %13, 1
   store i64 1, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hd76391a993641db0E", align 8, !noalias !376
@@ -5987,9 +5987,9 @@ define void @_ZN13uv_pypi_types11simple_json11HashDigests6to_vec17hc2a9f831f6466
 
 35:                                               ; preds = %33, %30, %26, %19
   %36 = getelementptr inbounds nuw { [2 x i64] }, ptr %13, i64 %.sroa.7.022.i
-  store ptr %.val14.i, ptr %36, align 8, !noalias !969
+  store ptr %.val14.i, ptr %36, align 8, !noalias !965
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i8 %.val15.i, ptr %37, align 8, !noalias !969
+  store i8 %.val15.i, ptr %37, align 8, !noalias !965
   %38 = icmp eq i64 %17, 0
   br i1 %38, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hdc3c50616be130b9E.exit", label %.lr.ph.i
 
@@ -7101,9 +7101,9 @@ define { ptr, i64 } @"_ZN139_$LT$uv_pypi_types..simple_json..HashDigests$u20$as$
 
 33:                                               ; preds = %31, %28, %24, %17
   %34 = getelementptr inbounds nuw { [2 x i64] }, ptr %11, i64 %.sroa.7.022.i
-  store ptr %.val14.i, ptr %34, align 8, !noalias !1113
+  store ptr %.val14.i, ptr %34, align 8, !noalias !1109
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i8 %.val15.i, ptr %35, align 8, !noalias !1113
+  store i8 %.val15.i, ptr %35, align 8, !noalias !1109
   %36 = icmp eq i64 %15, 0
   br i1 %36, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hdc3c50616be130b9E.exit", label %.lr.ph.i
 
@@ -9044,7 +9044,7 @@ attributes #32 = { noreturn nounwind }
 !967 = distinct !{!967, !968, !"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E: argument 0"}
 !968 = distinct !{!968, !"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E"}
 !969 = !{!964}
-!970 = !{!971, !964}
+!970 = !{!971, !964, !959}
 !971 = distinct !{!971, !972, !"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E: argument 0"}
 !972 = distinct !{!972, !"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E"}
 !973 = !{!974}
@@ -9188,7 +9188,7 @@ attributes #32 = { noreturn nounwind }
 !1111 = distinct !{!1111, !1112, !"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E: argument 0"}
 !1112 = distinct !{!1112, !"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E"}
 !1113 = !{!1108}
-!1114 = !{!1115, !1108}
+!1114 = !{!1115, !1108, !1103}
 !1115 = distinct !{!1115, !1116, !"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E: argument 0"}
 !1116 = distinct !{!1116, !"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E"}
 !1117 = !{!1118}

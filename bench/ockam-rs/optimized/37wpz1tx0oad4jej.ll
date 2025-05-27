@@ -70125,7 +70125,7 @@ default.unreachable121:                           ; preds = %41, %19
 124:                                              ; preds = %122
   %125 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #34, !noalias !9067
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #34, !noalias !9069
   unreachable
 
 .body.i67:                                        ; preds = %122

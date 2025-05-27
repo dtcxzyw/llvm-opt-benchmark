@@ -5579,7 +5579,7 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
   %88 = load ptr, ptr %7, align 8, !alias.scope !667, !noalias !653, !nonnull !5, !noundef !5
   %89 = load atomic i64, ptr %88 acquire, align 8, !noalias !674
   invoke void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17hddb950335773e2d3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
-          to label %.body.i unwind label %124, !noalias !634
+          to label %.body.i unwind label %124, !noalias !666
 
 90:                                               ; preds = %78
   %.fca.0.extract.i.i = extractvalue { i64, i64 } %82, 0
@@ -5633,7 +5633,7 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
   %116 = getelementptr inbounds nuw i8, ptr %109, i64 40
   %117 = load ptr, ptr %116, align 8, !invariant.load !5, !noalias !697, !nonnull !5
   %118 = invoke noundef zeroext i1 %117(ptr noundef align 1 %115, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %100)
-          to label %.noexc12.i.i unwind label %.loopexit.i.i, !noalias !634
+          to label %.noexc12.i.i unwind label %.loopexit.i.i, !noalias !666
 
 .noexc12.i.i:                                     ; preds = %105
   br i1 %118, label %"_ZN4moka9sync_base11invalidator28Invalidator$LT$K$C$V$C$S$GT$19do_apply_predicates17h5d5939bb58d8a7d4E.exit.loopexit.i.i", label %104
@@ -5655,14 +5655,14 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
 "_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.llvm.6205359899382664383.exit14.sink.split.sink.split.i.i": ; preds = %"_ZN4moka9sync_base11invalidator28Invalidator$LT$K$C$V$C$S$GT$19do_apply_predicates17h5d5939bb58d8a7d4E.exit.i.i", %93
   %.09.ph.ph.i.i = phi i1 [ false, %93 ], [ %.lcssa.i.i.i, %"_ZN4moka9sync_base11invalidator28Invalidator$LT$K$C$V$C$S$GT$19do_apply_predicates17h5d5939bb58d8a7d4E.exit.i.i" ]
   %122 = load ptr, ptr %7, align 8, !noalias !653, !nonnull !5, !noundef !5
-  %123 = load atomic i64, ptr %122 acquire, align 8, !noalias !634
+  %123 = load atomic i64, ptr %122 acquire, align 8, !noalias !666
   invoke void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17hddb950335773e2d3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
           to label %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17h5211193dda37dfe6E.exit.i" unwind label %.loopexit.i, !noalias !634
 
 124:                                              ; preds = %87
   %125 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #34, !noalias !634
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #34, !noalias !666
   unreachable
 
 "_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17h5211193dda37dfe6E.exit.i": ; preds = %"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.llvm.6205359899382664383.exit14.sink.split.sink.split.i.i", %"_ZN4moka9sync_base11invalidator28Invalidator$LT$K$C$V$C$S$GT$19do_apply_predicates17h5d5939bb58d8a7d4E.exit.i.i"
@@ -13576,7 +13576,7 @@ attributes #34 = { cold noreturn nounwind }
 !671 = distinct !{!671, !"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.llvm.6205359899382664383"}
 !672 = !{!670}
 !673 = !{!668}
-!674 = !{!668, !670, !633, !628}
+!674 = !{!668, !670, !649, !633, !628}
 !675 = !{!676, !678, !649, !633, !628}
 !676 = distinct !{!676, !677, !"_ZN69_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b34a5da8dffcebeE.llvm.6205359899382664383: argument 0"}
 !677 = distinct !{!677, !"_ZN69_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b34a5da8dffcebeE.llvm.6205359899382664383"}
@@ -13599,7 +13599,7 @@ attributes #34 = { cold noreturn nounwind }
 !694 = !{!695, !696, !687, !689, !652, !633, !628}
 !695 = distinct !{!695, !692, !"_ZN4moka9sync_base11invalidator22Predicate$LT$K$C$V$GT$5apply17h12b3c4cf3e00020dE: argument 1"}
 !696 = distinct !{!696, !692, !"_ZN4moka9sync_base11invalidator22Predicate$LT$K$C$V$GT$5apply17h12b3c4cf3e00020dE: argument 2"}
-!697 = !{!691, !695, !696, !633, !628}
+!697 = !{!691, !695, !696, !649, !633, !628}
 !698 = !{!699, !701}
 !699 = distinct !{!699, !700, !"_ZN69_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b34a5da8dffcebeE.llvm.6205359899382664383: argument 0"}
 !700 = distinct !{!700, !"_ZN69_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b34a5da8dffcebeE.llvm.6205359899382664383"}
@@ -13607,7 +13607,7 @@ attributes #34 = { cold noreturn nounwind }
 !702 = distinct !{!702, !"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.llvm.6205359899382664383"}
 !703 = !{!701}
 !704 = !{!699}
-!705 = !{!699, !701, !633, !628}
+!705 = !{!699, !701, !649, !633, !628}
 !706 = !{!707}
 !707 = distinct !{!707, !708, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h063e5f4156c92c7cE: argument 0"}
 !708 = distinct !{!708, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h063e5f4156c92c7cE"}
@@ -14324,7 +14324,7 @@ attributes #34 = { cold noreturn nounwind }
 !1419 = distinct !{!1419, !"_ZN5alloc3fmt6format17h55b1a8bf61a7c713E"}
 !1420 = distinct !{!1420, !1419, !"_ZN5alloc3fmt6format17h55b1a8bf61a7c713E: argument 1"}
 !1421 = !{!1411, !1414, !1416, !1418}
-!1422 = !{!1413, !1417, !1420}
+!1422 = !{!1413, !1416, !1417, !1420}
 !1423 = !{!1424}
 !1424 = distinct !{!1424, !1425, !"_ZN3std4path4Path4join17h7fa8db2d1d950b92E: argument 2"}
 !1425 = distinct !{!1425, !"_ZN3std4path4Path4join17h7fa8db2d1d950b92E"}
@@ -14356,7 +14356,7 @@ attributes #34 = { cold noreturn nounwind }
 !1451 = distinct !{!1451, !"_ZN5alloc3fmt6format17h55b1a8bf61a7c713E"}
 !1452 = distinct !{!1452, !1451, !"_ZN5alloc3fmt6format17h55b1a8bf61a7c713E: argument 1"}
 !1453 = !{!1443, !1446, !1448, !1450}
-!1454 = !{!1445, !1449, !1452}
+!1454 = !{!1445, !1448, !1449, !1452}
 !1455 = !{!1456}
 !1456 = distinct !{!1456, !1457, !"_ZN3std4path4Path4join17h7fa8db2d1d950b92E: argument 2"}
 !1457 = distinct !{!1457, !"_ZN3std4path4Path4join17h7fa8db2d1d950b92E"}

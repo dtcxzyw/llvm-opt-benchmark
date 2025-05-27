@@ -2022,7 +2022,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h400439cc47b4f7ecE.exit: ; preds
   %59 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17haddfca1f4c251f3aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #16
-          to label %.body unwind label %92, !noalias !193
+          to label %.body unwind label %92, !noalias !189
 
 60:                                               ; preds = %.noexc
   %61 = load ptr, ptr %54, align 8, !noalias !190, !nonnull !3, !noundef !3
@@ -2043,7 +2043,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h400439cc47b4f7ecE.exit: ; preds
 
 68:                                               ; preds = %60
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h3a3c111e62cc9951E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 0, i64 noundef %.val74.i, i64 noundef 1, i64 noundef 1)
-          to label %.noexc.i unwind label %58, !noalias !193
+          to label %.noexc.i unwind label %58, !noalias !189
 
 .noexc.i:                                         ; preds = %68
   %.pre.i.i.i = load i64, ptr %64, align 8, !alias.scope !194, !noalias !189
@@ -2056,7 +2056,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h400439cc47b4f7ecE.exit: ; preds
   %72 = icmp sgt i64 %71, -1
   call void @llvm.assume(i1 %72)
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 %71
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %.val.i, i64 %.val74.i, i1 false), !noalias !193
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %.val.i, i64 %.val74.i, i1 false), !noalias !189
   %74 = load i64, ptr %64, align 8, !alias.scope !194, !noalias !189, !noundef !3
   %75 = add i64 %74, %.val74.i
   store i64 %75, ptr %64, align 8, !alias.scope !194, !noalias !189
@@ -2098,7 +2098,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h400439cc47b4f7ecE.exit: ; preds
 
 85:                                               ; preds = %.lr.ph.i
   %86 = add i64 %.sroa.27.232.i, -1
-  store i8 44, ptr %.sroa.06.233.i, align 1, !alias.scope !199, !noalias !193
+  store i8 44, ptr %.sroa.06.233.i, align 1, !alias.scope !199, !noalias !189
   %.not73.i = icmp ugt i64 %.val76.i, %86
   br i1 %.not73.i, label %87, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h98ffcf3d077d500aE.exit83.i", !prof !17
 
@@ -2118,7 +2118,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h400439cc47b4f7ecE.exit: ; preds
   store ptr inttoptr (i64 8 to ptr), ptr %.sink.i.sroa.phi14, align 8, !noalias !189
   store i64 0, ptr %.sink.i.sroa.phi17, align 8, !noalias !189
   invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9e8cf32163a82318019c0b9656532945.37) #15
-          to label %.cont.i unwind label %58, !noalias !193
+          to label %.cont.i unwind label %58, !noalias !189
 
 .cont.i:                                          ; preds = %.invoke.i
   unreachable
@@ -2127,7 +2127,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h400439cc47b4f7ecE.exit: ; preds
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.06.233.i, i64 1
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 %.val76.i
   %90 = sub nuw i64 %86, %.val76.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr nonnull readonly align 1 %.val75.i, i64 %.val76.i, i1 false), !alias.scope !203, !noalias !193
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr nonnull readonly align 1 %.val75.i, i64 %.val76.i, i1 false), !alias.scope !203, !noalias !189
   %.sroa.05.0.i = getelementptr inbounds nuw i8, ptr %.sroa.05.034.i, i64 24
   %91 = icmp eq ptr %.sroa.05.0.i, %36
   br i1 %91, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha89feb6c4a0bea39E.exit79.thread.i", label %.lr.ph.i
@@ -2135,7 +2135,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h400439cc47b4f7ecE.exit: ; preds
 92:                                               ; preds = %58
   %93 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #17, !noalias !193
+  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #17, !noalias !189
   unreachable
 
 94:                                               ; preds = %57, %55, %49

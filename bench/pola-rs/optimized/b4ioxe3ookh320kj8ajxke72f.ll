@@ -10571,7 +10571,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.018.026.i, i64 8
   %.val17.i = load i64, ptr %.sroa.018.026.i, align 4, !alias.scope !1400, !noalias !1408
   %25 = getelementptr inbounds nuw { [2 x i32] }, ptr %16, i64 %.sroa.7.025.i
-  store i64 %.val17.i, ptr %25, align 4, !noalias !1408
+  store i64 %.val17.i, ptr %25, align 4, !noalias !1407
   %26 = icmp eq i64 %22, 0
   br i1 %26, label %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hd0a9da5964fe884bE.exit", label %.lr.ph.i
 

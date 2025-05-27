@@ -6091,8 +6091,8 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4), !noalias !859
   %66 = load ptr, ptr %.val17.i.i.i, align 8, !noalias !860, !nonnull !12, !noundef !12
   %67 = load i64, ptr %.sroa.4.0.i516.i.i.i, align 8, !alias.scope !856, !noalias !861, !noundef !12
-  call void %66(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %4, i64 noundef %67), !noalias !861
-  %68 = call noundef i8 @_ZN12polars_arrow7compute8temporal11Int8Weekday10i8_weekday17h1371a938658d5a5fE(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %4), !noalias !861
+  call void %66(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %4, i64 noundef %67), !noalias !860
+  %68 = call noundef i8 @_ZN12polars_arrow7compute8temporal11Int8Weekday10i8_weekday17h1371a938658d5a5fE(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %4), !noalias !860
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4), !noalias !859
   call void @llvm.experimental.noalias.scope.decl(metadata !862)
   %69 = load i64, ptr %12, align 8, !alias.scope !862, !noalias !865, !noundef !12
@@ -6336,7 +6336,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4), !noalias !902
   %66 = load ptr, ptr %.val17.i.i.i, align 8, !noalias !903, !nonnull !12, !noundef !12
   %67 = load i64, ptr %.sroa.4.0.i516.i.i.i, align 8, !alias.scope !899, !noalias !904, !noundef !12
-  call void %66(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %4, i64 noundef %67), !noalias !904
+  call void %66(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %4, i64 noundef %67), !noalias !903
   %.sroa.3.0.copyload.i.i.i.i = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i, align 4, !noalias !902
   %68 = udiv i32 %.sroa.3.0.copyload.i.i.i.i, 60
   %69 = urem i32 %68, 60
@@ -6625,7 +6625,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4), !noalias !960
   %64 = load ptr, ptr %.val17.i.i.i, align 8, !noalias !961, !nonnull !12, !noundef !12
   %65 = load i64, ptr %.sroa.4.0.i516.i.i.i, align 8, !alias.scope !957, !noalias !962, !noundef !12
-  call void %64(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %4, i64 noundef %65), !noalias !962
+  call void %64(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %4, i64 noundef %65), !noalias !961
   %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %4, align 4, !noalias !960
   %66 = lshr i32 %.sroa.0.0.copyload.i.i.i.i, 3
   %67 = and i32 %66, 1023
@@ -6634,7 +6634,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   br i1 %69, label %71, label %70
 
 70:                                               ; preds = %57
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %68, i64 noundef 733, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.484be21168499a0daf287309b80744fe.92) #25, !noalias !962
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %68, i64 noundef 733, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.484be21168499a0daf287309b80744fe.92) #25, !noalias !961
   unreachable
 
 71:                                               ; preds = %57
@@ -6885,7 +6885,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4), !noalias !1003
   %66 = load ptr, ptr %.val17.i.i.i, align 8, !noalias !1004, !nonnull !12, !noundef !12
   %67 = load i64, ptr %.sroa.4.0.i516.i.i.i, align 8, !alias.scope !1000, !noalias !1005, !noundef !12
-  call void %66(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %4, i64 noundef %67), !noalias !1005
+  call void %66(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %4, i64 noundef %67), !noalias !1004
   %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %4, align 4, !noalias !1003
   %68 = ashr i32 %.sroa.0.0.copyload.i.i.i.i, 13
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4), !noalias !1003
@@ -7259,14 +7259,14 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5), !noalias !1091
   %65 = load ptr, ptr %.val17.i.i.i, align 8, !noalias !1092, !nonnull !12, !noundef !12
   %66 = load i64, ptr %.sroa.4.0.i516.i.i.i, align 8, !alias.scope !1088, !noalias !1093, !noundef !12
-  call void %65(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %5, i64 noundef %66), !noalias !1093
+  call void %65(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %5, i64 noundef %66), !noalias !1092
   %.sroa.3.0.copyload.i.i.i.i = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i, align 4, !noalias !1091
   %67 = icmp slt i32 %.sroa.3.0.copyload.i.i.i.i, 0
   br i1 %67, label %.split.i.i.i.i.i, label %68
 
 .split.i.i.i.i.i:                                 ; preds = %58
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !1091
-  call void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.484be21168499a0daf287309b80744fe.15, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.484be21168499a0daf287309b80744fe.16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.484be21168499a0daf287309b80744fe.101) #25, !noalias !1093
+  call void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.484be21168499a0daf287309b80744fe.15, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.484be21168499a0daf287309b80744fe.16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.484be21168499a0daf287309b80744fe.101) #25, !noalias !1092
   unreachable
 
 68:                                               ; preds = %58
@@ -7509,7 +7509,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4), !noalias !1134
   %64 = load ptr, ptr %.val17.i.i.i, align 8, !noalias !1135, !nonnull !12, !noundef !12
   %65 = load i64, ptr %.sroa.4.0.i516.i.i.i, align 8, !alias.scope !1131, !noalias !1136, !noundef !12
-  call void %64(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %4, i64 noundef %65), !noalias !1136
+  call void %64(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %4, i64 noundef %65), !noalias !1135
   %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %4, align 4, !noalias !1134
   %66 = lshr i32 %.sroa.0.0.copyload.i.i.i.i, 3
   %67 = and i32 %66, 1023
@@ -7518,7 +7518,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   br i1 %69, label %71, label %70
 
 70:                                               ; preds = %57
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %68, i64 noundef 733, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.484be21168499a0daf287309b80744fe.92) #25, !noalias !1136
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %68, i64 noundef 733, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.484be21168499a0daf287309b80744fe.92) #25, !noalias !1135
   unreachable
 
 71:                                               ; preds = %57
@@ -7984,14 +7984,14 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5), !noalias !1247
   %65 = load ptr, ptr %.val17.i.i.i, align 8, !noalias !1248, !nonnull !12, !noundef !12
   %66 = load i64, ptr %.sroa.4.0.i516.i.i.i, align 8, !alias.scope !1244, !noalias !1249, !noundef !12
-  call void %65(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %5, i64 noundef %66), !noalias !1249
+  call void %65(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %5, i64 noundef %66), !noalias !1248
   %.sroa.3.0.copyload.i.i.i.i = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i, align 4, !noalias !1247
   %67 = icmp ugt i32 %.sroa.3.0.copyload.i.i.i.i, 460799
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !1247
   br i1 %67, label %68, label %69, !prof !14
 
 68:                                               ; preds = %58
-  call void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.484be21168499a0daf287309b80744fe.15, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.484be21168499a0daf287309b80744fe.16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.484be21168499a0daf287309b80744fe.97) #25, !noalias !1249
+  call void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.484be21168499a0daf287309b80744fe.15, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.484be21168499a0daf287309b80744fe.16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.484be21168499a0daf287309b80744fe.97) #25, !noalias !1248
   unreachable
 
 69:                                               ; preds = %58
@@ -8497,8 +8497,8 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4), !noalias !1380
   %66 = load ptr, ptr %.val17.i.i.i, align 8, !noalias !1381, !nonnull !12, !noundef !12
   %67 = load i64, ptr %.sroa.4.0.i516.i.i.i, align 8, !alias.scope !1377, !noalias !1382, !noundef !12
-  call void %66(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %4, i64 noundef %67), !noalias !1382
-  %68 = call noundef i8 @_ZN12polars_arrow7compute8temporal11Int8IsoWeek11i8_iso_week17h5a736cac745d37f3E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %4), !noalias !1382
+  call void %66(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %4, i64 noundef %67), !noalias !1381
+  %68 = call noundef i8 @_ZN12polars_arrow7compute8temporal11Int8IsoWeek11i8_iso_week17h5a736cac745d37f3E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %4), !noalias !1381
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4), !noalias !1380
   call void @llvm.experimental.noalias.scope.decl(metadata !1383)
   %69 = load i64, ptr %12, align 8, !alias.scope !1383, !noalias !1386, !noundef !12
@@ -8742,7 +8742,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4), !noalias !1423
   %66 = load ptr, ptr %.val17.i.i.i, align 8, !noalias !1424, !nonnull !12, !noundef !12
   %67 = load i64, ptr %.sroa.4.0.i516.i.i.i, align 8, !alias.scope !1420, !noalias !1425, !noundef !12
-  call void %66(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %4, i64 noundef %67), !noalias !1425
+  call void %66(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %4, i64 noundef %67), !noalias !1424
   %.sroa.3.0.copyload.i.i.i.i = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i, align 4, !noalias !1423
   %68 = urem i32 %.sroa.3.0.copyload.i.i.i.i, 60
   %69 = trunc nuw nsw i32 %68 to i8

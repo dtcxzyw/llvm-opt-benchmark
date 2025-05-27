@@ -3127,6 +3127,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_fmt17hb38554c4e9186b53E(ptr no
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h4c019e609df1823fE"(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) initializes((0, 24)) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(24) %1) unnamed_addr #1 {
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !657)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %5, label %3
 
@@ -3141,7 +3142,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3, %2
-  %6 = tail call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17ha9236b60ee6bd33cE()
+  %6 = tail call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17ha9236b60ee6bd33cE(), !noalias !657
   br label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h51b1d1fe72f9cb4eE.llvm.11107275065492906757.exit"
 
 7:                                                ; preds = %3
@@ -3192,7 +3193,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std3sys3pal6c
   store ptr @anon.aa5a0d5c8376d20d7c74586073353af9.18.llvm.11107275065492906757, ptr %14, align 8, !noalias !660
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %15, align 8, !noalias !660
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.aa5a0d5c8376d20d7c74586073353af9.19.llvm.11107275065492906757) #39
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.aa5a0d5c8376d20d7c74586073353af9.19.llvm.11107275065492906757) #39, !noalias !660
   unreachable
 
 "_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hb74134e4f9fca9bbE.llvm.11107275065492906757.exit": ; preds = %4, %8
@@ -20967,14 +20968,14 @@ attributes #42 = { nounwind }
 !1917 = distinct !{!1917, !1912, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hfa89d9e49f60bf71E: argument 1"}
 !1918 = distinct !{!1918, !1912, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hfa89d9e49f60bf71E: argument 2"}
 !1919 = !{!1914, !1911, !1917}
-!1920 = !{!1916, !1918}
+!1920 = !{!1916, !1917, !1918}
 !1921 = !{!1922}
 !1922 = distinct !{!1922, !1923, !"_ZN4core3ops8function6FnOnce9call_once17h84f5239497ef13cdE: argument 0"}
 !1923 = distinct !{!1923, !"_ZN4core3ops8function6FnOnce9call_once17h84f5239497ef13cdE"}
 !1924 = !{!1925}
 !1925 = distinct !{!1925, !1926, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h1f317fa92256e58cE: argument 0"}
 !1926 = distinct !{!1926, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h1f317fa92256e58cE"}
-!1927 = !{!1925, !1928, !1922, !1929, !1911, !1918}
+!1927 = !{!1925, !1928, !1922, !1929, !1911, !1917, !1918}
 !1928 = distinct !{!1928, !1926, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h1f317fa92256e58cE: argument 1"}
 !1929 = distinct !{!1929, !1923, !"_ZN4core3ops8function6FnOnce9call_once17h84f5239497ef13cdE: argument 1"}
 !1930 = !{!1925, !1922, !1911, !1918}
@@ -21950,7 +21951,7 @@ attributes #42 = { nounwind }
 !2900 = distinct !{!2900, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E"}
 !2901 = distinct !{!2901, !2900, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E: argument 1"}
 !2902 = !{!2892, !2895, !2897, !2899}
-!2903 = !{!2894, !2898, !2901}
+!2903 = !{!2894, !2897, !2898, !2901}
 !2904 = !{!2905}
 !2905 = distinct !{!2905, !2906, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8589511a8151fc39E: argument 0"}
 !2906 = distinct !{!2906, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8589511a8151fc39E"}

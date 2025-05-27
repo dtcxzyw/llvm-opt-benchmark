@@ -26218,7 +26218,7 @@ define void @_ZN11foundations9telemetry7metrics8internal10Registries18add_extra_
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #24
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #24, !noalias !1751
   unreachable
 
 .body:                                            ; preds = %16

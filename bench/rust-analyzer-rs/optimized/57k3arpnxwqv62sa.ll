@@ -1274,7 +1274,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hec8f06d639fa12e1E.exit: ; preds = %.
   %197 = getelementptr i8, ptr %.sroa.18.026.i, i64 -40
   %.val37.i63 = load i64, ptr %197, align 8, !alias.scope !115, !noundef !14
   %198 = invoke noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17h5dc8f29e187172ebE"(ptr noalias noundef nonnull readonly align 8 %.val.i60, i64 noundef %.val35.i61, ptr noalias noundef nonnull readonly align 8 %.val36.i62, i64 noundef %.val37.i63)
-          to label %199 unwind label %.loopexit14.i
+          to label %199 unwind label %.loopexit14.i, !noalias !115
 
 199:                                              ; preds = %.lr.ph29.i
   %200 = icmp eq i8 %198, -1
@@ -1304,7 +1304,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hec8f06d639fa12e1E.exit: ; preds = %.
   %210 = getelementptr i8, ptr %.sroa.0.222.i, i64 16
   %.val40.i = load i64, ptr %210, align 8, !noalias !115, !noundef !14
   %211 = invoke noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17h5dc8f29e187172ebE"(ptr noalias noundef nonnull readonly align 8 %.028.val.i, i64 noundef %.028.val38.i, ptr noalias noundef nonnull readonly align 8 %.val39.i, i64 noundef %.val40.i)
-          to label %212 unwind label %.loopexit.split-lp.i
+          to label %212 unwind label %.loopexit.split-lp.i, !noalias !115
 
 212:                                              ; preds = %.lr.ph.i59
   %213 = icmp eq i8 %211, -1

@@ -1286,17 +1286,17 @@ _ZN4core5slice4sort6stable5drift10create_run17h0851f0864ac364a4E.exit: ; preds =
   %196 = load i64, ptr %195, align 8, !alias.scope !446, !noalias !447, !noundef !9
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10), !noalias !448
   invoke void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %10, ptr noalias noundef nonnull readonly align 1 %193, i64 noundef %192)
-          to label %.noexc.i unwind label %.loopexit.i
+          to label %.noexc.i unwind label %.loopexit.i, !noalias !426
 
 .noexc.i:                                         ; preds = %189
   %197 = getelementptr inbounds nuw i8, ptr %194, i64 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !448
   invoke void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %9, ptr noalias noundef nonnull readonly align 1 %197, i64 noundef %196)
-          to label %.noexc21.i unwind label %.loopexit.i
+          to label %.noexc21.i unwind label %.loopexit.i, !noalias !426
 
 .noexc21.i:                                       ; preds = %.noexc.i
   %198 = invoke noundef i8 @_ZN3std4path18compare_components17h5f4ebbd8e9dc344dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %9)
-          to label %.noexc22.i unwind label %.loopexit.i
+          to label %.noexc22.i unwind label %.loopexit.i, !noalias !426
 
 .noexc22.i:                                       ; preds = %.noexc21.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !448
@@ -1346,17 +1346,17 @@ _ZN4core3ops8function5FnMut8call_mut17h59bd18794c6dfda2E.llvm.137944141767215558
   %220 = load i64, ptr %219, align 8, !alias.scope !469, !noalias !470, !noundef !9
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !471
   invoke void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %8, ptr noalias noundef nonnull readonly align 1 %217, i64 noundef %216)
-          to label %.noexc27.i unwind label %.loopexit.split-lp.i
+          to label %.noexc27.i unwind label %.loopexit.split-lp.i, !noalias !426
 
 .noexc27.i:                                       ; preds = %213
   %221 = getelementptr inbounds nuw i8, ptr %218, i64 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7), !noalias !471
   invoke void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %7, ptr noalias noundef nonnull readonly align 1 %221, i64 noundef %220)
-          to label %.noexc28.i unwind label %.loopexit.split-lp.i
+          to label %.noexc28.i unwind label %.loopexit.split-lp.i, !noalias !426
 
 .noexc28.i:                                       ; preds = %.noexc27.i
   %222 = invoke noundef i8 @_ZN3std4path18compare_components17h5f4ebbd8e9dc344dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %7)
-          to label %.noexc29.i unwind label %.loopexit.split-lp.i
+          to label %.noexc29.i unwind label %.loopexit.split-lp.i, !noalias !426
 
 .noexc29.i:                                       ; preds = %.noexc28.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !471

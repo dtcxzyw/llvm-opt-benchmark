@@ -7683,7 +7683,7 @@ attributes #32 = { "function-inline-cost-multiplier"="2" }
 !975 = distinct !{!975, !974, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h2b9fba75e9c0c904E.llvm.8982795422203727417: argument 1"}
 !976 = distinct !{!976, !974, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h2b9fba75e9c0c904E.llvm.8982795422203727417: argument 2"}
 !977 = !{!970, !973, !975}
-!978 = !{!972, !976}
+!978 = !{!972, !975, !976}
 !979 = !{!980, !982, !983, !985, !986, !988}
 !980 = distinct !{!980, !981, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha809d9907de73c04E: argument 0"}
 !981 = distinct !{!981, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha809d9907de73c04E"}

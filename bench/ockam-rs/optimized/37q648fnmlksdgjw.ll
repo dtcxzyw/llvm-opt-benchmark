@@ -70303,7 +70303,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb6e79ba0f31224c4E.llvm.18
 73:                                               ; preds = %.body.i.i
   %74 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #56, !noalias !9965
+  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #56, !noalias !9967
   unreachable
 
 75:                                               ; preds = %.loopexit, %10
@@ -70595,7 +70595,7 @@ _ZN4core5clone5Clone5clone17h6012cbca640c7da3E.exit.i.i: ; preds = %"_ZN87_$LT$a
 99:                                               ; preds = %.body.i.i
   %100 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #56, !noalias !10011
+  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #56, !noalias !10013
   unreachable
 
 101:                                              ; preds = %.loopexit, %13
@@ -70781,7 +70781,7 @@ _ZN4core5clone5Clone5clone17h6d1413d30d9d823cE.exit.i.i: ; preds = %"_ZN91_$LT$h
 67:                                               ; preds = %42
   %68 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #56, !noalias !10063
+  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #56, !noalias !10065
   unreachable
 
 69:                                               ; preds = %.loopexit, %9
@@ -70988,7 +70988,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb6e79ba0f31224c4E.llvm.18
 73:                                               ; preds = %.body.i.i
   %74 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #56, !noalias !10110
+  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #56, !noalias !10112
   unreachable
 
 75:                                               ; preds = %.loopexit, %10
@@ -71354,7 +71354,7 @@ _ZN4core5clone5Clone5clone17h894130776a3fda29E.exit.i.i: ; preds = %.noexc.i.i
 71:                                               ; preds = %.body.i.i
   %72 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #56, !noalias !10197
+  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #56, !noalias !10199
   unreachable
 
 73:                                               ; preds = %.loopexit, %9
@@ -73473,7 +73473,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb6e79ba0f31224c4E.llvm.18
 88:                                               ; preds = %.body.i.i.i.i
   %89 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #56, !noalias !10677
+  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #56, !noalias !10665
   unreachable
 
 .body.i.i:                                        ; preds = %.body.i.i.i.i
@@ -164485,14 +164485,14 @@ attributes #56 = { noinline noreturn nounwind }
 !9614 = distinct !{!9614, !9609, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hfbe4aaffc23b8fadE.llvm.18105196424206627646: argument 1"}
 !9615 = distinct !{!9615, !9609, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hfbe4aaffc23b8fadE.llvm.18105196424206627646: argument 2"}
 !9616 = !{!9611, !9608, !9614}
-!9617 = !{!9613, !9615}
+!9617 = !{!9613, !9614, !9615}
 !9618 = !{!9619}
 !9619 = distinct !{!9619, !9620, !"_ZN4core3ops8function6FnOnce9call_once17h8c11768686928c61E: argument 0"}
 !9620 = distinct !{!9620, !"_ZN4core3ops8function6FnOnce9call_once17h8c11768686928c61E"}
 !9621 = !{!9622}
 !9622 = distinct !{!9622, !9623, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17hc84a22af15de54a5E: argument 0"}
 !9623 = distinct !{!9623, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17hc84a22af15de54a5E"}
-!9624 = !{!9625, !9627, !9622, !9628, !9619, !9629, !9608, !9615}
+!9624 = !{!9625, !9627, !9622, !9628, !9619, !9629, !9608, !9614, !9615}
 !9625 = distinct !{!9625, !9626, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17habaa7aff79869a04E.llvm.18105196424206627646: argument 0"}
 !9626 = distinct !{!9626, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17habaa7aff79869a04E.llvm.18105196424206627646"}
 !9627 = distinct !{!9627, !9626, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17habaa7aff79869a04E.llvm.18105196424206627646: argument 1"}
@@ -174832,7 +174832,7 @@ attributes #56 = { noinline noreturn nounwind }
 !19961 = distinct !{!19961, !"_ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18105196424206627646"}
 !19962 = distinct !{!19962, !19961, !"_ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18105196424206627646: argument 1"}
 !19963 = !{!19953, !19956, !19958, !19960}
-!19964 = !{!19955, !19959, !19962}
+!19964 = !{!19955, !19958, !19959, !19962}
 !19965 = !{!19966, !19968, !19969, !19971, !19972, !19973, !19975}
 !19966 = distinct !{!19966, !19967, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17hcbee4e277d705c98E: argument 0"}
 !19967 = distinct !{!19967, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17hcbee4e277d705c98E"}
@@ -174845,7 +174845,7 @@ attributes #56 = { noinline noreturn nounwind }
 !19974 = distinct !{!19974, !"_ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18105196424206627646"}
 !19975 = distinct !{!19975, !19974, !"_ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18105196424206627646: argument 1"}
 !19976 = !{!19966, !19969, !19971, !19973}
-!19977 = !{!19968, !19972, !19975}
+!19977 = !{!19968, !19971, !19972, !19975}
 !19978 = !{!19979}
 !19979 = distinct !{!19979, !19980, !"_ZN57_$LT$str$u20$as$u20$minicbor..encode..Encode$LT$C$GT$$GT$6encode17h1bd3a060b8ffcfe8E: argument 0"}
 !19980 = distinct !{!19980, !"_ZN57_$LT$str$u20$as$u20$minicbor..encode..Encode$LT$C$GT$$GT$6encode17h1bd3a060b8ffcfe8E"}
@@ -174995,7 +174995,7 @@ attributes #56 = { noinline noreturn nounwind }
 !20124 = distinct !{!20124, !"_ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18105196424206627646"}
 !20125 = distinct !{!20125, !20124, !"_ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18105196424206627646: argument 1"}
 !20126 = !{!20116, !20119, !20121, !20123}
-!20127 = !{!20118, !20122, !20125}
+!20127 = !{!20118, !20121, !20122, !20125}
 !20128 = !{!20129}
 !20129 = distinct !{!20129, !20130, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hd923958daddb12fdE: argument 0"}
 !20130 = distinct !{!20130, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hd923958daddb12fdE"}

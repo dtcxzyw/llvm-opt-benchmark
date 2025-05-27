@@ -19033,7 +19033,7 @@ _ZN4gpui4view7AnyView8downcast17h9af5e5c2c0874169E.exit.i.i.i: ; preds = %.noexc
 181:                                              ; preds = %159
   %182 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #37, !noalias !3709
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #37, !noalias !3714
   unreachable
 
 "_ZN9workspace9Workspace17find_project_item28_$u7b$$u7b$closure$u7d$$u7d$17h8c66194ade54eb8fE.exit.i": ; preds = %102, %171, %164
@@ -21015,7 +21015,7 @@ attributes #37 = { cold noreturn nounwind }
 !912 = distinct !{!912, !911, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h11aae97b03c7a706E.llvm.14048348448922177040: argument 1"}
 !913 = distinct !{!913, !911, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h11aae97b03c7a706E.llvm.14048348448922177040: argument 2"}
 !914 = !{!907, !910, !912}
-!915 = !{!909, !913}
+!915 = !{!909, !912, !913}
 !916 = !{!917}
 !917 = distinct !{!917, !918, !"_ZN4core3ptr69drop_in_place$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$17hbec70cdfcb27f918E.llvm.14048348448922177040: argument 0"}
 !918 = distinct !{!918, !"_ZN4core3ptr69drop_in_place$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$17hbec70cdfcb27f918E.llvm.14048348448922177040"}

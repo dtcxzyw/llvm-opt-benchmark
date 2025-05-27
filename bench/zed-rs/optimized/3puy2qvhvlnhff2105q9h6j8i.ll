@@ -33675,6 +33675,7 @@ define hidden { i64, ptr } @_ZN3std2io4Read11read_to_end17h187f489293f30be6E(ptr
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, ptr } @_ZN3std2io4Read13read_vectored17hfa7e02ae6d531b43E(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !6019)
   %4 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %1, i64 %2
   br label %5
 
@@ -33698,7 +33699,7 @@ _ZN3std2io21default_read_vectored17h4984d9123b605286E.exit: ; preds = %5, %12
   %.pn7.i.i = phi ptr [ %13, %12 ], [ inttoptr (i64 1 to ptr), %5 ]
   %.pn5.i.i = phi i64 [ %11, %12 ], [ 0, %5 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = tail call { i64, ptr } @_ZN6flate23zio4read17hb55136701d18cbf9E(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %14, ptr noalias noundef nonnull align 1 %.pn7.i.i, i64 noundef %.pn5.i.i)
+  %15 = tail call { i64, ptr } @_ZN6flate23zio4read17hb55136701d18cbf9E(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %14, ptr noalias noundef nonnull align 1 %.pn7.i.i, i64 noundef %.pn5.i.i), !noalias !6019
   ret { i64, ptr } %15
 }
 
@@ -151244,7 +151245,7 @@ define hidden void @"_ZN4gpui8platform5linux8platform56_$LT$impl$u20$gpui..platf
 33:                                               ; preds = %36
   %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #55
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #55, !noalias !40275
   unreachable
 
 35:                                               ; preds = %36, %.body.i.i
@@ -156427,7 +156428,7 @@ define hidden void @"_ZN4gpui8platform5linux8platform56_$LT$impl$u20$gpui..platf
 33:                                               ; preds = %36
   %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #55
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #55, !noalias !41415
   unreachable
 
 35:                                               ; preds = %36, %.body.i.i
@@ -156526,7 +156527,7 @@ define hidden void @"_ZN4gpui8platform5linux8platform56_$LT$impl$u20$gpui..platf
 33:                                               ; preds = %36
   %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #55
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #55, !noalias !41438
   unreachable
 
 35:                                               ; preds = %36, %.body.i.i
@@ -156625,7 +156626,7 @@ define hidden void @"_ZN4gpui8platform5linux8platform56_$LT$impl$u20$gpui..platf
 33:                                               ; preds = %36
   %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #55
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #55, !noalias !41461
   unreachable
 
 35:                                               ; preds = %36, %.body.i.i
@@ -156724,7 +156725,7 @@ define hidden void @"_ZN4gpui8platform5linux8platform56_$LT$impl$u20$gpui..platf
 33:                                               ; preds = %36
   %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #55
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #55, !noalias !41484
   unreachable
 
 35:                                               ; preds = %36, %.body.i.i
@@ -156823,7 +156824,7 @@ define hidden void @"_ZN4gpui8platform5linux8platform56_$LT$impl$u20$gpui..platf
 33:                                               ; preds = %36
   %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #55
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #55, !noalias !41507
   unreachable
 
 35:                                               ; preds = %36, %.body.i.i
@@ -217470,7 +217471,7 @@ attributes #55 = { cold noreturn nounwind }
 !27589 = distinct !{!27589, !27588, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h8c23439cead0b856E: argument 1"}
 !27590 = distinct !{!27590, !27588, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h8c23439cead0b856E: argument 2"}
 !27591 = !{!27584, !27587, !27589}
-!27592 = !{!27586, !27590}
+!27592 = !{!27586, !27589, !27590}
 !27593 = !{!27594, !27596, !27598, !27600}
 !27594 = distinct !{!27594, !27595, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5374729be89fc0afE.llvm.10989238744551635161: argument 0"}
 !27595 = distinct !{!27595, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5374729be89fc0afE.llvm.10989238744551635161"}
@@ -217498,7 +217499,7 @@ attributes #55 = { cold noreturn nounwind }
 !27617 = distinct !{!27617, !27616, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h8c23439cead0b856E: argument 1"}
 !27618 = distinct !{!27618, !27616, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h8c23439cead0b856E: argument 2"}
 !27619 = !{!27612, !27615, !27617}
-!27620 = !{!27614, !27618}
+!27620 = !{!27614, !27617, !27618}
 !27621 = !{!27622, !27624, !27626, !27628}
 !27622 = distinct !{!27622, !27623, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5374729be89fc0afE.llvm.10989238744551635161: argument 0"}
 !27623 = distinct !{!27623, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5374729be89fc0afE.llvm.10989238744551635161"}

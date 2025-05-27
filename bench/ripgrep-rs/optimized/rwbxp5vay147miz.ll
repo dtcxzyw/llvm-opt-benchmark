@@ -2292,7 +2292,7 @@ define hidden void @_ZN12grep_printer9hyperlink13HyperlinkPath9from_path17h383c3
   %35 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h9510f6aa6ec734bcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #19
-          to label %.body unwind label %84, !noalias !346
+          to label %.body unwind label %84, !noalias !344
 
 .lr.ph.i:                                         ; preds = %.noexc, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i"
   %36 = phi i64 [ %storemerge.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i" ], [ 0, %.noexc ]
@@ -2314,7 +2314,7 @@ define hidden void @_ZN12grep_printer9hyperlink13HyperlinkPath9from_path17h383c3
 
 46:                                               ; preds = %43
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hdc67407e60293b00E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %36)
-          to label %.noexc.i unwind label %34, !noalias !346
+          to label %.noexc.i unwind label %34, !noalias !344
 
 .noexc.i:                                         ; preds = %46
   %.pre.i.i = load i64, ptr %32, align 8, !alias.scope !347, !noalias !344
@@ -2341,7 +2341,7 @@ define hidden void @_ZN12grep_printer9hyperlink13HyperlinkPath9from_path17h383c3
 
 53:                                               ; preds = %50
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hdc67407e60293b00E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %36)
-          to label %.noexc9.i unwind label %34, !noalias !346
+          to label %.noexc9.i unwind label %34, !noalias !344
 
 .noexc9.i:                                        ; preds = %53
   %.pre.i8.i = load i64, ptr %32, align 8, !alias.scope !350, !noalias !344
@@ -2351,7 +2351,7 @@ define hidden void @_ZN12grep_printer9hyperlink13HyperlinkPath9from_path17h383c3
   %55 = phi i64 [ %.pre.i8.i, %.noexc9.i ], [ %36, %50 ]
   %56 = load ptr, ptr %31, align 8, !alias.scope !350, !noalias !344, !nonnull !5, !noundef !5
   %57 = getelementptr inbounds i8, ptr %56, i64 %55
-  store i8 37, ptr %57, align 1, !noalias !346
+  store i8 37, ptr %57, align 1, !noalias !344
   %58 = load i64, ptr %32, align 8, !alias.scope !350, !noalias !344, !noundef !5
   %59 = add i64 %58, 1
   store i64 %59, ptr %32, align 8, !alias.scope !350, !noalias !344
@@ -2365,7 +2365,7 @@ define hidden void @_ZN12grep_printer9hyperlink13HyperlinkPath9from_path17h383c3
 
 66:                                               ; preds = %54
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hdc67407e60293b00E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %59)
-          to label %.noexc12.i unwind label %34, !noalias !346
+          to label %.noexc12.i unwind label %34, !noalias !344
 
 .noexc12.i:                                       ; preds = %66
   %.pre.i11.i = load i64, ptr %32, align 8, !alias.scope !353, !noalias !344
@@ -2375,7 +2375,7 @@ define hidden void @_ZN12grep_printer9hyperlink13HyperlinkPath9from_path17h383c3
   %68 = phi i64 [ %.pre.i11.i, %.noexc12.i ], [ %59, %54 ]
   %69 = load ptr, ptr %31, align 8, !alias.scope !353, !noalias !344, !nonnull !5, !noundef !5
   %70 = getelementptr inbounds i8, ptr %69, i64 %68
-  store i8 %63, ptr %70, align 1, !noalias !346
+  store i8 %63, ptr %70, align 1, !noalias !344
   %71 = load i64, ptr %32, align 8, !alias.scope !353, !noalias !344, !noundef !5
   %72 = add i64 %71, 1
   store i64 %72, ptr %32, align 8, !alias.scope !353, !noalias !344
@@ -2389,7 +2389,7 @@ define hidden void @_ZN12grep_printer9hyperlink13HyperlinkPath9from_path17h383c3
 
 79:                                               ; preds = %67
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hdc67407e60293b00E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %72)
-          to label %.noexc15.i unwind label %34, !noalias !346
+          to label %.noexc15.i unwind label %34, !noalias !344
 
 .noexc15.i:                                       ; preds = %79
   %.pre.i14.i = load i64, ptr %32, align 8, !alias.scope !356, !noalias !344
@@ -2400,7 +2400,7 @@ define hidden void @_ZN12grep_printer9hyperlink13HyperlinkPath9from_path17h383c3
   %.sink.i = phi i8 [ %38, %.noexc.i ], [ %38, %43 ], [ %76, %.noexc15.i ], [ %76, %67 ]
   %80 = load ptr, ptr %31, align 8, !noalias !344, !nonnull !5, !noundef !5
   %81 = getelementptr inbounds i8, ptr %80, i64 %.sink22.i
-  store i8 %.sink.i, ptr %81, align 1, !noalias !346
+  store i8 %.sink.i, ptr %81, align 1, !noalias !344
   %82 = load i64, ptr %32, align 8, !noalias !344, !noundef !5
   %storemerge.i = add i64 %82, 1
   store i64 %storemerge.i, ptr %32, align 8, !noalias !344
@@ -2410,7 +2410,7 @@ define hidden void @_ZN12grep_printer9hyperlink13HyperlinkPath9from_path17h383c3
 84:                                               ; preds = %34
   %85 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #20, !noalias !346
+  call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #20, !noalias !344
   unreachable
 
 86:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0eba119c2afbef38E.exit.thread", %105

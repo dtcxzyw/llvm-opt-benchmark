@@ -1322,7 +1322,7 @@ define internal fastcc void @_ZN5uu_dd6blocks7unblock17h909f21a5c5cb7e8cE(ptr no
           to label %.noexc10.i.i unwind label %27, !noalias !256
 
 .noexc10.i.i:                                     ; preds = %39
-  %.pre.i.i.i = load i64, ptr %.sroa.522.0..sroa_idx.i, align 8, !alias.scope !257, !noalias !260
+  %.pre.i.i.i = load i64, ptr %.sroa.522.0..sroa_idx.i, align 8, !alias.scope !257, !noalias !256
   br label %46
 
 40:                                               ; preds = %32
@@ -1330,27 +1330,27 @@ define internal fastcc void @_ZN5uu_dd6blocks7unblock17h909f21a5c5cb7e8cE(ptr no
           to label %.noexc12.i.i unwind label %27, !noalias !256
 
 .noexc12.i.i:                                     ; preds = %40
-  %.pre.i11.i.i = load i64, ptr %.sroa.522.0..sroa_idx.i, align 8, !alias.scope !261, !noalias !260
-  %.pre.i = load ptr, ptr %.sroa.421.0..sroa_idx.i, align 8, !alias.scope !261, !noalias !260
+  %.pre.i11.i.i = load i64, ptr %.sroa.522.0..sroa_idx.i, align 8, !alias.scope !260, !noalias !256
+  %.pre.i = load ptr, ptr %.sroa.421.0..sroa_idx.i, align 8, !alias.scope !260, !noalias !256
   br label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hd7c3a02b57a88821E.exit.i.i"
 
 "_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hd7c3a02b57a88821E.exit.i.i": ; preds = %.noexc12.i.i, %32
   %41 = phi ptr [ %.sroa.7.032.i, %32 ], [ %.pre.i, %.noexc12.i.i ]
   %42 = phi i64 [ %.sroa.8.031.i, %32 ], [ %.pre.i11.i.i, %.noexc12.i.i ]
   %43 = getelementptr inbounds i8, ptr %41, i64 %42
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull readonly align 1 %18, i64 %.0.i.i.i, i1 false), !noalias !256
-  %44 = load i64, ptr %.sroa.522.0..sroa_idx.i, align 8, !alias.scope !261, !noalias !260, !noundef !4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull readonly align 1 %18, i64 %.0.i.i.i, i1 false), !noalias !263
+  %44 = load i64, ptr %.sroa.522.0..sroa_idx.i, align 8, !alias.scope !260, !noalias !256, !noundef !4
   %45 = add i64 %44, %.0.i.i.i
-  store i64 %45, ptr %.sroa.522.0..sroa_idx.i, align 8, !alias.scope !261, !noalias !260
-  %.pre38.i = load i64, ptr %5, align 8, !alias.scope !257, !noalias !260
+  store i64 %45, ptr %.sroa.522.0..sroa_idx.i, align 8, !alias.scope !260, !noalias !256
+  %.pre38.i = load i64, ptr %5, align 8, !alias.scope !257, !noalias !256
   br label %.loopexit.i.i
 
 46:                                               ; preds = %.noexc10.i.i, %.loopexit.i.i
   %47 = phi i64 [ %.pre.i.i.i, %.noexc10.i.i ], [ %37, %.loopexit.i.i ]
-  %48 = load ptr, ptr %.sroa.421.0..sroa_idx.i, align 8, !alias.scope !257, !noalias !260, !nonnull !4, !noundef !4
+  %48 = load ptr, ptr %.sroa.421.0..sroa_idx.i, align 8, !alias.scope !257, !noalias !256, !nonnull !4, !noundef !4
   %49 = getelementptr inbounds i8, ptr %48, i64 %47
   store i8 10, ptr %49, align 1, !noalias !256
-  %50 = load i64, ptr %.sroa.522.0..sroa_idx.i, align 8, !alias.scope !257, !noalias !260, !noundef !4
+  %50 = load i64, ptr %.sroa.522.0..sroa_idx.i, align 8, !alias.scope !257, !noalias !256, !noundef !4
   %51 = add i64 %50, 1
   %.sroa.019.0.copyload.i = load i64, ptr %5, align 8, !alias.scope !264, !noalias !265
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.421.0..sroa_idx.i, align 8, !alias.scope !264, !noalias !265
@@ -2441,15 +2441,15 @@ attributes #33 = { cold }
 !252 = distinct !{!252, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he6fda4841f9b552aE.llvm.4233002952263615725"}
 !253 = !{!254, !232, !237, !226, !229, !230}
 !254 = distinct !{!254, !252, !"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he6fda4841f9b552aE.llvm.4233002952263615725: argument 0"}
-!255 = !{!248, !245, !242, !232, !226, !229, !230}
-!256 = !{!232, !226, !229, !230}
+!255 = !{!248, !245, !242, !232, !237, !226, !229, !230}
+!256 = !{!232, !237, !226, !229, !230}
 !257 = !{!258, !235}
 !258 = distinct !{!258, !259, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf1554a52b945295eE: argument 0"}
 !259 = distinct !{!259, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf1554a52b945295eE"}
-!260 = !{!232, !237, !226, !229, !230}
-!261 = !{!262, !235}
-!262 = distinct !{!262, !263, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hd7c3a02b57a88821E: argument 0"}
-!263 = distinct !{!263, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hd7c3a02b57a88821E"}
+!260 = !{!261, !235}
+!261 = distinct !{!261, !262, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hd7c3a02b57a88821E: argument 0"}
+!262 = distinct !{!262, !"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hd7c3a02b57a88821E"}
+!263 = !{!232, !226, !229, !230}
 !264 = !{!232, !235}
 !265 = !{!237, !226, !229, !230}
 !266 = !{!229, !230}

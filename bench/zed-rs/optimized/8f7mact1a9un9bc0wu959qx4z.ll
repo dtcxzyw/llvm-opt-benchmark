@@ -7546,11 +7546,11 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.14036908944705627615.e
 364:                                              ; preds = %363
   %365 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33, !noalias !1219
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33, !noalias !1220
   unreachable
 
 "_ZN93_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$gpui..element..RenderOnce$GT$6render28_$u7b$$u7b$closure$u7d$$u7d$17h7d84cb4206681ecdE.exit.i": ; preds = %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.14036908944705627615.exit.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %6, ptr noundef nonnull align 8 dereferenceable(720) %7, i64 720, i1 false), !alias.scope !1220, !noalias !1222
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %6, ptr noundef nonnull align 8 dereferenceable(720) %7, i64 720, i1 false), !alias.scope !1221, !noalias !1220
   invoke void @_ZN4gpui8elements3div26StatefulInteractiveElement8on_click17ha96eff90b69c9012E(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %33, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(720) %6, ptr noundef nonnull align 1 %317, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %319)
           to label %.noexc111 unwind label %348
 
@@ -17048,7 +17048,7 @@ attributes #34 = { noreturn }
 !288 = distinct !{!288, !287, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h9e8bff5ffa95c452E.llvm.1407927494119257398: argument 1"}
 !289 = distinct !{!289, !287, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h9e8bff5ffa95c452E.llvm.1407927494119257398: argument 2"}
 !290 = !{!283, !286, !288}
-!291 = !{!285, !289}
+!291 = !{!285, !288, !289}
 !292 = !{!293}
 !293 = distinct !{!293, !294, !"_ZN4core3ptr69drop_in_place$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$17habc035289fb7ee59E.llvm.1407927494119257398: argument 0"}
 !294 = distinct !{!294, !"_ZN4core3ptr69drop_in_place$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$17habc035289fb7ee59E.llvm.1407927494119257398"}
@@ -17977,9 +17977,9 @@ attributes #34 = { noreturn }
 !1217 = distinct !{!1217, !1218, !"_ZN4gpui8elements3div13Interactivity13on_mouse_down17h0fb02a3eac9793c6E.llvm.14036908944705627615: argument 0"}
 !1218 = distinct !{!1218, !"_ZN4gpui8elements3div13Interactivity13on_mouse_down17h0fb02a3eac9793c6E.llvm.14036908944705627615"}
 !1219 = !{!1208, !1204, !1206}
-!1220 = !{!1213, !1221}
-!1221 = distinct !{!1221, !1214, !"_ZN4gpui8elements3div18InteractiveElement13on_mouse_down17h6a60731ba63b19e1E: argument 1"}
-!1222 = !{!1208, !1211, !1204, !1206}
+!1220 = !{!1208, !1211, !1204, !1206}
+!1221 = !{!1213, !1222}
+!1222 = distinct !{!1222, !1214, !"_ZN4gpui8elements3div18InteractiveElement13on_mouse_down17h6a60731ba63b19e1E: argument 1"}
 !1223 = !{!1224, !1226}
 !1224 = distinct !{!1224, !1225, !"_ZN4gpui4util13FluentBuilder9when_some28_$u7b$$u7b$closure$u7d$$u7d$17hfd2c37b4418826b1E: argument 0"}
 !1225 = distinct !{!1225, !"_ZN4gpui4util13FluentBuilder9when_some28_$u7b$$u7b$closure$u7d$$u7d$17hfd2c37b4418826b1E"}

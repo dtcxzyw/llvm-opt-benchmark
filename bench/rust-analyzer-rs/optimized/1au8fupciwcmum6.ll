@@ -16976,6 +16976,7 @@ define hidden noundef nonnull align 4 ptr @"_ZN3std3sys3pal6common12thread_local
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h43ec31e326b6158cE"(ptr noundef nonnull align 8 captures(ret: address, provenance) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(16) %1) unnamed_addr #3 {
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1240)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h3bee058519214888E.llvm.3466590722360702098.exit.i", label %3
 
@@ -16988,8 +16989,8 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std3sys3pal6c
   br i1 %.not3.i, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h3bee058519214888E.llvm.3466590722360702098.exit.i", label %"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hd87aa5e8007f96d7E.llvm.3466590722360702098.exit"
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h3bee058519214888E.llvm.3466590722360702098.exit.i": ; preds = %3, %2
-  %7 = tail call noundef align 8 dereferenceable(8) ptr @_ZN15crossbeam_epoch7default9collector17h10325eb85735868bE()
-  %8 = tail call noundef ptr @_ZN15crossbeam_epoch9collector9Collector8register17h512c4dd581be1d85E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7)
+  %7 = tail call noundef align 8 dereferenceable(8) ptr @_ZN15crossbeam_epoch7default9collector17h10325eb85735868bE(), !noalias !1240
+  %8 = tail call noundef ptr @_ZN15crossbeam_epoch9collector9Collector8register17h512c4dd581be1d85E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7), !noalias !1240
   br label %"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hd87aa5e8007f96d7E.llvm.3466590722360702098.exit"
 
 "_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hd87aa5e8007f96d7E.llvm.3466590722360702098.exit": ; preds = %3, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h3bee058519214888E.llvm.3466590722360702098.exit.i"
@@ -17028,6 +17029,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std3sys3pal6c
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h5a9321aa2d3a37f4E"(ptr noundef nonnull align 8 captures(ret: address, provenance) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(16) %1) unnamed_addr #3 {
   %3 = alloca { i64, [1 x i64] }, align 8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1250)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$core..cell..Cell$LT$core..option..Option$LT$crossbeam_channel..context..Context$GT$$GT$$GT$$GT$17h075594f9bd91224cE.llvm.3466590722360702098.exit.i", label %4
 
@@ -17040,7 +17042,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   br i1 %.not5.i, label %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$core..cell..Cell$LT$core..option..Option$LT$crossbeam_channel..context..Context$GT$$GT$$GT$$GT$17h075594f9bd91224cE.llvm.3466590722360702098.exit.i", label %"_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hd0974c263ef2d395E.llvm.3466590722360702098.exit"
 
 "_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$core..cell..Cell$LT$core..option..Option$LT$crossbeam_channel..context..Context$GT$$GT$$GT$$GT$17h075594f9bd91224cE.llvm.3466590722360702098.exit.i": ; preds = %4, %2
-  %8 = tail call noundef nonnull ptr @_ZN17crossbeam_channel7context7Context3new17hf190e5d7781034eeE()
+  %8 = tail call noundef nonnull ptr @_ZN17crossbeam_channel7context7Context3new17hf190e5d7781034eeE(), !noalias !1250
   br label %"_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hd0974c263ef2d395E.llvm.3466590722360702098.exit"
 
 "_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hd0974c263ef2d395E.llvm.3466590722360702098.exit": ; preds = %4, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$core..cell..Cell$LT$core..option..Option$LT$crossbeam_channel..context..Context$GT$$GT$$GT$$GT$17h075594f9bd91224cE.llvm.3466590722360702098.exit.i"
@@ -17226,17 +17228,17 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std3sys3pal6c
 
 6:                                                ; preds = %4, %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !1309
-  %7 = tail call noundef nonnull ptr @_ZN3std6thread7current17h0a0c91c8785c4a84E()
+  %7 = tail call noundef nonnull ptr @_ZN3std6thread7current17h0a0c91c8785c4a84E(), !noalias !1309
   store ptr %7, ptr %3, align 8, !noalias !1309
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load i64, ptr %8, align 8, !range !385, !noundef !4
+  %9 = load i64, ptr %8, align 8, !range !385, !noalias !1309, !noundef !4
   %10 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !1312
   %11 = icmp eq i64 %10, 1
   br i1 %11, label %12, label %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hf5bfaa0700a2c0a5E.exit.i"
 
 12:                                               ; preds = %6
   tail call void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.10409712727403535664(i8 noundef 2), !noalias !1312
-  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h743a4907ff29b601E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
+  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h743a4907ff29b601E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3), !noalias !1309
   br label %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hf5bfaa0700a2c0a5E.exit.i"
 
 "_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hf5bfaa0700a2c0a5E.exit.i": ; preds = %12, %6
@@ -17309,6 +17311,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hea2c0d4fc5804cb8E"(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) initializes((0, 24)) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(24) %1) unnamed_addr #3 {
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1333)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %5, label %3
 
@@ -17323,7 +17326,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3, %2
-  %6 = tail call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17ha9236b60ee6bd33cE()
+  %6 = tail call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17ha9236b60ee6bd33cE(), !noalias !1333
   br label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17he1cd5fdb54a1fe17E.llvm.3466590722360702098.exit"
 
 7:                                                ; preds = %3
@@ -86558,7 +86561,7 @@ attributes #46 = { cold }
 !1309 = !{!1310}
 !1310 = distinct !{!1310, !1311, !"_ZN17crossbeam_channel5waker17current_thread_id9THREAD_ID7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h40d055a46851d953E.llvm.3466590722360702098: argument 0"}
 !1311 = distinct !{!1311, !"_ZN17crossbeam_channel5waker17current_thread_id9THREAD_ID7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h40d055a46851d953E.llvm.3466590722360702098"}
-!1312 = !{!1313, !1315, !1317, !1319}
+!1312 = !{!1313, !1315, !1317, !1319, !1310}
 !1313 = distinct !{!1313, !1314, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5aee3600115f37f2E.llvm.10409712727403535664: argument 0"}
 !1314 = distinct !{!1314, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5aee3600115f37f2E.llvm.10409712727403535664"}
 !1315 = distinct !{!1315, !1316, !"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Inner$GT$$GT$17hc49e243de9c1964dE.llvm.10409712727403535664: argument 0"}
@@ -89475,7 +89478,7 @@ attributes #46 = { cold }
 !4226 = distinct !{!4226, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E"}
 !4227 = distinct !{!4227, !4226, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E: argument 1"}
 !4228 = !{!4218, !4221, !4223, !4225}
-!4229 = !{!4220, !4224, !4227}
+!4229 = !{!4220, !4223, !4224, !4227}
 !4230 = !{!4231}
 !4231 = distinct !{!4231, !4232, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h694073d213be84f3E.llvm.3466590722360702098: argument 0"}
 !4232 = distinct !{!4232, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h694073d213be84f3E.llvm.3466590722360702098"}
@@ -91372,7 +91375,7 @@ attributes #46 = { cold }
 !6123 = distinct !{!6123, !6121, !"_ZN17crossbeam_channel6select17SelectedOperation4recv17h9a8932c5d8bebc49E: argument 0"}
 !6124 = distinct !{!6124, !6121, !"_ZN17crossbeam_channel6select17SelectedOperation4recv17h9a8932c5d8bebc49E: argument 2"}
 !6125 = !{!6123, !6120, !6124, !6110, !6113}
-!6126 = !{!6123, !6120, !6110}
+!6126 = !{!6123, !6120, !6124, !6110}
 !6127 = !{!6123, !6110}
 !6128 = !{!6129}
 !6129 = distinct !{!6129, !6130, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h985300ac98612e73E.llvm.13625555649392560756: argument 1"}
@@ -91387,7 +91390,7 @@ attributes #46 = { cold }
 !6138 = distinct !{!6138, !6136, !"_ZN17crossbeam_channel6select17SelectedOperation4recv17h27865c2ce49d705cE: argument 0"}
 !6139 = distinct !{!6139, !6136, !"_ZN17crossbeam_channel6select17SelectedOperation4recv17h27865c2ce49d705cE: argument 2"}
 !6140 = !{!6138, !6135, !6139, !6110, !6113}
-!6141 = !{!6138, !6135, !6110}
+!6141 = !{!6138, !6135, !6139, !6110}
 !6142 = !{!6138, !6110}
 !6143 = !{!6144}
 !6144 = distinct !{!6144, !6145, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h82b73f7708b9f4baE.llvm.13625555649392560756: argument 1"}
@@ -91401,7 +91404,7 @@ attributes #46 = { cold }
 !6152 = distinct !{!6152, !6150, !"_ZN17crossbeam_channel6select17SelectedOperation4recv17h74919f912dbe93b8E: argument 0"}
 !6153 = distinct !{!6153, !6150, !"_ZN17crossbeam_channel6select17SelectedOperation4recv17h74919f912dbe93b8E: argument 2"}
 !6154 = !{!6152, !6149, !6153, !6110, !6113}
-!6155 = !{!6152, !6149, !6110}
+!6155 = !{!6152, !6149, !6153, !6110}
 !6156 = !{!6152, !6110}
 !6157 = !{!6158}
 !6158 = distinct !{!6158, !6159, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h265c795053639f08E.llvm.13625555649392560756: argument 1"}
@@ -91415,7 +91418,7 @@ attributes #46 = { cold }
 !6166 = distinct !{!6166, !6164, !"_ZN17crossbeam_channel6select17SelectedOperation4recv17h27865c2ce49d705cE: argument 0"}
 !6167 = distinct !{!6167, !6164, !"_ZN17crossbeam_channel6select17SelectedOperation4recv17h27865c2ce49d705cE: argument 2"}
 !6168 = !{!6166, !6163, !6167, !6110, !6113}
-!6169 = !{!6166, !6163, !6110}
+!6169 = !{!6166, !6163, !6167, !6110}
 !6170 = !{!6166, !6110}
 !6171 = !{!6172}
 !6172 = distinct !{!6172, !6173, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h82b73f7708b9f4baE.llvm.13625555649392560756: argument 1"}
@@ -91429,7 +91432,7 @@ attributes #46 = { cold }
 !6180 = distinct !{!6180, !6178, !"_ZN17crossbeam_channel6select17SelectedOperation4recv17he69a892a148ba4b8E: argument 0"}
 !6181 = distinct !{!6181, !6178, !"_ZN17crossbeam_channel6select17SelectedOperation4recv17he69a892a148ba4b8E: argument 2"}
 !6182 = !{!6180, !6177, !6181, !6110, !6113}
-!6183 = !{!6180, !6177, !6110}
+!6183 = !{!6180, !6177, !6181, !6110}
 !6184 = !{!6180, !6110}
 !6185 = !{!6186}
 !6186 = distinct !{!6186, !6187, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd7743fe7140e4544E.llvm.13625555649392560756: argument 1"}
@@ -91443,7 +91446,7 @@ attributes #46 = { cold }
 !6194 = distinct !{!6194, !6192, !"_ZN17crossbeam_channel6select17SelectedOperation4recv17h3e5370eba6f9cba9E: argument 0"}
 !6195 = distinct !{!6195, !6192, !"_ZN17crossbeam_channel6select17SelectedOperation4recv17h3e5370eba6f9cba9E: argument 2"}
 !6196 = !{!6194, !6191, !6195, !6110, !6113}
-!6197 = !{!6194, !6191, !6110}
+!6197 = !{!6194, !6191, !6195, !6110}
 !6198 = !{!6194, !6110}
 !6199 = !{!6200}
 !6200 = distinct !{!6200, !6201, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h09f55c4889c6370bE.llvm.13625555649392560756: argument 1"}
@@ -91457,7 +91460,7 @@ attributes #46 = { cold }
 !6208 = distinct !{!6208, !6206, !"_ZN17crossbeam_channel6select17SelectedOperation4recv17hff87593d31f777adE: argument 0"}
 !6209 = distinct !{!6209, !6206, !"_ZN17crossbeam_channel6select17SelectedOperation4recv17hff87593d31f777adE: argument 2"}
 !6210 = !{!6208, !6205, !6209, !6110, !6113}
-!6211 = !{!6208, !6205, !6110}
+!6211 = !{!6208, !6205, !6209, !6110}
 !6212 = !{!6208, !6110}
 !6213 = !{!6214}
 !6214 = distinct !{!6214, !6215, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4dfb59928046a871E.llvm.13625555649392560756: argument 1"}

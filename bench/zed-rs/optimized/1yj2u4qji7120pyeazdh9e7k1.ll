@@ -8688,7 +8688,7 @@ common.resume:                                    ; preds = %22, %8, %12, %16
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #36
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #36, !noalias !1757
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h41d229370d58dd2fE.llvm.16694743745626734303.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7ad368360613c138E.llvm.16694743745626734303.exit", %21
@@ -25581,7 +25581,7 @@ attributes #42 = { cold "function-inline-cost-multiplier"="2" }
 !1540 = distinct !{!1540, !1539, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h3df99ce0dfed309aE.llvm.16694743745626734303: argument 1"}
 !1541 = distinct !{!1541, !1539, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h3df99ce0dfed309aE.llvm.16694743745626734303: argument 2"}
 !1542 = !{!1535, !1538, !1540}
-!1543 = !{!1537, !1541}
+!1543 = !{!1537, !1540, !1541}
 !1544 = !{!1545}
 !1545 = distinct !{!1545, !1546, !"_ZN4core3ptr69drop_in_place$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$17h459694e29bc6585dE.llvm.16694743745626734303: argument 0"}
 !1546 = distinct !{!1546, !"_ZN4core3ptr69drop_in_place$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$17h459694e29bc6585dE.llvm.16694743745626734303"}

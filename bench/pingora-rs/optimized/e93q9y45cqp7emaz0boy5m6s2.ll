@@ -204,7 +204,7 @@ switch.lookup:                                    ; preds = %10
   %.sroa.0.0.i.i.in = phi ptr [ %12, %13 ], [ %switch.gep1, %switch.lookup ]
   %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.i.i.in, align 8, !nonnull !3, !noundef !3
   %.sroa.3.0.i.i = load i64, ptr %.sroa.3.0.i.i.in, align 8
-  tail call void @_ZN5bytes5bytes5Bytes15copy_from_slice17h8538a77de2500018E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.3.0.i.i)
+  tail call void @_ZN5bytes5bytes5Bytes15copy_from_slice17h8538a77de2500018E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.3.0.i.i), !noalias !17
   br label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h9fa920550db9e6faE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17h9fa920550db9e6faE.exit": ; preds = %5, %"_ZN12pingora_http16case_header_name18titled_header_name28_$u7b$$u7b$closure$u7d$$u7d$17h412fc4d1c747f322E.exit.i"
@@ -325,3 +325,4 @@ attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !14 = distinct !{!14, !15, !"_ZN12pingora_http16case_header_name18titled_header_name28_$u7b$$u7b$closure$u7d$$u7d$17h412fc4d1c747f322E: argument 0"}
 !15 = distinct !{!15, !"_ZN12pingora_http16case_header_name18titled_header_name28_$u7b$$u7b$closure$u7d$$u7d$17h412fc4d1c747f322E"}
 !16 = !{i8 0, i8 81}
+!17 = !{!12}

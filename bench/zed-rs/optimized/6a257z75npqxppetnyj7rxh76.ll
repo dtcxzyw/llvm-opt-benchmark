@@ -46980,7 +46980,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 136
   %28 = load ptr, ptr %27, align 8, !invariant.load !11, !noalias !10407, !nonnull !11
   %29 = invoke { ptr, ptr } %28(ptr noundef nonnull align 1 %24)
-          to label %"_ZN9workspace4item109_$LT$impl$u20$core..clone..Clone$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$5clone17h7974e4f1910db8a4E.exit.i" unwind label %39, !noalias !10406
+          to label %"_ZN9workspace4item109_$LT$impl$u20$core..clone..Clone$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$5clone17h7974e4f1910db8a4E.exit.i" unwind label %39, !noalias !10400
 
 "_ZN9workspace4item109_$LT$impl$u20$core..clone..Clone$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$5clone17h7974e4f1910db8a4E.exit.i": ; preds = %23
   %30 = add nuw nsw i64 %.sroa.7.021.i, 1
@@ -46988,16 +46988,16 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %32 = getelementptr inbounds nuw [0 x { [2 x i64] }], ptr %14, i64 0, i64 %.sroa.7.021.i
   %33 = extractvalue { ptr, ptr } %29, 0
   %34 = extractvalue { ptr, ptr } %29, 1
-  store ptr %33, ptr %32, align 8, !noalias !10406
+  store ptr %33, ptr %32, align 8, !noalias !10400
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr %34, ptr %35, align 8, !noalias !10406
+  store ptr %34, ptr %35, align 8, !noalias !10400
   %36 = icmp eq i64 %21, 0
   br i1 %36, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hf251501cb8e3ff0bE.llvm.12597586636751361339.exit", label %.lr.ph.i
 
 37:                                               ; preds = %39
   %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #48, !noalias !10406
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #48, !noalias !10400
   unreachable
 
 39:                                               ; preds = %23
@@ -47005,7 +47005,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
           cleanup
   store i64 %.sroa.7.021.i, ptr %16, align 8, !noalias !10400
   invoke void @"_ZN4core3ptr104drop_in_place$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$GT$17h9be877cdcf9b5ce1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #49
-          to label %40 unwind label %37, !noalias !10406
+          to label %40 unwind label %37, !noalias !10400
 
 40:                                               ; preds = %39
   resume { ptr, i32 } %lpad.loopexit.i
@@ -68434,7 +68434,7 @@ attributes #52 = { noreturn nounwind }
 !10404 = distinct !{!10404, !"_ZN9workspace4item109_$LT$impl$u20$core..clone..Clone$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$5clone17h7974e4f1910db8a4E"}
 !10405 = !{!10403, !10398}
 !10406 = !{!10401}
-!10407 = !{!10403, !10401}
+!10407 = !{!10403, !10401, !10398}
 !10408 = !{!10409}
 !10409 = distinct !{!10409, !10410, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h95be37699bfbe416E.llvm.12597586636751361339: argument 1"}
 !10410 = distinct !{!10410, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h95be37699bfbe416E.llvm.12597586636751361339"}

@@ -22042,9 +22042,9 @@ select.unfold.i.i.i.i.i.i.i:                      ; preds = %.sink.split.i.i.i.i
 
 423:                                              ; preds = %.noexc488
   %424 = getelementptr inbounds nuw i8, ptr %416, i64 8
-  %425 = load ptr, ptr %424, align 8, !alias.scope !5028, !nonnull !3, !noundef !3
+  %425 = load ptr, ptr %424, align 8, !alias.scope !5028, !noalias !5010, !nonnull !3, !noundef !3
   %426 = getelementptr inbounds nuw i8, ptr %416, i64 16
-  %427 = load i64, ptr %426, align 8, !alias.scope !5028, !noundef !3
+  %427 = load i64, ptr %426, align 8, !alias.scope !5028, !noalias !5010, !noundef !3
   %428 = getelementptr inbounds { { { i64, [2 x i64] }, { i64, [12 x i64] }, ptr }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, i64, { i64, i64 } }, ptr %425, i64 %427
   store ptr %425, ptr %.sroa.0651.sroa.11.0..sroa_idx, align 8, !alias.scope !5031, !noalias !5010
   store ptr %428, ptr %167, align 8, !alias.scope !5031, !noalias !5010
@@ -22108,9 +22108,9 @@ select.unfold.i.i.i.i:                            ; preds = %.sink.split.i.i.i.i
 
 452:                                              ; preds = %.noexc489
   %453 = getelementptr inbounds nuw i8, ptr %445, i64 8
-  %454 = load ptr, ptr %453, align 8, !alias.scope !5062, !nonnull !3, !noundef !3
+  %454 = load ptr, ptr %453, align 8, !alias.scope !5062, !noalias !5037, !nonnull !3, !noundef !3
   %455 = getelementptr inbounds nuw i8, ptr %445, i64 16
-  %456 = load i64, ptr %455, align 8, !alias.scope !5062, !noundef !3
+  %456 = load i64, ptr %455, align 8, !alias.scope !5062, !noalias !5037, !noundef !3
   %457 = getelementptr inbounds { { { i64, [2 x i64] }, { i64, [12 x i64] }, ptr }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, i64, { i64, i64 } }, ptr %454, i64 %456
   store ptr %454, ptr %.sroa.0651.sroa.0.sroa.10.0..sroa_idx, align 8, !alias.scope !5065, !noalias !5037
   store ptr %457, ptr %.sroa.0651.sroa.0.sroa.11.0..sroa_idx, align 8, !alias.scope !5065, !noalias !5037

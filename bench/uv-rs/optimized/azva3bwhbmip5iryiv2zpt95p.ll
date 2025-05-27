@@ -8694,7 +8694,7 @@ _ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17hb24c771b06813831E.e
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %9), !noalias !2274
   %sext63 = shl i64 %.sroa.022.0.copyload, 32
   %449 = ashr exact i64 %sext63, 32
-  call void @_ZN4jiff3fmt4util10Fractional3new17h40e3816bb2a73ea6E(ptr noalias noundef nonnull sret([10 x i8]) align 1 captures(none) dereferenceable(10) %9, ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %13, i64 noundef %449), !noalias !2360
+  call void @_ZN4jiff3fmt4util10Fractional3new17h40e3816bb2a73ea6E(ptr noalias noundef nonnull sret([10 x i8]) align 1 captures(none) dereferenceable(10) %9, ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %13, i64 noundef %449), !noalias !2274
   %450 = call fastcc { i64, ptr } @_ZN4jiff3fmt8WriteExt16write_fractional17hd93287ea6138aabfE(ptr nonnull readonly align 8 dereferenceable(8) %26, ptr noalias noundef readonly align 1 dereferenceable(10) %9), !noalias !2360
   %451 = extractvalue { i64, ptr } %450, 0
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %9), !noalias !2274
@@ -9712,7 +9712,7 @@ _ZN4jiff3fmt8temporal7printer15DateTimePrinter10print_time17h84bce1b2d5321252E.e
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %8), !noalias !2512
   %sext23 = shl i64 %.0.val, 32
   %448 = ashr exact i64 %sext23, 32
-  call void @_ZN4jiff3fmt4util10Fractional3new17h40e3816bb2a73ea6E(ptr noalias noundef nonnull sret([10 x i8]) align 1 captures(none) dereferenceable(10) %8, ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %12, i64 noundef %448), !noalias !2633
+  call void @_ZN4jiff3fmt4util10Fractional3new17h40e3816bb2a73ea6E(ptr noalias noundef nonnull sret([10 x i8]) align 1 captures(none) dereferenceable(10) %8, ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %12, i64 noundef %448), !noalias !2512
   %449 = call fastcc { i64, ptr } @_ZN4jiff3fmt8WriteExt16write_fractional17he7e8f07525317590E(ptr nonnull readonly align 8 dereferenceable(8) %25, ptr noalias noundef readonly align 1 dereferenceable(10) %8), !noalias !2633
   %450 = extractvalue { i64, ptr } %449, 0
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %8), !noalias !2512

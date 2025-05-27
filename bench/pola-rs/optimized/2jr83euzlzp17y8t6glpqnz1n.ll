@@ -17888,7 +17888,7 @@ common.resume:                                    ; preds = %184, %.body83, %.bo
   %233 = getelementptr inbounds nuw { ptr, i64 }, ptr %232, i64 %228
   store ptr %226, ptr %233, align 8, !noalias !1150
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
-  store i64 %205, ptr %234, align 8
+  store i64 %205, ptr %234, align 8, !noalias !1135
   %235 = add i64 %228, 1
   store i64 %235, ptr %133, align 8, !alias.scope !1144, !noalias !1147
   %236 = add i64 %219, 1
@@ -17951,7 +17951,7 @@ common.resume:                                    ; preds = %184, %.body83, %.bo
   %257 = getelementptr inbounds nuw { ptr, i64 }, ptr %256, i64 %252
   store ptr %249, ptr %257, align 8, !noalias !1157
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
-  store i64 %246, ptr %258, align 8
+  store i64 %246, ptr %258, align 8, !noalias !1135
   %259 = add i64 %252, 1
   store i64 %259, ptr %133, align 8, !alias.scope !1151, !noalias !1154
   %260 = add i64 %242, 1
@@ -22040,14 +22040,14 @@ attributes #23 = { nounwind }
 !1147 = !{!1148, !1149, !1141, !1142, !1136}
 !1148 = distinct !{!1148, !1146, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbd84f179efedb956E: argument 1"}
 !1149 = distinct !{!1149, !1146, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbd84f179efedb956E: argument 2"}
-!1150 = !{!1148}
+!1150 = !{!1148, !1136}
 !1151 = !{!1152, !1139}
 !1152 = distinct !{!1152, !1153, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbd84f179efedb956E: argument 0"}
 !1153 = distinct !{!1153, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbd84f179efedb956E"}
 !1154 = !{!1155, !1156, !1141, !1142, !1136}
 !1155 = distinct !{!1155, !1153, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbd84f179efedb956E: argument 1"}
 !1156 = distinct !{!1156, !1153, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbd84f179efedb956E: argument 2"}
-!1157 = !{!1155}
+!1157 = !{!1155, !1136}
 !1158 = !{!1141, !1142, !1136, !1139}
 !1159 = !{!1160}
 !1160 = distinct !{!1160, !1161, !"_ZN95_$LT$polars_arrow..array..fixed_size_list..FixedSizeListArray$u20$as$u20$core..clone..Clone$GT$5clone17h40ce2793a8752462E: argument 0"}

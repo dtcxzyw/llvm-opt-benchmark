@@ -288,7 +288,7 @@ define void @png_set_cHRM_XYZ(ptr noalias noundef %0, ptr noalias noundef captur
   store i32 %21, ptr %32, align 4, !tbaa !41, !noalias !53
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i32 %22, ptr %33, align 4, !tbaa !42, !noalias !53
-  %34 = call i32 @png_xy_from_XYZ(ptr noundef nonnull %13, ptr noundef nonnull %12) #12
+  %34 = call i32 @png_xy_from_XYZ(ptr noundef nonnull %13, ptr noundef nonnull %12) #12, !noalias !53
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %41
 
@@ -302,7 +302,7 @@ define void @png_set_cHRM_XYZ(ptr noalias noundef %0, ptr noalias noundef captur
   br label %png_set_cHRM_XYZ_fixed.exit
 
 41:                                               ; preds = %25
-  call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str) #12
+  call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str) #12, !noalias !50
   br label %png_set_cHRM_XYZ_fixed.exit
 
 png_set_cHRM_XYZ_fixed.exit:                      ; preds = %11, %36, %41
@@ -384,6 +384,7 @@ declare void @png_chunk_report(ptr noundef, ptr noundef, i32 noundef) local_unna
 define void @png_set_cLLI(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, double noundef %2, double noundef %3) local_unnamed_addr #2 {
   %5 = tail call i32 @png_fixed_ITU(ptr noundef %0, double noundef %2, ptr noundef nonnull @.str.14) #12
   %6 = tail call i32 @png_fixed_ITU(ptr noundef %0, double noundef %3, ptr noundef nonnull @.str.15) #12
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %1, null
   %or.cond.i = or i1 %7, %8
@@ -395,7 +396,7 @@ define void @png_set_cLLI(ptr noalias noundef %0, ptr noalias noundef captures(a
   br i1 %or.cond3.not.i, label %12, label %11
 
 11:                                               ; preds = %9
-  tail call void @png_chunk_report(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, i32 noundef 1) #12
+  tail call void @png_chunk_report(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, i32 noundef 1) #12, !noalias !62
   br label %png_set_cLLI_fixed.exit
 
 12:                                               ; preds = %9

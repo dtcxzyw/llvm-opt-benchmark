@@ -5871,7 +5871,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h0d07a08bae59a84eE.exit.thr
 82:                                               ; preds = %.body.i.i
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #65, !noalias !1563
+  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #65, !noalias !1565
   unreachable
 
 84:                                               ; preds = %.loopexit, %10

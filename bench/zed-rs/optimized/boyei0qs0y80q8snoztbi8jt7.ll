@@ -4450,11 +4450,12 @@ define hidden noundef i64 @"_ZN94_$LT$live_kit_server..proto..RoomCompositeEgres
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = load i64, ptr %36, align 8, !range !67, !noundef !4
   %38 = icmp eq i64 %37, -9223372036854775806
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1278)
   br i1 %38, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hb1c85323ae5cfc46E.exit", label %39
 
 39:                                               ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.11538535937534900153.exit20"
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1278)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1281)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1284)
   %40 = xor i64 %37, -9223372036854775808
   %41 = tail call i64 @llvm.umin.i64(i64 %40, i64 2)
   switch i64 %41, label %default.unreachable [
@@ -4468,14 +4469,14 @@ default.unreachable:                              ; preds = %39
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %44 = tail call noundef i64 @"_ZN85_$LT$live_kit_server..proto..EncodedFileOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h8b74f9651e3ee332E.llvm.11538535937534900153"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %43), !alias.scope !1284
+  %44 = tail call noundef i64 @"_ZN85_$LT$live_kit_server..proto..EncodedFileOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h8b74f9651e3ee332E.llvm.11538535937534900153"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %43), !alias.scope !1287
   br label %_ZN4core3ops8function6FnOnce9call_once17h892c6be898aefc43E.exit.i
 
 45:                                               ; preds = %39
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1289)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1292)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1290)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1293)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %47 = load i32, ptr %46, align 8, !alias.scope !1295, !noundef !4
+  %47 = load i32, ptr %46, align 8, !alias.scope !1296, !noundef !4
   %.not.i.i.i.i.i = icmp eq i32 %47, 0
   br i1 %.not.i.i.i.i.i, label %57, label %48
 
@@ -4493,9 +4494,9 @@ default.unreachable:                              ; preds = %39
 57:                                               ; preds = %48, %45
   %.sroa.0.0.i.i.i.i.i = phi i64 [ %56, %48 ], [ 0, %45 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %59 = load ptr, ptr %58, align 8, !alias.scope !1295, !nonnull !4, !noundef !4
+  %59 = load ptr, ptr %58, align 8, !alias.scope !1296, !nonnull !4, !noundef !4
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %61 = load i64, ptr %60, align 8, !alias.scope !1295, !noundef !4
+  %61 = load i64, ptr %60, align 8, !alias.scope !1296, !noundef !4
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %_ZN5prost8encoding7message11encoded_len17hf3113b9292f353efE.exit.i.i.i, label %.preheader.i.i.i.i.i
 
@@ -6499,7 +6500,7 @@ attributes #25 = { cold noreturn nounwind }
 !167 = distinct !{!167, !166, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb683641a204a1efdE.llvm.11538535937534900153: argument 1"}
 !168 = distinct !{!168, !166, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb683641a204a1efdE.llvm.11538535937534900153: argument 2"}
 !169 = !{!162, !165, !167}
-!170 = !{!164, !168}
+!170 = !{!164, !167, !168}
 !171 = !{!172}
 !172 = distinct !{!172, !173, !"_ZN5prost8encoding93_$LT$impl$u20$prost..encoding..sealed..BytesAdapter$u20$for$u20$alloc..vec..Vec$LT$u8$GT$$GT$3len17h52f17b55c744e9ddE.llvm.11538535937534900153: argument 0"}
 !173 = distinct !{!173, !"_ZN5prost8encoding93_$LT$impl$u20$prost..encoding..sealed..BytesAdapter$u20$for$u20$alloc..vec..Vec$LT$u8$GT$$GT$3len17h52f17b55c744e9ddE.llvm.11538535937534900153"}
@@ -6577,7 +6578,7 @@ attributes #25 = { cold noreturn nounwind }
 !245 = distinct !{!245, !244, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb683641a204a1efdE.llvm.11538535937534900153: argument 1"}
 !246 = distinct !{!246, !244, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb683641a204a1efdE.llvm.11538535937534900153: argument 2"}
 !247 = !{!240, !243, !245}
-!248 = !{!242, !246}
+!248 = !{!242, !245, !246}
 !249 = !{!250}
 !250 = distinct !{!250, !251, !"_ZN72_$LT$live_kit_server..proto..Codec$u20$as$u20$core..default..Default$GT$7default17he6bf2757dfd161b6E: argument 0"}
 !251 = distinct !{!251, !"_ZN72_$LT$live_kit_server..proto..Codec$u20$as$u20$core..default..Default$GT$7default17he6bf2757dfd161b6E"}
@@ -6595,7 +6596,7 @@ attributes #25 = { cold noreturn nounwind }
 !263 = distinct !{!263, !262, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb683641a204a1efdE.llvm.11538535937534900153: argument 1"}
 !264 = distinct !{!264, !262, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb683641a204a1efdE.llvm.11538535937534900153: argument 2"}
 !265 = !{!258, !261, !263}
-!266 = !{!260, !264}
+!266 = !{!260, !263, !264}
 !267 = !{!268}
 !268 = distinct !{!268, !269, !"_ZN85_$LT$live_kit_server..proto..SimulcastCodecInfo$u20$as$u20$core..default..Default$GT$7default17hde75876552404af0E: argument 0"}
 !269 = distinct !{!269, !"_ZN85_$LT$live_kit_server..proto..SimulcastCodecInfo$u20$as$u20$core..default..Default$GT$7default17hde75876552404af0E"}
@@ -6613,7 +6614,7 @@ attributes #25 = { cold noreturn nounwind }
 !281 = distinct !{!281, !280, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb683641a204a1efdE.llvm.11538535937534900153: argument 1"}
 !282 = distinct !{!282, !280, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb683641a204a1efdE.llvm.11538535937534900153: argument 2"}
 !283 = !{!276, !279, !281}
-!284 = !{!278, !282}
+!284 = !{!278, !281, !282}
 !285 = !{!286}
 !286 = distinct !{!286, !287, !"_ZN77_$LT$live_kit_server..proto..VideoLayer$u20$as$u20$core..default..Default$GT$7default17h291874d3a80aee9aE: argument 0"}
 !287 = distinct !{!287, !"_ZN77_$LT$live_kit_server..proto..VideoLayer$u20$as$u20$core..default..Default$GT$7default17h291874d3a80aee9aE"}
@@ -6635,7 +6636,7 @@ attributes #25 = { cold noreturn nounwind }
 !303 = distinct !{!303, !302, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb683641a204a1efdE.llvm.11538535937534900153: argument 1"}
 !304 = distinct !{!304, !302, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb683641a204a1efdE.llvm.11538535937534900153: argument 2"}
 !305 = !{!298, !301, !303}
-!306 = !{!300, !304}
+!306 = !{!300, !303, !304}
 !307 = !{!308}
 !308 = distinct !{!308, !309, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h03b29d9b39988629E: argument 0"}
 !309 = distinct !{!309, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h03b29d9b39988629E"}
@@ -6650,7 +6651,7 @@ attributes #25 = { cold noreturn nounwind }
 !318 = distinct !{!318, !317, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb683641a204a1efdE.llvm.11538535937534900153: argument 1"}
 !319 = distinct !{!319, !317, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb683641a204a1efdE.llvm.11538535937534900153: argument 2"}
 !320 = !{!313, !316, !318}
-!321 = !{!315, !319}
+!321 = !{!315, !318, !319}
 !322 = !{!323, !325, !326, !328, !329}
 !323 = distinct !{!323, !324, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h0e4cf27796d9dbeeE: argument 0"}
 !324 = distinct !{!324, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h0e4cf27796d9dbeeE"}
@@ -6660,7 +6661,7 @@ attributes #25 = { cold noreturn nounwind }
 !328 = distinct !{!328, !327, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb683641a204a1efdE.llvm.11538535937534900153: argument 1"}
 !329 = distinct !{!329, !327, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb683641a204a1efdE.llvm.11538535937534900153: argument 2"}
 !330 = !{!323, !326, !328}
-!331 = !{!325, !329}
+!331 = !{!325, !328, !329}
 !332 = !{!333, !335, !337, !339, !341, !343}
 !333 = distinct !{!333, !334, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hf36ac597b5e9d725E.llvm.12860031636858333160: argument 0"}
 !334 = distinct !{!334, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hf36ac597b5e9d725E.llvm.12860031636858333160"}
@@ -7608,25 +7609,25 @@ attributes #25 = { cold noreturn nounwind }
 !1276 = !{!1277}
 !1277 = distinct !{!1277, !1275, !"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.11538535937534900153: argument 1"}
 !1278 = !{!1279}
-!1279 = distinct !{!1279, !1280, !"_ZN4core3ops8function6FnOnce9call_once17h892c6be898aefc43E: argument 0"}
-!1280 = distinct !{!1280, !"_ZN4core3ops8function6FnOnce9call_once17h892c6be898aefc43E"}
+!1279 = distinct !{!1279, !1280, !"_ZN4core6option15Option$LT$T$GT$6map_or17hb1c85323ae5cfc46E: argument 0"}
+!1280 = distinct !{!1280, !"_ZN4core6option15Option$LT$T$GT$6map_or17hb1c85323ae5cfc46E"}
 !1281 = !{!1282}
-!1282 = distinct !{!1282, !1283, !"_ZN15live_kit_server5proto29room_composite_egress_request6Output11encoded_len17h81e5324981bcc799E: argument 0"}
-!1283 = distinct !{!1283, !"_ZN15live_kit_server5proto29room_composite_egress_request6Output11encoded_len17h81e5324981bcc799E"}
-!1284 = !{!1285, !1282, !1279, !1287}
-!1285 = distinct !{!1285, !1286, !"_ZN5prost8encoding7message11encoded_len17hd1e8a4d11363f1b2E: argument 0"}
-!1286 = distinct !{!1286, !"_ZN5prost8encoding7message11encoded_len17hd1e8a4d11363f1b2E"}
-!1287 = distinct !{!1287, !1288, !"_ZN4core6option15Option$LT$T$GT$6map_or17hb1c85323ae5cfc46E: argument 0"}
-!1288 = distinct !{!1288, !"_ZN4core6option15Option$LT$T$GT$6map_or17hb1c85323ae5cfc46E"}
-!1289 = !{!1290}
-!1290 = distinct !{!1290, !1291, !"_ZN5prost8encoding7message11encoded_len17hf3113b9292f353efE: argument 0"}
-!1291 = distinct !{!1291, !"_ZN5prost8encoding7message11encoded_len17hf3113b9292f353efE"}
-!1292 = !{!1293}
-!1293 = distinct !{!1293, !1294, !"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h8c4170515e00c5b7E.llvm.11538535937534900153: argument 0"}
-!1294 = distinct !{!1294, !"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h8c4170515e00c5b7E.llvm.11538535937534900153"}
-!1295 = !{!1293, !1290, !1282, !1279, !1287}
-!1296 = !{!1293, !1290, !1282, !1279}
-!1297 = !{!1298, !1282, !1279, !1287}
+!1282 = distinct !{!1282, !1283, !"_ZN4core3ops8function6FnOnce9call_once17h892c6be898aefc43E: argument 0"}
+!1283 = distinct !{!1283, !"_ZN4core3ops8function6FnOnce9call_once17h892c6be898aefc43E"}
+!1284 = !{!1285}
+!1285 = distinct !{!1285, !1286, !"_ZN15live_kit_server5proto29room_composite_egress_request6Output11encoded_len17h81e5324981bcc799E: argument 0"}
+!1286 = distinct !{!1286, !"_ZN15live_kit_server5proto29room_composite_egress_request6Output11encoded_len17h81e5324981bcc799E"}
+!1287 = !{!1288, !1285, !1282, !1279}
+!1288 = distinct !{!1288, !1289, !"_ZN5prost8encoding7message11encoded_len17hd1e8a4d11363f1b2E: argument 0"}
+!1289 = distinct !{!1289, !"_ZN5prost8encoding7message11encoded_len17hd1e8a4d11363f1b2E"}
+!1290 = !{!1291}
+!1291 = distinct !{!1291, !1292, !"_ZN5prost8encoding7message11encoded_len17hf3113b9292f353efE: argument 0"}
+!1292 = distinct !{!1292, !"_ZN5prost8encoding7message11encoded_len17hf3113b9292f353efE"}
+!1293 = !{!1294}
+!1294 = distinct !{!1294, !1295, !"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h8c4170515e00c5b7E.llvm.11538535937534900153: argument 0"}
+!1295 = distinct !{!1295, !"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h8c4170515e00c5b7E.llvm.11538535937534900153"}
+!1296 = !{!1294, !1291, !1285, !1282, !1279}
+!1297 = !{!1298, !1285, !1282, !1279}
 !1298 = distinct !{!1298, !1299, !"_ZN5prost8encoding7message11encoded_len17h3b6bf12ec79c336aE: argument 0"}
 !1299 = distinct !{!1299, !"_ZN5prost8encoding7message11encoded_len17h3b6bf12ec79c336aE"}
 !1300 = !{i32 0, i32 3}

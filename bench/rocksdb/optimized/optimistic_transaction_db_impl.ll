@@ -1003,23 +1003,23 @@ define void @_ZN7rocksdb23OptimisticTransactionDB4OpenERKNS_7OptionsERKNSt7__cxx
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %20 = load atomic i64, ptr %19 acquire, align 8
+  %20 = load atomic i64, ptr %19 acquire, align 8, !noalias !55
   %21 = icmp eq i64 %20, 4294967297
   %22 = trunc i64 %20 to i32
   br i1 %21, label %23, label %31
 
 23:                                               ; preds = %18
-  store i32 0, ptr %19, align 8, !tbaa !22
+  store i32 0, ptr %19, align 8, !tbaa !22, !noalias !55
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  store i32 0, ptr %24, align 4, !tbaa !25
-  %25 = load ptr, ptr %17, align 8, !tbaa !26
+  store i32 0, ptr %24, align 4, !tbaa !25, !noalias !55
+  %25 = load ptr, ptr %17, align 8, !tbaa !26, !noalias !55
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(16) %17) #24
-  %28 = load ptr, ptr %17, align 8, !tbaa !26
+  %27 = load ptr, ptr %26, align 8, !noalias !55
+  call void %27(ptr noundef nonnull align 8 dereferenceable(16) %17) #24, !noalias !55
+  %28 = load ptr, ptr %17, align 8, !tbaa !26, !noalias !55
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %30 = load ptr, ptr %29, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(16) %17) #24
+  %30 = load ptr, ptr %29, align 8, !noalias !55
+  call void %30(ptr noundef nonnull align 8 dereferenceable(16) %17) #24, !noalias !55
   br label %41
 
 31:                                               ; preds = %18
@@ -1029,11 +1029,11 @@ define void @_ZN7rocksdb23OptimisticTransactionDB4OpenERKNS_7OptionsERKNSt7__cxx
 
 33:                                               ; preds = %31
   %34 = add nsw i32 %22, -1
-  store i32 %34, ptr %19, align 4, !tbaa !63
+  store i32 %34, ptr %19, align 4, !tbaa !63, !noalias !55
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 35:                                               ; preds = %31
-  %36 = atomicrmw volatile add ptr %19, i32 -1 acq_rel, align 4
+  %36 = atomicrmw volatile add ptr %19, i32 -1 acq_rel, align 4, !noalias !55
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %35, %33
@@ -1042,13 +1042,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %35, %3
   br i1 %37, label %38, label %41, !prof !64
 
 38:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #24
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #24, !noalias !55
   br label %41
 
 .body:                                            ; preds = %12
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7rocksdb30OptimisticTransactionDBOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #24
+  call void @_ZN7rocksdb30OptimisticTransactionDBOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #24, !noalias !55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24, !noalias !55
   %40 = load ptr, ptr %9, align 8, !tbaa !65
   %.not.i.i.i15 = icmp eq ptr %40, null

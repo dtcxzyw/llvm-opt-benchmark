@@ -3975,6 +3975,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.011.0.i28, i64 16, i1 false)
   %95 = getelementptr i8, ptr %2, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.01.0.i18, i64 16, i1 false)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !921)
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 112
   br label %.lr.ph.i
 
@@ -4035,7 +4036,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 124:                                              ; preds = %._crit_edge.i
-  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4e03188016ac0891E() #39
+  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4e03188016ac0891E() #39, !noalias !921
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h46b0eb5de5632029E.exit: ; preds = %._crit_edge.i
@@ -44324,7 +44325,7 @@ attributes #41 = { cold }
 !4126 = distinct !{!4126, !4125, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 1"}
 !4127 = distinct !{!4127, !4125, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 2"}
 !4128 = !{!4121, !4124, !4126}
-!4129 = !{!4123, !4127}
+!4129 = !{!4123, !4126, !4127}
 !4130 = !{!4131}
 !4131 = distinct !{!4131, !4132, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1ac322df7f194b81E: argument 1"}
 !4132 = distinct !{!4132, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1ac322df7f194b81E"}
@@ -44459,7 +44460,7 @@ attributes #41 = { cold }
 !4261 = distinct !{!4261, !4260, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 1"}
 !4262 = distinct !{!4262, !4260, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 2"}
 !4263 = !{!4256, !4259, !4261, !4252, !4254}
-!4264 = !{!4258, !4262}
+!4264 = !{!4258, !4261, !4262}
 !4265 = !{!4266}
 !4266 = distinct !{!4266, !4267, !"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$12from_display17h782e0f84c0fca879E: argument 1"}
 !4267 = distinct !{!4267, !"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$12from_display17h782e0f84c0fca879E"}
@@ -44476,7 +44477,7 @@ attributes #41 = { cold }
 !4278 = distinct !{!4278, !4277, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 1"}
 !4279 = distinct !{!4279, !4277, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 2"}
 !4280 = !{!4273, !4276, !4278, !4269, !4271}
-!4281 = !{!4275, !4279}
+!4281 = !{!4275, !4278, !4279}
 !4282 = !{!4283}
 !4283 = distinct !{!4283, !4284, !"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$12from_display17h782e0f84c0fca879E: argument 1"}
 !4284 = distinct !{!4284, !"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$12from_display17h782e0f84c0fca879E"}
@@ -46355,7 +46356,7 @@ attributes #41 = { cold }
 !6157 = distinct !{!6157, !6156, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 1"}
 !6158 = distinct !{!6158, !6156, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 2"}
 !6159 = !{!6152, !6155, !6157}
-!6160 = !{!6154, !6158}
+!6160 = !{!6154, !6157, !6158}
 !6161 = !{!6162, !6164, !6165, !6167, !6168}
 !6162 = distinct !{!6162, !6163, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17he1140ebda80e96b4E.llvm.9821464140440248780: argument 0"}
 !6163 = distinct !{!6163, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17he1140ebda80e96b4E.llvm.9821464140440248780"}
@@ -46365,7 +46366,7 @@ attributes #41 = { cold }
 !6167 = distinct !{!6167, !6166, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 1"}
 !6168 = distinct !{!6168, !6166, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 2"}
 !6169 = !{!6162, !6165, !6167}
-!6170 = !{!6164, !6168}
+!6170 = !{!6164, !6167, !6168}
 !6171 = !{!6172, !6174, !6175, !6177, !6178}
 !6172 = distinct !{!6172, !6173, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17he1140ebda80e96b4E.llvm.9821464140440248780: argument 0"}
 !6173 = distinct !{!6173, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17he1140ebda80e96b4E.llvm.9821464140440248780"}
@@ -46375,7 +46376,7 @@ attributes #41 = { cold }
 !6177 = distinct !{!6177, !6176, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 1"}
 !6178 = distinct !{!6178, !6176, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 2"}
 !6179 = !{!6172, !6175, !6177}
-!6180 = !{!6174, !6178}
+!6180 = !{!6174, !6177, !6178}
 !6181 = !{!6182}
 !6182 = distinct !{!6182, !6183, !"_ZN64_$LT$$LP$D1$C$D2$RP$$u20$as$u20$sum_tree..Dimension$LT$T$GT$$GT$4zero17h13962f7a80354d36E: argument 0"}
 !6183 = distinct !{!6183, !"_ZN64_$LT$$LP$D1$C$D2$RP$$u20$as$u20$sum_tree..Dimension$LT$T$GT$$GT$4zero17h13962f7a80354d36E"}
@@ -46390,7 +46391,7 @@ attributes #41 = { cold }
 !6192 = distinct !{!6192, !6191, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 1"}
 !6193 = distinct !{!6193, !6191, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 2"}
 !6194 = !{!6187, !6190, !6192}
-!6195 = !{!6189, !6193}
+!6195 = !{!6189, !6192, !6193}
 !6196 = !{!6197, !6199, !6200, !6202, !6203}
 !6197 = distinct !{!6197, !6198, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17he1140ebda80e96b4E.llvm.9821464140440248780: argument 0"}
 !6198 = distinct !{!6198, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17he1140ebda80e96b4E.llvm.9821464140440248780"}
@@ -46400,7 +46401,7 @@ attributes #41 = { cold }
 !6202 = distinct !{!6202, !6201, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 1"}
 !6203 = distinct !{!6203, !6201, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 2"}
 !6204 = !{!6197, !6200, !6202}
-!6205 = !{!6199, !6203}
+!6205 = !{!6199, !6202, !6203}
 !6206 = !{!6207, !6209, !6210, !6212, !6213}
 !6207 = distinct !{!6207, !6208, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17he1140ebda80e96b4E.llvm.9821464140440248780: argument 0"}
 !6208 = distinct !{!6208, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17he1140ebda80e96b4E.llvm.9821464140440248780"}
@@ -46410,7 +46411,7 @@ attributes #41 = { cold }
 !6212 = distinct !{!6212, !6211, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 1"}
 !6213 = distinct !{!6213, !6211, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 2"}
 !6214 = !{!6207, !6210, !6212}
-!6215 = !{!6209, !6213}
+!6215 = !{!6209, !6212, !6213}
 !6216 = !{!6217, !6219, !6220, !6222, !6223}
 !6217 = distinct !{!6217, !6218, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17he1140ebda80e96b4E.llvm.9821464140440248780: argument 0"}
 !6218 = distinct !{!6218, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17he1140ebda80e96b4E.llvm.9821464140440248780"}
@@ -46420,7 +46421,7 @@ attributes #41 = { cold }
 !6222 = distinct !{!6222, !6221, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 1"}
 !6223 = distinct !{!6223, !6221, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 2"}
 !6224 = !{!6217, !6220, !6222}
-!6225 = !{!6219, !6223}
+!6225 = !{!6219, !6222, !6223}
 !6226 = !{!6227, !6229, !6230, !6232, !6233}
 !6227 = distinct !{!6227, !6228, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17he1140ebda80e96b4E.llvm.9821464140440248780: argument 0"}
 !6228 = distinct !{!6228, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17he1140ebda80e96b4E.llvm.9821464140440248780"}
@@ -46430,7 +46431,7 @@ attributes #41 = { cold }
 !6232 = distinct !{!6232, !6231, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 1"}
 !6233 = distinct !{!6233, !6231, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 2"}
 !6234 = !{!6227, !6230, !6232}
-!6235 = !{!6229, !6233}
+!6235 = !{!6229, !6232, !6233}
 !6236 = !{!6237}
 !6237 = distinct !{!6237, !6238, !"_ZN5alloc2rc17Weak$LT$T$C$A$GT$7upgrade17h59d2a1fc9905352bE: argument 0"}
 !6238 = distinct !{!6238, !"_ZN5alloc2rc17Weak$LT$T$C$A$GT$7upgrade17h59d2a1fc9905352bE"}
@@ -46587,7 +46588,7 @@ attributes #41 = { cold }
 !6389 = distinct !{!6389, !6388, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 1"}
 !6390 = distinct !{!6390, !6388, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 2"}
 !6391 = !{!6384, !6387, !6389}
-!6392 = !{!6386, !6390}
+!6392 = !{!6386, !6389, !6390}
 !6393 = !{!6394, !6396, !6397, !6399, !6400}
 !6394 = distinct !{!6394, !6395, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17he1140ebda80e96b4E.llvm.9821464140440248780: argument 0"}
 !6395 = distinct !{!6395, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17he1140ebda80e96b4E.llvm.9821464140440248780"}
@@ -46597,7 +46598,7 @@ attributes #41 = { cold }
 !6399 = distinct !{!6399, !6398, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 1"}
 !6400 = distinct !{!6400, !6398, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46ca3c231c1d9e0cE.llvm.9821464140440248780: argument 2"}
 !6401 = !{!6394, !6397, !6399}
-!6402 = !{!6396, !6400}
+!6402 = !{!6396, !6399, !6400}
 !6403 = !{!6404, !6406, !6407, !6409}
 !6404 = distinct !{!6404, !6405, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h3f853ea36ab9433eE.llvm.9821464140440248780: argument 0"}
 !6405 = distinct !{!6405, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h3f853ea36ab9433eE.llvm.9821464140440248780"}

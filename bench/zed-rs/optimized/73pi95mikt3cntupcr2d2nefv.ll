@@ -28479,7 +28479,7 @@ define void @_ZN8language5proto21deserialize_operation17h99e20880dca53c84E(ptr d
   %40 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr34drop_in_place$LT$clock..Global$GT$17heea66aa3ee0599d8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %8) #31
-          to label %.body unwind label %47, !noalias !5700
+          to label %.body unwind label %47, !noalias !5698
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
@@ -28488,12 +28488,12 @@ define void @_ZN8language5proto21deserialize_operation17h99e20880dca53c84E(ptr d
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 4
   %46 = load i32, ptr %45, align 4, !alias.scope !5695, !noalias !5700, !noundef !4
   invoke void @_ZN5clock6Global7observe17h2086ef7b104230b0E(ptr noalias noundef nonnull align 8 dereferenceable(48) %8, i32 noundef %46, i16 noundef %44)
-          to label %37 unwind label %39, !noalias !5700
+          to label %37 unwind label %39, !noalias !5698
 
 47:                                               ; preds = %39
   %48 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28, !noalias !5700
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28, !noalias !5698
   unreachable
 
 49:                                               ; preds = %19
@@ -28845,7 +28845,7 @@ define void @_ZN8language5proto26deserialize_edit_operation17hffee986e666e55beE(
   %21 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr34drop_in_place$LT$clock..Global$GT$17heea66aa3ee0599d8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %3) #31
-          to label %.body unwind label %28, !noalias !5781
+          to label %.body unwind label %28, !noalias !5779
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
@@ -28854,12 +28854,12 @@ define void @_ZN8language5proto26deserialize_edit_operation17hffee986e666e55beE(
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 4
   %27 = load i32, ptr %26, align 4, !alias.scope !5776, !noalias !5781, !noundef !4
   invoke void @_ZN5clock6Global7observe17h2086ef7b104230b0E(ptr noalias noundef nonnull align 8 dereferenceable(48) %3, i32 noundef %27, i16 noundef %25)
-          to label %18 unwind label %20, !noalias !5781
+          to label %18 unwind label %20, !noalias !5779
 
 28:                                               ; preds = %20
   %29 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28, !noalias !5781
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28, !noalias !5779
   unreachable
 
 .body:                                            ; preds = %34, %20, %"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$text..FullOffset$GT$$GT$$GT$17h33ad4bc43b31e7b6E.exit"
@@ -29590,7 +29590,7 @@ define void @_ZN8language5proto23deserialize_transaction17h2166bfd8aed6375dE(ptr
   %43 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr34drop_in_place$LT$clock..Global$GT$17heea66aa3ee0599d8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %3) #31
-          to label %.body unwind label %50, !noalias !5944
+          to label %.body unwind label %50, !noalias !5942
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
@@ -29599,12 +29599,12 @@ define void @_ZN8language5proto23deserialize_transaction17h2166bfd8aed6375dE(ptr
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 4
   %49 = load i32, ptr %48, align 4, !alias.scope !5939, !noalias !5944, !noundef !4
   invoke void @_ZN5clock6Global7observe17h2086ef7b104230b0E(ptr noalias noundef nonnull align 8 dereferenceable(48) %3, i32 noundef %49, i16 noundef %47)
-          to label %40 unwind label %42, !noalias !5944
+          to label %40 unwind label %42, !noalias !5942
 
 50:                                               ; preds = %42
   %51 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28, !noalias !5944
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28, !noalias !5942
   unreachable
 
 52:                                               ; preds = %"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9from_iter17h2435237458f0bfd5E.exit"

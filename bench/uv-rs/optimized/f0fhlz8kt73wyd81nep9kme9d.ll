@@ -5945,7 +5945,7 @@ _ZN9uv_pep4407version14ReleaseNumbers3len17h5a3bab9069f8e271E.exit.thread: ; pre
   store ptr %.sink76.i, ptr %.sink82.i.sroa.phi56, align 8, !noalias !1085
   store i64 %.sink.i, ptr %.sink82.i.sroa.phi59, align 8, !noalias !1085
   invoke void @_ZN4core9panicking9panic_fmt17h5764ee7030b7a73dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink82.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %55) #38
-          to label %.cont.i unwind label %48, !noalias !1070
+          to label %.cont.i unwind label %48, !noalias !1077
 
 .cont.i:                                          ; preds = %.invoke.i
   unreachable
@@ -6010,7 +6010,7 @@ _ZN9uv_pep4407version14ReleaseNumbers3len17h5a3bab9069f8e271E.exit.thread: ; pre
 
 _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.thread.i: ; preds = %72, %70, %.lr.ph.i
   %86 = invoke noundef align 8 dereferenceable(136) ptr @_ZN9uv_pep4407version7Version9make_full17h80bac72c41a6d3c1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %20)
-          to label %87 unwind label %61, !noalias !1070
+          to label %87 unwind label %61, !noalias !1077
 
 _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.i: ; preds = %79, %75
   %.sink.i.i = phi i8 [ 1, %75 ], [ %85, %79 ]
@@ -6027,13 +6027,13 @@ _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.i: ; 
 
 93:                                               ; preds = %87
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h9265e5986b702d3fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %88, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1495de09556023635d9825e3589d5aa9.71)
-          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hda888f7614147de9E.exit.i" unwind label %61, !noalias !1070
+          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hda888f7614147de9E.exit.i" unwind label %61, !noalias !1077
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hda888f7614147de9E.exit.i": ; preds = %93, %87
   %94 = getelementptr inbounds nuw i8, ptr %86, i64 72
   %95 = load ptr, ptr %94, align 8, !alias.scope !1092, !noalias !1095, !nonnull !3, !noundef !3
   %96 = getelementptr inbounds i64, ptr %95, i64 %90
-  store i64 %64, ptr %96, align 8, !noalias !1070
+  store i64 %64, ptr %96, align 8, !noalias !1077
   %97 = add i64 %90, 1
   store i64 %97, ptr %89, align 8, !alias.scope !1092, !noalias !1095
   br label %98
@@ -6061,12 +6061,12 @@ _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.i: ; 
 106:                                              ; preds = %102
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf40a3331c4649117E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %20)
-          to label %.body unwind label %107, !noalias !1070
+          to label %.body unwind label %107, !noalias !1077
 
 107:                                              ; preds = %106
   %108 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #40, !noalias !1070
+  call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #40, !noalias !1077
   unreachable
 
 109:                                              ; preds = %56, %52, %52, %52, %52
@@ -10218,7 +10218,7 @@ attributes #42 = { noreturn nounwind }
 !1083 = !{!1079}
 !1084 = !{!1082, !1079, !1071, !1074, !1076}
 !1085 = !{!1071, !1074, !1076}
-!1086 = !{!1082, !1079, !1071}
+!1086 = !{!1082, !1079, !1071, !1076}
 !1087 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
 !1088 = !{!1071, !1074}
 !1089 = !{!1090, !1074}
@@ -10227,7 +10227,7 @@ attributes #42 = { noreturn nounwind }
 !1092 = !{!1093}
 !1093 = distinct !{!1093, !1094, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hda888f7614147de9E: argument 0"}
 !1094 = distinct !{!1094, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hda888f7614147de9E"}
-!1095 = !{!1096, !1071}
+!1095 = !{!1096, !1071, !1076}
 !1096 = distinct !{!1096, !1094, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hda888f7614147de9E: argument 1"}
 !1097 = !{!1098}
 !1098 = distinct !{!1098, !1099, !"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h79159ee6bbe11941E: argument 0"}
@@ -10243,7 +10243,7 @@ attributes #42 = { noreturn nounwind }
 !1108 = distinct !{!1108, !1109, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h87a23519a4162ff0E.llvm.1469025303238208998: argument 0"}
 !1109 = distinct !{!1109, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h87a23519a4162ff0E.llvm.1469025303238208998"}
 !1110 = !{!1108, !1105, !1101, !1098, !1074}
-!1111 = !{!1108, !1105, !1101, !1098, !1071}
+!1111 = !{!1108, !1105, !1101, !1098, !1071, !1076}
 !1112 = !{!1113}
 !1113 = distinct !{!1113, !1114, !"_ZN9uv_pep4407version7Version10with_epoch17h8734456bea1d1315E: argument 0"}
 !1114 = distinct !{!1114, !"_ZN9uv_pep4407version7Version10with_epoch17h8734456bea1d1315E"}

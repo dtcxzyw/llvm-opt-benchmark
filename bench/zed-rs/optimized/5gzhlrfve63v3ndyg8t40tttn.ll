@@ -98699,6 +98699,7 @@ define hidden void @"_ZN3vim9surrounds26_$LT$impl$u20$vim..Vim$GT$13add_surround
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load i64, ptr %54, align 8, !noundef !22
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !20975)
   %57 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i8, i8, i8, [5 x i8] }, ptr %49, i64 %51
   %58 = icmp eq i64 %51, 0
   br i1 %58, label %.loopexit, label %.lr.ph.i.i
@@ -101054,6 +101055,7 @@ define hidden void @"_ZN3vim9surrounds26_$LT$impl$u20$vim..Vim$GT$16change_surro
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %61 = load i64, ptr %60, align 8, !noundef !22
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !21461)
   %63 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i8, i8, i8, [5 x i8] }, ptr %55, i64 %57
   %64 = icmp eq i64 %57, 0
   br i1 %64, label %.loopexit289, label %.lr.ph.i.i
@@ -126628,7 +126630,7 @@ attributes #29 = { cold noreturn nounwind }
 !20987 = distinct !{!20987, !20988, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E: argument 0"}
 !20988 = distinct !{!20988, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E"}
 !20989 = distinct !{!20989, !20988, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E: argument 1"}
-!20990 = !{!20979, !20981, !20982, !20984}
+!20990 = !{!20979, !20981, !20982, !20984, !20976}
 !20991 = !{!20992, !20994}
 !20992 = distinct !{!20992, !20993, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E: argument 0"}
 !20993 = distinct !{!20993, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E"}
@@ -127114,7 +127116,7 @@ attributes #29 = { cold noreturn nounwind }
 !21473 = distinct !{!21473, !21474, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E: argument 0"}
 !21474 = distinct !{!21474, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E"}
 !21475 = distinct !{!21475, !21474, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E: argument 1"}
-!21476 = !{!21465, !21467, !21468, !21470}
+!21476 = !{!21465, !21467, !21468, !21470, !21462}
 !21477 = !{!21478, !21480}
 !21478 = distinct !{!21478, !21479, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E: argument 0"}
 !21479 = distinct !{!21479, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E"}

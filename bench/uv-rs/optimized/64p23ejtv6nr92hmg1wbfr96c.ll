@@ -8339,31 +8339,31 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.013.020.i, i64 8
   %23 = add nuw nsw i64 %.sroa.7.019.i, 1
   %.val.i = load ptr, ptr %.sroa.013.020.i, align 8, !alias.scope !1421, !noalias !1429, !nonnull !3, !noundef !3
-  %24 = load i64, ptr %.val.i, align 8, !noalias !1429, !noundef !3
+  %24 = load i64, ptr %.val.i, align 8, !noalias !1428, !noundef !3
   %25 = and i64 %24, 1
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %27, label %"_ZN74_$LT$uv_normalize..group_name..GroupName$u20$as$u20$core..clone..Clone$GT$5clone17h7697336a801f6b5aE.exit.i"
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %29 = load atomic i64, ptr %28 monotonic, align 8, !noalias !1429
+  %29 = load atomic i64, ptr %28 monotonic, align 8, !noalias !1428
   %30 = and i64 %29, 1
   %.not.i.i.i = icmp eq i64 %30, 0
   br i1 %.not.i.i.i, label %31, label %"_ZN74_$LT$uv_normalize..group_name..GroupName$u20$as$u20$core..clone..Clone$GT$5clone17h7697336a801f6b5aE.exit.i"
 
 31:                                               ; preds = %27
-  %32 = atomicrmw add ptr %28, i64 2 monotonic, align 8, !noalias !1429
+  %32 = atomicrmw add ptr %28, i64 2 monotonic, align 8, !noalias !1428
   %33 = and i64 %32, -9223372036854775807
   %or.cond.i.i.i = icmp eq i64 %33, -9223372036854775808
   br i1 %or.cond.i.i.i, label %34, label %"_ZN74_$LT$uv_normalize..group_name..GroupName$u20$as$u20$core..clone..Clone$GT$5clone17h7697336a801f6b5aE.exit.i"
 
 34:                                               ; preds = %31
-  %35 = atomicrmw or ptr %28, i64 1 release, align 8, !noalias !1429
+  %35 = atomicrmw or ptr %28, i64 1 release, align 8, !noalias !1428
   br label %"_ZN74_$LT$uv_normalize..group_name..GroupName$u20$as$u20$core..clone..Clone$GT$5clone17h7697336a801f6b5aE.exit.i"
 
 "_ZN74_$LT$uv_normalize..group_name..GroupName$u20$as$u20$core..clone..Clone$GT$5clone17h7697336a801f6b5aE.exit.i": ; preds = %34, %31, %27, %21
   %36 = getelementptr inbounds nuw ptr, ptr %15, i64 %.sroa.7.019.i
-  store ptr %.val.i, ptr %36, align 8, !noalias !1429
+  store ptr %.val.i, ptr %36, align 8, !noalias !1428
   %37 = icmp eq i64 %19, 0
   br i1 %37, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h051ca695d090c67cE.llvm.8376879624527094985.exit", label %.lr.ph.i
 
@@ -12286,8 +12286,8 @@ attributes #46 = { nounwind }
 !949 = distinct !{!949, !948, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h0319545dc8b7a0cdE: argument 1"}
 !950 = distinct !{!950, !951, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9ccac8314d1fccfE: argument 0"}
 !951 = distinct !{!951, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9ccac8314d1fccfE"}
-!952 = !{!930, !931, !922, !923}
-!953 = !{!947, !950, !942, !937, !930, !931, !922, !923}
+!952 = !{!930, !927, !931, !922, !923}
+!953 = !{!947, !950, !942, !937, !930, !927, !931, !922, !923}
 !954 = !{!955, !957, !959, !960, !942, !937, !930, !927, !931, !922, !919, !923, !916}
 !955 = distinct !{!955, !956, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hac767637a5d5e246E.llvm.8376879624527094985: argument 0"}
 !956 = distinct !{!956, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hac767637a5d5e246E.llvm.8376879624527094985"}
@@ -12296,7 +12296,7 @@ attributes #46 = { nounwind }
 !959 = distinct !{!959, !958, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h0319545dc8b7a0cdE: argument 1"}
 !960 = distinct !{!960, !961, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9ccac8314d1fccfE: argument 0"}
 !961 = distinct !{!961, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd9ccac8314d1fccfE"}
-!962 = !{!957, !960, !942, !937, !930, !931, !922, !923}
+!962 = !{!957, !960, !942, !937, !930, !927, !931, !922, !923}
 !963 = !{!919, !923, !916}
 !964 = !{!965}
 !965 = distinct !{!965, !966, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hac767637a5d5e246E.llvm.8376879624527094985: argument 0"}
@@ -12365,8 +12365,8 @@ attributes #46 = { nounwind }
 !1028 = !{!1026, !1015}
 !1029 = !{!1030, !1020, !1021, !1023}
 !1030 = distinct !{!1030, !1027, !"_ZN83_$LT$uv_pypi_types..conflicts..SchemaConflictItem$u20$as$u20$core..clone..Clone$GT$5clone17h79ba189b6c45cf45E: argument 0"}
-!1031 = !{!1030, !1026, !1020, !1021, !1023}
-!1032 = !{!1020, !1021, !1023}
+!1031 = !{!1030, !1026, !1020, !1015, !1021, !1023}
+!1032 = !{!1020, !1015, !1021, !1023}
 !1033 = !{!1034}
 !1034 = distinct !{!1034, !1035, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hac767637a5d5e246E.llvm.8376879624527094985: argument 0"}
 !1035 = distinct !{!1035, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hac767637a5d5e246E.llvm.8376879624527094985"}

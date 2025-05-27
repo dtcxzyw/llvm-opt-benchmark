@@ -1634,7 +1634,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deseria
 39:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !354
   store i64 5, ptr %9, align 8, !noalias !354
-  %40 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17hb624ca093eb83d9dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
+  %40 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17hb624ca093eb83d9dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9), !noalias !349
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !354
   br label %96
 
@@ -1651,7 +1651,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deseria
 46:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !354
   store i64 9, ptr %8, align 8, !noalias !354
-  %47 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17hb624ca093eb83d9dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8)
+  %47 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17hb624ca093eb83d9dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8), !noalias !349
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !354
   br label %96
 
@@ -1677,7 +1677,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deseria
 55:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !370
   store i64 5, ptr %7, align 8, !noalias !370
-  %56 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17hb624ca093eb83d9dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
+  %56 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17hb624ca093eb83d9dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7), !noalias !365
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !370
   br label %96
 
@@ -1694,7 +1694,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deseria
 62:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !370
   store i64 9, ptr %6, align 8, !noalias !370
-  %63 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17hb624ca093eb83d9dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
+  %63 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17hb624ca093eb83d9dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6), !noalias !365
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !370
   br label %96
 
@@ -1720,7 +1720,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deseria
 71:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !386
   store i64 5, ptr %5, align 8, !noalias !386
-  %72 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17hb624ca093eb83d9dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
+  %72 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17hb624ca093eb83d9dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5), !noalias !381
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !386
   br label %96
 
@@ -1737,7 +1737,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deseria
 78:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !386
   store i64 9, ptr %4, align 8, !noalias !386
-  %79 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17hb624ca093eb83d9dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
+  %79 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17hb624ca093eb83d9dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4), !noalias !381
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !386
   br label %96
 
@@ -7648,7 +7648,7 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deseri
 26:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !1921
   store i64 5, ptr %4, align 8, !noalias !1921
-  %27 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17hb624ca093eb83d9dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
+  %27 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17hb624ca093eb83d9dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4), !noalias !1916
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1921
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h43bab0453bb0d4b8E.exit"
 
@@ -7665,7 +7665,7 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deseri
 33:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1921
   store i64 9, ptr %3, align 8, !noalias !1921
-  %34 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17hb624ca093eb83d9dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3)
+  %34 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17hb624ca093eb83d9dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3), !noalias !1916
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1921
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h43bab0453bb0d4b8E.exit"
 
@@ -12007,7 +12007,7 @@ attributes #21 = { noreturn }
 !352 = distinct !{!352, !353, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h83e4fe3dc43c0a8fE.llvm.2931914954270698119: argument 1"}
 !353 = distinct !{!353, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h83e4fe3dc43c0a8fE.llvm.2931914954270698119"}
 !354 = !{!347, !350}
-!355 = !{!356, !352, !347}
+!355 = !{!356, !352, !347, !350}
 !356 = distinct !{!356, !353, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h83e4fe3dc43c0a8fE.llvm.2931914954270698119: argument 0"}
 !357 = !{!352, !347}
 !358 = !{!356, !350}
@@ -12023,7 +12023,7 @@ attributes #21 = { noreturn }
 !368 = distinct !{!368, !369, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h83e4fe3dc43c0a8fE.llvm.2931914954270698119: argument 1"}
 !369 = distinct !{!369, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h83e4fe3dc43c0a8fE.llvm.2931914954270698119"}
 !370 = !{!363, !366}
-!371 = !{!372, !368, !363}
+!371 = !{!372, !368, !363, !366}
 !372 = distinct !{!372, !369, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h83e4fe3dc43c0a8fE.llvm.2931914954270698119: argument 0"}
 !373 = !{!368, !363}
 !374 = !{!372, !366}
@@ -12039,7 +12039,7 @@ attributes #21 = { noreturn }
 !384 = distinct !{!384, !385, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h83e4fe3dc43c0a8fE.llvm.2931914954270698119: argument 1"}
 !385 = distinct !{!385, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h83e4fe3dc43c0a8fE.llvm.2931914954270698119"}
 !386 = !{!379, !382}
-!387 = !{!388, !384, !379}
+!387 = !{!388, !384, !379, !382}
 !388 = distinct !{!388, !385, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h83e4fe3dc43c0a8fE.llvm.2931914954270698119: argument 0"}
 !389 = !{!384, !379}
 !390 = !{!388, !382}
@@ -13574,7 +13574,7 @@ attributes #21 = { noreturn }
 !1919 = distinct !{!1919, !1920, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h83e4fe3dc43c0a8fE.llvm.2931914954270698119: argument 1"}
 !1920 = distinct !{!1920, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h83e4fe3dc43c0a8fE.llvm.2931914954270698119"}
 !1921 = !{!1914, !1917}
-!1922 = !{!1923, !1919, !1914}
+!1922 = !{!1923, !1919, !1914, !1917}
 !1923 = distinct !{!1923, !1920, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h83e4fe3dc43c0a8fE.llvm.2931914954270698119: argument 0"}
 !1924 = !{!1919, !1914}
 !1925 = !{!1923, !1917}
@@ -13977,7 +13977,7 @@ attributes #21 = { noreturn }
 !2322 = distinct !{!2322, !2323, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h83e4fe3dc43c0a8fE.llvm.2931914954270698119: argument 1"}
 !2323 = distinct !{!2323, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h83e4fe3dc43c0a8fE.llvm.2931914954270698119"}
 !2324 = !{!2317, !2320, !2295, !2292, !2289, !2286, !2197, !2194}
-!2325 = !{!2326, !2322, !2317, !2197}
+!2325 = !{!2326, !2322, !2317, !2320, !2197}
 !2326 = distinct !{!2326, !2323, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h83e4fe3dc43c0a8fE.llvm.2931914954270698119: argument 0"}
 !2327 = !{!2322, !2317, !2295, !2292, !2289, !2286, !2194}
 !2328 = !{!2326, !2320, !2197}
@@ -13994,7 +13994,7 @@ attributes #21 = { noreturn }
 !2339 = distinct !{!2339, !2340, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h83e4fe3dc43c0a8fE.llvm.2931914954270698119: argument 1"}
 !2340 = distinct !{!2340, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h83e4fe3dc43c0a8fE.llvm.2931914954270698119"}
 !2341 = !{!2334, !2337, !2295, !2292, !2289, !2286, !2197, !2194}
-!2342 = !{!2343, !2339, !2334, !2197}
+!2342 = !{!2343, !2339, !2334, !2337, !2197}
 !2343 = distinct !{!2343, !2340, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h83e4fe3dc43c0a8fE.llvm.2931914954270698119: argument 0"}
 !2344 = !{!2339, !2334, !2295, !2292, !2289, !2286, !2194}
 !2345 = !{!2343, !2337, !2197}
@@ -14011,7 +14011,7 @@ attributes #21 = { noreturn }
 !2356 = distinct !{!2356, !2357, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h83e4fe3dc43c0a8fE.llvm.2931914954270698119: argument 1"}
 !2357 = distinct !{!2357, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h83e4fe3dc43c0a8fE.llvm.2931914954270698119"}
 !2358 = !{!2351, !2354, !2295, !2292, !2289, !2286, !2197, !2194}
-!2359 = !{!2360, !2356, !2351, !2197}
+!2359 = !{!2360, !2356, !2351, !2354, !2197}
 !2360 = distinct !{!2360, !2357, !"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17h83e4fe3dc43c0a8fE.llvm.2931914954270698119: argument 0"}
 !2361 = !{!2356, !2351, !2295, !2292, !2289, !2286, !2194}
 !2362 = !{!2360, !2354, !2197}

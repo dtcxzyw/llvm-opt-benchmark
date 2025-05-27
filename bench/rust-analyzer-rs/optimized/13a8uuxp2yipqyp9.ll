@@ -3699,6 +3699,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 
 76:                                               ; preds = %64
   %77 = getelementptr inbounds { i64, { { { { ptr, i64 } }, {} }, {} } }, ptr %.val.i.i.i, i64 %71
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !357)
   %78 = icmp ne ptr %.val7, null
   tail call void @llvm.assume(i1 %78)
   %79 = getelementptr i8, ptr %77, i64 -8
@@ -3709,7 +3710,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 "_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hcc5c81c5cb6a2034E.exit": ; preds = %76
   %80 = getelementptr inbounds i8, ptr %77, i64 -16
   %.val4.i.i.i = load ptr, ptr %80, align 8, !alias.scope !357, !nonnull !4, !align !185, !noundef !4
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val7, ptr nonnull readonly align 1 %.val4.i.i.i, i64 %.val8), !alias.scope !360
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val7, ptr nonnull readonly align 1 %.val4.i.i.i, i64 %.val8), !alias.scope !360, !noalias !357
   %.not = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %.not, label %.split, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hcc5c81c5cb6a2034E.exit.thread"
 
@@ -24155,14 +24156,14 @@ attributes #35 = { nounwind }
 !420 = distinct !{!420, !415, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1cf8ac6ccdf08814E.llvm.3403078607549408116: argument 1"}
 !421 = distinct !{!421, !415, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1cf8ac6ccdf08814E.llvm.3403078607549408116: argument 2"}
 !422 = !{!417, !414, !420}
-!423 = !{!419, !421}
+!423 = !{!419, !420, !421}
 !424 = !{!425}
 !425 = distinct !{!425, !426, !"_ZN4core3ops8function6FnOnce9call_once17h5885a6cf6facf876E: argument 0"}
 !426 = distinct !{!426, !"_ZN4core3ops8function6FnOnce9call_once17h5885a6cf6facf876E"}
 !427 = !{!428}
 !428 = distinct !{!428, !429, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h1f317fa92256e58cE: argument 0"}
 !429 = distinct !{!429, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h1f317fa92256e58cE"}
-!430 = !{!428, !431, !425, !432, !414, !421}
+!430 = !{!428, !431, !425, !432, !414, !420, !421}
 !431 = distinct !{!431, !429, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h1f317fa92256e58cE: argument 1"}
 !432 = distinct !{!432, !426, !"_ZN4core3ops8function6FnOnce9call_once17h5885a6cf6facf876E: argument 1"}
 !433 = !{!428, !425, !414, !421}

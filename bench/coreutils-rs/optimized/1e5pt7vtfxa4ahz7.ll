@@ -2722,7 +2722,7 @@ _ZN3std4path4Path11starts_with17h5491bb8ddbc81f59E.exit.i: ; preds = %22
 28:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !829
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !noalias !830
-  call void @_ZN6uucore8features2fs21make_path_relative_to17h3bac13a615e7edd3E(ptr noalias noundef nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6), !noalias !822
+  call void @_ZN6uucore8features2fs21make_path_relative_to17h3bac13a615e7edd3E(ptr noalias noundef nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6), !noalias !831
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !829
   br label %_ZN11uu_realpath16process_relative17hb5196aa4c505ecefE.exit
 
@@ -2737,12 +2737,12 @@ _ZN3std4path4Path11starts_with17h5491bb8ddbc81f59E.exit.i: ; preds = %22
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h9a9d20dfc8bf4f3fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #10
-          to label %30 unwind label %32, !noalias !831
+          to label %30 unwind label %32, !noalias !832
 
 32:                                               ; preds = %31
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11, !noalias !831
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11, !noalias !832
   unreachable
 
 _ZN11uu_realpath16process_relative17hb5196aa4c505ecefE.exit: ; preds = %25, %26, %28, %29
@@ -3783,4 +3783,5 @@ attributes #12 = { noreturn }
 !828 = distinct !{!828, !821, !"_ZN11uu_realpath16process_relative17hb5196aa4c505ecefE: argument 2"}
 !829 = !{!820, !823, !828, !825}
 !830 = !{!820, !828, !825}
-!831 = !{!820, !825}
+!831 = !{!823, !828}
+!832 = !{!820, !825}

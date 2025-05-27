@@ -483,6 +483,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false)
   %61 = getelementptr i8, ptr %2, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !96)
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 112
   br label %.lr.ph.i
 
@@ -492,7 +493,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %65 = icmp ne ptr %73, %63
   %66 = icmp ne ptr %71, %64
   %or.cond.i = select i1 %65, i1 true, i1 %66
-  br i1 %or.cond.i, label %80, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h02384d809e8b8972E.exit, !prof !96
+  br i1 %or.cond.i, label %80, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h02384d809e8b8972E.exit, !prof !99
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %3
   %.sroa.0.010.i = phi ptr [ %73, %.lr.ph.i ], [ %2, %3 ]
@@ -503,8 +504,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %.sroa.017.05.i = phi ptr [ %79, %.lr.ph.i ], [ %62, %3 ]
   %.sroa.018.04.i = phi i64 [ %67, %.lr.ph.i ], [ 0, %3 ]
   %67 = add nuw nsw i64 %.sroa.018.04.i, 1
-  %.sroa.06.0.val.i = load i64, ptr %.sroa.06.09.i, align 8, !range !33, !alias.scope !97, !noundef !3
-  %.sroa.0.0.val.i = load i64, ptr %.sroa.0.010.i, align 8, !range !33, !alias.scope !97, !noundef !3
+  %.sroa.06.0.val.i = load i64, ptr %.sroa.06.09.i, align 8, !range !33, !alias.scope !96, !noundef !3
+  %.sroa.0.0.val.i = load i64, ptr %.sroa.0.010.i, align 8, !range !33, !alias.scope !96, !noundef !3
   %68 = icmp ult i64 %.sroa.06.0.val.i, %.sroa.0.0.val.i
   %..i23.i = select i1 %68, ptr %.sroa.06.09.i, ptr %.sroa.0.010.i
   %69 = xor i1 %68, true
@@ -514,8 +515,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %72 = zext i1 %69 to i64
   %73 = getelementptr inbounds nuw { i64, ptr }, ptr %.sroa.0.010.i, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.010.08.i, i64 16
-  %.sroa.015.0.val.i = load i64, ptr %.sroa.015.06.i, align 8, !range !33, !alias.scope !97, !noundef !3
-  %.sroa.013.0.val.i = load i64, ptr %.sroa.013.07.i, align 8, !range !33, !alias.scope !97, !noundef !3
+  %.sroa.015.0.val.i = load i64, ptr %.sroa.015.06.i, align 8, !range !33, !alias.scope !96, !noundef !3
+  %.sroa.013.0.val.i = load i64, ptr %.sroa.013.07.i, align 8, !range !33, !alias.scope !96, !noundef !3
   %75 = icmp ult i64 %.sroa.015.0.val.i, %.sroa.013.0.val.i
   %..i.i = select i1 %75, ptr %.sroa.013.07.i, ptr %.sroa.015.06.i
   %76 = xor i1 %75, true
@@ -529,7 +530,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 80:                                               ; preds = %._crit_edge.i
-  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #21
+  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #21, !noalias !96
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h02384d809e8b8972E.exit: ; preds = %._crit_edge.i
@@ -626,7 +627,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   %45 = icmp ne ptr %.sroa.0.1, %14
   %46 = icmp ne ptr %.sroa.06.1, %15
   %or.cond = select i1 %45, i1 true, i1 %46
-  br i1 %or.cond, label %48, label %47, !prof !96
+  br i1 %or.cond, label %48, label %47, !prof !99
 
 47:                                               ; preds = %44
   ret void
@@ -1194,7 +1195,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h94e4fcfe
   call void @llvm.experimental.noalias.scope.decl(metadata !197)
   call void @llvm.experimental.noalias.scope.decl(metadata !200)
   %.not74 = icmp ult i64 %3, %.sroa.12.0106
-  br i1 %.not74, label %157, label %154, !prof !96
+  br i1 %.not74, label %157, label %154, !prof !99
 
 154:                                              ; preds = %.thread
   %155 = getelementptr ptr, ptr %2, i64 %.sroa.12.0106
@@ -1379,7 +1380,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h94e4fcfe
   call void @llvm.experimental.noalias.scope.decl(metadata !272)
   call void @llvm.experimental.noalias.scope.decl(metadata !275)
   %.not75 = icmp ult i64 %3, %.sroa.12.0106
-  br i1 %.not75, label %228, label %226, !prof !96
+  br i1 %.not75, label %228, label %226, !prof !99
 
 226:                                              ; preds = %.thread70
   %227 = getelementptr ptr, ptr %2, i64 %.sroa.12.0106
@@ -2036,7 +2037,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
   %135 = icmp ne ptr %.sroa.0.1.i.i.i, %110
   %136 = icmp ne ptr %.sroa.06.1.i.i.i, %111
   %or.cond.i.i.i = select i1 %135, i1 true, i1 %136
-  br i1 %or.cond.i.i.i, label %137, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h02384d809e8b8972E.exit.i.i, !prof !96
+  br i1 %or.cond.i.i.i, label %137, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h02384d809e8b8972E.exit.i.i, !prof !99
 
 137:                                              ; preds = %134
   invoke void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #21
@@ -3173,10 +3174,10 @@ attributes #24 = { nounwind }
 !93 = distinct !{!93, !"_ZN7ty_test8run_test28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd4c740931b5fd5e1E"}
 !94 = distinct !{!94, !93, !"_ZN7ty_test8run_test28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd4c740931b5fd5e1E: argument 1"}
 !95 = !{!94, !90}
-!96 = !{!"branch_weights", i32 4001, i32 4000000}
-!97 = !{!98}
-!98 = distinct !{!98, !99, !"_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h02384d809e8b8972E: argument 0"}
-!99 = distinct !{!99, !"_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h02384d809e8b8972E"}
+!96 = !{!97}
+!97 = distinct !{!97, !98, !"_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h02384d809e8b8972E: argument 0"}
+!98 = distinct !{!98, !"_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h02384d809e8b8972E"}
+!99 = !{!"branch_weights", i32 4001, i32 4000000}
 !100 = !{!101, !103}
 !101 = distinct !{!101, !102, !"_ZN4core5slice4sort6shared9smallsort8merge_up17h691f84e709310482E: argument 0"}
 !102 = distinct !{!102, !"_ZN4core5slice4sort6shared9smallsort8merge_up17h691f84e709310482E"}

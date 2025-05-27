@@ -3379,7 +3379,7 @@ _ZN4gpui3app10AppContext12lease_global17h48f6d9297deb7564E.exit.i.i.i: ; preds =
 159:                                              ; preds = %157
   %160 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #47, !noalias !780
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #47, !noalias !937
   unreachable
 
 161:                                              ; preds = %115, %111, %106, %82
@@ -33217,7 +33217,7 @@ attributes #48 = { nounwind }
 !2950 = distinct !{!2950, !2949, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hbf4dc354bab9519cE.llvm.10321688783904056783: argument 1"}
 !2951 = distinct !{!2951, !2949, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hbf4dc354bab9519cE.llvm.10321688783904056783: argument 2"}
 !2952 = !{!2945, !2948, !2950}
-!2953 = !{!2947, !2951}
+!2953 = !{!2947, !2950, !2951}
 !2954 = !{!2955}
 !2955 = distinct !{!2955, !2956, !"_ZN74_$LT$gpui..app..AppContext$u20$as$u20$feature_flags..FeatureFlagAppExt$GT$13wait_for_flag28_$u7b$$u7b$closure$u7d$$u7d$17haced128a851a77deE: argument 0"}
 !2956 = distinct !{!2956, !"_ZN74_$LT$gpui..app..AppContext$u20$as$u20$feature_flags..FeatureFlagAppExt$GT$13wait_for_flag28_$u7b$$u7b$closure$u7d$$u7d$17haced128a851a77deE"}
@@ -33815,7 +33815,7 @@ attributes #48 = { nounwind }
 !3548 = distinct !{!3548, !3547, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hbf4dc354bab9519cE.llvm.10321688783904056783: argument 1"}
 !3549 = distinct !{!3549, !3547, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hbf4dc354bab9519cE.llvm.10321688783904056783: argument 2"}
 !3550 = !{!3543, !3546, !3548}
-!3551 = !{!3545, !3549}
+!3551 = !{!3545, !3548, !3549}
 !3552 = !{!3553, !3555, !3556, !3558, !3559}
 !3553 = distinct !{!3553, !3554, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17ha170bf2c1913c88dE: argument 0"}
 !3554 = distinct !{!3554, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17ha170bf2c1913c88dE"}
@@ -33825,7 +33825,7 @@ attributes #48 = { nounwind }
 !3558 = distinct !{!3558, !3557, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hbf4dc354bab9519cE.llvm.10321688783904056783: argument 1"}
 !3559 = distinct !{!3559, !3557, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hbf4dc354bab9519cE.llvm.10321688783904056783: argument 2"}
 !3560 = !{!3553, !3556, !3558}
-!3561 = !{!3555, !3559}
+!3561 = !{!3555, !3558, !3559}
 !3562 = !{!3563}
 !3563 = distinct !{!3563, !3564, !"_ZN4core3ptr69drop_in_place$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$17h90d46d9f8d7b3272E.llvm.10321688783904056783: argument 0"}
 !3564 = distinct !{!3564, !"_ZN4core3ptr69drop_in_place$LT$core..result..Result$LT$bool$C$anyhow..Error$GT$$GT$17h90d46d9f8d7b3272E.llvm.10321688783904056783"}

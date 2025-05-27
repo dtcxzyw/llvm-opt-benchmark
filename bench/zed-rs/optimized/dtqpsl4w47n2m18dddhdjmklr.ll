@@ -5544,7 +5544,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %.val13.i = load ptr, ptr %.sroa.015.023.i, align 8, !alias.scope !1976, !noalias !1981, !nonnull !15, !noundef !15
   %21 = getelementptr i8, ptr %.sroa.015.023.i, i64 8
   %.val14.i = load i64, ptr %21, align 8, !alias.scope !1976, !noalias !1981
-  %22 = atomicrmw add ptr %.val13.i, i64 1 monotonic, align 8, !noalias !1981
+  %22 = atomicrmw add ptr %.val13.i, i64 1 monotonic, align 8, !noalias !1979
   %23 = icmp slt i64 %22, 0
   br i1 %23, label %24, label %25
 
@@ -5556,9 +5556,9 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %26 = add nuw nsw i64 %.sroa.7.022.i, 1
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.015.023.i, i64 16
   %28 = getelementptr inbounds nuw [0 x { [2 x i64] }], ptr %13, i64 0, i64 %.sroa.7.022.i
-  store ptr %.val13.i, ptr %28, align 8, !noalias !1981
+  store ptr %.val13.i, ptr %28, align 8, !noalias !1979
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i64 %.val14.i, ptr %29, align 8, !noalias !1981
+  store i64 %.val14.i, ptr %29, align 8, !noalias !1979
   %30 = icmp eq i64 %18, 0
   br i1 %30, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hdadc4f591fa9b2d9E.llvm.12501931995097931548.exit", label %.lr.ph.i
 
@@ -5650,9 +5650,9 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %23 = getelementptr i8, ptr %.sroa.015.024.i, i64 8
   %.val14.i = load i64, ptr %23, align 8, !alias.scope !1991, !noalias !1988, !noundef !15
   %24 = getelementptr inbounds nuw [0 x { [2 x i64] }], ptr %13, i64 0, i64 %.sroa.7.023.i
-  store i64 %.val13.i, ptr %24, align 8, !noalias !1988
+  store i64 %.val13.i, ptr %24, align 8, !noalias !1993
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 %.val14.i, ptr %25, align 8, !noalias !1988
+  store i64 %.val14.i, ptr %25, align 8, !noalias !1993
   %26 = icmp eq i64 %20, 0
   br i1 %26, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h78633ebd0d09d7e1E.llvm.12501931995097931548.exit", label %.lr.ph.i
 
@@ -8339,7 +8339,7 @@ attributes #43 = { cold }
 !1295 = distinct !{!1295, !1296, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548: argument 0"}
 !1296 = distinct !{!1296, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548"}
 !1297 = distinct !{!1297, !1296, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548: argument 1"}
-!1298 = !{!1276, !1271, !1277, !1273, !1278, !1280, !1281, !1268, !1263, !1252, !1255, !1247, !1250}
+!1298 = !{!1276, !1271, !1277, !1273, !1278, !1280, !1281, !1268, !1263, !1266, !1252, !1255, !1247, !1250}
 !1299 = !{!1300}
 !1300 = distinct !{!1300, !1301, !"_ZN4core3ptr50drop_in_place$LT$activity_indicator..LspStatus$GT$17hdaa86aa1e16f77aeE: argument 0"}
 !1301 = distinct !{!1301, !"_ZN4core3ptr50drop_in_place$LT$activity_indicator..LspStatus$GT$17hdaa86aa1e16f77aeE"}
@@ -8412,7 +8412,7 @@ attributes #43 = { cold }
 !1368 = distinct !{!1368, !1369, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548: argument 0"}
 !1369 = distinct !{!1369, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548"}
 !1370 = distinct !{!1370, !1369, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548: argument 1"}
-!1371 = !{!1349, !1344, !1350, !1346, !1351, !1353, !1354, !1341, !1336, !1325, !1328, !1320, !1323}
+!1371 = !{!1349, !1344, !1350, !1346, !1351, !1353, !1354, !1341, !1336, !1339, !1325, !1328, !1320, !1323}
 !1372 = !{!1373}
 !1373 = distinct !{!1373, !1374, !"_ZN4core3ptr50drop_in_place$LT$activity_indicator..LspStatus$GT$17hdaa86aa1e16f77aeE: argument 0"}
 !1374 = distinct !{!1374, !"_ZN4core3ptr50drop_in_place$LT$activity_indicator..LspStatus$GT$17hdaa86aa1e16f77aeE"}
@@ -8485,7 +8485,7 @@ attributes #43 = { cold }
 !1441 = distinct !{!1441, !1442, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548: argument 0"}
 !1442 = distinct !{!1442, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548"}
 !1443 = distinct !{!1443, !1442, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548: argument 1"}
-!1444 = !{!1422, !1417, !1423, !1419, !1424, !1426, !1427, !1414, !1409, !1398, !1401, !1393, !1396}
+!1444 = !{!1422, !1417, !1423, !1419, !1424, !1426, !1427, !1414, !1409, !1412, !1398, !1401, !1393, !1396}
 !1445 = !{!1446}
 !1446 = distinct !{!1446, !1447, !"_ZN4core3ptr50drop_in_place$LT$activity_indicator..LspStatus$GT$17hdaa86aa1e16f77aeE: argument 0"}
 !1447 = distinct !{!1447, !"_ZN4core3ptr50drop_in_place$LT$activity_indicator..LspStatus$GT$17hdaa86aa1e16f77aeE"}
@@ -8636,7 +8636,7 @@ attributes #43 = { cold }
 !1592 = distinct !{!1592, !1593, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548: argument 0"}
 !1593 = distinct !{!1593, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548"}
 !1594 = distinct !{!1594, !1593, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548: argument 1"}
-!1595 = !{!1573, !1568, !1574, !1570, !1575, !1577, !1578, !1565, !1560, !1549, !1552, !1544, !1547}
+!1595 = !{!1573, !1568, !1574, !1570, !1575, !1577, !1578, !1565, !1560, !1563, !1549, !1552, !1544, !1547}
 !1596 = !{!1597}
 !1597 = distinct !{!1597, !1598, !"_ZN4core3ptr50drop_in_place$LT$activity_indicator..LspStatus$GT$17hdaa86aa1e16f77aeE: argument 0"}
 !1598 = distinct !{!1598, !"_ZN4core3ptr50drop_in_place$LT$activity_indicator..LspStatus$GT$17hdaa86aa1e16f77aeE"}
@@ -8937,7 +8937,7 @@ attributes #43 = { cold }
 !1893 = distinct !{!1893, !1894, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548: argument 0"}
 !1894 = distinct !{!1894, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548"}
 !1895 = distinct !{!1895, !1894, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548: argument 1"}
-!1896 = !{!1874, !1869, !1875, !1871, !1876, !1878, !1879, !1866, !1861, !1851, !1854}
+!1896 = !{!1874, !1869, !1875, !1871, !1876, !1878, !1879, !1866, !1861, !1864, !1851, !1854}
 !1897 = !{!1898}
 !1898 = distinct !{!1898, !1899, !"_ZN18activity_indicator17ActivityIndicator3new28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hca5cad02625c0a30E.llvm.12501931995097931548: argument 0"}
 !1899 = distinct !{!1899, !"_ZN18activity_indicator17ActivityIndicator3new28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hca5cad02625c0a30E.llvm.12501931995097931548"}
@@ -9005,7 +9005,7 @@ attributes #43 = { cold }
 !1961 = distinct !{!1961, !1962, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548: argument 0"}
 !1962 = distinct !{!1962, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548"}
 !1963 = distinct !{!1963, !1962, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548: argument 1"}
-!1964 = !{!1942, !1937, !1943, !1939, !1944, !1946, !1947, !1934, !1929, !1919, !1922}
+!1964 = !{!1942, !1937, !1943, !1939, !1944, !1946, !1947, !1934, !1929, !1932, !1919, !1922}
 !1965 = !{!1966}
 !1966 = distinct !{!1966, !1967, !"_ZN18activity_indicator17ActivityIndicator28pending_language_server_work28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he49a12c68e605561E.llvm.12501931995097931548: argument 0"}
 !1967 = distinct !{!1967, !"_ZN18activity_indicator17ActivityIndicator28pending_language_server_work28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he49a12c68e605561E.llvm.12501931995097931548"}
@@ -9256,7 +9256,7 @@ attributes #43 = { cold }
 !2212 = distinct !{!2212, !2213, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548: argument 0"}
 !2213 = distinct !{!2213, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548"}
 !2214 = distinct !{!2214, !2213, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548: argument 1"}
-!2215 = !{!2193, !2188, !2194, !2190, !2195, !2197, !2198, !2185, !2180}
+!2215 = !{!2193, !2188, !2194, !2190, !2195, !2197, !2198, !2185, !2180, !2183}
 !2216 = !{!2217}
 !2217 = distinct !{!2217, !2218, !"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h6e2d78ae4eadf842E.llvm.12501931995097931548: argument 1"}
 !2218 = distinct !{!2218, !"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h6e2d78ae4eadf842E.llvm.12501931995097931548"}
@@ -9298,4 +9298,4 @@ attributes #43 = { cold }
 !2254 = distinct !{!2254, !2255, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548: argument 0"}
 !2255 = distinct !{!2255, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548"}
 !2256 = distinct !{!2256, !2255, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12501931995097931548: argument 1"}
-!2257 = !{!2235, !2230, !2236, !2232, !2237, !2239, !2240, !2227, !2222}
+!2257 = !{!2235, !2230, !2236, !2232, !2237, !2239, !2240, !2227, !2222, !2225}

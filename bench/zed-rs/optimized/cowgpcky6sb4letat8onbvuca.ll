@@ -5373,9 +5373,9 @@ common.resume:                                    ; preds = %"_ZN4core3ptr91drop
   %44 = getelementptr i8, ptr %.sroa.015.024.i.i, i64 8
   %.val14.i.i = load i64, ptr %44, align 8, !alias.scope !1213, !noalias !1220, !noundef !9
   %45 = getelementptr inbounds nuw [0 x { [2 x i64] }], ptr %34, i64 0, i64 %.sroa.7.023.i.i
-  store i64 %.val13.i.i, ptr %45, align 8, !noalias !1220
+  store i64 %.val13.i.i, ptr %45, align 8, !noalias !1216
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i64 %.val14.i.i, ptr %46, align 8, !noalias !1220
+  store i64 %.val14.i.i, ptr %46, align 8, !noalias !1216
   %47 = icmp eq i64 %41, 0
   br i1 %47, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h99f6111214b3e4aeE.exit", label %.lr.ph.i.i
 
@@ -5434,7 +5434,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr91drop
   %.val13.i.i8 = load ptr, ptr %.sroa.015.023.i.i, align 8, !alias.scope !1221, !noalias !1228, !nonnull !9, !noundef !9
   %65 = getelementptr i8, ptr %.sroa.015.023.i.i, i64 8
   %.val14.i.i9 = load i64, ptr %65, align 8, !alias.scope !1221, !noalias !1228
-  %66 = atomicrmw add ptr %.val13.i.i8, i64 1 monotonic, align 8, !noalias !1228
+  %66 = atomicrmw add ptr %.val13.i.i8, i64 1 monotonic, align 8, !noalias !1224
   %67 = icmp slt i64 %66, 0
   br i1 %67, label %68, label %69
 
@@ -5446,9 +5446,9 @@ common.resume:                                    ; preds = %"_ZN4core3ptr91drop
   %70 = add nuw nsw i64 %.sroa.7.022.i.i, 1
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.015.023.i.i, i64 16
   %72 = getelementptr inbounds nuw [0 x { [2 x i64] }], ptr %57, i64 0, i64 %.sroa.7.022.i.i
-  store ptr %.val13.i.i8, ptr %72, align 8, !noalias !1228
+  store ptr %.val13.i.i8, ptr %72, align 8, !noalias !1224
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i64 %.val14.i.i9, ptr %73, align 8, !noalias !1228
+  store i64 %.val14.i.i9, ptr %73, align 8, !noalias !1224
   %74 = icmp eq i64 %62, 0
   br i1 %74, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h92709c44b7cb8f11E.exit", label %.lr.ph.i.i7
 

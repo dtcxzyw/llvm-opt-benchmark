@@ -20019,7 +20019,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 82:                                               ; preds = %._crit_edge.i
-  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #47
+  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #47, !noalias !2444
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h891a298896cd89a8E.exit: ; preds = %._crit_edge.i
@@ -20236,7 +20236,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 90:                                               ; preds = %._crit_edge.i
-  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #47
+  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #47, !noalias !2470
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h8f9bbfbaab725dc7E.exit: ; preds = %._crit_edge.i
@@ -20436,7 +20436,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 114:                                              ; preds = %._crit_edge.i
-  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #47
+  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #47, !noalias !2533
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h70f76607d9bf193aE.exit: ; preds = %._crit_edge.i
@@ -20590,7 +20590,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 82:                                               ; preds = %._crit_edge.i
-  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #47
+  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #47, !noalias !2570
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h22cd461b44981d2dE.exit: ; preds = %._crit_edge.i
@@ -20662,7 +20662,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 32:                                               ; preds = %._crit_edge.i
-  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #47
+  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #47, !noalias !2588
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hbf1bb5ea791d00e1E.exit: ; preds = %._crit_edge.i
@@ -20766,7 +20766,7 @@ _ZN4core3ops8function5FnMut8call_mut17hc8214024f3a716c9E.exit28.i: ; preds = %39
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 46:                                               ; preds = %._crit_edge.i
-  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #47
+  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #47, !noalias !2599
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hc62fbb2b8dc6a0a6E.exit: ; preds = %._crit_edge.i
@@ -20874,7 +20874,7 @@ _ZN4core3ops8function5FnMut8call_mut17h42b1f5fcc2cd7ed7E.exit30.i: ; preds = %39
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 46:                                               ; preds = %._crit_edge.i
-  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #47
+  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #47, !noalias !2612
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h477da6d35f25b41aE.exit: ; preds = %._crit_edge.i
@@ -20983,6 +20983,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
   %75 = getelementptr i8, ptr %2, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !2625)
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 112
   br label %.lr.ph.i
 
@@ -21033,7 +21034,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 98:                                               ; preds = %._crit_edge.i
-  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #47
+  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #47, !noalias !2625
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h7fccf2603d21c5f7E.exit: ; preds = %._crit_edge.i
@@ -24727,7 +24728,7 @@ _ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17hfc1df66e47c36a
   br i1 %or.cond.i, label %239, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h891a298896cd89a8E.exit, !prof !2447
 
 239:                                              ; preds = %236
-  call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #47
+  call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #47, !noalias !3071
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h891a298896cd89a8E.exit: ; preds = %236
@@ -30635,7 +30636,7 @@ _ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17hdd94c87a99d4ef
   br i1 %or.cond.i, label %239, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h22cd461b44981d2dE.exit, !prof !2447
 
 239:                                              ; preds = %236
-  call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #47
+  call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #47, !noalias !3896
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h22cd461b44981d2dE.exit: ; preds = %236
@@ -74225,6 +74226,7 @@ define hidden noundef zeroext i1 @"_ZN7similar4text6inline21InlineChange$LT$T$GT
   %5 = load ptr, ptr %4, align 8, !nonnull !4
   %6 = getelementptr { i8, [7 x i8], { ptr, i64 } }, ptr %5, i64 %3
   %7 = getelementptr i8, ptr %6, i64 -24
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !8218)
   %.not.i1 = icmp eq ptr %7, null
   %.not.i = select i1 %.not, i1 true, i1 %.not.i1
   br i1 %.not.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h8c33720575112114E.exit", label %8
@@ -74234,7 +74236,7 @@ define hidden noundef zeroext i1 @"_ZN7similar4text6inline21InlineChange$LT$T$GT
   %.val.i = load ptr, ptr %9, align 8, !alias.scope !8218, !nonnull !4, !align !88, !noundef !4
   %10 = getelementptr i8, ptr %6, i64 -8
   %.val5.i = load i64, ptr %10, align 8, !alias.scope !8218, !noundef !4
-  %11 = tail call noundef zeroext i1 @"_ZN63_$LT$str$u20$as$u20$similar..text..abstraction..DiffableStr$GT$17ends_with_newline17hadc38882f530cdc2E"(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val5.i)
+  %11 = tail call noundef zeroext i1 @"_ZN63_$LT$str$u20$as$u20$similar..text..abstraction..DiffableStr$GT$17ends_with_newline17hadc38882f530cdc2E"(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val5.i), !noalias !8218
   %12 = xor i1 %11, true
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h8c33720575112114E.exit"
 

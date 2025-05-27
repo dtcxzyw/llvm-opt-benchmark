@@ -163,7 +163,7 @@ define hidden void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..D
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd82634214159c040E.exit"
 
 43:                                               ; preds = %41
-  %44 = call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17h77028008a1d3f43bE(), !noalias !17
+  %44 = call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17h77028008a1d3f43bE(), !noalias !18
   %45 = extractvalue { i64, i64 } %44, 0
   %46 = extractvalue { i64, i64 } %44, 1
   store i64 1, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", align 8, !noalias !18
@@ -810,7 +810,7 @@ define hidden void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..D
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd82634214159c040E.exit"
 
 34:                                               ; preds = %32
-  %35 = call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17h77028008a1d3f43bE(), !noalias !130
+  %35 = call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17h77028008a1d3f43bE(), !noalias !131
   %36 = extractvalue { i64, i64 } %35, 0
   %37 = extractvalue { i64, i64 } %35, 1
   store i64 1, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", align 8, !noalias !131
@@ -10670,7 +10670,7 @@ attributes #30 = { "function-inline-cost-multiplier"="2" }
 !1301 = distinct !{!1301, !1300, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha9cc851d0787d51cE.llvm.768908206648028098: argument 1"}
 !1302 = distinct !{!1302, !1300, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha9cc851d0787d51cE.llvm.768908206648028098: argument 2"}
 !1303 = !{!1296, !1299, !1301}
-!1304 = !{!1298, !1302}
+!1304 = !{!1298, !1301, !1302}
 !1305 = !{!1306}
 !1306 = distinct !{!1306, !1307, !"_ZN8schemars3gen15SchemaGenerator20into_root_schema_for17h1383fc490b5672a2E: argument 1"}
 !1307 = distinct !{!1307, !"_ZN8schemars3gen15SchemaGenerator20into_root_schema_for17h1383fc490b5672a2E"}

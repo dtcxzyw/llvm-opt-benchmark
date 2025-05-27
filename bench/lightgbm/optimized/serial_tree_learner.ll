@@ -10666,11 +10666,11 @@ _ZNKSt6vectorISt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEESaIS6_EE12_M_chec
 
 53:                                               ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %55 = load i32, ptr %54, align 4, !tbaa !159
+  %55 = load i32, ptr %54, align 4, !tbaa !159, !noalias !402
   %56 = sext i32 %55 to i64
   %57 = urem i64 %56, %37
   %58 = getelementptr inbounds nuw ptr, ptr %52, i64 %57
-  store ptr %38, ptr %58, align 8, !tbaa !394
+  store ptr %38, ptr %58, align 8, !tbaa !394, !noalias !402
   br label %_ZSt19__relocate_object_aISt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i.i
 
 _ZSt19__relocate_object_aISt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i.i: ; preds = %53, %51
@@ -10732,11 +10732,11 @@ _ZNSt6vectorISt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEESaIS6_EE11_S_reloc
 
 82:                                               ; preds = %80
   %83 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %84 = load i32, ptr %83, align 4, !tbaa !159
+  %84 = load i32, ptr %83, align 4, !tbaa !159, !noalias !409
   %85 = sext i32 %84 to i64
   %86 = urem i64 %85, %66
   %87 = getelementptr inbounds nuw ptr, ptr %81, i64 %86
-  store ptr %67, ptr %87, align 8, !tbaa !394
+  store ptr %67, ptr %87, align 8, !tbaa !394, !noalias !409
   br label %_ZSt19__relocate_object_aISt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i.i31
 
 _ZSt19__relocate_object_aISt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i.i31: ; preds = %82, %80

@@ -658,8 +658,8 @@ define void @_ZN10rayon_core5scope5Scope3new17h31f80d2948bc842bE(ptr noalias nou
 
 13:                                               ; preds = %11, %9, %3
   %.0.i = phi ptr [ %10, %9 ], [ %12, %11 ], [ %2, %3 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !83
-  %.0.val.i = load ptr, ptr %.0.i, align 8, !noalias !80, !nonnull !4, !noundef !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !80
+  %.0.val.i = load ptr, ptr %.0.i, align 8, !noalias !84, !nonnull !4, !noundef !4
   %14 = atomicrmw add ptr %.0.val.i, i64 1 monotonic, align 8, !noalias !80
   %15 = icmp slt i64 %14, 0
   br i1 %15, label %16, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit.i"
@@ -669,8 +669,8 @@ define void @_ZN10rayon_core5scope5Scope3new17h31f80d2948bc842bE(ptr noalias nou
   unreachable
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit.i": ; preds = %13
-  store ptr %.0.val.i, ptr %5, align 8, !noalias !83
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !83
+  store ptr %.0.val.i, ptr %5, align 8, !noalias !80
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !80
   invoke void @_ZN10rayon_core5latch10CountLatch10with_count17h7b8f7be430f1b6bbE(ptr noalias noundef nonnull sret({ { i64 }, { ptr, [2 x i64] } }) align 8 captures(none) dereferenceable(32) %4, i64 noundef 1, ptr noundef align 128 %1)
           to label %_ZN10rayon_core5scope9ScopeBase3new17h6c8fd810c126050fE.exit unwind label %17, !noalias !80
 
@@ -691,8 +691,8 @@ define void @_ZN10rayon_core5scope5Scope3new17h31f80d2948bc842bE(ptr noalias nou
 
 _ZN10rayon_core5scope9ScopeBase3new17h6c8fd810c126050fE.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !85
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !83
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !83
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !80
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !80
   store ptr %.0.val.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %.sroa.2.0..sroa_idx, align 8
@@ -717,7 +717,7 @@ define void @_ZN10rayon_core5scope9ScopeFifo3new17h23b2a5d100b5f67dE(ptr noalias
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = tail call noundef align 8 dereferenceable(8) ptr @_ZN10rayon_core8registry15global_registry17h577de83d36941a5fE(), !noalias !86
+  %12 = tail call noundef align 8 dereferenceable(8) ptr @_ZN10rayon_core8registry15global_registry17h577de83d36941a5fE(), !noalias !89
   br label %15
 
 13:                                               ; preds = %9
@@ -728,7 +728,7 @@ define void @_ZN10rayon_core5scope9ScopeFifo3new17h23b2a5d100b5f67dE(ptr noalias
   %.0.i = phi ptr [ %12, %11 ], [ %14, %13 ], [ %2, %3 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !89
   %.0.val.i = load ptr, ptr %.0.i, align 8, !noalias !86, !nonnull !4, !noundef !4
-  %16 = atomicrmw add ptr %.0.val.i, i64 1 monotonic, align 8, !noalias !86
+  %16 = atomicrmw add ptr %.0.val.i, i64 1 monotonic, align 8, !noalias !89
   %17 = icmp slt i64 %16, 0
   br i1 %17, label %18, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit.i"
 
@@ -740,18 +740,18 @@ define void @_ZN10rayon_core5scope9ScopeFifo3new17h23b2a5d100b5f67dE(ptr noalias
   store ptr %.0.val.i, ptr %5, align 8, !noalias !89
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !89
   invoke void @_ZN10rayon_core5latch10CountLatch10with_count17h7b8f7be430f1b6bbE(ptr noalias noundef nonnull sret({ { i64 }, { ptr, [2 x i64] } }) align 8 captures(none) dereferenceable(32) %4, i64 noundef 1, ptr noundef align 128 %1)
-          to label %25 unwind label %19, !noalias !86
+          to label %25 unwind label %19, !noalias !89
 
 19:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit.i"
   %20 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$GT$17h7fec148915d363b7E"(ptr noalias noundef align 8 dereferenceable(8) %5) #20
-          to label %common.resume unwind label %21, !noalias !86
+          to label %common.resume unwind label %21, !noalias !89
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #21, !noalias !86
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #21, !noalias !89
   unreachable
 
 common.resume:                                    ; preds = %23, %19
@@ -1299,12 +1299,12 @@ attributes #21 = { cold noreturn nounwind }
 !77 = distinct !{!77, !"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h8fc35894c1bb4180E.llvm.4661854399685404667"}
 !78 = !{i64 1}
 !79 = !{i64 128}
-!80 = !{!81}
+!80 = !{!81, !83}
 !81 = distinct !{!81, !82, !"_ZN10rayon_core5scope9ScopeBase3new17h6c8fd810c126050fE: argument 0"}
 !82 = distinct !{!82, !"_ZN10rayon_core5scope9ScopeBase3new17h6c8fd810c126050fE"}
-!83 = !{!81, !84}
-!84 = distinct !{!84, !82, !"_ZN10rayon_core5scope9ScopeBase3new17h6c8fd810c126050fE: argument 1"}
-!85 = !{!84}
+!83 = distinct !{!83, !82, !"_ZN10rayon_core5scope9ScopeBase3new17h6c8fd810c126050fE: argument 1"}
+!84 = !{!81}
+!85 = !{!83}
 !86 = !{!87}
 !87 = distinct !{!87, !88, !"_ZN10rayon_core5scope9ScopeBase3new17h6c8fd810c126050fE: argument 0"}
 !88 = distinct !{!88, !"_ZN10rayon_core5scope9ScopeBase3new17h6c8fd810c126050fE"}

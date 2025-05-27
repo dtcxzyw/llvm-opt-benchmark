@@ -17756,7 +17756,7 @@ attributes #58 = { "function-inline-cost-multiplier"="2" }
 !478 = distinct !{!478, !477, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha4acecad36014c82E.llvm.17983010331538428002: argument 1"}
 !479 = distinct !{!479, !477, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha4acecad36014c82E.llvm.17983010331538428002: argument 2"}
 !480 = !{!473, !476, !478, !469, !471}
-!481 = !{!475, !479}
+!481 = !{!475, !478, !479}
 !482 = !{!483, !485, !486, !488}
 !483 = distinct !{!483, !484, !"_ZN12futures_util6future10maybe_done9MaybeDone6Future17h54644b484f317342E.llvm.17983010331538428002: argument 0"}
 !484 = distinct !{!484, !"_ZN12futures_util6future10maybe_done9MaybeDone6Future17h54644b484f317342E.llvm.17983010331538428002"}
@@ -20395,7 +20395,7 @@ attributes #58 = { "function-inline-cost-multiplier"="2" }
 !3117 = distinct !{!3117, !3116, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha4acecad36014c82E.llvm.17983010331538428002: argument 1"}
 !3118 = distinct !{!3118, !3116, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha4acecad36014c82E.llvm.17983010331538428002: argument 2"}
 !3119 = !{!3112, !3115, !3117}
-!3120 = !{!3114, !3118}
+!3120 = !{!3114, !3117, !3118}
 !3121 = !{!3122}
 !3122 = distinct !{!3122, !3123, !"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h071487eb242adbedE: argument 1"}
 !3123 = distinct !{!3123, !"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h071487eb242adbedE"}

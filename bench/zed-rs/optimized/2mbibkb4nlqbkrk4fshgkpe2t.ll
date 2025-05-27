@@ -692,6 +692,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hcc
 
 .thread:                                          ; preds = %16, %22
   call void @llvm.experimental.noalias.scope.decl(metadata !95)
+  call void @llvm.experimental.noalias.scope.decl(metadata !98)
   %35 = icmp ult i64 %3, %.sroa.12.076
   br i1 %35, label %39, label %36
 
@@ -725,16 +726,16 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hcc
   %.sroa.5.112.i = phi ptr [ %60, %.lr.ph.i ], [ %.sroa.5.0.i, %40 ]
   %.sroa.11.111.i = phi i64 [ %59, %.lr.ph.i ], [ %.sroa.11.0.i, %40 ]
   %44 = getelementptr i8, ptr %.sroa.5.112.i, i64 16
-  %.val.i = load ptr, ptr %44, align 8, !alias.scope !98, !noalias !95, !nonnull !4, !align !6, !noundef !4
-  %.val10.i = load ptr, ptr %38, align 8, !alias.scope !98, !noalias !95, !nonnull !4, !align !6, !noundef !4
+  %.val.i = load ptr, ptr %44, align 8, !alias.scope !95, !noalias !98, !nonnull !4, !align !6, !noundef !4
+  %.val10.i = load ptr, ptr %38, align 8, !alias.scope !95, !noalias !98, !nonnull !4, !align !6, !noundef !4
   %45 = getelementptr inbounds nuw i8, ptr %.val.i, i64 64
-  %46 = load i64, ptr %45, align 8, !noalias !95, !noundef !4
+  %46 = load i64, ptr %45, align 8, !noalias !100, !noundef !4
   %47 = getelementptr inbounds nuw i8, ptr %.val.i, i64 72
-  %48 = load i32, ptr %47, align 8, !range !83, !noalias !95, !noundef !4
+  %48 = load i32, ptr %47, align 8, !range !83, !noalias !100, !noundef !4
   %49 = getelementptr inbounds nuw i8, ptr %.val10.i, i64 64
-  %50 = load i64, ptr %49, align 8, !noalias !95, !noundef !4
+  %50 = load i64, ptr %49, align 8, !noalias !100, !noundef !4
   %51 = getelementptr inbounds nuw i8, ptr %.val10.i, i64 72
-  %52 = load i32, ptr %51, align 8, !range !83, !noalias !95, !noundef !4
+  %52 = load i32, ptr %51, align 8, !range !83, !noalias !100, !noundef !4
   %53 = icmp eq i64 %50, %46
   %54 = icmp samesign ult i32 %52, %48
   %55 = icmp slt i64 %50, %46
@@ -787,6 +788,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hcc
 
 .thread51:                                        ; preds = %22, %.loopexit
   call void @llvm.experimental.noalias.scope.decl(metadata !107)
+  call void @llvm.experimental.noalias.scope.decl(metadata !110)
   %77 = icmp ult i64 %3, %.sroa.12.076
   br i1 %77, label %81, label %78
 
@@ -820,16 +822,16 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hcc
   %.sroa.5.112.i44 = phi ptr [ %102, %.lr.ph.i42 ], [ %.sroa.5.0.i31, %82 ]
   %.sroa.11.111.i45 = phi i64 [ %101, %.lr.ph.i42 ], [ %.sroa.11.0.i30, %82 ]
   %86 = getelementptr i8, ptr %.sroa.5.112.i44, i64 16
-  %.val.i46 = load ptr, ptr %86, align 8, !alias.scope !110, !noalias !107, !nonnull !4, !align !6, !noundef !4
-  %.val10.i47 = load ptr, ptr %80, align 8, !alias.scope !110, !noalias !107, !nonnull !4, !align !6, !noundef !4
+  %.val.i46 = load ptr, ptr %86, align 8, !alias.scope !107, !noalias !110, !nonnull !4, !align !6, !noundef !4
+  %.val10.i47 = load ptr, ptr %80, align 8, !alias.scope !107, !noalias !110, !nonnull !4, !align !6, !noundef !4
   %87 = getelementptr inbounds nuw i8, ptr %.val10.i47, i64 64
-  %88 = load i64, ptr %87, align 8, !noalias !107, !noundef !4
+  %88 = load i64, ptr %87, align 8, !noalias !112, !noundef !4
   %89 = getelementptr inbounds nuw i8, ptr %.val10.i47, i64 72
-  %90 = load i32, ptr %89, align 8, !range !83, !noalias !107, !noundef !4
+  %90 = load i32, ptr %89, align 8, !range !83, !noalias !112, !noundef !4
   %91 = getelementptr inbounds nuw i8, ptr %.val.i46, i64 64
-  %92 = load i64, ptr %91, align 8, !noalias !107, !noundef !4
+  %92 = load i64, ptr %91, align 8, !noalias !112, !noundef !4
   %93 = getelementptr inbounds nuw i8, ptr %.val.i46, i64 72
-  %94 = load i32, ptr %93, align 8, !range !83, !noalias !107, !noundef !4
+  %94 = load i32, ptr %93, align 8, !range !83, !noalias !112, !noundef !4
   %95 = icmp eq i64 %92, %88
   %96 = icmp samesign uge i32 %94, %90
   %97 = icmp sge i64 %92, %88
@@ -9552,11 +9554,11 @@ attributes #30 = { noreturn }
 !93 = !{!88, !90}
 !94 = !{!85, !80, !81}
 !95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17hc523f780b90561b6E: argument 1"}
+!96 = distinct !{!96, !97, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17hc523f780b90561b6E: argument 0"}
 !97 = distinct !{!97, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17hc523f780b90561b6E"}
 !98 = !{!99}
-!99 = distinct !{!99, !97, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17hc523f780b90561b6E: argument 0"}
-!100 = !{!99, !96}
+!99 = distinct !{!99, !97, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17hc523f780b90561b6E: argument 1"}
+!100 = !{!96, !99}
 !101 = !{!102}
 !102 = distinct !{!102, !103, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h984b92329aed803fE: argument 0"}
 !103 = distinct !{!103, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h984b92329aed803fE"}
@@ -9564,11 +9566,11 @@ attributes #30 = { noreturn }
 !105 = distinct !{!105, !106, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h984b92329aed803fE: argument 0"}
 !106 = distinct !{!106, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h984b92329aed803fE"}
 !107 = !{!108}
-!108 = distinct !{!108, !109, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17h5c7f544c5989af75E: argument 1"}
+!108 = distinct !{!108, !109, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17h5c7f544c5989af75E: argument 0"}
 !109 = distinct !{!109, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17h5c7f544c5989af75E"}
 !110 = !{!111}
-!111 = distinct !{!111, !109, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17h5c7f544c5989af75E: argument 0"}
-!112 = !{!111, !108}
+!111 = distinct !{!111, !109, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17h5c7f544c5989af75E: argument 1"}
+!112 = !{!108, !111}
 !113 = !{!114}
 !114 = distinct !{!114, !115, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h984b92329aed803fE: argument 0"}
 !115 = distinct !{!115, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17h984b92329aed803fE"}

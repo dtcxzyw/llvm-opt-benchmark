@@ -6190,7 +6190,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 92:                                               ; preds = %._crit_edge.i
-  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #29
+  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #29, !noalias !498
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h5183df0d5ddf4c77E.exit: ; preds = %._crit_edge.i
@@ -6354,7 +6354,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 98:                                               ; preds = %._crit_edge.i
-  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #29
+  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #29, !noalias !509
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hd8e72eaeb6f807dbE.exit: ; preds = %._crit_edge.i
@@ -24711,20 +24711,20 @@ define noundef align 8 dereferenceable_or_null(8) ptr @"_ZN124_$LT$ty_python_sem
 
 "._ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hd1733f0c544cfd70E.exit_crit_edge.i.i": ; preds = %10
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !noalias !2062
+  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !noalias !2063
   br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hd1733f0c544cfd70E.exit.i.i"
 
 16:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2), !noalias !2063
-  store ptr %12, ptr %2, align 8, !noalias !2063
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2), !noalias !2064
+  store ptr %12, ptr %2, align 8, !noalias !2064
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %14, ptr %17, align 8, !noalias !2063
+  store ptr %14, ptr %17, align 8, !noalias !2064
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %12, ptr %18, align 8, !noalias !2063
+  store ptr %12, ptr %18, align 8, !noalias !2064
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %14, ptr %19, align 8, !noalias !2063
+  store ptr %14, ptr %19, align 8, !noalias !2064
   %20 = call { ptr, i64 } @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h5e256bcf57bd3ea8E"(ptr noalias noundef readonly align 8 dereferenceable(8) @anon.19ec47a0cd6498475602c63e96b7a42a.381, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2), !noalias !2069
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !2063
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !2064
   %21 = extractvalue { ptr, i64 } %20, 0
   %22 = extractvalue { ptr, i64 } %20, 1
   %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
@@ -24744,7 +24744,7 @@ define noundef align 8 dereferenceable_or_null(8) ptr @"_ZN124_$LT$ty_python_sem
 
 30:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hd1733f0c544cfd70E.exit.i.i"
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr %31, ptr %11, align 8, !noalias !2062
+  store ptr %31, ptr %11, align 8, !noalias !2063
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h7ff619f7a2f8b1c0E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h7ff619f7a2f8b1c0E.exit": ; preds = %8, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hd1733f0c544cfd70E.exit.i.i", %30
@@ -36886,20 +36886,20 @@ attributes #31 = { nounwind memory(inaccessiblemem: readwrite) }
 !2053 = !{!2054}
 !2054 = distinct !{!2054, !2055, !"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hd1733f0c544cfd70E: argument 0"}
 !2055 = distinct !{!2055, !"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hd1733f0c544cfd70E"}
-!2056 = !{!2057, !2058, !2060}
+!2056 = !{!2057, !2058, !2060, !2062}
 !2057 = distinct !{!2057, !2055, !"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hd1733f0c544cfd70E: argument 1"}
 !2058 = distinct !{!2058, !2059, !"_ZN124_$LT$ty_python_semantic..module_resolver..resolver..SearchPathIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h26aeee6b4a054357E: argument 0"}
 !2059 = distinct !{!2059, !"_ZN124_$LT$ty_python_semantic..module_resolver..resolver..SearchPathIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h26aeee6b4a054357E"}
-!2060 = distinct !{!2060, !2061, !"_ZN4core6option15Option$LT$T$GT$7or_else17h7ff619f7a2f8b1c0E: argument 1"}
+!2060 = distinct !{!2060, !2061, !"_ZN4core6option15Option$LT$T$GT$7or_else17h7ff619f7a2f8b1c0E: argument 0"}
 !2061 = distinct !{!2061, !"_ZN4core6option15Option$LT$T$GT$7or_else17h7ff619f7a2f8b1c0E"}
-!2062 = !{!2058, !2060}
-!2063 = !{!2064, !2066, !2054, !2057, !2058, !2068, !2060}
-!2064 = distinct !{!2064, !2065, !"_ZN18ty_python_semantic15module_resolver8resolver24dynamic_resolution_paths17h0b278b1937b7175dE: argument 0"}
-!2065 = distinct !{!2065, !"_ZN18ty_python_semantic15module_resolver8resolver24dynamic_resolution_paths17h0b278b1937b7175dE"}
-!2066 = distinct !{!2066, !2067, !"_ZN124_$LT$ty_python_semantic..module_resolver..resolver..SearchPathIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hefe119aa2aad6401E: argument 0"}
-!2067 = distinct !{!2067, !"_ZN124_$LT$ty_python_semantic..module_resolver..resolver..SearchPathIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hefe119aa2aad6401E"}
-!2068 = distinct !{!2068, !2061, !"_ZN4core6option15Option$LT$T$GT$7or_else17h7ff619f7a2f8b1c0E: argument 0"}
-!2069 = !{!2054, !2058, !2060}
+!2062 = distinct !{!2062, !2061, !"_ZN4core6option15Option$LT$T$GT$7or_else17h7ff619f7a2f8b1c0E: argument 1"}
+!2063 = !{!2058, !2060, !2062}
+!2064 = !{!2065, !2067, !2054, !2057, !2058, !2060, !2062}
+!2065 = distinct !{!2065, !2066, !"_ZN18ty_python_semantic15module_resolver8resolver24dynamic_resolution_paths17h0b278b1937b7175dE: argument 0"}
+!2066 = distinct !{!2066, !"_ZN18ty_python_semantic15module_resolver8resolver24dynamic_resolution_paths17h0b278b1937b7175dE"}
+!2067 = distinct !{!2067, !2068, !"_ZN124_$LT$ty_python_semantic..module_resolver..resolver..SearchPathIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hefe119aa2aad6401E: argument 0"}
+!2068 = distinct !{!2068, !"_ZN124_$LT$ty_python_semantic..module_resolver..resolver..SearchPathIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hefe119aa2aad6401E"}
+!2069 = !{!2054, !2058, !2060, !2062}
 !2070 = !{!2071}
 !2071 = distinct !{!2071, !2072, !"_ZN121_$LT$ty_python_semantic..module_resolver..resolver..PthFileIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hd8512b33020c2c46E: argument 0"}
 !2072 = distinct !{!2072, !"_ZN121_$LT$ty_python_semantic..module_resolver..resolver..PthFileIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hd8512b33020c2c46E"}

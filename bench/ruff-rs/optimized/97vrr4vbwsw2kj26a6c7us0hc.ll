@@ -4856,7 +4856,7 @@ define hidden void @_ZN5salsa9cancelled9Cancelled5catch17h3357fcc89d3b882aE(ptr 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #34, !noalias !374
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #34, !noalias !376
   unreachable
 
 23:                                               ; preds = %19
@@ -4951,7 +4951,7 @@ define hidden void @_ZN5salsa9cancelled9Cancelled5catch17h46f5303897c4d7b3E(ptr 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #34, !noalias !385
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #34, !noalias !387
   unreachable
 
 23:                                               ; preds = %19
@@ -5045,7 +5045,7 @@ define hidden void @_ZN5salsa9cancelled9Cancelled5catch17ha507cf5be9c8bd37E(ptr 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #34, !noalias !391
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #34, !noalias !393
   unreachable
 
 23:                                               ; preds = %19
@@ -5582,7 +5582,7 @@ define hidden void @_ZN7ruff_db5panic12catch_unwind17h4c5e6992717b9589E(ptr dead
 27:                                               ; preds = %25
   %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #34, !noalias !445
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #34, !noalias !447
   unreachable
 
 "_ZN5alloc5boxed7convert92_$LT$impl$u20$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$C$A$GT$$GT$8downcast17h88602710037f12b0E.exit.i.i.i": ; preds = %20
@@ -5647,7 +5647,7 @@ define hidden void @_ZN7ruff_db5panic12catch_unwind17h4c5e6992717b9589E(ptr dead
 49:                                               ; preds = %47
   %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #34, !noalias !452
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #34, !noalias !448
   unreachable
 
 common.resume:                                    ; preds = %62, %58, %47
@@ -13122,7 +13122,7 @@ attributes #34 = { cold noreturn nounwind }
 !663 = !{!664, !661, !655, !652}
 !664 = distinct !{!664, !665, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2faf4005651885bdE: argument 0"}
 !665 = distinct !{!665, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2faf4005651885bdE"}
-!666 = !{!661, !655, !652}
+!666 = !{!661, !655, !659, !652}
 !667 = !{!668}
 !668 = distinct !{!668, !669, !"_ZN10ty_project5watch15project_watcher14ProjectWatcher6update28_$u7b$$u7b$closure$u7d$$u7d$17heb70680d1537e371E: argument 0"}
 !669 = distinct !{!669, !"_ZN10ty_project5watch15project_watcher14ProjectWatcher6update28_$u7b$$u7b$closure$u7d$$u7d$17heb70680d1537e371E"}

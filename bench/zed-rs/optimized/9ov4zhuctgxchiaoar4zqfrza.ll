@@ -1505,6 +1505,7 @@ define hidden { i64, ptr } @_ZN3std2io4Read11read_to_end17h43d5933b49a3e6e8E(ptr
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, ptr } @_ZN3std2io4Read13read_vectored17h63a56b445182da4fE(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
   %4 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %1, i64 %2
   br label %5
 
@@ -1528,7 +1529,7 @@ _ZN3std2io21default_read_vectored17h8bb185e4816f9dd0E.exit: ; preds = %5, %12
   %.pn7.i.i = phi ptr [ %13, %12 ], [ inttoptr (i64 1 to ptr), %5 ]
   %.pn5.i.i = phi i64 [ %11, %12 ], [ 0, %5 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = tail call { i64, ptr } @_ZN6flate23zio4read17h35bd501219bef888E(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %14, ptr noalias noundef nonnull align 1 %.pn7.i.i, i64 noundef %.pn5.i.i)
+  %15 = tail call { i64, ptr } @_ZN6flate23zio4read17h35bd501219bef888E(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %14, ptr noalias noundef nonnull align 1 %.pn7.i.i, i64 noundef %.pn5.i.i), !noalias !168
   ret { i64, ptr } %15
 }
 
@@ -30070,7 +30071,7 @@ default.unreachable.i:                            ; preds = %"_ZN73_$LT$alloc..b
 444:                                              ; preds = %443
   %445 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33, !noalias !3769
   unreachable
 
 446:                                              ; preds = %276
@@ -40804,7 +40805,7 @@ attributes #38 = { noreturn nounwind }
 !3775 = distinct !{!3775, !3776, !"_ZN73_$LT$alloc..boxed..Box$LT$T$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h2f7db7e4bd6bba90E: argument 0"}
 !3776 = distinct !{!3776, !"_ZN73_$LT$alloc..boxed..Box$LT$T$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h2f7db7e4bd6bba90E"}
 !3777 = !{!3767, !3770}
-!3778 = !{!3779, !3781, !3783, !3785, !3787}
+!3778 = !{!3779, !3781, !3783, !3785, !3787, !3770}
 !3779 = distinct !{!3779, !3780, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5d5cda34ae7b4608E.llvm.9404759115765858575: argument 0"}
 !3780 = distinct !{!3780, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5d5cda34ae7b4608E.llvm.9404759115765858575"}
 !3781 = distinct !{!3781, !3782, !"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h99c3417f86612d77E.llvm.9404759115765858575: argument 0"}
@@ -40814,7 +40815,7 @@ attributes #38 = { noreturn nounwind }
 !3785 = distinct !{!3785, !3786, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h685540b6a6eedc63E: argument 0"}
 !3786 = distinct !{!3786, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h685540b6a6eedc63E"}
 !3787 = distinct !{!3787, !3786, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h685540b6a6eedc63E: argument 1"}
-!3788 = !{!3789, !3791, !3793, !3795, !3797}
+!3788 = !{!3789, !3791, !3793, !3795, !3797, !3770}
 !3789 = distinct !{!3789, !3790, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5d5cda34ae7b4608E.llvm.9404759115765858575: argument 0"}
 !3790 = distinct !{!3790, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5d5cda34ae7b4608E.llvm.9404759115765858575"}
 !3791 = distinct !{!3791, !3792, !"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h99c3417f86612d77E.llvm.9404759115765858575: argument 0"}
@@ -40824,7 +40825,7 @@ attributes #38 = { noreturn nounwind }
 !3795 = distinct !{!3795, !3796, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h5d677640c0383ffaE: argument 0"}
 !3796 = distinct !{!3796, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h5d677640c0383ffaE"}
 !3797 = distinct !{!3797, !3796, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h5d677640c0383ffaE: argument 1"}
-!3798 = !{!3799, !3801, !3803, !3805, !3807}
+!3798 = !{!3799, !3801, !3803, !3805, !3807, !3770}
 !3799 = distinct !{!3799, !3800, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5d5cda34ae7b4608E.llvm.9404759115765858575: argument 0"}
 !3800 = distinct !{!3800, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5d5cda34ae7b4608E.llvm.9404759115765858575"}
 !3801 = distinct !{!3801, !3802, !"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h99c3417f86612d77E.llvm.9404759115765858575: argument 0"}
@@ -40834,7 +40835,7 @@ attributes #38 = { noreturn nounwind }
 !3805 = distinct !{!3805, !3806, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7b9d6e4186c3e869E: argument 0"}
 !3806 = distinct !{!3806, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7b9d6e4186c3e869E"}
 !3807 = distinct !{!3807, !3806, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7b9d6e4186c3e869E: argument 1"}
-!3808 = !{!3809, !3811, !3813, !3815, !3817}
+!3808 = !{!3809, !3811, !3813, !3815, !3817, !3770}
 !3809 = distinct !{!3809, !3810, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5d5cda34ae7b4608E.llvm.9404759115765858575: argument 0"}
 !3810 = distinct !{!3810, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5d5cda34ae7b4608E.llvm.9404759115765858575"}
 !3811 = distinct !{!3811, !3812, !"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8$GT$$GT$17h99c3417f86612d77E.llvm.9404759115765858575: argument 0"}
@@ -40844,7 +40845,7 @@ attributes #38 = { noreturn nounwind }
 !3815 = distinct !{!3815, !3816, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hb16618b44765106dE: argument 0"}
 !3816 = distinct !{!3816, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hb16618b44765106dE"}
 !3817 = distinct !{!3817, !3816, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hb16618b44765106dE: argument 1"}
-!3818 = !{!3819, !3821, !3823, !3825, !3827}
+!3818 = !{!3819, !3821, !3823, !3825, !3827, !3770}
 !3819 = distinct !{!3819, !3820, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf334705db2eb76c4E.llvm.9404759115765858575: argument 0"}
 !3820 = distinct !{!3820, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf334705db2eb76c4E.llvm.9404759115765858575"}
 !3821 = distinct !{!3821, !3822, !"_ZN4core3ptr54drop_in_place$LT$alloc..raw_vec..RawVec$LT$u16$GT$$GT$17hc5648a4b96d5146dE.llvm.9404759115765858575: argument 0"}
@@ -40854,7 +40855,7 @@ attributes #38 = { noreturn nounwind }
 !3825 = distinct !{!3825, !3826, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hf5b76eaefe929e2fE: argument 0"}
 !3826 = distinct !{!3826, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hf5b76eaefe929e2fE"}
 !3827 = distinct !{!3827, !3826, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hf5b76eaefe929e2fE: argument 1"}
-!3828 = !{!3829, !3831, !3833, !3835, !3837}
+!3828 = !{!3829, !3831, !3833, !3835, !3837, !3770}
 !3829 = distinct !{!3829, !3830, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf334705db2eb76c4E.llvm.9404759115765858575: argument 0"}
 !3830 = distinct !{!3830, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf334705db2eb76c4E.llvm.9404759115765858575"}
 !3831 = distinct !{!3831, !3832, !"_ZN4core3ptr54drop_in_place$LT$alloc..raw_vec..RawVec$LT$u16$GT$$GT$17hc5648a4b96d5146dE.llvm.9404759115765858575: argument 0"}
@@ -40864,7 +40865,7 @@ attributes #38 = { noreturn nounwind }
 !3835 = distinct !{!3835, !3836, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17haec53c03f2e8d74aE: argument 0"}
 !3836 = distinct !{!3836, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17haec53c03f2e8d74aE"}
 !3837 = distinct !{!3837, !3836, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17haec53c03f2e8d74aE: argument 1"}
-!3838 = !{!3839, !3841, !3843, !3845, !3847}
+!3838 = !{!3839, !3841, !3843, !3845, !3847, !3770}
 !3839 = distinct !{!3839, !3840, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf334705db2eb76c4E.llvm.9404759115765858575: argument 0"}
 !3840 = distinct !{!3840, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf334705db2eb76c4E.llvm.9404759115765858575"}
 !3841 = distinct !{!3841, !3842, !"_ZN4core3ptr54drop_in_place$LT$alloc..raw_vec..RawVec$LT$u16$GT$$GT$17hc5648a4b96d5146dE.llvm.9404759115765858575: argument 0"}
@@ -40874,7 +40875,7 @@ attributes #38 = { noreturn nounwind }
 !3845 = distinct !{!3845, !3846, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7f8aded0ede38062E: argument 0"}
 !3846 = distinct !{!3846, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7f8aded0ede38062E"}
 !3847 = distinct !{!3847, !3846, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h7f8aded0ede38062E: argument 1"}
-!3848 = !{!3849, !3851, !3853, !3855, !3857}
+!3848 = !{!3849, !3851, !3853, !3855, !3857, !3770}
 !3849 = distinct !{!3849, !3850, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf334705db2eb76c4E.llvm.9404759115765858575: argument 0"}
 !3850 = distinct !{!3850, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf334705db2eb76c4E.llvm.9404759115765858575"}
 !3851 = distinct !{!3851, !3852, !"_ZN4core3ptr54drop_in_place$LT$alloc..raw_vec..RawVec$LT$u16$GT$$GT$17hc5648a4b96d5146dE.llvm.9404759115765858575: argument 0"}
@@ -40884,7 +40885,7 @@ attributes #38 = { noreturn nounwind }
 !3855 = distinct !{!3855, !3856, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h543e413555752203E: argument 0"}
 !3856 = distinct !{!3856, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h543e413555752203E"}
 !3857 = distinct !{!3857, !3856, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h543e413555752203E: argument 1"}
-!3858 = !{!3859, !3861, !3863, !3865, !3867}
+!3858 = !{!3859, !3861, !3863, !3865, !3867, !3770}
 !3859 = distinct !{!3859, !3860, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5ed898d5d013da67E.llvm.9404759115765858575: argument 0"}
 !3860 = distinct !{!3860, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5ed898d5d013da67E.llvm.9404759115765858575"}
 !3861 = distinct !{!3861, !3862, !"_ZN4core3ptr54drop_in_place$LT$alloc..raw_vec..RawVec$LT$f32$GT$$GT$17h235d4bc03aa47ef4E.llvm.9404759115765858575: argument 0"}
@@ -40894,7 +40895,7 @@ attributes #38 = { noreturn nounwind }
 !3865 = distinct !{!3865, !3866, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h8534798ba53fd3a5E: argument 0"}
 !3866 = distinct !{!3866, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h8534798ba53fd3a5E"}
 !3867 = distinct !{!3867, !3866, !"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h8534798ba53fd3a5E: argument 1"}
-!3868 = !{!3869, !3871, !3873, !3875, !3877}
+!3868 = !{!3869, !3871, !3873, !3875, !3877, !3770}
 !3869 = distinct !{!3869, !3870, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5ed898d5d013da67E.llvm.9404759115765858575: argument 0"}
 !3870 = distinct !{!3870, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5ed898d5d013da67E.llvm.9404759115765858575"}
 !3871 = distinct !{!3871, !3872, !"_ZN4core3ptr54drop_in_place$LT$alloc..raw_vec..RawVec$LT$f32$GT$$GT$17h235d4bc03aa47ef4E.llvm.9404759115765858575: argument 0"}

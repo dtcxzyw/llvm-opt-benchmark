@@ -2745,11 +2745,11 @@ define internal fastcc noundef i64 @_ZN6uu_cat9write_end17h7731cfc7ddfa53e8E(ptr
   br i1 %28, label %42, label %45
 
 29:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he393c45b851184cdE.exit.i"
-  %30 = call noundef ptr @"_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$9write_all17haa5fcaa2153b2692E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 %anon.f218b7438c08e3648fd2764e2960e505.146.llvm.11252104348231414051.anon.f218b7438c08e3648fd2764e2960e505.145.llvm.11252104348231414051.i, i64 noundef %..i)
+  %30 = call noundef ptr @"_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$9write_all17haa5fcaa2153b2692E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 %anon.f218b7438c08e3648fd2764e2960e505.146.llvm.11252104348231414051.anon.f218b7438c08e3648fd2764e2960e505.145.llvm.11252104348231414051.i, i64 noundef %..i), !noalias !306
   br label %33
 
 31:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he393c45b851184cdE.exit.i"
-  %32 = call noundef ptr @"_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$9write_all17haa5fcaa2153b2692E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 @anon.a24bcc934780916e99c84aea51fb20bd.32, i64 noundef 2)
+  %32 = call noundef ptr @"_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$9write_all17haa5fcaa2153b2692E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 @anon.a24bcc934780916e99c84aea51fb20bd.32, i64 noundef 2), !noalias !306
   br label %33
 
 33:                                               ; preds = %57, %55, %52, %48, %42, %31, %29
@@ -2761,13 +2761,13 @@ define internal fastcc noundef i64 @_ZN6uu_cat9write_end17h7731cfc7ddfa53e8E(ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !314
   store ptr %.09.i, ptr %9, align 8, !noalias !314
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.a24bcc934780916e99c84aea51fb20bd.0, i64 noundef 43, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a24bcc934780916e99c84aea51fb20bd.1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a24bcc934780916e99c84aea51fb20bd.34) #10
-          to label %38 unwind label %36
+          to label %38 unwind label %36, !noalias !306
 
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hcabb0cc8ada17cf5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9) #12
-          to label %common.resume unwind label %39
+          to label %common.resume unwind label %39, !noalias !306
 
 38:                                               ; preds = %35
   unreachable
@@ -2775,7 +2775,7 @@ define internal fastcc noundef i64 @_ZN6uu_cat9write_end17h7731cfc7ddfa53e8E(ptr
 39:                                               ; preds = %36
   %40 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11, !noalias !306
   unreachable
 
 common.resume:                                    ; preds = %97, %106, %118, %71, %80, %36
@@ -2792,7 +2792,7 @@ common.resume:                                    ; preds = %97, %106, %118, %71
   %43 = or disjoint i8 %26, 64
   store i8 94, ptr %13, align 1, !noalias !317
   store i8 %43, ptr %24, align 1, !noalias !317
-  %44 = call noundef ptr @"_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$9write_all17haa5fcaa2153b2692E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef 2)
+  %44 = call noundef ptr @"_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$9write_all17haa5fcaa2153b2692E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef 2), !noalias !306
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13), !noalias !317
   br label %33
 
@@ -2808,7 +2808,7 @@ common.resume:                                    ; preds = %97, %106, %118, %71
 48:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12), !noalias !317
   store i8 %26, ptr %12, align 1, !noalias !317
-  %49 = call noundef ptr @"_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$9write_all17haa5fcaa2153b2692E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef 1)
+  %49 = call noundef ptr @"_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$9write_all17haa5fcaa2153b2692E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef 1), !noalias !306
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12), !noalias !317
   br label %33
 
@@ -2824,12 +2824,12 @@ common.resume:                                    ; preds = %97, %106, %118, %71
   store i8 45, ptr %21, align 1, !noalias !317
   store i8 94, ptr %22, align 1, !noalias !317
   store i8 %53, ptr %23, align 1, !noalias !317
-  %54 = call noundef ptr @"_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$9write_all17haa5fcaa2153b2692E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef 4)
+  %54 = call noundef ptr @"_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$9write_all17haa5fcaa2153b2692E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef 4), !noalias !306
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11), !noalias !317
   br label %33
 
 55:                                               ; preds = %50
-  %56 = call noundef ptr @"_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$9write_all17haa5fcaa2153b2692E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 @anon.a24bcc934780916e99c84aea51fb20bd.33, i64 noundef 4)
+  %56 = call noundef ptr @"_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$9write_all17haa5fcaa2153b2692E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 @anon.a24bcc934780916e99c84aea51fb20bd.33, i64 noundef 4), !noalias !306
   br label %33
 
 57:                                               ; preds = %50
@@ -2838,7 +2838,7 @@ common.resume:                                    ; preds = %97, %106, %118, %71
   store i8 77, ptr %10, align 1, !noalias !317
   store i8 45, ptr %19, align 1, !noalias !317
   store i8 %58, ptr %20, align 1, !noalias !317
-  %59 = call noundef ptr @"_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$9write_all17haa5fcaa2153b2692E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef 3)
+  %59 = call noundef ptr @"_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$9write_all17haa5fcaa2153b2692E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef 3), !noalias !306
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %10), !noalias !317
   br label %33
 

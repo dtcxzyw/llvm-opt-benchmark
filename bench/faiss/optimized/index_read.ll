@@ -38452,10 +38452,10 @@ _ZSt27__uninitialized_default_n_aIPSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIl
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %62 = load i64, ptr %61, align 8, !tbaa !25
+  %62 = load i64, ptr %61, align 8, !tbaa !25, !noalias !411
   %63 = urem i64 %62, %44
   %64 = getelementptr inbounds nuw ptr, ptr %59, i64 %63
-  store ptr %45, ptr %64, align 8, !tbaa !126
+  store ptr %45, ptr %64, align 8, !tbaa !126, !noalias !411
   br label %_ZSt19__relocate_object_aISt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS3_EEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aISt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS3_EEESC_SaISC_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %60, %58

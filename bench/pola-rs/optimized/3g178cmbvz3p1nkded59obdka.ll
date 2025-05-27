@@ -22887,7 +22887,7 @@ define internal fastcc void @_ZN12polars_arrow6legacy5array15fixed_size_list16An
 11:                                               ; preds = %9
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #31
+  tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #31, !noalias !1436
   unreachable
 
 13:                                               ; preds = %9

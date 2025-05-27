@@ -13374,7 +13374,7 @@ define void @_ZN12pingora_core7modules4http11HttpModules10add_module17h0626fdf47
 23:                                               ; preds = %21
   %24 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #29
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #29, !noalias !788
   unreachable
 
 25:                                               ; preds = %10

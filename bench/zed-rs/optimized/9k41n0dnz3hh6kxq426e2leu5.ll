@@ -10611,7 +10611,7 @@ define hidden void @"_ZN88_$LT$indexed_docs..providers..rustdoc..item..RustdocIt
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i, i64 8
   %19 = load i64, ptr %18, align 8, !alias.scope !1566, !noalias !1567, !noundef !28
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h51d1712de59c58d9E.llvm.8271119346295809160"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %19), !noalias !1563
+  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h51d1712de59c58d9E.llvm.8271119346295809160"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %19), !noalias !1566
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !1570
   store i8 -1, ptr %4, align 1, !noalias !1570
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h51d1712de59c58d9E.llvm.8271119346295809160"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 1), !noalias !1580
@@ -13402,7 +13402,7 @@ attributes #49 = { noreturn nounwind }
 !1577 = distinct !{!1577, !1578, !"_ZN4core4hash5impls50_$LT$impl$u20$core..hash..Hash$u20$for$u20$str$GT$4hash17hf8512a93a85111dcE.llvm.8271119346295809160: argument 0"}
 !1578 = distinct !{!1578, !"_ZN4core4hash5impls50_$LT$impl$u20$core..hash..Hash$u20$for$u20$str$GT$4hash17hf8512a93a85111dcE.llvm.8271119346295809160"}
 !1579 = distinct !{!1579, !1578, !"_ZN4core4hash5impls50_$LT$impl$u20$core..hash..Hash$u20$for$u20$str$GT$4hash17hf8512a93a85111dcE.llvm.8271119346295809160: argument 1"}
-!1580 = !{!1573, !1576, !1577, !1564}
+!1580 = !{!1573, !1576, !1577, !1564, !1561}
 !1581 = !{!1582, !1584, !1585, !1587}
 !1582 = distinct !{!1582, !1583, !"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$9write_str17haddbe356a1bd7683E.llvm.8271119346295809160: argument 0"}
 !1583 = distinct !{!1583, !"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$9write_str17haddbe356a1bd7683E.llvm.8271119346295809160"}
@@ -13450,7 +13450,7 @@ attributes #49 = { noreturn nounwind }
 !1625 = !{!1626, !1614, !1615}
 !1626 = distinct !{!1626, !1627, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.8271119346295809160: argument 1"}
 !1627 = distinct !{!1627, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.8271119346295809160"}
-!1628 = !{!1629, !1607, !1609, !1616, !1611, !1603}
+!1628 = !{!1629, !1607, !1609, !1616, !1611, !1600, !1603}
 !1629 = distinct !{!1629, !1627, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.8271119346295809160: argument 0"}
 !1630 = !{!1631}
 !1631 = distinct !{!1631, !1632, !"_ZN4core4hash6Hasher9write_str17hd2ac516efc3b3f9eE.llvm.8271119346295809160: argument 0"}

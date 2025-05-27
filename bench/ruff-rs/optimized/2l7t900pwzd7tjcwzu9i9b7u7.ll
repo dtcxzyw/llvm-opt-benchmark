@@ -9844,7 +9844,7 @@ common.resume.i:                                  ; preds = %50, %41, %21, %9
 23:                                               ; preds = %21
   %24 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #27, !noalias !546
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #27, !noalias !549
   unreachable
 
 "_ZN5alloc5boxed7convert69_$LT$impl$u20$alloc..boxed..Box$LT$dyn$u20$core..any..Any$C$A$GT$$GT$8downcast17hc8fe4d9815bfb8f3E.exit.i.i": ; preds = %16
@@ -9954,7 +9954,7 @@ _ZN5alloc5alloc15exchange_malloc17he7dced161648df71E.exit.i: ; preds = %2
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #27, !noalias !571
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #27, !noalias !574
   unreachable
 
 common.resume.i.i:                                ; preds = %45, %36, %16
@@ -58207,7 +58207,7 @@ attributes #29 = { nounwind }
 !2390 = distinct !{!2390, !2389, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h2f834b301e948c0cE: argument 1"}
 !2391 = distinct !{!2391, !2389, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h2f834b301e948c0cE: argument 2"}
 !2392 = !{!2385, !2388, !2390}
-!2393 = !{!2387, !2391}
+!2393 = !{!2387, !2390, !2391}
 !2394 = !{!2395}
 !2395 = distinct !{!2395, !2396, !"_ZN11ruff_server7session5index5Index11url_for_key17h7a5c0b1a8976e635E: argument 0"}
 !2396 = distinct !{!2396, !"_ZN11ruff_server7session5index5Index11url_for_key17h7a5c0b1a8976e635E"}
@@ -58578,7 +58578,7 @@ attributes #29 = { nounwind }
 !2761 = distinct !{!2761, !2760, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h2f834b301e948c0cE: argument 1"}
 !2762 = distinct !{!2762, !2760, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h2f834b301e948c0cE: argument 2"}
 !2763 = !{!2756, !2759, !2761}
-!2764 = !{!2758, !2762}
+!2764 = !{!2758, !2761, !2762}
 !2765 = !{!2766}
 !2766 = distinct !{!2766, !2767, !"_ZN11ruff_server7session5index22WorkspaceSettingsIndex18register_workspace28_$u7b$$u7b$closure$u7d$$u7d$17hbba6735199511473E: argument 0"}
 !2767 = distinct !{!2767, !"_ZN11ruff_server7session5index22WorkspaceSettingsIndex18register_workspace28_$u7b$$u7b$closure$u7d$$u7d$17hbba6735199511473E"}

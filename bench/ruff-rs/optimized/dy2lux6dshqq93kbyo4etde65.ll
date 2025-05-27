@@ -1256,6 +1256,7 @@ define hidden void @"_ZN76_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$ruff_cache..c
   tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
   %8 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %7, i64 %4
   %9 = icmp eq i64 %4, 0
   br i1 %9, label %_ZN10ruff_cache9cache_key8CacheKey15cache_key_slice17h215e03d360af4654E.exit, label %.lr.ph.i
@@ -1267,8 +1268,8 @@ define hidden void @"_ZN76_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$ruff_cache..c
   %.sroa.01.0.val.i = load ptr, ptr %11, align 8, !alias.scope !128, !noalias !131, !nonnull !4, !noundef !4
   %12 = getelementptr i8, ptr %.sroa.01.04.i, i64 16
   %.sroa.01.0.val3.i = load i64, ptr %12, align 8, !alias.scope !128, !noalias !131, !noundef !4
-  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$5write17h606bd41db2fbfc59E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.01.0.val.i, i64 noundef %.sroa.01.0.val3.i)
-  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$8write_u817h595c86ff6f14b4e5E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i8 noundef -1)
+  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$5write17h606bd41db2fbfc59E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.01.0.val.i, i64 noundef %.sroa.01.0.val3.i), !noalias !128
+  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$8write_u817h595c86ff6f14b4e5E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i8 noundef -1), !noalias !128
   %13 = icmp eq ptr %10, %8
   br i1 %13, label %_ZN10ruff_cache9cache_key8CacheKey15cache_key_slice17h215e03d360af4654E.exit, label %.lr.ph.i
 

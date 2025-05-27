@@ -4589,10 +4589,10 @@ _ZNSt16allocator_traitsISaIN3ue217InitialResetEntryEEE9constructIS1_JRSt10shared
 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %61 = load i64, ptr %60, align 8
+  %61 = load i64, ptr %60, align 8, !noalias !60
   %62 = urem i64 %61, %43
   %63 = getelementptr inbounds nuw ptr, ptr %58, i64 %62
-  store ptr %44, ptr %63, align 8
+  store ptr %44, ptr %63, align 8, !noalias !60
   br label %_ZSt19__relocate_object_aIN3ue217InitialResetEntryES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i
 
 _ZSt19__relocate_object_aIN3ue217InitialResetEntryES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i: ; preds = %59, %57
@@ -4679,10 +4679,10 @@ _ZNSt6vectorIN3ue217InitialResetEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit:
 
 102:                                              ; preds = %100
   %103 = getelementptr inbounds nuw i8, ptr %89, i64 32
-  %104 = load i64, ptr %103, align 8
+  %104 = load i64, ptr %103, align 8, !noalias !67
   %105 = urem i64 %104, %86
   %106 = getelementptr inbounds nuw ptr, ptr %101, i64 %105
-  store ptr %87, ptr %106, align 8
+  store ptr %87, ptr %106, align 8, !noalias !67
   br label %_ZSt19__relocate_object_aIN3ue217InitialResetEntryES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i35
 
 _ZSt19__relocate_object_aIN3ue217InitialResetEntryES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i35: ; preds = %102, %100

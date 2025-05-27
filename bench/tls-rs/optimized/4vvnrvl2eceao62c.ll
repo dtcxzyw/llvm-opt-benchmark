@@ -1094,6 +1094,7 @@ define hidden { i8, i8 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h2865757495328fbfE"(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) initializes((0, 24)) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %5, label %3
 
@@ -1108,7 +1109,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4laz
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3, %2
-  %6 = tail call { i64, i64 } @_ZN3std3sys4unix4rand19hashmap_random_keys17ha2ae1622ab906f3fE()
+  %6 = tail call { i64, i64 } @_ZN3std3sys4unix4rand19hashmap_random_keys17ha2ae1622ab906f3fE(), !noalias !69
   br label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hf1a6d5812e9fa89aE.llvm.6030771845222660662.exit"
 
 7:                                                ; preds = %3
@@ -12252,6 +12253,7 @@ common.resume:                                    ; preds = %200, %"_ZN4core3ptr
   br i1 %136, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h530b114b30b28ad3E.exit.thread", label %82
 
 ._crit_edge:                                      ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hc36223bb8e2d9559E.exit", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h530b114b30b28ad3E.exit.thread"
+  call void @llvm.experimental.noalias.scope.decl(metadata !1642)
   %137 = icmp eq i64 %3, 0
   br i1 %137, label %.loopexit, label %.lr.ph.i
 
@@ -12261,7 +12263,7 @@ common.resume:                                    ; preds = %200, %"_ZN4core3ptr
   %.sroa.0.0610.i = phi ptr [ %138, %141 ], [ %2, %._crit_edge ]
   %138 = getelementptr inbounds nuw i8, ptr %.sroa.0.0610.i, i64 8
   %139 = load ptr, ptr %.sroa.0.0610.i, align 8, !alias.scope !1642, !nonnull !7, !align !95, !noundef !7
-  %140 = load i16, ptr %139, align 2, !range !653, !noundef !7
+  %140 = load i16, ptr %139, align 2, !range !653, !noalias !1642, !noundef !7
   switch i16 %140, label %141 [
     i16 4, label %143
     i16 5, label %144
@@ -12842,6 +12844,7 @@ common.resume:                                    ; preds = %200, %"_ZN4core3ptr
   br i1 %136, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h530b114b30b28ad3E.exit.thread", label %82
 
 ._crit_edge:                                      ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6ce60d94b1cae398E.exit", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h530b114b30b28ad3E.exit.thread"
+  call void @llvm.experimental.noalias.scope.decl(metadata !1767)
   %137 = icmp eq i64 %3, 0
   br i1 %137, label %.loopexit, label %.lr.ph.i
 
@@ -12851,7 +12854,7 @@ common.resume:                                    ; preds = %200, %"_ZN4core3ptr
   %.sroa.0.0610.i = phi ptr [ %138, %141 ], [ %2, %._crit_edge ]
   %138 = getelementptr inbounds nuw i8, ptr %.sroa.0.0610.i, i64 8
   %139 = load ptr, ptr %.sroa.0.0610.i, align 8, !alias.scope !1767, !nonnull !7, !align !95, !noundef !7
-  %140 = load i16, ptr %139, align 2, !range !653, !noundef !7
+  %140 = load i16, ptr %139, align 2, !range !653, !noalias !1767, !noundef !7
   switch i16 %140, label %141 [
     i16 4, label %143
     i16 5, label %144

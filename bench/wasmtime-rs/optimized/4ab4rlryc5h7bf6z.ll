@@ -8135,7 +8135,7 @@ _ZN4core5clone5Clone5clone17hae1c1d7612642a71E.exit.i: ; preds = %.noexc.i, %56
 76:                                               ; preds = %46
   %77 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #66, !noalias !1514
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #66, !noalias !1516
   unreachable
 
 78:                                               ; preds = %.loopexit, %8
@@ -43590,7 +43590,7 @@ define hidden noundef align 4 dereferenceable_or_null(8) ptr @"_ZN17cranelift_co
   %47 = load ptr, ptr %46, align 8, !alias.scope !8170, !noalias !8173, !nonnull !4
   %.sink5.i.i.i = select i1 %42, ptr %47, ptr %46
   %48 = getelementptr inbounds nuw i32, ptr %.sink5.i.i.i, i64 %39
-  %49 = load i32, ptr %48, align 4, !alias.scope !8175, !noundef !4
+  %49 = load i32, ptr %48, align 4, !alias.scope !8175, !noalias !8161, !noundef !4
   %50 = getelementptr inbounds i8, ptr %36, i64 -4
   %51 = load i32, ptr %50, align 4, !alias.scope !8161, !noalias !8169, !noundef !4
   %52 = icmp eq i32 %49, %51

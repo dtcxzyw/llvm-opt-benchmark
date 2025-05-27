@@ -1561,16 +1561,17 @@ define internal fastcc noundef i64 @"_ZN103_$LT$opentelemetry_proto..proto..toni
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8, !range !88, !noundef !3
   %.not = icmp eq i64 %3, -9223372036854775808
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !297)
   br i1 %.not, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc0158621d244f059E.exit", label %4
 
 4:                                                ; preds = %1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !297)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !300)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !303)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !306)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !alias.scope !306, !nonnull !3, !noundef !3
+  %6 = load ptr, ptr %5, align 8, !alias.scope !309, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %8 = load i64, ptr %7, align 8, !alias.scope !306, !noundef !3
+  %8 = load i64, ptr %7, align 8, !alias.scope !309, !noundef !3
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %_ZN5prost8encoding7message20encoded_len_repeated17h2a84dcd38f0c1422E.exit.i.i.i.i, label %.preheader.i.i.i.i.i
 
@@ -1578,12 +1579,12 @@ define internal fastcc noundef i64 @"_ZN103_$LT$opentelemetry_proto..proto..toni
   %.sroa.07.0.i.i.i.i.i.i = phi i64 [ %46, %_ZN4core3ops8function5FnMut8call_mut17h5f49450e72d48306E.exit.i.i.i.i ], [ 0, %4 ]
   %.sroa.09.0.i.i.i.i.i.i = phi i64 [ %47, %_ZN4core3ops8function5FnMut8call_mut17h5f49450e72d48306E.exit.i.i.i.i ], [ 0, %4 ]
   %10 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i8, [31 x i8] } }, ptr %6, i64 %.sroa.09.0.i.i.i.i.i.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !309)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !312)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !310)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !313)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load ptr, ptr %11, align 8, !alias.scope !315, !noalias !316, !nonnull !3, !noundef !3
+  %12 = load ptr, ptr %11, align 8, !alias.scope !316, !noalias !309, !nonnull !3, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %14 = load i64, ptr %13, align 8, !alias.scope !315, !noalias !316, !noundef !3
+  %14 = load i64, ptr %13, align 8, !alias.scope !316, !noalias !309, !noundef !3
   %15 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc3840f08572af29cE"(ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %14, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0), !noalias !317
   br i1 %15, label %"_ZN99_$LT$opentelemetry_proto..proto..tonic..common..v1..KeyValue$u20$as$u20$prost..message..Message$GT$11encoded_len17hf1f08a8aa6210dc2E.exit.i.i.i.i.i", label %16
 
@@ -1603,14 +1604,14 @@ define internal fastcc noundef i64 @"_ZN103_$LT$opentelemetry_proto..proto..toni
 "_ZN99_$LT$opentelemetry_proto..proto..tonic..common..v1..KeyValue$u20$as$u20$prost..message..Message$GT$11encoded_len17hf1f08a8aa6210dc2E.exit.i.i.i.i.i": ; preds = %16, %.preheader.i.i.i.i.i
   %.sroa.0.0.i.i.i.i.i.i = phi i64 [ %25, %16 ], [ 0, %.preheader.i.i.i.i.i ]
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %27 = load i8, ptr %26, align 8, !range !11, !alias.scope !315, !noalias !316, !noundef !3
+  %27 = load i8, ptr %26, align 8, !range !11, !alias.scope !316, !noalias !309, !noundef !3
   switch i8 %27, label %28 [
     i8 8, label %_ZN4core3ops8function5FnMut8call_mut17h5f49450e72d48306E.exit.i.i.i.i
     i8 7, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h5d1a28caf9eb736fE.exit.i.i.i.i"
   ]
 
 28:                                               ; preds = %"_ZN99_$LT$opentelemetry_proto..proto..tonic..common..v1..KeyValue$u20$as$u20$prost..message..Message$GT$11encoded_len17hf1f08a8aa6210dc2E.exit.i.i.i.i.i"
-  %29 = tail call fastcc noundef i64 @_ZN19opentelemetry_proto5proto5tonic6common2v19any_value5Value11encoded_len17h0d7db3fd534d7b3aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) dereferenceable_or_null(32) %26) #27, !noalias !316
+  %29 = tail call fastcc noundef i64 @_ZN19opentelemetry_proto5proto5tonic6common2v19any_value5Value11encoded_len17h0d7db3fd534d7b3aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) dereferenceable_or_null(32) %26) #27, !noalias !309
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h5d1a28caf9eb736fE.exit.i.i.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h5d1a28caf9eb736fE.exit.i.i.i.i": ; preds = %28, %"_ZN99_$LT$opentelemetry_proto..proto..tonic..common..v1..KeyValue$u20$as$u20$prost..message..Message$GT$11encoded_len17hf1f08a8aa6210dc2E.exit.i.i.i.i.i"
@@ -1643,7 +1644,7 @@ _ZN4core3ops8function5FnMut8call_mut17h5f49450e72d48306E.exit.i.i.i.i: ; preds =
 _ZN5prost8encoding7message20encoded_len_repeated17h2a84dcd38f0c1422E.exit.i.i.i.i: ; preds = %_ZN4core3ops8function5FnMut8call_mut17h5f49450e72d48306E.exit.i.i.i.i, %4
   %.sroa.04.0.i.i.i.i.i.i = phi i64 [ 0, %4 ], [ %46, %_ZN4core3ops8function5FnMut8call_mut17h5f49450e72d48306E.exit.i.i.i.i ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %50 = load i32, ptr %49, align 8, !alias.scope !306, !noundef !3
+  %50 = load i32, ptr %49, align 8, !alias.scope !309, !noundef !3
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %"_ZN103_$LT$opentelemetry_proto..proto..tonic..trace..v1..ResourceSpans$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17hb2863bcdbdd09bbaE.exit.i", label %52
 
@@ -10308,16 +10309,17 @@ _ZN5prost8encoding7message20encoded_len_repeated17h4bc9b92b75690290E.exit: ; pre
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %214 = load i64, ptr %213, align 8, !range !88, !noundef !3
   %.not = icmp eq i64 %214, -9223372036854775808
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !936)
   br i1 %.not, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h1ec319df82d3dc2dE.exit", label %215
 
 215:                                              ; preds = %212
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !936)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !939)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !942)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !945)
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %217 = load ptr, ptr %216, align 8, !alias.scope !945, !nonnull !3, !noundef !3
+  %217 = load ptr, ptr %216, align 8, !alias.scope !948, !nonnull !3, !noundef !3
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %219 = load i64, ptr %218, align 8, !alias.scope !945, !noundef !3
+  %219 = load i64, ptr %218, align 8, !alias.scope !948, !noundef !3
   %220 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc3840f08572af29cE"(ptr noalias noundef nonnull readonly align 1 %217, i64 noundef %219, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0), !noalias !948
   br i1 %220, label %231, label %221
 
@@ -10337,7 +10339,7 @@ _ZN5prost8encoding7message20encoded_len_repeated17h4bc9b92b75690290E.exit: ; pre
 231:                                              ; preds = %221, %215
   %.sroa.0.0.i.i.i.i = phi i64 [ %230, %221 ], [ 0, %215 ]
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %233 = load i32, ptr %232, align 8, !alias.scope !945, !noundef !3
+  %233 = load i32, ptr %232, align 8, !alias.scope !948, !noundef !3
   %234 = icmp eq i32 %233, 0
   br i1 %234, label %"_ZN94_$LT$opentelemetry_proto..proto..tonic..trace..v1..Span$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17hc4e86fc4742489e1E.exit.i", label %235
 
@@ -18186,26 +18188,26 @@ attributes #32 = { "function-inline-cost-multiplier"="4" }
 !295 = distinct !{!295, !"_ZN4core4iter6traits8iterator8Iterator4fold17hac7250f95f98a8e4E"}
 !296 = !{!277, !279}
 !297 = !{!298}
-!298 = distinct !{!298, !299, !"_ZN103_$LT$opentelemetry_proto..proto..tonic..trace..v1..ResourceSpans$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17hb2863bcdbdd09bbaE: argument 0"}
-!299 = distinct !{!299, !"_ZN103_$LT$opentelemetry_proto..proto..tonic..trace..v1..ResourceSpans$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17hb2863bcdbdd09bbaE"}
+!298 = distinct !{!298, !299, !"_ZN4core6option15Option$LT$T$GT$6map_or17hc0158621d244f059E: argument 0"}
+!299 = distinct !{!299, !"_ZN4core6option15Option$LT$T$GT$6map_or17hc0158621d244f059E"}
 !300 = !{!301}
-!301 = distinct !{!301, !302, !"_ZN5prost8encoding7message11encoded_len17hf76ffe7041290c3dE: argument 0"}
-!302 = distinct !{!302, !"_ZN5prost8encoding7message11encoded_len17hf76ffe7041290c3dE"}
+!301 = distinct !{!301, !302, !"_ZN103_$LT$opentelemetry_proto..proto..tonic..trace..v1..ResourceSpans$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17hb2863bcdbdd09bbaE: argument 0"}
+!302 = distinct !{!302, !"_ZN103_$LT$opentelemetry_proto..proto..tonic..trace..v1..ResourceSpans$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17hb2863bcdbdd09bbaE"}
 !303 = !{!304}
-!304 = distinct !{!304, !305, !"_ZN101_$LT$opentelemetry_proto..proto..tonic..resource..v1..Resource$u20$as$u20$prost..message..Message$GT$11encoded_len17h0ba542dd021dba8fE: argument 0"}
-!305 = distinct !{!305, !"_ZN101_$LT$opentelemetry_proto..proto..tonic..resource..v1..Resource$u20$as$u20$prost..message..Message$GT$11encoded_len17h0ba542dd021dba8fE"}
-!306 = !{!304, !301, !298, !307}
-!307 = distinct !{!307, !308, !"_ZN4core6option15Option$LT$T$GT$6map_or17hc0158621d244f059E: argument 0"}
-!308 = distinct !{!308, !"_ZN4core6option15Option$LT$T$GT$6map_or17hc0158621d244f059E"}
-!309 = !{!310}
-!310 = distinct !{!310, !311, !"_ZN4core3ops8function5FnMut8call_mut17h5f49450e72d48306E: argument 0"}
-!311 = distinct !{!311, !"_ZN4core3ops8function5FnMut8call_mut17h5f49450e72d48306E"}
-!312 = !{!313}
-!313 = distinct !{!313, !314, !"_ZN99_$LT$opentelemetry_proto..proto..tonic..common..v1..KeyValue$u20$as$u20$prost..message..Message$GT$11encoded_len17hf1f08a8aa6210dc2E: argument 0"}
-!314 = distinct !{!314, !"_ZN99_$LT$opentelemetry_proto..proto..tonic..common..v1..KeyValue$u20$as$u20$prost..message..Message$GT$11encoded_len17hf1f08a8aa6210dc2E"}
-!315 = !{!313, !310}
-!316 = !{!304, !301, !298}
-!317 = !{!313, !310, !304, !301, !298}
+!304 = distinct !{!304, !305, !"_ZN5prost8encoding7message11encoded_len17hf76ffe7041290c3dE: argument 0"}
+!305 = distinct !{!305, !"_ZN5prost8encoding7message11encoded_len17hf76ffe7041290c3dE"}
+!306 = !{!307}
+!307 = distinct !{!307, !308, !"_ZN101_$LT$opentelemetry_proto..proto..tonic..resource..v1..Resource$u20$as$u20$prost..message..Message$GT$11encoded_len17h0ba542dd021dba8fE: argument 0"}
+!308 = distinct !{!308, !"_ZN101_$LT$opentelemetry_proto..proto..tonic..resource..v1..Resource$u20$as$u20$prost..message..Message$GT$11encoded_len17h0ba542dd021dba8fE"}
+!309 = !{!307, !304, !301, !298}
+!310 = !{!311}
+!311 = distinct !{!311, !312, !"_ZN4core3ops8function5FnMut8call_mut17h5f49450e72d48306E: argument 0"}
+!312 = distinct !{!312, !"_ZN4core3ops8function5FnMut8call_mut17h5f49450e72d48306E"}
+!313 = !{!314}
+!314 = distinct !{!314, !315, !"_ZN99_$LT$opentelemetry_proto..proto..tonic..common..v1..KeyValue$u20$as$u20$prost..message..Message$GT$11encoded_len17hf1f08a8aa6210dc2E: argument 0"}
+!315 = distinct !{!315, !"_ZN99_$LT$opentelemetry_proto..proto..tonic..common..v1..KeyValue$u20$as$u20$prost..message..Message$GT$11encoded_len17hf1f08a8aa6210dc2E"}
+!316 = !{!314, !311}
+!317 = !{!314, !311, !307, !304, !301, !298}
 !318 = !{!319}
 !319 = distinct !{!319, !320, !"_ZN5prost8encoding7message20encoded_len_repeated17h8d1deede44300b68E: argument 0"}
 !320 = distinct !{!320, !"_ZN5prost8encoding7message20encoded_len_repeated17h8d1deede44300b68E"}
@@ -18531,7 +18533,7 @@ attributes #32 = { "function-inline-cost-multiplier"="4" }
 !640 = distinct !{!640, !639, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17haf93516bb4f1801aE: argument 1"}
 !641 = distinct !{!641, !639, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17haf93516bb4f1801aE: argument 2"}
 !642 = !{!635, !638, !640, !627}
-!643 = !{!637, !641, !627}
+!643 = !{!637, !640, !641, !627}
 !644 = !{!645, !647, !648, !650, !651, !632, !627}
 !645 = distinct !{!645, !646, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h5e85bda813ec343cE: argument 0"}
 !646 = distinct !{!646, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h5e85bda813ec343cE"}
@@ -18541,7 +18543,7 @@ attributes #32 = { "function-inline-cost-multiplier"="4" }
 !650 = distinct !{!650, !649, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17haf93516bb4f1801aE: argument 1"}
 !651 = distinct !{!651, !649, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17haf93516bb4f1801aE: argument 2"}
 !652 = !{!645, !648, !650, !632, !627}
-!653 = !{!647, !651, !632, !627}
+!653 = !{!647, !650, !651, !632, !627}
 !654 = !{!"branch_weights", !"expected", i32 1192351, i32 2146291297}
 !655 = !{!656}
 !656 = distinct !{!656, !657, !"_ZN77_$LT$tonic..codec..buffer..DecodeBuf$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17ha43c9f5f37be2fabE: argument 0:thread"}
@@ -18601,7 +18603,7 @@ attributes #32 = { "function-inline-cost-multiplier"="4" }
 !710 = distinct !{!710, !709, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17haf93516bb4f1801aE: argument 1"}
 !711 = distinct !{!711, !709, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17haf93516bb4f1801aE: argument 2"}
 !712 = !{!705, !708, !710}
-!713 = !{!707, !711}
+!713 = !{!707, !710, !711}
 !714 = !{!715}
 !715 = distinct !{!715, !716, !"_ZN5bytes3buf7buf_mut6BufMut9put_slice17h7e6e540a3650924eE: argument 0"}
 !716 = distinct !{!716, !"_ZN5bytes3buf7buf_mut6BufMut9put_slice17h7e6e540a3650924eE"}
@@ -18825,18 +18827,18 @@ attributes #32 = { "function-inline-cost-multiplier"="4" }
 !934 = distinct !{!934, !"_ZN99_$LT$opentelemetry_proto..proto..tonic..common..v1..KeyValue$u20$as$u20$prost..message..Message$GT$11encoded_len17hf1f08a8aa6210dc2E"}
 !935 = !{!933, !930}
 !936 = !{!937}
-!937 = distinct !{!937, !938, !"_ZN94_$LT$opentelemetry_proto..proto..tonic..trace..v1..Span$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17hc4e86fc4742489e1E: argument 0"}
-!938 = distinct !{!938, !"_ZN94_$LT$opentelemetry_proto..proto..tonic..trace..v1..Span$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17hc4e86fc4742489e1E"}
+!937 = distinct !{!937, !938, !"_ZN4core6option15Option$LT$T$GT$6map_or17h1ec319df82d3dc2dE: argument 0"}
+!938 = distinct !{!938, !"_ZN4core6option15Option$LT$T$GT$6map_or17h1ec319df82d3dc2dE"}
 !939 = !{!940}
-!940 = distinct !{!940, !941, !"_ZN5prost8encoding7message11encoded_len17h691a484e6d87947aE: argument 0"}
-!941 = distinct !{!941, !"_ZN5prost8encoding7message11encoded_len17h691a484e6d87947aE"}
+!940 = distinct !{!940, !941, !"_ZN94_$LT$opentelemetry_proto..proto..tonic..trace..v1..Span$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17hc4e86fc4742489e1E: argument 0"}
+!941 = distinct !{!941, !"_ZN94_$LT$opentelemetry_proto..proto..tonic..trace..v1..Span$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17hc4e86fc4742489e1E"}
 !942 = !{!943}
-!943 = distinct !{!943, !944, !"_ZN96_$LT$opentelemetry_proto..proto..tonic..trace..v1..Status$u20$as$u20$prost..message..Message$GT$11encoded_len17h0b46a50e7ba79a44E: argument 0"}
-!944 = distinct !{!944, !"_ZN96_$LT$opentelemetry_proto..proto..tonic..trace..v1..Status$u20$as$u20$prost..message..Message$GT$11encoded_len17h0b46a50e7ba79a44E"}
-!945 = !{!943, !940, !937, !946}
-!946 = distinct !{!946, !947, !"_ZN4core6option15Option$LT$T$GT$6map_or17h1ec319df82d3dc2dE: argument 0"}
-!947 = distinct !{!947, !"_ZN4core6option15Option$LT$T$GT$6map_or17h1ec319df82d3dc2dE"}
-!948 = !{!943, !940, !937}
+!943 = distinct !{!943, !944, !"_ZN5prost8encoding7message11encoded_len17h691a484e6d87947aE: argument 0"}
+!944 = distinct !{!944, !"_ZN5prost8encoding7message11encoded_len17h691a484e6d87947aE"}
+!945 = !{!946}
+!946 = distinct !{!946, !947, !"_ZN96_$LT$opentelemetry_proto..proto..tonic..trace..v1..Status$u20$as$u20$prost..message..Message$GT$11encoded_len17h0b46a50e7ba79a44E: argument 0"}
+!947 = distinct !{!947, !"_ZN96_$LT$opentelemetry_proto..proto..tonic..trace..v1..Status$u20$as$u20$prost..message..Message$GT$11encoded_len17h0b46a50e7ba79a44E"}
+!948 = !{!946, !943, !940, !937}
 !949 = !{!950}
 !950 = distinct !{!950, !951, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0e5f15f991355051E: argument 0"}
 !951 = distinct !{!951, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0e5f15f991355051E"}
@@ -19260,7 +19262,7 @@ attributes #32 = { "function-inline-cost-multiplier"="4" }
 !1369 = distinct !{!1369, !1368, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17haf93516bb4f1801aE: argument 1"}
 !1370 = distinct !{!1370, !1368, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17haf93516bb4f1801aE: argument 2"}
 !1371 = !{!1364, !1367, !1369, !1358, !1355}
-!1372 = !{!1366, !1370, !1355}
+!1372 = !{!1366, !1369, !1370, !1355}
 !1373 = !{!1374}
 !1374 = distinct !{!1374, !1375, !"_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h576255e9fc8fb094E: argument 0"}
 !1375 = distinct !{!1375, !"_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h576255e9fc8fb094E"}

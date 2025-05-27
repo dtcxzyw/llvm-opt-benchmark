@@ -2116,6 +2116,7 @@ define { ptr, i64 } @"_ZN102_$LT$pingora_cache..cache_control..ListValueIter$u20
 
 24:                                               ; preds = %19, %.loopexit.i
   %.sroa.5.0.i.ph = phi i64 [ %8, %.loopexit.i ], [ %.sroa.02.011.i.i, %19 ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !210)
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.5.0.i.ph
   %26 = icmp samesign eq i64 %.sroa.5.0.i.ph, 0
   br i1 %26, label %_ZN13pingora_cache13cache_control8trim_ows17h47bbdb4d229bae10E.exit, label %.lr.ph.i.i4
@@ -4050,6 +4051,7 @@ define internal fastcc void @"_ZN114_$LT$pingora_cache..cache_control..CacheCont
   %.sroa.5.1 = phi i64 [ %27, %25 ], [ %.sroa.5.032, %21 ]
   %.sroa.0.1 = phi ptr [ %28, %25 ], [ %.sroa.0.033, %21 ]
   %.sroa.5.0.i.ph.i = phi i64 [ %.sroa.02.011.i.i.i, %25 ], [ %.sroa.5.032, %21 ]
+  call void @llvm.experimental.noalias.scope.decl(metadata !487)
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.033, i64 %.sroa.5.0.i.ph.i
   %30 = icmp samesign eq i64 %.sroa.5.0.i.ph.i, 0
   br i1 %30, label %"_ZN102_$LT$pingora_cache..cache_control..ListValueIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he316613c72b6c358E.exit", label %.lr.ph.i.i4.i
@@ -7475,7 +7477,7 @@ attributes #25 = { cold noreturn nounwind }
 !218 = distinct !{!218, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE"}
 !219 = !{!"branch_weights", !"expected", i32 5044060, i32 2142439588}
 !220 = !{!"branch_weights", !"expected", i32 1717643, i32 2145766005}
-!221 = !{!222}
+!221 = !{!222, !211}
 !222 = distinct !{!222, !223, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2f0b6bf94c9aebdfE: argument 0"}
 !223 = distinct !{!223, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2f0b6bf94c9aebdfE"}
 !224 = !{!225}
@@ -7750,7 +7752,7 @@ attributes #25 = { cold noreturn nounwind }
 !493 = !{!494, !485}
 !494 = distinct !{!494, !495, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE: argument 0"}
 !495 = distinct !{!495, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE"}
-!496 = !{!497, !485}
+!496 = !{!497, !488, !485}
 !497 = distinct !{!497, !498, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2f0b6bf94c9aebdfE: argument 0"}
 !498 = distinct !{!498, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2f0b6bf94c9aebdfE"}
 !499 = !{!500, !502, !503}
@@ -7900,7 +7902,7 @@ attributes #25 = { cold noreturn nounwind }
 !643 = distinct !{!643, !642, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hec1452e93831db0bE: argument 1"}
 !644 = distinct !{!644, !642, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hec1452e93831db0bE: argument 2"}
 !645 = !{!638, !641, !643}
-!646 = !{!640, !644}
+!646 = !{!640, !643, !644}
 !647 = !{!648, !650}
 !648 = distinct !{!648, !649, !"_ZN13pingora_error5Error6create17h955b51aae75e18f9E: argument 0"}
 !649 = distinct !{!649, !"_ZN13pingora_error5Error6create17h955b51aae75e18f9E"}
@@ -7992,7 +7994,7 @@ attributes #25 = { cold noreturn nounwind }
 !735 = distinct !{!735, !734, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hec1452e93831db0bE: argument 1"}
 !736 = distinct !{!736, !734, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hec1452e93831db0bE: argument 2"}
 !737 = !{!730, !733, !735}
-!738 = !{!732, !736}
+!738 = !{!732, !735, !736}
 !739 = !{!740, !742}
 !740 = distinct !{!740, !741, !"_ZN13pingora_error5Error6create17h955b51aae75e18f9E: argument 0"}
 !741 = distinct !{!741, !"_ZN13pingora_error5Error6create17h955b51aae75e18f9E"}

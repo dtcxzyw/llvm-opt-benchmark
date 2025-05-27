@@ -1536,31 +1536,31 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.013.020.i, i64 8
   %23 = add nuw nsw i64 %.sroa.7.019.i, 1
   %.val12.i = load ptr, ptr %.sroa.013.020.i, align 8, !alias.scope !224, !noalias !232, !nonnull !7, !noundef !7
-  %24 = load i64, ptr %.val12.i, align 8, !noalias !232, !noundef !7
+  %24 = load i64, ptr %.val12.i, align 8, !noalias !231, !noundef !7
   %25 = and i64 %24, 1
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %27, label %"_ZN74_$LT$uv_normalize..extra_name..ExtraName$u20$as$u20$core..clone..Clone$GT$5clone17he02e126732a67ddcE.exit.i"
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %.val12.i, i64 8
-  %29 = load atomic i64, ptr %28 monotonic, align 8, !noalias !232
+  %29 = load atomic i64, ptr %28 monotonic, align 8, !noalias !231
   %30 = and i64 %29, 1
   %.not.i.i.i = icmp eq i64 %30, 0
   br i1 %.not.i.i.i, label %31, label %"_ZN74_$LT$uv_normalize..extra_name..ExtraName$u20$as$u20$core..clone..Clone$GT$5clone17he02e126732a67ddcE.exit.i"
 
 31:                                               ; preds = %27
-  %32 = atomicrmw add ptr %28, i64 2 monotonic, align 8, !noalias !232
+  %32 = atomicrmw add ptr %28, i64 2 monotonic, align 8, !noalias !231
   %33 = and i64 %32, -9223372036854775807
   %or.cond.i.i.i = icmp eq i64 %33, -9223372036854775808
   br i1 %or.cond.i.i.i, label %34, label %"_ZN74_$LT$uv_normalize..extra_name..ExtraName$u20$as$u20$core..clone..Clone$GT$5clone17he02e126732a67ddcE.exit.i"
 
 34:                                               ; preds = %31
-  %35 = atomicrmw or ptr %28, i64 1 release, align 8, !noalias !232
+  %35 = atomicrmw or ptr %28, i64 1 release, align 8, !noalias !231
   br label %"_ZN74_$LT$uv_normalize..extra_name..ExtraName$u20$as$u20$core..clone..Clone$GT$5clone17he02e126732a67ddcE.exit.i"
 
 "_ZN74_$LT$uv_normalize..extra_name..ExtraName$u20$as$u20$core..clone..Clone$GT$5clone17he02e126732a67ddcE.exit.i": ; preds = %34, %31, %27, %21
   %36 = getelementptr inbounds nuw ptr, ptr %15, i64 %.sroa.7.019.i
-  store ptr %.val12.i, ptr %36, align 8, !noalias !232
+  store ptr %.val12.i, ptr %36, align 8, !noalias !231
   %37 = icmp eq i64 %19, 0
   br i1 %37, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h99c0f0328b59f90eE.llvm.3187292068682842423.exit", label %.lr.ph.i
 
@@ -1616,31 +1616,31 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.013.020.i, i64 8
   %23 = add nuw nsw i64 %.sroa.7.019.i, 1
   %.val12.i = load ptr, ptr %.sroa.013.020.i, align 8, !alias.scope !233, !noalias !241, !nonnull !7, !noundef !7
-  %24 = load i64, ptr %.val12.i, align 8, !noalias !241, !noundef !7
+  %24 = load i64, ptr %.val12.i, align 8, !noalias !240, !noundef !7
   %25 = and i64 %24, 1
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %27, label %"_ZN74_$LT$uv_normalize..group_name..GroupName$u20$as$u20$core..clone..Clone$GT$5clone17h7697336a801f6b5aE.exit.i"
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %.val12.i, i64 8
-  %29 = load atomic i64, ptr %28 monotonic, align 8, !noalias !241
+  %29 = load atomic i64, ptr %28 monotonic, align 8, !noalias !240
   %30 = and i64 %29, 1
   %.not.i.i.i = icmp eq i64 %30, 0
   br i1 %.not.i.i.i, label %31, label %"_ZN74_$LT$uv_normalize..group_name..GroupName$u20$as$u20$core..clone..Clone$GT$5clone17h7697336a801f6b5aE.exit.i"
 
 31:                                               ; preds = %27
-  %32 = atomicrmw add ptr %28, i64 2 monotonic, align 8, !noalias !241
+  %32 = atomicrmw add ptr %28, i64 2 monotonic, align 8, !noalias !240
   %33 = and i64 %32, -9223372036854775807
   %or.cond.i.i.i = icmp eq i64 %33, -9223372036854775808
   br i1 %or.cond.i.i.i, label %34, label %"_ZN74_$LT$uv_normalize..group_name..GroupName$u20$as$u20$core..clone..Clone$GT$5clone17h7697336a801f6b5aE.exit.i"
 
 34:                                               ; preds = %31
-  %35 = atomicrmw or ptr %28, i64 1 release, align 8, !noalias !241
+  %35 = atomicrmw or ptr %28, i64 1 release, align 8, !noalias !240
   br label %"_ZN74_$LT$uv_normalize..group_name..GroupName$u20$as$u20$core..clone..Clone$GT$5clone17h7697336a801f6b5aE.exit.i"
 
 "_ZN74_$LT$uv_normalize..group_name..GroupName$u20$as$u20$core..clone..Clone$GT$5clone17h7697336a801f6b5aE.exit.i": ; preds = %34, %31, %27, %21
   %36 = getelementptr inbounds nuw ptr, ptr %15, i64 %.sroa.7.019.i
-  store ptr %.val12.i, ptr %36, align 8, !noalias !241
+  store ptr %.val12.i, ptr %36, align 8, !noalias !240
   %37 = icmp eq i64 %19, 0
   br i1 %37, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17haed9516432d45d1cE.llvm.3187292068682842423.exit", label %.lr.ph.i
 
@@ -1662,6 +1662,7 @@ define hidden void @"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$uv_cache_key.
   tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hbeefd52994500ef0E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !7, !noundef !7
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
   %8 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %7, i64 %4
   %9 = icmp eq i64 %4, 0
   br i1 %9, label %_ZN12uv_cache_key9cache_key8CacheKey15cache_key_slice17ha3844ea53513ebc9E.exit, label %.lr.ph.i
@@ -1669,14 +1670,14 @@ define hidden void @"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$uv_cache_key.
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %.sroa.0.05.i = phi ptr [ %10, %.lr.ph.i ], [ %7, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i, i64 24
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !245)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !248)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i, i64 8
-  %12 = load ptr, ptr %11, align 8, !alias.scope !248, !noalias !251, !nonnull !7, !noundef !7
+  %12 = load ptr, ptr %11, align 8, !alias.scope !251, !noalias !252, !nonnull !7, !noundef !7
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i, i64 16
-  %14 = load i64, ptr %13, align 8, !alias.scope !248, !noalias !251, !noundef !7
-  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$5write17h3e79456457f625c7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %14), !noalias !255
-  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$8write_u817h63b4371ef14dab80E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i8 noundef -1), !noalias !255
+  %14 = load i64, ptr %13, align 8, !alias.scope !251, !noalias !252, !noundef !7
+  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$5write17h3e79456457f625c7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %14), !noalias !251
+  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$8write_u817h63b4371ef14dab80E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i8 noundef -1), !noalias !251
   %15 = icmp eq ptr %10, %8
   br i1 %15, label %_ZN12uv_cache_key9cache_key8CacheKey15cache_key_slice17ha3844ea53513ebc9E.exit, label %.lr.ph.i
 
@@ -3019,19 +3020,19 @@ attributes #23 = { nounwind }
 !240 = !{!239, !234}
 !241 = !{!239}
 !242 = !{!243}
-!243 = distinct !{!243, !244, !"_ZN75_$LT$alloc..string..String$u20$as$u20$uv_cache_key..cache_key..CacheKey$GT$9cache_key17h6e7c952d86f1ecfbE.llvm.4304414718055074651: argument 0"}
-!244 = distinct !{!244, !"_ZN75_$LT$alloc..string..String$u20$as$u20$uv_cache_key..cache_key..CacheKey$GT$9cache_key17h6e7c952d86f1ecfbE.llvm.4304414718055074651"}
+!243 = distinct !{!243, !244, !"_ZN12uv_cache_key9cache_key8CacheKey15cache_key_slice17ha3844ea53513ebc9E: argument 0"}
+!244 = distinct !{!244, !"_ZN12uv_cache_key9cache_key8CacheKey15cache_key_slice17ha3844ea53513ebc9E"}
 !245 = !{!246}
-!246 = distinct !{!246, !247, !"_ZN58_$LT$alloc..string..String$u20$as$u20$core..hash..Hash$GT$4hash17had87a33e9454c320E.llvm.4304414718055074651: argument 0"}
-!247 = distinct !{!247, !"_ZN58_$LT$alloc..string..String$u20$as$u20$core..hash..Hash$GT$4hash17had87a33e9454c320E.llvm.4304414718055074651"}
-!248 = !{!246, !243, !249}
-!249 = distinct !{!249, !250, !"_ZN12uv_cache_key9cache_key8CacheKey15cache_key_slice17ha3844ea53513ebc9E: argument 0"}
-!250 = distinct !{!250, !"_ZN12uv_cache_key9cache_key8CacheKey15cache_key_slice17ha3844ea53513ebc9E"}
-!251 = !{!252, !253, !254}
-!252 = distinct !{!252, !247, !"_ZN58_$LT$alloc..string..String$u20$as$u20$core..hash..Hash$GT$4hash17had87a33e9454c320E.llvm.4304414718055074651: argument 1"}
-!253 = distinct !{!253, !244, !"_ZN75_$LT$alloc..string..String$u20$as$u20$uv_cache_key..cache_key..CacheKey$GT$9cache_key17h6e7c952d86f1ecfbE.llvm.4304414718055074651: argument 1"}
-!254 = distinct !{!254, !250, !"_ZN12uv_cache_key9cache_key8CacheKey15cache_key_slice17ha3844ea53513ebc9E: argument 1"}
-!255 = !{!246, !243}
+!246 = distinct !{!246, !247, !"_ZN75_$LT$alloc..string..String$u20$as$u20$uv_cache_key..cache_key..CacheKey$GT$9cache_key17h6e7c952d86f1ecfbE.llvm.4304414718055074651: argument 0"}
+!247 = distinct !{!247, !"_ZN75_$LT$alloc..string..String$u20$as$u20$uv_cache_key..cache_key..CacheKey$GT$9cache_key17h6e7c952d86f1ecfbE.llvm.4304414718055074651"}
+!248 = !{!249}
+!249 = distinct !{!249, !250, !"_ZN58_$LT$alloc..string..String$u20$as$u20$core..hash..Hash$GT$4hash17had87a33e9454c320E.llvm.4304414718055074651: argument 0"}
+!250 = distinct !{!250, !"_ZN58_$LT$alloc..string..String$u20$as$u20$core..hash..Hash$GT$4hash17had87a33e9454c320E.llvm.4304414718055074651"}
+!251 = !{!249, !246, !243}
+!252 = !{!253, !254, !255}
+!253 = distinct !{!253, !250, !"_ZN58_$LT$alloc..string..String$u20$as$u20$core..hash..Hash$GT$4hash17had87a33e9454c320E.llvm.4304414718055074651: argument 1"}
+!254 = distinct !{!254, !247, !"_ZN75_$LT$alloc..string..String$u20$as$u20$uv_cache_key..cache_key..CacheKey$GT$9cache_key17h6e7c952d86f1ecfbE.llvm.4304414718055074651: argument 1"}
+!255 = distinct !{!255, !244, !"_ZN12uv_cache_key9cache_key8CacheKey15cache_key_slice17ha3844ea53513ebc9E: argument 1"}
 !256 = !{!257}
 !257 = distinct !{!257, !258, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17he1f5dc427a177fd5E: argument 0"}
 !258 = distinct !{!258, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17he1f5dc427a177fd5E"}

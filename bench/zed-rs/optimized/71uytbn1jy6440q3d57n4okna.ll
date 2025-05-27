@@ -5085,7 +5085,7 @@ common.resume:                                    ; preds = %21, %11
 23:                                               ; preds = %21
   %24 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #30
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #30, !noalias !794
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h73a9d840364a1d20E.llvm.9596665611274623559.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he5c33dfacb0c69fbE.llvm.9596665611274623559.exit", %20
@@ -5206,7 +5206,7 @@ common.resume:                                    ; preds = %19, %9
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #30
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #30, !noalias !807
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h44bbbfd90381f5cbE.llvm.9596665611274623559.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h489f46ce33732b5bE.llvm.9596665611274623559.exit", %18

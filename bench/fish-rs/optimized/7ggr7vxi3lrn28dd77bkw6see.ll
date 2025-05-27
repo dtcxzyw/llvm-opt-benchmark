@@ -6778,7 +6778,7 @@ define hidden void @"_ZN4core3ptr102drop_in_place$LT$alloc..collections..linked_
 15:                                               ; preds = %.loopexit.i
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #30
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #30, !noalias !1063
   unreachable
 
 17:                                               ; preds = %.loopexit.i
@@ -10351,7 +10351,7 @@ define hidden void @"_ZN4core3ptr129drop_in_place$LT$alloc..collections..linked_
 16:                                               ; preds = %.loopexit.i
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #30
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #30, !noalias !1433
   unreachable
 
 18:                                               ; preds = %.loopexit.i
@@ -34998,7 +34998,7 @@ define hidden void @"_ZN4core3ptr85drop_in_place$LT$std..sync..poison..mutex..Mu
 21:                                               ; preds = %.loopexit.i.i.i.i
   %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #30
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #30, !noalias !4608
   unreachable
 
 common.resume.i.i:                                ; preds = %.loopexit.i.i.i.i, %3

@@ -3189,7 +3189,7 @@ define hidden void @_ZN7inquire7prompts4text4Text14with_validator17h298926516205
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #31
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #31, !noalias !282
   unreachable
 
 17:                                               ; preds = %12, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h937e8de6c2b3d101E.exit"
@@ -3258,7 +3258,7 @@ define hidden void @_ZN7inquire7prompts4text4Text14with_validator17h320c5e594176
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #31
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #31, !noalias !287
   unreachable
 
 17:                                               ; preds = %12, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h54fcd260c46c242aE.exit"
@@ -3327,7 +3327,7 @@ define hidden void @_ZN7inquire7prompts4text4Text14with_validator17h4c0ff0c019af
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #31
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #31, !noalias !292
   unreachable
 
 17:                                               ; preds = %12, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf4867141d3b7b404E.exit"
@@ -3396,7 +3396,7 @@ define hidden void @_ZN7inquire7prompts4text4Text14with_validator17h6de6d6e51a54
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #31
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #31, !noalias !297
   unreachable
 
 17:                                               ; preds = %12, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9cf4d4fb65a21df5E.exit"
@@ -3465,7 +3465,7 @@ define hidden void @_ZN7inquire7prompts4text4Text14with_validator17h8ba0fd2d85df
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #31
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #31, !noalias !302
   unreachable
 
 17:                                               ; preds = %12, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h06db7dae85271048E.exit"
@@ -3534,7 +3534,7 @@ define hidden void @_ZN7inquire7prompts4text4Text14with_validator17h96dec91e1ffd
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #31
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #31, !noalias !307
   unreachable
 
 17:                                               ; preds = %12, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he4d6100fdca43055E.exit"
@@ -3603,7 +3603,7 @@ define hidden void @_ZN7inquire7prompts4text4Text14with_validator17ha71ac3444256
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #31
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #31, !noalias !312
   unreachable
 
 17:                                               ; preds = %12, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he045aed7ba398f8bE.exit"
@@ -3672,7 +3672,7 @@ define hidden void @_ZN7inquire7prompts4text4Text14with_validator17hfb1832e36ceb
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #31
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #31, !noalias !317
   unreachable
 
 17:                                               ; preds = %12, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf15f0c7b7913dd69E.exit"
@@ -3741,7 +3741,7 @@ define hidden void @_ZN7inquire7prompts4text4Text14with_validator17hfeb98ae97642
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #31
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #31, !noalias !322
   unreachable
 
 17:                                               ; preds = %12, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h030221c09edef08eE.exit"

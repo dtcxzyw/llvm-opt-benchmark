@@ -3279,7 +3279,7 @@ define hidden { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$
   %.val13.i = load ptr, ptr %.sroa.015.023.i, align 8, !alias.scope !200, !noalias !205, !nonnull !3, !noundef !3
   %20 = getelementptr i8, ptr %.sroa.015.023.i, i64 8
   %.val14.i = load ptr, ptr %20, align 8, !alias.scope !200, !noalias !205
-  %21 = atomicrmw add ptr %.val13.i, i64 1 monotonic, align 8, !noalias !205
+  %21 = atomicrmw add ptr %.val13.i, i64 1 monotonic, align 8, !noalias !203
   %22 = icmp slt i64 %21, 0
   br i1 %22, label %23, label %24
 
@@ -3293,9 +3293,9 @@ define hidden { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$
   %27 = icmp ne ptr %.val14.i, null
   tail call void @llvm.assume(i1 %27)
   %28 = getelementptr inbounds nuw { [2 x i64] }, ptr %13, i64 %.sroa.7.022.i
-  store ptr %.val13.i, ptr %28, align 8, !noalias !205
+  store ptr %.val13.i, ptr %28, align 8, !noalias !203
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %.val14.i, ptr %29, align 8, !noalias !205
+  store ptr %.val14.i, ptr %29, align 8, !noalias !203
   %30 = icmp eq i64 %17, 0
   br i1 %30, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h40cf3a4c43e534d3E.llvm.8523920468416357378.exit", label %.lr.ph.i
 
@@ -3400,7 +3400,7 @@ define hidden { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$
   %.val13.i = load ptr, ptr %.sroa.015.023.i, align 8, !alias.scope !211, !noalias !216, !nonnull !3, !noundef !3
   %20 = getelementptr i8, ptr %.sroa.015.023.i, i64 8
   %.val14.i = load ptr, ptr %20, align 8, !alias.scope !211, !noalias !216
-  %21 = atomicrmw add ptr %.val13.i, i64 1 monotonic, align 8, !noalias !216
+  %21 = atomicrmw add ptr %.val13.i, i64 1 monotonic, align 8, !noalias !214
   %22 = icmp slt i64 %21, 0
   br i1 %22, label %23, label %24
 
@@ -3414,9 +3414,9 @@ define hidden { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$
   %27 = icmp ne ptr %.val14.i, null
   tail call void @llvm.assume(i1 %27)
   %28 = getelementptr inbounds nuw { [2 x i64] }, ptr %13, i64 %.sroa.7.022.i
-  store ptr %.val13.i, ptr %28, align 8, !noalias !216
+  store ptr %.val13.i, ptr %28, align 8, !noalias !214
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %.val14.i, ptr %29, align 8, !noalias !216
+  store ptr %.val14.i, ptr %29, align 8, !noalias !214
   %30 = icmp eq i64 %17, 0
   br i1 %30, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hdd394f417e44ae30E.llvm.8523920468416357378.exit", label %.lr.ph.i
 

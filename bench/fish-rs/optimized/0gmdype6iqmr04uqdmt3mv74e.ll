@@ -25064,7 +25064,7 @@ define internal fastcc noalias noundef nonnull ptr @_ZN4fish3env16environment_im
 125:                                              ; preds = %89
   %126 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #34, !noalias !2787
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #34, !noalias !2783
   unreachable
 
 .body.i.i:                                        ; preds = %89

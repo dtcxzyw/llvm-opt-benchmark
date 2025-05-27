@@ -45414,11 +45414,11 @@ _ZNSt12_Vector_baseISt4pairIP12ggml_contextSt13unordered_mapIjP19ggml_backend_bu
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %44 = load i32, ptr %43, align 4, !tbaa !98
+  %44 = load i32, ptr %43, align 4, !tbaa !98, !noalias !3405
   %45 = zext i32 %44 to i64
   %46 = urem i64 %45, %26
   %47 = getelementptr inbounds nuw ptr, ptr %41, i64 %46
-  store ptr %27, ptr %47, align 8, !tbaa !3322
+  store ptr %27, ptr %47, align 8, !tbaa !3322, !noalias !3405
   br label %_ZSt19__relocate_object_aISt4pairIP12ggml_contextSt13unordered_mapIjP19ggml_backend_bufferSt4hashIjESt8equal_toIjESaIS0_IKjS5_EEEESE_SaISE_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aISt4pairIP12ggml_contextSt13unordered_mapIjP19ggml_backend_bufferSt4hashIjESt8equal_toIjESaIS0_IKjS5_EEEESE_SaISE_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %42, %40
@@ -50799,11 +50799,11 @@ _ZNKSt6vectorISt4pairIP12ggml_contextSt13unordered_mapIjP19ggml_backend_bufferSt
 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %61 = load i32, ptr %60, align 4, !tbaa !98
+  %61 = load i32, ptr %60, align 4, !tbaa !98, !noalias !3506
   %62 = zext i32 %61 to i64
   %63 = urem i64 %62, %43
   %64 = getelementptr inbounds nuw ptr, ptr %58, i64 %63
-  store ptr %44, ptr %64, align 8, !tbaa !3322
+  store ptr %44, ptr %64, align 8, !tbaa !3322, !noalias !3506
   br label %_ZSt19__relocate_object_aISt4pairIP12ggml_contextSt13unordered_mapIjP19ggml_backend_bufferSt4hashIjESt8equal_toIjESaIS0_IKjS5_EEEESE_SaISE_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aISt4pairIP12ggml_contextSt13unordered_mapIjP19ggml_backend_bufferSt4hashIjESt8equal_toIjESaIS0_IKjS5_EEEESE_SaISE_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %59, %57
@@ -50869,11 +50869,11 @@ _ZNSt6vectorISt4pairIP12ggml_contextSt13unordered_mapIjP19ggml_backend_bufferSt4
 
 91:                                               ; preds = %89
   %92 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %93 = load i32, ptr %92, align 4, !tbaa !98
+  %93 = load i32, ptr %92, align 4, !tbaa !98, !noalias !3512
   %94 = zext i32 %93 to i64
   %95 = urem i64 %94, %75
   %96 = getelementptr inbounds nuw ptr, ptr %90, i64 %95
-  store ptr %76, ptr %96, align 8, !tbaa !3322
+  store ptr %76, ptr %96, align 8, !tbaa !3322, !noalias !3512
   br label %_ZSt19__relocate_object_aISt4pairIP12ggml_contextSt13unordered_mapIjP19ggml_backend_bufferSt4hashIjESt8equal_toIjESaIS0_IKjS5_EEEESE_SaISE_EEvPT_PT0_RT1_.exit.i.i.i32
 
 _ZSt19__relocate_object_aISt4pairIP12ggml_contextSt13unordered_mapIjP19ggml_backend_bufferSt4hashIjESt8equal_toIjESaIS0_IKjS5_EEEESE_SaISE_EEvPT_PT0_RT1_.exit.i.i.i32: ; preds = %91, %89

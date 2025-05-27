@@ -4381,7 +4381,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17he32c21541f82e2d
   %.val.i.i.i = load ptr, ptr %16, align 8, !alias.scope !511, !noalias !514, !nonnull !10, !noundef !10
   %17 = getelementptr i8, ptr %.sroa.0.07.i.i.i, i64 16
   %.val3.i.i.i = load i64, ptr %17, align 8, !alias.scope !511, !noalias !514, !noundef !10
-  call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4333538354312dc8E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5, ptr noalias noundef nonnull readonly align 1 %.val.i.i.i, i64 noundef %.val3.i.i.i)
+  call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4333538354312dc8E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5, ptr noalias noundef nonnull readonly align 1 %.val.i.i.i, i64 noundef %.val3.i.i.i), !noalias !511
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !516
   store i8 -1, ptr %3, align 1, !noalias !516
   call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h4333538354312dc8E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1), !noalias !525
@@ -24201,7 +24201,7 @@ attributes #29 = { nounwind }
 !522 = distinct !{!522, !521, !"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$9write_str17hc1ffbc8126d4ea39E: argument 1"}
 !523 = distinct !{!523, !524, !"_ZN58_$LT$alloc..string..String$u20$as$u20$core..hash..Hash$GT$4hash17ha445fe47f9b33a15E: argument 0"}
 !524 = distinct !{!524, !"_ZN58_$LT$alloc..string..String$u20$as$u20$core..hash..Hash$GT$4hash17ha445fe47f9b33a15E"}
-!525 = !{!519, !522}
+!525 = !{!519, !522, !512}
 !526 = !{!527, !529}
 !527 = distinct !{!527, !528, !"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$6finish17hc80b58878c63ff4bE: argument 0"}
 !528 = distinct !{!528, !"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$6finish17hc80b58878c63ff4bE"}
@@ -25569,7 +25569,7 @@ attributes #29 = { nounwind }
 !1890 = distinct !{!1890, !1889, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17haf93516bb4f1801aE: argument 1"}
 !1891 = distinct !{!1891, !1889, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17haf93516bb4f1801aE: argument 2"}
 !1892 = !{!1885, !1888, !1890}
-!1893 = !{!1887, !1891}
+!1893 = !{!1887, !1890, !1891}
 !1894 = !{!"branch_weights", i32 1, i32 2000, i32 2000}
 !1895 = !{!1896}
 !1896 = distinct !{!1896, !1897, !"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE: argument 0"}

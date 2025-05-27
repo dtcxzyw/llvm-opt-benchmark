@@ -9750,6 +9750,7 @@ define hidden noundef nonnull align 4 ptr @"_ZN3std3sys3pal6common12thread_local
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h4a52afa24e947216E"(ptr noundef nonnull align 8 captures(ret: address, provenance) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(16) %1) unnamed_addr #4 {
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1482)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h80b90c1898bdaca6E.llvm.17514045976136648023.exit.i", label %3
 
@@ -9762,8 +9763,8 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std3sys3pal6c
   br i1 %.not3.i, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h80b90c1898bdaca6E.llvm.17514045976136648023.exit.i", label %"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h5a5dfc21826d0ed9E.llvm.17514045976136648023.exit"
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h80b90c1898bdaca6E.llvm.17514045976136648023.exit.i": ; preds = %3, %2
-  %7 = tail call noundef align 8 dereferenceable(8) ptr @_ZN15crossbeam_epoch7default9collector17hfb5d67f8dab992bdE()
-  %8 = tail call noundef ptr @_ZN15crossbeam_epoch9collector9Collector8register17h4da80600987f843fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7)
+  %7 = tail call noundef align 8 dereferenceable(8) ptr @_ZN15crossbeam_epoch7default9collector17hfb5d67f8dab992bdE(), !noalias !1482
+  %8 = tail call noundef ptr @_ZN15crossbeam_epoch9collector9Collector8register17h4da80600987f843fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7), !noalias !1482
   br label %"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h5a5dfc21826d0ed9E.llvm.17514045976136648023.exit"
 
 "_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h5a5dfc21826d0ed9E.llvm.17514045976136648023.exit": ; preds = %3, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h80b90c1898bdaca6E.llvm.17514045976136648023.exit.i"
@@ -9823,6 +9824,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN3std3sys3pal6c
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hfef7052c942bec0cE"(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) initializes((0, 24)) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(24) %1) unnamed_addr #4 {
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1495)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %5, label %3
 
@@ -9837,7 +9839,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3, %2
-  %6 = tail call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17ha9236b60ee6bd33cE()
+  %6 = tail call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17ha9236b60ee6bd33cE(), !noalias !1495
   br label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h856aa6ea5148ff41E.llvm.17514045976136648023.exit"
 
 7:                                                ; preds = %3
@@ -38816,14 +38818,14 @@ attributes #55 = { cold }
 !3171 = distinct !{!3171, !3166, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hfcd041404fb98968E: argument 1"}
 !3172 = distinct !{!3172, !3166, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hfcd041404fb98968E: argument 2"}
 !3173 = !{!3168, !3165, !3171}
-!3174 = !{!3170, !3172}
+!3174 = !{!3170, !3171, !3172}
 !3175 = !{!3176}
 !3176 = distinct !{!3176, !3177, !"_ZN4core3ops8function6FnOnce9call_once17h4fafccb765fd381bE: argument 0"}
 !3177 = distinct !{!3177, !"_ZN4core3ops8function6FnOnce9call_once17h4fafccb765fd381bE"}
 !3178 = !{!3179}
 !3179 = distinct !{!3179, !3180, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h1f317fa92256e58cE: argument 0"}
 !3180 = distinct !{!3180, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h1f317fa92256e58cE"}
-!3181 = !{!3179, !3182, !3176, !3183, !3165, !3172}
+!3181 = !{!3179, !3182, !3176, !3183, !3165, !3171, !3172}
 !3182 = distinct !{!3182, !3180, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h1f317fa92256e58cE: argument 1"}
 !3183 = distinct !{!3183, !3177, !"_ZN4core3ops8function6FnOnce9call_once17h4fafccb765fd381bE: argument 1"}
 !3184 = !{!3179, !3176, !3165, !3172}
@@ -39400,7 +39402,7 @@ attributes #55 = { cold }
 !3755 = distinct !{!3755, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E"}
 !3756 = distinct !{!3756, !3755, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E: argument 1"}
 !3757 = !{!3747, !3750, !3752, !3754}
-!3758 = !{!3749, !3753, !3756}
+!3758 = !{!3749, !3752, !3753, !3756}
 !3759 = !{!3760}
 !3760 = distinct !{!3760, !3761, !"_ZN91_$LT$object..macho..Nlist64$LT$Endian$GT$$u20$as$u20$object..read..macho..symbol..Nlist$GT$6n_type17hbefb2fd0ab667ff4E.llvm.17514045976136648023: argument 0"}
 !3761 = distinct !{!3761, !"_ZN91_$LT$object..macho..Nlist64$LT$Endian$GT$$u20$as$u20$object..read..macho..symbol..Nlist$GT$6n_type17hbefb2fd0ab667ff4E.llvm.17514045976136648023"}

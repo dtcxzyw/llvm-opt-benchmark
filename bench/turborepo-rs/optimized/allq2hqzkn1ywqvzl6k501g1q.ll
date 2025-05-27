@@ -3169,7 +3169,7 @@ _RNvYNtNtCsapf13pIxsjn_3std4path9AncestorsNtNtNtNtCs1LoaDTb72WA_4core4iter6trait
   br i1 %20, label %21, label %_RNvMNtCs1LoaDTb72WA_4core6resultINtB2_6ResultRNtNtCsapf13pIxsjn_3std4path4PathNtBK_16StripPrefixErrorE6unwrapCseG2FYMysgNb_3wax.exit
 
 21:                                               ; preds = %17
-  call void @_ZN4core6result13unwrap_failed17hc6a65fe4227be0f0E(ptr noalias noundef nonnull readonly align 1 @anon.0e79314673efe63acf1941008ad64698.3, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.0e79314673efe63acf1941008ad64698.2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0e79314673efe63acf1941008ad64698.31) #18
+  call void @_ZN4core6result13unwrap_failed17hc6a65fe4227be0f0E(ptr noalias noundef nonnull readonly align 1 @anon.0e79314673efe63acf1941008ad64698.3, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.0e79314673efe63acf1941008ad64698.2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0e79314673efe63acf1941008ad64698.31) #18, !noalias !757
   unreachable
 
 _RNvMNtCs1LoaDTb72WA_4core6resultINtB2_6ResultRNtNtCsapf13pIxsjn_3std4path4PathNtBK_16StripPrefixErrorE6unwrapCseG2FYMysgNb_3wax.exit: ; preds = %17
@@ -4084,3 +4084,6 @@ attributes #20 = { cold noreturn nounwind }
 !754 = distinct !{!754, !"_ZN79_$LT$std..path..Ancestors$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h294923784fb431e3E"}
 !755 = distinct !{!755, !756, !"_RNvYNtNtCsapf13pIxsjn_3std4path9AncestorsNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator10advance_byCseG2FYMysgNb_3wax: argument 0"}
 !756 = distinct !{!756, !"_RNvYNtNtCsapf13pIxsjn_3std4path9AncestorsNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator10advance_byCseG2FYMysgNb_3wax"}
+!757 = !{!758}
+!758 = distinct !{!758, !759, !"_RNvMNtCs1LoaDTb72WA_4core6resultINtB2_6ResultRNtNtCsapf13pIxsjn_3std4path4PathNtBK_16StripPrefixErrorE6unwrapCseG2FYMysgNb_3wax: argument 0"}
+!759 = distinct !{!759, !"_RNvMNtCs1LoaDTb72WA_4core6resultINtB2_6ResultRNtNtCsapf13pIxsjn_3std4path4PathNtBK_16StripPrefixErrorE6unwrapCseG2FYMysgNb_3wax"}

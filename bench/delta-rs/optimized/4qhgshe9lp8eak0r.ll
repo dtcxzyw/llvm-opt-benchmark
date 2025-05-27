@@ -975,7 +975,7 @@ default.unreachable113:                           ; preds = %39, %17
 122:                                              ; preds = %120
   %123 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #20, !noalias !107
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #20, !noalias !109
   unreachable
 
 .body.i74:                                        ; preds = %120
@@ -1028,12 +1028,12 @@ default.unreachable113:                           ; preds = %39, %17
 
 138:                                              ; preds = %.body.i74
   invoke void @"_ZN4core3ptr69drop_in_place$LT$aws_smithy_runtime_api..http..response..Response$GT$17h6d3deeb5e2868cc7E"(ptr noalias noundef nonnull align 8 dereferenceable(208) %6) #22
-          to label %.body.thread.i unwind label %139, !noalias !96
+          to label %.body.thread.i unwind label %139, !noalias !110
 
 139:                                              ; preds = %138
   %140 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #20, !noalias !96
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #20, !noalias !110
   unreachable
 
 141:                                              ; preds = %39, %39, %39

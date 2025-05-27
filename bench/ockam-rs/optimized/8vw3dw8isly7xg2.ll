@@ -86767,7 +86767,7 @@ common.resume:                                    ; preds = %66, %41
 68:                                               ; preds = %66
   %69 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !11517
+  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !11516
   unreachable
 
 "_ZN9sqlx_core3row3Row7try_get28_$u7b$$u7b$closure$u7d$$u7d$17h144bbd29b99b5e52E.exit.i": ; preds = %60
@@ -86982,7 +86982,7 @@ common.resume:                                    ; preds = %65, %41
 67:                                               ; preds = %65
   %68 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !11572
+  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !11571
   unreachable
 
 "_ZN9sqlx_core3row3Row7try_get28_$u7b$$u7b$closure$u7d$$u7d$17h6f8e86458f9e8c80E.exit.i": ; preds = %62
@@ -87202,7 +87202,7 @@ common.resume:                                    ; preds = %68, %41
 70:                                               ; preds = %68
   %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !11627
+  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !11626
   unreachable
 
 "_ZN9sqlx_core3row3Row7try_get28_$u7b$$u7b$closure$u7d$$u7d$17h27a0f7a91938c2beE.exit.i": ; preds = %64
@@ -87417,7 +87417,7 @@ common.resume:                                    ; preds = %65, %41
 67:                                               ; preds = %65
   %68 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !11682
+  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !11681
   unreachable
 
 "_ZN9sqlx_core3row3Row7try_get28_$u7b$$u7b$closure$u7d$$u7d$17hc3c0af0cea8622d6E.exit.i": ; preds = %62
@@ -87632,7 +87632,7 @@ common.resume:                                    ; preds = %65, %41
 67:                                               ; preds = %65
   %68 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !11737
+  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !11736
   unreachable
 
 "_ZN9sqlx_core3row3Row7try_get28_$u7b$$u7b$closure$u7d$$u7d$17h6e00df867f2fad53E.exit.i": ; preds = %62
@@ -87845,7 +87845,7 @@ common.resume:                                    ; preds = %63, %39
 65:                                               ; preds = %63
   %66 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !11792
+  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !11791
   unreachable
 
 "_ZN9sqlx_core3row3Row7try_get28_$u7b$$u7b$closure$u7d$$u7d$17h9695e85eb738a6d5E.exit.i": ; preds = %60
@@ -88062,7 +88062,7 @@ common.resume:                                    ; preds = %66, %41
 68:                                               ; preds = %66
   %69 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !11857
+  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !11856
   unreachable
 
 "_ZN9sqlx_core3row3Row7try_get28_$u7b$$u7b$closure$u7d$$u7d$17h83b4a43ea5a21508E.exit.i": ; preds = %60
@@ -88277,7 +88277,7 @@ common.resume:                                    ; preds = %65, %41
 67:                                               ; preds = %65
   %68 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !11912
+  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !11911
   unreachable
 
 "_ZN9sqlx_core3row3Row7try_get28_$u7b$$u7b$closure$u7d$$u7d$17hf7d70cb7f5711382E.exit.i": ; preds = %62
@@ -88496,7 +88496,7 @@ common.resume:                                    ; preds = %68, %41
 70:                                               ; preds = %68
   %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !11968
+  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !11967
   unreachable
 
 "_ZN9sqlx_core3row3Row7try_get28_$u7b$$u7b$closure$u7d$$u7d$17hca37c21bd67c7107E.exit.i": ; preds = %65
@@ -88709,7 +88709,7 @@ common.resume:                                    ; preds = %63, %39
 65:                                               ; preds = %63
   %66 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !12023
+  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !12022
   unreachable
 
 "_ZN9sqlx_core3row3Row7try_get28_$u7b$$u7b$closure$u7d$$u7d$17h29b39813fe65e179E.exit.i": ; preds = %60
@@ -88928,7 +88928,7 @@ common.resume:                                    ; preds = %68, %43
 70:                                               ; preds = %68
   %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !12088
+  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !12087
   unreachable
 
 "_ZN9sqlx_core3row3Row7try_get28_$u7b$$u7b$closure$u7d$$u7d$17h69d5f599308e6804E.exit.i": ; preds = %62
@@ -89148,7 +89148,7 @@ common.resume:                                    ; preds = %67, %43
 69:                                               ; preds = %67
   %70 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !12157
+  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !12156
   unreachable
 
 "_ZN9sqlx_core3row3Row7try_get28_$u7b$$u7b$closure$u7d$$u7d$17he9c24acbabad781bE.exit.i": ; preds = %62
@@ -188496,7 +188496,7 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !13105 = distinct !{!13105, !"_ZN5alloc3fmt6format17h31a4ee338d1d039bE"}
 !13106 = distinct !{!13106, !13105, !"_ZN5alloc3fmt6format17h31a4ee338d1d039bE: argument 1"}
 !13107 = !{!13097, !13100, !13102, !13104}
-!13108 = !{!13099, !13103, !13106}
+!13108 = !{!13099, !13102, !13103, !13106}
 !13109 = !{!13110, !13112}
 !13110 = distinct !{!13110, !13111, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hcdb23be36720c26cE: argument 0"}
 !13111 = distinct !{!13111, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hcdb23be36720c26cE"}

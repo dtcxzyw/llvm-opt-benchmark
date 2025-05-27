@@ -112,7 +112,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h192ba9307b080e35E.exit.i.i.
   br i1 %32, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h32b92f73a012e4d3E.exit.i.i.i5", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h135a839c51de3019E.exit.i.i"
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h32b92f73a012e4d3E.exit.i.i.i5": ; preds = %30, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h192ba9307b080e35E.exit.i.i.i.i.i7, %24
-  call void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1c227d18bde37d9E"(ptr noalias noundef nonnull sret({ i8, [55 x i8] }) align 8 captures(none) dereferenceable(56) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %26)
+  call void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1c227d18bde37d9E"(ptr noalias noundef nonnull sret({ i8, [55 x i8] }) align 8 captures(none) dereferenceable(56) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %26), !noalias !37
   %.pr.i.i.i6 = load i8, ptr %3, align 8, !noalias !42
   %33 = icmp eq i8 %.pr.i.i.i6, 10
   br i1 %33, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h135a839c51de3019E.exit.i.i", label %34
@@ -1024,7 +1024,7 @@ attributes #12 = { nounwind }
 !52 = distinct !{!52, !53, !"_ZN4core4iter6traits8iterator8Iterator3nth17h75da1e5d4865c7e0E: argument 0"}
 !53 = distinct !{!53, !"_ZN4core4iter6traits8iterator8Iterator3nth17h75da1e5d4865c7e0E"}
 !54 = distinct !{!54, !53, !"_ZN4core4iter6traits8iterator8Iterator3nth17h75da1e5d4865c7e0E: argument 1"}
-!55 = !{!52, !48}
+!55 = !{!52, !48, !38}
 !56 = !{!57, !59}
 !57 = distinct !{!57, !58, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h70b78d62dbaf4433E: argument 0"}
 !58 = distinct !{!58, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h70b78d62dbaf4433E"}

@@ -1206,47 +1206,47 @@ define void @_ZN8uv_types4hash12HashStrategy15from_resolution17heb91cd1f793990c1
   %.val14.i = load ptr, ptr %.sroa.016.023.i, align 8, !alias.scope !163, !noalias !169, !nonnull !4, !noundef !4
   %115 = getelementptr i8, ptr %.sroa.016.023.i, i64 8
   %.val15.i = load i8, ptr %115, align 8, !range !170, !alias.scope !163, !noalias !169, !noundef !4
-  %116 = load i64, ptr %.val14.i, align 8, !noalias !169, !noundef !4
+  %116 = load i64, ptr %.val14.i, align 8, !noalias !166, !noundef !4
   %117 = and i64 %116, 1
   %118 = icmp eq i64 %117, 0
   br i1 %118, label %119, label %130
 
 119:                                              ; preds = %114
   %120 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 8
-  %121 = load atomic i64, ptr %120 monotonic, align 8, !noalias !169
+  %121 = load atomic i64, ptr %120 monotonic, align 8, !noalias !166
   %122 = and i64 %121, 1
   %.not.i.i.i = icmp eq i64 %122, 0
   br i1 %.not.i.i.i, label %123, label %130
 
 123:                                              ; preds = %119
-  %124 = atomicrmw add ptr %120, i64 2 monotonic, align 8, !noalias !169
+  %124 = atomicrmw add ptr %120, i64 2 monotonic, align 8, !noalias !166
   %125 = and i64 %124, -9223372036854775807
   %or.cond.i.i.i = icmp eq i64 %125, -9223372036854775808
   br i1 %or.cond.i.i.i, label %126, label %130
 
 126:                                              ; preds = %123
-  %127 = atomicrmw or ptr %120, i64 1 release, align 8, !noalias !169
+  %127 = atomicrmw or ptr %120, i64 1 release, align 8, !noalias !166
   br label %130
 
 128:                                              ; preds = %111
   invoke void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %102, i64 noundef %102, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b90b2c6a03411821ea351dfb75b4fedc.18) #18
-          to label %129 unwind label %136, !noalias !169
+          to label %129 unwind label %136, !noalias !166
 
 129:                                              ; preds = %128
   unreachable
 
 130:                                              ; preds = %126, %123, %119, %114
   %131 = getelementptr inbounds nuw { [2 x i64] }, ptr %105, i64 %.sroa.7.022.i
-  store ptr %.val14.i, ptr %131, align 8, !noalias !169
+  store ptr %.val14.i, ptr %131, align 8, !noalias !166
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  store i8 %.val15.i, ptr %132, align 8, !noalias !169
+  store i8 %.val15.i, ptr %132, align 8, !noalias !166
   %133 = icmp eq i64 %109, 0
   br i1 %133, label %138, label %108
 
 134:                                              ; preds = %136
   %135 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #16, !noalias !169
+  call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #16, !noalias !166
   unreachable
 
 136:                                              ; preds = %128
@@ -1254,7 +1254,7 @@ define void @_ZN8uv_types4hash12HashStrategy15from_resolution17heb91cd1f793990c1
           cleanup
   store i64 %102, ptr %26, align 8, !noalias !166
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$uv_pypi_types..simple_json..HashDigest$GT$$GT$17h383fb57acc6daef6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #17
-          to label %.body38.thread unwind label %134, !noalias !169
+          to label %.body38.thread unwind label %134, !noalias !166
 
 .body38.thread65.loopexit:                        ; preds = %100
   %lpad.loopexit70 = landingpad { ptr, i32 }

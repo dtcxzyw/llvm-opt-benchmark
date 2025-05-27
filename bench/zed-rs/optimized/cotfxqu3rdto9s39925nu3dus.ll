@@ -6570,7 +6570,7 @@ common.resume:                                    ; preds = %23, %9, %13, %17
 25:                                               ; preds = %23
   %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #34
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #34, !noalias !1984
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h75a0d0455fbbfce0E.llvm.17203375404686012749.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h81a3f39b9a622913E.llvm.17203375404686012749.exit", %22
@@ -6701,7 +6701,7 @@ common.resume:                                    ; preds = %22, %8, %12, %16
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #34
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #34, !noalias !2012
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h711e79a274554be2E.llvm.17203375404686012749.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h82a83a3d6c81d8ccE.llvm.17203375404686012749.exit", %21
@@ -6862,7 +6862,7 @@ common.resume:                                    ; preds = %22, %8, %12, %16
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #34
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #34, !noalias !2059
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33bef62dc1406e49E.llvm.17203375404686012749.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h188a1eaacdb4bc30E.llvm.17203375404686012749.exit", %21
@@ -22803,7 +22803,7 @@ attributes #35 = { "function-inline-cost-multiplier"="2" }
 !3909 = distinct !{!3909, !3908, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hcbe737edf3b387b1E: argument 1"}
 !3910 = distinct !{!3910, !3908, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hcbe737edf3b387b1E: argument 2"}
 !3911 = !{!3904, !3907, !3909, !3901}
-!3912 = !{!3906, !3910, !3901}
+!3912 = !{!3906, !3909, !3910, !3901}
 !3913 = !{!3914}
 !3914 = distinct !{!3914, !3915, !"_ZN2ui10components5label5label5Label3new17h1e3367ee50942a0cE: argument 0"}
 !3915 = distinct !{!3915, !"_ZN2ui10components5label5label5Label3new17h1e3367ee50942a0cE"}

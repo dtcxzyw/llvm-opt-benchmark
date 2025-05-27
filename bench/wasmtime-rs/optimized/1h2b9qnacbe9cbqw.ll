@@ -5405,11 +5405,11 @@ define void @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition12write_gc_ref17
 
 10:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h0dc055d5459f1fceE.llvm.10220905185939527020.exit.i", %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %12 = load ptr, ptr %11, align 8, !alias.scope !573, !noalias !584, !nonnull !9, !align !585, !noundef !9
+  %12 = load ptr, ptr %11, align 8, !alias.scope !573, !noalias !586, !nonnull !9, !align !587, !noundef !9
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %14 = load ptr, ptr %13, align 8, !alias.scope !573, !noalias !584, !nonnull !9, !align !59, !noundef !9
+  %14 = load ptr, ptr %13, align 8, !alias.scope !573, !noalias !586, !nonnull !9, !align !59, !noundef !9
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
-  %16 = load ptr, ptr %15, align 8, !invariant.load !9, !noalias !586, !nonnull !9
+  %16 = load ptr, ptr %15, align 8, !invariant.load !9, !noalias !588, !nonnull !9
   tail call void %16(ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 4 dereferenceable(4) %0, ptr noalias noundef readonly align 4 dereferenceable_or_null(4) %2)
   br label %_ZN16wasmtime_runtime2gc7GcStore12write_gc_ref17h9fdf5dc242f6b979E.exit
 
@@ -7118,9 +7118,11 @@ attributes #31 = { cold noreturn nounwind }
 !578 = !{!579}
 !579 = distinct !{!579, !575, !"_ZN16wasmtime_runtime2gc7GcStore12write_gc_ref17h9fdf5dc242f6b979E: argument 2"}
 !580 = !{!574, !579}
-!581 = !{!582, !574, !577}
+!581 = !{!582, !584, !574, !577}
 !582 = distinct !{!582, !583, !"_ZN16wasmtime_runtime2gc7GcStore12write_gc_ref28_$u7b$$u7b$closure$u7d$$u7d$17h4b08655aec7b7fe6E.llvm.10220905185939527020: argument 0"}
 !583 = distinct !{!583, !"_ZN16wasmtime_runtime2gc7GcStore12write_gc_ref28_$u7b$$u7b$closure$u7d$$u7d$17h4b08655aec7b7fe6E.llvm.10220905185939527020"}
-!584 = !{!577, !579}
-!585 = !{i64 1}
-!586 = !{!574, !577}
+!584 = distinct !{!584, !585, !"_ZN4core6option15Option$LT$T$GT$6map_or17h0dc055d5459f1fceE.llvm.10220905185939527020: argument 0"}
+!585 = distinct !{!585, !"_ZN4core6option15Option$LT$T$GT$6map_or17h0dc055d5459f1fceE.llvm.10220905185939527020"}
+!586 = !{!577, !579}
+!587 = !{i64 1}
+!588 = !{!574, !577, !579}

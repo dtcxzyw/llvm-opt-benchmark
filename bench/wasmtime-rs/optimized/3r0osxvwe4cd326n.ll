@@ -48515,14 +48515,14 @@ attributes #45 = { "function-inline-cost-multiplier"="2" }
 !1612 = distinct !{!1612, !1607, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hfcd041404fb98968E.llvm.14851531119274094909: argument 1"}
 !1613 = distinct !{!1613, !1607, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hfcd041404fb98968E.llvm.14851531119274094909: argument 2"}
 !1614 = !{!1609, !1606, !1612}
-!1615 = !{!1611, !1613}
+!1615 = !{!1611, !1612, !1613}
 !1616 = !{!1617}
 !1617 = distinct !{!1617, !1618, !"_ZN4core3ops8function6FnOnce9call_once17h4fafccb765fd381bE: argument 0"}
 !1618 = distinct !{!1618, !"_ZN4core3ops8function6FnOnce9call_once17h4fafccb765fd381bE"}
 !1619 = !{!1620}
 !1620 = distinct !{!1620, !1621, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h1f317fa92256e58cE: argument 0"}
 !1621 = distinct !{!1621, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h1f317fa92256e58cE"}
-!1622 = !{!1620, !1623, !1617, !1624, !1606, !1613}
+!1622 = !{!1620, !1623, !1617, !1624, !1606, !1612, !1613}
 !1623 = distinct !{!1623, !1621, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h1f317fa92256e58cE: argument 1"}
 !1624 = distinct !{!1624, !1618, !"_ZN4core3ops8function6FnOnce9call_once17h4fafccb765fd381bE: argument 1"}
 !1625 = !{!1620, !1617, !1606, !1613}
@@ -48956,7 +48956,7 @@ attributes #45 = { "function-inline-cost-multiplier"="2" }
 !2053 = distinct !{!2053, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909"}
 !2054 = distinct !{!2054, !2053, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909: argument 1"}
 !2055 = !{!2045, !2048, !2050, !2052}
-!2056 = !{!2047, !2051, !2054}
+!2056 = !{!2047, !2050, !2051, !2054}
 !2057 = !{!2058, !2060, !2062, !2063, !2065}
 !2058 = distinct !{!2058, !2059, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h63e833c788bdffa5E: argument 0"}
 !2059 = distinct !{!2059, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h63e833c788bdffa5E"}
@@ -51195,7 +51195,7 @@ attributes #45 = { "function-inline-cost-multiplier"="2" }
 !4292 = distinct !{!4292, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909"}
 !4293 = distinct !{!4293, !4292, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909: argument 1"}
 !4294 = !{!4284, !4287, !4289, !4291}
-!4295 = !{!4286, !4290, !4293}
+!4295 = !{!4286, !4289, !4290, !4293}
 !4296 = !{i64 1, i64 0}
 !4297 = !{!4298}
 !4298 = distinct !{!4298, !4299, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h78bb8e3410ea5a85E: argument 0"}
@@ -52376,7 +52376,7 @@ attributes #45 = { "function-inline-cost-multiplier"="2" }
 !5473 = distinct !{!5473, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909"}
 !5474 = distinct !{!5474, !5473, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909: argument 1"}
 !5475 = !{!5465, !5468, !5470, !5472}
-!5476 = !{!5467, !5471, !5474}
+!5476 = !{!5467, !5470, !5471, !5474}
 !5477 = !{!5478, !5480, !5481, !5483, !5484, !5485, !5487}
 !5478 = distinct !{!5478, !5479, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17hf10f2e4361d7e8dfE: argument 0"}
 !5479 = distinct !{!5479, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17hf10f2e4361d7e8dfE"}
@@ -52389,7 +52389,7 @@ attributes #45 = { "function-inline-cost-multiplier"="2" }
 !5486 = distinct !{!5486, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909"}
 !5487 = distinct !{!5487, !5486, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909: argument 1"}
 !5488 = !{!5478, !5481, !5483, !5485}
-!5489 = !{!5480, !5484, !5487}
+!5489 = !{!5480, !5483, !5484, !5487}
 !5490 = !{!5491, !5493, !5494, !5496, !5497, !5498, !5500}
 !5491 = distinct !{!5491, !5492, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17hf10f2e4361d7e8dfE: argument 0"}
 !5492 = distinct !{!5492, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17hf10f2e4361d7e8dfE"}
@@ -52402,7 +52402,7 @@ attributes #45 = { "function-inline-cost-multiplier"="2" }
 !5499 = distinct !{!5499, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909"}
 !5500 = distinct !{!5500, !5499, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909: argument 1"}
 !5501 = !{!5491, !5494, !5496, !5498}
-!5502 = !{!5493, !5497, !5500}
+!5502 = !{!5493, !5496, !5497, !5500}
 !5503 = !{!5504, !5506, !5507, !5509, !5510, !5511, !5513}
 !5504 = distinct !{!5504, !5505, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17hf10f2e4361d7e8dfE: argument 0"}
 !5505 = distinct !{!5505, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17hf10f2e4361d7e8dfE"}
@@ -52415,7 +52415,7 @@ attributes #45 = { "function-inline-cost-multiplier"="2" }
 !5512 = distinct !{!5512, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909"}
 !5513 = distinct !{!5513, !5512, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909: argument 1"}
 !5514 = !{!5504, !5507, !5509, !5511}
-!5515 = !{!5506, !5510, !5513}
+!5515 = !{!5506, !5509, !5510, !5513}
 !5516 = !{!5517, !5519, !5520, !5522, !5523, !5524, !5526}
 !5517 = distinct !{!5517, !5518, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17hf10f2e4361d7e8dfE: argument 0"}
 !5518 = distinct !{!5518, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17hf10f2e4361d7e8dfE"}
@@ -52428,7 +52428,7 @@ attributes #45 = { "function-inline-cost-multiplier"="2" }
 !5525 = distinct !{!5525, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909"}
 !5526 = distinct !{!5526, !5525, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909: argument 1"}
 !5527 = !{!5517, !5520, !5522, !5524}
-!5528 = !{!5519, !5523, !5526}
+!5528 = !{!5519, !5522, !5523, !5526}
 !5529 = !{!5530}
 !5530 = distinct !{!5530, !5531, !"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h133d95e3f85e550cE: argument 0"}
 !5531 = distinct !{!5531, !"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h133d95e3f85e550cE"}
@@ -53519,7 +53519,7 @@ attributes #45 = { "function-inline-cost-multiplier"="2" }
 !6616 = distinct !{!6616, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909"}
 !6617 = distinct !{!6617, !6616, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909: argument 1"}
 !6618 = !{!6608, !6611, !6613, !6615}
-!6619 = !{!6610, !6614, !6617}
+!6619 = !{!6610, !6613, !6614, !6617}
 !6620 = !{!6621}
 !6621 = distinct !{!6621, !6622, !"_ZN8wasmtime7runtime5types10ExternType4func17h08cdcbbb4efe1701E: argument 0"}
 !6622 = distinct !{!6622, !"_ZN8wasmtime7runtime5types10ExternType4func17h08cdcbbb4efe1701E"}

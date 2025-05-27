@@ -1948,7 +1948,7 @@ default.unreachable:                              ; preds = %.noexc.i.i
 106:                                              ; preds = %.body.i.i
   %107 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24, !noalias !168
+  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24, !noalias !170
   unreachable
 
 108:                                              ; preds = %.loopexit, %9

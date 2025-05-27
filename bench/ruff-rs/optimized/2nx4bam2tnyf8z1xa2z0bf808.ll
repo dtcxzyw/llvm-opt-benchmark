@@ -12341,7 +12341,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 90:                                               ; preds = %._crit_edge.i
-  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #37
+  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #37, !noalias !1656
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h0b59f5e7740ae40fE.exit: ; preds = %._crit_edge.i
@@ -13089,7 +13089,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h547a52d33a5d5bbcE(
 
 150:                                              ; preds = %147
   invoke void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4d7d0ae5a308eb96E() #37
-          to label %.noexc.i unwind label %151, !noalias !1721
+          to label %.noexc.i unwind label %151, !noalias !1726
 
 .noexc.i:                                         ; preds = %150
   unreachable
@@ -95689,7 +95689,7 @@ attributes #42 = { cold "function-inline-cost-multiplier"="2" }
 !5375 = distinct !{!5375, !"_ZN89_$LT$ruff_python_parser..lexer..fstring..FStringContext$u20$as$u20$core..clone..Clone$GT$5clone17h4e26e8d40a8e045cE"}
 !5376 = !{!5377, !5368, !5369, !5371}
 !5377 = distinct !{!5377, !5375, !"_ZN89_$LT$ruff_python_parser..lexer..fstring..FStringContext$u20$as$u20$core..clone..Clone$GT$5clone17h4e26e8d40a8e045cE: argument 0"}
-!5378 = !{!5368, !5369, !5371}
+!5378 = !{!5368, !5361, !5369, !5371}
 !5379 = !{!5380, !5382}
 !5380 = distinct !{!5380, !5381, !"_ZN18ruff_python_parser5lexer6cursor6Cursor3new17h13c45b8dd8b78a9bE: argument 0"}
 !5381 = distinct !{!5381, !"_ZN18ruff_python_parser5lexer6cursor6Cursor3new17h13c45b8dd8b78a9bE"}

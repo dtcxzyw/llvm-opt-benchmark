@@ -12290,7 +12290,7 @@ _ZN4core5clone5Clone5clone17h1a62670881cab647E.exit.i.i: ; preds = %.noexc.i.i
 71:                                               ; preds = %.body.i.i
   %72 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #39, !noalias !1617
+  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #39, !noalias !1619
   unreachable
 
 73:                                               ; preds = %.loopexit, %9

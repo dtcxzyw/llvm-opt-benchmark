@@ -2338,6 +2338,7 @@ _ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17hf522a94cf75511
   br i1 %.not, label %14, label %37
 
 37:                                               ; preds = %36
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !514)
   %38 = add nsw i64 %1, -1
   %39 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %4, i64 %38
   %40 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %0, i64 %38
@@ -2405,7 +2406,7 @@ _ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17hf522a94cf75511
   br i1 %or.cond.i, label %69, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h5a0c5f9d4bf17790E.llvm.14007566559532182414.exit
 
 69:                                               ; preds = %66
-  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4e03188016ac0891E() #32
+  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h4e03188016ac0891E() #32, !noalias !514
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h5a0c5f9d4bf17790E.llvm.14007566559532182414.exit: ; preds = %66

@@ -26339,7 +26339,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 74:                                               ; preds = %._crit_edge.i
-  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h74b456bd399b1c63E() #40
+  tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h74b456bd399b1c63E() #40, !noalias !8981
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hcf9bd6f150560c95E.exit: ; preds = %._crit_edge.i

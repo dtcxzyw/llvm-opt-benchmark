@@ -12777,7 +12777,7 @@ common.resume:                                    ; preds = %.thread22, %.thread
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #21
+  tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #21, !noalias !966
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7a4b00c2c6a0cd63E.exit": ; preds = %"_ZN4core3ptr90drop_in_place$LT$$u5b$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$u5d$$GT$17h17ab9f34d2cd0e2fE.exit", %77

@@ -508,6 +508,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hee4a2fe02a010e6aE.llvm.10
 
 40:                                               ; preds = %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hee4a2fe02a010e6aE.llvm.10482130107182694961.exit
   %41 = getelementptr inbounds i8, ptr %.pre.i, i64 %34
+  call void @llvm.experimental.noalias.scope.decl(metadata !73)
   br label %42
 
 42:                                               ; preds = %54, %40
@@ -1220,12 +1221,12 @@ attributes #19 = { noreturn }
 !83 = distinct !{!83, !84, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc05766375be3c068E: argument 0"}
 !84 = distinct !{!84, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc05766375be3c068E"}
 !85 = distinct !{!85, !84, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc05766375be3c068E: argument 1"}
-!86 = !{!87, !88, !89, !77, !78}
+!86 = !{!87, !88, !89, !77, !78, !74}
 !87 = distinct !{!87, !84, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc05766375be3c068E: argument 2"}
 !88 = distinct !{!88, !81, !"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17hfccf960183987eb7E: argument 0"}
 !89 = distinct !{!89, !81, !"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17hfccf960183987eb7E: argument 1"}
-!90 = !{!88, !89, !80, !77, !78}
-!91 = !{!88, !89, !77, !78}
+!90 = !{!88, !89, !80, !77, !78, !74}
+!91 = !{!88, !89, !77, !78, !74}
 !92 = !{!93}
 !93 = distinct !{!93, !94, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3eded953941874aeE: argument 1"}
 !94 = distinct !{!94, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3eded953941874aeE"}

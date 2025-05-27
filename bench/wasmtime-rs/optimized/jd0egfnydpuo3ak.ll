@@ -7730,7 +7730,7 @@ define { ptr, ptr } @"_ZN73_$LT$wasi_common..random..Deterministic$u20$as$u20$ra
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !2428
   store ptr %7, ptr %4, align 8, !noalias !2428
   invoke void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc7ec004aa66c9812E.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-          to label %29 unwind label %27
+          to label %29 unwind label %27, !noalias !2400
 
 27:                                               ; preds = %16
   %28 = landingpad { ptr, i32 }
@@ -7751,7 +7751,7 @@ define { ptr, ptr } @"_ZN73_$LT$wasi_common..random..Deterministic$u20$as$u20$ra
   br i1 %.not16.i.i, label %30, label %31
 
 30:                                               ; preds = %29
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.693ac591c5cc121ba5eabf853a1d1b83.27, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.693ac591c5cc121ba5eabf853a1d1b83.33) #33
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.693ac591c5cc121ba5eabf853a1d1b83.27, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.693ac591c5cc121ba5eabf853a1d1b83.33) #33, !noalias !2400
   unreachable
 
 31:                                               ; preds = %29, %12
@@ -7759,7 +7759,7 @@ define { ptr, ptr } @"_ZN73_$LT$wasi_common..random..Deterministic$u20$as$u20$ra
   %.sink18.i.i = phi ptr [ %13, %12 ], [ %24, %29 ]
   %33 = getelementptr inbounds nuw i8, ptr %.sink18.i.i, i64 1
   store ptr %33, ptr %9, align 8, !alias.scope !2433, !noalias !2400
-  %34 = load i8, ptr %.sink18.i.i, align 1, !noalias !4, !noundef !4
+  %34 = load i8, ptr %.sink18.i.i, align 1, !noalias !2400, !noundef !4
   store i8 %34, ptr %.sroa.0.020.i, align 1, !alias.scope !2400, !noalias !2397
   %35 = icmp eq ptr %15, %5
   br i1 %35, label %"_ZN73_$LT$wasi_common..random..Deterministic$u20$as$u20$rand_core..RngCore$GT$10fill_bytes17hfc34080c85187e4eE.exit", label %12
@@ -10540,11 +10540,11 @@ attributes #33 = { noreturn }
 !2420 = distinct !{!2420, !"_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h60c927c9c41cf288E.llvm.4732387629674352047"}
 !2421 = !{!2422, !2415, !2401}
 !2422 = distinct !{!2422, !2418, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf933d4aca1d30de0E.llvm.4732387629674352047: argument 0"}
-!2423 = !{!2424, !2426, !2415, !2409, !2405}
+!2423 = !{!2424, !2426, !2415, !2409, !2405, !2401}
 !2424 = distinct !{!2424, !2425, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hee33e65d151add47E.llvm.4732387629674352047: argument 0"}
 !2425 = distinct !{!2425, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hee33e65d151add47E.llvm.4732387629674352047"}
 !2426 = distinct !{!2426, !2425, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hee33e65d151add47E.llvm.4732387629674352047: argument 1"}
-!2427 = !{!2424, !2415, !2409, !2405}
+!2427 = !{!2424, !2415, !2409, !2405, !2401}
 !2428 = !{!2429, !2431, !2405, !2398, !2401}
 !2429 = distinct !{!2429, !2430, !"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h145ef379a7b308bbE.llvm.1938814379164664089: argument 0"}
 !2430 = distinct !{!2430, !"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h145ef379a7b308bbE.llvm.1938814379164664089"}

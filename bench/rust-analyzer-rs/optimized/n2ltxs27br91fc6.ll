@@ -253,7 +253,7 @@ define hidden void @"_ZN102_$LT$hir_ty..CallableSig$u20$as$u20$chalk_ir..fold..T
 
 28:                                               ; preds = %25
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #54
-          to label %.noexc.i unwind label %35, !noalias !51
+          to label %.noexc.i unwind label %35, !noalias !46
 
 .noexc.i:                                         ; preds = %28
   unreachable
@@ -262,14 +262,14 @@ define hidden void @"_ZN102_$LT$hir_ty..CallableSig$u20$as$u20$chalk_ir..fold..T
   %29 = add nuw nsw i64 %.sroa.7.027.i, 1
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.013.028.i, i64 8
   %31 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %.sroa.7.027.i
-  store ptr %.sroa.6.0.val.i, ptr %31, align 8, !noalias !51
+  store ptr %.sroa.6.0.val.i, ptr %31, align 8, !noalias !46
   %32 = icmp eq i64 %23, 0
   br i1 %32, label %.loopexit, label %.lr.ph.i
 
 33:                                               ; preds = %35
   %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #55, !noalias !51
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #55, !noalias !46
   unreachable
 
 35:                                               ; preds = %28
@@ -277,7 +277,7 @@ define hidden void @"_ZN102_$LT$hir_ty..CallableSig$u20$as$u20$chalk_ir..fold..T
           cleanup
   store i64 %.sroa.7.027.i, ptr %20, align 8, !noalias !46
   invoke void @"_ZN4core3ptr90drop_in_place$LT$alloc..vec..Vec$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h3e55c4d7f638b35cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #56
-          to label %.body unwind label %33, !noalias !51
+          to label %.body unwind label %33, !noalias !46
 
 37:                                               ; preds = %40, %5, %.loopexit
   %38 = landingpad { ptr, i32 }
@@ -18787,7 +18787,7 @@ attributes #57 = { nounwind }
 !49 = distinct !{!49, !50, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h35817504a4a52c38E: argument 0"}
 !50 = distinct !{!50, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h35817504a4a52c38E"}
 !51 = !{!47}
-!52 = !{!53, !47}
+!52 = !{!53, !47, !44}
 !53 = distinct !{!53, !54, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h35817504a4a52c38E: argument 0"}
 !54 = distinct !{!54, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h35817504a4a52c38E"}
 !55 = !{i8 0, i8 2}

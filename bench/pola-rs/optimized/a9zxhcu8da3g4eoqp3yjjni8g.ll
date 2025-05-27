@@ -28714,7 +28714,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17hf8cc65aff4d7eeabE.exit: ; preds = %
 196:                                              ; preds = %194
   %197 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #28, !noalias !3910
   unreachable
 
 198:                                              ; preds = %193, %187
@@ -29527,7 +29527,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h2857df6a6e10ee96E.exit: ; preds
 245:                                              ; preds = %243
   %246 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #28, !noalias !3962
   unreachable
 
 247:                                              ; preds = %242, %236
@@ -30708,7 +30708,7 @@ attributes #29 = { nounwind }
 !91 = distinct !{!91, !90, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h0f7e8edf61a35daeE: argument 1"}
 !92 = distinct !{!92, !90, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h0f7e8edf61a35daeE: argument 2"}
 !93 = !{!86, !89, !91, !83}
-!94 = !{!88, !92, !83}
+!94 = !{!88, !91, !92, !83}
 !95 = !{!96}
 !96 = distinct !{!96, !97, !"_ZN12polars_arrow2io3ipc4read4file10read_batch28_$u7b$$u7b$closure$u7d$$u7d$17h464964431c20cc3bE: argument 0"}
 !97 = distinct !{!97, !"_ZN12polars_arrow2io3ipc4read4file10read_batch28_$u7b$$u7b$closure$u7d$$u7d$17h464964431c20cc3bE"}
@@ -30721,7 +30721,7 @@ attributes #29 = { nounwind }
 !104 = distinct !{!104, !103, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h0f7e8edf61a35daeE: argument 1"}
 !105 = distinct !{!105, !103, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h0f7e8edf61a35daeE: argument 2"}
 !106 = !{!99, !102, !104, !96}
-!107 = !{!101, !105, !96}
+!107 = !{!101, !104, !105, !96}
 !108 = !{i64 0, i64 18}
 !109 = !{i8 0, i8 9}
 !110 = !{!111, !113}
@@ -30737,7 +30737,7 @@ attributes #29 = { nounwind }
 !120 = distinct !{!120, !119, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h0f7e8edf61a35daeE: argument 1"}
 !121 = distinct !{!121, !119, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h0f7e8edf61a35daeE: argument 2"}
 !122 = !{!115, !118, !120, !111, !113}
-!123 = !{!117, !121, !111, !113}
+!123 = !{!117, !120, !121, !111, !113}
 !124 = !{!113}
 !125 = !{i16 0, i16 5}
 !126 = !{!127}
@@ -30779,7 +30779,7 @@ attributes #29 = { nounwind }
 !162 = distinct !{!162, !161, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h0f7e8edf61a35daeE: argument 1"}
 !163 = distinct !{!163, !161, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h0f7e8edf61a35daeE: argument 2"}
 !164 = !{!157, !160, !162, !154}
-!165 = !{!159, !163, !154}
+!165 = !{!159, !162, !163, !154}
 !166 = !{!167}
 !167 = distinct !{!167, !168, !"_ZN87_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..default..Default$GT$7default17he6af6dd9cb86a056E: argument 0"}
 !168 = distinct !{!168, !"_ZN87_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..default..Default$GT$7default17he6af6dd9cb86a056E"}
@@ -30844,7 +30844,7 @@ attributes #29 = { nounwind }
 !227 = distinct !{!227, !226, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h0f7e8edf61a35daeE: argument 1"}
 !228 = distinct !{!228, !226, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h0f7e8edf61a35daeE: argument 2"}
 !229 = !{!222, !225, !227, !219}
-!230 = !{!224, !228, !219}
+!230 = !{!224, !227, !228, !219}
 !231 = !{!232, !234, !235, !237, !238}
 !232 = distinct !{!232, !233, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h0d37ea221d96f59eE: argument 0"}
 !233 = distinct !{!233, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h0d37ea221d96f59eE"}
@@ -30854,7 +30854,7 @@ attributes #29 = { nounwind }
 !237 = distinct !{!237, !236, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h0f7e8edf61a35daeE: argument 1"}
 !238 = distinct !{!238, !236, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h0f7e8edf61a35daeE: argument 2"}
 !239 = !{!232, !235, !237}
-!240 = !{!234, !238}
+!240 = !{!234, !237, !238}
 !241 = !{!242, !244}
 !242 = distinct !{!242, !243, !"_ZN12polars_error9__private8must_use17h028dca1e996f8e6aE: argument 0"}
 !243 = distinct !{!243, !"_ZN12polars_error9__private8must_use17h028dca1e996f8e6aE"}

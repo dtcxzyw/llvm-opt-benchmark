@@ -71,8 +71,9 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5435c5608a32ee38E(
 
 .thread:                                          ; preds = %16, %25
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
+  call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %.not77 = icmp ult i64 %3, %.sroa.12.0107
-  br i1 %.not77, label %31, label %28, !prof !8
+  br i1 %.not77, label %31, label %28, !prof !10
 
 28:                                               ; preds = %.thread
   %29 = getelementptr { i64, ptr }, ptr %2, i64 %.sroa.12.0107
@@ -98,12 +99,12 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5435c5608a32ee38E(
   %.sroa.9.130.i = phi ptr [ %75, %.lr.ph.i ], [ %.sroa.9.0.i, %32 ]
   %.sroa.27.129.i = phi i64 [ %74, %.lr.ph.i ], [ %.sroa.27.0.i, %32 ]
   %36 = getelementptr i8, ptr %.sroa.9.130.i, i64 8
-  %.val.i = load ptr, ptr %36, align 8, !alias.scope !9, !noalias !5, !nonnull !3, !align !4, !noundef !3
-  %.val26.i = load ptr, ptr %30, align 8, !alias.scope !9, !noalias !5
-  %37 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val.i), !noalias !5
+  %.val.i = load ptr, ptr %36, align 8, !alias.scope !5, !noalias !8, !nonnull !3, !align !4, !noundef !3
+  %.val26.i = load ptr, ptr %30, align 8, !alias.scope !5, !noalias !8
+  %37 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val.i), !noalias !11
   %38 = icmp ne ptr %.val26.i, null
   call void @llvm.assume(i1 %38)
-  %39 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val26.i), !noalias !5
+  %39 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val26.i), !noalias !11
   %40 = icmp ult i64 %39, %37
   %41 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -16
   %.sroa.01.0.i.i = select i1 %40, ptr %2, ptr %41
@@ -113,12 +114,12 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5435c5608a32ee38E(
   %44 = add i64 %.sroa.27.129.i, %43
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 16
   %46 = getelementptr i8, ptr %.sroa.9.130.i, i64 24
-  %.val27.i = load ptr, ptr %46, align 8, !alias.scope !9, !noalias !5, !nonnull !3, !align !4, !noundef !3
-  %.val28.i = load ptr, ptr %30, align 8, !alias.scope !9, !noalias !5
-  %47 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val27.i), !noalias !5
+  %.val27.i = load ptr, ptr %46, align 8, !alias.scope !5, !noalias !8, !nonnull !3, !align !4, !noundef !3
+  %.val28.i = load ptr, ptr %30, align 8, !alias.scope !5, !noalias !8
+  %47 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val27.i), !noalias !11
   %48 = icmp ne ptr %.val28.i, null
   call void @llvm.assume(i1 %48)
-  %49 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val28.i), !noalias !5
+  %49 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val28.i), !noalias !11
   %50 = icmp ult i64 %49, %47
   %51 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -32
   %.sroa.01.0.i35.i = select i1 %50, ptr %2, ptr %51
@@ -128,12 +129,12 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5435c5608a32ee38E(
   %54 = add i64 %44, %53
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 32
   %56 = getelementptr i8, ptr %.sroa.9.130.i, i64 40
-  %.val29.i = load ptr, ptr %56, align 8, !alias.scope !9, !noalias !5, !nonnull !3, !align !4, !noundef !3
-  %.val30.i = load ptr, ptr %30, align 8, !alias.scope !9, !noalias !5
-  %57 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val29.i), !noalias !5
+  %.val29.i = load ptr, ptr %56, align 8, !alias.scope !5, !noalias !8, !nonnull !3, !align !4, !noundef !3
+  %.val30.i = load ptr, ptr %30, align 8, !alias.scope !5, !noalias !8
+  %57 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val29.i), !noalias !11
   %58 = icmp ne ptr %.val30.i, null
   call void @llvm.assume(i1 %58)
-  %59 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val30.i), !noalias !5
+  %59 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val30.i), !noalias !11
   %60 = icmp ult i64 %59, %57
   %61 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -48
   %.sroa.01.0.i36.i = select i1 %60, ptr %2, ptr %61
@@ -143,12 +144,12 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5435c5608a32ee38E(
   %64 = add i64 %54, %63
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i, i64 48
   %66 = getelementptr i8, ptr %.sroa.9.130.i, i64 56
-  %.val31.i = load ptr, ptr %66, align 8, !alias.scope !9, !noalias !5, !nonnull !3, !align !4, !noundef !3
-  %.val32.i = load ptr, ptr %30, align 8, !alias.scope !9, !noalias !5
-  %67 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val31.i), !noalias !5
+  %.val31.i = load ptr, ptr %66, align 8, !alias.scope !5, !noalias !8, !nonnull !3, !align !4, !noundef !3
+  %.val32.i = load ptr, ptr %30, align 8, !alias.scope !5, !noalias !8
+  %67 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val31.i), !noalias !11
   %68 = icmp ne ptr %.val32.i, null
   call void @llvm.assume(i1 %68)
-  %69 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val32.i), !noalias !5
+  %69 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val32.i), !noalias !11
   %70 = icmp ult i64 %69, %67
   %71 = getelementptr inbounds i8, ptr %.sroa.43.131.i, i64 -64
   %.sroa.01.0.i37.i = select i1 %70, ptr %2, ptr %71
@@ -180,12 +181,12 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5435c5608a32ee38E(
   %.sroa.9.235.i = phi ptr [ %89, %.lr.ph38.i ], [ %.sroa.9.1.lcssa.i, %._crit_edge.i ]
   %.sroa.27.234.i = phi i64 [ %88, %.lr.ph38.i ], [ %.sroa.27.1.lcssa.i, %._crit_edge.i ]
   %80 = getelementptr i8, ptr %.sroa.9.235.i, i64 8
-  %.val33.i = load ptr, ptr %80, align 8, !alias.scope !9, !noalias !5, !nonnull !3, !align !4, !noundef !3
-  %.val34.i = load ptr, ptr %30, align 8, !alias.scope !9, !noalias !5
-  %81 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val33.i), !noalias !5
+  %.val33.i = load ptr, ptr %80, align 8, !alias.scope !5, !noalias !8, !nonnull !3, !align !4, !noundef !3
+  %.val34.i = load ptr, ptr %30, align 8, !alias.scope !5, !noalias !8
+  %81 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val33.i), !noalias !11
   %82 = icmp ne ptr %.val34.i, null
   call void @llvm.assume(i1 %82)
-  %83 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val34.i), !noalias !5
+  %83 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val34.i), !noalias !11
   %84 = icmp ult i64 %83, %81
   %85 = getelementptr inbounds i8, ptr %.sroa.43.236.i, i64 -16
   %.sroa.01.0.i38.i = select i1 %84, ptr %2, ptr %85
@@ -235,8 +236,9 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5435c5608a32ee38E(
 
 .thread73:                                        ; preds = %25, %.loopexit
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
+  call void @llvm.experimental.noalias.scope.decl(metadata !34)
   %.not78 = icmp ult i64 %3, %.sroa.12.0107
-  br i1 %.not78, label %109, label %106, !prof !8
+  br i1 %.not78, label %109, label %106, !prof !10
 
 106:                                              ; preds = %.thread73
   %107 = getelementptr { i64, ptr }, ptr %2, i64 %.sroa.12.0107
@@ -262,12 +264,12 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5435c5608a32ee38E(
   %.sroa.9.130.i57 = phi ptr [ %153, %.lr.ph.i55 ], [ %.sroa.9.0.i33, %110 ]
   %.sroa.27.129.i58 = phi i64 [ %152, %.lr.ph.i55 ], [ %.sroa.27.0.i32, %110 ]
   %114 = getelementptr i8, ptr %.sroa.9.130.i57, i64 8
-  %.val.i59 = load ptr, ptr %114, align 8, !alias.scope !34, !noalias !31
-  %.val26.i60 = load ptr, ptr %108, align 8, !alias.scope !34, !noalias !31, !nonnull !3, !align !4, !noundef !3
-  %115 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val26.i60), !noalias !31
+  %.val.i59 = load ptr, ptr %114, align 8, !alias.scope !31, !noalias !34
+  %.val26.i60 = load ptr, ptr %108, align 8, !alias.scope !31, !noalias !34, !nonnull !3, !align !4, !noundef !3
+  %115 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val26.i60), !noalias !36
   %116 = icmp ne ptr %.val.i59, null
   call void @llvm.assume(i1 %116)
-  %117 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val.i59), !noalias !31
+  %117 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val.i59), !noalias !36
   %118 = icmp uge i64 %117, %115
   %119 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -16
   %.sroa.01.0.i.i61 = select i1 %118, ptr %2, ptr %119
@@ -277,12 +279,12 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5435c5608a32ee38E(
   %122 = add i64 %.sroa.27.129.i58, %121
   %123 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 16
   %124 = getelementptr i8, ptr %.sroa.9.130.i57, i64 24
-  %.val27.i62 = load ptr, ptr %124, align 8, !alias.scope !34, !noalias !31
-  %.val28.i63 = load ptr, ptr %108, align 8, !alias.scope !34, !noalias !31, !nonnull !3, !align !4, !noundef !3
-  %125 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val28.i63), !noalias !31
+  %.val27.i62 = load ptr, ptr %124, align 8, !alias.scope !31, !noalias !34
+  %.val28.i63 = load ptr, ptr %108, align 8, !alias.scope !31, !noalias !34, !nonnull !3, !align !4, !noundef !3
+  %125 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val28.i63), !noalias !36
   %126 = icmp ne ptr %.val27.i62, null
   call void @llvm.assume(i1 %126)
-  %127 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val27.i62), !noalias !31
+  %127 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val27.i62), !noalias !36
   %128 = icmp uge i64 %127, %125
   %129 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -32
   %.sroa.01.0.i35.i64 = select i1 %128, ptr %2, ptr %129
@@ -292,12 +294,12 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5435c5608a32ee38E(
   %132 = add i64 %122, %131
   %133 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 32
   %134 = getelementptr i8, ptr %.sroa.9.130.i57, i64 40
-  %.val29.i65 = load ptr, ptr %134, align 8, !alias.scope !34, !noalias !31
-  %.val30.i66 = load ptr, ptr %108, align 8, !alias.scope !34, !noalias !31, !nonnull !3, !align !4, !noundef !3
-  %135 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val30.i66), !noalias !31
+  %.val29.i65 = load ptr, ptr %134, align 8, !alias.scope !31, !noalias !34
+  %.val30.i66 = load ptr, ptr %108, align 8, !alias.scope !31, !noalias !34, !nonnull !3, !align !4, !noundef !3
+  %135 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val30.i66), !noalias !36
   %136 = icmp ne ptr %.val29.i65, null
   call void @llvm.assume(i1 %136)
-  %137 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val29.i65), !noalias !31
+  %137 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val29.i65), !noalias !36
   %138 = icmp uge i64 %137, %135
   %139 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -48
   %.sroa.01.0.i36.i67 = select i1 %138, ptr %2, ptr %139
@@ -307,12 +309,12 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5435c5608a32ee38E(
   %142 = add i64 %132, %141
   %143 = getelementptr inbounds nuw i8, ptr %.sroa.9.130.i57, i64 48
   %144 = getelementptr i8, ptr %.sroa.9.130.i57, i64 56
-  %.val31.i68 = load ptr, ptr %144, align 8, !alias.scope !34, !noalias !31
-  %.val32.i69 = load ptr, ptr %108, align 8, !alias.scope !34, !noalias !31, !nonnull !3, !align !4, !noundef !3
-  %145 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val32.i69), !noalias !31
+  %.val31.i68 = load ptr, ptr %144, align 8, !alias.scope !31, !noalias !34
+  %.val32.i69 = load ptr, ptr %108, align 8, !alias.scope !31, !noalias !34, !nonnull !3, !align !4, !noundef !3
+  %145 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val32.i69), !noalias !36
   %146 = icmp ne ptr %.val31.i68, null
   call void @llvm.assume(i1 %146)
-  %147 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val31.i68), !noalias !31
+  %147 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val31.i68), !noalias !36
   %148 = icmp uge i64 %147, %145
   %149 = getelementptr inbounds i8, ptr %.sroa.43.131.i56, i64 -64
   %.sroa.01.0.i37.i70 = select i1 %148, ptr %2, ptr %149
@@ -344,12 +346,12 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h5435c5608a32ee38E(
   %.sroa.9.235.i50 = phi ptr [ %167, %.lr.ph38.i48 ], [ %.sroa.9.1.lcssa.i38, %._crit_edge.i36 ]
   %.sroa.27.234.i51 = phi i64 [ %166, %.lr.ph38.i48 ], [ %.sroa.27.1.lcssa.i37, %._crit_edge.i36 ]
   %158 = getelementptr i8, ptr %.sroa.9.235.i50, i64 8
-  %.val33.i52 = load ptr, ptr %158, align 8, !alias.scope !34, !noalias !31
-  %.val34.i53 = load ptr, ptr %108, align 8, !alias.scope !34, !noalias !31, !nonnull !3, !align !4, !noundef !3
-  %159 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val34.i53), !noalias !31
+  %.val33.i52 = load ptr, ptr %158, align 8, !alias.scope !31, !noalias !34
+  %.val34.i53 = load ptr, ptr %108, align 8, !alias.scope !31, !noalias !34, !nonnull !3, !align !4, !noundef !3
+  %159 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val34.i53), !noalias !36
   %160 = icmp ne ptr %.val33.i52, null
   call void @llvm.assume(i1 %160)
-  %161 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val33.i52), !noalias !31
+  %161 = call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val33.i52), !noalias !36
   %162 = icmp uge i64 %161, %159
   %163 = getelementptr inbounds i8, ptr %.sroa.43.236.i49, i64 -16
   %.sroa.01.0.i38.i54 = select i1 %162, ptr %2, ptr %163
@@ -480,7 +482,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hd1f4481db0e420beE(
 .thread:                                          ; preds = %14, %20
   call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %.not57 = icmp ult i64 %3, %.sroa.12.084
-  br i1 %.not57, label %23, label %21, !prof !8
+  br i1 %.not57, label %23, label %21, !prof !10
 
 21:                                               ; preds = %.thread
   %22 = getelementptr { { i64, i64 }, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %2, i64 %.sroa.12.084
@@ -562,7 +564,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hd1f4481db0e420beE(
 .thread53:                                        ; preds = %20, %.loopexit
   call void @llvm.experimental.noalias.scope.decl(metadata !70)
   %.not58 = icmp ult i64 %3, %.sroa.12.084
-  br i1 %.not58, label %52, label %50, !prof !8
+  br i1 %.not58, label %52, label %50, !prof !10
 
 50:                                               ; preds = %.thread53
   %51 = getelementptr { { i64, i64 }, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %2, i64 %.sroa.12.084
@@ -726,7 +728,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hfd1147b648335777E(
 .thread:                                          ; preds = %15, %21
   call void @llvm.experimental.noalias.scope.decl(metadata !85)
   %.not57 = icmp ult i64 %3, %.sroa.12.081
-  br i1 %.not57, label %26, label %23, !prof !8
+  br i1 %.not57, label %26, label %23, !prof !10
 
 23:                                               ; preds = %.thread
   %24 = getelementptr { { i64, [1 x i64] }, { { { { i64, ptr, {} }, {} }, i64 }, { ptr, [1 x i64] }, i8, [7 x i8] }, { i64, i64 }, i8, [7 x i8] }, ptr %2, i64 %.sroa.12.081
@@ -810,7 +812,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17hfd1147b648335777E(
 .thread53:                                        ; preds = %21, %.loopexit
   call void @llvm.experimental.noalias.scope.decl(metadata !97)
   %.not58 = icmp ult i64 %3, %.sroa.12.081
-  br i1 %.not58, label %57, label %54, !prof !8
+  br i1 %.not58, label %57, label %54, !prof !10
 
 54:                                               ; preds = %.thread53
   %55 = getelementptr { { i64, [1 x i64] }, { { { { i64, ptr, {} }, {} }, i64 }, { ptr, [1 x i64] }, i8, [7 x i8] }, { i64, i64 }, i8, [7 x i8] }, ptr %2, i64 %.sroa.12.081
@@ -1001,12 +1003,12 @@ attributes #9 = { noreturn }
 !3 = !{}
 !4 = !{i64 8}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17h7e5b6fd22ea89f64E: argument 1"}
+!6 = distinct !{!6, !7, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17h7e5b6fd22ea89f64E: argument 0"}
 !7 = distinct !{!7, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17h7e5b6fd22ea89f64E"}
-!8 = !{!"branch_weights", i32 4001, i32 4000000}
-!9 = !{!10}
-!10 = distinct !{!10, !7, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17h7e5b6fd22ea89f64E: argument 0"}
-!11 = !{!10, !6}
+!8 = !{!9}
+!9 = distinct !{!9, !7, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17h7e5b6fd22ea89f64E: argument 1"}
+!10 = !{!"branch_weights", i32 4001, i32 4000000}
+!11 = !{!6, !9}
 !12 = !{!13}
 !13 = distinct !{!13, !14, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17hc16857498554dfd7E: argument 0"}
 !14 = distinct !{!14, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17hc16857498554dfd7E"}
@@ -1027,11 +1029,11 @@ attributes #9 = { noreturn }
 !29 = distinct !{!29, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17hc16857498554dfd7E"}
 !30 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17ha12202032c0e886fE: argument 1"}
+!32 = distinct !{!32, !33, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17ha12202032c0e886fE: argument 0"}
 !33 = distinct !{!33, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17ha12202032c0e886fE"}
 !34 = !{!35}
-!35 = distinct !{!35, !33, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17ha12202032c0e886fE: argument 0"}
-!36 = !{!35, !32}
+!35 = distinct !{!35, !33, !"_ZN4core5slice4sort6stable9quicksort16stable_partition17ha12202032c0e886fE: argument 1"}
+!36 = !{!32, !35}
 !37 = !{!38}
 !38 = distinct !{!38, !39, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17hc16857498554dfd7E: argument 0"}
 !39 = distinct !{!39, !"_ZN4core5slice4sort6stable9quicksort23PartitionState$LT$T$GT$13partition_one17hc16857498554dfd7E"}

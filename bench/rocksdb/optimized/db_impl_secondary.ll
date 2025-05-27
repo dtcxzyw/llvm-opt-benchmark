@@ -19067,10 +19067,10 @@ _ZNSt12__shared_ptrIN7rocksdb17CompactionServiceELN9__gnu_cxx12_Lock_policyE2EED
   br i1 %.not.i8.i, label %_ZNSt10unique_ptrIN7rocksdb2DBESt14default_deleteIS1_EED2Ev.exit10.i, label %_ZNKSt14default_deleteIN7rocksdb2DBEEclEPS1_.exit.i9.i
 
 _ZNKSt14default_deleteIN7rocksdb2DBEEclEPS1_.exit.i9.i: ; preds = %249
-  %252 = load ptr, ptr %251, align 8, !tbaa !18
+  %252 = load ptr, ptr %251, align 8, !tbaa !18, !noalias !1365
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 24
-  %254 = load ptr, ptr %253, align 8
-  call void %254(ptr noundef nonnull align 8 dereferenceable(8) %251) #27
+  %254 = load ptr, ptr %253, align 8, !noalias !1365
+  call void %254(ptr noundef nonnull align 8 dereferenceable(8) %251) #27, !noalias !1365
   br label %_ZNSt10unique_ptrIN7rocksdb2DBESt14default_deleteIS1_EED2Ev.exit10.i
 
 _ZNSt10unique_ptrIN7rocksdb2DBESt14default_deleteIS1_EED2Ev.exit10.i: ; preds = %_ZNKSt14default_deleteIN7rocksdb2DBEEclEPS1_.exit.i9.i, %249

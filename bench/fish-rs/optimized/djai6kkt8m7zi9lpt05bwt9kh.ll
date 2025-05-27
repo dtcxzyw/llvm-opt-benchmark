@@ -27907,7 +27907,7 @@ define internal fastcc ptr @_ZN4fish8builtins4test16test_expressions10TestParser
 96:                                               ; preds = %94
   %97 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #28, !noalias !1966
   unreachable
 
 98:                                               ; preds = %93, %89

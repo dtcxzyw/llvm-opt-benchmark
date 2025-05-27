@@ -145,7 +145,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Deserializer
   %.sroa.0.0711.i.ptr = getelementptr inbounds nuw i8, ptr @anon.c4e85278fcc9fea0836255c393759dd7.0, i64 %.sroa.0.0711.i.idx
   %.sroa.0.0711.i.add = add nuw nsw i64 %.sroa.0.0711.i.idx, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23), !noalias !13
-  call void @"_ZN86_$LT$serde_json_lenient..read..SliceRead$u20$as$u20$serde_json_lenient..read..Read$GT$4next17h9d7cf8771d5735eaE.llvm.12431300060975611421"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %23, ptr noalias noundef nonnull align 8 dereferenceable(40) %57)
+  call void @"_ZN86_$LT$serde_json_lenient..read..SliceRead$u20$as$u20$serde_json_lenient..read..Read$GT$4next17h9d7cf8771d5735eaE.llvm.12431300060975611421"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %23, ptr noalias noundef nonnull align 8 dereferenceable(40) %57), !noalias !10
   %61 = load i8, ptr %23, align 8, !range !4, !noalias !13, !noundef !5
   %trunc.i = trunc nuw i8 %61 to i1
   br i1 %trunc.i, label %64, label %62
@@ -163,7 +163,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Deserializer
 67:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22), !noalias !13
   store i64 6, ptr %22, align 8, !noalias !13
-  %68 = call noundef nonnull align 8 ptr @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$5error17h08ee7e0da73667fcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %22)
+  %68 = call noundef nonnull align 8 ptr @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$5error17h08ee7e0da73667fcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %22), !noalias !10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !13
   br label %149
 
@@ -181,7 +181,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Deserializer
 74:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !13
   store i64 11, ptr %21, align 8, !noalias !13
-  %75 = call noundef nonnull align 8 ptr @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$5error17h08ee7e0da73667fcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %21)
+  %75 = call noundef nonnull align 8 ptr @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$5error17h08ee7e0da73667fcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %21), !noalias !10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !13
   br label %149
 
@@ -201,7 +201,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Deserializer
   %.sroa.0.0711.i95.ptr = getelementptr inbounds nuw i8, ptr @anon.c4e85278fcc9fea0836255c393759dd7.1, i64 %.sroa.0.0711.i95.idx
   %.sroa.0.0711.i95.add = add nuw nsw i64 %.sroa.0.0711.i95.idx, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !22
-  call void @"_ZN86_$LT$serde_json_lenient..read..SliceRead$u20$as$u20$serde_json_lenient..read..Read$GT$4next17h9d7cf8771d5735eaE.llvm.12431300060975611421"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %20, ptr noalias noundef nonnull align 8 dereferenceable(40) %80)
+  call void @"_ZN86_$LT$serde_json_lenient..read..SliceRead$u20$as$u20$serde_json_lenient..read..Read$GT$4next17h9d7cf8771d5735eaE.llvm.12431300060975611421"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %20, ptr noalias noundef nonnull align 8 dereferenceable(40) %80), !noalias !19
   %84 = load i8, ptr %20, align 8, !range !4, !noalias !22, !noundef !5
   %trunc.i96 = trunc nuw i8 %84 to i1
   br i1 %trunc.i96, label %87, label %85
@@ -219,7 +219,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Deserializer
 90:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19), !noalias !22
   store i64 6, ptr %19, align 8, !noalias !22
-  %91 = call noundef nonnull align 8 ptr @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$5error17h08ee7e0da73667fcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %19)
+  %91 = call noundef nonnull align 8 ptr @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$5error17h08ee7e0da73667fcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %19), !noalias !19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !22
   br label %154
 
@@ -237,7 +237,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Deserializer
 97:                                               ; preds = %92
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18), !noalias !22
   store i64 11, ptr %18, align 8, !noalias !22
-  %98 = call noundef nonnull align 8 ptr @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$5error17h08ee7e0da73667fcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %18)
+  %98 = call noundef nonnull align 8 ptr @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$5error17h08ee7e0da73667fcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %18), !noalias !19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !22
   br label %154
 
@@ -257,7 +257,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Deserializer
   %.sroa.0.0711.i102.ptr = getelementptr inbounds nuw i8, ptr @anon.c4e85278fcc9fea0836255c393759dd7.2, i64 %.sroa.0.0711.i102.idx
   %.sroa.0.0711.i102.add = add nuw nsw i64 %.sroa.0.0711.i102.idx, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !31
-  call void @"_ZN86_$LT$serde_json_lenient..read..SliceRead$u20$as$u20$serde_json_lenient..read..Read$GT$4next17h9d7cf8771d5735eaE.llvm.12431300060975611421"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull align 8 dereferenceable(40) %103)
+  call void @"_ZN86_$LT$serde_json_lenient..read..SliceRead$u20$as$u20$serde_json_lenient..read..Read$GT$4next17h9d7cf8771d5735eaE.llvm.12431300060975611421"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull align 8 dereferenceable(40) %103), !noalias !28
   %107 = load i8, ptr %17, align 8, !range !4, !noalias !31, !noundef !5
   %trunc.i103 = trunc nuw i8 %107 to i1
   br i1 %trunc.i103, label %110, label %108
@@ -275,7 +275,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Deserializer
 113:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16), !noalias !31
   store i64 6, ptr %16, align 8, !noalias !31
-  %114 = call noundef nonnull align 8 ptr @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$5error17h08ee7e0da73667fcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16)
+  %114 = call noundef nonnull align 8 ptr @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$5error17h08ee7e0da73667fcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16), !noalias !28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16), !noalias !31
   br label %157
 
@@ -293,7 +293,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Deserializer
 120:                                              ; preds = %115
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !31
   store i64 11, ptr %15, align 8, !noalias !31
-  %121 = call noundef nonnull align 8 ptr @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$5error17h08ee7e0da73667fcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15)
+  %121 = call noundef nonnull align 8 ptr @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$5error17h08ee7e0da73667fcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15), !noalias !28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !31
   br label %157
 

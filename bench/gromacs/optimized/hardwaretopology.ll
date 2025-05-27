@@ -8157,11 +8157,11 @@ _ZSt27__uninitialized_default_n_aIPSt13unordered_mapIiiSt4hashIiESt8equal_toIiES
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %62 = load i32, ptr %61, align 4, !tbaa !121
+  %62 = load i32, ptr %61, align 4, !tbaa !121, !noalias !250
   %63 = sext i32 %62 to i64
   %64 = urem i64 %63, %44
   %65 = getelementptr inbounds nuw ptr, ptr %59, i64 %64
-  store ptr %45, ptr %65, align 8, !tbaa !194
+  store ptr %45, ptr %65, align 8, !tbaa !194, !noalias !250
   br label %_ZSt19__relocate_object_aISt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEES9_SaIS9_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aISt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEES9_SaIS9_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %60, %58

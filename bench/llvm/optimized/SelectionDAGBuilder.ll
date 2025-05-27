@@ -7499,7 +7499,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   br i1 %51, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %49
-  %52 = load ptr, ptr %50, align 8, !tbaa !507
+  %52 = load ptr, ptr %50, align 8, !tbaa !507, !noalias !514
   store ptr %52, ptr %3, align 8, !tbaa !507, !alias.scope !514
   %.not.i5.i.i.i.i.i = icmp eq ptr %52, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %53
@@ -12753,7 +12753,7 @@ _ZN4llvm19SelectionDAGBuilder14getControlRootEv.exit: ; preds = %_ZN4llvm15Small
   br i1 %94, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %92
-  %95 = load ptr, ptr %93, align 8, !tbaa !507
+  %95 = load ptr, ptr %93, align 8, !tbaa !507, !noalias !981
   store ptr %95, ptr %8, align 8, !tbaa !507, !alias.scope !981
   %.not.i5.i.i.i.i.i = icmp eq ptr %95, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %96
@@ -12915,7 +12915,7 @@ _ZN4llvm11SmallVectorINS_7SDValueELj4EEC2Em.exit: ; preds = %_ZN4llvm5SDLocD2Ev.
   br i1 %164, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit232, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i230
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i230: ; preds = %162
-  %165 = load ptr, ptr %163, align 8, !tbaa !507
+  %165 = load ptr, ptr %163, align 8, !tbaa !507, !noalias !984
   store ptr %165, ptr %19, align 8, !tbaa !507, !alias.scope !984
   %.not.i5.i.i.i.i.i231 = icmp eq ptr %165, null
   br i1 %.not.i5.i.i.i.i.i231, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit232, label %166
@@ -13004,7 +13004,7 @@ _ZN4llvm11SmallVectorINS_3EVTELj4EED2Ev.exit235:  ; preds = %_ZN4llvm11SmallVect
   br i1 %193, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit239, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i237
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i237: ; preds = %191
-  %194 = load ptr, ptr %192, align 8, !tbaa !507
+  %194 = load ptr, ptr %192, align 8, !tbaa !507, !noalias !987
   store ptr %194, ptr %13, align 8, !tbaa !507, !alias.scope !987
   %.not.i5.i.i.i.i.i238 = icmp eq ptr %194, null
   br i1 %.not.i5.i.i.i.i.i238, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit239, label %195
@@ -13070,7 +13070,7 @@ _ZNK4llvm3EVTneES0_.exit.thread:                  ; preds = %_ZN4llvm5SDLocD2Ev.
   br i1 %219, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit247, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i245
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i245: ; preds = %217
-  %220 = load ptr, ptr %218, align 8, !tbaa !507
+  %220 = load ptr, ptr %218, align 8, !tbaa !507, !noalias !990
   store ptr %220, ptr %14, align 8, !tbaa !507, !alias.scope !990
   %.not.i5.i.i.i.i.i246 = icmp eq ptr %220, null
   br i1 %.not.i5.i.i.i.i.i246, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit247, label %221
@@ -13121,7 +13121,7 @@ _ZNK4llvm3EVTneES0_.exit.thread341:               ; preds = %210, %_ZN4llvm5SDLo
   br i1 %232, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit253, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i251
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i251: ; preds = %230
-  %233 = load ptr, ptr %231, align 8, !tbaa !507
+  %233 = load ptr, ptr %231, align 8, !tbaa !507, !noalias !993
   store ptr %233, ptr %15, align 8, !tbaa !507, !alias.scope !993
   %.not.i5.i.i.i.i.i252 = icmp eq ptr %233, null
   br i1 %.not.i5.i.i.i.i.i252, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit253, label %234
@@ -13391,7 +13391,7 @@ _ZN4llvm11SmallVectorINS_7SDValueELj4EEC2Em.exit268: ; preds = %335, %.sink.spli
   br i1 %361, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit272, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i270
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i270: ; preds = %359
-  %362 = load ptr, ptr %360, align 8, !tbaa !507
+  %362 = load ptr, ptr %360, align 8, !tbaa !507, !noalias !999
   store ptr %362, ptr %27, align 8, !tbaa !507, !alias.scope !999
   %.not.i5.i.i.i.i.i271 = icmp eq ptr %362, null
   br i1 %.not.i5.i.i.i.i.i271, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit272, label %363
@@ -13758,7 +13758,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit294: ; pre
   br i1 %539, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit298, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i296
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i296: ; preds = %537
-  %540 = load ptr, ptr %538, align 8, !tbaa !507
+  %540 = load ptr, ptr %538, align 8, !tbaa !507, !noalias !1021
   store ptr %540, ptr %32, align 8, !tbaa !507, !alias.scope !1021
   %.not.i5.i.i.i.i.i297 = icmp eq ptr %540, null
   br i1 %.not.i5.i.i.i.i.i297, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit298, label %541
@@ -13905,7 +13905,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder7visitBrERKNS_10BranchInstE(
   br i1 %56, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %54
-  %57 = load ptr, ptr %55, align 8, !tbaa !507
+  %57 = load ptr, ptr %55, align 8, !tbaa !507, !noalias !1098
   store ptr %57, ptr %6, align 8, !tbaa !507, !alias.scope !1098
   %.not.i5.i.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %58
@@ -14555,7 +14555,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %117, %.critedge, %_
   br i1 %385, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit109, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i107
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i107: ; preds = %383
-  %386 = load ptr, ptr %384, align 8, !tbaa !507
+  %386 = load ptr, ptr %384, align 8, !tbaa !507, !noalias !1165
   store ptr %386, ptr %15, align 8, !tbaa !507, !alias.scope !1165
   %.not.i5.i.i.i.i.i108 = icmp eq ptr %386, null
   br i1 %.not.i5.i.i.i.i.i108, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit109, label %387
@@ -14878,7 +14878,7 @@ _ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EE9push_backEOS2_.exit: ; preds 
   br i1 %128, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %126
-  %129 = load ptr, ptr %127, align 8, !tbaa !507
+  %129 = load ptr, ptr %127, align 8, !tbaa !507, !noalias !1186
   store ptr %129, ptr %9, align 8, !tbaa !507, !alias.scope !1186
   %.not.i5.i.i.i.i.i = icmp eq ptr %129, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %130
@@ -14997,7 +14997,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm12Selection
   br i1 %172, label %_ZNSt8optionalIN4llvm5SDLocEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_.exit.sink.split, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i65
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i65: ; preds = %170
-  %173 = load ptr, ptr %171, align 8, !tbaa !507
+  %173 = load ptr, ptr %171, align 8, !tbaa !507, !noalias !1189
   store ptr %173, ptr %13, align 8, !tbaa !507, !alias.scope !1189
   %.not.i5.i.i.i.i.i66 = icmp eq ptr %173, null
   br i1 %.not.i5.i.i.i.i.i66, label %_ZNSt8optionalIN4llvm5SDLocEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_.exit.sink.split, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit67
@@ -15458,7 +15458,7 @@ _ZN4llvm17MachineBasicBlock18normalizeSuccProbsEv.exit: ; preds = %54, %._crit_e
   br i1 %70, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %68
-  %71 = load ptr, ptr %69, align 8, !tbaa !507
+  %71 = load ptr, ptr %69, align 8, !tbaa !507, !noalias !1211
   store ptr %71, ptr %5, align 8, !tbaa !507, !alias.scope !1211
   %.not.i5.i.i.i.i.i = icmp eq ptr %71, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %72
@@ -16213,7 +16213,7 @@ _ZN4llvm17MachineBasicBlock18normalizeSuccProbsEv.exit: ; preds = %248, %._crit_
   br i1 %264, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %262
-  %265 = load ptr, ptr %263, align 8, !tbaa !507
+  %265 = load ptr, ptr %263, align 8, !tbaa !507, !noalias !1239
   store ptr %265, ptr %10, align 8, !tbaa !507, !alias.scope !1239
   %.not.i5.i.i.i.i.i = icmp eq ptr %265, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %266
@@ -16446,7 +16446,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8CallInstEKNS_11InstructionEEEDaPT0_.exit.thread: 
   br i1 %42, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %40
-  %43 = load ptr, ptr %41, align 8, !tbaa !507
+  %43 = load ptr, ptr %41, align 8, !tbaa !507, !noalias !1246
   store ptr %43, ptr %3, align 8, !tbaa !507, !alias.scope !1246
   %.not.i5.i.i.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %44
@@ -16705,7 +16705,7 @@ _ZN4llvm17MachineBasicBlock18normalizeSuccProbsEv.exit: ; preds = %76, %._crit_e
   br i1 %109, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %107
-  %110 = load ptr, ptr %108, align 8, !tbaa !507
+  %110 = load ptr, ptr %108, align 8, !tbaa !507, !noalias !1249
   store ptr %110, ptr %5, align 8, !tbaa !507, !alias.scope !1249
   %.not.i5.i.i.i.i.i = icmp eq ptr %110, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %111
@@ -16937,7 +16937,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder13visitCatchRetERKNS_15Catch
   br i1 %57, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %55
-  %58 = load ptr, ptr %56, align 8, !tbaa !507
+  %58 = load ptr, ptr %56, align 8, !tbaa !507, !noalias !1255
   store ptr %58, ptr %3, align 8, !tbaa !507, !alias.scope !1255
   %.not.i5.i.i.i.i.i = icmp eq ptr %58, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %59
@@ -17090,7 +17090,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm12Selection
   br i1 %127, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit44, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i42
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i42: ; preds = %125
-  %128 = load ptr, ptr %126, align 8, !tbaa !507
+  %128 = load ptr, ptr %126, align 8, !tbaa !507, !noalias !1258
   store ptr %128, ptr %6, align 8, !tbaa !507, !alias.scope !1258
   %.not.i5.i.i.i.i.i43 = icmp eq ptr %128, null
   br i1 %.not.i5.i.i.i.i.i43, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit44, label %129
@@ -17455,7 +17455,7 @@ _ZN4llvm17MachineBasicBlock18normalizeSuccProbsEv.exit: ; preds = %102, %._crit_
   br i1 %118, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %116
-  %119 = load ptr, ptr %117, align 8, !tbaa !507
+  %119 = load ptr, ptr %117, align 8, !tbaa !507, !noalias !1266
   store ptr %119, ptr %4, align 8, !tbaa !507, !alias.scope !1266
   %.not.i5.i.i.i.i.i = icmp eq ptr %119, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %120
@@ -17758,7 +17758,7 @@ _ZN4llvm21PossiblyExactOperator7classofEPKNS_11InstructionE.exit.thread.i.i.i.i.
   br i1 %55, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %53
-  %56 = load ptr, ptr %54, align 8, !tbaa !507
+  %56 = load ptr, ptr %54, align 8, !tbaa !507, !noalias !1275
   store ptr %56, ptr %4, align 8, !tbaa !507, !alias.scope !1275
   %.not.i5.i.i.i.i.i = icmp eq ptr %56, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %57
@@ -17880,7 +17880,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder11visitAllocaERKNS_10AllocaI
   br i1 %50, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %48
-  %51 = load ptr, ptr %49, align 8, !tbaa !507
+  %51 = load ptr, ptr %49, align 8, !tbaa !507, !noalias !1278
   store ptr %51, ptr %5, align 8, !tbaa !507, !alias.scope !1278
   %.not.i5.i.i.i.i.i = icmp eq ptr %51, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %52
@@ -18475,7 +18475,7 @@ _ZL16getRangeMetadataRKN4llvm11InstructionE.exit: ; preds = %61, %_ZNK4llvm11Ins
   br i1 %127, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %125
-  %128 = load ptr, ptr %126, align 8, !tbaa !507
+  %128 = load ptr, ptr %126, align 8, !tbaa !507, !noalias !1306
   store ptr %128, ptr %10, align 8, !tbaa !507, !alias.scope !1306
   %.not.i5.i.i.i.i.i = icmp eq ptr %128, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %129
@@ -19070,7 +19070,7 @@ _ZN4llvm11SmallVectorINS_7SDValueELj4EEC2Em.exit: ; preds = %_ZN4llvm15SmallVect
   br i1 %87, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %85
-  %88 = load ptr, ptr %86, align 8, !tbaa !507
+  %88 = load ptr, ptr %86, align 8, !tbaa !507, !noalias !1317
   store ptr %88, ptr %9, align 8, !tbaa !507, !alias.scope !1317
   %.not.i5.i.i.i.i.i = icmp eq ptr %88, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %89
@@ -19424,7 +19424,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %_ZNK4llvm4User10get
   br i1 %63, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %61
-  %64 = load ptr, ptr %62, align 8, !tbaa !507
+  %64 = load ptr, ptr %62, align 8, !tbaa !507, !noalias !1321
   store ptr %64, ptr %6, align 8, !tbaa !507, !alias.scope !1321
   %.not.i5.i.i.i.i.i = icmp eq ptr %64, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %65
@@ -20462,7 +20462,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder10visitFenceERKNS_9FenceInst
   br i1 %13, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %11
-  %14 = load ptr, ptr %12, align 8, !tbaa !507
+  %14 = load ptr, ptr %12, align 8, !tbaa !507, !noalias !1332
   store ptr %14, ptr %4, align 8, !tbaa !507, !alias.scope !1332
   %.not.i5.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %15
@@ -20612,7 +20612,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder18visitAtomicCmpXchgERKNS_17
   br i1 %19, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %17
-  %20 = load ptr, ptr %18, align 8, !tbaa !507
+  %20 = load ptr, ptr %18, align 8, !tbaa !507, !noalias !1337
   store ptr %20, ptr %4, align 8, !tbaa !507, !alias.scope !1337
   %.not.i5.i.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %21
@@ -20819,7 +20819,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder14visitAtomicRMWERKNS_13Atom
   br i1 %16, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %14
-  %17 = load ptr, ptr %15, align 8, !tbaa !507
+  %17 = load ptr, ptr %15, align 8, !tbaa !507, !noalias !1353
   store ptr %17, ptr %4, align 8, !tbaa !507, !alias.scope !1353
   %.not.i5.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %18
@@ -21051,7 +21051,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %9, %12
   br i1 %44, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %42
-  %45 = load ptr, ptr %43, align 8, !tbaa !507
+  %45 = load ptr, ptr %43, align 8, !tbaa !507, !noalias !1358
   store ptr %45, ptr %4, align 8, !tbaa !507, !alias.scope !1358
   %.not.i5.i.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %46
@@ -21178,7 +21178,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %12, %15
   br i1 %58, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %56
-  %59 = load ptr, ptr %57, align 8, !tbaa !507
+  %59 = load ptr, ptr %57, align 8, !tbaa !507, !noalias !1361
   store ptr %59, ptr %5, align 8, !tbaa !507, !alias.scope !1361
   %.not.i5.i.i.i.i.i = icmp eq ptr %59, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %60
@@ -21234,7 +21234,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZNK4llvm19Selectio
   br i1 %74, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit41, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i39
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i39: ; preds = %72
-  %75 = load ptr, ptr %73, align 8, !tbaa !507
+  %75 = load ptr, ptr %73, align 8, !tbaa !507, !noalias !1364
   store ptr %75, ptr %7, align 8, !tbaa !507, !alias.scope !1364
   %.not.i5.i.i.i.i.i40 = icmp eq ptr %75, null
   br i1 %.not.i5.i.i.i.i.i40, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit41, label %76
@@ -21333,7 +21333,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %9, %12
   br i1 %39, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %37
-  %40 = load ptr, ptr %38, align 8, !tbaa !507
+  %40 = load ptr, ptr %38, align 8, !tbaa !507, !noalias !1367
   store ptr %40, ptr %4, align 8, !tbaa !507, !alias.scope !1367
   %.not.i5.i.i.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %41
@@ -21429,7 +21429,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %9, %12
   br i1 %39, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %37
-  %40 = load ptr, ptr %38, align 8, !tbaa !507
+  %40 = load ptr, ptr %38, align 8, !tbaa !507, !noalias !1370
   store ptr %40, ptr %4, align 8, !tbaa !507, !alias.scope !1370
   %.not.i5.i.i.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %41
@@ -21525,7 +21525,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %9, %12
   br i1 %39, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %37
-  %40 = load ptr, ptr %38, align 8, !tbaa !507
+  %40 = load ptr, ptr %38, align 8, !tbaa !507, !noalias !1373
   store ptr %40, ptr %4, align 8, !tbaa !507, !alias.scope !1373
   %.not.i5.i.i.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %41
@@ -21637,7 +21637,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %9, %12
   br i1 %47, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %45
-  %48 = load ptr, ptr %46, align 8, !tbaa !507
+  %48 = load ptr, ptr %46, align 8, !tbaa !507, !noalias !1376
   store ptr %48, ptr %4, align 8, !tbaa !507, !alias.scope !1376
   %.not.i5.i.i.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %49
@@ -21733,7 +21733,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %9, %12
   br i1 %39, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %37
-  %40 = load ptr, ptr %38, align 8, !tbaa !507
+  %40 = load ptr, ptr %38, align 8, !tbaa !507, !noalias !1379
   store ptr %40, ptr %4, align 8, !tbaa !507, !alias.scope !1379
   %.not.i5.i.i.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %41
@@ -21817,7 +21817,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %10, %13
   br i1 %27, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %25
-  %28 = load ptr, ptr %26, align 8, !tbaa !507
+  %28 = load ptr, ptr %26, align 8, !tbaa !507, !noalias !1382
   store ptr %28, ptr %4, align 8, !tbaa !507, !alias.scope !1382
   %.not.i5.i.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %29
@@ -21939,7 +21939,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %9, %12
   br i1 %39, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %37
-  %40 = load ptr, ptr %38, align 8, !tbaa !507
+  %40 = load ptr, ptr %38, align 8, !tbaa !507, !noalias !1385
   store ptr %40, ptr %4, align 8, !tbaa !507, !alias.scope !1385
   %.not.i5.i.i.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %41
@@ -22064,7 +22064,7 @@ _ZNK4llvm4User10getOperandEj.exit44:              ; preds = %38, %41
   br i1 %60, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %58
-  %61 = load ptr, ptr %59, align 8, !tbaa !507
+  %61 = load ptr, ptr %59, align 8, !tbaa !507, !noalias !1388
   store ptr %61, ptr %4, align 8, !tbaa !507, !alias.scope !1388
   %.not.i5.i.i.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %62
@@ -22104,7 +22104,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZNK4llvm19Selectio
   br i1 %73, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit49, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i47
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i47: ; preds = %71
-  %74 = load ptr, ptr %72, align 8, !tbaa !507
+  %74 = load ptr, ptr %72, align 8, !tbaa !507, !noalias !1391
   store ptr %74, ptr %5, align 8, !tbaa !507, !alias.scope !1391
   %.not.i5.i.i.i.i.i48 = icmp eq ptr %74, null
   br i1 %.not.i5.i.i.i.i.i48, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit49, label %75
@@ -22205,7 +22205,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %9, %12
   br i1 %47, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %45
-  %48 = load ptr, ptr %46, align 8, !tbaa !507
+  %48 = load ptr, ptr %46, align 8, !tbaa !507, !noalias !1394
   store ptr %48, ptr %4, align 8, !tbaa !507, !alias.scope !1394
   %.not.i5.i.i.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %49
@@ -22245,7 +22245,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZNK4llvm19Selectio
   br i1 %60, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit48, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i46
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i46: ; preds = %58
-  %61 = load ptr, ptr %59, align 8, !tbaa !507
+  %61 = load ptr, ptr %59, align 8, !tbaa !507, !noalias !1397
   store ptr %61, ptr %5, align 8, !tbaa !507, !alias.scope !1397
   %.not.i5.i.i.i.i.i47 = icmp eq ptr %61, null
   br i1 %.not.i5.i.i.i.i.i47, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit48, label %62
@@ -22327,7 +22327,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %11, %14
   br i1 %28, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %26
-  %29 = load ptr, ptr %27, align 8, !tbaa !507
+  %29 = load ptr, ptr %27, align 8, !tbaa !507, !noalias !1400
   store ptr %29, ptr %6, align 8, !tbaa !507, !alias.scope !1400
   %.not.i5.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %30
@@ -22556,7 +22556,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit33:  ; preds = %_ZNK4llvm4Type22get
   br i1 %69, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %67
-  %70 = load ptr, ptr %68, align 8, !tbaa !507
+  %70 = load ptr, ptr %68, align 8, !tbaa !507, !noalias !1403
   store ptr %70, ptr %4, align 8, !tbaa !507, !alias.scope !1403
   %.not.i5.i.i.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %71
@@ -22726,7 +22726,7 @@ _ZNK4llvm3EVTneES0_.exit.thread:                  ; preds = %39, %2
   br i1 %49, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %47
-  %50 = load ptr, ptr %48, align 8, !tbaa !507
+  %50 = load ptr, ptr %48, align 8, !tbaa !507, !noalias !1409
   store ptr %50, ptr %7, align 8, !tbaa !507, !alias.scope !1409
   %.not.i5.i.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %51
@@ -22766,7 +22766,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZNK4llvm19Selectio
   br i1 %62, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit65, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i63
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i63: ; preds = %60
-  %63 = load ptr, ptr %61, align 8, !tbaa !507
+  %63 = load ptr, ptr %61, align 8, !tbaa !507, !noalias !1412
   store ptr %63, ptr %8, align 8, !tbaa !507, !alias.scope !1412
   %.not.i5.i.i.i.i.i64 = icmp eq ptr %63, null
   br i1 %.not.i5.i.i.i.i.i64, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit65, label %64
@@ -22839,7 +22839,7 @@ _ZNK4llvm3EVTneES0_.exit.thread87:                ; preds = %39, %_ZN4llvm5SDLoc
   br i1 %96, label %_ZN4llvm12SelectionDAG8getSetCCERKNS_5SDLocENS_3EVTENS_7SDValueES5_NS_3ISD8CondCodeES5_b.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i69
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i69: ; preds = %94
-  %97 = load ptr, ptr %95, align 8, !tbaa !507
+  %97 = load ptr, ptr %95, align 8, !tbaa !507, !noalias !1418
   store ptr %97, ptr %10, align 8, !tbaa !507, !alias.scope !1418
   %.not.i5.i.i.i.i.i70 = icmp eq ptr %97, null
   br i1 %.not.i5.i.i.i.i.i70, label %_ZN4llvm12SelectionDAG8getSetCCERKNS_5SDLocENS_3EVTENS_7SDValueES5_NS_3ISD8CondCodeES5_b.exit, label %98
@@ -22995,7 +22995,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder9visitFCmpERKNS_8FCmpInstE(p
   br i1 %70, label %_ZN4llvm12SelectionDAG8getSetCCERKNS_5SDLocENS_3EVTENS_7SDValueES5_NS_3ISD8CondCodeES5_b.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %68
-  %71 = load ptr, ptr %69, align 8, !tbaa !507
+  %71 = load ptr, ptr %69, align 8, !tbaa !507, !noalias !1422
   store ptr %71, ptr %8, align 8, !tbaa !507, !alias.scope !1422
   %.not.i5.i.i.i.i.i = icmp eq ptr %71, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZN4llvm12SelectionDAG8getSetCCERKNS_5SDLocENS_3EVTENS_7SDValueES5_NS_3ISD8CondCodeES5_b.exit, label %72
@@ -24276,7 +24276,7 @@ _ZL18hasOnlySelectUsersPKN4llvm5ValueE.exit.thread301: ; preds = %.lr.ph.i.i.i.i
   br i1 %272, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %270
-  %273 = load ptr, ptr %271, align 8, !tbaa !507
+  %273 = load ptr, ptr %271, align 8, !tbaa !507, !noalias !1453
   store ptr %273, ptr %13, align 8, !tbaa !507, !alias.scope !1453
   %.not.i5.i.i.i.i.i = icmp eq ptr %273, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %274
@@ -24433,7 +24433,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit241: ; pre
   br i1 %332, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit245, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i243
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i243: ; preds = %330
-  %333 = load ptr, ptr %331, align 8, !tbaa !507
+  %333 = load ptr, ptr %331, align 8, !tbaa !507, !noalias !1457
   store ptr %333, ptr %16, align 8, !tbaa !507, !alias.scope !1457
   %.not.i5.i.i.i.i.i244 = icmp eq ptr %333, null
   br i1 %.not.i5.i.i.i.i.i244, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit245, label %334
@@ -24507,7 +24507,7 @@ _ZN4llvm11SmallVectorINS_7SDValueELj3EED2Ev.exit: ; preds = %_ZN4llvm5SDLocD2Ev.
   br i1 %357, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit256, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i254
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i254: ; preds = %355
-  %358 = load ptr, ptr %356, align 8, !tbaa !507
+  %358 = load ptr, ptr %356, align 8, !tbaa !507, !noalias !1461
   store ptr %358, ptr %18, align 8, !tbaa !507, !alias.scope !1461
   %.not.i5.i.i.i.i.i255 = icmp eq ptr %358, null
   br i1 %.not.i5.i.i.i.i.i255, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit256, label %359
@@ -24628,7 +24628,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder10visitVAArgERKNS_9VAArgInst
   br i1 %30, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %28
-  %31 = load ptr, ptr %29, align 8, !tbaa !507
+  %31 = load ptr, ptr %29, align 8, !tbaa !507, !noalias !1464
   store ptr %31, ptr %4, align 8, !tbaa !507, !alias.scope !1464
   %.not.i5.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %32
@@ -24721,7 +24721,7 @@ _ZN4llvm12SelectionDAG7setRootENS_7SDValueE.exit: ; preds = %.thread.i, %51
   br i1 %65, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit48, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i46
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i46: ; preds = %63
-  %66 = load ptr, ptr %64, align 8, !tbaa !507
+  %66 = load ptr, ptr %64, align 8, !tbaa !507, !noalias !1467
   store ptr %66, ptr %7, align 8, !tbaa !507, !alias.scope !1467
   %.not.i5.i.i.i.i.i47 = icmp eq ptr %66, null
   br i1 %.not.i5.i.i.i.i.i47, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit48, label %67
@@ -24846,7 +24846,7 @@ _ZNK4llvm4User10getOperandEj.exit31:              ; preds = %29, %32
   br i1 %47, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %45
-  %48 = load ptr, ptr %46, align 8, !tbaa !507
+  %48 = load ptr, ptr %46, align 8, !tbaa !507, !noalias !1470
   store ptr %48, ptr %4, align 8, !tbaa !507, !alias.scope !1470
   %.not.i5.i.i.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %49
@@ -24894,7 +24894,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZNK4llvm19Selectio
   br i1 %68, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit36, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i34
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i34: ; preds = %66
-  %69 = load ptr, ptr %67, align 8, !tbaa !507
+  %69 = load ptr, ptr %67, align 8, !tbaa !507, !noalias !1473
   store ptr %69, ptr %5, align 8, !tbaa !507, !alias.scope !1473
   %.not.i5.i.i.i.i.i35 = icmp eq ptr %69, null
   br i1 %.not.i5.i.i.i.i.i35, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit36, label %70
@@ -25046,7 +25046,7 @@ _ZNK4llvm4User10getOperandEj.exit41:              ; preds = %44, %47
   br i1 %62, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %60
-  %63 = load ptr, ptr %61, align 8, !tbaa !507
+  %63 = load ptr, ptr %61, align 8, !tbaa !507, !noalias !1476
   store ptr %63, ptr %4, align 8, !tbaa !507, !alias.scope !1476
   %.not.i5.i.i.i.i.i = icmp eq ptr %63, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %64
@@ -25094,7 +25094,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZNK4llvm19Selectio
   br i1 %83, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit46, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i44
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i44: ; preds = %81
-  %84 = load ptr, ptr %82, align 8, !tbaa !507
+  %84 = load ptr, ptr %82, align 8, !tbaa !507, !noalias !1479
   store ptr %84, ptr %5, align 8, !tbaa !507, !alias.scope !1479
   %.not.i5.i.i.i.i.i45 = icmp eq ptr %84, null
   br i1 %.not.i5.i.i.i.i.i45, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit46, label %85
@@ -25282,7 +25282,7 @@ _ZNK4llvm4User10getOperandEj.exit398:             ; preds = %58, %61
   br i1 %88, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %86
-  %89 = load ptr, ptr %87, align 8, !tbaa !507
+  %89 = load ptr, ptr %87, align 8, !tbaa !507, !noalias !1482
   store ptr %89, ptr %18, align 8, !tbaa !507, !alias.scope !1482
   %.not.i5.i.i.i.i.i = icmp eq ptr %89, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %90
@@ -26714,7 +26714,7 @@ _ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit53.us: ; preds = %65, %.sink.split.
   br i1 %79, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %77
-  %80 = load ptr, ptr %78, align 8, !tbaa !507
+  %80 = load ptr, ptr %78, align 8, !tbaa !507, !noalias !1496
   store ptr %80, ptr %10, align 8, !tbaa !507, !alias.scope !1496
   %.not.i5.i.i.i.i.i = icmp eq ptr %80, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %81
@@ -27136,7 +27136,7 @@ _ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit100.us: ; preds = %112, %.lr.ph138.
   br i1 %129, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %127
-  %130 = load ptr, ptr %128, align 8, !tbaa !507
+  %130 = load ptr, ptr %128, align 8, !tbaa !507, !noalias !1502
   store ptr %130, ptr %14, align 8, !tbaa !507, !alias.scope !1502
   %.not.i5.i.i.i.i.i = icmp eq ptr %130, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %131
@@ -27286,7 +27286,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder15visitLandingPadERKNS_14Lan
   br i1 %48, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %46
-  %49 = load ptr, ptr %47, align 8, !tbaa !507
+  %49 = load ptr, ptr %47, align 8, !tbaa !507, !noalias !1505
   store ptr %49, ptr %10, align 8, !tbaa !507, !alias.scope !1505
   %.not.i5.i.i.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %50
@@ -27578,7 +27578,7 @@ _ZN4llvm15SmallVectorImplINS_7SDValueEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_
   br i1 %48, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %46
-  %49 = load ptr, ptr %47, align 8, !tbaa !507
+  %49 = load ptr, ptr %47, align 8, !tbaa !507, !noalias !1510
   store ptr %49, ptr %9, align 8, !tbaa !507, !alias.scope !1510
   %.not.i5.i.i.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %50
@@ -27653,7 +27653,7 @@ _ZN4llvm11SmallVectorINS_7SDValueELj4EED2Ev.exit: ; preds = %_ZN4llvm5SDLocD2Ev.
   br i1 %77, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit35, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i33
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i33: ; preds = %75
-  %78 = load ptr, ptr %76, align 8, !tbaa !507
+  %78 = load ptr, ptr %76, align 8, !tbaa !507, !noalias !1513
   store ptr %78, ptr %7, align 8, !tbaa !507, !alias.scope !1513
   %.not.i5.i.i.i.i.i34 = icmp eq ptr %78, null
   br i1 %.not.i5.i.i.i.i.i34, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit35, label %79
@@ -28667,7 +28667,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueENS_8RegisterENS_12DenseMapInfoIS
   br i1 %58, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %56
-  %59 = load ptr, ptr %57, align 8, !tbaa !507
+  %59 = load ptr, ptr %57, align 8, !tbaa !507, !noalias !1540
   store ptr %59, ptr %6, align 8, !tbaa !507, !alias.scope !1540
   %.not.i5.i.i.i.i.i = icmp eq ptr %59, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %60
@@ -28885,7 +28885,7 @@ define dso_local { ptr, i32 } @_ZN4llvm19SelectionDAGBuilder12getValueImplEPKNS_
   br i1 %74, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %72
-  %75 = load ptr, ptr %73, align 8, !tbaa !507
+  %75 = load ptr, ptr %73, align 8, !tbaa !507, !noalias !1543
   store ptr %75, ptr %8, align 8, !tbaa !507, !alias.scope !1543
   %.not.i5.i.i.i.i.i = icmp eq ptr %75, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %76
@@ -28935,7 +28935,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZNK4llvm19Selectio
   br i1 %89, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit439, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i437
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i437: ; preds = %87
-  %90 = load ptr, ptr %88, align 8, !tbaa !507
+  %90 = load ptr, ptr %88, align 8, !tbaa !507, !noalias !1546
   store ptr %90, ptr %9, align 8, !tbaa !507, !alias.scope !1546
   %.not.i5.i.i.i.i.i438 = icmp eq ptr %90, null
   br i1 %.not.i5.i.i.i.i.i438, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit439, label %91
@@ -28987,7 +28987,7 @@ _ZN4llvm5SDLocD2Ev.exit441:                       ; preds = %_ZNK4llvm19Selectio
   br i1 %104, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit446, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i444
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i444: ; preds = %102
-  %105 = load ptr, ptr %103, align 8, !tbaa !507
+  %105 = load ptr, ptr %103, align 8, !tbaa !507, !noalias !1549
   store ptr %105, ptr %10, align 8, !tbaa !507, !alias.scope !1549
   %.not.i5.i.i.i.i.i445 = icmp eq ptr %105, null
   br i1 %.not.i5.i.i.i.i.i445, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit446, label %106
@@ -29084,7 +29084,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %123, %129
   br i1 %142, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit673, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i671
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i671: ; preds = %140
-  %143 = load ptr, ptr %141, align 8, !tbaa !507
+  %143 = load ptr, ptr %141, align 8, !tbaa !507, !noalias !1552
   store ptr %143, ptr %15, align 8, !tbaa !507, !alias.scope !1552
   %.not.i5.i.i.i.i.i672 = icmp eq ptr %143, null
   br i1 %.not.i5.i.i.i.i.i672, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit673, label %144
@@ -29141,7 +29141,7 @@ _ZN4llvm5SDLocD2Ev.exit450:                       ; preds = %_ZNK4llvm19Selectio
   br i1 %167, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit677, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i675
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i675: ; preds = %165
-  %168 = load ptr, ptr %166, align 8, !tbaa !507
+  %168 = load ptr, ptr %166, align 8, !tbaa !507, !noalias !1555
   store ptr %168, ptr %17, align 8, !tbaa !507, !alias.scope !1555
   %.not.i5.i.i.i.i.i676 = icmp eq ptr %168, null
   br i1 %.not.i5.i.i.i.i.i676, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit677, label %169
@@ -30175,7 +30175,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstEiNS_12DenseMapInfoIS4_vEEN
   br i1 %554, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit513, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i511
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i511: ; preds = %552
-  %555 = load ptr, ptr %553, align 8, !tbaa !507
+  %555 = load ptr, ptr %553, align 8, !tbaa !507, !noalias !1564
   store ptr %555, ptr %48, align 8, !tbaa !507, !alias.scope !1564
   %.not.i5.i.i.i.i.i512 = icmp eq ptr %555, null
   br i1 %.not.i5.i.i.i.i.i512, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit513, label %556
@@ -31497,7 +31497,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueENS_3ISD8NodeTypeENS_12DenseMapIn
   br i1 %65, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %63
-  %66 = load ptr, ptr %64, align 8, !tbaa !507
+  %66 = load ptr, ptr %64, align 8, !tbaa !507, !noalias !1582
   store ptr %66, ptr %7, align 8, !tbaa !507, !alias.scope !1582
   %.not.i5.i.i.i.i.i = icmp eq ptr %66, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %67
@@ -31917,7 +31917,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder28EmitBranchForMergedConditi
   br i1 %64, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %62
-  %65 = load ptr, ptr %63, align 8, !tbaa !507
+  %65 = load ptr, ptr %63, align 8, !tbaa !507, !noalias !1585
   store ptr %65, ptr %11, align 8, !tbaa !507, !alias.scope !1585
   %.not.i5.i.i.i.i.i = icmp eq ptr %65, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %66
@@ -32067,7 +32067,7 @@ _ZN4llvm8SwitchCG9CaseBlockD2Ev.exit:             ; preds = %_ZN4llvm8DebugLocD2
   br i1 %125, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit52, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i50
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i50: ; preds = %123
-  %126 = load ptr, ptr %124, align 8, !tbaa !507
+  %126 = load ptr, ptr %124, align 8, !tbaa !507, !noalias !1589
   store ptr %126, ptr %13, align 8, !tbaa !507, !alias.scope !1589
   %.not.i5.i.i.i.i.i51 = icmp eq ptr %126, null
   br i1 %.not.i5.i.i.i.i.i51, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit52, label %127
@@ -33965,7 +33965,7 @@ _ZNK4llvm3EVTneES0_.exit.thread:                  ; preds = %195, %188
   br i1 %205, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %203
-  %206 = load ptr, ptr %204, align 8, !tbaa !507
+  %206 = load ptr, ptr %204, align 8, !tbaa !507, !noalias !1633
   store ptr %206, ptr %21, align 8, !tbaa !507, !alias.scope !1633
   %.not.i5.i.i.i.i.i = icmp eq ptr %206, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %207
@@ -34005,7 +34005,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZNK4llvm19Selectio
   br i1 %218, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit259, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i257
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i257: ; preds = %216
-  %219 = load ptr, ptr %217, align 8, !tbaa !507
+  %219 = load ptr, ptr %217, align 8, !tbaa !507, !noalias !1636
   store ptr %219, ptr %22, align 8, !tbaa !507, !alias.scope !1636
   %.not.i5.i.i.i.i.i258 = icmp eq ptr %219, null
   br i1 %.not.i5.i.i.i.i.i258, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit259, label %220
@@ -35432,7 +35432,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder23visitSPDescriptorParentERN
   br i1 %55, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %53
-  %56 = load ptr, ptr %54, align 8, !tbaa !507
+  %56 = load ptr, ptr %54, align 8, !tbaa !507, !noalias !1675
   store ptr %56, ptr %8, align 8, !tbaa !507, !alias.scope !1675
   %.not.i5.i.i.i.i.i = icmp eq ptr %56, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %57
@@ -35607,7 +35607,7 @@ _ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE9push_backERKS2_.e
   br i1 %142, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i151, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i148
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i148: ; preds = %140
-  %143 = load ptr, ptr %141, align 8, !tbaa !507
+  %143 = load ptr, ptr %141, align 8, !tbaa !507, !noalias !1763
   store ptr %143, ptr %13, align 8, !tbaa !507, !alias.scope !1763
   %.not.i5.i.i.i.i.i149 = icmp eq ptr %143, null
   br i1 %.not.i5.i.i.i.i.i149, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i151.thread, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit150
@@ -38177,7 +38177,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder24visitSPDescriptorFailureER
   br i1 %20, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %18
-  %21 = load ptr, ptr %19, align 8, !tbaa !507
+  %21 = load ptr, ptr %19, align 8, !tbaa !507, !noalias !1792
   store ptr %21, ptr %6, align 8, !tbaa !507, !alias.scope !1792
   %.not.i5.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %22
@@ -38231,7 +38231,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZNK4llvm19Selectio
   br i1 %38, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit17, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i15
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i15: ; preds = %36
-  %39 = load ptr, ptr %37, align 8, !tbaa !507
+  %39 = load ptr, ptr %37, align 8, !tbaa !507, !noalias !1795
   store ptr %39, ptr %8, align 8, !tbaa !507, !alias.scope !1795
   %.not.i5.i.i.i.i.i16 = icmp eq ptr %39, null
   br i1 %.not.i5.i.i.i.i.i16, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit17, label %40
@@ -38327,7 +38327,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder18visitBitTestHeaderERNS_8Sw
   br i1 %27, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %25
-  %28 = load ptr, ptr %26, align 8, !tbaa !507
+  %28 = load ptr, ptr %26, align 8, !tbaa !507, !noalias !1798
   store ptr %28, ptr %11, align 8, !tbaa !507, !alias.scope !1798
   %.not.i5.i.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %29
@@ -38915,7 +38915,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder16visitBitTestCaseERNS_8Swit
   br i1 %36, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %34
-  %37 = load ptr, ptr %35, align 8, !tbaa !507
+  %37 = load ptr, ptr %35, align 8, !tbaa !507, !noalias !1814
   store ptr %37, ptr %20, align 8, !tbaa !507, !alias.scope !1814
   %.not.i5.i.i.i.i.i = icmp eq ptr %37, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %38
@@ -40190,7 +40190,7 @@ _ZNSt6vectorIN4llvm7SDValueESaIS1_EE9push_backEOS1_.exit492: ; preds = %333, %_Z
   br i1 %363, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %361
-  %364 = load ptr, ptr %362, align 8, !tbaa !507
+  %364 = load ptr, ptr %362, align 8, !tbaa !507, !noalias !1858
   store ptr %364, ptr %27, align 8, !tbaa !507, !alias.scope !1858
   %.not.i5.i.i.i.i.i = icmp eq ptr %364, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %365
@@ -40559,7 +40559,7 @@ _ZL10isFunctionN4llvm7SDValueE.exit.thread:       ; preds = %_ZN4llvm8dyn_castIN
   br i1 %545, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit514, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i512
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i512: ; preds = %543
-  %546 = load ptr, ptr %544, align 8, !tbaa !507
+  %546 = load ptr, ptr %544, align 8, !tbaa !507, !noalias !1870
   store ptr %546, ptr %25, align 8, !tbaa !507, !alias.scope !1870
   %.not.i5.i.i.i.i.i513 = icmp eq ptr %546, null
   br i1 %.not.i5.i.i.i.i.i513, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit514, label %547
@@ -40733,7 +40733,7 @@ _ZN4llvm5SDLocD2Ev.exit518:                       ; preds = %_ZL24getAddressForM
   br i1 %629, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit522, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i520
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i520: ; preds = %627
-  %630 = load ptr, ptr %628, align 8, !tbaa !507
+  %630 = load ptr, ptr %628, align 8, !tbaa !507, !noalias !1873
   store ptr %630, ptr %28, align 8, !tbaa !507, !alias.scope !1873
   %.not.i5.i.i.i.i.i521 = icmp eq ptr %630, null
   br i1 %.not.i5.i.i.i.i.i521, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit522, label %631
@@ -40870,7 +40870,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit587:               ; preds = %.critedge426, %655
   br i1 %689, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit591, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i589
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i589: ; preds = %687
-  %690 = load ptr, ptr %688, align 8, !tbaa !507
+  %690 = load ptr, ptr %688, align 8, !tbaa !507, !noalias !1913
   store ptr %690, ptr %33, align 8, !tbaa !507, !alias.scope !1913
   %.not.i5.i.i.i.i.i590 = icmp eq ptr %690, null
   br i1 %.not.i5.i.i.i.i.i590, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit591, label %691
@@ -41171,7 +41171,7 @@ _ZNSt6vectorIN4llvm7SDValueESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17_
   br i1 %808, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit619, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i617
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i617: ; preds = %806
-  %809 = load ptr, ptr %807, align 8, !tbaa !507
+  %809 = load ptr, ptr %807, align 8, !tbaa !507, !noalias !1935
   store ptr %809, ptr %39, align 8, !tbaa !507, !alias.scope !1935
   %.not.i5.i.i.i.i.i618 = icmp eq ptr %809, null
   br i1 %.not.i5.i.i.i.i.i618, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit619, label %810
@@ -41358,7 +41358,7 @@ _ZL28findMatchingInlineAsmOperandjRKSt6vectorIN4llvm7SDValueESaIS1_EE.exit: ; pr
   br i1 %904, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit630, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i628
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i628: ; preds = %902
-  %905 = load ptr, ptr %903, align 8, !tbaa !507
+  %905 = load ptr, ptr %903, align 8, !tbaa !507, !noalias !1941
   store ptr %905, ptr %43, align 8, !tbaa !507, !alias.scope !1941
   %.not.i5.i.i.i.i.i629 = icmp eq ptr %905, null
   br i1 %.not.i5.i.i.i.i.i629, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit630, label %906
@@ -41483,7 +41483,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
   br i1 %953, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit637, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i635
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i635: ; preds = %951
-  %954 = load ptr, ptr %952, align 8, !tbaa !507
+  %954 = load ptr, ptr %952, align 8, !tbaa !507, !noalias !1945
   store ptr %954, ptr %44, align 8, !tbaa !507, !alias.scope !1945
   %.not.i5.i.i.i.i.i636 = icmp eq ptr %954, null
   br i1 %.not.i5.i.i.i.i.i636, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit637, label %955
@@ -41758,7 +41758,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit732:               ; preds = %1041, %1038
   br i1 %1055, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit736, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i734
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i734: ; preds = %1053
-  %1056 = load ptr, ptr %1054, align 8, !tbaa !507
+  %1056 = load ptr, ptr %1054, align 8, !tbaa !507, !noalias !1976
   store ptr %1056, ptr %50, align 8, !tbaa !507, !alias.scope !1976
   %.not.i5.i.i.i.i.i735 = icmp eq ptr %1056, null
   br i1 %.not.i5.i.i.i.i.i735, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit736, label %1057
@@ -41914,7 +41914,7 @@ _ZN4llvm5SDLocD2Ev.exit752:                       ; preds = %_ZNSt6vectorIN4llvm
   br i1 %1127, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit757, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i755
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i755: ; preds = %1125
-  %1128 = load ptr, ptr %1126, align 8, !tbaa !507
+  %1128 = load ptr, ptr %1126, align 8, !tbaa !507, !noalias !1983
   store ptr %1128, ptr %51, align 8, !tbaa !507, !alias.scope !1983
   %.not.i5.i.i.i.i.i756 = icmp eq ptr %1128, null
   br i1 %.not.i5.i.i.i.i.i756, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit757, label %1129
@@ -42138,7 +42138,7 @@ _ZL10isFunctionN4llvm7SDValueE.exit794:           ; preds = %_ZN4llvm16dyn_cast_
   br i1 %1212, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit798, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i796
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i796: ; preds = %1210
-  %1213 = load ptr, ptr %1211, align 8, !tbaa !507
+  %1213 = load ptr, ptr %1211, align 8, !tbaa !507, !noalias !1994
   store ptr %1213, ptr %52, align 8, !tbaa !507, !alias.scope !1994
   %.not.i5.i.i.i.i.i797 = icmp eq ptr %1213, null
   br i1 %.not.i5.i.i.i.i.i797, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit798, label %1214
@@ -42195,7 +42195,7 @@ _ZL10isFunctionN4llvm7SDValueE.exit794.thread:    ; preds = %_ZN4llvm8dyn_castIN
   br i1 %1233, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit809, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i807
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i807: ; preds = %1231
-  %1234 = load ptr, ptr %1232, align 8, !tbaa !507
+  %1234 = load ptr, ptr %1232, align 8, !tbaa !507, !noalias !1998
   store ptr %1234, ptr %53, align 8, !tbaa !507, !alias.scope !1998
   %.not.i5.i.i.i.i.i808 = icmp eq ptr %1234, null
   br i1 %.not.i5.i.i.i.i.i808, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit809, label %1235
@@ -42543,7 +42543,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit936:               ; preds = %1309
   br i1 %1365, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit954, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i952
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i952: ; preds = %1363
-  %1366 = load ptr, ptr %1364, align 8, !tbaa !507
+  %1366 = load ptr, ptr %1364, align 8, !tbaa !507, !noalias !2049
   store ptr %1366, ptr %60, align 8, !tbaa !507, !alias.scope !2049
   %.not.i5.i.i.i.i.i953 = icmp eq ptr %1366, null
   br i1 %.not.i5.i.i.i.i.i953, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit954, label %1367
@@ -42596,7 +42596,7 @@ _ZNSt6vectorIN4llvm7SDValueESaIS1_EE9push_backERKS1_.exit667: ; preds = %1105, %
   br i1 %1382, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit961, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i959
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i959: ; preds = %1380
-  %1383 = load ptr, ptr %1381, align 8, !tbaa !507
+  %1383 = load ptr, ptr %1381, align 8, !tbaa !507, !noalias !2052
   store ptr %1383, ptr %61, align 8, !tbaa !507, !alias.scope !2052
   %.not.i5.i.i.i.i.i960 = icmp eq ptr %1383, null
   br i1 %.not.i5.i.i.i.i.i960, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit961, label %1384
@@ -42718,7 +42718,7 @@ _ZNSt6vectorIN4llvm7SDValueESaIS1_EE9push_backERKS1_.exit977: ; preds = %_ZNSt6v
   br i1 %1425, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit981, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i979
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i979: ; preds = %1423
-  %1426 = load ptr, ptr %1424, align 8, !tbaa !507
+  %1426 = load ptr, ptr %1424, align 8, !tbaa !507, !noalias !2059
   store ptr %1426, ptr %62, align 8, !tbaa !507, !alias.scope !2059
   %.not.i5.i.i.i.i.i980 = icmp eq ptr %1426, null
   br i1 %.not.i5.i.i.i.i.i980, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit981, label %1427
@@ -42883,7 +42883,7 @@ _ZN4llvm5SDLocD2Ev.exit983:                       ; preds = %_ZNK4llvm19Selectio
   br i1 %1493, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit992, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i990
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i990: ; preds = %1491
-  %1494 = load ptr, ptr %1492, align 8, !tbaa !507
+  %1494 = load ptr, ptr %1492, align 8, !tbaa !507, !noalias !2072
   store ptr %1494, ptr %70, align 8, !tbaa !507, !alias.scope !2072
   %.not.i5.i.i.i.i.i991 = icmp eq ptr %1494, null
   br i1 %.not.i5.i.i.i.i.i991, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit992, label %1495
@@ -42924,7 +42924,7 @@ _ZN4llvm5SDLocD2Ev.exit994:                       ; preds = %_ZNK4llvm19Selectio
   br i1 %1505, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit998, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i996
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i996: ; preds = %1503
-  %1506 = load ptr, ptr %1504, align 8, !tbaa !507
+  %1506 = load ptr, ptr %1504, align 8, !tbaa !507, !noalias !2075
   store ptr %1506, ptr %71, align 8, !tbaa !507, !alias.scope !2075
   %.not.i5.i.i.i.i.i997 = icmp eq ptr %1506, null
   br i1 %.not.i5.i.i.i.i.i997, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit998, label %1507
@@ -42982,7 +42982,7 @@ _ZN4llvm5SDLocD2Ev.exit1000:                      ; preds = %_ZNK4llvm19Selectio
   br i1 %1528, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit1004, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i1002
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i1002: ; preds = %1526
-  %1529 = load ptr, ptr %1527, align 8, !tbaa !507
+  %1529 = load ptr, ptr %1527, align 8, !tbaa !507, !noalias !2078
   store ptr %1529, ptr %72, align 8, !tbaa !507, !alias.scope !2078
   %.not.i5.i.i.i.i.i1003 = icmp eq ptr %1529, null
   br i1 %.not.i5.i.i.i.i.i1003, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit1004, label %1530
@@ -43137,7 +43137,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   br i1 %1589, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit1019, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i1017
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i1017: ; preds = %1587
-  %1590 = load ptr, ptr %1588, align 8, !tbaa !507
+  %1590 = load ptr, ptr %1588, align 8, !tbaa !507, !noalias !2082
   store ptr %1590, ptr %74, align 8, !tbaa !507, !alias.scope !2082
   %.not.i5.i.i.i.i.i1018 = icmp eq ptr %1590, null
   br i1 %.not.i5.i.i.i.i.i1018, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit1019, label %1591
@@ -43207,7 +43207,7 @@ _ZN4llvm5SDLocD2Ev.exit1021:                      ; preds = %_ZNK4llvm19Selectio
   br i1 %1617, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit1026, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i1024
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i1024: ; preds = %1615
-  %1618 = load ptr, ptr %1616, align 8, !tbaa !507
+  %1618 = load ptr, ptr %1616, align 8, !tbaa !507, !noalias !2085
   store ptr %1618, ptr %76, align 8, !tbaa !507, !alias.scope !2085
   %.not.i5.i.i.i.i.i1025 = icmp eq ptr %1618, null
   br i1 %.not.i5.i.i.i.i.i1025, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit1026, label %1619
@@ -43475,7 +43475,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder15visitPatchpointERKNS_8Call
   br i1 %35, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %33
-  %36 = load ptr, ptr %34, align 8, !tbaa !507
+  %36 = load ptr, ptr %34, align 8, !tbaa !507, !noalias !2093
   store ptr %36, ptr %7, align 8, !tbaa !507, !alias.scope !2093
   %.not.i5.i.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %37
@@ -45093,7 +45093,7 @@ _ZNK4llvm8CallBase16getOperandBundleEj.exit179.thread: ; preds = %288, %_ZNK4llv
   br i1 %351, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i180, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %349
-  %352 = load ptr, ptr %350, align 8, !tbaa !507
+  %352 = load ptr, ptr %350, align 8, !tbaa !507, !noalias !2142
   store ptr %352, ptr %17, align 8, !tbaa !507, !alias.scope !2142
   %.not.i5.i.i.i.i.i = icmp eq ptr %352, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i180.thread, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit
@@ -45564,7 +45564,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %29, %32
   br i1 %48, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %46
-  %49 = load ptr, ptr %47, align 8, !tbaa !507
+  %49 = load ptr, ptr %47, align 8, !tbaa !507, !noalias !2157
   store ptr %49, ptr %5, align 8, !tbaa !507, !alias.scope !2157
   %.not.i5.i.i.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %50
@@ -45863,7 +45863,7 @@ _ZNK4llvm4User10getOperandEj.exit42:              ; preds = %90, %93
   br i1 %110, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %108
-  %111 = load ptr, ptr %109, align 8, !tbaa !507
+  %111 = load ptr, ptr %109, align 8, !tbaa !507, !noalias !2161
   store ptr %111, ptr %5, align 8, !tbaa !507, !alias.scope !2161
   %.not.i5.i.i.i.i.i = icmp eq ptr %111, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %112
@@ -46029,7 +46029,7 @@ _ZNK4llvm3EVTneES0_.exit.thread:                  ; preds = %62, %57
   br i1 %72, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %70
-  %73 = load ptr, ptr %71, align 8, !tbaa !507
+  %73 = load ptr, ptr %71, align 8, !tbaa !507, !noalias !2164
   store ptr %73, ptr %5, align 8, !tbaa !507, !alias.scope !2164
   %.not.i5.i.i.i.i.i = icmp eq ptr %73, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %74
@@ -46182,7 +46182,7 @@ _ZN4llvm21PossiblyExactOperator7classofEPKNS_11InstructionE.exit.thread.i.i.i.i.
   br i1 %124, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit74, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i72
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i72: ; preds = %122
-  %125 = load ptr, ptr %123, align 8, !tbaa !507
+  %125 = load ptr, ptr %123, align 8, !tbaa !507, !noalias !2167
   store ptr %125, ptr %6, align 8, !tbaa !507, !alias.scope !2167
   %.not.i5.i.i.i.i.i73 = icmp eq ptr %125, null
   br i1 %.not.i5.i.i.i.i.i73, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit74, label %126
@@ -46439,7 +46439,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder15visitAtomicLoadERKNS_8Load
   br i1 %17, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %15
-  %18 = load ptr, ptr %16, align 8, !tbaa !507
+  %18 = load ptr, ptr %16, align 8, !tbaa !507, !noalias !2170
   store ptr %18, ptr %4, align 8, !tbaa !507, !alias.scope !2170
   %.not.i5.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %19
@@ -46767,7 +46767,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder23visitLoadFromSwiftErrorERK
   br i1 %34, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %32
-  %35 = load ptr, ptr %33, align 8, !tbaa !507
+  %35 = load ptr, ptr %33, align 8, !tbaa !507, !noalias !2176
   store ptr %35, ptr %8, align 8, !tbaa !507, !alias.scope !2176
   %.not.i5.i.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %36
@@ -46925,7 +46925,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder22visitStoreToSwiftErrorERKN
   br i1 %44, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %42
-  %45 = load ptr, ptr %43, align 8, !tbaa !507
+  %45 = load ptr, ptr %43, align 8, !tbaa !507, !noalias !2179
   store ptr %45, ptr %8, align 8, !tbaa !507, !alias.scope !2179
   %.not.i5.i.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %46
@@ -47047,7 +47047,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder16visitAtomicStoreERKNS_9Sto
   br i1 %18, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %16
-  %19 = load ptr, ptr %17, align 8, !tbaa !507
+  %19 = load ptr, ptr %17, align 8, !tbaa !507, !noalias !2182
   store ptr %19, ptr %4, align 8, !tbaa !507, !alias.scope !2182
   %.not.i5.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %20
@@ -47349,7 +47349,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder16visitMaskedStoreERKNS_8Cal
   br i1 %23, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %21
-  %24 = load ptr, ptr %22, align 8, !tbaa !507
+  %24 = load ptr, ptr %22, align 8, !tbaa !507, !noalias !2187
   store ptr %24, ptr %6, align 8, !tbaa !507, !alias.scope !2187
   %.not.i5.i.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %25
@@ -47653,7 +47653,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder18visitMaskedScatterERKNS_8C
   br i1 %23, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %21
-  %24 = load ptr, ptr %22, align 8, !tbaa !507
+  %24 = load ptr, ptr %22, align 8, !tbaa !507, !noalias !2190
   store ptr %24, ptr %5, align 8, !tbaa !507, !alias.scope !2190
   %.not.i5.i.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %25
@@ -48182,7 +48182,7 @@ _ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_NS_12ElementCountE.exit: ; preds 
   br i1 %53, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %51
-  %54 = load ptr, ptr %52, align 8, !tbaa !507
+  %54 = load ptr, ptr %52, align 8, !tbaa !507, !noalias !2195
   store ptr %54, ptr %9, align 8, !tbaa !507, !alias.scope !2195
   %.not.i5.i.i.i.i.i = icmp eq ptr %54, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %55
@@ -48225,7 +48225,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZNK4llvm19Selectio
   br i1 %65, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit115, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i113
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i113: ; preds = %63
-  %66 = load ptr, ptr %64, align 8, !tbaa !507
+  %66 = load ptr, ptr %64, align 8, !tbaa !507, !noalias !2198
   store ptr %66, ptr %10, align 8, !tbaa !507, !alias.scope !2198
   %.not.i5.i.i.i.i.i114 = icmp eq ptr %66, null
   br i1 %.not.i5.i.i.i.i.i114, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit115, label %67
@@ -48412,7 +48412,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder15visitMaskedLoadERKNS_8Call
   br i1 %26, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %24
-  %27 = load ptr, ptr %25, align 8, !tbaa !507
+  %27 = load ptr, ptr %25, align 8, !tbaa !507, !noalias !2203
   store ptr %27, ptr %6, align 8, !tbaa !507, !alias.scope !2203
   %.not.i5.i.i.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %28
@@ -48793,7 +48793,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder17visitMaskedGatherERKNS_8Ca
   br i1 %24, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %22
-  %25 = load ptr, ptr %23, align 8, !tbaa !507
+  %25 = load ptr, ptr %23, align 8, !tbaa !507, !noalias !2209
   store ptr %25, ptr %5, align 8, !tbaa !507, !alias.scope !2209
   %.not.i5.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %26
@@ -49466,7 +49466,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit207: ; pre
   br i1 %110, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %108
-  %111 = load ptr, ptr %109, align 8, !tbaa !507
+  %111 = load ptr, ptr %109, align 8, !tbaa !507, !noalias !2218
   store ptr %111, ptr %12, align 8, !tbaa !507, !alias.scope !2218
   %.not.i5.i.i.i.i.i = icmp eq ptr %111, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %112
@@ -49970,7 +49970,7 @@ _ZN4llvm18MachinePointerInfoC2ENS_12PointerUnionIJPKNS_5ValueEPKNS_17PseudoSourc
   br i1 %361, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit243, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i241
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i241: ; preds = %359
-  %362 = load ptr, ptr %360, align 8, !tbaa !507
+  %362 = load ptr, ptr %360, align 8, !tbaa !507, !noalias !2233
   store ptr %362, ptr %19, align 8, !tbaa !507, !alias.scope !2233
   %.not.i5.i.i.i.i.i242 = icmp eq ptr %362, null
   br i1 %.not.i5.i.i.i.i.i242, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit243, label %363
@@ -50049,7 +50049,7 @@ _ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit243: ; preds = %_ZN4llvm18Mach
   br i1 %386, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit250, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i248
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i248: ; preds = %384
-  %387 = load ptr, ptr %385, align 8, !tbaa !507
+  %387 = load ptr, ptr %385, align 8, !tbaa !507, !noalias !2236
   store ptr %387, ptr %21, align 8, !tbaa !507, !alias.scope !2236
   %.not.i5.i.i.i.i.i249 = icmp eq ptr %387, null
   br i1 %.not.i5.i.i.i.i.i249, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit250, label %388
@@ -50107,7 +50107,7 @@ _ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit250: ; preds = %378, %384, %_Z
   br i1 %411, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit256, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i254
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i254: ; preds = %409
-  %412 = load ptr, ptr %410, align 8, !tbaa !507
+  %412 = load ptr, ptr %410, align 8, !tbaa !507, !noalias !2239
   store ptr %412, ptr %23, align 8, !tbaa !507, !alias.scope !2239
   %.not.i5.i.i.i.i.i255 = icmp eq ptr %412, null
   br i1 %.not.i5.i.i.i.i.i255, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit256, label %413
@@ -50155,7 +50155,7 @@ _ZN4llvm5SDLocD2Ev.exit258:                       ; preds = %_ZNK4llvm19Selectio
   br i1 %428, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit262, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i260
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i260: ; preds = %426
-  %429 = load ptr, ptr %427, align 8, !tbaa !507
+  %429 = load ptr, ptr %427, align 8, !tbaa !507, !noalias !2242
   store ptr %429, ptr %25, align 8, !tbaa !507, !alias.scope !2242
   %.not.i5.i.i.i.i.i261 = icmp eq ptr %429, null
   br i1 %.not.i5.i.i.i.i.i261, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit262, label %430
@@ -50327,7 +50327,7 @@ _ZNK4llvm8CallBase11getRetAlignEv.exit:           ; preds = %473, %487
   br i1 %502, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit275, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i273
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i273: ; preds = %500
-  %503 = load ptr, ptr %501, align 8, !tbaa !507
+  %503 = load ptr, ptr %501, align 8, !tbaa !507, !noalias !2245
   store ptr %503, ptr %27, align 8, !tbaa !507, !alias.scope !2245
   %.not.i5.i.i.i.i.i274 = icmp eq ptr %503, null
   br i1 %.not.i5.i.i.i.i.i274, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit275, label %504
@@ -50627,7 +50627,7 @@ _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZNK4llvm5APInt1
   br i1 %102, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %100
-  %103 = load ptr, ptr %101, align 8, !tbaa !507
+  %103 = load ptr, ptr %101, align 8, !tbaa !507, !noalias !2253
   store ptr %103, ptr %11, align 8, !tbaa !507, !alias.scope !2253
   %.not.i5.i.i.i.i.i = icmp eq ptr %103, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %104
@@ -51297,7 +51297,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder23visitConvergenceControlERK
   br i1 %15, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %13
-  %16 = load ptr, ptr %14, align 8, !tbaa !507
+  %16 = load ptr, ptr %14, align 8, !tbaa !507, !noalias !2273
   store ptr %16, ptr %7, align 8, !tbaa !507, !alias.scope !2273
   %.not.i5.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %17
@@ -51483,7 +51483,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder20visitVectorHistogramERKNS_
   br i1 %26, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %24
-  %27 = load ptr, ptr %25, align 8, !tbaa !507
+  %27 = load ptr, ptr %25, align 8, !tbaa !507, !noalias !2285
   store ptr %27, ptr %7, align 8, !tbaa !507, !alias.scope !2285
   %.not.i5.i.i.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %28
@@ -52064,7 +52064,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder28visitVectorExtractLastActi
   br i1 %21, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %19
-  %22 = load ptr, ptr %20, align 8, !tbaa !507
+  %22 = load ptr, ptr %20, align 8, !tbaa !507, !noalias !2291
   store ptr %22, ptr %9, align 8, !tbaa !507, !alias.scope !2291
   %.not.i5.i.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %23
@@ -52701,7 +52701,7 @@ _ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit.thread5330: ; preds = %3
   br i1 %422, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit.thread, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %420
-  %423 = load ptr, ptr %421, align 8, !tbaa !507
+  %423 = load ptr, ptr %421, align 8, !tbaa !507, !noalias !2294
   store ptr %423, ptr %116, align 8, !tbaa !507, !alias.scope !2294
   %.not.i5.i.i.i.i.i = icmp eq ptr %423, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit.thread, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit
@@ -62470,7 +62470,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder12visitVAStartERKNS_8CallIns
   br i1 %15, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %13
-  %16 = load ptr, ptr %14, align 8, !tbaa !507
+  %16 = load ptr, ptr %14, align 8, !tbaa !507, !noalias !2331
   store ptr %16, ptr %3, align 8, !tbaa !507, !alias.scope !2331
   %.not.i5.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %17
@@ -62573,7 +62573,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder10visitVAEndERKNS_8CallInstE
   br i1 %15, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %13
-  %16 = load ptr, ptr %14, align 8, !tbaa !507
+  %16 = load ptr, ptr %14, align 8, !tbaa !507, !noalias !2334
   store ptr %16, ptr %3, align 8, !tbaa !507, !alias.scope !2334
   %.not.i5.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %17
@@ -62678,7 +62678,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder11visitVACopyERKNS_8CallInst
   br i1 %17, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %15
-  %18 = load ptr, ptr %16, align 8, !tbaa !507
+  %18 = load ptr, ptr %16, align 8, !tbaa !507, !noalias !2337
   store ptr %18, ptr %3, align 8, !tbaa !507, !alias.scope !2337
   %.not.i5.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %19
@@ -64825,7 +64825,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder27visitConstrainedFPIntrinsi
   br i1 %14, label %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %12
-  %15 = load ptr, ptr %13, align 8, !tbaa !507
+  %15 = load ptr, ptr %13, align 8, !tbaa !507, !noalias !2370
   store ptr %15, ptr %4, align 8, !tbaa !507, !alias.scope !2370
   %.not.i5.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit, label %16
@@ -65427,7 +65427,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder31visitVectorPredicationIntr
   br i1 %38, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %36
-  %39 = load ptr, ptr %37, align 8, !tbaa !507
+  %39 = load ptr, ptr %37, align 8, !tbaa !507, !noalias !2374
   store ptr %39, ptr %11, align 8, !tbaa !507, !alias.scope !2374
   %.not.i5.i.i.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %40
@@ -66459,7 +66459,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   br i1 %377, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit269, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i267
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i267: ; preds = %375
-  %378 = load ptr, ptr %376, align 8, !tbaa !507
+  %378 = load ptr, ptr %376, align 8, !tbaa !507, !noalias !2378
   store ptr %378, ptr %26, align 8, !tbaa !507, !alias.scope !2378
   %.not.i5.i.i.i.i.i268 = icmp eq ptr %378, null
   br i1 %.not.i5.i.i.i.i.i268, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit269, label %379
@@ -66502,7 +66502,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZNK4llvm19Selectio
   br i1 %393, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit273, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i271
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i271: ; preds = %391
-  %394 = load ptr, ptr %392, align 8, !tbaa !507
+  %394 = load ptr, ptr %392, align 8, !tbaa !507, !noalias !2381
   store ptr %394, ptr %27, align 8, !tbaa !507, !alias.scope !2381
   %.not.i5.i.i.i.i.i272 = icmp eq ptr %394, null
   br i1 %.not.i5.i.i.i.i.i272, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit273, label %395
@@ -66585,7 +66585,7 @@ _ZN4llvm5SDLocD2Ev.exit275:                       ; preds = %_ZNK4llvm19Selectio
   br i1 %438, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit280, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i278
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i278: ; preds = %436
-  %439 = load ptr, ptr %437, align 8, !tbaa !507
+  %439 = load ptr, ptr %437, align 8, !tbaa !507, !noalias !2384
   store ptr %439, ptr %28, align 8, !tbaa !507, !alias.scope !2384
   %.not.i5.i.i.i.i.i279 = icmp eq ptr %439, null
   br i1 %.not.i5.i.i.i.i.i279, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit280, label %440
@@ -66628,7 +66628,7 @@ _ZN4llvm5SDLocD2Ev.exit282:                       ; preds = %_ZNK4llvm19Selectio
   br i1 %454, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit286, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i284
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i284: ; preds = %452
-  %455 = load ptr, ptr %453, align 8, !tbaa !507
+  %455 = load ptr, ptr %453, align 8, !tbaa !507, !noalias !2387
   store ptr %455, ptr %29, align 8, !tbaa !507, !alias.scope !2387
   %.not.i5.i.i.i.i.i285 = icmp eq ptr %455, null
   br i1 %.not.i5.i.i.i.i.i285, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit286, label %456
@@ -67726,7 +67726,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder13visitStackmapERKNS_8CallIn
   br i1 %18, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %16
-  %19 = load ptr, ptr %17, align 8, !tbaa !507
+  %19 = load ptr, ptr %17, align 8, !tbaa !507, !noalias !2413
   store ptr %19, ptr %6, align 8, !tbaa !507, !alias.scope !2413
   %.not.i5.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %20
@@ -68186,7 +68186,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder15visitStepVectorERKNS_8Call
   br i1 %15, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %13
-  %16 = load ptr, ptr %14, align 8, !tbaa !507
+  %16 = load ptr, ptr %14, align 8, !tbaa !507, !noalias !2421
   store ptr %16, ptr %4, align 8, !tbaa !507, !alias.scope !2421
   %.not.i5.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %17
@@ -68313,7 +68313,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder17visitVectorReduceERKNS_8Ca
   br i1 %62, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %60
-  %63 = load ptr, ptr %61, align 8, !tbaa !507
+  %63 = load ptr, ptr %61, align 8, !tbaa !507, !noalias !2424
   store ptr %63, ptr %5, align 8, !tbaa !507, !alias.scope !2424
   %.not.i5.i.i.i.i.i = icmp eq ptr %63, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %64
@@ -69208,7 +69208,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder18visitVectorReverseERKNS_8C
   br i1 %31, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %29
-  %32 = load ptr, ptr %30, align 8, !tbaa !507
+  %32 = load ptr, ptr %30, align 8, !tbaa !507, !noalias !2435
   store ptr %32, ptr %7, align 8, !tbaa !507, !alias.scope !2435
   %.not.i5.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %33
@@ -69438,7 +69438,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder17visitVectorSpliceERKNS_8Ca
   br i1 %32, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %30
-  %33 = load ptr, ptr %31, align 8, !tbaa !507
+  %33 = load ptr, ptr %31, align 8, !tbaa !507, !noalias !2439
   store ptr %33, ptr %6, align 8, !tbaa !507, !alias.scope !2439
   %.not.i5.i.i.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %34
@@ -69803,7 +69803,7 @@ _ZNK4llvm10BasicBlock13getTerminatorEv.exit:      ; preds = %2, %28
   br i1 %104, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %102
-  %105 = load ptr, ptr %103, align 8, !tbaa !507
+  %105 = load ptr, ptr %103, align 8, !tbaa !507, !noalias !2443
   store ptr %105, ptr %14, align 8, !tbaa !507, !alias.scope !2443
   %.not.i5.i.i.i.i.i = icmp eq ptr %105, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %106
@@ -69977,7 +69977,7 @@ _ZN4llvm11SmallVectorINS_3EVTELj8EED2Ev.exit:     ; preds = %_ZN4llvm11SmallVect
   br i1 %163, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit63, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i61
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i61: ; preds = %161
-  %164 = load ptr, ptr %162, align 8, !tbaa !507
+  %164 = load ptr, ptr %162, align 8, !tbaa !507, !noalias !2446
   store ptr %164, ptr %10, align 8, !tbaa !507, !alias.scope !2446
   %.not.i5.i.i.i.i.i62 = icmp eq ptr %164, null
   br i1 %.not.i5.i.i.i.i.i62, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit63, label %165
@@ -70024,7 +70024,7 @@ _ZN4llvm5SDLocD2Ev.exit65:                        ; preds = %_ZNK4llvm19Selectio
   br i1 %180, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit69, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i67
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i67: ; preds = %178
-  %181 = load ptr, ptr %179, align 8, !tbaa !507
+  %181 = load ptr, ptr %179, align 8, !tbaa !507, !noalias !2449
   store ptr %181, ptr %11, align 8, !tbaa !507, !alias.scope !2449
   %.not.i5.i.i.i.i.i68 = icmp eq ptr %181, null
   br i1 %.not.i5.i.i.i.i.i68, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit69, label %182
@@ -70270,7 +70270,7 @@ _ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit: ; 
   br i1 %288, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit80, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i78
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i78: ; preds = %286
-  %289 = load ptr, ptr %287, align 8, !tbaa !507
+  %289 = load ptr, ptr %287, align 8, !tbaa !507, !noalias !2470
   store ptr %289, ptr %13, align 8, !tbaa !507, !alias.scope !2470
   %.not.i5.i.i.i.i.i79 = icmp eq ptr %289, null
   br i1 %.not.i5.i.i.i.i.i79, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit80, label %290
@@ -70444,7 +70444,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder21visitVectorInterleaveERKNS
   br i1 %24, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %22
-  %25 = load ptr, ptr %23, align 8, !tbaa !507
+  %25 = load ptr, ptr %23, align 8, !tbaa !507, !noalias !2473
   store ptr %25, ptr %6, align 8, !tbaa !507, !alias.scope !2473
   %.not.i5.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %26
@@ -70698,7 +70698,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder23visitVectorDeinterleaveERK
   br i1 %28, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %26
-  %29 = load ptr, ptr %27, align 8, !tbaa !507
+  %29 = load ptr, ptr %27, align 8, !tbaa !507, !noalias !2476
   store ptr %29, ptr %5, align 8, !tbaa !507, !alias.scope !2476
   %.not.i5.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %30
@@ -70888,7 +70888,7 @@ _ZN4llvm11SmallVectorIiLj16EED2Ev.exit96:         ; preds = %_ZN4llvm11SmallVect
   br i1 %102, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit100, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i98
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i98: ; preds = %100
-  %103 = load ptr, ptr %101, align 8, !tbaa !507
+  %103 = load ptr, ptr %101, align 8, !tbaa !507, !noalias !2479
   store ptr %103, ptr %19, align 8, !tbaa !507, !alias.scope !2479
   %.not.i5.i.i.i.i.i99 = icmp eq ptr %103, null
   br i1 %.not.i5.i.i.i.i.i99, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit100, label %104
@@ -71066,7 +71066,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder11visitVPLoadERKNS_11VPIntri
   br i1 %17, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %15
-  %18 = load ptr, ptr %16, align 8, !tbaa !507
+  %18 = load ptr, ptr %16, align 8, !tbaa !507, !noalias !2482
   store ptr %18, ptr %7, align 8, !tbaa !507, !alias.scope !2482
   %.not.i5.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %19
@@ -71303,7 +71303,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder13visitVPGatherERKNS_11VPInt
   br i1 %27, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %25
-  %28 = load ptr, ptr %26, align 8, !tbaa !507
+  %28 = load ptr, ptr %26, align 8, !tbaa !507, !noalias !2488
   store ptr %28, ptr %9, align 8, !tbaa !507, !alias.scope !2488
   %.not.i5.i.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %29
@@ -71764,7 +71764,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder12visitVPStoreERKNS_11VPIntr
   br i1 %18, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %16
-  %19 = load ptr, ptr %17, align 8, !tbaa !507
+  %19 = load ptr, ptr %17, align 8, !tbaa !507, !noalias !2491
   store ptr %19, ptr %6, align 8, !tbaa !507, !alias.scope !2491
   %.not.i5.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %20
@@ -71984,7 +71984,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder14visitVPScatterERKNS_11VPIn
   br i1 %24, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %22
-  %25 = load ptr, ptr %23, align 8, !tbaa !507
+  %25 = load ptr, ptr %23, align 8, !tbaa !507, !noalias !2494
   store ptr %25, ptr %6, align 8, !tbaa !507, !alias.scope !2494
   %.not.i5.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %26
@@ -72439,7 +72439,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder18visitVPStridedLoadERKNS_11
   br i1 %19, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %17
-  %20 = load ptr, ptr %18, align 8, !tbaa !507
+  %20 = load ptr, ptr %18, align 8, !tbaa !507, !noalias !2497
   store ptr %20, ptr %8, align 8, !tbaa !507, !alias.scope !2497
   %.not.i5.i.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %21
@@ -72690,7 +72690,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder19visitVPStridedStoreERKNS_1
   br i1 %18, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %16
-  %19 = load ptr, ptr %17, align 8, !tbaa !507
+  %19 = load ptr, ptr %17, align 8, !tbaa !507, !noalias !2503
   store ptr %19, ptr %6, align 8, !tbaa !507, !alias.scope !2503
   %.not.i5.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %20
@@ -72927,7 +72927,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder10visitVPCmpERKNS_14VPCmpInt
   br i1 %21, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %19
-  %22 = load ptr, ptr %20, align 8, !tbaa !507
+  %22 = load ptr, ptr %20, align 8, !tbaa !507, !noalias !2506
   store ptr %22, ptr %9, align 8, !tbaa !507, !alias.scope !2506
   %.not.i5.i.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %23
@@ -73208,7 +73208,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %20, %37
   br i1 %57, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %55
-  %58 = load ptr, ptr %56, align 8, !tbaa !507
+  %58 = load ptr, ptr %56, align 8, !tbaa !507, !noalias !2509
   store ptr %58, ptr %8, align 8, !tbaa !507, !alias.scope !2509
   %.not.i5.i.i.i.i.i = icmp eq ptr %58, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %59
@@ -73386,7 +73386,7 @@ define dso_local { ptr, i32 } @_ZN4llvm19SelectionDAGBuilder10lowerEndEHENS_7SDV
   br i1 %22, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %20
-  %23 = load ptr, ptr %21, align 8, !tbaa !507
+  %23 = load ptr, ptr %21, align 8, !tbaa !507, !noalias !2514
   store ptr %23, ptr %7, align 8, !tbaa !507, !alias.scope !2514
   %.not.i5.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %24
@@ -73717,7 +73717,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder23processIntegerCallValueERK
   br i1 %27, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %25
-  %28 = load ptr, ptr %26, align 8, !tbaa !507
+  %28 = load ptr, ptr %26, align 8, !tbaa !507, !noalias !2520
   store ptr %28, ptr %7, align 8, !tbaa !507, !alias.scope !2520
   %.not.i5.i.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %29
@@ -73842,7 +73842,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit: ; preds = %2, 
   br i1 %59, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %57
-  %60 = load ptr, ptr %58, align 8, !tbaa !507
+  %60 = load ptr, ptr %58, align 8, !tbaa !507, !noalias !2523
   store ptr %60, ptr %7, align 8, !tbaa !507, !alias.scope !2523
   %.not.i5.i.i.i.i.i = icmp eq ptr %60, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %61
@@ -73900,7 +73900,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit.thread: ; preds
   br i1 %78, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit117, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i115
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i115: ; preds = %76
-  %79 = load ptr, ptr %77, align 8, !tbaa !507
+  %79 = load ptr, ptr %77, align 8, !tbaa !507, !noalias !2526
   store ptr %79, ptr %9, align 8, !tbaa !507, !alias.scope !2526
   %.not.i5.i.i.i.i.i116 = icmp eq ptr %79, null
   br i1 %.not.i5.i.i.i.i.i116, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit117, label %80
@@ -74228,7 +74228,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %188, %_ZN
   br i1 %233, label %_ZN4llvm12SelectionDAG8getSetCCERKNS_5SDLocENS_3EVTENS_7SDValueES5_NS_3ISD8CondCodeES5_b.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i135
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i135: ; preds = %231
-  %234 = load ptr, ptr %232, align 8, !tbaa !507
+  %234 = load ptr, ptr %232, align 8, !tbaa !507, !noalias !2529
   store ptr %234, ptr %16, align 8, !tbaa !507, !alias.scope !2529
   %.not.i5.i.i.i.i.i136 = icmp eq ptr %234, null
   br i1 %.not.i5.i.i.i.i.i136, label %_ZN4llvm12SelectionDAG8getSetCCERKNS_5SDLocENS_3EVTENS_7SDValueES5_NS_3ISD8CondCodeES5_b.exit, label %235
@@ -74412,7 +74412,7 @@ _ZNK4llvm3MVT20getVectorNumElementsEv.exit:       ; preds = %24, %26
   br i1 %69, label %73, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %67
-  %70 = load ptr, ptr %68, align 8, !tbaa !507
+  %70 = load ptr, ptr %68, align 8, !tbaa !507, !noalias !2535
   store ptr %70, ptr %5, align 8, !tbaa !507, !alias.scope !2535
   %.not.i5.i.i.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i5.i.i.i.i.i, label %73, label %71
@@ -74550,7 +74550,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19SelectionDAGBuilder15visitMemChrC
   br i1 %31, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %29
-  %32 = load ptr, ptr %30, align 8, !tbaa !507
+  %32 = load ptr, ptr %30, align 8, !tbaa !507, !noalias !2538
   store ptr %32, ptr %5, align 8, !tbaa !507, !alias.scope !2538
   %.not.i5.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %33
@@ -74760,7 +74760,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19SelectionDAGBuilder16visitMemPCpy
   br i1 %51, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %49
-  %52 = load ptr, ptr %50, align 8, !tbaa !507
+  %52 = load ptr, ptr %50, align 8, !tbaa !507, !noalias !2541
   store ptr %52, ptr %4, align 8, !tbaa !507, !alias.scope !2541
   %.not.i5.i.i.i.i.i = icmp eq ptr %52, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %53
@@ -74980,7 +74980,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19SelectionDAGBuilder15visitStrCpyC
   br i1 %30, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %28
-  %31 = load ptr, ptr %29, align 8, !tbaa !507
+  %31 = load ptr, ptr %29, align 8, !tbaa !507, !noalias !2544
   store ptr %31, ptr %6, align 8, !tbaa !507, !alias.scope !2544
   %.not.i5.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %32
@@ -75176,7 +75176,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19SelectionDAGBuilder15visitStrCmpC
   br i1 %28, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %26
-  %29 = load ptr, ptr %27, align 8, !tbaa !507
+  %29 = load ptr, ptr %27, align 8, !tbaa !507, !noalias !2547
   store ptr %29, ptr %4, align 8, !tbaa !507, !alias.scope !2547
   %.not.i5.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %30
@@ -75373,7 +75373,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19SelectionDAGBuilder15visitStrLenC
   br i1 %24, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %22
-  %25 = load ptr, ptr %23, align 8, !tbaa !507
+  %25 = load ptr, ptr %23, align 8, !tbaa !507, !noalias !2550
   store ptr %25, ptr %4, align 8, !tbaa !507, !alias.scope !2550
   %.not.i5.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %26
@@ -75530,7 +75530,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19SelectionDAGBuilder16visitStrNLen
   br i1 %27, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %25
-  %28 = load ptr, ptr %26, align 8, !tbaa !507
+  %28 = load ptr, ptr %26, align 8, !tbaa !507, !noalias !2553
   store ptr %28, ptr %4, align 8, !tbaa !507, !alias.scope !2553
   %.not.i5.i.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %29
@@ -75709,7 +75709,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19SelectionDAGBuilder19visitUnaryFl
   br i1 %41, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %39
-  %42 = load ptr, ptr %40, align 8, !tbaa !507
+  %42 = load ptr, ptr %40, align 8, !tbaa !507, !noalias !2556
   store ptr %42, ptr %5, align 8, !tbaa !507, !alias.scope !2556
   %.not.i5.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %43
@@ -75830,7 +75830,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19SelectionDAGBuilder20visitBinaryF
   br i1 %54, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %52
-  %55 = load ptr, ptr %53, align 8, !tbaa !507
+  %55 = load ptr, ptr %53, align 8, !tbaa !507, !noalias !2559
   store ptr %55, ptr %5, align 8, !tbaa !507, !alias.scope !2559
   %.not.i5.i.i.i.i.i = icmp eq ptr %55, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %56
@@ -76181,7 +76181,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder18emitInlineAsmErrorERKNS_8C
   br i1 %41, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %39
-  %42 = load ptr, ptr %40, align 8, !tbaa !507
+  %42 = load ptr, ptr %40, align 8, !tbaa !507, !noalias !2575
   store ptr %42, ptr %10, align 8, !tbaa !507, !alias.scope !2575
   %.not.i5.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %43
@@ -77394,7 +77394,7 @@ _ZNK4llvm7SDValue18getValueSizeInBitsEv.exit:     ; preds = %43, %47
   br i1 %60, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %58
-  %61 = load ptr, ptr %59, align 8, !tbaa !507
+  %61 = load ptr, ptr %59, align 8, !tbaa !507, !noalias !2602
   store ptr %61, ptr %6, align 8, !tbaa !507, !alias.scope !2602
   %.not.i5.i.i.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %62
@@ -77514,7 +77514,7 @@ _ZNK4llvm3EVT9isIntegerEv.exit58:                 ; preds = %75
   br i1 %89, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit62, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i60
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i60: ; preds = %87
-  %90 = load ptr, ptr %88, align 8, !tbaa !507
+  %90 = load ptr, ptr %88, align 8, !tbaa !507, !noalias !2605
   store ptr %90, ptr %9, align 8, !tbaa !507, !alias.scope !2605
   %.not.i5.i.i.i.i.i61 = icmp eq ptr %90, null
   br i1 %.not.i5.i.i.i.i.i61, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit62, label %91
@@ -77684,7 +77684,7 @@ define dso_local void @_ZN4llvm19SelectionDAGBuilder24populateCallLoweringInfoER
   br i1 %33, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %31
-  %34 = load ptr, ptr %32, align 8, !tbaa !507
+  %34 = load ptr, ptr %32, align 8, !tbaa !507, !noalias !2610
   store ptr %34, ptr %12, align 8, !tbaa !507, !alias.scope !2610
   %.not.i5.i.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %35
@@ -78735,7 +78735,7 @@ define dso_local void @_ZN4llvm16SelectionDAGISel14LowerArgumentsERKNS_8Function
   br i1 %48, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %46
-  %49 = load ptr, ptr %47, align 8, !tbaa !507
+  %49 = load ptr, ptr %47, align 8, !tbaa !507, !noalias !2637
   store ptr %49, ptr %17, align 8, !tbaa !507, !alias.scope !2637
   %.not.i5.i.i.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %50
@@ -79758,7 +79758,7 @@ _ZNK4llvm3EVT12getStoreSizeEv.exit:               ; preds = %537, %541
   br i1 %592, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit376, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i374
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i374: ; preds = %590
-  %593 = load ptr, ptr %591, align 8, !tbaa !507
+  %593 = load ptr, ptr %591, align 8, !tbaa !507, !noalias !2704
   store ptr %593, ptr %28, align 8, !tbaa !507, !alias.scope !2704
   %.not.i5.i.i.i.i.i375 = icmp eq ptr %593, null
   br i1 %.not.i5.i.i.i.i.i375, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit376, label %594
@@ -80384,7 +80384,7 @@ _ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_6SDNodeEEEDcPT0_.exit406.thread: ; pr
   br i1 %869, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit410, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i408
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i408: ; preds = %867
-  %870 = load ptr, ptr %868, align 8, !tbaa !507
+  %870 = load ptr, ptr %868, align 8, !tbaa !507, !noalias !2719
   store ptr %870, ptr %35, align 8, !tbaa !507, !alias.scope !2719
   %.not.i5.i.i.i.i.i409 = icmp eq ptr %870, null
   br i1 %.not.i5.i.i.i.i.i409, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit410, label %871
@@ -82433,7 +82433,7 @@ _ZN4llvm17MachineBasicBlock18normalizeSuccProbsEv.exit262: ; preds = %471, %_ZN4
   br i1 %536, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %534
-  %537 = load ptr, ptr %535, align 8, !tbaa !507
+  %537 = load ptr, ptr %535, align 8, !tbaa !507, !noalias !2767
   store ptr %537, ptr %26, align 8, !tbaa !507, !alias.scope !2767
   %.not.i5.i.i.i.i.i = icmp eq ptr %537, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %538
@@ -83110,7 +83110,7 @@ _ZN4llvm19SelectionDAGBuilder22ExportFromCurrentBlockEPKNS_5ValueE.exit97: ; pre
   br i1 %283, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i: ; preds = %281
-  %284 = load ptr, ptr %282, align 8, !tbaa !507
+  %284 = load ptr, ptr %282, align 8, !tbaa !507, !noalias !2780
   store ptr %284, ptr %14, align 8, !tbaa !507, !alias.scope !2780
   %.not.i5.i.i.i.i.i = icmp eq ptr %284, null
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, label %285

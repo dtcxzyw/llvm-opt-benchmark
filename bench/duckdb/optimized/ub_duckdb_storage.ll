@@ -108967,10 +108967,10 @@ _ZNSt16allocator_traitsISaIN6duckdb9IndexInfoEEE9constructIS1_JS1_EEEvRS2_PT_DpO
 
 70:                                               ; preds = %68
   %71 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %72 = load i64, ptr %71, align 8, !tbaa !62
+  %72 = load i64, ptr %71, align 8, !tbaa !62, !noalias !3024
   %73 = urem i64 %72, %54
   %74 = getelementptr inbounds nuw ptr, ptr %69, i64 %73
-  store ptr %55, ptr %74, align 8, !tbaa !1149
+  store ptr %55, ptr %74, align 8, !tbaa !1149, !noalias !3024
   br label %_ZSt19__relocate_object_aIN6duckdb9IndexInfoES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i
 
 _ZSt19__relocate_object_aIN6duckdb9IndexInfoES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i: ; preds = %70, %68
@@ -109035,10 +109035,10 @@ _ZNSt6vectorIN6duckdb9IndexInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; pre
 
 100:                                              ; preds = %98
   %101 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %102 = load i64, ptr %101, align 8, !tbaa !62
+  %102 = load i64, ptr %101, align 8, !tbaa !62, !noalias !3031
   %103 = urem i64 %102, %84
   %104 = getelementptr inbounds nuw ptr, ptr %99, i64 %103
-  store ptr %85, ptr %104, align 8, !tbaa !1149
+  store ptr %85, ptr %104, align 8, !tbaa !1149, !noalias !3031
   br label %_ZSt19__relocate_object_aIN6duckdb9IndexInfoES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i21
 
 _ZSt19__relocate_object_aIN6duckdb9IndexInfoES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i21: ; preds = %100, %98
