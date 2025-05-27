@@ -37438,8 +37438,7 @@ _ZN5Eigen6MatrixIdLi6ELi1ELi0ELi6ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scal
   %.sroa.17.24.vec.insert = insertelement <2 x double> <double poison, double 1.000000e+00>, double %46, i64 0
   %47 = fmul <2 x double> %.sroa.0.8.vec.insert189, zeroinitializer
   %48 = fadd <2 x double> %.sroa.0.1139, %47
-  %.scalar = fmul double %43, -0.000000e+00
-  %49 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %.scalar, i64 0
+  %49 = fmul <2 x double> %.sroa.17.24.vec.insert, zeroinitializer
   %50 = fadd <2 x double> %.sroa.11.1138, %49
   %51 = insertelement <2 x double> poison, double %45, i64 0
   %52 = shufflevector <2 x double> %51, <2 x double> poison, <2 x i32> zeroinitializer
@@ -37474,11 +37473,9 @@ _ZN5Eigen6MatrixIdLi6ELi1ELi0ELi6ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scal
   %79 = fadd <2 x double> %50, %78
   %80 = fmul <2 x double> %75, <double 1.000000e+00, double 0.000000e+00>
   %81 = fadd <2 x double> %.sroa.18.1137, %80
-  %.scalar271 = fmul double %45, -0.000000e+00
-  %82 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %.scalar271, i64 0
+  %82 = fmul <2 x double> %.sroa.0.0.vec.insert, zeroinitializer
   %83 = fadd <2 x double> %54, %82
-  %.scalar272 = fmul double %35, 0.000000e+00
-  %84 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %.scalar272, i64 0
+  %84 = fmul <2 x double> %.sroa.17.16.vec.insert, zeroinitializer
   %85 = fadd <2 x double> %56, %84
   %86 = insertelement <2 x double> poison, double %35, i64 0
   %87 = shufflevector <2 x double> %86, <2 x double> poison, <2 x i32> zeroinitializer
