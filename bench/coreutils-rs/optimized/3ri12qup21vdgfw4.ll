@@ -326,6 +326,11 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hd4e175028fe63256E.exit.i
           cleanup
   br label %.thread.i.i.i.i.i.i.i
 
+.thread.i.i.i.i.i.i.i:                            ; preds = %.thread.loopexit.split-lp.i.i.i.i.i.i.i.loopexit, %.thread.loopexit.split-lp.i.i.i.i.i.i.i.loopexit.split-lp, %.thread.loopexit.i.i.i.i.i.i.i
+  %lpad.phi.i.i.i.i.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i.i.i.i.i, %.thread.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit, %.thread.loopexit.split-lp.i.i.i.i.i.i.i.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp.i.i.i.i.i.i.i.loopexit.split-lp ]
+  invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17ha7e34addecafb921E"(ptr nonnull align 8 %88) #15
+          to label %.body.thread.i.i.i.i.i.i unwind label %151, !noalias !61
+
 97:                                               ; preds = %.noexc.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !90
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.8127cd7e5341fa0639d50982ccc902a4.1, i64 noundef 70, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8127cd7e5341fa0639d50982ccc902a4.35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8127cd7e5341fa0639d50982ccc902a4.3) #14
@@ -368,8 +373,8 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hd4e175028fe63256E.exit.i
   br label %"_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17hffa7c13e2e3e8644E.exit.i.i"
 
 110:                                              ; preds = %.noexc26.i.i.i.i.i.i, %102
-  %.sroa.0.038.i.i.i.i.i.i.i = phi i32 [ 0, %102 ], [ %111, %.noexc26.i.i.i.i.i.i ]
-  %111 = add nuw nsw i32 %.sroa.0.038.i.i.i.i.i.i.i, 1
+  %.sroa.0.037.i.i.i.i.i.i.i = phi i32 [ 0, %102 ], [ %111, %.noexc26.i.i.i.i.i.i ]
+  %111 = add nuw nsw i32 %.sroa.0.037.i.i.i.i.i.i.i, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !90
   %112 = load i64, ptr %99, align 8, !noalias !89, !noundef !16
   %113 = icmp ult i64 %103, %112
@@ -461,7 +466,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i.i.i.i.i.i.i.i: ; pred
   call void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4wake17hcd5401d505f8775bE(ptr noundef nonnull align 4 %121), !noalias !61
   br label %"_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17hffa7c13e2e3e8644E.exit.i.i"
 
-151:                                              ; preds = %.thread.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i
+151:                                              ; preds = %.body.i.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i
   %152 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16, !noalias !61
@@ -515,11 +520,6 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.12123109310310187846.exit
   invoke void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4wake17hcd5401d505f8775bE(ptr noundef nonnull align 4 %.val.i.i.i.i.i.i.i)
           to label %.noexc26.i.i.i.i.i.i unwind label %.thread.loopexit.i.i.i.i.i.i.i, !noalias !61
 
-.thread.i.i.i.i.i.i.i:                            ; preds = %.thread.loopexit.split-lp.i.i.i.i.i.i.i.loopexit, %.thread.loopexit.split-lp.i.i.i.i.i.i.i.loopexit.split-lp, %.thread.loopexit.i.i.i.i.i.i.i
-  %.pn25.i.i.i.i.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i.i.i.i.i, %.thread.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit, %.thread.loopexit.split-lp.i.i.i.i.i.i.i.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp.i.i.i.i.i.i.i.loopexit.split-lp ]
-  invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17ha7e34addecafb921E"(ptr nonnull align 8 %88) #15
-          to label %.body.thread.i.i.i.i.i.i unwind label %151, !noalias !61
-
 166:                                              ; preds = %87
   invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17hd05e4de3117a68a0E"(ptr noalias noundef nonnull align 8 dereferenceable(1400) %88)
           to label %.noexc5.i.i.i.i.i.i unwind label %167, !noalias !61
@@ -552,8 +552,8 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.12123109310310187846.exit
   call void @__rust_dealloc(ptr noundef nonnull %88, i64 noundef 1400, i64 noundef 8) #13, !noalias !61
   br label %.body.thread.i.i.i.i.i.i
 
-.body.thread.i.i.i.i.i.i:                         ; preds = %171, %.body.thread.sink.split.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i
-  %eh.lpad-body13.i.i.i.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i.i.i.i.i, %171 ], [ %.pn25.i.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i ], [ %130, %.body.i.i.i.i.i.i.i ], [ %eh.lpad-body13.ph.i.i.i.i.i.i, %.body.thread.sink.split.i.i.i.i.i.i ]
+.body.thread.i.i.i.i.i.i:                         ; preds = %171, %.body.thread.sink.split.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i
+  %eh.lpad-body13.i.i.i.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i.i.i.i.i, %171 ], [ %lpad.phi.i.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i ], [ %130, %.body.i.i.i.i.i.i.i ], [ %eh.lpad-body13.ph.i.i.i.i.i.i, %.body.thread.sink.split.i.i.i.i.i.i ]
   resume { ptr, i32 } %eh.lpad-body13.i.i.i.i.i.i
 
 171:                                              ; preds = %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17hcc8df70322ac621dE.exit.i.i.i.i.i.i"

@@ -2083,9 +2083,9 @@ define internal fastcc void @_ZL21getMachoCPUFromTripleN4llvm9StringRefE(ptr dea
 _ZN4llvm8ExpectedIjEC2EOS1_.exit.i.i.thread.i:    ; preds = %3
   %15 = load i8, ptr %14, align 8, !noalias !277
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %.thread45.i, label %.thread42.i
+  br i1 %16, label %.thread41.i, label %.thread38.i
 
-.thread45.i:                                      ; preds = %_ZN4llvm8ExpectedIjEC2EOS1_.exit.i.i.thread.i
+.thread41.i:                                      ; preds = %_ZN4llvm8ExpectedIjEC2EOS1_.exit.i.i.thread.i
   %17 = load i64, ptr %5, align 8, !tbaa !78, !noalias !277
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #20, !noalias !274
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20, !noalias !274
@@ -2097,14 +2097,14 @@ _ZN4llvm8ExpectedIjEC2EOS1_.exit.i.i.thread.i:    ; preds = %3
   store ptr %18, ptr %0, align 8, !tbaa !78, !alias.scope !280
   br label %_ZL21getMachoCPUFromTripleN4llvm6TripleE.exit
 
-.thread42.i:                                      ; preds = %_ZN4llvm8ExpectedIjEC2EOS1_.exit.i.i.thread.i
+.thread38.i:                                      ; preds = %_ZN4llvm8ExpectedIjEC2EOS1_.exit.i.i.thread.i
   %22 = load i32, ptr %4, align 8, !tbaa !34, !noalias !277
   %.sroa.014.0.insert.ext.i = zext i32 %22 to i64
   %23 = load i32, ptr %5, align 8, !tbaa !34, !noalias !277
-  %.sroa.1419.16.insert.ext58.i = zext i32 %23 to i64
+  %.sroa.1419.16.insert.ext54.i = zext i32 %23 to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #20, !noalias !274
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20, !noalias !274
-  %.sroa.2.0.insert.ext.i.i = shl nuw i64 %.sroa.1419.16.insert.ext58.i, 32
+  %.sroa.2.0.insert.ext.i.i = shl nuw i64 %.sroa.1419.16.insert.ext54.i, 32
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.ext.i.i, %.sroa.014.0.insert.ext.i
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load i8, ptr %24, align 8, !alias.scope !274
@@ -2120,7 +2120,7 @@ _ZN4llvm8ExpectedIjEC2EOS1_.exit.i.i.thread.i:    ; preds = %3
   %31 = load i32, ptr %5, align 8, !noalias !274
   %.sroa.1419.16.insert.ext.i = zext i32 %31 to i64
   %32 = load i64, ptr %5, align 8, !noalias !274
-  %.sroa.1419.12538.i = select i1 %30, i64 %32, i64 %.sroa.1419.16.insert.ext.i
+  %.sroa.1419.12535.i = select i1 %30, i64 %32, i64 %.sroa.1419.16.insert.ext.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #20, !noalias !274
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20, !noalias !274
   %33 = inttoptr i64 %28 to ptr
@@ -2129,19 +2129,19 @@ _ZN4llvm8ExpectedIjEC2EOS1_.exit.i.i.thread.i:    ; preds = %3
   %36 = or i8 %35, 1
   store i8 %36, ptr %34, align 8, !alias.scope !274
   store ptr %33, ptr %0, align 8, !tbaa !78, !alias.scope !283
-  %.not.i.i.i.i = icmp ne i64 %.sroa.1419.12538.i, 0
+  %.not.i.i.i.i = icmp ne i64 %.sroa.1419.12535.i, 0
   %or.cond.not.i = select i1 %30, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond.not.i, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i, label %_ZL21getMachoCPUFromTripleN4llvm6TripleE.exit
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i: ; preds = %27
-  %37 = inttoptr i64 %.sroa.1419.12538.i to ptr
+  %37 = inttoptr i64 %.sroa.1419.12535.i to ptr
   %38 = load ptr, ptr %37, align 8, !tbaa !25, !noalias !274
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8, !noalias !274
   call void %40(ptr noundef nonnull align 8 dereferenceable(8) %37) #20, !noalias !274
   br label %_ZL21getMachoCPUFromTripleN4llvm6TripleE.exit
 
-_ZL21getMachoCPUFromTripleN4llvm6TripleE.exit:    ; preds = %.thread45.i, %.thread42.i, %27, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i
+_ZL21getMachoCPUFromTripleN4llvm6TripleE.exit:    ; preds = %.thread41.i, %.thread38.i, %27, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i
   %41 = load ptr, ptr %6, align 8, !tbaa !17
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %43 = icmp eq ptr %41, %42

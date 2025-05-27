@@ -5753,7 +5753,7 @@ _ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE17_M_default_appe
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i8 0, ptr %6, align 8, !tbaa !490, !alias.scope !483
-  br i1 %.not6.i.i, label %._crit_edge, label %52
+  br i1 %.not6.i.i, label %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit, label %52
 
 52:                                               ; preds = %_ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE17_M_default_appendEm.exit
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i.i, i64 16
@@ -5786,22 +5786,22 @@ _ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE17_M_default_appe
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %138
 
-._crit_edge.loopexit:                             ; preds = %138
+_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.loopexit: ; preds = %138
   %.pre = load ptr, ptr %0, align 8, !tbaa !15
   %.pre31 = load ptr, ptr %19, align 8, !tbaa !18
   %.pre32 = load ptr, ptr %5, align 8, !tbaa !15
   %.pre33 = load ptr, ptr %42, align 8, !tbaa !18
   %.pre34 = load ptr, ptr %43, align 8, !tbaa !19
   %.pre35 = load ptr, ptr %9, align 8, !tbaa !11
-  br label %._crit_edge
+  br label %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit
 
-._crit_edge:                                      ; preds = %_ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE17_M_default_appendEm.exit, %._crit_edge.loopexit
-  %69 = phi ptr [ %.pre35, %._crit_edge.loopexit ], [ %.sroa.02.05.i.i, %_ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE17_M_default_appendEm.exit ]
-  %70 = phi ptr [ %.pre34, %._crit_edge.loopexit ], [ %46, %_ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE17_M_default_appendEm.exit ]
-  %71 = phi ptr [ %.pre33, %._crit_edge.loopexit ], [ %46, %_ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE17_M_default_appendEm.exit ]
-  %72 = phi ptr [ %.pre32, %._crit_edge.loopexit ], [ %45, %_ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE17_M_default_appendEm.exit ]
-  %73 = phi ptr [ %.pre31, %._crit_edge.loopexit ], [ %20, %_ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE17_M_default_appendEm.exit ]
-  %74 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %21, %_ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE17_M_default_appendEm.exit ]
+_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit: ; preds = %_ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE17_M_default_appendEm.exit, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.loopexit
+  %69 = phi ptr [ %.pre35, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.loopexit ], [ %.sroa.02.05.i.i, %_ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE17_M_default_appendEm.exit ]
+  %70 = phi ptr [ %.pre34, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.loopexit ], [ %46, %_ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE17_M_default_appendEm.exit ]
+  %71 = phi ptr [ %.pre33, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.loopexit ], [ %46, %_ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE17_M_default_appendEm.exit ]
+  %72 = phi ptr [ %.pre32, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.loopexit ], [ %45, %_ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE17_M_default_appendEm.exit ]
+  %73 = phi ptr [ %.pre31, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.loopexit ], [ %20, %_ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE17_M_default_appendEm.exit ]
+  %74 = phi ptr [ %.pre, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.loopexit ], [ %21, %_ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE17_M_default_appendEm.exit ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #19
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %76 = load ptr, ptr %75, align 8, !tbaa !19
@@ -5824,12 +5824,12 @@ _ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE17_M_default_appe
   %83 = icmp eq ptr %69, %9
   br i1 %83, label %84, label %85
 
-84:                                               ; preds = %._crit_edge
+84:                                               ; preds = %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit
   store ptr %4, ptr %77, align 8, !tbaa !8
   store ptr %4, ptr %4, align 8, !tbaa !11
   br label %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i.i
 
-85:                                               ; preds = %._crit_edge
+85:                                               ; preds = %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit
   store ptr %4, ptr %79, align 8, !tbaa !11
   %86 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %4, ptr %86, align 8, !tbaa !8
@@ -6031,7 +6031,7 @@ _ZN4llvm3pdb9HashTableINS0_19SrcHeaderBlockEntryEED2Ev.exit: ; preds = %_ZN4llvm
   call void @_ZN4llvm15SparseBitVectorILj128EE23SparseBitVectorIterator20AdvanceToNextNonZeroEv(ptr noundef nonnull align 8 dereferenceable(40) %6)
   %156 = load i8, ptr %6, align 8, !tbaa !490, !range !326, !noundef !293
   %157 = trunc nuw i8 %156 to i1
-  br i1 %157, label %._crit_edge.loopexit, label %138
+  br i1 %157, label %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.loopexit, label %138
 
 158:                                              ; preds = %_ZNK4llvm3pdb9HashTableINS0_19SrcHeaderBlockEntryEE4sizeEv.exit, %_ZN4llvm3pdb9HashTableINS0_19SrcHeaderBlockEntryEED2Ev.exit
   ret void

@@ -44051,8 +44051,8 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRN6open3d4c
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #31, !noalias !1559
   unreachable
 
-common.resume.i:                                  ; preds = %83, %44, %39, %16, %9
-  %common.resume.op.i = phi { ptr, i32 } [ %10, %9 ], [ %17, %16 ], [ %84, %83 ], [ %40, %44 ], [ %40, %39 ]
+common.resume.i:                                  ; preds = %82, %44, %39, %16, %9
+  %common.resume.op.i = phi { ptr, i32 } [ %10, %9 ], [ %17, %16 ], [ %83, %82 ], [ %40, %44 ], [ %40, %39 ]
   resume { ptr, i32 } %common.resume.op.i
 
 9:                                                ; preds = %6
@@ -44143,89 +44143,88 @@ _ZN6open3d7utility8optionalIbEC2EOS2_.exit.i:     ; preds = %37, %34, %22
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %50 = load i8, ptr %49, align 1, !range !106, !noalias !1559
   %51 = trunc nuw i8 %50 to i1
-  %52 = select i1 %48, i1 %51, i1 false
   %not..i.i = xor i1 %48, true
-  %.sink.i.i = select i1 %not..i.i, i1 true, i1 %52
+  %.sink.i.i = select i1 %not..i.i, i1 true, i1 %51
   invoke void @_ZN6open3d4core3nns21NearestNeighborSearch17FixedRadiusSearchERKNS0_6TensorEdb(ptr dead_on_unwind nonnull writable sret(%"class.std::tuple") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %5, ptr noundef nonnull align 8 dereferenceable(160) %3, double noundef %46, i1 noundef zeroext %.sink.i.i)
-          to label %"_ZZN6open3d4core3nns27pybind_core_nns_definitionsERN8pybind117module_EENK3$_2clERNS1_21NearestNeighborSearchENS0_6TensorEdNS_7utility8optionalIbEE.exit.i" unwind label %83
+          to label %"_ZZN6open3d4core3nns27pybind_core_nns_definitionsERN8pybind117module_EENK3$_2clERNS1_21NearestNeighborSearchENS0_6TensorEdNS_7utility8optionalIbEE.exit.i" unwind label %82
 
 "_ZZN6open3d4core3nns27pybind_core_nns_definitionsERN8pybind117module_EENK3$_2clERNS1_21NearestNeighborSearchENS0_6TensorEdNS_7utility8optionalIbEE.exit.i": ; preds = %_ZN6open3d7utility8optionalIbEC2EOS2_.exit.i
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6open3d4core6TensorE, i64 16), ptr %3, align 8, !tbaa !278, !noalias !1559
-  %53 = load ptr, ptr %28, align 8, !tbaa !280, !noalias !1559
-  %.not.i.i.i.i = icmp eq ptr %53, null
-  br i1 %.not.i.i.i.i, label %_ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i, label %54
+  %52 = load ptr, ptr %28, align 8, !tbaa !280, !noalias !1559
+  %.not.i.i.i.i = icmp eq ptr %52, null
+  br i1 %.not.i.i.i.i, label %_ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i, label %53
 
-54:                                               ; preds = %"_ZZN6open3d4core3nns27pybind_core_nns_definitionsERN8pybind117module_EENK3$_2clERNS1_21NearestNeighborSearchENS0_6TensorEdNS_7utility8optionalIbEE.exit.i"
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %56 = load atomic i64, ptr %55 acquire, align 8
-  %57 = icmp eq i64 %56, 4294967297
-  %58 = trunc i64 %56 to i32
-  br i1 %57, label %59, label %67
+53:                                               ; preds = %"_ZZN6open3d4core3nns27pybind_core_nns_definitionsERN8pybind117module_EENK3$_2clERNS1_21NearestNeighborSearchENS0_6TensorEdNS_7utility8optionalIbEE.exit.i"
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %55 = load atomic i64, ptr %54 acquire, align 8
+  %56 = icmp eq i64 %55, 4294967297
+  %57 = trunc i64 %55 to i32
+  br i1 %56, label %58, label %66
 
-59:                                               ; preds = %54
-  store i32 0, ptr %55, align 8, !tbaa !281
-  %60 = getelementptr inbounds nuw i8, ptr %53, i64 12
-  store i32 0, ptr %60, align 4, !tbaa !283
-  %61 = load ptr, ptr %53, align 8, !tbaa !278
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %63 = load ptr, ptr %62, align 8
-  call void %63(ptr noundef nonnull align 8 dereferenceable(16) %53) #29
-  %64 = load ptr, ptr %53, align 8, !tbaa !278
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %66 = load ptr, ptr %65, align 8
-  call void %66(ptr noundef nonnull align 8 dereferenceable(16) %53) #29
+58:                                               ; preds = %53
+  store i32 0, ptr %54, align 8, !tbaa !281
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 12
+  store i32 0, ptr %59, align 4, !tbaa !283
+  %60 = load ptr, ptr %52, align 8, !tbaa !278
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %62 = load ptr, ptr %61, align 8
+  call void %62(ptr noundef nonnull align 8 dereferenceable(16) %52) #29
+  %63 = load ptr, ptr %52, align 8, !tbaa !278
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
+  %65 = load ptr, ptr %64, align 8
+  call void %65(ptr noundef nonnull align 8 dereferenceable(16) %52) #29
   br label %_ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
 
-67:                                               ; preds = %54
-  %68 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !118, !noalias !1559
-  %.not.i.i.i.i5.i = icmp eq i8 %68, 0
-  br i1 %.not.i.i.i.i5.i, label %71, label %69
+66:                                               ; preds = %53
+  %67 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !118, !noalias !1559
+  %.not.i.i.i.i5.i = icmp eq i8 %67, 0
+  br i1 %.not.i.i.i.i5.i, label %70, label %68
 
-69:                                               ; preds = %67
-  %70 = add nsw i32 %58, -1
-  store i32 %70, ptr %55, align 4, !tbaa !284
+68:                                               ; preds = %66
+  %69 = add nsw i32 %57, -1
+  store i32 %69, ptr %54, align 4, !tbaa !284
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
-71:                                               ; preds = %67
-  %72 = atomicrmw volatile add ptr %55, i32 -1 acq_rel, align 4
+70:                                               ; preds = %66
+  %71 = atomicrmw volatile add ptr %54, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %71, %69
-  %.0.i.i.i.i.i.i = phi i32 [ %58, %69 ], [ %72, %71 ]
-  %73 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %73, label %74, label %_ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i, !prof !285
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %70, %68
+  %.0.i.i.i.i.i.i = phi i32 [ %57, %68 ], [ %71, %70 ]
+  %72 = icmp eq i32 %.0.i.i.i.i.i.i, 1
+  br i1 %72, label %73, label %_ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i, !prof !285
 
-74:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %53) #29
+73:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %52) #29
   br label %_ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
 
-_ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i: ; preds = %74, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %59, %"_ZZN6open3d4core3nns27pybind_core_nns_definitionsERN8pybind117module_EENK3$_2clERNS1_21NearestNeighborSearchENS0_6TensorEdNS_7utility8optionalIbEE.exit.i"
-  %75 = load ptr, ptr %20, align 8, !tbaa !1468, !noalias !1559
-  %76 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %77 = icmp eq ptr %75, %76
-  br i1 %77, label %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i6.i, label %78
+_ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i: ; preds = %73, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %58, %"_ZZN6open3d4core3nns27pybind_core_nns_definitionsERN8pybind117module_EENK3$_2clERNS1_21NearestNeighborSearchENS0_6TensorEdNS_7utility8optionalIbEE.exit.i"
+  %74 = load ptr, ptr %20, align 8, !tbaa !1468, !noalias !1559
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %76 = icmp eq ptr %74, %75
+  br i1 %76, label %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i6.i, label %77
 
-78:                                               ; preds = %_ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
-  call void @free(ptr noundef %75) #29
+77:                                               ; preds = %_ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
+  call void @free(ptr noundef %74) #29
   br label %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i6.i
 
-_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i6.i: ; preds = %78, %_ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
-  %79 = load ptr, ptr %18, align 8, !tbaa !1468, !noalias !1559
-  %80 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %81 = icmp eq ptr %79, %80
-  br i1 %81, label %"_ZNO8pybind116detail15argument_loaderIJRN6open3d4core3nns21NearestNeighborSearchENS3_6TensorEdNS2_7utility8optionalIbEEEE9call_implISt5tupleIJS7_S7_S7_EERZNS4_27pybind_core_nns_definitionsERNS_7module_EE3$_2JLm0ELm1ELm2ELm3EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit", label %82
+_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i6.i: ; preds = %77, %_ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
+  %78 = load ptr, ptr %18, align 8, !tbaa !1468, !noalias !1559
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %80 = icmp eq ptr %78, %79
+  br i1 %80, label %"_ZNO8pybind116detail15argument_loaderIJRN6open3d4core3nns21NearestNeighborSearchENS3_6TensorEdNS2_7utility8optionalIbEEEE9call_implISt5tupleIJS7_S7_S7_EERZNS4_27pybind_core_nns_definitionsERNS_7module_EE3$_2JLm0ELm1ELm2ELm3EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit", label %81
 
-82:                                               ; preds = %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i6.i
-  call void @free(ptr noundef %79) #29
+81:                                               ; preds = %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i6.i
+  call void @free(ptr noundef %78) #29
   br label %"_ZNO8pybind116detail15argument_loaderIJRN6open3d4core3nns21NearestNeighborSearchENS3_6TensorEdNS2_7utility8optionalIbEEEE9call_implISt5tupleIJS7_S7_S7_EERZNS4_27pybind_core_nns_definitionsERNS_7module_EE3$_2JLm0ELm1ELm2ELm3EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit"
 
-83:                                               ; preds = %_ZN6open3d7utility8optionalIbEC2EOS2_.exit.i
-  %84 = landingpad { ptr, i32 }
+82:                                               ; preds = %_ZN6open3d7utility8optionalIbEC2EOS2_.exit.i
+  %83 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6open3d4core6TensorD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #29
   br label %common.resume.i
 
-"_ZNO8pybind116detail15argument_loaderIJRN6open3d4core3nns21NearestNeighborSearchENS3_6TensorEdNS2_7utility8optionalIbEEEE9call_implISt5tupleIJS7_S7_S7_EERZNS4_27pybind_core_nns_definitionsERNS_7module_EE3$_2JLm0ELm1ELm2ELm3EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit": ; preds = %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i6.i, %82
+"_ZNO8pybind116detail15argument_loaderIJRN6open3d4core3nns21NearestNeighborSearchENS3_6TensorEdNS2_7utility8optionalIbEEEE9call_implISt5tupleIJS7_S7_S7_EERZNS4_27pybind_core_nns_definitionsERNS_7module_EE3$_2JLm0ELm1ELm2ELm3EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit": ; preds = %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i6.i, %81
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3)
   ret void
 }

@@ -105003,6 +105003,11 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i
           cleanup
   br label %.thread.i.i.i
 
+.thread.i.i.i:                                    ; preds = %.thread.loopexit.split-lp.i.i.i, %.thread.loopexit.i.i.i
+  %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %.thread.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.thread.loopexit.split-lp.i.i.i ]
+  invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h3fbdc00376e4e322E"(ptr nonnull align 8 %110) #54
+          to label %.body unwind label %173, !noalias !17608
+
 119:                                              ; preds = %.noexc.i.i.i
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !17636
   invoke void @_ZN4core6result13unwrap_failed17hed0fccbe07e724fcE(ptr noalias noundef nonnull readonly align 1 @anon.4b22e441b9d3f133a95fc3384b4bae56.170, i64 noundef 70, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4b22e441b9d3f133a95fc3384b4bae56.227, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4b22e441b9d3f133a95fc3384b4bae56.172) #55
@@ -105146,7 +105151,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.exit.thread.i.i.i.i.i: ; preds =
   invoke void @_ZN3std3sys4unix5locks11futex_mutex5Mutex4wake17h05e1bfcdf63536d8E(ptr noundef nonnull align 4 %143)
           to label %200 unwind label %198
 
-173:                                              ; preds = %.thread.i.i.i, %.body.i.i.i
+173:                                              ; preds = %.body.i.i.i, %.thread.i.i.i
   %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #56, !noalias !17608
@@ -105199,11 +105204,6 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1425447921696267910.exit.th
 "_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h110023048733db04E.exit.sink.split.i.i.i": ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1425447921696267910.exit.thread.i.i.i.i.i.i.i
   invoke void @_ZN3std3sys4unix5locks11futex_mutex5Mutex4wake17h05e1bfcdf63536d8E(ptr noundef nonnull align 4 %.val.i.i.i)
           to label %.noexc26.i.i unwind label %.thread.loopexit.i.i.i, !noalias !17608
-
-.thread.i.i.i:                                    ; preds = %.thread.loopexit.split-lp.i.i.i, %.thread.loopexit.i.i.i
-  %.pn22.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i, %.thread.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.thread.loopexit.split-lp.i.i.i ]
-  invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h3fbdc00376e4e322E"(ptr nonnull align 8 %110) #54
-          to label %.body unwind label %173, !noalias !17608
 
 188:                                              ; preds = %109
   invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17h206e1c78f9f447ceE"(ptr noalias noundef nonnull align 8 dereferenceable(1400) %110)
@@ -105266,8 +105266,8 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1425447921696267910.exit.th
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.body.i.i.i, %.thread.i.i.i, %.body.thread.sink.split.i.i, %193, %198
-  %eh.lpad-body = phi { ptr, i32 } [ %199, %198 ], [ %lpad.thr_comm.split-lp.i.i, %193 ], [ %.pn22.i.i.i, %.thread.i.i.i ], [ %153, %.body.i.i.i ], [ %eh.lpad-body13.ph.i.i, %.body.thread.sink.split.i.i ]
+.body:                                            ; preds = %.thread.i.i.i, %.body.i.i.i, %.body.thread.sink.split.i.i, %193, %198
+  %eh.lpad-body = phi { ptr, i32 } [ %199, %198 ], [ %lpad.thr_comm.split-lp.i.i, %193 ], [ %lpad.phi.i.i.i, %.thread.i.i.i ], [ %153, %.body.i.i.i ], [ %eh.lpad-body13.ph.i.i, %.body.thread.sink.split.i.i ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h9912278fca3c8ec5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %21) #54
           to label %common.resume unwind label %224
 

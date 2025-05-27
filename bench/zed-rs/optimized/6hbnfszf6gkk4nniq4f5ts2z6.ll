@@ -7367,8 +7367,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h53e03dd4bd88f978E.exit.i: ; pre
 
 "_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd3add83d056dd4b2E.exit.thread.i.i": ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd3add83d056dd4b2E.exit.i.i"
   %.pre59.i.i = load i8, ptr %377, align 8, !range !222, !alias.scope !2293, !noalias !2249
-  call void @llvm.experimental.noalias.scope.decl(metadata !2293)
   %391 = icmp eq i8 %.pre59.i.i, 0
+  call void @llvm.experimental.noalias.scope.decl(metadata !2293)
   br i1 %391, label %"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17h1e1965b8485e29baE.exit.i.i", label %392
 
 392:                                              ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd3add83d056dd4b2E.exit.thread.i.i"

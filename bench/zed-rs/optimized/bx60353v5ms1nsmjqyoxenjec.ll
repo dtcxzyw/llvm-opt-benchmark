@@ -25239,44 +25239,39 @@ define hidden void @"_ZN79_$LT$slab..Drain$LT$T$GT$$u20$as$u20$core..iter..trait
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !3556, !nonnull !4, !noundef !4
   %.promoted = load ptr, ptr %1, align 8, !alias.scope !3556
-  %5 = icmp eq ptr %.promoted, %4
-  br i1 %5, label %.loopexit, label %.lr.ph
+  br label %"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h38014ec8f9b0f1f1E.llvm.5167274926106538911.exit"
 
-.lr.ph:                                           ; preds = %2, %"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h38014ec8f9b0f1f1E.llvm.5167274926106538911.exit"
-  %6 = phi ptr [ %7, %"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h38014ec8f9b0f1f1E.llvm.5167274926106538911.exit" ], [ %.promoted, %2 ]
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sroa.07.0.copyload = load i64, ptr %6, align 8
+"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h38014ec8f9b0f1f1E.llvm.5167274926106538911.exit": ; preds = %7, %2
+  %5 = phi ptr [ %8, %7 ], [ %.promoted, %2 ]
+  %6 = icmp eq ptr %5, %4
+  br i1 %6, label %.loopexit, label %7
+
+7:                                                ; preds = %"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h38014ec8f9b0f1f1E.llvm.5167274926106538911.exit"
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr %8, ptr %1, align 8, !alias.scope !3556
+  %.sroa.07.0.copyload = load i64, ptr %5, align 8
   %trunc = trunc nuw i64 %.sroa.07.0.copyload to i1
-  br i1 %trunc, label %8, label %"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h38014ec8f9b0f1f1E.llvm.5167274926106538911.exit"
+  br i1 %trunc, label %9, label %"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h38014ec8f9b0f1f1E.llvm.5167274926106538911.exit"
 
-.loopexit.loopexit:                               ; preds = %"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h38014ec8f9b0f1f1E.llvm.5167274926106538911.exit"
-  store ptr %7, ptr %1, align 8, !alias.scope !3556
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit.loopexit, %2, %8
-  %storemerge = phi i64 [ 1, %8 ], [ 0, %2 ], [ 0, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h38014ec8f9b0f1f1E.llvm.5167274926106538911.exit", %9
+  %storemerge = phi i64 [ 1, %9 ], [ 0, %"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h38014ec8f9b0f1f1E.llvm.5167274926106538911.exit" ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 
-8:                                                ; preds = %.lr.ph
-  store ptr %7, ptr %1, align 8, !alias.scope !3556
-  %.sroa.4.0..sroa.0.0.i.sroa_idx.le = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.4.0.copyload.le = load ptr, ptr %.sroa.4.0..sroa.0.0.i.sroa_idx.le, align 8
-  %.sroa.5.0..sroa.0.0.i.sroa_idx.le = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sroa.5.0.copyload.le = load ptr, ptr %.sroa.5.0..sroa.0.0.i.sroa_idx.le, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %10 = load i64, ptr %9, align 8, !noundef !4
-  %11 = add i64 %10, -1
-  store i64 %11, ptr %9, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.4.0.copyload.le, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.5.0.copyload.le, ptr %13, align 8
+9:                                                ; preds = %7
+  %.sroa.5.0..sroa.0.0.i.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa.0.0.i.sroa_idx, align 8
+  %.sroa.4.0..sroa.0.0.i.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa.0.0.i.sroa_idx, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %11 = load i64, ptr %10, align 8, !noundef !4
+  %12 = add i64 %11, -1
+  store i64 %12, ptr %10, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.4.0.copyload, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.5.0.copyload, ptr %14, align 8
   br label %.loopexit
-
-"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h38014ec8f9b0f1f1E.llvm.5167274926106538911.exit": ; preds = %.lr.ph
-  %14 = icmp eq ptr %7, %4
-  br i1 %14, label %.loopexit.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable

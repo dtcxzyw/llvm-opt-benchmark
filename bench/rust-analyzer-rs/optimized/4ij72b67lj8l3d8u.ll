@@ -19137,19 +19137,18 @@ define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17he272dff975
 define hidden noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf3084cbfd730849E.llvm.2681043041644741927"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #11 {
   %3 = load i8, ptr %0, align 1, !range !184, !noundef !7
   %4 = load i8, ptr %1, align 1, !range !184, !noundef !7
-  %5 = icmp eq i8 %3, %4
-  br i1 %5, label %.sink.split, label %7
-
-.sink.split:                                      ; preds = %2
-  %6 = trunc nuw i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
+  %6 = icmp eq i8 %3, %4
   %trunc = trunc nuw i8 %3 to i1
-  %not.trunc = xor i1 %trunc, true
-  %spec.select = select i1 %not.trunc, i1 true, i1 %6
-  tail call void @llvm.assume(i1 %spec.select)
-  br label %7
+  %or.cond = select i1 %6, i1 %trunc, i1 false
+  br i1 %or.cond, label %8, label %7
 
-7:                                                ; preds = %.sink.split, %2
-  ret i1 %5
+7:                                                ; preds = %2, %8
+  ret i1 %6
+
+8:                                                ; preds = %2
+  tail call void @llvm.assume(i1 %5)
+  br label %7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -52190,19 +52189,19 @@ define hidden void @_ZN7hir_def10visibility10Visibility3max17h95fa76958c33795eE(
   %.sroa.0.0.copyload = load i32, ptr %11, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
-  %.sroa.628.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.628.0.copyload = load i32, ptr %.sroa.628.0..sroa_idx, align 4
+  %.sroa.627.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.627.0.copyload = load i32, ptr %.sroa.627.0..sroa_idx, align 4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1, !range !184, !noundef !7
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.sroa.032.0.copyload = load i32, ptr %14, align 4
-  %.sroa.634.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.634.0.copyload = load i32, ptr %.sroa.634.0..sroa_idx, align 4
-  %.sroa.637.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %.sroa.637.0.copyload = load i32, ptr %.sroa.637.0..sroa_idx, align 4
+  %.sroa.031.0.copyload = load i32, ptr %14, align 4
+  %.sroa.633.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sroa.633.0.copyload = load i32, ptr %.sroa.633.0..sroa_idx, align 4
+  %.sroa.636.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %.sroa.636.0.copyload = load i32, ptr %.sroa.636.0..sroa_idx, align 4
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %16 = load i8, ptr %15, align 1, !range !184, !noundef !7
-  %.not = icmp eq i32 %.sroa.0.0.copyload, %.sroa.032.0.copyload
+  %.not = icmp eq i32 %.sroa.0.0.copyload, %.sroa.031.0.copyload
   br i1 %.not, label %17, label %35
 
 17:                                               ; preds = %10
@@ -52213,7 +52212,7 @@ define hidden void @_ZN7hir_def10visibility10Visibility3max17h95fa76958c33795eE(
   br label %22
 
 22:                                               ; preds = %29, %17
-  %23 = phi i32 [ %34, %29 ], [ %.sroa.628.0.copyload, %17 ]
+  %23 = phi i32 [ %34, %29 ], [ %.sroa.627.0.copyload, %17 ]
   %24 = phi i32 [ %32, %29 ], [ 1, %17 ]
   %trunc.i.i = trunc nuw i32 %24 to i1
   br i1 %trunc.i.i, label %25, label %.preheader
@@ -52233,7 +52232,7 @@ define hidden void @_ZN7hir_def10visibility10Visibility3max17h95fa76958c33795eE(
   %32 = load i32, ptr %31, align 8, !range !13417, !noalias !13464, !noundef !7
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 508
   %34 = load i32, ptr %33, align 4, !noalias !13464
-  %.not.i = icmp eq i32 %23, %.sroa.637.0.copyload
+  %.not.i = icmp eq i32 %23, %.sroa.636.0.copyload
   br i1 %.not.i, label %48, label %22
 
 35:                                               ; preds = %10
@@ -52241,7 +52240,7 @@ define hidden void @_ZN7hir_def10visibility10Visibility3max17h95fa76958c33795eE(
   br label %51
 
 .preheader:                                       ; preds = %22, %42
-  %36 = phi i32 [ %47, %42 ], [ %.sroa.637.0.copyload, %22 ]
+  %36 = phi i32 [ %47, %42 ], [ %.sroa.636.0.copyload, %22 ]
   %37 = phi i32 [ %45, %42 ], [ 1, %22 ]
   %trunc.i.i19 = trunc nuw i32 %37 to i1
   br i1 %trunc.i.i19, label %38, label %49
@@ -52261,7 +52260,7 @@ define hidden void @_ZN7hir_def10visibility10Visibility3max17h95fa76958c33795eE(
   %45 = load i32, ptr %44, align 8, !range !13417, !noalias !13475, !noundef !7
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 508
   %47 = load i32, ptr %46, align 4, !noalias !13475
-  %.not.i20 = icmp eq i32 %36, %.sroa.628.0.copyload
+  %.not.i20 = icmp eq i32 %36, %.sroa.627.0.copyload
   br i1 %.not.i20, label %50, label %.preheader
 
 48:                                               ; preds = %29
@@ -52271,9 +52270,9 @@ define hidden void @_ZN7hir_def10visibility10Visibility3max17h95fa76958c33795eE(
   %.sroa.5.sroa.3.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.0.0.copyload, ptr %.sroa.5.sroa.3.0..sroa.5.0..sroa_idx.sroa_idx, align 4
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.634.0.copyload, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.633.0.copyload, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 4
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.637.0.copyload, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.636.0.copyload, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 4
   br label %51
 
 49:                                               ; preds = %.preheader
@@ -52289,7 +52288,7 @@ define hidden void @_ZN7hir_def10visibility10Visibility3max17h95fa76958c33795eE(
   %.sroa.512.sroa.4.0..sroa.512.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.6.0.copyload, ptr %.sroa.512.sroa.4.0..sroa.512.0..sroa_idx.sroa_idx, align 4
   %.sroa.512.sroa.5.0..sroa.512.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.628.0.copyload, ptr %.sroa.512.sroa.5.0..sroa.512.0..sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.627.0.copyload, ptr %.sroa.512.sroa.5.0..sroa.512.0..sroa_idx.sroa_idx, align 4
   br label %51
 
 51:                                               ; preds = %35, %50, %48, %49, %9

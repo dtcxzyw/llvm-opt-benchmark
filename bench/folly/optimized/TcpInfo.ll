@@ -2224,19 +2224,18 @@ _ZNR5folly8OptionalImEdeEv.exit7:                 ; preds = %_ZNK5folly7TcpInfo1
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = or disjoint i64 %17, %20
-  %22 = select i1 %8, i64 %21, i64 0
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %22, ptr %0, align 8, !tbaa !47
-  store i8 1, ptr %23, align 8, !tbaa !48
-  br label %25
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %21, ptr %0, align 8, !tbaa !47
+  store i8 1, ptr %22, align 8, !tbaa !48
+  br label %24
 
 _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.thread: ; preds = %2, %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6
   store i8 0, ptr %0, align 8, !tbaa !13
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %24, align 8, !tbaa !60
-  br label %25
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %23, align 8, !tbaa !60
+  br label %24
 
-25:                                               ; preds = %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.thread, %_ZNR5folly8OptionalImEdeEv.exit7
+24:                                               ; preds = %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.thread, %_ZNR5folly8OptionalImEdeEv.exit7
   ret void
 }
 

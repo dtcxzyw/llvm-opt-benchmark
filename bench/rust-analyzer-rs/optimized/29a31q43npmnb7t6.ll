@@ -3747,8 +3747,8 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %14
 
-14:                                               ; preds = %31, %.lr.ph.i
-  %15 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %16, %31 ]
+14:                                               ; preds = %30, %.lr.ph.i
+  %15 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %16, %30 ]
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %16, ptr %1, align 8, !alias.scope !1897, !noalias !1892
   %17 = getelementptr i8, ptr %15, i64 8
@@ -3775,41 +3775,41 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   store i64 %.sroa.4.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx5.i.i.i.i, align 8, !noalias !1933
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx7.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i, i64 16, i1 false), !noalias !1917
   %trunc.i.i.i.i.i.i.i = trunc nuw i64 %.sroa.0.0.copyload.i.i.i to i1
-  br i1 %trunc.i.i.i.i.i.i.i, label %23, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.i.i.i.i"
+  br i1 %trunc.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.i.i.i.i"
 
-23:                                               ; preds = %14
+.thread.i.i.i.i.i.i.i:                            ; preds = %14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1934
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ab6145b2068713cE.llvm.10409712727403535664"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.4.0..sroa_idx5.i.i.i.i), !noalias !1959
-  %24 = load i64, ptr %12, align 8, !range !252, !noalias !1934, !noundef !11
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %24, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.thread.i.i.i.i", label %25
+  %23 = load i64, ptr %12, align 8, !range !252, !noalias !1934, !noundef !11
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %23, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.thread.i.i.i.i", label %24
 
-25:                                               ; preds = %23
-  %26 = load i64, ptr %13, align 8, !noalias !1934, !noundef !11
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.thread.i.i.i.i", label %28
+24:                                               ; preds = %.thread.i.i.i.i.i.i.i
+  %25 = load i64, ptr %13, align 8, !noalias !1934, !noundef !11
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.thread.i.i.i.i", label %27
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr %5, align 8, !noalias !1934, !nonnull !11, !noundef !11
-  call void @__rust_dealloc(ptr noundef nonnull %29, i64 noundef %26, i64 noundef %24) #50, !noalias !1959
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %5, align 8, !noalias !1934, !nonnull !11, !noundef !11
+  call void @__rust_dealloc(ptr noundef nonnull %28, i64 noundef %25, i64 noundef %23) #50, !noalias !1959
   br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.thread.i.i.i.i"
 
-"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.thread.i.i.i.i": ; preds = %28, %25, %23
+"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.thread.i.i.i.i": ; preds = %27, %24, %.thread.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1934
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !1926
-  br label %31
+  br label %30
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.i.i.i.i": ; preds = %14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !1926
-  %30 = icmp eq i64 %.sroa.4.0.copyload.i.i.i, -9223372036854775808
-  br i1 %30, label %31, label %33
+  %29 = icmp eq i64 %.sroa.4.0.copyload.i.i.i, -9223372036854775808
+  br i1 %29, label %30, label %32
 
-31:                                               ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.i.i.i.i", %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.thread.i.i.i.i"
+30:                                               ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.i.i.i.i", %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.thread.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !1917
-  %32 = icmp eq ptr %16, %10
-  br i1 %32, label %._crit_edge.i, label %14
+  %31 = icmp eq ptr %16, %10
+  br i1 %31, label %._crit_edge.i, label %14
 
-33:                                               ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.i.i.i.i"
+32:                                               ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.i.i.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i, i64 16, i1 false), !noalias !1960
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !1917
   store i64 %.sroa.4.0.copyload.i.i.i, ptr %0, align 8, !alias.scope !1961, !noalias !1895
@@ -3817,11 +3817,11 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.i, i64 16, i1 false), !alias.scope !1965, !noalias !1895
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h4290a93f872d21a7E.llvm.1686074433831124249.exit
 
-._crit_edge.i:                                    ; preds = %31, %4
+._crit_edge.i:                                    ; preds = %30, %4
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !1966, !noalias !1895
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h4290a93f872d21a7E.llvm.1686074433831124249.exit
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h4290a93f872d21a7E.llvm.1686074433831124249.exit: ; preds = %33, %._crit_edge.i
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h4290a93f872d21a7E.llvm.1686074433831124249.exit: ; preds = %32, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.2.i)
   ret void
 }
@@ -16398,8 +16398,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h4290a93f87
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %14
 
-14:                                               ; preds = %.lr.ph, %31
-  %15 = phi ptr [ %.promoted, %.lr.ph ], [ %16, %31 ]
+14:                                               ; preds = %.lr.ph, %30
+  %15 = phi ptr [ %.promoted, %.lr.ph ], [ %16, %30 ]
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %16, ptr %1, align 8, !alias.scope !5548
   %17 = getelementptr i8, ptr %15, i64 8
@@ -16426,54 +16426,54 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h4290a93f87
   store i64 %.sroa.4.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx5.i.i.i, align 8, !noalias !5584
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx7.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i, i64 16, i1 false), !noalias !5568
   %trunc.i.i.i.i.i.i = trunc nuw i64 %.sroa.0.0.copyload.i.i to i1
-  br i1 %trunc.i.i.i.i.i.i, label %23, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.i.i.i"
+  br i1 %trunc.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.i.i.i"
 
-23:                                               ; preds = %14
+.thread.i.i.i.i.i.i:                              ; preds = %14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !5585
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ab6145b2068713cE.llvm.10409712727403535664"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.4.0..sroa_idx5.i.i.i), !noalias !5610
-  %24 = load i64, ptr %12, align 8, !range !252, !noalias !5585, !noundef !11
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %24, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.thread.i.i.i", label %25
+  %23 = load i64, ptr %12, align 8, !range !252, !noalias !5585, !noundef !11
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %23, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.thread.i.i.i", label %24
 
-25:                                               ; preds = %23
-  %26 = load i64, ptr %13, align 8, !noalias !5585, !noundef !11
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.thread.i.i.i", label %28
+24:                                               ; preds = %.thread.i.i.i.i.i.i
+  %25 = load i64, ptr %13, align 8, !noalias !5585, !noundef !11
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.thread.i.i.i", label %27
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr %5, align 8, !noalias !5585, !nonnull !11, !noundef !11
-  call void @__rust_dealloc(ptr noundef nonnull %29, i64 noundef %26, i64 noundef %24) #50, !noalias !5610
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %5, align 8, !noalias !5585, !nonnull !11, !noundef !11
+  call void @__rust_dealloc(ptr noundef nonnull %28, i64 noundef %25, i64 noundef %23) #50, !noalias !5610
   br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.thread.i.i.i"
 
-"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.thread.i.i.i": ; preds = %28, %25, %23
+"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.thread.i.i.i": ; preds = %27, %24, %.thread.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !5585
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !5577
-  br label %31
+  br label %30
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.i.i.i": ; preds = %14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !5577
-  %30 = icmp eq i64 %.sroa.4.0.copyload.i.i, -9223372036854775808
-  br i1 %30, label %31, label %33
+  %29 = icmp eq i64 %.sroa.4.0.copyload.i.i, -9223372036854775808
+  br i1 %29, label %30, label %32
 
-31:                                               ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.thread.i.i.i", %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.i.i.i"
+30:                                               ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.thread.i.i.i", %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.i.i.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !5568
-  %32 = icmp eq ptr %16, %10
-  br i1 %32, label %._crit_edge, label %14
+  %31 = icmp eq ptr %16, %10
+  br i1 %31, label %._crit_edge, label %14
 
-33:                                               ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.i.i.i"
+32:                                               ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8d53a00d6a65d16eE.exit.i.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !5568
   store i64 %.sroa.4.0.copyload.i.i, ptr %0, align 8, !alias.scope !5611
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2, i64 16, i1 false), !alias.scope !5611
-  br label %34
+  br label %33
 
-34:                                               ; preds = %._crit_edge, %33
+33:                                               ; preds = %._crit_edge, %32
   ret void
 
-._crit_edge:                                      ; preds = %31, %4
+._crit_edge:                                      ; preds = %30, %4
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !5615
-  br label %34
+  br label %33
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

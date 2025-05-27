@@ -20351,8 +20351,8 @@ _ZN4gpui8executor5Scope5spawn17h99f23c70578640ccE.exit.i.i: ; preds = %86, %82
 
 "_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h6e853c05c9a6cb94E.exit.thread.i": ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h6e853c05c9a6cb94E.exit.i"
   %.pre56.i = load i8, ptr %122, align 8, !range !774, !alias.scope !3686, !noalias !3621
-  call void @llvm.experimental.noalias.scope.decl(metadata !3686)
   %136 = icmp eq i8 %.pre56.i, 0
+  call void @llvm.experimental.noalias.scope.decl(metadata !3686)
   br i1 %136, label %"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17h50f3bd2f7f9b8f18E.exit.i", label %137
 
 137:                                              ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h6e853c05c9a6cb94E.exit.thread.i"
@@ -23058,8 +23058,8 @@ _ZN4gpui8executor5Scope5spawn17hc54fb4a1c0512c30E.exit.i.i: ; preds = %293, %289
 
 "_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h6e853c05c9a6cb94E.exit.thread.i": ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h6e853c05c9a6cb94E.exit.i"
   %.pre53.i = load i8, ptr %328, align 8, !range !774, !alias.scope !4103, !noalias !4037
-  call void @llvm.experimental.noalias.scope.decl(metadata !4103)
   %342 = icmp eq i8 %.pre53.i, 0
+  call void @llvm.experimental.noalias.scope.decl(metadata !4103)
   br i1 %342, label %"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17h50f3bd2f7f9b8f18E.exit.i", label %343
 
 343:                                              ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h6e853c05c9a6cb94E.exit.thread.i"
@@ -24689,8 +24689,8 @@ _ZN4gpui8executor5Scope5spawn17h6db3f46cd02137a8E.exit.i.i: ; preds = %121, %117
 
 "_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h6e853c05c9a6cb94E.exit.thread.i": ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h6e853c05c9a6cb94E.exit.i"
   %.pre46.i = load i8, ptr %156, align 8, !range !774, !alias.scope !4366, !noalias !4302
-  call void @llvm.experimental.noalias.scope.decl(metadata !4366)
   %170 = icmp eq i8 %.pre46.i, 0
+  call void @llvm.experimental.noalias.scope.decl(metadata !4366)
   br i1 %170, label %"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17h50f3bd2f7f9b8f18E.exit.i", label %171
 
 171:                                              ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h6e853c05c9a6cb94E.exit.thread.i"
@@ -28399,8 +28399,8 @@ _ZN4gpui8executor5Scope5spawn17ha283b7ebc854e973E.exit.i.i: ; preds = %83, %79
 
 "_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h6e853c05c9a6cb94E.exit.thread.i": ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h6e853c05c9a6cb94E.exit.i"
   %.pre55.i = load i8, ptr %119, align 8, !range !774, !alias.scope !4875, !noalias !4810
-  call void @llvm.experimental.noalias.scope.decl(metadata !4875)
   %133 = icmp eq i8 %.pre55.i, 0
+  call void @llvm.experimental.noalias.scope.decl(metadata !4875)
   br i1 %133, label %"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17h50f3bd2f7f9b8f18E.exit.i", label %134
 
 134:                                              ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h6e853c05c9a6cb94E.exit.thread.i"

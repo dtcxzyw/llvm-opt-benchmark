@@ -111,9 +111,14 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h0e3c264006ba64b3E.exit.i
           cleanup
   br label %.thread
 
+.thread:                                          ; preds = %.thread.loopexit.split-lp, %.thread.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.thread.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp ]
+  call void @"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..util..search..PatternSet$GT$$GT$17h809a666d92aa6815E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #22
+  br label %82
+
 11:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  invoke void @_ZN4core6result13unwrap_failed17hff299ec748d62aabE(ptr noalias noundef nonnull readonly align 1 @anon.5058ed677cd16a2d7418ffdb5e06ab20.4, i64 noundef 70, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.6) #22
+  invoke void @_ZN4core6result13unwrap_failed17hff299ec748d62aabE(ptr noalias noundef nonnull readonly align 1 @anon.5058ed677cd16a2d7418ffdb5e06ab20.4, i64 noundef 70, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.6) #23
           to label %.noexc15 unwind label %.thread.loopexit.split-lp
 
 .noexc15:                                         ; preds = %11
@@ -135,7 +140,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h0e3c264006ba64b3E.exit.i
   br label %28
 
 21:                                               ; preds = %12
-  invoke void @_ZN4core9panicking5panic17h90e84101c01877efE(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.8) #22
+  invoke void @_ZN4core9panicking5panic17h90e84101c01877efE(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.8) #23
           to label %22 unwind label %.thread.loopexit.split-lp
 
 22:                                               ; preds = %36, %21
@@ -160,8 +165,8 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h0e3c264006ba64b3E.exit.i
   br label %32
 
 28:                                               ; preds = %16, %.noexc32
-  %.sroa.0.048 = phi i32 [ 0, %16 ], [ %29, %.noexc32 ]
-  %29 = add nuw nsw i32 %.sroa.0.048, 1
+  %.sroa.0.047 = phi i32 [ 0, %16 ], [ %29, %.noexc32 ]
+  %29 = add nuw nsw i32 %.sroa.0.047, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %30 = load i64, ptr %13, align 8, !noundef !4
@@ -178,7 +183,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h0e3c264006ba64b3E.exit.i
           to label %37 unwind label %.thread.loopexit
 
 36:                                               ; preds = %28
-  invoke void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %17, i64 noundef %30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.10) #22
+  invoke void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %17, i64 noundef %30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.10) #23
           to label %22 unwind label %.thread.loopexit.split-lp
 
 37:                                               ; preds = %33
@@ -214,8 +219,8 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h0e3c264006ba64b3E.exit.i
 .body:                                            ; preds = %47
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..util..search..PatternSet$GT$$GT$17h809a666d92aa6815E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #23
-  invoke void @"_ZN4core3ptr145drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..util..search..PatternSet$GT$$GT$$GT$$GT$17h782b2a8f8581b1d2E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #23
+  call void @"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..util..search..PatternSet$GT$$GT$17h809a666d92aa6815E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #22
+  invoke void @"_ZN4core3ptr145drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..util..search..PatternSet$GT$$GT$$GT$$GT$17h782b2a8f8581b1d2E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #22
           to label %82 unwind label %67
 
 49:                                               ; preds = %._crit_edge.i, %"_ZN4core3ptr339drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..util..search..PatternSet$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..util..search..PatternSet$GT$$GT$$GT$$GT$$GT$$GT$17h0916084878d72ce6E.exit"
@@ -312,13 +317,8 @@ _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.llvm.10559302552934589985.exit
           to label %.noexc32 unwind label %.thread.loopexit
 
 82:                                               ; preds = %.body, %.thread
-  %.pn34 = phi { ptr, i32 } [ %.pn35, %.thread ], [ %48, %.body ]
+  %.pn34 = phi { ptr, i32 } [ %lpad.phi, %.thread ], [ %48, %.body ]
   resume { ptr, i32 } %.pn34
-
-.thread:                                          ; preds = %.thread.loopexit, %.thread.loopexit.split-lp
-  %.pn35 = phi { ptr, i32 } [ %lpad.loopexit, %.thread.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp ]
-  call void @"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..util..search..PatternSet$GT$$GT$17h809a666d92aa6815E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #23
-  br label %82
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -351,9 +351,14 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h0e3c264006ba64b3E.exit.i
           cleanup
   br label %.thread
 
+.thread:                                          ; preds = %.thread.loopexit.split-lp, %.thread.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.thread.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp ]
+  invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17hc41b52a9973c5be3E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #22
+          to label %common.resume unwind label %68
+
 11:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  invoke void @_ZN4core6result13unwrap_failed17hff299ec748d62aabE(ptr noalias noundef nonnull readonly align 1 @anon.5058ed677cd16a2d7418ffdb5e06ab20.4, i64 noundef 70, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.6) #22
+  invoke void @_ZN4core6result13unwrap_failed17hff299ec748d62aabE(ptr noalias noundef nonnull readonly align 1 @anon.5058ed677cd16a2d7418ffdb5e06ab20.4, i64 noundef 70, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.6) #23
           to label %.noexc15 unwind label %.thread.loopexit.split-lp
 
 .noexc15:                                         ; preds = %11
@@ -375,7 +380,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h0e3c264006ba64b3E.exit.i
   br label %26
 
 21:                                               ; preds = %12
-  invoke void @_ZN4core9panicking5panic17h90e84101c01877efE(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.8) #22
+  invoke void @_ZN4core9panicking5panic17h90e84101c01877efE(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.8) #23
           to label %22 unwind label %.thread.loopexit.split-lp
 
 22:                                               ; preds = %34, %21
@@ -386,7 +391,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h0e3c264006ba64b3E.exit.i
           to label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17hc41b52a9973c5be3E.llvm.10559302552934589985.exit" unwind label %24, !noalias !65
 
 common.resume:                                    ; preds = %.body, %.thread, %24
-  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %.pn35, %.thread ], [ %47, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %lpad.phi, %.thread ], [ %47, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 24:                                               ; preds = %23
@@ -400,8 +405,8 @@ common.resume:                                    ; preds = %.body, %.thread, %2
   br label %30
 
 26:                                               ; preds = %16, %.noexc32
-  %.sroa.0.048 = phi i32 [ 0, %16 ], [ %27, %.noexc32 ]
-  %27 = add nuw nsw i32 %.sroa.0.048, 1
+  %.sroa.0.047 = phi i32 [ 0, %16 ], [ %27, %.noexc32 ]
+  %27 = add nuw nsw i32 %.sroa.0.047, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %28 = load i64, ptr %13, align 8, !noundef !4
@@ -418,7 +423,7 @@ common.resume:                                    ; preds = %.body, %.thread, %2
           to label %35 unwind label %.thread.loopexit
 
 34:                                               ; preds = %26
-  invoke void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %17, i64 noundef %28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.10) #22
+  invoke void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %17, i64 noundef %28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.10) #23
           to label %22 unwind label %.thread.loopexit.split-lp
 
 35:                                               ; preds = %31
@@ -454,7 +459,7 @@ common.resume:                                    ; preds = %.body, %.thread, %2
 46:                                               ; preds = %45
   %47 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17hc41b52a9973c5be3E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #23
+  invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17hc41b52a9973c5be3E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #22
           to label %.body unwind label %48
 
 48:                                               ; preds = %46
@@ -464,7 +469,7 @@ common.resume:                                    ; preds = %.body, %.thread, %2
   unreachable
 
 .body:                                            ; preds = %46
-  invoke void @"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17hebcaa6eda31a47d1E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #23
+  invoke void @"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17hebcaa6eda31a47d1E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #22
           to label %common.resume unwind label %68
 
 50:                                               ; preds = %._crit_edge.i, %"_ZN4core3ptr327drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$$GT$17he847a45cc1906aedE.exit"
@@ -559,11 +564,6 @@ _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.llvm.10559302552934589985.exit
 "_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17hebcaa6eda31a47d1E.llvm.10559302552934589985.exit.sink.split.i26": ; preds = %_ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.llvm.10559302552934589985.exit.i.i.i.i.i25
   invoke void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4wake17ha258f649abbc537fE(ptr noundef nonnull align 4 %.val.i21)
           to label %.noexc32 unwind label %.thread.loopexit
-
-.thread:                                          ; preds = %.thread.loopexit, %.thread.loopexit.split-lp
-  %.pn35 = phi { ptr, i32 } [ %lpad.loopexit, %.thread.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17hc41b52a9973c5be3E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #23
-          to label %common.resume unwind label %68
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
@@ -621,7 +621,7 @@ define hidden void @"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$
 20:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   store ptr null, ptr %2, align 8
-  call void @_ZN4core9panicking13assert_failed17h81128d1d444485d5E(i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN14regex_automata4util4pool5inner17THREAD_ID_DROPPED17hfc39d7cf23ef2419E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.11.llvm.10559302552934589985) #22
+  call void @_ZN4core9panicking13assert_failed17h81128d1d444485d5E(i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN14regex_automata4util4pool5inner17THREAD_ID_DROPPED17hfc39d7cf23ef2419E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.11.llvm.10559302552934589985) #23
   unreachable
 
 21:                                               ; preds = %9
@@ -684,7 +684,7 @@ define hidden void @"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$
 18:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   store ptr null, ptr %2, align 8
-  call void @_ZN4core9panicking13assert_failed17h81128d1d444485d5E(i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN14regex_automata4util4pool5inner17THREAD_ID_DROPPED17hfc39d7cf23ef2419E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.11.llvm.10559302552934589985) #22
+  call void @_ZN4core9panicking13assert_failed17h81128d1d444485d5E(i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN14regex_automata4util4pool5inner17THREAD_ID_DROPPED17hfc39d7cf23ef2419E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.11.llvm.10559302552934589985) #23
   unreachable
 
 19:                                               ; preds = %9
@@ -1034,7 +1034,7 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$alloc..b
 14:                                               ; preds = %12
   %15 = getelementptr inbounds [0 x ptr], ptr %3, i64 0, i64 %.1.i.i
   %16 = add i64 %.1.i.i, 1
-  invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17hc41b52a9973c5be3E.llvm.10559302552934589985"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15) #23
+  invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17hc41b52a9973c5be3E.llvm.10559302552934589985"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15) #22
           to label %12 unwind label %17, !noalias !231
 
 17:                                               ; preds = %14
@@ -1275,7 +1275,7 @@ define hidden void @"_ZN4core3ptr109drop_in_place$LT$$u5b$alloc..vec..Vec$LT$cor
 13:                                               ; preds = %9
   %14 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %0, i64 0, i64 %.1
   %15 = add i64 %.1, 1
-  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$$GT$17h0f7d260423afa297E"(ptr noalias noundef align 8 dereferenceable(24) %14) #23
+  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$$GT$17h0f7d260423afa297E"(ptr noalias noundef align 8 dereferenceable(24) %14) #22
           to label %9 unwind label %17
 
 16:                                               ; preds = %9
@@ -1755,7 +1755,7 @@ define hidden void @"_ZN4core3ptr122drop_in_place$LT$alloc..vec..Vec$LT$alloc..v
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %3, i64 0, i64 %.1.i.i
   %17 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$$GT$17h0f7d260423afa297E"(ptr noalias noundef readonly align 8 dereferenceable(24) %16) #23
+  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$$GT$17h0f7d260423afa297E"(ptr noalias noundef readonly align 8 dereferenceable(24) %16) #22
           to label %11 unwind label %18, !noalias !448
 
 18:                                               ; preds = %15
@@ -3361,7 +3361,7 @@ define hidden void @"_ZN4core3ptr368drop_in_place$LT$regex_automata..util..pool.
   br label %"_ZN4core3ptr284drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$regex_automata..meta..regex..Cache$u2b$core..panic..unwind_safe..RefUnwindSafe$u2b$core..marker..Send$u2b$core..panic..unwind_safe..UnwindSafe$u2b$core..marker..Sync$GT$$GT$17h9206497c2f0d2fa0E.llvm.10559302552934589985.exit"
 
 .body:                                            ; preds = %7, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.10559302552934589985.exit.i.i"
-  invoke void @"_ZN4core3ptr209drop_in_place$LT$alloc..vec..Vec$LT$regex_automata..util..pool..inner..CacheLine$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$$GT$17h77c388c2b7e0b0fdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #23
+  invoke void @"_ZN4core3ptr209drop_in_place$LT$alloc..vec..Vec$LT$regex_automata..util..pool..inner..CacheLine$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$$GT$17h77c388c2b7e0b0fdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #22
           to label %22 unwind label %34
 
 "_ZN4core3ptr284drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$regex_automata..meta..regex..Cache$u2b$core..panic..unwind_safe..RefUnwindSafe$u2b$core..marker..Send$u2b$core..panic..unwind_safe..UnwindSafe$u2b$core..marker..Sync$GT$$GT$17h9206497c2f0d2fa0E.llvm.10559302552934589985.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.10559302552934589985.exit.i1.i", %15
@@ -3475,7 +3475,7 @@ define hidden void @"_ZN4core3ptr373drop_in_place$LT$regex_automata..util..pool.
 17:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !1134
   store ptr null, ptr %2, align 8, !noalias !1134
-  invoke void @_ZN4core9panicking13assert_failed17h81128d1d444485d5E(i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN14regex_automata4util4pool5inner17THREAD_ID_DROPPED17hfc39d7cf23ef2419E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.11.llvm.10559302552934589985) #22
+  invoke void @_ZN4core9panicking13assert_failed17h81128d1d444485d5E(i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN14regex_automata4util4pool5inner17THREAD_ID_DROPPED17hfc39d7cf23ef2419E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.11.llvm.10559302552934589985) #23
           to label %.noexc1 unwind label %22
 
 .noexc1:                                          ; preds = %17
@@ -3496,7 +3496,7 @@ define hidden void @"_ZN4core3ptr373drop_in_place$LT$regex_automata..util..pool.
 
 .body:                                            ; preds = %15, %22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %16, %15 ]
-  invoke void @"_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$C$usize$GT$$GT$17h93c2a515c5034d31E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) #23
+  invoke void @"_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$C$usize$GT$$GT$17h93c2a515c5034d31E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) #22
           to label %common.resume unwind label %24
 
 common.resume:                                    ; preds = %.body
@@ -3560,7 +3560,7 @@ define hidden void @"_ZN4core3ptr380drop_in_place$LT$regex_automata..util..pool.
   br label %"_ZN4core3ptr290drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$regex_automata..util..search..PatternSet$u2b$core..panic..unwind_safe..RefUnwindSafe$u2b$core..marker..Send$u2b$core..panic..unwind_safe..UnwindSafe$u2b$core..marker..Sync$GT$$GT$17h78383f8a37f51e20E.llvm.10559302552934589985.exit"
 
 .body:                                            ; preds = %7, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.10559302552934589985.exit.i.i"
-  tail call void @"_ZN4core3ptr215drop_in_place$LT$alloc..vec..Vec$LT$regex_automata..util..pool..inner..CacheLine$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..util..search..PatternSet$GT$$GT$$GT$$GT$$GT$$GT$17h65c4a2e97bd6ffa1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #23
+  tail call void @"_ZN4core3ptr215drop_in_place$LT$alloc..vec..Vec$LT$regex_automata..util..pool..inner..CacheLine$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..util..search..PatternSet$GT$$GT$$GT$$GT$$GT$$GT$17h65c4a2e97bd6ffa1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #22
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1153)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1156)
@@ -3664,7 +3664,7 @@ define hidden void @"_ZN4core3ptr385drop_in_place$LT$regex_automata..util..pool.
 19:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !1193
   store ptr null, ptr %2, align 8, !noalias !1193
-  invoke void @_ZN4core9panicking13assert_failed17h81128d1d444485d5E(i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN14regex_automata4util4pool5inner17THREAD_ID_DROPPED17hfc39d7cf23ef2419E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.11.llvm.10559302552934589985) #22
+  invoke void @_ZN4core9panicking13assert_failed17h81128d1d444485d5E(i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN14regex_automata4util4pool5inner17THREAD_ID_DROPPED17hfc39d7cf23ef2419E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.11.llvm.10559302552934589985) #23
           to label %.noexc1 unwind label %24
 
 .noexc1:                                          ; preds = %19
@@ -3681,7 +3681,7 @@ define hidden void @"_ZN4core3ptr385drop_in_place$LT$regex_automata..util..pool.
 24:                                               ; preds = %19, %11
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$alloc..boxed..Box$LT$regex_automata..util..search..PatternSet$GT$$C$usize$GT$$GT$17h96fbd501136c84b4E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) #23
+  call void @"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$alloc..boxed..Box$LT$regex_automata..util..search..PatternSet$GT$$C$usize$GT$$GT$17h96fbd501136c84b4E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) #22
   resume { ptr, i32 } %25
 
 "_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$alloc..boxed..Box$LT$regex_automata..util..search..PatternSet$GT$$C$usize$GT$$GT$17h96fbd501136c84b4E.llvm.10559302552934589985.exit": ; preds = %11, %"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..util..search..PatternSet$GT$$GT$17h809a666d92aa6815E.llvm.10559302552934589985.exit.i", %20
@@ -3876,7 +3876,7 @@ define hidden void @"_ZN4core3ptr41drop_in_place$LT$globset..glob..Token$GT$17h5
 21:                                               ; preds = %17
   %22 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %9, i64 0, i64 %.1.i.i
   %23 = add i64 %.1.i.i, 1
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$globset..glob..Tokens$GT$17h6524495eb6548d37E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #23
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$globset..glob..Tokens$GT$17h6524495eb6548d37E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #22
           to label %17 unwind label %24, !noalias !1294
 
 24:                                               ; preds = %21
@@ -4010,7 +4010,7 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$globset..glob..Tokens$GT$17h
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %3, i64 0, i64 %.1.i.i
   %17 = add i64 %.1.i.i, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$globset..glob..Token$GT$17h5ed2c5ed3dd508edE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #23
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$globset..glob..Token$GT$17h5ed2c5ed3dd508edE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #22
           to label %11 unwind label %18, !noalias !1354
 
 18:                                               ; preds = %15
@@ -4449,7 +4449,7 @@ common.resume:                                    ; preds = %68, %81, %82, %83, 
   ret void
 
 68:                                               ; preds = %2
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..Concat$GT$$GT$17hb542d53b3cde2f6aE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #23
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..Concat$GT$$GT$17hb542d53b3cde2f6aE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #22
           to label %common.resume unwind label %85
 
 69:                                               ; preds = %2
@@ -4460,7 +4460,7 @@ common.resume:                                    ; preds = %68, %81, %82, %83, 
   br label %common.resume
 
 71:                                               ; preds = %2
-  tail call void @"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..SetFlags$GT$$GT$17h1730bdaf8f058e05E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #23
+  tail call void @"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..SetFlags$GT$$GT$17h1730bdaf8f058e05E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #22
   br label %common.resume
 
 72:                                               ; preds = %2
@@ -4485,7 +4485,7 @@ common.resume:                                    ; preds = %68, %81, %82, %83, 
   br label %common.resume
 
 78:                                               ; preds = %2
-  tail call void @"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..ClassUnicode$GT$$GT$17hb247be4e1c7a53b6E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #23
+  tail call void @"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..ClassUnicode$GT$$GT$17hb247be4e1c7a53b6E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #22
   br label %common.resume
 
 79:                                               ; preds = %2
@@ -4496,19 +4496,19 @@ common.resume:                                    ; preds = %68, %81, %82, %83, 
   br label %common.resume
 
 81:                                               ; preds = %2
-  invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..ClassBracketed$GT$$GT$17hbaccf0031ba5b2e9E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #23
+  invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..ClassBracketed$GT$$GT$17hbaccf0031ba5b2e9E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #22
           to label %common.resume unwind label %85
 
 82:                                               ; preds = %2
-  invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..Repetition$GT$$GT$17h202b73fc3b2a60bfE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #23
+  invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..Repetition$GT$$GT$17h202b73fc3b2a60bfE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #22
           to label %common.resume unwind label %85
 
 83:                                               ; preds = %2
-  invoke void @"_ZN4core3ptr70drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..Group$GT$$GT$17h7f8c6cae271ec13cE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #23
+  invoke void @"_ZN4core3ptr70drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..Group$GT$$GT$17h7f8c6cae271ec13cE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #22
           to label %common.resume unwind label %85
 
 84:                                               ; preds = %2
-  invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..Alternation$GT$$GT$17hc312f14e5d2ec234E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #23
+  invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..Alternation$GT$$GT$17hc312f14e5d2ec234E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #22
           to label %common.resume unwind label %85
 
 85:                                               ; preds = %84, %83, %82, %81, %68
@@ -4526,7 +4526,7 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..hir..Hir$GT$17
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$regex_syntax..hir..HirKind$GT$17h49504e3dcaf39534E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) #23
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$regex_syntax..hir..HirKind$GT$17h49504e3dcaf39534E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) #22
           to label %12 unwind label %10
 
 4:                                                ; preds = %1
@@ -4949,7 +4949,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$globset..RegexSetStrategy$GT
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN4core3ptr361drop_in_place$LT$regex_automata..util..pool..Pool$LT$regex_automata..meta..regex..Cache$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$regex_automata..meta..regex..Cache$u2b$core..panic..unwind_safe..RefUnwindSafe$u2b$core..marker..Send$u2b$core..panic..unwind_safe..UnwindSafe$u2b$core..marker..Sync$GT$$GT$$GT$17hc5b2cfdec77fae66E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9) #23
+  invoke void @"_ZN4core3ptr361drop_in_place$LT$regex_automata..util..pool..Pool$LT$regex_automata..meta..regex..Cache$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$regex_automata..meta..regex..Cache$u2b$core..panic..unwind_safe..RefUnwindSafe$u2b$core..marker..Send$u2b$core..panic..unwind_safe..UnwindSafe$u2b$core..marker..Sync$GT$$GT$$GT$17hc5b2cfdec77fae66E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9) #22
           to label %.body unwind label %14
 
 "_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$regex_automata..meta..regex..RegexI$GT$$GT$17hfb2ecdbf6d955681E.llvm.10559302552934589985.exit.i": ; preds = %6, %1
@@ -5204,7 +5204,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$regex_syntax..hir..HirKind$G
 15:                                               ; preds = %.lr.ph
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$regex_syntax..hir..HirKind$GT$17h49504e3dcaf39534E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(48) %13) #23
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$regex_syntax..hir..HirKind$GT$17h49504e3dcaf39534E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(48) %13) #22
           to label %.body11 unwind label %22, !noalias !1979
 
 17:                                               ; preds = %.lr.ph
@@ -5250,7 +5250,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$regex_syntax..hir..HirKind$G
 29:                                               ; preds = %27
   %30 = getelementptr inbounds [0 x { { i64, [4 x i64] }, ptr }], ptr %9, i64 0, i64 %.1.i.i
   %31 = add i64 %.1.i.i, 1
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..hir..Hir$GT$17hc450e507c5804c39E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %30) #23
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..hir..Hir$GT$17hc450e507c5804c39E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %30) #22
           to label %27 unwind label %32, !noalias !1979
 
 32:                                               ; preds = %29
@@ -5391,7 +5391,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 80:                                               ; preds = %.lr.ph26
   %81 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$regex_syntax..hir..HirKind$GT$17h49504e3dcaf39534E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(48) %78) #23
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$regex_syntax..hir..HirKind$GT$17h49504e3dcaf39534E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(48) %78) #22
           to label %.body14 unwind label %87, !noalias !2070
 
 82:                                               ; preds = %.lr.ph26
@@ -5437,7 +5437,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 94:                                               ; preds = %92
   %95 = getelementptr inbounds [0 x { { i64, [4 x i64] }, ptr }], ptr %74, i64 0, i64 %.1.i.i7
   %96 = add i64 %.1.i.i7, 1
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..hir..Hir$GT$17hc450e507c5804c39E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %95) #23
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..hir..Hir$GT$17hc450e507c5804c39E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %95) #22
           to label %92 unwind label %97, !noalias !2070
 
 97:                                               ; preds = %94
@@ -5553,7 +5553,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$regex_syntax..ast..ClassSet$
           cleanup
   tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef 160, i64 noundef 8) #21, !noalias !2150
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..ClassSet$GT$$GT$17ha1a6aa0bbfeab3d3E"(ptr noalias noundef align 8 dereferenceable(8) %13) #23
+  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..ClassSet$GT$$GT$17ha1a6aa0bbfeab3d3E"(ptr noalias noundef align 8 dereferenceable(8) %13) #22
           to label %common.resume unwind label %14
 
 14:                                               ; preds = %.body
@@ -5588,11 +5588,11 @@ common.resume:                                    ; preds = %21, %22, %.body, %1
   ret void
 
 21:                                               ; preds = %2
-  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassSetItem$GT$17h7fc1901397db0976E"(ptr noalias noundef align 8 dereferenceable(160) %0) #23
+  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassSetItem$GT$17h7fc1901397db0976E"(ptr noalias noundef align 8 dereferenceable(160) %0) #22
           to label %common.resume unwind label %23
 
 22:                                               ; preds = %2
-  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$regex_syntax..ast..ClassSetBinaryOp$GT$17h6cd27f2bbefda99aE"(ptr noalias noundef align 8 dereferenceable(72) %0) #23
+  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$regex_syntax..ast..ClassSetBinaryOp$GT$17h6cd27f2bbefda99aE"(ptr noalias noundef align 8 dereferenceable(72) %0) #22
           to label %common.resume unwind label %23
 
 23:                                               ; preds = %22, %21
@@ -5853,7 +5853,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$$u5b$globset..glob..Token$u5
 13:                                               ; preds = %9
   %14 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %0, i64 0, i64 %.1
   %15 = add i64 %.1, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$globset..glob..Token$GT$17h5ed2c5ed3dd508edE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #23
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$globset..glob..Token$GT$17h5ed2c5ed3dd508edE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #22
           to label %9 unwind label %17
 
 16:                                               ; preds = %9
@@ -5991,7 +5991,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$$u5b$globset..glob..Tokens$u
 13:                                               ; preds = %9
   %14 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %0, i64 0, i64 %.1
   %15 = add i64 %.1, 1
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$globset..glob..Tokens$GT$17h6524495eb6548d37E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #23
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$globset..glob..Tokens$GT$17h6524495eb6548d37E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #22
           to label %9 unwind label %17
 
 16:                                               ; preds = %9
@@ -6057,7 +6057,7 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..
 20:                                               ; preds = %16
   %21 = getelementptr inbounds [0 x { [38 x i32], i32, [1 x i32] }], ptr %8, i64 0, i64 %.1.i.i
   %22 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassSetItem$GT$17h7fc1901397db0976E"(ptr noalias noundef align 8 dereferenceable(160) %21) #23
+  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassSetItem$GT$17h7fc1901397db0976E"(ptr noalias noundef align 8 dereferenceable(160) %21) #22
           to label %16 unwind label %23, !noalias !2351
 
 23:                                               ; preds = %20
@@ -6167,11 +6167,11 @@ common.resume:                                    ; preds = %.body, %26, %65
           to label %"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..ClassBracketed$GT$$GT$17hbaccf0031ba5b2e9E.llvm.10559302552934589985.exit" unwind label %63
 
 59:                                               ; preds = %50
-  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassSetItem$GT$17h7fc1901397db0976E"(ptr noalias noundef align 8 dereferenceable(160) %49) #23
+  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassSetItem$GT$17h7fc1901397db0976E"(ptr noalias noundef align 8 dereferenceable(160) %49) #22
           to label %65 unwind label %61, !noalias !2397
 
 60:                                               ; preds = %50
-  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$regex_syntax..ast..ClassSetBinaryOp$GT$17h6cd27f2bbefda99aE"(ptr noalias noundef align 8 dereferenceable(160) %49) #23
+  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$regex_syntax..ast..ClassSetBinaryOp$GT$17h6cd27f2bbefda99aE"(ptr noalias noundef align 8 dereferenceable(160) %49) #22
           to label %65 unwind label %61, !noalias !2397
 
 61:                                               ; preds = %60, %59
@@ -6298,7 +6298,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$$u5b$regex_syntax..ast..Ast$
 13:                                               ; preds = %9
   %14 = getelementptr inbounds [0 x { i64, [1 x i64] }], ptr %0, i64 0, i64 %.1
   %15 = add i64 %.1, 1
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..ast..Ast$GT$17h46d691f7035d842fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14) #23
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..ast..Ast$GT$17h46d691f7035d842fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14) #22
           to label %9 unwind label %17
 
 16:                                               ; preds = %9
@@ -6375,7 +6375,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$$u5b$regex_syntax..hir..Hir$
 20:                                               ; preds = %18
   %21 = getelementptr inbounds [0 x { { i64, [4 x i64] }, ptr }], ptr %0, i64 0, i64 %.1
   %22 = add i64 %.1, 1
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..hir..Hir$GT$17hc450e507c5804c39E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %21) #23
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..hir..Hir$GT$17hc450e507c5804c39E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %21) #22
           to label %18 unwind label %24
 
 23:                                               ; preds = %18
@@ -6477,7 +6477,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$regex_syntax..ast..parse..Pa
 "_ZN4core3ptr107drop_in_place$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$regex_syntax..ast..parse..ClassState$GT$$GT$$GT$17h8f3752390c665ea3E.llvm.10559302552934589985.exit": ; preds = %17, %25
   %.pn2 = phi { ptr, i32 } [ %26, %25 ], [ %18, %17 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @"_ZN4core3ptr101drop_in_place$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$regex_syntax..ast..CaptureName$GT$$GT$$GT$17h120233ef23ca3d45E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(32) %21) #23
+  tail call void @"_ZN4core3ptr101drop_in_place$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$regex_syntax..ast..CaptureName$GT$$GT$$GT$17h120233ef23ca3d45E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(32) %21) #22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2529)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2532)
@@ -6627,11 +6627,11 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$regex_syntax..ast..ClassBrac
   br label %"_ZN4core3ptr48drop_in_place$LT$regex_syntax..ast..ClassSet$GT$17h636dae1efba4d1bfE.llvm.10559302552934589985.exit"
 
 12:                                               ; preds = %3
-  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassSetItem$GT$17h7fc1901397db0976E"(ptr noalias noundef align 8 dereferenceable(160) %2) #23
+  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassSetItem$GT$17h7fc1901397db0976E"(ptr noalias noundef align 8 dereferenceable(160) %2) #22
           to label %16 unwind label %14
 
 13:                                               ; preds = %3
-  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$regex_syntax..ast..ClassSetBinaryOp$GT$17h6cd27f2bbefda99aE"(ptr noalias noundef align 8 dereferenceable(160) %2) #23
+  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$regex_syntax..ast..ClassSetBinaryOp$GT$17h6cd27f2bbefda99aE"(ptr noalias noundef align 8 dereferenceable(160) %2) #22
           to label %16 unwind label %14
 
 14:                                               ; preds = %13, %12
@@ -6957,7 +6957,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..hybrid..dfa.
 "_ZN4core3ptr154drop_in_place$LT$std..collections..hash..map..HashMap$LT$regex_automata..util..determinize..state..State$C$regex_automata..hybrid..id..LazyStateID$GT$$GT$17hc5215ad3f76ef15cE.exit": ; preds = %13, %23
   %.pn4 = phi { ptr, i32 } [ %24, %23 ], [ %14, %13 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call fastcc void @"_ZN4core3ptr65drop_in_place$LT$regex_automata..util..sparse_set..SparseSets$GT$17h5449ef8912d77344E"(ptr noalias noundef align 8 dereferenceable(112) %20) #23
+  tail call fastcc void @"_ZN4core3ptr65drop_in_place$LT$regex_automata..util..sparse_set..SparseSets$GT$17h5449ef8912d77344E"(ptr noalias noundef align 8 dereferenceable(112) %20) #22
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %.val = load i64, ptr %21, align 8
   %22 = icmp eq i64 %.val, 0
@@ -7196,10 +7196,10 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex.
 
 "_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..wrappers..PikeVMCache$GT$17hd769284f047731e9E.llvm.10559302552934589985.exit": ; preds = %25, %.body
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1312
-  tail call void @"_ZN4core3ptr76drop_in_place$LT$regex_automata..meta..wrappers..BoundedBacktrackerCache$GT$17h222bcb8af8cc0c36E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(56) %30) #23
+  tail call void @"_ZN4core3ptr76drop_in_place$LT$regex_automata..meta..wrappers..BoundedBacktrackerCache$GT$17h222bcb8af8cc0c36E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(56) %30) #22
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1368
-  tail call void @"_ZN4core3ptr65drop_in_place$LT$regex_automata..meta..wrappers..OnePassCache$GT$17ha2d72b84fa8e017fE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(32) %31) #23
-  invoke void @"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..wrappers..HybridCache$GT$17h8a58b633092b4ba5E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(704) %0) #23
+  tail call void @"_ZN4core3ptr65drop_in_place$LT$regex_automata..meta..wrappers..OnePassCache$GT$17ha2d72b84fa8e017fE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(32) %31) #22
+  invoke void @"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..wrappers..HybridCache$GT$17h8a58b633092b4ba5E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(704) %0) #22
           to label %.body9 unwind label %75
 
 "_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..wrappers..PikeVMCache$GT$17hd769284f047731e9E.llvm.10559302552934589985.exit8": ; preds = %29, %"_ZN4core3ptr61drop_in_place$LT$regex_automata..util..captures..Captures$GT$17h2a6e36dffa530aafE.llvm.10559302552934589985.exit"
@@ -7276,7 +7276,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex.
   %60 = landingpad { ptr, i32 }
           cleanup
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..hybrid..dfa..Cache$GT$17hfceb6b3041397d88E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(352) %61) #23
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..hybrid..dfa..Cache$GT$17hfceb6b3041397d88E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(352) %61) #22
           to label %.body9 unwind label %62
 
 62:                                               ; preds = %59
@@ -7347,7 +7347,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex.
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke void @"_ZN4core3ptr361drop_in_place$LT$regex_automata..util..pool..Pool$LT$regex_automata..meta..regex..Cache$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$regex_automata..meta..regex..Cache$u2b$core..panic..unwind_safe..RefUnwindSafe$u2b$core..marker..Send$u2b$core..panic..unwind_safe..UnwindSafe$u2b$core..marker..Sync$GT$$GT$$GT$17hc5b2cfdec77fae66E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8) #23
+  invoke void @"_ZN4core3ptr361drop_in_place$LT$regex_automata..util..pool..Pool$LT$regex_automata..meta..regex..Cache$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$regex_automata..meta..regex..Cache$u2b$core..panic..unwind_safe..RefUnwindSafe$u2b$core..marker..Send$u2b$core..panic..unwind_safe..UnwindSafe$u2b$core..marker..Sync$GT$$GT$$GT$17hc5b2cfdec77fae66E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8) #22
           to label %common.resume unwind label %13
 
 "_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$regex_automata..meta..regex..RegexI$GT$$GT$17hfb2ecdbf6d955681E.llvm.10559302552934589985.exit": ; preds = %1, %5
@@ -7520,7 +7520,7 @@ define internal fastcc void @"_ZN4core3ptr56drop_in_place$LT$regex_syntax..ast..
           cleanup
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 160, i64 noundef 8) #21, !noalias !3015
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..ClassSet$GT$$GT$17ha1a6aa0bbfeab3d3E"(ptr noalias noundef align 8 dereferenceable(8) %4) #23
+  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$regex_syntax..ast..ClassSet$GT$$GT$17ha1a6aa0bbfeab3d3E"(ptr noalias noundef align 8 dereferenceable(8) %4) #22
           to label %common.resume unwind label %10
 
 5:                                                ; preds = %1
@@ -7625,7 +7625,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$regex_automata..hybrid..rege
   %3 = landingpad { ptr, i32 }
           cleanup
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..hybrid..dfa..Cache$GT$17hfceb6b3041397d88E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(352) %4) #23
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..hybrid..dfa..Cache$GT$17hfceb6b3041397d88E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(352) %4) #22
           to label %9 unwind label %7
 
 5:                                                ; preds = %1
@@ -7714,7 +7714,7 @@ define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { [38 x i32], i32, [1 x i32] }], ptr %.val.i, i64 0, i64 %.1.i.i.i
   %17 = add i64 %.1.i.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassSetItem$GT$17h7fc1901397db0976E"(ptr noalias noundef readonly align 8 dereferenceable(160) %16) #23
+  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassSetItem$GT$17h7fc1901397db0976E"(ptr noalias noundef readonly align 8 dereferenceable(160) %16) #22
           to label %11 unwind label %18, !noalias !3075
 
 18:                                               ; preds = %15
@@ -7748,7 +7748,7 @@ define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..
 
 .body:                                            ; preds = %.body.i, %21
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  invoke void @"_ZN4core3ptr54drop_in_place$LT$regex_syntax..ast..ClassBracketed$GT$17h7a205f9b4d77d7edE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(216) %28) #23
+  invoke void @"_ZN4core3ptr54drop_in_place$LT$regex_syntax..ast..ClassBracketed$GT$17h7a205f9b4d77d7edE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(216) %28) #22
           to label %common.resume unwind label %43
 
 "_ZN4core3ptr53drop_in_place$LT$regex_syntax..ast..ClassSetUnion$GT$17ha981265900022325E.exit": ; preds = %24, %"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..ast..ClassSetItem$GT$$GT$17ha50a4a9a3b7b7c47E.exit.i"
@@ -7779,11 +7779,11 @@ define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..
   br label %"_ZN4core3ptr54drop_in_place$LT$regex_syntax..ast..ClassBracketed$GT$17h7a205f9b4d77d7edE.llvm.10559302552934589985.exit"
 
 39:                                               ; preds = %30
-  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassSetItem$GT$17h7fc1901397db0976E"(ptr noalias noundef align 8 dereferenceable(160) %29) #23
+  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassSetItem$GT$17h7fc1901397db0976E"(ptr noalias noundef align 8 dereferenceable(160) %29) #22
           to label %common.resume unwind label %41
 
 40:                                               ; preds = %30
-  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$regex_syntax..ast..ClassSetBinaryOp$GT$17h6cd27f2bbefda99aE"(ptr noalias noundef align 8 dereferenceable(160) %29) #23
+  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$regex_syntax..ast..ClassSetBinaryOp$GT$17h6cd27f2bbefda99aE"(ptr noalias noundef align 8 dereferenceable(160) %29) #22
           to label %common.resume unwind label %41
 
 41:                                               ; preds = %40, %39
@@ -7918,7 +7918,7 @@ common.resume:                                    ; preds = %.body, %.body2, %40
 
 .body:                                            ; preds = %4, %7
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$regex_syntax..ast..Group$GT$17h523d3b93e8d279afE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(144) %44) #23
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$regex_syntax..ast..Group$GT$17h523d3b93e8d279afE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(144) %44) #22
           to label %common.resume unwind label %46
 
 "_ZN4core3ptr46drop_in_place$LT$regex_syntax..ast..Concat$GT$17h7c8e53b107d01cdcE.llvm.10559302552934589985.exit": ; preds = %12, %"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..ast..Ast$GT$$GT$17h2ef07bf85d3fbbddE.exit.i"
@@ -8532,7 +8532,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$regex_automata..meta..regex.
   %14 = landingpad { ptr, i32 }
           cleanup
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..hir..Properties$GT$$GT$17h005d015c64a85dabE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #23
+  tail call void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..hir..Properties$GT$$GT$17h005d015c64a85dabE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #22
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3471)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3474)
@@ -8823,7 +8823,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$globset..
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %3, i64 0, i64 %.1.i.i
   %17 = add i64 %.1.i.i, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$globset..glob..Token$GT$17h5ed2c5ed3dd508edE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #23
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$globset..glob..Token$GT$17h5ed2c5ed3dd508edE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #22
           to label %11 unwind label %18, !noalias !3624
 
 18:                                               ; preds = %15
@@ -8971,7 +8971,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..wrappe
   %6 = landingpad { ptr, i32 }
           cleanup
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..hybrid..dfa..Cache$GT$17hfceb6b3041397d88E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(352) %7) #23
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..hybrid..dfa..Cache$GT$17hfceb6b3041397d88E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(352) %7) #22
           to label %10 unwind label %8
 
 8:                                                ; preds = %5
@@ -9112,7 +9112,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$globset..
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %3, i64 0, i64 %.1.i.i
   %17 = add i64 %.1.i.i, 1
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$globset..glob..Tokens$GT$17h6524495eb6548d37E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #23
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$globset..glob..Tokens$GT$17h6524495eb6548d37E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #22
           to label %11 unwind label %18, !noalias !3772
 
 18:                                               ; preds = %15
@@ -9469,7 +9469,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$regex_automata..util..captur
   %10 = landingpad { ptr, i32 }
           cleanup
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  invoke void @"_ZN4core3ptr122drop_in_place$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$$GT$$GT$17hd0ff49bedb685f31E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #23
+  invoke void @"_ZN4core3ptr122drop_in_place$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$$GT$$GT$17hd0ff49bedb685f31E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #22
           to label %16 unwind label %14
 
 12:                                               ; preds = %"_ZN4core3ptr143drop_in_place$LT$alloc..vec..Vec$LT$$LP$regex_automata..util..primitives..SmallIndex$C$regex_automata..util..primitives..SmallIndex$RP$$GT$$GT$17hf8e735cb658e739eE.llvm.10559302552934589985.exit"
@@ -9546,7 +9546,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$regex_s
 3:                                                ; preds = %1
   %4 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$regex_syntax..hir..HirKind$GT$17h49504e3dcaf39534E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(48) %2) #23
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$regex_syntax..hir..HirKind$GT$17h49504e3dcaf39534E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(48) %2) #22
           to label %6 unwind label %11
 
 5:                                                ; preds = %1
@@ -10050,7 +10050,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$$LP$usize$C$regex_automata..
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr361drop_in_place$LT$regex_automata..util..pool..Pool$LT$regex_automata..meta..regex..Cache$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$regex_automata..meta..regex..Cache$u2b$core..panic..unwind_safe..RefUnwindSafe$u2b$core..marker..Send$u2b$core..panic..unwind_safe..UnwindSafe$u2b$core..marker..Sync$GT$$GT$$GT$17hc5b2cfdec77fae66E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9) #23
+  invoke void @"_ZN4core3ptr361drop_in_place$LT$regex_automata..util..pool..Pool$LT$regex_automata..meta..regex..Cache$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$regex_automata..meta..regex..Cache$u2b$core..panic..unwind_safe..RefUnwindSafe$u2b$core..marker..Send$u2b$core..panic..unwind_safe..UnwindSafe$u2b$core..marker..Sync$GT$$GT$$GT$17hc5b2cfdec77fae66E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9) #22
           to label %common.resume.i unwind label %14
 
 "_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$regex_automata..meta..regex..RegexI$GT$$GT$17hfb2ecdbf6d955681E.llvm.10559302552934589985.exit.i": ; preds = %6, %1
@@ -10791,11 +10791,11 @@ define hidden void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$regex_s
           to label %"_ZN4core3ptr54drop_in_place$LT$regex_syntax..ast..ClassBracketed$GT$17h7a205f9b4d77d7edE.llvm.10559302552934589985.exit" unwind label %17
 
 13:                                               ; preds = %4
-  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassSetItem$GT$17h7fc1901397db0976E"(ptr noalias noundef align 8 dereferenceable(160) %3) #23
+  invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassSetItem$GT$17h7fc1901397db0976E"(ptr noalias noundef align 8 dereferenceable(160) %3) #22
           to label %19 unwind label %15
 
 14:                                               ; preds = %4
-  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$regex_syntax..ast..ClassSetBinaryOp$GT$17h6cd27f2bbefda99aE"(ptr noalias noundef align 8 dereferenceable(160) %3) #23
+  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$regex_syntax..ast..ClassSetBinaryOp$GT$17h6cd27f2bbefda99aE"(ptr noalias noundef align 8 dereferenceable(160) %3) #22
           to label %19 unwind label %15
 
 15:                                               ; preds = %14, %13
@@ -10904,7 +10904,7 @@ define hidden void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$regex_syn
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { i64, [35 x i64] }], ptr %3, i64 0, i64 %.1.i.i
   %17 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..parse..ClassState$GT$17h6f819b66e8845719E"(ptr noalias noundef align 8 dereferenceable(288) %16) #23
+  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..parse..ClassState$GT$17h6f819b66e8845719E"(ptr noalias noundef align 8 dereferenceable(288) %16) #22
           to label %11 unwind label %18, !noalias !4646
 
 18:                                               ; preds = %15
@@ -10977,7 +10977,7 @@ define hidden void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$regex_syn
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { i64, [27 x i64] }], ptr %3, i64 0, i64 %.1.i.i
   %17 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..parse..GroupState$GT$17h8143521e1be9ea65E"(ptr noalias noundef readonly align 8 dereferenceable(224) %16) #23
+  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..parse..GroupState$GT$17h8143521e1be9ea65E"(ptr noalias noundef readonly align 8 dereferenceable(224) %16) #22
           to label %11 unwind label %18, !noalias !4663
 
 18:                                               ; preds = %15
@@ -11062,7 +11062,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$$u5b$$LP$usize$C$regex_autom
   %12 = landingpad { ptr, i32 }
           cleanup
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  invoke void @"_ZN4core3ptr361drop_in_place$LT$regex_automata..util..pool..Pool$LT$regex_automata..meta..regex..Cache$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$regex_automata..meta..regex..Cache$u2b$core..panic..unwind_safe..RefUnwindSafe$u2b$core..marker..Send$u2b$core..panic..unwind_safe..UnwindSafe$u2b$core..marker..Sync$GT$$GT$$GT$17hc5b2cfdec77fae66E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13) #23
+  invoke void @"_ZN4core3ptr361drop_in_place$LT$regex_automata..util..pool..Pool$LT$regex_automata..meta..regex..Cache$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$regex_automata..meta..regex..Cache$u2b$core..panic..unwind_safe..RefUnwindSafe$u2b$core..marker..Send$u2b$core..panic..unwind_safe..UnwindSafe$u2b$core..marker..Sync$GT$$GT$$GT$17hc5b2cfdec77fae66E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13) #22
           to label %.body unwind label %18
 
 "_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$regex_automata..meta..regex..RegexI$GT$$GT$17hfb2ecdbf6d955681E.llvm.10559302552934589985.exit.i.i": ; preds = %10, %.lr.ph
@@ -11105,7 +11105,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$$u5b$$LP$usize$C$regex_autom
 23:                                               ; preds = %21
   %24 = getelementptr inbounds [0 x { i64, { ptr, ptr } }], ptr %0, i64 0, i64 %.1
   %25 = add i64 %.1, 1
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$$LP$usize$C$regex_automata..meta..regex..Regex$RP$$GT$17hb968216d9c43f49aE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24) #23
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$$LP$usize$C$regex_automata..meta..regex..Regex$RP$$GT$17hb968216d9c43f49aE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24) #22
           to label %21 unwind label %27
 
 26:                                               ; preds = %21
@@ -11281,7 +11281,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$regex_syn
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { i64, [5 x i64] }], ptr %3, i64 0, i64 %.1.i.i
   %17 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$regex_syntax..hir..translate..HirFrame$GT$17h8f35735e603bcbb5E"(ptr noalias noundef align 8 dereferenceable(48) %16) #23
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$regex_syntax..hir..translate..HirFrame$GT$17h8f35735e603bcbb5E"(ptr noalias noundef align 8 dereferenceable(48) %16) #22
           to label %11 unwind label %18, !noalias !4763
 
 18:                                               ; preds = %15
@@ -11694,7 +11694,7 @@ define hidden void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$rege
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..hybrid..dfa..Cache$GT$17hfceb6b3041397d88E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(352) %8) #23
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..hybrid..dfa..Cache$GT$17hfceb6b3041397d88E.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(352) %8) #22
           to label %11 unwind label %9
 
 9:                                                ; preds = %6
@@ -12623,7 +12623,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17he982d04a1a4c3da0E
   store ptr @anon.5058ed677cd16a2d7418ffdb5e06ab20.15, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %12, align 8
-  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.24) #22
+  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.24) #23
   unreachable
 
 13:                                               ; preds = %2
@@ -12641,7 +12641,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17he982d04a1a4c3da0E
   store ptr @anon.5058ed677cd16a2d7418ffdb5e06ab20.15, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %19, align 8
-  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.27) #22
+  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.27) #23
   unreachable
 
 20:                                               ; preds = %2
@@ -12687,7 +12687,7 @@ define hidden void @_ZN4core4sync6atomic12atomic_store17h40a2daa97394d234E.llvm.
   store ptr @anon.5058ed677cd16a2d7418ffdb5e06ab20.15, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %13, align 8
-  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.30) #22
+  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.30) #23
   unreachable
 
 14:                                               ; preds = %3
@@ -12701,7 +12701,7 @@ define hidden void @_ZN4core4sync6atomic12atomic_store17h40a2daa97394d234E.llvm.
   store ptr @anon.5058ed677cd16a2d7418ffdb5e06ab20.15, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %18, align 8
-  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.33) #22
+  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.33) #23
   unreachable
 
 19:                                               ; preds = %3
@@ -12746,7 +12746,7 @@ define hidden void @_ZN4core4sync6atomic12atomic_store17h41ce1fa28ae23d85E.llvm.
   store ptr @anon.5058ed677cd16a2d7418ffdb5e06ab20.15, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %13, align 8
-  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.30) #22
+  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.30) #23
   unreachable
 
 14:                                               ; preds = %3
@@ -12760,7 +12760,7 @@ define hidden void @_ZN4core4sync6atomic12atomic_store17h41ce1fa28ae23d85E.llvm.
   store ptr @anon.5058ed677cd16a2d7418ffdb5e06ab20.15, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %18, align 8
-  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.33) #22
+  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.33) #23
   unreachable
 
 19:                                               ; preds = %3
@@ -12796,7 +12796,7 @@ define hidden void @_ZN4core4sync6atomic5fence17h683d388ef8afd54bE.llvm.10559302
   store ptr @anon.5058ed677cd16a2d7418ffdb5e06ab20.15, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %8, align 8
-  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.36) #22
+  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.36) #23
   unreachable
 
 9:                                                ; preds = %1
@@ -13529,7 +13529,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %3, i64 0, i64 %.1.i
   %17 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$globset..glob..Tokens$GT$17h6524495eb6548d37E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #23
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$globset..glob..Tokens$GT$17h6524495eb6548d37E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #22
           to label %11 unwind label %19
 
 18:                                               ; preds = %11
@@ -13637,7 +13637,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %3, i64 0, i64 %.1.i
   %17 = add i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$$GT$17h0f7d260423afa297E"(ptr noalias noundef readonly align 8 dereferenceable(24) %16) #23
+  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$$GT$17h0f7d260423afa297E"(ptr noalias noundef readonly align 8 dereferenceable(24) %16) #22
           to label %11 unwind label %19
 
 18:                                               ; preds = %11
@@ -13886,7 +13886,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { i64, [5 x i64] }], ptr %3, i64 0, i64 %.1.i
   %17 = add i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$regex_syntax..hir..translate..HirFrame$GT$17h8f35735e603bcbb5E"(ptr noalias noundef align 8 dereferenceable(48) %16) #23
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$regex_syntax..hir..translate..HirFrame$GT$17h8f35735e603bcbb5E"(ptr noalias noundef align 8 dereferenceable(48) %16) #22
           to label %11 unwind label %19
 
 18:                                               ; preds = %11
@@ -14025,7 +14025,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 23:                                               ; preds = %21
   %24 = getelementptr inbounds [0 x { { i64, [4 x i64] }, ptr }], ptr %3, i64 0, i64 %.1.i
   %25 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..hir..Hir$GT$17hc450e507c5804c39E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %24) #23
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..hir..Hir$GT$17hc450e507c5804c39E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %24) #22
           to label %21 unwind label %27
 
 26:                                               ; preds = %21
@@ -14104,7 +14104,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { i64, [27 x i64] }], ptr %3, i64 0, i64 %.1.i
   %17 = add i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..parse..GroupState$GT$17h8143521e1be9ea65E"(ptr noalias noundef readonly align 8 dereferenceable(224) %16) #23
+  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..parse..GroupState$GT$17h8143521e1be9ea65E"(ptr noalias noundef readonly align 8 dereferenceable(224) %16) #22
           to label %11 unwind label %19
 
 18:                                               ; preds = %11
@@ -14184,7 +14184,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { i64, [1 x i64] }], ptr %3, i64 0, i64 %.1.i
   %17 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..ast..Ast$GT$17h46d691f7035d842fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %16) #23
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..ast..Ast$GT$17h46d691f7035d842fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %16) #22
           to label %11 unwind label %19
 
 18:                                               ; preds = %11
@@ -14242,7 +14242,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { i64, [35 x i64] }], ptr %3, i64 0, i64 %.1.i
   %17 = add i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..parse..ClassState$GT$17h6f819b66e8845719E"(ptr noalias noundef align 8 dereferenceable(288) %16) #23
+  invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..parse..ClassState$GT$17h6f819b66e8845719E"(ptr noalias noundef align 8 dereferenceable(288) %16) #22
           to label %11 unwind label %19
 
 18:                                               ; preds = %11
@@ -14290,7 +14290,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 15:                                               ; preds = %11
   %16 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %3, i64 0, i64 %.1.i
   %17 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$globset..glob..Token$GT$17h5ed2c5ed3dd508edE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #23
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$globset..glob..Token$GT$17h5ed2c5ed3dd508edE.llvm.10559302552934589985"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #22
           to label %11 unwind label %19
 
 18:                                               ; preds = %11
@@ -14344,7 +14344,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 14:                                               ; preds = %12
   %15 = getelementptr inbounds [0 x ptr], ptr %3, i64 0, i64 %.1.i
   %16 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17hc41b52a9973c5be3E.llvm.10559302552934589985"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15) #23
+  invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17hc41b52a9973c5be3E.llvm.10559302552934589985"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15) #22
           to label %12 unwind label %18
 
 17:                                               ; preds = %12
@@ -16123,7 +16123,7 @@ define hidden void @"_ZN99_$LT$regex_automata..util..pool..inner..PoolGuard$LT$T
 17:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !5732
   store ptr null, ptr %2, align 8, !noalias !5732
-  call void @_ZN4core9panicking13assert_failed17h81128d1d444485d5E(i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN14regex_automata4util4pool5inner17THREAD_ID_DROPPED17hfc39d7cf23ef2419E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.11.llvm.10559302552934589985) #22, !noalias !5732
+  call void @_ZN4core9panicking13assert_failed17h81128d1d444485d5E(i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN14regex_automata4util4pool5inner17THREAD_ID_DROPPED17hfc39d7cf23ef2419E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.11.llvm.10559302552934589985) #23, !noalias !5732
   unreachable
 
 18:                                               ; preds = %9
@@ -16191,7 +16191,7 @@ define hidden void @"_ZN99_$LT$regex_automata..util..pool..inner..PoolGuard$LT$T
 19:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !5744
   store ptr null, ptr %2, align 8, !noalias !5744
-  call void @_ZN4core9panicking13assert_failed17h81128d1d444485d5E(i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN14regex_automata4util4pool5inner17THREAD_ID_DROPPED17hfc39d7cf23ef2419E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.11.llvm.10559302552934589985) #22, !noalias !5744
+  call void @_ZN4core9panicking13assert_failed17h81128d1d444485d5E(i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN14regex_automata4util4pool5inner17THREAD_ID_DROPPED17hfc39d7cf23ef2419E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5058ed677cd16a2d7418ffdb5e06ab20.11.llvm.10559302552934589985) #23, !noalias !5744
   unreachable
 
 20:                                               ; preds = %9
@@ -16360,8 +16360,8 @@ attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn mem
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #21 = { nounwind }
-attributes #22 = { noreturn }
-attributes #23 = { cold }
+attributes #22 = { cold }
+attributes #23 = { noreturn }
 attributes #24 = { cold noreturn nounwind }
 attributes #25 = { cold "function-inline-cost-multiplier"="2" }
 attributes #26 = { "function-inline-cost-multiplier"="2" }

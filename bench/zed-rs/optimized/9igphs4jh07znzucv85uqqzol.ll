@@ -4369,17 +4369,16 @@ define hidden noundef zeroext i1 @"_ZN54_$LT$proto..PeerId$u20$as$u20$core..cmp.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i8 -1, 2) i8 @"_ZN55_$LT$D$u20$as$u20$sum_tree..SeekTarget$LT$S$C$D$GT$$GT$3cmp17h1f81528d461c2561E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 captures(none) %2) unnamed_addr #12 {
-"_ZN74_$LT$channel..channel_chat..ChannelMessageId$u20$as$u20$core..cmp..Ord$GT$3cmp17hd58c7e00e7dc9131E.exit":
   %.val = load i64, ptr %0, align 8, !range !301, !noundef !5
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val1 = load i64, ptr %3, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val1 = load i64, ptr %4, align 8
   %.val2 = load i64, ptr %1, align 8, !range !301, !noundef !5
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val3 = load i64, ptr %4, align 8
-  %5 = tail call i8 @llvm.ucmp.i8.i64(i64 %.val, i64 %.val2)
-  %6 = icmp eq i64 %.val, %.val2
-  %7 = tail call i8 @llvm.ucmp.i8.i64(i64 %.val1, i64 %.val3)
-  %.sroa.0.0.i = select i1 %6, i8 %7, i8 %5
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val3 = load i64, ptr %5, align 8
+  %6 = tail call i8 @llvm.ucmp.i8.i64(i64 %.val, i64 %.val2)
+  %7 = icmp eq i64 %.val, %.val2
+  %8 = tail call i8 @llvm.ucmp.i8.i64(i64 %.val1, i64 %.val3)
+  %.sroa.0.0.i = select i1 %7, i8 %8, i8 %6
   ret i8 %.sroa.0.0.i
 }
 

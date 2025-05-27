@@ -3841,10 +3841,10 @@ _ZN12regex_syntax3hir9translate8HirFrame17unwrap_repetition17hb893e4b2ea7c3361E.
   %832 = icmp ne i32 %.06.i, 0
   %.0.sroa.speculated.i.i.i = zext i1 %832 to i32
   store i32 %.0.sroa.speculated.i.i.i, ptr %816, align 8, !alias.scope !835, !noalias !838
-  %trunc17.i.i = trunc nuw i32 %.sroa.0.0.i288 to i1
   %833 = icmp ne i32 %.sroa.7.0.i, 0
-  %not.trunc17.i.i = xor i1 %trunc17.i.i, true
-  %narrow.i.i = or i1 %833, %not.trunc17.i.i
+  %trunc18.i.i = trunc nuw i32 %.sroa.0.0.i288 to i1
+  %switch24.i.i = xor i1 %trunc18.i.i, true
+  %narrow.i.i = or i1 %833, %switch24.i.i
   %spec.select26.i.i = zext i1 %narrow.i.i to i32
   store i32 1, ptr %32, align 8, !alias.scope !835, !noalias !838
   store i32 %spec.select26.i.i, ptr %817, align 4, !alias.scope !835, !noalias !838

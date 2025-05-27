@@ -11754,12 +11754,12 @@ _ZNK12_GLOBAL__N_114MachineSinking22GetAllSortedSuccessorsERN4llvm12MachineInstr
   %215 = load i32, ptr %214, align 8, !tbaa !26
   %216 = zext i32 %215 to i64
   %217 = getelementptr inbounds nuw ptr, ptr %213, i64 %216
-  %.not78133 = icmp eq i32 %215, 0
-  br i1 %.not78133, label %.thread105.thread, label %.lr.ph
+  %.not78131 = icmp eq i32 %215, 0
+  br i1 %.not78131, label %.thread105.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK12_GLOBAL__N_114MachineSinking22GetAllSortedSuccessorsERN4llvm12MachineInstrEPNS1_17MachineBasicBlockERNS1_13SmallDenseMapIS5_NS1_11SmallVectorIS5_Lj4EEELj4ENS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S8_EEEE.exit, %220
-  %.076134 = phi ptr [ %223, %220 ], [ %213, %_ZNK12_GLOBAL__N_114MachineSinking22GetAllSortedSuccessorsERN4llvm12MachineInstrEPNS1_17MachineBasicBlockERNS1_13SmallDenseMapIS5_NS1_11SmallVectorIS5_Lj4EEELj4ENS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S8_EEEE.exit ]
-  %218 = load ptr, ptr %.076134, align 8, !tbaa !122
+  %.076132 = phi ptr [ %223, %220 ], [ %213, %_ZNK12_GLOBAL__N_114MachineSinking22GetAllSortedSuccessorsERN4llvm12MachineInstrEPNS1_17MachineBasicBlockERNS1_13SmallDenseMapIS5_NS1_11SmallVectorIS5_Lj4EEELj4ENS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S8_EEEE.exit ]
+  %218 = load ptr, ptr %.076132, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #21
   store i8 0, ptr %10, align 1, !tbaa !49
   %219 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114MachineSinking23AllUsesDominatedByBlockEN4llvm8RegisterEPNS1_17MachineBasicBlockES4_RbS5_(ptr noundef nonnull align 8 dereferenceable(1193) %0, i32 %44, ptr noundef %218, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %10)
@@ -11769,10 +11769,10 @@ _ZNK12_GLOBAL__N_114MachineSinking22GetAllSortedSuccessorsERN4llvm12MachineInstr
   %221 = load i8, ptr %10, align 1, !tbaa !49, !range !50, !noundef !51
   %222 = trunc nuw i8 %221 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #21
-  %223 = getelementptr inbounds nuw i8, ptr %.076134, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %.076132, i64 8
   %.not78 = icmp eq ptr %223, %217
-  %or.cond = select i1 %222, i1 true, i1 %.not78
-  br i1 %or.cond, label %.thread105.thread, label %.lr.ph
+  %or.cond149 = select i1 %222, i1 true, i1 %.not78
+  br i1 %or.cond149, label %.thread105.thread, label %.lr.ph
 
 224:                                              ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #21
@@ -11792,8 +11792,8 @@ _ZNK12_GLOBAL__N_114MachineSinking22GetAllSortedSuccessorsERN4llvm12MachineInstr
 .thread105:                                       ; preds = %.thread110
   %228 = icmp eq ptr %2, %.263113
   %.not80 = icmp eq ptr %.263113, null
-  %or.cond191 = or i1 %228, %.not80
-  br i1 %or.cond191, label %.thread105.thread, label %229
+  %or.cond = or i1 %228, %.not80
+  br i1 %or.cond, label %.thread105.thread, label %229
 
 229:                                              ; preds = %.thread105
   %230 = getelementptr inbounds nuw i8, ptr %.263113, i64 216

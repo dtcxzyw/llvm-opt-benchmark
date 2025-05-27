@@ -55939,12 +55939,12 @@ define internal void @"_ZN3std4sync6poison4once4Once15call_once_force28_$u7b$$u7
   br label %25
 
 25:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17ha61c704aebdd8b25E.exit.i.i.i", %21
-  %.sroa.02.135.i.i.i = phi i64 [ 4, %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17ha61c704aebdd8b25E.exit.i.i.i" ], [ %22, %21 ]
+  %.sroa.02.134.i.i.i = phi i64 [ 4, %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17ha61c704aebdd8b25E.exit.i.i.i" ], [ %22, %21 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !4062
   br label %26
 
 26:                                               ; preds = %25, %12
-  %.sroa.02.0.i.i.i = phi i64 [ %.sroa.02.135.i.i.i, %25 ], [ %14, %12 ]
+  %.sroa.02.0.i.i.i = phi i64 [ %.sroa.02.134.i.i.i, %25 ], [ %14, %12 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !4062
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h66c1607c4f589b0fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, i64 noundef 0, i64 noundef %.sroa.02.0.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8d4d05d48f1984be0c820ace9dd61f64.369), !noalias !4062
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !4062
@@ -55997,8 +55997,8 @@ define internal void @"_ZN3std4sync6poison4once4Once15call_once_force28_$u7b$$u7
           to label %41 unwind label %38, !noalias !4062
 
 41:                                               ; preds = %42, %40
-  %.pn.pn40.i.i.i = phi { ptr, i32 } [ %43, %42 ], [ %.pn.i.i.i, %40 ]
-  resume { ptr, i32 } %.pn.pn40.i.i.i
+  %.pn.pn39.i.i.i = phi { ptr, i32 } [ %43, %42 ], [ %.pn.i.i.i, %40 ]
+  resume { ptr, i32 } %.pn.pn39.i.i.i
 
 42:                                               ; preds = %26
   %43 = landingpad { ptr, i32 }

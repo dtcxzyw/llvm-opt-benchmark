@@ -881,8 +881,8 @@ define hidden void @"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21), !noalias !192
   call void @"_ZN79_$LT$fs_err..dir..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0d9a49d7638e877cE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %21, ptr noalias noundef nonnull align 8 dereferenceable(120) %1), !noalias !203
   %28 = load i64, ptr %21, align 8, !range !204, !noalias !192, !noundef !3
-  %trunc9.i.i.i.i.i = trunc nuw i64 %28 to i1
-  br i1 %trunc9.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %.loopexit60.i.i.i
+  %trunc7.i.i.i.i.i = trunc nuw i64 %28 to i1
+  br i1 %trunc7.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %.loopexit60.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -1015,8 +1015,8 @@ common.resume.i.i.i:                              ; preds = %113, %103, %90, %.b
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15), !noalias !270
   call void @"_ZN79_$LT$fs_err..dir..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0d9a49d7638e877cE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %15, ptr noalias noundef nonnull align 8 dereferenceable(120) %1), !noalias !279
   %60 = load i64, ptr %15, align 8, !range !204, !noalias !270, !noundef !3
-  %trunc9.i.i.i.i.i.i.i.i = trunc nuw i64 %60 to i1
-  br i1 %trunc9.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i
+  %trunc7.i.i.i.i.i.i.i.i = trunc nuw i64 %60 to i1
+  br i1 %trunc7.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %"_ZN4core6option15Option$LT$T$GT$6insert17h42fe291053797e9eE.exit.i.i.i.i.i.i", %84
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !270
@@ -1183,8 +1183,8 @@ common.resume.i.i.i:                              ; preds = %113, %103, %90, %.b
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !358
   call void @"_ZN79_$LT$fs_err..dir..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0d9a49d7638e877cE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull align 8 dereferenceable(40) %93), !noalias !367
   %97 = load i64, ptr %8, align 8, !range !204, !noalias !358, !noundef !3
-  %trunc9.i.i16.i.i.i = trunc nuw i64 %97 to i1
-  br i1 %trunc9.i.i16.i.i.i, label %.lr.ph.i.i18.i.i.i, label %.loopexit.i.i.i
+  %trunc7.i.i16.i.i.i = trunc nuw i64 %97 to i1
+  br i1 %trunc7.i.i16.i.i.i, label %.lr.ph.i.i18.i.i.i, label %.loopexit.i.i.i
 
 .lr.ph.i.i18.i.i.i:                               ; preds = %96
   %98 = getelementptr inbounds nuw i8, ptr %8, i64 8

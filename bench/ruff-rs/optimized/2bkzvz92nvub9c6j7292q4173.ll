@@ -1828,9 +1828,9 @@ define hidden i64 @"_ZN21ruff_python_formatter7options1_107_$LT$impl$u20$serde..
   %26 = icmp eq i64 %25, -9223372036854775808
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = load i32, ptr %27, align 8, !noalias !146
-  br i1 %26, label %.thread40, label %29
+  br i1 %26, label %.thread39, label %29
 
-.thread40:                                        ; preds = %.noexc32
+.thread39:                                        ; preds = %.noexc32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !146
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !146
   br label %44
@@ -1890,10 +1890,10 @@ define hidden i64 @"_ZN21ruff_python_formatter7options1_107_$LT$impl$u20$serde..
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !146
   br i1 %.sroa.0.1.i, label %44, label %46
 
-44:                                               ; preds = %.thread40, %43
-  %.sroa.4.0.i43 = phi i32 [ %28, %.thread40 ], [ %.sroa.4.1.i, %43 ]
+44:                                               ; preds = %.thread39, %43
+  %.sroa.4.0.i42 = phi i32 [ %28, %.thread39 ], [ %.sroa.4.1.i, %43 ]
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %.sroa.4.0.i43, ptr %45, align 4
+  store i32 %.sroa.4.0.i42, ptr %45, align 4
   store i16 1, ptr %5, align 4
   invoke void @"_ZN4core3ptr53drop_in_place$LT$serde_wasm_bindgen..error..Error$GT$17he809c0270c749ec7E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %45)
           to label %"_ZN4core3ptr138drop_in_place$LT$core..result..Result$LT$ruff_python_formatter..options..DocstringCodeLineWidth$C$serde_wasm_bindgen..error..Error$GT$$GT$17he2d57bdc061f6a12E.exit35" unwind label %16

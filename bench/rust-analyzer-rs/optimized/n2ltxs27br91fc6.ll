@@ -12070,14 +12070,14 @@ default.unreachable:                              ; preds = %12
   %107 = xor i16 %106, -1
   %108 = getelementptr inbounds nuw i8, ptr %99, i64 16
   store ptr %99, ptr %3, align 8, !noalias !4088
-  %.sroa.4.0..sroa_idx.i7.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %108, ptr %.sroa.4.0..sroa_idx.i7.i.i.i, align 8, !noalias !4088
-  %.sroa.5.0..sroa_idx.i8.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %103, ptr %.sroa.5.0..sroa_idx.i8.i.i.i, align 8, !noalias !4088
-  %.sroa.6.0..sroa_idx.i9.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i16 %107, ptr %.sroa.6.0..sroa_idx.i9.i.i.i, align 8, !noalias !4088
-  %.sroa.72.0..sroa_idx.i10.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %94, ptr %.sroa.72.0..sroa_idx.i10.i.i.i, align 8, !noalias !4088
+  %.sroa.4.0..sroa_idx.i6.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %108, ptr %.sroa.4.0..sroa_idx.i6.i.i.i, align 8, !noalias !4088
+  %.sroa.5.0..sroa_idx.i7.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %103, ptr %.sroa.5.0..sroa_idx.i7.i.i.i, align 8, !noalias !4088
+  %.sroa.6.0..sroa_idx.i8.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i16 %107, ptr %.sroa.6.0..sroa_idx.i8.i.i.i, align 8, !noalias !4088
+  %.sroa.72.0..sroa_idx.i9.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i64 %94, ptr %.sroa.72.0..sroa_idx.i9.i.i.i, align 8, !noalias !4088
   %109 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd784b303648b0fdcE.llvm.3403078607549408116(ptr noalias noundef nonnull align 8 dereferenceable(40) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %97), !noalias !4087
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !4088
   br i1 %109, label %"_ZN60_$LT$hir_ty..ConstScalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h08d8ebf5c2b9e08cE.exit", label %110

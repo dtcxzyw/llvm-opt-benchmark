@@ -9027,9 +9027,9 @@ define hidden void @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..map..cor
   %18 = getelementptr inbounds { { ptr, i32, i32, i8, [7 x i8] }, { i64, i64, i8, i8, [6 x i8] } }, ptr %.val2.i.i.i.i, i64 %.val3.i.i.i.i
   br label %19
 
-19:                                               ; preds = %41, %4
-  %.sroa.9.0.i.i = phi i64 [ 0, %4 ], [ %42, %41 ]
-  %.pn.i = phi i64 [ %2, %4 ], [ %43, %41 ]
+19:                                               ; preds = %42, %4
+  %.sroa.9.0.i.i = phi i64 [ 0, %4 ], [ %43, %42 ]
+  %.pn.i = phi i64 [ %2, %4 ], [ %44, %42 ]
   %.sroa.01.0.i.i = and i64 %.pn.i, %14
   %20 = getelementptr inbounds i8, ptr %15, i64 %.sroa.01.0.i.i
   %.0.copyload.i31.i = load <16 x i8>, ptr %20, align 1, !noalias !1876
@@ -9042,7 +9042,7 @@ define hidden void @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..map..cor
   %23 = icmp eq <16 x i8> %.0.copyload.i31.i, splat (i8 -1)
   %24 = bitcast <16 x i1> %23 to i16
   %25 = icmp eq i16 %24, 0
-  br i1 %25, label %41, label %44
+  br i1 %25, label %42, label %45
 
 .lr.ph.i:                                         ; preds = %19, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h035ad45f24f9bf76E.exit.backedge.i"
   %.02140.i = phi i16 [ %29, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h035ad45f24f9bf76E.exit.backedge.i" ], [ %22, %19 ]
@@ -9056,52 +9056,52 @@ define hidden void @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..map..cor
   %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %32
   %.val.i.i = load i64, ptr %gep.i, align 8, !noalias !1879, !noundef !4
   %33 = icmp ult i64 %.val.i.i, %9
-  br i1 %33, label %34, label %40, !prof !89
+  br i1 %33, label %34, label %41, !prof !89
 
 34:                                               ; preds = %.lr.ph.i
   %35 = getelementptr inbounds [0 x { { { { i64, ptr }, i64 } }, i64, i64 }], ptr %7, i64 0, i64 %.val.i.i
   %36 = getelementptr i8, ptr %35, i64 16
   %.val3.i.i.i = load i64, ptr %36, align 8, !noalias !1882, !noundef !4
   %.not.i.i.i.i.i.i = icmp eq i64 %.val3.i.i.i, %.val3.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.17454970623020605724.exit.i.i.i.i.i.i", label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h035ad45f24f9bf76E.exit.backedge.i"
+  br i1 %.not.i.i.i.i.i.i, label %37, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h035ad45f24f9bf76E.exit.backedge.i"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.17454970623020605724.exit.i.i.i.i.i.i": ; preds = %34
-  %37 = getelementptr i8, ptr %35, i64 8
-  %.val2.i.i.i = load ptr, ptr %37, align 8, !noalias !1882, !nonnull !4, !noundef !4
+37:                                               ; preds = %34
+  %38 = getelementptr i8, ptr %35, i64 8
+  %.val2.i.i.i = load ptr, ptr %38, align 8, !noalias !1882, !nonnull !4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5), !noalias !1885
-  %38 = getelementptr inbounds { { ptr, i32, i32, i8, [7 x i8] }, { i64, i64, i8, i8, [6 x i8] } }, ptr %.val2.i.i.i, i64 %.val3.i.i.i.i
-  call void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h22e4619eb5a4d6e3E.llvm.17454970623020605724"(ptr noalias noundef nonnull sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 captures(none) dereferenceable(56) %5, ptr noundef nonnull readonly align 8 %.val2.i.i.i, ptr noundef nonnull readonly %38, ptr noundef nonnull readonly align 8 %.val2.i.i.i.i, ptr noundef nonnull readonly %18), !noalias !1882
-  %39 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6f12a2326808b09cE.llvm.17454970623020605724(ptr noalias noundef nonnull align 8 dereferenceable(56) %5), !noalias !1882
+  %39 = getelementptr inbounds { { ptr, i32, i32, i8, [7 x i8] }, { i64, i64, i8, i8, [6 x i8] } }, ptr %.val2.i.i.i, i64 %.val3.i.i.i.i
+  call void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h22e4619eb5a4d6e3E.llvm.17454970623020605724"(ptr noalias noundef nonnull sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 captures(none) dereferenceable(56) %5, ptr noundef nonnull readonly align 8 %.val2.i.i.i, ptr noundef nonnull readonly %39, ptr noundef nonnull readonly align 8 %.val2.i.i.i.i, ptr noundef nonnull readonly %18), !noalias !1882
+  %40 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6f12a2326808b09cE.llvm.17454970623020605724(ptr noalias noundef nonnull align 8 dereferenceable(56) %5), !noalias !1882
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !1885
-  br i1 %39, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h035ad45f24f9bf76E.exit.backedge.i", label %46
+  br i1 %40, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h035ad45f24f9bf76E.exit.backedge.i", label %47
 
-"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h035ad45f24f9bf76E.exit.backedge.i": ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.17454970623020605724.exit.i.i.i.i.i.i", %34
+"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h035ad45f24f9bf76E.exit.backedge.i": ; preds = %37, %34
   %.not.not.i.i = icmp eq i16 %29, 0
   br i1 %.not.not.i.i, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h035ad45f24f9bf76E.exit._crit_edge.i", label %.lr.ph.i
 
-40:                                               ; preds = %.lr.ph.i
+41:                                               ; preds = %.lr.ph.i
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.val.i.i, i64 noundef %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cce839ff0e58ab7be841b0106efc43d8.26) #55, !noalias !1882
   unreachable
 
-41:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h035ad45f24f9bf76E.exit._crit_edge.i"
-  %42 = add i64 %.sroa.9.0.i.i, 16
-  %43 = add i64 %.sroa.01.0.i.i, %42
+42:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h035ad45f24f9bf76E.exit._crit_edge.i"
+  %43 = add i64 %.sroa.9.0.i.i, 16
+  %44 = add i64 %.sroa.01.0.i.i, %43
   br label %19
 
-44:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h035ad45f24f9bf76E.exit._crit_edge.i"
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %45, align 8
+45:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h035ad45f24f9bf76E.exit._crit_edge.i"
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %46, align 8
   store ptr null, ptr %0, align 8
-  br label %49
+  br label %50
 
-46:                                               ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8700cd6c4ab2a691E.llvm.17454970623020605724.exit.i.i.i.i.i.i"
-  %47 = getelementptr inbounds i64, ptr %15, i64 %32
+47:                                               ; preds = %37
+  %48 = getelementptr inbounds i64, ptr %15, i64 %32
   store ptr %1, ptr %0, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %47, ptr %48, align 8
-  br label %49
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %48, ptr %49, align 8
+  br label %50
 
-49:                                               ; preds = %46, %44
+50:                                               ; preds = %47, %45
   ret void
 }
 

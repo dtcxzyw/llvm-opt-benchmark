@@ -7609,7 +7609,7 @@ define dso_local noundef i32 @_ZNK4llvm15CodeGenRegister9getWeightERKNS_14CodeGe
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i8 0, ptr %3, align 8, !tbaa !450, !alias.scope !443
   %11 = icmp eq ptr %7, %4
-  br i1 %11, label %._crit_edge, label %12
+  br i1 %11, label %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit, label %12
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -7642,7 +7642,7 @@ define dso_local noundef i32 @_ZNK4llvm15CodeGenRegister9getWeightERKNS_14CodeGe
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 440
   br label %29
 
-._crit_edge:                                      ; preds = %29, %2
+_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit: ; preds = %29, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %35, %29 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #26
   ret i32 %.0.lcssa
@@ -7663,7 +7663,7 @@ define dso_local noundef i32 @_ZNK4llvm15CodeGenRegister9getWeightERKNS_14CodeGe
   call void @_ZN4llvm15SparseBitVectorILj128EE23SparseBitVectorIterator20AdvanceToNextNonZeroEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
   %39 = load i8, ptr %3, align 8, !tbaa !450, !range !287, !noundef !288
   %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %._crit_edge, label %29
+  br i1 %40, label %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit, label %29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -24163,7 +24163,7 @@ _ZN4llvm11SmallVectorINS_11LaneBitmaskELj16EEC2EmRKS1_.exit: ; preds = %.lr.ph.i
   %.not119138 = icmp eq ptr %32, %33
   br i1 %.not119138, label %._crit_edge, label %.lr.ph140
 
-._crit_edge:                                      ; preds = %.loopexit, %_ZN4llvm11SmallVectorINS_11LaneBitmaskELj16EEC2EmRKS1_.exit
+._crit_edge:                                      ; preds = %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit, %_ZN4llvm11SmallVectorINS_11LaneBitmaskELj16EEC2EmRKS1_.exit
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.0108.0142, i64 480
   %35 = icmp eq ptr %34, %2
   br i1 %35, label %_ZN4llvm15CodeGenRegister19setRegUnitLaneMasksERKNS_11SmallVectorINS_11LaneBitmaskELj16EEE.exit, label %36
@@ -24259,14 +24259,14 @@ _ZNSt15_Deque_iteratorIN4llvm15CodeGenRegisterERS1_PS1_EppEv.exit: ; preds = %_Z
   %.not = icmp eq ptr %.sroa.0108.1, %6
   br i1 %.not, label %._crit_edge147, label %14
 
-.lr.ph140:                                        ; preds = %_ZN4llvm11SmallVectorINS_11LaneBitmaskELj16EEC2EmRKS1_.exit, %.loopexit
-  %.sroa.0100.0139 = phi ptr [ %254, %.loopexit ], [ %32, %_ZN4llvm11SmallVectorINS_11LaneBitmaskELj16EEC2EmRKS1_.exit ]
+.lr.ph140:                                        ; preds = %_ZN4llvm11SmallVectorINS_11LaneBitmaskELj16EEC2EmRKS1_.exit, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit
+  %.sroa.0100.0139 = phi ptr [ %254, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit ], [ %32, %_ZN4llvm11SmallVectorINS_11LaneBitmaskELj16EEC2EmRKS1_.exit ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0100.0139, i64 40
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 392
   %72 = load i64, ptr %71, align 8, !tbaa !51
   %73 = icmp eq i64 %72, 0
-  br i1 %73, label %74, label %.loopexit
+  br i1 %73, label %74, label %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit
 
 74:                                               ; preds = %.lr.ph140
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.0100.0139, i64 32
@@ -24276,7 +24276,7 @@ _ZNSt15_Deque_iteratorIN4llvm15CodeGenRegisterERS1_PS1_EppEv.exit: ; preds = %_Z
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 448
   %78 = load ptr, ptr %77, align 8, !tbaa !281, !noalias !1062
   %79 = icmp eq ptr %78, %77
-  br i1 %79, label %.loopexit, label %80
+  br i1 %79, label %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit, label %80
 
 80:                                               ; preds = %74
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 16
@@ -24423,7 +24423,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i: ; preds = %145, %1
 _ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread.i: ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i, %143, %141
   %150 = load ptr, ptr %.sroa.990.0134.ph, align 8, !tbaa !281
   %151 = icmp eq ptr %150, %77
-  br i1 %151, label %.loopexit, label %152
+  br i1 %151, label %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit, label %152
 
 152:                                              ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread.i
   %153 = getelementptr inbounds nuw i8, ptr %150, i64 16
@@ -24623,7 +24623,7 @@ _ZN4llvm15SparseBitVectorILj128EE23SparseBitVectorIterator20AdvanceToNextNonZero
   %253 = add nuw i32 %252, %.018.i.frozen.i50
   br label %_ZN4llvm15SparseBitVectorILj128EE23SparseBitVectorIterator20AdvanceToNextNonZeroEv.exit68.backedge
 
-.loopexit:                                        ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread.i, %74, %.lr.ph140
+_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit: ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread.i, %74, %.lr.ph140
   %254 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0100.0139) #30
   %.not119 = icmp eq ptr %254, %33
   br i1 %.not119, label %._crit_edge, label %.lr.ph140

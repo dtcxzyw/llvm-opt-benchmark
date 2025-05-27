@@ -7069,8 +7069,8 @@ _ZN21ruff_python_formatter6string9docstring18indent_with_suffix17h264dccdd8fbe47
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0fad99b4e287b1ffE.exit.thread.i.i.i.i.i": ; preds = %1251
   %1297 = load i64, ptr %302, align 8, !alias.scope !716, !noalias !717, !noundef !3
-  %.not16.i.i.i.i.i = icmp eq i64 %1297, 0
-  br i1 %.not16.i.i.i.i.i, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE.exit.i.i.i.i.i", label %.loopexit20.i.i.i.i
+  %.not14.i.i.i.i.i = icmp eq i64 %1297, 0
+  br i1 %.not14.i.i.i.i.i, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE.exit.i.i.i.i.i", label %.loopexit20.i.i.i.i
 
 1298:                                             ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0fad99b4e287b1ffE.exit.i.i.i.i.i"
   %1299 = icmp eq i64 %.sroa.0.0.i.i.i.i59.i.i.i, 0
@@ -9903,7 +9903,7 @@ define internal fastcc void @_ZN21ruff_python_formatter6string9docstring20Docstr
   %141 = or disjoint i32 %138, %140
   %142 = or disjoint i32 %141, %137
   %.not.i.i78 = icmp eq i32 %142, 1114112
-  br i1 %.not.i.i78, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4e337ef3751cde74E.exit81", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i71"
+  br i1 %.not.i.i78, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb2fa0d9eb695b06E.exit", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i71"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i71": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i.i77", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h223e5af2d791cb36E.exit14.i.i.i.i76", %121, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h223e5af2d791cb36E.exit12.i.i.i.i70"
   %143 = phi ptr [ %134, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i.i77" ], [ %114, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h223e5af2d791cb36E.exit12.i.i.i.i70" ], [ %124, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h223e5af2d791cb36E.exit14.i.i.i.i76" ], [ %108, %121 ]
@@ -9911,10 +9911,10 @@ define internal fastcc void @_ZN21ruff_python_formatter6string9docstring20Docstr
   switch i32 %spec.select.i10.i.i72, label %144 [
     i32 32, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17he958eba8bbd50ee4E.exit.i.i"
     i32 9, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17he958eba8bbd50ee4E.exit.i.i"
-    i32 10, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4e337ef3751cde74E.exit81"
-    i32 11, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4e337ef3751cde74E.exit81"
-    i32 12, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4e337ef3751cde74E.exit81"
-    i32 13, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4e337ef3751cde74E.exit81"
+    i32 10, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb2fa0d9eb695b06E.exit"
+    i32 11, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb2fa0d9eb695b06E.exit"
+    i32 12, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb2fa0d9eb695b06E.exit"
+    i32 13, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb2fa0d9eb695b06E.exit"
   ]
 
 144:                                              ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i71"
@@ -9958,24 +9958,24 @@ define internal fastcc void @_ZN21ruff_python_formatter6string9docstring20Docstr
 "_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h98e77ea4fef3915eE.exit.i.i.i": ; preds = %159, %154, %151, %148
   %.sroa.0.0.i.i.i.i.i75 = phi i8 [ %153, %151 ], [ %164, %159 ], [ %150, %148 ], [ %158, %154 ]
   %165 = trunc i8 %.sroa.0.0.i.i.i.i.i75 to i1
-  br i1 %165, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4e337ef3751cde74E.exit81", label %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h98e77ea4fef3915eE.exit.thread3.i.i.i"
+  br i1 %165, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb2fa0d9eb695b06E.exit", label %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h98e77ea4fef3915eE.exit.thread3.i.i.i"
 
 "_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h98e77ea4fef3915eE.exit.thread3.i.i.i": ; preds = %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h98e77ea4fef3915eE.exit.i.i.i", %146, %144
-  br label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4e337ef3751cde74E.exit81"
+  br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb2fa0d9eb695b06E.exit"
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17he958eba8bbd50ee4E.exit.i.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i71", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i71"
   %.not.i.i.i74 = icmp eq ptr %143, %106
-  br i1 %.not.i.i.i74, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4e337ef3751cde74E.exit81", label %.lr.ph.i.i
+  br i1 %.not.i.i.i74, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb2fa0d9eb695b06E.exit", label %.lr.ph.i.i
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4e337ef3751cde74E.exit81": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i.i77", %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17he958eba8bbd50ee4E.exit.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i71", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i71", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i71", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i71", %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h98e77ea4fef3915eE.exit.thread3.i.i.i", %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h98e77ea4fef3915eE.exit.i.i.i"
+"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb2fa0d9eb695b06E.exit": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i71", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i71", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i71", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i71", %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17he958eba8bbd50ee4E.exit.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i.i77", %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h98e77ea4fef3915eE.exit.i.i.i", %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h98e77ea4fef3915eE.exit.thread3.i.i.i"
   %.sroa.0.0.i73 = phi i1 [ false, %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h98e77ea4fef3915eE.exit.thread3.i.i.i" ], [ true, %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h98e77ea4fef3915eE.exit.i.i.i" ], [ true, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i71" ], [ true, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i71" ], [ true, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i71" ], [ true, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i71" ], [ false, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17he958eba8bbd50ee4E.exit.i.i" ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i.i77" ]
   %166 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %.sroa.0121.0.copyload = load i32, ptr %166, align 8
-  %.sroa.5123.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %.sroa.5124.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %.sroa.5124.0.copyload = load i64, ptr %.sroa.5124.0..sroa_idx, align 8
-  %.sroa.10129.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %.sroa.10129.0.copyload = load i64, ptr %.sroa.10129.0..sroa_idx, align 8
+  %.sroa.0117.0.copyload = load i32, ptr %166, align 8
+  %.sroa.5119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %.sroa.5120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %.sroa.5120.0.copyload = load i64, ptr %.sroa.5120.0..sroa_idx, align 8
+  %.sroa.10125.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %.sroa.10125.0.copyload = load i64, ptr %.sroa.10125.0..sroa_idx, align 8
   %167 = load i32, ptr %17, align 8, !range !6, !alias.scope !942, !noalias !945, !noundef !3
   switch i32 %167, label %default.unreachable [
     i32 0, label %168
@@ -9985,35 +9985,35 @@ define internal fastcc void @_ZN21ruff_python_formatter6string9docstring20Docstr
     i32 4, label %_ZN21ruff_python_formatter6string9docstring11Indentation10trim_start17hfde32da3c4fd8094E.exit
   ]
 
-default.unreachable:                              ; preds = %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4e337ef3751cde74E.exit81"
+default.unreachable:                              ; preds = %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb2fa0d9eb695b06E.exit"
   unreachable
 
 default.unreachable42.i:                          ; preds = %184
   unreachable
 
-168:                                              ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4e337ef3751cde74E.exit81"
+168:                                              ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb2fa0d9eb695b06E.exit"
   %169 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %170 = load i64, ptr %169, align 8, !alias.scope !942, !noalias !945, !noundef !3
   br label %184
 
-171:                                              ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4e337ef3751cde74E.exit81"
+171:                                              ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb2fa0d9eb695b06E.exit"
   %172 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %173 = load i64, ptr %172, align 8, !alias.scope !942, !noalias !945, !noundef !3
   br label %184
 
-174:                                              ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4e337ef3751cde74E.exit81"
+174:                                              ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb2fa0d9eb695b06E.exit"
   %175 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %176 = load i64, ptr %175, align 8, !alias.scope !942, !noalias !945, !noundef !3
   %177 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %178 = load i64, ptr %177, align 8, !alias.scope !942, !noalias !945, !noundef !3
   br label %184
 
-179:                                              ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4e337ef3751cde74E.exit81"
+179:                                              ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb2fa0d9eb695b06E.exit"
   %180 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %181 = load i64, ptr %180, align 8, !alias.scope !942, !noalias !945, !noundef !3
   %182 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %183 = load i64, ptr %182, align 8, !alias.scope !942, !noalias !945, !noundef !3
-  switch i32 %.sroa.0121.0.copyload, label %_ZN21ruff_python_formatter6string9docstring11Indentation10trim_start17hfde32da3c4fd8094E.exit [
+  switch i32 %.sroa.0117.0.copyload, label %_ZN21ruff_python_formatter6string9docstring11Indentation10trim_start17hfde32da3c4fd8094E.exit [
     i32 0, label %191
     i32 3, label %193
   ]
@@ -10021,7 +10021,7 @@ default.unreachable42.i:                          ; preds = %184
 184:                                              ; preds = %174, %171, %168
   %.sroa.022.0.i = phi i64 [ %176, %174 ], [ %173, %171 ], [ 0, %168 ]
   %.sroa.024.0.i = phi i64 [ %178, %174 ], [ 0, %171 ], [ %170, %168 ]
-  switch i32 %.sroa.0121.0.copyload, label %default.unreachable42.i [
+  switch i32 %.sroa.0117.0.copyload, label %default.unreachable42.i [
     i32 0, label %187
     i32 1, label %185
     i32 2, label %186
@@ -10036,11 +10036,11 @@ default.unreachable42.i:                          ; preds = %184
   br label %187
 
 187:                                              ; preds = %184, %186, %185
-  %.sroa.026.0.i = phi i64 [ %.sroa.5124.0.copyload, %186 ], [ %.sroa.5124.0.copyload, %185 ], [ 0, %184 ]
-  %.sroa.028.0.i = phi i64 [ %.sroa.10129.0.copyload, %186 ], [ 0, %185 ], [ %.sroa.5124.0.copyload, %184 ]
-  %.not.i82 = icmp ult i64 %.sroa.022.0.i, %.sroa.026.0.i
+  %.sroa.026.0.i = phi i64 [ %.sroa.5120.0.copyload, %186 ], [ %.sroa.5120.0.copyload, %185 ], [ 0, %184 ]
+  %.sroa.028.0.i = phi i64 [ %.sroa.10125.0.copyload, %186 ], [ 0, %185 ], [ %.sroa.5120.0.copyload, %184 ]
+  %.not.i = icmp ult i64 %.sroa.022.0.i, %.sroa.026.0.i
   %.not37.i = icmp ult i64 %.sroa.024.0.i, %.sroa.028.0.i
-  %or.cond = select i1 %.not.i82, i1 true, i1 %.not37.i
+  %or.cond = select i1 %.not.i, i1 true, i1 %.not37.i
   br i1 %or.cond, label %_ZN21ruff_python_formatter6string9docstring11Indentation10trim_start17hfde32da3c4fd8094E.exit, label %188
 
 188:                                              ; preds = %187
@@ -10051,37 +10051,37 @@ default.unreachable42.i:                          ; preds = %184
   br label %_ZN21ruff_python_formatter6string9docstring11Indentation10trim_start17hfde32da3c4fd8094E.exit
 
 191:                                              ; preds = %179
-  %192 = icmp ult i64 %181, %.sroa.5124.0.copyload
+  %192 = icmp ult i64 %181, %.sroa.5120.0.copyload
   br i1 %192, label %_ZN21ruff_python_formatter6string9docstring11Indentation10trim_start17hfde32da3c4fd8094E.exit, label %196
 
 193:                                              ; preds = %179
-  %194 = icmp ult i64 %181, %.sroa.5124.0.copyload
-  %195 = icmp ult i64 %183, %.sroa.10129.0.copyload
-  %or.cond192 = select i1 %194, i1 true, i1 %195
-  br i1 %or.cond192, label %_ZN21ruff_python_formatter6string9docstring11Indentation10trim_start17hfde32da3c4fd8094E.exit, label %198
+  %194 = icmp ult i64 %181, %.sroa.5120.0.copyload
+  %195 = icmp ult i64 %183, %.sroa.10125.0.copyload
+  %or.cond187 = select i1 %194, i1 true, i1 %195
+  br i1 %or.cond187, label %_ZN21ruff_python_formatter6string9docstring11Indentation10trim_start17hfde32da3c4fd8094E.exit, label %198
 
 196:                                              ; preds = %191
-  %197 = icmp eq i64 %181, %.sroa.5124.0.copyload
+  %197 = icmp eq i64 %181, %.sroa.5120.0.copyload
   %.38.i = select i1 %197, i32 1, i32 3
   br label %_ZN21ruff_python_formatter6string9docstring11Indentation10trim_start17hfde32da3c4fd8094E.exit
 
 198:                                              ; preds = %193
-  %199 = icmp eq i64 %181, %.sroa.5124.0.copyload
-  %200 = icmp ne i64 %183, %.sroa.10129.0.copyload
+  %199 = icmp eq i64 %181, %.sroa.5120.0.copyload
+  %200 = icmp ne i64 %183, %.sroa.10125.0.copyload
   %.40.i = zext i1 %200 to i32
   %.sroa.018.0.i = select i1 %199, i32 %.40.i, i32 3
   br label %_ZN21ruff_python_formatter6string9docstring11Indentation10trim_start17hfde32da3c4fd8094E.exit
 
-_ZN21ruff_python_formatter6string9docstring11Indentation10trim_start17hfde32da3c4fd8094E.exit: ; preds = %193, %191, %179, %187, %184, %184, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4e337ef3751cde74E.exit81", %188, %196, %198
-  %.sroa.0117.0 = phi i32 [ %.sroa.018.0.i, %198 ], [ %.38.i, %196 ], [ %.sroa.013.0.i, %188 ], [ 5, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4e337ef3751cde74E.exit81" ], [ 5, %184 ], [ 5, %184 ], [ 5, %187 ], [ 5, %179 ], [ 5, %191 ], [ 5, %193 ]
+_ZN21ruff_python_formatter6string9docstring11Indentation10trim_start17hfde32da3c4fd8094E.exit: ; preds = %193, %191, %179, %187, %184, %184, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb2fa0d9eb695b06E.exit", %188, %196, %198
+  %.sroa.0113.0 = phi i32 [ %.sroa.018.0.i, %198 ], [ %.38.i, %196 ], [ %.sroa.013.0.i, %188 ], [ 5, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heb2fa0d9eb695b06E.exit" ], [ 5, %184 ], [ 5, %184 ], [ 5, %187 ], [ 5, %179 ], [ 5, %191 ], [ 5, %193 ]
   br i1 %.sroa.0.0.i73, label %202, label %201
 
 201:                                              ; preds = %_ZN21ruff_python_formatter6string9docstring11Indentation10trim_start17hfde32da3c4fd8094E.exit
-  %.not55 = icmp eq i32 %.sroa.0117.0, 5
+  %.not55 = icmp eq i32 %.sroa.0113.0, 5
   br i1 %.not55, label %219, label %209
 
 202:                                              ; preds = %_ZN21ruff_python_formatter6string9docstring11Indentation10trim_start17hfde32da3c4fd8094E.exit
-  switch i32 %.sroa.0121.0.copyload, label %default.unreachable6.i [
+  switch i32 %.sroa.0117.0.copyload, label %default.unreachable6.i [
     i32 0, label %207
     i32 1, label %207
     i32 2, label %203
@@ -10093,15 +10093,15 @@ default.unreachable6.i:                           ; preds = %202
   unreachable
 
 203:                                              ; preds = %202
-  %204 = add i64 %.sroa.10129.0.copyload, %.sroa.5124.0.copyload
+  %204 = add i64 %.sroa.10125.0.copyload, %.sroa.5120.0.copyload
   br label %207
 
 205:                                              ; preds = %202
-  %206 = add i64 %.sroa.10129.0.copyload, %.sroa.5124.0.copyload
+  %206 = add i64 %.sroa.10125.0.copyload, %.sroa.5120.0.copyload
   br label %207
 
 207:                                              ; preds = %202, %202, %205, %203
-  %.sroa.02.0.i = phi i64 [ %206, %205 ], [ %204, %203 ], [ %.sroa.5124.0.copyload, %202 ], [ %.sroa.5124.0.copyload, %202 ]
+  %.sroa.02.0.i = phi i64 [ %206, %205 ], [ %204, %203 ], [ %.sroa.5120.0.copyload, %202 ], [ %.sroa.5120.0.copyload, %202 ]
   %208 = icmp ugt i64 %.sroa.02.0.i, 4294967295
   br i1 %208, label %.split.i, label %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit.sink.split
 
@@ -10111,48 +10111,48 @@ default.unreachable6.i:                           ; preds = %202
   unreachable
 
 209:                                              ; preds = %201
-  %210 = icmp eq i32 %.sroa.0117.0, 3
-  %.sroa.12.0.copyload137 = load i32, ptr %.sroa.5123.0..sroa_idx, align 4
-  switch i32 %.sroa.0121.0.copyload, label %default.unreachable6.i88 [
+  %210 = icmp eq i32 %.sroa.0113.0, 3
+  %.sroa.12.0.copyload133 = load i32, ptr %.sroa.5119.0..sroa_idx, align 4
+  switch i32 %.sroa.0117.0.copyload, label %default.unreachable6.i84 [
     i32 0, label %215
     i32 1, label %215
     i32 2, label %211
     i32 3, label %213
-    i32 4, label %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit89
+    i32 4, label %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit85
   ]
 
-default.unreachable6.i88:                         ; preds = %209
+default.unreachable6.i84:                         ; preds = %209
   unreachable
 
 211:                                              ; preds = %209
-  %212 = add i64 %.sroa.10129.0.copyload, %.sroa.5124.0.copyload
+  %212 = add i64 %.sroa.10125.0.copyload, %.sroa.5120.0.copyload
   br label %215
 
 213:                                              ; preds = %209
-  %214 = add i64 %.sroa.10129.0.copyload, %.sroa.5124.0.copyload
+  %214 = add i64 %.sroa.10125.0.copyload, %.sroa.5120.0.copyload
   br label %215
 
 215:                                              ; preds = %209, %209, %213, %211
-  %.sroa.02.0.i85 = phi i64 [ %214, %213 ], [ %212, %211 ], [ %.sroa.5124.0.copyload, %209 ], [ %.sroa.5124.0.copyload, %209 ]
-  %216 = icmp ugt i64 %.sroa.02.0.i85, 4294967295
-  br i1 %216, label %.split.i87, label %.split5.i86
+  %.sroa.02.0.i81 = phi i64 [ %214, %213 ], [ %212, %211 ], [ %.sroa.5120.0.copyload, %209 ], [ %.sroa.5120.0.copyload, %209 ]
+  %216 = icmp ugt i64 %.sroa.02.0.i81, 4294967295
+  br i1 %216, label %.split.i83, label %.split5.i82
 
-.split5.i86:                                      ; preds = %215
-  %217 = trunc nuw i64 %.sroa.02.0.i85 to i32
+.split5.i82:                                      ; preds = %215
+  %217 = trunc nuw i64 %.sroa.02.0.i81 to i32
   %218 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %217), !noalias !951
-  br label %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit89
+  br label %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit85
 
-.split.i87:                                       ; preds = %215
+.split.i83:                                       ; preds = %215
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !951
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.f4df14553971ce38a1f8ddb4f9816598.62, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f4df14553971ce38a1f8ddb4f9816598.60, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f4df14553971ce38a1f8ddb4f9816598.366) #22, !noalias !951
   unreachable
 
-_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit89: ; preds = %209, %.split5.i86
-  %.sroa.0.0.i84 = phi i32 [ %218, %.split5.i86 ], [ %.sroa.12.0.copyload137, %209 ]
-  br i1 %210, label %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit, label %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit106
+_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit85: ; preds = %209, %.split5.i82
+  %.sroa.0.0.i80 = phi i32 [ %218, %.split5.i82 ], [ %.sroa.12.0.copyload133, %209 ]
+  br i1 %210, label %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit, label %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit102
 
 219:                                              ; preds = %201
-  switch i32 %.sroa.0121.0.copyload, label %default.unreachable6.i94 [
+  switch i32 %.sroa.0117.0.copyload, label %default.unreachable6.i90 [
     i32 0, label %224
     i32 1, label %224
     i32 2, label %220
@@ -10160,29 +10160,29 @@ _ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b
     i32 4, label %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit
   ]
 
-default.unreachable6.i94:                         ; preds = %219
+default.unreachable6.i90:                         ; preds = %219
   unreachable
 
 220:                                              ; preds = %219
-  %221 = add i64 %.sroa.10129.0.copyload, %.sroa.5124.0.copyload
+  %221 = add i64 %.sroa.10125.0.copyload, %.sroa.5120.0.copyload
   br label %224
 
 222:                                              ; preds = %219
-  %223 = add i64 %.sroa.10129.0.copyload, %.sroa.5124.0.copyload
+  %223 = add i64 %.sroa.10125.0.copyload, %.sroa.5120.0.copyload
   br label %224
 
 224:                                              ; preds = %219, %219, %222, %220
-  %.sroa.02.0.i91 = phi i64 [ %223, %222 ], [ %221, %220 ], [ %.sroa.5124.0.copyload, %219 ], [ %.sroa.5124.0.copyload, %219 ]
-  %225 = icmp ugt i64 %.sroa.02.0.i91, 4294967295
-  br i1 %225, label %.split.i93, label %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit.sink.split
+  %.sroa.02.0.i87 = phi i64 [ %223, %222 ], [ %221, %220 ], [ %.sroa.5120.0.copyload, %219 ], [ %.sroa.5120.0.copyload, %219 ]
+  %225 = icmp ugt i64 %.sroa.02.0.i87, 4294967295
+  br i1 %225, label %.split.i89, label %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit.sink.split
 
-.split.i93:                                       ; preds = %224
+.split.i89:                                       ; preds = %224
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !954
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.f4df14553971ce38a1f8ddb4f9816598.62, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f4df14553971ce38a1f8ddb4f9816598.60, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f4df14553971ce38a1f8ddb4f9816598.366) #22, !noalias !954
   unreachable
 
-_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit106: ; preds = %.split5.i103, %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h5cef12568e93a007E.exit.thread3.i.i.i", %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit89
-  %226 = phi i32 [ %.sroa.0.0.i84, %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit89 ], [ %266, %.split5.i103 ], [ %.sroa.4110.0.copyload, %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h5cef12568e93a007E.exit.thread3.i.i.i" ]
+_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit102: ; preds = %.split5.i99, %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h5cef12568e93a007E.exit.thread3.i.i.i", %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit85
+  %226 = phi i32 [ %.sroa.0.0.i80, %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit85 ], [ %266, %.split5.i99 ], [ %.sroa.4106.0.copyload, %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h5cef12568e93a007E.exit.thread3.i.i.i" ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
   store i32 %226, ptr %16, align 4
   %227 = getelementptr inbounds nuw i8, ptr %1, i64 148
@@ -10191,12 +10191,12 @@ _ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b
   br i1 %229, label %277, label %267
 
 _ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit.sink.split: ; preds = %224, %207
-  %.sroa.02.0.i91.sink = phi i64 [ %.sroa.02.0.i, %207 ], [ %.sroa.02.0.i91, %224 ]
-  %230 = trunc nuw i64 %.sroa.02.0.i91.sink to i32
+  %.sroa.02.0.i87.sink = phi i64 [ %.sroa.02.0.i, %207 ], [ %.sroa.02.0.i87, %224 ]
+  %230 = trunc nuw i64 %.sroa.02.0.i87.sink to i32
   %231 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %230), !noalias !3
   br label %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit
 
-_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit: ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i", %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit.sink.split, %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h5cef12568e93a007E.exit.i.i.i", %219, %202, %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit89
+_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit: ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i", %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit.sink.split, %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h5cef12568e93a007E.exit.i.i.i", %219, %202, %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit85
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   call void @_ZN21ruff_python_formatter6string9docstring11Indentation8from_str17h660ec2ded4586c72E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %20)
   %232 = load i32, ptr %11, align 8, !range !6, !alias.scope !957, !noundef !3
@@ -10230,43 +10230,43 @@ _ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b
   br label %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit
 
 _ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit: ; preds = %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit, %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit, %235, %237, %242
-  %.sroa.0.0.i96 = phi i64 [ %246, %242 ], [ %241, %237 ], [ %236, %235 ], [ %234, %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit ], [ %234, %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit ]
+  %.sroa.0.0.i92 = phi i64 [ %246, %242 ], [ %241, %237 ], [ %236, %235 ], [ %234, %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit ], [ %234, %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   %247 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %.sroa.0166.0.copyload = load i32, ptr %247, align 8
-  %.sroa.4168.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %.sroa.4168.0.copyload = load i64, ptr %.sroa.4168.0..sroa_idx, align 8
-  %.sroa.5169.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %.sroa.5169.0.copyload = load i64, ptr %.sroa.5169.0..sroa_idx, align 8
-  switch i32 %.sroa.0166.0.copyload, label %default.unreachable4.i99 [
-    i32 0, label %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit100
+  %.sroa.0162.0.copyload = load i32, ptr %247, align 8
+  %.sroa.4164.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %.sroa.4164.0.copyload = load i64, ptr %.sroa.4164.0..sroa_idx, align 8
+  %.sroa.5165.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %.sroa.5165.0.copyload = load i64, ptr %.sroa.5165.0..sroa_idx, align 8
+  switch i32 %.sroa.0162.0.copyload, label %default.unreachable4.i95 [
+    i32 0, label %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit96
     i32 1, label %248
     i32 2, label %250
     i32 3, label %253
-    i32 4, label %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit100
+    i32 4, label %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit96
   ]
 
-default.unreachable4.i99:                         ; preds = %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit
+default.unreachable4.i95:                         ; preds = %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit
   unreachable
 
 248:                                              ; preds = %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit
-  %249 = shl i64 %.sroa.4168.0.copyload, 3
-  br label %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit100
+  %249 = shl i64 %.sroa.4164.0.copyload, 3
+  br label %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit96
 
 250:                                              ; preds = %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit
-  %251 = shl i64 %.sroa.4168.0.copyload, 3
-  %252 = add i64 %251, %.sroa.5169.0.copyload
-  br label %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit100
+  %251 = shl i64 %.sroa.4164.0.copyload, 3
+  %252 = add i64 %251, %.sroa.5165.0.copyload
+  br label %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit96
 
 253:                                              ; preds = %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit
-  %reass.sub.i98 = and i64 %.sroa.4168.0.copyload, -8
-  %254 = shl i64 %.sroa.5169.0.copyload, 3
-  %255 = add i64 %254, %reass.sub.i98
-  br label %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit100
+  %reass.sub.i94 = and i64 %.sroa.4164.0.copyload, -8
+  %254 = shl i64 %.sroa.5165.0.copyload, 3
+  %255 = add i64 %254, %reass.sub.i94
+  br label %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit96
 
-_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit100: ; preds = %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit, %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit, %248, %250, %253
-  %.sroa.0.0.i97 = phi i64 [ %255, %253 ], [ %252, %250 ], [ %249, %248 ], [ %.sroa.4168.0.copyload, %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit ], [ %.sroa.4168.0.copyload, %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit ]
-  %256 = sub i64 %.sroa.0.0.i96, %.sroa.0.0.i97
+_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit96: ; preds = %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit, %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit, %248, %250, %253
+  %.sroa.0.0.i93 = phi i64 [ %255, %253 ], [ %252, %250 ], [ %249, %248 ], [ %.sroa.4164.0.copyload, %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit ], [ %.sroa.4164.0.copyload, %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit ]
+  %256 = sub i64 %.sroa.0.0.i92, %.sroa.0.0.i93
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6repeat17h5be6a333c112128fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 @anon.f4df14553971ce38a1f8ddb4f9816598.294, i64 noundef 1, i64 noundef %256)
@@ -10275,22 +10275,22 @@ _ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc4
 
 "_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h5cef12568e93a007E.exit.thread3.i.i.i": ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb003a1623c67a534E.exit.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i.i", %83, %85, %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h5cef12568e93a007E.exit.i.i.i"
   %258 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %.sroa.0109.0.copyload = load i32, ptr %258, align 8
-  %.sroa.4110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %.sroa.4110.0.copyload = load i32, ptr %.sroa.4110.0..sroa_idx, align 4
+  %.sroa.0105.0.copyload = load i32, ptr %258, align 8
+  %.sroa.4106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %.sroa.4106.0.copyload = load i32, ptr %.sroa.4106.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 128
   %.sroa.9.0.copyload = load i64, ptr %.sroa.9.0..sroa_idx, align 8
-  switch i32 %.sroa.0109.0.copyload, label %default.unreachable6.i105 [
+  switch i32 %.sroa.0105.0.copyload, label %default.unreachable6.i101 [
     i32 0, label %263
     i32 1, label %263
     i32 2, label %259
     i32 3, label %261
-    i32 4, label %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit106
+    i32 4, label %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit102
   ]
 
-default.unreachable6.i105:                        ; preds = %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h5cef12568e93a007E.exit.thread3.i.i.i"
+default.unreachable6.i101:                        ; preds = %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h5cef12568e93a007E.exit.thread3.i.i.i"
   unreachable
 
 259:                                              ; preds = %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h5cef12568e93a007E.exit.thread3.i.i.i"
@@ -10302,21 +10302,21 @@ default.unreachable6.i105:                        ; preds = %"_ZN21ruff_python_f
   br label %263
 
 263:                                              ; preds = %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h5cef12568e93a007E.exit.thread3.i.i.i", %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h5cef12568e93a007E.exit.thread3.i.i.i", %261, %259
-  %.sroa.02.0.i102 = phi i64 [ %262, %261 ], [ %260, %259 ], [ %.sroa.5.0.copyload, %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h5cef12568e93a007E.exit.thread3.i.i.i" ], [ %.sroa.5.0.copyload, %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h5cef12568e93a007E.exit.thread3.i.i.i" ]
-  %264 = icmp ugt i64 %.sroa.02.0.i102, 4294967295
-  br i1 %264, label %.split.i104, label %.split5.i103
+  %.sroa.02.0.i98 = phi i64 [ %262, %261 ], [ %260, %259 ], [ %.sroa.5.0.copyload, %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h5cef12568e93a007E.exit.thread3.i.i.i" ], [ %.sroa.5.0.copyload, %"_ZN21ruff_python_formatter6string9docstring20DocstringLinePrinter9print_one28_$u7b$$u7b$closure$u7d$$u7d$17h5cef12568e93a007E.exit.thread3.i.i.i" ]
+  %264 = icmp ugt i64 %.sroa.02.0.i98, 4294967295
+  br i1 %264, label %.split.i100, label %.split5.i99
 
-.split5.i103:                                     ; preds = %263
-  %265 = trunc nuw i64 %.sroa.02.0.i102 to i32
+.split5.i99:                                      ; preds = %263
+  %265 = trunc nuw i64 %.sroa.02.0.i98 to i32
   %266 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %265), !noalias !960
-  br label %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit106
+  br label %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit102
 
-.split.i104:                                      ; preds = %263
+.split.i100:                                      ; preds = %263
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !960
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.f4df14553971ce38a1f8ddb4f9816598.62, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f4df14553971ce38a1f8ddb4f9816598.60, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f4df14553971ce38a1f8ddb4f9816598.366) #22, !noalias !960
   unreachable
 
-267:                                              ; preds = %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit106
+267:                                              ; preds = %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit102
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   %268 = call noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %16)
@@ -10324,28 +10324,28 @@ default.unreachable6.i105:                        ; preds = %"_ZN21ruff_python_f
   br i1 %269, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE.exit", label %270
 
 270:                                              ; preds = %267
-  %.not.i107 = icmp ult i64 %268, %20
-  br i1 %.not.i107, label %273, label %271
+  %.not.i103 = icmp ult i64 %268, %20
+  br i1 %.not.i103, label %273, label %271
 
 271:                                              ; preds = %270
   %272 = icmp ne i64 %268, %20
   %.not56 = icmp eq ptr %19, null
-  %or.cond193 = select i1 %272, i1 true, i1 %.not56
-  br i1 %or.cond193, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE.exit.thread", label %281, !prof !963
+  %or.cond188 = select i1 %272, i1 true, i1 %.not56
+  br i1 %or.cond188, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE.exit.thread", label %281, !prof !963
 
 273:                                              ; preds = %270
   %274 = getelementptr inbounds nuw i8, ptr %19, i64 %268
   %275 = load i8, ptr %274, align 1, !alias.scope !964, !noundef !3
   %276 = icmp slt i8 %275, -64
   %.not56.old = icmp eq ptr %19, null
-  %or.cond194 = select i1 %276, i1 true, i1 %.not56.old
-  br i1 %or.cond194, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE.exit.thread", label %281, !prof !963
+  %or.cond189 = select i1 %276, i1 true, i1 %.not56.old
+  br i1 %or.cond189, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE.exit.thread", label %281, !prof !963
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE.exit": ; preds = %267
   %.not56.old.old = icmp eq ptr %19, null
   br i1 %.not56.old.old, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE.exit.thread", label %281, !prof !967
 
-277:                                              ; preds = %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit106
+277:                                              ; preds = %_ZN21ruff_python_formatter6string9docstring11Indentation8text_len17h2d31a138e47b2d80E.exit102
   %278 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %279 = load i32, ptr %278, align 8, !noundef !3
   %280 = icmp ugt i64 %20, 4294967295
@@ -10450,7 +10450,7 @@ default.unreachable6.i105:                        ; preds = %"_ZN21ruff_python_f
   %311 = trunc nuw i8 %310 to i1
   br i1 %311, label %344, label %336
 
-312:                                              ; preds = %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit100
+312:                                              ; preds = %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit96
   %313 = extractvalue { ptr, i64 } %257, 0
   %314 = extractvalue { ptr, i64 } %257, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !968)
@@ -10549,7 +10549,7 @@ default.unreachable6.i105:                        ; preds = %"_ZN21ruff_python_f
   %.pn = phi { ptr, i32 } [ %327, %326 ], [ %348, %347 ], [ %317, %316 ]
   resume { ptr, i32 } %.pn
 
-347:                                              ; preds = %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit100
+347:                                              ; preds = %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit96
   %348 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8917b672d13ff401E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #21

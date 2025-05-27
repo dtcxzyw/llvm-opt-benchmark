@@ -23216,23 +23216,23 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$alloc..collections..btree..set..BTr
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !3924, !noalias !3921, !noundef !3
   %8 = icmp eq i64 %5, %7
-  br i1 %8, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3c8eac3e77615554E.llvm.10029935473915784774.exit.i", label %"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h85c63a111e81c461E.exit"
+  br i1 %8, label %9, label %"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h85c63a111e81c461E.exit"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3c8eac3e77615554E.llvm.10029935473915784774.exit.i": ; preds = %2
+9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %3), !noalias !3926
-  %9 = load ptr, ptr %0, align 8, !alias.scope !3921, !noalias !3924, !noundef !3
-  %10 = icmp ne ptr %9, null
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i64, ptr %11, align 8, !alias.scope !3921, !noalias !3924
-  %.sroa.15.0.i = select i1 %10, i64 %5, i64 0
-  %.sroa.14.0.i = select i1 %10, i64 %12, i64 undef
-  %.sroa.9.0.i = zext i1 %10 to i64
+  %10 = load ptr, ptr %0, align 8, !alias.scope !3921, !noalias !3924, !noundef !3
+  %11 = icmp ne ptr %10, null
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load i64, ptr %12, align 8, !alias.scope !3921, !noalias !3924
+  %.sroa.15.0.i = select i1 %11, i64 %5, i64 0
+  %.sroa.14.0.i = select i1 %11, i64 %13, i64 undef
+  %.sroa.9.0.i = zext i1 %11 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3927)
   store i64 %.sroa.9.0.i, ptr %3, align 8, !alias.scope !3930, !noalias !3932
   %.sroa.519.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %.sroa.519.0..sroa_idx.i, align 8, !alias.scope !3930, !noalias !3932
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %9, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !3930, !noalias !3932
+  store ptr %10, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !3930, !noalias !3932
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %.sroa.14.0.i, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !3930, !noalias !3932
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -23240,22 +23240,22 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$alloc..collections..btree..set..BTr
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr null, ptr %.sroa.11.0..sroa_idx.i, align 8, !alias.scope !3930, !noalias !3932
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr %9, ptr %.sroa.13.0..sroa_idx.i, align 8, !alias.scope !3930, !noalias !3932
+  store ptr %10, ptr %.sroa.13.0..sroa_idx.i, align 8, !alias.scope !3930, !noalias !3932
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %.sroa.14.0.i, ptr %.sroa.14.0..sroa_idx.i, align 8, !alias.scope !3930, !noalias !3932
   %.sroa.15.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 %.sroa.15.0.i, ptr %.sroa.15.0..sroa_idx.i, align 8, !alias.scope !3930, !noalias !3932
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  call void @"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h00b4a77f4215fe46E.llvm.10029935473915784774"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !3934
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false), !alias.scope !3935, !noalias !3938
-  %15 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb8a00df218364257E.llvm.10029935473915784774(ptr noalias noundef nonnull align 8 dereferenceable(168) %3), !noalias !3921
-  %16 = xor i1 %15, true
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  call void @"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h00b4a77f4215fe46E.llvm.10029935473915784774"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !3934
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false), !alias.scope !3935, !noalias !3938
+  %16 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb8a00df218364257E.llvm.10029935473915784774(ptr noalias noundef nonnull align 8 dereferenceable(168) %3), !noalias !3921
+  %17 = xor i1 %16, true
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %3), !noalias !3926
   br label %"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h85c63a111e81c461E.exit"
 
-"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h85c63a111e81c461E.exit": ; preds = %2, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3c8eac3e77615554E.llvm.10029935473915784774.exit.i"
-  %.sroa.0.0.i = phi i1 [ %16, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3c8eac3e77615554E.llvm.10029935473915784774.exit.i" ], [ false, %2 ]
+"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h85c63a111e81c461E.exit": ; preds = %2, %9
+  %.sroa.0.0.i = phi i1 [ %17, %9 ], [ false, %2 ]
   ret i1 %.sroa.0.0.i
 }
 

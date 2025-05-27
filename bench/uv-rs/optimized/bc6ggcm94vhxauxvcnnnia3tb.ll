@@ -8644,8 +8644,8 @@ define void @_ZN7uv_tool14InstalledTools5tools17hf345b406570bfe9dE(ptr dead_on_u
 
 .noexc:                                           ; preds = %90
   %91 = load i64, ptr %23, align 8, !range !1875, !noalias !3199, !noundef !3
-  %trunc9.i.i.i = trunc nuw i64 %91 to i1
-  br i1 %trunc9.i.i.i, label %.lr.ph.i.i.i, label %.loopexit55.loopexit.i
+  %trunc7.i.i.i = trunc nuw i64 %91 to i1
+  br i1 %trunc7.i.i.i, label %.lr.ph.i.i.i, label %.loopexit55.loopexit.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc, %.noexc87
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21), !noalias !3199
@@ -8767,8 +8767,8 @@ define void @_ZN7uv_tool14InstalledTools5tools17hf345b406570bfe9dE(ptr dead_on_u
 
 .noexc90:                                         ; preds = %"_ZN4core6option15Option$LT$T$GT$6insert17he874973400db6db0E.exit.i.i.i.i"
   %123 = load i64, ptr %20, align 8, !range !1875, !noalias !3281, !noundef !3
-  %trunc9.i.i.i.i.i.i = trunc nuw i64 %123 to i1
-  br i1 %trunc9.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, label %.loopexit.i.i.i
+  %trunc7.i.i.i.i.i.i = trunc nuw i64 %123 to i1
+  br i1 %trunc7.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, label %.loopexit.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc90, %.noexc93
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18), !noalias !3290
@@ -8934,8 +8934,8 @@ define void @_ZN7uv_tool14InstalledTools5tools17hf345b406570bfe9dE(ptr dead_on_u
 
 .noexc94:                                         ; preds = %161
   %162 = load i64, ptr %15, align 8, !range !1875, !noalias !3362, !noundef !3
-  %trunc9.i.i18.i = trunc nuw i64 %162 to i1
-  br i1 %trunc9.i.i18.i, label %.lr.ph.i.i20.i, label %.loopexit.loopexit.i
+  %trunc7.i.i18.i = trunc nuw i64 %162 to i1
+  br i1 %trunc7.i.i18.i, label %.lr.ph.i.i20.i, label %.loopexit.loopexit.i
 
 .lr.ph.i.i20.i:                                   ; preds = %.noexc94, %.noexc96
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13), !noalias !3362

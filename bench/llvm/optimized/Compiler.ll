@@ -32992,78 +32992,81 @@ define weak_odr i16 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE9visitDecl
   %3 = tail call i16 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE12visitVarDeclEPKNS_7VarDeclEb(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef %1, i1 noundef zeroext true)
   %4 = and i16 %3, 256
   %.not29 = icmp eq i16 %4, 0
-  br i1 %.not29, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27, label %5
+  br i1 %.not29, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = trunc i16 %3 to i1
-  br i1 %6, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27, label %7
-
-7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %9 = load i32, ptr %8, align 4
-  %10 = and i32 %9, 127
-  %11 = add nsw i32 %10, -38
-  %12 = icmp ult i32 %11, 7
-  %.not7.i = icmp ne ptr %1, null
-  %.not.not.not.i = and i1 %.not7.i, %12
-  br i1 %.not.not.not.i, label %13, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27
-
-13:                                               ; preds = %7
-  %14 = tail call noundef zeroext i1 @_ZNK5clang7VarDecl15hasLocalStorageEv(ptr noundef nonnull align 8 dereferenceable(100) %1)
-  br i1 %14, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread
-
-_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit: ; preds = %13
-  %15 = load i32, ptr %8, align 4
-  %16 = and i32 %15, 127
-  %17 = icmp ne i32 %16, 41
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %19 = load i16, ptr %18, align 8
-  %20 = icmp slt i16 %19, 0
-  %21 = select i1 %17, i1 %20, i1 false
-  br i1 %21, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27
-
-_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread: ; preds = %13, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %23 = load ptr, ptr %22, align 8, !tbaa !105
-  %24 = tail call i64 @_ZN5clang6interp7Program9getGlobalEPKNS_9ValueDeclE(ptr noundef nonnull align 8 dereferenceable(328) %23, ptr noundef nonnull %1) #16
-  %25 = and i64 %24, 4294967296
-  %.not = icmp eq i64 %25, 0
-  br i1 %.not, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27, label %26
-
-26:                                               ; preds = %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread
-  %27 = load ptr, ptr %22, align 8, !tbaa !105
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 224
-  %29 = and i64 %24, 4294967295
-  %30 = load ptr, ptr %28, align 8, !tbaa !1103
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %29
-  %32 = load ptr, ptr %31, align 8, !tbaa !1104
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  store i32 2, ptr %33, align 8, !tbaa !1106
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !1109
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %37 = load ptr, ptr %36, align 8, !tbaa !1112
-  %.not.i = icmp eq ptr %37, null
-  br i1 %.not.i, label %_ZN5clang6interp5Block10invokeDtorEv.exit, label %38
-
-38:                                               ; preds = %26
-  %39 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %40 = load i32, ptr %39, align 8, !tbaa !1113
-  %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw i8, ptr %33, i64 %41
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull %42, ptr noundef nonnull %35) #16
-  br label %_ZN5clang6interp5Block10invokeDtorEv.exit
-
-_ZN5clang6interp5Block10invokeDtorEv.exit:        ; preds = %26, %38
-  %43 = getelementptr inbounds nuw i8, ptr %32, i64 27
-  store i8 0, ptr %43, align 1, !tbaa !1114
+  %6 = and i16 %3, 255
   br label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27
 
-_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27: ; preds = %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit, %_ZN5clang6interp5Block10invokeDtorEv.exit, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread, %7, %2, %5
-  %.sroa.021.0 = phi i16 [ 1, %5 ], [ %3, %2 ], [ %3, %7 ], [ %3, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread ], [ %3, %_ZN5clang6interp5Block10invokeDtorEv.exit ], [ %3, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit ]
-  %.sroa.423.0 = phi i16 [ 256, %5 ], [ 0, %2 ], [ 256, %7 ], [ 256, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread ], [ 256, %_ZN5clang6interp5Block10invokeDtorEv.exit ], [ 256, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit ]
-  %.sroa.021.0.insert.ext = and i16 %.sroa.021.0, 255
-  %.sroa.021.0.insert.insert = or disjoint i16 %.sroa.423.0, %.sroa.021.0.insert.ext
+7:                                                ; preds = %2
+  %8 = trunc i16 %3 to i1
+  br i1 %8, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27, label %9
+
+9:                                                ; preds = %7
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %11 = load i32, ptr %10, align 4
+  %12 = and i32 %11, 127
+  %13 = add nsw i32 %12, -38
+  %14 = icmp ult i32 %13, 7
+  %.not7.i = icmp ne ptr %1, null
+  %.not.not.not.i = and i1 %.not7.i, %14
+  br i1 %.not.not.not.i, label %15, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27
+
+15:                                               ; preds = %9
+  %16 = tail call noundef zeroext i1 @_ZNK5clang7VarDecl15hasLocalStorageEv(ptr noundef nonnull align 8 dereferenceable(100) %1)
+  br i1 %16, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread
+
+_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit: ; preds = %15
+  %17 = load i32, ptr %10, align 4
+  %18 = and i32 %17, 127
+  %19 = icmp ne i32 %18, 41
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %21 = load i16, ptr %20, align 8
+  %22 = icmp slt i16 %21, 0
+  %23 = select i1 %19, i1 %22, i1 false
+  br i1 %23, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27
+
+_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread: ; preds = %15, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %25 = load ptr, ptr %24, align 8, !tbaa !105
+  %26 = tail call i64 @_ZN5clang6interp7Program9getGlobalEPKNS_9ValueDeclE(ptr noundef nonnull align 8 dereferenceable(328) %25, ptr noundef nonnull %1) #16
+  %27 = and i64 %26, 4294967296
+  %.not = icmp eq i64 %27, 0
+  br i1 %.not, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27, label %28
+
+28:                                               ; preds = %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread
+  %29 = load ptr, ptr %24, align 8, !tbaa !105
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 224
+  %31 = and i64 %26, 4294967295
+  %32 = load ptr, ptr %30, align 8, !tbaa !1103
+  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %31
+  %34 = load ptr, ptr %33, align 8, !tbaa !1104
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  store i32 2, ptr %35, align 8, !tbaa !1106
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %37 = load ptr, ptr %36, align 8, !tbaa !1109
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
+  %39 = load ptr, ptr %38, align 8, !tbaa !1112
+  %.not.i = icmp eq ptr %39, null
+  br i1 %.not.i, label %_ZN5clang6interp5Block10invokeDtorEv.exit, label %40
+
+40:                                               ; preds = %28
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %42 = load i32, ptr %41, align 8, !tbaa !1113
+  %43 = zext i32 %42 to i64
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 %43
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull %44, ptr noundef nonnull %37) #16
+  br label %_ZN5clang6interp5Block10invokeDtorEv.exit
+
+_ZN5clang6interp5Block10invokeDtorEv.exit:        ; preds = %28, %40
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 27
+  store i8 0, ptr %45, align 1, !tbaa !1114
+  br label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27
+
+_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27: ; preds = %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit, %_ZN5clang6interp5Block10invokeDtorEv.exit, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread, %9, %7, %5
+  %.sroa.021.0 = phi i16 [ %6, %5 ], [ 1, %7 ], [ 0, %9 ], [ 0, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread ], [ 0, %_ZN5clang6interp5Block10invokeDtorEv.exit ], [ 0, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit ]
+  %.sroa.423.0 = phi i16 [ 0, %5 ], [ 256, %7 ], [ 256, %9 ], [ 256, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread ], [ 256, %_ZN5clang6interp5Block10invokeDtorEv.exit ], [ 256, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit ]
+  %.sroa.021.0.insert.insert = or disjoint i16 %.sroa.423.0, %.sroa.021.0
   ret i16 %.sroa.021.0.insert.insert
 }
 
@@ -65166,78 +65169,81 @@ define weak_odr i16 @_ZN5clang6interp8CompilerINS0_11EvalEmitterEE9visitDeclEPKN
   %3 = tail call i16 @_ZN5clang6interp8CompilerINS0_11EvalEmitterEE12visitVarDeclEPKNS_7VarDeclEb(ptr noundef nonnull align 8 dereferenceable(1304) %0, ptr noundef %1, i1 noundef zeroext true)
   %4 = and i16 %3, 256
   %.not29 = icmp eq i16 %4, 0
-  br i1 %.not29, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27, label %5
+  br i1 %.not29, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = trunc i16 %3 to i1
-  br i1 %6, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27, label %7
-
-7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %9 = load i32, ptr %8, align 4
-  %10 = and i32 %9, 127
-  %11 = add nsw i32 %10, -38
-  %12 = icmp ult i32 %11, 7
-  %.not7.i = icmp ne ptr %1, null
-  %.not.not.not.i = and i1 %.not7.i, %12
-  br i1 %.not.not.not.i, label %13, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27
-
-13:                                               ; preds = %7
-  %14 = tail call noundef zeroext i1 @_ZNK5clang7VarDecl15hasLocalStorageEv(ptr noundef nonnull align 8 dereferenceable(100) %1)
-  br i1 %14, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread
-
-_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit: ; preds = %13
-  %15 = load i32, ptr %8, align 4
-  %16 = and i32 %15, 127
-  %17 = icmp ne i32 %16, 41
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %19 = load i16, ptr %18, align 8
-  %20 = icmp slt i16 %19, 0
-  %21 = select i1 %17, i1 %20, i1 false
-  br i1 %21, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27
-
-_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread: ; preds = %13, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  %23 = load ptr, ptr %22, align 8, !tbaa !1199
-  %24 = tail call i64 @_ZN5clang6interp7Program9getGlobalEPKNS_9ValueDeclE(ptr noundef nonnull align 8 dereferenceable(328) %23, ptr noundef nonnull %1) #16
-  %25 = and i64 %24, 4294967296
-  %.not = icmp eq i64 %25, 0
-  br i1 %.not, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27, label %26
-
-26:                                               ; preds = %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread
-  %27 = load ptr, ptr %22, align 8, !tbaa !1199
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 224
-  %29 = and i64 %24, 4294967295
-  %30 = load ptr, ptr %28, align 8, !tbaa !1103
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %29
-  %32 = load ptr, ptr %31, align 8, !tbaa !1104
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  store i32 2, ptr %33, align 8, !tbaa !1106
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !1109
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %37 = load ptr, ptr %36, align 8, !tbaa !1112
-  %.not.i = icmp eq ptr %37, null
-  br i1 %.not.i, label %_ZN5clang6interp5Block10invokeDtorEv.exit, label %38
-
-38:                                               ; preds = %26
-  %39 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %40 = load i32, ptr %39, align 8, !tbaa !1113
-  %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw i8, ptr %33, i64 %41
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull %42, ptr noundef nonnull %35) #16
-  br label %_ZN5clang6interp5Block10invokeDtorEv.exit
-
-_ZN5clang6interp5Block10invokeDtorEv.exit:        ; preds = %26, %38
-  %43 = getelementptr inbounds nuw i8, ptr %32, i64 27
-  store i8 0, ptr %43, align 1, !tbaa !1114
+  %6 = and i16 %3, 255
   br label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27
 
-_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27: ; preds = %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit, %_ZN5clang6interp5Block10invokeDtorEv.exit, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread, %7, %2, %5
-  %.sroa.021.0 = phi i16 [ 1, %5 ], [ %3, %2 ], [ %3, %7 ], [ %3, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread ], [ %3, %_ZN5clang6interp5Block10invokeDtorEv.exit ], [ %3, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit ]
-  %.sroa.423.0 = phi i16 [ 256, %5 ], [ 0, %2 ], [ 256, %7 ], [ 256, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread ], [ 256, %_ZN5clang6interp5Block10invokeDtorEv.exit ], [ 256, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit ]
-  %.sroa.021.0.insert.ext = and i16 %.sroa.021.0, 255
-  %.sroa.021.0.insert.insert = or disjoint i16 %.sroa.423.0, %.sroa.021.0.insert.ext
+7:                                                ; preds = %2
+  %8 = trunc i16 %3 to i1
+  br i1 %8, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27, label %9
+
+9:                                                ; preds = %7
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %11 = load i32, ptr %10, align 4
+  %12 = and i32 %11, 127
+  %13 = add nsw i32 %12, -38
+  %14 = icmp ult i32 %13, 7
+  %.not7.i = icmp ne ptr %1, null
+  %.not.not.not.i = and i1 %.not7.i, %14
+  br i1 %.not.not.not.i, label %15, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27
+
+15:                                               ; preds = %9
+  %16 = tail call noundef zeroext i1 @_ZNK5clang7VarDecl15hasLocalStorageEv(ptr noundef nonnull align 8 dereferenceable(100) %1)
+  br i1 %16, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread
+
+_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit: ; preds = %15
+  %17 = load i32, ptr %10, align 4
+  %18 = and i32 %17, 127
+  %19 = icmp ne i32 %18, 41
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %21 = load i16, ptr %20, align 8
+  %22 = icmp slt i16 %21, 0
+  %23 = select i1 %19, i1 %22, i1 false
+  br i1 %23, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27
+
+_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread: ; preds = %15, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1056
+  %25 = load ptr, ptr %24, align 8, !tbaa !1199
+  %26 = tail call i64 @_ZN5clang6interp7Program9getGlobalEPKNS_9ValueDeclE(ptr noundef nonnull align 8 dereferenceable(328) %25, ptr noundef nonnull %1) #16
+  %27 = and i64 %26, 4294967296
+  %.not = icmp eq i64 %27, 0
+  br i1 %.not, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27, label %28
+
+28:                                               ; preds = %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread
+  %29 = load ptr, ptr %24, align 8, !tbaa !1199
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 224
+  %31 = and i64 %26, 4294967295
+  %32 = load ptr, ptr %30, align 8, !tbaa !1103
+  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %31
+  %34 = load ptr, ptr %33, align 8, !tbaa !1104
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  store i32 2, ptr %35, align 8, !tbaa !1106
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %37 = load ptr, ptr %36, align 8, !tbaa !1109
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
+  %39 = load ptr, ptr %38, align 8, !tbaa !1112
+  %.not.i = icmp eq ptr %39, null
+  br i1 %.not.i, label %_ZN5clang6interp5Block10invokeDtorEv.exit, label %40
+
+40:                                               ; preds = %28
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %42 = load i32, ptr %41, align 8, !tbaa !1113
+  %43 = zext i32 %42 to i64
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 %43
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull %44, ptr noundef nonnull %37) #16
+  br label %_ZN5clang6interp5Block10invokeDtorEv.exit
+
+_ZN5clang6interp5Block10invokeDtorEv.exit:        ; preds = %28, %40
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 27
+  store i8 0, ptr %45, align 1, !tbaa !1114
+  br label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27
+
+_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread27: ; preds = %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit, %_ZN5clang6interp5Block10invokeDtorEv.exit, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread, %9, %7, %5
+  %.sroa.021.0 = phi i16 [ %6, %5 ], [ 1, %7 ], [ 0, %9 ], [ 0, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread ], [ 0, %_ZN5clang6interp5Block10invokeDtorEv.exit ], [ 0, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit ]
+  %.sroa.423.0 = phi i16 [ 0, %5 ], [ 256, %7 ], [ 256, %9 ], [ 256, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread ], [ 256, %_ZN5clang6interp5Block10invokeDtorEv.exit ], [ 256, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit ]
+  %.sroa.021.0.insert.insert = or disjoint i16 %.sroa.423.0, %.sroa.021.0
   ret i16 %.sroa.021.0.insert.insert
 }
 

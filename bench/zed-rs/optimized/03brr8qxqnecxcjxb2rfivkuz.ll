@@ -42013,38 +42013,38 @@ define hidden void @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inne
 _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8318809290061399519.exit.i.i.i: ; preds = %30, %28, %24, %17
   %31 = atomicrmw xchg ptr %0, i32 0 release, align 4, !noalias !11728
   %32 = icmp eq i32 %31, 2
-  br i1 %32, label %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17ha83ca0364d12aa22E.exit32.sink.split", label %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17ha83ca0364d12aa22E.exit32"
+  br i1 %32, label %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17ha83ca0364d12aa22E.exit.sink.split", label %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17ha83ca0364d12aa22E.exit"
 
-"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17ha83ca0364d12aa22E.exit32.sink.split": ; preds = %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8318809290061399519.exit.i.i.i, %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8318809290061399519.exit.i.i.i31
+"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17ha83ca0364d12aa22E.exit.sink.split": ; preds = %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8318809290061399519.exit.i.i.i, %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8318809290061399519.exit.i.i.i31
   tail call void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17h441c2e235bf44cf8E(ptr noundef nonnull align 4 %0), !noalias !5
-  br label %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17ha83ca0364d12aa22E.exit32"
+  br label %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17ha83ca0364d12aa22E.exit"
 
-"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17ha83ca0364d12aa22E.exit32": ; preds = %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17ha83ca0364d12aa22E.exit32.sink.split", %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8318809290061399519.exit.i.i.i, %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8318809290061399519.exit.i.i.i31
+"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17ha83ca0364d12aa22E.exit": ; preds = %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17ha83ca0364d12aa22E.exit.sink.split", %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8318809290061399519.exit.i.i.i31, %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8318809290061399519.exit.i.i.i
   ret void
 
 33:                                               ; preds = %"_ZN3std4sync5mutex14Mutex$LT$T$GT$4lock17h15fd2b2bb0b1966dE.exit"
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8, !noundef !5
   store i64 1, ptr %1, align 8, !noalias !11729
-  %.sroa.544.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 0, ptr %.sroa.544.0..sroa_idx45, align 8, !noalias !11729
-  %.sroa.7.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %35, ptr %.sroa.7.0..sroa_idx50, align 8, !noalias !11729
-  %.sroa.8.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr null, ptr %.sroa.8.0..sroa_idx52, align 8, !noalias !11729
+  %.sroa.4.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i8 0, ptr %.sroa.4.0..sroa_idx43, align 8, !noalias !11729
+  %.sroa.6.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %35, ptr %.sroa.6.0..sroa_idx45, align 8, !noalias !11729
+  %.sroa.7.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store ptr null, ptr %.sroa.7.0..sroa_idx46, align 8, !noalias !11729
   %36 = load ptr, ptr %34, align 8, !noundef !5
-  store ptr %.sroa.544.0..sroa_idx45, ptr %34, align 8
+  store ptr %.sroa.4.0..sroa_idx43, ptr %34, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.544.0..sroa_idx45, ptr %39, align 8
+  store ptr %.sroa.4.0..sroa_idx43, ptr %39, align 8
   br label %42
 
 40:                                               ; preds = %33
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  store ptr %.sroa.544.0..sroa_idx45, ptr %41, align 8
+  store ptr %.sroa.4.0..sroa_idx43, ptr %41, align 8
   br label %42
 
 42:                                               ; preds = %40, %38
@@ -42088,7 +42088,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8318809290061399519.exit.
 _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8318809290061399519.exit.i.i.i31: ; preds = %62, %60, %56, %48
   %63 = atomicrmw xchg ptr %0, i32 0 release, align 4, !noalias !11744
   %64 = icmp eq i32 %63, 2
-  br i1 %64, label %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17ha83ca0364d12aa22E.exit32.sink.split", label %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17ha83ca0364d12aa22E.exit32"
+  br i1 %64, label %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17ha83ca0364d12aa22E.exit.sink.split", label %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17ha83ca0364d12aa22E.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -146052,8 +146052,8 @@ define hidden void @"_ZN9async_tar5entry20EntryFields$LT$R$GT$10path_bytes17h767
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !41694
   call void @"_ZN88_$LT$async_tar..pax..PaxExtensions$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2588b646724db8c5E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %5), !noalias !41698
   %31 = load i64, ptr %4, align 8, !range !19, !noalias !41694, !noundef !5
-  %trunc23.i = trunc nuw i64 %31 to i1
-  br i1 %trunc23.i, label %.lr.ph.i, label %.loopexit
+  %trunc21.i = trunc nuw i64 %31 to i1
+  br i1 %trunc21.i, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -152809,8 +152809,8 @@ common.ret.sink.split.i.i361:                     ; preds = %1486, %1483
 
 .noexc33.i:                                       ; preds = %1683
   %1684 = load i64, ptr %13, align 8, !range !19, !noalias !43193, !noundef !5
-  %trunc39.i.i.i.i.i.i = trunc nuw i64 %1684 to i1
-  br i1 %trunc39.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, label %.loopexit123.i
+  %trunc37.i.i.i.i.i.i = trunc nuw i64 %1684 to i1
+  br i1 %trunc37.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, label %.loopexit123.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc33.i, %.noexc36.i
   %.sroa.08.0.copyload.i.i.i.i.i.i = load ptr, ptr %1674, align 8, !noalias !43193

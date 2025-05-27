@@ -12696,7 +12696,7 @@ define internal fastcc range(i64 4294967296, 8589934594) i64 @_ZN4fish8builtins4
           to label %.noexc4.i.i unwind label %155, !noalias !1057
 
 .noexc4.i.i:                                      ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17hdca84310e41a1ccfE.exit.i.i.i.i.i", %107
-  %.sroa.033.090.i.i.i.i.i = phi i1 [ %109, %107 ], [ false, %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17hdca84310e41a1ccfE.exit.i.i.i.i.i" ]
+  %.sroa.033.089.i.i.i.i.i = phi i1 [ %109, %107 ], [ false, %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17hdca84310e41a1ccfE.exit.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !1058
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %10), !noalias !1058
   invoke void @_ZN4fish5wutil5wstat17hcaa9ea6971612511E(ptr noalias noundef nonnull sret([176 x i8]) align 8 captures(none) dereferenceable(176) %10, ptr noalias noundef nonnull readonly align 4 %.val1.i.i, i64 noundef %.val2.i.i)
@@ -12720,7 +12720,7 @@ define internal fastcc range(i64 4294967296, 8589934594) i64 @_ZN4fish8builtins4
   %.sroa.5.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i, align 4, !noalias !1058
   %.sroa.5.sroa.3.0.copyload.i.i.i.i.i = load i32, ptr %.sroa.5.sroa.3.0..sroa.5.0..sroa_idx.sroa_idx.i.i.i.i.i, align 8, !noalias !1058
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %10), !noalias !1058
-  br i1 %.sroa.033.090.i.i.i.i.i, label %99, label %113
+  br i1 %.sroa.033.089.i.i.i.i.i, label %99, label %113
 
 113:                                              ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h708f6ecc79415be6E.exit82.i.i.i.i.i", %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h708f6ecc79415be6E.exit80.i.i.i.i.i"
   %.sroa.5.sroa.0.0.i.i.i.i.i = phi i32 [ %.sroa.5.sroa.0.0.copyload.i.i.i.i.i, %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h708f6ecc79415be6E.exit80.i.i.i.i.i" ], [ %.sroa.5.sroa.0.0.copyload29.i.i.i.i.i, %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h708f6ecc79415be6E.exit82.i.i.i.i.i" ]
@@ -12777,12 +12777,12 @@ define internal fastcc range(i64 4294967296, 8589934594) i64 @_ZN4fish8builtins4
 
 132:                                              ; preds = %99
   %133 = load i32, ptr %83, align 4, !alias.scope !1051, !noalias !1054, !noundef !7
-  %trunc92.i.i.i.i.i = trunc i32 %133 to i3
-  %134 = icmp eq i3 %trunc92.i.i.i.i.i, 0
+  %trunc91.i.i.i.i.i = trunc i32 %133 to i3
+  %134 = icmp eq i3 %trunc91.i.i.i.i.i, 0
   br i1 %134, label %138, label %135
 
 135:                                              ; preds = %132
-  %rev.i.i.i.i.i = call i3 @llvm.bitreverse.i3(i3 %trunc92.i.i.i.i.i)
+  %rev.i.i.i.i.i = call i3 @llvm.bitreverse.i3(i3 %trunc91.i.i.i.i.i)
   %.sroa.020.2.i.i.i.i.i = zext i3 %rev.i.i.i.i.i to i32
   %136 = invoke noundef i32 @_ZN4fish5wutil7waccess17hbb3ac5e36835e214E(ptr noalias noundef nonnull readonly align 4 %.val1.i.i, i64 noundef %.val2.i.i, i32 noundef %.sroa.020.2.i.i.i.i.i)
           to label %.noexc7.i.i unwind label %155, !noalias !1057
@@ -12793,8 +12793,8 @@ define internal fastcc range(i64 4294967296, 8589934594) i64 @_ZN4fish8builtins4
 
 138:                                              ; preds = %.noexc7.i.i, %132
   %139 = and i32 %133, 120
-  %.not93.i.i.i.i.i = icmp eq i32 %139, 0
-  br i1 %.not93.i.i.i.i.i, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hd6330b0fd27d95ccE.exit.thr_comm2.i.i", label %140
+  %.not92.i.i.i.i.i = icmp eq i32 %139, 0
+  br i1 %.not92.i.i.i.i.i, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hd6330b0fd27d95ccE.exit.thr_comm2.i.i", label %140
 
 140:                                              ; preds = %138
   br i1 %95, label %144, label %141

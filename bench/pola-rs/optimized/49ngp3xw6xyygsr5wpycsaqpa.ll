@@ -76853,9 +76853,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.53.0.copyload.i = load i64, ptr %.sroa.53.0..sroa_idx.i, align 8, !noalias !6522
   %.sroa.64.0.copyload.i = load double, ptr %.sroa.64.0..sroa_idx.i, align 8, !noalias !6522
   %45 = and i64 %.sroa.53.0.copyload.i, %41
-  %or.cond.not.not.i.i.i = icmp eq i64 %45, 0
   %46 = call double @llvm.pow.f64(double %.sroa.42.0.copyload.i, double %.sroa.64.0.copyload.i)
-  %.sroa.4.0.i.i.i = select i1 %or.cond.not.not.i.i.i, double undef, double %46
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !6522
   %47 = load i64, ptr %31, align 8, !noundef !4
   %48 = icmp ult i64 %47, 1152921504606846976
@@ -76963,7 +76961,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 76:                                               ; preds = %._crit_edge, %95, %44
   %77 = phi i64 [ %.pre, %._crit_edge ], [ %97, %95 ], [ %47, %44 ]
   %78 = trunc nuw i64 %45 to i1
-  %.sroa.015.0 = select i1 %78, double %.sroa.4.0.i.i.i, double 0.000000e+00
+  %.sroa.015.0 = select i1 %78, double %46, double 0.000000e+00
   %79 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
   %80 = icmp ult i64 %77, 1152921504606846976
   call void @llvm.assume(i1 %80)
@@ -77972,9 +77970,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.53.0.copyload.i = load i32, ptr %.sroa.53.0..sroa_idx.i, align 4, !noalias !6623
   %.sroa.64.0.copyload.i = load float, ptr %.sroa.64.0..sroa_idx.i, align 4, !noalias !6623
   %45 = and i32 %.sroa.53.0.copyload.i, %41
-  %or.cond.not.not.i.i.i = icmp eq i32 %45, 0
   %46 = call float @llvm.pow.f32(float %.sroa.42.0.copyload.i, float %.sroa.64.0.copyload.i)
-  %.sroa.4.0.i.i.i = select i1 %or.cond.not.not.i.i.i, float undef, float %46
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !6623
   %47 = load i64, ptr %31, align 8, !noundef !4
   %48 = icmp ult i64 %47, 2305843009213693952
@@ -78082,7 +78078,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 76:                                               ; preds = %._crit_edge, %95, %44
   %77 = phi i64 [ %.pre, %._crit_edge ], [ %97, %95 ], [ %47, %44 ]
   %78 = trunc nuw i32 %45 to i1
-  %.sroa.015.0 = select i1 %78, float %.sroa.4.0.i.i.i, float 0.000000e+00
+  %.sroa.015.0 = select i1 %78, float %46, float 0.000000e+00
   %79 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
   %80 = icmp ult i64 %77, 2305843009213693952
   call void @llvm.assume(i1 %80)

@@ -8570,7 +8570,7 @@ define { i64, ptr } @_ZN9elfshaker4repo10repository10Repository19get_pack_disk_s
           to label %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h160de29f28b2708eE.exit" unwind label %11
 
 "_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h160de29f28b2708eE.exit": ; preds = %17, %16
-  %.sroa.012.028 = phi i64 [ %.sroa.110.0.copyload, %16 ], [ 0, %17 ]
+  %.sroa.012.027 = phi i64 [ %.sroa.110.0.copyload, %16 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %21 = invoke noundef zeroext i1 @_ZN3std4path7PathBuf13set_extension17ha2c737cda8eb6347E(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
           to label %22 unwind label %11
@@ -8621,7 +8621,7 @@ define { i64, ptr } @_ZN9elfshaker4repo10repository10Repository19get_pack_disk_s
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
   %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %3)
-  %37 = add i64 %.sroa.7.0.copyload, %.sroa.012.028
+  %37 = add i64 %.sroa.7.0.copyload, %.sroa.012.027
   call void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h61402040d85a06a8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   %38 = inttoptr i64 %37 to ptr

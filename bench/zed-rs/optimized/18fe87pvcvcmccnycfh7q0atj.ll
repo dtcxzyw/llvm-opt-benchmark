@@ -660,38 +660,38 @@ define hidden void @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inne
 _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.17929084834415715485.exit.i.i.i: ; preds = %29, %27, %23, %16
   %30 = atomicrmw xchg ptr %0, i32 0 release, align 4, !noalias !118
   %31 = icmp eq i32 %30, 2
-  br i1 %31, label %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h7c8e7b49017bdff1E.exit32.sink.split", label %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h7c8e7b49017bdff1E.exit32"
+  br i1 %31, label %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h7c8e7b49017bdff1E.exit.sink.split", label %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h7c8e7b49017bdff1E.exit"
 
-"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h7c8e7b49017bdff1E.exit32.sink.split": ; preds = %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.17929084834415715485.exit.i.i.i, %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.17929084834415715485.exit.i.i.i31
+"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h7c8e7b49017bdff1E.exit.sink.split": ; preds = %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.17929084834415715485.exit.i.i.i, %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.17929084834415715485.exit.i.i.i31
   tail call void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17h441c2e235bf44cf8E(ptr noundef nonnull align 4 %0), !noalias !4
-  br label %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h7c8e7b49017bdff1E.exit32"
+  br label %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h7c8e7b49017bdff1E.exit"
 
-"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h7c8e7b49017bdff1E.exit32": ; preds = %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h7c8e7b49017bdff1E.exit32.sink.split", %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.17929084834415715485.exit.i.i.i, %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.17929084834415715485.exit.i.i.i31
+"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h7c8e7b49017bdff1E.exit": ; preds = %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h7c8e7b49017bdff1E.exit.sink.split", %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.17929084834415715485.exit.i.i.i31, %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.17929084834415715485.exit.i.i.i
   ret void
 
 32:                                               ; preds = %"_ZN3std4sync5mutex14Mutex$LT$T$GT$4lock17h307cda1f51e71bc6E.exit"
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8, !noundef !4
   store i64 1, ptr %1, align 8, !noalias !119
-  %.sroa.544.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 0, ptr %.sroa.544.0..sroa_idx45, align 8, !noalias !119
-  %.sroa.7.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %34, ptr %.sroa.7.0..sroa_idx50, align 8, !noalias !119
-  %.sroa.8.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr null, ptr %.sroa.8.0..sroa_idx52, align 8, !noalias !119
+  %.sroa.4.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i8 0, ptr %.sroa.4.0..sroa_idx43, align 8, !noalias !119
+  %.sroa.6.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %34, ptr %.sroa.6.0..sroa_idx45, align 8, !noalias !119
+  %.sroa.7.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store ptr null, ptr %.sroa.7.0..sroa_idx46, align 8, !noalias !119
   %35 = load ptr, ptr %33, align 8, !noundef !4
-  store ptr %.sroa.544.0..sroa_idx45, ptr %33, align 8
+  store ptr %.sroa.4.0..sroa_idx43, ptr %33, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.544.0..sroa_idx45, ptr %38, align 8
+  store ptr %.sroa.4.0..sroa_idx43, ptr %38, align 8
   br label %41
 
 39:                                               ; preds = %32
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  store ptr %.sroa.544.0..sroa_idx45, ptr %40, align 8
+  store ptr %.sroa.4.0..sroa_idx43, ptr %40, align 8
   br label %41
 
 41:                                               ; preds = %39, %37
@@ -735,7 +735,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.17929084834415715485.exit
 _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.17929084834415715485.exit.i.i.i31: ; preds = %61, %59, %55, %47
   %62 = atomicrmw xchg ptr %0, i32 0 release, align 4, !noalias !134
   %63 = icmp eq i32 %62, 2
-  br i1 %63, label %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h7c8e7b49017bdff1E.exit32.sink.split", label %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h7c8e7b49017bdff1E.exit32"
+  br i1 %63, label %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h7c8e7b49017bdff1E.exit.sink.split", label %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h7c8e7b49017bdff1E.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable

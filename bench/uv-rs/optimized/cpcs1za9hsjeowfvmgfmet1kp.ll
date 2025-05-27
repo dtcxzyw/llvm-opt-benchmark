@@ -399,8 +399,8 @@ define hidden void @"_ZN101_$LT$itertools..adaptors..FilterOk$LT$I$C$F$GT$$u20$a
   br label %_ZN4core4iter6traits8iterator8Iterator4find17h41d4ed8e47978f4bE.llvm.9835181522389544895.exit
 
 _ZN4core4iter6traits8iterator8Iterator4find17h41d4ed8e47978f4bE.llvm.9835181522389544895.exit: ; preds = %2, %.thread.i
-  %.sink.i = phi i64 [ 1, %.thread.i ], [ 0, %2 ]
-  store i64 %.sink.i, ptr %0, align 8, !alias.scope !12, !noalias !19
+  %storemerge.i = phi i64 [ 1, %.thread.i ], [ 0, %2 ]
+  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !12, !noalias !19
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !15
   ret void
 }
@@ -7865,8 +7865,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4find17h41d4ed8e47978f
   br label %"_ZN4core3ptr134drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$core..result..Result$LT$std..fs..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17h74d09b422f35533cE.llvm.9835181522389544895.exit"
 
 "_ZN4core3ptr134drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$core..result..Result$LT$std..fs..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17h74d09b422f35533cE.llvm.9835181522389544895.exit": ; preds = %3, %.thread
-  %.sink = phi i64 [ 1, %.thread ], [ 0, %3 ]
-  store i64 %.sink, ptr %0, align 8
+  %storemerge = phi i64 [ 1, %.thread ], [ 0, %3 ]
+  store i64 %storemerge, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   ret void
 }
@@ -8981,8 +8981,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6a31dd0b75
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !2966
   call void @"_ZN75_$LT$std..fs..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf973f1b9f2718b30E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull align 8 dereferenceable(16) %1), !noalias !2976
   %12 = load i64, ptr %10, align 8, !range !18, !noalias !2966, !noundef !10
-  %trunc16.i.i.i20 = trunc nuw i64 %12 to i1
-  br i1 %trunc16.i.i.i20, label %.lr.ph.i.i.i.lr.ph, label %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..fs..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17h0086b37c2a510af8E.exit"
+  %trunc13.i.i.i20 = trunc nuw i64 %12 to i1
+  br i1 %trunc13.i.i.i20, label %.lr.ph.i.i.i.lr.ph, label %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..fs..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17h0086b37c2a510af8E.exit"
 
 .lr.ph.i.i.i.lr.ph:                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -9232,8 +9232,8 @@ common.resume:                                    ; preds = %75, %56, %.body.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !3083
   call void @"_ZN75_$LT$std..fs..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf973f1b9f2718b30E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull align 8 dereferenceable(16) %1), !noalias !3086
   %83 = load i64, ptr %10, align 8, !range !18, !noalias !3083, !noundef !10
-  %trunc16.i.i.i = trunc nuw i64 %83 to i1
-  br i1 %trunc16.i.i.i, label %.lr.ph.i.i.i.backedge, label %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..fs..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17h0086b37c2a510af8E.exit"
+  %trunc13.i.i.i = trunc nuw i64 %83 to i1
+  br i1 %trunc13.i.i.i, label %.lr.ph.i.i.i.backedge, label %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..fs..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17h0086b37c2a510af8E.exit"
 
 84:                                               ; preds = %67, %"_ZN101_$LT$itertools..adaptors..FilterOk$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hde90ff62e47b97caE.exit.i"
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 8

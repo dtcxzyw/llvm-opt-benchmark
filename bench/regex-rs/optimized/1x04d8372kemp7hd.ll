@@ -1431,19 +1431,18 @@ define hidden { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u
 define hidden noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h09d75b53c03d931aE.llvm.8347807780687254574"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #19 {
   %3 = load i8, ptr %0, align 1, !range !252, !noundef !9
   %4 = load i8, ptr %1, align 1, !range !252, !noundef !9
-  %5 = icmp eq i8 %3, %4
-  br i1 %5, label %.sink.split, label %7
-
-.sink.split:                                      ; preds = %2
-  %6 = trunc nuw i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
+  %6 = icmp eq i8 %3, %4
   %trunc = trunc nuw i8 %3 to i1
-  %not.trunc = xor i1 %trunc, true
-  %spec.select = select i1 %not.trunc, i1 true, i1 %6
-  tail call void @llvm.assume(i1 %spec.select)
-  br label %7
+  %or.cond = select i1 %6, i1 %trunc, i1 false
+  br i1 %or.cond, label %8, label %7
 
-7:                                                ; preds = %.sink.split, %2
-  ret i1 %5
+7:                                                ; preds = %2, %8
+  ret i1 %6
+
+8:                                                ; preds = %2
+  tail call void @llvm.assume(i1 %5)
+  br label %7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -13500,12 +13499,12 @@ define noundef zeroext i1 @_ZN14regex_automata4util8alphabet7ByteSet8contains17h
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN14regex_automata4util8alphabet7ByteSet14contains_range17h0acd3c136499bc32E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, i8 noundef %1, i8 noundef %2) unnamed_addr #31 personality ptr @rust_eh_personality {
   %.not.i = icmp ugt i8 %1, %2
-  br i1 %.not.i, label %.sink.split.i, label %.preheader.i
+  br i1 %.not.i, label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit", label %.preheader.i
 
 .preheader.i:                                     ; preds = %3, %5
   %4 = phi i8 [ %6, %5 ], [ %1, %3 ]
   %exitcond.not = icmp eq i8 %4, %2
-  br i1 %exitcond.not, label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit", label %5
+  br i1 %exitcond.not, label %14, label %5
 
 5:                                                ; preds = %.preheader.i
   %6 = add i8 %4, 1
@@ -13518,26 +13517,23 @@ define hidden noundef zeroext i1 @_ZN14regex_automata4util8alphabet7ByteSet14con
   %12 = shl nuw i128 1, %11
   %13 = and i128 %9, %12
   %.not.i.not.i = icmp eq i128 %13, 0
-  br i1 %.not.i.not.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h09d75b53c03d931aE.llvm.8347807780687254574.exit", label %.preheader.i
+  br i1 %.not.i.not.i, label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit", label %.preheader.i
 
-"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit": ; preds = %.preheader.i
+14:                                               ; preds = %.preheader.i
   %.lobit.i.i.i13.i = lshr i8 %2, 7
-  %14 = zext nneg i8 %.lobit.i.i.i13.i to i64
-  %15 = getelementptr inbounds nuw [2 x i128], ptr %0, i64 0, i64 %14
-  %16 = load i128, ptr %15, align 8, !alias.scope !3432, !noalias !3430, !noundef !9
-  %17 = and i8 %2, 127
-  %18 = zext nneg i8 %17 to i128
-  %19 = shl nuw i128 1, %18
-  %20 = and i128 %16, %19
-  %.not.i14.not.i = icmp eq i128 %20, 0
-  br i1 %.not.i14.not.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h09d75b53c03d931aE.llvm.8347807780687254574.exit", label %.sink.split.i
+  %15 = zext nneg i8 %.lobit.i.i.i13.i to i64
+  %16 = getelementptr inbounds nuw [2 x i128], ptr %0, i64 0, i64 %15
+  %17 = load i128, ptr %16, align 8, !alias.scope !3432, !noalias !3430, !noundef !9
+  %18 = and i8 %2, 127
+  %19 = zext nneg i8 %18 to i128
+  %20 = shl nuw i128 1, %19
+  %21 = and i128 %17, %20
+  %22 = icmp ne i128 %21, 0
+  br label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit"
 
-.sink.split.i:                                    ; preds = %3, %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit"
-  br label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h09d75b53c03d931aE.llvm.8347807780687254574.exit"
-
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h09d75b53c03d931aE.llvm.8347807780687254574.exit": ; preds = %5, %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit", %.sink.split.i
-  %21 = phi i1 [ false, %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit" ], [ true, %.sink.split.i ], [ false, %5 ]
-  ret i1 %21
+"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h1edd916a31d9f845E.llvm.8347807780687254574.exit": ; preds = %5, %3, %14
+  %.0.i = phi i1 [ true, %3 ], [ %22, %14 ], [ false, %5 ]
+  ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

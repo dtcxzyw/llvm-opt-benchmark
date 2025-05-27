@@ -14532,7 +14532,7 @@ define linkonce_odr i32 @_ZN4CGAL5Euler8add_faceINS_12Surface_meshINS_7Point_3IN
 _ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPN4CGAL15SM_Vertex_indexESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit.thread: ; preds = %.preheader.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %22, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
   %29 = invoke noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #41
-          to label %30 unwind label %56
+          to label %30 unwind label %57
 
 30:                                               ; preds = %_ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPN4CGAL15SM_Vertex_indexESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit.thread
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %29, i8 -1, i64 12, i1 false)
@@ -14552,12 +14552,12 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %30
 .body612.thread:                                  ; preds = %30
   %38 = landingpad { ptr, i32 }
           cleanup
-  br label %403
+  br label %404
 
 39:                                               ; preds = %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit, %.critedge
   %40 = phi i64 [ 0, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit ], [ %storemerge, %.critedge ]
   %indvars.iv = phi i64 [ 0, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit ], [ %indvars.iv.next, %.critedge ]
-  %.0565899 = phi i32 [ 1, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit ], [ %93, %.critedge ]
+  %.0565900 = phi i32 [ 1, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit ], [ %94, %.critedge ]
   %41 = getelementptr inbounds nuw %"class.CGAL::SM_Vertex_index", ptr %22, i64 %indvars.iv
   %.sroa.0104.0.copyload = load i32, ptr %41, align 4
   %42 = zext i32 %.sroa.0104.0.copyload to i64
@@ -14573,803 +14573,803 @@ _ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5Epi
 
 _ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread.i: ; preds = %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit.i, %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread.lr.ph.i
   %.sroa.14.018.i = phi i32 [ 0, %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread.lr.ph.i ], [ %spec.select.i, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit.i ]
-  %.sroa.3.017.i = phi i32 [ %.sroa.0.0.copyload.i.i.i, %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread.lr.ph.i ], [ %51, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit.i ]
+  %.sroa.3.017.i = phi i32 [ %.sroa.0.0.copyload.i.i.i, %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread.lr.ph.i ], [ %52, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit.i ]
   %47 = zext i32 %.sroa.3.017.i to i64
   %48 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %46, i64 %47
   %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %48, align 4, !noalias !182
-  %.not882 = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i, -1
-  br i1 %.not882, label %_ZN5boost8optionalIN4CGAL17SM_Halfedge_indexEED2Ev.exit.thread, label %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit.i
+  %49 = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i, -1
+  br i1 %49, label %_ZN5boost8optionalIN4CGAL17SM_Halfedge_indexEED2Ev.exit.thread, label %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit.i
 
 _ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit.i: ; preds = %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread.i
-  %49 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %46, i64 %47, i32 2
-  %.sroa.0.0.copyload.i.i.i6.i = load i32, ptr %49, align 4, !noalias !182
-  %50 = and i32 %.sroa.0.0.copyload.i.i.i6.i, 1
-  %.not.i.i.i.i615 = icmp eq i32 %50, 0
+  %50 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %46, i64 %47, i32 2
+  %.sroa.0.0.copyload.i.i.i6.i = load i32, ptr %50, align 4, !noalias !182
+  %51 = and i32 %.sroa.0.0.copyload.i.i.i6.i, 1
+  %.not.i.i.i.i615 = icmp eq i32 %51, 0
   %.v.i.i.i.i = select i1 %.not.i.i.i.i615, i32 1, i32 -1
-  %51 = add i32 %.v.i.i.i.i, %.sroa.0.0.copyload.i.i.i6.i
-  %52 = icmp eq i32 %51, %.sroa.0.0.copyload.i.i.i
-  %53 = zext i1 %52 to i32
-  %spec.select.i = add nuw nsw i32 %.sroa.14.018.i, %53
-  %54 = icmp ne i32 %51, %.sroa.0.0.copyload.i.i.i
-  %55 = icmp ne i32 %spec.select.i, 1
-  %or.cond.i = select i1 %54, i1 true, i1 %55
-  br i1 %or.cond.i, label %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread.i, label %.loopexit947, !llvm.loop !185
+  %52 = add i32 %.v.i.i.i.i, %.sroa.0.0.copyload.i.i.i6.i
+  %53 = icmp eq i32 %52, %.sroa.0.0.copyload.i.i.i
+  %54 = zext i1 %53 to i32
+  %spec.select.i = add nuw nsw i32 %.sroa.14.018.i, %54
+  %55 = icmp ne i32 %52, %.sroa.0.0.copyload.i.i.i
+  %56 = icmp ne i32 %spec.select.i, 1
+  %or.cond.i = select i1 %55, i1 true, i1 %56
+  br i1 %or.cond.i, label %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread.i, label %.loopexit948, !llvm.loop !185
 
-56:                                               ; preds = %_ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPN4CGAL15SM_Vertex_indexESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit.thread
-  %57 = landingpad { ptr, i32 }
+57:                                               ; preds = %_ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPN4CGAL15SM_Vertex_indexESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit.thread
+  %58 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN4CGAL15SM_Vertex_indexESaIS1_EED2Ev.exit700
 
 _ZN5boost8optionalIN4CGAL17SM_Halfedge_indexEED2Ev.exit.thread: ; preds = %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread.i, %39
-  %58 = zext nneg i32 %.0565899 to i64
-  %59 = getelementptr inbounds nuw %"class.CGAL::SM_Vertex_index", ptr %22, i64 %58
-  %.sroa.099.0.copyload = load i32, ptr %59, align 4
-  %60 = zext i32 %.sroa.099.0.copyload to i64
-  %61 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %43, i64 %60
-  %.sroa.0.0.copyload.i.i.i616 = load i32, ptr %61, align 4
+  %59 = zext nneg i32 %.0565900 to i64
+  %60 = getelementptr inbounds nuw %"class.CGAL::SM_Vertex_index", ptr %22, i64 %59
+  %.sroa.099.0.copyload = load i32, ptr %60, align 4
+  %61 = zext i32 %.sroa.099.0.copyload to i64
+  %62 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %43, i64 %61
+  %.sroa.0.0.copyload.i.i.i616 = load i32, ptr %62, align 4
   %.not.i.i617 = icmp eq i32 %.sroa.0.0.copyload.i.i.i616, -1
   br i1 %.not.i.i617, label %.loopexit894.thread, label %.preheader.i.i618
 
 .preheader.i.i618:                                ; preds = %_ZN5boost8optionalIN4CGAL17SM_Halfedge_indexEED2Ev.exit.thread
-  %62 = load ptr, ptr %37, align 8
-  br label %63
+  %63 = load ptr, ptr %37, align 8
+  br label %64
 
-63:                                               ; preds = %69, %.preheader.i.i618
-  %.sroa.09.0.i.i = phi i32 [ %73, %69 ], [ %.sroa.0.0.copyload.i.i.i616, %.preheader.i.i618 ]
+64:                                               ; preds = %70, %.preheader.i.i618
+  %.sroa.09.0.i.i = phi i32 [ %74, %70 ], [ %.sroa.0.0.copyload.i.i.i616, %.preheader.i.i618 ]
   %.sroa.09.0.i.fr.i = freeze i32 %.sroa.09.0.i.i
-  %64 = and i32 %.sroa.09.0.i.fr.i, 1
-  %.not.i.i.i.i619 = icmp eq i32 %64, 0
+  %65 = and i32 %.sroa.09.0.i.fr.i, 1
+  %.not.i.i.i.i619 = icmp eq i32 %65, 0
   %.v.i.i.i.i620 = select i1 %.not.i.i.i.i619, i32 1, i32 -1
-  %65 = add i32 %.v.i.i.i.i620, %.sroa.09.0.i.fr.i
-  %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %62, i64 %66, i32 1
-  %.sroa.0.0.copyload.i.i.i.i621 = load i32, ptr %67, align 4
-  %68 = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i621, %.sroa.0104.0.copyload
-  br i1 %68, label %.loopexit894, label %69
+  %66 = add i32 %.v.i.i.i.i620, %.sroa.09.0.i.fr.i
+  %67 = zext i32 %66 to i64
+  %68 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %63, i64 %67, i32 1
+  %.sroa.0.0.copyload.i.i.i.i621 = load i32, ptr %68, align 4
+  %69 = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i621, %.sroa.0104.0.copyload
+  br i1 %69, label %.loopexit894, label %70
 
-69:                                               ; preds = %63
-  %70 = zext i32 %.sroa.09.0.i.fr.i to i64
-  %71 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %62, i64 %70, i32 2
-  %.sroa.0.0.copyload.i.i5.i.i = load i32, ptr %71, align 4
-  %72 = and i32 %.sroa.0.0.copyload.i.i5.i.i, 1
-  %.not.i.i6.i.i = icmp eq i32 %72, 0
+70:                                               ; preds = %64
+  %71 = zext i32 %.sroa.09.0.i.fr.i to i64
+  %72 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %63, i64 %71, i32 2
+  %.sroa.0.0.copyload.i.i5.i.i = load i32, ptr %72, align 4
+  %73 = and i32 %.sroa.0.0.copyload.i.i5.i.i, 1
+  %.not.i.i6.i.i = icmp eq i32 %73, 0
   %.v.i.i7.i.i = select i1 %.not.i.i6.i.i, i32 1, i32 -1
-  %73 = add i32 %.v.i.i7.i.i, %.sroa.0.0.copyload.i.i5.i.i
-  %.not16.i.i = icmp eq i32 %73, %.sroa.0.0.copyload.i.i.i616
-  br i1 %.not16.i.i, label %.loopexit894.thread, label %63, !llvm.loop !186
+  %74 = add i32 %.v.i.i7.i.i, %.sroa.0.0.copyload.i.i5.i.i
+  %.not16.i.i = icmp eq i32 %74, %.sroa.0.0.copyload.i.i.i616
+  br i1 %.not16.i.i, label %.loopexit894.thread, label %64, !llvm.loop !186
 
-.loopexit894.thread:                              ; preds = %69, %_ZN5boost8optionalIN4CGAL17SM_Halfedge_indexEED2Ev.exit.thread
-  %74 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %29, i64 %indvars.iv
-  store i32 -1, ptr %74, align 4
-  %75 = shl nuw nsw i64 1, %indvars.iv
-  br label %78
+.loopexit894.thread:                              ; preds = %70, %_ZN5boost8optionalIN4CGAL17SM_Halfedge_indexEED2Ev.exit.thread
+  %75 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %29, i64 %indvars.iv
+  store i32 -1, ptr %75, align 4
+  %76 = shl nuw nsw i64 1, %indvars.iv
+  br label %79
 
-.loopexit894:                                     ; preds = %63
+.loopexit894:                                     ; preds = %64
   %.not.i = icmp eq i32 %.sroa.09.0.i.fr.i, -1
-  %76 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %29, i64 %indvars.iv
-  store i32 %.sroa.09.0.i.fr.i, ptr %76, align 4
-  %77 = shl nuw nsw i64 1, %indvars.iv
-  br i1 %.not.i, label %78, label %81
+  %77 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %29, i64 %indvars.iv
+  store i32 %.sroa.09.0.i.fr.i, ptr %77, align 4
+  %78 = shl nuw nsw i64 1, %indvars.iv
+  br i1 %.not.i, label %79, label %82
 
-78:                                               ; preds = %.loopexit894.thread, %.loopexit894
-  %79 = phi i64 [ %75, %.loopexit894.thread ], [ %77, %.loopexit894 ]
-  %80 = or i64 %40, %79
+79:                                               ; preds = %.loopexit894.thread, %.loopexit894
+  %80 = phi i64 [ %76, %.loopexit894.thread ], [ %78, %.loopexit894 ]
+  %81 = or i64 %40, %80
   br label %_ZNSt14_Bit_referenceaSEb.exit
 
-81:                                               ; preds = %.loopexit894
-  %82 = xor i64 %77, -1
-  %83 = and i64 %40, %82
-  %84 = zext i32 %.sroa.09.0.i.fr.i to i64
+82:                                               ; preds = %.loopexit894
+  %83 = xor i64 %78, -1
+  %84 = and i64 %40, %83
+  %85 = zext i32 %.sroa.09.0.i.fr.i to i64
   br label %_ZNSt14_Bit_referenceaSEb.exit
 
-_ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %81, %78
-  %85 = phi i64 [ %77, %81 ], [ %79, %78 ]
-  %.sroa.015.0.i9.i941 = phi i64 [ %84, %81 ], [ 4294967295, %78 ]
-  %storemerge = phi i64 [ %83, %81 ], [ %80, %78 ]
+_ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %82, %79
+  %86 = phi i64 [ %78, %82 ], [ %80, %79 ]
+  %.sroa.015.0.i9.i942 = phi i64 [ %85, %82 ], [ 4294967295, %79 ]
+  %storemerge = phi i64 [ %84, %82 ], [ %81, %79 ]
   store i64 %storemerge, ptr %31, align 8
-  %86 = and i64 %storemerge, %85
-  %.not883 = icmp eq i64 %86, 0
-  br i1 %.not883, label %87, label %.critedge
+  %87 = and i64 %storemerge, %86
+  %.not883 = icmp eq i64 %87, 0
+  br i1 %.not883, label %88, label %.critedge
 
-87:                                               ; preds = %_ZNSt14_Bit_referenceaSEb.exit
-  %88 = load ptr, ptr %37, align 8
-  %89 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %88, i64 %.sroa.015.0.i9.i941
-  %.sroa.0.0.copyload.i.i.i627 = load i32, ptr %89, align 4
-  %90 = icmp eq i32 %.sroa.0.0.copyload.i.i.i627, -1
-  br i1 %90, label %.critedge, label %.loopexit947
+88:                                               ; preds = %_ZNSt14_Bit_referenceaSEb.exit
+  %89 = load ptr, ptr %37, align 8
+  %90 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %89, i64 %.sroa.015.0.i9.i942
+  %.sroa.0.0.copyload.i.i.i627 = load i32, ptr %90, align 4
+  %91 = icmp eq i32 %.sroa.0.0.copyload.i.i.i627, -1
+  br i1 %91, label %.critedge, label %.loopexit948
 
-.critedge:                                        ; preds = %87, %_ZNSt14_Bit_referenceaSEb.exit
+.critedge:                                        ; preds = %88, %_ZNSt14_Bit_referenceaSEb.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %91 = add i32 %.0565899, 1
-  %92 = icmp eq i32 %91, 3
-  %93 = select i1 %92, i32 0, i32 %91
+  %92 = add i32 %.0565900, 1
+  %93 = icmp eq i32 %92, 3
+  %94 = select i1 %93, i32 0, i32 %92
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %94, label %39, !llvm.loop !187
+  br i1 %exitcond.not, label %95, label %39, !llvm.loop !187
 
-94:                                               ; preds = %.critedge
-  %95 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr %95, ptr %12, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 0, ptr %96, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 9, ptr %97, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %99 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %100 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  br label %101
+95:                                               ; preds = %.critedge
+  %96 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store ptr %96, ptr %12, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 0, ptr %97, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 9, ptr %98, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  br label %102
 
-101:                                              ; preds = %94, %.critedge2
-  %indvars.iv917 = phi i64 [ 0, %94 ], [ %indvars.iv.next918, %.critedge2 ]
-  %.0568901 = phi i32 [ 1, %94 ], [ %173, %.critedge2 ]
-  %102 = shl nuw nsw i64 1, %indvars.iv917
-  %103 = load i64, ptr %31, align 8
-  %104 = and i64 %103, %102
-  %.not879 = icmp eq i64 %104, 0
-  br i1 %.not879, label %105, label %.critedge2
+102:                                              ; preds = %95, %.critedge2
+  %indvars.iv918 = phi i64 [ 0, %95 ], [ %indvars.iv.next919, %.critedge2 ]
+  %.0568902 = phi i32 [ 1, %95 ], [ %174, %.critedge2 ]
+  %103 = shl nuw nsw i64 1, %indvars.iv918
+  %104 = load i64, ptr %31, align 8
+  %105 = and i64 %104, %103
+  %.not880 = icmp eq i64 %105, 0
+  br i1 %.not880, label %106, label %.critedge2
 
-105:                                              ; preds = %101
-  %106 = zext nneg i32 %.0568901 to i64
-  %107 = shl nuw nsw i64 1, %106
-  %108 = and i64 %103, %107
-  %.not880 = icmp eq i64 %108, 0
-  br i1 %.not880, label %109, label %.critedge2
+106:                                              ; preds = %102
+  %107 = zext nneg i32 %.0568902 to i64
+  %108 = shl nuw nsw i64 1, %107
+  %109 = and i64 %104, %108
+  %.not881 = icmp eq i64 %109, 0
+  br i1 %.not881, label %110, label %.critedge2
 
-109:                                              ; preds = %105
-  %110 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %29, i64 %indvars.iv917
-  %111 = load i32, ptr %110, align 4
-  %112 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %29, i64 %106
-  %113 = load i32, ptr %112, align 4
-  %114 = load ptr, ptr %35, align 8
-  %115 = zext i32 %111 to i64
-  %116 = getelementptr inbounds nuw i8, ptr %114, i64 40
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %117, i64 %115, i32 2
-  %.sroa.0.0.copyload.i.i = load i32, ptr %118, align 4
-  %.not881 = icmp eq i32 %.sroa.0.0.copyload.i.i, %113
-  br i1 %.not881, label %.critedge2, label %119
+110:                                              ; preds = %106
+  %111 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %29, i64 %indvars.iv918
+  %112 = load i32, ptr %111, align 4
+  %113 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %29, i64 %107
+  %114 = load i32, ptr %113, align 4
+  %115 = load ptr, ptr %35, align 8
+  %116 = zext i32 %112 to i64
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 40
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %118, i64 %116, i32 2
+  %.sroa.0.0.copyload.i.i = load i32, ptr %119, align 4
+  %.not882 = icmp eq i32 %.sroa.0.0.copyload.i.i, %114
+  br i1 %.not882, label %.critedge2, label %120
 
-119:                                              ; preds = %109
-  %120 = and i32 %113, 1
-  %.not.i.i638 = icmp eq i32 %120, 0
+120:                                              ; preds = %110
+  %121 = and i32 %114, 1
+  %.not.i.i638 = icmp eq i32 %121, 0
   %.v.i.i = select i1 %.not.i.i638, i32 1, i32 -1
-  %121 = add i32 %.v.i.i, %113
-  br label %122
+  %122 = add i32 %.v.i.i, %114
+  br label %123
 
-122:                                              ; preds = %119, %122
-  %.sroa.0733.0 = phi i32 [ %121, %119 ], [ %126, %122 ]
-  %123 = zext i32 %.sroa.0733.0 to i64
-  %124 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %117, i64 %123, i32 2
-  %.sroa.0.0.copyload.i.i641 = load i32, ptr %124, align 4
-  %125 = and i32 %.sroa.0.0.copyload.i.i641, 1
-  %.not.i.i642 = icmp eq i32 %125, 0
+123:                                              ; preds = %120, %123
+  %.sroa.0733.0 = phi i32 [ %122, %120 ], [ %127, %123 ]
+  %124 = zext i32 %.sroa.0733.0 to i64
+  %125 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %118, i64 %124, i32 2
+  %.sroa.0.0.copyload.i.i641 = load i32, ptr %125, align 4
+  %126 = and i32 %.sroa.0.0.copyload.i.i641, 1
+  %.not.i.i642 = icmp eq i32 %126, 0
   %.v.i.i643 = select i1 %.not.i.i642, i32 1, i32 -1
-  %126 = add i32 %.v.i.i643, %.sroa.0.0.copyload.i.i641
-  %127 = zext i32 %126 to i64
-  %128 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %117, i64 %127
-  %.sroa.0.0.copyload.i.i.i644 = load i32, ptr %128, align 4
-  %129 = icmp ne i32 %.sroa.0.0.copyload.i.i.i644, -1
-  %130 = icmp eq i32 %126, %111
-  %or.cond868 = or i1 %129, %130
-  br i1 %or.cond868, label %122, label %131, !llvm.loop !188
+  %127 = add i32 %.v.i.i643, %.sroa.0.0.copyload.i.i641
+  %128 = zext i32 %127 to i64
+  %129 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %118, i64 %128
+  %.sroa.0.0.copyload.i.i.i644 = load i32, ptr %129, align 4
+  %130 = icmp ne i32 %.sroa.0.0.copyload.i.i.i644, -1
+  %131 = icmp eq i32 %127, %112
+  %or.cond869 = or i1 %130, %131
+  br i1 %or.cond869, label %123, label %132, !llvm.loop !188
 
-131:                                              ; preds = %122
-  %132 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %117, i64 %127, i32 2
-  %.sroa.0.0.copyload.i.i645 = load i32, ptr %132, align 4
-  %133 = icmp eq i32 %.sroa.0.0.copyload.i.i645, %113
-  br i1 %133, label %.loopexit, label %139
+132:                                              ; preds = %123
+  %133 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %118, i64 %128, i32 2
+  %.sroa.0.0.copyload.i.i645 = load i32, ptr %133, align 4
+  %134 = icmp eq i32 %.sroa.0.0.copyload.i.i645, %114
+  br i1 %134, label %.loopexit, label %140
 
-.loopexit886:                                     ; preds = %.invoke, %251, %272, %322, %341
+.loopexit886:                                     ; preds = %.invoke, %252, %273, %323, %342
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %177
+.loopexit.split-lp.loopexit:                      ; preds = %178
   %lpad.loopexit888 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %150, %160, %170
+.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %151, %161, %171
   %lpad.loopexit892 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %204
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %205
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit886
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit886 ], [ %lpad.loopexit888, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit892, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %134 = load i64, ptr %97, align 8
-  %.not.i.i.i646 = icmp eq i64 %134, 0
-  br i1 %.not.i.i.i646, label %.body612, label %135
+  %135 = load i64, ptr %98, align 8
+  %.not.i.i.i646 = icmp eq i64 %135, 0
+  br i1 %.not.i.i.i646, label %.body612, label %136
 
-135:                                              ; preds = %.loopexit.split-lp
-  %136 = load ptr, ptr %12, align 8
-  %137 = icmp eq ptr %95, %136
-  br i1 %137, label %.body612, label %138
+136:                                              ; preds = %.loopexit.split-lp
+  %137 = load ptr, ptr %12, align 8
+  %138 = icmp eq ptr %96, %137
+  br i1 %138, label %.body612, label %139
 
-138:                                              ; preds = %135
-  call void @_ZdlPv(ptr noundef %136) #23
+139:                                              ; preds = %136
+  call void @_ZdlPv(ptr noundef %137) #23
   br label %.body612
 
-139:                                              ; preds = %131
-  %140 = zext i32 %113 to i64
-  %141 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %117, i64 %140, i32 3
-  %.sroa.0.0.copyload.i.i648 = load i32, ptr %141, align 4
-  store i32 %126, ptr %13, align 8
-  store i32 %.sroa.0.0.copyload.i.i, ptr %98, align 4
-  %142 = load ptr, ptr %12, align 8
-  %143 = load i64, ptr %96, align 8
-  %144 = getelementptr inbounds %"struct.std::pair.391", ptr %142, i64 %143
-  %145 = load i64, ptr %97, align 8
-  %.not602 = icmp eq i64 %143, %145
-  br i1 %.not602, label %150, label %146
+140:                                              ; preds = %132
+  %141 = zext i32 %114 to i64
+  %142 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %118, i64 %141, i32 3
+  %.sroa.0.0.copyload.i.i648 = load i32, ptr %142, align 4
+  store i32 %127, ptr %13, align 8
+  store i32 %.sroa.0.0.copyload.i.i, ptr %99, align 4
+  %143 = load ptr, ptr %12, align 8
+  %144 = load i64, ptr %97, align 8
+  %145 = getelementptr inbounds %"struct.std::pair.391", ptr %143, i64 %144
+  %146 = load i64, ptr %98, align 8
+  %.not602 = icmp eq i64 %144, %146
+  br i1 %.not602, label %151, label %147
 
-146:                                              ; preds = %139
-  %147 = load i64, ptr %13, align 8
-  store i64 %147, ptr %144, align 4
-  %148 = load i64, ptr %96, align 8
-  %149 = add i64 %148, 1
-  store i64 %149, ptr %96, align 8
-  br label %151
+147:                                              ; preds = %140
+  %148 = load i64, ptr %13, align 8
+  store i64 %148, ptr %145, align 4
+  %149 = load i64, ptr %97, align 8
+  %150 = add i64 %149, 1
+  store i64 %150, ptr %97, align 8
+  br label %152
 
-150:                                              ; preds = %139
-  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %144, i64 noundef 1, ptr nonnull %13)
+151:                                              ; preds = %140
+  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %145, i64 noundef 1, ptr nonnull %13)
           to label %._crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-._crit_edge:                                      ; preds = %150
-  %.pre = load i64, ptr %96, align 8
-  br label %151
+._crit_edge:                                      ; preds = %151
+  %.pre = load i64, ptr %97, align 8
+  br label %152
 
-151:                                              ; preds = %._crit_edge, %146
-  %152 = phi i64 [ %.pre, %._crit_edge ], [ %149, %146 ]
+152:                                              ; preds = %._crit_edge, %147
+  %153 = phi i64 [ %.pre, %._crit_edge ], [ %150, %147 ]
   store i32 %.sroa.0.0.copyload.i.i648, ptr %14, align 8
-  store i32 %.sroa.0.0.copyload.i.i645, ptr %99, align 4
-  %153 = load ptr, ptr %12, align 8
-  %154 = getelementptr inbounds %"struct.std::pair.391", ptr %153, i64 %152
-  %155 = load i64, ptr %97, align 8
-  %.not603 = icmp eq i64 %152, %155
-  br i1 %.not603, label %160, label %156
+  store i32 %.sroa.0.0.copyload.i.i645, ptr %100, align 4
+  %154 = load ptr, ptr %12, align 8
+  %155 = getelementptr inbounds %"struct.std::pair.391", ptr %154, i64 %153
+  %156 = load i64, ptr %98, align 8
+  %.not603 = icmp eq i64 %153, %156
+  br i1 %.not603, label %161, label %157
 
-156:                                              ; preds = %151
-  %157 = load i64, ptr %14, align 8
-  store i64 %157, ptr %154, align 4
-  %158 = load i64, ptr %96, align 8
-  %159 = add i64 %158, 1
-  store i64 %159, ptr %96, align 8
-  br label %161
+157:                                              ; preds = %152
+  %158 = load i64, ptr %14, align 8
+  store i64 %158, ptr %155, align 4
+  %159 = load i64, ptr %97, align 8
+  %160 = add i64 %159, 1
+  store i64 %160, ptr %97, align 8
+  br label %162
 
-160:                                              ; preds = %151
-  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %154, i64 noundef 1, ptr nonnull %14)
-          to label %._crit_edge933 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+161:                                              ; preds = %152
+  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %155, i64 noundef 1, ptr nonnull %14)
+          to label %._crit_edge934 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-._crit_edge933:                                   ; preds = %160
-  %.pre934 = load i64, ptr %96, align 8
-  br label %161
+._crit_edge934:                                   ; preds = %161
+  %.pre935 = load i64, ptr %97, align 8
+  br label %162
 
-161:                                              ; preds = %._crit_edge933, %156
-  %162 = phi i64 [ %.pre934, %._crit_edge933 ], [ %159, %156 ]
-  store i32 %111, ptr %15, align 8
-  store i32 %113, ptr %100, align 4
-  %163 = load ptr, ptr %12, align 8
-  %164 = getelementptr inbounds %"struct.std::pair.391", ptr %163, i64 %162
-  %165 = load i64, ptr %97, align 8
-  %.not604 = icmp eq i64 %162, %165
-  br i1 %.not604, label %170, label %166
+162:                                              ; preds = %._crit_edge934, %157
+  %163 = phi i64 [ %.pre935, %._crit_edge934 ], [ %160, %157 ]
+  store i32 %112, ptr %15, align 8
+  store i32 %114, ptr %101, align 4
+  %164 = load ptr, ptr %12, align 8
+  %165 = getelementptr inbounds %"struct.std::pair.391", ptr %164, i64 %163
+  %166 = load i64, ptr %98, align 8
+  %.not604 = icmp eq i64 %163, %166
+  br i1 %.not604, label %171, label %167
 
-166:                                              ; preds = %161
-  %167 = load i64, ptr %15, align 8
-  store i64 %167, ptr %164, align 4
-  %168 = load i64, ptr %96, align 8
-  %169 = add i64 %168, 1
-  store i64 %169, ptr %96, align 8
+167:                                              ; preds = %162
+  %168 = load i64, ptr %15, align 8
+  store i64 %168, ptr %165, align 4
+  %169 = load i64, ptr %97, align 8
+  %170 = add i64 %169, 1
+  store i64 %170, ptr %97, align 8
   br label %.critedge2
 
-170:                                              ; preds = %161
-  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %164, i64 noundef 1, ptr nonnull %15)
+171:                                              ; preds = %162
+  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %165, i64 noundef 1, ptr nonnull %15)
           to label %.critedge2 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.critedge2:                                       ; preds = %170, %105, %166, %109, %101
-  %indvars.iv.next918 = add nuw nsw i64 %indvars.iv917, 1
-  %171 = add i32 %.0568901, 1
-  %172 = icmp eq i32 %171, 3
-  %173 = select i1 %172, i32 0, i32 %171
-  %exitcond920.not = icmp eq i64 %indvars.iv.next918, 3
-  br i1 %exitcond920.not, label %.preheader887, label %101, !llvm.loop !189
+.critedge2:                                       ; preds = %171, %106, %167, %110, %102
+  %indvars.iv.next919 = add nuw nsw i64 %indvars.iv918, 1
+  %172 = add i32 %.0568902, 1
+  %173 = icmp eq i32 %172, 3
+  %174 = select i1 %173, i32 0, i32 %172
+  %exitcond921.not = icmp eq i64 %indvars.iv.next919, 3
+  br i1 %exitcond921.not, label %.preheader887, label %102, !llvm.loop !189
 
-.preheader887:                                    ; preds = %.critedge2, %200
-  %indvars.iv921 = phi i64 [ %indvars.iv.next922, %200 ], [ 0, %.critedge2 ]
-  %.0570903 = phi i32 [ %203, %200 ], [ 1, %.critedge2 ]
-  %174 = shl nuw nsw i64 1, %indvars.iv921
-  %175 = load i64, ptr %31, align 8
-  %176 = and i64 %175, %174
-  %.not878 = icmp eq i64 %176, 0
-  br i1 %.not878, label %200, label %177
+.preheader887:                                    ; preds = %.critedge2, %201
+  %indvars.iv922 = phi i64 [ %indvars.iv.next923, %201 ], [ 0, %.critedge2 ]
+  %.0570904 = phi i32 [ %204, %201 ], [ 1, %.critedge2 ]
+  %175 = shl nuw nsw i64 1, %indvars.iv922
+  %176 = load i64, ptr %31, align 8
+  %177 = and i64 %176, %175
+  %.not879 = icmp eq i64 %177, 0
+  br i1 %.not879, label %201, label %178
 
-177:                                              ; preds = %.preheader887
-  %178 = getelementptr inbounds nuw %"class.CGAL::SM_Vertex_index", ptr %22, i64 %indvars.iv921
-  %.sroa.064.0.copyload = load i32, ptr %178, align 4
-  %179 = zext nneg i32 %.0570903 to i64
-  %180 = getelementptr inbounds nuw %"class.CGAL::SM_Vertex_index", ptr %22, i64 %179
-  %.sroa.063.0.copyload = load i32, ptr %180, align 4
-  %181 = invoke i32 @_ZN4CGAL12Surface_meshINS_7Point_3INS_5EpickEEEE8add_edgeEv(ptr noundef nonnull align 8 dereferenceable(280) %1)
-          to label %182 unwind label %.loopexit.split-lp.loopexit
+178:                                              ; preds = %.preheader887
+  %179 = getelementptr inbounds nuw %"class.CGAL::SM_Vertex_index", ptr %22, i64 %indvars.iv922
+  %.sroa.064.0.copyload = load i32, ptr %179, align 4
+  %180 = zext nneg i32 %.0570904 to i64
+  %181 = getelementptr inbounds nuw %"class.CGAL::SM_Vertex_index", ptr %22, i64 %180
+  %.sroa.063.0.copyload = load i32, ptr %181, align 4
+  %182 = invoke i32 @_ZN4CGAL12Surface_meshINS_7Point_3INS_5EpickEEEE8add_edgeEv(ptr noundef nonnull align 8 dereferenceable(280) %1)
+          to label %183 unwind label %.loopexit.split-lp.loopexit
 
-182:                                              ; preds = %177
-  %183 = load ptr, ptr %35, align 8
-  %184 = zext i32 %181 to i64
-  %185 = getelementptr inbounds nuw i8, ptr %183, i64 40
-  %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %186, i64 %184, i32 1
-  store i32 %.sroa.063.0.copyload, ptr %187, align 4
-  %188 = and i32 %181, 1
-  %.not.i.i.i653 = icmp eq i32 %188, 0
+183:                                              ; preds = %178
+  %184 = load ptr, ptr %35, align 8
+  %185 = zext i32 %182 to i64
+  %186 = getelementptr inbounds nuw i8, ptr %184, i64 40
+  %187 = load ptr, ptr %186, align 8
+  %188 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %187, i64 %185, i32 1
+  store i32 %.sroa.063.0.copyload, ptr %188, align 4
+  %189 = and i32 %182, 1
+  %.not.i.i.i653 = icmp eq i32 %189, 0
   %.v.i.i.i = select i1 %.not.i.i.i653, i32 1, i32 -1
-  %189 = add i32 %.v.i.i.i, %181
-  %190 = load ptr, ptr %35, align 8
-  %191 = zext i32 %189 to i64
-  %192 = getelementptr inbounds nuw i8, ptr %190, i64 40
-  %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %193, i64 %191, i32 1
-  store i32 %.sroa.064.0.copyload, ptr %194, align 4
-  %195 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %29, i64 %indvars.iv921
-  store i32 %181, ptr %195, align 4
-  %196 = load ptr, ptr %35, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 40
-  %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %198, i64 %191
-  store i32 -1, ptr %199, align 4
-  br label %200
+  %190 = add i32 %.v.i.i.i, %182
+  %191 = load ptr, ptr %35, align 8
+  %192 = zext i32 %190 to i64
+  %193 = getelementptr inbounds nuw i8, ptr %191, i64 40
+  %194 = load ptr, ptr %193, align 8
+  %195 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %194, i64 %192, i32 1
+  store i32 %.sroa.064.0.copyload, ptr %195, align 4
+  %196 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %29, i64 %indvars.iv922
+  store i32 %182, ptr %196, align 4
+  %197 = load ptr, ptr %35, align 8
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 40
+  %199 = load ptr, ptr %198, align 8
+  %200 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %199, i64 %192
+  store i32 -1, ptr %200, align 4
+  br label %201
 
-200:                                              ; preds = %182, %.preheader887
-  %indvars.iv.next922 = add nuw nsw i64 %indvars.iv921, 1
-  %201 = add i32 %.0570903, 1
-  %202 = icmp eq i32 %201, 3
-  %203 = select i1 %202, i32 0, i32 %201
-  %exitcond924.not = icmp eq i64 %indvars.iv.next922, 3
-  br i1 %exitcond924.not, label %204, label %.preheader887, !llvm.loop !190
+201:                                              ; preds = %183, %.preheader887
+  %indvars.iv.next923 = add nuw nsw i64 %indvars.iv922, 1
+  %202 = add i32 %.0570904, 1
+  %203 = icmp eq i32 %202, 3
+  %204 = select i1 %203, i32 0, i32 %202
+  %exitcond925.not = icmp eq i64 %indvars.iv.next923, 3
+  br i1 %exitcond925.not, label %205, label %.preheader887, !llvm.loop !190
 
-204:                                              ; preds = %200
-  %205 = invoke i32 @_ZN4CGAL12Surface_meshINS_7Point_3INS_5EpickEEEE8add_faceEv(ptr noundef nonnull align 8 dereferenceable(280) %1)
+205:                                              ; preds = %201
+  %206 = invoke i32 @_ZN4CGAL12Surface_meshINS_7Point_3INS_5EpickEEEE8add_faceEv(ptr noundef nonnull align 8 dereferenceable(280) %1)
           to label %_ZN4CGAL8add_faceINS_7Point_3INS_5EpickEEEEEN5boost12graph_traitsINS_12Surface_meshIT_EEE15face_descriptorERS8_.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZN4CGAL8add_faceINS_7Point_3INS_5EpickEEEEEN5boost12graph_traitsINS_12Surface_meshIT_EEE15face_descriptorERS8_.exit: ; preds = %204
-  %206 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %.sroa.056.0.copyload = load i32, ptr %206, align 4
-  %207 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %208 = load ptr, ptr %207, align 8
-  %209 = zext i32 %205 to i64
-  %210 = getelementptr inbounds nuw i8, ptr %208, i64 40
-  %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Face_connectivity", ptr %211, i64 %209
-  store i32 %.sroa.056.0.copyload, ptr %212, align 4
-  %213 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %214 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %215 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %216 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %217 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %218 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  br label %219
+_ZN4CGAL8add_faceINS_7Point_3INS_5EpickEEEEEN5boost12graph_traitsINS_12Surface_meshIT_EEE15face_descriptorERS8_.exit: ; preds = %205
+  %207 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %.sroa.056.0.copyload = load i32, ptr %207, align 4
+  %208 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %209 = load ptr, ptr %208, align 8
+  %210 = zext i32 %206 to i64
+  %211 = getelementptr inbounds nuw i8, ptr %209, i64 40
+  %212 = load ptr, ptr %211, align 8
+  %213 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Face_connectivity", ptr %212, i64 %210
+  store i32 %.sroa.056.0.copyload, ptr %213, align 4
+  %214 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %215 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %216 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %217 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %218 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %219 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  br label %220
 
-219:                                              ; preds = %_ZN4CGAL8add_faceINS_7Point_3INS_5EpickEEEEEN5boost12graph_traitsINS_12Surface_meshIT_EEE15face_descriptorERS8_.exit, %342
-  %indvars.iv925 = phi i64 [ 0, %_ZN4CGAL8add_faceINS_7Point_3INS_5EpickEEEEEN5boost12graph_traitsINS_12Surface_meshIT_EEE15face_descriptorERS8_.exit ], [ %indvars.iv.next926, %342 ]
-  %.0572907 = phi i32 [ 1, %_ZN4CGAL8add_faceINS_7Point_3INS_5EpickEEEEEN5boost12graph_traitsINS_12Surface_meshIT_EEE15face_descriptorERS8_.exit ], [ %350, %342 ]
-  %220 = zext nneg i32 %.0572907 to i64
-  %221 = getelementptr inbounds nuw %"class.CGAL::SM_Vertex_index", ptr %22, i64 %220
-  %.sroa.042.0.copyload = load i32, ptr %221, align 4
-  %222 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %29, i64 %indvars.iv925
-  %223 = load i32, ptr %222, align 4
-  %224 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %29, i64 %220
-  %225 = load i32, ptr %224, align 4
-  %226 = load i64, ptr %31, align 8
-  %227 = lshr i64 %226, %indvars.iv925
-  %228 = trunc i64 %227 to i32
-  %spec.select = and i32 %228, 1
-  %229 = shl nuw nsw i64 1, %220
-  %230 = and i64 %226, %229
-  %.not876 = icmp eq i64 %230, 0
-  %231 = or disjoint i32 %spec.select, 2
-  %spec.select611 = select i1 %.not876, i32 %spec.select, i32 %231
+220:                                              ; preds = %_ZN4CGAL8add_faceINS_7Point_3INS_5EpickEEEEEN5boost12graph_traitsINS_12Surface_meshIT_EEE15face_descriptorERS8_.exit, %343
+  %indvars.iv926 = phi i64 [ 0, %_ZN4CGAL8add_faceINS_7Point_3INS_5EpickEEEEEN5boost12graph_traitsINS_12Surface_meshIT_EEE15face_descriptorERS8_.exit ], [ %indvars.iv.next927, %343 ]
+  %.0572908 = phi i32 [ 1, %_ZN4CGAL8add_faceINS_7Point_3INS_5EpickEEEEEN5boost12graph_traitsINS_12Surface_meshIT_EEE15face_descriptorERS8_.exit ], [ %351, %343 ]
+  %221 = zext nneg i32 %.0572908 to i64
+  %222 = getelementptr inbounds nuw %"class.CGAL::SM_Vertex_index", ptr %22, i64 %221
+  %.sroa.042.0.copyload = load i32, ptr %222, align 4
+  %223 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %29, i64 %indvars.iv926
+  %224 = load i32, ptr %223, align 4
+  %225 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %29, i64 %221
+  %226 = load i32, ptr %225, align 4
+  %227 = load i64, ptr %31, align 8
+  %228 = lshr i64 %227, %indvars.iv926
+  %229 = trunc i64 %228 to i32
+  %spec.select = and i32 %229, 1
+  %230 = shl nuw nsw i64 1, %221
+  %231 = and i64 %227, %230
+  %.not877 = icmp eq i64 %231, 0
+  %232 = or disjoint i32 %spec.select, 2
+  %spec.select611 = select i1 %.not877, i32 %spec.select, i32 %232
   %.not595 = icmp eq i32 %spec.select611, 0
-  br i1 %.not595, label %342, label %232
+  br i1 %.not595, label %343, label %233
 
-232:                                              ; preds = %219
-  %233 = and i32 %225, 1
-  %.not.i.i666 = icmp eq i32 %233, 0
+233:                                              ; preds = %220
+  %234 = and i32 %226, 1
+  %.not.i.i666 = icmp eq i32 %234, 0
   %.v.i.i667 = select i1 %.not.i.i666, i32 1, i32 -1
-  %234 = add i32 %.v.i.i667, %225
-  %235 = and i32 %223, 1
-  %.not.i.i668 = icmp eq i32 %235, 0
+  %235 = add i32 %.v.i.i667, %226
+  %236 = and i32 %224, 1
+  %.not.i.i668 = icmp eq i32 %236, 0
   %.v.i.i669 = select i1 %.not.i.i668, i32 1, i32 -1
-  %236 = add i32 %.v.i.i669, %223
+  %237 = add i32 %.v.i.i669, %224
   switch i32 %spec.select611, label %default.unreachable [
-    i32 1, label %237
-    i32 2, label %258
-    i32 3, label %279
+    i32 1, label %238
+    i32 2, label %259
+    i32 3, label %280
   ]
 
-237:                                              ; preds = %232
-  %238 = load ptr, ptr %35, align 8
-  %239 = zext i32 %225 to i64
-  %240 = getelementptr inbounds nuw i8, ptr %238, i64 40
-  %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %241, i64 %239, i32 3
-  %.sroa.0.0.copyload.i.i670 = load i32, ptr %242, align 4
+238:                                              ; preds = %233
+  %239 = load ptr, ptr %35, align 8
+  %240 = zext i32 %226 to i64
+  %241 = getelementptr inbounds nuw i8, ptr %239, i64 40
+  %242 = load ptr, ptr %241, align 8
+  %243 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %242, i64 %240, i32 3
+  %.sroa.0.0.copyload.i.i670 = load i32, ptr %243, align 4
   store i32 %.sroa.0.0.copyload.i.i670, ptr %16, align 8
-  store i32 %236, ptr %217, align 4
-  %243 = load ptr, ptr %12, align 8
-  %244 = load i64, ptr %96, align 8
-  %245 = getelementptr inbounds %"struct.std::pair.391", ptr %243, i64 %244
-  %246 = load i64, ptr %97, align 8
-  %.not600 = icmp eq i64 %244, %246
-  br i1 %.not600, label %251, label %247
+  store i32 %237, ptr %218, align 4
+  %244 = load ptr, ptr %12, align 8
+  %245 = load i64, ptr %97, align 8
+  %246 = getelementptr inbounds %"struct.std::pair.391", ptr %244, i64 %245
+  %247 = load i64, ptr %98, align 8
+  %.not600 = icmp eq i64 %245, %247
+  br i1 %.not600, label %252, label %248
 
-247:                                              ; preds = %237
-  %248 = load i64, ptr %16, align 8
-  store i64 %248, ptr %245, align 4
-  %249 = load i64, ptr %96, align 8
-  %250 = add i64 %249, 1
-  store i64 %250, ptr %96, align 8
-  br label %252
+248:                                              ; preds = %238
+  %249 = load i64, ptr %16, align 8
+  store i64 %249, ptr %246, align 4
+  %250 = load i64, ptr %97, align 8
+  %251 = add i64 %250, 1
+  store i64 %251, ptr %97, align 8
+  br label %253
 
-251:                                              ; preds = %237
-  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %245, i64 noundef 1, ptr nonnull %16)
-          to label %252 unwind label %.loopexit886
+252:                                              ; preds = %238
+  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %246, i64 noundef 1, ptr nonnull %16)
+          to label %253 unwind label %.loopexit886
 
-252:                                              ; preds = %251, %247
-  %253 = load ptr, ptr %32, align 8
-  %254 = zext i32 %.sroa.042.0.copyload to i64
-  %255 = getelementptr inbounds nuw i8, ptr %253, i64 40
-  %256 = load ptr, ptr %255, align 8
-  %257 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %256, i64 %254
-  store i32 %.sroa.0.0.copyload.i.i670, ptr %257, align 4
-  br label %332
+253:                                              ; preds = %252, %248
+  %254 = load ptr, ptr %32, align 8
+  %255 = zext i32 %.sroa.042.0.copyload to i64
+  %256 = getelementptr inbounds nuw i8, ptr %254, i64 40
+  %257 = load ptr, ptr %256, align 8
+  %258 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %257, i64 %255
+  store i32 %.sroa.0.0.copyload.i.i670, ptr %258, align 4
+  br label %333
 
-258:                                              ; preds = %232
-  %259 = load ptr, ptr %35, align 8
-  %260 = zext i32 %223 to i64
-  %261 = getelementptr inbounds nuw i8, ptr %259, i64 40
-  %262 = load ptr, ptr %261, align 8
-  %263 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %262, i64 %260, i32 2
-  %.sroa.0.0.copyload.i.i671 = load i32, ptr %263, align 4
-  store i32 %234, ptr %17, align 8
-  store i32 %.sroa.0.0.copyload.i.i671, ptr %216, align 4
-  %264 = load ptr, ptr %12, align 8
-  %265 = load i64, ptr %96, align 8
-  %266 = getelementptr inbounds %"struct.std::pair.391", ptr %264, i64 %265
-  %267 = load i64, ptr %97, align 8
-  %.not599 = icmp eq i64 %265, %267
-  br i1 %.not599, label %272, label %268
+259:                                              ; preds = %233
+  %260 = load ptr, ptr %35, align 8
+  %261 = zext i32 %224 to i64
+  %262 = getelementptr inbounds nuw i8, ptr %260, i64 40
+  %263 = load ptr, ptr %262, align 8
+  %264 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %263, i64 %261, i32 2
+  %.sroa.0.0.copyload.i.i671 = load i32, ptr %264, align 4
+  store i32 %235, ptr %17, align 8
+  store i32 %.sroa.0.0.copyload.i.i671, ptr %217, align 4
+  %265 = load ptr, ptr %12, align 8
+  %266 = load i64, ptr %97, align 8
+  %267 = getelementptr inbounds %"struct.std::pair.391", ptr %265, i64 %266
+  %268 = load i64, ptr %98, align 8
+  %.not599 = icmp eq i64 %266, %268
+  br i1 %.not599, label %273, label %269
 
-268:                                              ; preds = %258
-  %269 = load i64, ptr %17, align 8
-  store i64 %269, ptr %266, align 4
-  %270 = load i64, ptr %96, align 8
-  %271 = add i64 %270, 1
-  store i64 %271, ptr %96, align 8
-  br label %273
+269:                                              ; preds = %259
+  %270 = load i64, ptr %17, align 8
+  store i64 %270, ptr %267, align 4
+  %271 = load i64, ptr %97, align 8
+  %272 = add i64 %271, 1
+  store i64 %272, ptr %97, align 8
+  br label %274
 
-272:                                              ; preds = %258
-  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %266, i64 noundef 1, ptr nonnull %17)
-          to label %273 unwind label %.loopexit886
+273:                                              ; preds = %259
+  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %267, i64 noundef 1, ptr nonnull %17)
+          to label %274 unwind label %.loopexit886
 
-273:                                              ; preds = %272, %268
-  %274 = load ptr, ptr %32, align 8
-  %275 = zext i32 %.sroa.042.0.copyload to i64
-  %276 = getelementptr inbounds nuw i8, ptr %274, i64 40
-  %277 = load ptr, ptr %276, align 8
-  %278 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %277, i64 %275
-  store i32 %234, ptr %278, align 4
-  br label %332
+274:                                              ; preds = %273, %269
+  %275 = load ptr, ptr %32, align 8
+  %276 = zext i32 %.sroa.042.0.copyload to i64
+  %277 = getelementptr inbounds nuw i8, ptr %275, i64 40
+  %278 = load ptr, ptr %277, align 8
+  %279 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %278, i64 %276
+  store i32 %235, ptr %279, align 4
+  br label %333
 
-279:                                              ; preds = %232
-  %280 = load ptr, ptr %32, align 8
-  %281 = zext i32 %.sroa.042.0.copyload to i64
-  %282 = getelementptr inbounds nuw i8, ptr %280, i64 40
-  %283 = load ptr, ptr %282, align 8
-  %284 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %283, i64 %281
-  %.sroa.0.0.copyload.i.i672 = load i32, ptr %284, align 4
-  %.not877 = icmp eq i32 %.sroa.0.0.copyload.i.i672, -1
-  br i1 %.not877, label %.critedge6.thread, label %285
+280:                                              ; preds = %233
+  %281 = load ptr, ptr %32, align 8
+  %282 = zext i32 %.sroa.042.0.copyload to i64
+  %283 = getelementptr inbounds nuw i8, ptr %281, i64 40
+  %284 = load ptr, ptr %283, align 8
+  %285 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %284, i64 %282
+  %.sroa.0.0.copyload.i.i672 = load i32, ptr %285, align 4
+  %.not878 = icmp eq i32 %.sroa.0.0.copyload.i.i672, -1
+  br i1 %.not878, label %.critedge6.thread, label %286
 
-285:                                              ; preds = %279
-  %286 = load ptr, ptr %35, align 8
-  %287 = zext i32 %.sroa.0.0.copyload.i.i672 to i64
-  %288 = getelementptr inbounds nuw i8, ptr %286, i64 40
-  %289 = load ptr, ptr %288, align 8
-  %290 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %289, i64 %287
-  %.sroa.0.0.copyload.i.i.i673 = load i32, ptr %290, align 4
-  %291 = icmp eq i32 %.sroa.0.0.copyload.i.i.i673, -1
-  br i1 %291, label %.critedge6.thread838, label %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread
+286:                                              ; preds = %280
+  %287 = load ptr, ptr %35, align 8
+  %288 = zext i32 %.sroa.0.0.copyload.i.i672 to i64
+  %289 = getelementptr inbounds nuw i8, ptr %287, i64 40
+  %290 = load ptr, ptr %289, align 8
+  %291 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %290, i64 %288
+  %.sroa.0.0.copyload.i.i.i673 = load i32, ptr %291, align 4
+  %292 = icmp eq i32 %.sroa.0.0.copyload.i.i.i673, -1
+  br i1 %292, label %.critedge6.thread838, label %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread
 
-_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread: ; preds = %285, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit
-  %.sroa.2704.0906 = phi i32 [ %296, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit ], [ %.sroa.0.0.copyload.i.i672, %285 ]
-  %.sroa.8.0905 = phi i32 [ %spec.select871, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit ], [ 0, %285 ]
-  %292 = zext i32 %.sroa.2704.0906 to i64
-  %293 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %289, i64 %292
-  %.sroa.0.0.copyload.i.i.i674 = load i32, ptr %293, align 4
-  %.not957 = icmp eq i32 %.sroa.0.0.copyload.i.i.i674, -1
-  br i1 %.not957, label %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit._crit_edge, label %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit
+_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread: ; preds = %286, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit
+  %.sroa.2704.0907 = phi i32 [ %297, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit ], [ %.sroa.0.0.copyload.i.i672, %286 ]
+  %.sroa.8.0906 = phi i32 [ %spec.select872, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit ], [ 0, %286 ]
+  %293 = zext i32 %.sroa.2704.0907 to i64
+  %294 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %290, i64 %293
+  %.sroa.0.0.copyload.i.i.i674 = load i32, ptr %294, align 4
+  %.not958 = icmp eq i32 %.sroa.0.0.copyload.i.i.i674, -1
+  br i1 %.not958, label %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit._crit_edge, label %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit
 
 _ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit: ; preds = %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread
-  %294 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %289, i64 %292, i32 2
-  %.sroa.0.0.copyload.i.i.i675 = load i32, ptr %294, align 4
-  %295 = and i32 %.sroa.0.0.copyload.i.i.i675, 1
-  %.not.i.i.i676 = icmp eq i32 %295, 0
+  %295 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %290, i64 %293, i32 2
+  %.sroa.0.0.copyload.i.i.i675 = load i32, ptr %295, align 4
+  %296 = and i32 %.sroa.0.0.copyload.i.i.i675, 1
+  %.not.i.i.i676 = icmp eq i32 %296, 0
   %.v.i.i.i677 = select i1 %.not.i.i.i676, i32 1, i32 -1
-  %296 = add i32 %.v.i.i.i677, %.sroa.0.0.copyload.i.i.i675
-  %297 = icmp eq i32 %296, %.sroa.0.0.copyload.i.i672
-  %298 = zext i1 %297 to i32
-  %spec.select871 = add nuw nsw i32 %.sroa.8.0905, %298
-  %299 = icmp ne i32 %296, %.sroa.0.0.copyload.i.i672
-  %300 = icmp ne i32 %spec.select871, 1
-  %or.cond870 = select i1 %299, i1 true, i1 %300
-  br i1 %or.cond870, label %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread, label %.critedge6.thread
+  %297 = add i32 %.v.i.i.i677, %.sroa.0.0.copyload.i.i.i675
+  %298 = icmp eq i32 %297, %.sroa.0.0.copyload.i.i672
+  %299 = zext i1 %298 to i32
+  %spec.select872 = add nuw nsw i32 %.sroa.8.0906, %299
+  %300 = icmp ne i32 %297, %.sroa.0.0.copyload.i.i672
+  %301 = icmp ne i32 %spec.select872, 1
+  %or.cond871 = select i1 %300, i1 true, i1 %301
+  br i1 %or.cond871, label %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread, label %.critedge6.thread
 
 _ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit._crit_edge: ; preds = %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread
-  %301 = icmp eq i32 %.sroa.2704.0906, -1
-  br i1 %301, label %.critedge6.thread, label %.critedge6.thread838
+  %302 = icmp eq i32 %.sroa.2704.0907, -1
+  br i1 %302, label %.critedge6.thread, label %.critedge6.thread838
 
-.critedge6.thread:                                ; preds = %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit._crit_edge, %279
-  store i32 %234, ptr %284, align 4
-  store i32 %234, ptr %18, align 8
-  store i32 %236, ptr %215, align 4
-  %302 = load ptr, ptr %12, align 8
-  %303 = load i64, ptr %96, align 8
-  %304 = getelementptr inbounds %"struct.std::pair.391", ptr %302, i64 %303
-  %305 = load i64, ptr %97, align 8
-  %.not598 = icmp eq i64 %303, %305
-  br i1 %.not598, label %.invoke, label %306
+.critedge6.thread:                                ; preds = %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit._crit_edge, %280
+  store i32 %235, ptr %285, align 4
+  store i32 %235, ptr %18, align 8
+  store i32 %237, ptr %216, align 4
+  %303 = load ptr, ptr %12, align 8
+  %304 = load i64, ptr %97, align 8
+  %305 = getelementptr inbounds %"struct.std::pair.391", ptr %303, i64 %304
+  %306 = load i64, ptr %98, align 8
+  %.not598 = icmp eq i64 %304, %306
+  br i1 %.not598, label %.invoke, label %307
 
-306:                                              ; preds = %.critedge6.thread
-  %307 = load i64, ptr %18, align 8
-  store i64 %307, ptr %304, align 4
-  %308 = load i64, ptr %96, align 8
-  %309 = add i64 %308, 1
-  store i64 %309, ptr %96, align 8
-  br label %332
+307:                                              ; preds = %.critedge6.thread
+  %308 = load i64, ptr %18, align 8
+  store i64 %308, ptr %305, align 4
+  %309 = load i64, ptr %97, align 8
+  %310 = add i64 %309, 1
+  store i64 %310, ptr %97, align 8
+  br label %333
 
-.invoke:                                          ; preds = %323, %.critedge6.thread
-  %310 = phi ptr [ %8, %.critedge6.thread ], [ %10, %323 ]
-  %311 = phi ptr [ %304, %.critedge6.thread ], [ %326, %323 ]
-  %312 = phi ptr [ %18, %.critedge6.thread ], [ %20, %323 ]
-  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %310, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %311, i64 noundef 1, ptr nonnull %312)
-          to label %332 unwind label %.loopexit886
+.invoke:                                          ; preds = %324, %.critedge6.thread
+  %311 = phi ptr [ %8, %.critedge6.thread ], [ %10, %324 ]
+  %312 = phi ptr [ %305, %.critedge6.thread ], [ %327, %324 ]
+  %313 = phi ptr [ %18, %.critedge6.thread ], [ %20, %324 ]
+  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %311, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %312, i64 noundef 1, ptr nonnull %313)
+          to label %333 unwind label %.loopexit886
 
-.critedge6.thread838:                             ; preds = %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit._crit_edge, %285
-  %.pre-phi936 = phi i64 [ %292, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit._crit_edge ], [ %287, %285 ]
-  %.sroa.0714.0840 = phi i32 [ %.sroa.2704.0906, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit._crit_edge ], [ %.sroa.0.0.copyload.i.i672, %285 ]
-  %313 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %289, i64 %.pre-phi936, i32 2
-  %.sroa.0.0.copyload.i.i679 = load i32, ptr %313, align 4
+.critedge6.thread838:                             ; preds = %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit._crit_edge, %286
+  %.pre-phi937 = phi i64 [ %293, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit._crit_edge ], [ %288, %286 ]
+  %.sroa.0714.0840 = phi i32 [ %.sroa.2704.0907, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit._crit_edge ], [ %.sroa.0.0.copyload.i.i672, %286 ]
+  %314 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %290, i64 %.pre-phi937, i32 2
+  %.sroa.0.0.copyload.i.i679 = load i32, ptr %314, align 4
   store i32 %.sroa.0714.0840, ptr %19, align 8
-  store i32 %236, ptr %213, align 4
-  %314 = load ptr, ptr %12, align 8
-  %315 = load i64, ptr %96, align 8
-  %316 = getelementptr inbounds %"struct.std::pair.391", ptr %314, i64 %315
-  %317 = load i64, ptr %97, align 8
-  %.not596 = icmp eq i64 %315, %317
-  br i1 %.not596, label %322, label %318
+  store i32 %237, ptr %214, align 4
+  %315 = load ptr, ptr %12, align 8
+  %316 = load i64, ptr %97, align 8
+  %317 = getelementptr inbounds %"struct.std::pair.391", ptr %315, i64 %316
+  %318 = load i64, ptr %98, align 8
+  %.not596 = icmp eq i64 %316, %318
+  br i1 %.not596, label %323, label %319
 
-318:                                              ; preds = %.critedge6.thread838
-  %319 = load i64, ptr %19, align 8
-  store i64 %319, ptr %316, align 4
-  %320 = load i64, ptr %96, align 8
-  %321 = add i64 %320, 1
-  store i64 %321, ptr %96, align 8
-  br label %323
+319:                                              ; preds = %.critedge6.thread838
+  %320 = load i64, ptr %19, align 8
+  store i64 %320, ptr %317, align 4
+  %321 = load i64, ptr %97, align 8
+  %322 = add i64 %321, 1
+  store i64 %322, ptr %97, align 8
+  br label %324
 
-322:                                              ; preds = %.critedge6.thread838
-  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %316, i64 noundef 1, ptr nonnull %19)
-          to label %._crit_edge937 unwind label %.loopexit886
+323:                                              ; preds = %.critedge6.thread838
+  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %317, i64 noundef 1, ptr nonnull %19)
+          to label %._crit_edge938 unwind label %.loopexit886
 
-._crit_edge937:                                   ; preds = %322
-  %.pre938 = load i64, ptr %96, align 8
-  br label %323
+._crit_edge938:                                   ; preds = %323
+  %.pre939 = load i64, ptr %97, align 8
+  br label %324
 
-323:                                              ; preds = %._crit_edge937, %318
-  %324 = phi i64 [ %.pre938, %._crit_edge937 ], [ %321, %318 ]
-  store i32 %234, ptr %20, align 8
-  store i32 %.sroa.0.0.copyload.i.i679, ptr %214, align 4
-  %325 = load ptr, ptr %12, align 8
-  %326 = getelementptr inbounds %"struct.std::pair.391", ptr %325, i64 %324
-  %327 = load i64, ptr %97, align 8
-  %.not597 = icmp eq i64 %324, %327
-  br i1 %.not597, label %.invoke, label %328
+324:                                              ; preds = %._crit_edge938, %319
+  %325 = phi i64 [ %.pre939, %._crit_edge938 ], [ %322, %319 ]
+  store i32 %235, ptr %20, align 8
+  store i32 %.sroa.0.0.copyload.i.i679, ptr %215, align 4
+  %326 = load ptr, ptr %12, align 8
+  %327 = getelementptr inbounds %"struct.std::pair.391", ptr %326, i64 %325
+  %328 = load i64, ptr %98, align 8
+  %.not597 = icmp eq i64 %325, %328
+  br i1 %.not597, label %.invoke, label %329
 
-328:                                              ; preds = %323
-  %329 = load i64, ptr %20, align 8
-  store i64 %329, ptr %326, align 4
-  %330 = load i64, ptr %96, align 8
-  %331 = add i64 %330, 1
-  store i64 %331, ptr %96, align 8
-  br label %332
+329:                                              ; preds = %324
+  %330 = load i64, ptr %20, align 8
+  store i64 %330, ptr %327, align 4
+  %331 = load i64, ptr %97, align 8
+  %332 = add i64 %331, 1
+  store i64 %332, ptr %97, align 8
+  br label %333
 
-default.unreachable:                              ; preds = %232
+default.unreachable:                              ; preds = %233
   unreachable
 
-332:                                              ; preds = %.invoke, %273, %252, %306, %328
-  store i32 %223, ptr %21, align 8
-  store i32 %225, ptr %218, align 4
-  %333 = load ptr, ptr %12, align 8
-  %334 = load i64, ptr %96, align 8
-  %335 = getelementptr inbounds %"struct.std::pair.391", ptr %333, i64 %334
-  %336 = load i64, ptr %97, align 8
-  %.not601 = icmp eq i64 %334, %336
-  br i1 %.not601, label %341, label %337
+333:                                              ; preds = %.invoke, %274, %253, %307, %329
+  store i32 %224, ptr %21, align 8
+  store i32 %226, ptr %219, align 4
+  %334 = load ptr, ptr %12, align 8
+  %335 = load i64, ptr %97, align 8
+  %336 = getelementptr inbounds %"struct.std::pair.391", ptr %334, i64 %335
+  %337 = load i64, ptr %98, align 8
+  %.not601 = icmp eq i64 %335, %337
+  br i1 %.not601, label %342, label %338
 
-337:                                              ; preds = %332
-  %338 = load i64, ptr %21, align 8
-  store i64 %338, ptr %335, align 4
-  %339 = load i64, ptr %96, align 8
-  %340 = add i64 %339, 1
-  store i64 %340, ptr %96, align 8
-  br label %342
+338:                                              ; preds = %333
+  %339 = load i64, ptr %21, align 8
+  store i64 %339, ptr %336, align 4
+  %340 = load i64, ptr %97, align 8
+  %341 = add i64 %340, 1
+  store i64 %341, ptr %97, align 8
+  br label %343
 
-341:                                              ; preds = %332
-  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %335, i64 noundef 1, ptr nonnull %21)
-          to label %342 unwind label %.loopexit886
+342:                                              ; preds = %333
+  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %336, i64 noundef 1, ptr nonnull %21)
+          to label %343 unwind label %.loopexit886
 
-342:                                              ; preds = %219, %337, %341
-  %.sroa.012.0.copyload = load i32, ptr %222, align 4
-  %343 = load ptr, ptr %35, align 8
-  %344 = zext i32 %.sroa.012.0.copyload to i64
-  %345 = getelementptr inbounds nuw i8, ptr %343, i64 40
-  %346 = load ptr, ptr %345, align 8
-  %347 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %346, i64 %344
-  store i32 %205, ptr %347, align 4
-  %indvars.iv.next926 = add nuw nsw i64 %indvars.iv925, 1
-  %348 = add i32 %.0572907, 1
-  %349 = icmp eq i32 %348, 3
-  %350 = select i1 %349, i32 0, i32 %348
-  %exitcond928.not = icmp eq i64 %indvars.iv.next926, 3
-  br i1 %exitcond928.not, label %351, label %219, !llvm.loop !191
+343:                                              ; preds = %220, %338, %342
+  %.sroa.012.0.copyload = load i32, ptr %223, align 4
+  %344 = load ptr, ptr %35, align 8
+  %345 = zext i32 %.sroa.012.0.copyload to i64
+  %346 = getelementptr inbounds nuw i8, ptr %344, i64 40
+  %347 = load ptr, ptr %346, align 8
+  %348 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %347, i64 %345
+  store i32 %206, ptr %348, align 4
+  %indvars.iv.next927 = add nuw nsw i64 %indvars.iv926, 1
+  %349 = add i32 %.0572908, 1
+  %350 = icmp eq i32 %349, 3
+  %351 = select i1 %350, i32 0, i32 %349
+  %exitcond929.not = icmp eq i64 %indvars.iv.next927, 3
+  br i1 %exitcond929.not, label %352, label %220, !llvm.loop !191
 
-351:                                              ; preds = %342
-  %352 = load ptr, ptr %12, align 8
-  %353 = load i64, ptr %96, align 8
-  %354 = getelementptr inbounds %"struct.std::pair.391", ptr %352, i64 %353
-  %.not909 = icmp eq i64 %353, 0
-  br i1 %.not909, label %.preheader.preheader, label %.lr.ph
+352:                                              ; preds = %343
+  %353 = load ptr, ptr %12, align 8
+  %354 = load i64, ptr %97, align 8
+  %355 = getelementptr inbounds %"struct.std::pair.391", ptr %353, i64 %354
+  %.not910 = icmp eq i64 %354, 0
+  br i1 %.not910, label %.preheader.preheader, label %.lr.ph
 
-.lr.ph:                                           ; preds = %351, %_ZN4CGAL8set_nextINS_7Point_3INS_5EpickEEEEEvN5boost12graph_traitsINS_12Surface_meshIT_EEE19halfedge_descriptorESA_RS8_.exit
-  %.sroa.0588.0910 = phi ptr [ %367, %_ZN4CGAL8set_nextINS_7Point_3INS_5EpickEEEEEvN5boost12graph_traitsINS_12Surface_meshIT_EEE19halfedge_descriptorESA_RS8_.exit ], [ %352, %351 ]
-  %.sroa.010.0.copyload = load i32, ptr %.sroa.0588.0910, align 4
-  %355 = getelementptr inbounds nuw i8, ptr %.sroa.0588.0910, i64 4
-  %.sroa.09.0.copyload = load i32, ptr %355, align 4
-  %356 = load ptr, ptr %35, align 8
-  %357 = zext i32 %.sroa.010.0.copyload to i64
-  %358 = getelementptr inbounds nuw i8, ptr %356, i64 40
-  %359 = load ptr, ptr %358, align 8
-  %360 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %359, i64 %357, i32 2
-  store i32 %.sroa.09.0.copyload, ptr %360, align 4
+.lr.ph:                                           ; preds = %352, %_ZN4CGAL8set_nextINS_7Point_3INS_5EpickEEEEEvN5boost12graph_traitsINS_12Surface_meshIT_EEE19halfedge_descriptorESA_RS8_.exit
+  %.sroa.0588.0911 = phi ptr [ %368, %_ZN4CGAL8set_nextINS_7Point_3INS_5EpickEEEEEvN5boost12graph_traitsINS_12Surface_meshIT_EEE19halfedge_descriptorESA_RS8_.exit ], [ %353, %352 ]
+  %.sroa.010.0.copyload = load i32, ptr %.sroa.0588.0911, align 4
+  %356 = getelementptr inbounds nuw i8, ptr %.sroa.0588.0911, i64 4
+  %.sroa.09.0.copyload = load i32, ptr %356, align 4
+  %357 = load ptr, ptr %35, align 8
+  %358 = zext i32 %.sroa.010.0.copyload to i64
+  %359 = getelementptr inbounds nuw i8, ptr %357, i64 40
+  %360 = load ptr, ptr %359, align 8
+  %361 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %360, i64 %358, i32 2
+  store i32 %.sroa.09.0.copyload, ptr %361, align 4
   %.not.i.i.i680 = icmp eq i32 %.sroa.09.0.copyload, -1
-  br i1 %.not.i.i.i680, label %_ZN4CGAL8set_nextINS_7Point_3INS_5EpickEEEEEvN5boost12graph_traitsINS_12Surface_meshIT_EEE19halfedge_descriptorESA_RS8_.exit, label %361
+  br i1 %.not.i.i.i680, label %_ZN4CGAL8set_nextINS_7Point_3INS_5EpickEEEEEvN5boost12graph_traitsINS_12Surface_meshIT_EEE19halfedge_descriptorESA_RS8_.exit, label %362
 
-361:                                              ; preds = %.lr.ph
-  %362 = load ptr, ptr %35, align 8
-  %363 = zext i32 %.sroa.09.0.copyload to i64
-  %364 = getelementptr inbounds nuw i8, ptr %362, i64 40
-  %365 = load ptr, ptr %364, align 8
-  %366 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %365, i64 %363, i32 3
-  store i32 %.sroa.010.0.copyload, ptr %366, align 4
+362:                                              ; preds = %.lr.ph
+  %363 = load ptr, ptr %35, align 8
+  %364 = zext i32 %.sroa.09.0.copyload to i64
+  %365 = getelementptr inbounds nuw i8, ptr %363, i64 40
+  %366 = load ptr, ptr %365, align 8
+  %367 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %366, i64 %364, i32 3
+  store i32 %.sroa.010.0.copyload, ptr %367, align 4
   br label %_ZN4CGAL8set_nextINS_7Point_3INS_5EpickEEEEEvN5boost12graph_traitsINS_12Surface_meshIT_EEE19halfedge_descriptorESA_RS8_.exit
 
-_ZN4CGAL8set_nextINS_7Point_3INS_5EpickEEEEEvN5boost12graph_traitsINS_12Surface_meshIT_EEE19halfedge_descriptorESA_RS8_.exit: ; preds = %361, %.lr.ph
-  %367 = getelementptr inbounds nuw i8, ptr %.sroa.0588.0910, i64 8
-  %.not = icmp eq ptr %367, %354
+_ZN4CGAL8set_nextINS_7Point_3INS_5EpickEEEEEvN5boost12graph_traitsINS_12Surface_meshIT_EEE19halfedge_descriptorESA_RS8_.exit: ; preds = %362, %.lr.ph
+  %368 = getelementptr inbounds nuw i8, ptr %.sroa.0588.0911, i64 8
+  %.not = icmp eq ptr %368, %355
   br i1 %.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !192
 
-.preheader.preheader:                             ; preds = %_ZN4CGAL8set_nextINS_7Point_3INS_5EpickEEEEEvN5boost12graph_traitsINS_12Surface_meshIT_EEE19halfedge_descriptorESA_RS8_.exit, %351
+.preheader.preheader:                             ; preds = %_ZN4CGAL8set_nextINS_7Point_3INS_5EpickEEEEEvN5boost12graph_traitsINS_12Surface_meshIT_EEE19halfedge_descriptorESA_RS8_.exit, %352
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit
-  %indvars.iv929 = phi i64 [ %indvars.iv.next930, %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit ], [ 0, %.preheader.preheader ]
-  %368 = getelementptr inbounds nuw %"class.CGAL::SM_Vertex_index", ptr %22, i64 %indvars.iv929
-  %.sroa.0.0.copyload = load i32, ptr %368, align 4
-  %369 = load ptr, ptr %32, align 8
-  %370 = zext i32 %.sroa.0.0.copyload to i64
-  %371 = getelementptr inbounds nuw i8, ptr %369, i64 40
-  %372 = load ptr, ptr %371, align 8
-  %373 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %372, i64 %370
-  %.sroa.0.0.copyload.i.i.i681 = load i32, ptr %373, align 4
+  %indvars.iv930 = phi i64 [ %indvars.iv.next931, %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit ], [ 0, %.preheader.preheader ]
+  %369 = getelementptr inbounds nuw %"class.CGAL::SM_Vertex_index", ptr %22, i64 %indvars.iv930
+  %.sroa.0.0.copyload = load i32, ptr %369, align 4
+  %370 = load ptr, ptr %32, align 8
+  %371 = zext i32 %.sroa.0.0.copyload to i64
+  %372 = getelementptr inbounds nuw i8, ptr %370, i64 40
+  %373 = load ptr, ptr %372, align 8
+  %374 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %373, i64 %371
+  %.sroa.0.0.copyload.i.i.i681 = load i32, ptr %374, align 4
   %.not.i682 = icmp eq i32 %.sroa.0.0.copyload.i.i.i681, -1
-  br i1 %.not.i682, label %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit, label %374
+  br i1 %.not.i682, label %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit, label %375
 
-374:                                              ; preds = %.preheader
-  %375 = load ptr, ptr %35, align 8
-  %376 = zext i32 %.sroa.0.0.copyload.i.i.i681 to i64
-  %377 = getelementptr inbounds nuw i8, ptr %375, i64 40
-  %378 = load ptr, ptr %377, align 8
-  %379 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %378, i64 %376, i32 1
-  %.sroa.0.0.copyload.i.i19.i = load i32, ptr %379, align 4
+375:                                              ; preds = %.preheader
+  %376 = load ptr, ptr %35, align 8
+  %377 = zext i32 %.sroa.0.0.copyload.i.i.i681 to i64
+  %378 = getelementptr inbounds nuw i8, ptr %376, i64 40
+  %379 = load ptr, ptr %378, align 8
+  %380 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %379, i64 %377, i32 1
+  %.sroa.0.0.copyload.i.i19.i = load i32, ptr %380, align 4
   %.not38.i = icmp eq i32 %.sroa.0.0.copyload.i.i19.i, %.sroa.0.0.copyload
-  br i1 %.not38.i, label %383, label %380
+  br i1 %.not38.i, label %384, label %381
 
-380:                                              ; preds = %374
-  %381 = and i32 %.sroa.0.0.copyload.i.i.i681, 1
-  %.not.i.i.i683 = icmp eq i32 %381, 0
+381:                                              ; preds = %375
+  %382 = and i32 %.sroa.0.0.copyload.i.i.i681, 1
+  %.not.i.i.i683 = icmp eq i32 %382, 0
   %.v.i.i.i684 = select i1 %.not.i.i.i683, i32 1, i32 -1
-  %382 = add i32 %.v.i.i.i684, %.sroa.0.0.copyload.i.i.i681
-  store i32 %382, ptr %373, align 4
+  %383 = add i32 %.v.i.i.i684, %.sroa.0.0.copyload.i.i.i681
+  store i32 %383, ptr %374, align 4
   %.pre.i = load ptr, ptr %35, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 40
   %.pre42.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br label %383
+  br label %384
 
-383:                                              ; preds = %380, %374
-  %384 = phi ptr [ %.pre42.i, %380 ], [ %378, %374 ]
-  %.sroa.027.0.i = phi i32 [ %382, %380 ], [ %.sroa.0.0.copyload.i.i.i681, %374 ]
-  br label %385
+384:                                              ; preds = %381, %375
+  %385 = phi ptr [ %.pre42.i, %381 ], [ %379, %375 ]
+  %.sroa.027.0.i = phi i32 [ %383, %381 ], [ %.sroa.0.0.copyload.i.i.i681, %375 ]
+  br label %386
 
-385:                                              ; preds = %394, %383
-  %.sroa.028.1.i = phi i32 [ %.sroa.027.0.i, %383 ], [ %397, %394 ]
-  %386 = zext i32 %.sroa.028.1.i to i64
-  %387 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %384, i64 %386
-  %.sroa.0.0.copyload.i.i20.i = load i32, ptr %387, align 4
-  %388 = icmp eq i32 %.sroa.0.0.copyload.i.i20.i, -1
-  br i1 %388, label %389, label %394
+386:                                              ; preds = %395, %384
+  %.sroa.028.1.i = phi i32 [ %.sroa.027.0.i, %384 ], [ %398, %395 ]
+  %387 = zext i32 %.sroa.028.1.i to i64
+  %388 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %385, i64 %387
+  %.sroa.0.0.copyload.i.i20.i = load i32, ptr %388, align 4
+  %389 = icmp eq i32 %.sroa.0.0.copyload.i.i20.i, -1
+  br i1 %389, label %390, label %395
 
-389:                                              ; preds = %385
-  %390 = load ptr, ptr %32, align 8
-  %391 = getelementptr inbounds nuw i8, ptr %390, i64 40
-  %392 = load ptr, ptr %391, align 8
-  %393 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %392, i64 %370
-  store i32 %.sroa.028.1.i, ptr %393, align 4
+390:                                              ; preds = %386
+  %391 = load ptr, ptr %32, align 8
+  %392 = getelementptr inbounds nuw i8, ptr %391, i64 40
+  %393 = load ptr, ptr %392, align 8
+  %394 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %393, i64 %371
+  store i32 %.sroa.028.1.i, ptr %394, align 4
   br label %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit
 
-394:                                              ; preds = %385
-  %395 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %384, i64 %386, i32 2
-  %.sroa.0.0.copyload.i.i21.i = load i32, ptr %395, align 4
-  %396 = and i32 %.sroa.0.0.copyload.i.i21.i, 1
-  %.not.i.i22.i = icmp eq i32 %396, 0
+395:                                              ; preds = %386
+  %396 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %385, i64 %387, i32 2
+  %.sroa.0.0.copyload.i.i21.i = load i32, ptr %396, align 4
+  %397 = and i32 %.sroa.0.0.copyload.i.i21.i, 1
+  %.not.i.i22.i = icmp eq i32 %397, 0
   %.v.i.i23.i = select i1 %.not.i.i22.i, i32 1, i32 -1
-  %397 = add i32 %.v.i.i23.i, %.sroa.0.0.copyload.i.i21.i
-  %.not39.i = icmp eq i32 %397, %.sroa.027.0.i
-  br i1 %.not39.i, label %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit, label %385, !llvm.loop !193
+  %398 = add i32 %.v.i.i23.i, %.sroa.0.0.copyload.i.i21.i
+  %.not39.i = icmp eq i32 %398, %.sroa.027.0.i
+  br i1 %.not39.i, label %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit, label %386, !llvm.loop !193
 
-_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit: ; preds = %394, %389, %.preheader
-  %indvars.iv.next930 = add nuw nsw i64 %indvars.iv929, 1
-  %exitcond932.not = icmp eq i64 %indvars.iv.next930, 3
-  br i1 %exitcond932.not, label %.loopexit, label %.preheader, !llvm.loop !194
+_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit: ; preds = %395, %390, %.preheader
+  %indvars.iv.next931 = add nuw nsw i64 %indvars.iv930, 1
+  %exitcond933.not = icmp eq i64 %indvars.iv.next931, 3
+  br i1 %exitcond933.not, label %.loopexit, label %.preheader, !llvm.loop !194
 
-.loopexit:                                        ; preds = %131, %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit
-  %.sroa.0178.2 = phi i32 [ %205, %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit ], [ -1, %131 ]
-  %398 = load i64, ptr %97, align 8
-  %.not.i.i.i685 = icmp eq i64 %398, 0
-  br i1 %.not.i.i.i685, label %.loopexit947, label %399
+.loopexit:                                        ; preds = %132, %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit
+  %.sroa.0178.2 = phi i32 [ %206, %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit ], [ -1, %132 ]
+  %399 = load i64, ptr %98, align 8
+  %.not.i.i.i685 = icmp eq i64 %399, 0
+  br i1 %.not.i.i.i685, label %.loopexit948, label %400
 
-399:                                              ; preds = %.loopexit
-  %400 = load ptr, ptr %12, align 8
-  %401 = icmp eq ptr %95, %400
-  br i1 %401, label %.loopexit947, label %402
+400:                                              ; preds = %.loopexit
+  %401 = load ptr, ptr %12, align 8
+  %402 = icmp eq ptr %96, %401
+  br i1 %402, label %.loopexit948, label %403
 
-402:                                              ; preds = %399
-  call void @_ZdlPv(ptr noundef %400) #23
-  br label %.loopexit947
+403:                                              ; preds = %400
+  call void @_ZdlPv(ptr noundef %401) #23
+  br label %.loopexit948
 
-.loopexit947:                                     ; preds = %87, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit.i, %.loopexit, %399, %402
-  %.sroa.0178.1843 = phi i32 [ %.sroa.0178.2, %.loopexit ], [ %.sroa.0178.2, %399 ], [ %.sroa.0178.2, %402 ], [ -1, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit.i ], [ -1, %87 ]
+.loopexit948:                                     ; preds = %88, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit.i, %.loopexit, %400, %403
+  %.sroa.0178.1843 = phi i32 [ %.sroa.0178.2, %.loopexit ], [ %.sroa.0178.2, %400 ], [ %.sroa.0178.2, %403 ], [ -1, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit.i ], [ -1, %88 ]
   call void @_ZdlPv(ptr noundef nonnull %31) #38
   call void @_ZdlPv(ptr noundef nonnull %29) #38
   br label %_ZNSt6vectorIN4CGAL15SM_Vertex_indexESaIS1_EED2Ev.exit
 
-.body612:                                         ; preds = %138, %135, %.loopexit.split-lp
+.body612:                                         ; preds = %139, %136, %.loopexit.split-lp
   call void @_ZdlPv(ptr noundef nonnull %31) #38
-  br label %403
+  br label %404
 
-403:                                              ; preds = %.body612, %.body612.thread
+404:                                              ; preds = %.body612, %.body612.thread
   %.pn.pn849 = phi { ptr, i32 } [ %38, %.body612.thread ], [ %lpad.phi, %.body612 ]
   call void @_ZdlPv(ptr noundef nonnull %29) #38
   br label %_ZNSt6vectorIN4CGAL15SM_Vertex_indexESaIS1_EED2Ev.exit700
 
-_ZNSt6vectorIN4CGAL15SM_Vertex_indexESaIS1_EED2Ev.exit: ; preds = %23, %.loopexit947
-  %.sroa.0178.0 = phi i32 [ %.sroa.0178.1843, %.loopexit947 ], [ -1, %23 ]
+_ZNSt6vectorIN4CGAL15SM_Vertex_indexESaIS1_EED2Ev.exit: ; preds = %23, %.loopexit948
+  %.sroa.0178.0 = phi i32 [ %.sroa.0178.1843, %.loopexit948 ], [ -1, %23 ]
   call void @_ZdlPv(ptr noundef nonnull %22) #38
   ret i32 %.sroa.0178.0
 
-_ZNSt6vectorIN4CGAL15SM_Vertex_indexESaIS1_EED2Ev.exit700: ; preds = %403, %56, %27
-  %.pn608 = phi { ptr, i32 } [ %28, %27 ], [ %57, %56 ], [ %.pn.pn849, %403 ]
+_ZNSt6vectorIN4CGAL15SM_Vertex_indexESaIS1_EED2Ev.exit700: ; preds = %404, %57, %27
+  %.pn608 = phi { ptr, i32 } [ %28, %27 ], [ %58, %57 ], [ %.pn.pn849, %404 ]
   call void @_ZdlPv(ptr noundef nonnull %22) #38
   resume { ptr, i32 } %.pn608
 }
@@ -180241,7 +180241,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4CGAL15SM_Vertex_indexESt6vectorIS3_
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %51
   %53 = shl nuw nsw i64 %52, 2
   %54 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %53) #41
-          to label %55 unwind label %86
+          to label %55 unwind label %87
 
 55:                                               ; preds = %.lr.ph.preheader.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %54, i8 -1, i64 %53, i1 false)
@@ -180261,7 +180261,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4CGAL15SM_Vertex_indexESt6vectorIS3_
 .body617.thread:                                  ; preds = %55
   %63 = landingpad { ptr, i32 }
           cleanup
-  br label %485
+  br label %486
 
 _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %51, %60
   %.sroa.0795.0833 = phi ptr [ %54, %60 ], [ null, %51 ]
@@ -180278,7 +180278,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %51, %60
 
 70:                                               ; preds = %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit, %.critedge
   %indvars.iv = phi i64 [ 0, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit ], [ %indvars.iv.next, %.critedge ]
-  %.0569905 = phi i32 [ 1, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit ], [ %132, %.critedge ]
+  %.0569906 = phi i32 [ 1, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit ], [ %133, %.critedge ]
   %71 = getelementptr inbounds nuw %"class.CGAL::SM_Vertex_index", ptr %.sroa.0812.0, i64 %indvars.iv
   %.sroa.0104.0.copyload = load i32, ptr %71, align 4
   %72 = zext i32 %.sroa.0104.0.copyload to i64
@@ -180294,922 +180294,922 @@ _ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5Epi
 
 _ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread.i: ; preds = %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit.i, %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread.lr.ph.i
   %.sroa.14.018.i = phi i32 [ 0, %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread.lr.ph.i ], [ %spec.select.i, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit.i ]
-  %.sroa.3.017.i = phi i32 [ %.sroa.0.0.copyload.i.i.i, %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread.lr.ph.i ], [ %81, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit.i ]
+  %.sroa.3.017.i = phi i32 [ %.sroa.0.0.copyload.i.i.i, %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread.lr.ph.i ], [ %82, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit.i ]
   %77 = zext i32 %.sroa.3.017.i to i64
   %78 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %76, i64 %77
   %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %78, align 4, !noalias !3584
-  %.not887 = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i, -1
-  br i1 %.not887, label %_ZN5boost8optionalIN4CGAL17SM_Halfedge_indexEED2Ev.exit.thread, label %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit.i
+  %79 = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i, -1
+  br i1 %79, label %_ZN5boost8optionalIN4CGAL17SM_Halfedge_indexEED2Ev.exit.thread, label %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit.i
 
 _ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit.i: ; preds = %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread.i
-  %79 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %76, i64 %77, i32 2
-  %.sroa.0.0.copyload.i.i.i6.i = load i32, ptr %79, align 4, !noalias !3584
-  %80 = and i32 %.sroa.0.0.copyload.i.i.i6.i, 1
-  %.not.i.i.i.i620 = icmp eq i32 %80, 0
+  %80 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %76, i64 %77, i32 2
+  %.sroa.0.0.copyload.i.i.i6.i = load i32, ptr %80, align 4, !noalias !3584
+  %81 = and i32 %.sroa.0.0.copyload.i.i.i6.i, 1
+  %.not.i.i.i.i620 = icmp eq i32 %81, 0
   %.v.i.i.i.i = select i1 %.not.i.i.i.i620, i32 1, i32 -1
-  %81 = add i32 %.v.i.i.i.i, %.sroa.0.0.copyload.i.i.i6.i
-  %82 = icmp eq i32 %81, %.sroa.0.0.copyload.i.i.i
-  %83 = zext i1 %82 to i32
-  %spec.select.i = add nuw nsw i32 %.sroa.14.018.i, %83
-  %84 = icmp ne i32 %81, %.sroa.0.0.copyload.i.i.i
-  %85 = icmp ne i32 %spec.select.i, 1
-  %or.cond.i = select i1 %84, i1 true, i1 %85
+  %82 = add i32 %.v.i.i.i.i, %.sroa.0.0.copyload.i.i.i6.i
+  %83 = icmp eq i32 %82, %.sroa.0.0.copyload.i.i.i
+  %84 = zext i1 %83 to i32
+  %spec.select.i = add nuw nsw i32 %.sroa.14.018.i, %84
+  %85 = icmp ne i32 %82, %.sroa.0.0.copyload.i.i.i
+  %86 = icmp ne i32 %spec.select.i, 1
+  %or.cond.i = select i1 %85, i1 true, i1 %86
   br i1 %or.cond.i, label %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread.i, label %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit691, !llvm.loop !185
 
-86:                                               ; preds = %.lr.ph.preheader.i.i.i.i.i
-  %87 = landingpad { ptr, i32 }
+87:                                               ; preds = %.lr.ph.preheader.i.i.i.i.i
+  %88 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN4CGAL17SM_Halfedge_indexESaIS1_EED2Ev.exit700
 
 _ZN5boost8optionalIN4CGAL17SM_Halfedge_indexEED2Ev.exit.thread: ; preds = %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread.i, %70
-  %88 = zext i32 %.0569905 to i64
-  %89 = getelementptr inbounds nuw %"class.CGAL::SM_Vertex_index", ptr %.sroa.0812.0, i64 %88
-  %.sroa.099.0.copyload = load i32, ptr %89, align 4
-  %90 = zext i32 %.sroa.099.0.copyload to i64
-  %91 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %73, i64 %90
-  %.sroa.0.0.copyload.i.i.i621 = load i32, ptr %91, align 4
+  %89 = zext i32 %.0569906 to i64
+  %90 = getelementptr inbounds nuw %"class.CGAL::SM_Vertex_index", ptr %.sroa.0812.0, i64 %89
+  %.sroa.099.0.copyload = load i32, ptr %90, align 4
+  %91 = zext i32 %.sroa.099.0.copyload to i64
+  %92 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %73, i64 %91
+  %.sroa.0.0.copyload.i.i.i621 = load i32, ptr %92, align 4
   %.not.i.i622 = icmp eq i32 %.sroa.0.0.copyload.i.i.i621, -1
   br i1 %.not.i.i622, label %.loopexit899.thread, label %.preheader.i.i623
 
 .preheader.i.i623:                                ; preds = %_ZN5boost8optionalIN4CGAL17SM_Halfedge_indexEED2Ev.exit.thread
-  %92 = load ptr, ptr %69, align 8
-  br label %93
+  %93 = load ptr, ptr %69, align 8
+  br label %94
 
-93:                                               ; preds = %99, %.preheader.i.i623
-  %.sroa.09.0.i.i = phi i32 [ %103, %99 ], [ %.sroa.0.0.copyload.i.i.i621, %.preheader.i.i623 ]
+94:                                               ; preds = %100, %.preheader.i.i623
+  %.sroa.09.0.i.i = phi i32 [ %104, %100 ], [ %.sroa.0.0.copyload.i.i.i621, %.preheader.i.i623 ]
   %.sroa.09.0.i.fr.i = freeze i32 %.sroa.09.0.i.i
-  %94 = and i32 %.sroa.09.0.i.fr.i, 1
-  %.not.i.i.i.i624 = icmp eq i32 %94, 0
+  %95 = and i32 %.sroa.09.0.i.fr.i, 1
+  %.not.i.i.i.i624 = icmp eq i32 %95, 0
   %.v.i.i.i.i625 = select i1 %.not.i.i.i.i624, i32 1, i32 -1
-  %95 = add i32 %.v.i.i.i.i625, %.sroa.09.0.i.fr.i
-  %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %92, i64 %96, i32 1
-  %.sroa.0.0.copyload.i.i.i.i626 = load i32, ptr %97, align 4
-  %98 = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i626, %.sroa.0104.0.copyload
-  br i1 %98, label %.loopexit899, label %99
+  %96 = add i32 %.v.i.i.i.i625, %.sroa.09.0.i.fr.i
+  %97 = zext i32 %96 to i64
+  %98 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %93, i64 %97, i32 1
+  %.sroa.0.0.copyload.i.i.i.i626 = load i32, ptr %98, align 4
+  %99 = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i626, %.sroa.0104.0.copyload
+  br i1 %99, label %.loopexit899, label %100
 
-99:                                               ; preds = %93
-  %100 = zext i32 %.sroa.09.0.i.fr.i to i64
-  %101 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %92, i64 %100, i32 2
-  %.sroa.0.0.copyload.i.i5.i.i = load i32, ptr %101, align 4
-  %102 = and i32 %.sroa.0.0.copyload.i.i5.i.i, 1
-  %.not.i.i6.i.i = icmp eq i32 %102, 0
+100:                                              ; preds = %94
+  %101 = zext i32 %.sroa.09.0.i.fr.i to i64
+  %102 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %93, i64 %101, i32 2
+  %.sroa.0.0.copyload.i.i5.i.i = load i32, ptr %102, align 4
+  %103 = and i32 %.sroa.0.0.copyload.i.i5.i.i, 1
+  %.not.i.i6.i.i = icmp eq i32 %103, 0
   %.v.i.i7.i.i = select i1 %.not.i.i6.i.i, i32 1, i32 -1
-  %103 = add i32 %.v.i.i7.i.i, %.sroa.0.0.copyload.i.i5.i.i
-  %.not16.i.i = icmp eq i32 %103, %.sroa.0.0.copyload.i.i.i621
-  br i1 %.not16.i.i, label %.loopexit899.thread, label %93, !llvm.loop !186
+  %104 = add i32 %.v.i.i7.i.i, %.sroa.0.0.copyload.i.i5.i.i
+  %.not16.i.i = icmp eq i32 %104, %.sroa.0.0.copyload.i.i.i621
+  br i1 %.not16.i.i, label %.loopexit899.thread, label %94, !llvm.loop !186
 
-.loopexit899.thread:                              ; preds = %99, %_ZN5boost8optionalIN4CGAL17SM_Halfedge_indexEED2Ev.exit.thread
-  %104 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %.sroa.0795.0833, i64 %indvars.iv
-  store i32 -1, ptr %104, align 4
-  %105 = lshr i64 %indvars.iv, 6
-  %106 = getelementptr inbounds nuw i64, ptr %.sroa.0782.0, i64 %105
-  %107 = and i64 %indvars.iv, 63
-  %108 = shl nuw i64 1, %107
-  br label %114
+.loopexit899.thread:                              ; preds = %100, %_ZN5boost8optionalIN4CGAL17SM_Halfedge_indexEED2Ev.exit.thread
+  %105 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %.sroa.0795.0833, i64 %indvars.iv
+  store i32 -1, ptr %105, align 4
+  %106 = lshr i64 %indvars.iv, 6
+  %107 = getelementptr inbounds nuw i64, ptr %.sroa.0782.0, i64 %106
+  %108 = and i64 %indvars.iv, 63
+  %109 = shl nuw i64 1, %108
+  br label %115
 
-.loopexit899:                                     ; preds = %93
+.loopexit899:                                     ; preds = %94
   %.not.i = icmp eq i32 %.sroa.09.0.i.fr.i, -1
-  %109 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %.sroa.0795.0833, i64 %indvars.iv
-  store i32 %.sroa.09.0.i.fr.i, ptr %109, align 4
-  %110 = lshr i64 %indvars.iv, 6
-  %111 = getelementptr inbounds nuw i64, ptr %.sroa.0782.0, i64 %110
-  %112 = and i64 %indvars.iv, 63
-  %113 = shl nuw i64 1, %112
-  br i1 %.not.i, label %114, label %119
+  %110 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %.sroa.0795.0833, i64 %indvars.iv
+  store i32 %.sroa.09.0.i.fr.i, ptr %110, align 4
+  %111 = lshr i64 %indvars.iv, 6
+  %112 = getelementptr inbounds nuw i64, ptr %.sroa.0782.0, i64 %111
+  %113 = and i64 %indvars.iv, 63
+  %114 = shl nuw i64 1, %113
+  br i1 %.not.i, label %115, label %120
 
-114:                                              ; preds = %.loopexit899.thread, %.loopexit899
-  %115 = phi i64 [ %108, %.loopexit899.thread ], [ %113, %.loopexit899 ]
-  %116 = phi ptr [ %106, %.loopexit899.thread ], [ %111, %.loopexit899 ]
-  %117 = load i64, ptr %116, align 8
-  %118 = or i64 %117, %115
+115:                                              ; preds = %.loopexit899.thread, %.loopexit899
+  %116 = phi i64 [ %109, %.loopexit899.thread ], [ %114, %.loopexit899 ]
+  %117 = phi ptr [ %107, %.loopexit899.thread ], [ %112, %.loopexit899 ]
+  %118 = load i64, ptr %117, align 8
+  %119 = or i64 %118, %116
   br label %_ZNSt14_Bit_referenceaSEb.exit
 
-119:                                              ; preds = %.loopexit899
-  %120 = xor i64 %113, -1
-  %121 = load i64, ptr %111, align 8
-  %122 = and i64 %121, %120
-  %123 = zext i32 %.sroa.09.0.i.fr.i to i64
+120:                                              ; preds = %.loopexit899
+  %121 = xor i64 %114, -1
+  %122 = load i64, ptr %112, align 8
+  %123 = and i64 %122, %121
+  %124 = zext i32 %.sroa.09.0.i.fr.i to i64
   br label %_ZNSt14_Bit_referenceaSEb.exit
 
-_ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %119, %114
-  %124 = phi i64 [ %113, %119 ], [ %115, %114 ]
-  %125 = phi ptr [ %111, %119 ], [ %116, %114 ]
-  %.sroa.015.0.i9.i954 = phi i64 [ %123, %119 ], [ 4294967295, %114 ]
-  %storemerge = phi i64 [ %122, %119 ], [ %118, %114 ]
-  store i64 %storemerge, ptr %125, align 8
-  %126 = and i64 %storemerge, %124
-  %.not888 = icmp eq i64 %126, 0
-  br i1 %.not888, label %127, label %.critedge
+_ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %120, %115
+  %125 = phi i64 [ %114, %120 ], [ %116, %115 ]
+  %126 = phi ptr [ %112, %120 ], [ %117, %115 ]
+  %.sroa.015.0.i9.i955 = phi i64 [ %124, %120 ], [ 4294967295, %115 ]
+  %storemerge = phi i64 [ %123, %120 ], [ %119, %115 ]
+  store i64 %storemerge, ptr %126, align 8
+  %127 = and i64 %storemerge, %125
+  %.not888 = icmp eq i64 %127, 0
+  br i1 %.not888, label %128, label %.critedge
 
-127:                                              ; preds = %_ZNSt14_Bit_referenceaSEb.exit
-  %128 = load ptr, ptr %69, align 8
-  %129 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %128, i64 %.sroa.015.0.i9.i954
-  %.sroa.0.0.copyload.i.i.i632 = load i32, ptr %129, align 4
-  %130 = icmp eq i32 %.sroa.0.0.copyload.i.i.i632, -1
-  br i1 %130, label %.critedge, label %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit691.thread
+128:                                              ; preds = %_ZNSt14_Bit_referenceaSEb.exit
+  %129 = load ptr, ptr %69, align 8
+  %130 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %129, i64 %.sroa.015.0.i9.i955
+  %.sroa.0.0.copyload.i.i.i632 = load i32, ptr %130, align 4
+  %131 = icmp eq i32 %.sroa.0.0.copyload.i.i.i632, -1
+  br i1 %131, label %.critedge, label %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit691.thread
 
-.critedge:                                        ; preds = %127, %_ZNSt14_Bit_referenceaSEb.exit
+.critedge:                                        ; preds = %128, %_ZNSt14_Bit_referenceaSEb.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %131 = add i32 %.0569905, 1
-  %132 = urem i32 %131, %35
+  %132 = add i32 %.0569906, 1
+  %133 = urem i32 %132, %35
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %133, label %70, !llvm.loop !3587
+  br i1 %exitcond.not, label %134, label %70, !llvm.loop !3587
 
-133:                                              ; preds = %.critedge
-  %134 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr %134, ptr %12, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 0, ptr %135, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 9, ptr %136, align 8
-  %137 = mul nsw i64 %34, 3
-  %138 = and i64 %137, 4294967295
-  %139 = icmp samesign ugt i64 %138, 9
-  br i1 %139, label %140, label %149
+134:                                              ; preds = %.critedge
+  %135 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store ptr %135, ptr %12, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 0, ptr %136, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 9, ptr %137, align 8
+  %138 = mul nsw i64 %34, 3
+  %139 = and i64 %138, 4294967295
+  %140 = icmp samesign ugt i64 %139, 9
+  br i1 %140, label %141, label %150
 
-140:                                              ; preds = %133
-  %141 = shl nuw nsw i64 %138, 3
-  %142 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %141) #44
+141:                                              ; preds = %134
+  %142 = shl nuw nsw i64 %139, 3
+  %143 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %142) #44
           to label %_ZN5boost9container13new_allocatorISt4pairIN4CGAL17SM_Halfedge_indexES4_EE8allocateEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZN5boost9container13new_allocatorISt4pairIN4CGAL17SM_Halfedge_indexES4_EE8allocateEm.exit: ; preds = %140
-  %143 = load ptr, ptr %12, align 8
-  %144 = load i64, ptr %135, align 8
-  %145 = icmp ne i64 %144, 0
-  %146 = icmp ne ptr %143, null
-  %or.cond9.i.i = and i1 %146, %145
+_ZN5boost9container13new_allocatorISt4pairIN4CGAL17SM_Halfedge_indexES4_EE8allocateEm.exit: ; preds = %141
+  %144 = load ptr, ptr %12, align 8
+  %145 = load i64, ptr %136, align 8
+  %146 = icmp ne i64 %145, 0
+  %147 = icmp ne ptr %144, null
+  %or.cond9.i.i = and i1 %147, %146
   br i1 %or.cond9.i.i, label %_ZN5boost9container35uninitialized_move_and_insert_allocINS0_22small_vector_allocatorISt4pairIN4CGAL17SM_Halfedge_indexES5_ENS0_13new_allocatorIvEEvEEPS6_SA_NS0_3dtl18insert_range_proxyIS9_NS_13move_iteratorISA_EEEEEEvRT_T0_SI_SI_T1_mT2_.exit.i.thread, label %_ZN5boost9container35uninitialized_move_and_insert_allocINS0_22small_vector_allocatorISt4pairIN4CGAL17SM_Halfedge_indexES5_ENS0_13new_allocatorIvEEvEEPS6_SA_NS0_3dtl18insert_range_proxyIS9_NS_13move_iteratorISA_EEEEEEvRT_T0_SI_SI_T1_mT2_.exit.i
 
 _ZN5boost9container35uninitialized_move_and_insert_allocINS0_22small_vector_allocatorISt4pairIN4CGAL17SM_Halfedge_indexES5_ENS0_13new_allocatorIvEEvEEPS6_SA_NS0_3dtl18insert_range_proxyIS9_NS_13move_iteratorISA_EEEEEEvRT_T0_SI_SI_T1_mT2_.exit.i.thread: ; preds = %_ZN5boost9container13new_allocatorISt4pairIN4CGAL17SM_Halfedge_indexES4_EE8allocateEm.exit
-  %.idx = shl nsw i64 %144, 3
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %142, ptr nonnull align 4 %143, i64 %.idx, i1 false)
-  %.old = icmp eq ptr %134, %143
-  br i1 %.old, label %_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE40priv_insert_forward_range_new_allocationINS0_3dtl18insert_range_proxyIS9_NS_13move_iteratorIPS5_EEEEEEvSF_mSF_mT_.exit, label %148
+  %.idx = shl nsw i64 %145, 3
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %143, ptr nonnull align 4 %144, i64 %.idx, i1 false)
+  %.old = icmp eq ptr %135, %144
+  br i1 %.old, label %_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE40priv_insert_forward_range_new_allocationINS0_3dtl18insert_range_proxyIS9_NS_13move_iteratorIPS5_EEEEEEvSF_mSF_mT_.exit, label %149
 
 _ZN5boost9container35uninitialized_move_and_insert_allocINS0_22small_vector_allocatorISt4pairIN4CGAL17SM_Halfedge_indexES5_ENS0_13new_allocatorIvEEvEEPS6_SA_NS0_3dtl18insert_range_proxyIS9_NS_13move_iteratorISA_EEEEEEvRT_T0_SI_SI_T1_mT2_.exit.i: ; preds = %_ZN5boost9container13new_allocatorISt4pairIN4CGAL17SM_Halfedge_indexES4_EE8allocateEm.exit
-  %.not.i634 = icmp eq ptr %143, null
-  %147 = icmp eq ptr %134, %143
-  %or.cond871 = select i1 %.not.i634, i1 true, i1 %147
-  br i1 %or.cond871, label %_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE40priv_insert_forward_range_new_allocationINS0_3dtl18insert_range_proxyIS9_NS_13move_iteratorIPS5_EEEEEEvSF_mSF_mT_.exit, label %148
+  %.not.i634 = icmp eq ptr %144, null
+  %148 = icmp eq ptr %135, %144
+  %or.cond872 = select i1 %.not.i634, i1 true, i1 %148
+  br i1 %or.cond872, label %_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE40priv_insert_forward_range_new_allocationINS0_3dtl18insert_range_proxyIS9_NS_13move_iteratorIPS5_EEEEEEvSF_mSF_mT_.exit, label %149
 
-148:                                              ; preds = %_ZN5boost9container35uninitialized_move_and_insert_allocINS0_22small_vector_allocatorISt4pairIN4CGAL17SM_Halfedge_indexES5_ENS0_13new_allocatorIvEEvEEPS6_SA_NS0_3dtl18insert_range_proxyIS9_NS_13move_iteratorISA_EEEEEEvRT_T0_SI_SI_T1_mT2_.exit.i, %_ZN5boost9container35uninitialized_move_and_insert_allocINS0_22small_vector_allocatorISt4pairIN4CGAL17SM_Halfedge_indexES5_ENS0_13new_allocatorIvEEvEEPS6_SA_NS0_3dtl18insert_range_proxyIS9_NS_13move_iteratorISA_EEEEEEvRT_T0_SI_SI_T1_mT2_.exit.i.thread
-  call void @_ZdlPv(ptr noundef nonnull %143) #23
+149:                                              ; preds = %_ZN5boost9container35uninitialized_move_and_insert_allocINS0_22small_vector_allocatorISt4pairIN4CGAL17SM_Halfedge_indexES5_ENS0_13new_allocatorIvEEvEEPS6_SA_NS0_3dtl18insert_range_proxyIS9_NS_13move_iteratorISA_EEEEEEvRT_T0_SI_SI_T1_mT2_.exit.i, %_ZN5boost9container35uninitialized_move_and_insert_allocINS0_22small_vector_allocatorISt4pairIN4CGAL17SM_Halfedge_indexES5_ENS0_13new_allocatorIvEEvEEPS6_SA_NS0_3dtl18insert_range_proxyIS9_NS_13move_iteratorISA_EEEEEEvRT_T0_SI_SI_T1_mT2_.exit.i.thread
+  call void @_ZdlPv(ptr noundef nonnull %144) #23
   br label %_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE40priv_insert_forward_range_new_allocationINS0_3dtl18insert_range_proxyIS9_NS_13move_iteratorIPS5_EEEEEEvSF_mSF_mT_.exit
 
-_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE40priv_insert_forward_range_new_allocationINS0_3dtl18insert_range_proxyIS9_NS_13move_iteratorIPS5_EEEEEEvSF_mSF_mT_.exit: ; preds = %_ZN5boost9container35uninitialized_move_and_insert_allocINS0_22small_vector_allocatorISt4pairIN4CGAL17SM_Halfedge_indexES5_ENS0_13new_allocatorIvEEvEEPS6_SA_NS0_3dtl18insert_range_proxyIS9_NS_13move_iteratorISA_EEEEEEvRT_T0_SI_SI_T1_mT2_.exit.i, %_ZN5boost9container35uninitialized_move_and_insert_allocINS0_22small_vector_allocatorISt4pairIN4CGAL17SM_Halfedge_indexES5_ENS0_13new_allocatorIvEEvEEPS6_SA_NS0_3dtl18insert_range_proxyIS9_NS_13move_iteratorISA_EEEEEEvRT_T0_SI_SI_T1_mT2_.exit.i.thread, %148
-  store ptr %142, ptr %12, align 8
-  store i64 %138, ptr %136, align 8
-  br label %149
+_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE40priv_insert_forward_range_new_allocationINS0_3dtl18insert_range_proxyIS9_NS_13move_iteratorIPS5_EEEEEEvSF_mSF_mT_.exit: ; preds = %_ZN5boost9container35uninitialized_move_and_insert_allocINS0_22small_vector_allocatorISt4pairIN4CGAL17SM_Halfedge_indexES5_ENS0_13new_allocatorIvEEvEEPS6_SA_NS0_3dtl18insert_range_proxyIS9_NS_13move_iteratorISA_EEEEEEvRT_T0_SI_SI_T1_mT2_.exit.i, %_ZN5boost9container35uninitialized_move_and_insert_allocINS0_22small_vector_allocatorISt4pairIN4CGAL17SM_Halfedge_indexES5_ENS0_13new_allocatorIvEEvEEPS6_SA_NS0_3dtl18insert_range_proxyIS9_NS_13move_iteratorISA_EEEEEEvRT_T0_SI_SI_T1_mT2_.exit.i.thread, %149
+  store ptr %143, ptr %12, align 8
+  store i64 %139, ptr %137, align 8
+  br label %150
 
-149:                                              ; preds = %_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE40priv_insert_forward_range_new_allocationINS0_3dtl18insert_range_proxyIS9_NS_13move_iteratorIPS5_EEEEEEvSF_mSF_mT_.exit, %133
-  %150 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %151 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %152 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  br label %153
+150:                                              ; preds = %_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE40priv_insert_forward_range_new_allocationINS0_3dtl18insert_range_proxyIS9_NS_13move_iteratorIPS5_EEEEEEvSF_mSF_mT_.exit, %134
+  %151 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %152 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %153 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  br label %154
 
-153:                                              ; preds = %149, %.critedge2
-  %indvars.iv925 = phi i64 [ 0, %149 ], [ %indvars.iv.next926, %.critedge2 ]
-  %.0572907 = phi i32 [ 1, %149 ], [ %231, %.critedge2 ]
-  %154 = lshr i64 %indvars.iv925, 6
-  %.zext = and i64 %154, 67108863
-  %155 = getelementptr inbounds nuw i64, ptr %.sroa.0782.0, i64 %.zext
-  %156 = and i64 %indvars.iv925, 63
-  %157 = shl nuw i64 1, %156
-  %158 = load i64, ptr %155, align 8
-  %159 = and i64 %158, %157
-  %.not884 = icmp eq i64 %159, 0
-  br i1 %.not884, label %160, label %.critedge2
+154:                                              ; preds = %150, %.critedge2
+  %indvars.iv926 = phi i64 [ 0, %150 ], [ %indvars.iv.next927, %.critedge2 ]
+  %.0572908 = phi i32 [ 1, %150 ], [ %232, %.critedge2 ]
+  %155 = lshr i64 %indvars.iv926, 6
+  %.zext = and i64 %155, 67108863
+  %156 = getelementptr inbounds nuw i64, ptr %.sroa.0782.0, i64 %.zext
+  %157 = and i64 %indvars.iv926, 63
+  %158 = shl nuw i64 1, %157
+  %159 = load i64, ptr %156, align 8
+  %160 = and i64 %159, %158
+  %.not885 = icmp eq i64 %160, 0
+  br i1 %.not885, label %161, label %.critedge2
 
-160:                                              ; preds = %153
-  %161 = zext i32 %.0572907 to i64
-  %162 = lshr i32 %.0572907, 6
-  %.zext861 = zext nneg i32 %162 to i64
-  %163 = getelementptr inbounds nuw i64, ptr %.sroa.0782.0, i64 %.zext861
-  %164 = and i64 %161, 63
-  %165 = shl nuw i64 1, %164
-  %166 = load i64, ptr %163, align 8
-  %167 = and i64 %166, %165
-  %.not885 = icmp eq i64 %167, 0
-  br i1 %.not885, label %168, label %.critedge2
+161:                                              ; preds = %154
+  %162 = zext i32 %.0572908 to i64
+  %163 = lshr i32 %.0572908, 6
+  %.zext861 = zext nneg i32 %163 to i64
+  %164 = getelementptr inbounds nuw i64, ptr %.sroa.0782.0, i64 %.zext861
+  %165 = and i64 %162, 63
+  %166 = shl nuw i64 1, %165
+  %167 = load i64, ptr %164, align 8
+  %168 = and i64 %167, %166
+  %.not886 = icmp eq i64 %168, 0
+  br i1 %.not886, label %169, label %.critedge2
 
-168:                                              ; preds = %160
-  %169 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %.sroa.0795.0833, i64 %indvars.iv925
-  %170 = load i32, ptr %169, align 4
-  %171 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %.sroa.0795.0833, i64 %161
-  %172 = load i32, ptr %171, align 4
-  %173 = load ptr, ptr %67, align 8
-  %174 = zext i32 %170 to i64
-  %175 = getelementptr inbounds nuw i8, ptr %173, i64 40
-  %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %176, i64 %174, i32 2
-  %.sroa.0.0.copyload.i.i = load i32, ptr %177, align 4
-  %.not886 = icmp eq i32 %.sroa.0.0.copyload.i.i, %172
-  br i1 %.not886, label %.critedge2, label %178
+169:                                              ; preds = %161
+  %170 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %.sroa.0795.0833, i64 %indvars.iv926
+  %171 = load i32, ptr %170, align 4
+  %172 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %.sroa.0795.0833, i64 %162
+  %173 = load i32, ptr %172, align 4
+  %174 = load ptr, ptr %67, align 8
+  %175 = zext i32 %171 to i64
+  %176 = getelementptr inbounds nuw i8, ptr %174, i64 40
+  %177 = load ptr, ptr %176, align 8
+  %178 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %177, i64 %175, i32 2
+  %.sroa.0.0.copyload.i.i = load i32, ptr %178, align 4
+  %.not887 = icmp eq i32 %.sroa.0.0.copyload.i.i, %173
+  br i1 %.not887, label %.critedge2, label %179
 
-178:                                              ; preds = %168
-  %179 = and i32 %172, 1
-  %.not.i.i643 = icmp eq i32 %179, 0
+179:                                              ; preds = %169
+  %180 = and i32 %173, 1
+  %.not.i.i643 = icmp eq i32 %180, 0
   %.v.i.i = select i1 %.not.i.i643, i32 1, i32 -1
-  %180 = add i32 %.v.i.i, %172
-  br label %181
+  %181 = add i32 %.v.i.i, %173
+  br label %182
 
-181:                                              ; preds = %178, %181
-  %.sroa.0738.0 = phi i32 [ %180, %178 ], [ %185, %181 ]
-  %182 = zext i32 %.sroa.0738.0 to i64
-  %183 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %176, i64 %182, i32 2
-  %.sroa.0.0.copyload.i.i646 = load i32, ptr %183, align 4
-  %184 = and i32 %.sroa.0.0.copyload.i.i646, 1
-  %.not.i.i647 = icmp eq i32 %184, 0
+182:                                              ; preds = %179, %182
+  %.sroa.0738.0 = phi i32 [ %181, %179 ], [ %186, %182 ]
+  %183 = zext i32 %.sroa.0738.0 to i64
+  %184 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %177, i64 %183, i32 2
+  %.sroa.0.0.copyload.i.i646 = load i32, ptr %184, align 4
+  %185 = and i32 %.sroa.0.0.copyload.i.i646, 1
+  %.not.i.i647 = icmp eq i32 %185, 0
   %.v.i.i648 = select i1 %.not.i.i647, i32 1, i32 -1
-  %185 = add i32 %.v.i.i648, %.sroa.0.0.copyload.i.i646
-  %186 = zext i32 %185 to i64
-  %187 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %176, i64 %186
-  %.sroa.0.0.copyload.i.i.i649 = load i32, ptr %187, align 4
-  %188 = icmp ne i32 %.sroa.0.0.copyload.i.i.i649, -1
-  %189 = icmp eq i32 %185, %170
-  %or.cond873 = or i1 %188, %189
-  br i1 %or.cond873, label %181, label %190, !llvm.loop !3588
+  %186 = add i32 %.v.i.i648, %.sroa.0.0.copyload.i.i646
+  %187 = zext i32 %186 to i64
+  %188 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %177, i64 %187
+  %.sroa.0.0.copyload.i.i.i649 = load i32, ptr %188, align 4
+  %189 = icmp ne i32 %.sroa.0.0.copyload.i.i.i649, -1
+  %190 = icmp eq i32 %186, %171
+  %or.cond874 = or i1 %189, %190
+  br i1 %or.cond874, label %182, label %191, !llvm.loop !3588
 
-190:                                              ; preds = %181
-  %191 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %176, i64 %186, i32 2
-  %.sroa.0.0.copyload.i.i650 = load i32, ptr %191, align 4
-  %192 = icmp eq i32 %.sroa.0.0.copyload.i.i650, %172
-  br i1 %192, label %.loopexit, label %198
+191:                                              ; preds = %182
+  %192 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %177, i64 %187, i32 2
+  %.sroa.0.0.copyload.i.i650 = load i32, ptr %192, align 4
+  %193 = icmp eq i32 %.sroa.0.0.copyload.i.i650, %173
+  br i1 %193, label %.loopexit, label %199
 
-.loopexit891:                                     ; preds = %.invoke, %320, %341, %391, %410
+.loopexit891:                                     ; preds = %.invoke, %321, %342, %392, %411
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %238
+.loopexit.split-lp.loopexit:                      ; preds = %239
   %lpad.loopexit893 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %209, %219, %229
+.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %210, %220, %230
   %lpad.loopexit897 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %140, %264
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %141, %265
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit891
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit891 ], [ %lpad.loopexit893, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit897, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %193 = load i64, ptr %136, align 8
-  %.not.i.i.i651 = icmp eq i64 %193, 0
-  br i1 %.not.i.i.i651, label %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit, label %194
+  %194 = load i64, ptr %137, align 8
+  %.not.i.i.i651 = icmp eq i64 %194, 0
+  br i1 %.not.i.i.i651, label %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit, label %195
 
-194:                                              ; preds = %.loopexit.split-lp
-  %195 = load ptr, ptr %12, align 8
-  %196 = icmp eq ptr %134, %195
-  br i1 %196, label %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit, label %197
+195:                                              ; preds = %.loopexit.split-lp
+  %196 = load ptr, ptr %12, align 8
+  %197 = icmp eq ptr %135, %196
+  br i1 %197, label %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit, label %198
 
-197:                                              ; preds = %194
-  call void @_ZdlPv(ptr noundef %195) #23
+198:                                              ; preds = %195
+  call void @_ZdlPv(ptr noundef %196) #23
   br label %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit
 
-198:                                              ; preds = %190
-  %199 = zext i32 %172 to i64
-  %200 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %176, i64 %199, i32 3
-  %.sroa.0.0.copyload.i.i653 = load i32, ptr %200, align 4
-  store i32 %185, ptr %13, align 8
-  store i32 %.sroa.0.0.copyload.i.i, ptr %150, align 4
-  %201 = load ptr, ptr %12, align 8
-  %202 = load i64, ptr %135, align 8
-  %203 = getelementptr inbounds %"struct.std::pair.391", ptr %201, i64 %202
-  %204 = load i64, ptr %136, align 8
-  %.not606 = icmp eq i64 %202, %204
-  br i1 %.not606, label %209, label %205
+199:                                              ; preds = %191
+  %200 = zext i32 %173 to i64
+  %201 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %177, i64 %200, i32 3
+  %.sroa.0.0.copyload.i.i653 = load i32, ptr %201, align 4
+  store i32 %186, ptr %13, align 8
+  store i32 %.sroa.0.0.copyload.i.i, ptr %151, align 4
+  %202 = load ptr, ptr %12, align 8
+  %203 = load i64, ptr %136, align 8
+  %204 = getelementptr inbounds %"struct.std::pair.391", ptr %202, i64 %203
+  %205 = load i64, ptr %137, align 8
+  %.not606 = icmp eq i64 %203, %205
+  br i1 %.not606, label %210, label %206
 
-205:                                              ; preds = %198
-  %206 = load i64, ptr %13, align 8
-  store i64 %206, ptr %203, align 4
-  %207 = load i64, ptr %135, align 8
-  %208 = add i64 %207, 1
-  store i64 %208, ptr %135, align 8
-  br label %210
+206:                                              ; preds = %199
+  %207 = load i64, ptr %13, align 8
+  store i64 %207, ptr %204, align 4
+  %208 = load i64, ptr %136, align 8
+  %209 = add i64 %208, 1
+  store i64 %209, ptr %136, align 8
+  br label %211
 
-209:                                              ; preds = %198
-  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %203, i64 noundef 1, ptr nonnull %13)
+210:                                              ; preds = %199
+  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %204, i64 noundef 1, ptr nonnull %13)
           to label %._crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-._crit_edge:                                      ; preds = %209
-  %.pre = load i64, ptr %135, align 8
-  br label %210
+._crit_edge:                                      ; preds = %210
+  %.pre = load i64, ptr %136, align 8
+  br label %211
 
-210:                                              ; preds = %._crit_edge, %205
-  %211 = phi i64 [ %.pre, %._crit_edge ], [ %208, %205 ]
+211:                                              ; preds = %._crit_edge, %206
+  %212 = phi i64 [ %.pre, %._crit_edge ], [ %209, %206 ]
   store i32 %.sroa.0.0.copyload.i.i653, ptr %14, align 8
-  store i32 %.sroa.0.0.copyload.i.i650, ptr %151, align 4
-  %212 = load ptr, ptr %12, align 8
-  %213 = getelementptr inbounds %"struct.std::pair.391", ptr %212, i64 %211
-  %214 = load i64, ptr %136, align 8
-  %.not607 = icmp eq i64 %211, %214
-  br i1 %.not607, label %219, label %215
+  store i32 %.sroa.0.0.copyload.i.i650, ptr %152, align 4
+  %213 = load ptr, ptr %12, align 8
+  %214 = getelementptr inbounds %"struct.std::pair.391", ptr %213, i64 %212
+  %215 = load i64, ptr %137, align 8
+  %.not607 = icmp eq i64 %212, %215
+  br i1 %.not607, label %220, label %216
 
-215:                                              ; preds = %210
-  %216 = load i64, ptr %14, align 8
-  store i64 %216, ptr %213, align 4
-  %217 = load i64, ptr %135, align 8
-  %218 = add i64 %217, 1
-  store i64 %218, ptr %135, align 8
-  br label %220
+216:                                              ; preds = %211
+  %217 = load i64, ptr %14, align 8
+  store i64 %217, ptr %214, align 4
+  %218 = load i64, ptr %136, align 8
+  %219 = add i64 %218, 1
+  store i64 %219, ptr %136, align 8
+  br label %221
 
-219:                                              ; preds = %210
-  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %213, i64 noundef 1, ptr nonnull %14)
-          to label %._crit_edge946 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+220:                                              ; preds = %211
+  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %214, i64 noundef 1, ptr nonnull %14)
+          to label %._crit_edge947 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-._crit_edge946:                                   ; preds = %219
-  %.pre947 = load i64, ptr %135, align 8
-  br label %220
+._crit_edge947:                                   ; preds = %220
+  %.pre948 = load i64, ptr %136, align 8
+  br label %221
 
-220:                                              ; preds = %._crit_edge946, %215
-  %221 = phi i64 [ %.pre947, %._crit_edge946 ], [ %218, %215 ]
-  store i32 %170, ptr %15, align 8
-  store i32 %172, ptr %152, align 4
-  %222 = load ptr, ptr %12, align 8
-  %223 = getelementptr inbounds %"struct.std::pair.391", ptr %222, i64 %221
-  %224 = load i64, ptr %136, align 8
-  %.not608 = icmp eq i64 %221, %224
-  br i1 %.not608, label %229, label %225
+221:                                              ; preds = %._crit_edge947, %216
+  %222 = phi i64 [ %.pre948, %._crit_edge947 ], [ %219, %216 ]
+  store i32 %171, ptr %15, align 8
+  store i32 %173, ptr %153, align 4
+  %223 = load ptr, ptr %12, align 8
+  %224 = getelementptr inbounds %"struct.std::pair.391", ptr %223, i64 %222
+  %225 = load i64, ptr %137, align 8
+  %.not608 = icmp eq i64 %222, %225
+  br i1 %.not608, label %230, label %226
 
-225:                                              ; preds = %220
-  %226 = load i64, ptr %15, align 8
-  store i64 %226, ptr %223, align 4
-  %227 = load i64, ptr %135, align 8
-  %228 = add i64 %227, 1
-  store i64 %228, ptr %135, align 8
+226:                                              ; preds = %221
+  %227 = load i64, ptr %15, align 8
+  store i64 %227, ptr %224, align 4
+  %228 = load i64, ptr %136, align 8
+  %229 = add i64 %228, 1
+  store i64 %229, ptr %136, align 8
   br label %.critedge2
 
-229:                                              ; preds = %220
-  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %223, i64 noundef 1, ptr nonnull %15)
+230:                                              ; preds = %221
+  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %224, i64 noundef 1, ptr nonnull %15)
           to label %.critedge2 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.critedge2:                                       ; preds = %229, %160, %225, %168, %153
-  %indvars.iv.next926 = add nuw nsw i64 %indvars.iv925, 1
-  %230 = add i32 %.0572907, 1
-  %231 = urem i32 %230, %35
-  %exitcond930.not = icmp eq i64 %indvars.iv.next926, %wide.trip.count
-  br i1 %exitcond930.not, label %.preheader892, label %153, !llvm.loop !3589
+.critedge2:                                       ; preds = %230, %161, %226, %169, %154
+  %indvars.iv.next927 = add nuw nsw i64 %indvars.iv926, 1
+  %231 = add i32 %.0572908, 1
+  %232 = urem i32 %231, %35
+  %exitcond931.not = icmp eq i64 %indvars.iv.next927, %wide.trip.count
+  br i1 %exitcond931.not, label %.preheader892, label %154, !llvm.loop !3589
 
-.preheader892:                                    ; preds = %.critedge2, %261
-  %indvars.iv931 = phi i64 [ %indvars.iv.next932, %261 ], [ 0, %.critedge2 ]
-  %.0574909 = phi i32 [ %263, %261 ], [ 1, %.critedge2 ]
-  %232 = lshr i64 %indvars.iv931, 6
-  %.zext863 = and i64 %232, 67108863
-  %233 = getelementptr inbounds nuw i64, ptr %.sroa.0782.0, i64 %.zext863
-  %234 = and i64 %indvars.iv931, 63
-  %235 = shl nuw i64 1, %234
-  %236 = load i64, ptr %233, align 8
-  %237 = and i64 %236, %235
-  %.not883 = icmp eq i64 %237, 0
-  br i1 %.not883, label %261, label %238
+.preheader892:                                    ; preds = %.critedge2, %262
+  %indvars.iv932 = phi i64 [ %indvars.iv.next933, %262 ], [ 0, %.critedge2 ]
+  %.0574910 = phi i32 [ %264, %262 ], [ 1, %.critedge2 ]
+  %233 = lshr i64 %indvars.iv932, 6
+  %.zext863 = and i64 %233, 67108863
+  %234 = getelementptr inbounds nuw i64, ptr %.sroa.0782.0, i64 %.zext863
+  %235 = and i64 %indvars.iv932, 63
+  %236 = shl nuw i64 1, %235
+  %237 = load i64, ptr %234, align 8
+  %238 = and i64 %237, %236
+  %.not884 = icmp eq i64 %238, 0
+  br i1 %.not884, label %262, label %239
 
-238:                                              ; preds = %.preheader892
-  %239 = getelementptr inbounds nuw %"class.CGAL::SM_Vertex_index", ptr %.sroa.0812.0, i64 %indvars.iv931
-  %.sroa.064.0.copyload = load i32, ptr %239, align 4
-  %240 = zext i32 %.0574909 to i64
-  %241 = getelementptr inbounds nuw %"class.CGAL::SM_Vertex_index", ptr %.sroa.0812.0, i64 %240
-  %.sroa.063.0.copyload = load i32, ptr %241, align 4
-  %242 = invoke i32 @_ZN4CGAL12Surface_meshINS_7Point_3INS_5EpickEEEE8add_edgeEv(ptr noundef nonnull align 8 dereferenceable(280) %1)
-          to label %243 unwind label %.loopexit.split-lp.loopexit
+239:                                              ; preds = %.preheader892
+  %240 = getelementptr inbounds nuw %"class.CGAL::SM_Vertex_index", ptr %.sroa.0812.0, i64 %indvars.iv932
+  %.sroa.064.0.copyload = load i32, ptr %240, align 4
+  %241 = zext i32 %.0574910 to i64
+  %242 = getelementptr inbounds nuw %"class.CGAL::SM_Vertex_index", ptr %.sroa.0812.0, i64 %241
+  %.sroa.063.0.copyload = load i32, ptr %242, align 4
+  %243 = invoke i32 @_ZN4CGAL12Surface_meshINS_7Point_3INS_5EpickEEEE8add_edgeEv(ptr noundef nonnull align 8 dereferenceable(280) %1)
+          to label %244 unwind label %.loopexit.split-lp.loopexit
 
-243:                                              ; preds = %238
-  %244 = load ptr, ptr %67, align 8
-  %245 = zext i32 %242 to i64
-  %246 = getelementptr inbounds nuw i8, ptr %244, i64 40
-  %247 = load ptr, ptr %246, align 8
-  %248 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %247, i64 %245, i32 1
-  store i32 %.sroa.063.0.copyload, ptr %248, align 4
-  %249 = and i32 %242, 1
-  %.not.i.i.i658 = icmp eq i32 %249, 0
+244:                                              ; preds = %239
+  %245 = load ptr, ptr %67, align 8
+  %246 = zext i32 %243 to i64
+  %247 = getelementptr inbounds nuw i8, ptr %245, i64 40
+  %248 = load ptr, ptr %247, align 8
+  %249 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %248, i64 %246, i32 1
+  store i32 %.sroa.063.0.copyload, ptr %249, align 4
+  %250 = and i32 %243, 1
+  %.not.i.i.i658 = icmp eq i32 %250, 0
   %.v.i.i.i = select i1 %.not.i.i.i658, i32 1, i32 -1
-  %250 = add i32 %.v.i.i.i, %242
-  %251 = load ptr, ptr %67, align 8
-  %252 = zext i32 %250 to i64
-  %253 = getelementptr inbounds nuw i8, ptr %251, i64 40
-  %254 = load ptr, ptr %253, align 8
-  %255 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %254, i64 %252, i32 1
-  store i32 %.sroa.064.0.copyload, ptr %255, align 4
-  %256 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %.sroa.0795.0833, i64 %indvars.iv931
-  store i32 %242, ptr %256, align 4
-  %257 = load ptr, ptr %67, align 8
-  %258 = getelementptr inbounds nuw i8, ptr %257, i64 40
-  %259 = load ptr, ptr %258, align 8
-  %260 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %259, i64 %252
-  store i32 -1, ptr %260, align 4
-  br label %261
+  %251 = add i32 %.v.i.i.i, %243
+  %252 = load ptr, ptr %67, align 8
+  %253 = zext i32 %251 to i64
+  %254 = getelementptr inbounds nuw i8, ptr %252, i64 40
+  %255 = load ptr, ptr %254, align 8
+  %256 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %255, i64 %253, i32 1
+  store i32 %.sroa.064.0.copyload, ptr %256, align 4
+  %257 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %.sroa.0795.0833, i64 %indvars.iv932
+  store i32 %243, ptr %257, align 4
+  %258 = load ptr, ptr %67, align 8
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 40
+  %260 = load ptr, ptr %259, align 8
+  %261 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %260, i64 %253
+  store i32 -1, ptr %261, align 4
+  br label %262
 
-261:                                              ; preds = %243, %.preheader892
-  %indvars.iv.next932 = add nuw nsw i64 %indvars.iv931, 1
-  %262 = add i32 %.0574909, 1
-  %263 = urem i32 %262, %35
-  %exitcond935.not = icmp eq i64 %indvars.iv.next932, %wide.trip.count
-  br i1 %exitcond935.not, label %264, label %.preheader892, !llvm.loop !3590
+262:                                              ; preds = %244, %.preheader892
+  %indvars.iv.next933 = add nuw nsw i64 %indvars.iv932, 1
+  %263 = add i32 %.0574910, 1
+  %264 = urem i32 %263, %35
+  %exitcond936.not = icmp eq i64 %indvars.iv.next933, %wide.trip.count
+  br i1 %exitcond936.not, label %265, label %.preheader892, !llvm.loop !3590
 
-264:                                              ; preds = %261
-  %265 = invoke i32 @_ZN4CGAL12Surface_meshINS_7Point_3INS_5EpickEEEE8add_faceEv(ptr noundef nonnull align 8 dereferenceable(280) %1)
+265:                                              ; preds = %262
+  %266 = invoke i32 @_ZN4CGAL12Surface_meshINS_7Point_3INS_5EpickEEEE8add_faceEv(ptr noundef nonnull align 8 dereferenceable(280) %1)
           to label %_ZN4CGAL8add_faceINS_7Point_3INS_5EpickEEEEEN5boost12graph_traitsINS_12Surface_meshIT_EEE15face_descriptorERS8_.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZN4CGAL8add_faceINS_7Point_3INS_5EpickEEEEEN5boost12graph_traitsINS_12Surface_meshIT_EEE15face_descriptorERS8_.exit: ; preds = %264
-  %266 = add nsw i64 %34, 4294967295
-  %267 = and i64 %266, 4294967295
-  %268 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %.sroa.0795.0833, i64 %267
-  %.sroa.056.0.copyload = load i32, ptr %268, align 4
-  %269 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %270 = load ptr, ptr %269, align 8
-  %271 = zext i32 %265 to i64
-  %272 = getelementptr inbounds nuw i8, ptr %270, i64 40
-  %273 = load ptr, ptr %272, align 8
-  %274 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Face_connectivity", ptr %273, i64 %271
-  store i32 %.sroa.056.0.copyload, ptr %274, align 4
-  %275 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %276 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %277 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %278 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %279 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %280 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  br label %281
+_ZN4CGAL8add_faceINS_7Point_3INS_5EpickEEEEEN5boost12graph_traitsINS_12Surface_meshIT_EEE15face_descriptorERS8_.exit: ; preds = %265
+  %267 = add nsw i64 %34, 4294967295
+  %268 = and i64 %267, 4294967295
+  %269 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %.sroa.0795.0833, i64 %268
+  %.sroa.056.0.copyload = load i32, ptr %269, align 4
+  %270 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %271 = load ptr, ptr %270, align 8
+  %272 = zext i32 %266 to i64
+  %273 = getelementptr inbounds nuw i8, ptr %271, i64 40
+  %274 = load ptr, ptr %273, align 8
+  %275 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Face_connectivity", ptr %274, i64 %272
+  store i32 %.sroa.056.0.copyload, ptr %275, align 4
+  %276 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %277 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %278 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %279 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %280 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %281 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  br label %282
 
-281:                                              ; preds = %_ZN4CGAL8add_faceINS_7Point_3INS_5EpickEEEEEN5boost12graph_traitsINS_12Surface_meshIT_EEE15face_descriptorERS8_.exit, %411
-  %indvars.iv936 = phi i64 [ 0, %_ZN4CGAL8add_faceINS_7Point_3INS_5EpickEEEEEN5boost12graph_traitsINS_12Surface_meshIT_EEE15face_descriptorERS8_.exit ], [ %indvars.iv.next937, %411 ]
-  %.0576913 = phi i32 [ 1, %_ZN4CGAL8add_faceINS_7Point_3INS_5EpickEEEEEN5boost12graph_traitsINS_12Surface_meshIT_EEE15face_descriptorERS8_.exit ], [ %418, %411 ]
-  %282 = zext i32 %.0576913 to i64
-  %283 = getelementptr inbounds nuw %"class.CGAL::SM_Vertex_index", ptr %.sroa.0812.0, i64 %282
-  %.sroa.042.0.copyload = load i32, ptr %283, align 4
-  %284 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %.sroa.0795.0833, i64 %indvars.iv936
-  %285 = load i32, ptr %284, align 4
-  %286 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %.sroa.0795.0833, i64 %282
-  %287 = load i32, ptr %286, align 4
-  %288 = lshr i64 %indvars.iv936, 6
-  %.zext865 = and i64 %288, 67108863
-  %289 = getelementptr inbounds nuw i64, ptr %.sroa.0782.0, i64 %.zext865
-  %290 = and i64 %indvars.iv936, 63
-  %291 = load i64, ptr %289, align 8
-  %292 = lshr i64 %291, %290
-  %293 = trunc i64 %292 to i32
-  %spec.select = and i32 %293, 1
-  %294 = lshr i32 %.0576913, 6
-  %.zext867 = zext nneg i32 %294 to i64
-  %295 = getelementptr inbounds nuw i64, ptr %.sroa.0782.0, i64 %.zext867
-  %296 = and i64 %282, 63
-  %297 = shl nuw i64 1, %296
-  %298 = load i64, ptr %295, align 8
-  %299 = and i64 %298, %297
-  %.not881 = icmp eq i64 %299, 0
-  %300 = or disjoint i32 %spec.select, 2
-  %spec.select615 = select i1 %.not881, i32 %spec.select, i32 %300
+282:                                              ; preds = %_ZN4CGAL8add_faceINS_7Point_3INS_5EpickEEEEEN5boost12graph_traitsINS_12Surface_meshIT_EEE15face_descriptorERS8_.exit, %412
+  %indvars.iv937 = phi i64 [ 0, %_ZN4CGAL8add_faceINS_7Point_3INS_5EpickEEEEEN5boost12graph_traitsINS_12Surface_meshIT_EEE15face_descriptorERS8_.exit ], [ %indvars.iv.next938, %412 ]
+  %.0576914 = phi i32 [ 1, %_ZN4CGAL8add_faceINS_7Point_3INS_5EpickEEEEEN5boost12graph_traitsINS_12Surface_meshIT_EEE15face_descriptorERS8_.exit ], [ %419, %412 ]
+  %283 = zext i32 %.0576914 to i64
+  %284 = getelementptr inbounds nuw %"class.CGAL::SM_Vertex_index", ptr %.sroa.0812.0, i64 %283
+  %.sroa.042.0.copyload = load i32, ptr %284, align 4
+  %285 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %.sroa.0795.0833, i64 %indvars.iv937
+  %286 = load i32, ptr %285, align 4
+  %287 = getelementptr inbounds nuw %"class.CGAL::SM_Halfedge_index", ptr %.sroa.0795.0833, i64 %283
+  %288 = load i32, ptr %287, align 4
+  %289 = lshr i64 %indvars.iv937, 6
+  %.zext865 = and i64 %289, 67108863
+  %290 = getelementptr inbounds nuw i64, ptr %.sroa.0782.0, i64 %.zext865
+  %291 = and i64 %indvars.iv937, 63
+  %292 = load i64, ptr %290, align 8
+  %293 = lshr i64 %292, %291
+  %294 = trunc i64 %293 to i32
+  %spec.select = and i32 %294, 1
+  %295 = lshr i32 %.0576914, 6
+  %.zext867 = zext nneg i32 %295 to i64
+  %296 = getelementptr inbounds nuw i64, ptr %.sroa.0782.0, i64 %.zext867
+  %297 = and i64 %283, 63
+  %298 = shl nuw i64 1, %297
+  %299 = load i64, ptr %296, align 8
+  %300 = and i64 %299, %298
+  %.not882 = icmp eq i64 %300, 0
+  %301 = or disjoint i32 %spec.select, 2
+  %spec.select615 = select i1 %.not882, i32 %spec.select, i32 %301
   %.not599 = icmp eq i32 %spec.select615, 0
-  br i1 %.not599, label %411, label %301
+  br i1 %.not599, label %412, label %302
 
-301:                                              ; preds = %281
-  %302 = and i32 %287, 1
-  %.not.i.i671 = icmp eq i32 %302, 0
+302:                                              ; preds = %282
+  %303 = and i32 %288, 1
+  %.not.i.i671 = icmp eq i32 %303, 0
   %.v.i.i672 = select i1 %.not.i.i671, i32 1, i32 -1
-  %303 = add i32 %.v.i.i672, %287
-  %304 = and i32 %285, 1
-  %.not.i.i673 = icmp eq i32 %304, 0
+  %304 = add i32 %.v.i.i672, %288
+  %305 = and i32 %286, 1
+  %.not.i.i673 = icmp eq i32 %305, 0
   %.v.i.i674 = select i1 %.not.i.i673, i32 1, i32 -1
-  %305 = add i32 %.v.i.i674, %285
+  %306 = add i32 %.v.i.i674, %286
   switch i32 %spec.select615, label %default.unreachable [
-    i32 1, label %306
-    i32 2, label %327
-    i32 3, label %348
+    i32 1, label %307
+    i32 2, label %328
+    i32 3, label %349
   ]
 
-306:                                              ; preds = %301
-  %307 = load ptr, ptr %67, align 8
-  %308 = zext i32 %287 to i64
-  %309 = getelementptr inbounds nuw i8, ptr %307, i64 40
-  %310 = load ptr, ptr %309, align 8
-  %311 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %310, i64 %308, i32 3
-  %.sroa.0.0.copyload.i.i675 = load i32, ptr %311, align 4
+307:                                              ; preds = %302
+  %308 = load ptr, ptr %67, align 8
+  %309 = zext i32 %288 to i64
+  %310 = getelementptr inbounds nuw i8, ptr %308, i64 40
+  %311 = load ptr, ptr %310, align 8
+  %312 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %311, i64 %309, i32 3
+  %.sroa.0.0.copyload.i.i675 = load i32, ptr %312, align 4
   store i32 %.sroa.0.0.copyload.i.i675, ptr %16, align 8
-  store i32 %305, ptr %279, align 4
-  %312 = load ptr, ptr %12, align 8
-  %313 = load i64, ptr %135, align 8
-  %314 = getelementptr inbounds %"struct.std::pair.391", ptr %312, i64 %313
-  %315 = load i64, ptr %136, align 8
-  %.not604 = icmp eq i64 %313, %315
-  br i1 %.not604, label %320, label %316
+  store i32 %306, ptr %280, align 4
+  %313 = load ptr, ptr %12, align 8
+  %314 = load i64, ptr %136, align 8
+  %315 = getelementptr inbounds %"struct.std::pair.391", ptr %313, i64 %314
+  %316 = load i64, ptr %137, align 8
+  %.not604 = icmp eq i64 %314, %316
+  br i1 %.not604, label %321, label %317
 
-316:                                              ; preds = %306
-  %317 = load i64, ptr %16, align 8
-  store i64 %317, ptr %314, align 4
-  %318 = load i64, ptr %135, align 8
-  %319 = add i64 %318, 1
-  store i64 %319, ptr %135, align 8
-  br label %321
+317:                                              ; preds = %307
+  %318 = load i64, ptr %16, align 8
+  store i64 %318, ptr %315, align 4
+  %319 = load i64, ptr %136, align 8
+  %320 = add i64 %319, 1
+  store i64 %320, ptr %136, align 8
+  br label %322
 
-320:                                              ; preds = %306
-  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %314, i64 noundef 1, ptr nonnull %16)
-          to label %321 unwind label %.loopexit891
+321:                                              ; preds = %307
+  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %315, i64 noundef 1, ptr nonnull %16)
+          to label %322 unwind label %.loopexit891
 
-321:                                              ; preds = %320, %316
-  %322 = load ptr, ptr %64, align 8
-  %323 = zext i32 %.sroa.042.0.copyload to i64
-  %324 = getelementptr inbounds nuw i8, ptr %322, i64 40
-  %325 = load ptr, ptr %324, align 8
-  %326 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %325, i64 %323
-  store i32 %.sroa.0.0.copyload.i.i675, ptr %326, align 4
-  br label %401
+322:                                              ; preds = %321, %317
+  %323 = load ptr, ptr %64, align 8
+  %324 = zext i32 %.sroa.042.0.copyload to i64
+  %325 = getelementptr inbounds nuw i8, ptr %323, i64 40
+  %326 = load ptr, ptr %325, align 8
+  %327 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %326, i64 %324
+  store i32 %.sroa.0.0.copyload.i.i675, ptr %327, align 4
+  br label %402
 
-327:                                              ; preds = %301
-  %328 = load ptr, ptr %67, align 8
-  %329 = zext i32 %285 to i64
-  %330 = getelementptr inbounds nuw i8, ptr %328, i64 40
-  %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %331, i64 %329, i32 2
-  %.sroa.0.0.copyload.i.i676 = load i32, ptr %332, align 4
-  store i32 %303, ptr %17, align 8
-  store i32 %.sroa.0.0.copyload.i.i676, ptr %278, align 4
-  %333 = load ptr, ptr %12, align 8
-  %334 = load i64, ptr %135, align 8
-  %335 = getelementptr inbounds %"struct.std::pair.391", ptr %333, i64 %334
-  %336 = load i64, ptr %136, align 8
-  %.not603 = icmp eq i64 %334, %336
-  br i1 %.not603, label %341, label %337
+328:                                              ; preds = %302
+  %329 = load ptr, ptr %67, align 8
+  %330 = zext i32 %286 to i64
+  %331 = getelementptr inbounds nuw i8, ptr %329, i64 40
+  %332 = load ptr, ptr %331, align 8
+  %333 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %332, i64 %330, i32 2
+  %.sroa.0.0.copyload.i.i676 = load i32, ptr %333, align 4
+  store i32 %304, ptr %17, align 8
+  store i32 %.sroa.0.0.copyload.i.i676, ptr %279, align 4
+  %334 = load ptr, ptr %12, align 8
+  %335 = load i64, ptr %136, align 8
+  %336 = getelementptr inbounds %"struct.std::pair.391", ptr %334, i64 %335
+  %337 = load i64, ptr %137, align 8
+  %.not603 = icmp eq i64 %335, %337
+  br i1 %.not603, label %342, label %338
 
-337:                                              ; preds = %327
-  %338 = load i64, ptr %17, align 8
-  store i64 %338, ptr %335, align 4
-  %339 = load i64, ptr %135, align 8
-  %340 = add i64 %339, 1
-  store i64 %340, ptr %135, align 8
-  br label %342
+338:                                              ; preds = %328
+  %339 = load i64, ptr %17, align 8
+  store i64 %339, ptr %336, align 4
+  %340 = load i64, ptr %136, align 8
+  %341 = add i64 %340, 1
+  store i64 %341, ptr %136, align 8
+  br label %343
 
-341:                                              ; preds = %327
-  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %335, i64 noundef 1, ptr nonnull %17)
-          to label %342 unwind label %.loopexit891
+342:                                              ; preds = %328
+  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %336, i64 noundef 1, ptr nonnull %17)
+          to label %343 unwind label %.loopexit891
 
-342:                                              ; preds = %341, %337
-  %343 = load ptr, ptr %64, align 8
-  %344 = zext i32 %.sroa.042.0.copyload to i64
-  %345 = getelementptr inbounds nuw i8, ptr %343, i64 40
-  %346 = load ptr, ptr %345, align 8
-  %347 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %346, i64 %344
-  store i32 %303, ptr %347, align 4
-  br label %401
+343:                                              ; preds = %342, %338
+  %344 = load ptr, ptr %64, align 8
+  %345 = zext i32 %.sroa.042.0.copyload to i64
+  %346 = getelementptr inbounds nuw i8, ptr %344, i64 40
+  %347 = load ptr, ptr %346, align 8
+  %348 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %347, i64 %345
+  store i32 %304, ptr %348, align 4
+  br label %402
 
-348:                                              ; preds = %301
-  %349 = load ptr, ptr %64, align 8
-  %350 = zext i32 %.sroa.042.0.copyload to i64
-  %351 = getelementptr inbounds nuw i8, ptr %349, i64 40
-  %352 = load ptr, ptr %351, align 8
-  %353 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %352, i64 %350
-  %.sroa.0.0.copyload.i.i677 = load i32, ptr %353, align 4
-  %.not882 = icmp eq i32 %.sroa.0.0.copyload.i.i677, -1
-  br i1 %.not882, label %.critedge6.thread, label %354
+349:                                              ; preds = %302
+  %350 = load ptr, ptr %64, align 8
+  %351 = zext i32 %.sroa.042.0.copyload to i64
+  %352 = getelementptr inbounds nuw i8, ptr %350, i64 40
+  %353 = load ptr, ptr %352, align 8
+  %354 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %353, i64 %351
+  %.sroa.0.0.copyload.i.i677 = load i32, ptr %354, align 4
+  %.not883 = icmp eq i32 %.sroa.0.0.copyload.i.i677, -1
+  br i1 %.not883, label %.critedge6.thread, label %355
 
-354:                                              ; preds = %348
-  %355 = load ptr, ptr %67, align 8
-  %356 = zext i32 %.sroa.0.0.copyload.i.i677 to i64
-  %357 = getelementptr inbounds nuw i8, ptr %355, i64 40
-  %358 = load ptr, ptr %357, align 8
-  %359 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %358, i64 %356
-  %.sroa.0.0.copyload.i.i.i678 = load i32, ptr %359, align 4
-  %360 = icmp eq i32 %.sroa.0.0.copyload.i.i.i678, -1
-  br i1 %360, label %.critedge6.thread843, label %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread
+355:                                              ; preds = %349
+  %356 = load ptr, ptr %67, align 8
+  %357 = zext i32 %.sroa.0.0.copyload.i.i677 to i64
+  %358 = getelementptr inbounds nuw i8, ptr %356, i64 40
+  %359 = load ptr, ptr %358, align 8
+  %360 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %359, i64 %357
+  %.sroa.0.0.copyload.i.i.i678 = load i32, ptr %360, align 4
+  %361 = icmp eq i32 %.sroa.0.0.copyload.i.i.i678, -1
+  br i1 %361, label %.critedge6.thread843, label %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread
 
-_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread: ; preds = %354, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit
-  %.sroa.2709.0912 = phi i32 [ %365, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit ], [ %.sroa.0.0.copyload.i.i677, %354 ]
-  %.sroa.8.0911 = phi i32 [ %spec.select876, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit ], [ 0, %354 ]
-  %361 = zext i32 %.sroa.2709.0912 to i64
-  %362 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %358, i64 %361
-  %.sroa.0.0.copyload.i.i.i679 = load i32, ptr %362, align 4
-  %.not968 = icmp eq i32 %.sroa.0.0.copyload.i.i.i679, -1
-  br i1 %.not968, label %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit._crit_edge, label %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit
+_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread: ; preds = %355, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit
+  %.sroa.2709.0913 = phi i32 [ %366, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit ], [ %.sroa.0.0.copyload.i.i677, %355 ]
+  %.sroa.8.0912 = phi i32 [ %spec.select877, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit ], [ 0, %355 ]
+  %362 = zext i32 %.sroa.2709.0913 to i64
+  %363 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %359, i64 %362
+  %.sroa.0.0.copyload.i.i.i679 = load i32, ptr %363, align 4
+  %.not969 = icmp eq i32 %.sroa.0.0.copyload.i.i.i679, -1
+  br i1 %.not969, label %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit._crit_edge, label %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit
 
 _ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit: ; preds = %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread
-  %363 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %358, i64 %361, i32 2
-  %.sroa.0.0.copyload.i.i.i680 = load i32, ptr %363, align 4
-  %364 = and i32 %.sroa.0.0.copyload.i.i.i680, 1
-  %.not.i.i.i681 = icmp eq i32 %364, 0
+  %364 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %359, i64 %362, i32 2
+  %.sroa.0.0.copyload.i.i.i680 = load i32, ptr %364, align 4
+  %365 = and i32 %.sroa.0.0.copyload.i.i.i680, 1
+  %.not.i.i.i681 = icmp eq i32 %365, 0
   %.v.i.i.i682 = select i1 %.not.i.i.i681, i32 1, i32 -1
-  %365 = add i32 %.v.i.i.i682, %.sroa.0.0.copyload.i.i.i680
-  %366 = icmp eq i32 %365, %.sroa.0.0.copyload.i.i677
-  %367 = zext i1 %366 to i32
-  %spec.select876 = add nuw nsw i32 %.sroa.8.0911, %367
-  %368 = icmp ne i32 %365, %.sroa.0.0.copyload.i.i677
-  %369 = icmp ne i32 %spec.select876, 1
-  %or.cond875 = select i1 %368, i1 true, i1 %369
-  br i1 %or.cond875, label %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread, label %.critedge6.thread
+  %366 = add i32 %.v.i.i.i682, %.sroa.0.0.copyload.i.i.i680
+  %367 = icmp eq i32 %366, %.sroa.0.0.copyload.i.i677
+  %368 = zext i1 %367 to i32
+  %spec.select877 = add nuw nsw i32 %.sroa.8.0912, %368
+  %369 = icmp ne i32 %366, %.sroa.0.0.copyload.i.i677
+  %370 = icmp ne i32 %spec.select877, 1
+  %or.cond876 = select i1 %369, i1 true, i1 %370
+  br i1 %or.cond876, label %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread, label %.critedge6.thread
 
 _ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit._crit_edge: ; preds = %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEneERKS6_.exit.thread
-  %370 = icmp eq i32 %.sroa.2709.0912, -1
-  br i1 %370, label %.critedge6.thread, label %.critedge6.thread843
+  %371 = icmp eq i32 %.sroa.2709.0913, -1
+  br i1 %371, label %.critedge6.thread, label %.critedge6.thread843
 
-.critedge6.thread:                                ; preds = %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit._crit_edge, %348
-  store i32 %303, ptr %353, align 4
-  store i32 %303, ptr %18, align 8
-  store i32 %305, ptr %277, align 4
-  %371 = load ptr, ptr %12, align 8
-  %372 = load i64, ptr %135, align 8
-  %373 = getelementptr inbounds %"struct.std::pair.391", ptr %371, i64 %372
-  %374 = load i64, ptr %136, align 8
-  %.not602 = icmp eq i64 %372, %374
-  br i1 %.not602, label %.invoke, label %375
+.critedge6.thread:                                ; preds = %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit._crit_edge, %349
+  store i32 %304, ptr %354, align 4
+  store i32 %304, ptr %18, align 8
+  store i32 %306, ptr %278, align 4
+  %372 = load ptr, ptr %12, align 8
+  %373 = load i64, ptr %136, align 8
+  %374 = getelementptr inbounds %"struct.std::pair.391", ptr %372, i64 %373
+  %375 = load i64, ptr %137, align 8
+  %.not602 = icmp eq i64 %373, %375
+  br i1 %.not602, label %.invoke, label %376
 
-375:                                              ; preds = %.critedge6.thread
-  %376 = load i64, ptr %18, align 8
-  store i64 %376, ptr %373, align 4
-  %377 = load i64, ptr %135, align 8
-  %378 = add i64 %377, 1
-  store i64 %378, ptr %135, align 8
-  br label %401
+376:                                              ; preds = %.critedge6.thread
+  %377 = load i64, ptr %18, align 8
+  store i64 %377, ptr %374, align 4
+  %378 = load i64, ptr %136, align 8
+  %379 = add i64 %378, 1
+  store i64 %379, ptr %136, align 8
+  br label %402
 
-.invoke:                                          ; preds = %392, %.critedge6.thread
-  %379 = phi ptr [ %8, %.critedge6.thread ], [ %10, %392 ]
-  %380 = phi ptr [ %373, %.critedge6.thread ], [ %395, %392 ]
-  %381 = phi ptr [ %18, %.critedge6.thread ], [ %20, %392 ]
-  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %379, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %380, i64 noundef 1, ptr nonnull %381)
-          to label %401 unwind label %.loopexit891
+.invoke:                                          ; preds = %393, %.critedge6.thread
+  %380 = phi ptr [ %8, %.critedge6.thread ], [ %10, %393 ]
+  %381 = phi ptr [ %374, %.critedge6.thread ], [ %396, %393 ]
+  %382 = phi ptr [ %18, %.critedge6.thread ], [ %20, %393 ]
+  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %380, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %381, i64 noundef 1, ptr nonnull %382)
+          to label %402 unwind label %.loopexit891
 
-.critedge6.thread843:                             ; preds = %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit._crit_edge, %354
-  %.pre-phi949 = phi i64 [ %361, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit._crit_edge ], [ %356, %354 ]
-  %.sroa.0719.0845 = phi i32 [ %.sroa.2709.0912, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit._crit_edge ], [ %.sroa.0.0.copyload.i.i677, %354 ]
-  %382 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %358, i64 %.pre-phi949, i32 2
-  %.sroa.0.0.copyload.i.i684 = load i32, ptr %382, align 4
+.critedge6.thread843:                             ; preds = %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit._crit_edge, %355
+  %.pre-phi950 = phi i64 [ %362, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit._crit_edge ], [ %357, %355 ]
+  %.sroa.0719.0845 = phi i32 [ %.sroa.2709.0913, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit._crit_edge ], [ %.sroa.0.0.copyload.i.i677, %355 ]
+  %383 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %359, i64 %.pre-phi950, i32 2
+  %.sroa.0.0.copyload.i.i684 = load i32, ptr %383, align 4
   store i32 %.sroa.0719.0845, ptr %19, align 8
-  store i32 %305, ptr %275, align 4
-  %383 = load ptr, ptr %12, align 8
-  %384 = load i64, ptr %135, align 8
-  %385 = getelementptr inbounds %"struct.std::pair.391", ptr %383, i64 %384
-  %386 = load i64, ptr %136, align 8
-  %.not600 = icmp eq i64 %384, %386
-  br i1 %.not600, label %391, label %387
+  store i32 %306, ptr %276, align 4
+  %384 = load ptr, ptr %12, align 8
+  %385 = load i64, ptr %136, align 8
+  %386 = getelementptr inbounds %"struct.std::pair.391", ptr %384, i64 %385
+  %387 = load i64, ptr %137, align 8
+  %.not600 = icmp eq i64 %385, %387
+  br i1 %.not600, label %392, label %388
 
-387:                                              ; preds = %.critedge6.thread843
-  %388 = load i64, ptr %19, align 8
-  store i64 %388, ptr %385, align 4
-  %389 = load i64, ptr %135, align 8
-  %390 = add i64 %389, 1
-  store i64 %390, ptr %135, align 8
-  br label %392
+388:                                              ; preds = %.critedge6.thread843
+  %389 = load i64, ptr %19, align 8
+  store i64 %389, ptr %386, align 4
+  %390 = load i64, ptr %136, align 8
+  %391 = add i64 %390, 1
+  store i64 %391, ptr %136, align 8
+  br label %393
 
-391:                                              ; preds = %.critedge6.thread843
-  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %385, i64 noundef 1, ptr nonnull %19)
-          to label %._crit_edge950 unwind label %.loopexit891
+392:                                              ; preds = %.critedge6.thread843
+  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %386, i64 noundef 1, ptr nonnull %19)
+          to label %._crit_edge951 unwind label %.loopexit891
 
-._crit_edge950:                                   ; preds = %391
-  %.pre951 = load i64, ptr %135, align 8
-  br label %392
+._crit_edge951:                                   ; preds = %392
+  %.pre952 = load i64, ptr %136, align 8
+  br label %393
 
-392:                                              ; preds = %._crit_edge950, %387
-  %393 = phi i64 [ %.pre951, %._crit_edge950 ], [ %390, %387 ]
-  store i32 %303, ptr %20, align 8
-  store i32 %.sroa.0.0.copyload.i.i684, ptr %276, align 4
-  %394 = load ptr, ptr %12, align 8
-  %395 = getelementptr inbounds %"struct.std::pair.391", ptr %394, i64 %393
-  %396 = load i64, ptr %136, align 8
-  %.not601 = icmp eq i64 %393, %396
-  br i1 %.not601, label %.invoke, label %397
+393:                                              ; preds = %._crit_edge951, %388
+  %394 = phi i64 [ %.pre952, %._crit_edge951 ], [ %391, %388 ]
+  store i32 %304, ptr %20, align 8
+  store i32 %.sroa.0.0.copyload.i.i684, ptr %277, align 4
+  %395 = load ptr, ptr %12, align 8
+  %396 = getelementptr inbounds %"struct.std::pair.391", ptr %395, i64 %394
+  %397 = load i64, ptr %137, align 8
+  %.not601 = icmp eq i64 %394, %397
+  br i1 %.not601, label %.invoke, label %398
 
-397:                                              ; preds = %392
-  %398 = load i64, ptr %20, align 8
-  store i64 %398, ptr %395, align 4
-  %399 = load i64, ptr %135, align 8
-  %400 = add i64 %399, 1
-  store i64 %400, ptr %135, align 8
-  br label %401
+398:                                              ; preds = %393
+  %399 = load i64, ptr %20, align 8
+  store i64 %399, ptr %396, align 4
+  %400 = load i64, ptr %136, align 8
+  %401 = add i64 %400, 1
+  store i64 %401, ptr %136, align 8
+  br label %402
 
-default.unreachable:                              ; preds = %301
+default.unreachable:                              ; preds = %302
   unreachable
 
-401:                                              ; preds = %.invoke, %342, %321, %375, %397
-  store i32 %285, ptr %21, align 8
-  store i32 %287, ptr %280, align 4
-  %402 = load ptr, ptr %12, align 8
-  %403 = load i64, ptr %135, align 8
-  %404 = getelementptr inbounds %"struct.std::pair.391", ptr %402, i64 %403
-  %405 = load i64, ptr %136, align 8
-  %.not605 = icmp eq i64 %403, %405
-  br i1 %.not605, label %410, label %406
+402:                                              ; preds = %.invoke, %343, %322, %376, %398
+  store i32 %286, ptr %21, align 8
+  store i32 %288, ptr %281, align 4
+  %403 = load ptr, ptr %12, align 8
+  %404 = load i64, ptr %136, align 8
+  %405 = getelementptr inbounds %"struct.std::pair.391", ptr %403, i64 %404
+  %406 = load i64, ptr %137, align 8
+  %.not605 = icmp eq i64 %404, %406
+  br i1 %.not605, label %411, label %407
 
-406:                                              ; preds = %401
-  %407 = load i64, ptr %21, align 8
-  store i64 %407, ptr %404, align 4
-  %408 = load i64, ptr %135, align 8
-  %409 = add i64 %408, 1
-  store i64 %409, ptr %135, align 8
-  br label %411
+407:                                              ; preds = %402
+  %408 = load i64, ptr %21, align 8
+  store i64 %408, ptr %405, align 4
+  %409 = load i64, ptr %136, align 8
+  %410 = add i64 %409, 1
+  store i64 %410, ptr %136, align 8
+  br label %412
 
-410:                                              ; preds = %401
-  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %404, i64 noundef 1, ptr nonnull %21)
-          to label %411 unwind label %.loopexit891
+411:                                              ; preds = %402
+  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ENS0_22small_vector_allocatorIS5_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyIS9_JS5_EEEEENS0_12vec_iteratorIPS5_Lb0EEESG_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.396") align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %405, i64 noundef 1, ptr nonnull %21)
+          to label %412 unwind label %.loopexit891
 
-411:                                              ; preds = %281, %406, %410
-  %.sroa.012.0.copyload = load i32, ptr %284, align 4
-  %412 = load ptr, ptr %67, align 8
-  %413 = zext i32 %.sroa.012.0.copyload to i64
-  %414 = getelementptr inbounds nuw i8, ptr %412, i64 40
-  %415 = load ptr, ptr %414, align 8
-  %416 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %415, i64 %413
-  store i32 %265, ptr %416, align 4
-  %indvars.iv.next937 = add nuw nsw i64 %indvars.iv936, 1
-  %417 = add i32 %.0576913, 1
-  %418 = urem i32 %417, %35
-  %exitcond940.not = icmp eq i64 %indvars.iv.next937, %wide.trip.count
-  br i1 %exitcond940.not, label %419, label %281, !llvm.loop !3591
+412:                                              ; preds = %282, %407, %411
+  %.sroa.012.0.copyload = load i32, ptr %285, align 4
+  %413 = load ptr, ptr %67, align 8
+  %414 = zext i32 %.sroa.012.0.copyload to i64
+  %415 = getelementptr inbounds nuw i8, ptr %413, i64 40
+  %416 = load ptr, ptr %415, align 8
+  %417 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %416, i64 %414
+  store i32 %266, ptr %417, align 4
+  %indvars.iv.next938 = add nuw nsw i64 %indvars.iv937, 1
+  %418 = add i32 %.0576914, 1
+  %419 = urem i32 %418, %35
+  %exitcond941.not = icmp eq i64 %indvars.iv.next938, %wide.trip.count
+  br i1 %exitcond941.not, label %420, label %282, !llvm.loop !3591
 
-419:                                              ; preds = %411
-  %420 = load ptr, ptr %12, align 8
-  %421 = load i64, ptr %135, align 8
-  %422 = getelementptr inbounds %"struct.std::pair.391", ptr %420, i64 %421
-  %.not915 = icmp eq i64 %421, 0
-  br i1 %.not915, label %.preheader.preheader, label %.lr.ph
+420:                                              ; preds = %412
+  %421 = load ptr, ptr %12, align 8
+  %422 = load i64, ptr %136, align 8
+  %423 = getelementptr inbounds %"struct.std::pair.391", ptr %421, i64 %422
+  %.not916 = icmp eq i64 %422, 0
+  br i1 %.not916, label %.preheader.preheader, label %.lr.ph
 
-.lr.ph:                                           ; preds = %419, %_ZN4CGAL8set_nextINS_7Point_3INS_5EpickEEEEEvN5boost12graph_traitsINS_12Surface_meshIT_EEE19halfedge_descriptorESA_RS8_.exit
-  %.sroa.0592.0916 = phi ptr [ %435, %_ZN4CGAL8set_nextINS_7Point_3INS_5EpickEEEEEvN5boost12graph_traitsINS_12Surface_meshIT_EEE19halfedge_descriptorESA_RS8_.exit ], [ %420, %419 ]
-  %.sroa.010.0.copyload = load i32, ptr %.sroa.0592.0916, align 4
-  %423 = getelementptr inbounds nuw i8, ptr %.sroa.0592.0916, i64 4
-  %.sroa.09.0.copyload = load i32, ptr %423, align 4
-  %424 = load ptr, ptr %67, align 8
-  %425 = zext i32 %.sroa.010.0.copyload to i64
-  %426 = getelementptr inbounds nuw i8, ptr %424, i64 40
-  %427 = load ptr, ptr %426, align 8
-  %428 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %427, i64 %425, i32 2
-  store i32 %.sroa.09.0.copyload, ptr %428, align 4
+.lr.ph:                                           ; preds = %420, %_ZN4CGAL8set_nextINS_7Point_3INS_5EpickEEEEEvN5boost12graph_traitsINS_12Surface_meshIT_EEE19halfedge_descriptorESA_RS8_.exit
+  %.sroa.0592.0917 = phi ptr [ %436, %_ZN4CGAL8set_nextINS_7Point_3INS_5EpickEEEEEvN5boost12graph_traitsINS_12Surface_meshIT_EEE19halfedge_descriptorESA_RS8_.exit ], [ %421, %420 ]
+  %.sroa.010.0.copyload = load i32, ptr %.sroa.0592.0917, align 4
+  %424 = getelementptr inbounds nuw i8, ptr %.sroa.0592.0917, i64 4
+  %.sroa.09.0.copyload = load i32, ptr %424, align 4
+  %425 = load ptr, ptr %67, align 8
+  %426 = zext i32 %.sroa.010.0.copyload to i64
+  %427 = getelementptr inbounds nuw i8, ptr %425, i64 40
+  %428 = load ptr, ptr %427, align 8
+  %429 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %428, i64 %426, i32 2
+  store i32 %.sroa.09.0.copyload, ptr %429, align 4
   %.not.i.i.i685 = icmp eq i32 %.sroa.09.0.copyload, -1
-  br i1 %.not.i.i.i685, label %_ZN4CGAL8set_nextINS_7Point_3INS_5EpickEEEEEvN5boost12graph_traitsINS_12Surface_meshIT_EEE19halfedge_descriptorESA_RS8_.exit, label %429
+  br i1 %.not.i.i.i685, label %_ZN4CGAL8set_nextINS_7Point_3INS_5EpickEEEEEvN5boost12graph_traitsINS_12Surface_meshIT_EEE19halfedge_descriptorESA_RS8_.exit, label %430
 
-429:                                              ; preds = %.lr.ph
-  %430 = load ptr, ptr %67, align 8
-  %431 = zext i32 %.sroa.09.0.copyload to i64
-  %432 = getelementptr inbounds nuw i8, ptr %430, i64 40
-  %433 = load ptr, ptr %432, align 8
-  %434 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %433, i64 %431, i32 3
-  store i32 %.sroa.010.0.copyload, ptr %434, align 4
+430:                                              ; preds = %.lr.ph
+  %431 = load ptr, ptr %67, align 8
+  %432 = zext i32 %.sroa.09.0.copyload to i64
+  %433 = getelementptr inbounds nuw i8, ptr %431, i64 40
+  %434 = load ptr, ptr %433, align 8
+  %435 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %434, i64 %432, i32 3
+  store i32 %.sroa.010.0.copyload, ptr %435, align 4
   br label %_ZN4CGAL8set_nextINS_7Point_3INS_5EpickEEEEEvN5boost12graph_traitsINS_12Surface_meshIT_EEE19halfedge_descriptorESA_RS8_.exit
 
-_ZN4CGAL8set_nextINS_7Point_3INS_5EpickEEEEEvN5boost12graph_traitsINS_12Surface_meshIT_EEE19halfedge_descriptorESA_RS8_.exit: ; preds = %429, %.lr.ph
-  %435 = getelementptr inbounds nuw i8, ptr %.sroa.0592.0916, i64 8
-  %.not = icmp eq ptr %435, %422
+_ZN4CGAL8set_nextINS_7Point_3INS_5EpickEEEEEvN5boost12graph_traitsINS_12Surface_meshIT_EEE19halfedge_descriptorESA_RS8_.exit: ; preds = %430, %.lr.ph
+  %436 = getelementptr inbounds nuw i8, ptr %.sroa.0592.0917, i64 8
+  %.not = icmp eq ptr %436, %423
   br i1 %.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !3592
 
-.preheader.preheader:                             ; preds = %_ZN4CGAL8set_nextINS_7Point_3INS_5EpickEEEEEvN5boost12graph_traitsINS_12Surface_meshIT_EEE19halfedge_descriptorESA_RS8_.exit, %419
+.preheader.preheader:                             ; preds = %_ZN4CGAL8set_nextINS_7Point_3INS_5EpickEEEEEvN5boost12graph_traitsINS_12Surface_meshIT_EEE19halfedge_descriptorESA_RS8_.exit, %420
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit
-  %indvars.iv941 = phi i64 [ %indvars.iv.next942, %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit ], [ 0, %.preheader.preheader ]
-  %436 = getelementptr inbounds nuw %"class.CGAL::SM_Vertex_index", ptr %.sroa.0812.0, i64 %indvars.iv941
-  %.sroa.0.0.copyload = load i32, ptr %436, align 4
-  %437 = load ptr, ptr %64, align 8
-  %438 = zext i32 %.sroa.0.0.copyload to i64
-  %439 = getelementptr inbounds nuw i8, ptr %437, i64 40
-  %440 = load ptr, ptr %439, align 8
-  %441 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %440, i64 %438
-  %.sroa.0.0.copyload.i.i.i686 = load i32, ptr %441, align 4
+  %indvars.iv942 = phi i64 [ %indvars.iv.next943, %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit ], [ 0, %.preheader.preheader ]
+  %437 = getelementptr inbounds nuw %"class.CGAL::SM_Vertex_index", ptr %.sroa.0812.0, i64 %indvars.iv942
+  %.sroa.0.0.copyload = load i32, ptr %437, align 4
+  %438 = load ptr, ptr %64, align 8
+  %439 = zext i32 %.sroa.0.0.copyload to i64
+  %440 = getelementptr inbounds nuw i8, ptr %438, i64 40
+  %441 = load ptr, ptr %440, align 8
+  %442 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %441, i64 %439
+  %.sroa.0.0.copyload.i.i.i686 = load i32, ptr %442, align 4
   %.not.i687 = icmp eq i32 %.sroa.0.0.copyload.i.i.i686, -1
-  br i1 %.not.i687, label %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit, label %442
+  br i1 %.not.i687, label %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit, label %443
 
-442:                                              ; preds = %.preheader
-  %443 = load ptr, ptr %67, align 8
-  %444 = zext i32 %.sroa.0.0.copyload.i.i.i686 to i64
-  %445 = getelementptr inbounds nuw i8, ptr %443, i64 40
-  %446 = load ptr, ptr %445, align 8
-  %447 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %446, i64 %444, i32 1
-  %.sroa.0.0.copyload.i.i19.i = load i32, ptr %447, align 4
+443:                                              ; preds = %.preheader
+  %444 = load ptr, ptr %67, align 8
+  %445 = zext i32 %.sroa.0.0.copyload.i.i.i686 to i64
+  %446 = getelementptr inbounds nuw i8, ptr %444, i64 40
+  %447 = load ptr, ptr %446, align 8
+  %448 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %447, i64 %445, i32 1
+  %.sroa.0.0.copyload.i.i19.i = load i32, ptr %448, align 4
   %.not38.i = icmp eq i32 %.sroa.0.0.copyload.i.i19.i, %.sroa.0.0.copyload
-  br i1 %.not38.i, label %451, label %448
+  br i1 %.not38.i, label %452, label %449
 
-448:                                              ; preds = %442
-  %449 = and i32 %.sroa.0.0.copyload.i.i.i686, 1
-  %.not.i.i.i688 = icmp eq i32 %449, 0
+449:                                              ; preds = %443
+  %450 = and i32 %.sroa.0.0.copyload.i.i.i686, 1
+  %.not.i.i.i688 = icmp eq i32 %450, 0
   %.v.i.i.i689 = select i1 %.not.i.i.i688, i32 1, i32 -1
-  %450 = add i32 %.v.i.i.i689, %.sroa.0.0.copyload.i.i.i686
-  store i32 %450, ptr %441, align 4
+  %451 = add i32 %.v.i.i.i689, %.sroa.0.0.copyload.i.i.i686
+  store i32 %451, ptr %442, align 4
   %.pre.i = load ptr, ptr %67, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 40
   %.pre42.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br label %451
+  br label %452
 
-451:                                              ; preds = %448, %442
-  %452 = phi ptr [ %.pre42.i, %448 ], [ %446, %442 ]
-  %.sroa.027.0.i = phi i32 [ %450, %448 ], [ %.sroa.0.0.copyload.i.i.i686, %442 ]
-  br label %453
+452:                                              ; preds = %449, %443
+  %453 = phi ptr [ %.pre42.i, %449 ], [ %447, %443 ]
+  %.sroa.027.0.i = phi i32 [ %451, %449 ], [ %.sroa.0.0.copyload.i.i.i686, %443 ]
+  br label %454
 
-453:                                              ; preds = %462, %451
-  %.sroa.028.1.i = phi i32 [ %.sroa.027.0.i, %451 ], [ %465, %462 ]
-  %454 = zext i32 %.sroa.028.1.i to i64
-  %455 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %452, i64 %454
-  %.sroa.0.0.copyload.i.i20.i = load i32, ptr %455, align 4
-  %456 = icmp eq i32 %.sroa.0.0.copyload.i.i20.i, -1
-  br i1 %456, label %457, label %462
+454:                                              ; preds = %463, %452
+  %.sroa.028.1.i = phi i32 [ %.sroa.027.0.i, %452 ], [ %466, %463 ]
+  %455 = zext i32 %.sroa.028.1.i to i64
+  %456 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %453, i64 %455
+  %.sroa.0.0.copyload.i.i20.i = load i32, ptr %456, align 4
+  %457 = icmp eq i32 %.sroa.0.0.copyload.i.i20.i, -1
+  br i1 %457, label %458, label %463
 
-457:                                              ; preds = %453
-  %458 = load ptr, ptr %64, align 8
-  %459 = getelementptr inbounds nuw i8, ptr %458, i64 40
-  %460 = load ptr, ptr %459, align 8
-  %461 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %460, i64 %438
-  store i32 %.sroa.028.1.i, ptr %461, align 4
+458:                                              ; preds = %454
+  %459 = load ptr, ptr %64, align 8
+  %460 = getelementptr inbounds nuw i8, ptr %459, i64 40
+  %461 = load ptr, ptr %460, align 8
+  %462 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Vertex_connectivity", ptr %461, i64 %439
+  store i32 %.sroa.028.1.i, ptr %462, align 4
   br label %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit
 
-462:                                              ; preds = %453
-  %463 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %452, i64 %454, i32 2
-  %.sroa.0.0.copyload.i.i21.i = load i32, ptr %463, align 4
-  %464 = and i32 %.sroa.0.0.copyload.i.i21.i, 1
-  %.not.i.i22.i = icmp eq i32 %464, 0
+463:                                              ; preds = %454
+  %464 = getelementptr inbounds nuw %"struct.CGAL::Surface_mesh<CGAL::Point_3<CGAL::Epick>>::Halfedge_connectivity", ptr %453, i64 %455, i32 2
+  %.sroa.0.0.copyload.i.i21.i = load i32, ptr %464, align 4
+  %465 = and i32 %.sroa.0.0.copyload.i.i21.i, 1
+  %.not.i.i22.i = icmp eq i32 %465, 0
   %.v.i.i23.i = select i1 %.not.i.i22.i, i32 1, i32 -1
-  %465 = add i32 %.v.i.i23.i, %.sroa.0.0.copyload.i.i21.i
-  %.not39.i = icmp eq i32 %465, %.sroa.027.0.i
-  br i1 %.not39.i, label %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit, label %453, !llvm.loop !193
+  %466 = add i32 %.v.i.i23.i, %.sroa.0.0.copyload.i.i21.i
+  %.not39.i = icmp eq i32 %466, %.sroa.027.0.i
+  br i1 %.not39.i, label %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit, label %454, !llvm.loop !193
 
-_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit: ; preds = %462, %457, %.preheader
-  %indvars.iv.next942 = add nuw nsw i64 %indvars.iv941, 1
-  %exitcond945.not = icmp eq i64 %indvars.iv.next942, %wide.trip.count
-  br i1 %exitcond945.not, label %.loopexit, label %.preheader, !llvm.loop !3593
+_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit: ; preds = %463, %458, %.preheader
+  %indvars.iv.next943 = add nuw nsw i64 %indvars.iv942, 1
+  %exitcond946.not = icmp eq i64 %indvars.iv.next943, %wide.trip.count
+  br i1 %exitcond946.not, label %.loopexit, label %.preheader, !llvm.loop !3593
 
-.loopexit:                                        ; preds = %190, %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit
-  %.sroa.0182.2 = phi i32 [ %265, %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit ], [ -1, %190 ]
-  %466 = load i64, ptr %136, align 8
-  %.not.i.i.i690 = icmp eq i64 %466, 0
-  br i1 %.not.i.i.i690, label %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit691, label %467
+.loopexit:                                        ; preds = %191, %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit
+  %.sroa.0182.2 = phi i32 [ %266, %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERS9_.exit ], [ -1, %191 ]
+  %467 = load i64, ptr %137, align 8
+  %.not.i.i.i690 = icmp eq i64 %467, 0
+  br i1 %.not.i.i.i690, label %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit691, label %468
 
-467:                                              ; preds = %.loopexit
-  %468 = load ptr, ptr %12, align 8
-  %469 = icmp eq ptr %134, %468
-  br i1 %469, label %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit691, label %470
+468:                                              ; preds = %.loopexit
+  %469 = load ptr, ptr %12, align 8
+  %470 = icmp eq ptr %135, %469
+  br i1 %470, label %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit691, label %471
 
-470:                                              ; preds = %467
-  call void @_ZdlPv(ptr noundef %468) #23
+471:                                              ; preds = %468
+  call void @_ZdlPv(ptr noundef %469) #23
   br label %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit691
 
-_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit691: ; preds = %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit.i, %470, %467, %.loopexit
-  %.sroa.0182.1 = phi i32 [ %.sroa.0182.2, %.loopexit ], [ %.sroa.0182.2, %467 ], [ %.sroa.0182.2, %470 ], [ -1, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit.i ]
+_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit691: ; preds = %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit.i, %471, %468, %.loopexit
+  %.sroa.0182.1 = phi i32 [ %.sroa.0182.2, %.loopexit ], [ %.sroa.0182.2, %468 ], [ %.sroa.0182.2, %471 ], [ -1, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Surface_meshINS_7Point_3INS_5EpickEEEEEEppEv.exit.i ]
   %.not.i.i.i692 = icmp eq ptr %.sroa.0782.0, null
   br i1 %.not.i.i.i692, label %_ZNSt6vectorIbSaIbEED2Ev.exit, label %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit691.thread
 
-_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit691.thread: ; preds = %127, %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit691
-  %.sroa.0182.1848 = phi i32 [ %.sroa.0182.1, %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit691 ], [ -1, %127 ]
-  %471 = ptrtoint ptr %.sroa.30.0 to i64
-  %472 = ptrtoint ptr %.sroa.0782.0 to i64
-  %473 = sub i64 %471, %472
-  %474 = ashr exact i64 %473, 3
-  %475 = sub nsw i64 0, %474
-  %476 = getelementptr inbounds i64, ptr %.sroa.30.0, i64 %475
-  call void @_ZdlPv(ptr noundef %476) #38
+_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit691.thread: ; preds = %128, %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit691
+  %.sroa.0182.1848 = phi i32 [ %.sroa.0182.1, %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit691 ], [ -1, %128 ]
+  %472 = ptrtoint ptr %.sroa.30.0 to i64
+  %473 = ptrtoint ptr %.sroa.0782.0 to i64
+  %474 = sub i64 %472, %473
+  %475 = ashr exact i64 %474, 3
+  %476 = sub nsw i64 0, %475
+  %477 = getelementptr inbounds i64, ptr %.sroa.30.0, i64 %476
+  call void @_ZdlPv(ptr noundef %477) #38
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit
 
 _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit691, %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit691.thread
   %.sroa.0182.1849 = phi i32 [ %.sroa.0182.1, %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit691 ], [ %.sroa.0182.1848, %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit691.thread ]
   %.not.i.i.i693 = icmp eq ptr %.sroa.0795.0833, null
-  br i1 %.not.i.i.i693, label %_ZNSt6vectorIN4CGAL17SM_Halfedge_indexESaIS1_EED2Ev.exit, label %477
+  br i1 %.not.i.i.i693, label %_ZNSt6vectorIN4CGAL17SM_Halfedge_indexESaIS1_EED2Ev.exit, label %478
 
-477:                                              ; preds = %_ZNSt6vectorIbSaIbEED2Ev.exit
+478:                                              ; preds = %_ZNSt6vectorIbSaIbEED2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0795.0833) #38
   br label %_ZNSt6vectorIN4CGAL17SM_Halfedge_indexESaIS1_EED2Ev.exit
 
-_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit: ; preds = %197, %194, %.loopexit.split-lp
+_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit: ; preds = %198, %195, %.loopexit.split-lp
   %.not.i.i.i694 = icmp eq ptr %.sroa.0782.0, null
-  br i1 %.not.i.i.i694, label %.body617, label %478
+  br i1 %.not.i.i.i694, label %.body617, label %479
 
-478:                                              ; preds = %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit
-  %479 = ptrtoint ptr %.sroa.30.0 to i64
-  %480 = ptrtoint ptr %.sroa.0782.0 to i64
-  %481 = sub i64 %479, %480
-  %482 = ashr exact i64 %481, 3
-  %483 = sub nsw i64 0, %482
-  %484 = getelementptr inbounds i64, ptr %.sroa.30.0, i64 %483
-  call void @_ZdlPv(ptr noundef %484) #38
+479:                                              ; preds = %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit
+  %480 = ptrtoint ptr %.sroa.30.0 to i64
+  %481 = ptrtoint ptr %.sroa.0782.0 to i64
+  %482 = sub i64 %480, %481
+  %483 = ashr exact i64 %482, 3
+  %484 = sub nsw i64 0, %483
+  %485 = getelementptr inbounds i64, ptr %.sroa.30.0, i64 %484
+  call void @_ZdlPv(ptr noundef %485) #38
   br label %.body617
 
-.body617:                                         ; preds = %478, %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit
+.body617:                                         ; preds = %479, %_ZN5boost9container12small_vectorISt4pairIN4CGAL17SM_Halfedge_indexES4_ELm9EvvED2Ev.exit
   %.not.i.i.i699 = icmp eq ptr %.sroa.0795.0833, null
-  br i1 %.not.i.i.i699, label %_ZNSt6vectorIN4CGAL17SM_Halfedge_indexESaIS1_EED2Ev.exit700, label %485
+  br i1 %.not.i.i.i699, label %_ZNSt6vectorIN4CGAL17SM_Halfedge_indexESaIS1_EED2Ev.exit700, label %486
 
-485:                                              ; preds = %.body617.thread, %.body617
+486:                                              ; preds = %.body617.thread, %.body617
   %.pn.pn854 = phi { ptr, i32 } [ %63, %.body617.thread ], [ %lpad.phi, %.body617 ]
   %.sroa.0795.0834853 = phi ptr [ %54, %.body617.thread ], [ %.sroa.0795.0833, %.body617 ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0795.0834853) #38
   br label %_ZNSt6vectorIN4CGAL17SM_Halfedge_indexESaIS1_EED2Ev.exit700
 
-_ZNSt6vectorIN4CGAL17SM_Halfedge_indexESaIS1_EED2Ev.exit: ; preds = %38, %477, %_ZNSt6vectorIbSaIbEED2Ev.exit, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4CGAL15SM_Vertex_indexESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit
-  %.sroa.0182.0 = phi i32 [ -1, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4CGAL15SM_Vertex_indexESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit ], [ %.sroa.0182.1849, %_ZNSt6vectorIbSaIbEED2Ev.exit ], [ %.sroa.0182.1849, %477 ], [ -1, %38 ]
+_ZNSt6vectorIN4CGAL17SM_Halfedge_indexESaIS1_EED2Ev.exit: ; preds = %38, %478, %_ZNSt6vectorIbSaIbEED2Ev.exit, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4CGAL15SM_Vertex_indexESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit
+  %.sroa.0182.0 = phi i32 [ -1, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4CGAL15SM_Vertex_indexESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit ], [ %.sroa.0182.1849, %_ZNSt6vectorIbSaIbEED2Ev.exit ], [ %.sroa.0182.1849, %478 ], [ -1, %38 ]
   %.not.i.i.i701 = icmp eq ptr %.sroa.0812.0, null
-  br i1 %.not.i.i.i701, label %_ZNSt6vectorIN4CGAL15SM_Vertex_indexESaIS1_EED2Ev.exit, label %486
+  br i1 %.not.i.i.i701, label %_ZNSt6vectorIN4CGAL15SM_Vertex_indexESaIS1_EED2Ev.exit, label %487
 
-486:                                              ; preds = %_ZNSt6vectorIN4CGAL17SM_Halfedge_indexESaIS1_EED2Ev.exit
+487:                                              ; preds = %_ZNSt6vectorIN4CGAL17SM_Halfedge_indexESaIS1_EED2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0812.0) #38
   br label %_ZNSt6vectorIN4CGAL15SM_Vertex_indexESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN4CGAL15SM_Vertex_indexESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIN4CGAL17SM_Halfedge_indexESaIS1_EED2Ev.exit, %486
+_ZNSt6vectorIN4CGAL15SM_Vertex_indexESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIN4CGAL17SM_Halfedge_indexESaIS1_EED2Ev.exit, %487
   ret i32 %.sroa.0182.0
 
-_ZNSt6vectorIN4CGAL17SM_Halfedge_indexESaIS1_EED2Ev.exit700: ; preds = %485, %.body617, %86, %42
-  %.pn612 = phi { ptr, i32 } [ %43, %42 ], [ %87, %86 ], [ %lpad.phi, %.body617 ], [ %.pn.pn854, %485 ]
+_ZNSt6vectorIN4CGAL17SM_Halfedge_indexESaIS1_EED2Ev.exit700: ; preds = %486, %.body617, %87, %42
+  %.pn612 = phi { ptr, i32 } [ %43, %42 ], [ %88, %87 ], [ %lpad.phi, %.body617 ], [ %.pn.pn854, %486 ]
   %.not.i.i.i703 = icmp eq ptr %.sroa.0812.0, null
-  br i1 %.not.i.i.i703, label %.body, label %487
+  br i1 %.not.i.i.i703, label %.body, label %488
 
-487:                                              ; preds = %_ZNSt6vectorIN4CGAL17SM_Halfedge_indexESaIS1_EED2Ev.exit700
+488:                                              ; preds = %_ZNSt6vectorIN4CGAL17SM_Halfedge_indexESaIS1_EED2Ev.exit700
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0812.0) #38
   br label %.body
 
-.body:                                            ; preds = %487, %_ZNSt6vectorIN4CGAL17SM_Halfedge_indexESaIS1_EED2Ev.exit700
+.body:                                            ; preds = %488, %_ZNSt6vectorIN4CGAL17SM_Halfedge_indexESaIS1_EED2Ev.exit700
   resume { ptr, i32 } %.pn612
 }
 

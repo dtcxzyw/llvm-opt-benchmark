@@ -17939,7 +17939,7 @@ define void @_ZN7channel12channel_chat11ChannelChat6rejoin17hcf326676b8c09531E(p
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
   %9 = atomicrmw add ptr %8, i64 1 monotonic, align 8
   %10 = icmp slt i64 %9, 0
-  br i1 %10, label %20, label %11
+  br i1 %10, label %21, label %11
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
@@ -17957,20 +17957,20 @@ define void @_ZN7channel12channel_chat11ChannelChat6rejoin17hcf326676b8c09531E(p
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2155)
   %17 = load i8, ptr %4, align 8, !range !1275, !alias.scope !2155, !noundef !5
   %trunc.i = trunc nuw i8 %17 to i1
-  br i1 %trunc.i, label %thread-pre-split.i, label %"_ZN4gpui8executor13Task$LT$T$GT$6detach17h9c1efa131cb5f300E.exit"
+  br i1 %trunc.i, label %18, label %"_ZN4gpui8executor13Task$LT$T$GT$6detach17h9c1efa131cb5f300E.exit"
 
-thread-pre-split.i:                               ; preds = %11
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %19 = load ptr, ptr %18, align 8, !alias.scope !2155, !nonnull !5, !noundef !5
-  tail call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$6detach17h2e43629c0ab9f6c8E"(ptr noundef nonnull %19), !noalias !2155
+18:                                               ; preds = %11
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %20 = load ptr, ptr %19, align 8, !alias.scope !2155, !nonnull !5, !noundef !5
+  tail call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$6detach17h2e43629c0ab9f6c8E"(ptr noundef nonnull %20), !noalias !2155
   br label %"_ZN4gpui8executor13Task$LT$T$GT$6detach17h9c1efa131cb5f300E.exit"
 
-"_ZN4gpui8executor13Task$LT$T$GT$6detach17h9c1efa131cb5f300E.exit": ; preds = %11, %thread-pre-split.i
+"_ZN4gpui8executor13Task$LT$T$GT$6detach17h9c1efa131cb5f300E.exit": ; preds = %11, %18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   ret void
 
-20:                                               ; preds = %2
+21:                                               ; preds = %2
   tail call void @llvm.trap()
   unreachable
 }

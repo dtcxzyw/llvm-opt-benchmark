@@ -9906,7 +9906,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator6reduce17h424f574b6d47
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %14, %33
   %23 = phi ptr [ %36, %33 ], [ %21, %14 ]
   %24 = phi { ptr, i64 } [ %35, %33 ], [ %20, %14 ]
-  %.sroa.02.017.i.i.i.i.i.i.i.i = phi i32 [ %34, %33 ], [ 0, %14 ]
+  %.sroa.02.016.i.i.i.i.i.i.i.i = phi i32 [ %34, %33 ], [ 0, %14 ]
   %25 = extractvalue { ptr, i64 } %24, 1
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !1780
   store i64 0, ptr %5, align 8, !noalias !1780
@@ -9945,7 +9945,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator6reduce17h424f574b6d47
 
 33:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h9b1aef8b47b8cab0E.exit.i.i.i.i.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !1780
-  %34 = add i32 %.sroa.02.017.i.i.i.i.i.i.i.i, 1
+  %34 = add i32 %.sroa.02.016.i.i.i.i.i.i.i.i, 1
   %35 = call fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h3a69977a04f8ecb2E"(ptr noalias noundef align 8 dereferenceable(72) %6), !noalias !1780
   %36 = extractvalue { ptr, i64 } %35, 0
   %37 = icmp eq ptr %36, null
@@ -10026,7 +10026,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator6reduce17h424f574b6d47
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %47, %65
   %55 = phi ptr [ %68, %65 ], [ %53, %47 ]
   %56 = phi { ptr, i64 } [ %67, %65 ], [ %52, %47 ]
-  %.sroa.02.017.i.i.i.i.i.i.i = phi i32 [ %66, %65 ], [ 0, %47 ]
+  %.sroa.02.016.i.i.i.i.i.i.i = phi i32 [ %66, %65 ], [ 0, %47 ]
   %57 = extractvalue { ptr, i64 } %56, 1
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3), !noalias !1820
   store i64 0, ptr %3, align 8, !noalias !1820
@@ -10065,7 +10065,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator6reduce17h424f574b6d47
 
 65:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h9b1aef8b47b8cab0E.exit.i.i.i.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3), !noalias !1820
-  %66 = add i32 %.sroa.02.017.i.i.i.i.i.i.i, 1
+  %66 = add i32 %.sroa.02.016.i.i.i.i.i.i.i, 1
   %67 = call fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h3a69977a04f8ecb2E"(ptr noalias noundef align 8 dereferenceable(72) %4), !noalias !1827
   %68 = extractvalue { ptr, i64 } %67, 0
   %69 = icmp eq ptr %68, null
@@ -27212,7 +27212,7 @@ define internal fastcc void @"_ZN8language17language_registry16LanguageRegistry2
 77:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hafff89d917f5bc1eE.exit.i.i", %76
   %.idx.i = phi i64 [ %.add.i, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hafff89d917f5bc1eE.exit.i.i" ], [ 32, %76 ]
   %.not.not.not.i.not.i = icmp eq i64 %.idx.i, 80
-  br i1 %.not.not.not.i.not.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc87058a0093f8de3E.exit.i", label %78
+  br i1 %.not.not.not.i.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h54ba188bc8af5c00E.exit.i, label %78
 
 78:                                               ; preds = %77
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.idx.i
@@ -27247,9 +27247,9 @@ common.resume.i:                                  ; preds = %111, %102, %82
   %.add.i = add nuw nsw i64 %.idx.i, 16
   call void @"_ZN4core3ptr39drop_in_place$LT$globset..Candidate$GT$17h15f7d9b906bc2ca7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7), !noalias !5389
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !5392
-  br i1 %81, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc87058a0093f8de3E.exit.i", label %77
+  br i1 %81, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h54ba188bc8af5c00E.exit.i, label %77
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc87058a0093f8de3E.exit.i": ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hafff89d917f5bc1eE.exit.i.i", %77
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h54ba188bc8af5c00E.exit.i: ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hafff89d917f5bc1eE.exit.i.i", %77
   %86 = getelementptr inbounds nuw i8, ptr %.0.val, i64 88
   %87 = load ptr, ptr %86, align 8, !alias.scope !5281, !noalias !5284, !align !230, !noundef !5
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -27259,9 +27259,9 @@ common.resume.i:                                  ; preds = %111, %102, %82
   %92 = or i1 %91, %90
   br i1 %92, label %"_ZN8language17language_registry16LanguageRegistry26language_for_file_internal28_$u7b$$u7b$closure$u7d$$u7d$17hb80ad6c41747e32aE.exit", label %93
 
-93:                                               ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc87058a0093f8de3E.exit.i"
+93:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17h54ba188bc8af5c00E.exit.i
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.val5.i15.i = load ptr, ptr %94, align 8, !alias.scope !5284, !noalias !5402
+  %.val5.i14.i = load ptr, ptr %94, align 8, !alias.scope !5284, !noalias !5402
   %95 = call { i32, i32 } @_ZN4rope5point5Point3new17hbcb588e2056b8f53E(i32 noundef 0, i32 noundef 256), !noalias !5405
   %96 = extractvalue { i32, i32 } %95, 0
   %97 = extractvalue { i32, i32 } %95, 1
@@ -27301,7 +27301,7 @@ common.resume.i:                                  ; preds = %111, %102, %82
   %107 = load ptr, ptr %106, align 8, !noalias !5408, !nonnull !5, !noundef !5
   %108 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %109 = load i64, ptr %108, align 8, !noalias !5408, !noundef !5
-  %110 = invoke fastcc noundef zeroext i1 @_ZN5regex5regex6string5Regex11is_match_at17hb93468bac66c2711E(ptr nonnull readonly %89, ptr %.val5.i15.i, ptr noalias noundef nonnull readonly align 1 %107, i64 noundef %109)
+  %110 = invoke fastcc noundef zeroext i1 @_ZN5regex5regex6string5Regex11is_match_at17hb93468bac66c2711E(ptr nonnull readonly %89, ptr %.val5.i14.i, ptr noalias noundef nonnull readonly align 1 %107, i64 noundef %109)
           to label %113 unwind label %111
 
 111:                                              ; preds = %"_ZN98_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$RF$str$GT$$GT$9from_iter17hf31d947dca1452e3E.exit.i.i.i"
@@ -27340,8 +27340,8 @@ common.resume.i:                                  ; preds = %111, %102, %82
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !5408
   br label %"_ZN8language17language_registry16LanguageRegistry26language_for_file_internal28_$u7b$$u7b$closure$u7d$$u7d$17hb80ad6c41747e32aE.exit"
 
-"_ZN8language17language_registry16LanguageRegistry26language_for_file_internal28_$u7b$$u7b$closure$u7d$$u7d$17hb80ad6c41747e32aE.exit": ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc87058a0093f8de3E.exit.i", %"_ZN8language17language_registry16LanguageRegistry26language_for_file_internal28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h589e683e56f89304E.exit.i.i"
-  %.sroa.02.0.i.i = phi i1 [ %110, %"_ZN8language17language_registry16LanguageRegistry26language_for_file_internal28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h589e683e56f89304E.exit.i.i" ], [ false, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc87058a0093f8de3E.exit.i" ]
+"_ZN8language17language_registry16LanguageRegistry26language_for_file_internal28_$u7b$$u7b$closure$u7d$$u7d$17hb80ad6c41747e32aE.exit": ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17h54ba188bc8af5c00E.exit.i, %"_ZN8language17language_registry16LanguageRegistry26language_for_file_internal28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h589e683e56f89304E.exit.i.i"
+  %.sroa.02.0.i.i = phi i1 [ %110, %"_ZN8language17language_registry16LanguageRegistry26language_for_file_internal28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h589e683e56f89304E.exit.i.i" ], [ false, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h54ba188bc8af5c00E.exit.i ]
   %brmerge.i = or i1 %28, %.sroa.02.0.i.i
   %.8.i = zext i1 %brmerge.i to i64
   %.sroa.0.0.i = select i1 %.not.not.not.i.not.i, i64 %.8.i, i64 2

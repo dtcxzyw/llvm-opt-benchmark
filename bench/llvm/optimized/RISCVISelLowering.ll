@@ -98035,9 +98035,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10LoadSDNodeELb1EE9push_backES2_.exit: ; p
   %128 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %129 = load i8, ptr %128, align 8, !tbaa !1561, !range !56, !noundef !57
   %130 = trunc nuw i8 %129 to i1
-  br i1 %130, label %.outer.preheader, label %_ZStneISt7variantIJlN4llvm7SDValueEEEbEbRKSt4pairIT_T0_ES9_.exit.i.thread
+  br i1 %130, label %.split360, label %_ZStneISt7variantIJlN4llvm7SDValueEEEbEbRKSt4pairIT_T0_ES9_.exit.i.thread
 
-.outer.preheader:                                 ; preds = %.critedge159
+.split360:                                        ; preds = %.critedge159
   %131 = load ptr, ptr %10, align 8, !tbaa !27
   %132 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %133 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -98052,8 +98052,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10LoadSDNodeELb1EE9push_backES2_.exit: ; p
   %140 = load i8, ptr %139, align 8
   br label %.outer
 
-.outer:                                           ; preds = %.outer.preheader, %_ZStneISt7variantIJlN4llvm7SDValueEEEbEbRKSt4pairIT_T0_ES9_.exit.i
-  %.pn.ph = phi ptr [ %.0145, %_ZStneISt7variantIJlN4llvm7SDValueEEEbEbRKSt4pairIT_T0_ES9_.exit.i ], [ %131, %.outer.preheader ]
+.outer:                                           ; preds = %_ZStneISt7variantIJlN4llvm7SDValueEEEbEbRKSt4pairIT_T0_ES9_.exit.i, %.split360
+  %.pn.ph = phi ptr [ %.0145, %_ZStneISt7variantIJlN4llvm7SDValueEEEbEbRKSt4pairIT_T0_ES9_.exit.i ], [ %131, %.split360 ]
   %.0145 = getelementptr inbounds nuw i8, ptr %.pn.ph, i64 8
   %141 = load ptr, ptr %10, align 8, !tbaa !27
   %142 = load i32, ptr %61, align 8, !tbaa !28
@@ -98128,11 +98128,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10LoadSDNodeELb1EE9push_backES2_.exit: ; p
   br label %_ZStneISt7variantIJlN4llvm7SDValueEEEbEbRKSt4pairIT_T0_ES9_.exit.i.thread
 
 .split346:                                        ; preds = %174, %161
-  %.sink404 = phi ptr [ %163, %161 ], [ %176, %174 ]
+  %.sink389 = phi ptr [ %163, %161 ], [ %176, %174 ]
   %.sroa.12248.1 = phi i8 [ 0, %161 ], [ 1, %174 ]
-  %183 = getelementptr inbounds nuw i8, ptr %.sink404, i64 40
+  %183 = getelementptr inbounds nuw i8, ptr %.sink389, i64 40
   %.sroa.0239.0.copyload = load i64, ptr %183, align 8
-  %.sroa.7242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink404, i64 48
+  %.sroa.7242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink389, i64 48
   %.sroa.7242.0.copyload = load i32, ptr %.sroa.7242.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #35, !noalias !1563
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #35, !noalias !1563
@@ -98158,9 +98158,9 @@ _ZSt3getILm1EJlN4llvm7SDValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_
   br label %_ZStneISt7variantIJlN4llvm7SDValueEEEbEbRKSt4pairIT_T0_ES9_.exit.i
 
 _ZStneISt7variantIJlN4llvm7SDValueEEEbEbRKSt4pairIT_T0_ES9_.exit.i: ; preds = %_ZSt3getILm1EJlN4llvm7SDValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS6_.exit.i.i.i.i.i.i.i.i.i.i, %_ZSt3getILm0EJlN4llvm7SDValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS6_.exit.i.i.i.i.i.i.i.i.i.i
-  %.sroa.12248.1388 = phi i8 [ 0, %_ZSt3getILm0EJlN4llvm7SDValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS6_.exit.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.12248.1, %_ZSt3getILm1EJlN4llvm7SDValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS6_.exit.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.12248.1374 = phi i8 [ 0, %_ZSt3getILm0EJlN4llvm7SDValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS6_.exit.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.12248.1, %_ZSt3getILm1EJlN4llvm7SDValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS6_.exit.i.i.i.i.i.i.i.i.i.i ]
   %.0.shrunk.i.i.i.i = phi i1 [ %187, %_ZSt3getILm0EJlN4llvm7SDValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS6_.exit.i.i.i.i.i.i.i.i.i.i ], [ %191, %_ZSt3getILm1EJlN4llvm7SDValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS6_.exit.i.i.i.i.i.i.i.i.i.i ]
-  %192 = icmp eq i8 %.sroa.12248.1388, %140
+  %192 = icmp eq i8 %.sroa.12248.1374, %140
   %.not325 = select i1 %.0.shrunk.i.i.i.i, i1 %192, i1 false
   br i1 %.not325, label %.outer, label %_ZStneISt7variantIJlN4llvm7SDValueEEEbEbRKSt4pairIT_T0_ES9_.exit.i.thread, !llvm.loop !1566
 

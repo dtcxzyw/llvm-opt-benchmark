@@ -1908,7 +1908,7 @@ define hidden noundef i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoer
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h3051414c5fb1eb32E.llvm.8537221261273048587"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 captures(none) %2, i64 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = icmp eq i64 %1, %3
-  br i1 %5, label %6, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4fc6a8a266fd5444E.llvm.8537221261273048587.exit"
+  br i1 %5, label %6, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7030095cb4d9aef2E.llvm.8537221261273048587.exit
 
 6:                                                ; preds = %4
   %7 = tail call noundef i64 @_ZN4core3cmp6min_by17he02eb9438c11884bE.llvm.13937131299884592799(i64 noundef %1, i64 noundef %1), !noalias !429
@@ -1917,7 +1917,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u
 8:                                                ; preds = %10, %6
   %9 = phi i64 [ %11, %10 ], [ 0, %6 ]
   %exitcond.not = icmp eq i64 %9, %7
-  br i1 %exitcond.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4fc6a8a266fd5444E.llvm.8537221261273048587.exit", label %10
+  br i1 %exitcond.not, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7030095cb4d9aef2E.llvm.8537221261273048587.exit, label %10
 
 10:                                               ; preds = %8
   %11 = add i64 %9, 1
@@ -1934,10 +1934,10 @@ define hidden noundef zeroext i1 @"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u
   %18 = or i8 %.sroa.0.0.i.i7.i, %.val.i
   %19 = or i8 %.sroa.01.0.i.i.i, %.val6.i
   %.not.i = icmp eq i8 %18, %19
-  br i1 %.not.i, label %8, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4fc6a8a266fd5444E.llvm.8537221261273048587.exit"
+  br i1 %.not.i, label %8, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7030095cb4d9aef2E.llvm.8537221261273048587.exit
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4fc6a8a266fd5444E.llvm.8537221261273048587.exit": ; preds = %8, %10, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ %exitcond.not, %10 ], [ %exitcond.not, %8 ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h7030095cb4d9aef2E.llvm.8537221261273048587.exit: ; preds = %10, %8, %4
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ %exitcond.not, %8 ], [ %exitcond.not, %10 ]
   ret i1 %.sroa.0.0
 }
 
@@ -4789,19 +4789,18 @@ define hidden noundef i64 @"_ZN90_$LT$bincode..config..int..FixintEncoding$u20$a
 define hidden noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4fc6a8a266fd5444E.llvm.8537221261273048587"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #28 {
   %3 = load i8, ptr %0, align 1, !range !580, !noundef !12
   %4 = load i8, ptr %1, align 1, !range !580, !noundef !12
-  %5 = icmp eq i8 %3, %4
-  br i1 %5, label %.sink.split, label %7
-
-.sink.split:                                      ; preds = %2
-  %6 = trunc nuw i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
+  %6 = icmp eq i8 %3, %4
   %trunc = trunc nuw i8 %3 to i1
-  %not.trunc = xor i1 %trunc, true
-  %spec.select = select i1 %not.trunc, i1 true, i1 %6
-  tail call void @llvm.assume(i1 %spec.select)
-  br label %7
+  %or.cond = select i1 %6, i1 %trunc, i1 false
+  br i1 %or.cond, label %8, label %7
 
-7:                                                ; preds = %.sink.split, %2
-  ret i1 %5
+7:                                                ; preds = %2, %8
+  ret i1 %6
+
+8:                                                ; preds = %2
+  tail call void @llvm.assume(i1 %5)
+  br label %7
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

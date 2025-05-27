@@ -45622,8 +45622,8 @@ define hidden noundef range(i8 0, 3) i8 @_ZN9polars_io10file_cache10cache_lock10
 7:                                                ; preds = %9, %1
   %.sroa.01.0.i.i = phi i32 [ %6, %1 ], [ %13, %9 ]
   %8 = and i32 %.sroa.01.0.i.i, 1073741823
-  %.not13 = icmp eq i32 %8, 0
-  br i1 %.not13, label %9, label %"_ZN4core3ptr291drop_in_place$LT$core..result..Result$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$C$std..sync..poison..TryLockError$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$GT$$GT$$GT$17h58a271d7818ddb34E.exit"
+  %.not12 = icmp eq i32 %8, 0
+  br i1 %.not12, label %9, label %"_ZN4core3ptr291drop_in_place$LT$core..result..Result$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$C$std..sync..poison..TryLockError$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$GT$$GT$$GT$17h58a271d7818ddb34E.exit"
 
 9:                                                ; preds = %7
   %10 = or disjoint i32 %.sroa.01.0.i.i, 1073741823
@@ -45753,8 +45753,8 @@ _ZN4core4sync6atomic9AtomicU3212fetch_update17h8e3bd8f907d38a0bE.exit.i: ; preds
   %60 = trunc nuw i64 %59 to i1
   %61 = load i8, ptr %25, align 8, !range !856
   %.not.i.i6 = icmp ne i8 %61, 2
-  %or.cond12.not = select i1 %60, i1 %.not.i.i6, i1 false
-  br i1 %or.cond12.not, label %"_ZN4core3ptr291drop_in_place$LT$core..result..Result$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$C$std..sync..poison..TryLockError$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$GT$$GT$$GT$17h58a271d7818ddb34E.exit.sink.split", label %"_ZN4core3ptr291drop_in_place$LT$core..result..Result$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$C$std..sync..poison..TryLockError$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$GT$$GT$$GT$17h58a271d7818ddb34E.exit"
+  %or.cond11.not = select i1 %60, i1 %.not.i.i6, i1 false
+  br i1 %or.cond11.not, label %"_ZN4core3ptr291drop_in_place$LT$core..result..Result$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$C$std..sync..poison..TryLockError$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$GT$$GT$$GT$17h58a271d7818ddb34E.exit.sink.split", label %"_ZN4core3ptr291drop_in_place$LT$core..result..Result$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$C$std..sync..poison..TryLockError$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$GT$$GT$$GT$17h58a271d7818ddb34E.exit"
 
 "_ZN4core3ptr291drop_in_place$LT$core..result..Result$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$C$std..sync..poison..TryLockError$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$GT$$GT$$GT$17h58a271d7818ddb34E.exit.sink.split": ; preds = %58, %44, %26
   %.sink = phi ptr [ %27, %26 ], [ %24, %44 ], [ %24, %58 ]
@@ -46377,7 +46377,7 @@ _ZN4core4sync6atomic9AtomicU3212fetch_update17h8e3bd8f907d38a0bE.exit.i: ; preds
 .body:                                            ; preds = %71, %67
   %eh.lpad-body = phi { ptr, i32 } [ %68, %67 ], [ %72, %71 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$polars_io..file_cache..cache_lock..NotifyOnDrop$GT$17h9c7551042a65cb62E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #31
-          to label %.thread26 unwind label %103
+          to label %.thread25 unwind label %103
 
 69:                                               ; preds = %64
   %.not.i = icmp eq ptr %66, null
@@ -46444,26 +46444,26 @@ _ZN4core4sync6atomic9AtomicU3212fetch_update17h8e3bd8f907d38a0bE.exit.i: ; preds
   %89 = trunc nuw i64 %88 to i1
   %90 = load i8, ptr %38, align 8, !range !856
   %.not.i.i20 = icmp ne i8 %90, 2
-  %or.cond33.not = select i1 %89, i1 %.not.i.i20, i1 false
-  br i1 %or.cond33.not, label %105, label %"_ZN4core3ptr291drop_in_place$LT$core..result..Result$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$C$std..sync..poison..TryLockError$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$GT$$GT$$GT$17h58a271d7818ddb34E.exit"
+  %or.cond32.not = select i1 %89, i1 %.not.i.i20, i1 false
+  br i1 %or.cond32.not, label %105, label %"_ZN4core3ptr291drop_in_place$LT$core..result..Result$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$C$std..sync..poison..TryLockError$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$GT$$GT$$GT$17h58a271d7818ddb34E.exit"
 
 "_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h6f54ec810704004fE.exit15": ; preds = %81
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   invoke void @"_ZN4core3ptr68drop_in_place$LT$polars_io..file_cache..cache_lock..NotifyOnDrop$GT$17h9c7551042a65cb62E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-          to label %92 unwind label %.thread30
+          to label %92 unwind label %.thread29
 
-.thread30:                                        ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h6f54ec810704004fE.exit15"
+.thread29:                                        ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h6f54ec810704004fE.exit15"
   %91 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread26
+  br label %.thread25
 
 92:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h6f54ec810704004fE.exit15"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   invoke void @"_ZN4core3ptr121drop_in_place$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$GT$17h803c558b03ce455eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
           to label %98 unwind label %96
 
-93:                                               ; preds = %41, %.thread26, %96
-  %.pn6 = phi { ptr, i32 } [ %97, %96 ], [ %.pn29, %.thread26 ], [ %42, %41 ]
+93:                                               ; preds = %41, %.thread25, %96
+  %.pn6 = phi { ptr, i32 } [ %97, %96 ], [ %.pn28, %.thread25 ], [ %42, %41 ]
   %94 = load i64, ptr %6, align 8, !range !187, !noundef !4
   %95 = icmp eq i64 %94, 0
   br i1 %95, label %31, label %108
@@ -46479,15 +46479,15 @@ _ZN4core4sync6atomic9AtomicU3212fetch_update17h8e3bd8f907d38a0bE.exit.i: ; preds
   %100 = trunc nuw i64 %99 to i1
   %101 = load i8, ptr %38, align 8, !range !856
   %.not.i.i16 = icmp ne i8 %101, 2
-  %or.cond.not34 = select i1 %100, i1 %.not.i.i16, i1 false
-  br i1 %or.cond.not34, label %.invoke, label %"_ZN4core3ptr291drop_in_place$LT$core..result..Result$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$C$std..sync..poison..TryLockError$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$GT$$GT$$GT$17h58a271d7818ddb34E.exit"
+  %or.cond.not33 = select i1 %100, i1 %.not.i.i16, i1 false
+  br i1 %or.cond.not33, label %.invoke, label %"_ZN4core3ptr291drop_in_place$LT$core..result..Result$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$C$std..sync..poison..TryLockError$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$GT$$GT$$GT$17h58a271d7818ddb34E.exit"
 
 .invoke:                                          ; preds = %98, %39
   %102 = phi ptr [ %40, %39 ], [ %37, %98 ]
   invoke void @"_ZN4core3ptr159drop_in_place$LT$std..sync..poison..PoisonError$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$GT$$GT$17h823186fbeff86404E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %102)
           to label %"_ZN4core3ptr291drop_in_place$LT$core..result..Result$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$C$std..sync..poison..TryLockError$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$GT$$GT$$GT$17h58a271d7818ddb34E.exit" unwind label %32
 
-103:                                              ; preds = %108, %.thread26, %.body, %31
+103:                                              ; preds = %108, %.thread25, %.body, %31
   %104 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #32
@@ -46507,8 +46507,8 @@ _ZN4core4sync6atomic9AtomicU3212fetch_update17h8e3bd8f907d38a0bE.exit.i: ; preds
   %107 = insertvalue { ptr, i8 } %106, i8 %.sroa.5.2, 1
   ret { ptr, i8 } %107
 
-.thread26:                                        ; preds = %.body, %.thread30
-  %.pn29 = phi { ptr, i32 } [ %91, %.thread30 ], [ %eh.lpad-body, %.body ]
+.thread25:                                        ; preds = %.body, %.thread29
+  %.pn28 = phi { ptr, i32 } [ %91, %.thread29 ], [ %eh.lpad-body, %.body ]
   invoke void @"_ZN4core3ptr121drop_in_place$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$polars_io..file_cache..cache_lock..GlobalLockData$GT$$GT$17h803c558b03ce455eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #31
           to label %93 unwind label %103
 

@@ -1539,7 +1539,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN106_$LT$core.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !282)
   %22 = load i8, ptr %.val.i.i, align 1, !range !278, !noalias !285, !noundef !3
   %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %48, label %24
+  br i1 %23, label %49, label %24
 
 24:                                               ; preds = %20
   tail call void @llvm.assume(i1 %13)
@@ -1558,13 +1558,13 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN106_$LT$core.
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !292, !noalias !297, !nonnull !3, !noundef !3
   %34 = icmp eq ptr %31, %33
-  br i1 %34, label %48, label %"_ZN11uv_resolver7pubgrub6report22PubGrubReportFormatter11index_hints28_$u7b$$u7b$closure$u7d$$u7d$17hca534a4f3542a635E.exit.i.i.i.i.i.i"
+  br i1 %34, label %49, label %"_ZN11uv_resolver7pubgrub6report22PubGrubReportFormatter11index_hints28_$u7b$$u7b$closure$u7d$$u7d$17hca534a4f3542a635E.exit.i.i.i.i.i.i"
 
 "_ZN11uv_resolver7pubgrub6report22PubGrubReportFormatter11index_hints28_$u7b$$u7b$closure$u7d$$u7d$17hca534a4f3542a635E.exit.i.i.i.i.i.i": ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %37 = tail call noundef zeroext i1 @"_ZN77_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17h388c113d32ba4f58E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %36), !noalias !298
-  br i1 %37, label %48, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h32baecda8c65d70cE.exit.i"
+  br i1 %37, label %49, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h32baecda8c65d70cE.exit.i"
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h32baecda8c65d70cE.exit.i": ; preds = %"_ZN11uv_resolver7pubgrub6report22PubGrubReportFormatter11index_hints28_$u7b$$u7b$closure$u7d$$u7d$17hca534a4f3542a635E.exit.i.i.i.i.i.i", %24, %16
   %38 = load ptr, ptr %5, align 8, !alias.scope !272, !noalias !270, !noundef !3
@@ -1575,108 +1575,108 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN106_$LT$core.
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %42 = load i64, ptr %41, align 8, !range !266, !noundef !3
   %trunc11 = trunc nuw i64 %42 to i1
-  br i1 %trunc11, label %52, label %51
+  br i1 %trunc11, label %53, label %52
 
 .loopexit:                                        ; preds = %"_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$either..Either$LT$L$C$R$GT$$GT$4next17h8ea879e65cab2cefE.exit.i"
   %.pre20.pre = load ptr, ptr %5, align 8, !alias.scope !299
   %43 = icmp eq ptr %.pre20.pre, null
   %.pre = load i64, ptr %0, align 8, !range !266, !alias.scope !299
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.5)
   %44 = icmp eq i64 %.pre, 0
-  %or.cond.i = select i1 %44, i1 true, i1 %43
-  br i1 %or.cond.i, label %"_ZN4core3ptr504drop_in_place$LT$core..option..Option$LT$either..Either$LT$core..iter..sources..empty..Empty$LT$$RF$uv_distribution_types..index..Index$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$core..slice..iter..Iter$LT$uv_distribution_types..index..Index$GT$$C$uv_distribution_types..index_url..IndexLocations..implicit_indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_distribution_types..index_url..IndexLocations..implicit_indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h13a84374a9ccaeafE.exit", label %45
+  %45 = select i1 %44, i1 true, i1 %43
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.5)
+  br i1 %45, label %"_ZN4core3ptr504drop_in_place$LT$core..option..Option$LT$either..Either$LT$core..iter..sources..empty..Empty$LT$$RF$uv_distribution_types..index..Index$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$core..slice..iter..Iter$LT$uv_distribution_types..index..Index$GT$$C$uv_distribution_types..index_url..IndexLocations..implicit_indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_distribution_types..index_url..IndexLocations..implicit_indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h13a84374a9ccaeafE.exit", label %46
 
-45:                                               ; preds = %.loopexit
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h31ae6240db5843c3E(ptr noalias noundef nonnull align 8 dereferenceable(32) %46, ptr noalias noundef nonnull readonly align 1 %47, i64 noundef 8, i64 noundef 16)
-          to label %"_ZN4core3ptr504drop_in_place$LT$core..option..Option$LT$either..Either$LT$core..iter..sources..empty..Empty$LT$$RF$uv_distribution_types..index..Index$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$core..slice..iter..Iter$LT$uv_distribution_types..index..Index$GT$$C$uv_distribution_types..index_url..IndexLocations..implicit_indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_distribution_types..index_url..IndexLocations..implicit_indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h13a84374a9ccaeafE.exit" unwind label %49
+46:                                               ; preds = %.loopexit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h31ae6240db5843c3E(ptr noalias noundef nonnull align 8 dereferenceable(32) %47, ptr noalias noundef nonnull readonly align 1 %48, i64 noundef 8, i64 noundef 16)
+          to label %"_ZN4core3ptr504drop_in_place$LT$core..option..Option$LT$either..Either$LT$core..iter..sources..empty..Empty$LT$$RF$uv_distribution_types..index..Index$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$core..slice..iter..Iter$LT$uv_distribution_types..index..Index$GT$$C$uv_distribution_types..index_url..IndexLocations..implicit_indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_distribution_types..index_url..IndexLocations..implicit_indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h13a84374a9ccaeafE.exit" unwind label %50
 
-48:                                               ; preds = %"_ZN11uv_resolver7pubgrub6report22PubGrubReportFormatter11index_hints28_$u7b$$u7b$closure$u7d$$u7d$17hca534a4f3542a635E.exit.i.i.i.i.i.i", %29, %20
+49:                                               ; preds = %"_ZN11uv_resolver7pubgrub6report22PubGrubReportFormatter11index_hints28_$u7b$$u7b$closure$u7d$$u7d$17hca534a4f3542a635E.exit.i.i.i.i.i.i", %29, %20
   store i8 1, ptr %.val.i.i, align 1, !noalias !285
-  br label %51
+  br label %52
 
-49:                                               ; preds = %45
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %46
+  %51 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %0, align 8
-  resume { ptr, i32 } %50
+  resume { ptr, i32 } %51
 
 "_ZN4core3ptr504drop_in_place$LT$core..option..Option$LT$either..Either$LT$core..iter..sources..empty..Empty$LT$$RF$uv_distribution_types..index..Index$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$core..slice..iter..Iter$LT$uv_distribution_types..index..Index$GT$$C$uv_distribution_types..index_url..IndexLocations..implicit_indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_distribution_types..index_url..IndexLocations..implicit_indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h13a84374a9ccaeafE.exit.sink.split": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h32baecda8c65d70cE.exit.i", %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.5)
   br label %"_ZN4core3ptr504drop_in_place$LT$core..option..Option$LT$either..Either$LT$core..iter..sources..empty..Empty$LT$$RF$uv_distribution_types..index..Index$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$core..slice..iter..Iter$LT$uv_distribution_types..index..Index$GT$$C$uv_distribution_types..index_url..IndexLocations..implicit_indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_distribution_types..index_url..IndexLocations..implicit_indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h13a84374a9ccaeafE.exit"
 
-"_ZN4core3ptr504drop_in_place$LT$core..option..Option$LT$either..Either$LT$core..iter..sources..empty..Empty$LT$$RF$uv_distribution_types..index..Index$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$core..slice..iter..Iter$LT$uv_distribution_types..index..Index$GT$$C$uv_distribution_types..index_url..IndexLocations..implicit_indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_distribution_types..index_url..IndexLocations..implicit_indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h13a84374a9ccaeafE.exit": ; preds = %"_ZN4core3ptr504drop_in_place$LT$core..option..Option$LT$either..Either$LT$core..iter..sources..empty..Empty$LT$$RF$uv_distribution_types..index..Index$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$core..slice..iter..Iter$LT$uv_distribution_types..index..Index$GT$$C$uv_distribution_types..index_url..IndexLocations..implicit_indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_distribution_types..index_url..IndexLocations..implicit_indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h13a84374a9ccaeafE.exit.sink.split", %.loopexit, %45
+"_ZN4core3ptr504drop_in_place$LT$core..option..Option$LT$either..Either$LT$core..iter..sources..empty..Empty$LT$$RF$uv_distribution_types..index..Index$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$core..slice..iter..Iter$LT$uv_distribution_types..index..Index$GT$$C$uv_distribution_types..index_url..IndexLocations..implicit_indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_distribution_types..index_url..IndexLocations..implicit_indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h13a84374a9ccaeafE.exit": ; preds = %"_ZN4core3ptr504drop_in_place$LT$core..option..Option$LT$either..Either$LT$core..iter..sources..empty..Empty$LT$$RF$uv_distribution_types..index..Index$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$core..slice..iter..Iter$LT$uv_distribution_types..index..Index$GT$$C$uv_distribution_types..index_url..IndexLocations..implicit_indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_distribution_types..index_url..IndexLocations..implicit_indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h13a84374a9ccaeafE.exit.sink.split", %.loopexit, %46
   store i64 0, ptr %0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.5, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.5)
   br label %40
 
-51:                                               ; preds = %52, %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf7d077782e6254b0E.exit.us.i", %40, %48, %78
-  %.sroa.0.0 = phi ptr [ %21, %48 ], [ %61, %78 ], [ null, %40 ], [ null, %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf7d077782e6254b0E.exit.us.i" ], [ null, %52 ]
+52:                                               ; preds = %53, %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf7d077782e6254b0E.exit.us.i", %40, %49, %79
+  %.sroa.0.0 = phi ptr [ %21, %49 ], [ %62, %79 ], [ null, %40 ], [ null, %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf7d077782e6254b0E.exit.us.i" ], [ null, %53 ]
   ret ptr %.sroa.0.0
 
-52:                                               ; preds = %40
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
+53:                                               ; preds = %40
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !302)
-  %.promoted.i = load ptr, ptr %53, align 8, !alias.scope !305
-  store ptr null, ptr %53, align 8, !alias.scope !305
-  %54 = icmp eq ptr %.promoted.i, null
-  br i1 %54, label %51, label %.lr.ph.split.us.i
+  %.promoted.i = load ptr, ptr %54, align 8, !alias.scope !305
+  store ptr null, ptr %54, align 8, !alias.scope !305
+  %55 = icmp eq ptr %.promoted.i, null
+  br i1 %55, label %52, label %.lr.ph.split.us.i
 
-.lr.ph.split.us.i:                                ; preds = %52
-  %55 = icmp ne ptr %.sroa.3.0.copyload, null
-  %56 = icmp ne ptr %.sroa.4.0.copyload, null
+.lr.ph.split.us.i:                                ; preds = %53
+  %56 = icmp ne ptr %.sroa.3.0.copyload, null
+  %57 = icmp ne ptr %.sroa.4.0.copyload, null
   tail call void @llvm.experimental.noalias.scope.decl(metadata !308)
-  %57 = getelementptr inbounds nuw i8, ptr %.promoted.i, i64 136
-  %58 = load i8, ptr %57, align 8, !range !278, !alias.scope !308, !noalias !302, !noundef !3
-  %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf7d077782e6254b0E.exit.us.i", label %60
+  %58 = getelementptr inbounds nuw i8, ptr %.promoted.i, i64 136
+  %59 = load i8, ptr %58, align 8, !range !278, !alias.scope !308, !noalias !302, !noundef !3
+  %60 = trunc nuw i8 %59 to i1
+  br i1 %60, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf7d077782e6254b0E.exit.us.i", label %61
 
-60:                                               ; preds = %.lr.ph.split.us.i
-  %61 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN21uv_distribution_types5index5Index3url17hd815d70aff5a07e3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %.promoted.i), !noalias !302
-  tail call void @llvm.assume(i1 %55)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !311)
-  %62 = load i8, ptr %.sroa.3.0.copyload, align 1, !range !278, !noalias !314, !noundef !3
-  %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %78, label %64
-
-64:                                               ; preds = %60
+61:                                               ; preds = %.lr.ph.split.us.i
+  %62 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN21uv_distribution_types5index5Index3url17hd815d70aff5a07e3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %.promoted.i), !noalias !302
   tail call void @llvm.assume(i1 %56)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !311)
+  %63 = load i8, ptr %.sroa.3.0.copyload, align 1, !range !278, !noalias !314, !noundef !3
+  %64 = trunc nuw i8 %63 to i1
+  br i1 %64, label %79, label %65
+
+65:                                               ; preds = %61
+  tail call void @llvm.assume(i1 %57)
   %.val.i.i.i.i.us.i = load ptr, ptr %.sroa.4.0.copyload, align 8, !noalias !314, !nonnull !3, !align !15, !noundef !3
-  %65 = load ptr, ptr %.val.i.i.i.i.us.i, align 8, !noalias !317, !nonnull !3, !align !15, !noundef !3
+  %66 = load ptr, ptr %.val.i.i.i.i.us.i, align 8, !noalias !317, !nonnull !3, !align !15, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !318)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !321)
-  %66 = load i64, ptr %61, align 8, !range !294, !alias.scope !323, !noalias !324, !noundef !3
-  %67 = load i64, ptr %65, align 8, !range !294, !alias.scope !321, !noalias !325, !noundef !3
-  %68 = icmp eq i64 %66, %67
-  br i1 %68, label %69, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf7d077782e6254b0E.exit.us.i"
+  %67 = load i64, ptr %62, align 8, !range !294, !alias.scope !323, !noalias !324, !noundef !3
+  %68 = load i64, ptr %66, align 8, !range !294, !alias.scope !321, !noalias !325, !noundef !3
+  %69 = icmp eq i64 %67, %68
+  br i1 %69, label %70, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf7d077782e6254b0E.exit.us.i"
 
-69:                                               ; preds = %64
-  %70 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %71 = load ptr, ptr %70, align 8, !alias.scope !323, !noalias !324, !nonnull !3, !noundef !3
-  %72 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %73 = load ptr, ptr %72, align 8, !alias.scope !321, !noalias !325, !nonnull !3, !noundef !3
-  %74 = icmp eq ptr %71, %73
-  br i1 %74, label %78, label %"_ZN11uv_resolver7pubgrub6report22PubGrubReportFormatter11index_hints28_$u7b$$u7b$closure$u7d$$u7d$17hca534a4f3542a635E.exit.i.i.i.i.us.i"
+70:                                               ; preds = %65
+  %71 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %72 = load ptr, ptr %71, align 8, !alias.scope !323, !noalias !324, !nonnull !3, !noundef !3
+  %73 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %74 = load ptr, ptr %73, align 8, !alias.scope !321, !noalias !325, !nonnull !3, !noundef !3
+  %75 = icmp eq ptr %72, %74
+  br i1 %75, label %79, label %"_ZN11uv_resolver7pubgrub6report22PubGrubReportFormatter11index_hints28_$u7b$$u7b$closure$u7d$$u7d$17hca534a4f3542a635E.exit.i.i.i.i.us.i"
 
-"_ZN11uv_resolver7pubgrub6report22PubGrubReportFormatter11index_hints28_$u7b$$u7b$closure$u7d$$u7d$17hca534a4f3542a635E.exit.i.i.i.i.us.i": ; preds = %69
-  %75 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %76 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %77 = tail call noundef zeroext i1 @"_ZN77_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17h388c113d32ba4f58E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %75, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %76), !noalias !326
-  br i1 %77, label %78, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf7d077782e6254b0E.exit.us.i"
+"_ZN11uv_resolver7pubgrub6report22PubGrubReportFormatter11index_hints28_$u7b$$u7b$closure$u7d$$u7d$17hca534a4f3542a635E.exit.i.i.i.i.us.i": ; preds = %70
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %78 = tail call noundef zeroext i1 @"_ZN77_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17h388c113d32ba4f58E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %76, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %77), !noalias !326
+  br i1 %78, label %79, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf7d077782e6254b0E.exit.us.i"
 
-"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf7d077782e6254b0E.exit.us.i": ; preds = %"_ZN11uv_resolver7pubgrub6report22PubGrubReportFormatter11index_hints28_$u7b$$u7b$closure$u7d$$u7d$17hca534a4f3542a635E.exit.i.i.i.i.us.i", %64, %.lr.ph.split.us.i
-  store ptr null, ptr %53, align 8, !alias.scope !305
-  br label %51
+"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf7d077782e6254b0E.exit.us.i": ; preds = %"_ZN11uv_resolver7pubgrub6report22PubGrubReportFormatter11index_hints28_$u7b$$u7b$closure$u7d$$u7d$17hca534a4f3542a635E.exit.i.i.i.i.us.i", %65, %.lr.ph.split.us.i
+  store ptr null, ptr %54, align 8, !alias.scope !305
+  br label %52
 
-78:                                               ; preds = %"_ZN11uv_resolver7pubgrub6report22PubGrubReportFormatter11index_hints28_$u7b$$u7b$closure$u7d$$u7d$17hca534a4f3542a635E.exit.i.i.i.i.us.i", %69, %60
+79:                                               ; preds = %"_ZN11uv_resolver7pubgrub6report22PubGrubReportFormatter11index_hints28_$u7b$$u7b$closure$u7d$$u7d$17hca534a4f3542a635E.exit.i.i.i.i.us.i", %70, %61
   store i8 1, ptr %.sroa.3.0.copyload, align 1, !noalias !314
-  br label %51
+  br label %52
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -21350,8 +21350,8 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   %.val4.i.i.i = load i8, ptr %38, align 1, !noalias !5199
   %39 = icmp eq i8 %.val3.i.i.i, %5
   %40 = icmp eq i8 %3, %.val4.i.i.i
-  %.sroa.0.0.shrunk.i.i.i.i.i = select i1 %39, i1 %40, i1 false
-  br i1 %.sroa.0.0.shrunk.i.i.i.i.i, label %67, label %26
+  %spec.select.i.i.i.i.i = select i1 %39, i1 %40, i1 false
+  br i1 %spec.select.i.i.i.i.i, label %67, label %26
 
 41:                                               ; preds = %26
   %.not.i.i = icmp eq i64 %.sroa.01.0.i.i, 1

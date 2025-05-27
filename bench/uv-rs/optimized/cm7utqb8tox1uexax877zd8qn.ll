@@ -4018,27 +4018,27 @@ define internal fastcc noundef zeroext i1 @"_ZN77_$LT$uv_cache_info..cache_info.
   %66 = icmp ne ptr %65, null
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %68 = load i64, ptr %67, align 8, !alias.scope !856, !noalias !859
-  %.sroa.15.0.i13 = select i1 %66, i64 %59, i64 0
-  %.sroa.14.0.i14 = select i1 %66, i64 %68, i64 undef
-  %.sroa.9.0.i15 = zext i1 %66 to i64
+  %.sroa.15.0.i12 = select i1 %66, i64 %59, i64 0
+  %.sroa.14.0.i13 = select i1 %66, i64 %68, i64 undef
+  %.sroa.9.0.i14 = zext i1 %66 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !862)
-  store i64 %.sroa.9.0.i15, ptr %4, align 8, !alias.scope !865, !noalias !867
-  %.sroa.519.0..sroa_idx.i16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %.sroa.519.0..sroa_idx.i16, align 8, !alias.scope !865, !noalias !867
-  %.sroa.7.0..sroa_idx.i17 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %65, ptr %.sroa.7.0..sroa_idx.i17, align 8, !alias.scope !865, !noalias !867
-  %.sroa.8.0..sroa_idx.i18 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %.sroa.14.0.i14, ptr %.sroa.8.0..sroa_idx.i18, align 8, !alias.scope !865, !noalias !867
-  %.sroa.9.0..sroa_idx.i19 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i64 %.sroa.9.0.i15, ptr %.sroa.9.0..sroa_idx.i19, align 8, !alias.scope !865, !noalias !867
-  %.sroa.11.0..sroa_idx.i20 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr null, ptr %.sroa.11.0..sroa_idx.i20, align 8, !alias.scope !865, !noalias !867
-  %.sroa.13.0..sroa_idx.i21 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr %65, ptr %.sroa.13.0..sroa_idx.i21, align 8, !alias.scope !865, !noalias !867
-  %.sroa.14.0..sroa_idx.i22 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store i64 %.sroa.14.0.i14, ptr %.sroa.14.0..sroa_idx.i22, align 8, !alias.scope !865, !noalias !867
-  %.sroa.15.0..sroa_idx.i23 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store i64 %.sroa.15.0.i13, ptr %.sroa.15.0..sroa_idx.i23, align 8, !alias.scope !865, !noalias !867
+  store i64 %.sroa.9.0.i14, ptr %4, align 8, !alias.scope !865, !noalias !867
+  %.sroa.519.0..sroa_idx.i15 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr null, ptr %.sroa.519.0..sroa_idx.i15, align 8, !alias.scope !865, !noalias !867
+  %.sroa.7.0..sroa_idx.i16 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %65, ptr %.sroa.7.0..sroa_idx.i16, align 8, !alias.scope !865, !noalias !867
+  %.sroa.8.0..sroa_idx.i17 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 %.sroa.14.0.i13, ptr %.sroa.8.0..sroa_idx.i17, align 8, !alias.scope !865, !noalias !867
+  %.sroa.9.0..sroa_idx.i18 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i64 %.sroa.9.0.i14, ptr %.sroa.9.0..sroa_idx.i18, align 8, !alias.scope !865, !noalias !867
+  %.sroa.11.0..sroa_idx.i19 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr null, ptr %.sroa.11.0..sroa_idx.i19, align 8, !alias.scope !865, !noalias !867
+  %.sroa.13.0..sroa_idx.i20 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store ptr %65, ptr %.sroa.13.0..sroa_idx.i20, align 8, !alias.scope !865, !noalias !867
+  %.sroa.14.0..sroa_idx.i21 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  store i64 %.sroa.14.0.i13, ptr %.sroa.14.0..sroa_idx.i21, align 8, !alias.scope !865, !noalias !867
+  %.sroa.15.0..sroa_idx.i22 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  store i64 %.sroa.15.0.i12, ptr %.sroa.15.0..sroa_idx.i22, align 8, !alias.scope !865, !noalias !867
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 72
   call void @"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd9197f787fd60b60E.llvm.4610660843453994419"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %69, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %63), !noalias !869
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -4055,48 +4055,48 @@ define internal fastcc noundef zeroext i1 @"_ZN77_$LT$uv_cache_info..cache_info.
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %76 = load i64, ptr %75, align 8, !alias.scope !879, !noalias !876, !noundef !8
   %77 = icmp eq i64 %74, %76
-  br i1 %77, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1467887f47adbbeaE.llvm.4610660843453994419.exit.i25", label %.thread
+  br i1 %77, label %78, label %.thread
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1467887f47adbbeaE.llvm.4610660843453994419.exit.i25": ; preds = %72
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 96
+78:                                               ; preds = %72
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %3), !noalias !881
-  %80 = load ptr, ptr %79, align 8, !alias.scope !876, !noalias !879, !noundef !8
-  %81 = icmp ne ptr %80, null
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %83 = load i64, ptr %82, align 8, !alias.scope !876, !noalias !879
-  %.sroa.15.0.i26 = select i1 %81, i64 %74, i64 0
-  %.sroa.14.0.i27 = select i1 %81, i64 %83, i64 undef
-  %.sroa.9.0.i28 = zext i1 %81 to i64
+  %81 = load ptr, ptr %80, align 8, !alias.scope !876, !noalias !879, !noundef !8
+  %82 = icmp ne ptr %81, null
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %84 = load i64, ptr %83, align 8, !alias.scope !876, !noalias !879
+  %.sroa.15.0.i24 = select i1 %82, i64 %74, i64 0
+  %.sroa.14.0.i25 = select i1 %82, i64 %84, i64 undef
+  %.sroa.9.0.i26 = zext i1 %82 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !882)
-  store i64 %.sroa.9.0.i28, ptr %3, align 8, !alias.scope !885, !noalias !887
-  %.sroa.519.0..sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %.sroa.519.0..sroa_idx.i29, align 8, !alias.scope !885, !noalias !887
-  %.sroa.7.0..sroa_idx.i30 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %80, ptr %.sroa.7.0..sroa_idx.i30, align 8, !alias.scope !885, !noalias !887
-  %.sroa.8.0..sroa_idx.i31 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %.sroa.14.0.i27, ptr %.sroa.8.0..sroa_idx.i31, align 8, !alias.scope !885, !noalias !887
-  %.sroa.9.0..sroa_idx.i32 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %.sroa.9.0.i28, ptr %.sroa.9.0..sroa_idx.i32, align 8, !alias.scope !885, !noalias !887
-  %.sroa.11.0..sroa_idx.i33 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr null, ptr %.sroa.11.0..sroa_idx.i33, align 8, !alias.scope !885, !noalias !887
-  %.sroa.13.0..sroa_idx.i34 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr %80, ptr %.sroa.13.0..sroa_idx.i34, align 8, !alias.scope !885, !noalias !887
-  %.sroa.14.0..sroa_idx.i35 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i64 %.sroa.14.0.i27, ptr %.sroa.14.0..sroa_idx.i35, align 8, !alias.scope !885, !noalias !887
-  %.sroa.15.0..sroa_idx.i36 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store i64 %.sroa.15.0.i26, ptr %.sroa.15.0..sroa_idx.i36, align 8, !alias.scope !885, !noalias !887
-  %84 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  call void @"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17had5cf2b8a8dcc213E.llvm.4610660843453994419"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %84, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %78), !noalias !889
-  %85 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, i8 0, i64 24, i1 false), !alias.scope !890, !noalias !893
-  %86 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h68ae985cf8771d43E.llvm.4610660843453994419(ptr noalias noundef nonnull align 8 dereferenceable(168) %3), !noalias !876
-  %87 = xor i1 %86, true
+  store i64 %.sroa.9.0.i26, ptr %3, align 8, !alias.scope !885, !noalias !887
+  %.sroa.519.0..sroa_idx.i27 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %.sroa.519.0..sroa_idx.i27, align 8, !alias.scope !885, !noalias !887
+  %.sroa.7.0..sroa_idx.i28 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %81, ptr %.sroa.7.0..sroa_idx.i28, align 8, !alias.scope !885, !noalias !887
+  %.sroa.8.0..sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 %.sroa.14.0.i25, ptr %.sroa.8.0..sroa_idx.i29, align 8, !alias.scope !885, !noalias !887
+  %.sroa.9.0..sroa_idx.i30 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i64 %.sroa.9.0.i26, ptr %.sroa.9.0..sroa_idx.i30, align 8, !alias.scope !885, !noalias !887
+  %.sroa.11.0..sroa_idx.i31 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr null, ptr %.sroa.11.0..sroa_idx.i31, align 8, !alias.scope !885, !noalias !887
+  %.sroa.13.0..sroa_idx.i32 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store ptr %81, ptr %.sroa.13.0..sroa_idx.i32, align 8, !alias.scope !885, !noalias !887
+  %.sroa.14.0..sroa_idx.i33 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  store i64 %.sroa.14.0.i25, ptr %.sroa.14.0..sroa_idx.i33, align 8, !alias.scope !885, !noalias !887
+  %.sroa.15.0..sroa_idx.i34 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  store i64 %.sroa.15.0.i24, ptr %.sroa.15.0..sroa_idx.i34, align 8, !alias.scope !885, !noalias !887
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  call void @"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17had5cf2b8a8dcc213E.llvm.4610660843453994419"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %85, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %79), !noalias !889
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, i8 0, i64 24, i1 false), !alias.scope !890, !noalias !893
+  %87 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h68ae985cf8771d43E.llvm.4610660843453994419(ptr noalias noundef nonnull align 8 dereferenceable(168) %3), !noalias !876
+  %88 = xor i1 %87, true
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %3), !noalias !881
   br label %.thread
 
-.thread:                                          ; preds = %57, %42, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1467887f47adbbeaE.llvm.4610660843453994419.exit.i25", %72, %"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4ce614934e71ee6eE.exit", %34, %28, %13, %40, %30, %41, %14, %15, %29, %"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4aa7b9b1eef06b94E.exit"
-  %.sroa.0.0 = phi i1 [ false, %"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4aa7b9b1eef06b94E.exit" ], [ false, %40 ], [ false, %29 ], [ false, %15 ], [ false, %14 ], [ false, %41 ], [ false, %30 ], [ false, %13 ], [ false, %28 ], [ false, %34 ], [ false, %"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4ce614934e71ee6eE.exit" ], [ %87, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1467887f47adbbeaE.llvm.4610660843453994419.exit.i25" ], [ false, %72 ], [ false, %42 ], [ false, %57 ]
+.thread:                                          ; preds = %57, %42, %78, %72, %"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4ce614934e71ee6eE.exit", %34, %28, %13, %40, %30, %41, %14, %15, %29, %"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4aa7b9b1eef06b94E.exit"
+  %.sroa.0.0 = phi i1 [ false, %"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4aa7b9b1eef06b94E.exit" ], [ false, %40 ], [ false, %29 ], [ false, %15 ], [ false, %14 ], [ false, %41 ], [ false, %30 ], [ false, %13 ], [ false, %28 ], [ false, %34 ], [ false, %"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4ce614934e71ee6eE.exit" ], [ %88, %78 ], [ false, %72 ], [ false, %42 ], [ false, %57 ]
   ret i1 %.sroa.0.0
 }
 

@@ -1639,19 +1639,18 @@ define hidden void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIte
 define hidden noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9d88fc82a722b95cE.llvm.463579290301622060"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #8 {
   %3 = load i8, ptr %0, align 1, !range !283, !noundef !4
   %4 = load i8, ptr %1, align 1, !range !283, !noundef !4
-  %5 = icmp eq i8 %3, %4
-  br i1 %5, label %.sink.split, label %7
-
-.sink.split:                                      ; preds = %2
-  %6 = trunc nuw i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
+  %6 = icmp eq i8 %3, %4
   %trunc = trunc nuw i8 %3 to i1
-  %not.trunc = xor i1 %trunc, true
-  %spec.select = select i1 %not.trunc, i1 true, i1 %6
-  tail call void @llvm.assume(i1 %spec.select)
-  br label %7
+  %or.cond = select i1 %6, i1 %trunc, i1 false
+  br i1 %or.cond, label %8, label %7
 
-7:                                                ; preds = %.sink.split, %2
-  ret i1 %5
+7:                                                ; preds = %2, %8
+  ret i1 %6
+
+8:                                                ; preds = %2
+  tail call void @llvm.assume(i1 %5)
+  br label %7
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1662,25 +1661,25 @@ define hidden noundef zeroext i1 @"_ZN98_$LT$alloc..collections..btree..map..BTr
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
   %8 = icmp eq i64 %5, %7
-  br i1 %8, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9d88fc82a722b95cE.llvm.463579290301622060.exit", label %19
+  br i1 %8, label %9, label %20
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9d88fc82a722b95cE.llvm.463579290301622060.exit": ; preds = %2
+9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %3)
-  %9 = load ptr, ptr %0, align 8, !noundef !4
-  %.not = icmp ne ptr %9, null
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i64, ptr %10, align 8
+  %10 = load ptr, ptr %0, align 8, !noundef !4
+  %.not = icmp ne ptr %10, null
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load i64, ptr %11, align 8
   %.sroa.15.0 = select i1 %.not, i64 %5, i64 0
-  %.sroa.14.0 = select i1 %.not, i64 %11, i64 undef
+  %.sroa.14.0 = select i1 %.not, i64 %12, i64 undef
   %.sroa.9.0 = zext i1 %.not to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !284)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !287)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !289)
-  %12 = load ptr, ptr %1, align 8, !alias.scope !291, !noalias !294, !noundef !4
-  %.not.i.i = icmp ne ptr %12, null
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load i64, ptr %13, align 8, !alias.scope !289, !noalias !296
-  %.sroa.6.0.i = select i1 %.not.i.i, i64 %14, i64 undef
+  %13 = load ptr, ptr %1, align 8, !alias.scope !291, !noalias !294, !noundef !4
+  %.not.i.i = icmp ne ptr %13, null
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %15 = load i64, ptr %14, align 8, !alias.scope !289, !noalias !296
+  %.sroa.6.0.i = select i1 %.not.i.i, i64 %15, i64 undef
   %.sink21.i.i = zext i1 %.not.i.i to i64
   %.sink.i.i = select i1 %.not.i.i, i64 %5, i64 0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !297)
@@ -1689,7 +1688,7 @@ define hidden noundef zeroext i1 @"_ZN98_$LT$alloc..collections..btree..map..BTr
   %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %.sroa.520.0..sroa_idx, align 8, !alias.scope !302, !noalias !304
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %9, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !302, !noalias !304
+  store ptr %10, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !302, !noalias !304
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %.sroa.14.0, ptr %.sroa.8.0..sroa_idx, align 8, !alias.scope !302, !noalias !304
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -1697,17 +1696,17 @@ define hidden noundef zeroext i1 @"_ZN98_$LT$alloc..collections..btree..map..BTr
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr null, ptr %.sroa.11.0..sroa_idx, align 8, !alias.scope !302, !noalias !304
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr %9, ptr %.sroa.13.0..sroa_idx, align 8, !alias.scope !302, !noalias !304
+  store ptr %10, ptr %.sroa.13.0..sroa_idx, align 8, !alias.scope !302, !noalias !304
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %.sroa.14.0, ptr %.sroa.14.0..sroa_idx, align 8, !alias.scope !302, !noalias !304
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 %.sroa.15.0, ptr %.sroa.15.0..sroa_idx, align 8, !alias.scope !302, !noalias !304
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store i64 %.sink21.i.i, ptr %15, align 8, !alias.scope !305, !noalias !306
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store i64 %.sink21.i.i, ptr %16, align 8, !alias.scope !305, !noalias !306
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr null, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !305, !noalias !306
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store ptr %12, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !305, !noalias !306
+  store ptr %13, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !305, !noalias !306
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i64 %.sroa.6.0.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !305, !noalias !306
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -1715,20 +1714,20 @@ define hidden noundef zeroext i1 @"_ZN98_$LT$alloc..collections..btree..map..BTr
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 112
   store ptr null, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !305, !noalias !306
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 120
-  store ptr %12, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !305, !noalias !306
+  store ptr %13, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !305, !noalias !306
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 128
   store i64 %.sroa.6.0.i, ptr %.sroa.10.0..sroa_idx.i, align 8, !alias.scope !305, !noalias !306
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i64 %.sink.i.i, ptr %.sroa.11.0..sroa_idx.i, align 8, !alias.scope !305, !noalias !306
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false), !alias.scope !307, !noalias !308
-  %17 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7e032446d5c38ae2E.llvm.463579290301622060(ptr noalias noundef nonnull align 8 dereferenceable(168) %3)
-  %18 = xor i1 %17, true
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false), !alias.scope !307, !noalias !308
+  %18 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7e032446d5c38ae2E.llvm.463579290301622060(ptr noalias noundef nonnull align 8 dereferenceable(168) %3)
+  %19 = xor i1 %18, true
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %3)
-  br label %19
+  br label %20
 
-19:                                               ; preds = %2, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9d88fc82a722b95cE.llvm.463579290301622060.exit"
-  %.0 = phi i1 [ %18, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9d88fc82a722b95cE.llvm.463579290301622060.exit" ], [ false, %2 ]
+20:                                               ; preds = %2, %9
+  %.0 = phi i1 [ %19, %9 ], [ false, %2 ]
   ret i1 %.0
 }
 

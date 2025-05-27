@@ -11995,8 +11995,8 @@ common.ret:                                       ; preds = %61, %"_ZN4core3ptr6
 
 "_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h1dfaff7977131494E.exit.thread": ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h1dfaff7977131494E.exit"
   %.pre = load i8, ptr %37, align 8, !range !333, !alias.scope !3689
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !3689)
   %51 = icmp eq i8 %.pre, 0
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !3689)
   br i1 %51, label %"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17h6ea1dfbedd8c3e41E.exit", label %52
 
 52:                                               ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h1dfaff7977131494E.exit.thread"

@@ -5550,11 +5550,11 @@ common.resume:                                    ; preds = %75, %.body.i, %35
   store i32 %.0.sroa.speculated.i.i, ptr %88, align 8, !alias.scope !811, !noalias !808
   %91 = load i32, ptr %8, align 8, !range !35, !alias.scope !811, !noalias !808, !noundef !7
   %92 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %trunc17.i = trunc nuw i32 %91 to i1
   %93 = load i32, ptr %92, align 4, !alias.scope !811, !noalias !808
   %94 = icmp ne i32 %93, 0
-  %not.trunc17.i = xor i1 %trunc17.i, true
-  %narrow.i = select i1 %not.trunc17.i, i1 true, i1 %94
+  %trunc18.i = trunc nuw i32 %91 to i1
+  %switch24.i = xor i1 %trunc18.i, true
+  %narrow.i = select i1 %switch24.i, i1 true, i1 %94
   %spec.select26.i = zext i1 %narrow.i to i32
   store i32 1, ptr %8, align 8, !alias.scope !811, !noalias !808
   store i32 %spec.select26.i, ptr %92, align 4, !alias.scope !811, !noalias !808

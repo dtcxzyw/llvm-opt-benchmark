@@ -84700,7 +84700,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h118619f
   %narrow.i.i.i.i.i = and i1 %285, %.not126.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33), !noalias !22404
   %trunc.i.i52.i.i.i = trunc nuw i64 %275 to i1
-  %narrow233.i.i.i.i.i = or i1 %narrow.i.i.i.i.i, %trunc.i.i52.i.i.i
+  %narrow233.i.i.i.i.i = or i1 %285, %trunc.i.i52.i.i.i
   br i1 %narrow233.i.i.i.i.i, label %334, label %.thread203.i.i.i.i.i
 
 286:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$3map17h7e11cbca6d603df8E.exit.i.i.i"

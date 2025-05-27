@@ -4693,15 +4693,15 @@ define hidden void @_ZN4core9core_arch4simd5i8x165splat17hcd45f5c0ef7060adE.llvm
 define hidden void @"_ZN4gpui8executor13Task$LT$T$GT$6detach17hea4738d989c47e19E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !355, !noundef !16
   %trunc = trunc nuw i8 %2 to i1
-  br i1 %trunc, label %thread-pre-split, label %"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17ha921f4638648779aE.llvm.7219230611176236013.exit"
+  br i1 %trunc, label %3, label %"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17ha921f4638648779aE.llvm.7219230611176236013.exit"
 
-thread-pre-split:                                 ; preds = %1
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !16, !noundef !16
-  tail call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$6detach17h002f286158a6087aE.llvm.7219230611176236013"(ptr noundef nonnull %4)
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !nonnull !16, !noundef !16
+  tail call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$6detach17h002f286158a6087aE.llvm.7219230611176236013"(ptr noundef nonnull %5)
   br label %"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17ha921f4638648779aE.llvm.7219230611176236013.exit"
 
-"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17ha921f4638648779aE.llvm.7219230611176236013.exit": ; preds = %1, %thread-pre-split
+"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17ha921f4638648779aE.llvm.7219230611176236013.exit": ; preds = %3, %1
   ret void
 }
 

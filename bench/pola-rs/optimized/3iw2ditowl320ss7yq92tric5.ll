@@ -25902,8 +25902,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.8.24..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.974.24..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sroa.1075.24..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sroa.973.24..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sroa.1074.24..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   br label %37
 
 37:                                               ; preds = %82, %.lr.ph.i.i.i.i
@@ -25929,22 +25929,22 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
           to label %66 unwind label %60, !noalias !4622
 
 ._crit_edge.i.i.i.i:                              ; preds = %82, %20
-  %.lcssa42.i.i.i.i = phi i64 [ %28, %20 ], [ %83, %82 ]
+  %.lcssa41.i.i.i.i = phi i64 [ %28, %20 ], [ %83, %82 ]
   %.lcssa.i.i.i.i = phi i64 [ %29, %20 ], [ %84, %82 ]
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %47 = load i64, ptr %46, align 8, !alias.scope !4606, !noalias !4607, !noundef !10
-  %48 = icmp ult i64 %.lcssa42.i.i.i.i, %47
+  %48 = icmp ult i64 %.lcssa41.i.i.i.i, %47
   br i1 %48, label %49, label %91
 
 49:                                               ; preds = %._crit_edge.i.i.i.i
-  %50 = add nuw i64 %.lcssa42.i.i.i.i, 1
+  %50 = add nuw i64 %.lcssa41.i.i.i.i, 1
   store i64 %50, ptr %26, align 8, !alias.scope !4606, !noalias !4607
   %51 = add i64 %.lcssa.i.i.i.i, 1
   store i64 %51, ptr %27, align 8, !alias.scope !4606, !noalias !4607
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !4610
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i5.i.i.i.i.i.i = load i64, ptr %52, align 8, !alias.scope !4623, !noalias !4607, !noundef !10
-  %53 = add nuw i64 %.val.i5.i.i.i.i.i.i, %.lcssa42.i.i.i.i
+  %53 = add nuw i64 %.val.i5.i.i.i.i.i.i, %.lcssa41.i.i.i.i
   %54 = invoke { ptr, ptr } @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$F$GT$8call_mut17hb81e73a1666b367fE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %53)
           to label %.noexc2.i.i.i.i unwind label %.body.thread24.loopexit.split-lp.i.i.i.i, !noalias !4616
 
@@ -26005,8 +26005,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !4631
   store ptr %42, ptr %9, align 8, !noalias !4637
   store ptr %43, ptr %.sroa.8.24..sroa_idx.i.i.i.i, align 8, !noalias !4637
-  store ptr %67, ptr %.sroa.974.24..sroa_idx.i.i.i.i, align 8, !noalias !4637
-  store ptr %68, ptr %.sroa.1075.24..sroa_idx.i.i.i.i, align 8, !noalias !4637
+  store ptr %67, ptr %.sroa.973.24..sroa_idx.i.i.i.i, align 8, !noalias !4637
+  store ptr %68, ptr %.sroa.1074.24..sroa_idx.i.i.i.i, align 8, !noalias !4637
   invoke void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$F$GT$8call_mut17h5279251f33cf390cE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %10, ptr noalias noundef nonnull align 8 dereferenceable(8) %69, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %9)
           to label %70 unwind label %78, !noalias !4638
 

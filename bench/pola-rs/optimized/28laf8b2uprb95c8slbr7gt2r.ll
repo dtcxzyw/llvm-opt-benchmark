@@ -75734,12 +75734,12 @@ common.resume:                                    ; preds = %45, %22
           to label %"_ZN4core3ptr79drop_in_place$LT$core..result..Result$LT$u64$C$serde_json..error..Error$GT$$GT$17h1d4822b8c2921718E.exit" unwind label %45
 
 "_ZN4core3ptr79drop_in_place$LT$core..result..Result$LT$u64$C$serde_json..error..Error$GT$$GT$17h1d4822b8c2921718E.exit": ; preds = %54, %53
-  %.sroa.05.015 = phi i64 [ %52, %53 ], [ 0, %54 ]
+  %.sroa.05.014 = phi i64 [ %52, %53 ], [ 0, %54 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   store i64 %31, ptr %32, align 8
   store i32 %18, ptr %35, align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %.sroa.05.015, ptr %58, align 8
+  store i64 %.sroa.05.014, ptr %58, align 8
   %59 = load i32, ptr %10, align 8, !range !6382, !alias.scope !7629, !noundef !6
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %62

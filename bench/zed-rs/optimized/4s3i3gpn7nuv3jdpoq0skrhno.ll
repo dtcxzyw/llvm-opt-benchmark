@@ -22376,8 +22376,8 @@ define hidden void @"_ZN9async_tar5entry20EntryFields$LT$R$GT$10path_bytes17h32e
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !5981
   call void @"_ZN88_$LT$async_tar..pax..PaxExtensions$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2588b646724db8c5E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %5), !noalias !5985
   %31 = load i64, ptr %4, align 8, !range !9, !noalias !5981, !noundef !4
-  %trunc23.i = trunc nuw i64 %31 to i1
-  br i1 %trunc23.i, label %.lr.ph.i, label %.loopexit
+  %trunc21.i = trunc nuw i64 %31 to i1
+  br i1 %trunc21.i, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8

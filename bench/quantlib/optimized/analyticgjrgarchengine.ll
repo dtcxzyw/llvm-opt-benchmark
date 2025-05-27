@@ -2021,20 +2021,19 @@ lpad265:                                          ; preds = %cond.false.i923
   br label %ehcleanup1307
 
 if.end536:                                        ; preds = %invoke.cont242, %if.then257
-  %or.cond = and i1 %or.cond648.not, %loadedv
   %b0_ = getelementptr inbounds nuw i8, ptr %this, i64 368
   %203 = load double, ptr %b0_, align 8
   %cmp542 = fcmp oeq double %100, %203
-  %or.cond649.not = select i1 %or.cond, i1 %cmp542, i1 false
+  %or.cond649.not = select i1 %or.cond648.not, i1 %cmp542, i1 false
   %h1_ = getelementptr inbounds nuw i8, ptr %this, i64 360
   %204 = load double, ptr %h1_, align 8
   %cmp544 = fcmp oeq double %99, %204
-  %or.cond650.not1189 = select i1 %or.cond649.not, i1 %cmp544, i1 false
+  %or.cond650.not1188 = select i1 %or.cond649.not, i1 %cmp544, i1 false
   %T_ = getelementptr inbounds nuw i8, ptr %this, i64 416
   %205 = load i64, ptr %T_, align 8
   %cmp546.not = icmp eq i64 %call200, %205
-  %or.cond1188 = select i1 %or.cond650.not1189, i1 %cmp546.not, i1 false
-  br i1 %or.cond1188, label %if.else1087, label %if.then547
+  %or.cond = select i1 %or.cond650.not1188, i1 %cmp546.not, i1 false
+  br i1 %or.cond, label %if.else1087, label %if.then547
 
 if.then547:                                       ; preds = %if.end536
   %m1_548 = getelementptr inbounds nuw i8, ptr %this, i64 424

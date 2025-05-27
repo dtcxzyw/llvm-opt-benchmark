@@ -76269,12 +76269,11 @@ define { i64, i64 } @_ZN14polars_parquet7parquet5write9row_group21ColumnOffsetsM
   %5 = trunc nuw i64 %2 to i1
   %6 = icmp sgt i64 %4, 0
   %narrow.i = select i1 %5, i1 %6, i1 false
-  %.sroa.4.0.i = select i1 %5, i64 %4, i64 undef
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !range !940, !noundef !12
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8
-  %spec.select = select i1 %narrow.i, i64 %.sroa.4.0.i, i64 %10
+  %spec.select = select i1 %narrow.i, i64 %4, i64 %10
   %spec.select1 = select i1 %narrow.i, i64 1, i64 %8
   %11 = insertvalue { i64, i64 } poison, i64 %spec.select1, 0
   %12 = insertvalue { i64, i64 } %11, i64 %spec.select, 1

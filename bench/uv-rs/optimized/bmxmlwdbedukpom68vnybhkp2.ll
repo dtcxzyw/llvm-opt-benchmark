@@ -1311,7 +1311,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17h1
   %4 = load ptr, ptr %3, align 8, !alias.scope !378, !noalias !381, !nonnull !61, !noundef !61
   %.promoted.i.i.i = load ptr, ptr %0, align 8, !alias.scope !378, !noalias !381
   %.not.i.i.i = icmp eq ptr %.promoted.i.i.i, %4
-  br i1 %.not.i.i.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit", label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h40ad43f6fc51fc11E.llvm.11232471732095940569.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1346,7 +1346,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17h1
   %22 = icmp eq i32 %20, 0
   %spec.store.select.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %22, i64 %19, i64 %21
   %switch.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %spec.store.select.i.i.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit.sink.split", label %23
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd61ac2b3481a032aE.exit.sink.split.i.i.i", label %23
 
 23:                                               ; preds = %14
   store ptr %16, ptr %1, align 8, !alias.scope !383, !noalias !402
@@ -1357,16 +1357,16 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17h1
   %.val3.i.i.i.i.i2.i.i = phi i64 [ %18, %23 ], [ %.val3.i.i.i.i.i3.i.i, %6 ]
   %24 = phi ptr [ %16, %23 ], [ %7, %6 ]
   %.not18.i.i.i = icmp eq ptr %9, %4
-  br i1 %.not18.i.i.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit.sink.split", label %6
+  br i1 %.not18.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd61ac2b3481a032aE.exit.sink.split.i.i.i", label %6
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit.sink.split": ; preds = %14, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d11f8e1b6eeb242E.exit.i.i.i"
-  %.ph = phi i1 [ true, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d11f8e1b6eeb242E.exit.i.i.i" ], [ false, %14 ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd61ac2b3481a032aE.exit.sink.split.i.i.i": ; preds = %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d11f8e1b6eeb242E.exit.i.i.i", %14
+  %25 = phi i1 [ true, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d11f8e1b6eeb242E.exit.i.i.i" ], [ false, %14 ]
   store ptr %9, ptr %0, align 8, !alias.scope !378, !noalias !381
-  br label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit"
+  br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h40ad43f6fc51fc11E.llvm.11232471732095940569.exit"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit": ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit.sink.split", %2
-  %25 = phi i1 [ true, %2 ], [ %.ph, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit.sink.split" ]
-  ret i1 %25
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h40ad43f6fc51fc11E.llvm.11232471732095940569.exit": ; preds = %2, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd61ac2b3481a032aE.exit.sink.split.i.i.i"
+  %.lcssa.i.i.i = phi i1 [ true, %2 ], [ %25, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd61ac2b3481a032aE.exit.sink.split.i.i.i" ]
+  ret i1 %.lcssa.i.i.i
 }
 
 ; Function Attrs: inlinehint nofree norecurse nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
@@ -11020,19 +11020,18 @@ define hidden void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ite
 define hidden noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #21 {
   %3 = load i8, ptr %0, align 1, !range !1345, !noundef !61
   %4 = load i8, ptr %1, align 1, !range !1345, !noundef !61
-  %5 = icmp eq i8 %3, %4
-  br i1 %5, label %.sink.split, label %7
-
-.sink.split:                                      ; preds = %2
-  %6 = trunc nuw i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
+  %6 = icmp eq i8 %3, %4
   %trunc = trunc nuw i8 %3 to i1
-  %not.trunc = xor i1 %trunc, true
-  %spec.select = select i1 %not.trunc, i1 true, i1 %6
-  tail call void @llvm.assume(i1 %spec.select)
-  br label %7
+  %or.cond = select i1 %6, i1 %trunc, i1 false
+  br i1 %or.cond, label %8, label %7
 
-7:                                                ; preds = %.sink.split, %2
-  ret i1 %5
+7:                                                ; preds = %2, %8
+  ret i1 %6
+
+8:                                                ; preds = %2
+  tail call void @llvm.assume(i1 %5)
+  br label %7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -15801,7 +15800,7 @@ define hidden noundef zeroext i1 @_ZN12uv_workspace13pyproject_mut14add_dependen
   call void @"_ZN107_$LT$itertools..tuple_impl..TupleWindows$LT$I$C$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d9583d95b96d7e2E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %4)
   %7 = load ptr, ptr %3, align 8, !noalias !3189, !noundef !61
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %.sink.split.i, label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -15822,21 +15821,21 @@ define hidden noundef zeroext i1 @_ZN12uv_workspace13pyproject_mut14add_dependen
   %spec.store.select.i.i.i.i.i.i.i = select i1 %13, i64 %10, i64 %12
   %switch.i.i.i.i.i = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !3189
-  br i1 %switch.i.i.i.i.i, label %14, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit"
+  br i1 %switch.i.i.i.i.i, label %14, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd796b11b17421a4aE.llvm.11232471732095940569.exit
 
 14:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !3189
   call void @"_ZN107_$LT$itertools..tuple_impl..TupleWindows$LT$I$C$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d9583d95b96d7e2E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %4)
   %15 = load ptr, ptr %3, align 8, !noalias !3189, !noundef !61
   %.not7.i = icmp eq ptr %15, null
-  br i1 %.not7.i, label %.sink.split.i, label %8
+  br i1 %.not7.i, label %._crit_edge.i, label %8
 
-.sink.split.i:                                    ; preds = %14, %2
+._crit_edge.i:                                    ; preds = %14, %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !3189
-  br label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit"
+  br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd796b11b17421a4aE.llvm.11232471732095940569.exit
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit": ; preds = %8, %.sink.split.i
-  %16 = phi i1 [ true, %.sink.split.i ], [ false, %8 ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17hd796b11b17421a4aE.llvm.11232471732095940569.exit: ; preds = %8, %._crit_edge.i
+  %16 = phi i1 [ true, %._crit_edge.i ], [ false, %8 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   ret i1 %16
 }
@@ -15874,7 +15873,7 @@ define hidden noundef zeroext i1 @_ZN12uv_workspace13pyproject_mut14add_dependen
 .noexc:                                           ; preds = %1
   %9 = load ptr, ptr %3, align 8, !noalias !3218, !noundef !61
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %.sink.split.i, label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -15895,19 +15894,23 @@ define hidden noundef zeroext i1 @_ZN12uv_workspace13pyproject_mut14add_dependen
   %spec.store.select.i.i.i.i.i.i.i = select i1 %15, i64 %12, i64 %14
   %switch.i.i.i.i.i = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !3218
-  br i1 %switch.i.i.i.i.i, label %16, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit"
+  br i1 %switch.i.i.i.i.i, label %16, label %.loopexit
 
 16:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !3218
   invoke void @"_ZN107_$LT$itertools..tuple_impl..TupleWindows$LT$I$C$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h612d8585324b7947E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
-          to label %.noexc1 unwind label %.loopexit
+          to label %.noexc1 unwind label %.loopexit3
 
 .noexc1:                                          ; preds = %16
   %17 = load ptr, ptr %3, align 8, !noalias !3218, !noundef !61
   %.not7.i = icmp eq ptr %17, null
-  br i1 %.not7.i, label %.sink.split.i, label %10
+  br i1 %.not7.i, label %._crit_edge.i, label %10
 
-.loopexit:                                        ; preds = %16
+._crit_edge.i:                                    ; preds = %.noexc1, %.noexc
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !3218
+  br label %.loopexit
+
+.loopexit3:                                       ; preds = %16
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %18
@@ -15917,23 +15920,19 @@ define hidden noundef zeroext i1 @_ZN12uv_workspace13pyproject_mut14add_dependen
           cleanup
   br label %18
 
-18:                                               ; preds = %.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+18:                                               ; preds = %.loopexit.split-lp, %.loopexit3
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit3 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr138drop_in_place$LT$itertools..tuple_impl..TupleWindows$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$C$$LP$$RF$str$C$$RF$str$RP$$GT$$GT$17h26d14ff30f21c229E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %4) #37
           to label %common.resume unwind label %25
 
-.sink.split.i:                                    ; preds = %.noexc1, %.noexc
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !3218
-  br label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit"
-
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit": ; preds = %10, %.sink.split.i
-  %19 = phi i1 [ true, %.sink.split.i ], [ false, %10 ]
+.loopexit:                                        ; preds = %10, %._crit_edge.i
+  %19 = phi i1 [ true, %._crit_edge.i ], [ false, %10 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !3236
   store ptr %4, ptr %2, align 8, !noalias !3236
   %20 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hf64d8699ab50f33bE.llvm.8717112297715684712(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4)
           to label %"_ZN4core3ptr138drop_in_place$LT$itertools..tuple_impl..TupleWindows$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$C$$LP$$RF$str$C$$RF$str$RP$$GT$$GT$17h26d14ff30f21c229E.exit" unwind label %21
 
-21:                                               ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit"
+21:                                               ; preds = %.loopexit
   %22 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3cf29798e3b05aaE.llvm.8717112297715684712"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
@@ -15949,7 +15948,7 @@ common.resume:                                    ; preds = %18, %21
   %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %lpad.phi, %18 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr138drop_in_place$LT$itertools..tuple_impl..TupleWindows$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$C$$LP$$RF$str$C$$RF$str$RP$$GT$$GT$17h26d14ff30f21c229E.exit": ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit"
+"_ZN4core3ptr138drop_in_place$LT$itertools..tuple_impl..TupleWindows$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$C$$LP$$RF$str$C$$RF$str$RP$$GT$$GT$17h26d14ff30f21c229E.exit": ; preds = %.loopexit
   call void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3cf29798e3b05aaE.llvm.8717112297715684712"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !3236
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
@@ -15976,7 +15975,7 @@ define hidden noundef zeroext i1 @_ZN12uv_workspace13pyproject_mut14add_dependen
   call void @"_ZN107_$LT$itertools..tuple_impl..TupleWindows$LT$I$C$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he402708c69f468f3E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull align 8 dereferenceable(80) %4)
   %7 = load ptr, ptr %3, align 8, !noalias !3246, !noundef !61
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit", label %.lr.ph.i
+  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17he0139ceac94e14f7E.llvm.11232471732095940569.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -16004,7 +16003,7 @@ define hidden noundef zeroext i1 @_ZN12uv_workspace13pyproject_mut14add_dependen
 
 14:                                               ; preds = %8
   %15 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i, 0
-  br i1 %15, label %20, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit"
+  br i1 %15, label %20, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17he0139ceac94e14f7E.llvm.11232471732095940569.exit
 
 "_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h50afa374cb789460E.exit.i": ; preds = %8
   %.sroa.89.0.copyload.i = load i64, ptr %.sroa.89.0..sroa_idx.i, align 8, !noalias !3246
@@ -16018,7 +16017,7 @@ define hidden noundef zeroext i1 @_ZN12uv_workspace13pyproject_mut14add_dependen
   %19 = icmp eq i32 %17, 0
   %spec.store.select.i.i.i.i.i.i.i.i = select i1 %19, i64 %16, i64 %18
   %switch.i.i.i.i.i.i = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 1
-  br i1 %switch.i.i.i.i.i.i, label %20, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit"
+  br i1 %switch.i.i.i.i.i.i, label %20, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17he0139ceac94e14f7E.llvm.11232471732095940569.exit
 
 20:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h50afa374cb789460E.exit.i", %14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !3246
@@ -16026,10 +16025,10 @@ define hidden noundef zeroext i1 @_ZN12uv_workspace13pyproject_mut14add_dependen
   call void @"_ZN107_$LT$itertools..tuple_impl..TupleWindows$LT$I$C$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he402708c69f468f3E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull align 8 dereferenceable(80) %4)
   %21 = load ptr, ptr %3, align 8, !noalias !3246, !noundef !61
   %.not12.i = icmp eq ptr %21, null
-  br i1 %.not12.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit", label %8
+  br i1 %.not12.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17he0139ceac94e14f7E.llvm.11232471732095940569.exit, label %8
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit": ; preds = %20, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h50afa374cb789460E.exit.i", %14, %2
-  %22 = phi i1 [ true, %2 ], [ false, %14 ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h50afa374cb789460E.exit.i" ], [ true, %20 ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17he0139ceac94e14f7E.llvm.11232471732095940569.exit: ; preds = %14, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h50afa374cb789460E.exit.i", %20, %2
+  %22 = phi i1 [ true, %2 ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h50afa374cb789460E.exit.i" ], [ false, %14 ], [ true, %20 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !3246
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
   ret i1 %22
@@ -16049,7 +16048,7 @@ define hidden noundef zeroext i1 @_ZN12uv_workspace13pyproject_mut14add_dependen
   call void @"_ZN107_$LT$itertools..tuple_impl..TupleWindows$LT$I$C$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9bcd45e29356793fE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull align 8 dereferenceable(80) %4)
   %7 = load ptr, ptr %3, align 8, !noalias !3277, !noundef !61
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit", label %.lr.ph.i
+  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17he9911116777a9c82E.llvm.11232471732095940569.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -16077,7 +16076,7 @@ define hidden noundef zeroext i1 @_ZN12uv_workspace13pyproject_mut14add_dependen
 
 14:                                               ; preds = %8
   %15 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i, 0
-  br i1 %15, label %20, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit"
+  br i1 %15, label %20, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17he9911116777a9c82E.llvm.11232471732095940569.exit
 
 "_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17he427e049acf34dceE.exit.i": ; preds = %8
   %.sroa.89.0.copyload.i = load i64, ptr %.sroa.89.0..sroa_idx.i, align 8, !noalias !3277
@@ -16091,7 +16090,7 @@ define hidden noundef zeroext i1 @_ZN12uv_workspace13pyproject_mut14add_dependen
   %19 = icmp eq i32 %17, 0
   %spec.store.select.i.i.i.i.i.i.i.i = select i1 %19, i64 %16, i64 %18
   %switch.i.i.i.i.i.i = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 1
-  br i1 %switch.i.i.i.i.i.i, label %20, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit"
+  br i1 %switch.i.i.i.i.i.i, label %20, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17he9911116777a9c82E.llvm.11232471732095940569.exit
 
 20:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17he427e049acf34dceE.exit.i", %14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !3277
@@ -16099,10 +16098,10 @@ define hidden noundef zeroext i1 @_ZN12uv_workspace13pyproject_mut14add_dependen
   call void @"_ZN107_$LT$itertools..tuple_impl..TupleWindows$LT$I$C$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9bcd45e29356793fE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull align 8 dereferenceable(80) %4)
   %21 = load ptr, ptr %3, align 8, !noalias !3277, !noundef !61
   %.not12.i = icmp eq ptr %21, null
-  br i1 %.not12.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit", label %8
+  br i1 %.not12.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17he9911116777a9c82E.llvm.11232471732095940569.exit, label %8
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he44f1bc5a3ca563bE.llvm.11232471732095940569.exit": ; preds = %20, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17he427e049acf34dceE.exit.i", %14, %2
-  %22 = phi i1 [ true, %2 ], [ false, %14 ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17he427e049acf34dceE.exit.i" ], [ true, %20 ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17he9911116777a9c82E.llvm.11232471732095940569.exit: ; preds = %14, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17he427e049acf34dceE.exit.i", %20, %2
+  %22 = phi i1 [ true, %2 ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17he427e049acf34dceE.exit.i" ], [ false, %14 ], [ true, %20 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !3277
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
   ret i1 %22

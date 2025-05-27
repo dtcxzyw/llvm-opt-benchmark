@@ -492,8 +492,8 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @_ZN4llvm3pdb19readSparseBitVectorERNS_18BinaryStreamReaderERNS_15SparseBitVectorILj128EEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(32) %33) #19
   %34 = load ptr, ptr %0, align 8, !tbaa !25
-  %.not75 = icmp eq ptr %34, null
-  br i1 %.not75, label %_ZN4llvm5ErrorD2Ev.exit47, label %.critedge
+  %.not76 = icmp eq ptr %34, null
+  br i1 %.not76, label %_ZN4llvm5ErrorD2Ev.exit47, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit47:                        ; preds = %31
   %.sroa.02.05.i = load ptr, ptr %33, align 8, !tbaa !18
@@ -550,8 +550,8 @@ _ZNK4llvm15SparseBitVectorILj128EE5countEv.exit:  ; preds = %_ZNK4llvm22SparseBi
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @_ZN4llvm3pdb19readSparseBitVectorERNS_18BinaryStreamReaderERNS_15SparseBitVectorILj128EEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(32) %50) #19
   %51 = load ptr, ptr %0, align 8, !tbaa !25
-  %.not76 = icmp eq ptr %51, null
-  br i1 %.not76, label %_ZN4llvm5ErrorD2Ev.exit50, label %.critedge
+  %.not77 = icmp eq ptr %51, null
+  br i1 %.not77, label %_ZN4llvm5ErrorD2Ev.exit50, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit50:                        ; preds = %49
   %52 = call noundef zeroext i1 @_ZNK4llvm15SparseBitVectorILj128EE10intersectsERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %50)
@@ -3737,7 +3737,7 @@ _ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLN
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i8 0, ptr %6, align 8, !tbaa !95, !alias.scope !235
-  br i1 %.not6.i.i, label %._crit_edge, label %51
+  br i1 %.not6.i.i, label %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit, label %51
 
 51:                                               ; preds = %_ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLNS1_10endiannessE1ELm1ELm1EEEESaIS7_EE6resizeEm.exit
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i.i, i64 16
@@ -3770,7 +3770,7 @@ _ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLN
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %138
 
-._crit_edge.loopexit:                             ; preds = %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit
+_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.loopexit: ; preds = %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit
   %.pre = load ptr, ptr %0, align 8, !tbaa !102
   %.pre29 = load ptr, ptr %18, align 8, !tbaa !122
   %.pre30 = load ptr, ptr %5, align 8, !tbaa !102
@@ -3778,15 +3778,15 @@ _ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLN
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.pre32 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !204
   %.pre33 = load ptr, ptr %8, align 8, !tbaa !18
-  br label %._crit_edge
+  br label %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit
 
-._crit_edge:                                      ; preds = %_ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLNS1_10endiannessE1ELm1ELm1EEEESaIS7_EE6resizeEm.exit, %._crit_edge.loopexit
-  %68 = phi ptr [ %.pre33, %._crit_edge.loopexit ], [ %.sroa.02.05.i.i, %_ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLNS1_10endiannessE1ELm1ELm1EEEESaIS7_EE6resizeEm.exit ]
-  %69 = phi ptr [ %.pre32, %._crit_edge.loopexit ], [ %45, %_ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLNS1_10endiannessE1ELm1ELm1EEEESaIS7_EE6resizeEm.exit ]
-  %70 = phi ptr [ %.pre31, %._crit_edge.loopexit ], [ %45, %_ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLNS1_10endiannessE1ELm1ELm1EEEESaIS7_EE6resizeEm.exit ]
-  %71 = phi ptr [ %.pre30, %._crit_edge.loopexit ], [ %44, %_ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLNS1_10endiannessE1ELm1ELm1EEEESaIS7_EE6resizeEm.exit ]
-  %72 = phi ptr [ %.pre29, %._crit_edge.loopexit ], [ %19, %_ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLNS1_10endiannessE1ELm1ELm1EEEESaIS7_EE6resizeEm.exit ]
-  %73 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %20, %_ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLNS1_10endiannessE1ELm1ELm1EEEESaIS7_EE6resizeEm.exit ]
+_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit: ; preds = %_ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLNS1_10endiannessE1ELm1ELm1EEEESaIS7_EE6resizeEm.exit, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.loopexit
+  %68 = phi ptr [ %.pre33, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.loopexit ], [ %.sroa.02.05.i.i, %_ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLNS1_10endiannessE1ELm1ELm1EEEESaIS7_EE6resizeEm.exit ]
+  %69 = phi ptr [ %.pre32, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.loopexit ], [ %45, %_ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLNS1_10endiannessE1ELm1ELm1EEEESaIS7_EE6resizeEm.exit ]
+  %70 = phi ptr [ %.pre31, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.loopexit ], [ %45, %_ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLNS1_10endiannessE1ELm1ELm1EEEESaIS7_EE6resizeEm.exit ]
+  %71 = phi ptr [ %.pre30, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.loopexit ], [ %44, %_ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLNS1_10endiannessE1ELm1ELm1EEEESaIS7_EE6resizeEm.exit ]
+  %72 = phi ptr [ %.pre29, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.loopexit ], [ %19, %_ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLNS1_10endiannessE1ELm1ELm1EEEESaIS7_EE6resizeEm.exit ]
+  %73 = phi ptr [ %.pre, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.loopexit ], [ %20, %_ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLNS1_10endiannessE1ELm1ELm1EEEESaIS7_EE6resizeEm.exit ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #19
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %75 = load ptr, ptr %74, align 8, !tbaa !204
@@ -3810,12 +3810,12 @@ _ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLN
   %83 = icmp eq ptr %68, %8
   br i1 %83, label %84, label %85
 
-84:                                               ; preds = %._crit_edge
+84:                                               ; preds = %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit
   store ptr %4, ptr %77, align 8, !tbaa !15
   store ptr %4, ptr %4, align 8, !tbaa !18
   br label %_ZNSt7__cxx114listIN4llvm22SparseBitVectorElementILj128EEESaIS3_EE5clearEv.exit.i.i.i.i
 
-85:                                               ; preds = %._crit_edge
+85:                                               ; preds = %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit
   store ptr %4, ptr %79, align 8, !tbaa !18
   %86 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr %4, ptr %86, align 8, !tbaa !15
@@ -4026,7 +4026,7 @@ _ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit: ; preds = %13
   call void @_ZN4llvm15SparseBitVectorILj128EE23SparseBitVectorIterator20AdvanceToNextNonZeroEv(ptr noundef nonnull align 8 dereferenceable(40) %6)
   %159 = load i8, ptr %6, align 8, !tbaa !95, !range !112, !noundef !113
   %160 = trunc nuw i8 %159 to i1
-  br i1 %160, label %._crit_edge.loopexit, label %138
+  br i1 %160, label %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.loopexit, label %138
 
 161:                                              ; preds = %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE4sizeEv.exit, %_ZN4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEED2Ev.exit
   ret void

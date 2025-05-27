@@ -10066,31 +10066,31 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa14tracked_struct23Ingredien
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = call noundef i64 @_ZN5salsa8revision22OptionalAtomicRevision4load17h422cf9a8d88b5beaE(ptr noundef nonnull align 8 %170), !noalias !228
   %.not.i.i134 = icmp eq i64 %171, 0
-  br i1 %.not.i.i134, label %172, label %177, !prof !33
+  br i1 %.not.i.i134, label %173, label %172, !prof !33
 
 172:                                              ; preds = %165
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !228
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !228
-  store ptr %10, ptr %8, align 8, !noalias !228
-  %.sroa.411.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.411.0..sroa_idx.i.i, align 8, !noalias !228
-  store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.139, ptr %9, align 8, !noalias !228
-  %173 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 2, ptr %173, align 8, !noalias !228
-  %174 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr null, ptr %174, align 8, !noalias !228
-  %175 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %8, ptr %175, align 8, !noalias !228
-  %176 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 1, ptr %176, align 8, !noalias !228
-  call void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bd069b0397abcbf5d72b25326b9d08c3.140) #29, !noalias !224
-  unreachable
-
-177:                                              ; preds = %165
   %.not.i135 = icmp eq i64 %171, %58
   br i1 %.not.i135, label %"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update17hc7e16c9e1df2c212E.exit", label %178
 
-178:                                              ; preds = %177
+173:                                              ; preds = %165
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !228
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !228
+  store ptr %10, ptr %8, align 8, !noalias !228
+  %.sroa.49.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.49.0..sroa_idx.i.i, align 8, !noalias !228
+  store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.139, ptr %9, align 8, !noalias !228
+  %174 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 2, ptr %174, align 8, !noalias !228
+  %175 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store ptr null, ptr %175, align 8, !noalias !228
+  %176 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %8, ptr %176, align 8, !noalias !228
+  %177 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i64 1, ptr %177, align 8, !noalias !228
+  call void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bd069b0397abcbf5d72b25326b9d08c3.140) #29, !noalias !224
+  unreachable
+
+178:                                              ; preds = %172
   %179 = call noundef i64 @_ZN5salsa8revision22OptionalAtomicRevision4swap17hdfd9cb4e44109247E(ptr noundef nonnull align 8 %170, i64 noundef 0), !noalias !228
   %.not1.i.i = icmp eq i64 %179, %171
   br i1 %.not1.i.i, label %185, label %180, !prof !217
@@ -10099,8 +10099,8 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa14tracked_struct23Ingredien
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !228
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !228
   store ptr %10, ptr %6, align 8, !noalias !228
-  %.sroa.418.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.418.0..sroa_idx.i.i, align 8, !noalias !228
+  %.sroa.415.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.415.0..sroa_idx.i.i, align 8, !noalias !228
   store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.135, ptr %7, align 8, !noalias !228
   %181 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 2, ptr %181, align 8, !noalias !228
@@ -10148,7 +10148,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa14tracked_struct23Ingredien
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.bd069b0397abcbf5d72b25326b9d08c3.141, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bd069b0397abcbf5d72b25326b9d08c3.142) #29, !noalias !236
   unreachable
 
-"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update17hc7e16c9e1df2c212E.exit": ; preds = %177, %._crit_edge.i.i
+"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update17hc7e16c9e1df2c212E.exit": ; preds = %172, %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
   br label %128
@@ -10698,40 +10698,40 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa14tracked_struct23Ingredien
 
 .noexc.i:                                         ; preds = %223
   %.not.i.i135 = icmp eq i64 %225, 0
-  br i1 %.not.i.i135, label %226, label %228, !prof !33
+  br i1 %.not.i.i135, label %227, label %226, !prof !33
 
 226:                                              ; preds = %.noexc.i
+  %.not.i136 = icmp eq i64 %225, %75
+  br i1 %.not.i136, label %"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h8cfda3dc6259cdc9E.exit.i", label %229
+
+227:                                              ; preds = %.noexc.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !265
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !265
   store ptr %11, ptr %9, align 8, !noalias !265
-  %.sroa.411.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.411.0..sroa_idx.i.i, align 8, !noalias !265
+  %.sroa.49.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.49.0..sroa_idx.i.i, align 8, !noalias !265
   store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.139, ptr %10, align 8, !noalias !265
   br label %.invoke.i
 
-.invoke.i:                                        ; preds = %231, %226
-  %.sink16.i.sroa.phi = phi ptr [ %.sink16.i.sroa.gep, %231 ], [ %.sink16.i.sroa.gep144, %226 ]
-  %.sink16.i.sroa.phi145 = phi ptr [ %.sink16.i.sroa.gep146, %231 ], [ %.sink16.i.sroa.gep147, %226 ]
-  %.sink16.i.sroa.phi148 = phi ptr [ %.sink16.i.sroa.gep149, %231 ], [ %.sink16.i.sroa.gep150, %226 ]
-  %.sink16.i.sroa.phi151 = phi ptr [ %.sink16.i.sroa.gep152, %231 ], [ %.sink16.i.sroa.gep153, %226 ]
-  %.sink16.i = phi ptr [ %8, %231 ], [ %10, %226 ]
-  %.sink.i = phi ptr [ %7, %231 ], [ %9, %226 ]
-  %227 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %231 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %226 ]
+.invoke.i:                                        ; preds = %231, %227
+  %.sink16.i.sroa.phi = phi ptr [ %.sink16.i.sroa.gep, %231 ], [ %.sink16.i.sroa.gep144, %227 ]
+  %.sink16.i.sroa.phi145 = phi ptr [ %.sink16.i.sroa.gep146, %231 ], [ %.sink16.i.sroa.gep147, %227 ]
+  %.sink16.i.sroa.phi148 = phi ptr [ %.sink16.i.sroa.gep149, %231 ], [ %.sink16.i.sroa.gep150, %227 ]
+  %.sink16.i.sroa.phi151 = phi ptr [ %.sink16.i.sroa.gep152, %231 ], [ %.sink16.i.sroa.gep153, %227 ]
+  %.sink16.i = phi ptr [ %8, %231 ], [ %10, %227 ]
+  %.sink.i = phi ptr [ %7, %231 ], [ %9, %227 ]
+  %228 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %231 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %227 ]
   store i64 2, ptr %.sink16.i.sroa.phi, align 8, !noalias !265
   store ptr null, ptr %.sink16.i.sroa.phi145, align 8, !noalias !265
   store ptr %.sink.i, ptr %.sink16.i.sroa.phi148, align 8, !noalias !265
   store i64 1, ptr %.sink16.i.sroa.phi151, align 8, !noalias !265
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink16.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %227) #29
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink16.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %228) #29
           to label %.cont.i unwind label %257, !noalias !263
 
 .cont.i:                                          ; preds = %.invoke.i
   unreachable
 
-228:                                              ; preds = %.noexc.i
-  %.not.i136 = icmp eq i64 %225, %75
-  br i1 %.not.i136, label %"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h8cfda3dc6259cdc9E.exit.i", label %229
-
-229:                                              ; preds = %228
+229:                                              ; preds = %226
   %230 = invoke noundef i64 @_ZN5salsa8revision22OptionalAtomicRevision4swap17hdfd9cb4e44109247E(ptr noundef nonnull align 8 %224, i64 noundef 0)
           to label %.noexc3.i unwind label %257, !noalias !263
 
@@ -10743,12 +10743,12 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa14tracked_struct23Ingredien
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !265
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !265
   store ptr %11, ptr %7, align 8, !noalias !265
-  %.sroa.418.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.418.0..sroa_idx.i.i, align 8, !noalias !265
+  %.sroa.415.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.415.0..sroa_idx.i.i, align 8, !noalias !265
   store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.135, ptr %8, align 8, !noalias !265
   br label %.invoke.i
 
-"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h8cfda3dc6259cdc9E.exit.i": ; preds = %228
+"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h8cfda3dc6259cdc9E.exit.i": ; preds = %226
   call void @llvm.experimental.noalias.scope.decl(metadata !268)
   %232 = load i64, ptr %32, align 8, !range !165, !alias.scope !271, !noalias !274, !noundef !4
   %233 = icmp sgt i64 %232, -9223372036854775804
@@ -41664,40 +41664,40 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
 
 .noexc.i.i:                                       ; preds = %235
   %.not.i.i135.i = icmp eq i64 %237, 0
-  br i1 %.not.i.i135.i, label %238, label %240, !prof !33
+  br i1 %.not.i.i135.i, label %239, label %238, !prof !33
 
 238:                                              ; preds = %.noexc.i.i
+  %.not.i136.i = icmp eq i64 %237, %86
+  br i1 %.not.i136.i, label %"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h325fba27e944c8f4E.exit.i.i", label %241
+
+239:                                              ; preds = %.noexc.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13), !noalias !2566
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !2566
   store ptr %14, ptr %12, align 8, !noalias !2566
-  %.sroa.411.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.411.0..sroa_idx.i.i.i, align 8, !noalias !2566
+  %.sroa.49.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.49.0..sroa_idx.i.i.i, align 8, !noalias !2566
   store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.139, ptr %13, align 8, !noalias !2566
   br label %.invoke.i.i
 
-.invoke.i.i:                                      ; preds = %243, %238
-  %.sink16.i.sroa.phi.i = phi ptr [ %.sink16.i.sroa.gep.i, %243 ], [ %.sink16.i.sroa.gep1.i, %238 ]
-  %.sink16.i.sroa.phi2.i = phi ptr [ %.sink16.i.sroa.gep3.i, %243 ], [ %.sink16.i.sroa.gep4.i, %238 ]
-  %.sink16.i.sroa.phi5.i = phi ptr [ %.sink16.i.sroa.gep6.i, %243 ], [ %.sink16.i.sroa.gep7.i, %238 ]
-  %.sink16.i.sroa.phi8.i = phi ptr [ %.sink16.i.sroa.gep9.i, %243 ], [ %.sink16.i.sroa.gep10.i, %238 ]
-  %.sink16.i.i = phi ptr [ %11, %243 ], [ %13, %238 ]
-  %.sink.i.i = phi ptr [ %10, %243 ], [ %12, %238 ]
-  %239 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %243 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %238 ]
+.invoke.i.i:                                      ; preds = %243, %239
+  %.sink16.i.sroa.phi.i = phi ptr [ %.sink16.i.sroa.gep.i, %243 ], [ %.sink16.i.sroa.gep1.i, %239 ]
+  %.sink16.i.sroa.phi2.i = phi ptr [ %.sink16.i.sroa.gep3.i, %243 ], [ %.sink16.i.sroa.gep4.i, %239 ]
+  %.sink16.i.sroa.phi5.i = phi ptr [ %.sink16.i.sroa.gep6.i, %243 ], [ %.sink16.i.sroa.gep7.i, %239 ]
+  %.sink16.i.sroa.phi8.i = phi ptr [ %.sink16.i.sroa.gep9.i, %243 ], [ %.sink16.i.sroa.gep10.i, %239 ]
+  %.sink16.i.i = phi ptr [ %11, %243 ], [ %13, %239 ]
+  %.sink.i.i = phi ptr [ %10, %243 ], [ %12, %239 ]
+  %240 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %243 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %239 ]
   store i64 2, ptr %.sink16.i.sroa.phi.i, align 8, !noalias !2566
   store ptr null, ptr %.sink16.i.sroa.phi2.i, align 8, !noalias !2566
   store ptr %.sink.i.i, ptr %.sink16.i.sroa.phi5.i, align 8, !noalias !2566
   store i64 1, ptr %.sink16.i.sroa.phi8.i, align 8, !noalias !2566
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink16.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %239) #29
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink16.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %240) #29
           to label %.cont.i.i unwind label %268, !noalias !2565
 
 .cont.i.i:                                        ; preds = %.invoke.i.i
   unreachable
 
-240:                                              ; preds = %.noexc.i.i
-  %.not.i136.i = icmp eq i64 %237, %86
-  br i1 %.not.i136.i, label %"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h325fba27e944c8f4E.exit.i.i", label %241
-
-241:                                              ; preds = %240
+241:                                              ; preds = %238
   %242 = invoke noundef i64 @_ZN5salsa8revision22OptionalAtomicRevision4swap17hdfd9cb4e44109247E(ptr noundef nonnull align 8 %236, i64 noundef 0)
           to label %.noexc3.i.i unwind label %268, !noalias !2565
 
@@ -41709,12 +41709,12 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !2566
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !2566
   store ptr %14, ptr %10, align 8, !noalias !2566
-  %.sroa.418.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.418.0..sroa_idx.i.i.i, align 8, !noalias !2566
+  %.sroa.415.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.415.0..sroa_idx.i.i.i, align 8, !noalias !2566
   store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.135, ptr %11, align 8, !noalias !2566
   br label %.invoke.i.i
 
-"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h325fba27e944c8f4E.exit.i.i": ; preds = %240
+"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h325fba27e944c8f4E.exit.i.i": ; preds = %238
   invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$ty_python_semantic..semantic_index..definition..DefinitionKind$GT$17h93cc500c9a40e565E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %35)
           to label %249 unwind label %244, !noalias !2560
 
@@ -43173,40 +43173,40 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
 
 .noexc.i.i:                                       ; preds = %243
   %.not.i.i135.i = icmp eq i64 %245, 0
-  br i1 %.not.i.i135.i, label %246, label %248, !prof !33
+  br i1 %.not.i.i135.i, label %247, label %246, !prof !33
 
 246:                                              ; preds = %.noexc.i.i
+  %.not.i136.i = icmp eq i64 %245, %99
+  br i1 %.not.i136.i, label %"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hba7303db3c1b888cE.exit.i.i", label %249
+
+247:                                              ; preds = %.noexc.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15), !noalias !2627
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !2627
   store ptr %16, ptr %14, align 8, !noalias !2627
-  %.sroa.411.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.411.0..sroa_idx.i.i.i, align 8, !noalias !2627
+  %.sroa.49.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.49.0..sroa_idx.i.i.i, align 8, !noalias !2627
   store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.139, ptr %15, align 8, !noalias !2627
   br label %.invoke.i.i
 
-.invoke.i.i:                                      ; preds = %251, %246
-  %.sink15.i.sroa.phi.i = phi ptr [ %.sink15.i.sroa.gep.i, %251 ], [ %.sink15.i.sroa.gep1.i, %246 ]
-  %.sink15.i.sroa.phi2.i = phi ptr [ %.sink15.i.sroa.gep3.i, %251 ], [ %.sink15.i.sroa.gep4.i, %246 ]
-  %.sink15.i.sroa.phi5.i = phi ptr [ %.sink15.i.sroa.gep6.i, %251 ], [ %.sink15.i.sroa.gep7.i, %246 ]
-  %.sink15.i.sroa.phi8.i = phi ptr [ %.sink15.i.sroa.gep9.i, %251 ], [ %.sink15.i.sroa.gep10.i, %246 ]
-  %.sink15.i.i = phi ptr [ %13, %251 ], [ %15, %246 ]
-  %.sink.i.i = phi ptr [ %12, %251 ], [ %14, %246 ]
-  %247 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %251 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %246 ]
+.invoke.i.i:                                      ; preds = %251, %247
+  %.sink15.i.sroa.phi.i = phi ptr [ %.sink15.i.sroa.gep.i, %251 ], [ %.sink15.i.sroa.gep1.i, %247 ]
+  %.sink15.i.sroa.phi2.i = phi ptr [ %.sink15.i.sroa.gep3.i, %251 ], [ %.sink15.i.sroa.gep4.i, %247 ]
+  %.sink15.i.sroa.phi5.i = phi ptr [ %.sink15.i.sroa.gep6.i, %251 ], [ %.sink15.i.sroa.gep7.i, %247 ]
+  %.sink15.i.sroa.phi8.i = phi ptr [ %.sink15.i.sroa.gep9.i, %251 ], [ %.sink15.i.sroa.gep10.i, %247 ]
+  %.sink15.i.i = phi ptr [ %13, %251 ], [ %15, %247 ]
+  %.sink.i.i = phi ptr [ %12, %251 ], [ %14, %247 ]
+  %248 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %251 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %247 ]
   store i64 2, ptr %.sink15.i.sroa.phi.i, align 8, !noalias !2627
   store ptr null, ptr %.sink15.i.sroa.phi2.i, align 8, !noalias !2627
   store ptr %.sink.i.i, ptr %.sink15.i.sroa.phi5.i, align 8, !noalias !2627
   store i64 1, ptr %.sink15.i.sroa.phi8.i, align 8, !noalias !2627
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink15.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %247) #29
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink15.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %248) #29
           to label %.cont.i.i unwind label %263, !noalias !2626
 
 .cont.i.i:                                        ; preds = %.invoke.i.i
   unreachable
 
-248:                                              ; preds = %.noexc.i.i
-  %.not.i136.i = icmp eq i64 %245, %99
-  br i1 %.not.i136.i, label %"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hba7303db3c1b888cE.exit.i.i", label %249
-
-249:                                              ; preds = %248
+249:                                              ; preds = %246
   %250 = invoke noundef i64 @_ZN5salsa8revision22OptionalAtomicRevision4swap17hdfd9cb4e44109247E(ptr noundef nonnull align 8 %244, i64 noundef 0)
           to label %.noexc3.i.i unwind label %263, !noalias !2626
 
@@ -43218,12 +43218,12 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13), !noalias !2627
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !2627
   store ptr %16, ptr %12, align 8, !noalias !2627
-  %.sroa.418.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.418.0..sroa_idx.i.i.i, align 8, !noalias !2627
+  %.sroa.415.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.415.0..sroa_idx.i.i.i, align 8, !noalias !2627
   store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.135, ptr %13, align 8, !noalias !2627
   br label %.invoke.i.i
 
-"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hba7303db3c1b888cE.exit.i.i": ; preds = %248
+"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hba7303db3c1b888cE.exit.i.i": ; preds = %246
   call fastcc void @"_ZN4core3ptr463drop_in_place$LT$$LP$ruff_db..files..File$C$ty_python_semantic..semantic_index..symbol..FileScopeId$C$ty_python_semantic..ast_node_ref..AstNodeRef$LT$ruff_python_ast..generated..Expr$GT$$C$core..option..Option$LT$ty_python_semantic..ast_node_ref..AstNodeRef$LT$ruff_python_ast..generated..StmtAssign$GT$$GT$$C$ty_python_semantic..semantic_index..expression..ExpressionKind$C$countme..Count$LT$ty_python_semantic..semantic_index..expression..Expression$GT$$RP$$GT$17h8a92f21a7c524f5dE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %37)
   br label %.noexc13
 
@@ -44935,40 +44935,40 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
 
 .noexc.i.i:                                       ; preds = %223
   %.not.i.i135.i = icmp eq i64 %225, 0
-  br i1 %.not.i.i135.i, label %226, label %228, !prof !33
+  br i1 %.not.i.i135.i, label %227, label %226, !prof !33
 
 226:                                              ; preds = %.noexc.i.i
+  %.not.i136.i = icmp eq i64 %225, %72
+  br i1 %.not.i136.i, label %"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h2966234147b79900E.exit.i.i", label %229
+
+227:                                              ; preds = %.noexc.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !2670
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !2670
   store ptr %10, ptr %8, align 8, !noalias !2670
-  %.sroa.411.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.411.0..sroa_idx.i.i.i, align 8, !noalias !2670
+  %.sroa.49.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.49.0..sroa_idx.i.i.i, align 8, !noalias !2670
   store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.139, ptr %9, align 8, !noalias !2670
   br label %.invoke.i.i
 
-.invoke.i.i:                                      ; preds = %231, %226
-  %.sink16.i.sroa.phi.i = phi ptr [ %.sink16.i.sroa.gep.i, %231 ], [ %.sink16.i.sroa.gep1.i, %226 ]
-  %.sink16.i.sroa.phi2.i = phi ptr [ %.sink16.i.sroa.gep3.i, %231 ], [ %.sink16.i.sroa.gep4.i, %226 ]
-  %.sink16.i.sroa.phi5.i = phi ptr [ %.sink16.i.sroa.gep6.i, %231 ], [ %.sink16.i.sroa.gep7.i, %226 ]
-  %.sink16.i.sroa.phi8.i = phi ptr [ %.sink16.i.sroa.gep9.i, %231 ], [ %.sink16.i.sroa.gep10.i, %226 ]
-  %.sink16.i.i = phi ptr [ %7, %231 ], [ %9, %226 ]
-  %.sink.i.i = phi ptr [ %6, %231 ], [ %8, %226 ]
-  %227 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %231 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %226 ]
+.invoke.i.i:                                      ; preds = %231, %227
+  %.sink16.i.sroa.phi.i = phi ptr [ %.sink16.i.sroa.gep.i, %231 ], [ %.sink16.i.sroa.gep1.i, %227 ]
+  %.sink16.i.sroa.phi2.i = phi ptr [ %.sink16.i.sroa.gep3.i, %231 ], [ %.sink16.i.sroa.gep4.i, %227 ]
+  %.sink16.i.sroa.phi5.i = phi ptr [ %.sink16.i.sroa.gep6.i, %231 ], [ %.sink16.i.sroa.gep7.i, %227 ]
+  %.sink16.i.sroa.phi8.i = phi ptr [ %.sink16.i.sroa.gep9.i, %231 ], [ %.sink16.i.sroa.gep10.i, %227 ]
+  %.sink16.i.i = phi ptr [ %7, %231 ], [ %9, %227 ]
+  %.sink.i.i = phi ptr [ %6, %231 ], [ %8, %227 ]
+  %228 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %231 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %227 ]
   store i64 2, ptr %.sink16.i.sroa.phi.i, align 8, !noalias !2670
   store ptr null, ptr %.sink16.i.sroa.phi2.i, align 8, !noalias !2670
   store ptr %.sink.i.i, ptr %.sink16.i.sroa.phi5.i, align 8, !noalias !2670
   store i64 1, ptr %.sink16.i.sroa.phi8.i, align 8, !noalias !2670
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink16.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %227) #29
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink16.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %228) #29
           to label %.cont.i.i unwind label %244, !noalias !2667
 
 .cont.i.i:                                        ; preds = %.invoke.i.i
   unreachable
 
-228:                                              ; preds = %.noexc.i.i
-  %.not.i136.i = icmp eq i64 %225, %72
-  br i1 %.not.i136.i, label %"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h2966234147b79900E.exit.i.i", label %229
-
-229:                                              ; preds = %228
+229:                                              ; preds = %226
   %230 = invoke noundef i64 @_ZN5salsa8revision22OptionalAtomicRevision4swap17hdfd9cb4e44109247E(ptr noundef nonnull align 8 %224, i64 noundef 0)
           to label %.noexc3.i.i unwind label %244, !noalias !2667
 
@@ -44980,12 +44980,12 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !2670
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !2670
   store ptr %10, ptr %6, align 8, !noalias !2670
-  %.sroa.418.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.418.0..sroa_idx.i.i.i, align 8, !noalias !2670
+  %.sroa.415.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.415.0..sroa_idx.i.i.i, align 8, !noalias !2670
   store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.135, ptr %7, align 8, !noalias !2670
   br label %.invoke.i.i
 
-"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h2966234147b79900E.exit.i.i": ; preds = %228
+"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h2966234147b79900E.exit.i.i": ; preds = %226
   %232 = load atomic i8, ptr @_ZN7countme3imp6ENABLE17he21284e89574dff6E monotonic, align 1, !noalias !2667
   %233 = icmp eq i8 %232, 0
   br i1 %233, label %.noexc8, label %234
@@ -47511,40 +47511,40 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic6unpack1_52_$
 
 .noexc.i.i:                                       ; preds = %240
   %.not.i.i135.i = icmp eq i64 %242, 0
-  br i1 %.not.i.i135.i, label %243, label %245, !prof !33
+  br i1 %.not.i.i135.i, label %244, label %243, !prof !33
 
 243:                                              ; preds = %.noexc.i.i
+  %.not.i136.i = icmp eq i64 %242, %91
+  br i1 %.not.i136.i, label %"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h0c6b97ce9df93da2E.exit.i.i", label %246
+
+244:                                              ; preds = %.noexc.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15), !noalias !2911
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !2911
   store ptr %16, ptr %14, align 8, !noalias !2911
-  %.sroa.411.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.411.0..sroa_idx.i.i.i, align 8, !noalias !2911
+  %.sroa.49.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.49.0..sroa_idx.i.i.i, align 8, !noalias !2911
   store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.139, ptr %15, align 8, !noalias !2911
   br label %.invoke.i.i
 
-.invoke.i.i:                                      ; preds = %248, %243
-  %.sink16.i.sroa.phi.i = phi ptr [ %.sink16.i.sroa.gep.i, %248 ], [ %.sink16.i.sroa.gep1.i, %243 ]
-  %.sink16.i.sroa.phi2.i = phi ptr [ %.sink16.i.sroa.gep3.i, %248 ], [ %.sink16.i.sroa.gep4.i, %243 ]
-  %.sink16.i.sroa.phi5.i = phi ptr [ %.sink16.i.sroa.gep6.i, %248 ], [ %.sink16.i.sroa.gep7.i, %243 ]
-  %.sink16.i.sroa.phi8.i = phi ptr [ %.sink16.i.sroa.gep9.i, %248 ], [ %.sink16.i.sroa.gep10.i, %243 ]
-  %.sink16.i.i = phi ptr [ %13, %248 ], [ %15, %243 ]
-  %.sink.i.i = phi ptr [ %12, %248 ], [ %14, %243 ]
-  %244 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %248 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %243 ]
+.invoke.i.i:                                      ; preds = %248, %244
+  %.sink16.i.sroa.phi.i = phi ptr [ %.sink16.i.sroa.gep.i, %248 ], [ %.sink16.i.sroa.gep1.i, %244 ]
+  %.sink16.i.sroa.phi2.i = phi ptr [ %.sink16.i.sroa.gep3.i, %248 ], [ %.sink16.i.sroa.gep4.i, %244 ]
+  %.sink16.i.sroa.phi5.i = phi ptr [ %.sink16.i.sroa.gep6.i, %248 ], [ %.sink16.i.sroa.gep7.i, %244 ]
+  %.sink16.i.sroa.phi8.i = phi ptr [ %.sink16.i.sroa.gep9.i, %248 ], [ %.sink16.i.sroa.gep10.i, %244 ]
+  %.sink16.i.i = phi ptr [ %13, %248 ], [ %15, %244 ]
+  %.sink.i.i = phi ptr [ %12, %248 ], [ %14, %244 ]
+  %245 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %248 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %244 ]
   store i64 2, ptr %.sink16.i.sroa.phi.i, align 8, !noalias !2911
   store ptr null, ptr %.sink16.i.sroa.phi2.i, align 8, !noalias !2911
   store ptr %.sink.i.i, ptr %.sink16.i.sroa.phi5.i, align 8, !noalias !2911
   store i64 1, ptr %.sink16.i.sroa.phi8.i, align 8, !noalias !2911
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink16.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %244) #29
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink16.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %245) #29
           to label %.cont.i.i unwind label %274, !noalias !2910
 
 .cont.i.i:                                        ; preds = %.invoke.i.i
   unreachable
 
-245:                                              ; preds = %.noexc.i.i
-  %.not.i136.i = icmp eq i64 %242, %91
-  br i1 %.not.i136.i, label %"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h0c6b97ce9df93da2E.exit.i.i", label %246
-
-246:                                              ; preds = %245
+246:                                              ; preds = %243
   %247 = invoke noundef i64 @_ZN5salsa8revision22OptionalAtomicRevision4swap17hdfd9cb4e44109247E(ptr noundef nonnull align 8 %241, i64 noundef 0)
           to label %.noexc3.i.i unwind label %274, !noalias !2910
 
@@ -47556,12 +47556,12 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic6unpack1_52_$
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13), !noalias !2911
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !2911
   store ptr %16, ptr %12, align 8, !noalias !2911
-  %.sroa.418.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.418.0..sroa_idx.i.i.i, align 8, !noalias !2911
+  %.sroa.415.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.415.0..sroa_idx.i.i.i, align 8, !noalias !2911
   store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.135, ptr %13, align 8, !noalias !2911
   br label %.invoke.i.i
 
-"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h0c6b97ce9df93da2E.exit.i.i": ; preds = %245
+"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h0c6b97ce9df93da2E.exit.i.i": ; preds = %243
   %249 = getelementptr inbounds nuw i8, ptr %37, i64 8
   invoke void @"_ZN4core3ptr105drop_in_place$LT$ty_python_semantic..ast_node_ref..AstNodeRef$LT$ruff_python_ast..generated..Expr$GT$$GT$17h906bff57ebeef213E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %249)
           to label %255 unwind label %250, !noalias !2905

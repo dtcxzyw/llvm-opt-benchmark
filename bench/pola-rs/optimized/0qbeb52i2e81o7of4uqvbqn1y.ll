@@ -7578,7 +7578,7 @@ define hidden void @"_ZN128_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u2
   %45 = getelementptr inbounds nuw { i32, [3 x i32] }, ptr %44, i64 %40
   %46 = load i32, ptr %45, align 8, !range !587, !noalias !586, !noundef !7
   %47 = trunc nuw i32 %46 to i1
-  br i1 %47, label %.thread17.i.i, label %49
+  br i1 %47, label %.thread.i.i, label %49
 
 48:                                               ; preds = %.noexc5
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %40, i64 noundef %41, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e8c37b8985fdb05e47b02c1bd4b124f.89) #32
@@ -7595,7 +7595,7 @@ define hidden void @"_ZN128_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u2
   %53 = icmp eq i32 %51, %36
   br i1 %53, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6insert17h77c65bfbd672a364E.exit.sink.split.i", label %57
 
-.thread17.i.i:                                    ; preds = %43
+.thread.i.i:                                      ; preds = %43
   %54 = icmp ne i32 %36, 0
   call void @llvm.assume(i1 %54)
   %55 = load i64, ptr %16, align 8, !alias.scope !585, !noalias !586, !noundef !7
@@ -7608,7 +7608,7 @@ define hidden void @"_ZN128_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u2
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6insert17h77c65bfbd672a364E.exit.i", label %60
 
-60:                                               ; preds = %57, %.thread17.i.i
+60:                                               ; preds = %57, %.thread.i.i
   %61 = or i32 %36, 1
   store i32 0, ptr %45, align 8, !noalias !586
   %.sroa.45.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %45, i64 4
@@ -61195,7 +61195,7 @@ define hidden { i64, i64 } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6in
   %22 = getelementptr inbounds nuw { i32, [3 x i32] }, ptr %21, i64 %16
   %23 = load i32, ptr %22, align 8, !range !587, !noundef !7
   %24 = trunc nuw i32 %23 to i1
-  br i1 %24, label %.thread18, label %26
+  br i1 %24, label %.thread, label %26
 
 25:                                               ; preds = %9
   call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %16, i64 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e8c37b8985fdb05e47b02c1bd4b124f.89) #32
@@ -61207,29 +61207,29 @@ define hidden { i64, i64 } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6in
   %29 = icmp ne i32 %11, 0
   call void @llvm.assume(i1 %29)
   %30 = icmp eq i32 %28, %11
-  br i1 %30, label %31, label %38
+  br i1 %30, label %35, label %38
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds nuw i8, ptr %22, i64 8
+.thread:                                          ; preds = %19
+  %31 = icmp ne i32 %11, 0
+  call void @llvm.assume(i1 %31)
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load i64, ptr %32, align 8, !noundef !7
-  store i64 %3, ptr %32, align 8
-  br label %43
-
-.thread18:                                        ; preds = %19
-  %34 = icmp ne i32 %11, 0
-  call void @llvm.assume(i1 %34)
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %36 = load i64, ptr %35, align 8, !noundef !7
-  %37 = add i64 %36, 1
-  store i64 %37, ptr %35, align 8
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %32, align 8
   br label %41
+
+35:                                               ; preds = %26
+  %36 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %37 = load i64, ptr %36, align 8, !noundef !7
+  store i64 %3, ptr %36, align 8
+  br label %43
 
 38:                                               ; preds = %26
   %39 = sub i32 %11, %28
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %43, label %41
 
-41:                                               ; preds = %38, %.thread18
+41:                                               ; preds = %38, %.thread
   %42 = or i32 %11, 1
   store i32 0, ptr %22, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4
@@ -61238,9 +61238,9 @@ define hidden { i64, i64 } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6in
   store i64 %3, ptr %.sroa.57.0..sroa_idx, align 8
   br label %43
 
-43:                                               ; preds = %38, %4, %41, %31
-  %.sroa.5.0 = phi i64 [ %33, %31 ], [ undef, %41 ], [ undef, %4 ], [ undef, %38 ]
-  %.sroa.0.0 = phi i64 [ 1, %31 ], [ 0, %41 ], [ 0, %4 ], [ 0, %38 ]
+43:                                               ; preds = %38, %4, %41, %35
+  %.sroa.5.0 = phi i64 [ %37, %35 ], [ undef, %41 ], [ undef, %4 ], [ undef, %38 ]
+  %.sroa.0.0 = phi i64 [ 1, %35 ], [ 0, %41 ], [ 0, %4 ], [ 0, %38 ]
   %44 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %45 = insertvalue { i64, i64 } %44, i64 %.sroa.5.0, 1
   ret { i64, i64 } %45

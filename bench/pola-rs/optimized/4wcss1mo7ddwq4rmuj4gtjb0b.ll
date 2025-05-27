@@ -28374,9 +28374,9 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i: ; preds = %27
   br label %35
 
 35:                                               ; preds = %"_ZN123_$LT$pyo3..instance..Bound$LT$pyo3..types..sequence..PySequence$GT$$u20$as$u20$pyo3..types..sequence..PySequenceMethods$GT$3len17hc29225666fb86ca9E.exit", %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$usize$C$pyo3..err..PyErr$GT$$GT$17h1678f696e0b8925cE.exit"
-  %.sroa.018.045 = phi i64 [ 0, %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$usize$C$pyo3..err..PyErr$GT$$GT$17h1678f696e0b8925cE.exit" ], [ %21, %"_ZN123_$LT$pyo3..instance..Bound$LT$pyo3..types..sequence..PySequence$GT$$u20$as$u20$pyo3..types..sequence..PySequenceMethods$GT$3len17hc29225666fb86ca9E.exit" ]
+  %.sroa.018.044 = phi i64 [ 0, %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$usize$C$pyo3..err..PyErr$GT$$GT$17h1678f696e0b8925cE.exit" ], [ %21, %"_ZN123_$LT$pyo3..instance..Bound$LT$pyo3..types..sequence..PySequence$GT$$u20$as$u20$pyo3..types..sequence..PySequenceMethods$GT$3len17hc29225666fb86ca9E.exit" ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
-  %36 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.018.045, i64 40)
+  %36 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.018.044, i64 40)
   %37 = extractvalue { i64, i1 } %36, 0
   %38 = extractvalue { i64, i1 } %36, 1
   %39 = icmp ugt i64 %37, 9223372036854775800
@@ -28399,9 +28399,9 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i: ; preds = %35
   unreachable
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h16ebea9e267b0e76E.exit": ; preds = %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i, %42
-  %.sroa.4.0.i = phi i64 [ %.sroa.018.045, %42 ], [ 0, %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i ]
+  %.sroa.4.0.i = phi i64 [ %.sroa.018.044, %42 ], [ 0, %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i ]
   %.sroa.10.0.i = phi ptr [ %44, %42 ], [ inttoptr (i64 8 to ptr), %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i ]
-  %47 = icmp samesign ule i64 %.sroa.018.045, %.sroa.4.0.i
+  %47 = icmp samesign ule i64 %.sroa.018.044, %.sroa.4.0.i
   call void @llvm.assume(i1 %47)
   store i64 %.sroa.4.0.i, ptr %12, align 8
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 8

@@ -19896,7 +19896,7 @@ define internal fastcc void @"_ZN6quiche19Connection$LT$F$GT$16get_send_path_id1
   %.sroa.4.i.i.i.i.i.i = alloca [18 x i8], align 4
   %.sroa.4.i.i.i.i.i = alloca [18 x i8], align 4
   %5 = alloca [32 x i8], align 8
-  %.sroa.536 = alloca [18 x i8], align 4
+  %.sroa.535 = alloca [18 x i8], align 4
   %.sroa.5 = alloca [18 x i8], align 4
   %6 = alloca [48 x i8], align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 15196
@@ -19907,15 +19907,15 @@ define internal fastcc void @"_ZN6quiche19Connection$LT$F$GT$16get_send_path_id1
 ._crit_edge:                                      ; preds = %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 13448
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert82 = getelementptr inbounds nuw i8, ptr %1, i64 13456
-  %.pre83 = load i64, ptr %.phi.trans.insert82, align 16
-  %.phi.trans.insert84 = getelementptr inbounds nuw i8, ptr %1, i64 13464
-  %.pre85 = load i64, ptr %.phi.trans.insert84, align 8
+  %.phi.trans.insert81 = getelementptr inbounds nuw i8, ptr %1, i64 13456
+  %.pre82 = load i64, ptr %.phi.trans.insert81, align 16
+  %.phi.trans.insert83 = getelementptr inbounds nuw i8, ptr %1, i64 13464
+  %.pre84 = load i64, ptr %.phi.trans.insert83, align 8
   br label %10
 
 10:                                               ; preds = %._crit_edge, %.loopexit
-  %11 = phi i64 [ %.pre85, %._crit_edge ], [ %36, %.loopexit ]
-  %12 = phi i64 [ %.pre83, %._crit_edge ], [ %33, %.loopexit ]
+  %11 = phi i64 [ %.pre84, %._crit_edge ], [ %36, %.loopexit ]
+  %12 = phi i64 [ %.pre82, %._crit_edge ], [ %33, %.loopexit ]
   %13 = phi ptr [ %.pre, %._crit_edge ], [ %31, %.loopexit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %14 = getelementptr inbounds nuw { i64, [327 x i64] }, ptr %13, i64 %12
@@ -20150,8 +20150,8 @@ define internal fastcc void @"_ZN6quiche19Connection$LT$F$GT$16get_send_path_id1
 "_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h90877c7488ba6491E.exit.i.i.i": ; preds = %101, %"_ZN6quiche19Connection$LT$F$GT$16get_send_path_id28_$u7b$$u7b$closure$u7d$$u7d$17h613bcbed05c33585E.exit.thread.i.i.i.i.i", %"_ZN6quiche19Connection$LT$F$GT$16get_send_path_id28_$u7b$$u7b$closure$u7d$$u7d$17h613bcbed05c33585E.exit.i.i.i.i.i", %"_ZN6quiche19Connection$LT$F$GT$16get_send_path_id28_$u7b$$u7b$closure$u7d$$u7d$17h613bcbed05c33585E.exit.thread2.i.i.i.i.i", %92, %"_ZN6quiche19Connection$LT$F$GT$16get_send_path_id28_$u7b$$u7b$closure$u7d$$u7d$17h55df40851621f260E.exit.i.i.i.i", %"_ZN6quiche19Connection$LT$F$GT$16get_send_path_id28_$u7b$$u7b$closure$u7d$$u7d$17h55df40851621f260E.exit.thread2.i.i.i.i", %63
   %108 = call { i64, ptr } @"_ZN78_$LT$slab..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf1c46fd49557ef6E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6), !noalias !895
   %109 = extractvalue { i64, ptr } %108, 1
-  %.not.i.i.i27 = icmp eq ptr %109, null
-  br i1 %.not.i.i.i27, label %.loopexit, label %.lr.ph.i.i.i
+  %.not.i.i.i26 = icmp eq ptr %109, null
+  br i1 %.not.i.i.i26, label %.loopexit, label %.lr.ph.i.i.i
 
 110:                                              ; preds = %101
   %111 = extractvalue { i64, ptr } %40, 0
@@ -20169,32 +20169,32 @@ define internal fastcc void @"_ZN6quiche19Connection$LT$F$GT$16get_send_path_id1
   %114 = extractvalue { i64, ptr } %17, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %115 = load i16, ptr %2, align 4, !range !651, !noundef !4
-  %.not25 = icmp eq i16 %115, 2
-  br i1 %.not25, label %143, label %118
+  %.not24 = icmp eq i16 %115, 2
+  br i1 %.not24, label %143, label %118
 
 116:                                              ; preds = %16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   store i64 5, ptr %0, align 8
   br label %117
 
-117:                                              ; preds = %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread", %171, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit29.thread", %116, %110
+117:                                              ; preds = %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread", %171, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit28.thread", %116, %110
   ret void
 
 118:                                              ; preds = %113
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %.sroa.5)
   %119 = getelementptr inbounds nuw i8, ptr %18, i64 2432
-  %.sroa.031.0.copyload = load i16, ptr %119, align 8
+  %.sroa.030.0.copyload = load i16, ptr %119, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 2434
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %.sroa.5, ptr noundef nonnull align 2 dereferenceable(18) %.sroa.4.0..sroa_idx, i64 18, i1 false)
-  %.sroa.532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 2452
-  %.sroa.532.0.copyload = load i32, ptr %.sroa.532.0..sroa_idx, align 4
+  %.sroa.531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 2452
+  %.sroa.531.0.copyload = load i32, ptr %.sroa.531.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 2456
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 2460
   %.sroa.7.0.copyload = load i16, ptr %.sroa.7.0..sroa_idx, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !931)
   call void @llvm.experimental.noalias.scope.decl(metadata !934)
-  %120 = icmp eq i16 %.sroa.031.0.copyload, %115
+  %120 = icmp eq i16 %.sroa.030.0.copyload, %115
   br i1 %120, label %121, label %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread"
 
 121:                                              ; preds = %118
@@ -20203,8 +20203,8 @@ define internal fastcc void @"_ZN6quiche19Connection$LT$F$GT$16get_send_path_id1
 
 123:                                              ; preds = %121
   %124 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.sroa.5.2..sroa_idx98 = getelementptr inbounds nuw i8, ptr %.sroa.5, i64 2
-  %.sroa.5.2..sroa.5.2..sroa.5.2..sroa.5.2..sroa.5.4. = load i128, ptr %.sroa.5.2..sroa_idx98, align 2, !alias.scope !931, !noalias !934
+  %.sroa.5.2..sroa_idx97 = getelementptr inbounds nuw i8, ptr %.sroa.5, i64 2
+  %.sroa.5.2..sroa.5.2..sroa.5.2..sroa.5.2..sroa.5.4. = load i128, ptr %.sroa.5.2..sroa_idx97, align 2, !alias.scope !931, !noalias !934
   %125 = load i128, ptr %124, align 4, !alias.scope !934, !noalias !931
   %126 = icmp eq i128 %.sroa.5.2..sroa.5.2..sroa.5.2..sroa.5.2..sroa.5.4., %125
   %127 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -20213,13 +20213,13 @@ define internal fastcc void @"_ZN6quiche19Connection$LT$F$GT$16get_send_path_id1
   %or.cond = select i1 %126, i1 %129, i1 false
   %130 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %131 = load i32, ptr %130, align 4
-  %132 = icmp eq i32 %.sroa.532.0.copyload, %131
-  %or.cond59 = select i1 %or.cond, i1 %132, i1 false
+  %132 = icmp eq i32 %.sroa.531.0.copyload, %131
+  %or.cond58 = select i1 %or.cond, i1 %132, i1 false
   %133 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %134 = load i32, ptr %133, align 4
   %135 = icmp eq i32 %.sroa.6.0.copyload, %134
-  %or.cond62 = select i1 %or.cond59, i1 %135, i1 false
-  br i1 %or.cond62, label %145, label %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread"
+  %or.cond61 = select i1 %or.cond58, i1 %135, i1 false
+  br i1 %or.cond61, label %145, label %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread"
 
 136:                                              ; preds = %121
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -20238,8 +20238,8 @@ define internal fastcc void @"_ZN6quiche19Connection$LT$F$GT$16get_send_path_id1
 
 143:                                              ; preds = %145, %113
   %144 = load i16, ptr %3, align 4, !range !651, !noundef !4
-  %.not26 = icmp eq i16 %144, 2
-  br i1 %.not26, label %171, label %146
+  %.not25 = icmp eq i16 %144, 2
+  br i1 %.not25, label %171, label %146
 
 "_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread": ; preds = %123, %136, %118, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit"
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %.sroa.5)
@@ -20251,21 +20251,21 @@ define internal fastcc void @"_ZN6quiche19Connection$LT$F$GT$16get_send_path_id1
   br label %143
 
 146:                                              ; preds = %143
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %.sroa.536)
+  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %.sroa.535)
   %147 = getelementptr inbounds nuw i8, ptr %18, i64 2464
-  %.sroa.042.0.copyload = load i16, ptr %147, align 8
-  %.sroa.443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 2466
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %.sroa.536, ptr noundef nonnull align 2 dereferenceable(18) %.sroa.443.0..sroa_idx, i64 18, i1 false)
-  %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 2484
-  %.sroa.544.0.copyload = load i32, ptr %.sroa.544.0..sroa_idx, align 4
-  %.sroa.645.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 2488
-  %.sroa.645.0.copyload = load i32, ptr %.sroa.645.0..sroa_idx, align 8
-  %.sroa.746.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 2492
-  %.sroa.746.0.copyload = load i16, ptr %.sroa.746.0..sroa_idx, align 4
+  %.sroa.041.0.copyload = load i16, ptr %147, align 8
+  %.sroa.442.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 2466
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %.sroa.535, ptr noundef nonnull align 2 dereferenceable(18) %.sroa.442.0..sroa_idx, i64 18, i1 false)
+  %.sroa.543.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 2484
+  %.sroa.543.0.copyload = load i32, ptr %.sroa.543.0..sroa_idx, align 4
+  %.sroa.644.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 2488
+  %.sroa.644.0.copyload = load i32, ptr %.sroa.644.0..sroa_idx, align 8
+  %.sroa.745.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 2492
+  %.sroa.745.0.copyload = load i16, ptr %.sroa.745.0..sroa_idx, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !936)
   call void @llvm.experimental.noalias.scope.decl(metadata !939)
-  %148 = icmp eq i16 %.sroa.042.0.copyload, %144
-  br i1 %148, label %149, label %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit29.thread"
+  %148 = icmp eq i16 %.sroa.041.0.copyload, %144
+  br i1 %148, label %149, label %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit28.thread"
 
 149:                                              ; preds = %146
   %150 = trunc nuw i16 %144 to i1
@@ -20273,38 +20273,38 @@ define internal fastcc void @"_ZN6quiche19Connection$LT$F$GT$16get_send_path_id1
 
 151:                                              ; preds = %149
   %152 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.sroa.536.2..sroa_idx99 = getelementptr inbounds nuw i8, ptr %.sroa.536, i64 2
-  %.sroa.536.2..sroa.536.2..sroa.536.2..sroa.536.2..sroa.536.4. = load i128, ptr %.sroa.536.2..sroa_idx99, align 2, !alias.scope !936, !noalias !939
+  %.sroa.535.2..sroa_idx98 = getelementptr inbounds nuw i8, ptr %.sroa.535, i64 2
+  %.sroa.535.2..sroa.535.2..sroa.535.2..sroa.535.2..sroa.535.4. = load i128, ptr %.sroa.535.2..sroa_idx98, align 2, !alias.scope !936, !noalias !939
   %153 = load i128, ptr %152, align 4, !alias.scope !939, !noalias !936
-  %154 = icmp eq i128 %.sroa.536.2..sroa.536.2..sroa.536.2..sroa.536.2..sroa.536.4., %153
+  %154 = icmp eq i128 %.sroa.535.2..sroa.535.2..sroa.535.2..sroa.535.2..sroa.535.4., %153
   %155 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %156 = load i16, ptr %155, align 4
-  %157 = icmp eq i16 %.sroa.746.0.copyload, %156
-  %or.cond65 = select i1 %154, i1 %157, i1 false
+  %157 = icmp eq i16 %.sroa.745.0.copyload, %156
+  %or.cond64 = select i1 %154, i1 %157, i1 false
   %158 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %159 = load i32, ptr %158, align 4
-  %160 = icmp eq i32 %.sroa.544.0.copyload, %159
-  %or.cond68 = select i1 %or.cond65, i1 %160, i1 false
+  %160 = icmp eq i32 %.sroa.543.0.copyload, %159
+  %or.cond67 = select i1 %or.cond64, i1 %160, i1 false
   %161 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %162 = load i32, ptr %161, align 4
-  %163 = icmp eq i32 %.sroa.645.0.copyload, %162
-  %or.cond71 = select i1 %or.cond68, i1 %163, i1 false
-  br i1 %or.cond71, label %173, label %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit29.thread"
+  %163 = icmp eq i32 %.sroa.644.0.copyload, %162
+  %or.cond70 = select i1 %or.cond67, i1 %163, i1 false
+  br i1 %or.cond70, label %173, label %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit28.thread"
 
 164:                                              ; preds = %149
   %165 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %.sroa.536.0..sroa.536.0..sroa.536.0..sroa.536.0..sroa.536.2. = load i32, ptr %.sroa.536, align 4, !alias.scope !936, !noalias !939
+  %.sroa.535.0..sroa.535.0..sroa.535.0..sroa.535.0..sroa.535.2. = load i32, ptr %.sroa.535, align 4, !alias.scope !936, !noalias !939
   %166 = load i32, ptr %165, align 2, !alias.scope !939, !noalias !936
-  %167 = icmp eq i32 %.sroa.536.0..sroa.536.0..sroa.536.0..sroa.536.0..sroa.536.2., %166
-  br i1 %167, label %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit29", label %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit29.thread"
+  %167 = icmp eq i32 %.sroa.535.0..sroa.535.0..sroa.535.0..sroa.535.0..sroa.535.2., %166
+  br i1 %167, label %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit28", label %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit28.thread"
 
-"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit29": ; preds = %164
-  %.sroa.536.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.536, i64 4
-  %.sroa.536.4..sroa.536.4..sroa.536.4..sroa.536.4..sroa.536.6. = load i16, ptr %.sroa.536.4..sroa_idx, align 4, !alias.scope !936, !noalias !939
+"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit28": ; preds = %164
+  %.sroa.535.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.535, i64 4
+  %.sroa.535.4..sroa.535.4..sroa.535.4..sroa.535.4..sroa.535.6. = load i16, ptr %.sroa.535.4..sroa_idx, align 4, !alias.scope !936, !noalias !939
   %168 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %169 = load i16, ptr %168, align 2, !alias.scope !939, !noalias !936, !noundef !4
-  %170 = icmp eq i16 %.sroa.536.4..sroa.536.4..sroa.536.4..sroa.536.4..sroa.536.6., %169
-  br i1 %170, label %173, label %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit29.thread"
+  %170 = icmp eq i16 %.sroa.535.4..sroa.535.4..sroa.535.4..sroa.535.4..sroa.535.6., %169
+  br i1 %170, label %173, label %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit28.thread"
 
 171:                                              ; preds = %173, %143
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20312,13 +20312,13 @@ define internal fastcc void @"_ZN6quiche19Connection$LT$F$GT$16get_send_path_id1
   store i64 20, ptr %0, align 8
   br label %117
 
-"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit29.thread": ; preds = %151, %164, %146, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit29"
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %.sroa.536)
+"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit28.thread": ; preds = %151, %164, %146, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit28"
+  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %.sroa.535)
   store i64 0, ptr %0, align 8
   br label %117
 
-173:                                              ; preds = %151, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit29"
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %.sroa.536)
+173:                                              ; preds = %151, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit28"
+  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %.sroa.535)
   br label %171
 }
 

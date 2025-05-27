@@ -3320,6 +3320,14 @@ define internal fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$16cl
   %trunc = trunc nuw i64 %3 to i1
   br i1 %trunc, label %4, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$$GT$17h00ef5c05c1ca02d0E.exit"
 
+"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$$GT$17h00ef5c05c1ca02d0E.exit": ; preds = %2
+  store i64 1, ptr %.sroa.01.0, align 8
+  %.sroa.5.0..sroa.01.0.5.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 8
+  store i64 15, ptr %.sroa.5.0..sroa.01.0.5.sroa_idx, align 8
+  %.sroa.5.sroa.5.0..sroa.5.0..sroa.01.0.5.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 16
+  store i64 0, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa.01.0.5.sroa_idx.sroa_idx, align 8
+  br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5clear17haf48d9ef6e4febc9E.exit"
+
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !394)
@@ -3364,14 +3372,6 @@ define internal fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$16cl
   store i64 15, ptr %5, align 8, !alias.scope !394
   %.sroa.56.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 16
   store i64 0, ptr %.sroa.56.0..sroa_idx7.i, align 8, !alias.scope !394
-  br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5clear17haf48d9ef6e4febc9E.exit"
-
-"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$$GT$17h00ef5c05c1ca02d0E.exit": ; preds = %2
-  store i64 1, ptr %.sroa.01.0, align 8
-  %.sroa.5.0..sroa.01.0.5.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 8
-  store i64 15, ptr %.sroa.5.0..sroa.01.0.5.sroa_idx, align 8
-  %.sroa.5.sroa.5.0..sroa.5.0..sroa.01.0.5.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 16
-  store i64 0, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa.01.0.5.sroa_idx.sroa_idx, align 8
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5clear17haf48d9ef6e4febc9E.exit"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5clear17haf48d9ef6e4febc9E.exit": ; preds = %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit.i", %13, %12, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$$GT$17h00ef5c05c1ca02d0E.exit"

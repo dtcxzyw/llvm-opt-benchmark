@@ -10724,8 +10724,8 @@ default.unreachable74:                            ; preds = %2
 
 "_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h80681a505b1226ceE.exit.thread": ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h80681a505b1226ceE.exit"
   %.pre = load i8, ptr %29, align 8, !range !36, !alias.scope !2853
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !2853)
   %43 = icmp eq i8 %.pre, 0
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !2853)
   br i1 %43, label %"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17hda538d8eee91f8a8E.exit", label %44
 
 44:                                               ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h80681a505b1226ceE.exit.thread"

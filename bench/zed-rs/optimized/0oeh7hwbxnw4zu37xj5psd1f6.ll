@@ -784,7 +784,7 @@ define hidden void @_ZN3rsa10algorithms3rsa5blind17hbb9f3631005c13ecE(ptr dead_o
   %41 = alloca [40 x i8], align 8
   %42 = alloca [40 x i8], align 8
   %43 = alloca [40 x i8], align 8
-  %.sroa.5 = alloca [40 x i8], align 8
+  %.sroa.6 = alloca [40 x i8], align 8
   %44 = alloca [48 x i8], align 8
   %45 = alloca [40 x i8], align 8
   %46 = alloca [48 x i8], align 8
@@ -1198,7 +1198,7 @@ _ZN14num_bigint_dig7biguint16ensure_big_digit17hd48a60493c53c5e9E.exit.i: ; pred
 
 188:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$num_bigint_dig..bigint..BigInt$GT$17hc30c27c08a01c24dE.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef nonnull align 8 dereferenceable(48) %50, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6)
   call void @llvm.experimental.noalias.scope.decl(metadata !291)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %27)
   %189 = load i8, ptr %74, align 8, !range !294, !alias.scope !291, !noalias !295, !noundef !9
@@ -1335,7 +1335,7 @@ default.unreachable:                              ; preds = %188
   br i1 %.not.i.i.i51, label %.loopexit.i, label %214
 
 .loopexit.i:                                      ; preds = %227, %214, %209
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(40) %27, i64 40, i1 false), !noalias !291
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(40) %27, i64 40, i1 false), !noalias !291
   br label %195
 
 231:                                              ; preds = %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h6bd9365b9c8cd3d0E.exit.i.i39"
@@ -1349,13 +1349,17 @@ default.unreachable:                              ; preds = %188
   br i1 %.sink.i45, label %.loopexit150, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$num_bigint_dig..biguint..BigUint$GT$$GT$17haaab87047745c8e1E.exit"
 
 .thread121:                                       ; preds = %188
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(40) %50, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(40) %50, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27)
   br label %.loopexit150
 
+"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$num_bigint_dig..biguint..BigUint$GT$$GT$17haaab87047745c8e1E.exit": ; preds = %233
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.6)
+  br label %.backedge.backedge
+
 .loopexit150:                                     ; preds = %233, %.thread121
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %49, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %49, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6, i64 40, i1 false)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %42)
   %234 = getelementptr inbounds nuw i8, ptr %2, i64 216
   invoke void @_ZN14num_bigint_dig7biguint7BigUint6modpow17h187bb4c1302f112fE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %234, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %52)
@@ -1666,10 +1670,6 @@ default.unreachable:                              ; preds = %188
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
   unreachable
-
-"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$num_bigint_dig..biguint..BigUint$GT$$GT$17haaab87047745c8e1E.exit": ; preds = %233
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.5)
-  br label %.backedge.backedge
 
 .thread102:                                       ; preds = %159
   br i1 %.sroa.0.0, label %.thread102.thread141, label %.thread135.thread

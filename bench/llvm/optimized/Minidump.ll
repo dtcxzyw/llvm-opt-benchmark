@@ -1166,9 +1166,9 @@ define dso_local void @_ZNK4llvm6object12MinidumpFile15getMemory64ListERNS_5Erro
   br i1 %11, label %_ZN4llvm8ExpectedINS_8ArrayRefINS_8minidump19MemoryDescriptor_64EEEED2Ev.exit.thread, label %14
 
 _ZN4llvm8ExpectedINS_8ArrayRefINS_8minidump19MemoryDescriptor_64EEEED2Ev.exit.thread: ; preds = %3
-  %.sroa.068.1194 = load i64, ptr %8, align 8, !tbaa !41
+  %.sroa.068.1193 = load i64, ptr %8, align 8, !tbaa !41
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16, !noalias !237
-  %12 = inttoptr i64 %.sroa.068.1194 to ptr
+  %12 = inttoptr i64 %.sroa.068.1193 to ptr
   store ptr %12, ptr %2, align 8, !tbaa !240
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1374,10 +1374,10 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i26: ;
   br label %_ZN4llvm8ExpectedINS_8minidump18Memory64ListHeaderEED2Ev.exit
 
 _ZN4llvm8ExpectedINS_8minidump18Memory64ListHeaderEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i26, %_ZN4llvm5ErrorD2Ev.exit11, %.critedge, %_ZN4llvm5ErrorD2Ev.exit19, %_ZN4llvm8ExpectedINS_8ArrayRefINS_8minidump19MemoryDescriptor_64EEEED2Ev.exit.thread
-  %.sink199.sink = phi i8 [ 1, %_ZN4llvm8ExpectedINS_8ArrayRefINS_8minidump19MemoryDescriptor_64EEEED2Ev.exit.thread ], [ 1, %_ZN4llvm5ErrorD2Ev.exit19 ], [ 0, %.critedge ], [ 1, %_ZN4llvm5ErrorD2Ev.exit11 ], [ 1, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i26 ]
+  %.sink198.sink = phi i8 [ 1, %_ZN4llvm8ExpectedINS_8ArrayRefINS_8minidump19MemoryDescriptor_64EEEED2Ev.exit.thread ], [ 1, %_ZN4llvm5ErrorD2Ev.exit19 ], [ 0, %.critedge ], [ 1, %_ZN4llvm5ErrorD2Ev.exit11 ], [ 1, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i26 ]
   %.sink.sink = phi i64 [ 0, %_ZN4llvm8ExpectedINS_8ArrayRefINS_8minidump19MemoryDescriptor_64EEEED2Ev.exit.thread ], [ 0, %_ZN4llvm5ErrorD2Ev.exit19 ], [ %85, %.critedge ], [ 0, %_ZN4llvm5ErrorD2Ev.exit11 ], [ 0, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i26 ]
   %.sroa.4147.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 %.sink199.sink, ptr %.sroa.4147.0..sroa_idx, align 8
+  store i8 %.sink198.sink, ptr %.sroa.4147.0..sroa_idx, align 8
   %.sroa.6149.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %.sink.sink, ptr %.sroa.6149.0..sroa_idx, align 8
   %.sroa.4151.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 144

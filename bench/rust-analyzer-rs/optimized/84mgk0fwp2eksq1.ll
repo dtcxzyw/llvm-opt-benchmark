@@ -7360,8 +7360,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 "_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h13f7495a6a0a3c8cE.exit.i.i": ; preds = %57
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !2365
   %.pre.i.i = load i64, ptr %.sroa.63.0..sroa_idx, align 8, !alias.scope !2373, !noalias !2357
-  %.pre9.i.i = load i64, ptr %11, align 8, !alias.scope !2373, !noalias !2357
-  %68 = icmp eq i64 %.pre9.i.i, %.pre.i.i
+  %.pre8.i.i = load i64, ptr %11, align 8, !alias.scope !2373, !noalias !2357
+  %68 = icmp eq i64 %.pre8.i.i, %.pre.i.i
   br i1 %68, label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h13f7495a6a0a3c8cE.exit.thread.i.i", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h02861e88aefad679E.exit.i.i"
 
 "_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h13f7495a6a0a3c8cE.exit.thread.i.i": ; preds = %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h13f7495a6a0a3c8cE.exit.i.i", %53
@@ -8296,8 +8296,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 "_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha40276d8bf0495c1E.exit.i.i": ; preds = %57
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !2649
   %.pre.i.i = load i64, ptr %.sroa.63.0..sroa_idx, align 8, !alias.scope !2657, !noalias !2641
-  %.pre9.i.i = load i64, ptr %11, align 8, !alias.scope !2657, !noalias !2641
-  %68 = icmp eq i64 %.pre9.i.i, %.pre.i.i
+  %.pre8.i.i = load i64, ptr %11, align 8, !alias.scope !2657, !noalias !2641
+  %68 = icmp eq i64 %.pre8.i.i, %.pre.i.i
   br i1 %68, label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha40276d8bf0495c1E.exit.thread.i.i", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h02861e88aefad679E.exit.i.i"
 
 "_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha40276d8bf0495c1E.exit.thread.i.i": ; preds = %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha40276d8bf0495c1E.exit.i.i", %53

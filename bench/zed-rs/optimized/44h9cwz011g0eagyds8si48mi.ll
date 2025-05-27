@@ -729,8 +729,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc:                                           ; preds = %2
   %11 = load i64, ptr %7, align 8, !range !6, !noalias !194, !noundef !5
-  %trunc15.i.i.i = trunc nuw i64 %11 to i1
-  br i1 %trunc15.i.i.i, label %.lr.ph.i.i.i, label %.loopexit28
+  %trunc14.i.i.i = trunc nuw i64 %11 to i1
+  br i1 %trunc14.i.i.i, label %.lr.ph.i.i.i, label %.loopexit28
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -874,8 +874,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc.i.i:                                       ; preds = %39
   %40 = load i64, ptr %4, align 8, !range !6, !noalias !238, !noundef !5
-  %trunc15.i.i.i.i.i = trunc nuw i64 %40 to i1
-  br i1 %trunc15.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h95b434bd8e1216b9E.exit.i"
+  %trunc14.i.i.i.i.i = trunc nuw i64 %40 to i1
+  br i1 %trunc14.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h95b434bd8e1216b9E.exit.i"
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.noexc.i.i, %.noexc6.i.i
   %.sroa.08.0.copyload.i.i.i.i.i = load ptr, ptr %38, align 8, !noalias !238

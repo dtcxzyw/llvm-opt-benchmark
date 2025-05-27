@@ -1614,7 +1614,7 @@ define noundef range(i8 0, 3) i8 @_ZN16uv_configuration4hash16HashCheckingMode9f
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %4
-  %.mux = sub nuw nsw i8 2, %1
+  %spec.select = sub nuw nsw i8 2, %1
   br label %6
 
 .critedge:                                        ; preds = %4
@@ -1622,7 +1622,7 @@ define noundef range(i8 0, 3) i8 @_ZN16uv_configuration4hash16HashCheckingMode9f
   br label %6
 
 6:                                                ; preds = %5, %.critedge, %2
-  %.sroa.06.0 = phi i8 [ 0, %2 ], [ %.mux, %5 ], [ %.sroa.06.3, %.critedge ]
+  %.sroa.06.0 = phi i8 [ 0, %2 ], [ %.sroa.06.3, %.critedge ], [ %spec.select, %5 ]
   ret i8 %.sroa.06.0
 }
 

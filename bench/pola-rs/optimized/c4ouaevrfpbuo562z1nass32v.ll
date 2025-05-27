@@ -10171,10 +10171,10 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i: ; preds = %26
   br label %34
 
 34:                                               ; preds = %"_ZN123_$LT$pyo3..instance..Bound$LT$pyo3..types..sequence..PySequence$GT$$u20$as$u20$pyo3..types..sequence..PySequenceMethods$GT$3len17hc29225666fb86ca9E.exit", %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$usize$C$pyo3..err..PyErr$GT$$GT$17h94ad6972bb69ab55E.exit"
-  %.sroa.018.045 = phi i64 [ 0, %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$usize$C$pyo3..err..PyErr$GT$$GT$17h94ad6972bb69ab55E.exit" ], [ %20, %"_ZN123_$LT$pyo3..instance..Bound$LT$pyo3..types..sequence..PySequence$GT$$u20$as$u20$pyo3..types..sequence..PySequenceMethods$GT$3len17hc29225666fb86ca9E.exit" ]
+  %.sroa.018.044 = phi i64 [ 0, %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$usize$C$pyo3..err..PyErr$GT$$GT$17h94ad6972bb69ab55E.exit" ], [ %20, %"_ZN123_$LT$pyo3..instance..Bound$LT$pyo3..types..sequence..PySequence$GT$$u20$as$u20$pyo3..types..sequence..PySequenceMethods$GT$3len17hc29225666fb86ca9E.exit" ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1029
-  call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h38fb126a72448595E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, i64 noundef %.sroa.018.045, i1 noundef zeroext false, i64 noundef 8, i64 noundef 48), !noalias !1029
+  call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h38fb126a72448595E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, i64 noundef %.sroa.018.044, i1 noundef zeroext false, i64 noundef 8, i64 noundef 48), !noalias !1029
   %35 = load i64, ptr %3, align 8, !range !28, !noalias !1029, !noundef !4
   %36 = trunc nuw i64 %35 to i1
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -10189,7 +10189,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i: ; preds = %26
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h96aca07d5500d3b6E.exit": ; preds = %34
   %42 = load ptr, ptr %39, align 8, !noalias !1029, !nonnull !4, !noundef !4
-  %43 = icmp ule i64 %.sroa.018.045, %38
+  %43 = icmp ule i64 %.sroa.018.044, %38
   call void @llvm.assume(i1 %43)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1029
   store i64 %38, ptr %11, align 8

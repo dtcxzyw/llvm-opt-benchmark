@@ -4470,22 +4470,24 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
 ; Function Attrs: inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal { i1, i8 } @_ZN4core3ops8function6FnOnce9call_once17h0070950a42b24b84E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #23 personality ptr @rust_eh_personality {
   %.not.i.i.i = icmp eq i64 %1, 4
-  br i1 %.not.i.i.i, label %"_ZN85_$LT$typst..foundations..context.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h8fb86f4d4b29e92bE.exit.i", label %"_ZN5typst11foundations7context1_113_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..foundations..context..ContextElem$GT$4data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h8c64fb319416af81E.exit"
+  br i1 %.not.i.i.i, label %"_ZN85_$LT$typst..foundations..context.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h8fb86f4d4b29e92bE.exit.i", label %"_ZN85_$LT$typst..foundations..context.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h8fb86f4d4b29e92bE.exit.thread.i"
 
 "_ZN85_$LT$typst..foundations..context.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h8fb86f4d4b29e92bE.exit.i": ; preds = %2
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.415, i64 4), !alias.scope !960
   %bcmp.i.i.fr.i = freeze i32 %bcmp.i.i.i
-  %3 = icmp ne i32 %bcmp.i.i.fr.i, 0
-  %spec.select6.i = zext i1 %3 to i8
-  %4 = xor i1 %3, true
+  %.not.i = icmp eq i32 %bcmp.i.i.fr.i, 0
+  br i1 %.not.i, label %"_ZN5typst11foundations7context1_113_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..foundations..context..ContextElem$GT$4data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h8c64fb319416af81E.exit", label %"_ZN85_$LT$typst..foundations..context.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h8fb86f4d4b29e92bE.exit.thread.i"
+
+"_ZN85_$LT$typst..foundations..context.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h8fb86f4d4b29e92bE.exit.thread.i": ; preds = %"_ZN85_$LT$typst..foundations..context.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h8fb86f4d4b29e92bE.exit.i", %2
   br label %"_ZN5typst11foundations7context1_113_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..foundations..context..ContextElem$GT$4data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h8c64fb319416af81E.exit"
 
-"_ZN5typst11foundations7context1_113_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..foundations..context..ContextElem$GT$4data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h8c64fb319416af81E.exit": ; preds = %2, %"_ZN85_$LT$typst..foundations..context.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h8fb86f4d4b29e92bE.exit.i"
-  %.sroa.0.0.i = phi i1 [ false, %2 ], [ %4, %"_ZN85_$LT$typst..foundations..context.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h8fb86f4d4b29e92bE.exit.i" ]
-  %5 = phi i8 [ 1, %2 ], [ %spec.select6.i, %"_ZN85_$LT$typst..foundations..context.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h8fb86f4d4b29e92bE.exit.i" ]
-  %6 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0.i, 0
-  %7 = insertvalue { i1, i8 } %6, i8 %5, 1
-  ret { i1, i8 } %7
+"_ZN5typst11foundations7context1_113_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..foundations..context..ContextElem$GT$4data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h8c64fb319416af81E.exit": ; preds = %"_ZN85_$LT$typst..foundations..context.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h8fb86f4d4b29e92bE.exit.i", %"_ZN85_$LT$typst..foundations..context.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h8fb86f4d4b29e92bE.exit.thread.i"
+  %3 = phi i8 [ 1, %"_ZN85_$LT$typst..foundations..context.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h8fb86f4d4b29e92bE.exit.thread.i" ], [ 0, %"_ZN85_$LT$typst..foundations..context.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h8fb86f4d4b29e92bE.exit.i" ]
+  %4 = trunc nuw i8 %3 to i1
+  %.sroa.0.0.i = xor i1 %4, true
+  %5 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0.i, 0
+  %6 = insertvalue { i1, i8 } %5, i8 %3, 1
+  ret { i1, i8 } %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -8770,22 +8772,24 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h4c023e9d87d54c0fE
 ; Function Attrs: inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal { i1, i8 } @_ZN4core3ops8function6FnOnce9call_once17h4cdbab8444474b6dE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #23 personality ptr @rust_eh_personality {
   %.not.i.i.i = icmp eq i64 %1, 4
-  br i1 %.not.i.i.i, label %"_ZN87_$LT$typst..introspection..locate_.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hecfe40481fc1bf81E.exit.i", label %"_ZN5typst13introspection7locate_1_114_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..introspection..locate_..LocateElem$GT$4data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h14613fb01195ac1bE.exit"
+  br i1 %.not.i.i.i, label %"_ZN87_$LT$typst..introspection..locate_.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hecfe40481fc1bf81E.exit.i", label %"_ZN87_$LT$typst..introspection..locate_.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hecfe40481fc1bf81E.exit.thread.i"
 
 "_ZN87_$LT$typst..introspection..locate_.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hecfe40481fc1bf81E.exit.i": ; preds = %2
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.415, i64 4), !alias.scope !2009
   %bcmp.i.i.fr.i = freeze i32 %bcmp.i.i.i
-  %3 = icmp ne i32 %bcmp.i.i.fr.i, 0
-  %spec.select6.i = zext i1 %3 to i8
-  %4 = xor i1 %3, true
+  %.not.i = icmp eq i32 %bcmp.i.i.fr.i, 0
+  br i1 %.not.i, label %"_ZN5typst13introspection7locate_1_114_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..introspection..locate_..LocateElem$GT$4data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h14613fb01195ac1bE.exit", label %"_ZN87_$LT$typst..introspection..locate_.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hecfe40481fc1bf81E.exit.thread.i"
+
+"_ZN87_$LT$typst..introspection..locate_.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hecfe40481fc1bf81E.exit.thread.i": ; preds = %"_ZN87_$LT$typst..introspection..locate_.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hecfe40481fc1bf81E.exit.i", %2
   br label %"_ZN5typst13introspection7locate_1_114_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..introspection..locate_..LocateElem$GT$4data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h14613fb01195ac1bE.exit"
 
-"_ZN5typst13introspection7locate_1_114_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..introspection..locate_..LocateElem$GT$4data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h14613fb01195ac1bE.exit": ; preds = %2, %"_ZN87_$LT$typst..introspection..locate_.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hecfe40481fc1bf81E.exit.i"
-  %.sroa.0.0.i = phi i1 [ false, %2 ], [ %4, %"_ZN87_$LT$typst..introspection..locate_.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hecfe40481fc1bf81E.exit.i" ]
-  %5 = phi i8 [ 1, %2 ], [ %spec.select6.i, %"_ZN87_$LT$typst..introspection..locate_.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hecfe40481fc1bf81E.exit.i" ]
-  %6 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0.i, 0
-  %7 = insertvalue { i1, i8 } %6, i8 %5, 1
-  ret { i1, i8 } %7
+"_ZN5typst13introspection7locate_1_114_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..introspection..locate_..LocateElem$GT$4data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h14613fb01195ac1bE.exit": ; preds = %"_ZN87_$LT$typst..introspection..locate_.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hecfe40481fc1bf81E.exit.i", %"_ZN87_$LT$typst..introspection..locate_.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hecfe40481fc1bf81E.exit.thread.i"
+  %3 = phi i8 [ 1, %"_ZN87_$LT$typst..introspection..locate_.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hecfe40481fc1bf81E.exit.thread.i" ], [ 0, %"_ZN87_$LT$typst..introspection..locate_.._..Fields$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hecfe40481fc1bf81E.exit.i" ]
+  %4 = trunc nuw i8 %3 to i1
+  %.sroa.0.0.i = xor i1 %4, true
+  %5 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0.i, 0
+  %6 = insertvalue { i1, i8 } %5, i8 %3, 1
+  ret { i1, i8 } %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

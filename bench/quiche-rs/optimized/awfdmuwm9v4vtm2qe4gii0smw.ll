@@ -3472,7 +3472,7 @@ define void @_ZN3h3i6client11sync_client7connect17h9144acda92c265a6E(ptr dead_on
   %481 = icmp samesign ult i32 %468, %472
   %spec.select312 = select i1 %476, i1 %481, i1 %480
   %. = select i1 %spec.select312, i64 %467, i64 %471
-  %.638 = select i1 %spec.select312, i32 %468, i32 %472
+  %.637 = select i1 %spec.select312, i32 %468, i32 %472
   br label %.sink.split
 
 482:                                              ; preds = %475
@@ -3495,9 +3495,9 @@ define void @_ZN3h3i6client11sync_client7connect17h9144acda92c265a6E(ptr dead_on
           to label %232 unwind label %.loopexit.split-lp503.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .sink.split:                                      ; preds = %479, %473, %474, %486
-  %.sink637 = phi i64 [ %471, %486 ], [ %471, %474 ], [ %467, %473 ], [ %., %479 ]
-  %.sink.ph = phi i32 [ %472, %486 ], [ %472, %474 ], [ %468, %473 ], [ %.638, %479 ]
-  store i64 %.sink637, ptr %104, align 8
+  %.sink636 = phi i64 [ %471, %486 ], [ %471, %474 ], [ %467, %473 ], [ %., %479 ]
+  %.sink.ph = phi i32 [ %472, %486 ], [ %472, %474 ], [ %468, %473 ], [ %.637, %479 ]
+  store i64 %.sink636, ptr %104, align 8
   br label %489
 
 489:                                              ; preds = %.sink.split, %474
@@ -3578,8 +3578,8 @@ define void @_ZN3h3i6client11sync_client7connect17h9144acda92c265a6E(ptr dead_on
   br i1 %510, label %513, label %.lr.ph572.preheader
 
 511:                                              ; preds = %517
-  %.pre611 = load i64, ptr %399, align 8
-  %512 = icmp eq i64 %.pre611, 0
+  %.pre610 = load i64, ptr %399, align 8
+  %512 = icmp eq i64 %.pre610, 0
   br i1 %512, label %._crit_edge573, label %.lr.ph572.preheader
 
 .lr.ph572.preheader:                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h86eabbbb378a1edeE.exit", %511
@@ -3677,7 +3677,7 @@ define void @_ZN3h3i6client11sync_client7connect17h9144acda92c265a6E(ptr dead_on
           to label %542 unwind label %.loopexit.split-lp503.loopexit.split-lp.loopexit.split-lp.loopexit
 
 542:                                              ; preds = %540
-  %or.cond489 = or i1 %541, %.sroa.018.0
+  %or.cond489 = or i1 %.sroa.018.0, %541
   br i1 %or.cond489, label %.thread472, label %543
 
 543:                                              ; preds = %542, %561, %560
@@ -5163,8 +5163,8 @@ define void @_ZN3h3i6client11sync_client7connect17h9144acda92c265a6E(ptr dead_on
   %1023 = trunc nuw i8 %.sroa.075.14 to i1
   %1024 = load i64, ptr %4, align 8, !range !88
   %1025 = icmp ne i64 %1024, -9223372036854775808
-  %or.cond.not585 = select i1 %1023, i1 %1025, i1 false
-  br i1 %or.cond.not585, label %1027, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$h3i..client..connection_summary..CloseTriggerFrames$GT$$GT$17hc11108229b8d4104E.exit"
+  %or.cond.not = select i1 %1023, i1 %1025, i1 false
+  br i1 %or.cond.not, label %1027, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$h3i..client..connection_summary..CloseTriggerFrames$GT$$GT$17hc11108229b8d4104E.exit"
 
 "_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$h3i..client..connection_summary..CloseTriggerFrames$GT$$GT$17hc11108229b8d4104E.exit": ; preds = %1027, %1022
   %1026 = trunc nuw i8 %.sroa.077.11 to i1

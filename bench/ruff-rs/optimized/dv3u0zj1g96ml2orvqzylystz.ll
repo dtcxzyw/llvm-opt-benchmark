@@ -2756,43 +2756,43 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hec2d3e3444dfa7daE.exit.i.
   %.not.not.i.not7.i.i = icmp eq i16 %111, 0
   br i1 %.not.not.i.not7.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i, !prof !300
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %107
-  %.sroa.0.0.lcssa.i.i = phi i64 [ %.sroa.0.05.i.i, %107 ], [ %.sroa.0.0.i.i6, %.lr.ph.i.i ]
-  %.lcssa.i.i = phi i16 [ %111, %107 ], [ %130, %.lr.ph.i.i ]
-  %112 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
-  %113 = zext nneg i16 %112 to i64
-  %114 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %113
-  %115 = and i64 %114, %60
-  %116 = getelementptr inbounds nuw i8, ptr %63, i64 %115
-  %117 = load i8, ptr %116, align 1, !noundef !3
-  %118 = icmp sgt i8 %117, -1
-  br i1 %118, label %119, label %131, !prof !21
-
-119:                                              ; preds = %._crit_edge.i.i
-  %120 = load <16 x i8>, ptr %63, align 16
-  %121 = icmp slt <16 x i8> %120, zeroinitializer
-  %122 = bitcast <16 x i1> %121 to i16
-  %123 = icmp ne i16 %122, 0
-  call void @llvm.assume(i1 %123)
-  %124 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %122, i1 true)
-  %125 = zext nneg i16 %124 to i64
-  br label %131
-
 .lr.ph.i.i:                                       ; preds = %107, %.lr.ph.i.i
   %.sroa.0.09.i.i = phi i64 [ %.sroa.0.0.i.i6, %.lr.ph.i.i ], [ %.sroa.0.05.i.i, %107 ]
-  %.sroa.7.08.i.i = phi i64 [ %126, %.lr.ph.i.i ], [ 0, %107 ]
-  %126 = add i64 %.sroa.7.08.i.i, 16
-  %127 = add i64 %126, %.sroa.0.09.i.i
-  %.sroa.0.0.i.i6 = and i64 %127, %60
-  %128 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.0.i.i6
-  %.sroa.0.0.copyload.i4.i.i = load <16 x i8>, ptr %128, align 1
-  %129 = icmp slt <16 x i8> %.sroa.0.0.copyload.i4.i.i, zeroinitializer
-  %130 = bitcast <16 x i1> %129 to i16
-  %.not.not.i.not.i.i = icmp eq i16 %130, 0
+  %.sroa.7.08.i.i = phi i64 [ %112, %.lr.ph.i.i ], [ 0, %107 ]
+  %112 = add i64 %.sroa.7.08.i.i, 16
+  %113 = add i64 %112, %.sroa.0.09.i.i
+  %.sroa.0.0.i.i6 = and i64 %113, %60
+  %114 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.0.i.i6
+  %.sroa.0.0.copyload.i4.i.i = load <16 x i8>, ptr %114, align 1
+  %115 = icmp slt <16 x i8> %.sroa.0.0.copyload.i4.i.i, zeroinitializer
+  %116 = bitcast <16 x i1> %115 to i16
+  %.not.not.i.not.i.i = icmp eq i16 %116, 0
   br i1 %.not.not.i.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i, !prof !301
 
-131:                                              ; preds = %119, %._crit_edge.i.i
-  %.sroa.0.0.i4.i.i = phi i64 [ %125, %119 ], [ %115, %._crit_edge.i.i ]
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %107
+  %.sroa.0.0.lcssa.i.i = phi i64 [ %.sroa.0.05.i.i, %107 ], [ %.sroa.0.0.i.i6, %.lr.ph.i.i ]
+  %.lcssa.i.i = phi i16 [ %111, %107 ], [ %116, %.lr.ph.i.i ]
+  %117 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
+  %118 = zext nneg i16 %117 to i64
+  %119 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %118
+  %120 = and i64 %119, %60
+  %121 = getelementptr inbounds nuw i8, ptr %63, i64 %120
+  %122 = load i8, ptr %121, align 1, !noundef !3
+  %123 = icmp sgt i8 %122, -1
+  br i1 %123, label %124, label %131, !prof !21
+
+124:                                              ; preds = %._crit_edge.i.i
+  %125 = load <16 x i8>, ptr %63, align 16
+  %126 = icmp slt <16 x i8> %125, zeroinitializer
+  %127 = bitcast <16 x i1> %126 to i16
+  %128 = icmp ne i16 %127, 0
+  call void @llvm.assume(i1 %128)
+  %129 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %127, i1 true)
+  %130 = zext nneg i16 %129 to i64
+  br label %131
+
+131:                                              ; preds = %124, %._crit_edge.i.i
+  %.sroa.0.0.i4.i.i = phi i64 [ %130, %124 ], [ %120, %._crit_edge.i.i ]
   %132 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.0.i4.i.i
   %133 = lshr i64 %108, 57
   %134 = trunc nuw nsw i64 %133 to i8
@@ -2912,43 +2912,43 @@ _ZN4core3ptr19swap_nonoverlapping7runtime17h87fb4b51444ee123E.exit.i: ; preds = 
   %.not.not.i.not7.i.i13 = icmp eq i16 %178, 0
   br i1 %.not.not.i.not7.i.i13, label %.lr.ph.i11.i, label %._crit_edge.i.i14, !prof !300
 
-._crit_edge.i.i14:                                ; preds = %.lr.ph.i11.i, %174
-  %.sroa.0.0.lcssa.i.i15 = phi i64 [ %.sroa.0.05.i.i11, %174 ], [ %.sroa.0.0.i.i21, %.lr.ph.i11.i ]
-  %.lcssa.i.i16 = phi i16 [ %178, %174 ], [ %197, %.lr.ph.i11.i ]
-  %179 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i16, i1 true)
-  %180 = zext nneg i16 %179 to i64
-  %181 = add i64 %.sroa.0.0.lcssa.i.i15, %180
-  %182 = and i64 %181, %.val8.i
-  %183 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %182
-  %184 = load i8, ptr %183, align 1, !noundef !3
-  %185 = icmp sgt i8 %184, -1
-  br i1 %185, label %186, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17h357805648145c78cE.exit.i, !prof !21
-
-186:                                              ; preds = %._crit_edge.i.i14
-  %187 = load <16 x i8>, ptr %.val.i, align 16
-  %188 = icmp slt <16 x i8> %187, zeroinitializer
-  %189 = bitcast <16 x i1> %188 to i16
-  %190 = icmp ne i16 %189, 0
-  call void @llvm.assume(i1 %190)
-  %191 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %189, i1 true)
-  %192 = zext nneg i16 %191 to i64
-  br label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17h357805648145c78cE.exit.i
-
 .lr.ph.i11.i:                                     ; preds = %174, %.lr.ph.i11.i
   %.sroa.0.09.i.i19 = phi i64 [ %.sroa.0.0.i.i21, %.lr.ph.i11.i ], [ %.sroa.0.05.i.i11, %174 ]
-  %.sroa.7.08.i.i20 = phi i64 [ %193, %.lr.ph.i11.i ], [ 0, %174 ]
-  %193 = add i64 %.sroa.7.08.i.i20, 16
-  %194 = add i64 %193, %.sroa.0.09.i.i19
-  %.sroa.0.0.i.i21 = and i64 %194, %.val8.i
-  %195 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.sroa.0.0.i.i21
-  %.sroa.0.0.copyload.i4.i.i22 = load <16 x i8>, ptr %195, align 1
-  %196 = icmp slt <16 x i8> %.sroa.0.0.copyload.i4.i.i22, zeroinitializer
-  %197 = bitcast <16 x i1> %196 to i16
-  %.not.not.i.not.i.i23 = icmp eq i16 %197, 0
+  %.sroa.7.08.i.i20 = phi i64 [ %179, %.lr.ph.i11.i ], [ 0, %174 ]
+  %179 = add i64 %.sroa.7.08.i.i20, 16
+  %180 = add i64 %179, %.sroa.0.09.i.i19
+  %.sroa.0.0.i.i21 = and i64 %180, %.val8.i
+  %181 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.sroa.0.0.i.i21
+  %.sroa.0.0.copyload.i4.i.i22 = load <16 x i8>, ptr %181, align 1
+  %182 = icmp slt <16 x i8> %.sroa.0.0.copyload.i4.i.i22, zeroinitializer
+  %183 = bitcast <16 x i1> %182 to i16
+  %.not.not.i.not.i.i23 = icmp eq i16 %183, 0
   br i1 %.not.not.i.not.i.i23, label %.lr.ph.i11.i, label %._crit_edge.i.i14, !prof !301
 
-_ZN9hashbrown3raw13RawTableInner16find_insert_slot17h357805648145c78cE.exit.i: ; preds = %186, %._crit_edge.i.i14
-  %.sroa.0.0.i4.i.i17 = phi i64 [ %192, %186 ], [ %182, %._crit_edge.i.i14 ]
+._crit_edge.i.i14:                                ; preds = %.lr.ph.i11.i, %174
+  %.sroa.0.0.lcssa.i.i15 = phi i64 [ %.sroa.0.05.i.i11, %174 ], [ %.sroa.0.0.i.i21, %.lr.ph.i11.i ]
+  %.lcssa.i.i16 = phi i16 [ %178, %174 ], [ %183, %.lr.ph.i11.i ]
+  %184 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i16, i1 true)
+  %185 = zext nneg i16 %184 to i64
+  %186 = add i64 %.sroa.0.0.lcssa.i.i15, %185
+  %187 = and i64 %186, %.val8.i
+  %188 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %187
+  %189 = load i8, ptr %188, align 1, !noundef !3
+  %190 = icmp sgt i8 %189, -1
+  br i1 %190, label %191, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17h357805648145c78cE.exit.i, !prof !21
+
+191:                                              ; preds = %._crit_edge.i.i14
+  %192 = load <16 x i8>, ptr %.val.i, align 16
+  %193 = icmp slt <16 x i8> %192, zeroinitializer
+  %194 = bitcast <16 x i1> %193 to i16
+  %195 = icmp ne i16 %194, 0
+  call void @llvm.assume(i1 %195)
+  %196 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %194, i1 true)
+  %197 = zext nneg i16 %196 to i64
+  br label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17h357805648145c78cE.exit.i
+
+_ZN9hashbrown3raw13RawTableInner16find_insert_slot17h357805648145c78cE.exit.i: ; preds = %191, %._crit_edge.i.i14
+  %.sroa.0.0.i4.i.i17 = phi i64 [ %197, %191 ], [ %187, %._crit_edge.i.i14 ]
   %198 = sub i64 %.sroa.0.06.i, %.sroa.0.05.i.i11
   %199 = sub i64 %.sroa.0.0.i4.i.i17, %.sroa.0.05.i.i11
   %200 = xor i64 %199, %198

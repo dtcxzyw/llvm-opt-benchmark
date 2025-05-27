@@ -31639,8 +31639,8 @@ common.ret.sink.split.i.i375:                     ; preds = %1385, %1382
 
 .noexc33.i:                                       ; preds = %1582
   %1583 = load i64, ptr %13, align 8, !range !37, !noalias !9125, !noundef !6
-  %trunc39.i.i.i.i.i.i = trunc nuw i64 %1583 to i1
-  br i1 %trunc39.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, label %.loopexit123.i
+  %trunc37.i.i.i.i.i.i = trunc nuw i64 %1583 to i1
+  br i1 %trunc37.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, label %.loopexit123.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc33.i, %.noexc36.i
   %.sroa.08.0.copyload.i.i.i.i.i.i = load ptr, ptr %1573, align 8, !noalias !9125

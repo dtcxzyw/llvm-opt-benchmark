@@ -7474,7 +7474,7 @@ define hidden { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrinter15prin
 .noexc15:                                         ; preds = %82
   %84 = trunc i64 %83 to i32
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %.invoke106, label %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i"
+  br i1 %85, label %.invoke105, label %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i"
 
 "_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i": ; preds = %.noexc15
   %86 = sdiv i32 %74, %84
@@ -7486,13 +7486,13 @@ define hidden { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrinter15prin
 .noexc17:                                         ; preds = %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i"
   %89 = trunc i64 %88 to i32
   %90 = icmp eq i32 %89, 0
-  br i1 %90, label %.invoke106, label %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i.i"
+  br i1 %90, label %.invoke105, label %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i.i"
 
-.invoke106:                                       ; preds = %.noexc17, %.noexc15
+.invoke105:                                       ; preds = %.noexc17, %.noexc15
   invoke void @_ZN4core9panicking11panic_const23panic_const_div_by_zero17h2f1b89aaa7f0b171E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.defb23c543a0d58eda124284528ab762.5) #14
-          to label %.cont107 unwind label %262
+          to label %.cont106 unwind label %262
 
-.cont107:                                         ; preds = %.invoke106
+.cont106:                                         ; preds = %.invoke105
   unreachable
 
 "_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i.i": ; preds = %.noexc17
@@ -7503,7 +7503,7 @@ define hidden { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrinter15prin
 .noexc19:                                         ; preds = %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i.i"
   switch i32 %92, label %_ZN4jiff2tz6offset6Offset19part_minutes_ranged17h7914e8167e40d755E.exit.i [
     i32 -1, label %_ZN4jiff2tz6offset6Offset19part_minutes_ranged17h7914e8167e40d755E.exit.thread.i
-    i32 0, label %.invoke104
+    i32 0, label %.invoke103
   ], !prof !17
 
 _ZN4jiff2tz6offset6Offset19part_minutes_ranged17h7914e8167e40d755E.exit.i: ; preds = %.noexc19
@@ -7521,14 +7521,14 @@ _ZN4jiff2tz6offset6Offset19part_minutes_ranged17h7914e8167e40d755E.exit.thread.i
 .noexc21:                                         ; preds = %_ZN4jiff2tz6offset6Offset19part_minutes_ranged17h7914e8167e40d755E.exit.thread.i
   switch i32 %97, label %98 [
     i32 -1, label %"_ZN4jiff4util8rangeint17ri32$LT$_$C$_$GT$8rem_ceil17he4f62bc978abf55dE.exit.i"
-    i32 0, label %.invoke104
+    i32 0, label %.invoke103
   ], !prof !17
 
-.invoke104:                                       ; preds = %.noexc21, %.noexc19
+.invoke103:                                       ; preds = %.noexc21, %.noexc19
   invoke void @_ZN4core9panicking11panic_const23panic_const_rem_by_zero17h1d770b6a397dd885E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.defb23c543a0d58eda124284528ab762.5) #14
-          to label %.cont105 unwind label %262
+          to label %.cont104 unwind label %262
 
-.cont105:                                         ; preds = %.invoke104
+.cont104:                                         ; preds = %.invoke103
   unreachable
 
 98:                                               ; preds = %.noexc21
@@ -7573,7 +7573,7 @@ _ZN4jiff2tz6offset6Offset19part_minutes_ranged17h7914e8167e40d755E.exit.thread.i
   store i8 %110, ptr %106, align 1, !alias.scope !574, !noalias !580
   %111 = zext i8 %110 to i64
   %112 = icmp ult i8 %110, 20
-  br i1 %112, label %113, label %.invoke102
+  br i1 %112, label %113, label %.invoke101
 
 113:                                              ; preds = %108
   %114 = udiv i64 %.sroa.0.0.i.i, 10
@@ -7602,7 +7602,7 @@ _ZN4jiff2tz6offset6Offset19part_minutes_ranged17h7914e8167e40d755E.exit.thread.i
   store i8 %127, ptr %106, align 1, !alias.scope !574, !noalias !580
   %128 = zext i8 %127 to i64
   %129 = icmp ult i8 %127, 20
-  br i1 %129, label %130, label %.invoke102
+  br i1 %129, label %130, label %.invoke101
 
 130:                                              ; preds = %125
   %131 = getelementptr inbounds nuw i8, ptr %9, i64 %128
@@ -7619,7 +7619,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit.i: ; preds = %130, %.preh
   %138 = load i8, ptr %137, align 1, !noalias !571, !noundef !6
   %139 = zext i8 %138 to i64
   %140 = icmp ult i8 %138, %135
-  br i1 %140, label %.invoke100, label %141, !prof !16
+  br i1 %140, label %.invoke99, label %141, !prof !16
 
 141:                                              ; preds = %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit.i
   %142 = icmp ugt i8 %138, 20
@@ -7682,7 +7682,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit.i: ; preds = %130, %.preh
   store i8 %163, ptr %159, align 1, !alias.scope !581, !noalias !587
   %164 = zext i8 %163 to i64
   %165 = icmp ult i8 %163, 20
-  br i1 %165, label %166, label %.invoke102
+  br i1 %165, label %166, label %.invoke101
 
 166:                                              ; preds = %161
   %167 = udiv i64 %.sroa.0.0.i52.i, 10
@@ -7711,7 +7711,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit.i: ; preds = %130, %.preh
   store i8 %180, ptr %159, align 1, !alias.scope !581, !noalias !587
   %181 = zext i8 %180 to i64
   %182 = icmp ult i8 %180, 20
-  br i1 %182, label %183, label %.invoke102
+  br i1 %182, label %183, label %.invoke101
 
 183:                                              ; preds = %178
   %184 = getelementptr inbounds nuw i8, ptr %8, i64 %181
@@ -7728,7 +7728,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit53.i: ; preds = %183, %.pr
   %191 = load i8, ptr %190, align 1, !noalias !571, !noundef !6
   %192 = zext i8 %191 to i64
   %193 = icmp ult i8 %191, %188
-  br i1 %193, label %.invoke100, label %194, !prof !16
+  br i1 %193, label %.invoke99, label %194, !prof !16
 
 194:                                              ; preds = %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit53.i
   %195 = icmp ugt i8 %191, 20
@@ -7794,7 +7794,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit53.i: ; preds = %183, %.pr
   store i8 %218, ptr %214, align 1, !alias.scope !588, !noalias !594
   %219 = zext i8 %218 to i64
   %220 = icmp ult i8 %218, 20
-  br i1 %220, label %221, label %.invoke102
+  br i1 %220, label %221, label %.invoke101
 
 221:                                              ; preds = %216
   %222 = udiv i64 %.sroa.0.0.i56.i, 10
@@ -7823,7 +7823,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit53.i: ; preds = %183, %.pr
   store i8 %235, ptr %214, align 1, !alias.scope !588, !noalias !594
   %236 = zext i8 %235 to i64
   %237 = icmp ult i8 %235, 20
-  br i1 %237, label %238, label %.invoke102
+  br i1 %237, label %238, label %.invoke101
 
 238:                                              ; preds = %233
   %239 = getelementptr inbounds nuw i8, ptr %7, i64 %236
@@ -7833,13 +7833,13 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit53.i: ; preds = %183, %.pr
   %242 = icmp ult i8 %241, %228
   br i1 %242, label %233, label %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit57.i
 
-.invoke102:                                       ; preds = %108, %125, %161, %178, %216, %233
+.invoke101:                                       ; preds = %108, %125, %161, %178, %216, %233
   %243 = phi i64 [ %236, %233 ], [ %219, %216 ], [ %181, %178 ], [ %164, %161 ], [ %128, %125 ], [ %111, %108 ]
   %244 = phi ptr [ @anon.defb23c543a0d58eda124284528ab762.48, %233 ], [ @anon.defb23c543a0d58eda124284528ab762.47, %216 ], [ @anon.defb23c543a0d58eda124284528ab762.48, %178 ], [ @anon.defb23c543a0d58eda124284528ab762.47, %161 ], [ @anon.defb23c543a0d58eda124284528ab762.48, %125 ], [ @anon.defb23c543a0d58eda124284528ab762.47, %108 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %243, i64 noundef 20, ptr noalias noundef readonly align 8 dereferenceable(24) %244) #14
-          to label %.cont103 unwind label %262
+          to label %.cont102 unwind label %262
 
-.cont103:                                         ; preds = %.invoke102
+.cont102:                                         ; preds = %.invoke101
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit57.i: ; preds = %238, %.preheader.i, %.noexc37
@@ -7849,19 +7849,19 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit57.i: ; preds = %238, %.pr
   %248 = load i8, ptr %247, align 1, !noalias !571, !noundef !6
   %249 = zext i8 %248 to i64
   %250 = icmp ult i8 %248, %245
-  br i1 %250, label %.invoke100, label %251, !prof !16
+  br i1 %250, label %.invoke99, label %251, !prof !16
 
 251:                                              ; preds = %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit57.i
   %252 = icmp ugt i8 %248, 20
   br i1 %252, label %.invoke, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit49.i", !prof !16
 
-.invoke100:                                       ; preds = %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit57.i, %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit53.i, %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit.i
+.invoke99:                                        ; preds = %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit57.i, %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit53.i, %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit.i
   %253 = phi i64 [ %136, %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit.i ], [ %189, %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit53.i ], [ %246, %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit57.i ]
   %254 = phi i64 [ %139, %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit.i ], [ %192, %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit53.i ], [ %249, %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit57.i ]
   invoke void @_ZN4core5slice5index22slice_index_order_fail17h16fcf642073d4bcdE(i64 noundef range(i64 0, 256) %253, i64 noundef range(i64 0, 256) %254, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.defb23c543a0d58eda124284528ab762.28) #14
-          to label %.cont101 unwind label %262
+          to label %.cont100 unwind label %262
 
-.cont101:                                         ; preds = %.invoke100
+.cont100:                                         ; preds = %.invoke99
   unreachable
 
 .invoke:                                          ; preds = %251, %194, %141
@@ -7887,7 +7887,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit57.i: ; preds = %238, %.pr
   %spec.select47.i = and i64 %259, 1
   br label %268
 
-262:                                              ; preds = %.invoke106, %.invoke104, %.invoke102, %.invoke100, %.invoke, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit49.i", %212, %204, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit48.i", %157, %149, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit.i", %104, %_ZN4jiff2tz6offset6Offset19part_minutes_ranged17h7914e8167e40d755E.exit.thread.i, %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i.i", %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i", %82, %.noexc, %72
+262:                                              ; preds = %.invoke105, %.invoke103, %.invoke101, %.invoke99, %.invoke, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit49.i", %212, %204, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit48.i", %157, %149, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit.i", %104, %_ZN4jiff2tz6offset6Offset19part_minutes_ranged17h7914e8167e40d755E.exit.thread.i, %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i.i", %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i", %82, %.noexc, %72
   %263 = landingpad { ptr, i32 }
           cleanup
   %264 = load i32, ptr %22, align 8, !range !595, !alias.scope !596, !noundef !6

@@ -2760,24 +2760,24 @@ define internal fastcc noundef zeroext i1 @_ZN10ockam_core14access_control5cache
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.val1 = load i64, ptr %36, align 8, !noundef !8
   %.not.i = icmp eq i64 %.val1, %35
-  br i1 %.not.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b70d9a07287bf94E.llvm.14247421389134134460.exit.i", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0dd321b0191f323aE.exit"
+  br i1 %.not.i, label %37, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0dd321b0191f323aE.exit"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b70d9a07287bf94E.llvm.14247421389134134460.exit.i": ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %.val = load ptr, ptr %37, align 8, !nonnull !8, !noundef !8
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %39 = load ptr, ptr %38, align 8, !alias.scope !268, !nonnull !8, !noundef !8
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %.val = load ptr, ptr %38, align 8, !nonnull !8, !noundef !8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %40 = load ptr, ptr %39, align 8, !alias.scope !268, !nonnull !8, !noundef !8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3), !noalias !271
-  %40 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 } }, ptr %.val, i64 %35
-  %41 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 } }, ptr %39, i64 %35
-  call void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17hf72d78a5c42d5f37E"(ptr noalias noundef nonnull sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 captures(none) dereferenceable(56) %3, ptr noundef nonnull readonly align 8 %.val, ptr noundef nonnull readonly %40, ptr noundef nonnull readonly align 8 %39, ptr noundef nonnull readonly %41)
-  %42 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf26f35853f73ceaeE.llvm.14247421389134134460(ptr noalias noundef nonnull align 8 dereferenceable(56) %3)
-  %43 = xor i1 %42, true
+  %41 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 } }, ptr %.val, i64 %35
+  %42 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 } }, ptr %40, i64 %35
+  call void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17hf72d78a5c42d5f37E"(ptr noalias noundef nonnull sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 captures(none) dereferenceable(56) %3, ptr noundef nonnull readonly align 8 %.val, ptr noundef nonnull readonly %41, ptr noundef nonnull readonly align 8 %40, ptr noundef nonnull readonly %42)
+  %43 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf26f35853f73ceaeE.llvm.14247421389134134460(ptr noalias noundef nonnull align 8 dereferenceable(56) %3)
+  %44 = xor i1 %43, true
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !271
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0dd321b0191f323aE.exit"
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0dd321b0191f323aE.exit": ; preds = %21, %13, %9, %2, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b70d9a07287bf94E.llvm.14247421389134134460.exit.i", %33, %"_ZN78_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1da85e30e69a5bdcE.exit", %"_ZN78_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1da85e30e69a5bdcE.exit9", %25, %29
-  %.0 = phi i1 [ false, %29 ], [ false, %25 ], [ false, %"_ZN78_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1da85e30e69a5bdcE.exit9" ], [ false, %"_ZN78_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1da85e30e69a5bdcE.exit" ], [ %43, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b70d9a07287bf94E.llvm.14247421389134134460.exit.i" ], [ false, %33 ], [ false, %2 ], [ false, %9 ], [ false, %13 ], [ false, %21 ]
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0dd321b0191f323aE.exit": ; preds = %21, %13, %9, %2, %37, %33, %"_ZN78_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1da85e30e69a5bdcE.exit", %"_ZN78_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1da85e30e69a5bdcE.exit9", %25, %29
+  %.0 = phi i1 [ false, %29 ], [ false, %25 ], [ false, %"_ZN78_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1da85e30e69a5bdcE.exit9" ], [ false, %"_ZN78_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1da85e30e69a5bdcE.exit" ], [ %44, %37 ], [ false, %33 ], [ false, %2 ], [ false, %9 ], [ false, %13 ], [ false, %21 ]
   ret i1 %.0
 }
 

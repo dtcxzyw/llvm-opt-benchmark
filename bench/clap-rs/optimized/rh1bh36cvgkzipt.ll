@@ -2397,9 +2397,9 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
   %11 = getelementptr i8, ptr %9, i64 8
   %.val6.i = load i64, ptr %11, align 8, !alias.scope !1019, !noalias !1024, !noundef !4
   %12 = icmp eq i64 %.val6.i, %2
-  br i1 %12, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.4786290445112235611.exit.i.i.i.i.i.i", label %.critedge.backedge.i
+  br i1 %12, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hab80d1797d626584E.exit.i", label %.critedge.backedge.i
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.4786290445112235611.exit.i.i.i.i.i.i": ; preds = %8
+"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hab80d1797d626584E.exit.i": ; preds = %8
   %.val5.i = load ptr, ptr %9, align 8, !alias.scope !1019, !noalias !1024, !nonnull !4, !align !14, !noundef !4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !1025
   %13 = getelementptr inbounds i8, ptr %.val5.i, i64 %2
@@ -2408,12 +2408,12 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !1025
   br i1 %14, label %.critedge.backedge.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17haf7a366280da0a95E.llvm.16538095213602398362.exit
 
-.critedge.backedge.i:                             ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.4786290445112235611.exit.i.i.i.i.i.i", %8
+.critedge.backedge.i:                             ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hab80d1797d626584E.exit.i", %8
   %.not13.i = icmp eq ptr %10, %6
   br i1 %.not13.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17haf7a366280da0a95E.llvm.16538095213602398362.exit, label %8
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17haf7a366280da0a95E.llvm.16538095213602398362.exit: ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.4786290445112235611.exit.i.i.i.i.i.i", %.critedge.backedge.i, %3
-  %.lcssa.i = phi i1 [ false, %3 ], [ true, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.4786290445112235611.exit.i.i.i.i.i.i" ], [ false, %.critedge.backedge.i ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17haf7a366280da0a95E.llvm.16538095213602398362.exit: ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hab80d1797d626584E.exit.i", %.critedge.backedge.i, %3
+  %.lcssa.i = phi i1 [ false, %3 ], [ true, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hab80d1797d626584E.exit.i" ], [ false, %.critedge.backedge.i ]
   ret i1 %.lcssa.i
 }
 
@@ -6413,9 +6413,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %11 = getelementptr i8, ptr %9, i64 8
   %.val6 = load i64, ptr %11, align 8, !alias.scope !2891, !noundef !4
   %12 = icmp eq i64 %.val6, %.val4
-  br i1 %12, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.4786290445112235611.exit.i.i.i.i.i", label %.critedge.backedge
+  br i1 %12, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hab80d1797d626584E.exit", label %.critedge.backedge
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.4786290445112235611.exit.i.i.i.i.i": ; preds = %8
+"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hab80d1797d626584E.exit": ; preds = %8
   %.val5 = load ptr, ptr %9, align 8, !alias.scope !2891, !nonnull !4, !align !14, !noundef !4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3), !noalias !2948
   %13 = getelementptr inbounds i8, ptr %.val5, i64 %.val4
@@ -6424,12 +6424,12 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !2948
   br i1 %14, label %.critedge.backedge, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25fd2da396e3af70E.exit"
 
-.critedge.backedge:                               ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.4786290445112235611.exit.i.i.i.i.i", %8
+.critedge.backedge:                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hab80d1797d626584E.exit", %8
   %.not13 = icmp eq ptr %10, %5
   br i1 %.not13, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25fd2da396e3af70E.exit", label %8
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25fd2da396e3af70E.exit": ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.4786290445112235611.exit.i.i.i.i.i", %.critedge.backedge, %2
-  %.lcssa = phi i1 [ false, %2 ], [ false, %.critedge.backedge ], [ true, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.4786290445112235611.exit.i.i.i.i.i" ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25fd2da396e3af70E.exit": ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hab80d1797d626584E.exit", %.critedge.backedge, %2
+  %.lcssa = phi i1 [ false, %2 ], [ false, %.critedge.backedge ], [ true, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hab80d1797d626584E.exit" ]
   ret i1 %.lcssa
 }
 

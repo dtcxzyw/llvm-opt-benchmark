@@ -44373,54 +44373,54 @@ define void @_ZN6client4user9UserStore23set_participant_indices17h077e8e241fa99c
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %11 = load i64, ptr %10, align 8, !alias.scope !8398, !noalias !8395, !noundef !11
   %.not.i = icmp eq i64 %9, %11
-  br i1 %.not.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb67245e34b1cb255E.llvm.3989114562954315390.exit.i", label %"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbbedcc9e976be89eE.exit.thread"
+  br i1 %.not.i, label %12, label %"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbbedcc9e976be89eE.exit.thread"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb67245e34b1cb255E.llvm.3989114562954315390.exit.i": ; preds = %3
+12:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !8400
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8401)
-  %12 = load ptr, ptr %1, align 8, !alias.scope !8404, !noalias !8405, !nonnull !11, !noundef !11
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load i64, ptr %13, align 8, !alias.scope !8404, !noalias !8405, !noundef !11
-  %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr i8, ptr %15, i64 1
-  %17 = load <16 x i8>, ptr %12, align 16, !noalias !8407
-  %18 = icmp slt <16 x i8> %17, zeroinitializer
-  %19 = bitcast <16 x i1> %18 to i16
-  %20 = xor i16 %19, -1
-  %21 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %12, ptr %4, align 8, !noalias !8400
+  %13 = load ptr, ptr %1, align 8, !alias.scope !8404, !noalias !8405, !nonnull !11, !noundef !11
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %15 = load i64, ptr %14, align 8, !alias.scope !8404, !noalias !8405, !noundef !11
+  %16 = getelementptr i8, ptr %13, i64 %15
+  %17 = getelementptr i8, ptr %16, i64 1
+  %18 = load <16 x i8>, ptr %13, align 16, !noalias !8407
+  %19 = icmp slt <16 x i8> %18, zeroinitializer
+  %20 = bitcast <16 x i1> %19 to i16
+  %21 = xor i16 %20, -1
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr %13, ptr %4, align 8, !noalias !8400
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %21, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !8400
+  store ptr %22, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !8400
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %16, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !8400
+  store ptr %17, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !8400
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i16 %20, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !8400
+  store i16 %21, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !8400
   %.sroa.71.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %9, ptr %.sroa.71.0..sroa_idx.i, align 8, !noalias !8400
-  %22 = invoke noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h37e1cb7ee54f2973E.llvm.3989114562954315390(ptr noalias noundef nonnull align 8 dereferenceable(40) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7)
-          to label %"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbbedcc9e976be89eE.exit" unwind label %28
+  %23 = invoke noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h37e1cb7ee54f2973E.llvm.3989114562954315390(ptr noalias noundef nonnull align 8 dereferenceable(40) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7)
+          to label %"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbbedcc9e976be89eE.exit" unwind label %29
 
-"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbbedcc9e976be89eE.exit": ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb67245e34b1cb255E.llvm.3989114562954315390.exit.i"
+"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbbedcc9e976be89eE.exit": ; preds = %12
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !8400
-  br i1 %22, label %"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbbedcc9e976be89eE.exit.thread", label %23
+  br i1 %23, label %"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbbedcc9e976be89eE.exit.thread", label %24
 
-23:                                               ; preds = %"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbbedcc9e976be89eE.exit"
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9205594655e07e3bE(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %24, i64 noundef 16, i64 noundef 16)
-  br label %26
+24:                                               ; preds = %"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbbedcc9e976be89eE.exit"
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9205594655e07e3bE(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef 16, i64 noundef 16)
+  br label %27
 
 "_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbbedcc9e976be89eE.exit.thread": ; preds = %3, %"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbbedcc9e976be89eE.exit"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9205594655e07e3bE(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef 16, i64 noundef 16)
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9205594655e07e3bE(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef 16, i64 noundef 16)
           to label %"_ZN4core3ptr162drop_in_place$LT$std..collections..hash..map..HashMap$LT$u64$C$client..user..ParticipantIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hd581affe50cc018fE.exit" unwind label %.thread
 
-26:                                               ; preds = %"_ZN4core3ptr162drop_in_place$LT$std..collections..hash..map..HashMap$LT$u64$C$client..user..ParticipantIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hd581affe50cc018fE.exit", %23
+27:                                               ; preds = %"_ZN4core3ptr162drop_in_place$LT$std..collections..hash..map..HashMap$LT$u64$C$client..user..ParticipantIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hd581affe50cc018fE.exit", %24
   ret void
 
 .thread:                                          ; preds = %"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbbedcc9e976be89eE.exit.thread"
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   br label %"_ZN4core3ptr162drop_in_place$LT$std..collections..hash..map..HashMap$LT$u64$C$client..user..ParticipantIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hd581affe50cc018fE.exit5"
@@ -44432,21 +44432,21 @@ define void @_ZN6client4user9UserStore23set_participant_indices17h077e8e241fa99c
   store i8 2, ptr %5, align 8
   call void @"_ZN4gpui3app13model_context21ModelContext$LT$T$GT$4emit17h5acf2d3c882869cfE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %26
+  br label %27
 
-"_ZN4core3ptr162drop_in_place$LT$std..collections..hash..map..HashMap$LT$u64$C$client..user..ParticipantIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hd581affe50cc018fE.exit5": ; preds = %28, %.thread
-  %.pn8 = phi { ptr, i32 } [ %27, %.thread ], [ %29, %28 ]
+"_ZN4core3ptr162drop_in_place$LT$std..collections..hash..map..HashMap$LT$u64$C$client..user..ParticipantIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hd581affe50cc018fE.exit5": ; preds = %29, %.thread
+  %.pn8 = phi { ptr, i32 } [ %28, %.thread ], [ %30, %29 ]
   resume { ptr, i32 } %.pn8
 
-28:                                               ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb67245e34b1cb255E.llvm.3989114562954315390.exit.i"
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %12
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9205594655e07e3bE(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %30, i64 noundef 16, i64 noundef 16)
-          to label %"_ZN4core3ptr162drop_in_place$LT$std..collections..hash..map..HashMap$LT$u64$C$client..user..ParticipantIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hd581affe50cc018fE.exit5" unwind label %31
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9205594655e07e3bE(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %31, i64 noundef 16, i64 noundef 16)
+          to label %"_ZN4core3ptr162drop_in_place$LT$std..collections..hash..map..HashMap$LT$u64$C$client..user..ParticipantIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hd581affe50cc018fE.exit5" unwind label %32
 
-31:                                               ; preds = %28
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %29
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #46
   unreachable

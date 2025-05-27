@@ -1422,67 +1422,67 @@ define internal fastcc void @_ZN9quinn_udp3imp11prepare_msg17h47f3f1b14578f1bbE(
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load i16, ptr %29, align 8, !range !40, !noundef !5
   %31 = icmp eq i16 %30, 0
-  br i1 %31, label %32, label %33
+  br i1 %31, label %41, label %32
 
 32:                                               ; preds = %6
-  br i1 %5, label %44, label %.critedge.invoke
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %.sroa.012.0.copyload = load i8, ptr %33, align 4
+  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 21
+  %.sroa.413.0.copyload = load i8, ptr %.sroa.413.0..sroa_idx, align 1
+  %34 = or i8 %.sroa.413.0.copyload, %.sroa.012.0.copyload
+  %or.cond.i = icmp eq i8 %34, 0
+  br i1 %or.cond.i, label %35, label %.critedge.invoke
 
-33:                                               ; preds = %6
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %.sroa.014.0.copyload = load i8, ptr %34, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 21
-  %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1
-  %35 = or i8 %.sroa.4.0.copyload, %.sroa.014.0.copyload
-  %or.cond.i = icmp eq i8 %35, 0
-  br i1 %or.cond.i, label %36, label %.critedge.invoke
-
-36:                                               ; preds = %33
-  %.sroa.1423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 31
-  %.sroa.1423.0.copyload = load i8, ptr %.sroa.1423.0..sroa_idx, align 1
-  %.sroa.1322.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 30
-  %.sroa.1322.0.copyload = load i8, ptr %.sroa.1322.0..sroa_idx, align 2
-  %.sroa.1221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 29
-  %.sroa.1221.0.copyload = load i8, ptr %.sroa.1221.0..sroa_idx, align 1
-  %.sroa.1120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %.sroa.1120.0.copyload = load i8, ptr %.sroa.1120.0..sroa_idx, align 4
-  %.sroa.1019.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 27
-  %.sroa.1019.0.copyload = load i8, ptr %.sroa.1019.0..sroa_idx, align 1
-  %.sroa.918.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %.sroa.918.0.copyload = load i8, ptr %.sroa.918.0..sroa_idx, align 2
-  %.sroa.817.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 25
-  %.sroa.817.0.copyload = load i8, ptr %.sroa.817.0..sroa_idx, align 1
-  %.sroa.716.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.716.0.copyload = load i8, ptr %.sroa.716.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 23
-  %.sroa.6.0.copyload = load i8, ptr %.sroa.6.0..sroa_idx, align 1
-  %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 22
-  %.sroa.515.0.copyload = load i8, ptr %.sroa.515.0..sroa_idx, align 2
-  %37 = or i8 %.sroa.515.0.copyload, %.sroa.6.0.copyload
-  %or.cond5.i = icmp eq i8 %37, 0
-  %38 = or i8 %.sroa.716.0.copyload, %.sroa.817.0.copyload
-  %or.cond8.i = icmp eq i8 %38, 0
-  %or.cond29.i.not34.not38 = select i1 %or.cond5.i, i1 %or.cond8.i, i1 false
-  %39 = or i8 %.sroa.918.0.copyload, %.sroa.1019.0.copyload
-  %or.cond11.i = icmp eq i8 %39, 0
-  %or.cond30.i.not33.not37 = select i1 %or.cond29.i.not34.not38, i1 %or.cond11.i, i1 false
-  %40 = or i8 %.sroa.1120.0.copyload, %.sroa.1221.0.copyload
-  %or.cond14.i = icmp eq i8 %40, 0
-  %or.cond31.i.not32.not36 = select i1 %or.cond30.i.not33.not37, i1 %or.cond14.i, i1 false
-  %41 = and i8 %.sroa.1322.0.copyload, %.sroa.1423.0.copyload
-  %or.cond17.i = icmp eq i8 %41, -1
-  %or.cond32.i.not31.not35 = select i1 %or.cond31.i.not32.not36, i1 %or.cond17.i, i1 false
-  %brmerge.not = and i1 %or.cond32.i.not31.not35, %5
-  %.mux = select i1 %or.cond32.i.not31.not35, i32 0, i32 41
-  %.mux30 = select i1 %or.cond32.i.not31.not35, i32 1, i32 67
+35:                                               ; preds = %32
+  %.sroa.1422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 31
+  %.sroa.1422.0.copyload = load i8, ptr %.sroa.1422.0..sroa_idx, align 1
+  %.sroa.1321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 30
+  %.sroa.1321.0.copyload = load i8, ptr %.sroa.1321.0..sroa_idx, align 2
+  %.sroa.1220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 29
+  %.sroa.1220.0.copyload = load i8, ptr %.sroa.1220.0..sroa_idx, align 1
+  %.sroa.1119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %.sroa.1119.0.copyload = load i8, ptr %.sroa.1119.0..sroa_idx, align 4
+  %.sroa.1018.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 27
+  %.sroa.1018.0.copyload = load i8, ptr %.sroa.1018.0..sroa_idx, align 1
+  %.sroa.917.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 26
+  %.sroa.917.0.copyload = load i8, ptr %.sroa.917.0..sroa_idx, align 2
+  %.sroa.816.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 25
+  %.sroa.816.0.copyload = load i8, ptr %.sroa.816.0..sroa_idx, align 1
+  %.sroa.715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.715.0.copyload = load i8, ptr %.sroa.715.0..sroa_idx, align 8
+  %.sroa.614.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 23
+  %.sroa.614.0.copyload = load i8, ptr %.sroa.614.0..sroa_idx, align 1
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 22
+  %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 2
+  %36 = or i8 %.sroa.5.0.copyload, %.sroa.614.0.copyload
+  %or.cond5.i = icmp eq i8 %36, 0
+  %37 = or i8 %.sroa.715.0.copyload, %.sroa.816.0.copyload
+  %or.cond8.i = icmp eq i8 %37, 0
+  %or.cond29.i.not33.not37 = select i1 %or.cond5.i, i1 %or.cond8.i, i1 false
+  %38 = or i8 %.sroa.917.0.copyload, %.sroa.1018.0.copyload
+  %or.cond11.i = icmp eq i8 %38, 0
+  %or.cond30.i.not32.not36 = select i1 %or.cond29.i.not33.not37, i1 %or.cond11.i, i1 false
+  %39 = or i8 %.sroa.1119.0.copyload, %.sroa.1220.0.copyload
+  %or.cond14.i = icmp eq i8 %39, 0
+  %or.cond31.i.not31.not35 = select i1 %or.cond30.i.not32.not36, i1 %or.cond14.i, i1 false
+  %40 = and i8 %.sroa.1321.0.copyload, %.sroa.1422.0.copyload
+  %or.cond17.i = icmp eq i8 %40, -1
+  %or.cond32.i.not30.not34 = select i1 %or.cond31.i.not31.not35, i1 %or.cond17.i, i1 false
+  %brmerge.not = and i1 %or.cond32.i.not30.not34, %5
+  %.mux = select i1 %or.cond32.i.not30.not34, i32 0, i32 41
+  %.mux29 = select i1 %or.cond32.i.not30.not34, i32 1, i32 67
   br i1 %brmerge.not, label %44, label %.critedge.invoke
 
-.critedge.invoke:                                 ; preds = %36, %32, %33
-  %42 = phi i32 [ 41, %33 ], [ %.mux, %36 ], [ 0, %32 ]
-  %43 = phi i32 [ 67, %33 ], [ %.mux30, %36 ], [ 1, %32 ]
+41:                                               ; preds = %6
+  br i1 %5, label %44, label %.critedge.invoke
+
+.critedge.invoke:                                 ; preds = %35, %41, %32
+  %42 = phi i32 [ 41, %32 ], [ %.mux, %35 ], [ 0, %41 ]
+  %43 = phi i32 [ 67, %32 ], [ %.mux29, %35 ], [ 1, %41 ]
   invoke void @"_ZN9quinn_udp4cmsg16Encoder$LT$M$GT$4push17h9900840aba8d8df4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %42, i32 noundef %43, i32 noundef %28)
           to label %44 unwind label %65
 
-44:                                               ; preds = %36, %.critedge.invoke, %32
+44:                                               ; preds = %35, %.critedge.invoke, %41
   %45 = load i64, ptr %0, align 8, !range !7, !noundef !5
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load i64, ptr %46, align 8

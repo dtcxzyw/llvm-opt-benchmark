@@ -18600,8 +18600,8 @@ define internal fastcc { ptr, ptr } @"_ZN114_$LT$core..iter..adapters..flatten..
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2611)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.promoted.i = load ptr, ptr %16, align 8, !alias.scope !2614, !noalias !2617
-  %.not.i131.i = icmp eq ptr %.promoted.i, null
-  br i1 %.not.i131.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd50692d5023e50b3E.exit", label %.lr.ph.i
+  %.not.i130.i = icmp eq ptr %.promoted.i, null
+  br i1 %.not.i130.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd50692d5023e50b3E.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56

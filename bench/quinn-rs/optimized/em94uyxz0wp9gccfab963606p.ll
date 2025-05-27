@@ -3821,8 +3821,8 @@ _ZN4core5array25try_from_trusted_iterator17h6137e72b8b6482c6E.exit: ; preds = %2
   %.sroa.5.sroa.5.sroa.6.0 = phi i64 [ %.sroa.5.sroa.5.sroa.6.0.copyload24, %25 ], [ %38, %_ZN4core5array25try_from_trusted_iterator17h6137e72b8b6482c6E.exit ]
   %.sroa.5.sroa.5.sroa.7.0 = phi i64 [ undef, %25 ], [ %40, %_ZN4core5array25try_from_trusted_iterator17h6137e72b8b6482c6E.exit ]
   %.sroa.5.sroa.5.sroa.8.0 = phi i64 [ undef, %25 ], [ %41, %_ZN4core5array25try_from_trusted_iterator17h6137e72b8b6482c6E.exit ]
-  %.sroa.5.sroa.0.0 = phi i16 [ %.sroa.5.sroa.0.0.copyload4, %25 ], [ %42, %_ZN4core5array25try_from_trusted_iterator17h6137e72b8b6482c6E.exit ]
   %.sroa.02.0 = phi i64 [ 1, %25 ], [ 0, %_ZN4core5array25try_from_trusted_iterator17h6137e72b8b6482c6E.exit ]
+  %.sroa.5.sroa.0.0 = phi i16 [ %.sroa.5.sroa.0.0.copyload4, %25 ], [ %42, %_ZN4core5array25try_from_trusted_iterator17h6137e72b8b6482c6E.exit ]
   store i64 %.sroa.02.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sroa.5.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8

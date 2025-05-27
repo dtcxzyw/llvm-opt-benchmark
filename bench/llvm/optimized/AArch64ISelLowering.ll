@@ -111112,150 +111112,150 @@ define dso_local { i16, ptr } @_ZNK4llvm21AArch64TargetLowering19getOptimalMemOp
   %.not67 = xor i1 %13, true
   %.not65 = or i1 %8, %.not67
   %.not = xor i1 %19, true
-  %or.cond = or i1 %22, %.not
-  %or.cond66 = select i1 %.not65, i1 true, i1 %or.cond
-  br i1 %or.cond66, label %35, label %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i
+  %23 = select i1 %.not65, i1 true, i1 %.not
+  %or.cond66 = select i1 %23, i1 true, i1 %21
+  br i1 %or.cond66, label %36, label %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i
 
 _ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i: ; preds = %3
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load i8, ptr %23, align 8, !tbaa !1768, !range !54, !noundef !55
-  %25 = trunc nuw i8 %24 to i1
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %27 = load i8, ptr %26, align 1
-  %.not.i = icmp ugt i8 %27, 3
-  %or.cond70.not = select i1 %25, i1 true, i1 %.not.i
-  br i1 %or.cond70.not, label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit"
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %25 = load i8, ptr %24, align 8, !tbaa !1768, !range !54, !noundef !55
+  %26 = trunc nuw i8 %25 to i1
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %28 = load i8, ptr %27, align 1
+  %.not.i = icmp ugt i8 %28, 3
+  %or.cond.not = select i1 %26, i1 true, i1 %.not.i
+  br i1 %or.cond.not, label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit"
 
 "_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit": ; preds = %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #35
-  %28 = load ptr, ptr %0, align 8, !tbaa !11
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 808
-  %30 = load ptr, ptr %29, align 8
-  %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 39, ptr null, i32 noundef 0, i8 0, i16 noundef zeroext 0, ptr noundef nonnull %7) #35
-  %32 = load i32, ptr %7, align 4
-  %33 = icmp ne i32 %32, 0
-  %34 = select i1 %31, i1 %33, i1 false
+  %29 = load ptr, ptr %0, align 8, !tbaa !11
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 808
+  %31 = load ptr, ptr %30, align 8
+  %32 = call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 39, ptr null, i32 noundef 0, i8 0, i16 noundef zeroext 0, ptr noundef nonnull %7) #35
+  %33 = load i32, ptr %7, align 4
+  %34 = icmp ne i32 %33, 0
+  %35 = select i1 %32, i1 %34, i1 false
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #35
-  br i1 %34, label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %35
+  br i1 %35, label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %36
 
-35:                                               ; preds = %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit", %3
+36:                                               ; preds = %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit", %3
   %.not17 = xor i1 %16, true
-  %.not2 = or i1 %8, %.not17
-  %or.cond4 = or i1 %.not2, %22
-  br i1 %or.cond4, label %53, label %36
+  %37 = or i1 %22, %.not17
+  %or.cond4 = or i1 %8, %37
+  br i1 %or.cond4, label %55, label %38
 
-36:                                               ; preds = %35
-  %37 = load i8, ptr %17, align 1, !tbaa !1766, !range !54, !noundef !55
-  %38 = trunc nuw i8 %37 to i1
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  %40 = load i8, ptr %39, align 2
-  %.not.i.i26 = icmp ugt i8 %40, 3
-  %or.cond73.not = select i1 %38, i1 true, i1 %.not.i.i26
-  br i1 %or.cond73.not, label %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i27, label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32"
+38:                                               ; preds = %36
+  %39 = load i8, ptr %17, align 1, !tbaa !1766, !range !54, !noundef !55
+  %40 = trunc nuw i8 %39 to i1
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 14
+  %42 = load i8, ptr %41, align 2
+  %.not.i.i26 = icmp ugt i8 %42, 3
+  %or.cond72.not = select i1 %40, i1 true, i1 %.not.i.i26
+  br i1 %or.cond72.not, label %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i27, label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32"
 
-_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i27: ; preds = %36
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = load i8, ptr %41, align 8, !tbaa !1768, !range !54, !noundef !55
-  %43 = trunc nuw i8 %42 to i1
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %45 = load i8, ptr %44, align 1
-  %.not.i29 = icmp ugt i8 %45, 3
-  %or.cond76.not = select i1 %43, i1 true, i1 %.not.i29
-  br i1 %or.cond76.not, label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32"
+_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i27: ; preds = %38
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %44 = load i8, ptr %43, align 8, !tbaa !1768, !range !54, !noundef !55
+  %45 = trunc nuw i8 %44 to i1
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %47 = load i8, ptr %46, align 1
+  %.not.i29 = icmp ugt i8 %47, 3
+  %or.cond75.not = select i1 %45, i1 true, i1 %.not.i29
+  br i1 %or.cond75.not, label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32"
 
-"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32": ; preds = %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i27, %36
+"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32": ; preds = %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i27, %38
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #35
-  %46 = load ptr, ptr %0, align 8, !tbaa !11
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 808
-  %48 = load ptr, ptr %47, align 8
-  %49 = call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 15, ptr null, i32 noundef 0, i8 0, i16 noundef zeroext 0, ptr noundef nonnull %6) #35
-  %50 = load i32, ptr %6, align 4
-  %51 = icmp ne i32 %50, 0
-  %52 = select i1 %49, i1 %51, i1 false
+  %48 = load ptr, ptr %0, align 8, !tbaa !11
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 808
+  %50 = load ptr, ptr %49, align 8
+  %51 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 15, ptr null, i32 noundef 0, i8 0, i16 noundef zeroext 0, ptr noundef nonnull %6) #35
+  %52 = load i32, ptr %6, align 4
+  %53 = icmp ne i32 %52, 0
+  %54 = select i1 %51, i1 %53, i1 false
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #35
-  br i1 %52, label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %53
+  br i1 %54, label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %55
 
-53:                                               ; preds = %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32", %35
-  %54 = load i64, ptr %1, align 8, !tbaa !1769
-  %55 = icmp ugt i64 %54, 7
-  br i1 %55, label %56, label %73
+55:                                               ; preds = %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32", %36
+  %56 = load i64, ptr %1, align 8, !tbaa !1769
+  %57 = icmp ugt i64 %56, 7
+  br i1 %57, label %58, label %75
 
-56:                                               ; preds = %53
-  %57 = load i8, ptr %17, align 1, !tbaa !1766, !range !54, !noundef !55
-  %58 = trunc nuw i8 %57 to i1
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  %60 = load i8, ptr %59, align 2
-  %.not.i.i34 = icmp ugt i8 %60, 2
-  %or.cond79.not = select i1 %58, i1 true, i1 %.not.i.i34
-  br i1 %or.cond79.not, label %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i35, label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit40"
+58:                                               ; preds = %55
+  %59 = load i8, ptr %17, align 1, !tbaa !1766, !range !54, !noundef !55
+  %60 = trunc nuw i8 %59 to i1
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 14
+  %62 = load i8, ptr %61, align 2
+  %.not.i.i34 = icmp ugt i8 %62, 2
+  %or.cond78.not = select i1 %60, i1 true, i1 %.not.i.i34
+  br i1 %or.cond78.not, label %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i35, label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit40"
 
-_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i35: ; preds = %56
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %62 = load i8, ptr %61, align 8, !tbaa !1768, !range !54, !noundef !55
-  %63 = trunc nuw i8 %62 to i1
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %65 = load i8, ptr %64, align 1
-  %.not.i37 = icmp ugt i8 %65, 2
-  %or.cond82.not = select i1 %63, i1 true, i1 %.not.i37
-  br i1 %or.cond82.not, label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit40"
+_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i35: ; preds = %58
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %64 = load i8, ptr %63, align 8, !tbaa !1768, !range !54, !noundef !55
+  %65 = trunc nuw i8 %64 to i1
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %67 = load i8, ptr %66, align 1
+  %.not.i37 = icmp ugt i8 %67, 2
+  %or.cond81.not = select i1 %65, i1 true, i1 %.not.i37
+  br i1 %or.cond81.not, label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit40"
 
-"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit40": ; preds = %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i35, %56
+"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit40": ; preds = %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i35, %58
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #35
-  %66 = load ptr, ptr %0, align 8, !tbaa !11
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 808
-  %68 = load ptr, ptr %67, align 8
-  %69 = call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 8, ptr null, i32 noundef 0, i8 0, i16 noundef zeroext 0, ptr noundef nonnull %5) #35
-  %70 = load i32, ptr %5, align 4
-  %71 = icmp ne i32 %70, 0
-  %72 = select i1 %69, i1 %71, i1 false
+  %68 = load ptr, ptr %0, align 8, !tbaa !11
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 808
+  %70 = load ptr, ptr %69, align 8
+  %71 = call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 8, ptr null, i32 noundef 0, i8 0, i16 noundef zeroext 0, ptr noundef nonnull %5) #35
+  %72 = load i32, ptr %5, align 4
+  %73 = icmp ne i32 %72, 0
+  %74 = select i1 %71, i1 %73, i1 false
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #35
-  br i1 %72, label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %thread-pre-split
+  br i1 %74, label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit40"
   %.pr = load i64, ptr %1, align 8, !tbaa !1769
-  br label %73
+  br label %75
 
-73:                                               ; preds = %thread-pre-split, %53
-  %74 = phi i64 [ %.pr, %thread-pre-split ], [ %54, %53 ]
-  %75 = icmp ugt i64 %74, 3
-  br i1 %75, label %76, label %93
+75:                                               ; preds = %thread-pre-split, %55
+  %76 = phi i64 [ %.pr, %thread-pre-split ], [ %56, %55 ]
+  %77 = icmp ugt i64 %76, 3
+  br i1 %77, label %78, label %95
 
-76:                                               ; preds = %73
-  %77 = load i8, ptr %17, align 1, !tbaa !1766, !range !54, !noundef !55
-  %78 = trunc nuw i8 %77 to i1
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  %80 = load i8, ptr %79, align 2
-  %.not.i.i42 = icmp ugt i8 %80, 1
-  %or.cond85.not = select i1 %78, i1 true, i1 %.not.i.i42
-  br i1 %or.cond85.not, label %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i43, label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48"
+78:                                               ; preds = %75
+  %79 = load i8, ptr %17, align 1, !tbaa !1766, !range !54, !noundef !55
+  %80 = trunc nuw i8 %79 to i1
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 14
+  %82 = load i8, ptr %81, align 2
+  %.not.i.i42 = icmp ugt i8 %82, 1
+  %or.cond84.not = select i1 %80, i1 true, i1 %.not.i.i42
+  br i1 %or.cond84.not, label %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i43, label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48"
 
-_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i43: ; preds = %76
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %82 = load i8, ptr %81, align 8, !tbaa !1768, !range !54, !noundef !55
-  %83 = trunc nuw i8 %82 to i1
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %85 = load i8, ptr %84, align 1
-  %.not.i45 = icmp ugt i8 %85, 1
-  %or.cond88.not = select i1 %83, i1 true, i1 %.not.i45
-  br i1 %or.cond88.not, label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48"
+_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i43: ; preds = %78
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %84 = load i8, ptr %83, align 8, !tbaa !1768, !range !54, !noundef !55
+  %85 = trunc nuw i8 %84 to i1
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %87 = load i8, ptr %86, align 1
+  %.not.i45 = icmp ugt i8 %87, 1
+  %or.cond87.not = select i1 %85, i1 true, i1 %.not.i45
+  br i1 %or.cond87.not, label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48"
 
-"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48": ; preds = %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i43, %76
+"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48": ; preds = %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i43, %78
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #35
-  %86 = load ptr, ptr %0, align 8, !tbaa !11
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 808
-  %88 = load ptr, ptr %87, align 8
-  %89 = call noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 7, ptr null, i32 noundef 0, i8 0, i16 noundef zeroext 0, ptr noundef nonnull %4) #35
-  %90 = load i32, ptr %4, align 4
-  %91 = icmp ne i32 %90, 0
-  %92 = select i1 %89, i1 %91, i1 false
+  %88 = load ptr, ptr %0, align 8, !tbaa !11
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 808
+  %90 = load ptr, ptr %89, align 8
+  %91 = call noundef zeroext i1 %90(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 7, ptr null, i32 noundef 0, i8 0, i16 noundef zeroext 0, ptr noundef nonnull %4) #35
+  %92 = load i32, ptr %4, align 4
+  %93 = icmp ne i32 %92, 0
+  %94 = select i1 %91, i1 %93, i1 false
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #35
-  br i1 %92, label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %93
+  br i1 %94, label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %95
 
-93:                                               ; preds = %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48", %73
+95:                                               ; preds = %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48", %75
   br label %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread"
 
-"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread": ; preds = %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i43, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i35, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i27, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i, %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48", %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit40", %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32", %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit", %93
-  %.sroa.060.0 = phi i16 [ 1, %93 ], [ 39, %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit" ], [ 15, %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32" ], [ 8, %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit40" ], [ 7, %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48" ], [ 39, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i ], [ 15, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i27 ], [ 8, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i35 ], [ 7, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i43 ]
+"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread": ; preds = %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i43, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i35, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i27, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i, %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48", %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit40", %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32", %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit", %95
+  %.sroa.060.0 = phi i16 [ 1, %95 ], [ 39, %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit" ], [ 15, %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32" ], [ 8, %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit40" ], [ 7, %"_ZZNK4llvm21AArch64TargetLowering19getOptimalMemOpTypeERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48" ], [ 39, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i ], [ 15, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i27 ], [ 8, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i35 ], [ 7, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i43 ]
   %.fca.0.insert = insertvalue { i16, ptr } poison, i16 %.sroa.060.0, 0
   %.fca.1.insert = insertvalue { i16, ptr } %.fca.0.insert, ptr null, 1
   ret { i16, ptr } %.fca.1.insert
@@ -111287,150 +111287,150 @@ define dso_local range(i64 0, 549755813890) i64 @_ZNK4llvm21AArch64TargetLowerin
   %.not67 = xor i1 %13, true
   %.not65 = or i1 %8, %.not67
   %.not = xor i1 %19, true
-  %or.cond = or i1 %22, %.not
-  %or.cond66 = select i1 %.not65, i1 true, i1 %or.cond
-  br i1 %or.cond66, label %35, label %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i
+  %23 = select i1 %.not65, i1 true, i1 %.not
+  %or.cond66 = select i1 %23, i1 true, i1 %21
+  br i1 %or.cond66, label %36, label %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i
 
 _ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i: ; preds = %3
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load i8, ptr %23, align 8, !tbaa !1768, !range !54, !noundef !55
-  %25 = trunc nuw i8 %24 to i1
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %27 = load i8, ptr %26, align 1
-  %.not.i = icmp ugt i8 %27, 3
-  %or.cond70.not = select i1 %25, i1 true, i1 %.not.i
-  br i1 %or.cond70.not, label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit"
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %25 = load i8, ptr %24, align 8, !tbaa !1768, !range !54, !noundef !55
+  %26 = trunc nuw i8 %25 to i1
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %28 = load i8, ptr %27, align 1
+  %.not.i = icmp ugt i8 %28, 3
+  %or.cond.not = select i1 %26, i1 true, i1 %.not.i
+  br i1 %or.cond.not, label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit"
 
 "_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit": ; preds = %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #35
-  %28 = load ptr, ptr %0, align 8, !tbaa !11
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 808
-  %30 = load ptr, ptr %29, align 8
-  %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 78, ptr null, i32 noundef 0, i8 0, i16 noundef zeroext 0, ptr noundef nonnull %7) #35
-  %32 = load i32, ptr %7, align 4
-  %33 = icmp ne i32 %32, 0
-  %34 = select i1 %31, i1 %33, i1 false
+  %29 = load ptr, ptr %0, align 8, !tbaa !11
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 808
+  %31 = load ptr, ptr %30, align 8
+  %32 = call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 78, ptr null, i32 noundef 0, i8 0, i16 noundef zeroext 0, ptr noundef nonnull %7) #35
+  %33 = load i32, ptr %7, align 4
+  %34 = icmp ne i32 %33, 0
+  %35 = select i1 %32, i1 %34, i1 false
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #35
-  br i1 %34, label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %35
+  br i1 %35, label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %36
 
-35:                                               ; preds = %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit", %3
+36:                                               ; preds = %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit", %3
   %.not17 = xor i1 %16, true
-  %.not2 = or i1 %8, %.not17
-  %or.cond4 = or i1 %.not2, %22
-  br i1 %or.cond4, label %53, label %36
+  %37 = or i1 %22, %.not17
+  %or.cond4 = or i1 %8, %37
+  br i1 %or.cond4, label %55, label %38
 
-36:                                               ; preds = %35
-  %37 = load i8, ptr %17, align 1, !tbaa !1766, !range !54, !noundef !55
-  %38 = trunc nuw i8 %37 to i1
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  %40 = load i8, ptr %39, align 2
-  %.not.i.i26 = icmp ugt i8 %40, 3
-  %or.cond73.not = select i1 %38, i1 true, i1 %.not.i.i26
-  br i1 %or.cond73.not, label %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i27, label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32"
+38:                                               ; preds = %36
+  %39 = load i8, ptr %17, align 1, !tbaa !1766, !range !54, !noundef !55
+  %40 = trunc nuw i8 %39 to i1
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 14
+  %42 = load i8, ptr %41, align 2
+  %.not.i.i26 = icmp ugt i8 %42, 3
+  %or.cond72.not = select i1 %40, i1 true, i1 %.not.i.i26
+  br i1 %or.cond72.not, label %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i27, label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32"
 
-_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i27: ; preds = %36
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = load i8, ptr %41, align 8, !tbaa !1768, !range !54, !noundef !55
-  %43 = trunc nuw i8 %42 to i1
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %45 = load i8, ptr %44, align 1
-  %.not.i29 = icmp ugt i8 %45, 3
-  %or.cond76.not = select i1 %43, i1 true, i1 %.not.i29
-  br i1 %or.cond76.not, label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32"
+_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i27: ; preds = %38
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %44 = load i8, ptr %43, align 8, !tbaa !1768, !range !54, !noundef !55
+  %45 = trunc nuw i8 %44 to i1
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %47 = load i8, ptr %46, align 1
+  %.not.i29 = icmp ugt i8 %47, 3
+  %or.cond75.not = select i1 %45, i1 true, i1 %.not.i29
+  br i1 %or.cond75.not, label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32"
 
-"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32": ; preds = %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i27, %36
+"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32": ; preds = %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i27, %38
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #35
-  %46 = load ptr, ptr %0, align 8, !tbaa !11
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 808
-  %48 = load ptr, ptr %47, align 8
-  %49 = call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 15, ptr null, i32 noundef 0, i8 0, i16 noundef zeroext 0, ptr noundef nonnull %6) #35
-  %50 = load i32, ptr %6, align 4
-  %51 = icmp ne i32 %50, 0
-  %52 = select i1 %49, i1 %51, i1 false
+  %48 = load ptr, ptr %0, align 8, !tbaa !11
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 808
+  %50 = load ptr, ptr %49, align 8
+  %51 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 15, ptr null, i32 noundef 0, i8 0, i16 noundef zeroext 0, ptr noundef nonnull %6) #35
+  %52 = load i32, ptr %6, align 4
+  %53 = icmp ne i32 %52, 0
+  %54 = select i1 %51, i1 %53, i1 false
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #35
-  br i1 %52, label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %53
+  br i1 %54, label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %55
 
-53:                                               ; preds = %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32", %35
-  %54 = load i64, ptr %1, align 8, !tbaa !1769
-  %55 = icmp ugt i64 %54, 7
-  br i1 %55, label %56, label %73
+55:                                               ; preds = %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32", %36
+  %56 = load i64, ptr %1, align 8, !tbaa !1769
+  %57 = icmp ugt i64 %56, 7
+  br i1 %57, label %58, label %75
 
-56:                                               ; preds = %53
-  %57 = load i8, ptr %17, align 1, !tbaa !1766, !range !54, !noundef !55
-  %58 = trunc nuw i8 %57 to i1
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  %60 = load i8, ptr %59, align 2
-  %.not.i.i34 = icmp ugt i8 %60, 2
-  %or.cond79.not = select i1 %58, i1 true, i1 %.not.i.i34
-  br i1 %or.cond79.not, label %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i35, label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit40"
+58:                                               ; preds = %55
+  %59 = load i8, ptr %17, align 1, !tbaa !1766, !range !54, !noundef !55
+  %60 = trunc nuw i8 %59 to i1
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 14
+  %62 = load i8, ptr %61, align 2
+  %.not.i.i34 = icmp ugt i8 %62, 2
+  %or.cond78.not = select i1 %60, i1 true, i1 %.not.i.i34
+  br i1 %or.cond78.not, label %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i35, label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit40"
 
-_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i35: ; preds = %56
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %62 = load i8, ptr %61, align 8, !tbaa !1768, !range !54, !noundef !55
-  %63 = trunc nuw i8 %62 to i1
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %65 = load i8, ptr %64, align 1
-  %.not.i37 = icmp ugt i8 %65, 2
-  %or.cond82.not = select i1 %63, i1 true, i1 %.not.i37
-  br i1 %or.cond82.not, label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit40"
+_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i35: ; preds = %58
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %64 = load i8, ptr %63, align 8, !tbaa !1768, !range !54, !noundef !55
+  %65 = trunc nuw i8 %64 to i1
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %67 = load i8, ptr %66, align 1
+  %.not.i37 = icmp ugt i8 %67, 2
+  %or.cond81.not = select i1 %65, i1 true, i1 %.not.i37
+  br i1 %or.cond81.not, label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit40"
 
-"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit40": ; preds = %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i35, %56
+"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit40": ; preds = %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i35, %58
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #35
-  %66 = load ptr, ptr %0, align 8, !tbaa !11
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 808
-  %68 = load ptr, ptr %67, align 8
-  %69 = call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 8, ptr null, i32 noundef 0, i8 0, i16 noundef zeroext 0, ptr noundef nonnull %5) #35
-  %70 = load i32, ptr %5, align 4
-  %71 = icmp ne i32 %70, 0
-  %72 = select i1 %69, i1 %71, i1 false
+  %68 = load ptr, ptr %0, align 8, !tbaa !11
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 808
+  %70 = load ptr, ptr %69, align 8
+  %71 = call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 8, ptr null, i32 noundef 0, i8 0, i16 noundef zeroext 0, ptr noundef nonnull %5) #35
+  %72 = load i32, ptr %5, align 4
+  %73 = icmp ne i32 %72, 0
+  %74 = select i1 %71, i1 %73, i1 false
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #35
-  br i1 %72, label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %thread-pre-split
+  br i1 %74, label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit40"
   %.pr = load i64, ptr %1, align 8, !tbaa !1769
-  br label %73
+  br label %75
 
-73:                                               ; preds = %thread-pre-split, %53
-  %74 = phi i64 [ %.pr, %thread-pre-split ], [ %54, %53 ]
-  %75 = icmp ugt i64 %74, 3
-  br i1 %75, label %76, label %93
+75:                                               ; preds = %thread-pre-split, %55
+  %76 = phi i64 [ %.pr, %thread-pre-split ], [ %56, %55 ]
+  %77 = icmp ugt i64 %76, 3
+  br i1 %77, label %78, label %95
 
-76:                                               ; preds = %73
-  %77 = load i8, ptr %17, align 1, !tbaa !1766, !range !54, !noundef !55
-  %78 = trunc nuw i8 %77 to i1
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  %80 = load i8, ptr %79, align 2
-  %.not.i.i42 = icmp ugt i8 %80, 1
-  %or.cond85.not = select i1 %78, i1 true, i1 %.not.i.i42
-  br i1 %or.cond85.not, label %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i43, label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48"
+78:                                               ; preds = %75
+  %79 = load i8, ptr %17, align 1, !tbaa !1766, !range !54, !noundef !55
+  %80 = trunc nuw i8 %79 to i1
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 14
+  %82 = load i8, ptr %81, align 2
+  %.not.i.i42 = icmp ugt i8 %82, 1
+  %or.cond84.not = select i1 %80, i1 true, i1 %.not.i.i42
+  br i1 %or.cond84.not, label %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i43, label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48"
 
-_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i43: ; preds = %76
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %82 = load i8, ptr %81, align 8, !tbaa !1768, !range !54, !noundef !55
-  %83 = trunc nuw i8 %82 to i1
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %85 = load i8, ptr %84, align 1
-  %.not.i45 = icmp ugt i8 %85, 1
-  %or.cond88.not = select i1 %83, i1 true, i1 %.not.i45
-  br i1 %or.cond88.not, label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48"
+_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i43: ; preds = %78
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %84 = load i8, ptr %83, align 8, !tbaa !1768, !range !54, !noundef !55
+  %85 = trunc nuw i8 %84 to i1
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %87 = load i8, ptr %86, align 1
+  %.not.i45 = icmp ugt i8 %87, 1
+  %or.cond87.not = select i1 %85, i1 true, i1 %.not.i45
+  br i1 %or.cond87.not, label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48"
 
-"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48": ; preds = %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i43, %76
+"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48": ; preds = %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i43, %78
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #35
-  %86 = load ptr, ptr %0, align 8, !tbaa !11
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 808
-  %88 = load ptr, ptr %87, align 8
-  %89 = call noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 7, ptr null, i32 noundef 0, i8 0, i16 noundef zeroext 0, ptr noundef nonnull %4) #35
-  %90 = load i32, ptr %4, align 4
-  %91 = icmp ne i32 %90, 0
-  %92 = select i1 %89, i1 %91, i1 false
+  %88 = load ptr, ptr %0, align 8, !tbaa !11
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 808
+  %90 = load ptr, ptr %89, align 8
+  %91 = call noundef zeroext i1 %90(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 7, ptr null, i32 noundef 0, i8 0, i16 noundef zeroext 0, ptr noundef nonnull %4) #35
+  %92 = load i32, ptr %4, align 4
+  %93 = icmp ne i32 %92, 0
+  %94 = select i1 %91, i1 %93, i1 false
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #35
-  br i1 %92, label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %93
+  br i1 %94, label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread", label %95
 
-93:                                               ; preds = %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48", %73
+95:                                               ; preds = %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48", %75
   br label %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread"
 
-"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread": ; preds = %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i43, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i35, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i27, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i, %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48", %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit40", %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32", %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit", %93
-  %.sroa.060.0 = phi i64 [ 0, %93 ], [ 274877907460, %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit" ], [ 549755813889, %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32" ], [ 274877906945, %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit40" ], [ 137438953473, %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48" ], [ 274877907460, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i ], [ 549755813889, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i27 ], [ 274877906945, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i35 ], [ 137438953473, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i43 ]
+"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit.thread": ; preds = %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i43, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i35, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i27, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i, %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48", %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit40", %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32", %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit", %95
+  %.sroa.060.0 = phi i64 [ 0, %95 ], [ 274877907460, %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit" ], [ 549755813889, %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit32" ], [ 274877906945, %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit40" ], [ 137438953473, %"_ZZNK4llvm21AArch64TargetLowering18getOptimalMemOpLLTERKNS_5MemOpERKNS_13AttributeListEENK3$_0clENS_3EVTENS_5AlignE.exit48" ], [ 274877907460, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i ], [ 549755813889, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i27 ], [ 274877906945, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i35 ], [ 137438953473, %_ZNK4llvm5MemOp12isSrcAlignedENS_5AlignE.exit.thread.i.i43 ]
   ret i64 %.sroa.060.0
 }
 

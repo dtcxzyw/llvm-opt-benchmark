@@ -77327,8 +77327,8 @@ _ZN5clang7CodeGen15CodeGenFunction25EmitLoadOfReferenceLValueENS0_7AddressENS_8Q
   %.old = trunc nuw i8 %.0402403 to i1
   %.not500 = xor i1 %606, true
   %brmerge501 = or i1 %.old, %.not500
+  %not.or.cond35.old.not = xor i1 %.old, true
   %brmerge = or i1 %brmerge501, %618
-  %not.or.cond35.old.not.mux = xor i1 %.old, true
   br i1 %brmerge, label %710, label %.thread
 
 .thread:                                          ; preds = %690, %695
@@ -77352,7 +77352,7 @@ _ZN5clang7CodeGen15CodeGenFunction25EmitLoadOfReferenceLValueENS0_7AddressENS_8Q
   br label %1241
 
 710:                                              ; preds = %690, %695, %688
-  %.not477 = phi i1 [ true, %688 ], [ %or.cond, %690 ], [ %not.or.cond35.old.not.mux, %695 ]
+  %.not477 = phi i1 [ true, %688 ], [ %or.cond, %690 ], [ %not.or.cond35.old.not, %695 ]
   %brmerge343.not = and i1 %330, %618
   br i1 %brmerge343.not, label %711, label %1241
 

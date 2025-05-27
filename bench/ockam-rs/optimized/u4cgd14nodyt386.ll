@@ -64277,19 +64277,18 @@ define hidden void @"_ZN8minicbor6encode7encoder16Encoder$LT$W$GT$8type_len17hd3
 define hidden noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4292c23d40abfffaE.llvm.3189713146689755573"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #34 {
   %3 = load i8, ptr %0, align 1, !range !2080, !noundef !4
   %4 = load i8, ptr %1, align 1, !range !2080, !noundef !4
-  %5 = icmp eq i8 %3, %4
-  br i1 %5, label %.sink.split, label %7
-
-.sink.split:                                      ; preds = %2
-  %6 = trunc nuw i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
+  %6 = icmp eq i8 %3, %4
   %trunc = trunc nuw i8 %3 to i1
-  %not.trunc = xor i1 %trunc, true
-  %spec.select = select i1 %not.trunc, i1 true, i1 %6
-  tail call void @llvm.assume(i1 %spec.select)
-  br label %7
+  %or.cond = select i1 %6, i1 %trunc, i1 false
+  br i1 %or.cond, label %8, label %7
 
-7:                                                ; preds = %.sink.split, %2
-  ret i1 %5
+7:                                                ; preds = %2, %8
+  ret i1 %6
+
+8:                                                ; preds = %2
+  tail call void @llvm.assume(i1 %5)
+  br label %7
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -68864,7 +68863,7 @@ define hidden noundef zeroext i1 @"_ZN98_$LT$alloc..collections..btree..map..BTr
   %.fca.0.extract.i.i.i = extractvalue { ptr, ptr } %18, 0
   %19 = icmp eq ptr %.fca.0.extract.i.i.i, null
   %.fca.1.extract.i.i.i = extractvalue { ptr, ptr } %18, 1
-  br i1 %19, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4292c23d40abfffaE.llvm.3189713146689755573.exit", label %20
+  br i1 %19, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7f1929195d9caf08E.llvm.3189713146689755573.exit, label %20
 
 20:                                               ; preds = %17
   %21 = icmp ne ptr %.fca.1.extract.i.i.i, null
@@ -68872,7 +68871,7 @@ define hidden noundef zeroext i1 @"_ZN98_$LT$alloc..collections..btree..map..BTr
   %22 = call fastcc { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfc668509d68142a3E"(ptr noalias noundef align 8 dereferenceable(72) %15), !noalias !14616
   %.fca.0.extract7.i.i.i = extractvalue { ptr, ptr } %22, 0
   %23 = icmp eq ptr %.fca.0.extract7.i.i.i, null
-  br i1 %23, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4292c23d40abfffaE.llvm.3189713146689755573.exit", label %24
+  br i1 %23, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7f1929195d9caf08E.llvm.3189713146689755573.exit, label %24
 
 24:                                               ; preds = %20
   %.fca.1.extract8.i.i.i = extractvalue { ptr, ptr } %22, 1
@@ -68883,19 +68882,19 @@ define hidden noundef zeroext i1 @"_ZN98_$LT$alloc..collections..btree..map..BTr
   %26 = load i32, ptr %.fca.0.extract.i.i.i, align 4, !alias.scope !14621, !noalias !14626, !noundef !4
   %27 = load i32, ptr %.fca.0.extract7.i.i.i, align 4, !alias.scope !14624, !noalias !14633, !noundef !4
   %28 = icmp eq i32 %26, %27
-  br i1 %28, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hfe065d29f37d1b8bE.exit.i", label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4292c23d40abfffaE.llvm.3189713146689755573.exit"
+  br i1 %28, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hfe065d29f37d1b8bE.exit.i", label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7f1929195d9caf08E.llvm.3189713146689755573.exit
 
 "_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hfe065d29f37d1b8bE.exit.i": ; preds = %24
   %29 = tail call noundef zeroext i1 @"_ZN60_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..PartialEq$GT$2eq17he5d9e6deaafe6511E"(ptr noundef nonnull align 8 %.fca.1.extract.i.i.i, ptr noundef nonnull align 8 %.fca.1.extract8.i.i.i), !noalias !14634
-  br i1 %29, label %17, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4292c23d40abfffaE.llvm.3189713146689755573.exit"
+  br i1 %29, label %17, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7f1929195d9caf08E.llvm.3189713146689755573.exit
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4292c23d40abfffaE.llvm.3189713146689755573.exit": ; preds = %20, %17, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hfe065d29f37d1b8bE.exit.i", %24
-  %30 = phi i1 [ false, %24 ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hfe065d29f37d1b8bE.exit.i" ], [ true, %17 ], [ true, %20 ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h7f1929195d9caf08E.llvm.3189713146689755573.exit: ; preds = %17, %20, %24, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hfe065d29f37d1b8bE.exit.i"
+  %30 = phi i1 [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hfe065d29f37d1b8bE.exit.i" ], [ true, %17 ], [ true, %20 ], [ false, %24 ]
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %3)
   br label %31
 
-31:                                               ; preds = %2, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4292c23d40abfffaE.llvm.3189713146689755573.exit"
-  %.0 = phi i1 [ %30, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4292c23d40abfffaE.llvm.3189713146689755573.exit" ], [ false, %2 ]
+31:                                               ; preds = %2, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7f1929195d9caf08E.llvm.3189713146689755573.exit
+  %.0 = phi i1 [ %30, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7f1929195d9caf08E.llvm.3189713146689755573.exit ], [ false, %2 ]
   ret i1 %.0
 }
 

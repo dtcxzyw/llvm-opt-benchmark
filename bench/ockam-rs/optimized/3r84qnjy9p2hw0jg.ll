@@ -11197,24 +11197,24 @@ define noundef zeroext i1 @"_ZN85_$LT$ockam_identity..identity..identity..Identi
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val1 = load i64, ptr %5, align 8, !noundef !5
   %.not.i = icmp eq i64 %.val3, %.val1
-  br i1 %.not.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2d314c3146efc2dfE.llvm.550936700588813936.exit.i", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbbad8fb50e5e56b0E.exit"
+  br i1 %.not.i, label %6, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbbad8fb50e5e56b0E.exit"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2d314c3146efc2dfE.llvm.550936700588813936.exit.i": ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val2 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.val = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val2 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3), !noalias !1696
-  %8 = getelementptr inbounds { { { ptr, i64 }, i64 }, { i8, [64 x i8] }, { i8, [64 x i8] }, [6 x i8] }, ptr %.val2, i64 %.val3
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, { i8, [64 x i8] }, { i8, [64 x i8] }, [6 x i8] }, ptr %.val, i64 %.val3
-  call void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h1d26720c5a8bd8c2E"(ptr noalias noundef nonnull sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 captures(none) dereferenceable(56) %3, ptr noundef nonnull readonly align 8 %.val2, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly align 8 %.val, ptr noundef nonnull readonly %9)
-  %10 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h46c58f4c57a02f8dE.llvm.550936700588813936(ptr noalias noundef nonnull align 8 dereferenceable(56) %3)
-  %11 = xor i1 %10, true
+  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, { i8, [64 x i8] }, { i8, [64 x i8] }, [6 x i8] }, ptr %.val2, i64 %.val3
+  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, { i8, [64 x i8] }, { i8, [64 x i8] }, [6 x i8] }, ptr %.val, i64 %.val3
+  call void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h1d26720c5a8bd8c2E"(ptr noalias noundef nonnull sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 captures(none) dereferenceable(56) %3, ptr noundef nonnull readonly align 8 %.val2, ptr noundef nonnull readonly %9, ptr noundef nonnull readonly align 8 %.val, ptr noundef nonnull readonly %10)
+  %11 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h46c58f4c57a02f8dE.llvm.550936700588813936(ptr noalias noundef nonnull align 8 dereferenceable(56) %3)
+  %12 = xor i1 %11, true
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !1696
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbbad8fb50e5e56b0E.exit"
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbbad8fb50e5e56b0E.exit": ; preds = %2, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2d314c3146efc2dfE.llvm.550936700588813936.exit.i"
-  %.0.i = phi i1 [ %11, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2d314c3146efc2dfE.llvm.550936700588813936.exit.i" ], [ false, %2 ]
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbbad8fb50e5e56b0E.exit": ; preds = %2, %6
+  %.0.i = phi i1 [ %12, %6 ], [ false, %2 ]
   ret i1 %.0.i
 }
 

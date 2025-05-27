@@ -1399,7 +1399,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17h0
 5:                                                ; preds = %7, %2
   %6 = phi ptr [ %8, %7 ], [ %.promoted.i.i, %2 ]
   %.not.not.not.i.not.not.not.i.not = icmp eq ptr %6, %4
-  br i1 %.not.not.not.i.not.not.not.i.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit", label %7
+  br i1 %.not.not.not.i.not.not.not.i.not, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hf78c3f92f1e334a2E.llvm.8488369856913705139.exit", label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -1411,9 +1411,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17h0
   %spec.select.i.i.i.i.i.i = xor i64 %11, %.val.i.i
   %12 = load i64, ptr %.sroa.5.0.copyload, align 8, !noalias !495, !noundef !6
   %13 = tail call noundef zeroext i1 @_ZN9uv_pep5086marker7algebra13InternerGuard12disjointness17h4d9696b3fc6b749fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.01.0.copyload, i64 noundef %spec.select.i.i.i.i.i.i, i64 noundef %12), !noalias !495
-  br i1 %13, label %5, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit"
+  br i1 %13, label %5, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hf78c3f92f1e334a2E.llvm.8488369856913705139.exit"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit": ; preds = %5, %7
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hf78c3f92f1e334a2E.llvm.8488369856913705139.exit": ; preds = %5, %7
   ret i1 %.not.not.not.i.not.not.not.i.not
 }
 
@@ -1434,7 +1434,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17h1
 5:                                                ; preds = %7, %2
   %6 = phi ptr [ %8, %7 ], [ %.promoted.i.i, %2 ]
   %.not.not.not.i.not.not.not.i.not = icmp eq ptr %6, %4
-  br i1 %.not.not.not.i.not.not.not.i.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit", label %7
+  br i1 %.not.not.not.i.not.not.not.i.not, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h43d2b503ee88c11bE.llvm.8488369856913705139.exit", label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -1446,9 +1446,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17h1
   %spec.select.i.i.i.i.i.i = xor i64 %11, %.val.i.i
   %12 = load i64, ptr %.sroa.5.0.copyload, align 8, !noalias !515, !noundef !6
   %13 = tail call noundef zeroext i1 @_ZN9uv_pep5086marker7algebra13InternerGuard12disjointness17h4d9696b3fc6b749fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.01.0.copyload, i64 noundef %spec.select.i.i.i.i.i.i, i64 noundef %12), !noalias !515
-  br i1 %13, label %5, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit"
+  br i1 %13, label %5, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h43d2b503ee88c11bE.llvm.8488369856913705139.exit"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit": ; preds = %5, %7
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h43d2b503ee88c11bE.llvm.8488369856913705139.exit": ; preds = %5, %7
   ret i1 %.not.not.not.i.not.not.not.i.not
 }
 
@@ -1469,7 +1469,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17h3
 5:                                                ; preds = %7, %2
   %6 = phi ptr [ %8, %7 ], [ %.promoted.i.i, %2 ]
   %.not.not.not.i.not.not.not.i.not = icmp eq ptr %6, %4
-  br i1 %.not.not.not.i.not.not.not.i.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit", label %7
+  br i1 %.not.not.not.i.not.not.not.i.not, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h095d65552e65ccdbE.llvm.8488369856913705139.exit", label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -1481,9 +1481,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17h3
   %spec.select.i.i.i.i.i.i = xor i64 %11, %.val.i.i
   %12 = load i64, ptr %.sroa.5.0.copyload, align 8, !noalias !535, !noundef !6
   %13 = tail call noundef zeroext i1 @_ZN9uv_pep5086marker7algebra13InternerGuard12disjointness17h4d9696b3fc6b749fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.01.0.copyload, i64 noundef %spec.select.i.i.i.i.i.i, i64 noundef %12), !noalias !535
-  br i1 %13, label %5, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit"
+  br i1 %13, label %5, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h095d65552e65ccdbE.llvm.8488369856913705139.exit"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit": ; preds = %5, %7
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h095d65552e65ccdbE.llvm.8488369856913705139.exit": ; preds = %5, %7
   ret i1 %.not.not.not.i.not.not.not.i.not
 }
 
@@ -1502,7 +1502,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17h5
 6:                                                ; preds = %8, %2
   %7 = phi ptr [ %9, %8 ], [ %.promoted.i.i, %2 ]
   %.not9.not.not.i.not.not.not.i.not = icmp eq ptr %7, %4
-  br i1 %.not9.not.not.i.not.not.not.i.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit", label %8
+  br i1 %.not9.not.not.i.not.not.not.i.not, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h40cf90bb4229f07aE.llvm.8488369856913705139.exit", label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -1510,9 +1510,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17h5
   %10 = getelementptr i8, ptr %7, i64 40
   %.val6.i.i = load i64, ptr %10, align 8, !noalias !557, !noundef !6
   %.not.i.i = icmp eq i64 %.val6.i.i, %5
-  br i1 %.not.i.i, label %6, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit"
+  br i1 %.not.i.i, label %6, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h40cf90bb4229f07aE.llvm.8488369856913705139.exit"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit": ; preds = %6, %8
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h40cf90bb4229f07aE.llvm.8488369856913705139.exit": ; preds = %6, %8
   ret i1 %.not9.not.not.i.not.not.not.i.not
 }
 
@@ -1533,7 +1533,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17h6
 5:                                                ; preds = %7, %2
   %6 = phi ptr [ %8, %7 ], [ %.promoted.i.i, %2 ]
   %.not.not.not.i.not.not.not.i.not = icmp eq ptr %6, %4
-  br i1 %.not.not.not.i.not.not.not.i.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit", label %7
+  br i1 %.not.not.not.i.not.not.not.i.not, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h030d4081bedb9d27E.llvm.8488369856913705139.exit", label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -1545,9 +1545,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17h6
   %spec.select.i.i.i.i.i.i = xor i64 %11, %.val.i.i
   %12 = load i64, ptr %.sroa.5.0.copyload, align 8, !noalias !571, !noundef !6
   %13 = tail call noundef zeroext i1 @_ZN9uv_pep5086marker7algebra13InternerGuard12disjointness17h4d9696b3fc6b749fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.01.0.copyload, i64 noundef %spec.select.i.i.i.i.i.i, i64 noundef %12), !noalias !571
-  br i1 %13, label %5, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit"
+  br i1 %13, label %5, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h030d4081bedb9d27E.llvm.8488369856913705139.exit"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit": ; preds = %5, %7
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h030d4081bedb9d27E.llvm.8488369856913705139.exit": ; preds = %5, %7
   ret i1 %.not.not.not.i.not.not.not.i.not
 }
 
@@ -1565,7 +1565,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17h6
 7:                                                ; preds = %9, %2
   %8 = phi i64 [ %10, %9 ], [ %.promoted.i, %2 ]
   %.not.i.not.not.not.i.not = icmp eq i64 %5, %8
-  br i1 %.not.i.not.not.not.i.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit", label %9
+  br i1 %.not.i.not.not.not.i.not, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc847e30d6de20a61E.llvm.8488369856913705139.exit, label %9
 
 9:                                                ; preds = %7
   %10 = add nuw nsw i64 %8, 1
@@ -1575,9 +1575,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17h6
   %12 = getelementptr inbounds nuw i64, ptr %0, i64 %8
   %13 = load i64, ptr %12, align 8, !alias.scope !583, !noalias !581, !noundef !6
   %.not.i = icmp eq i64 %13, %6
-  br i1 %.not.i, label %7, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit"
+  br i1 %.not.i, label %7, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc847e30d6de20a61E.llvm.8488369856913705139.exit
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit": ; preds = %7, %9
+_ZN4core4iter6traits8iterator8Iterator8try_fold17hc847e30d6de20a61E.llvm.8488369856913705139.exit: ; preds = %7, %9
   ret i1 %.not.i.not.not.not.i.not
 }
 
@@ -1598,7 +1598,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17h8
 5:                                                ; preds = %7, %2
   %6 = phi ptr [ %8, %7 ], [ %.promoted.i.i, %2 ]
   %.not.not.not.i.not.not.not.i.not = icmp eq ptr %6, %4
-  br i1 %.not.not.not.i.not.not.not.i.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit", label %7
+  br i1 %.not.not.not.i.not.not.not.i.not, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hfd80b2940efb1216E.llvm.8488369856913705139.exit", label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -1610,9 +1610,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17h8
   %spec.select.i.i.i.i.i.i = xor i64 %11, %.val.i.i
   %12 = load i64, ptr %.sroa.5.0.copyload, align 8, !noalias !599, !noundef !6
   %13 = tail call noundef zeroext i1 @_ZN9uv_pep5086marker7algebra13InternerGuard12disjointness17h4d9696b3fc6b749fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.01.0.copyload, i64 noundef %spec.select.i.i.i.i.i.i, i64 noundef %12), !noalias !599
-  br i1 %13, label %5, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit"
+  br i1 %13, label %5, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hfd80b2940efb1216E.llvm.8488369856913705139.exit"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit": ; preds = %5, %7
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hfd80b2940efb1216E.llvm.8488369856913705139.exit": ; preds = %5, %7
   ret i1 %.not.not.not.i.not.not.not.i.not
 }
 
@@ -1633,7 +1633,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17h9
 5:                                                ; preds = %7, %2
   %6 = phi ptr [ %8, %7 ], [ %.promoted.i.i, %2 ]
   %.not.not.not.i.not.not.not.i.not = icmp eq ptr %6, %4
-  br i1 %.not.not.not.i.not.not.not.i.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit", label %7
+  br i1 %.not.not.not.i.not.not.not.i.not, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h51cc115e606edf82E.llvm.8488369856913705139.exit", label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -1645,9 +1645,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17h9
   %spec.select.i.i.i.i.i.i = xor i64 %11, %.val.i.i
   %12 = load i64, ptr %.sroa.5.0.copyload, align 8, !noalias !619, !noundef !6
   %13 = tail call noundef zeroext i1 @_ZN9uv_pep5086marker7algebra13InternerGuard12disjointness17h4d9696b3fc6b749fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.01.0.copyload, i64 noundef %spec.select.i.i.i.i.i.i, i64 noundef %12), !noalias !619
-  br i1 %13, label %5, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit"
+  br i1 %13, label %5, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h51cc115e606edf82E.llvm.8488369856913705139.exit"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit": ; preds = %5, %7
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h51cc115e606edf82E.llvm.8488369856913705139.exit": ; preds = %5, %7
   ret i1 %.not.not.not.i.not.not.not.i.not
 }
 
@@ -1668,7 +1668,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17hb
 6:                                                ; preds = %8, %2
   %7 = phi i64 [ %9, %8 ], [ %.promoted.i, %2 ]
   %.not.i.not.not.not.i.not = icmp eq i64 %5, %7
-  br i1 %.not.i.not.not.not.i.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit", label %8
+  br i1 %.not.i.not.not.not.i.not, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hba389b141cc7c217E.llvm.8488369856913705139.exit, label %8
 
 8:                                                ; preds = %6
   %9 = add nuw nsw i64 %7, 1
@@ -1682,9 +1682,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17hb
   %spec.select.i.i.i.i = xor i64 %14, %12
   %15 = load i64, ptr %.sroa.5.0.copyload, align 8, !noalias !634, !noundef !6
   %16 = tail call noundef zeroext i1 @_ZN9uv_pep5086marker7algebra13InternerGuard12disjointness17h4d9696b3fc6b749fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.01.0.copyload, i64 noundef %spec.select.i.i.i.i, i64 noundef %15), !noalias !634
-  br i1 %16, label %6, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit"
+  br i1 %16, label %6, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hba389b141cc7c217E.llvm.8488369856913705139.exit
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit": ; preds = %6, %8
+_ZN4core4iter6traits8iterator8Iterator8try_fold17hba389b141cc7c217E.llvm.8488369856913705139.exit: ; preds = %6, %8
   ret i1 %.not.i.not.not.not.i.not
 }
 
@@ -1705,7 +1705,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17hd
 6:                                                ; preds = %8, %2
   %7 = phi i64 [ %9, %8 ], [ %.promoted.i, %2 ]
   %.not.i.not.not.not.i.not = icmp eq i64 %5, %7
-  br i1 %.not.i.not.not.not.i.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit", label %8
+  br i1 %.not.i.not.not.not.i.not, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h220328545ebb36a9E.llvm.8488369856913705139.exit, label %8
 
 8:                                                ; preds = %6
   %9 = add nuw nsw i64 %7, 1
@@ -1719,9 +1719,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17hd
   %spec.select.i.i.i.i = xor i64 %14, %12
   %15 = load i64, ptr %.sroa.5.0.copyload, align 8, !noalias !647, !noundef !6
   %16 = tail call noundef zeroext i1 @_ZN9uv_pep5086marker7algebra13InternerGuard12disjointness17h4d9696b3fc6b749fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.01.0.copyload, i64 noundef %spec.select.i.i.i.i, i64 noundef %15), !noalias !647
-  br i1 %16, label %6, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit"
+  br i1 %16, label %6, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h220328545ebb36a9E.llvm.8488369856913705139.exit
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit": ; preds = %6, %8
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h220328545ebb36a9E.llvm.8488369856913705139.exit: ; preds = %6, %8
   ret i1 %.not.i.not.not.not.i.not
 }
 
@@ -1742,7 +1742,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17hd
 5:                                                ; preds = %7, %2
   %6 = phi ptr [ %8, %7 ], [ %.promoted.i.i, %2 ]
   %.not.not.not.i.not.not.not.i.not = icmp eq ptr %6, %4
-  br i1 %.not.not.not.i.not.not.not.i.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit", label %7
+  br i1 %.not.not.not.i.not.not.not.i.not, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1c44694c66bfcc05E.llvm.8488369856913705139.exit", label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -1754,9 +1754,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17hd
   %spec.select.i.i.i.i.i.i = xor i64 %11, %.val.i.i
   %12 = load i64, ptr %.sroa.5.0.copyload, align 8, !noalias !665, !noundef !6
   %13 = tail call noundef zeroext i1 @_ZN9uv_pep5086marker7algebra13InternerGuard12disjointness17h4d9696b3fc6b749fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.01.0.copyload, i64 noundef %spec.select.i.i.i.i.i.i, i64 noundef %12), !noalias !665
-  br i1 %13, label %5, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit"
+  br i1 %13, label %5, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1c44694c66bfcc05E.llvm.8488369856913705139.exit"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit": ; preds = %5, %7
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1c44694c66bfcc05E.llvm.8488369856913705139.exit": ; preds = %5, %7
   ret i1 %.not.not.not.i.not.not.not.i.not
 }
 
@@ -1775,7 +1775,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17he
 6:                                                ; preds = %8, %2
   %7 = phi ptr [ %9, %8 ], [ %.promoted.i.i, %2 ]
   %.not9.not.not.i.not.not.not.i.not = icmp eq ptr %7, %4
-  br i1 %.not9.not.not.i.not.not.not.i.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit", label %8
+  br i1 %.not9.not.not.i.not.not.not.i.not, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h55d418ca2ec6866cE.llvm.8488369856913705139.exit", label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 64
@@ -1783,9 +1783,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17he
   %10 = getelementptr i8, ptr %7, i64 56
   %.val6.i.i = load i64, ptr %10, align 8, !noalias !687, !noundef !6
   %.not.i.i = icmp eq i64 %.val6.i.i, %5
-  br i1 %.not.i.i, label %6, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit"
+  br i1 %.not.i.i, label %6, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h55d418ca2ec6866cE.llvm.8488369856913705139.exit"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit": ; preds = %6, %8
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h55d418ca2ec6866cE.llvm.8488369856913705139.exit": ; preds = %6, %8
   ret i1 %.not9.not.not.i.not.not.not.i.not
 }
 
@@ -1806,7 +1806,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17hf
 5:                                                ; preds = %7, %2
   %6 = phi ptr [ %8, %7 ], [ %.promoted.i.i, %2 ]
   %.not.not.not.i.not.not.not.i.not = icmp eq ptr %6, %4
-  br i1 %.not.not.not.i.not.not.not.i.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit", label %7
+  br i1 %.not.not.not.i.not.not.not.i.not, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb8efcc71ad413191E.llvm.8488369856913705139.exit", label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -1818,9 +1818,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17hf
   %spec.select.i.i.i.i.i.i = xor i64 %11, %.val.i.i
   %12 = load i64, ptr %.sroa.5.0.copyload, align 8, !noalias !701, !noundef !6
   %13 = tail call noundef zeroext i1 @_ZN9uv_pep5086marker7algebra13InternerGuard12disjointness17h4d9696b3fc6b749fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.01.0.copyload, i64 noundef %spec.select.i.i.i.i.i.i, i64 noundef %12), !noalias !701
-  br i1 %13, label %5, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit"
+  br i1 %13, label %5, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb8efcc71ad413191E.llvm.8488369856913705139.exit"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit": ; preds = %5, %7
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb8efcc71ad413191E.llvm.8488369856913705139.exit": ; preds = %5, %7
   ret i1 %.not.not.not.i.not.not.not.i.not
 }
 
@@ -1841,7 +1841,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17hf
 6:                                                ; preds = %8, %2
   %7 = phi i64 [ %9, %8 ], [ %.promoted.i, %2 ]
   %.not.i.not.not.not.i.not = icmp eq i64 %5, %7
-  br i1 %.not.i.not.not.not.i.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit", label %8
+  br i1 %.not.i.not.not.not.i.not, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h8cd21b077568c609E.llvm.8488369856913705139.exit, label %8
 
 8:                                                ; preds = %6
   %9 = add nuw nsw i64 %7, 1
@@ -1855,9 +1855,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17hf
   %spec.select.i.i.i.i = xor i64 %14, %12
   %15 = load i64, ptr %.sroa.5.0.copyload, align 8, !noalias !716, !noundef !6
   %16 = tail call noundef zeroext i1 @_ZN9uv_pep5086marker7algebra13InternerGuard12disjointness17h4d9696b3fc6b749fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.01.0.copyload, i64 noundef %spec.select.i.i.i.i, i64 noundef %15), !noalias !716
-  br i1 %16, label %6, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit"
+  br i1 %16, label %6, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h8cd21b077568c609E.llvm.8488369856913705139.exit
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit": ; preds = %6, %8
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h8cd21b077568c609E.llvm.8488369856913705139.exit: ; preds = %6, %8
   ret i1 %.not.i.not.not.not.i.not
 }
 
@@ -1878,7 +1878,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17hf
 6:                                                ; preds = %8, %2
   %7 = phi i64 [ %9, %8 ], [ %.promoted.i, %2 ]
   %.not.i.not.not.not.i.not = icmp eq i64 %5, %7
-  br i1 %.not.i.not.not.not.i.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit", label %8
+  br i1 %.not.i.not.not.not.i.not, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3b66305be2022199E.llvm.8488369856913705139.exit, label %8
 
 8:                                                ; preds = %6
   %9 = add nuw nsw i64 %7, 1
@@ -1892,9 +1892,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17hf
   %spec.select.i.i.i.i = xor i64 %14, %12
   %15 = load i64, ptr %.sroa.5.0.copyload, align 8, !noalias !729, !noundef !6
   %16 = tail call noundef zeroext i1 @_ZN9uv_pep5086marker7algebra13InternerGuard12disjointness17h4d9696b3fc6b749fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.01.0.copyload, i64 noundef %spec.select.i.i.i.i, i64 noundef %15), !noalias !729
-  br i1 %16, label %6, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit"
+  br i1 %16, label %6, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3b66305be2022199E.llvm.8488369856913705139.exit
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139.exit": ; preds = %6, %8
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h3b66305be2022199E.llvm.8488369856913705139.exit: ; preds = %6, %8
   ret i1 %.not.i.not.not.not.i.not
 }
 
@@ -5433,19 +5433,18 @@ define hidden { i64, i64 } @"_ZN6either8iterator96_$LT$impl$u20$core..iter..trai
 define hidden noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab8795c62f432c86E.llvm.8488369856913705139"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #14 {
   %3 = load i8, ptr %0, align 1, !range !399, !noundef !6
   %4 = load i8, ptr %1, align 1, !range !399, !noundef !6
-  %5 = icmp eq i8 %3, %4
-  br i1 %5, label %.sink.split, label %7
-
-.sink.split:                                      ; preds = %2
-  %6 = trunc nuw i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
+  %6 = icmp eq i8 %3, %4
   %trunc = trunc nuw i8 %3 to i1
-  %not.trunc = xor i1 %trunc, true
-  %spec.select = select i1 %not.trunc, i1 true, i1 %6
-  tail call void @llvm.assume(i1 %spec.select)
-  br label %7
+  %or.cond = select i1 %6, i1 %trunc, i1 false
+  br i1 %or.cond, label %8, label %7
 
-7:                                                ; preds = %.sink.split, %2
-  ret i1 %5
+7:                                                ; preds = %2, %8
+  ret i1 %6
+
+8:                                                ; preds = %2
+  tail call void @llvm.assume(i1 %5)
+  br label %7
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

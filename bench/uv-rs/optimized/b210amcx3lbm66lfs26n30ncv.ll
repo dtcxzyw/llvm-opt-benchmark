@@ -3335,8 +3335,8 @@ _ZN6fs_err3dir8read_dir17h975ec5bfe3423081E.exit: ; preds = %31
 
 .noexc:                                           ; preds = %39
   %40 = load i64, ptr %17, align 8, !range !143, !noalias !967, !noundef !10
-  %trunc19.i = trunc nuw i64 %40 to i1
-  br i1 %trunc19.i, label %.lr.ph.i, label %.loopexit
+  %trunc14.i = trunc nuw i64 %40 to i1
+  br i1 %trunc14.i, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %.noexc
   %41 = getelementptr inbounds nuw i8, ptr %17, i64 8

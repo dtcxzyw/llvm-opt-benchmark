@@ -20332,8 +20332,8 @@ common.resume:                                    ; preds = %67, %58, %"_ZN63_$L
 
 43:                                               ; preds = %72
   %.pre = load i64, ptr %2, align 8, !range !413, !alias.scope !6675
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !6675)
   %44 = icmp eq i64 %.pre, 0
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !6675)
   br i1 %44, label %45, label %"_ZN4core3ptr386drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$gpui..app..async_context..AsyncAppContext$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h3eca86085cd27b68E.exit6"
 
 45:                                               ; preds = %43

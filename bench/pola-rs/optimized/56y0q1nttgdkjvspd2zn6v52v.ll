@@ -77114,19 +77114,19 @@ define hidden void @_ZN11polars_time12chunkedarray8datetime15DatetimeMethods14ne
   %37 = alloca [112 x i8], align 16
   %38 = alloca [48 x i8], align 16
   %39 = alloca [264 x i8], align 8
-  %.sroa.643 = alloca [56 x i8], align 8
+  %.sroa.645 = alloca [56 x i8], align 8
   %.sroa.6 = alloca [56 x i8], align 8
   %40 = alloca [56 x i8], align 8
   %41 = alloca [8 x i8], align 8
   store ptr %9, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.643)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.645)
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %39)
   %42 = invoke { ptr, ptr } @"_ZN11polars_core13chunked_array8iterator125_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$$RF$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$9into_iter17h4910424b3fe92bb9E"(ptr noundef nonnull align 8 %1)
-          to label %46 unwind label %.thread134
+          to label %46 unwind label %.thread135
 
-.thread134:                                       ; preds = %12
+.thread135:                                       ; preds = %12
   %43 = landingpad { ptr, i32 }
           cleanup
   br label %.thread113
@@ -77134,7 +77134,7 @@ define hidden void @_ZN11polars_time12chunkedarray8datetime15DatetimeMethods14ne
 44:                                               ; preds = %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$polars_core..datatypes..field..Field$GT$$GT$17hc694afe82f08e0a7E.exit.i"
   %45 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread131
+  br label %.thread132
 
 46:                                               ; preds = %12
   %47 = extractvalue { ptr, ptr } %42, 0
@@ -77159,12 +77159,12 @@ define hidden void @_ZN11polars_time12chunkedarray8datetime15DatetimeMethods14ne
   %56 = extractvalue { ptr, ptr } %49, 1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %30), !noalias !9454
   store ptr %47, ptr %30, align 8, !noalias !9458
-  %.sroa.585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store ptr %48, ptr %.sroa.585.0..sroa_idx, align 8, !noalias !9458
-  %.sroa.687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store ptr %55, ptr %.sroa.687.0..sroa_idx, align 8, !noalias !9458
-  %.sroa.789.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store ptr %56, ptr %.sroa.789.0..sroa_idx, align 8, !noalias !9458
+  %.sroa.587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store ptr %48, ptr %.sroa.587.0..sroa_idx, align 8, !noalias !9458
+  %.sroa.689.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 16
+  store ptr %55, ptr %.sroa.689.0..sroa_idx, align 8, !noalias !9458
+  %.sroa.791.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 24
+  store ptr %56, ptr %.sroa.791.0..sroa_idx, align 8, !noalias !9458
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.0..sroa_idx, i8 0, i64 24, i1 false)
   %57 = invoke { ptr, ptr } @"_ZN11polars_core13chunked_array8iterator125_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$$RF$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$9into_iter17h97628a8eb3ac412aE"(ptr noundef nonnull align 8 %3)
@@ -77188,20 +77188,20 @@ define hidden void @_ZN11polars_time12chunkedarray8datetime15DatetimeMethods14ne
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %30), !noalias !9454
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %29), !noalias !9459
   store ptr %47, ptr %29, align 8, !noalias !9463
-  %.sroa.071.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %48, ptr %.sroa.071.sroa.5.0..sroa_idx, align 8, !noalias !9463
-  %.sroa.071.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store ptr %55, ptr %.sroa.071.sroa.6.0..sroa_idx, align 8, !noalias !9463
-  %.sroa.071.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store ptr %56, ptr %.sroa.071.sroa.7.0..sroa_idx, align 8, !noalias !9463
-  %.sroa.071.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.071.sroa.8.0..sroa_idx, i8 0, i64 24, i1 false)
-  %.sroa.572.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 56
-  store ptr %63, ptr %.sroa.572.0..sroa_idx, align 8, !noalias !9463
-  %.sroa.674.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 64
-  store ptr %64, ptr %.sroa.674.0..sroa_idx, align 8, !noalias !9463
-  %.sroa.776.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.776.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.073.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store ptr %48, ptr %.sroa.073.sroa.5.0..sroa_idx, align 8, !noalias !9463
+  %.sroa.073.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 16
+  store ptr %55, ptr %.sroa.073.sroa.6.0..sroa_idx, align 8, !noalias !9463
+  %.sroa.073.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 24
+  store ptr %56, ptr %.sroa.073.sroa.7.0..sroa_idx, align 8, !noalias !9463
+  %.sroa.073.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.073.sroa.8.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.574.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 56
+  store ptr %63, ptr %.sroa.574.0..sroa_idx, align 8, !noalias !9463
+  %.sroa.676.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 64
+  store ptr %64, ptr %.sroa.676.0..sroa_idx, align 8, !noalias !9463
+  %.sroa.778.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.778.0..sroa_idx, i8 0, i64 24, i1 false)
   %65 = invoke { ptr, ptr } @"_ZN11polars_core13chunked_array8iterator125_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$$RF$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$9into_iter17h97628a8eb3ac412aE"(ptr noundef nonnull align 8 %4)
           to label %70 unwind label %66, !noalias !9459
 
@@ -77223,26 +77223,26 @@ define hidden void @_ZN11polars_time12chunkedarray8datetime15DatetimeMethods14ne
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %29), !noalias !9459
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %28), !noalias !9464
   store ptr %47, ptr %28, align 8, !noalias !9468
-  %.sroa.061.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %48, ptr %.sroa.061.sroa.0.sroa.5.0..sroa_idx, align 8, !noalias !9468
-  %.sroa.061.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store ptr %55, ptr %.sroa.061.sroa.0.sroa.6.0..sroa_idx, align 8, !noalias !9468
-  %.sroa.061.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store ptr %56, ptr %.sroa.061.sroa.0.sroa.7.0..sroa_idx, align 8, !noalias !9468
-  %.sroa.061.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.061.sroa.0.sroa.8.0..sroa_idx, i8 0, i64 24, i1 false)
-  %.sroa.061.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 56
-  store ptr %63, ptr %.sroa.061.sroa.5.0..sroa_idx, align 8, !noalias !9468
-  %.sroa.061.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 64
-  store ptr %64, ptr %.sroa.061.sroa.6.0..sroa_idx, align 8, !noalias !9468
-  %.sroa.061.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.061.sroa.7.0..sroa_idx, i8 0, i64 24, i1 false)
-  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 96
-  store ptr %71, ptr %.sroa.562.0..sroa_idx, align 8, !noalias !9468
-  %.sroa.664.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 104
-  store ptr %72, ptr %.sroa.664.0..sroa_idx, align 8, !noalias !9468
-  %.sroa.766.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.766.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.063.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store ptr %48, ptr %.sroa.063.sroa.0.sroa.5.0..sroa_idx, align 8, !noalias !9468
+  %.sroa.063.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
+  store ptr %55, ptr %.sroa.063.sroa.0.sroa.6.0..sroa_idx, align 8, !noalias !9468
+  %.sroa.063.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 24
+  store ptr %56, ptr %.sroa.063.sroa.0.sroa.7.0..sroa_idx, align 8, !noalias !9468
+  %.sroa.063.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.063.sroa.0.sroa.8.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.063.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 56
+  store ptr %63, ptr %.sroa.063.sroa.5.0..sroa_idx, align 8, !noalias !9468
+  %.sroa.063.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 64
+  store ptr %64, ptr %.sroa.063.sroa.6.0..sroa_idx, align 8, !noalias !9468
+  %.sroa.063.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.063.sroa.7.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.564.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 96
+  store ptr %71, ptr %.sroa.564.0..sroa_idx, align 8, !noalias !9468
+  %.sroa.666.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 104
+  store ptr %72, ptr %.sroa.666.0..sroa_idx, align 8, !noalias !9468
+  %.sroa.768.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 112
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.768.0..sroa_idx, i8 0, i64 24, i1 false)
   %73 = invoke { ptr, ptr } @"_ZN11polars_core13chunked_array8iterator125_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$$RF$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$9into_iter17h97628a8eb3ac412aE"(ptr noundef nonnull align 8 %5)
           to label %78 unwind label %74, !noalias !9464
 
@@ -77264,32 +77264,32 @@ define hidden void @_ZN11polars_time12chunkedarray8datetime15DatetimeMethods14ne
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %28), !noalias !9464
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %27), !noalias !9469
   store ptr %47, ptr %27, align 8, !noalias !9473
-  %.sroa.053.sroa.0.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr %48, ptr %.sroa.053.sroa.0.sroa.0.sroa.5.0..sroa_idx, align 8, !noalias !9473
-  %.sroa.053.sroa.0.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store ptr %55, ptr %.sroa.053.sroa.0.sroa.0.sroa.6.0..sroa_idx, align 8, !noalias !9473
-  %.sroa.053.sroa.0.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr %56, ptr %.sroa.053.sroa.0.sroa.0.sroa.7.0..sroa_idx, align 8, !noalias !9473
-  %.sroa.053.sroa.0.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.053.sroa.0.sroa.0.sroa.8.0..sroa_idx, i8 0, i64 24, i1 false)
-  %.sroa.053.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 56
-  store ptr %63, ptr %.sroa.053.sroa.0.sroa.5.0..sroa_idx, align 8, !noalias !9473
-  %.sroa.053.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 64
-  store ptr %64, ptr %.sroa.053.sroa.0.sroa.6.0..sroa_idx, align 8, !noalias !9473
-  %.sroa.053.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.053.sroa.0.sroa.7.0..sroa_idx, i8 0, i64 24, i1 false)
-  %.sroa.053.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 96
-  store ptr %71, ptr %.sroa.053.sroa.5.0..sroa_idx, align 8, !noalias !9473
-  %.sroa.053.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 104
-  store ptr %72, ptr %.sroa.053.sroa.6.0..sroa_idx, align 8, !noalias !9473
-  %.sroa.053.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.053.sroa.7.0..sroa_idx, i8 0, i64 24, i1 false)
-  %.sroa.554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 136
-  store ptr %79, ptr %.sroa.554.0..sroa_idx, align 8, !noalias !9473
-  %.sroa.656.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 144
-  store ptr %80, ptr %.sroa.656.0..sroa_idx, align 8, !noalias !9473
-  %.sroa.758.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 152
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.758.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.055.sroa.0.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %48, ptr %.sroa.055.sroa.0.sroa.0.sroa.5.0..sroa_idx, align 8, !noalias !9473
+  %.sroa.055.sroa.0.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 16
+  store ptr %55, ptr %.sroa.055.sroa.0.sroa.0.sroa.6.0..sroa_idx, align 8, !noalias !9473
+  %.sroa.055.sroa.0.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 24
+  store ptr %56, ptr %.sroa.055.sroa.0.sroa.0.sroa.7.0..sroa_idx, align 8, !noalias !9473
+  %.sroa.055.sroa.0.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.055.sroa.0.sroa.0.sroa.8.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.055.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 56
+  store ptr %63, ptr %.sroa.055.sroa.0.sroa.5.0..sroa_idx, align 8, !noalias !9473
+  %.sroa.055.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 64
+  store ptr %64, ptr %.sroa.055.sroa.0.sroa.6.0..sroa_idx, align 8, !noalias !9473
+  %.sroa.055.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.055.sroa.0.sroa.7.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.055.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 96
+  store ptr %71, ptr %.sroa.055.sroa.5.0..sroa_idx, align 8, !noalias !9473
+  %.sroa.055.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 104
+  store ptr %72, ptr %.sroa.055.sroa.6.0..sroa_idx, align 8, !noalias !9473
+  %.sroa.055.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 112
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.055.sroa.7.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.556.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 136
+  store ptr %79, ptr %.sroa.556.0..sroa_idx, align 8, !noalias !9473
+  %.sroa.658.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 144
+  store ptr %80, ptr %.sroa.658.0..sroa_idx, align 8, !noalias !9473
+  %.sroa.760.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 152
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.760.0..sroa_idx, i8 0, i64 24, i1 false)
   %81 = invoke { ptr, ptr } @"_ZN11polars_core13chunked_array8iterator125_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$$RF$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$9into_iter17h97628a8eb3ac412aE"(ptr noundef nonnull align 8 %6)
           to label %86 unwind label %82, !noalias !9469
 
@@ -77311,36 +77311,36 @@ define hidden void @_ZN11polars_time12chunkedarray8datetime15DatetimeMethods14ne
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %27), !noalias !9469
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %26), !noalias !9474
   store ptr %47, ptr %26, align 8, !noalias !9478
-  %.sroa.048.sroa.0.sroa.0.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr %48, ptr %.sroa.048.sroa.0.sroa.0.sroa.0.sroa.5.0..sroa_idx, align 8, !noalias !9478
-  %.sroa.048.sroa.0.sroa.0.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store ptr %55, ptr %.sroa.048.sroa.0.sroa.0.sroa.0.sroa.6.0..sroa_idx, align 8, !noalias !9478
-  %.sroa.048.sroa.0.sroa.0.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr %56, ptr %.sroa.048.sroa.0.sroa.0.sroa.0.sroa.7.0..sroa_idx, align 8, !noalias !9478
-  %.sroa.048.sroa.0.sroa.0.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.048.sroa.0.sroa.0.sroa.0.sroa.8.0..sroa_idx, i8 0, i64 24, i1 false)
-  %.sroa.048.sroa.0.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 56
-  store ptr %63, ptr %.sroa.048.sroa.0.sroa.0.sroa.5.0..sroa_idx, align 8, !noalias !9478
-  %.sroa.048.sroa.0.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 64
-  store ptr %64, ptr %.sroa.048.sroa.0.sroa.0.sroa.6.0..sroa_idx, align 8, !noalias !9478
-  %.sroa.048.sroa.0.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.048.sroa.0.sroa.0.sroa.7.0..sroa_idx, i8 0, i64 24, i1 false)
-  %.sroa.048.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 96
-  store ptr %71, ptr %.sroa.048.sroa.0.sroa.5.0..sroa_idx, align 8, !noalias !9478
-  %.sroa.048.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 104
-  store ptr %72, ptr %.sroa.048.sroa.0.sroa.6.0..sroa_idx, align 8, !noalias !9478
-  %.sroa.048.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.048.sroa.0.sroa.7.0..sroa_idx, i8 0, i64 24, i1 false)
-  %.sroa.048.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 136
-  store ptr %79, ptr %.sroa.048.sroa.5.0..sroa_idx, align 8, !noalias !9478
-  %.sroa.048.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 144
-  store ptr %80, ptr %.sroa.048.sroa.6.0..sroa_idx, align 8, !noalias !9478
-  %.sroa.048.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 152
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.048.sroa.7.0..sroa_idx, i8 0, i64 24, i1 false)
-  %.sroa.549.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 176
-  store ptr %87, ptr %.sroa.549.0..sroa_idx, align 8, !noalias !9478
-  %.sroa.651.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 184
-  store ptr %88, ptr %.sroa.651.0..sroa_idx, align 8, !noalias !9478
+  %.sroa.050.sroa.0.sroa.0.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store ptr %48, ptr %.sroa.050.sroa.0.sroa.0.sroa.0.sroa.5.0..sroa_idx, align 8, !noalias !9478
+  %.sroa.050.sroa.0.sroa.0.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 16
+  store ptr %55, ptr %.sroa.050.sroa.0.sroa.0.sroa.0.sroa.6.0..sroa_idx, align 8, !noalias !9478
+  %.sroa.050.sroa.0.sroa.0.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 24
+  store ptr %56, ptr %.sroa.050.sroa.0.sroa.0.sroa.0.sroa.7.0..sroa_idx, align 8, !noalias !9478
+  %.sroa.050.sroa.0.sroa.0.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.050.sroa.0.sroa.0.sroa.0.sroa.8.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.050.sroa.0.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 56
+  store ptr %63, ptr %.sroa.050.sroa.0.sroa.0.sroa.5.0..sroa_idx, align 8, !noalias !9478
+  %.sroa.050.sroa.0.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 64
+  store ptr %64, ptr %.sroa.050.sroa.0.sroa.0.sroa.6.0..sroa_idx, align 8, !noalias !9478
+  %.sroa.050.sroa.0.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.050.sroa.0.sroa.0.sroa.7.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.050.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 96
+  store ptr %71, ptr %.sroa.050.sroa.0.sroa.5.0..sroa_idx, align 8, !noalias !9478
+  %.sroa.050.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 104
+  store ptr %72, ptr %.sroa.050.sroa.0.sroa.6.0..sroa_idx, align 8, !noalias !9478
+  %.sroa.050.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 112
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.050.sroa.0.sroa.7.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.050.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 136
+  store ptr %79, ptr %.sroa.050.sroa.5.0..sroa_idx, align 8, !noalias !9478
+  %.sroa.050.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 144
+  store ptr %80, ptr %.sroa.050.sroa.6.0..sroa_idx, align 8, !noalias !9478
+  %.sroa.050.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 152
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.050.sroa.7.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.551.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 176
+  store ptr %87, ptr %.sroa.551.0..sroa_idx, align 8, !noalias !9478
+  %.sroa.653.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 184
+  store ptr %88, ptr %.sroa.653.0..sroa_idx, align 8, !noalias !9478
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx, i8 0, i64 24, i1 false)
   %89 = invoke { ptr, ptr } @"_ZN11polars_core13chunked_array8iterator125_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$$RF$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$9into_iter17h4910424b3fe92bb9E"(ptr noundef nonnull align 8 %7)
@@ -77361,46 +77361,46 @@ define hidden void @_ZN11polars_time12chunkedarray8datetime15DatetimeMethods14ne
 94:                                               ; preds = %86
   %95 = extractvalue { ptr, ptr } %89, 0
   %96 = extractvalue { ptr, ptr } %89, 1
-  %.sroa.044.sroa.0.sroa.0.sroa.0.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.044.sroa.0.sroa.0.sroa.0.sroa.0.sroa.7.0..sroa_idx, i8 0, i64 24, i1 false)
-  %.sroa.044.sroa.0.sroa.0.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.044.sroa.0.sroa.0.sroa.0.sroa.6.0..sroa_idx, i8 0, i64 24, i1 false)
-  %.sroa.044.sroa.0.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.044.sroa.0.sroa.0.sroa.6.0..sroa_idx, i8 0, i64 24, i1 false)
-  %.sroa.044.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 152
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.044.sroa.0.sroa.6.0..sroa_idx, i8 0, i64 24, i1 false)
-  %.sroa.044.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 192
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.044.sroa.6.0..sroa_idx, i8 0, i64 24, i1 false)
-  %.sroa.647.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 232
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.647.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.046.sroa.0.sroa.0.sroa.0.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.046.sroa.0.sroa.0.sroa.0.sroa.0.sroa.7.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.046.sroa.0.sroa.0.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.046.sroa.0.sroa.0.sroa.0.sroa.6.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.046.sroa.0.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 112
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.046.sroa.0.sroa.0.sroa.6.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.046.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 152
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.046.sroa.0.sroa.6.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.046.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 192
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.046.sroa.6.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.649.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 232
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.649.0..sroa_idx, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %26), !noalias !9474
   store ptr %47, ptr %39, align 8
-  %.sroa.044.sroa.0.sroa.0.sroa.0.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store ptr %48, ptr %.sroa.044.sroa.0.sroa.0.sroa.0.sroa.0.sroa.4.0..sroa_idx, align 8
-  %.sroa.044.sroa.0.sroa.0.sroa.0.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store ptr %55, ptr %.sroa.044.sroa.0.sroa.0.sroa.0.sroa.0.sroa.5.0..sroa_idx, align 8
-  %.sroa.044.sroa.0.sroa.0.sroa.0.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 24
-  store ptr %56, ptr %.sroa.044.sroa.0.sroa.0.sroa.0.sroa.0.sroa.6.0..sroa_idx, align 8
-  %.sroa.044.sroa.0.sroa.0.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 56
-  store ptr %63, ptr %.sroa.044.sroa.0.sroa.0.sroa.0.sroa.4.0..sroa_idx, align 8
-  %.sroa.044.sroa.0.sroa.0.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 64
-  store ptr %64, ptr %.sroa.044.sroa.0.sroa.0.sroa.0.sroa.5.0..sroa_idx, align 8
-  %.sroa.044.sroa.0.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 96
-  store ptr %71, ptr %.sroa.044.sroa.0.sroa.0.sroa.4.0..sroa_idx, align 8
-  %.sroa.044.sroa.0.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 104
-  store ptr %72, ptr %.sroa.044.sroa.0.sroa.0.sroa.5.0..sroa_idx, align 8
-  %.sroa.044.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 136
-  store ptr %79, ptr %.sroa.044.sroa.0.sroa.4.0..sroa_idx, align 8
-  %.sroa.044.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 144
-  store ptr %80, ptr %.sroa.044.sroa.0.sroa.5.0..sroa_idx, align 8
-  %.sroa.044.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 176
-  store ptr %87, ptr %.sroa.044.sroa.4.0..sroa_idx, align 8
-  %.sroa.044.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 184
-  store ptr %88, ptr %.sroa.044.sroa.5.0..sroa_idx, align 8
-  %.sroa.445.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 216
-  store ptr %95, ptr %.sroa.445.0..sroa_idx, align 8
-  %.sroa.546.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 224
-  store ptr %96, ptr %.sroa.546.0..sroa_idx, align 8
+  %.sroa.046.sroa.0.sroa.0.sroa.0.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store ptr %48, ptr %.sroa.046.sroa.0.sroa.0.sroa.0.sroa.0.sroa.4.0..sroa_idx, align 8
+  %.sroa.046.sroa.0.sroa.0.sroa.0.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 16
+  store ptr %55, ptr %.sroa.046.sroa.0.sroa.0.sroa.0.sroa.0.sroa.5.0..sroa_idx, align 8
+  %.sroa.046.sroa.0.sroa.0.sroa.0.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 24
+  store ptr %56, ptr %.sroa.046.sroa.0.sroa.0.sroa.0.sroa.0.sroa.6.0..sroa_idx, align 8
+  %.sroa.046.sroa.0.sroa.0.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 56
+  store ptr %63, ptr %.sroa.046.sroa.0.sroa.0.sroa.0.sroa.4.0..sroa_idx, align 8
+  %.sroa.046.sroa.0.sroa.0.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 64
+  store ptr %64, ptr %.sroa.046.sroa.0.sroa.0.sroa.0.sroa.5.0..sroa_idx, align 8
+  %.sroa.046.sroa.0.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 96
+  store ptr %71, ptr %.sroa.046.sroa.0.sroa.0.sroa.4.0..sroa_idx, align 8
+  %.sroa.046.sroa.0.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 104
+  store ptr %72, ptr %.sroa.046.sroa.0.sroa.0.sroa.5.0..sroa_idx, align 8
+  %.sroa.046.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 136
+  store ptr %79, ptr %.sroa.046.sroa.0.sroa.4.0..sroa_idx, align 8
+  %.sroa.046.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 144
+  store ptr %80, ptr %.sroa.046.sroa.0.sroa.5.0..sroa_idx, align 8
+  %.sroa.046.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 176
+  store ptr %87, ptr %.sroa.046.sroa.4.0..sroa_idx, align 8
+  %.sroa.046.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 184
+  store ptr %88, ptr %.sroa.046.sroa.5.0..sroa_idx, align 8
+  %.sroa.447.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 216
+  store ptr %95, ptr %.sroa.447.0..sroa_idx, align 8
+  %.sroa.548.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 224
+  store ptr %96, ptr %.sroa.548.0..sroa_idx, align 8
   %97 = getelementptr inbounds nuw i8, ptr %39, i64 256
   store ptr %41, ptr %97, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %38)
@@ -77576,7 +77576,7 @@ define hidden void @_ZN11polars_time12chunkedarray8datetime15DatetimeMethods14ne
   %.sroa.6.i.sroa.7.7..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %.sroa.6.i.sroa.7, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.6.i.sroa.7.7..sroa_idx, i64 56, i1 false), !noalias !9479
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %21), !noalias !9479
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.643, ptr noundef nonnull align 1 dereferenceable(56) %.sroa.6.i.sroa.7, i64 56, i1 false), !noalias !9509
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.645, ptr noundef nonnull align 1 dereferenceable(56) %.sroa.6.i.sroa.7, i64 56, i1 false), !noalias !9509
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.6.i.sroa.7)
   call void @llvm.experimental.noalias.scope.decl(metadata !9510)
   call void @llvm.experimental.noalias.scope.decl(metadata !9513)
@@ -77621,12 +77621,12 @@ define hidden void @_ZN11polars_time12chunkedarray8datetime15DatetimeMethods14ne
 
 150:                                              ; preds = %147
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %17), !noalias !9479
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.643, ptr noundef nonnull align 8 dereferenceable(56) %18, i64 56, i1 false), !noalias !9509
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.645, ptr noundef nonnull align 8 dereferenceable(56) %18, i64 56, i1 false), !noalias !9509
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %18), !noalias !9479
   br label %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$polars_core..datatypes..field..Field$GT$$GT$17hc694afe82f08e0a7E.exit.i"
 
 151:                                              ; preds = %.body19.i
-  br i1 %.sroa.08.0.i, label %159, label %.thread131
+  br i1 %.sroa.08.0.i, label %159, label %.thread132
 
 "_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$polars_core..datatypes..field..Field$GT$$GT$17hc694afe82f08e0a7E.exit.i": ; preds = %150, %146, %141
   %.sroa.0.0 = phi i64 [ %.sroa.6.i.sroa.5.7.copyload, %146 ], [ %.sroa.6.i.sroa.5.7.copyload, %141 ], [ 17, %150 ]
@@ -77661,14 +77661,14 @@ define hidden void @_ZN11polars_time12chunkedarray8datetime15DatetimeMethods14ne
 
 159:                                              ; preds = %151
   invoke void @"_ZN4core3ptr1524drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..zip..Zip$LT$core..iter..adapters..zip..Zip$LT$core..iter..adapters..zip..Zip$LT$core..iter..adapters..zip..Zip$LT$core..iter..adapters..zip..Zip$LT$core..iter..adapters..zip..Zip$LT$alloc..boxed..Box$LT$dyn$u20$polars_core..chunked_array..iterator..PolarsIterator$u2b$Item$u20$$u3d$$u20$core..option..Option$LT$i32$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$polars_core..chunked_array..iterator..PolarsIterator$u2b$Item$u20$$u3d$$u20$core..option..Option$LT$i8$GT$$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$polars_core..chunked_array..iterator..PolarsIterator$u2b$Item$u20$$u3d$$u20$core..option..Option$LT$i8$GT$$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$polars_core..chunked_array..iterator..PolarsIterator$u2b$Item$u20$$u3d$$u20$core..option..Option$LT$i8$GT$$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$polars_core..chunked_array..iterator..PolarsIterator$u2b$Item$u20$$u3d$$u20$core..option..Option$LT$i8$GT$$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$polars_core..chunked_array..iterator..PolarsIterator$u2b$Item$u20$$u3d$$u20$core..option..Option$LT$i8$GT$$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$polars_core..chunked_array..iterator..PolarsIterator$u2b$Item$u20$$u3d$$u20$core..option..Option$LT$i32$GT$$GT$$GT$$C$$LT$polars_core..chunked_array..logical..Logical$LT$polars_core..datatypes..DatetimeType$C$polars_core..datatypes..Int64Type$GT$$u20$as$u20$polars_time..chunkedarray..datetime..DatetimeMethods$GT$..new_from_parts..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h51c5d69de37c963fE"(ptr noalias noundef nonnull align 8 dereferenceable(264) %39) #29
-          to label %.thread131 unwind label %152, !noalias !9518
+          to label %.thread132 unwind label %152, !noalias !9518
 
 _ZN11polars_core13chunked_array7collect21ChunkedCollectIterExt25try_collect_ca_with_dtype17hdbb73575393dff42E.exit: ; preds = %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$polars_core..datatypes..field..Field$GT$$GT$17hc694afe82f08e0a7E.exit.i"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %39)
   %.not = icmp eq i64 %.sroa.0.0, 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.643, i64 56, i1 false)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.643)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.645, i64 56, i1 false)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.645)
   br i1 %.not, label %162, label %160
 
 160:                                              ; preds = %_ZN11polars_core13chunked_array7collect21ChunkedCollectIterExt25try_collect_ca_with_dtype17hdbb73575393dff42E.exit
@@ -77703,7 +77703,7 @@ _ZN11polars_core13chunked_array7collect21ChunkedCollectIterExt25try_collect_ca_w
 169:                                              ; preds = %194, %179, %165
   %170 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread131
+  br label %.thread132
 
 171:                                              ; preds = %165
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
@@ -77719,7 +77719,7 @@ _ZN11polars_core13chunked_array7collect21ChunkedCollectIterExt25try_collect_ca_w
 173:                                              ; preds = %184, %174
   %.pn = phi { ptr, i32 } [ %185, %184 ], [ %175, %174 ]
   invoke void @"_ZN4core3ptr145drop_in_place$LT$polars_core..chunked_array..logical..Logical$LT$polars_core..datatypes..DatetimeType$C$polars_core..datatypes..Int64Type$GT$$GT$17hd91493c4dcf68397E"(ptr noalias noundef nonnull align 16 dereferenceable(112) %37) #29
-          to label %.thread131 unwind label %192
+          to label %.thread132 unwind label %192
 
 174:                                              ; preds = %171
   %175 = landingpad { ptr, i32 }
@@ -77812,24 +77812,24 @@ _ZN11polars_core13chunked_array7collect21ChunkedCollectIterExt25try_collect_ca_w
 "_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$polars_core..datatypes..temporal..time_zone..TimeZone$GT$$GT$17h69a54fa99f14139eE.exit": ; preds = %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$polars_core..datatypes..temporal..time_zone..TimeZone$GT$$GT$17h69a54fa99f14139eE.exit.sink.split", %198, %187
   ret void
 
-.thread131:                                       ; preds = %173, %169, %159, %151, %44, %.thread113
-  %.pn21.pn = phi { ptr, i32 } [ %.pn136, %.thread113 ], [ %45, %44 ], [ %.pn15.i, %151 ], [ %.pn15.i, %159 ], [ %170, %169 ], [ %.pn, %173 ]
+.thread132:                                       ; preds = %169, %173, %159, %151, %44, %.thread113
+  %.pn23112 = phi { ptr, i32 } [ %eh.lpad-body116, %.thread113 ], [ %45, %44 ], [ %.pn15.i, %151 ], [ %.pn15.i, %159 ], [ %.pn, %173 ], [ %170, %169 ]
   %203 = getelementptr inbounds nuw i8, ptr %10, i64 23
   %204 = load i8, ptr %203, align 1, !range !724, !alias.scope !9533, !noundef !3
   %205 = icmp eq i8 %204, -38
-  br i1 %205, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$polars_core..datatypes..temporal..time_zone..TimeZone$GT$$GT$17h69a54fa99f14139eE.exit42", label %206
+  br i1 %205, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$polars_core..datatypes..temporal..time_zone..TimeZone$GT$$GT$17h69a54fa99f14139eE.exit44", label %206
 
-206:                                              ; preds = %.thread131
+206:                                              ; preds = %.thread132
   invoke void @"_ZN4core3ptr74drop_in_place$LT$polars_core..datatypes..temporal..time_zone..TimeZone$GT$17h081415843168ed65E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-          to label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$polars_core..datatypes..temporal..time_zone..TimeZone$GT$$GT$17h69a54fa99f14139eE.exit42" unwind label %192
+          to label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$polars_core..datatypes..temporal..time_zone..TimeZone$GT$$GT$17h69a54fa99f14139eE.exit44" unwind label %192
 
-.thread113:                                       ; preds = %90, %82, %74, %66, %58, %50, %.thread134
-  %.pn136 = phi { ptr, i32 } [ %43, %.thread134 ], [ %51, %50 ], [ %59, %58 ], [ %67, %66 ], [ %75, %74 ], [ %83, %82 ], [ %91, %90 ]
+.thread113:                                       ; preds = %90, %82, %74, %66, %58, %50, %.thread135
+  %eh.lpad-body116 = phi { ptr, i32 } [ %43, %.thread135 ], [ %51, %50 ], [ %59, %58 ], [ %67, %66 ], [ %75, %74 ], [ %83, %82 ], [ %91, %90 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h0c6c899f6525b6f8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #29
-          to label %.thread131 unwind label %192
+          to label %.thread132 unwind label %192
 
-"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$polars_core..datatypes..temporal..time_zone..TimeZone$GT$$GT$17h69a54fa99f14139eE.exit42": ; preds = %.thread131, %206
-  resume { ptr, i32 } %.pn21.pn
+"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$polars_core..datatypes..temporal..time_zone..TimeZone$GT$$GT$17h69a54fa99f14139eE.exit44": ; preds = %.thread132, %206
+  resume { ptr, i32 } %.pn23112
 }
 
 ; Function Attrs: nonlazybind uwtable

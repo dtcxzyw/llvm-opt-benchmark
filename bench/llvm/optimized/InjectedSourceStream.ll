@@ -734,8 +734,8 @@ _ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE6resizeEm.exit: ;
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @_ZN4llvm3pdb19readSparseBitVectorERNS_18BinaryStreamReaderERNS_15SparseBitVectorILj128EEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(32) %48) #16
   %49 = load ptr, ptr %0, align 8, !tbaa !23
-  %.not75 = icmp eq ptr %49, null
-  br i1 %.not75, label %_ZN4llvm5ErrorD2Ev.exit47, label %.critedge
+  %.not76 = icmp eq ptr %49, null
+  br i1 %.not76, label %_ZN4llvm5ErrorD2Ev.exit47, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit47:                        ; preds = %_ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE6resizeEm.exit
   %.sroa.02.05.i = load ptr, ptr %48, align 8, !tbaa !11
@@ -792,8 +792,8 @@ _ZNK4llvm15SparseBitVectorILj128EE5countEv.exit:  ; preds = %_ZNK4llvm22SparseBi
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @_ZN4llvm3pdb19readSparseBitVectorERNS_18BinaryStreamReaderERNS_15SparseBitVectorILj128EEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(32) %65) #16
   %66 = load ptr, ptr %0, align 8, !tbaa !23
-  %.not76 = icmp eq ptr %66, null
-  br i1 %.not76, label %_ZN4llvm5ErrorD2Ev.exit50, label %.critedge
+  %.not77 = icmp eq ptr %66, null
+  br i1 %.not77, label %_ZN4llvm5ErrorD2Ev.exit50, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit50:                        ; preds = %64
   %67 = call noundef zeroext i1 @_ZNK4llvm15SparseBitVectorILj128EE10intersectsERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %65)

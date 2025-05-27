@@ -2604,7 +2604,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang5RISCV7RVVType10verifyTypeEv(ptr 
   %11 = icmp eq i32 %10, 0
   %12 = select i1 %9, i1 %11, i1 false
   %.not32 = xor i1 %9, true
-  %brmerge33 = or i1 %12, %.not32
+  %brmerge33 = select i1 %.not32, i1 true, i1 %11
   br i1 %brmerge33, label %_ZN4llvm13isPowerOf2_32Ej.exit, label %13
 
 13:                                               ; preds = %5

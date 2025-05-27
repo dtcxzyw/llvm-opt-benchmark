@@ -8574,8 +8574,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb384b3dee9
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14)
   call void @"_ZN79_$LT$fs_err..dir..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0d9a49d7638e877cE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
   %15 = load i64, ptr %14, align 8, !range !211, !noundef !12
-  %trunc60 = trunc nuw i64 %15 to i1
-  br i1 %trunc60, label %.lr.ph, label %"_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$fs_err..dir..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17h1e3df455fddba88eE.exit"
+  %trunc53 = trunc nuw i64 %15 to i1
+  br i1 %trunc53, label %.lr.ph, label %"_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$fs_err..dir..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17h1e3df455fddba88eE.exit"
 
 .lr.ph:                                           ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -8871,9 +8871,9 @@ common.resume:                                    ; preds = %34, %95, %108
 
 .loopexit29:                                      ; preds = %"_ZN12uv_installer13site_packages12SitePackages16from_interpreter28_$u7b$$u7b$closure$u7d$$u7d$17hcc541096f6076dc7E.exit.i", %.thread.i
   %.sroa.8.21824.i = phi ptr [ %.sroa.2.0.copyload, %.thread.i ], [ %.sroa.8.1.i, %"_ZN12uv_installer13site_packages12SitePackages16from_interpreter28_$u7b$$u7b$closure$u7d$$u7d$17hcc541096f6076dc7E.exit.i" ]
-  %.val41.in = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val41 = load ptr, ptr %.val41.in, align 8, !nonnull !12, !noundef !12
-  %.val.i.i = load ptr, ptr %.val41, align 8, !noalias !2993, !noundef !12
+  %.val35.in = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.val35 = load ptr, ptr %.val35.in, align 8, !nonnull !12, !noundef !12
+  %.val.i.i = load ptr, ptr %.val35, align 8, !noalias !2993, !noundef !12
   %103 = icmp eq ptr %.val.i.i, null
   br i1 %103, label %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$$GT$17h806cf329831dd04dE.exit.i.i", label %104
 
@@ -8899,11 +8899,11 @@ common.resume:                                    ; preds = %34, %95, %108
 108:                                              ; preds = %106, %104
   %109 = landingpad { ptr, i32 }
           cleanup
-  store ptr %.sroa.8.21824.i, ptr %.val41, align 8, !noalias !2993
+  store ptr %.sroa.8.21824.i, ptr %.val35, align 8, !noalias !2993
   br label %common.resume
 
 "_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$$GT$17h806cf329831dd04dE.exit.i.i": ; preds = %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$17h626a931944e44efbE.llvm.3020970440203120126.exit.i.i.i", %.loopexit29
-  store ptr %.sroa.8.21824.i, ptr %.val41, align 8, !noalias !2993
+  store ptr %.sroa.8.21824.i, ptr %.val35, align 8, !noalias !2993
   br label %.loopexit
 
 "_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$fs_err..dir..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17h1e3df455fddba88eE.exit": ; preds = %110, %3
