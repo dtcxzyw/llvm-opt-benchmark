@@ -1989,12 +1989,12 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   br i1 %.not149299, label %._crit_edge, label %.lr.ph302
 
 32:                                               ; preds = %.backedge
-  %.0122198.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0122198.add212
+  %.0122198.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0122198.add215
   br i1 %.not149, label %._crit_edge, label %.lr.ph302
 
 .lr.ph302:                                        ; preds = %.lr.ph, %32
   %.0122198.ptr301 = phi ptr [ %.0122198.ptr, %32 ], [ %.0122198.ptr298, %.lr.ph ]
-  %.0122198.idx300 = phi i64 [ %.0122198.add212, %32 ], [ %.0122.ph200.idx, %.lr.ph ]
+  %.0122198.idx300 = phi i64 [ %.0122198.add215, %32 ], [ %.0122.ph200.idx, %.lr.ph ]
   %33 = load i8, ptr %.0122198.ptr301, align 1, !tbaa !12
   switch i8 %33, label %.backedge [
     i8 92, label %34
@@ -2005,10 +2005,10 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   br label %.backedge
 
 .backedge:                                        ; preds = %38, %.lr.ph302, %34
-  %.sink266 = phi i64 [ 2, %34 ], [ 1, %.lr.ph302 ], [ 1, %38 ]
+  %.sink267 = phi i64 [ 2, %34 ], [ 1, %.lr.ph302 ], [ 1, %38 ]
   %.not149 = phi i1 [ false, %34 ], [ false, %.lr.ph302 ], [ true, %38 ]
-  %.0122198.add212 = add nuw nsw i64 %.0122198.idx300, %.sink266
-  %.0122.be.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0122198.add212
+  %.0122198.add215 = add nuw nsw i64 %.0122198.idx300, %.sink267
+  %.0122.be.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0122198.add215
   %35 = ptrtoint ptr %.0122.be.ptr to i64
   %36 = sub i64 %35, %27
   %37 = icmp ult i64 %36, %2
@@ -2019,7 +2019,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
 
 ._crit_edge:                                      ; preds = %32, %.lr.ph
   %.lcssa295 = phi i64 [ %31, %.lr.ph ], [ %36, %32 ]
-  %.0122198.idx.lcssa = phi i64 [ %.0122.ph200.idx, %.lr.ph ], [ %.0122198.add212, %32 ]
+  %.0122198.idx.lcssa = phi i64 [ %.0122.ph200.idx, %.lr.ph ], [ %.0122198.add215, %32 ]
   %.0122198.ptr.lcssa = phi ptr [ %.0122198.ptr298, %.lr.ph ], [ %.0122198.ptr, %32 ]
   %39 = load i8, ptr %.0122198.ptr.lcssa, align 1, !tbaa !12
   switch i8 %39, label %.thread [
@@ -2056,30 +2056,29 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   br i1 %.not152, label %.loopexit183, label %51
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store ptr %52, ptr %6, align 8, !tbaa !3
-  %53 = icmp sgt i64 %.0122198.idx.lcssa, 1
-  br i1 %53, label %.lr.ph207, label %.loopexit
+  %52 = icmp sgt i64 %.0122198.idx.lcssa, 1
+  br i1 %52, label %.lr.ph210, label %.loopexit
 
-.lr.ph207:                                        ; preds = %51
+.lr.ph210:                                        ; preds = %51
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %54 = add i64 %2, -2
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
   br label %56
 
-56:                                               ; preds = %.lr.ph207, %152
-  %.promoted = phi ptr [ %52, %.lr.ph207 ], [ %153, %152 ]
-  %.0124206 = phi i1 [ true, %.lr.ph207 ], [ false, %152 ]
+56:                                               ; preds = %.lr.ph210, %152
+  %.promoted = phi ptr [ %53, %.lr.ph210 ], [ %153, %152 ]
+  %.0124209 = phi i1 [ true, %.lr.ph210 ], [ false, %152 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
   %57 = icmp ult ptr %.promoted, %.0122198.ptr.lcssa
-  br i1 %57, label %.lr.ph203, label %.critedge
+  br i1 %57, label %.lr.ph204, label %.critedge
 
-.lr.ph203:                                        ; preds = %56
+.lr.ph204:                                        ; preds = %56
   %58 = tail call ptr @__ctype_b_loc() #15
   %59 = load ptr, ptr %58, align 8, !tbaa !13
   br label %60
 
-60:                                               ; preds = %.lr.ph203, %67
-  %61 = phi ptr [ %.promoted, %.lr.ph203 ], [ %68, %67 ]
+60:                                               ; preds = %.lr.ph204, %67
+  %61 = phi ptr [ %.promoted, %.lr.ph204 ], [ %68, %67 ]
   %62 = load i8, ptr %61, align 1, !tbaa !12
   %63 = sext i8 %62 to i64
   %64 = getelementptr inbounds i16, ptr %59, i64 %63
@@ -2090,17 +2089,17 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
 
 67:                                               ; preds = %60
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 1
-  store ptr %68, ptr %6, align 8, !tbaa !3
   %69 = icmp ult ptr %68, %.0122198.ptr.lcssa
   br i1 %69, label %60, label %.critedge
 
 .critedge:                                        ; preds = %60, %67, %56
-  %.lcssa = phi ptr [ %.promoted, %56 ], [ %68, %67 ], [ %61, %60 ]
-  %70 = icmp eq ptr %.lcssa, %.0122198.ptr.lcssa
+  %.lcssa203 = phi ptr [ %.promoted, %56 ], [ %68, %67 ], [ %61, %60 ]
+  store ptr %.lcssa203, ptr %6, align 8
+  %70 = icmp eq ptr %.lcssa203, %.0122198.ptr.lcssa
   br i1 %70, label %.thread178, label %71
 
 71:                                               ; preds = %.critedge
-  %72 = load i8, ptr %.lcssa, align 1, !tbaa !12
+  %72 = load i8, ptr %.lcssa203, align 1, !tbaa !12
   switch i8 %72, label %93 [
     i8 60, label %73
     i8 40, label %85
@@ -2108,13 +2107,13 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   ]
 
 73:                                               ; preds = %71
-  %74 = ptrtoint ptr %.lcssa to i64
+  %74 = ptrtoint ptr %.lcssa203 to i64
   %75 = sub i64 %74, %27
   %76 = icmp ult i64 %75, %54
   br i1 %76, label %77, label %85
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.lcssa203, i64 1
   %79 = load i8, ptr %78, align 1, !tbaa !12
   %80 = icmp eq i8 %79, 60
   br i1 %80, label %81, label %85
@@ -2123,26 +2122,26 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   %82 = load i32, ptr %12, align 4, !tbaa !28
   %83 = add i32 %82, 1
   store i32 %83, ptr %12, align 4, !tbaa !28
-  %84 = call ptr @pdf_parse_dict(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.lcssa295, ptr noundef nonnull %.lcssa, ptr noundef nonnull %6)
+  %84 = call ptr @pdf_parse_dict(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.lcssa295, ptr noundef nonnull %.lcssa203, ptr noundef nonnull %6)
   br label %.sink.split
 
 85:                                               ; preds = %73, %77, %71
   %86 = load i32, ptr %12, align 4, !tbaa !28
   %87 = add i32 %86, 1
   store i32 %87, ptr %12, align 4, !tbaa !28
-  %88 = call ptr @pdf_parse_string(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.lcssa, i64 noundef %.lcssa295, ptr noundef null, ptr noundef nonnull %6, ptr noundef null)
+  %88 = call ptr @pdf_parse_string(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.lcssa203, i64 noundef %.lcssa295, ptr noundef null, ptr noundef nonnull %6, ptr noundef null)
   br label %.sink.split
 
 89:                                               ; preds = %71
   %90 = load i32, ptr %12, align 4, !tbaa !28
   %91 = add i32 %90, 1
   store i32 %91, ptr %12, align 4, !tbaa !28
-  %92 = call ptr @pdf_parse_array(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.lcssa295, ptr noundef nonnull %.lcssa, ptr noundef nonnull %6)
+  %92 = call ptr @pdf_parse_array(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.lcssa295, ptr noundef nonnull %.lcssa203, ptr noundef nonnull %6)
   br label %.sink.split
 
 93:                                               ; preds = %71
   store ptr %.0122198.ptr.lcssa, ptr %7, align 8, !tbaa !3
-  %94 = call i32 @is_object_reference(ptr noundef nonnull %.lcssa, ptr noundef nonnull %7, ptr noundef null)
+  %94 = call i32 @is_object_reference(ptr noundef nonnull %.lcssa203, ptr noundef nonnull %7, ptr noundef null)
   %.not154 = icmp eq i32 %94, 0
   br i1 %.not154, label %.preheader, label %..critedge7_crit_edge
 
@@ -2151,7 +2150,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   br label %.critedge7
 
 .preheader:                                       ; preds = %93, %96
-  %.pn = phi ptr [ %storemerge, %96 ], [ %.lcssa, %93 ]
+  %.pn = phi ptr [ %storemerge, %96 ], [ %.lcssa203, %93 ]
   %storemerge = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   store ptr %storemerge, ptr %7, align 8, !tbaa !3
   %95 = icmp ult ptr %storemerge, %.0122198.ptr.lcssa
@@ -2171,7 +2170,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
 .critedge7:                                       ; preds = %96, %.preheader, %..critedge7_crit_edge
   %104 = phi ptr [ %.pre, %..critedge7_crit_edge ], [ %storemerge, %.preheader ], [ %storemerge, %96 ]
   %105 = ptrtoint ptr %104 to i64
-  %106 = ptrtoint ptr %.lcssa to i64
+  %106 = ptrtoint ptr %.lcssa203 to i64
   %107 = sub i64 %105, %106
   %108 = add nsw i64 %107, 2
   %109 = call ptr @cli_max_calloc(i64 noundef %108, i64 noundef 1) #14
@@ -2179,14 +2178,14 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   br i1 %.not156, label %116, label %.thread168
 
 .thread168:                                       ; preds = %.critedge7
-  %110 = call ptr @strncpy(ptr noundef nonnull %109, ptr noundef nonnull %.lcssa, i64 noundef %107) #14
+  %110 = call ptr @strncpy(ptr noundef nonnull %109, ptr noundef nonnull %.lcssa203, i64 noundef %107) #14
   %111 = getelementptr inbounds i8, ptr %109, i64 %107
   store i8 0, ptr %111, align 1, !tbaa !12
   store ptr %104, ptr %6, align 8, !tbaa !3
   br label %120
 
 .sink.split:                                      ; preds = %81, %85, %89
-  %.sink269 = phi i64 [ 1, %89 ], [ 2, %85 ], [ 2, %81 ]
+  %.sink270 = phi i64 [ 1, %89 ], [ 2, %85 ], [ 2, %81 ]
   %.0117.ph = phi ptr [ null, %89 ], [ %88, %85 ], [ null, %81 ]
   %.0116.ph = phi ptr [ %92, %89 ], [ null, %85 ], [ null, %81 ]
   %.0.ph = phi ptr [ null, %89 ], [ null, %85 ], [ %84, %81 ]
@@ -2194,7 +2193,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   %113 = add i32 %112, -1
   store i32 %113, ptr %12, align 4, !tbaa !28
   %114 = load ptr, ptr %6, align 8, !tbaa !3
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 %.sink269
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 %.sink270
   store ptr %115, ptr %6, align 8, !tbaa !3
   br label %116
 
@@ -2217,7 +2216,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   %.0116175 = phi ptr [ null, %.thread168 ], [ %.0116, %116 ]
   %.0117174 = phi ptr [ %109, %.thread168 ], [ %.0117, %116 ]
   %124 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #17
-  br i1 %.0124206, label %125, label %131
+  br i1 %.0124209, label %125, label %131
 
 125:                                              ; preds = %120
   store ptr %124, ptr %55, align 8, !tbaa !59

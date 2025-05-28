@@ -1057,7 +1057,7 @@ av_ts_make_string.exit:                           ; preds = %24, %25
 read_timestamp.exit:                              ; preds = %28, %33
   %.0.i = phi i64 [ %39, %33 ], [ %31, %28 ]
   %40 = icmp eq i64 %.0.i, -9223372036854775808
-  br i1 %40, label %131, label %41
+  br i1 %40, label %128, label %41
 
 41:                                               ; preds = %read_timestamp.exit, %av_ts_make_string.exit
   %.063 = phi i64 [ %.0.i, %read_timestamp.exit ], [ %6, %av_ts_make_string.exit ]
@@ -1067,7 +1067,7 @@ read_timestamp.exit:                              ; preds = %28, %33
 42:                                               ; preds = %41
   store i64 %.063, ptr %9, align 8, !tbaa !54
   %43 = load i64, ptr %12, align 8, !tbaa !54
-  br label %131
+  br label %128
 
 44:                                               ; preds = %41
   %45 = icmp eq i64 %7, -9223372036854775808
@@ -1076,7 +1076,7 @@ read_timestamp.exit:                              ; preds = %28, %33
 46:                                               ; preds = %44
   %47 = call i32 @ff_find_last_ts(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %14, ptr noundef nonnull %13, ptr noundef %10)
   %48 = icmp slt i32 %47, 0
-  br i1 %48, label %131, label %49
+  br i1 %48, label %128, label %49
 
 49:                                               ; preds = %46
   %50 = load i64, ptr %13, align 8, !tbaa !54
@@ -1085,14 +1085,14 @@ read_timestamp.exit:                              ; preds = %28, %33
 
 51:                                               ; preds = %49, %44
   %.promoted = phi i64 [ %50, %49 ], [ %4, %44 ]
-  %.promoted97 = phi i64 [ %.pre, %49 ], [ %7, %44 ]
+  %.promoted100 = phi i64 [ %.pre, %49 ], [ %7, %44 ]
   %.060 = phi i64 [ %50, %49 ], [ %5, %44 ]
-  %.not78 = icmp sgt i64 %.promoted97, %2
+  %.not78 = icmp sgt i64 %.promoted100, %2
   br i1 %.not78, label %.preheader, label %52
 
 52:                                               ; preds = %51
-  store i64 %.promoted97, ptr %9, align 8, !tbaa !54
-  br label %131
+  store i64 %.promoted100, ptr %9, align 8, !tbaa !54
+  br label %128
 
 .preheader:                                       ; preds = %51
   %53 = load i64, ptr %12, align 8, !tbaa !54
@@ -1105,15 +1105,15 @@ read_timestamp.exit:                              ; preds = %28, %33
   %57 = zext nneg i32 %1 to i64
   br label %58
 
-58:                                               ; preds = %.lr.ph, %123
-  %59 = phi i64 [ %53, %.lr.ph ], [ %124, %123 ]
-  %.1103 = phi i64 [ %.060, %.lr.ph ], [ %.2, %123 ]
-  %.061102 = phi i32 [ 0, %.lr.ph ], [ %.162, %123 ]
-  %.164101 = phi i64 [ %.063, %.lr.ph ], [ %.265, %123 ]
-  %60 = phi i64 [ %.promoted, %.lr.ph ], [ %120, %123 ]
-  %.0.i8699100 = phi i64 [ %.promoted97, %.lr.ph ], [ %.0.i8698, %123 ]
+58:                                               ; preds = %.lr.ph, %122
+  %59 = phi i64 [ %53, %.lr.ph ], [ %123, %122 ]
+  %.1108 = phi i64 [ %.060, %.lr.ph ], [ %.2, %122 ]
+  %.061107 = phi i32 [ 0, %.lr.ph ], [ %.162, %122 ]
+  %.164106 = phi i64 [ %.063, %.lr.ph ], [ %.265, %122 ]
+  %60 = phi i64 [ %.promoted, %.lr.ph ], [ %120, %122 ]
+  %.0.i86102105 = phi i64 [ %.promoted100, %.lr.ph ], [ %.0.i86101, %122 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %17, i8 0, i64 32, i1 false)
-  %61 = icmp eq i64 %.164101, -9223372036854775808
+  %61 = icmp eq i64 %.164106, -9223372036854775808
   br i1 %61, label %62, label %63
 
 62:                                               ; preds = %58
@@ -1121,12 +1121,12 @@ read_timestamp.exit:                              ; preds = %28, %33
   br label %av_ts_make_string.exit84
 
 63:                                               ; preds = %58
-  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %17, i64 noundef 32, ptr noundef nonnull @.str.22, i64 noundef %.164101) #17
+  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %17, i64 noundef 32, ptr noundef nonnull @.str.22, i64 noundef %.164106) #17
   br label %av_ts_make_string.exit84
 
 av_ts_make_string.exit84:                         ; preds = %62, %63
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %18, i8 0, i64 32, i1 false)
-  %65 = icmp eq i64 %.0.i8699100, -9223372036854775808
+  %65 = icmp eq i64 %.0.i86102105, -9223372036854775808
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %av_ts_make_string.exit84
@@ -1134,12 +1134,12 @@ av_ts_make_string.exit84:                         ; preds = %62, %63
   br label %av_ts_make_string.exit85
 
 67:                                               ; preds = %av_ts_make_string.exit84
-  %68 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 32, ptr noundef nonnull @.str.22, i64 noundef %.0.i8699100) #17
+  %68 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 32, ptr noundef nonnull @.str.22, i64 noundef %.0.i86102105) #17
   br label %av_ts_make_string.exit85
 
 av_ts_make_string.exit85:                         ; preds = %66, %67
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.17, i64 noundef %59, i64 noundef %60, ptr noundef nonnull %17, ptr noundef nonnull %18) #17
-  %.not80 = icmp sgt i64 %.1103, %60
+  %.not80 = icmp sgt i64 %.1108, %60
   br i1 %.not80, label %69, label %70
 
 69:                                               ; preds = %av_ts_make_string.exit85
@@ -1148,25 +1148,25 @@ av_ts_make_string.exit85:                         ; preds = %66, %67
   unreachable
 
 70:                                               ; preds = %av_ts_make_string.exit85
-  switch i32 %.061102, label %.thread [
+  switch i32 %.061107, label %.thread [
     i32 0, label %71
     i32 1, label %79
   ]
 
 71:                                               ; preds = %70
-  %72 = sub nsw i64 %2, %.164101
+  %72 = sub nsw i64 %2, %.164106
   %73 = load i64, ptr %12, align 8, !tbaa !54
   %74 = sub nsw i64 %60, %73
-  %75 = sub nsw i64 %.0.i8699100, %.164101
+  %75 = sub nsw i64 %.0.i86102105, %.164106
   %76 = call i64 @av_rescale(i64 noundef %72, i64 noundef %74, i64 noundef %75) #16
-  %77 = sub i64 %.1103, %60
+  %77 = sub i64 %.1108, %60
   %.neg = add i64 %77, %73
   %78 = add i64 %.neg, %76
   br label %84
 
 79:                                               ; preds = %70
   %80 = load i64, ptr %12, align 8, !tbaa !54
-  %81 = add nsw i64 %80, %.1103
+  %81 = add nsw i64 %80, %.1108
   %82 = ashr i64 %81, 1
   br label %84
 
@@ -1187,16 +1187,16 @@ av_ts_make_string.exit85:                         ; preds = %66, %67
   br label %.sink.split
 
 89:                                               ; preds = %84
-  %90 = icmp sgt i64 %.sink, %.1103
+  %90 = icmp sgt i64 %.sink, %.1108
   br i1 %90, label %.sink.split, label %91
 
 .sink.split:                                      ; preds = %89, %86
-  %.1103.sink = phi i64 [ %88, %86 ], [ %.1103, %89 ]
-  store i64 %.1103.sink, ptr %15, align 8, !tbaa !54
+  %.1108.sink = phi i64 [ %88, %86 ], [ %.1108, %89 ]
+  store i64 %.1108.sink, ptr %15, align 8, !tbaa !54
   br label %91
 
 91:                                               ; preds = %.sink.split, %89
-  %92 = phi i64 [ %.sink, %89 ], [ %.1103.sink, %.sink.split ]
+  %92 = phi i64 [ %.sink, %89 ], [ %.1108.sink, %.sink.split ]
   %93 = call i64 %10(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %15, i64 noundef 9223372036854775807) #17
   br i1 %55, label %94, label %read_timestamp.exit87
 
@@ -1211,7 +1211,7 @@ read_timestamp.exit87:                            ; preds = %91, %94
   %.0.i86 = phi i64 [ %98, %94 ], [ %93, %91 ]
   %99 = load i64, ptr %15, align 8, !tbaa !54
   %100 = icmp eq i64 %99, %60
-  %101 = add nsw i32 %.061102, 1
+  %101 = add nsw i32 %.061107, 1
   %.162 = select i1 %100, i32 %101, i32 0
   %102 = load i64, ptr %12, align 8, !tbaa !54
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %19, i8 0, i64 32, i1 false)
@@ -1222,7 +1222,7 @@ read_timestamp.exit87:                            ; preds = %91, %94
   br label %av_ts_make_string.exit88
 
 104:                                              ; preds = %read_timestamp.exit87
-  %105 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %19, i64 noundef 32, ptr noundef nonnull @.str.22, i64 noundef %.164101) #17
+  %105 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %19, i64 noundef 32, ptr noundef nonnull @.str.22, i64 noundef %.164106) #17
   br label %av_ts_make_string.exit88
 
 av_ts_make_string.exit88:                         ; preds = %103, %104
@@ -1247,7 +1247,7 @@ av_ts_make_string.exit89:                         ; preds = %107, %108
   br label %av_ts_make_string.exit90
 
 111:                                              ; preds = %av_ts_make_string.exit89
-  %112 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %21, i64 noundef 32, ptr noundef nonnull @.str.22, i64 noundef %.0.i8699100) #17
+  %112 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %21, i64 noundef 32, ptr noundef nonnull @.str.22, i64 noundef %.0.i86102105) #17
   br label %av_ts_make_string.exit90
 
 av_ts_make_string.exit90:                         ; preds = %110, %111
@@ -1263,52 +1263,51 @@ av_ts_make_string.exit90:                         ; preds = %110, %111
   br label %av_ts_make_string.exit91
 
 av_ts_make_string.exit91:                         ; preds = %113, %114
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.19, i64 noundef %102, i64 noundef %99, i64 noundef %60, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, i64 noundef %.1103, i64 noundef %92, i32 noundef %.162) #17
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.19, i64 noundef %102, i64 noundef %99, i64 noundef %60, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, i64 noundef %.1108, i64 noundef %92, i32 noundef %.162) #17
   br i1 %106, label %116, label %117
 
 116:                                              ; preds = %av_ts_make_string.exit91
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.20) #17
-  br label %131
+  br label %128
 
 117:                                              ; preds = %av_ts_make_string.exit91
   %.not82 = icmp sgt i64 %2, %.0.i86
   %118 = add nsw i64 %92, -1
   %119 = load i64, ptr %15, align 8
-  %.0.i8698 = select i1 %.not82, i64 %.0.i8699100, i64 %.0.i86
+  %.0.i86101 = select i1 %.not82, i64 %.0.i86102105, i64 %.0.i86
   %120 = select i1 %.not82, i64 %60, i64 %119
-  %.2 = select i1 %.not82, i64 %.1103, i64 %118
+  %.2 = select i1 %.not82, i64 %.1108, i64 %118
   %.not83 = icmp slt i64 %2, %.0.i86
-  br i1 %.not83, label %._crit_edge106, label %121
+  br i1 %.not83, label %._crit_edge119, label %121
 
-._crit_edge106:                                   ; preds = %117
-  %.pre107 = load i64, ptr %12, align 8, !tbaa !54
-  br label %123
+._crit_edge119:                                   ; preds = %117
+  %.pre120 = load i64, ptr %12, align 8, !tbaa !54
+  br label %122
 
 121:                                              ; preds = %117
-  %122 = load i64, ptr %15, align 8, !tbaa !54
-  store i64 %122, ptr %12, align 8, !tbaa !54
-  br label %123
+  store i64 %119, ptr %12, align 8, !tbaa !54
+  br label %122
 
-123:                                              ; preds = %._crit_edge106, %121
-  %124 = phi i64 [ %122, %121 ], [ %.pre107, %._crit_edge106 ]
-  %.265 = phi i64 [ %.0.i86, %121 ], [ %.164101, %._crit_edge106 ]
-  %125 = icmp slt i64 %124, %.2
-  br i1 %125, label %58, label %._crit_edge, !llvm.loop !93
+122:                                              ; preds = %._crit_edge119, %121
+  %123 = phi i64 [ %119, %121 ], [ %.pre120, %._crit_edge119 ]
+  %.265 = phi i64 [ %.0.i86, %121 ], [ %.164106, %._crit_edge119 ]
+  %124 = icmp slt i64 %123, %.2
+  br i1 %124, label %58, label %._crit_edge, !llvm.loop !93
 
-._crit_edge:                                      ; preds = %123, %.preheader
-  %126 = phi i64 [ %.promoted97, %.preheader ], [ %.0.i8698, %123 ]
-  %127 = phi i64 [ %.promoted, %.preheader ], [ %120, %123 ]
-  %.164.lcssa = phi i64 [ %.063, %.preheader ], [ %.265, %123 ]
-  %.lcssa = phi i64 [ %53, %.preheader ], [ %124, %123 ]
-  %128 = and i32 %8, 1
-  %.not79 = icmp eq i32 %128, 0
-  %129 = select i1 %.not79, i64 %127, i64 %.lcssa
-  %130 = select i1 %.not79, i64 %126, i64 %.164.lcssa
-  store i64 %130, ptr %9, align 8, !tbaa !54
-  br label %131
+._crit_edge:                                      ; preds = %122, %.preheader
+  %.0.i86102.lcssa = phi i64 [ %.promoted100, %.preheader ], [ %.0.i86101, %122 ]
+  %.lcssa97 = phi i64 [ %.promoted, %.preheader ], [ %120, %122 ]
+  %.164.lcssa = phi i64 [ %.063, %.preheader ], [ %.265, %122 ]
+  %.lcssa = phi i64 [ %53, %.preheader ], [ %123, %122 ]
+  %125 = and i32 %8, 1
+  %.not79 = icmp eq i32 %125, 0
+  %126 = select i1 %.not79, i64 %.lcssa97, i64 %.lcssa
+  %127 = select i1 %.not79, i64 %.0.i86102.lcssa, i64 %.164.lcssa
+  store i64 %127, ptr %9, align 8, !tbaa !54
+  br label %128
 
-131:                                              ; preds = %46, %read_timestamp.exit, %._crit_edge, %116, %52, %42
-  %.0 = phi i64 [ %43, %42 ], [ %.promoted, %52 ], [ -1, %116 ], [ %129, %._crit_edge ], [ -1, %read_timestamp.exit ], [ -1, %46 ]
+128:                                              ; preds = %46, %read_timestamp.exit, %._crit_edge, %116, %52, %42
+  %.0 = phi i64 [ %43, %42 ], [ %.promoted, %52 ], [ -1, %116 ], [ %126, %._crit_edge ], [ -1, %read_timestamp.exit ], [ -1, %46 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #17
   ret i64 %.0
 }

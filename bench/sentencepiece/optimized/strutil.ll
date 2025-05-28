@@ -4343,7 +4343,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11safe_strtodEPKcPd(ptr noundef %0
 .preheader:                                       ; preds = %2, %8
   %6 = phi ptr [ %9, %8 ], [ %5, %2 ]
   %7 = load i8, ptr %6, align 1, !tbaa !11
-  switch i8 %7, label %_ZN6google8protobuf13ascii_isspaceEc.exit [
+  switch i8 %7, label %_ZN6google8protobuf13ascii_isspaceEc.exit.loopexit [
     i8 32, label %8
     i8 12, label %8
     i8 11, label %8
@@ -4354,11 +4354,14 @@ define noundef zeroext i1 @_ZN6google8protobuf11safe_strtodEPKcPd(ptr noundef %0
 
 8:                                                ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store ptr %9, ptr %3, align 8, !tbaa !75
   br label %.preheader, !llvm.loop !85
 
-_ZN6google8protobuf13ascii_isspaceEc.exit:        ; preds = %.preheader, %2
-  %10 = phi ptr [ %5, %2 ], [ %6, %.preheader ]
+_ZN6google8protobuf13ascii_isspaceEc.exit.loopexit: ; preds = %.preheader
+  store ptr %6, ptr %3, align 8
+  br label %_ZN6google8protobuf13ascii_isspaceEc.exit
+
+_ZN6google8protobuf13ascii_isspaceEc.exit:        ; preds = %_ZN6google8protobuf13ascii_isspaceEc.exit.loopexit, %2
+  %10 = phi ptr [ %6, %_ZN6google8protobuf13ascii_isspaceEc.exit.loopexit ], [ %5, %2 ]
   %11 = load i8, ptr %0, align 1, !tbaa !11
   %.not4 = icmp eq i8 %11, 0
   br i1 %.not4, label %15, label %12

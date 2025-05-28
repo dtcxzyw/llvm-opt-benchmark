@@ -197949,138 +197949,133 @@ define linkonce_odr i64 @_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMap
   %.fr = freeze i32 %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.not10.i = icmp eq i32 %.fr, 0
-  %5 = add i32 %.fr, -1
-  %6 = zext i32 %5 to i64
-  %7 = load ptr, ptr %4, align 8, !tbaa !1002
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %7, align 8, !tbaa !1027
-  %.not.i.i.i.us = icmp eq ptr %9, null
+  %5 = load ptr, ptr %4, align 8, !tbaa !1002
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load ptr, ptr %5, align 8, !tbaa !1027
+  %.not.i.i.i.us = icmp eq ptr %7, null
   br i1 %.not10.i, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader
-  br i1 %.not.i.i.i.us, label %12, label %10
+  br i1 %.not.i.i.i.us, label %10, label %8
+
+8:                                                ; preds = %.preheader.split.us
+  %9 = load ptr, ptr %7, align 8, !tbaa !1874
+  store ptr %9, ptr %5, align 8, !tbaa !1027
+  br label %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl8LeafNodeIlS1_Lj11ES3_EEEEPT_v.exit.us
 
 10:                                               ; preds = %.preheader.split.us
-  %11 = load ptr, ptr %9, align 8, !tbaa !1874
-  store ptr %11, ptr %7, align 8, !tbaa !1027
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %12 = load i64, ptr %11, align 8, !tbaa !1876
+  %13 = add i64 %12, 192
+  store i64 %13, ptr %11, align 8, !tbaa !1876
+  %14 = load ptr, ptr %6, align 8, !tbaa !1877
+  %15 = ptrtoint ptr %14 to i64
+  %16 = add i64 %15, 63
+  %17 = and i64 %16, -64
+  %18 = add i64 %17, 192
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %20 = load ptr, ptr %19, align 8, !tbaa !1878
+  %21 = ptrtoint ptr %20 to i64
+  %.not.i.i.i.i.i.us = icmp ule i64 %18, %21
+  %22 = icmp ne ptr %14, null
+  %23 = and i1 %22, %.not.i.i.i.i.i.us
+  br i1 %23, label %26, label %24, !prof !40
+
+24:                                               ; preds = %10
+  %25 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %6, i64 noundef 192, i64 noundef 192, i8 6)
   br label %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl8LeafNodeIlS1_Lj11ES3_EEEEPT_v.exit.us
 
-12:                                               ; preds = %.preheader.split.us
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %14 = load i64, ptr %13, align 8, !tbaa !1876
-  %15 = add i64 %14, 192
-  store i64 %15, ptr %13, align 8, !tbaa !1876
-  %16 = load ptr, ptr %8, align 8, !tbaa !1877
-  %17 = ptrtoint ptr %16 to i64
-  %18 = add i64 %17, 63
-  %19 = and i64 %18, -64
-  %20 = add i64 %19, 192
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !1878
-  %23 = ptrtoint ptr %22 to i64
-  %.not.i.i.i.i.i.us = icmp ule i64 %20, %23
-  %24 = icmp ne ptr %16, null
-  %25 = and i1 %24, %.not.i.i.i.i.i.us
-  br i1 %25, label %28, label %26, !prof !40
-
-26:                                               ; preds = %12
-  %27 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %8, i64 noundef 192, i64 noundef 192, i8 6)
+26:                                               ; preds = %10
+  %27 = inttoptr i64 %18 to ptr
+  store ptr %27, ptr %6, align 8, !tbaa !1877
+  %28 = inttoptr i64 %17 to ptr
   br label %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl8LeafNodeIlS1_Lj11ES3_EEEEPT_v.exit.us
 
-28:                                               ; preds = %12
-  %29 = inttoptr i64 %20 to ptr
-  store ptr %29, ptr %8, align 8, !tbaa !1877
-  %30 = inttoptr i64 %19 to ptr
-  br label %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl8LeafNodeIlS1_Lj11ES3_EEEEPT_v.exit.us
-
-_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl8LeafNodeIlS1_Lj11ES3_EEEEPT_v.exit.us: ; preds = %28, %26, %10
-  %31 = phi ptr [ %9, %10 ], [ %30, %28 ], [ %27, %26 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %31, i8 0, i64 192, i1 false)
-  %32 = ptrtoint ptr %31 to i64
-  %33 = or i64 %32, 4294967295
+_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl8LeafNodeIlS1_Lj11ES3_EEEEPT_v.exit.us: ; preds = %26, %24, %8
+  %29 = phi ptr [ %7, %8 ], [ %28, %26 ], [ %25, %24 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %29, i8 0, i64 192, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl8LeafNodeIlS1_Lj11ES3_EEEEPT_v.exit.us, %_ZN4llvm15IntervalMapImpl8NodeBaseISt4pairIllESt9monostateLj11EE4copyILj8EEEvRKNS1_IS3_S4_XT_EEEjjj.exit.loopexit
-  %.us-phi = phi i64 [ %72, %_ZN4llvm15IntervalMapImpl8NodeBaseISt4pairIllESt9monostateLj11EE4copyILj8EEEvRKNS1_IS3_S4_XT_EEEjjj.exit.loopexit ], [ %33, %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl8LeafNodeIlS1_Lj11ES3_EEEEPT_v.exit.us ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 1, ptr %34, align 8, !tbaa !998
+.critedge:                                        ; preds = %.lr.ph.i, %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl8LeafNodeIlS1_Lj11ES3_EEEEPT_v.exit.us
+  %.us-phi = phi ptr [ %29, %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl8LeafNodeIlS1_Lj11ES3_EEEEPT_v.exit.us ], [ %64, %.lr.ph.i ]
+  %30 = add i32 %.fr, -1
+  %31 = ptrtoint ptr %.us-phi to i64
+  %32 = zext i32 %30 to i64
+  %33 = and i64 %31, -64
+  %34 = or i64 %33, %32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i32 1, ptr %35, align 8, !tbaa !998
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %0, i8 0, i64 136, i1 false)
-  %35 = and i64 %.us-phi, -64
-  %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds nuw [11 x %"struct.std::pair.805"], ptr %36, i64 0, i64 %6, i32 1
-  %38 = load i64, ptr %37, align 8, !tbaa !9
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %38, ptr %40, align 8, !tbaa !9
-  store i64 %.us-phi, ptr %39, align 8, !tbaa !13
-  %41 = load i64, ptr %36, align 64, !tbaa !9
-  store i64 %41, ptr %0, align 8, !tbaa !9
+  %36 = and i64 %34, -64
+  %37 = inttoptr i64 %36 to ptr
+  %38 = getelementptr inbounds nuw [11 x %"struct.std::pair.805"], ptr %37, i64 0, i64 %32, i32 1
+  %39 = load i64, ptr %38, align 8, !tbaa !9
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %39, ptr %41, align 8, !tbaa !9
+  store i64 %34, ptr %40, align 8, !tbaa !13
+  %42 = load i64, ptr %37, align 64, !tbaa !9
+  store i64 %42, ptr %0, align 8, !tbaa !9
   store i32 1, ptr %2, align 4, !tbaa !1001
   %.sroa.2.0.insert.ext = zext i32 %1 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   ret i64 %.sroa.2.0.insert.shift
 
 .preheader.split:                                 ; preds = %.preheader
-  br i1 %.not.i.i.i.us, label %44, label %42
+  br i1 %.not.i.i.i.us, label %45, label %43
 
-42:                                               ; preds = %.preheader.split
-  %43 = load ptr, ptr %9, align 8, !tbaa !1874
-  store ptr %43, ptr %7, align 8, !tbaa !1027
+43:                                               ; preds = %.preheader.split
+  %44 = load ptr, ptr %7, align 8, !tbaa !1874
+  store ptr %44, ptr %5, align 8, !tbaa !1027
   br label %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl8LeafNodeIlS1_Lj11ES3_EEEEPT_v.exit
 
-44:                                               ; preds = %.preheader.split
-  %45 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %46 = load i64, ptr %45, align 8, !tbaa !1876
-  %47 = add i64 %46, 192
-  store i64 %47, ptr %45, align 8, !tbaa !1876
-  %48 = load ptr, ptr %8, align 8, !tbaa !1877
-  %49 = ptrtoint ptr %48 to i64
-  %50 = add i64 %49, 63
-  %51 = and i64 %50, -64
-  %52 = add i64 %51, 192
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %54 = load ptr, ptr %53, align 8, !tbaa !1878
-  %55 = ptrtoint ptr %54 to i64
-  %.not.i.i.i.i.i = icmp ule i64 %52, %55
-  %56 = icmp ne ptr %48, null
-  %57 = and i1 %56, %.not.i.i.i.i.i
-  br i1 %57, label %58, label %61, !prof !40
+45:                                               ; preds = %.preheader.split
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %47 = load i64, ptr %46, align 8, !tbaa !1876
+  %48 = add i64 %47, 192
+  store i64 %48, ptr %46, align 8, !tbaa !1876
+  %49 = load ptr, ptr %6, align 8, !tbaa !1877
+  %50 = ptrtoint ptr %49 to i64
+  %51 = add i64 %50, 63
+  %52 = and i64 %51, -64
+  %53 = add i64 %52, 192
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %55 = load ptr, ptr %54, align 8, !tbaa !1878
+  %56 = ptrtoint ptr %55 to i64
+  %.not.i.i.i.i.i = icmp ule i64 %53, %56
+  %57 = icmp ne ptr %49, null
+  %58 = and i1 %57, %.not.i.i.i.i.i
+  br i1 %58, label %59, label %62, !prof !40
 
-58:                                               ; preds = %44
-  %59 = inttoptr i64 %52 to ptr
-  store ptr %59, ptr %8, align 8, !tbaa !1877
-  %60 = inttoptr i64 %51 to ptr
+59:                                               ; preds = %45
+  %60 = inttoptr i64 %53 to ptr
+  store ptr %60, ptr %6, align 8, !tbaa !1877
+  %61 = inttoptr i64 %52 to ptr
   br label %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl8LeafNodeIlS1_Lj11ES3_EEEEPT_v.exit
 
-61:                                               ; preds = %44
-  %62 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %8, i64 noundef 192, i64 noundef 192, i8 6)
+62:                                               ; preds = %45
+  %63 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %6, i64 noundef 192, i64 noundef 192, i8 6)
   br label %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl8LeafNodeIlS1_Lj11ES3_EEEEPT_v.exit
 
-_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl8LeafNodeIlS1_Lj11ES3_EEEEPT_v.exit: ; preds = %42, %58, %61
-  %63 = phi ptr [ %9, %42 ], [ %60, %58 ], [ %62, %61 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %63, i8 0, i64 192, i1 false)
+_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl8LeafNodeIlS1_Lj11ES3_EEEEPT_v.exit: ; preds = %43, %59, %62
+  %64 = phi ptr [ %7, %43 ], [ %61, %59 ], [ %63, %62 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %64, i8 0, i64 192, i1 false)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl8LeafNodeIlS1_Lj11ES3_EEEEPT_v.exit, %.lr.ph.i
   %indvars.iv = phi i64 [ 0, %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl8LeafNodeIlS1_Lj11ES3_EEEEPT_v.exit ], [ %indvars.iv.next, %.lr.ph.i ]
-  %64 = getelementptr inbounds nuw [8 x %"struct.std::pair.805"], ptr %0, i64 0, i64 %indvars.iv
-  %65 = getelementptr inbounds nuw [11 x %"struct.std::pair.805"], ptr %63, i64 0, i64 %indvars.iv
-  %66 = load i64, ptr %64, align 8, !tbaa !1868
-  store i64 %66, ptr %65, align 8, !tbaa !1868
-  %67 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %68 = load i64, ptr %67, align 8, !tbaa !1870
-  %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store i64 %68, ptr %69, align 8, !tbaa !1870
+  %65 = getelementptr inbounds nuw [8 x %"struct.std::pair.805"], ptr %0, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [11 x %"struct.std::pair.805"], ptr %64, i64 0, i64 %indvars.iv
+  %67 = load i64, ptr %65, align 8, !tbaa !1868
+  store i64 %67, ptr %66, align 8, !tbaa !1868
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %69 = load i64, ptr %68, align 8, !tbaa !1870
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  store i64 %69, ptr %70, align 8, !tbaa !1870
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond = icmp eq i32 %.fr, %lftr.wideiv
-  br i1 %exitcond, label %_ZN4llvm15IntervalMapImpl8NodeBaseISt4pairIllESt9monostateLj11EE4copyILj8EEEvRKNS1_IS3_S4_XT_EEEjjj.exit.loopexit, label %.lr.ph.i, !llvm.loop !1879
-
-_ZN4llvm15IntervalMapImpl8NodeBaseISt4pairIllESt9monostateLj11EE4copyILj8EEEvRKNS1_IS3_S4_XT_EEEjjj.exit.loopexit: ; preds = %.lr.ph.i
-  %70 = ptrtoint ptr %63 to i64
-  %71 = and i64 %70, -64
-  %72 = or i64 %71, %6
-  br label %.critedge
+  br i1 %exitcond, label %.critedge, label %.lr.ph.i, !llvm.loop !1879
 }
 
 declare void @_ZN4llvm15IntervalMapImpl4Path11replaceRootEPvjSt4pairIjjE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef, i32 noundef, i64) local_unnamed_addr #5
@@ -199766,134 +199761,129 @@ define linkonce_odr i64 @_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMap
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not13.i = icmp eq i32 %.fr, 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %7 = add i32 %.fr, -1
-  %8 = zext i32 %7 to i64
-  %9 = load ptr, ptr %4, align 8, !tbaa !1002
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %9, align 8, !tbaa !1027
-  %.not.i.i.i.us = icmp eq ptr %11, null
+  %7 = load ptr, ptr %4, align 8, !tbaa !1002
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load ptr, ptr %7, align 8, !tbaa !1027
+  %.not.i.i.i.us = icmp eq ptr %9, null
   br i1 %.not13.i, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader
-  br i1 %.not.i.i.i.us, label %14, label %12
+  br i1 %.not.i.i.i.us, label %12, label %10
+
+10:                                               ; preds = %.preheader.split.us
+  %11 = load ptr, ptr %9, align 8, !tbaa !1874
+  store ptr %11, ptr %7, align 8, !tbaa !1027
+  br label %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl10BranchNodeIlS1_Lj12ES3_EEEEPT_v.exit.us
 
 12:                                               ; preds = %.preheader.split.us
-  %13 = load ptr, ptr %11, align 8, !tbaa !1874
-  store ptr %13, ptr %9, align 8, !tbaa !1027
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %14 = load i64, ptr %13, align 8, !tbaa !1876
+  %15 = add i64 %14, 192
+  store i64 %15, ptr %13, align 8, !tbaa !1876
+  %16 = load ptr, ptr %8, align 8, !tbaa !1877
+  %17 = ptrtoint ptr %16 to i64
+  %18 = add i64 %17, 63
+  %19 = and i64 %18, -64
+  %20 = add i64 %19, 192
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %22 = load ptr, ptr %21, align 8, !tbaa !1878
+  %23 = ptrtoint ptr %22 to i64
+  %.not.i.i.i.i.i.us = icmp ule i64 %20, %23
+  %24 = icmp ne ptr %16, null
+  %25 = and i1 %24, %.not.i.i.i.i.i.us
+  br i1 %25, label %28, label %26, !prof !40
+
+26:                                               ; preds = %12
+  %27 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %8, i64 noundef 192, i64 noundef 192, i8 6)
   br label %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl10BranchNodeIlS1_Lj12ES3_EEEEPT_v.exit.us
 
-14:                                               ; preds = %.preheader.split.us
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  %16 = load i64, ptr %15, align 8, !tbaa !1876
-  %17 = add i64 %16, 192
-  store i64 %17, ptr %15, align 8, !tbaa !1876
-  %18 = load ptr, ptr %10, align 8, !tbaa !1877
-  %19 = ptrtoint ptr %18 to i64
-  %20 = add i64 %19, 63
-  %21 = and i64 %20, -64
-  %22 = add i64 %21, 192
-  %23 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !1878
-  %25 = ptrtoint ptr %24 to i64
-  %.not.i.i.i.i.i.us = icmp ule i64 %22, %25
-  %26 = icmp ne ptr %18, null
-  %27 = and i1 %26, %.not.i.i.i.i.i.us
-  br i1 %27, label %30, label %28, !prof !40
-
-28:                                               ; preds = %14
-  %29 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %10, i64 noundef 192, i64 noundef 192, i8 6)
+28:                                               ; preds = %12
+  %29 = inttoptr i64 %20 to ptr
+  store ptr %29, ptr %8, align 8, !tbaa !1877
+  %30 = inttoptr i64 %19 to ptr
   br label %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl10BranchNodeIlS1_Lj12ES3_EEEEPT_v.exit.us
 
-30:                                               ; preds = %14
-  %31 = inttoptr i64 %22 to ptr
-  store ptr %31, ptr %10, align 8, !tbaa !1877
-  %32 = inttoptr i64 %21 to ptr
-  br label %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl10BranchNodeIlS1_Lj12ES3_EEEEPT_v.exit.us
-
-_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl10BranchNodeIlS1_Lj12ES3_EEEEPT_v.exit.us: ; preds = %30, %28, %12
-  %33 = phi ptr [ %11, %12 ], [ %32, %30 ], [ %29, %28 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %33, i8 0, i64 192, i1 false)
-  %34 = ptrtoint ptr %33 to i64
-  %35 = or i64 %34, 4294967295
+_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl10BranchNodeIlS1_Lj12ES3_EEEEPT_v.exit.us: ; preds = %28, %26, %10
+  %31 = phi ptr [ %9, %10 ], [ %30, %28 ], [ %27, %26 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %31, i8 0, i64 192, i1 false)
   br label %.critedge
 
 .preheader.split:                                 ; preds = %.preheader
-  br i1 %.not.i.i.i.us, label %38, label %36
+  br i1 %.not.i.i.i.us, label %34, label %32
 
-36:                                               ; preds = %.preheader.split
-  %37 = load ptr, ptr %11, align 8, !tbaa !1874
-  store ptr %37, ptr %9, align 8, !tbaa !1027
+32:                                               ; preds = %.preheader.split
+  %33 = load ptr, ptr %9, align 8, !tbaa !1874
+  store ptr %33, ptr %7, align 8, !tbaa !1027
   br label %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl10BranchNodeIlS1_Lj12ES3_EEEEPT_v.exit
 
-38:                                               ; preds = %.preheader.split
-  %39 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  %40 = load i64, ptr %39, align 8, !tbaa !1876
-  %41 = add i64 %40, 192
-  store i64 %41, ptr %39, align 8, !tbaa !1876
-  %42 = load ptr, ptr %10, align 8, !tbaa !1877
-  %43 = ptrtoint ptr %42 to i64
-  %44 = add i64 %43, 63
-  %45 = and i64 %44, -64
-  %46 = add i64 %45, 192
-  %47 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !1878
-  %49 = ptrtoint ptr %48 to i64
-  %.not.i.i.i.i.i = icmp ule i64 %46, %49
-  %50 = icmp ne ptr %42, null
-  %51 = and i1 %50, %.not.i.i.i.i.i
-  br i1 %51, label %52, label %55, !prof !40
+34:                                               ; preds = %.preheader.split
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %36 = load i64, ptr %35, align 8, !tbaa !1876
+  %37 = add i64 %36, 192
+  store i64 %37, ptr %35, align 8, !tbaa !1876
+  %38 = load ptr, ptr %8, align 8, !tbaa !1877
+  %39 = ptrtoint ptr %38 to i64
+  %40 = add i64 %39, 63
+  %41 = and i64 %40, -64
+  %42 = add i64 %41, 192
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %44 = load ptr, ptr %43, align 8, !tbaa !1878
+  %45 = ptrtoint ptr %44 to i64
+  %.not.i.i.i.i.i = icmp ule i64 %42, %45
+  %46 = icmp ne ptr %38, null
+  %47 = and i1 %46, %.not.i.i.i.i.i
+  br i1 %47, label %48, label %51, !prof !40
 
-52:                                               ; preds = %38
-  %53 = inttoptr i64 %46 to ptr
-  store ptr %53, ptr %10, align 8, !tbaa !1877
-  %54 = inttoptr i64 %45 to ptr
+48:                                               ; preds = %34
+  %49 = inttoptr i64 %42 to ptr
+  store ptr %49, ptr %8, align 8, !tbaa !1877
+  %50 = inttoptr i64 %41 to ptr
   br label %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl10BranchNodeIlS1_Lj12ES3_EEEEPT_v.exit
 
-55:                                               ; preds = %38
-  %56 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %10, i64 noundef 192, i64 noundef 192, i8 6)
+51:                                               ; preds = %34
+  %52 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %8, i64 noundef 192, i64 noundef 192, i8 6)
   br label %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl10BranchNodeIlS1_Lj12ES3_EEEEPT_v.exit
 
-_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl10BranchNodeIlS1_Lj12ES3_EEEEPT_v.exit: ; preds = %36, %52, %55
-  %57 = phi ptr [ %11, %36 ], [ %54, %52 ], [ %56, %55 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %57, i8 0, i64 192, i1 false)
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 96
-  br label %59
+_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl10BranchNodeIlS1_Lj12ES3_EEEEPT_v.exit: ; preds = %32, %48, %51
+  %53 = phi ptr [ %9, %32 ], [ %50, %48 ], [ %52, %51 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %53, i8 0, i64 192, i1 false)
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 96
+  br label %55
 
-59:                                               ; preds = %59, %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl10BranchNodeIlS1_Lj12ES3_EEEEPT_v.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl10BranchNodeIlS1_Lj12ES3_EEEEPT_v.exit ]
-  %60 = getelementptr inbounds nuw [8 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %5, i64 0, i64 %indvars.iv
-  %61 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %57, i64 0, i64 %indvars.iv
-  %62 = load i64, ptr %60, align 8, !tbaa !13
-  store i64 %62, ptr %61, align 8, !tbaa !13
-  %63 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %indvars.iv
-  %64 = load i64, ptr %63, align 8, !tbaa !9
-  %65 = getelementptr inbounds nuw [12 x i64], ptr %58, i64 0, i64 %indvars.iv
-  store i64 %64, ptr %65, align 8, !tbaa !9
+55:                                               ; preds = %55, %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl10BranchNodeIlS1_Lj12ES3_EEEEPT_v.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 0, %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl10BranchNodeIlS1_Lj12ES3_EEEEPT_v.exit ]
+  %56 = getelementptr inbounds nuw [8 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %5, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %53, i64 0, i64 %indvars.iv
+  %58 = load i64, ptr %56, align 8, !tbaa !13
+  store i64 %58, ptr %57, align 8, !tbaa !13
+  %59 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %60 = load i64, ptr %59, align 8, !tbaa !9
+  %61 = getelementptr inbounds nuw [12 x i64], ptr %54, i64 0, i64 %indvars.iv
+  store i64 %60, ptr %61, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond = icmp eq i32 %.fr, %lftr.wideiv
-  br i1 %exitcond, label %_ZN4llvm15IntervalMapImpl8NodeBaseINS0_7NodeRefElLj12EE4copyILj8EEEvRKNS1_IS2_lXT_EEEjjj.exit.loopexit, label %59, !llvm.loop !1894
+  br i1 %exitcond, label %.critedge, label %55, !llvm.loop !1894
 
-_ZN4llvm15IntervalMapImpl8NodeBaseINS0_7NodeRefElLj12EE4copyILj8EEEvRKNS1_IS2_lXT_EEEjjj.exit.loopexit: ; preds = %59
-  %66 = ptrtoint ptr %57 to i64
+.critedge:                                        ; preds = %55, %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl10BranchNodeIlS1_Lj12ES3_EEEEPT_v.exit.us
+  %.us-phi = phi ptr [ %31, %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl10BranchNodeIlS1_Lj12ES3_EEEEPT_v.exit.us ], [ %53, %55 ]
+  %62 = add i32 %.fr, -1
+  %63 = ptrtoint ptr %.us-phi to i64
+  %64 = zext i32 %62 to i64
+  %65 = and i64 %63, -64
+  %66 = or i64 %65, %64
   %67 = and i64 %66, -64
-  %68 = or i64 %67, %8
-  br label %.critedge
-
-.critedge:                                        ; preds = %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl10BranchNodeIlS1_Lj12ES3_EEEEPT_v.exit.us, %_ZN4llvm15IntervalMapImpl8NodeBaseINS0_7NodeRefElLj12EE4copyILj8EEEvRKNS1_IS2_lXT_EEEjjj.exit.loopexit
-  %.us-phi = phi i64 [ %68, %_ZN4llvm15IntervalMapImpl8NodeBaseINS0_7NodeRefElLj12EE4copyILj8EEEvRKNS1_IS2_lXT_EEEjjj.exit.loopexit ], [ %35, %_ZN4llvm11IntervalMapIlSt9monostateLj8ENS_23IntervalMapHalfOpenInfoIlEEE7newNodeINS_15IntervalMapImpl10BranchNodeIlS1_Lj12ES3_EEEEPT_v.exit.us ]
-  %69 = and i64 %.us-phi, -64
-  %70 = inttoptr i64 %69 to ptr
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 96
-  %72 = getelementptr inbounds nuw [12 x i64], ptr %71, i64 0, i64 %8
-  %73 = load i64, ptr %72, align 8, !tbaa !9
-  store i64 %73, ptr %6, align 8, !tbaa !9
-  store i64 %.us-phi, ptr %5, align 8, !tbaa !13
+  %68 = inttoptr i64 %67 to ptr
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 96
+  %70 = getelementptr inbounds nuw [12 x i64], ptr %69, i64 0, i64 %64
+  %71 = load i64, ptr %70, align 8, !tbaa !9
+  store i64 %71, ptr %6, align 8, !tbaa !9
+  store i64 %66, ptr %5, align 8, !tbaa !13
   store i32 1, ptr %2, align 4, !tbaa !1001
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %75 = load i32, ptr %74, align 8, !tbaa !998
-  %76 = add i32 %75, 1
-  store i32 %76, ptr %74, align 8, !tbaa !998
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %73 = load i32, ptr %72, align 8, !tbaa !998
+  %74 = add i32 %73, 1
+  store i32 %74, ptr %72, align 8, !tbaa !998
   %.sroa.2.0.insert.ext = zext i32 %1 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   ret i64 %.sroa.2.0.insert.shift

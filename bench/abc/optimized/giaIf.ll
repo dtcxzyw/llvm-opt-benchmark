@@ -17564,7 +17564,6 @@ Abc_TtCofactor0p.exit.thread23.i.us:              ; preds = %.lr.ph.split.us
   %31 = or i64 %26, %30
   %32 = or i64 %31, %24
   %33 = or i64 %32, %29
-  store i64 %33, ptr %6, align 16, !tbaa !159
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #27
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #27
   br label %34
@@ -17573,7 +17572,7 @@ Abc_TtCofactor0p.exit.thread23.i.us:              ; preds = %.lr.ph.split.us
   %35 = phi i64 [ %33, %Abc_TtCofactor0p.exit.thread23.i.us ], [ %18, %.lr.ph.split.us ]
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
-  br i1 %exitcond31.not, label %.lr.ph61.i, label %.lr.ph.split.us, !llvm.loop !342
+  br i1 %exitcond31.not, label %._crit_edge.loopexit, label %.lr.ph.split.us, !llvm.loop !342
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %91
   %indvars.iv = phi i64 [ %indvars.iv.next, %91 ], [ 0, %.lr.ph ]
@@ -17721,7 +17720,11 @@ Abc_TtExist.exit:                                 ; preds = %.lr.ph.i19.i, %41, 
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count30
   br i1 %exitcond.not, label %.lr.ph61.i, label %.lr.ph.split, !llvm.loop !342
 
-.lr.ph61.i:                                       ; preds = %91, %34
+._crit_edge.loopexit:                             ; preds = %34
+  store i64 %35, ptr %6, align 16
+  br label %.lr.ph61.i
+
+.lr.ph61.i:                                       ; preds = %91, %._crit_edge.loopexit
   %92 = sext i32 %.fr83.i to i64
   %93 = getelementptr inbounds i64, ptr %6, i64 %92
   %wide.trip.count72.i.i = zext nneg i32 %.fr83.i to i64

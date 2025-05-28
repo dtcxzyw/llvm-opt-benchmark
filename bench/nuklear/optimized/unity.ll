@@ -50556,7 +50556,7 @@ nk_text_clamp.exit.thread.thread.i:               ; preds = %nk_rgb_factor.exit
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.loopexit.i.i, %.lr.ph.i.i
-  %.05177.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %spec.select219.i, %.loopexit.i.i ]
+  %.05177.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %spec.select222.i, %.loopexit.i.i ]
   %.05575.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %59, %.loopexit.i.i ]
   %.06072.i.i = phi i32 [ %54, %.lr.ph.i.i ], [ %68, %.loopexit.i.i ]
   %59 = add nsw i32 %.06072.i.i, %.05575.i.i
@@ -50567,7 +50567,7 @@ nk_text_clamp.exit.thread.thread.i:               ; preds = %nk_rgb_factor.exit
   %64 = load i32, ptr %6, align 4
   %.fr = freeze i32 %64
   %.not65.i.i = icmp eq i32 %.fr, 32
-  %spec.select219.i = select i1 %.not65.i.i, i32 %59, i32 %.05177.i.i
+  %spec.select222.i = select i1 %.not65.i.i, i32 %59, i32 %.05177.i.i
   %65 = sext i32 %59 to i64
   %66 = getelementptr inbounds i8, ptr %1, i64 %65
   %67 = sub nsw i32 %2, %59
@@ -50580,8 +50580,8 @@ nk_text_clamp.exit.thread.thread.i:               ; preds = %nk_rgb_factor.exit
   br i1 %or.cond66.i.i, label %.loopexit.i.i, label %nk_text_clamp.exit.thread.i, !llvm.loop !214
 
 nk_text_clamp.exit.thread.i:                      ; preds = %.loopexit.i.i
-  %.not64.i.i = icmp eq i32 %spec.select219.i, 0
-  %spec.select.i = select i1 %.not64.i.i, i32 %59, i32 %spec.select219.i
+  %.not64.i.i = icmp eq i32 %spec.select222.i, 0
+  %spec.select.i = select i1 %.not64.i.i, i32 %59, i32 %spec.select222.i
   %71 = select i1 %70, i32 %spec.select.i, i32 %59
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #55
   %.not18 = icmp eq i32 %71, 0
@@ -50597,22 +50597,22 @@ nk_text_clamp.exit.thread.i:                      ; preds = %.loopexit.i.i
   br label %77
 
 77:                                               ; preds = %nk_text_clamp.exit111.thread.i, %.lr.ph.i
-  %.sroa.04.0177.i = phi <2 x float> [ %.sroa.04.4.vec.insert.i, %.lr.ph.i ], [ %.sroa.04.4.vec.insert10.i, %nk_text_clamp.exit111.thread.i ]
-  %.0176.i = phi i32 [ 0, %.lr.ph.i ], [ %96, %nk_text_clamp.exit111.thread.i ]
-  %.065175.i = phi i32 [ %71, %.lr.ph.i ], [ %170, %nk_text_clamp.exit111.thread.i ]
-  %.sroa.04.4.vec.extract.i = extractelement <2 x float> %.sroa.04.0177.i, i64 1
+  %.sroa.04.0179.i = phi <2 x float> [ %.sroa.04.4.vec.insert.i, %.lr.ph.i ], [ %.sroa.04.4.vec.insert10.i, %nk_text_clamp.exit111.thread.i ]
+  %.0178.i = phi i32 [ 0, %.lr.ph.i ], [ %96, %nk_text_clamp.exit111.thread.i ]
+  %.065177.i = phi i32 [ %71, %.lr.ph.i ], [ %170, %nk_text_clamp.exit111.thread.i ]
+  %.sroa.04.4.vec.extract.i = extractelement <2 x float> %.sroa.04.0179.i, i64 1
   %78 = fadd float %53, %.sroa.04.4.vec.extract.i
   %79 = fcmp ult float %78, %72
   br i1 %79, label %80, label %nk_widget_text_wrap.exit
 
 80:                                               ; preds = %77
-  %81 = sext i32 %.0176.i to i64
+  %81 = sext i32 %.0178.i to i64
   %82 = getelementptr inbounds i8, ptr %1, i64 %81
   %83 = load float, ptr %51, align 8, !tbaa !213
   %84 = load ptr, ptr %58, align 8, !tbaa !211
   %85 = load ptr, ptr %37, align 8
-  %86 = call float %84(ptr %85, float noundef %83, ptr noundef %82, i32 noundef %.065175.i) #55
-  %.sroa.099.0.vec.extract.i.i = extractelement <2 x float> %.sroa.04.0177.i, i64 0
+  %86 = call float %84(ptr %85, float noundef %83, ptr noundef %82, i32 noundef %.065177.i) #55
+  %.sroa.099.0.vec.extract.i.i = extractelement <2 x float> %.sroa.04.0179.i, i64 0
   %87 = fadd float %.sroa.099.0.vec.extract.i.i, 0.000000e+00
   %88 = insertelement <2 x float> poison, float %87, i64 0
   %89 = fadd float %75, %.sroa.04.4.vec.extract.i
@@ -50625,12 +50625,12 @@ nk_text_clamp.exit.thread.i:                      ; preds = %.loopexit.i.i
   %95 = fcmp olt float %75, %94
   %.178.i.i = select i1 %95, float %94, float %75
   %.sroa.17.12.vec.insert52.i.i = insertelement <2 x float> %74, float %.178.i.i, i64 1
-  call void @nk_draw_text(ptr noundef nonnull %36, <2 x float> %.sroa.0.4.vec.insert28.i.i, <2 x float> %.sroa.17.12.vec.insert52.i.i, ptr noundef %82, i32 noundef %.065175.i, ptr noundef nonnull %37, i32 %18, i32 %.sroa.011.0.insert.insert.i)
-  %96 = add nsw i32 %.065175.i, %.0176.i
+  call void @nk_draw_text(ptr noundef nonnull %36, <2 x float> %.sroa.0.4.vec.insert28.i.i, <2 x float> %.sroa.17.12.vec.insert52.i.i, ptr noundef %82, i32 noundef %.065177.i, ptr noundef nonnull %37, i32 %18, i32 %.sroa.011.0.insert.insert.i)
+  %96 = add nsw i32 %.065177.i, %.0178.i
   %97 = load float, ptr %51, align 8, !tbaa !213
   %98 = call float @llvm.fmuladd.f32(float %.sroa.4.0.copyload, float 2.000000e+00, float %97)
   %99 = fadd float %.sroa.04.4.vec.extract.i, %98
-  %.sroa.04.4.vec.insert10.i = insertelement <2 x float> %.sroa.04.0177.i, float %99, i64 1
+  %.sroa.04.4.vec.insert10.i = insertelement <2 x float> %.sroa.04.0179.i, float %99, i64 1
   %100 = sext i32 %96 to i64
   %101 = getelementptr inbounds i8, ptr %1, i64 %100
   %102 = sub nsw i32 %2, %96
@@ -50656,12 +50656,12 @@ nk_text_clamp.exit111.thread.thread.i:            ; preds = %80
   %107 = load ptr, ptr %37, align 8
   %108 = call float %106(ptr %107, float noundef %97, ptr noundef %101, i32 noundef %103) #55
   %.not65.i110.us.i = icmp eq i32 %.promoted.i.fr, 32
-  %spec.select179.i = select i1 %.not65.i110.us.i, i32 %103, i32 0
+  %spec.select181.i = select i1 %.not65.i110.us.i, i32 %103, i32 0
   br label %nk_utf_decode.exit.thread.i, !llvm.loop !1114
 
 .lr.ph.i86.i:                                     ; preds = %.lr.ph.i86.preheader.i, %nk_utf_decode.exit.i
   %109 = phi i32 [ %166, %nk_utf_decode.exit.i ], [ %.promoted.i.fr, %.lr.ph.i86.preheader.i ]
-  %.05177.i89.i = phi i32 [ %spec.select220.i, %nk_utf_decode.exit.i ], [ 0, %.lr.ph.i86.preheader.i ]
+  %.05177.i89.i = phi i32 [ %spec.select223.i, %nk_utf_decode.exit.i ], [ 0, %.lr.ph.i86.preheader.i ]
   %.05575.i91.i = phi i32 [ %110, %nk_utf_decode.exit.i ], [ 0, %.lr.ph.i86.preheader.i ]
   %.06072.i94.i = phi i32 [ %.023.i.i, %nk_utf_decode.exit.i ], [ %103, %.lr.ph.i86.preheader.i ]
   %110 = add nsw i32 %.06072.i94.i, %.05575.i91.i
@@ -50671,7 +50671,7 @@ nk_text_clamp.exit111.thread.thread.i:            ; preds = %80
   %114 = call float %111(ptr %113, float noundef %112, ptr noundef nonnull %101, i32 noundef %110) #55
   %.fr80 = freeze i32 %109
   %.not65.i110.i = icmp eq i32 %.fr80, 32
-  %spec.select220.i = select i1 %.not65.i110.i, i32 %110, i32 %.05177.i89.i
+  %spec.select223.i = select i1 %.not65.i110.i, i32 %110, i32 %.05177.i89.i
   %115 = sext i32 %110 to i64
   %116 = getelementptr inbounds i8, ptr %101, i64 %115
   %117 = sub i32 %102, %110
@@ -50793,9 +50793,9 @@ nk_utf_validate.exit.loopexit90.i.i:              ; preds = %nk_utf_decode_byte.
   br label %nk_utf_decode.exit.i
 
 nk_utf_decode.exit.thread.i:                      ; preds = %._crit_edge.i.i, %._crit_edge.loopexit.i.i, %.lr.ph.i86.i, %.lr.ph.i86.preheader.split.us.i
-  %.us-phi.i = phi i32 [ %spec.select179.i, %.lr.ph.i86.preheader.split.us.i ], [ %spec.select220.i, %.lr.ph.i86.i ], [ %spec.select220.i, %._crit_edge.loopexit.i.i ], [ %spec.select220.i, %._crit_edge.i.i ]
-  %.us-phi173.i = phi i32 [ %103, %.lr.ph.i86.preheader.split.us.i ], [ %110, %._crit_edge.i.i ], [ %110, %._crit_edge.loopexit.i.i ], [ %102, %.lr.ph.i86.i ]
-  %165 = icmp slt i32 %.us-phi173.i, %102
+  %.us-phi174.i = phi i32 [ %spec.select181.i, %.lr.ph.i86.preheader.split.us.i ], [ %spec.select223.i, %.lr.ph.i86.i ], [ %spec.select223.i, %._crit_edge.loopexit.i.i ], [ %spec.select223.i, %._crit_edge.i.i ]
+  %.us-phi175.i = phi i32 [ %103, %.lr.ph.i86.preheader.split.us.i ], [ %110, %._crit_edge.i.i ], [ %110, %._crit_edge.loopexit.i.i ], [ %102, %.lr.ph.i86.i ]
+  %165 = icmp slt i32 %.us-phi175.i, %102
   br label %nk_text_clamp.exit111.thread.i
 
 nk_utf_decode.exit.i:                             ; preds = %127, %nk_utf_validate.exit.loopexit90.i.i, %nk_utf_validate.exit.loopexit.i.i, %164, %159, %nk_utf_decode_byte.exit.i.i
@@ -50809,8 +50809,8 @@ nk_utf_decode.exit.i:                             ; preds = %127, %nk_utf_valida
   br i1 %or.cond66.i109.i, label %.lr.ph.i86.i, label %nk_text_clamp.exit111.thread.i, !llvm.loop !214
 
 nk_text_clamp.exit111.thread.i:                   ; preds = %nk_utf_decode.exit.i, %nk_utf_decode.exit.thread.i
-  %.152.i101160.i = phi i32 [ %.us-phi.i, %nk_utf_decode.exit.thread.i ], [ %spec.select220.i, %nk_utf_decode.exit.i ]
-  %169 = phi i32 [ %.us-phi173.i, %nk_utf_decode.exit.thread.i ], [ %110, %nk_utf_decode.exit.i ]
+  %.152.i101160.i = phi i32 [ %.us-phi174.i, %nk_utf_decode.exit.thread.i ], [ %spec.select223.i, %nk_utf_decode.exit.i ]
+  %169 = phi i32 [ %.us-phi175.i, %nk_utf_decode.exit.thread.i ], [ %110, %nk_utf_decode.exit.i ]
   %.lcssa.i81.i = phi i1 [ %165, %nk_utf_decode.exit.thread.i ], [ %168, %nk_utf_decode.exit.i ]
   %.not64.i82.i = icmp eq i32 %.152.i101160.i, 0
   %spec.select145.i = select i1 %.not64.i82.i, i32 %169, i32 %.152.i101160.i
@@ -58026,17 +58026,17 @@ nk_textedit_createundo.exit.i:                    ; preds = %.loopexit.i.i
   %37 = sext i16 %24 to i64
   %38 = getelementptr inbounds [999 x i32], ptr %36, i64 0, i64 %37
   %39 = icmp sgt i32 %2, 0
-  br i1 %39, label %.lr.ph.i, label %nk_textedit_makeundo_delete.exit
+  br i1 %39, label %.lr.ph39.i, label %nk_textedit_makeundo_delete.exit
 
-.lr.ph.i:                                         ; preds = %nk_textedit_createundo.exit.i
+.lr.ph39.i:                                       ; preds = %nk_textedit_createundo.exit.i
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %42 = sext i32 %1 to i64
   %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %43
 
-43:                                               ; preds = %nk_str_rune_at.exit.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %nk_str_rune_at.exit.i ]
+43:                                               ; preds = %nk_str_rune_at.exit.i, %.lr.ph39.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph39.i ], [ %indvars.iv.next.i, %nk_str_rune_at.exit.i ]
   %44 = add nsw i64 %indvars.iv.i, %42
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #55
   store i32 0, ptr %4, align 4, !tbaa !7
@@ -58049,140 +58049,145 @@ nk_textedit_createundo.exit.i:                    ; preds = %.loopexit.i.i
   %49 = trunc i64 %48 to i32
   %50 = call i32 @nk_utf_decode(ptr noundef %47, ptr noundef nonnull %4, i32 noundef %49)
   %.not44.i.i.i = icmp eq i32 %50, 0
-  %51 = icmp eq ptr %47, null
-  %or.cond.i = or i1 %51, %.not44.i.i.i
-  br i1 %or.cond.i, label %nk_str_rune_at.exit.i, label %.lr.ph.i.i12.preheader29.i
+  %.pre.i = load i32, ptr %4, align 4
+  br i1 %.not44.i.i.i, label %nk_str_rune_at.exit.i, label %.lr.ph.i.i12.preheader.i
 
-.lr.ph.i.i12.preheader29.i:                       ; preds = %46
-  %52 = trunc nsw i64 %44 to i32
-  br label %.lr.ph.i.i12.i
+.lr.ph.i.i12.preheader.i:                         ; preds = %46
+  %51 = icmp eq i64 %44, 0
+  %52 = icmp eq ptr %47, null
+  %or.cond.i = or i1 %51, %52
+  %.not.i35.i = icmp eq i32 %50, %49
+  %or.cond68.i = or i1 %or.cond.i, %.not.i35.i
+  br i1 %or.cond68.i, label %nk_str_rune_at.exit.i, label %.lr.ph36.preheader.i
 
-.lr.ph.i.i12.i:                                   ; preds = %nk_utf_decode.exit.i, %.lr.ph.i.i12.preheader29.i
-  %.03147.i.i.i = phi i32 [ %55, %nk_utf_decode.exit.i ], [ 0, %.lr.ph.i.i12.preheader29.i ]
-  %.03246.i.i.i = phi i32 [ %.023.i.i, %nk_utf_decode.exit.i ], [ %50, %.lr.ph.i.i12.preheader29.i ]
-  %.03345.i.i.i = phi i32 [ %56, %nk_utf_decode.exit.i ], [ 0, %.lr.ph.i.i12.preheader29.i ]
-  %53 = icmp eq i32 %.03147.i.i.i, %52
-  br i1 %53, label %nk_str_rune_at.exit.i, label %54
+.lr.ph36.preheader.i:                             ; preds = %.lr.ph.i.i12.preheader.i
+  %53 = trunc nsw i64 %44 to i32
+  br label %.lr.ph36.i
 
-54:                                               ; preds = %.lr.ph.i.i12.i
-  %55 = add nuw nsw i32 %.03147.i.i.i, 1
-  %56 = add nsw i32 %.03345.i.i.i, %.03246.i.i.i
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds i8, ptr %47, i64 %57
-  %59 = sub i32 %49, %56
-  %.not.i.i = icmp eq i32 %56, %49
-  br i1 %.not.i.i, label %nk_str_rune_at.exit.i, label %60
+.lr.ph.i.i12.i:                                   ; preds = %71, %nk_utf_decode.exit.i, %nk_utf_decode_byte.exit.i.i
+  %.023.i56.i = phi i32 [ %.023.i.i, %nk_utf_decode.exit.i ], [ 1, %nk_utf_decode_byte.exit.i.i ], [ 1, %71 ]
+  %54 = phi i32 [ %109, %nk_utf_decode.exit.i ], [ 65533, %nk_utf_decode_byte.exit.i.i ], [ 65533, %71 ]
+  %55 = icmp eq i32 %60, %53
+  br i1 %55, label %nk_str_rune_at.exit.i, label %56, !llvm.loop !85
 
-60:                                               ; preds = %54
-  store i32 65533, ptr %4, align 4, !tbaa !7
-  %61 = load i8, ptr %58, align 1, !tbaa !9
-  br label %62
+56:                                               ; preds = %.lr.ph.i.i12.i
+  %57 = add nuw nsw i32 %60, 1
+  %58 = add nsw i32 %.023.i56.i, %59
+  %.not.i.i = icmp eq i32 %58, %49
+  br i1 %.not.i.i, label %nk_str_rune_at.exit.i, label %.lr.ph36.i, !llvm.loop !85
 
-62:                                               ; preds = %69, %60
-  %indvars.iv86.i.i = phi i32 [ %indvars.iv.next87.i.i, %69 ], [ -2, %60 ]
-  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %69 ], [ 0, %60 ]
-  %63 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i.i
-  %64 = load i8, ptr %63, align 1, !tbaa !9
-  %65 = and i8 %64, %61
-  %66 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i.i
-  %67 = load i8, ptr %66, align 1, !tbaa !9
-  %68 = icmp eq i8 %65, %67
-  br i1 %68, label %nk_utf_decode_byte.exit.i.i, label %69
+.lr.ph36.i:                                       ; preds = %56, %.lr.ph36.preheader.i
+  %59 = phi i32 [ %58, %56 ], [ %50, %.lr.ph36.preheader.i ]
+  %60 = phi i32 [ %57, %56 ], [ 1, %.lr.ph36.preheader.i ]
+  %.pn.i = sext i32 %59 to i64
+  %61 = getelementptr inbounds i8, ptr %47, i64 %.pn.i
+  %62 = sub i32 %49, %59
+  %63 = load i8, ptr %61, align 1, !tbaa !9
+  br label %64
 
-69:                                               ; preds = %62
+64:                                               ; preds = %71, %.lr.ph36.i
+  %indvars.iv86.i.i = phi i32 [ %indvars.iv.next87.i.i, %71 ], [ -2, %.lr.ph36.i ]
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %71 ], [ 0, %.lr.ph36.i ]
+  %65 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i.i
+  %66 = load i8, ptr %65, align 1, !tbaa !9
+  %67 = and i8 %66, %63
+  %68 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i.i
+  %69 = load i8, ptr %68, align 1, !tbaa !9
+  %70 = icmp eq i8 %67, %69
+  br i1 %70, label %nk_utf_decode_byte.exit.i.i, label %71
+
+71:                                               ; preds = %64
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 5
   %indvars.iv.next87.i.i = add nsw i32 %indvars.iv86.i.i, 1
-  br i1 %exitcond.not.i.i.i, label %nk_utf_decode.exit.i, label %62, !llvm.loop !30
+  br i1 %exitcond.not.i.i.i, label %.lr.ph.i.i12.i, label %64, !llvm.loop !30
 
-nk_utf_decode_byte.exit.i.i:                      ; preds = %62
-  %70 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %71 = add i32 %70, -1
-  %or.cond3.i.i = icmp ult i32 %71, 3
-  br i1 %or.cond3.i.i, label %.preheader.i.i, label %nk_utf_decode.exit.i
+nk_utf_decode_byte.exit.i.i:                      ; preds = %64
+  %72 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
+  %73 = add i32 %72, -1
+  %or.cond3.i.i = icmp ult i32 %73, 3
+  br i1 %or.cond3.i.i, label %.preheader.i.i, label %.lr.ph.i.i12.i
 
 .preheader.i.i:                                   ; preds = %nk_utf_decode_byte.exit.i.i
-  %72 = xor i8 %64, -1
-  %73 = and i8 %61, %72
-  %74 = zext i8 %73 to i32
-  %75 = icmp sgt i32 %59, 1
-  %76 = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
-  %77 = select i1 %75, i1 %76, i1 false
-  br i1 %77, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
+  %74 = xor i8 %66, -1
+  %75 = and i8 %63, %74
+  %76 = zext i8 %75 to i32
+  %77 = icmp sgt i32 %62, 1
+  %78 = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
+  %79 = select i1 %77, i1 %78, i1 false
+  br i1 %79, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.preheader.i.i
-  %78 = add nsw i32 %59, -2
-  %umin.i.i = call i32 @llvm.umin.i32(i32 %indvars.iv86.i.i, i32 %78)
-  %79 = add nuw nsw i32 %umin.i.i, 2
-  %wide.trip.count.i.i = zext nneg i32 %79 to i64
+  %80 = add nsw i32 %62, -2
+  %umin.i.i = call i32 @llvm.umin.i32(i32 %indvars.iv86.i.i, i32 %80)
+  %81 = add nuw nsw i32 %umin.i.i, 2
+  %wide.trip.count.i.i = zext nneg i32 %81 to i64
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %90, %.lr.ph.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %90 ]
-  %.069.i.i = phi i32 [ %74, %.lr.ph.preheader.i.i ], [ %95, %90 ]
-  %80 = getelementptr inbounds nuw i8, ptr %58, i64 %indvars.iv.i.i
-  %81 = load i8, ptr %80, align 1, !tbaa !9
-  br label %82
+.lr.ph.i.i:                                       ; preds = %92, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %92 ]
+  %.069.i.i = phi i32 [ %76, %.lr.ph.preheader.i.i ], [ %97, %92 ]
+  %82 = getelementptr inbounds nuw i8, ptr %61, i64 %indvars.iv.i.i
+  %83 = load i8, ptr %82, align 1, !tbaa !9
+  br label %84
 
-82:                                               ; preds = %89, %.lr.ph.i.i
-  %indvars.iv.i29.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i30.i.i, %89 ]
-  %83 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i29.i.i
-  %84 = load i8, ptr %83, align 1, !tbaa !9
-  %85 = and i8 %84, %81
-  %86 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i29.i.i
-  %87 = load i8, ptr %86, align 1, !tbaa !9
-  %88 = icmp eq i8 %85, %87
-  br i1 %88, label %nk_utf_decode_byte.exit34.i.i, label %89
+84:                                               ; preds = %91, %.lr.ph.i.i
+  %indvars.iv.i29.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i30.i.i, %91 ]
+  %85 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i29.i.i
+  %86 = load i8, ptr %85, align 1, !tbaa !9
+  %87 = and i8 %86, %83
+  %88 = getelementptr inbounds nuw [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i29.i.i
+  %89 = load i8, ptr %88, align 1, !tbaa !9
+  %90 = icmp eq i8 %87, %89
+  br i1 %90, label %nk_utf_decode_byte.exit34.i.i, label %91
 
-89:                                               ; preds = %82
+91:                                               ; preds = %84
   %indvars.iv.next.i30.i.i = add nuw nsw i64 %indvars.iv.i29.i.i, 1
   %exitcond.not.i31.i.i = icmp eq i64 %indvars.iv.next.i30.i.i, 5
-  br i1 %exitcond.not.i31.i.i, label %nk_utf_validate.exit.loopexit.i.i, label %82, !llvm.loop !30
+  br i1 %exitcond.not.i31.i.i, label %nk_utf_validate.exit.loopexit.i.i, label %84, !llvm.loop !30
 
-nk_utf_decode_byte.exit34.i.i:                    ; preds = %82
+nk_utf_decode_byte.exit34.i.i:                    ; preds = %84
   %.not27.i.i = icmp eq i64 %indvars.iv.i29.i.i, 0
-  br i1 %.not27.i.i, label %90, label %nk_utf_validate.exit.loopexit90.i.i
+  br i1 %.not27.i.i, label %92, label %nk_utf_validate.exit.loopexit90.i.i
 
-90:                                               ; preds = %nk_utf_decode_byte.exit34.i.i
-  %91 = xor i8 %84, -1
-  %92 = and i8 %81, %91
-  %93 = zext i8 %92 to i32
-  %94 = shl i32 %.069.i.i, 6
-  %95 = or i32 %94, %93
+92:                                               ; preds = %nk_utf_decode_byte.exit34.i.i
+  %93 = xor i8 %86, -1
+  %94 = and i8 %83, %93
+  %95 = zext i8 %94 to i32
+  %96 = shl i32 %.069.i.i, 6
+  %97 = or i32 %96, %95
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !31
 
-._crit_edge.loopexit.i.i:                         ; preds = %90
-  %96 = icmp samesign ult i32 %79, %70
-  br i1 %96, label %nk_str_rune_at.exit.i, label %97
+._crit_edge.loopexit.i.i:                         ; preds = %92
+  %98 = icmp samesign ult i32 %81, %72
+  br i1 %98, label %nk_str_rune_at.exit.i, label %99
 
 ._crit_edge.i.i:                                  ; preds = %.preheader.i.i
-  br i1 %76, label %nk_str_rune_at.exit.i, label %97
+  br i1 %78, label %nk_str_rune_at.exit.i, label %99
 
-97:                                               ; preds = %._crit_edge.i.i, %._crit_edge.loopexit.i.i
-  %.0.lcssa89.i.i = phi i32 [ %95, %._crit_edge.loopexit.i.i ], [ %74, %._crit_edge.i.i ]
-  store i32 %.0.lcssa89.i.i, ptr %4, align 4, !tbaa !7
-  %98 = and i64 %indvars.iv.i.i.i, 4294967295
-  %99 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %98
-  %100 = load i32, ptr %99, align 4, !tbaa !7
-  %.not.i.i13.i = icmp ugt i32 %100, %.0.lcssa89.i.i
-  br i1 %.not.i.i13.i, label %106, label %101
+99:                                               ; preds = %._crit_edge.i.i, %._crit_edge.loopexit.i.i
+  %.0.lcssa89.i.i = phi i32 [ %97, %._crit_edge.loopexit.i.i ], [ %76, %._crit_edge.i.i ]
+  %100 = and i64 %indvars.iv.i.i.i, 4294967295
+  %101 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %100
+  %102 = load i32, ptr %101, align 4, !tbaa !7
+  %.not.i.i13.i = icmp ugt i32 %102, %.0.lcssa89.i.i
+  br i1 %.not.i.i13.i, label %108, label %103
 
-101:                                              ; preds = %97
-  %102 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %98
-  %103 = load i32, ptr %102, align 4, !tbaa !7
-  %104 = icmp uge i32 %.0.lcssa89.i.i, %103
-  %105 = add i32 %.0.lcssa89.i.i, -55296
-  %or.cond.i.i.i = icmp ult i32 %105, 2047
-  %or.cond15.i.i.i = or i1 %or.cond.i.i.i, %104
-  br i1 %or.cond15.i.i.i, label %106, label %nk_utf_decode.exit.i
+103:                                              ; preds = %99
+  %104 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %100
+  %105 = load i32, ptr %104, align 4, !tbaa !7
+  %106 = icmp uge i32 %.0.lcssa89.i.i, %105
+  %107 = add i32 %.0.lcssa89.i.i, -55296
+  %or.cond.i.i.i = icmp ult i32 %107, 2047
+  %or.cond15.i.i.i = or i1 %or.cond.i.i.i, %106
+  br i1 %or.cond15.i.i.i, label %108, label %nk_utf_decode.exit.i
 
-106:                                              ; preds = %101, %97
-  store i32 65533, ptr %4, align 4, !tbaa !7
+108:                                              ; preds = %103, %99
   br label %nk_utf_decode.exit.i
 
-nk_utf_validate.exit.loopexit.i.i:                ; preds = %89
+nk_utf_validate.exit.loopexit.i.i:                ; preds = %91
   %indvars83.le101.i.i = trunc i64 %indvars.iv.i.i to i32
   br label %nk_utf_decode.exit.i
 
@@ -58190,25 +58195,29 @@ nk_utf_validate.exit.loopexit90.i.i:              ; preds = %nk_utf_decode_byte.
   %indvars83.le.i.i = trunc i64 %indvars.iv.i.i to i32
   br label %nk_utf_decode.exit.i
 
-nk_utf_decode.exit.i:                             ; preds = %69, %nk_utf_validate.exit.loopexit90.i.i, %nk_utf_validate.exit.loopexit.i.i, %106, %101, %nk_utf_decode_byte.exit.i.i
-  %.023.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ %70, %106 ], [ %70, %101 ], [ %indvars83.le101.i.i, %nk_utf_validate.exit.loopexit.i.i ], [ %indvars83.le.i.i, %nk_utf_validate.exit.loopexit90.i.i ], [ 1, %69 ]
+nk_utf_decode.exit.i:                             ; preds = %nk_utf_validate.exit.loopexit90.i.i, %nk_utf_validate.exit.loopexit.i.i, %108, %103
+  %109 = phi i32 [ 65533, %108 ], [ %.0.lcssa89.i.i, %103 ], [ 65533, %nk_utf_validate.exit.loopexit.i.i ], [ 65533, %nk_utf_validate.exit.loopexit90.i.i ]
+  %.023.i.i = phi i32 [ %72, %108 ], [ %72, %103 ], [ %indvars83.le101.i.i, %nk_utf_validate.exit.loopexit.i.i ], [ %indvars83.le.i.i, %nk_utf_validate.exit.loopexit90.i.i ]
   %.not.i.i.i = icmp eq i32 %.023.i.i, 0
-  br i1 %.not.i.i.i, label %nk_str_rune_at.exit.i, label %.lr.ph.i.i12.i, !llvm.loop !85
+  br i1 %.not.i.i.i, label %nk_utf_decode.exit.nk_str_rune_at.exit.loopexit_crit_edge.i, label %.lr.ph.i.i12.i, !llvm.loop !85
 
-nk_str_rune_at.exit.i:                            ; preds = %nk_utf_decode.exit.i, %._crit_edge.i.i, %._crit_edge.loopexit.i.i, %54, %.lr.ph.i.i12.i, %46, %43
-  %107 = load i32, ptr %4, align 4, !tbaa !7
+nk_utf_decode.exit.nk_str_rune_at.exit.loopexit_crit_edge.i: ; preds = %nk_utf_decode.exit.i
+  br label %nk_str_rune_at.exit.i, !llvm.loop !85
+
+nk_str_rune_at.exit.i:                            ; preds = %._crit_edge.i.i, %._crit_edge.loopexit.i.i, %56, %.lr.ph.i.i12.i, %46, %nk_utf_decode.exit.nk_str_rune_at.exit.loopexit_crit_edge.i, %.lr.ph.i.i12.preheader.i, %43
+  %110 = phi i32 [ 0, %43 ], [ %109, %nk_utf_decode.exit.nk_str_rune_at.exit.loopexit_crit_edge.i ], [ %.pre.i, %.lr.ph.i.i12.preheader.i ], [ %.pre.i, %46 ], [ 65533, %._crit_edge.loopexit.i.i ], [ 65533, %._crit_edge.i.i ], [ %54, %56 ], [ %54, %.lr.ph.i.i12.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #55
-  %108 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.i
-  store i32 %107, ptr %108, align 4, !tbaa !7
+  %111 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.i
+  store i32 %110, ptr %111, align 4, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %nk_textedit_makeundo_delete.exit, label %43, !llvm.loop !1162
 
 nk_textedit_makeundo_delete.exit:                 ; preds = %nk_str_rune_at.exit.i, %nk_textedit_create_undo_record.exit.thread.i.i, %34, %nk_textedit_createundo.exit.i
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @nk_str_delete_runes(ptr noundef nonnull %109, i32 noundef %1, i32 noundef %2)
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 183
-  store i8 0, ptr %110, align 1, !tbaa !1163
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @nk_str_delete_runes(ptr noundef nonnull %112, i32 noundef %1, i32 noundef %2)
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 183
+  store i8 0, ptr %113, align 1, !tbaa !1163
   ret void
 }
 
@@ -81430,9 +81439,9 @@ define internal fastcc void @nk_textedit_find_charpos(ptr noundef nonnull captur
 
 .preheader:                                       ; preds = %11
   %12 = icmp sgt i32 %2, 0
-  br i1 %12, label %.lr.ph88, label %._crit_edge89
+  br i1 %12, label %.lr.ph91, label %._crit_edge92
 
-.lr.ph88:                                         ; preds = %.preheader
+.lr.ph91:                                         ; preds = %.preheader
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 20
   br label %16
 
@@ -81441,26 +81450,26 @@ define internal fastcc void @nk_textedit_find_charpos(ptr noundef nonnull captur
   store i32 0, ptr %15, align 4, !tbaa !1302
   br label %23
 
-16:                                               ; preds = %.lr.ph88, %16
-  %.05187 = phi i32 [ 0, %.lr.ph88 ], [ %18, %16 ]
+16:                                               ; preds = %.lr.ph91, %16
+  %.05190 = phi i32 [ 0, %.lr.ph91 ], [ %18, %16 ]
   %17 = load i32, ptr %13, align 4, !tbaa !1305
-  %18 = add nsw i32 %17, %.05187
+  %18 = add nsw i32 %17, %.05190
   call fastcc void @nk_textedit_layout_row(ptr noundef %7, ptr noundef nonnull %1, i32 noundef %18, float noundef %5, ptr noundef %4)
   %19 = icmp slt i32 %18, %2
-  br i1 %19, label %16, label %._crit_edge89, !llvm.loop !1317
+  br i1 %19, label %16, label %._crit_edge92, !llvm.loop !1317
 
-._crit_edge89:                                    ; preds = %16, %.preheader
+._crit_edge92:                                    ; preds = %16, %.preheader
   %.051.lcssa = phi i32 [ 0, %.preheader ], [ %18, %16 ]
-  %.1.lcssa = phi i32 [ 0, %.preheader ], [ %.05187, %16 ]
+  %.1.lcssa = phi i32 [ 0, %.preheader ], [ %.05190, %16 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.051.lcssa, ptr %20, align 4, !tbaa !1302
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !1305
   br label %23
 
-23:                                               ; preds = %._crit_edge89, %14
-  %.sink = phi i32 [ %22, %._crit_edge89 ], [ %2, %14 ]
-  %.0 = phi i32 [ %.1.lcssa, %._crit_edge89 ], [ 0, %14 ]
+23:                                               ; preds = %._crit_edge92, %14
+  %.sink = phi i32 [ %22, %._crit_edge92 ], [ %2, %14 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge92 ], [ 0, %14 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sink, ptr %24, align 4, !tbaa !1300
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -81525,9 +81534,9 @@ define internal fastcc void @nk_textedit_find_charpos(ptr noundef nonnull captur
   %58 = load float, ptr %7, align 4, !tbaa !1303
   store float %58, ptr %0, align 4, !tbaa !1318
   %59 = icmp slt i32 %.152.lcssa, %2
-  br i1 %59, label %.lr.ph86, label %.loopexit
+  br i1 %59, label %.lr.ph89, label %.loopexit
 
-.lr.ph86:                                         ; preds = %._crit_edge
+.lr.ph89:                                         ; preds = %._crit_edge
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -81536,9 +81545,9 @@ define internal fastcc void @nk_textedit_find_charpos(ptr noundef nonnull captur
   %64 = sub i32 %2, %.152.lcssa
   br label %65
 
-65:                                               ; preds = %.lr.ph86, %nk_textedit_get_width.exit
-  %66 = phi i32 [ %.152.lcssa, %.lr.ph86 ], [ %.reass, %nk_textedit_get_width.exit ]
-  %.25384 = phi i32 [ 0, %.lr.ph86 ], [ %127, %nk_textedit_get_width.exit ]
+65:                                               ; preds = %.lr.ph89, %nk_textedit_get_width.exit
+  %66 = phi i32 [ %.152.lcssa, %.lr.ph89 ], [ %.reass, %nk_textedit_get_width.exit ]
+  %.25387 = phi i32 [ 0, %.lr.ph89 ], [ %127, %nk_textedit_get_width.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #55
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %nk_textedit_get_width.exit, label %68
@@ -81675,7 +81684,7 @@ nk_utf_decode.exit:                               ; preds = %91, %._crit_edge.lo
   br i1 %.not.i.i57, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !85
 
 .loopexit.i.i:                                    ; preds = %nk_utf_decode.exit, %76, %._crit_edge.i, %._crit_edge.loopexit.i, %.lr.ph.i.i.preheader.split.us, %68
-  %.03343.i.i = phi i32 [ 0, %68 ], [ %72, %.lr.ph.i.i.preheader.split.us ], [ %78, %nk_utf_decode.exit ], [ %71, %76 ], [ %78, %._crit_edge.i ], [ %78, %._crit_edge.loopexit.i ]
+  %.03343.i.i = phi i32 [ 0, %68 ], [ %72, %.lr.ph.i.i.preheader.split.us ], [ %78, %._crit_edge.loopexit.i ], [ %78, %._crit_edge.i ], [ %71, %76 ], [ %78, %nk_utf_decode.exit ]
   %.03140.i.i = phi i32 [ 0, %68 ], [ 1, %.lr.ph.i.i.preheader.split.us ], [ %77, %._crit_edge.loopexit.i ], [ %77, %._crit_edge.i ], [ %77, %76 ], [ %77, %nk_utf_decode.exit ]
   %.not38.i.i = icmp eq i32 %.03140.i.i, %66
   br i1 %.not38.i.i, label %.loopexit.thread.i.i, label %nk_textedit_get_width.exit
@@ -81698,8 +81707,8 @@ nk_textedit_get_width.exit:                       ; preds = %65, %.loopexit.i.i,
   %125 = load float, ptr %0, align 4, !tbaa !1318
   %126 = fadd float %124, %125
   store float %126, ptr %0, align 4, !tbaa !1318
-  %127 = add nuw i32 %.25384, 1
-  %.reass = add i32 %.25384, %invariant.op
+  %127 = add nuw i32 %.25387, 1
+  %.reass = add i32 %.25387, %invariant.op
   %exitcond.not = icmp eq i32 %127, %64
   br i1 %exitcond.not, label %.loopexit, label %65, !llvm.loop !1321
 

@@ -403,45 +403,45 @@ ASN1_tag2bit.exit:                                ; preds = %57, %59
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %106 = load i64, ptr %105, align 8, !tbaa !28
   %107 = icmp sgt i64 %106, 0
-  br i1 %107, label %.lr.ph362.preheader, label %.loopexit
+  br i1 %107, label %.lr.ph368.preheader, label %.loopexit
 
-.lr.ph362.preheader:                              ; preds = %103
+.lr.ph368.preheader:                              ; preds = %103
   %108 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %109 = load ptr, ptr %108, align 8, !tbaa !21
-  br label %.lr.ph362
+  br label %.lr.ph368
 
-.lr.ph362:                                        ; preds = %.lr.ph362.preheader, %116
-  %indvars.iv402 = phi i64 [ 0, %.lr.ph362.preheader ], [ %indvars.iv.next403, %116 ]
-  %.0210360 = phi ptr [ %109, %.lr.ph362.preheader ], [ %117, %116 ]
-  %110 = tail call ptr @ossl_asn1_get_field_ptr(ptr noundef nonnull %0, ptr noundef %.0210360) #6
-  %111 = call fastcc i32 @asn1_template_ex_d2i(ptr noundef %110, ptr noundef nonnull %13, i64 noundef %2, ptr noundef %.0210360, i8 noundef signext 1, ptr noundef %7, i32 noundef %31, ptr noundef %9, ptr noundef %10)
+.lr.ph368:                                        ; preds = %.lr.ph368.preheader, %116
+  %indvars.iv407 = phi i64 [ 0, %.lr.ph368.preheader ], [ %indvars.iv.next408, %116 ]
+  %.0210366 = phi ptr [ %109, %.lr.ph368.preheader ], [ %117, %116 ]
+  %110 = tail call ptr @ossl_asn1_get_field_ptr(ptr noundef nonnull %0, ptr noundef %.0210366) #6
+  %111 = call fastcc i32 @asn1_template_ex_d2i(ptr noundef %110, ptr noundef nonnull %13, i64 noundef %2, ptr noundef %.0210366, i8 noundef signext 1, ptr noundef %7, i32 noundef %31, ptr noundef %9, ptr noundef %10)
   %112 = icmp eq i32 %111, -1
   br i1 %112, label %116, label %113
 
-113:                                              ; preds = %.lr.ph362
+113:                                              ; preds = %.lr.ph368
   %114 = icmp sgt i32 %111, 0
-  br i1 %114, label %._crit_edge406, label %.thread
+  br i1 %114, label %._crit_edge411, label %.thread
 
-._crit_edge406:                                   ; preds = %113
-  %115 = trunc nuw nsw i64 %indvars.iv402 to i32
-  %.pre407 = load i64, ptr %105, align 8, !tbaa !28
+._crit_edge411:                                   ; preds = %113
+  %115 = trunc nuw nsw i64 %indvars.iv407 to i32
+  %.pre412 = load i64, ptr %105, align 8, !tbaa !28
   br label %.loopexit
 
-116:                                              ; preds = %.lr.ph362
-  %indvars.iv.next403 = add nuw nsw i64 %indvars.iv402, 1
-  %117 = getelementptr inbounds nuw i8, ptr %.0210360, i64 40
+116:                                              ; preds = %.lr.ph368
+  %indvars.iv.next408 = add nuw nsw i64 %indvars.iv407, 1
+  %117 = getelementptr inbounds nuw i8, ptr %.0210366, i64 40
   %118 = load i64, ptr %105, align 8, !tbaa !28
-  %119 = icmp sgt i64 %118, %indvars.iv.next403
-  br i1 %119, label %.lr.ph362, label %.loopexit.loopexit, !llvm.loop !29
+  %119 = icmp sgt i64 %118, %indvars.iv.next408
+  br i1 %119, label %.lr.ph368, label %.loopexit.loopexit, !llvm.loop !29
 
 .loopexit.loopexit:                               ; preds = %116
-  %120 = trunc nuw i64 %indvars.iv.next403 to i32
+  %120 = trunc nuw i64 %indvars.iv.next408 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %103, %.loopexit.loopexit, %._crit_edge406
-  %121 = phi i64 [ %.pre407, %._crit_edge406 ], [ %106, %103 ], [ %118, %.loopexit.loopexit ]
-  %.0217323 = phi i32 [ %115, %._crit_edge406 ], [ 0, %103 ], [ %120, %.loopexit.loopexit ]
-  %122 = phi i64 [ %indvars.iv402, %._crit_edge406 ], [ 0, %103 ], [ %indvars.iv.next403, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %103, %.loopexit.loopexit, %._crit_edge411
+  %121 = phi i64 [ %.pre412, %._crit_edge411 ], [ %106, %103 ], [ %118, %.loopexit.loopexit ]
+  %.0217323 = phi i32 [ %115, %._crit_edge411 ], [ 0, %103 ], [ %120, %.loopexit.loopexit ]
+  %122 = phi i64 [ %indvars.iv407, %._crit_edge411 ], [ 0, %103 ], [ %indvars.iv.next408, %.loopexit.loopexit ]
   %123 = icmp eq i64 %121, %122
   br i1 %123, label %124, label %127
 
@@ -562,8 +562,8 @@ ASN1_tag2bit.exit:                                ; preds = %57, %59
   br i1 %169, label %.lr.ph, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %164
-  %.promoted408 = load i64, ptr %12, align 8
-  br label %._crit_edge350
+  %.promoted413 = load i64, ptr %12, align 8
+  br label %._crit_edge354
 
 .lr.ph:                                           ; preds = %164, %178
   %indvars.iv = phi i64 [ %indvars.iv.next, %178 ], [ 0, %164 ]
@@ -595,21 +595,21 @@ ASN1_tag2bit.exit:                                ; preds = %57, %59
   %.pre = load ptr, ptr %165, align 8, !tbaa !21
   %182 = icmp sgt i64 %180, 0
   %.promoted = load i64, ptr %12, align 8
-  br i1 %182, label %.lr.ph349, label %._crit_edge350
+  br i1 %182, label %.lr.ph353, label %._crit_edge354
 
-.lr.ph349:                                        ; preds = %._crit_edge, %223
-  %indvars.iv395 = phi i64 [ %indvars.iv.next396, %223 ], [ 0, %._crit_edge ]
-  %.2347 = phi ptr [ %225, %223 ], [ %.pre, %._crit_edge ]
+.lr.ph353:                                        ; preds = %._crit_edge, %223
+  %indvars.iv400 = phi i64 [ %indvars.iv.next401, %223 ], [ 0, %._crit_edge ]
+  %.2351 = phi ptr [ %225, %223 ], [ %.pre, %._crit_edge ]
   %183 = phi i64 [ %224, %223 ], [ %.promoted, %._crit_edge ]
   %184 = load ptr, ptr %0, align 8, !tbaa !7
-  %185 = call ptr @ossl_asn1_do_adb(ptr noundef %184, ptr noundef %.2347, i32 noundef 1) #6
+  %185 = call ptr @ossl_asn1_do_adb(ptr noundef %184, ptr noundef %.2351, i32 noundef 1) #6
   %186 = icmp eq ptr %185, null
   br i1 %186, label %.thread304, label %187
 
-187:                                              ; preds = %.lr.ph349
+187:                                              ; preds = %.lr.ph353
   %188 = call ptr @ossl_asn1_get_field_ptr(ptr noundef nonnull %0, ptr noundef nonnull %185) #6
   %.not250 = icmp eq i64 %183, 0
-  br i1 %.not250, label %._crit_edge350.thread, label %189
+  br i1 %.not250, label %._crit_edge354.thread, label %189
 
 189:                                              ; preds = %187
   %190 = load ptr, ptr %13, align 8, !tbaa !13
@@ -641,7 +641,7 @@ ASN1_tag2bit.exit:                                ; preds = %57, %59
   br label %.thread304
 
 .thread292:                                       ; preds = %199
-  %203 = trunc nuw nsw i64 %indvars.iv395 to i32
+  %203 = trunc nuw nsw i64 %indvars.iv400 to i32
   %204 = ptrtoint ptr %200 to i64
   %205 = ptrtoint ptr %190 to i64
   %.neg255 = add i64 %183, %205
@@ -653,7 +653,7 @@ ASN1_tag2bit.exit:                                ; preds = %57, %59
 207:                                              ; preds = %189, %195, %192
   %208 = load i64, ptr %167, align 8, !tbaa !28
   %209 = add nsw i64 %208, -1
-  %210 = icmp eq i64 %209, %indvars.iv395
+  %210 = icmp eq i64 %209, %indvars.iv400
   br i1 %210, label %215, label %211
 
 211:                                              ; preds = %207
@@ -680,77 +680,78 @@ ASN1_tag2bit.exit:                                ; preds = %57, %59
   %221 = ptrtoint ptr %190 to i64
   %.neg253 = add i64 %183, %221
   %222 = sub i64 %.neg253, %220
-  store i64 %222, ptr %12, align 8, !tbaa !3
   br label %223
 
 223:                                              ; preds = %217, %218
   %224 = phi i64 [ %183, %217 ], [ %222, %218 ]
-  %indvars.iv.next396 = add nuw nsw i64 %indvars.iv395, 1
-  %225 = getelementptr inbounds nuw i8, ptr %.2347, i64 40
+  %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400, 1
+  %225 = getelementptr inbounds nuw i8, ptr %.2351, i64 40
   %226 = load i64, ptr %167, align 8, !tbaa !28
-  %227 = icmp sgt i64 %226, %indvars.iv.next396
-  br i1 %227, label %.lr.ph349, label %._crit_edge350.loopexit, !llvm.loop !35
+  %227 = icmp sgt i64 %226, %indvars.iv.next401
+  br i1 %227, label %.lr.ph353, label %._crit_edge354.loopexit, !llvm.loop !35
 
-._crit_edge350.loopexit:                          ; preds = %223
-  %indvars.le = trunc i64 %indvars.iv.next396 to i32
-  br label %._crit_edge350
+._crit_edge354.loopexit:                          ; preds = %223
+  %indvars.le = trunc i64 %indvars.iv.next401 to i32
+  br label %._crit_edge354
 
-._crit_edge350:                                   ; preds = %._crit_edge350.loopexit, %._crit_edge.thread, %._crit_edge
-  %228 = phi i64 [ %.promoted, %._crit_edge ], [ %.promoted408, %._crit_edge.thread ], [ %224, %._crit_edge350.loopexit ]
-  %.2219.lcssa = phi i32 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %indvars.le, %._crit_edge350.loopexit ]
-  %.2.lcssa = phi ptr [ %.pre, %._crit_edge ], [ %166, %._crit_edge.thread ], [ %225, %._crit_edge350.loopexit ]
+._crit_edge354:                                   ; preds = %._crit_edge354.loopexit, %._crit_edge.thread, %._crit_edge
+  %228 = phi i64 [ %.promoted, %._crit_edge ], [ %.promoted413, %._crit_edge.thread ], [ %224, %._crit_edge354.loopexit ]
+  %.2219.lcssa = phi i32 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %indvars.le, %._crit_edge354.loopexit ]
+  %.2.lcssa = phi ptr [ %.pre, %._crit_edge ], [ %166, %._crit_edge.thread ], [ %225, %._crit_edge354.loopexit ]
+  store i64 %228, ptr %12, align 8
   %.pr = load i8, ptr %15, align 1, !tbaa !22
   %.not256 = icmp eq i8 %.pr, 0
   br i1 %.not256, label %241, label %230
 
-._crit_edge350.thread:                            ; preds = %187
-  %229 = trunc nuw nsw i64 %indvars.iv395 to i32
-  %.pr411 = load i8, ptr %15, align 1, !tbaa !22
-  %.not256412 = icmp eq i8 %.pr411, 0
-  br i1 %.not256412, label %.preheader, label %.thread415
+._crit_edge354.thread:                            ; preds = %187
+  %229 = trunc nuw nsw i64 %indvars.iv400 to i32
+  store i64 0, ptr %12, align 8
+  %.pr416 = load i8, ptr %15, align 1, !tbaa !22
+  %.not256417 = icmp eq i8 %.pr416, 0
+  br i1 %.not256417, label %.preheader, label %.thread420
 
-230:                                              ; preds = %._crit_edge350
+230:                                              ; preds = %._crit_edge354
   %231 = icmp slt i64 %228, 2
-  br i1 %231, label %.thread415, label %232
+  br i1 %231, label %.thread420, label %232
 
 232:                                              ; preds = %230
   %233 = load ptr, ptr %13, align 8, !tbaa !13
   %234 = load i8, ptr %233, align 1, !tbaa !22
   %235 = icmp eq i8 %234, 0
-  br i1 %235, label %236, label %.thread415
+  br i1 %235, label %236, label %.thread420
 
 236:                                              ; preds = %232
   %237 = getelementptr inbounds nuw i8, ptr %233, i64 1
   %238 = load i8, ptr %237, align 1, !tbaa !22
   %239 = icmp eq i8 %238, 0
-  br i1 %239, label %asn1_check_eoc.exit282, label %.thread415
+  br i1 %239, label %asn1_check_eoc.exit282, label %.thread420
 
 asn1_check_eoc.exit282:                           ; preds = %236
   %240 = getelementptr inbounds nuw i8, ptr %233, i64 2
   store ptr %240, ptr %13, align 8, !tbaa !13
   br label %241
 
-.thread415:                                       ; preds = %._crit_edge350.thread, %230, %236, %232
+.thread420:                                       ; preds = %._crit_edge354.thread, %230, %236, %232
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 440, ptr noundef nonnull @__func__.asn1_item_embed_d2i) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 137, ptr noundef null) #6
   br label %.thread304
 
-241:                                              ; preds = %asn1_check_eoc.exit282, %.thread292, %._crit_edge350
-  %242 = phi i64 [ 1, %asn1_check_eoc.exit282 ], [ %206, %.thread292 ], [ %228, %._crit_edge350 ]
-  %.2219335 = phi i32 [ %.2219.lcssa, %asn1_check_eoc.exit282 ], [ %203, %.thread292 ], [ %.2219.lcssa, %._crit_edge350 ]
-  %.2331 = phi ptr [ %.2.lcssa, %asn1_check_eoc.exit282 ], [ %.2347, %.thread292 ], [ %.2.lcssa, %._crit_edge350 ]
+241:                                              ; preds = %asn1_check_eoc.exit282, %.thread292, %._crit_edge354
+  %242 = phi i64 [ 1, %asn1_check_eoc.exit282 ], [ %206, %.thread292 ], [ %228, %._crit_edge354 ]
+  %.2219335 = phi i32 [ %.2219.lcssa, %asn1_check_eoc.exit282 ], [ %203, %.thread292 ], [ %.2219.lcssa, %._crit_edge354 ]
+  %.2331 = phi ptr [ %.2.lcssa, %asn1_check_eoc.exit282 ], [ %.2351, %.thread292 ], [ %.2.lcssa, %._crit_edge354 ]
   %243 = icmp ne i64 %242, 0
   %or.cond6 = select i1 %.0223, i1 %243, i1 false
   br i1 %or.cond6, label %247, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge350.thread, %241
-  %.2331423 = phi ptr [ %.2331, %241 ], [ %.2347, %._crit_edge350.thread ]
-  %.2219335422 = phi i32 [ %.2219335, %241 ], [ %229, %._crit_edge350.thread ]
-  %244 = zext i32 %.2219335422 to i64
+.preheader:                                       ; preds = %._crit_edge354.thread, %241
+  %.2331428 = phi ptr [ %.2331, %241 ], [ %.2351, %._crit_edge354.thread ]
+  %.2219335427 = phi i32 [ %.2219335, %241 ], [ %229, %._crit_edge354.thread ]
+  %244 = zext i32 %.2219335427 to i64
   %245 = load i64, ptr %167, align 8, !tbaa !28
   %246 = icmp sgt i64 %245, %244
-  br i1 %246, label %.lr.ph357, label %._crit_edge358
+  br i1 %246, label %.lr.ph363, label %._crit_edge364
 
 247:                                              ; preds = %241
   call void @ERR_new() #6
@@ -758,15 +759,15 @@ asn1_check_eoc.exit282:                           ; preds = %236
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 148, ptr noundef null) #6
   br label %.thread304
 
-.lr.ph357:                                        ; preds = %.preheader, %255
-  %indvars.iv398 = phi i64 [ %indvars.iv.next399, %255 ], [ %244, %.preheader ]
-  %.3356 = phi ptr [ %257, %255 ], [ %.2331423, %.preheader ]
+.lr.ph363:                                        ; preds = %.preheader, %255
+  %indvars.iv403 = phi i64 [ %indvars.iv.next404, %255 ], [ %244, %.preheader ]
+  %.3362 = phi ptr [ %257, %255 ], [ %.2331428, %.preheader ]
   %248 = load ptr, ptr %0, align 8, !tbaa !7
-  %249 = call ptr @ossl_asn1_do_adb(ptr noundef %248, ptr noundef %.3356, i32 noundef 1) #6
+  %249 = call ptr @ossl_asn1_do_adb(ptr noundef %248, ptr noundef %.3362, i32 noundef 1) #6
   %250 = icmp eq ptr %249, null
   br i1 %250, label %.thread304, label %251
 
-251:                                              ; preds = %.lr.ph357
+251:                                              ; preds = %.lr.ph363
   %252 = load i64, ptr %249, align 8, !tbaa !32
   %253 = and i64 %252, 1
   %.not260 = icmp eq i64 %253, 0
@@ -781,13 +782,13 @@ asn1_check_eoc.exit282:                           ; preds = %236
 255:                                              ; preds = %251
   %256 = call ptr @ossl_asn1_get_field_ptr(ptr noundef nonnull %0, ptr noundef nonnull %249) #6
   call void @ossl_asn1_template_free(ptr noundef %256, ptr noundef nonnull %249) #6
-  %257 = getelementptr inbounds nuw i8, ptr %.3356, i64 40
-  %indvars.iv.next399 = add nuw nsw i64 %indvars.iv398, 1
+  %257 = getelementptr inbounds nuw i8, ptr %.3362, i64 40
+  %indvars.iv.next404 = add nuw nsw i64 %indvars.iv403, 1
   %258 = load i64, ptr %167, align 8, !tbaa !28
-  %259 = icmp sgt i64 %258, %indvars.iv.next399
-  br i1 %259, label %.lr.ph357, label %._crit_edge358, !llvm.loop !36
+  %259 = icmp sgt i64 %258, %indvars.iv.next404
+  br i1 %259, label %.lr.ph363, label %._crit_edge364, !llvm.loop !36
 
-._crit_edge358:                                   ; preds = %255, %.preheader
+._crit_edge364:                                   ; preds = %255, %.preheader
   %260 = load ptr, ptr %1, align 8, !tbaa !13
   %261 = load ptr, ptr %13, align 8, !tbaa !13
   %262 = ptrtoint ptr %261 to i64
@@ -798,7 +799,7 @@ asn1_check_eoc.exit282:                           ; preds = %236
   %.not258 = icmp eq i32 %266, 0
   br i1 %.not258, label %.thread.thread, label %267
 
-267:                                              ; preds = %._crit_edge358
+267:                                              ; preds = %._crit_edge364
   br i1 %.not248, label %270, label %268
 
 268:                                              ; preds = %267
@@ -811,22 +812,22 @@ asn1_check_eoc.exit282:                           ; preds = %236
   store ptr %271, ptr %1, align 8, !tbaa !13
   br label %278
 
-.thread.thread:                                   ; preds = %82, %129, %162, %._crit_edge358, %268
+.thread.thread:                                   ; preds = %82, %129, %162, %._crit_edge364, %268
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 481, ptr noundef nonnull @__func__.asn1_item_embed_d2i) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 100, ptr noundef null) #6
   br label %.thread304
 
 .thread:                                          ; preds = %113
-  tail call void @ossl_asn1_template_free(ptr noundef %110, ptr noundef %.0210360) #6
+  tail call void @ossl_asn1_template_free(ptr noundef %110, ptr noundef %.0210366) #6
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 312, ptr noundef nonnull @__func__.asn1_item_embed_d2i) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 524554, ptr noundef null) #6
-  %.not277 = icmp eq ptr %.0210360, null
+  %.not277 = icmp eq ptr %.0210366, null
   br i1 %.not277, label %.thread304, label %.thread.thread310
 
 .thread.thread310:                                ; preds = %215, %254, %.thread
-  %.0211313 = phi ptr [ %.0210360, %.thread ], [ %249, %254 ], [ %185, %215 ]
+  %.0211313 = phi ptr [ %.0210366, %.thread ], [ %249, %254 ], [ %185, %215 ]
   %272 = getelementptr inbounds nuw i8, ptr %.0211313, i64 24
   %273 = load ptr, ptr %272, align 8, !tbaa !37
   %274 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -834,7 +835,7 @@ asn1_check_eoc.exit282:                           ; preds = %236
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.1, ptr noundef %273, ptr noundef nonnull @.str.2, ptr noundef %275) #6
   br label %278
 
-.thread304:                                       ; preds = %.lr.ph349, %.lr.ph357, %.thread.thread, %202, %42, %52, %67, %56, %48, %102, %126, %80, %137, %154, %160, %.thread415, %247, %33, %.thread
+.thread304:                                       ; preds = %.lr.ph353, %.lr.ph363, %.thread.thread, %202, %42, %52, %67, %56, %48, %102, %126, %80, %137, %154, %160, %.thread420, %247, %33, %.thread
   %276 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %277 = load ptr, ptr %276, align 8, !tbaa !38
   call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef %277) #6
@@ -1922,9 +1923,9 @@ define internal fastcc range(i32 -1, 2) i32 @asn1_template_noexp_d2i(ptr noundef
 .preheader:                                       ; preds = %50
   %.promoted = load i64, ptr %10, align 8, !tbaa !3
   %53 = icmp sgt i64 %.promoted, 0
-  br i1 %53, label %.lr.ph106, label %._crit_edge107
+  br i1 %53, label %.lr.ph109, label %._crit_edge110
 
-.lr.ph106:                                        ; preds = %.preheader
+.lr.ph109:                                        ; preds = %.preheader
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %56
 
@@ -1934,8 +1935,8 @@ define internal fastcc range(i32 -1, 2) i32 @asn1_template_noexp_d2i(ptr noundef
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 524303, ptr noundef null) #6
   br label %.thread89
 
-56:                                               ; preds = %.lr.ph106, %89
-  %57 = phi i64 [ %.promoted, %.lr.ph106 ], [ %92, %89 ]
+56:                                               ; preds = %.lr.ph109, %89
+  %57 = phi i64 [ %.promoted, %.lr.ph109 ], [ %92, %89 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #6
   %58 = load ptr, ptr %12, align 8, !tbaa !13
   %59 = icmp eq i64 %57, 1
@@ -2016,14 +2017,14 @@ define internal fastcc range(i32 -1, 2) i32 @asn1_template_noexp_d2i(ptr noundef
   %92 = sub i64 %.neg, %91
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #6
   %93 = icmp sgt i64 %92, 0
-  br i1 %93, label %56, label %._crit_edge107
+  br i1 %93, label %56, label %._crit_edge110
 
-._crit_edge107:                                   ; preds = %89, %.preheader
+._crit_edge110:                                   ; preds = %89, %.preheader
   %.pr85 = load i8, ptr %13, align 1, !tbaa !22
   %.not79 = icmp eq i8 %.pr85, 0
   br i1 %.not79, label %95, label %94
 
-94:                                               ; preds = %._crit_edge107
+94:                                               ; preds = %._crit_edge110
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 667, ptr noundef nonnull @__func__.asn1_template_noexp_d2i) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 137, ptr noundef null) #6
@@ -2037,7 +2038,7 @@ define internal fastcc range(i32 -1, 2) i32 @asn1_template_noexp_d2i(ptr noundef
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #6
   br label %112
 
-95:                                               ; preds = %.thread86, %._crit_edge107
+95:                                               ; preds = %.thread86, %._crit_edge110
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #6
   br label %110
 

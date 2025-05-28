@@ -1112,79 +1112,82 @@ define dso_local i32 @acpi_pm_device_sleep_state(ptr noundef %0, ptr noundef wri
   br label %13
 
 13:                                               ; preds = %9, %7
-  %14 = phi i32 [ %12, %9 ], [ %2, %7 ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %16) #6
-  %18 = getelementptr i8, ptr %16, i64 -16
-  %19 = icmp ne ptr %18, null
-  %20 = and i1 %17, %19
-  br i1 %20, label %21, label %50
+  %.promoted = phi i32 [ %12, %9 ], [ %2, %7 ]
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %15) #6
+  %17 = getelementptr i8, ptr %15, i64 -16
+  %18 = icmp ne ptr %17, null
+  %19 = and i1 %16, %18
+  br i1 %19, label %20, label %50
 
-21:                                               ; preds = %13
+20:                                               ; preds = %13
   store i32 0, ptr %4, align 4, !annotation !5
   store i32 0, ptr %5, align 4, !annotation !5
-  %22 = tail call i32 @acpi_target_system_state() #6
-  %23 = call fastcc i32 @acpi_dev_pm_get_state(ptr noundef %0, ptr noundef nonnull %18, i32 noundef %22, ptr noundef nonnull %4, ptr noundef nonnull %5), !range !6
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %50
+  %21 = tail call i32 @acpi_target_system_state() #6
+  %22 = call fastcc i32 @acpi_dev_pm_get_state(ptr noundef %0, ptr noundef nonnull %17, i32 noundef %21, ptr noundef nonnull %4, ptr noundef nonnull %5), !range !6
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %50
 
-25:                                               ; preds = %21
-  %26 = load i32, ptr %4, align 4
-  %27 = icmp slt i32 %14, %26
-  br i1 %27, label %50, label %28
+24:                                               ; preds = %20
+  %25 = load i32, ptr %4, align 4
+  %26 = icmp slt i32 %.promoted, %25
+  br i1 %26, label %50, label %27
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr %5, align 4
-  %30 = icmp sgt i32 %29, %14
-  br i1 %30, label %31, label %.loopexit
+27:                                               ; preds = %24
+  %28 = load i32, ptr %5, align 4
+  %29 = icmp sgt i32 %28, %.promoted
+  br i1 %29, label %30, label %.loopexit
 
-31:                                               ; preds = %28
-  %32 = getelementptr i8, ptr %16, i64 232
-  %33 = icmp sgt i32 %14, %26
-  br i1 %33, label %.preheader.preheader, label %.loopexit
+30:                                               ; preds = %27
+  %31 = getelementptr i8, ptr %15, i64 232
+  %32 = icmp sgt i32 %.promoted, %25
+  br i1 %32, label %.preheader, label %.loopexit
 
-.preheader.preheader:                             ; preds = %31
-  %34 = zext nneg i32 %14 to i64
-  %35 = sext i32 %26 to i64
-  %36 = getelementptr [5 x %struct.acpi_device_power_state], ptr %32, i64 0, i64 %34
-  %37 = load i8, ptr %36, align 8
-  %38 = and i8 %37, 1
-  %39 = icmp eq i8 %38, 0
-  br i1 %39, label %.lr.ph, label %.loopexit
+.preheader:                                       ; preds = %30
+  %33 = zext nneg i32 %.promoted to i64
+  %34 = getelementptr [5 x %struct.acpi_device_power_state], ptr %31, i64 0, i64 %33
+  %35 = load i8, ptr %34, align 8
+  %36 = and i8 %35, 1
+  %37 = icmp eq i8 %36, 0
+  br i1 %37, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader.preheader, %.preheader
-  %indvars.iv8 = phi i64 [ %indvars.iv.next, %.preheader ], [ %34, %.preheader.preheader ]
-  %indvars.iv.next = add nsw i64 %indvars.iv8, -1
-  %40 = icmp sgt i64 %indvars.iv.next, %35
-  br i1 %40, label %.preheader, label %..loopexit.loopexit_crit_edge, !llvm.loop !7
+.lr.ph.preheader:                                 ; preds = %.preheader
+  %38 = sext i32 %25 to i64
+  br label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph
-  %41 = getelementptr [5 x %struct.acpi_device_power_state], ptr %32, i64 0, i64 %indvars.iv.next
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %40
+  %indvars.iv = phi i64 [ %33, %.lr.ph.preheader ], [ %indvars.iv.next, %40 ]
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %39 = icmp sgt i64 %indvars.iv.next, %38
+  br i1 %39, label %40, label %..loopexit_crit_edge, !llvm.loop !7
+
+40:                                               ; preds = %.lr.ph
+  %41 = getelementptr [5 x %struct.acpi_device_power_state], ptr %31, i64 0, i64 %indvars.iv.next
   %42 = load i8, ptr %41, align 8
   %43 = and i8 %42, 1
   %44 = icmp eq i8 %43, 0
   br i1 %44, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !7
 
-..loopexit.loopexit_crit_edge:                    ; preds = %.lr.ph
+..loopexit_crit_edge:                             ; preds = %.lr.ph
   %45 = trunc nsw i64 %indvars.iv.next to i32
   br label %.loopexit, !llvm.loop !7
 
-.loopexit.loopexit:                               ; preds = %.preheader
+.loopexit.loopexit:                               ; preds = %40
   %46 = trunc nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader.preheader, %..loopexit.loopexit_crit_edge, %31, %28
-  %47 = phi i32 [ %14, %31 ], [ %29, %28 ], [ %45, %..loopexit.loopexit_crit_edge ], [ %14, %.preheader.preheader ], [ %46, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %.preheader, %..loopexit_crit_edge, %.loopexit.loopexit, %30, %27
+  %47 = phi i32 [ %.promoted, %30 ], [ %28, %27 ], [ %45, %..loopexit_crit_edge ], [ %.promoted, %.preheader ], [ %46, %.loopexit.loopexit ]
   %48 = icmp eq ptr %1, null
   br i1 %48, label %50, label %49
 
 49:                                               ; preds = %.loopexit
-  store i32 %26, ptr %1, align 4
+  store i32 %25, ptr %1, align 4
   br label %50
 
-50:                                               ; preds = %.loopexit, %49, %25, %21, %13, %3
-  %51 = phi i32 [ -22, %3 ], [ -19, %13 ], [ %23, %21 ], [ -22, %25 ], [ %47, %49 ], [ %47, %.loopexit ]
+50:                                               ; preds = %.loopexit, %49, %24, %20, %13, %3
+  %51 = phi i32 [ -22, %3 ], [ -19, %13 ], [ %22, %20 ], [ -22, %24 ], [ %47, %49 ], [ %47, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
   ret i32 %51

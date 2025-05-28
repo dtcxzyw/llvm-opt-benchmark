@@ -2297,7 +2297,6 @@ define void @_ZN7rocksdb14AutoRollLogger15TrimOldLogFilesEv(ptr dead_on_unwind n
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 256
   %59 = load ptr, ptr %58, align 8
   call void %59(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::IOStatus") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(84) %15, ptr noundef nonnull %16)
-  store ptr null, ptr %17, align 8, !tbaa !34
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false)
   %.pre = load ptr, ptr %28, align 8, !tbaa !121
   br i1 %.not.i.i, label %_ZN7rocksdb6StatusC2EOS0_.exit, label %_ZN7rocksdb6StatusC2EOS0_.exit.thread
@@ -2320,7 +2319,6 @@ _ZN7rocksdb6StatusC2EOS0_.exit.thread:            ; preds = %55
   store i8 0, ptr %24, align 4, !tbaa !126
   %65 = load i8, ptr %26, align 1, !tbaa !20
   store i8 %65, ptr %27, align 1, !tbaa !127
-  store ptr %.pre, ptr %17, align 8, !tbaa !121
   %66 = icmp eq i8 %60, 0
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
@@ -2398,7 +2396,7 @@ _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE16_M_pop
 _ZNSt5queueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5dequeIS5_SaIS5_EEE3popEv.exit: ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i.i, %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE16_M_pop_front_auxEv.exit.i.i
   %storemerge.i.i = phi ptr [ %82, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i.i ], [ %92, %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE16_M_pop_front_auxEv.exit.i.i ]
   store ptr %storemerge.i.i, ptr %5, align 8, !tbaa !157
-  br i1 %68, label %94, label %.thread
+  br i1 %68, label %94, label %.thread.loopexit
 
 94:                                               ; preds = %_ZNSt5queueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5dequeIS5_SaIS5_EEE3popEv.exit
   %.not.i.i5 = icmp eq ptr %67, null
@@ -2406,12 +2404,11 @@ _ZNSt5queueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5dequeIS5_SaIS
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i6: ; preds = %94
   call void @_ZdaPv(ptr noundef nonnull %67) #23
-  %.pre9 = load ptr, ptr %5, align 8, !tbaa !135
+  %.pre14 = load ptr, ptr %5, align 8, !tbaa !135
   br label %95
 
 95:                                               ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i6, %94
-  %96 = phi ptr [ %.pre9, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i6 ], [ %storemerge.i.i, %94 ]
-  store ptr null, ptr %17, align 8, !tbaa !121
+  %96 = phi ptr [ %.pre14, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i6 ], [ %storemerge.i.i, %94 ]
   %97 = load ptr, ptr %4, align 8, !tbaa !135
   %98 = icmp eq ptr %97, %96
   br i1 %98, label %.critedge, label %30
@@ -2422,7 +2419,11 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !161
   br label %.thread
 
-.thread:                                          ; preds = %_ZNSt5queueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5dequeIS5_SaIS5_EEE3popEv.exit, %.critedge
+.thread.loopexit:                                 ; preds = %_ZNSt5queueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5dequeIS5_SaIS5_EEE3popEv.exit
+  store ptr %67, ptr %17, align 8
+  br label %.thread
+
+.thread:                                          ; preds = %.thread.loopexit, %.critedge
   ret void
 }
 

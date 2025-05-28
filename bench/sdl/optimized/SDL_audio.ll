@@ -4541,43 +4541,45 @@ ObtainPhysicalAudioDeviceObj.exit:                ; preds = %18, %17
 
 27:                                               ; preds = %ObtainPhysicalAudioDeviceObj.exit
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 208
-  %.084126 = load ptr, ptr %28, align 8
-  %.not96127 = icmp eq ptr %.084126, null
-  br i1 %.not96127, label %.thread, label %.lr.ph131
+  %.084125 = load ptr, ptr %28, align 8
+  %.not96126 = icmp eq ptr %.084125, null
+  br i1 %.not96126, label %.thread, label %.lr.ph130
 
-.lr.ph131:                                        ; preds = %27
+.lr.ph130:                                        ; preds = %27
   %.v = select i1 %8, i64 60, i64 48
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %31
 
 ._crit_edge:                                      ; preds = %.loopexit
+  store i32 %spec.store.select114.lcssa133, ptr %29, align 4
+  store i32 %spec.store.select112.lcssa137, ptr %30, align 4
+  store i32 %spec.store.select115.lcssa123, ptr %4, align 4
   br i1 %.181, label %50, label %.thread
 
-31:                                               ; preds = %.lr.ph131, %.loopexit
-  %spec.store.select112.lcssa138 = phi i32 [ 0, %.lr.ph131 ], [ %spec.store.select112.lcssa136, %.loopexit ]
-  %spec.store.select114.lcssa134 = phi i32 [ 0, %.lr.ph131 ], [ %spec.store.select114.lcssa132, %.loopexit ]
-  %.084130 = phi ptr [ %.084126, %.lr.ph131 ], [ %.084, %.loopexit ]
-  %.080129 = phi i1 [ false, %.lr.ph131 ], [ %.181, %.loopexit ]
-  %spec.store.select.lcssa125128 = phi i32 [ 0, %.lr.ph131 ], [ %spec.store.select.lcssa123, %.loopexit ]
-  %32 = getelementptr inbounds nuw i8, ptr %.084130, i64 32
+31:                                               ; preds = %.lr.ph130, %.loopexit
+  %spec.store.select112.lcssa139 = phi i32 [ 0, %.lr.ph130 ], [ %spec.store.select112.lcssa137, %.loopexit ]
+  %spec.store.select114.lcssa135 = phi i32 [ 0, %.lr.ph130 ], [ %spec.store.select114.lcssa133, %.loopexit ]
+  %.084129 = phi ptr [ %.084125, %.lr.ph130 ], [ %.084, %.loopexit ]
+  %.080128 = phi i1 [ false, %.lr.ph130 ], [ %.181, %.loopexit ]
+  %spec.store.select115.lcssa124127 = phi i32 [ 0, %.lr.ph130 ], [ %spec.store.select115.lcssa123, %.loopexit ]
+  %32 = getelementptr inbounds nuw i8, ptr %.084129, i64 32
   %33 = load i8, ptr %32, align 8, !range !6, !noundef !7
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %.loopexit
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw i8, ptr %.084130, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %.084129, i64 24
   %.083116 = load ptr, ptr %36, align 8
   %.not103117 = icmp eq ptr %.083116, null
   br i1 %.not103117, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %35, %.lr.ph
-  %37 = phi i32 [ %spec.store.select112, %.lr.ph ], [ %spec.store.select112.lcssa138, %35 ]
-  %38 = phi i32 [ %spec.store.select114, %.lr.ph ], [ %spec.store.select114.lcssa134, %35 ]
+  %37 = phi i32 [ %spec.store.select112, %.lr.ph ], [ %spec.store.select112.lcssa139, %35 ]
+  %38 = phi i32 [ %spec.store.select114, %.lr.ph ], [ %spec.store.select114.lcssa135, %35 ]
   %.083119 = phi ptr [ %.083, %.lr.ph ], [ %.083116, %35 ]
-  %spec.store.select115118 = phi i32 [ %spec.store.select, %.lr.ph ], [ %spec.store.select.lcssa125128, %35 ]
+  %spec.store.select115118 = phi i32 [ %spec.store.select, %.lr.ph ], [ %spec.store.select115.lcssa124127, %35 ]
   %39 = getelementptr inbounds nuw i8, ptr %.083119, i64 %.v
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 255
@@ -4593,20 +4595,14 @@ ObtainPhysicalAudioDeviceObj.exit:                ; preds = %18, %17
   %48 = getelementptr inbounds nuw i8, ptr %.083119, i64 200
   %.083 = load ptr, ptr %48, align 8
   %.not103 = icmp eq ptr %.083, null
-  br i1 %.not103, label %..loopexit_crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not103, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
-..loopexit_crit_edge:                             ; preds = %.lr.ph
-  store i32 %spec.store.select, ptr %4, align 4
-  store i32 %spec.store.select114, ptr %29, align 4
-  store i32 %spec.store.select112, ptr %30, align 4
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %35, %..loopexit_crit_edge, %31
-  %spec.store.select112.lcssa136 = phi i32 [ %spec.store.select112.lcssa138, %31 ], [ %spec.store.select112, %..loopexit_crit_edge ], [ %spec.store.select112.lcssa138, %35 ]
-  %spec.store.select114.lcssa132 = phi i32 [ %spec.store.select114.lcssa134, %31 ], [ %spec.store.select114, %..loopexit_crit_edge ], [ %spec.store.select114.lcssa134, %35 ]
-  %spec.store.select.lcssa123 = phi i32 [ %spec.store.select.lcssa125128, %31 ], [ %spec.store.select, %..loopexit_crit_edge ], [ %spec.store.select.lcssa125128, %35 ]
-  %.181 = phi i1 [ %.080129, %31 ], [ true, %..loopexit_crit_edge ], [ true, %35 ]
-  %49 = getelementptr inbounds nuw i8, ptr %.084130, i64 80
+.loopexit:                                        ; preds = %.lr.ph, %35, %31
+  %spec.store.select112.lcssa137 = phi i32 [ %spec.store.select112.lcssa139, %31 ], [ %spec.store.select112.lcssa139, %35 ], [ %spec.store.select112, %.lr.ph ]
+  %spec.store.select114.lcssa133 = phi i32 [ %spec.store.select114.lcssa135, %31 ], [ %spec.store.select114.lcssa135, %35 ], [ %spec.store.select114, %.lr.ph ]
+  %spec.store.select115.lcssa123 = phi i32 [ %spec.store.select115.lcssa124127, %31 ], [ %spec.store.select115.lcssa124127, %35 ], [ %spec.store.select, %.lr.ph ]
+  %.181 = phi i1 [ %.080128, %31 ], [ true, %35 ], [ true, %.lr.ph ]
+  %49 = getelementptr inbounds nuw i8, ptr %.084129, i64 80
   %.084 = load ptr, ptr %49, align 8
   %.not96 = icmp eq ptr %.084, null
   br i1 %.not96, label %._crit_edge, label %31, !llvm.loop !30
@@ -4642,17 +4638,17 @@ ObtainPhysicalAudioDeviceObj.exit:                ; preds = %18, %17
 SDL_AudioSpecsEqual.exit:                         ; preds = %62, %52, %57
   %.0.i = phi i1 [ false, %57 ], [ false, %52 ], [ %.not16.i, %62 ]
   %67 = load ptr, ptr %28, align 8
-  %.not97139 = icmp eq ptr %67, null
-  br i1 %.not97139, label %._crit_edge143, label %.lr.ph142
+  %.not97140 = icmp eq ptr %67, null
+  br i1 %.not97140, label %._crit_edge144, label %.lr.ph143
 
-.lr.ph142:                                        ; preds = %SDL_AudioSpecsEqual.exit
+.lr.ph143:                                        ; preds = %SDL_AudioSpecsEqual.exit
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %69 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %70 = getelementptr inbounds nuw i8, ptr %26, i64 80
   %71 = getelementptr inbounds nuw i8, ptr %26, i64 148
   br label %73
 
-._crit_edge143:                                   ; preds = %141, %SDL_AudioSpecsEqual.exit
+._crit_edge144:                                   ; preds = %141, %SDL_AudioSpecsEqual.exit
   %.2.lcssa = phi ptr [ %3, %SDL_AudioSpecsEqual.exit ], [ %.3, %141 ]
   call fastcc void @UpdateAudioStreamFormatsPhysical(ptr noundef nonnull %26)
   call fastcc void @UpdateAudioStreamFormatsPhysical(ptr noundef nonnull %0)
@@ -4660,12 +4656,12 @@ SDL_AudioSpecsEqual.exit:                         ; preds = %62, %52, %57
   %.not98 = icmp eq ptr %72, null
   br i1 %.not98, label %142, label %.thread
 
-73:                                               ; preds = %.lr.ph142, %141
-  %.0141 = phi ptr [ %67, %.lr.ph142 ], [ %75, %141 ]
-  %.2140 = phi ptr [ %3, %.lr.ph142 ], [ %.3, %141 ]
-  %74 = getelementptr inbounds nuw i8, ptr %.0141, i64 80
+73:                                               ; preds = %.lr.ph143, %141
+  %.0142 = phi ptr [ %67, %.lr.ph143 ], [ %75, %141 ]
+  %.2141 = phi ptr [ %3, %.lr.ph143 ], [ %.3, %141 ]
+  %74 = getelementptr inbounds nuw i8, ptr %.0142, i64 80
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %.0141, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %.0142, i64 32
   %77 = load i8, ptr %76, align 8, !range !6, !noundef !7
   %78 = trunc nuw i8 %77 to i1
   br i1 %78, label %79, label %141
@@ -4675,29 +4671,29 @@ SDL_AudioSpecsEqual.exit:                         ; preds = %62, %52, %57
   call void @SDL_LockRWLockForWriting_REAL(ptr noundef %80) #14
   %81 = load ptr, ptr %74, align 8
   %.not100 = icmp eq ptr %81, null
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0141, i64 88
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0142, i64 88
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %.not100, label %._crit_edge145, label %82
+  br i1 %.not100, label %._crit_edge147, label %82
 
 82:                                               ; preds = %79
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 88
   store ptr %.pre, ptr %83, align 8
-  br label %._crit_edge145
+  br label %._crit_edge147
 
-._crit_edge145:                                   ; preds = %79, %82
-  %84 = getelementptr inbounds nuw i8, ptr %.0141, i64 88
+._crit_edge147:                                   ; preds = %79, %82
+  %84 = getelementptr inbounds nuw i8, ptr %.0142, i64 88
   %.not101 = icmp eq ptr %.pre, null
   br i1 %.not101, label %88, label %85
 
-85:                                               ; preds = %._crit_edge145
+85:                                               ; preds = %._crit_edge147
   %86 = load ptr, ptr %74, align 8
   %87 = getelementptr inbounds nuw i8, ptr %.pre, i64 80
   store ptr %86, ptr %87, align 8
   br label %88
 
-88:                                               ; preds = %85, %._crit_edge145
+88:                                               ; preds = %85, %._crit_edge147
   %89 = load ptr, ptr %28, align 8
-  %90 = icmp eq ptr %89, %.0141
+  %90 = icmp eq ptr %89, %.0142
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %88
@@ -4706,12 +4702,12 @@ SDL_AudioSpecsEqual.exit:                         ; preds = %62, %52, %57
   br label %93
 
 93:                                               ; preds = %91, %88
-  %94 = getelementptr inbounds nuw i8, ptr %.0141, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.0142, i64 8
   store ptr %0, ptr %94, align 8
   store ptr null, ptr %84, align 8
   %95 = load ptr, ptr %68, align 8
   store ptr %95, ptr %74, align 8
-  store ptr %.0141, ptr %68, align 8
+  store ptr %.0142, ptr %68, align 8
   %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
   call void @SDL_UnlockRWLock_REAL(ptr noundef %96) #14
   %97 = call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull %22, i32 noundef 1) #14
@@ -4743,10 +4739,10 @@ SDL_AudioSpecsEqual.exit:                         ; preds = %62, %52, %57
   br label %UnrefPhysicalAudioDevice.exit
 
 UnrefPhysicalAudioDevice.exit:                    ; preds = %93, %112
-  %114 = load i32, ptr %.0141, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %.0141, i64 64
+  %114 = load i32, ptr %.0142, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %.0142, i64 64
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %.0141, i64 72
+  %117 = getelementptr inbounds nuw i8, ptr %.0142, i64 72
   %118 = load ptr, ptr %117, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store ptr null, ptr %2, align 8
@@ -4803,26 +4799,26 @@ SDL_SetAudioPostmixCallback_REAL.exit:            ; preds = %._crit_edge.i, %132
 
 136:                                              ; preds = %134
   store i32 4354, ptr %135, align 8
-  %137 = load i32, ptr %.0141, align 8
+  %137 = load i32, ptr %.0142, align 8
   %138 = getelementptr inbounds nuw i8, ptr %135, i64 4
   store i32 %137, ptr %138, align 4
   %139 = getelementptr inbounds nuw i8, ptr %135, i64 8
   store ptr null, ptr %139, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %.2140, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %.2141, i64 8
   store ptr %135, ptr %140, align 8
   br label %141
 
 141:                                              ; preds = %SDL_SetAudioPostmixCallback_REAL.exit, %136, %134, %73
-  %.3 = phi ptr [ %.2140, %73 ], [ %135, %136 ], [ %.2140, %134 ], [ %.2140, %SDL_SetAudioPostmixCallback_REAL.exit ]
+  %.3 = phi ptr [ %.2141, %73 ], [ %135, %136 ], [ %.2141, %134 ], [ %.2141, %SDL_SetAudioPostmixCallback_REAL.exit ]
   %.not97 = icmp eq ptr %75, null
-  br i1 %.not97, label %._crit_edge143, label %73, !llvm.loop !31
+  br i1 %.not97, label %._crit_edge144, label %73, !llvm.loop !31
 
-142:                                              ; preds = %._crit_edge143
+142:                                              ; preds = %._crit_edge144
   call fastcc void @ClosePhysicalAudioDevice(ptr noundef nonnull %26)
   br label %.thread
 
-.thread:                                          ; preds = %27, %._crit_edge, %._crit_edge143, %142, %50
-  %.1 = phi ptr [ %3, %50 ], [ %.2.lcssa, %142 ], [ %.2.lcssa, %._crit_edge143 ], [ %3, %._crit_edge ], [ %3, %27 ]
+.thread:                                          ; preds = %27, %._crit_edge, %._crit_edge144, %142, %50
+  %.1 = phi ptr [ %3, %50 ], [ %.2.lcssa, %142 ], [ %.2.lcssa, %._crit_edge144 ], [ %3, %._crit_edge ], [ %3, %27 ]
   call fastcc void @ReleaseAudioDevice(ptr noundef nonnull %26)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #14
   call fastcc void @ReleaseAudioDevice(ptr noundef nonnull %0)
