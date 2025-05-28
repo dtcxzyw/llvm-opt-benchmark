@@ -15401,9 +15401,9 @@ define internal void @blend_difference_32bit(ptr noundef readonly captures(none)
 
 .preheader.us:                                    ; preds = %10, %._crit_edge.us
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %._crit_edge.us ], [ 0, %10 ]
-  %.03846.us = phi ptr [ %31, %._crit_edge.us ], [ %4, %10 ]
-  %.03945.us = phi ptr [ %33, %._crit_edge.us ], [ %2, %10 ]
-  %.04044.us = phi ptr [ %32, %._crit_edge.us ], [ %0, %10 ]
+  %.03846.us = phi ptr [ %29, %._crit_edge.us ], [ %4, %10 ]
+  %.03945.us = phi ptr [ %31, %._crit_edge.us ], [ %2, %10 ]
+  %.04044.us = phi ptr [ %30, %._crit_edge.us ], [ %0, %10 ]
   br label %19
 
 19:                                               ; preds = %.preheader.us, %19
@@ -15413,21 +15413,19 @@ define internal void @blend_difference_32bit(ptr noundef readonly captures(none)
   %22 = getelementptr inbounds nuw float, ptr %.03945.us, i64 %indvars.iv
   %23 = load float, ptr %22, align 4, !tbaa !81
   %24 = fsub nsz float %21, %23
-  %25 = fcmp nsz ult float %24, 0.000000e+00
-  %26 = fneg nsz float %24
-  %27 = select nsz i1 %25, float %26, float %24
-  %28 = fsub nsz float %27, %21
-  %29 = tail call nsz float @llvm.fmuladd.f32(float %28, float %13, float %21)
-  %30 = getelementptr inbounds nuw float, ptr %.03846.us, i64 %indvars.iv
-  store float %29, ptr %30, align 4, !tbaa !81
+  %25 = tail call nsz float @llvm.fabs.f32(float %24)
+  %26 = fsub nsz float %25, %21
+  %27 = tail call nsz float @llvm.fmuladd.f32(float %26, float %13, float %21)
+  %28 = getelementptr inbounds nuw float, ptr %.03846.us, i64 %indvars.iv
+  store float %27, ptr %28, align 4, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
   br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !576
 
 ._crit_edge.us:                                   ; preds = %19
-  %31 = getelementptr inbounds nuw float, ptr %.03846.us, i64 %14
-  %32 = getelementptr inbounds nuw float, ptr %.04044.us, i64 %15
-  %33 = getelementptr inbounds nuw float, ptr %.03945.us, i64 %16
+  %29 = getelementptr inbounds nuw float, ptr %.03846.us, i64 %14
+  %30 = getelementptr inbounds nuw float, ptr %.04044.us, i64 %15
+  %31 = getelementptr inbounds nuw float, ptr %.03945.us, i64 %16
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, %7
   br i1 %exitcond55.not, label %._crit_edge48, label %.preheader.us, !llvm.loop !577
@@ -15664,9 +15662,9 @@ define internal void @blend_extremity_32bit(ptr noundef readonly captures(none) 
 
 .preheader.us:                                    ; preds = %10, %._crit_edge.us
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %._crit_edge.us ], [ 0, %10 ]
-  %.03846.us = phi ptr [ %32, %._crit_edge.us ], [ %4, %10 ]
-  %.03945.us = phi ptr [ %34, %._crit_edge.us ], [ %2, %10 ]
-  %.04044.us = phi ptr [ %33, %._crit_edge.us ], [ %0, %10 ]
+  %.03846.us = phi ptr [ %30, %._crit_edge.us ], [ %4, %10 ]
+  %.03945.us = phi ptr [ %32, %._crit_edge.us ], [ %2, %10 ]
+  %.04044.us = phi ptr [ %31, %._crit_edge.us ], [ %0, %10 ]
   br label %19
 
 19:                                               ; preds = %.preheader.us, %19
@@ -15677,21 +15675,19 @@ define internal void @blend_extremity_32bit(ptr noundef readonly captures(none) 
   %23 = getelementptr inbounds nuw float, ptr %.03945.us, i64 %indvars.iv
   %24 = load float, ptr %23, align 4, !tbaa !81
   %25 = fsub nsz float %22, %24
-  %26 = fcmp nsz ult float %25, 0.000000e+00
-  %27 = fneg nsz float %25
-  %28 = select nsz i1 %26, float %27, float %25
-  %29 = fsub nsz float %28, %21
-  %30 = tail call nsz float @llvm.fmuladd.f32(float %29, float %13, float %21)
-  %31 = getelementptr inbounds nuw float, ptr %.03846.us, i64 %indvars.iv
-  store float %30, ptr %31, align 4, !tbaa !81
+  %26 = tail call nsz float @llvm.fabs.f32(float %25)
+  %27 = fsub nsz float %26, %21
+  %28 = tail call nsz float @llvm.fmuladd.f32(float %27, float %13, float %21)
+  %29 = getelementptr inbounds nuw float, ptr %.03846.us, i64 %indvars.iv
+  store float %28, ptr %29, align 4, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
   br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !586
 
 ._crit_edge.us:                                   ; preds = %19
-  %32 = getelementptr inbounds nuw float, ptr %.03846.us, i64 %14
-  %33 = getelementptr inbounds nuw float, ptr %.04044.us, i64 %15
-  %34 = getelementptr inbounds nuw float, ptr %.03945.us, i64 %16
+  %30 = getelementptr inbounds nuw float, ptr %.03846.us, i64 %14
+  %31 = getelementptr inbounds nuw float, ptr %.04044.us, i64 %15
+  %32 = getelementptr inbounds nuw float, ptr %.03945.us, i64 %16
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, %7
   br i1 %exitcond55.not, label %._crit_edge48, label %.preheader.us, !llvm.loop !587
@@ -16227,9 +16223,9 @@ define internal void @blend_negation_32bit(ptr noundef readonly captures(none) %
 
 .preheader.us:                                    ; preds = %10, %._crit_edge.us
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %._crit_edge.us ], [ 0, %10 ]
-  %.03846.us = phi ptr [ %33, %._crit_edge.us ], [ %4, %10 ]
-  %.03945.us = phi ptr [ %35, %._crit_edge.us ], [ %2, %10 ]
-  %.04044.us = phi ptr [ %34, %._crit_edge.us ], [ %0, %10 ]
+  %.03846.us = phi ptr [ %31, %._crit_edge.us ], [ %4, %10 ]
+  %.03945.us = phi ptr [ %33, %._crit_edge.us ], [ %2, %10 ]
+  %.04044.us = phi ptr [ %32, %._crit_edge.us ], [ %0, %10 ]
   br label %19
 
 19:                                               ; preds = %.preheader.us, %19
@@ -16240,22 +16236,20 @@ define internal void @blend_negation_32bit(ptr noundef readonly captures(none) %
   %23 = getelementptr inbounds nuw float, ptr %.03945.us, i64 %indvars.iv
   %24 = load float, ptr %23, align 4, !tbaa !81
   %25 = fsub nsz float %22, %24
-  %26 = fcmp nsz ult float %25, 0.000000e+00
-  %27 = fneg nsz float %25
-  %28 = select nsz i1 %26, float %27, float %25
-  %29 = fsub nsz float 1.000000e+00, %28
-  %30 = fsub nsz float %29, %21
-  %31 = tail call nsz float @llvm.fmuladd.f32(float %30, float %13, float %21)
-  %32 = getelementptr inbounds nuw float, ptr %.03846.us, i64 %indvars.iv
-  store float %31, ptr %32, align 4, !tbaa !81
+  %26 = tail call nsz float @llvm.fabs.f32(float %25)
+  %27 = fsub nsz float 1.000000e+00, %26
+  %28 = fsub nsz float %27, %21
+  %29 = tail call nsz float @llvm.fmuladd.f32(float %28, float %13, float %21)
+  %30 = getelementptr inbounds nuw float, ptr %.03846.us, i64 %indvars.iv
+  store float %29, ptr %30, align 4, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
   br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !606
 
 ._crit_edge.us:                                   ; preds = %19
-  %33 = getelementptr inbounds nuw float, ptr %.03846.us, i64 %14
-  %34 = getelementptr inbounds nuw float, ptr %.04044.us, i64 %15
-  %35 = getelementptr inbounds nuw float, ptr %.03945.us, i64 %16
+  %31 = getelementptr inbounds nuw float, ptr %.03846.us, i64 %14
+  %32 = getelementptr inbounds nuw float, ptr %.04044.us, i64 %15
+  %33 = getelementptr inbounds nuw float, ptr %.03945.us, i64 %16
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, %7
   br i1 %exitcond55.not, label %._crit_edge48, label %.preheader.us, !llvm.loop !607
@@ -17713,6 +17707,9 @@ declare i16 @llvm.umax.i16(i16, i16) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold mustprogress nofree nounwind optsize willreturn memory(readwrite, inaccessiblemem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

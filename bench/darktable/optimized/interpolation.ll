@@ -1632,47 +1632,45 @@ define internal noundef float @_maketaps_bilinear(ptr noundef writeonly captures
   %exitcond38.not = icmp eq i64 %20, 4
   br i1 %exitcond38.not, label %.preheader31, label %.preheader32
 
-.preheader30:                                     ; preds = %.preheader30.preheader, %31
-  %.02637 = phi i64 [ %32, %31 ], [ 0, %.preheader30.preheader ]
+.preheader30:                                     ; preds = %.preheader30.preheader, %29
+  %.02637 = phi i64 [ %30, %29 ], [ 0, %.preheader30.preheader ]
   %.idx = shl i64 %.02637, 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   br label %22
 
-._crit_edge:                                      ; preds = %31, %.preheader31
+._crit_edge:                                      ; preds = %29, %.preheader31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
   ret float 1.000000e+00
 
 22:                                               ; preds = %.preheader30, %22
-  %.02535 = phi i64 [ 0, %.preheader30 ], [ %30, %22 ]
+  %.02535 = phi i64 [ 0, %.preheader30 ], [ %28, %22 ]
   %23 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %.02535
   %24 = load float, ptr %23, align 4, !tbaa !15
-  %25 = fcmp reassoc nsz arcp contract afn olt float %24, 0.000000e+00
-  %26 = fneg reassoc nsz arcp contract afn float %24
-  %27 = select reassoc nsz arcp contract afn i1 %25, float %26, float %24
-  %28 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %27
-  %29 = getelementptr inbounds nuw float, ptr %21, i64 %.02535
-  store float %28, ptr %29, align 4, !tbaa !15
-  %30 = add nuw nsw i64 %.02535, 1
-  %exitcond39.not = icmp eq i64 %30, 4
+  %25 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %24)
+  %26 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %25
+  %27 = getelementptr inbounds nuw float, ptr %21, i64 %.02535
+  store float %26, ptr %27, align 4, !tbaa !15
+  %28 = add nuw nsw i64 %.02535, 1
+  %exitcond39.not = icmp eq i64 %28, 4
   br i1 %exitcond39.not, label %.preheader, label %22
 
-31:                                               ; preds = %.preheader
-  %32 = add nuw i64 %.02637, 1
-  %exitcond41.not = icmp eq i64 %32, %umax
+29:                                               ; preds = %.preheader
+  %30 = add nuw i64 %.02637, 1
+  %exitcond41.not = icmp eq i64 %30, %umax
   br i1 %exitcond41.not, label %._crit_edge, label %.preheader30
 
 .preheader:                                       ; preds = %22, %.preheader
-  %.036 = phi i64 [ %38, %.preheader ], [ 0, %22 ]
-  %33 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %.036
+  %.036 = phi i64 [ %36, %.preheader ], [ 0, %22 ]
+  %31 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %.036
+  %32 = load float, ptr %31, align 4, !tbaa !15
+  %33 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %.036
   %34 = load float, ptr %33, align 4, !tbaa !15
-  %35 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %.036
-  %36 = load float, ptr %35, align 4, !tbaa !15
-  %37 = fadd reassoc nsz arcp contract afn float %36, %34
-  store float %37, ptr %35, align 4, !tbaa !15
-  %38 = add nuw nsw i64 %.036, 1
-  %exitcond40.not = icmp eq i64 %38, 4
-  br i1 %exitcond40.not, label %31, label %.preheader
+  %35 = fadd reassoc nsz arcp contract afn float %34, %32
+  store float %35, ptr %33, align 4, !tbaa !15
+  %36 = add nuw nsw i64 %.036, 1
+  %exitcond40.not = icmp eq i64 %36, 4
+  br i1 %exitcond40.not, label %29, label %.preheader
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
@@ -2571,6 +2569,9 @@ declare void @llvm.x86.sse.sfence() #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #14

@@ -138133,400 +138133,398 @@ _ZN6QDebuglsEPKc.exit183:                         ; preds = %_ZN7QStringD2Ev.exi
   %114 = load double, ptr %113, align 8
   %115 = tail call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %20, double noundef %114)
   %116 = fsub double %112, %115
-  %117 = fcmp ult double %116, 0.000000e+00
-  %118 = fneg double %116
-  %119 = select i1 %117, double %118, double %116
-  %120 = fptosi double %119 to i32
-  %121 = shl i32 %120, 1
-  %122 = add i32 %121, 2
+  %117 = tail call double @llvm.fabs.f64(double %116)
+  %118 = fptosi double %117 to i32
+  %119 = shl i32 %118, 1
+  %120 = add i32 %119, 2
   %.pre = load i8, ptr %105, align 8, !range !6
-  %123 = trunc nuw i8 %.pre to i1
-  %.not166 = icmp sle i32 %122, %110
-  %or.cond168.not = select i1 %123, i1 %.not166, i1 false
-  br i1 %or.cond168.not, label %124, label %.lr.ph298
+  %121 = trunc nuw i8 %.pre to i1
+  %.not166 = icmp sle i32 %120, %110
+  %or.cond168.not = select i1 %121, i1 %.not166, i1 false
+  br i1 %or.cond168.not, label %122, label %.lr.ph298
 
-124:                                              ; preds = %108
-  %125 = getelementptr inbounds nuw i8, ptr %29, i64 304
-  %.sroa.0.0.copyload.i = load double, ptr %125, align 8
+122:                                              ; preds = %108
+  %123 = getelementptr inbounds nuw i8, ptr %29, i64 304
+  %.sroa.0.0.copyload.i = load double, ptr %123, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 312
   %.sroa.2.0.copyload.i = load double, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %.sroa.0258.0.lcssa, i64 8
-  %127 = load double, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %20, i64 320
-  %129 = load i8, ptr %128, align 8, !range !6, !noundef !7
-  %130 = trunc nuw i8 %129 to i1
-  %131 = getelementptr inbounds nuw i8, ptr %20, i64 76
-  %132 = load i32, ptr %131, align 4
-  %133 = icmp ne i32 %132, 2
-  %.not.i = xor i1 %133, %130
+  %124 = getelementptr inbounds nuw i8, ptr %.sroa.0258.0.lcssa, i64 8
+  %125 = load double, ptr %124, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %20, i64 320
+  %127 = load i8, ptr %126, align 8, !range !6, !noundef !7
+  %128 = trunc nuw i8 %127 to i1
+  %129 = getelementptr inbounds nuw i8, ptr %20, i64 76
+  %130 = load i32, ptr %129, align 4
+  %131 = icmp ne i32 %130, 2
+  %.not.i = xor i1 %131, %128
   %not..not.i = xor i1 %.not.i, true
-  %134 = load double, ptr %.sroa.0258.0.lcssa, align 8
-  %135 = tail call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %20, double noundef %134)
-  %136 = uitofp i1 %not..not.i to double
-  %137 = fadd double %135, %136
-  %138 = fptosi double %137 to i32
-  %139 = sitofp i32 %138 to double
-  %140 = tail call noundef double @_ZNK7QCPAxis12pixelToCoordEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %20, double noundef %139)
-  %141 = tail call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %20, double noundef %140)
-  %142 = select i1 %.not.i, double 1.000000e+00, double -1.000000e+00
-  %143 = fadd double %142, %141
-  %144 = tail call noundef double @_ZNK7QCPAxis12pixelToCoordEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %20, double noundef %143)
-  %145 = fsub double %140, %144
-  %146 = fcmp ult double %145, 0.000000e+00
-  %147 = fneg double %145
-  %148 = select i1 %146, double %147, double %145
-  %149 = getelementptr inbounds nuw i8, ptr %20, i64 324
-  %150 = load i32, ptr %149, align 4
-  %151 = icmp eq i32 %150, 1
-  br i1 %78, label %154, label %152
+  %132 = load double, ptr %.sroa.0258.0.lcssa, align 8
+  %133 = tail call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %20, double noundef %132)
+  %134 = uitofp i1 %not..not.i to double
+  %135 = fadd double %133, %134
+  %136 = fptosi double %135 to i32
+  %137 = sitofp i32 %136 to double
+  %138 = tail call noundef double @_ZNK7QCPAxis12pixelToCoordEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %20, double noundef %137)
+  %139 = tail call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %20, double noundef %138)
+  %140 = select i1 %.not.i, double 1.000000e+00, double -1.000000e+00
+  %141 = fadd double %140, %139
+  %142 = tail call noundef double @_ZNK7QCPAxis12pixelToCoordEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %20, double noundef %141)
+  %143 = fsub double %138, %142
+  %144 = fcmp ult double %143, 0.000000e+00
+  %145 = fneg double %143
+  %146 = select i1 %144, double %145, double %143
+  %147 = getelementptr inbounds nuw i8, ptr %20, i64 324
+  %148 = load i32, ptr %147, align 4
+  %149 = icmp eq i32 %148, 1
+  br i1 %78, label %152, label %150
 
-152:                                              ; preds = %124
-  %153 = getelementptr i8, ptr %.sroa.0258.0.lcssa, i64 16
-  br label %160
+150:                                              ; preds = %122
+  %151 = getelementptr i8, ptr %.sroa.0258.0.lcssa, i64 16
+  br label %158
 
-154:                                              ; preds = %124
-  %155 = add i32 %.0134.lcssa, %77
-  %156 = icmp slt i32 %155, %95
-  br i1 %156, label %157, label %._crit_edge.thread
+152:                                              ; preds = %122
+  %153 = add i32 %.0134.lcssa, %77
+  %154 = icmp slt i32 %153, %95
+  br i1 %154, label %155, label %._crit_edge.thread
 
-157:                                              ; preds = %154
-  %158 = sext i32 %77 to i64
-  %159 = getelementptr %class.QCPGraphData, ptr %.sroa.0258.0.lcssa, i64 %158
-  br label %160
+155:                                              ; preds = %152
+  %156 = sext i32 %77 to i64
+  %157 = getelementptr %class.QCPGraphData, ptr %.sroa.0258.0.lcssa, i64 %156
+  br label %158
 
-160:                                              ; preds = %157, %152
-  %.sroa.0231.0 = phi ptr [ %159, %157 ], [ %153, %152 ]
-  %.0136 = phi i32 [ %155, %157 ], [ %.0134.lcssa, %152 ]
+158:                                              ; preds = %155, %150
+  %.sroa.0231.0 = phi ptr [ %157, %155 ], [ %151, %150 ]
+  %.0136 = phi i32 [ %153, %155 ], [ %.0134.lcssa, %150 ]
   %.not279304 = icmp eq ptr %.sroa.0231.0, %3
   br i1 %.not279304, label %._crit_edge.thread, label %.lr.ph322
 
-.lr.ph322:                                        ; preds = %160
-  %161 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %162 = sext i32 %77 to i64
-  br label %163
+.lr.ph322:                                        ; preds = %158
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %160 = sext i32 %77 to i64
+  br label %161
 
-163:                                              ; preds = %.lr.ph322, %252
-  %.1137321 = phi i32 [ %.0136, %.lr.ph322 ], [ %.2, %252 ]
-  %.0139320 = phi double [ %127, %.lr.ph322 ], [ %.2141, %252 ]
-  %.0144319 = phi double [ %127, %.lr.ph322 ], [ %.2146, %252 ]
-  %.sroa.041.0316 = phi ptr [ %.sroa.0258.0.lcssa, %.lr.ph322 ], [ %.sroa.041.2, %252 ]
-  %.sroa.039.0313 = phi ptr [ %.sroa.0258.0.lcssa, %.lr.ph322 ], [ %.sroa.039.2, %252 ]
-  %.0147312 = phi double [ %140, %.lr.ph322 ], [ %.1148, %252 ]
-  %.0149311 = phi double [ %148, %.lr.ph322 ], [ %.1150, %252 ]
-  %.0152310 = phi i32 [ 1, %.lr.ph322 ], [ %.1153, %252 ]
-  %.sroa.0231.1306 = phi ptr [ %.sroa.0231.0, %.lr.ph322 ], [ %.sroa.0231.2, %252 ]
-  %.sroa.0224.0305 = phi ptr [ %.sroa.0258.0.lcssa, %.lr.ph322 ], [ %.sroa.0224.1, %252 ]
-  %164 = load double, ptr %.sroa.0231.1306, align 8
-  %165 = fadd double %.0149311, %.0147312
-  %166 = fcmp olt double %164, %165
-  br i1 %166, label %167, label %178
+161:                                              ; preds = %.lr.ph322, %250
+  %.1137321 = phi i32 [ %.0136, %.lr.ph322 ], [ %.2, %250 ]
+  %.0139320 = phi double [ %125, %.lr.ph322 ], [ %.2141, %250 ]
+  %.0144319 = phi double [ %125, %.lr.ph322 ], [ %.2146, %250 ]
+  %.sroa.041.0316 = phi ptr [ %.sroa.0258.0.lcssa, %.lr.ph322 ], [ %.sroa.041.2, %250 ]
+  %.sroa.039.0313 = phi ptr [ %.sroa.0258.0.lcssa, %.lr.ph322 ], [ %.sroa.039.2, %250 ]
+  %.0147312 = phi double [ %138, %.lr.ph322 ], [ %.1148, %250 ]
+  %.0149311 = phi double [ %146, %.lr.ph322 ], [ %.1150, %250 ]
+  %.0152310 = phi i32 [ 1, %.lr.ph322 ], [ %.1153, %250 ]
+  %.sroa.0231.1306 = phi ptr [ %.sroa.0231.0, %.lr.ph322 ], [ %.sroa.0231.2, %250 ]
+  %.sroa.0224.0305 = phi ptr [ %.sroa.0258.0.lcssa, %.lr.ph322 ], [ %.sroa.0224.1, %250 ]
+  %162 = load double, ptr %.sroa.0231.1306, align 8
+  %163 = fadd double %.0149311, %.0147312
+  %164 = fcmp olt double %162, %163
+  br i1 %164, label %165, label %176
 
-167:                                              ; preds = %163
-  %168 = getelementptr inbounds nuw i8, ptr %.sroa.0231.1306, i64 8
-  %169 = load double, ptr %168, align 8
-  %170 = fcmp olt double %169, %.0139320
-  %171 = fcmp ogt double %169, %.sroa.0.0.copyload.i
-  %or.cond267 = select i1 %170, i1 %171, i1 false
-  %172 = fcmp olt double %169, %.sroa.2.0.copyload.i
-  %or.cond268 = select i1 %or.cond267, i1 %172, i1 false
-  br i1 %or.cond268, label %176, label %173
+165:                                              ; preds = %161
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.0231.1306, i64 8
+  %167 = load double, ptr %166, align 8
+  %168 = fcmp olt double %167, %.0139320
+  %169 = fcmp ogt double %167, %.sroa.0.0.copyload.i
+  %or.cond267 = select i1 %168, i1 %169, i1 false
+  %170 = fcmp olt double %167, %.sroa.2.0.copyload.i
+  %or.cond268 = select i1 %or.cond267, i1 %170, i1 false
+  br i1 %or.cond268, label %174, label %171
 
-173:                                              ; preds = %167
-  %174 = fcmp ogt double %169, %.0144319
-  %or.cond269 = select i1 %174, i1 %171, i1 false
-  %or.cond270 = select i1 %or.cond269, i1 %172, i1 false
-  br i1 %or.cond270, label %175, label %176
+171:                                              ; preds = %165
+  %172 = fcmp ogt double %167, %.0144319
+  %or.cond269 = select i1 %172, i1 %169, i1 false
+  %or.cond270 = select i1 %or.cond269, i1 %170, i1 false
+  br i1 %or.cond270, label %173, label %174
 
-175:                                              ; preds = %173
-  br label %176
+173:                                              ; preds = %171
+  br label %174
 
-176:                                              ; preds = %167, %173, %175
-  %.sroa.039.1 = phi ptr [ %.sroa.0231.1306, %175 ], [ %.sroa.039.0313, %173 ], [ %.sroa.039.0313, %167 ]
-  %.sroa.041.1 = phi ptr [ %.sroa.041.0316, %175 ], [ %.sroa.041.0316, %173 ], [ %.sroa.0231.1306, %167 ]
-  %.1145 = phi double [ %169, %175 ], [ %.0144319, %173 ], [ %.0144319, %167 ]
-  %.1140 = phi double [ %.0139320, %175 ], [ %.0139320, %173 ], [ %169, %167 ]
-  %177 = add i32 %.0152310, 1
-  br label %245
+174:                                              ; preds = %165, %171, %173
+  %.sroa.039.1 = phi ptr [ %.sroa.0231.1306, %173 ], [ %.sroa.039.0313, %171 ], [ %.sroa.039.0313, %165 ]
+  %.sroa.041.1 = phi ptr [ %.sroa.041.0316, %173 ], [ %.sroa.041.0316, %171 ], [ %.sroa.0231.1306, %165 ]
+  %.1145 = phi double [ %167, %173 ], [ %.0144319, %171 ], [ %.0144319, %165 ]
+  %.1140 = phi double [ %.0139320, %173 ], [ %.0139320, %171 ], [ %167, %165 ]
+  %175 = add i32 %.0152310, 1
+  br label %243
 
-178:                                              ; preds = %163
-  %179 = icmp sgt i32 %.0152310, 1
-  br i1 %179, label %180, label %222
+176:                                              ; preds = %161
+  %177 = icmp sgt i32 %.0152310, 1
+  br i1 %177, label %178, label %220
 
-180:                                              ; preds = %178
-  %181 = tail call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %29, double noundef %.0139320)
-  %182 = tail call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %29, double noundef %.0144319)
-  %183 = fsub double %181, %182
-  %184 = fcmp ult double %183, 0.000000e+00
-  %185 = fneg double %183
-  %186 = select i1 %184, double %185, double %183
-  %187 = fcmp ogt double %186, 1.000000e+00
-  %.sroa.speculated221 = select i1 %187, double %186, double 1.000000e+00
-  %188 = fmul double %.sroa.speculated221, 2.500000e-01
-  %189 = uitofp nneg i32 %.0152310 to double
-  %190 = fdiv double %189, %188
-  %191 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %190)
-  %192 = fadd double %190, %191
-  %193 = fptosi double %192 to i32
-  %.sroa.speculated214 = tail call i32 @llvm.smax.i32(i32 %193, i32 1)
+178:                                              ; preds = %176
+  %179 = tail call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %29, double noundef %.0139320)
+  %180 = tail call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %29, double noundef %.0144319)
+  %181 = fsub double %179, %180
+  %182 = fcmp ult double %181, 0.000000e+00
+  %183 = fneg double %181
+  %184 = select i1 %182, double %183, double %181
+  %185 = fcmp ogt double %184, 1.000000e+00
+  %.sroa.speculated221 = select i1 %185, double %184, double 1.000000e+00
+  %186 = fmul double %.sroa.speculated221, 2.500000e-01
+  %187 = uitofp nneg i32 %.0152310 to double
+  %188 = fdiv double %187, %186
+  %189 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %188)
+  %190 = fadd double %188, %189
+  %191 = fptosi double %190 to i32
+  %.sroa.speculated214 = tail call i32 @llvm.smax.i32(i32 %191, i32 1)
   %.not281300 = icmp eq ptr %.sroa.0224.0305, %.sroa.0231.1306
   br i1 %.not281300, label %.loopexit283, label %.lr.ph303
 
-.lr.ph303:                                        ; preds = %180
+.lr.ph303:                                        ; preds = %178
   br i1 %78, label %.lr.ph303.split.us, label %.lr.ph303.split
 
-.lr.ph303.split.us:                               ; preds = %.lr.ph303, %205
-  %.0154302.us = phi i32 [ %206, %205 ], [ 0, %.lr.ph303 ]
-  %.sroa.0205.0301.us = phi ptr [ %207, %205 ], [ %.sroa.0224.0305, %.lr.ph303 ]
-  %194 = srem i32 %.0154302.us, %.sroa.speculated214
-  %195 = icmp eq i32 %194, 0
-  %196 = icmp eq ptr %.sroa.0205.0301.us, %.sroa.041.0316
-  %or.cond271.us = select i1 %195, i1 true, i1 %196
-  %197 = icmp eq ptr %.sroa.0205.0301.us, %.sroa.039.0313
-  %or.cond272.us = select i1 %or.cond271.us, i1 true, i1 %197
-  br i1 %or.cond272.us, label %198, label %205
+.lr.ph303.split.us:                               ; preds = %.lr.ph303, %203
+  %.0154302.us = phi i32 [ %204, %203 ], [ 0, %.lr.ph303 ]
+  %.sroa.0205.0301.us = phi ptr [ %205, %203 ], [ %.sroa.0224.0305, %.lr.ph303 ]
+  %192 = srem i32 %.0154302.us, %.sroa.speculated214
+  %193 = icmp eq i32 %192, 0
+  %194 = icmp eq ptr %.sroa.0205.0301.us, %.sroa.041.0316
+  %or.cond271.us = select i1 %193, i1 true, i1 %194
+  %195 = icmp eq ptr %.sroa.0205.0301.us, %.sroa.039.0313
+  %or.cond272.us = select i1 %or.cond271.us, i1 true, i1 %195
+  br i1 %or.cond272.us, label %196, label %203
 
-198:                                              ; preds = %.lr.ph303.split.us
-  %199 = getelementptr inbounds nuw i8, ptr %.sroa.0205.0301.us, i64 8
-  %200 = load double, ptr %199, align 8
-  %201 = fcmp ogt double %200, %.sroa.0.0.copyload.i
-  %202 = fcmp olt double %200, %.sroa.2.0.copyload.i
-  %or.cond273.us = select i1 %201, i1 %202, i1 false
-  br i1 %or.cond273.us, label %203, label %205
+196:                                              ; preds = %.lr.ph303.split.us
+  %197 = getelementptr inbounds nuw i8, ptr %.sroa.0205.0301.us, i64 8
+  %198 = load double, ptr %197, align 8
+  %199 = fcmp ogt double %198, %.sroa.0.0.copyload.i
+  %200 = fcmp olt double %198, %.sroa.2.0.copyload.i
+  %or.cond273.us = select i1 %199, i1 %200, i1 false
+  br i1 %or.cond273.us, label %201, label %203
 
-203:                                              ; preds = %198
-  %204 = load i64, ptr %161, align 8
-  tail call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %1, i64 noundef %204, ptr noundef align 8 dereferenceable(16) %.sroa.0205.0301.us)
-  br label %205
+201:                                              ; preds = %196
+  %202 = load i64, ptr %159, align 8
+  tail call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %1, i64 noundef %202, ptr noundef align 8 dereferenceable(16) %.sroa.0205.0301.us)
+  br label %203
 
-205:                                              ; preds = %203, %198, %.lr.ph303.split.us
-  %206 = add i32 %.0154302.us, 1
-  %207 = getelementptr %class.QCPGraphData, ptr %.sroa.0205.0301.us, i64 %162
-  %.not281.us = icmp eq ptr %207, %.sroa.0231.1306
+203:                                              ; preds = %201, %196, %.lr.ph303.split.us
+  %204 = add i32 %.0154302.us, 1
+  %205 = getelementptr %class.QCPGraphData, ptr %.sroa.0205.0301.us, i64 %160
+  %.not281.us = icmp eq ptr %205, %.sroa.0231.1306
   br i1 %.not281.us, label %.loopexit283, label %.lr.ph303.split.us, !llvm.loop !915
 
-.lr.ph303.split:                                  ; preds = %.lr.ph303, %219
-  %.0154302 = phi i32 [ %220, %219 ], [ 0, %.lr.ph303 ]
-  %.sroa.0205.0301 = phi ptr [ %221, %219 ], [ %.sroa.0224.0305, %.lr.ph303 ]
-  %208 = srem i32 %.0154302, %.sroa.speculated214
-  %209 = icmp eq i32 %208, 0
-  %210 = icmp eq ptr %.sroa.0205.0301, %.sroa.041.0316
-  %or.cond271 = select i1 %209, i1 true, i1 %210
-  %211 = icmp eq ptr %.sroa.0205.0301, %.sroa.039.0313
-  %or.cond272 = select i1 %or.cond271, i1 true, i1 %211
-  br i1 %or.cond272, label %212, label %219
+.lr.ph303.split:                                  ; preds = %.lr.ph303, %217
+  %.0154302 = phi i32 [ %218, %217 ], [ 0, %.lr.ph303 ]
+  %.sroa.0205.0301 = phi ptr [ %219, %217 ], [ %.sroa.0224.0305, %.lr.ph303 ]
+  %206 = srem i32 %.0154302, %.sroa.speculated214
+  %207 = icmp eq i32 %206, 0
+  %208 = icmp eq ptr %.sroa.0205.0301, %.sroa.041.0316
+  %or.cond271 = select i1 %207, i1 true, i1 %208
+  %209 = icmp eq ptr %.sroa.0205.0301, %.sroa.039.0313
+  %or.cond272 = select i1 %or.cond271, i1 true, i1 %209
+  br i1 %or.cond272, label %210, label %217
 
-212:                                              ; preds = %.lr.ph303.split
-  %213 = getelementptr inbounds nuw i8, ptr %.sroa.0205.0301, i64 8
-  %214 = load double, ptr %213, align 8
-  %215 = fcmp ogt double %214, %.sroa.0.0.copyload.i
-  %216 = fcmp olt double %214, %.sroa.2.0.copyload.i
-  %or.cond273 = select i1 %215, i1 %216, i1 false
-  br i1 %or.cond273, label %217, label %219
+210:                                              ; preds = %.lr.ph303.split
+  %211 = getelementptr inbounds nuw i8, ptr %.sroa.0205.0301, i64 8
+  %212 = load double, ptr %211, align 8
+  %213 = fcmp ogt double %212, %.sroa.0.0.copyload.i
+  %214 = fcmp olt double %212, %.sroa.2.0.copyload.i
+  %or.cond273 = select i1 %213, i1 %214, i1 false
+  br i1 %or.cond273, label %215, label %217
 
-217:                                              ; preds = %212
-  %218 = load i64, ptr %161, align 8
-  tail call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %1, i64 noundef %218, ptr noundef align 8 dereferenceable(16) %.sroa.0205.0301)
-  br label %219
+215:                                              ; preds = %210
+  %216 = load i64, ptr %159, align 8
+  tail call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %1, i64 noundef %216, ptr noundef align 8 dereferenceable(16) %.sroa.0205.0301)
+  br label %217
 
-219:                                              ; preds = %.lr.ph303.split, %217, %212
-  %220 = add i32 %.0154302, 1
-  %221 = getelementptr i8, ptr %.sroa.0205.0301, i64 16
-  %.not281 = icmp eq ptr %221, %.sroa.0231.1306
+217:                                              ; preds = %.lr.ph303.split, %215, %210
+  %218 = add i32 %.0154302, 1
+  %219 = getelementptr i8, ptr %.sroa.0205.0301, i64 16
+  %.not281 = icmp eq ptr %219, %.sroa.0231.1306
   br i1 %.not281, label %.loopexit283, label %.lr.ph303.split, !llvm.loop !915
 
-222:                                              ; preds = %178
-  %223 = getelementptr inbounds nuw i8, ptr %.sroa.0224.0305, i64 8
-  %224 = load double, ptr %223, align 8
-  %225 = fcmp ogt double %224, %.sroa.0.0.copyload.i
-  %226 = fcmp olt double %224, %.sroa.2.0.copyload.i
-  %or.cond274 = select i1 %225, i1 %226, i1 false
-  br i1 %or.cond274, label %227, label %.loopexit283
+220:                                              ; preds = %176
+  %221 = getelementptr inbounds nuw i8, ptr %.sroa.0224.0305, i64 8
+  %222 = load double, ptr %221, align 8
+  %223 = fcmp ogt double %222, %.sroa.0.0.copyload.i
+  %224 = fcmp olt double %222, %.sroa.2.0.copyload.i
+  %or.cond274 = select i1 %223, i1 %224, i1 false
+  br i1 %or.cond274, label %225, label %.loopexit283
 
-227:                                              ; preds = %222
-  %228 = load i64, ptr %161, align 8
-  tail call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %1, i64 noundef %228, ptr noundef align 8 dereferenceable(16) %.sroa.0224.0305)
+225:                                              ; preds = %220
+  %226 = load i64, ptr %159, align 8
+  tail call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %1, i64 noundef %226, ptr noundef align 8 dereferenceable(16) %.sroa.0224.0305)
   br label %.loopexit283
 
-.loopexit283:                                     ; preds = %219, %205, %180, %222, %227
-  %229 = getelementptr inbounds nuw i8, ptr %.sroa.0231.1306, i64 8
-  %230 = load double, ptr %229, align 8
-  %231 = load double, ptr %.sroa.0231.1306, align 8
-  %232 = tail call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %20, double noundef %231)
-  %233 = fadd double %232, %136
-  %234 = fptosi double %233 to i32
-  %235 = sitofp i32 %234 to double
-  %236 = tail call noundef double @_ZNK7QCPAxis12pixelToCoordEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %20, double noundef %235)
-  br i1 %151, label %237, label %245
+.loopexit283:                                     ; preds = %217, %203, %178, %220, %225
+  %227 = getelementptr inbounds nuw i8, ptr %.sroa.0231.1306, i64 8
+  %228 = load double, ptr %227, align 8
+  %229 = load double, ptr %.sroa.0231.1306, align 8
+  %230 = tail call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %20, double noundef %229)
+  %231 = fadd double %230, %134
+  %232 = fptosi double %231 to i32
+  %233 = sitofp i32 %232 to double
+  %234 = tail call noundef double @_ZNK7QCPAxis12pixelToCoordEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %20, double noundef %233)
+  br i1 %149, label %235, label %243
 
-237:                                              ; preds = %.loopexit283
-  %238 = tail call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %20, double noundef %236)
-  %239 = fadd double %142, %238
-  %240 = tail call noundef double @_ZNK7QCPAxis12pixelToCoordEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %20, double noundef %239)
-  %241 = fsub double %236, %240
-  %242 = fcmp ult double %241, 0.000000e+00
-  %243 = fneg double %241
-  %244 = select i1 %242, double %243, double %241
-  br label %245
+235:                                              ; preds = %.loopexit283
+  %236 = tail call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %20, double noundef %234)
+  %237 = fadd double %140, %236
+  %238 = tail call noundef double @_ZNK7QCPAxis12pixelToCoordEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %20, double noundef %237)
+  %239 = fsub double %234, %238
+  %240 = fcmp ult double %239, 0.000000e+00
+  %241 = fneg double %239
+  %242 = select i1 %240, double %241, double %239
+  br label %243
 
-245:                                              ; preds = %.loopexit283, %237, %176
-  %.sroa.0224.1 = phi ptr [ %.sroa.0224.0305, %176 ], [ %.sroa.0231.1306, %237 ], [ %.sroa.0231.1306, %.loopexit283 ]
-  %.1153 = phi i32 [ %177, %176 ], [ 1, %237 ], [ 1, %.loopexit283 ]
-  %.1150 = phi double [ %.0149311, %176 ], [ %244, %237 ], [ %.0149311, %.loopexit283 ]
-  %.1148 = phi double [ %.0147312, %176 ], [ %236, %237 ], [ %236, %.loopexit283 ]
-  %.sroa.039.2 = phi ptr [ %.sroa.039.1, %176 ], [ %.sroa.039.0313, %237 ], [ %.sroa.039.0313, %.loopexit283 ]
-  %.sroa.041.2 = phi ptr [ %.sroa.041.1, %176 ], [ %.sroa.041.0316, %237 ], [ %.sroa.041.0316, %.loopexit283 ]
-  %.2146 = phi double [ %.1145, %176 ], [ %230, %237 ], [ %230, %.loopexit283 ]
-  %.2141 = phi double [ %.1140, %176 ], [ %230, %237 ], [ %230, %.loopexit283 ]
-  br i1 %78, label %248, label %246
+243:                                              ; preds = %.loopexit283, %235, %174
+  %.sroa.0224.1 = phi ptr [ %.sroa.0224.0305, %174 ], [ %.sroa.0231.1306, %235 ], [ %.sroa.0231.1306, %.loopexit283 ]
+  %.1153 = phi i32 [ %175, %174 ], [ 1, %235 ], [ 1, %.loopexit283 ]
+  %.1150 = phi double [ %.0149311, %174 ], [ %242, %235 ], [ %.0149311, %.loopexit283 ]
+  %.1148 = phi double [ %.0147312, %174 ], [ %234, %235 ], [ %234, %.loopexit283 ]
+  %.sroa.039.2 = phi ptr [ %.sroa.039.1, %174 ], [ %.sroa.039.0313, %235 ], [ %.sroa.039.0313, %.loopexit283 ]
+  %.sroa.041.2 = phi ptr [ %.sroa.041.1, %174 ], [ %.sroa.041.0316, %235 ], [ %.sroa.041.0316, %.loopexit283 ]
+  %.2146 = phi double [ %.1145, %174 ], [ %228, %235 ], [ %228, %.loopexit283 ]
+  %.2141 = phi double [ %.1140, %174 ], [ %228, %235 ], [ %228, %.loopexit283 ]
+  br i1 %78, label %246, label %244
 
-246:                                              ; preds = %245
-  %247 = getelementptr i8, ptr %.sroa.0231.1306, i64 16
-  br label %252
+244:                                              ; preds = %243
+  %245 = getelementptr i8, ptr %.sroa.0231.1306, i64 16
+  br label %250
 
-248:                                              ; preds = %245
-  %249 = add i32 %.1137321, %77
-  %250 = icmp slt i32 %249, %95
-  %251 = getelementptr %class.QCPGraphData, ptr %.sroa.0231.1306, i64 %162
-  %spec.select = select i1 %250, ptr %251, ptr %3
-  %spec.select337 = tail call i32 @llvm.smin.i32(i32 %249, i32 %95)
-  br label %252
+246:                                              ; preds = %243
+  %247 = add i32 %.1137321, %77
+  %248 = icmp slt i32 %247, %95
+  %249 = getelementptr %class.QCPGraphData, ptr %.sroa.0231.1306, i64 %160
+  %spec.select = select i1 %248, ptr %249, ptr %3
+  %spec.select337 = tail call i32 @llvm.smin.i32(i32 %247, i32 %95)
+  br label %250
 
-252:                                              ; preds = %248, %246
-  %.sroa.0231.2 = phi ptr [ %247, %246 ], [ %spec.select, %248 ]
-  %.2 = phi i32 [ %.1137321, %246 ], [ %spec.select337, %248 ]
+250:                                              ; preds = %246, %244
+  %.sroa.0231.2 = phi ptr [ %245, %244 ], [ %spec.select, %246 ]
+  %.2 = phi i32 [ %.1137321, %244 ], [ %spec.select337, %246 ]
   %.not279 = icmp eq ptr %.sroa.0231.2, %3
-  br i1 %.not279, label %._crit_edge, label %163, !llvm.loop !916
+  br i1 %.not279, label %._crit_edge, label %161, !llvm.loop !916
 
-._crit_edge:                                      ; preds = %252
-  %253 = icmp sgt i32 %.1153, 1
-  br i1 %253, label %254, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %250
+  %251 = icmp sgt i32 %.1153, 1
+  br i1 %251, label %252, label %._crit_edge.thread
 
-254:                                              ; preds = %._crit_edge
-  %255 = tail call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %29, double noundef %.2141)
-  %256 = tail call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %29, double noundef %.2146)
-  %257 = fsub double %255, %256
-  %258 = fcmp ult double %257, 0.000000e+00
-  %259 = fneg double %257
-  %260 = select i1 %258, double %259, double %257
-  %261 = fmul double %260, 2.500000e-01
-  %262 = uitofp nneg i32 %.1153 to double
-  %263 = fdiv double %262, %261
-  %264 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %263)
-  %265 = fadd double %263, %264
-  %266 = fptosi double %265 to i32
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %266, i32 1)
+252:                                              ; preds = %._crit_edge
+  %253 = tail call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %29, double noundef %.2141)
+  %254 = tail call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable_or_null(472) %29, double noundef %.2146)
+  %255 = fsub double %253, %254
+  %256 = fcmp ult double %255, 0.000000e+00
+  %257 = fneg double %255
+  %258 = select i1 %256, double %257, double %255
+  %259 = fmul double %258, 2.500000e-01
+  %260 = uitofp nneg i32 %.1153 to double
+  %261 = fdiv double %260, %259
+  %262 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %261)
+  %263 = fadd double %261, %262
+  %264 = fptosi double %263 to i32
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %264, i32 1)
   %.not280331 = icmp eq ptr %.sroa.0224.1, %.sroa.0231.2
   br i1 %.not280331, label %.loopexit, label %.lr.ph336
 
-.lr.ph336:                                        ; preds = %254
-  %267 = ptrtoint ptr %.sroa.0224.1 to i64
-  %268 = load ptr, ptr %79, align 8
-  %269 = getelementptr inbounds nuw i8, ptr %268, i64 16
-  %270 = load ptr, ptr %269, align 8
-  %271 = getelementptr inbounds nuw i8, ptr %268, i64 32
-  %272 = load i32, ptr %271, align 8
-  %273 = sext i32 %272 to i64
-  %274 = getelementptr %class.QCPGraphData, ptr %270, i64 %273
-  %275 = ptrtoint ptr %274 to i64
-  %276 = sub i64 %267, %275
-  %277 = lshr exact i64 %276, 4
-  %278 = trunc i64 %277 to i32
-  %279 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %280 = sext i32 %77 to i64
-  br label %281
+.lr.ph336:                                        ; preds = %252
+  %265 = ptrtoint ptr %.sroa.0224.1 to i64
+  %266 = load ptr, ptr %79, align 8
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 16
+  %268 = load ptr, ptr %267, align 8
+  %269 = getelementptr inbounds nuw i8, ptr %266, i64 32
+  %270 = load i32, ptr %269, align 8
+  %271 = sext i32 %270 to i64
+  %272 = getelementptr %class.QCPGraphData, ptr %268, i64 %271
+  %273 = ptrtoint ptr %272 to i64
+  %274 = sub i64 %265, %273
+  %275 = lshr exact i64 %274, 4
+  %276 = trunc i64 %275 to i32
+  %277 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %278 = sext i32 %77 to i64
+  br label %279
 
-281:                                              ; preds = %.lr.ph336, %301
-  %.0138334 = phi i32 [ 0, %.lr.ph336 ], [ %294, %301 ]
-  %.0142333 = phi i32 [ %278, %.lr.ph336 ], [ %.1143, %301 ]
-  %.sroa.0192.0332 = phi ptr [ %.sroa.0224.1, %.lr.ph336 ], [ %.sroa.0192.1, %301 ]
-  %282 = srem i32 %.0138334, %.sroa.speculated
-  %283 = icmp eq i32 %282, 0
-  %284 = icmp eq ptr %.sroa.0192.0332, %.sroa.041.2
-  %or.cond275 = select i1 %283, i1 true, i1 %284
-  %285 = icmp eq ptr %.sroa.0192.0332, %.sroa.039.2
-  %or.cond276 = select i1 %or.cond275, i1 true, i1 %285
-  br i1 %or.cond276, label %286, label %293
+279:                                              ; preds = %.lr.ph336, %299
+  %.0138334 = phi i32 [ 0, %.lr.ph336 ], [ %292, %299 ]
+  %.0142333 = phi i32 [ %276, %.lr.ph336 ], [ %.1143, %299 ]
+  %.sroa.0192.0332 = phi ptr [ %.sroa.0224.1, %.lr.ph336 ], [ %.sroa.0192.1, %299 ]
+  %280 = srem i32 %.0138334, %.sroa.speculated
+  %281 = icmp eq i32 %280, 0
+  %282 = icmp eq ptr %.sroa.0192.0332, %.sroa.041.2
+  %or.cond275 = select i1 %281, i1 true, i1 %282
+  %283 = icmp eq ptr %.sroa.0192.0332, %.sroa.039.2
+  %or.cond276 = select i1 %or.cond275, i1 true, i1 %283
+  br i1 %or.cond276, label %284, label %291
 
-286:                                              ; preds = %281
-  %287 = getelementptr inbounds nuw i8, ptr %.sroa.0192.0332, i64 8
-  %288 = load double, ptr %287, align 8
-  %289 = fcmp ogt double %288, %.sroa.0.0.copyload.i
-  %290 = fcmp olt double %288, %.sroa.2.0.copyload.i
-  %or.cond277 = select i1 %289, i1 %290, i1 false
-  br i1 %or.cond277, label %291, label %293
+284:                                              ; preds = %279
+  %285 = getelementptr inbounds nuw i8, ptr %.sroa.0192.0332, i64 8
+  %286 = load double, ptr %285, align 8
+  %287 = fcmp ogt double %286, %.sroa.0.0.copyload.i
+  %288 = fcmp olt double %286, %.sroa.2.0.copyload.i
+  %or.cond277 = select i1 %287, i1 %288, i1 false
+  br i1 %or.cond277, label %289, label %291
 
-291:                                              ; preds = %286
-  %292 = load i64, ptr %279, align 8
-  tail call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %1, i64 noundef %292, ptr noundef align 8 dereferenceable(16) %.sroa.0192.0332)
-  br label %293
+289:                                              ; preds = %284
+  %290 = load i64, ptr %277, align 8
+  tail call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %1, i64 noundef %290, ptr noundef align 8 dereferenceable(16) %.sroa.0192.0332)
+  br label %291
 
-293:                                              ; preds = %281, %291, %286
-  %294 = add i32 %.0138334, 1
-  br i1 %78, label %297, label %295
+291:                                              ; preds = %279, %289, %284
+  %292 = add i32 %.0138334, 1
+  br i1 %78, label %295, label %293
 
-295:                                              ; preds = %293
-  %296 = getelementptr i8, ptr %.sroa.0192.0332, i64 16
-  br label %301
+293:                                              ; preds = %291
+  %294 = getelementptr i8, ptr %.sroa.0192.0332, i64 16
+  br label %299
 
-297:                                              ; preds = %293
-  %298 = add i32 %.0142333, %77
-  %299 = icmp slt i32 %298, %.2
-  %300 = getelementptr %class.QCPGraphData, ptr %.sroa.0192.0332, i64 %280
-  %spec.select338 = select i1 %299, ptr %300, ptr %.sroa.0231.2
-  %spec.select339 = tail call i32 @llvm.smin.i32(i32 %298, i32 %.2)
-  br label %301
+295:                                              ; preds = %291
+  %296 = add i32 %.0142333, %77
+  %297 = icmp slt i32 %296, %.2
+  %298 = getelementptr %class.QCPGraphData, ptr %.sroa.0192.0332, i64 %278
+  %spec.select338 = select i1 %297, ptr %298, ptr %.sroa.0231.2
+  %spec.select339 = tail call i32 @llvm.smin.i32(i32 %296, i32 %.2)
+  br label %299
 
-301:                                              ; preds = %297, %295
-  %.sroa.0192.1 = phi ptr [ %296, %295 ], [ %spec.select338, %297 ]
-  %.1143 = phi i32 [ %.0142333, %295 ], [ %spec.select339, %297 ]
+299:                                              ; preds = %295, %293
+  %.sroa.0192.1 = phi ptr [ %294, %293 ], [ %spec.select338, %295 ]
+  %.1143 = phi i32 [ %.0142333, %293 ], [ %spec.select339, %295 ]
   %.not280 = icmp eq ptr %.sroa.0192.1, %.sroa.0231.2
-  br i1 %.not280, label %.loopexit, label %281, !llvm.loop !917
+  br i1 %.not280, label %.loopexit, label %279, !llvm.loop !917
 
-._crit_edge.thread:                               ; preds = %154, %160, %._crit_edge
-  %.sroa.0224.0.lcssa363 = phi ptr [ %.sroa.0224.1, %._crit_edge ], [ %.sroa.0258.0.lcssa, %160 ], [ %.sroa.0258.0.lcssa, %154 ]
-  %302 = getelementptr inbounds nuw i8, ptr %.sroa.0224.0.lcssa363, i64 8
-  %303 = load double, ptr %302, align 8
-  %304 = fcmp ogt double %303, %.sroa.0.0.copyload.i
-  %305 = fcmp olt double %303, %.sroa.2.0.copyload.i
-  %or.cond278 = select i1 %304, i1 %305, i1 false
-  br i1 %or.cond278, label %306, label %.loopexit
+._crit_edge.thread:                               ; preds = %152, %158, %._crit_edge
+  %.sroa.0224.0.lcssa363 = phi ptr [ %.sroa.0224.1, %._crit_edge ], [ %.sroa.0258.0.lcssa, %158 ], [ %.sroa.0258.0.lcssa, %152 ]
+  %300 = getelementptr inbounds nuw i8, ptr %.sroa.0224.0.lcssa363, i64 8
+  %301 = load double, ptr %300, align 8
+  %302 = fcmp ogt double %301, %.sroa.0.0.copyload.i
+  %303 = fcmp olt double %301, %.sroa.2.0.copyload.i
+  %or.cond278 = select i1 %302, i1 %303, i1 false
+  br i1 %or.cond278, label %304, label %.loopexit
 
-306:                                              ; preds = %._crit_edge.thread
-  %307 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %308 = load i64, ptr %307, align 8
-  tail call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %1, i64 noundef %308, ptr noundef align 8 dereferenceable(16) %.sroa.0224.0.lcssa363)
+304:                                              ; preds = %._crit_edge.thread
+  %305 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %306 = load i64, ptr %305, align 8
+  tail call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %1, i64 noundef %306, ptr noundef align 8 dereferenceable(16) %.sroa.0224.0.lcssa363)
   br label %.loopexit
 
 .lr.ph298:                                        ; preds = %102, %108
   %sext = shl i64 %104, 28
-  %309 = ashr exact i64 %sext, 32
-  tail call void @_ZN5QListI12QCPGraphDataE7reserveEx(ptr noundef nonnull align 8 dereferenceable_or_null(24) %1, i64 noundef %309)
-  %310 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %311 = sext i32 %77 to i64
+  %307 = ashr exact i64 %sext, 32
+  tail call void @_ZN5QListI12QCPGraphDataE7reserveEx(ptr noundef nonnull align 8 dereferenceable_or_null(24) %1, i64 noundef %307)
+  %308 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %309 = sext i32 %77 to i64
   br i1 %78, label %.lr.ph298.split.us, label %.lr.ph298.split
 
 .lr.ph298.split.us:                               ; preds = %.lr.ph298, %.lr.ph298.split.us
   %.0297.us = phi i32 [ %spec.select341, %.lr.ph298.split.us ], [ %.0134.lcssa, %.lr.ph298 ]
   %.sroa.0.0296.us = phi ptr [ %spec.select340, %.lr.ph298.split.us ], [ %.sroa.0258.0.lcssa, %.lr.ph298 ]
-  %312 = load i64, ptr %310, align 8
-  tail call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %1, i64 noundef %312, ptr noundef align 8 dereferenceable(16) %.sroa.0.0296.us)
-  %313 = add i32 %.0297.us, %77
-  %314 = icmp slt i32 %313, %95
-  %315 = getelementptr %class.QCPGraphData, ptr %.sroa.0.0296.us, i64 %311
-  %spec.select340 = select i1 %314, ptr %315, ptr %3
-  %spec.select341 = tail call i32 @llvm.smin.i32(i32 %313, i32 %95)
+  %310 = load i64, ptr %308, align 8
+  tail call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %1, i64 noundef %310, ptr noundef align 8 dereferenceable(16) %.sroa.0.0296.us)
+  %311 = add i32 %.0297.us, %77
+  %312 = icmp slt i32 %311, %95
+  %313 = getelementptr %class.QCPGraphData, ptr %.sroa.0.0296.us, i64 %309
+  %spec.select340 = select i1 %312, ptr %313, ptr %3
+  %spec.select341 = tail call i32 @llvm.smin.i32(i32 %311, i32 %95)
   %.not282.us = icmp eq ptr %spec.select340, %3
   br i1 %.not282.us, label %.loopexit, label %.lr.ph298.split.us, !llvm.loop !918
 
 .lr.ph298.split:                                  ; preds = %.lr.ph298, %.lr.ph298.split
-  %.sroa.0.0296 = phi ptr [ %317, %.lr.ph298.split ], [ %.sroa.0258.0.lcssa, %.lr.ph298 ]
-  %316 = load i64, ptr %310, align 8
-  tail call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %1, i64 noundef %316, ptr noundef align 8 dereferenceable(16) %.sroa.0.0296)
-  %317 = getelementptr i8, ptr %.sroa.0.0296, i64 16
-  %.not282 = icmp eq ptr %317, %3
+  %.sroa.0.0296 = phi ptr [ %315, %.lr.ph298.split ], [ %.sroa.0258.0.lcssa, %.lr.ph298 ]
+  %314 = load i64, ptr %308, align 8
+  tail call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %1, i64 noundef %314, ptr noundef align 8 dereferenceable(16) %.sroa.0.0296)
+  %315 = getelementptr i8, ptr %.sroa.0.0296, i64 16
+  %.not282 = icmp eq ptr %315, %3
   br i1 %.not282, label %.loopexit, label %.lr.ph298.split, !llvm.loop !918
 
-.loopexit:                                        ; preds = %.lr.ph298.split, %.lr.ph298.split.us, %301, %254, %306, %._crit_edge.thread, %_ZN6QDebuglsEPKc.exit183, %.critedge, %4
+.loopexit:                                        ; preds = %.lr.ph298.split, %.lr.ph298.split.us, %299, %252, %304, %._crit_edge.thread, %_ZN6QDebuglsEPKc.exit183, %.critedge, %4
   ret void
 }
 

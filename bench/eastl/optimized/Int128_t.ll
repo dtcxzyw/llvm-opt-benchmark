@@ -1018,9 +1018,7 @@ define dso_local void @_ZN2EA4StdC13int128_t_base15DoubleToUint128Ed(ptr noundef
 entry:
   %mPart1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %mPart1, align 8
-  %cmp = fcmp ult double %value, 0.000000e+00
-  %fneg = fneg double %value
-  %cond.in = select i1 %cmp, double %fneg, double %value
+  %cond.in = tail call double @llvm.fabs.f64(double %value)
   %cond = fptoui double %cond.in to i64
   store i64 %cond, ptr %this, align 8
   ret void
@@ -1237,13 +1235,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN2EA4StdC8int128_tC2Ef(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, float noundef %value) unnamed_addr #0 align 2 {
 entry:
-  %conv = fpext float %value to double
-  %cmp.i = fcmp ult float %value, 0.000000e+00
-  %fneg.i = fneg double %conv
-  %cond.in.i = select i1 %cmp.i, double %fneg.i, double %conv
-  %cond.i = fptoui double %cond.in.i to i64
-  %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i64 0, ptr %0, align 8
+  %0 = tail call float @llvm.fabs.f32(float %value)
+  %cond.i = fptoui float %0 to i64
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  store i64 0, ptr %1, align 8
   store i64 %cond.i, ptr %this, align 8
   %cmp = fcmp olt float %value, 0.000000e+00
   br i1 %cmp, label %_ZN2EA4StdC8int128_t6NegateEv.exit, label %if.end
@@ -1299,9 +1294,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN2EA4StdC8int128_tC2Ed(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, double noundef %value) unnamed_addr #0 align 2 {
 entry:
-  %cmp.i = fcmp ult double %value, 0.000000e+00
-  %fneg.i = fneg double %value
-  %cond.in.i = select i1 %cmp.i, double %fneg.i, double %value
+  %cond.in.i = tail call double @llvm.fabs.f64(double %value)
   %cond.i = fptoui double %cond.in.i to i64
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %0, align 8
@@ -4047,13 +4040,10 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN2EA4StdC9uint128_tC2Ef(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, float noundef %value) unnamed_addr #0 align 2 {
 entry:
-  %conv = fpext float %value to double
-  %cmp.i = fcmp ult float %value, 0.000000e+00
-  %fneg.i = fneg double %conv
-  %cond.in.i = select i1 %cmp.i, double %fneg.i, double %conv
-  %cond.i = fptoui double %cond.in.i to i64
-  %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i64 0, ptr %0, align 8
+  %0 = tail call float @llvm.fabs.f32(float %value)
+  %cond.i = fptoui float %0 to i64
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  store i64 0, ptr %1, align 8
   store i64 %cond.i, ptr %this, align 8
   ret void
 }
@@ -4061,9 +4051,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN2EA4StdC9uint128_tC2Ed(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, double noundef %value) unnamed_addr #0 align 2 {
 entry:
-  %cmp.i = fcmp ult double %value, 0.000000e+00
-  %fneg.i = fneg double %value
-  %cond.in.i = select i1 %cmp.i, double %fneg.i, double %value
+  %cond.in.i = tail call double @llvm.fabs.f64(double %value)
   %cond.i = fptoui double %cond.in.i to i64
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %0, align 8
@@ -6633,20 +6621,26 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #15
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #16
+declare float @llvm.fabs.f32(float) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #16
+declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #16
+declare i32 @llvm.fshl.i32(i32, i32, i32) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6663,8 +6657,8 @@ attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #12 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
