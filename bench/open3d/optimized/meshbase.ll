@@ -6817,12 +6817,12 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(120) ptr @_ZN
   %.not = icmp eq ptr %4, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %30, %1
+._crit_edge:                                      ; preds = %28, %1
   ret ptr %0
 
-.lr.ph:                                           ; preds = %1, %30
-  %6 = phi ptr [ %31, %30 ], [ %5, %1 ]
-  %.07 = phi i64 [ %32, %30 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %28
+  %6 = phi ptr [ %29, %28 ], [ %5, %1 ]
+  %.07 = phi i64 [ %30, %28 ], [ 0, %1 ]
   %7 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %6, i64 %.07
   %8 = load <2 x double>, ptr %7, align 1
   %9 = fmul <2 x double> %8, %8
@@ -6838,43 +6838,42 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(120) ptr @_ZN
   br i1 %16, label %18, label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit
 
 18:                                               ; preds = %.lr.ph
-  %19 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %15, i64 0
-  %20 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %19)
-  %21 = extractelement <2 x double> %20, i64 0
-  %22 = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> zeroinitializer
-  %23 = fdiv <2 x double> %8, %22
-  store <2 x double> %23, ptr %7, align 1, !tbaa !127
-  %24 = fdiv double %13, %21
-  store double %24, ptr %12, align 8, !tbaa !278
+  %.scalar.i = tail call double @llvm.sqrt.f64(double %15)
+  %19 = insertelement <2 x double> poison, double %.scalar.i, i64 0
+  %20 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> zeroinitializer
+  %21 = fdiv <2 x double> %8, %20
+  store <2 x double> %21, ptr %7, align 1, !tbaa !127
+  %22 = fdiv double %13, %.scalar.i
+  store double %22, ptr %12, align 8, !tbaa !278
   %.pre = load ptr, ptr %2, align 8, !tbaa !243
   %.phi.trans.insert = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %.pre, i64 %.07
   %.pre8 = load double, ptr %.phi.trans.insert, align 8, !tbaa !278
   br label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit
 
 _ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit: ; preds = %.lr.ph, %18
-  %25 = phi ptr [ %6, %.lr.ph ], [ %.pre, %18 ]
-  %26 = phi double [ %17, %.lr.ph ], [ %.pre8, %18 ]
-  %27 = fcmp uno double %26, 0.000000e+00
-  br i1 %27, label %28, label %30
+  %23 = phi ptr [ %6, %.lr.ph ], [ %.pre, %18 ]
+  %24 = phi double [ %17, %.lr.ph ], [ %.pre8, %18 ]
+  %25 = fcmp uno double %24, 0.000000e+00
+  br i1 %25, label %26, label %28
 
-28:                                               ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit
-  %29 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %25, i64 %.07
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
+26:                                               ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit
+  %27 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %23, i64 %.07
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   store double 1.000000e+00, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !127
   %.pre9 = load ptr, ptr %2, align 8, !tbaa !243
-  br label %30
+  br label %28
 
-30:                                               ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit, %28
-  %31 = phi ptr [ %25, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit ], [ %.pre9, %28 ]
-  %32 = add nuw i64 %.07, 1
-  %33 = load ptr, ptr %3, align 8, !tbaa !240
-  %34 = ptrtoint ptr %33 to i64
-  %35 = ptrtoint ptr %31 to i64
-  %36 = sub i64 %34, %35
-  %37 = sdiv exact i64 %36, 24
-  %38 = icmp ult i64 %32, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !280
+28:                                               ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit, %26
+  %29 = phi ptr [ %23, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit ], [ %.pre9, %26 ]
+  %30 = add nuw i64 %.07, 1
+  %31 = load ptr, ptr %3, align 8, !tbaa !240
+  %32 = ptrtoint ptr %31 to i64
+  %33 = ptrtoint ptr %29 to i64
+  %34 = sub i64 %32, %33
+  %35 = sdiv exact i64 %34, 24
+  %36 = icmp ult i64 %30, %35
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !280
 }
 
 ; Function Attrs: mustprogress ssp uwtable
@@ -35338,9 +35337,6 @@ declare void @PyThreadState_Clear(ptr noundef) local_unnamed_addr #10
 
 declare void @PyThreadState_DeleteCurrent() local_unnamed_addr #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #27
-
 declare void @_ZNK6open3d8geometry10Geometry3D26ResizeAndPaintUniformColorERSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(24), i64 noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind ssp uwtable
@@ -42761,7 +42757,7 @@ _ZNK8pybind117capsule4nameEv.exit:                ; preds = %1, %5
 declare noalias noundef nonnull ptr @_ZnwmSt11align_val_t(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #28
+declare void @llvm.assume(i1 noundef) #27
 
 ; Function Attrs: mustprogress noinline ssp uwtable
 define linkonce_odr hidden void @_ZN8pybind116detail19type_caster_genericC2ERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 comdat align 2 {
@@ -69684,7 +69680,7 @@ _ZN8pybind116detail16value_and_holder23set_instance_registeredEb.exit21: ; preds
 }
 
 ; Function Attrs: mustprogress noreturn ssp uwtable
-define linkonce_odr hidden void @_ZN8pybind116detail8initimpl24construct_alias_from_cppINS_6class_IN6open3d8geometry8MeshBaseEJNS5_12PyGeometry3DIS6_EESt10shared_ptrIS6_ENS5_10Geometry3DEEEEEEvSt17integral_constantIbLb0EERNS0_16value_and_holderEONT_4typeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(120) %1) local_unnamed_addr #29 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN8pybind116detail8initimpl24construct_alias_from_cppINS_6class_IN6open3d8geometry8MeshBaseEJNS5_12PyGeometry3DIS6_EESt10shared_ptrIS6_ENS5_10Geometry3DEEEEEEvSt17integral_constantIbLb0EERNS0_16value_and_holderEONT_4typeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(120) %1) local_unnamed_addr #28 comdat personality ptr @__gxx_personality_v0 {
   %3 = tail call ptr @__cxa_allocate_exception(i64 16) #33
   invoke void @_ZN8pybind1110type_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.236)
           to label %4 unwind label %5
@@ -76368,7 +76364,7 @@ declare void @__once_proxy() #10
 declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #27
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #29
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
 define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN8pybind1128gil_safe_call_once_and_storeINS3_6detail7npy_apiEE26call_once_and_store_resultIRFS6_vEEERS7_OT_EUlvE_JEEvRS_SD_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv() #13 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -80504,6 +80500,9 @@ declare i64 @llvm.umax.i64(i64, i64) #30
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #32
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #30
+
 attributes #0 = { inlinehint mustprogress nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress noinline ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -80531,9 +80530,9 @@ attributes #23 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #24 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #26 = { nofree nounwind }
-attributes #27 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #28 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #29 = { mustprogress noreturn ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #28 = { mustprogress noreturn ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #30 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #31 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #32 = { nocallback nofree nounwind willreturn memory(argmem: read) }

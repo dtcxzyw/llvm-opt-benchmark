@@ -138,7 +138,7 @@ define dso_local void @_ZN3igl6opengl10ViewerCore19align_camera_centerERKN5Eigen
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !4
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %37, label %8
+  br i1 %7, label %34, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -149,7 +149,7 @@ define dso_local void @_ZN3igl6opengl10ViewerCore19align_camera_centerERKN5Eigen
   %13 = load i64, ptr %12, align 8, !tbaa !11
   %14 = mul nsw i64 %13, %11
   %15 = icmp sgt i64 %14, 0
-  br i1 %15, label %16, label %37
+  br i1 %15, label %16, label %34
 
 16:                                               ; preds = %8
   %17 = icmp eq i64 %13, 0
@@ -186,15 +186,13 @@ _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal14scalar_abs2_opIdEEKNS_13Cwi
 
 _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_16PartialReduxExprIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_15member_maxCoeffIddEELi0EEEKNS5_IS8_NS2_15member_minCoeffIddEELi0EEEEEE4normEv.exit: ; preds = %16, %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal14scalar_abs2_opIdEEKNS_13CwiseBinaryOpINS2_20scalar_difference_opIddEEKNS_16PartialReduxExprIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_15member_maxCoeffIddEELi0EEEKNS8_ISB_NS2_15member_minCoeffIddEELi0EEEEEEEE5reduxINS2_13scalar_sum_opIddEEEEdRKT_.exit.i.i.i
   %.0.i.i.i = phi double [ %.022.lcssa.i.i.i.i.i, %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal14scalar_abs2_opIdEEKNS_13CwiseBinaryOpINS2_20scalar_difference_opIddEEKNS_16PartialReduxExprIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_15member_maxCoeffIddEELi0EEEKNS8_ISB_NS2_15member_minCoeffIddEELi0EEEEEEEE5reduxINS2_13scalar_sum_opIddEEEEdRKT_.exit.i.i.i ], [ 0.000000e+00, %16 ]
-  %32 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %.0.i.i.i, i64 0
-  %33 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %32)
-  %34 = extractelement <2 x double> %33, i64 0
-  %35 = fptrunc double %34 to float
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store float %35, ptr %36, align 16, !tbaa !16
-  br label %37
+  %.scalar.i = call noundef double @llvm.sqrt.f64(double %.0.i.i.i)
+  %32 = fptrunc double %.scalar.i to float
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store float %32, ptr %33, align 16, !tbaa !16
+  br label %34
 
-37:                                               ; preds = %3, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_16PartialReduxExprIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_15member_maxCoeffIddEELi0EEEKNS5_IS8_NS2_15member_minCoeffIddEELi0EEEEEE4normEv.exit, %8
+34:                                               ; preds = %3, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_16PartialReduxExprIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_15member_maxCoeffIddEELi0EEEKNS5_IS8_NS2_15member_minCoeffIddEELi0EEEEEE4normEv.exit, %8
   ret void
 }
 
@@ -505,7 +503,7 @@ define dso_local void @_ZN3igl6opengl10ViewerCore19align_camera_centerERKN5Eigen
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !4
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %36, label %7
+  br i1 %6, label %33, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -516,7 +514,7 @@ define dso_local void @_ZN3igl6opengl10ViewerCore19align_camera_centerERKN5Eigen
   %12 = load i64, ptr %11, align 8, !tbaa !11
   %13 = mul nsw i64 %12, %10
   %14 = icmp sgt i64 %13, 0
-  br i1 %14, label %15, label %36
+  br i1 %14, label %15, label %33
 
 15:                                               ; preds = %7
   %16 = icmp eq i64 %12, 0
@@ -553,15 +551,13 @@ _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal14scalar_abs2_opIdEEKNS_13Cwi
 
 _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_16PartialReduxExprIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_15member_maxCoeffIddEELi0EEEKNS5_IS8_NS2_15member_minCoeffIddEELi0EEEEEE4normEv.exit: ; preds = %15, %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal14scalar_abs2_opIdEEKNS_13CwiseBinaryOpINS2_20scalar_difference_opIddEEKNS_16PartialReduxExprIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_15member_maxCoeffIddEELi0EEEKNS8_ISB_NS2_15member_minCoeffIddEELi0EEEEEEEE5reduxINS2_13scalar_sum_opIddEEEEdRKT_.exit.i.i.i
   %.0.i.i.i = phi double [ %.022.lcssa.i.i.i.i.i, %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal14scalar_abs2_opIdEEKNS_13CwiseBinaryOpINS2_20scalar_difference_opIddEEKNS_16PartialReduxExprIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_15member_maxCoeffIddEELi0EEEKNS8_ISB_NS2_15member_minCoeffIddEELi0EEEEEEEE5reduxINS2_13scalar_sum_opIddEEEEdRKT_.exit.i.i.i ], [ 0.000000e+00, %15 ]
-  %31 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %.0.i.i.i, i64 0
-  %32 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %31)
-  %33 = extractelement <2 x double> %32, i64 0
-  %34 = fptrunc double %33 to float
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store float %34, ptr %35, align 16, !tbaa !16
-  br label %36
+  %.scalar.i = call noundef double @llvm.sqrt.f64(double %.0.i.i.i)
+  %31 = fptrunc double %.scalar.i to float
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store float %31, ptr %32, align 16, !tbaa !16
+  br label %33
 
-36:                                               ; preds = %2, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_16PartialReduxExprIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_15member_maxCoeffIddEELi0EEEKNS5_IS8_NS2_15member_minCoeffIddEELi0EEEEEE4normEv.exit, %7
+33:                                               ; preds = %2, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_16PartialReduxExprIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_15member_maxCoeffIddEELi0EEEKNS5_IS8_NS2_15member_minCoeffIddEELi0EEEEEE4normEv.exit, %7
   ret void
 }
 
@@ -2655,11 +2651,8 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 
 declare void @_ZN3igl4nullIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEENS2_IfLi3ELi2ELi0ELi3ELi2EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 4 dereferenceable(24)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #10
-
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZNK5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_16PartialReduxExprIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS0_15member_maxCoeffIddEELi0EEEKNS5_IS8_NS0_15member_minCoeffIddEELi0EEEEENS0_10IndexBasedESI_ddE5coeffEll(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef double @_ZNK5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_16PartialReduxExprIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS0_15member_maxCoeffIddEELi0EEEKNS5_IS8_NS0_15member_minCoeffIddEELi0EEEEENS0_10IndexBasedESI_ddE5coeffEll(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !179
   %6 = load ptr, ptr %5, align 8, !tbaa !39, !noalias !182
@@ -2927,19 +2920,19 @@ _ZNK5Eigen8internal9evaluatorINS_16PartialReduxExprIKNS_6MatrixIdLin1ELin1ELi0EL
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #12
+declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #11
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #13
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE6resizeEll(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #16 comdat align 2 {
+define linkonce_odr dso_local void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE6resizeEll(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #15 comdat align 2 {
   %4 = icmp eq i64 %1, 0
   %5 = icmp eq i64 %2, 0
   %or.cond.i = or i1 %4, %5
@@ -3002,7 +2995,7 @@ _ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll.exit: ; preds = %_ZN5Eig
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZNK5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_16PartialReduxExprIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS0_15member_minCoeffIddEELi0EEEKNS5_IS8_NS0_15member_maxCoeffIddEELi0EEEEENS0_10IndexBasedESI_ddE5coeffEl(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef double @_ZNK5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_16PartialReduxExprIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS0_15member_minCoeffIddEELi0EEEKNS5_IS8_NS0_15member_maxCoeffIddEELi0EEEEENS0_10IndexBasedESI_ddE5coeffEl(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !190
   %5 = load ptr, ptr %4, align 8, !tbaa !39, !noalias !201
@@ -3268,10 +3261,10 @@ _ZNK5Eigen8internal9evaluatorINS_16PartialReduxExprIKNS_6MatrixIdLin1ELin1ELi0EL
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #10
+declare double @llvm.fabs.f64(double) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #10
+declare float @llvm.sqrt.f32(float) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #17
@@ -3281,6 +3274,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #17
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -3292,13 +3288,13 @@ attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroe
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { inlinehint mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold noreturn }
-attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold noreturn }
+attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

@@ -47,7 +47,7 @@ $_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1E
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELi2ELi0ELin1ELi2EEELi1ELi2ELb0EEES6_S6_NS3_IdLi1ELi2ELi1ELi1ELi2EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #5
   %6 = load ptr, ptr %0, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !12
@@ -65,9 +65,9 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br label %85
+  br label %82
 
-23:                                               ; preds = %85
+23:                                               ; preds = %82
   %24 = load <2 x double>, ptr %5, align 16
   %25 = fmul <2 x double> %24, %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -89,77 +89,75 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %42 = fmul double %41, %41
   %43 = fadd double %39, %42
   %44 = fadd double %36, %43
-  %45 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %44, i64 0
-  %46 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %45)
-  %47 = extractelement <2 x double> %46, i64 0
-  %48 = extractelement <2 x double> %24, i64 0
-  %49 = extractelement <2 x double> %27, i64 1
-  %50 = fmul double %49, %48
-  %51 = extractelement <2 x double> %24, i64 1
-  %52 = fmul double %51, %38
-  %53 = extractelement <2 x double> %30, i64 0
-  %54 = fmul double %52, %53
-  %55 = tail call double @llvm.fmuladd.f64(double %50, double %41, double %54)
-  %56 = extractelement <2 x double> %27, i64 0
-  %57 = fmul double %35, %56
-  %58 = extractelement <2 x double> %30, i64 1
-  %59 = tail call double @llvm.fmuladd.f64(double %57, double %58, double %55)
-  %60 = fneg double %49
-  %61 = fmul double %35, %60
-  %62 = tail call double @llvm.fmuladd.f64(double %61, double %53, double %59)
-  %63 = fneg double %56
-  %64 = fmul double %51, %63
-  %65 = tail call double @llvm.fmuladd.f64(double %64, double %41, double %62)
-  %66 = fneg double %38
-  %67 = fmul double %48, %66
-  %68 = tail call double @llvm.fmuladd.f64(double %67, double %58, double %65)
-  %69 = fmul double %35, %51
-  %70 = tail call double @llvm.fmuladd.f64(double %49, double %38, double %69)
-  %71 = tail call double @llvm.fmuladd.f64(double %58, double %41, double %70)
-  %72 = fmul double %35, %48
-  %73 = tail call double @llvm.fmuladd.f64(double %38, double %56, double %72)
-  %74 = tail call double @llvm.fmuladd.f64(double %41, double %53, double %73)
-  %75 = fmul double %48, %51
-  %76 = tail call double @llvm.fmuladd.f64(double %56, double %49, double %75)
-  %77 = tail call double @llvm.fmuladd.f64(double %53, double %58, double %76)
+  %.scalar.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef double @llvm.sqrt.f64(double %44)
+  %45 = extractelement <2 x double> %24, i64 0
+  %46 = extractelement <2 x double> %27, i64 1
+  %47 = fmul double %46, %45
+  %48 = extractelement <2 x double> %24, i64 1
+  %49 = fmul double %48, %38
+  %50 = extractelement <2 x double> %30, i64 0
+  %51 = fmul double %49, %50
+  %52 = tail call double @llvm.fmuladd.f64(double %47, double %41, double %51)
+  %53 = extractelement <2 x double> %27, i64 0
+  %54 = fmul double %35, %53
+  %55 = extractelement <2 x double> %30, i64 1
+  %56 = tail call double @llvm.fmuladd.f64(double %54, double %55, double %52)
+  %57 = fneg double %46
+  %58 = fmul double %35, %57
+  %59 = tail call double @llvm.fmuladd.f64(double %58, double %50, double %56)
+  %60 = fneg double %53
+  %61 = fmul double %48, %60
+  %62 = tail call double @llvm.fmuladd.f64(double %61, double %41, double %59)
+  %63 = fneg double %38
+  %64 = fmul double %45, %63
+  %65 = tail call double @llvm.fmuladd.f64(double %64, double %55, double %62)
+  %66 = fmul double %35, %48
+  %67 = tail call double @llvm.fmuladd.f64(double %46, double %38, double %66)
+  %68 = tail call double @llvm.fmuladd.f64(double %55, double %41, double %67)
+  %69 = fmul double %35, %45
+  %70 = tail call double @llvm.fmuladd.f64(double %38, double %53, double %69)
+  %71 = tail call double @llvm.fmuladd.f64(double %41, double %50, double %70)
+  %72 = fmul double %45, %48
+  %73 = tail call double @llvm.fmuladd.f64(double %53, double %46, double %72)
+  %74 = tail call double @llvm.fmuladd.f64(double %50, double %55, double %73)
   %.sroa.027.0.vec.extract = extractelement <2 x double> %34, i64 0
   %.sroa.027.8.vec.extract = extractelement <2 x double> %34, i64 1
-  %78 = fmul double %.sroa.027.0.vec.extract, %.sroa.027.8.vec.extract
-  %79 = fmul double %.sroa.027.0.vec.extract, %71
-  %80 = tail call double @llvm.fmuladd.f64(double %78, double %47, double %79)
-  %81 = tail call double @llvm.fmuladd.f64(double %74, double %.sroa.027.8.vec.extract, double %80)
-  %82 = tail call double @llvm.fmuladd.f64(double %77, double %47, double %81)
-  %83 = tail call double @atan2(double noundef %68, double noundef %82) #4, !tbaa !21
-  %84 = fdiv double %83, 0x401921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #4
-  ret double %84
+  %75 = fmul double %.sroa.027.0.vec.extract, %.sroa.027.8.vec.extract
+  %76 = fmul double %.sroa.027.0.vec.extract, %68
+  %77 = tail call double @llvm.fmuladd.f64(double %75, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %76)
+  %78 = tail call double @llvm.fmuladd.f64(double %71, double %.sroa.027.8.vec.extract, double %77)
+  %79 = tail call double @llvm.fmuladd.f64(double %74, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %78)
+  %80 = tail call double @atan2(double noundef %65, double noundef %79) #5, !tbaa !21
+  %81 = fdiv double %80, 0x401921FB54442D18
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
+  ret double %81
 
-85:                                               ; preds = %4, %85
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %85 ]
-  %86 = mul nsw i64 %10, %indvars.iv
-  %87 = getelementptr inbounds double, ptr %6, i64 %86
-  %88 = load double, ptr %87, align 8, !tbaa !19
-  %89 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
-  %90 = load double, ptr %89, align 8, !tbaa !19
-  %91 = fsub double %88, %90
+82:                                               ; preds = %4, %82
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %82 ]
+  %83 = mul nsw i64 %10, %indvars.iv
+  %84 = getelementptr inbounds double, ptr %6, i64 %83
+  %85 = load double, ptr %84, align 8, !tbaa !19
+  %86 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %87 = load double, ptr %86, align 8, !tbaa !19
+  %88 = fsub double %85, %87
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 24
-  %92 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
-  store double %91, ptr %92, align 8, !tbaa !19
-  %93 = mul nsw i64 %15, %indvars.iv
-  %94 = getelementptr inbounds double, ptr %11, i64 %93
-  %95 = load double, ptr %94, align 8, !tbaa !19
-  %96 = fsub double %95, %90
-  %97 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
-  store double %96, ptr %97, align 8, !tbaa !19
-  %98 = mul nsw i64 %21, %indvars.iv
-  %99 = getelementptr inbounds double, ptr %17, i64 %98
-  %100 = load double, ptr %99, align 8, !tbaa !19
-  %101 = fsub double %100, %90
-  %102 = getelementptr i8, ptr %22, i64 %.idx.i.i.i
-  store double %101, ptr %102, align 8, !tbaa !19
+  %89 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
+  store double %88, ptr %89, align 8, !tbaa !19
+  %90 = mul nsw i64 %15, %indvars.iv
+  %91 = getelementptr inbounds double, ptr %11, i64 %90
+  %92 = load double, ptr %91, align 8, !tbaa !19
+  %93 = fsub double %92, %87
+  %94 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
+  store double %93, ptr %94, align 8, !tbaa !19
+  %95 = mul nsw i64 %21, %indvars.iv
+  %96 = getelementptr inbounds double, ptr %17, i64 %95
+  %97 = load double, ptr %96, align 8, !tbaa !19
+  %98 = fsub double %97, %87
+  %99 = getelementptr i8, ptr %22, i64 %.idx.i.i.i
+  store double %98, ptr %99, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %23, label %85, !llvm.loop !23
+  br i1 %exitcond.not, label %23, label %82, !llvm.loop !23
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -177,7 +175,7 @@ declare double @atan2(double noundef, double noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEES6_S6_NS3_IdLi1ELi3ELi1ELi1ELi3EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #5
   %6 = load ptr, ptr %0, align 8, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !28
@@ -195,9 +193,9 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br label %85
+  br label %82
 
-23:                                               ; preds = %85
+23:                                               ; preds = %82
   %24 = load <2 x double>, ptr %5, align 16
   %25 = fmul <2 x double> %24, %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -219,83 +217,81 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %42 = fmul double %41, %41
   %43 = fadd double %39, %42
   %44 = fadd double %36, %43
-  %45 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %44, i64 0
-  %46 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %45)
-  %47 = extractelement <2 x double> %46, i64 0
-  %48 = extractelement <2 x double> %24, i64 0
-  %49 = extractelement <2 x double> %27, i64 1
-  %50 = fmul double %49, %48
-  %51 = extractelement <2 x double> %24, i64 1
-  %52 = fmul double %51, %38
-  %53 = extractelement <2 x double> %30, i64 0
-  %54 = fmul double %52, %53
-  %55 = tail call double @llvm.fmuladd.f64(double %50, double %41, double %54)
-  %56 = extractelement <2 x double> %27, i64 0
-  %57 = fmul double %35, %56
-  %58 = extractelement <2 x double> %30, i64 1
-  %59 = tail call double @llvm.fmuladd.f64(double %57, double %58, double %55)
-  %60 = fneg double %49
-  %61 = fmul double %35, %60
-  %62 = tail call double @llvm.fmuladd.f64(double %61, double %53, double %59)
-  %63 = fneg double %56
-  %64 = fmul double %51, %63
-  %65 = tail call double @llvm.fmuladd.f64(double %64, double %41, double %62)
-  %66 = fneg double %38
-  %67 = fmul double %48, %66
-  %68 = tail call double @llvm.fmuladd.f64(double %67, double %58, double %65)
-  %69 = fmul double %35, %51
-  %70 = tail call double @llvm.fmuladd.f64(double %49, double %38, double %69)
-  %71 = tail call double @llvm.fmuladd.f64(double %58, double %41, double %70)
-  %72 = fmul double %35, %48
-  %73 = tail call double @llvm.fmuladd.f64(double %38, double %56, double %72)
-  %74 = tail call double @llvm.fmuladd.f64(double %41, double %53, double %73)
-  %75 = fmul double %48, %51
-  %76 = tail call double @llvm.fmuladd.f64(double %56, double %49, double %75)
-  %77 = tail call double @llvm.fmuladd.f64(double %53, double %58, double %76)
+  %.scalar.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef double @llvm.sqrt.f64(double %44)
+  %45 = extractelement <2 x double> %24, i64 0
+  %46 = extractelement <2 x double> %27, i64 1
+  %47 = fmul double %46, %45
+  %48 = extractelement <2 x double> %24, i64 1
+  %49 = fmul double %48, %38
+  %50 = extractelement <2 x double> %30, i64 0
+  %51 = fmul double %49, %50
+  %52 = tail call double @llvm.fmuladd.f64(double %47, double %41, double %51)
+  %53 = extractelement <2 x double> %27, i64 0
+  %54 = fmul double %35, %53
+  %55 = extractelement <2 x double> %30, i64 1
+  %56 = tail call double @llvm.fmuladd.f64(double %54, double %55, double %52)
+  %57 = fneg double %46
+  %58 = fmul double %35, %57
+  %59 = tail call double @llvm.fmuladd.f64(double %58, double %50, double %56)
+  %60 = fneg double %53
+  %61 = fmul double %48, %60
+  %62 = tail call double @llvm.fmuladd.f64(double %61, double %41, double %59)
+  %63 = fneg double %38
+  %64 = fmul double %45, %63
+  %65 = tail call double @llvm.fmuladd.f64(double %64, double %55, double %62)
+  %66 = fmul double %35, %48
+  %67 = tail call double @llvm.fmuladd.f64(double %46, double %38, double %66)
+  %68 = tail call double @llvm.fmuladd.f64(double %55, double %41, double %67)
+  %69 = fmul double %35, %45
+  %70 = tail call double @llvm.fmuladd.f64(double %38, double %53, double %69)
+  %71 = tail call double @llvm.fmuladd.f64(double %41, double %50, double %70)
+  %72 = fmul double %45, %48
+  %73 = tail call double @llvm.fmuladd.f64(double %53, double %46, double %72)
+  %74 = tail call double @llvm.fmuladd.f64(double %50, double %55, double %73)
   %.sroa.027.0.vec.extract = extractelement <2 x double> %34, i64 0
   %.sroa.027.8.vec.extract = extractelement <2 x double> %34, i64 1
-  %78 = fmul double %.sroa.027.0.vec.extract, %.sroa.027.8.vec.extract
-  %79 = fmul double %.sroa.027.0.vec.extract, %71
-  %80 = tail call double @llvm.fmuladd.f64(double %78, double %47, double %79)
-  %81 = tail call double @llvm.fmuladd.f64(double %74, double %.sroa.027.8.vec.extract, double %80)
-  %82 = tail call double @llvm.fmuladd.f64(double %77, double %47, double %81)
-  %83 = tail call double @atan2(double noundef %68, double noundef %82) #4, !tbaa !21
-  %84 = fdiv double %83, 0x401921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #4
-  ret double %84
+  %75 = fmul double %.sroa.027.0.vec.extract, %.sroa.027.8.vec.extract
+  %76 = fmul double %.sroa.027.0.vec.extract, %68
+  %77 = tail call double @llvm.fmuladd.f64(double %75, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %76)
+  %78 = tail call double @llvm.fmuladd.f64(double %71, double %.sroa.027.8.vec.extract, double %77)
+  %79 = tail call double @llvm.fmuladd.f64(double %74, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %78)
+  %80 = tail call double @atan2(double noundef %65, double noundef %79) #5, !tbaa !21
+  %81 = fdiv double %80, 0x401921FB54442D18
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
+  ret double %81
 
-85:                                               ; preds = %4, %85
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %85 ]
-  %86 = mul nsw i64 %10, %indvars.iv
-  %87 = getelementptr inbounds double, ptr %6, i64 %86
-  %88 = load double, ptr %87, align 8, !tbaa !19
-  %89 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
-  %90 = load double, ptr %89, align 8, !tbaa !19
-  %91 = fsub double %88, %90
+82:                                               ; preds = %4, %82
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %82 ]
+  %83 = mul nsw i64 %10, %indvars.iv
+  %84 = getelementptr inbounds double, ptr %6, i64 %83
+  %85 = load double, ptr %84, align 8, !tbaa !19
+  %86 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %87 = load double, ptr %86, align 8, !tbaa !19
+  %88 = fsub double %85, %87
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 24
-  %92 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
-  store double %91, ptr %92, align 8, !tbaa !19
-  %93 = mul nsw i64 %15, %indvars.iv
-  %94 = getelementptr inbounds double, ptr %11, i64 %93
-  %95 = load double, ptr %94, align 8, !tbaa !19
-  %96 = fsub double %95, %90
-  %97 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
-  store double %96, ptr %97, align 8, !tbaa !19
-  %98 = mul nsw i64 %21, %indvars.iv
-  %99 = getelementptr inbounds double, ptr %17, i64 %98
-  %100 = load double, ptr %99, align 8, !tbaa !19
-  %101 = fsub double %100, %90
-  %102 = getelementptr i8, ptr %22, i64 %.idx.i.i.i
-  store double %101, ptr %102, align 8, !tbaa !19
+  %89 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
+  store double %88, ptr %89, align 8, !tbaa !19
+  %90 = mul nsw i64 %15, %indvars.iv
+  %91 = getelementptr inbounds double, ptr %11, i64 %90
+  %92 = load double, ptr %91, align 8, !tbaa !19
+  %93 = fsub double %92, %87
+  %94 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
+  store double %93, ptr %94, align 8, !tbaa !19
+  %95 = mul nsw i64 %21, %indvars.iv
+  %96 = getelementptr inbounds double, ptr %17, i64 %95
+  %97 = load double, ptr %96, align 8, !tbaa !19
+  %98 = fsub double %97, %87
+  %99 = getelementptr i8, ptr %22, i64 %.idx.i.i.i
+  store double %98, ptr %99, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %23, label %85, !llvm.loop !33
+  br i1 %exitcond.not, label %23, label %82, !llvm.loop !33
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELi2ELi0ELin1ELi2EEELi1ELi2ELb0EEES6_S6_NS3_IdLi1ELi3ELi1ELi1ELi3EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #5
   %6 = load ptr, ptr %0, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !12
@@ -313,9 +309,9 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br label %85
+  br label %82
 
-23:                                               ; preds = %85
+23:                                               ; preds = %82
   %24 = load <2 x double>, ptr %5, align 16
   %25 = fmul <2 x double> %24, %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -337,83 +333,81 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %42 = fmul double %41, %41
   %43 = fadd double %39, %42
   %44 = fadd double %36, %43
-  %45 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %44, i64 0
-  %46 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %45)
-  %47 = extractelement <2 x double> %46, i64 0
-  %48 = extractelement <2 x double> %24, i64 0
-  %49 = extractelement <2 x double> %27, i64 1
-  %50 = fmul double %49, %48
-  %51 = extractelement <2 x double> %24, i64 1
-  %52 = fmul double %51, %38
-  %53 = extractelement <2 x double> %30, i64 0
-  %54 = fmul double %52, %53
-  %55 = tail call double @llvm.fmuladd.f64(double %50, double %41, double %54)
-  %56 = extractelement <2 x double> %27, i64 0
-  %57 = fmul double %35, %56
-  %58 = extractelement <2 x double> %30, i64 1
-  %59 = tail call double @llvm.fmuladd.f64(double %57, double %58, double %55)
-  %60 = fneg double %49
-  %61 = fmul double %35, %60
-  %62 = tail call double @llvm.fmuladd.f64(double %61, double %53, double %59)
-  %63 = fneg double %56
-  %64 = fmul double %51, %63
-  %65 = tail call double @llvm.fmuladd.f64(double %64, double %41, double %62)
-  %66 = fneg double %38
-  %67 = fmul double %48, %66
-  %68 = tail call double @llvm.fmuladd.f64(double %67, double %58, double %65)
-  %69 = fmul double %35, %51
-  %70 = tail call double @llvm.fmuladd.f64(double %49, double %38, double %69)
-  %71 = tail call double @llvm.fmuladd.f64(double %58, double %41, double %70)
-  %72 = fmul double %35, %48
-  %73 = tail call double @llvm.fmuladd.f64(double %38, double %56, double %72)
-  %74 = tail call double @llvm.fmuladd.f64(double %41, double %53, double %73)
-  %75 = fmul double %48, %51
-  %76 = tail call double @llvm.fmuladd.f64(double %56, double %49, double %75)
-  %77 = tail call double @llvm.fmuladd.f64(double %53, double %58, double %76)
+  %.scalar.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef double @llvm.sqrt.f64(double %44)
+  %45 = extractelement <2 x double> %24, i64 0
+  %46 = extractelement <2 x double> %27, i64 1
+  %47 = fmul double %46, %45
+  %48 = extractelement <2 x double> %24, i64 1
+  %49 = fmul double %48, %38
+  %50 = extractelement <2 x double> %30, i64 0
+  %51 = fmul double %49, %50
+  %52 = tail call double @llvm.fmuladd.f64(double %47, double %41, double %51)
+  %53 = extractelement <2 x double> %27, i64 0
+  %54 = fmul double %35, %53
+  %55 = extractelement <2 x double> %30, i64 1
+  %56 = tail call double @llvm.fmuladd.f64(double %54, double %55, double %52)
+  %57 = fneg double %46
+  %58 = fmul double %35, %57
+  %59 = tail call double @llvm.fmuladd.f64(double %58, double %50, double %56)
+  %60 = fneg double %53
+  %61 = fmul double %48, %60
+  %62 = tail call double @llvm.fmuladd.f64(double %61, double %41, double %59)
+  %63 = fneg double %38
+  %64 = fmul double %45, %63
+  %65 = tail call double @llvm.fmuladd.f64(double %64, double %55, double %62)
+  %66 = fmul double %35, %48
+  %67 = tail call double @llvm.fmuladd.f64(double %46, double %38, double %66)
+  %68 = tail call double @llvm.fmuladd.f64(double %55, double %41, double %67)
+  %69 = fmul double %35, %45
+  %70 = tail call double @llvm.fmuladd.f64(double %38, double %53, double %69)
+  %71 = tail call double @llvm.fmuladd.f64(double %41, double %50, double %70)
+  %72 = fmul double %45, %48
+  %73 = tail call double @llvm.fmuladd.f64(double %53, double %46, double %72)
+  %74 = tail call double @llvm.fmuladd.f64(double %50, double %55, double %73)
   %.sroa.027.0.vec.extract = extractelement <2 x double> %34, i64 0
   %.sroa.027.8.vec.extract = extractelement <2 x double> %34, i64 1
-  %78 = fmul double %.sroa.027.0.vec.extract, %.sroa.027.8.vec.extract
-  %79 = fmul double %.sroa.027.0.vec.extract, %71
-  %80 = tail call double @llvm.fmuladd.f64(double %78, double %47, double %79)
-  %81 = tail call double @llvm.fmuladd.f64(double %74, double %.sroa.027.8.vec.extract, double %80)
-  %82 = tail call double @llvm.fmuladd.f64(double %77, double %47, double %81)
-  %83 = tail call double @atan2(double noundef %68, double noundef %82) #4, !tbaa !21
-  %84 = fdiv double %83, 0x401921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #4
-  ret double %84
+  %75 = fmul double %.sroa.027.0.vec.extract, %.sroa.027.8.vec.extract
+  %76 = fmul double %.sroa.027.0.vec.extract, %68
+  %77 = tail call double @llvm.fmuladd.f64(double %75, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %76)
+  %78 = tail call double @llvm.fmuladd.f64(double %71, double %.sroa.027.8.vec.extract, double %77)
+  %79 = tail call double @llvm.fmuladd.f64(double %74, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %78)
+  %80 = tail call double @atan2(double noundef %65, double noundef %79) #5, !tbaa !21
+  %81 = fdiv double %80, 0x401921FB54442D18
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
+  ret double %81
 
-85:                                               ; preds = %4, %85
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %85 ]
-  %86 = mul nsw i64 %10, %indvars.iv
-  %87 = getelementptr inbounds double, ptr %6, i64 %86
-  %88 = load double, ptr %87, align 8, !tbaa !19
-  %89 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
-  %90 = load double, ptr %89, align 8, !tbaa !19
-  %91 = fsub double %88, %90
+82:                                               ; preds = %4, %82
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %82 ]
+  %83 = mul nsw i64 %10, %indvars.iv
+  %84 = getelementptr inbounds double, ptr %6, i64 %83
+  %85 = load double, ptr %84, align 8, !tbaa !19
+  %86 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %87 = load double, ptr %86, align 8, !tbaa !19
+  %88 = fsub double %85, %87
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 24
-  %92 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
-  store double %91, ptr %92, align 8, !tbaa !19
-  %93 = mul nsw i64 %15, %indvars.iv
-  %94 = getelementptr inbounds double, ptr %11, i64 %93
-  %95 = load double, ptr %94, align 8, !tbaa !19
-  %96 = fsub double %95, %90
-  %97 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
-  store double %96, ptr %97, align 8, !tbaa !19
-  %98 = mul nsw i64 %21, %indvars.iv
-  %99 = getelementptr inbounds double, ptr %17, i64 %98
-  %100 = load double, ptr %99, align 8, !tbaa !19
-  %101 = fsub double %100, %90
-  %102 = getelementptr i8, ptr %22, i64 %.idx.i.i.i
-  store double %101, ptr %102, align 8, !tbaa !19
+  %89 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
+  store double %88, ptr %89, align 8, !tbaa !19
+  %90 = mul nsw i64 %15, %indvars.iv
+  %91 = getelementptr inbounds double, ptr %11, i64 %90
+  %92 = load double, ptr %91, align 8, !tbaa !19
+  %93 = fsub double %92, %87
+  %94 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
+  store double %93, ptr %94, align 8, !tbaa !19
+  %95 = mul nsw i64 %21, %indvars.iv
+  %96 = getelementptr inbounds double, ptr %17, i64 %95
+  %97 = load double, ptr %96, align 8, !tbaa !19
+  %98 = fsub double %97, %87
+  %99 = getelementptr i8, ptr %22, i64 %.idx.i.i.i
+  store double %98, ptr %99, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %23, label %85, !llvm.loop !34
+  br i1 %exitcond.not, label %23, label %82, !llvm.loop !34
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELi2ELi0ELin1ELi2EEELi1ELi2ELb0EEES6_S6_NS2_IKNS3_IdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEENT_6ScalarERKNS1_10MatrixBaseISA_EERKNSC_IT0_EERKNSC_IT1_EERKNSC_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #5
   %6 = load ptr, ptr %0, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !12
@@ -436,9 +430,9 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !17
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br label %90
+  br label %87
 
-28:                                               ; preds = %90
+28:                                               ; preds = %87
   %29 = load <2 x double>, ptr %5, align 16
   %30 = fmul <2 x double> %29, %29
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -460,92 +454,90 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %47 = fmul double %46, %46
   %48 = fadd double %44, %47
   %49 = fadd double %41, %48
-  %50 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %49, i64 0
-  %51 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %50)
-  %52 = extractelement <2 x double> %51, i64 0
-  %53 = extractelement <2 x double> %29, i64 0
-  %54 = extractelement <2 x double> %32, i64 1
-  %55 = fmul double %54, %53
-  %56 = extractelement <2 x double> %29, i64 1
-  %57 = fmul double %56, %43
-  %58 = extractelement <2 x double> %35, i64 0
-  %59 = fmul double %57, %58
-  %60 = tail call double @llvm.fmuladd.f64(double %55, double %46, double %59)
-  %61 = extractelement <2 x double> %32, i64 0
-  %62 = fmul double %40, %61
-  %63 = extractelement <2 x double> %35, i64 1
-  %64 = tail call double @llvm.fmuladd.f64(double %62, double %63, double %60)
-  %65 = fneg double %54
-  %66 = fmul double %40, %65
-  %67 = tail call double @llvm.fmuladd.f64(double %66, double %58, double %64)
-  %68 = fneg double %61
-  %69 = fmul double %56, %68
-  %70 = tail call double @llvm.fmuladd.f64(double %69, double %46, double %67)
-  %71 = fneg double %43
-  %72 = fmul double %53, %71
-  %73 = tail call double @llvm.fmuladd.f64(double %72, double %63, double %70)
-  %74 = fmul double %40, %56
-  %75 = tail call double @llvm.fmuladd.f64(double %54, double %43, double %74)
-  %76 = tail call double @llvm.fmuladd.f64(double %63, double %46, double %75)
-  %77 = fmul double %40, %53
-  %78 = tail call double @llvm.fmuladd.f64(double %43, double %61, double %77)
-  %79 = tail call double @llvm.fmuladd.f64(double %46, double %58, double %78)
-  %80 = fmul double %53, %56
-  %81 = tail call double @llvm.fmuladd.f64(double %61, double %54, double %80)
-  %82 = tail call double @llvm.fmuladd.f64(double %58, double %63, double %81)
+  %.scalar.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef double @llvm.sqrt.f64(double %49)
+  %50 = extractelement <2 x double> %29, i64 0
+  %51 = extractelement <2 x double> %32, i64 1
+  %52 = fmul double %51, %50
+  %53 = extractelement <2 x double> %29, i64 1
+  %54 = fmul double %53, %43
+  %55 = extractelement <2 x double> %35, i64 0
+  %56 = fmul double %54, %55
+  %57 = tail call double @llvm.fmuladd.f64(double %52, double %46, double %56)
+  %58 = extractelement <2 x double> %32, i64 0
+  %59 = fmul double %40, %58
+  %60 = extractelement <2 x double> %35, i64 1
+  %61 = tail call double @llvm.fmuladd.f64(double %59, double %60, double %57)
+  %62 = fneg double %51
+  %63 = fmul double %40, %62
+  %64 = tail call double @llvm.fmuladd.f64(double %63, double %55, double %61)
+  %65 = fneg double %58
+  %66 = fmul double %53, %65
+  %67 = tail call double @llvm.fmuladd.f64(double %66, double %46, double %64)
+  %68 = fneg double %43
+  %69 = fmul double %50, %68
+  %70 = tail call double @llvm.fmuladd.f64(double %69, double %60, double %67)
+  %71 = fmul double %40, %53
+  %72 = tail call double @llvm.fmuladd.f64(double %51, double %43, double %71)
+  %73 = tail call double @llvm.fmuladd.f64(double %60, double %46, double %72)
+  %74 = fmul double %40, %50
+  %75 = tail call double @llvm.fmuladd.f64(double %43, double %58, double %74)
+  %76 = tail call double @llvm.fmuladd.f64(double %46, double %55, double %75)
+  %77 = fmul double %50, %53
+  %78 = tail call double @llvm.fmuladd.f64(double %58, double %51, double %77)
+  %79 = tail call double @llvm.fmuladd.f64(double %55, double %60, double %78)
   %.sroa.027.0.vec.extract = extractelement <2 x double> %39, i64 0
   %.sroa.027.8.vec.extract = extractelement <2 x double> %39, i64 1
-  %83 = fmul double %.sroa.027.0.vec.extract, %.sroa.027.8.vec.extract
-  %84 = fmul double %.sroa.027.0.vec.extract, %76
-  %85 = tail call double @llvm.fmuladd.f64(double %83, double %52, double %84)
-  %86 = tail call double @llvm.fmuladd.f64(double %79, double %.sroa.027.8.vec.extract, double %85)
-  %87 = tail call double @llvm.fmuladd.f64(double %82, double %52, double %86)
-  %88 = tail call double @atan2(double noundef %73, double noundef %87) #4, !tbaa !21
-  %89 = fdiv double %88, 0x401921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #4
-  ret double %89
+  %80 = fmul double %.sroa.027.0.vec.extract, %.sroa.027.8.vec.extract
+  %81 = fmul double %.sroa.027.0.vec.extract, %73
+  %82 = tail call double @llvm.fmuladd.f64(double %80, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %81)
+  %83 = tail call double @llvm.fmuladd.f64(double %76, double %.sroa.027.8.vec.extract, double %82)
+  %84 = tail call double @llvm.fmuladd.f64(double %79, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %83)
+  %85 = tail call double @atan2(double noundef %70, double noundef %84) #5, !tbaa !21
+  %86 = fdiv double %85, 0x401921FB54442D18
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
+  ret double %86
 
-90:                                               ; preds = %4, %90
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %90 ]
-  %91 = mul nsw i64 %10, %indvars.iv
-  %92 = getelementptr inbounds double, ptr %6, i64 %91
+87:                                               ; preds = %4, %87
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %87 ]
+  %88 = mul nsw i64 %10, %indvars.iv
+  %89 = getelementptr inbounds double, ptr %6, i64 %88
+  %90 = load double, ptr %89, align 8, !tbaa !19
+  %91 = mul nsw i64 %15, %indvars.iv
+  %92 = getelementptr inbounds double, ptr %11, i64 %91
   %93 = load double, ptr %92, align 8, !tbaa !19
-  %94 = mul nsw i64 %15, %indvars.iv
-  %95 = getelementptr inbounds double, ptr %11, i64 %94
-  %96 = load double, ptr %95, align 8, !tbaa !19
-  %97 = fsub double %93, %96
+  %94 = fsub double %90, %93
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 24
-  %98 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
-  store double %97, ptr %98, align 8, !tbaa !19
-  %99 = mul nsw i64 %20, %indvars.iv
-  %100 = getelementptr inbounds double, ptr %16, i64 %99
-  %101 = load double, ptr %100, align 8, !tbaa !19
-  %102 = fsub double %101, %96
-  %103 = getelementptr i8, ptr %21, i64 %.idx.i.i.i
-  store double %102, ptr %103, align 8, !tbaa !19
-  %104 = mul nsw i64 %26, %indvars.iv
-  %105 = getelementptr inbounds double, ptr %22, i64 %104
-  %106 = load double, ptr %105, align 8, !tbaa !19
-  %107 = fsub double %106, %96
-  %108 = getelementptr i8, ptr %27, i64 %.idx.i.i.i
-  store double %107, ptr %108, align 8, !tbaa !19
+  %95 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
+  store double %94, ptr %95, align 8, !tbaa !19
+  %96 = mul nsw i64 %20, %indvars.iv
+  %97 = getelementptr inbounds double, ptr %16, i64 %96
+  %98 = load double, ptr %97, align 8, !tbaa !19
+  %99 = fsub double %98, %93
+  %100 = getelementptr i8, ptr %21, i64 %.idx.i.i.i
+  store double %99, ptr %100, align 8, !tbaa !19
+  %101 = mul nsw i64 %26, %indvars.iv
+  %102 = getelementptr inbounds double, ptr %22, i64 %101
+  %103 = load double, ptr %102, align 8, !tbaa !19
+  %104 = fsub double %103, %93
+  %105 = getelementptr i8, ptr %27, i64 %.idx.i.i.i
+  store double %104, ptr %105, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %28, label %90, !llvm.loop !42
+  br i1 %exitcond.not, label %28, label %87, !llvm.loop !42
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELi3ELi1ELin1ELi3EEELi1ELi3ELb1EEES6_S6_NS3_IdLi1ELi3ELi1ELi1ELi3EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #5
   %6 = load ptr, ptr %0, align 8, !tbaa !43
   %7 = load ptr, ptr %1, align 8, !tbaa !43
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %2, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br label %73
+  br label %70
 
-11:                                               ; preds = %73
+11:                                               ; preds = %70
   %12 = load <2 x double>, ptr %5, align 16
   %13 = fmul <2 x double> %12, %12
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -567,88 +559,86 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %30 = fmul double %29, %29
   %31 = fadd double %27, %30
   %32 = fadd double %24, %31
-  %33 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %32, i64 0
-  %34 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %33)
-  %35 = extractelement <2 x double> %34, i64 0
-  %36 = extractelement <2 x double> %12, i64 0
-  %37 = extractelement <2 x double> %15, i64 1
-  %38 = fmul double %37, %36
-  %39 = extractelement <2 x double> %12, i64 1
-  %40 = fmul double %39, %26
-  %41 = extractelement <2 x double> %18, i64 0
-  %42 = fmul double %40, %41
-  %43 = tail call double @llvm.fmuladd.f64(double %38, double %29, double %42)
-  %44 = extractelement <2 x double> %15, i64 0
-  %45 = fmul double %23, %44
-  %46 = extractelement <2 x double> %18, i64 1
-  %47 = tail call double @llvm.fmuladd.f64(double %45, double %46, double %43)
-  %48 = fneg double %37
-  %49 = fmul double %23, %48
-  %50 = tail call double @llvm.fmuladd.f64(double %49, double %41, double %47)
-  %51 = fneg double %44
-  %52 = fmul double %39, %51
-  %53 = tail call double @llvm.fmuladd.f64(double %52, double %29, double %50)
-  %54 = fneg double %26
-  %55 = fmul double %36, %54
-  %56 = tail call double @llvm.fmuladd.f64(double %55, double %46, double %53)
-  %57 = fmul double %23, %39
-  %58 = tail call double @llvm.fmuladd.f64(double %37, double %26, double %57)
-  %59 = tail call double @llvm.fmuladd.f64(double %46, double %29, double %58)
-  %60 = fmul double %23, %36
-  %61 = tail call double @llvm.fmuladd.f64(double %26, double %44, double %60)
-  %62 = tail call double @llvm.fmuladd.f64(double %29, double %41, double %61)
-  %63 = fmul double %36, %39
-  %64 = tail call double @llvm.fmuladd.f64(double %44, double %37, double %63)
-  %65 = tail call double @llvm.fmuladd.f64(double %41, double %46, double %64)
+  %.scalar.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef double @llvm.sqrt.f64(double %32)
+  %33 = extractelement <2 x double> %12, i64 0
+  %34 = extractelement <2 x double> %15, i64 1
+  %35 = fmul double %34, %33
+  %36 = extractelement <2 x double> %12, i64 1
+  %37 = fmul double %36, %26
+  %38 = extractelement <2 x double> %18, i64 0
+  %39 = fmul double %37, %38
+  %40 = tail call double @llvm.fmuladd.f64(double %35, double %29, double %39)
+  %41 = extractelement <2 x double> %15, i64 0
+  %42 = fmul double %23, %41
+  %43 = extractelement <2 x double> %18, i64 1
+  %44 = tail call double @llvm.fmuladd.f64(double %42, double %43, double %40)
+  %45 = fneg double %34
+  %46 = fmul double %23, %45
+  %47 = tail call double @llvm.fmuladd.f64(double %46, double %38, double %44)
+  %48 = fneg double %41
+  %49 = fmul double %36, %48
+  %50 = tail call double @llvm.fmuladd.f64(double %49, double %29, double %47)
+  %51 = fneg double %26
+  %52 = fmul double %33, %51
+  %53 = tail call double @llvm.fmuladd.f64(double %52, double %43, double %50)
+  %54 = fmul double %23, %36
+  %55 = tail call double @llvm.fmuladd.f64(double %34, double %26, double %54)
+  %56 = tail call double @llvm.fmuladd.f64(double %43, double %29, double %55)
+  %57 = fmul double %23, %33
+  %58 = tail call double @llvm.fmuladd.f64(double %26, double %41, double %57)
+  %59 = tail call double @llvm.fmuladd.f64(double %29, double %38, double %58)
+  %60 = fmul double %33, %36
+  %61 = tail call double @llvm.fmuladd.f64(double %41, double %34, double %60)
+  %62 = tail call double @llvm.fmuladd.f64(double %38, double %43, double %61)
   %.sroa.027.0.vec.extract = extractelement <2 x double> %22, i64 0
   %.sroa.027.8.vec.extract = extractelement <2 x double> %22, i64 1
-  %66 = fmul double %.sroa.027.0.vec.extract, %.sroa.027.8.vec.extract
-  %67 = fmul double %.sroa.027.0.vec.extract, %59
-  %68 = tail call double @llvm.fmuladd.f64(double %66, double %35, double %67)
-  %69 = tail call double @llvm.fmuladd.f64(double %62, double %.sroa.027.8.vec.extract, double %68)
-  %70 = tail call double @llvm.fmuladd.f64(double %65, double %35, double %69)
-  %71 = tail call double @atan2(double noundef %56, double noundef %70) #4, !tbaa !21
-  %72 = fdiv double %71, 0x401921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #4
-  ret double %72
+  %63 = fmul double %.sroa.027.0.vec.extract, %.sroa.027.8.vec.extract
+  %64 = fmul double %.sroa.027.0.vec.extract, %56
+  %65 = tail call double @llvm.fmuladd.f64(double %63, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %64)
+  %66 = tail call double @llvm.fmuladd.f64(double %59, double %.sroa.027.8.vec.extract, double %65)
+  %67 = tail call double @llvm.fmuladd.f64(double %62, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %66)
+  %68 = tail call double @atan2(double noundef %53, double noundef %67) #5, !tbaa !21
+  %69 = fdiv double %68, 0x401921FB54442D18
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
+  ret double %69
 
-73:                                               ; preds = %4, %73
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %73 ]
-  %74 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
-  %75 = load double, ptr %74, align 8, !tbaa !19
-  %76 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
-  %77 = load double, ptr %76, align 8, !tbaa !19
-  %78 = fsub double %75, %77
+70:                                               ; preds = %4, %70
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %70 ]
+  %71 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
+  %72 = load double, ptr %71, align 8, !tbaa !19
+  %73 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %74 = load double, ptr %73, align 8, !tbaa !19
+  %75 = fsub double %72, %74
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 24
-  %79 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
-  store double %78, ptr %79, align 8, !tbaa !19
-  %80 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
-  %81 = load double, ptr %80, align 8, !tbaa !19
-  %82 = fsub double %81, %77
-  %83 = getelementptr i8, ptr %8, i64 %.idx.i.i.i
-  store double %82, ptr %83, align 8, !tbaa !19
-  %84 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
-  %85 = load double, ptr %84, align 8, !tbaa !19
-  %86 = fsub double %85, %77
-  %87 = getelementptr i8, ptr %10, i64 %.idx.i.i.i
-  store double %86, ptr %87, align 8, !tbaa !19
+  %76 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
+  store double %75, ptr %76, align 8, !tbaa !19
+  %77 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
+  %78 = load double, ptr %77, align 8, !tbaa !19
+  %79 = fsub double %78, %74
+  %80 = getelementptr i8, ptr %8, i64 %.idx.i.i.i
+  store double %79, ptr %80, align 8, !tbaa !19
+  %81 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
+  %82 = load double, ptr %81, align 8, !tbaa !19
+  %83 = fsub double %82, %74
+  %84 = getelementptr i8, ptr %10, i64 %.idx.i.i.i
+  store double %83, ptr %84, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %11, label %73, !llvm.loop !45
+  br i1 %exitcond.not, label %11, label %70, !llvm.loop !45
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELi3ELi1ELin1ELi3EEELi1ELi3ELb1EEES6_S6_NS3_IdLi1ELi2ELi1ELi1ELi2EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #5
   %6 = load ptr, ptr %0, align 8, !tbaa !43
   %7 = load ptr, ptr %1, align 8, !tbaa !43
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %2, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br label %73
+  br label %70
 
-11:                                               ; preds = %73
+11:                                               ; preds = %70
   %12 = load <2 x double>, ptr %5, align 16
   %13 = fmul <2 x double> %12, %12
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -670,80 +660,78 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %30 = fmul double %29, %29
   %31 = fadd double %27, %30
   %32 = fadd double %24, %31
-  %33 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %32, i64 0
-  %34 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %33)
-  %35 = extractelement <2 x double> %34, i64 0
-  %36 = extractelement <2 x double> %12, i64 0
-  %37 = extractelement <2 x double> %15, i64 1
-  %38 = fmul double %37, %36
-  %39 = extractelement <2 x double> %12, i64 1
-  %40 = fmul double %39, %26
-  %41 = extractelement <2 x double> %18, i64 0
-  %42 = fmul double %40, %41
-  %43 = tail call double @llvm.fmuladd.f64(double %38, double %29, double %42)
-  %44 = extractelement <2 x double> %15, i64 0
-  %45 = fmul double %23, %44
-  %46 = extractelement <2 x double> %18, i64 1
-  %47 = tail call double @llvm.fmuladd.f64(double %45, double %46, double %43)
-  %48 = fneg double %37
-  %49 = fmul double %23, %48
-  %50 = tail call double @llvm.fmuladd.f64(double %49, double %41, double %47)
-  %51 = fneg double %44
-  %52 = fmul double %39, %51
-  %53 = tail call double @llvm.fmuladd.f64(double %52, double %29, double %50)
-  %54 = fneg double %26
-  %55 = fmul double %36, %54
-  %56 = tail call double @llvm.fmuladd.f64(double %55, double %46, double %53)
-  %57 = fmul double %23, %39
-  %58 = tail call double @llvm.fmuladd.f64(double %37, double %26, double %57)
-  %59 = tail call double @llvm.fmuladd.f64(double %46, double %29, double %58)
-  %60 = fmul double %23, %36
-  %61 = tail call double @llvm.fmuladd.f64(double %26, double %44, double %60)
-  %62 = tail call double @llvm.fmuladd.f64(double %29, double %41, double %61)
-  %63 = fmul double %36, %39
-  %64 = tail call double @llvm.fmuladd.f64(double %44, double %37, double %63)
-  %65 = tail call double @llvm.fmuladd.f64(double %41, double %46, double %64)
+  %.scalar.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef double @llvm.sqrt.f64(double %32)
+  %33 = extractelement <2 x double> %12, i64 0
+  %34 = extractelement <2 x double> %15, i64 1
+  %35 = fmul double %34, %33
+  %36 = extractelement <2 x double> %12, i64 1
+  %37 = fmul double %36, %26
+  %38 = extractelement <2 x double> %18, i64 0
+  %39 = fmul double %37, %38
+  %40 = tail call double @llvm.fmuladd.f64(double %35, double %29, double %39)
+  %41 = extractelement <2 x double> %15, i64 0
+  %42 = fmul double %23, %41
+  %43 = extractelement <2 x double> %18, i64 1
+  %44 = tail call double @llvm.fmuladd.f64(double %42, double %43, double %40)
+  %45 = fneg double %34
+  %46 = fmul double %23, %45
+  %47 = tail call double @llvm.fmuladd.f64(double %46, double %38, double %44)
+  %48 = fneg double %41
+  %49 = fmul double %36, %48
+  %50 = tail call double @llvm.fmuladd.f64(double %49, double %29, double %47)
+  %51 = fneg double %26
+  %52 = fmul double %33, %51
+  %53 = tail call double @llvm.fmuladd.f64(double %52, double %43, double %50)
+  %54 = fmul double %23, %36
+  %55 = tail call double @llvm.fmuladd.f64(double %34, double %26, double %54)
+  %56 = tail call double @llvm.fmuladd.f64(double %43, double %29, double %55)
+  %57 = fmul double %23, %33
+  %58 = tail call double @llvm.fmuladd.f64(double %26, double %41, double %57)
+  %59 = tail call double @llvm.fmuladd.f64(double %29, double %38, double %58)
+  %60 = fmul double %33, %36
+  %61 = tail call double @llvm.fmuladd.f64(double %41, double %34, double %60)
+  %62 = tail call double @llvm.fmuladd.f64(double %38, double %43, double %61)
   %.sroa.027.0.vec.extract = extractelement <2 x double> %22, i64 0
   %.sroa.027.8.vec.extract = extractelement <2 x double> %22, i64 1
-  %66 = fmul double %.sroa.027.0.vec.extract, %.sroa.027.8.vec.extract
-  %67 = fmul double %.sroa.027.0.vec.extract, %59
-  %68 = tail call double @llvm.fmuladd.f64(double %66, double %35, double %67)
-  %69 = tail call double @llvm.fmuladd.f64(double %62, double %.sroa.027.8.vec.extract, double %68)
-  %70 = tail call double @llvm.fmuladd.f64(double %65, double %35, double %69)
-  %71 = tail call double @atan2(double noundef %56, double noundef %70) #4, !tbaa !21
-  %72 = fdiv double %71, 0x401921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #4
-  ret double %72
+  %63 = fmul double %.sroa.027.0.vec.extract, %.sroa.027.8.vec.extract
+  %64 = fmul double %.sroa.027.0.vec.extract, %56
+  %65 = tail call double @llvm.fmuladd.f64(double %63, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %64)
+  %66 = tail call double @llvm.fmuladd.f64(double %59, double %.sroa.027.8.vec.extract, double %65)
+  %67 = tail call double @llvm.fmuladd.f64(double %62, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %66)
+  %68 = tail call double @atan2(double noundef %53, double noundef %67) #5, !tbaa !21
+  %69 = fdiv double %68, 0x401921FB54442D18
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
+  ret double %69
 
-73:                                               ; preds = %4, %73
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %73 ]
-  %74 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
-  %75 = load double, ptr %74, align 8, !tbaa !19
-  %76 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
-  %77 = load double, ptr %76, align 8, !tbaa !19
-  %78 = fsub double %75, %77
+70:                                               ; preds = %4, %70
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %70 ]
+  %71 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
+  %72 = load double, ptr %71, align 8, !tbaa !19
+  %73 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %74 = load double, ptr %73, align 8, !tbaa !19
+  %75 = fsub double %72, %74
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 24
-  %79 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
-  store double %78, ptr %79, align 8, !tbaa !19
-  %80 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
-  %81 = load double, ptr %80, align 8, !tbaa !19
-  %82 = fsub double %81, %77
-  %83 = getelementptr i8, ptr %8, i64 %.idx.i.i.i
-  store double %82, ptr %83, align 8, !tbaa !19
-  %84 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
-  %85 = load double, ptr %84, align 8, !tbaa !19
-  %86 = fsub double %85, %77
-  %87 = getelementptr i8, ptr %10, i64 %.idx.i.i.i
-  store double %86, ptr %87, align 8, !tbaa !19
+  %76 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
+  store double %75, ptr %76, align 8, !tbaa !19
+  %77 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
+  %78 = load double, ptr %77, align 8, !tbaa !19
+  %79 = fsub double %78, %74
+  %80 = getelementptr i8, ptr %8, i64 %.idx.i.i.i
+  store double %79, ptr %80, align 8, !tbaa !19
+  %81 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
+  %82 = load double, ptr %81, align 8, !tbaa !19
+  %83 = fsub double %82, %74
+  %84 = getelementptr i8, ptr %10, i64 %.idx.i.i.i
+  store double %83, ptr %84, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %11, label %73, !llvm.loop !46
+  br i1 %exitcond.not, label %11, label %70, !llvm.loop !46
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_S6_NS3_IfLi1ELi3ELi1ELi1ELi3EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix.54", align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #5
   %6 = load ptr, ptr %0, align 8, !tbaa !47
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !50
@@ -828,10 +816,10 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
   %85 = tail call float @llvm.fmuladd.f32(float %77, float %45, float %84)
   %86 = tail call float @llvm.fmuladd.f32(float %80, float %56, float %85)
   %87 = fpext float %86 to double
-  %88 = tail call double @atan2(double noundef %81, double noundef %87) #4, !tbaa !21
+  %88 = tail call double @atan2(double noundef %81, double noundef %87) #5, !tbaa !21
   %89 = fdiv double %88, 0x401921FB54442D18
   %90 = fptrunc double %89 to float
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #5
   ret float %90
 
 91:                                               ; preds = %4, %91
@@ -868,7 +856,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #2
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIfLin1ELi3ELi1ELin1ELi3EEELi1ELi3ELb1EEES6_S6_NS3_IfLi1ELi3ELi1ELi1ELi3EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix.54", align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #5
   %6 = load ptr, ptr %0, align 8, !tbaa !58
   %7 = load ptr, ptr %1, align 8, !tbaa !58
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -941,10 +929,10 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
   %73 = tail call float @llvm.fmuladd.f32(float %65, float %33, float %72)
   %74 = tail call float @llvm.fmuladd.f32(float %68, float %44, float %73)
   %75 = fpext float %74 to double
-  %76 = tail call double @atan2(double noundef %69, double noundef %75) #4, !tbaa !21
+  %76 = tail call double @atan2(double noundef %69, double noundef %75) #5, !tbaa !21
   %77 = fdiv double %76, 0x401921FB54442D18
   %78 = fptrunc double %77 to float
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #5
   ret float %78
 
 79:                                               ; preds = %4, %79
@@ -975,7 +963,7 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIfLin1ELi3ELi1ELin1ELi3EEELi1ELi3ELb1EEES6_S6_NS3_IfLi1ELi2ELi1ELi1ELi2EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix.54", align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #5
   %6 = load ptr, ptr %0, align 8, !tbaa !58
   %7 = load ptr, ptr %1, align 8, !tbaa !58
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1048,10 +1036,10 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
   %73 = tail call float @llvm.fmuladd.f32(float %65, float %33, float %72)
   %74 = tail call float @llvm.fmuladd.f32(float %68, float %44, float %73)
   %75 = fpext float %74 to double
-  %76 = tail call double @atan2(double noundef %69, double noundef %75) #4, !tbaa !21
+  %76 = tail call double @atan2(double noundef %69, double noundef %75) #5, !tbaa !21
   %77 = fdiv double %76, 0x401921FB54442D18
   %78 = fptrunc double %77 to float
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #5
   ret float %78
 
 79:                                               ; preds = %4, %79
@@ -1082,7 +1070,7 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIfLin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEES6_S6_NS3_IfLi1ELi3ELi1ELi1ELi3EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix.54", align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #5
   %6 = load ptr, ptr %0, align 8, !tbaa !62
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !64
@@ -1167,10 +1155,10 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
   %85 = tail call float @llvm.fmuladd.f32(float %77, float %45, float %84)
   %86 = tail call float @llvm.fmuladd.f32(float %80, float %56, float %85)
   %87 = fpext float %86 to double
-  %88 = tail call double @atan2(double noundef %81, double noundef %87) #4, !tbaa !21
+  %88 = tail call double @atan2(double noundef %81, double noundef %87) #5, !tbaa !21
   %89 = fdiv double %88, 0x401921FB54442D18
   %90 = fptrunc double %89 to float
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #5
   ret float %90
 
 91:                                               ; preds = %4, %91
@@ -1204,7 +1192,7 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIfLin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEES6_S6_NS3_IfLi1ELi2ELi1ELi1ELi2EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix.54", align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #5
   %6 = load ptr, ptr %0, align 8, !tbaa !62
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !64
@@ -1289,10 +1277,10 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
   %85 = tail call float @llvm.fmuladd.f32(float %77, float %45, float %84)
   %86 = tail call float @llvm.fmuladd.f32(float %80, float %56, float %85)
   %87 = fpext float %86 to double
-  %88 = tail call double @atan2(double noundef %81, double noundef %87) #4, !tbaa !21
+  %88 = tail call double @atan2(double noundef %81, double noundef %87) #5, !tbaa !21
   %89 = fdiv double %88, 0x401921FB54442D18
   %90 = fptrunc double %89 to float
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #5
   ret float %90
 
 91:                                               ; preds = %4, %91
@@ -1326,7 +1314,7 @@ define weak_odr dso_local noundef float @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_S6_S6_EENT_6ScalarERKNS1_10MatrixBaseIS7_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #5
   %6 = load ptr, ptr %0, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !37
@@ -1349,9 +1337,9 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !40
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br label %90
+  br label %87
 
-28:                                               ; preds = %90
+28:                                               ; preds = %87
   %29 = load <2 x double>, ptr %5, align 16
   %30 = fmul <2 x double> %29, %29
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -1373,84 +1361,82 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %47 = fmul double %46, %46
   %48 = fadd double %44, %47
   %49 = fadd double %41, %48
-  %50 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %49, i64 0
-  %51 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %50)
-  %52 = extractelement <2 x double> %51, i64 0
-  %53 = extractelement <2 x double> %29, i64 0
-  %54 = extractelement <2 x double> %32, i64 1
-  %55 = fmul double %54, %53
-  %56 = extractelement <2 x double> %29, i64 1
-  %57 = fmul double %56, %43
-  %58 = extractelement <2 x double> %35, i64 0
-  %59 = fmul double %57, %58
-  %60 = tail call double @llvm.fmuladd.f64(double %55, double %46, double %59)
-  %61 = extractelement <2 x double> %32, i64 0
-  %62 = fmul double %40, %61
-  %63 = extractelement <2 x double> %35, i64 1
-  %64 = tail call double @llvm.fmuladd.f64(double %62, double %63, double %60)
-  %65 = fneg double %54
-  %66 = fmul double %40, %65
-  %67 = tail call double @llvm.fmuladd.f64(double %66, double %58, double %64)
-  %68 = fneg double %61
-  %69 = fmul double %56, %68
-  %70 = tail call double @llvm.fmuladd.f64(double %69, double %46, double %67)
-  %71 = fneg double %43
-  %72 = fmul double %53, %71
-  %73 = tail call double @llvm.fmuladd.f64(double %72, double %63, double %70)
-  %74 = fmul double %40, %56
-  %75 = tail call double @llvm.fmuladd.f64(double %54, double %43, double %74)
-  %76 = tail call double @llvm.fmuladd.f64(double %63, double %46, double %75)
-  %77 = fmul double %40, %53
-  %78 = tail call double @llvm.fmuladd.f64(double %43, double %61, double %77)
-  %79 = tail call double @llvm.fmuladd.f64(double %46, double %58, double %78)
-  %80 = fmul double %53, %56
-  %81 = tail call double @llvm.fmuladd.f64(double %61, double %54, double %80)
-  %82 = tail call double @llvm.fmuladd.f64(double %58, double %63, double %81)
+  %.scalar.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef double @llvm.sqrt.f64(double %49)
+  %50 = extractelement <2 x double> %29, i64 0
+  %51 = extractelement <2 x double> %32, i64 1
+  %52 = fmul double %51, %50
+  %53 = extractelement <2 x double> %29, i64 1
+  %54 = fmul double %53, %43
+  %55 = extractelement <2 x double> %35, i64 0
+  %56 = fmul double %54, %55
+  %57 = tail call double @llvm.fmuladd.f64(double %52, double %46, double %56)
+  %58 = extractelement <2 x double> %32, i64 0
+  %59 = fmul double %40, %58
+  %60 = extractelement <2 x double> %35, i64 1
+  %61 = tail call double @llvm.fmuladd.f64(double %59, double %60, double %57)
+  %62 = fneg double %51
+  %63 = fmul double %40, %62
+  %64 = tail call double @llvm.fmuladd.f64(double %63, double %55, double %61)
+  %65 = fneg double %58
+  %66 = fmul double %53, %65
+  %67 = tail call double @llvm.fmuladd.f64(double %66, double %46, double %64)
+  %68 = fneg double %43
+  %69 = fmul double %50, %68
+  %70 = tail call double @llvm.fmuladd.f64(double %69, double %60, double %67)
+  %71 = fmul double %40, %53
+  %72 = tail call double @llvm.fmuladd.f64(double %51, double %43, double %71)
+  %73 = tail call double @llvm.fmuladd.f64(double %60, double %46, double %72)
+  %74 = fmul double %40, %50
+  %75 = tail call double @llvm.fmuladd.f64(double %43, double %58, double %74)
+  %76 = tail call double @llvm.fmuladd.f64(double %46, double %55, double %75)
+  %77 = fmul double %50, %53
+  %78 = tail call double @llvm.fmuladd.f64(double %58, double %51, double %77)
+  %79 = tail call double @llvm.fmuladd.f64(double %55, double %60, double %78)
   %.sroa.027.0.vec.extract = extractelement <2 x double> %39, i64 0
   %.sroa.027.8.vec.extract = extractelement <2 x double> %39, i64 1
-  %83 = fmul double %.sroa.027.0.vec.extract, %.sroa.027.8.vec.extract
-  %84 = fmul double %.sroa.027.0.vec.extract, %76
-  %85 = tail call double @llvm.fmuladd.f64(double %83, double %52, double %84)
-  %86 = tail call double @llvm.fmuladd.f64(double %79, double %.sroa.027.8.vec.extract, double %85)
-  %87 = tail call double @llvm.fmuladd.f64(double %82, double %52, double %86)
-  %88 = tail call double @atan2(double noundef %73, double noundef %87) #4, !tbaa !21
-  %89 = fdiv double %88, 0x401921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #4
-  ret double %89
+  %80 = fmul double %.sroa.027.0.vec.extract, %.sroa.027.8.vec.extract
+  %81 = fmul double %.sroa.027.0.vec.extract, %73
+  %82 = tail call double @llvm.fmuladd.f64(double %80, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %81)
+  %83 = tail call double @llvm.fmuladd.f64(double %76, double %.sroa.027.8.vec.extract, double %82)
+  %84 = tail call double @llvm.fmuladd.f64(double %79, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %83)
+  %85 = tail call double @atan2(double noundef %70, double noundef %84) #5, !tbaa !21
+  %86 = fdiv double %85, 0x401921FB54442D18
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
+  ret double %86
 
-90:                                               ; preds = %4, %90
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %90 ]
-  %91 = mul nsw i64 %10, %indvars.iv
-  %92 = getelementptr inbounds double, ptr %6, i64 %91
+87:                                               ; preds = %4, %87
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %87 ]
+  %88 = mul nsw i64 %10, %indvars.iv
+  %89 = getelementptr inbounds double, ptr %6, i64 %88
+  %90 = load double, ptr %89, align 8, !tbaa !19
+  %91 = mul nsw i64 %15, %indvars.iv
+  %92 = getelementptr inbounds double, ptr %11, i64 %91
   %93 = load double, ptr %92, align 8, !tbaa !19
-  %94 = mul nsw i64 %15, %indvars.iv
-  %95 = getelementptr inbounds double, ptr %11, i64 %94
-  %96 = load double, ptr %95, align 8, !tbaa !19
-  %97 = fsub double %93, %96
+  %94 = fsub double %90, %93
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 24
-  %98 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
-  store double %97, ptr %98, align 8, !tbaa !19
-  %99 = mul nsw i64 %20, %indvars.iv
-  %100 = getelementptr inbounds double, ptr %16, i64 %99
-  %101 = load double, ptr %100, align 8, !tbaa !19
-  %102 = fsub double %101, %96
-  %103 = getelementptr i8, ptr %21, i64 %.idx.i.i.i
-  store double %102, ptr %103, align 8, !tbaa !19
-  %104 = mul nsw i64 %26, %indvars.iv
-  %105 = getelementptr inbounds double, ptr %22, i64 %104
-  %106 = load double, ptr %105, align 8, !tbaa !19
-  %107 = fsub double %106, %96
-  %108 = getelementptr i8, ptr %27, i64 %.idx.i.i.i
-  store double %107, ptr %108, align 8, !tbaa !19
+  %95 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
+  store double %94, ptr %95, align 8, !tbaa !19
+  %96 = mul nsw i64 %20, %indvars.iv
+  %97 = getelementptr inbounds double, ptr %16, i64 %96
+  %98 = load double, ptr %97, align 8, !tbaa !19
+  %99 = fsub double %98, %93
+  %100 = getelementptr i8, ptr %21, i64 %.idx.i.i.i
+  store double %99, ptr %100, align 8, !tbaa !19
+  %101 = mul nsw i64 %26, %indvars.iv
+  %102 = getelementptr inbounds double, ptr %22, i64 %101
+  %103 = load double, ptr %102, align 8, !tbaa !19
+  %104 = fsub double %103, %93
+  %105 = getelementptr i8, ptr %27, i64 %.idx.i.i.i
+  store double %104, ptr %105, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %28, label %90, !llvm.loop !71
+  br i1 %exitcond.not, label %28, label %87, !llvm.loop !71
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_S6_NS3_IdLi3ELi1ELi0ELi3ELi1EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #5
   %6 = load ptr, ptr %0, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !37
@@ -1468,9 +1454,9 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !40
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br label %85
+  br label %82
 
-23:                                               ; preds = %85
+23:                                               ; preds = %82
   %24 = load <2 x double>, ptr %5, align 16
   %25 = fmul <2 x double> %24, %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -1492,83 +1478,81 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %42 = fmul double %41, %41
   %43 = fadd double %39, %42
   %44 = fadd double %36, %43
-  %45 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %44, i64 0
-  %46 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %45)
-  %47 = extractelement <2 x double> %46, i64 0
-  %48 = extractelement <2 x double> %24, i64 0
-  %49 = extractelement <2 x double> %27, i64 1
-  %50 = fmul double %49, %48
-  %51 = extractelement <2 x double> %24, i64 1
-  %52 = fmul double %51, %38
-  %53 = extractelement <2 x double> %30, i64 0
-  %54 = fmul double %52, %53
-  %55 = tail call double @llvm.fmuladd.f64(double %50, double %41, double %54)
-  %56 = extractelement <2 x double> %27, i64 0
-  %57 = fmul double %35, %56
-  %58 = extractelement <2 x double> %30, i64 1
-  %59 = tail call double @llvm.fmuladd.f64(double %57, double %58, double %55)
-  %60 = fneg double %49
-  %61 = fmul double %35, %60
-  %62 = tail call double @llvm.fmuladd.f64(double %61, double %53, double %59)
-  %63 = fneg double %56
-  %64 = fmul double %51, %63
-  %65 = tail call double @llvm.fmuladd.f64(double %64, double %41, double %62)
-  %66 = fneg double %38
-  %67 = fmul double %48, %66
-  %68 = tail call double @llvm.fmuladd.f64(double %67, double %58, double %65)
-  %69 = fmul double %35, %51
-  %70 = tail call double @llvm.fmuladd.f64(double %49, double %38, double %69)
-  %71 = tail call double @llvm.fmuladd.f64(double %58, double %41, double %70)
-  %72 = fmul double %35, %48
-  %73 = tail call double @llvm.fmuladd.f64(double %38, double %56, double %72)
-  %74 = tail call double @llvm.fmuladd.f64(double %41, double %53, double %73)
-  %75 = fmul double %48, %51
-  %76 = tail call double @llvm.fmuladd.f64(double %56, double %49, double %75)
-  %77 = tail call double @llvm.fmuladd.f64(double %53, double %58, double %76)
+  %.scalar.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef double @llvm.sqrt.f64(double %44)
+  %45 = extractelement <2 x double> %24, i64 0
+  %46 = extractelement <2 x double> %27, i64 1
+  %47 = fmul double %46, %45
+  %48 = extractelement <2 x double> %24, i64 1
+  %49 = fmul double %48, %38
+  %50 = extractelement <2 x double> %30, i64 0
+  %51 = fmul double %49, %50
+  %52 = tail call double @llvm.fmuladd.f64(double %47, double %41, double %51)
+  %53 = extractelement <2 x double> %27, i64 0
+  %54 = fmul double %35, %53
+  %55 = extractelement <2 x double> %30, i64 1
+  %56 = tail call double @llvm.fmuladd.f64(double %54, double %55, double %52)
+  %57 = fneg double %46
+  %58 = fmul double %35, %57
+  %59 = tail call double @llvm.fmuladd.f64(double %58, double %50, double %56)
+  %60 = fneg double %53
+  %61 = fmul double %48, %60
+  %62 = tail call double @llvm.fmuladd.f64(double %61, double %41, double %59)
+  %63 = fneg double %38
+  %64 = fmul double %45, %63
+  %65 = tail call double @llvm.fmuladd.f64(double %64, double %55, double %62)
+  %66 = fmul double %35, %48
+  %67 = tail call double @llvm.fmuladd.f64(double %46, double %38, double %66)
+  %68 = tail call double @llvm.fmuladd.f64(double %55, double %41, double %67)
+  %69 = fmul double %35, %45
+  %70 = tail call double @llvm.fmuladd.f64(double %38, double %53, double %69)
+  %71 = tail call double @llvm.fmuladd.f64(double %41, double %50, double %70)
+  %72 = fmul double %45, %48
+  %73 = tail call double @llvm.fmuladd.f64(double %53, double %46, double %72)
+  %74 = tail call double @llvm.fmuladd.f64(double %50, double %55, double %73)
   %.sroa.027.0.vec.extract = extractelement <2 x double> %34, i64 0
   %.sroa.027.8.vec.extract = extractelement <2 x double> %34, i64 1
-  %78 = fmul double %.sroa.027.0.vec.extract, %.sroa.027.8.vec.extract
-  %79 = fmul double %.sroa.027.0.vec.extract, %71
-  %80 = tail call double @llvm.fmuladd.f64(double %78, double %47, double %79)
-  %81 = tail call double @llvm.fmuladd.f64(double %74, double %.sroa.027.8.vec.extract, double %80)
-  %82 = tail call double @llvm.fmuladd.f64(double %77, double %47, double %81)
-  %83 = tail call double @atan2(double noundef %68, double noundef %82) #4, !tbaa !21
-  %84 = fdiv double %83, 0x401921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #4
-  ret double %84
+  %75 = fmul double %.sroa.027.0.vec.extract, %.sroa.027.8.vec.extract
+  %76 = fmul double %.sroa.027.0.vec.extract, %68
+  %77 = tail call double @llvm.fmuladd.f64(double %75, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %76)
+  %78 = tail call double @llvm.fmuladd.f64(double %71, double %.sroa.027.8.vec.extract, double %77)
+  %79 = tail call double @llvm.fmuladd.f64(double %74, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %78)
+  %80 = tail call double @atan2(double noundef %65, double noundef %79) #5, !tbaa !21
+  %81 = fdiv double %80, 0x401921FB54442D18
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
+  ret double %81
 
-85:                                               ; preds = %4, %85
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %85 ]
-  %86 = mul nsw i64 %10, %indvars.iv
-  %87 = getelementptr inbounds double, ptr %6, i64 %86
-  %88 = load double, ptr %87, align 8, !tbaa !19
-  %89 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
-  %90 = load double, ptr %89, align 8, !tbaa !19
-  %91 = fsub double %88, %90
+82:                                               ; preds = %4, %82
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %82 ]
+  %83 = mul nsw i64 %10, %indvars.iv
+  %84 = getelementptr inbounds double, ptr %6, i64 %83
+  %85 = load double, ptr %84, align 8, !tbaa !19
+  %86 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %87 = load double, ptr %86, align 8, !tbaa !19
+  %88 = fsub double %85, %87
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 24
-  %92 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
-  store double %91, ptr %92, align 8, !tbaa !19
-  %93 = mul nsw i64 %15, %indvars.iv
-  %94 = getelementptr inbounds double, ptr %11, i64 %93
-  %95 = load double, ptr %94, align 8, !tbaa !19
-  %96 = fsub double %95, %90
-  %97 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
-  store double %96, ptr %97, align 8, !tbaa !19
-  %98 = mul nsw i64 %21, %indvars.iv
-  %99 = getelementptr inbounds double, ptr %17, i64 %98
-  %100 = load double, ptr %99, align 8, !tbaa !19
-  %101 = fsub double %100, %90
-  %102 = getelementptr i8, ptr %22, i64 %.idx.i.i.i
-  store double %101, ptr %102, align 8, !tbaa !19
+  %89 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
+  store double %88, ptr %89, align 8, !tbaa !19
+  %90 = mul nsw i64 %15, %indvars.iv
+  %91 = getelementptr inbounds double, ptr %11, i64 %90
+  %92 = load double, ptr %91, align 8, !tbaa !19
+  %93 = fsub double %92, %87
+  %94 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
+  store double %93, ptr %94, align 8, !tbaa !19
+  %95 = mul nsw i64 %21, %indvars.iv
+  %96 = getelementptr inbounds double, ptr %17, i64 %95
+  %97 = load double, ptr %96, align 8, !tbaa !19
+  %98 = fsub double %97, %87
+  %99 = getelementptr i8, ptr %22, i64 %.idx.i.i.i
+  store double %98, ptr %99, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %23, label %85, !llvm.loop !72
+  br i1 %exitcond.not, label %23, label %82, !llvm.loop !72
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_S6_NS3_IdLi1ELi3ELi1ELi1ELi3EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #5
   %6 = load ptr, ptr %0, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !37
@@ -1586,9 +1570,9 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !40
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br label %85
+  br label %82
 
-23:                                               ; preds = %85
+23:                                               ; preds = %82
   %24 = load <2 x double>, ptr %5, align 16
   %25 = fmul <2 x double> %24, %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -1610,83 +1594,81 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %42 = fmul double %41, %41
   %43 = fadd double %39, %42
   %44 = fadd double %36, %43
-  %45 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %44, i64 0
-  %46 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %45)
-  %47 = extractelement <2 x double> %46, i64 0
-  %48 = extractelement <2 x double> %24, i64 0
-  %49 = extractelement <2 x double> %27, i64 1
-  %50 = fmul double %49, %48
-  %51 = extractelement <2 x double> %24, i64 1
-  %52 = fmul double %51, %38
-  %53 = extractelement <2 x double> %30, i64 0
-  %54 = fmul double %52, %53
-  %55 = tail call double @llvm.fmuladd.f64(double %50, double %41, double %54)
-  %56 = extractelement <2 x double> %27, i64 0
-  %57 = fmul double %35, %56
-  %58 = extractelement <2 x double> %30, i64 1
-  %59 = tail call double @llvm.fmuladd.f64(double %57, double %58, double %55)
-  %60 = fneg double %49
-  %61 = fmul double %35, %60
-  %62 = tail call double @llvm.fmuladd.f64(double %61, double %53, double %59)
-  %63 = fneg double %56
-  %64 = fmul double %51, %63
-  %65 = tail call double @llvm.fmuladd.f64(double %64, double %41, double %62)
-  %66 = fneg double %38
-  %67 = fmul double %48, %66
-  %68 = tail call double @llvm.fmuladd.f64(double %67, double %58, double %65)
-  %69 = fmul double %35, %51
-  %70 = tail call double @llvm.fmuladd.f64(double %49, double %38, double %69)
-  %71 = tail call double @llvm.fmuladd.f64(double %58, double %41, double %70)
-  %72 = fmul double %35, %48
-  %73 = tail call double @llvm.fmuladd.f64(double %38, double %56, double %72)
-  %74 = tail call double @llvm.fmuladd.f64(double %41, double %53, double %73)
-  %75 = fmul double %48, %51
-  %76 = tail call double @llvm.fmuladd.f64(double %56, double %49, double %75)
-  %77 = tail call double @llvm.fmuladd.f64(double %53, double %58, double %76)
+  %.scalar.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef double @llvm.sqrt.f64(double %44)
+  %45 = extractelement <2 x double> %24, i64 0
+  %46 = extractelement <2 x double> %27, i64 1
+  %47 = fmul double %46, %45
+  %48 = extractelement <2 x double> %24, i64 1
+  %49 = fmul double %48, %38
+  %50 = extractelement <2 x double> %30, i64 0
+  %51 = fmul double %49, %50
+  %52 = tail call double @llvm.fmuladd.f64(double %47, double %41, double %51)
+  %53 = extractelement <2 x double> %27, i64 0
+  %54 = fmul double %35, %53
+  %55 = extractelement <2 x double> %30, i64 1
+  %56 = tail call double @llvm.fmuladd.f64(double %54, double %55, double %52)
+  %57 = fneg double %46
+  %58 = fmul double %35, %57
+  %59 = tail call double @llvm.fmuladd.f64(double %58, double %50, double %56)
+  %60 = fneg double %53
+  %61 = fmul double %48, %60
+  %62 = tail call double @llvm.fmuladd.f64(double %61, double %41, double %59)
+  %63 = fneg double %38
+  %64 = fmul double %45, %63
+  %65 = tail call double @llvm.fmuladd.f64(double %64, double %55, double %62)
+  %66 = fmul double %35, %48
+  %67 = tail call double @llvm.fmuladd.f64(double %46, double %38, double %66)
+  %68 = tail call double @llvm.fmuladd.f64(double %55, double %41, double %67)
+  %69 = fmul double %35, %45
+  %70 = tail call double @llvm.fmuladd.f64(double %38, double %53, double %69)
+  %71 = tail call double @llvm.fmuladd.f64(double %41, double %50, double %70)
+  %72 = fmul double %45, %48
+  %73 = tail call double @llvm.fmuladd.f64(double %53, double %46, double %72)
+  %74 = tail call double @llvm.fmuladd.f64(double %50, double %55, double %73)
   %.sroa.027.0.vec.extract = extractelement <2 x double> %34, i64 0
   %.sroa.027.8.vec.extract = extractelement <2 x double> %34, i64 1
-  %78 = fmul double %.sroa.027.0.vec.extract, %.sroa.027.8.vec.extract
-  %79 = fmul double %.sroa.027.0.vec.extract, %71
-  %80 = tail call double @llvm.fmuladd.f64(double %78, double %47, double %79)
-  %81 = tail call double @llvm.fmuladd.f64(double %74, double %.sroa.027.8.vec.extract, double %80)
-  %82 = tail call double @llvm.fmuladd.f64(double %77, double %47, double %81)
-  %83 = tail call double @atan2(double noundef %68, double noundef %82) #4, !tbaa !21
-  %84 = fdiv double %83, 0x401921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #4
-  ret double %84
+  %75 = fmul double %.sroa.027.0.vec.extract, %.sroa.027.8.vec.extract
+  %76 = fmul double %.sroa.027.0.vec.extract, %68
+  %77 = tail call double @llvm.fmuladd.f64(double %75, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %76)
+  %78 = tail call double @llvm.fmuladd.f64(double %71, double %.sroa.027.8.vec.extract, double %77)
+  %79 = tail call double @llvm.fmuladd.f64(double %74, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %78)
+  %80 = tail call double @atan2(double noundef %65, double noundef %79) #5, !tbaa !21
+  %81 = fdiv double %80, 0x401921FB54442D18
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
+  ret double %81
 
-85:                                               ; preds = %4, %85
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %85 ]
-  %86 = mul nsw i64 %10, %indvars.iv
-  %87 = getelementptr inbounds double, ptr %6, i64 %86
-  %88 = load double, ptr %87, align 8, !tbaa !19
-  %89 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
-  %90 = load double, ptr %89, align 8, !tbaa !19
-  %91 = fsub double %88, %90
+82:                                               ; preds = %4, %82
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %82 ]
+  %83 = mul nsw i64 %10, %indvars.iv
+  %84 = getelementptr inbounds double, ptr %6, i64 %83
+  %85 = load double, ptr %84, align 8, !tbaa !19
+  %86 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %87 = load double, ptr %86, align 8, !tbaa !19
+  %88 = fsub double %85, %87
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 24
-  %92 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
-  store double %91, ptr %92, align 8, !tbaa !19
-  %93 = mul nsw i64 %15, %indvars.iv
-  %94 = getelementptr inbounds double, ptr %11, i64 %93
-  %95 = load double, ptr %94, align 8, !tbaa !19
-  %96 = fsub double %95, %90
-  %97 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
-  store double %96, ptr %97, align 8, !tbaa !19
-  %98 = mul nsw i64 %21, %indvars.iv
-  %99 = getelementptr inbounds double, ptr %17, i64 %98
-  %100 = load double, ptr %99, align 8, !tbaa !19
-  %101 = fsub double %100, %90
-  %102 = getelementptr i8, ptr %22, i64 %.idx.i.i.i
-  store double %101, ptr %102, align 8, !tbaa !19
+  %89 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
+  store double %88, ptr %89, align 8, !tbaa !19
+  %90 = mul nsw i64 %15, %indvars.iv
+  %91 = getelementptr inbounds double, ptr %11, i64 %90
+  %92 = load double, ptr %91, align 8, !tbaa !19
+  %93 = fsub double %92, %87
+  %94 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
+  store double %93, ptr %94, align 8, !tbaa !19
+  %95 = mul nsw i64 %21, %indvars.iv
+  %96 = getelementptr inbounds double, ptr %17, i64 %95
+  %97 = load double, ptr %96, align 8, !tbaa !19
+  %98 = fsub double %97, %87
+  %99 = getelementptr i8, ptr %22, i64 %.idx.i.i.i
+  store double %98, ptr %99, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %23, label %85, !llvm.loop !73
+  br i1 %exitcond.not, label %23, label %82, !llvm.loop !73
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_S6_NS3_IdLi1ELi2ELi1ELi1ELi2EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #5
   %6 = load ptr, ptr %0, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !37
@@ -1704,9 +1686,9 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !40
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br label %85
+  br label %82
 
-23:                                               ; preds = %85
+23:                                               ; preds = %82
   %24 = load <2 x double>, ptr %5, align 16
   %25 = fmul <2 x double> %24, %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -1728,77 +1710,75 @@ define weak_odr dso_local noundef double @_ZN3igl11solid_angleIN5Eigen5BlockIKNS
   %42 = fmul double %41, %41
   %43 = fadd double %39, %42
   %44 = fadd double %36, %43
-  %45 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %44, i64 0
-  %46 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %45)
-  %47 = extractelement <2 x double> %46, i64 0
-  %48 = extractelement <2 x double> %24, i64 0
-  %49 = extractelement <2 x double> %27, i64 1
-  %50 = fmul double %49, %48
-  %51 = extractelement <2 x double> %24, i64 1
-  %52 = fmul double %51, %38
-  %53 = extractelement <2 x double> %30, i64 0
-  %54 = fmul double %52, %53
-  %55 = tail call double @llvm.fmuladd.f64(double %50, double %41, double %54)
-  %56 = extractelement <2 x double> %27, i64 0
-  %57 = fmul double %35, %56
-  %58 = extractelement <2 x double> %30, i64 1
-  %59 = tail call double @llvm.fmuladd.f64(double %57, double %58, double %55)
-  %60 = fneg double %49
-  %61 = fmul double %35, %60
-  %62 = tail call double @llvm.fmuladd.f64(double %61, double %53, double %59)
-  %63 = fneg double %56
-  %64 = fmul double %51, %63
-  %65 = tail call double @llvm.fmuladd.f64(double %64, double %41, double %62)
-  %66 = fneg double %38
-  %67 = fmul double %48, %66
-  %68 = tail call double @llvm.fmuladd.f64(double %67, double %58, double %65)
-  %69 = fmul double %35, %51
-  %70 = tail call double @llvm.fmuladd.f64(double %49, double %38, double %69)
-  %71 = tail call double @llvm.fmuladd.f64(double %58, double %41, double %70)
-  %72 = fmul double %35, %48
-  %73 = tail call double @llvm.fmuladd.f64(double %38, double %56, double %72)
-  %74 = tail call double @llvm.fmuladd.f64(double %41, double %53, double %73)
-  %75 = fmul double %48, %51
-  %76 = tail call double @llvm.fmuladd.f64(double %56, double %49, double %75)
-  %77 = tail call double @llvm.fmuladd.f64(double %53, double %58, double %76)
+  %.scalar.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef double @llvm.sqrt.f64(double %44)
+  %45 = extractelement <2 x double> %24, i64 0
+  %46 = extractelement <2 x double> %27, i64 1
+  %47 = fmul double %46, %45
+  %48 = extractelement <2 x double> %24, i64 1
+  %49 = fmul double %48, %38
+  %50 = extractelement <2 x double> %30, i64 0
+  %51 = fmul double %49, %50
+  %52 = tail call double @llvm.fmuladd.f64(double %47, double %41, double %51)
+  %53 = extractelement <2 x double> %27, i64 0
+  %54 = fmul double %35, %53
+  %55 = extractelement <2 x double> %30, i64 1
+  %56 = tail call double @llvm.fmuladd.f64(double %54, double %55, double %52)
+  %57 = fneg double %46
+  %58 = fmul double %35, %57
+  %59 = tail call double @llvm.fmuladd.f64(double %58, double %50, double %56)
+  %60 = fneg double %53
+  %61 = fmul double %48, %60
+  %62 = tail call double @llvm.fmuladd.f64(double %61, double %41, double %59)
+  %63 = fneg double %38
+  %64 = fmul double %45, %63
+  %65 = tail call double @llvm.fmuladd.f64(double %64, double %55, double %62)
+  %66 = fmul double %35, %48
+  %67 = tail call double @llvm.fmuladd.f64(double %46, double %38, double %66)
+  %68 = tail call double @llvm.fmuladd.f64(double %55, double %41, double %67)
+  %69 = fmul double %35, %45
+  %70 = tail call double @llvm.fmuladd.f64(double %38, double %53, double %69)
+  %71 = tail call double @llvm.fmuladd.f64(double %41, double %50, double %70)
+  %72 = fmul double %45, %48
+  %73 = tail call double @llvm.fmuladd.f64(double %53, double %46, double %72)
+  %74 = tail call double @llvm.fmuladd.f64(double %50, double %55, double %73)
   %.sroa.027.0.vec.extract = extractelement <2 x double> %34, i64 0
   %.sroa.027.8.vec.extract = extractelement <2 x double> %34, i64 1
-  %78 = fmul double %.sroa.027.0.vec.extract, %.sroa.027.8.vec.extract
-  %79 = fmul double %.sroa.027.0.vec.extract, %71
-  %80 = tail call double @llvm.fmuladd.f64(double %78, double %47, double %79)
-  %81 = tail call double @llvm.fmuladd.f64(double %74, double %.sroa.027.8.vec.extract, double %80)
-  %82 = tail call double @llvm.fmuladd.f64(double %77, double %47, double %81)
-  %83 = tail call double @atan2(double noundef %68, double noundef %82) #4, !tbaa !21
-  %84 = fdiv double %83, 0x401921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #4
-  ret double %84
+  %75 = fmul double %.sroa.027.0.vec.extract, %.sroa.027.8.vec.extract
+  %76 = fmul double %.sroa.027.0.vec.extract, %68
+  %77 = tail call double @llvm.fmuladd.f64(double %75, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %76)
+  %78 = tail call double @llvm.fmuladd.f64(double %71, double %.sroa.027.8.vec.extract, double %77)
+  %79 = tail call double @llvm.fmuladd.f64(double %74, double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, double %78)
+  %80 = tail call double @atan2(double noundef %65, double noundef %79) #5, !tbaa !21
+  %81 = fdiv double %80, 0x401921FB54442D18
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
+  ret double %81
 
-85:                                               ; preds = %4, %85
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %85 ]
-  %86 = mul nsw i64 %10, %indvars.iv
-  %87 = getelementptr inbounds double, ptr %6, i64 %86
-  %88 = load double, ptr %87, align 8, !tbaa !19
-  %89 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
-  %90 = load double, ptr %89, align 8, !tbaa !19
-  %91 = fsub double %88, %90
+82:                                               ; preds = %4, %82
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %82 ]
+  %83 = mul nsw i64 %10, %indvars.iv
+  %84 = getelementptr inbounds double, ptr %6, i64 %83
+  %85 = load double, ptr %84, align 8, !tbaa !19
+  %86 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %87 = load double, ptr %86, align 8, !tbaa !19
+  %88 = fsub double %85, %87
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 24
-  %92 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
-  store double %91, ptr %92, align 8, !tbaa !19
-  %93 = mul nsw i64 %15, %indvars.iv
-  %94 = getelementptr inbounds double, ptr %11, i64 %93
-  %95 = load double, ptr %94, align 8, !tbaa !19
-  %96 = fsub double %95, %90
-  %97 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
-  store double %96, ptr %97, align 8, !tbaa !19
-  %98 = mul nsw i64 %21, %indvars.iv
-  %99 = getelementptr inbounds double, ptr %17, i64 %98
-  %100 = load double, ptr %99, align 8, !tbaa !19
-  %101 = fsub double %100, %90
-  %102 = getelementptr i8, ptr %22, i64 %.idx.i.i.i
-  store double %101, ptr %102, align 8, !tbaa !19
+  %89 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
+  store double %88, ptr %89, align 8, !tbaa !19
+  %90 = mul nsw i64 %15, %indvars.iv
+  %91 = getelementptr inbounds double, ptr %11, i64 %90
+  %92 = load double, ptr %91, align 8, !tbaa !19
+  %93 = fsub double %92, %87
+  %94 = getelementptr i8, ptr %16, i64 %.idx.i.i.i
+  store double %93, ptr %94, align 8, !tbaa !19
+  %95 = mul nsw i64 %21, %indvars.iv
+  %96 = getelementptr inbounds double, ptr %17, i64 %95
+  %97 = load double, ptr %96, align 8, !tbaa !19
+  %98 = fsub double %97, %87
+  %99 = getelementptr i8, ptr %22, i64 %.idx.i.i.i
+  store double %98, ptr %99, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %23, label %85, !llvm.loop !74
+  br i1 %exitcond.not, label %23, label %82, !llvm.loop !74
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -1809,11 +1789,15 @@ declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #2
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #4
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

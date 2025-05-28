@@ -343,60 +343,60 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9D
   br i1 %37, label %38, label %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit
 
 38:                                               ; preds = %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
-  %39 = insertelement <2 x double> %35, double 0.000000e+00, i64 1
-  %40 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %39)
-  %41 = shufflevector <2 x double> %40, <2 x double> poison, <2 x i32> zeroinitializer
-  %42 = fdiv <2 x double> %29, %41
-  store <2 x double> %42, ptr %4, align 16, !tbaa !45
-  %43 = fdiv <2 x double> %32, %41
-  store <2 x double> %43, ptr %31, align 16, !tbaa !45
+  %.scalar.i.i = call double @llvm.sqrt.f64(double %36)
+  %39 = insertelement <2 x double> poison, double %.scalar.i.i, i64 0
+  %40 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> zeroinitializer
+  %41 = fdiv <2 x double> %29, %40
+  store <2 x double> %41, ptr %4, align 16, !tbaa !45
+  %42 = fdiv <2 x double> %32, %40
+  store <2 x double> %42, ptr %31, align 16, !tbaa !45
   br label %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit
 
 _ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit: ; preds = %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, %38
   call void @llvm.lifetime.start.p0(i64 560, ptr nonnull %5) #23
   call void @_ZN3g2o6SBACamC1ERKN5Eigen10QuaternionIdLi0EEERKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 16 dereferenceable(552) %5, ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
-  %44 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %45 = load ptr, ptr %1, align 8, !tbaa !3
-  %46 = getelementptr i8, ptr %45, i64 -24
-  %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 %47
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %50 = load i32, ptr %49, align 8, !tbaa !33
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %62
+  %43 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %44 = load ptr, ptr %1, align 8, !tbaa !3
+  %45 = getelementptr i8, ptr %44, i64 -24
+  %46 = load i64, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %1, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %49 = load i32, ptr %48, align 8, !tbaa !33
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %61
 
-52:                                               ; preds = %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit
+51:                                               ; preds = %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #23
-  %53 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %54 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %55 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %56 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %57 = load double, ptr %6, align 8, !tbaa !46
-  %58 = load double, ptr %7, align 8, !tbaa !46
-  %59 = load double, ptr %8, align 8, !tbaa !46
-  %60 = load double, ptr %9, align 8, !tbaa !46
-  %61 = load double, ptr %10, align 8, !tbaa !46
-  call void @_ZN3g2o6SBACam7setKcamEddddd(ptr noundef nonnull align 16 dereferenceable(552) %5, double noundef %57, double noundef %58, double noundef %59, double noundef %60, double noundef %61)
+  %52 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %53 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %54 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %55 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %56 = load double, ptr %6, align 8, !tbaa !46
+  %57 = load double, ptr %7, align 8, !tbaa !46
+  %58 = load double, ptr %8, align 8, !tbaa !46
+  %59 = load double, ptr %9, align 8, !tbaa !46
+  %60 = load double, ptr %10, align 8, !tbaa !46
+  call void @_ZN3g2o6SBACam7setKcamEddddd(ptr noundef nonnull align 16 dereferenceable(552) %5, double noundef %56, double noundef %57, double noundef %58, double noundef %59, double noundef %60)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23
-  br label %63
+  br label %62
 
-62:                                               ; preds = %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit
-  call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %48, i32 noundef 0)
+61:                                               ; preds = %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit
+  call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %47, i32 noundef 0)
   call void @_ZN3g2o6SBACam7setKcamEddddd(ptr noundef nonnull align 16 dereferenceable(552) %5, double noundef 3.000000e+02, double noundef 3.000000e+02, double noundef 3.200000e+02, double noundef 3.200000e+02, double noundef 1.000000e-01)
-  br label %63
+  br label %62
 
-63:                                               ; preds = %62, %52
-  %64 = load ptr, ptr %0, align 16, !tbaa !3
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 256
-  %66 = load ptr, ptr %65, align 8
-  call void %66(ptr noundef nonnull align 16 dereferenceable(776) %0, ptr noundef nonnull align 16 dereferenceable(552) %5)
+62:                                               ; preds = %61, %51
+  %63 = load ptr, ptr %0, align 16, !tbaa !3
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 256
+  %65 = load ptr, ptr %64, align 8
+  call void %65(ptr noundef nonnull align 16 dereferenceable(776) %0, ptr noundef nonnull align 16 dereferenceable(552) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
   call void @llvm.lifetime.end.p0(i64 560, ptr nonnull %5) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
@@ -2275,9 +2275,6 @@ declare double @llvm.fmuladd.f64(double, double, double) #16
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @sqrt(double noundef) local_unnamed_addr #17
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #16
-
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #1
 
 declare void @_ZN3g2o16OptimizableGraph6VertexC2Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
@@ -3531,6 +3528,9 @@ declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #21
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

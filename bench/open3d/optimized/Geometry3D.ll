@@ -75,7 +75,7 @@ $_ZTVN6open3d8geometry8GeometryE = comdat any
 
 ; Function Attrs: mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZN6open3d8geometry10Geometry3DD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @llvm.trap() #24
+  tail call void @llvm.trap() #23
   unreachable
 }
 
@@ -84,7 +84,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress ssp uwtable
 define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6open3d8geometry10Geometry3D6RotateERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.Eigen::Matrix.3", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #24
   %4 = load ptr, ptr %0, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -93,7 +93,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6open3d8geometry10Geo
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %9 = load ptr, ptr %8, align 8
   %10 = call noundef nonnull align 8 dereferenceable(48) ptr %9(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #24
   ret ptr %10
 }
 
@@ -126,7 +126,7 @@ define void @_ZNK6open3d8geometry10Geometry3D15ComputeMinBoundERKSt6vectorIN5Eig
   %10 = phi <2 x double> [ %.sroa.0.0.copyload, %.lr.ph.i ], [ %12, %9 ]
   %.sroa.02.06.i = phi ptr [ %4, %.lr.ph.i ], [ %17, %9 ]
   %11 = load <2 x double>, ptr %.sroa.02.06.i, align 1, !tbaa !11, !noalias !12
-  %12 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %10, <2 x double> %11) #26, !srcloc !15
+  %12 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %10, <2 x double> %11) #25, !srcloc !15
   %13 = getelementptr i8, ptr %.sroa.02.06.i, i64 16
   %14 = load double, ptr %13, align 8, !tbaa !16, !noalias !12
   %15 = fcmp olt double %14, %.sroa.4.0
@@ -173,7 +173,7 @@ define void @_ZNK6open3d8geometry10Geometry3D15ComputeMaxBoundERKSt6vectorIN5Eig
   %10 = phi <2 x double> [ %.sroa.0.0.copyload, %.lr.ph.i ], [ %12, %9 ]
   %.sroa.02.06.i = phi ptr [ %4, %.lr.ph.i ], [ %17, %9 ]
   %11 = load <2 x double>, ptr %.sroa.02.06.i, align 1, !tbaa !11, !noalias !20
-  %12 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %10, <2 x double> %11) #26, !srcloc !23
+  %12 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %10, <2 x double> %11) #25, !srcloc !23
   %13 = getelementptr i8, ptr %.sroa.02.06.i, i64 16
   %14 = load double, ptr %13, align 8, !tbaa !16, !noalias !20
   %15 = fcmp olt double %.sroa.4.0, %14
@@ -262,10 +262,10 @@ define void @_ZNK6open3d8geometry10Geometry3D26ResizeAndPaintUniformColorERSt6ve
 
 16:                                               ; preds = %10, %4
   tail call void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 64, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK6open3d8geometry10Geometry3D26ResizeAndPaintUniformColorERSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EEmRKS5_, ptr noundef nonnull @.str.3)
-  %17 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.033.0.copyload, <2 x double> zeroinitializer) #26, !srcloc !23
+  %17 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.sroa.033.0.copyload, <2 x double> zeroinitializer) #25, !srcloc !23
   %18 = fcmp olt double %.sroa.7.0.copyload, 0.000000e+00
   %19 = select i1 %18, double 0.000000e+00, double %.sroa.7.0.copyload
-  %20 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %17, <2 x double> splat (double 1.000000e+00)) #26, !srcloc !15
+  %20 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %17, <2 x double> splat (double 1.000000e+00)) #25, !srcloc !15
   %21 = fcmp ogt double %19, 1.000000e+00
   %22 = select i1 %21, double 1.000000e+00, double %19
   br label %23
@@ -329,7 +329,7 @@ define linkonce_odr void @_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaI
   br i1 %24, label %25, label %_ZNKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 25:                                               ; preds = %23
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #26
   unreachable
 
 _ZNKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %23
@@ -337,7 +337,7 @@ _ZNKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE12_M_check_lenEmPKc.
   %26 = add nuw nsw i64 %.sroa.speculated.i.i, %9
   %27 = tail call i64 @llvm.umin.i64(i64 %26, i64 384307168202282325)
   %28 = mul nuw nsw i64 %27, 24
-  %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #28
+  %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #27
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %8
   %.not10.i.i.i.i = icmp eq ptr %5, %4
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %.lr.ph.i.i.i.i
@@ -357,7 +357,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 
 33:                                               ; preds = %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   %34 = sub i64 %15, %7
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %34) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %34) #28
   br label %_ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
 
 _ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; preds = %33, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
@@ -396,19 +396,19 @@ define linkonce_odr void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_
 
 10:                                               ; preds = %4
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6open3d7utility6Logger11GetInstanceEv()
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %12, ptr %6, align 8, !tbaa !40
   %13 = icmp eq ptr %3, null
   br i1 %13, label %.noexc, label %14
 
 .noexc:                                           ; preds = %10
-  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.5) #27
+  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.5) #26
   unreachable
 
 14:                                               ; preds = %10
-  %15 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  %15 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
   store i64 %15, ptr %5, align 8, !tbaa !43
   %16 = icmp ugt i64 %15, 15
   br i1 %16, label %.noexc.i, label %._crit_edge.i.i
@@ -443,7 +443,7 @@ define linkonce_odr void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_
   %26 = load ptr, ptr %6, align 8, !tbaa !45
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %24
   store i8 0, ptr %27, align 1, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
   invoke void @_ZNK6open3d7utility6Logger8VWarningEPKciS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %28 unwind label %35
 
@@ -461,11 +461,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %28
   %33 = load i64, ptr %12, align 8, !tbaa !11
   %34 = add i64 %33, 1
-  call void @_ZdlPvm(ptr noundef %29, i64 noundef %34) #29
+  call void @_ZdlPvm(ptr noundef %29, i64 noundef %34) #28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
   br label %43
 
 35:                                               ; preds = %23
@@ -484,11 +484,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8: ; preds = %35
   %41 = load i64, ptr %12, align 8, !tbaa !11
   %42 = add i64 %41, 1
-  call void @_ZdlPvm(ptr noundef %37, i64 noundef %42) #29
+  call void @_ZdlPvm(ptr noundef %37, i64 noundef %42) #28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
   resume { ptr, i32 } %36
 
 43:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %4
@@ -691,7 +691,7 @@ define void @_ZNK6open3d8geometry10Geometry3D20TransformCovariancesERKN5Eigen6Ma
   %7 = alloca %"struct.Eigen::internal::assign_op", align 1
   %8 = alloca %"class.Eigen::Matrix.441", align 8
   %9 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #24
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br label %11
 
@@ -744,9 +744,9 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
 
 43:                                               ; preds = %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductINS3_IS1_S1_Li0EEENS_9TransposeIKS1_EELi0EEEEERS1_RKNS_9DenseBaseIT_EE.exit.i, %.lr.ph.i
   %.sroa.011.015.i = phi ptr [ %19, %.lr.ph.i ], [ %87, %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductINS3_IS1_S1_Li0EEENS_9TransposeIKS1_EELi0EEEEERS1_RKNS_9DenseBaseIT_EE.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #25
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #25
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #24
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.011.015.i, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.011.015.i, i64 16
   %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %9, align 16, !tbaa !11
@@ -795,18 +795,18 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductINS3_IS1_S1_Li0EEENS_9Trans
   store ptr %4, ptr %29, align 8, !tbaa !52
   store ptr %9, ptr %30, align 8, !tbaa !52
   store i64 3, ptr %31, align 8, !tbaa !55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
   store ptr %8, ptr %5, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
   store ptr %5, ptr %6, align 8, !tbaa !67
   store ptr %4, ptr %32, align 8, !tbaa !69
   store ptr %7, ptr %33, align 8, !tbaa !71
   store ptr %8, ptr %34, align 8, !tbaa !73
   call void @_ZN5Eigen8internal55copy_using_evaluator_DefaultTraversal_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi3ELi3ELi1ELi3ELi3EEEEENS3_INS_7ProductINS7_INS4_IdLi3ELi3ELi0ELi3ELi3EEES8_Li0EEENS_9TransposeIKS8_EELi1EEEEENS0_9assign_opIddEELi0EEELi0ELi9EE3runERSH_(ptr noundef nonnull align 8 dereferenceable(32) %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #24
   %72 = load double, ptr %8, align 8, !tbaa !16
   store double %72, ptr %.sroa.011.015.i, align 8, !tbaa !16
   %73 = load double, ptr %35, align 8, !tbaa !16
@@ -831,13 +831,13 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductINS3_IS1_S1_Li0EEENS_9Trans
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.011.015.i, i64 64
   %86 = load double, ptr %42, align 8, !tbaa !16
   store double %86, ptr %85, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #24
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.011.015.i, i64 72
   %.not.i = icmp eq ptr %87, %21
   br i1 %.not.i, label %_ZNK6open3d8geometry10Geometry3D17RotateCovariancesERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEERSt6vectorIS4_SaIS4_EE.exit, label %43
 
 _ZNK6open3d8geometry10Geometry3D17RotateCovariancesERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEERSt6vectorIS4_SaIS4_EE.exit: ; preds = %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductINS3_IS1_S1_Li0EEENS_9TransposeIKS1_EELi0EEEEERS1_RKNS_9DenseBaseIT_EE.exit.i, %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERKNS_9EigenBaseIT_EE.exit
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #24
   ret void
 }
 
@@ -884,9 +884,9 @@ define void @_ZNK6open3d8geometry10Geometry3D17RotateCovariancesERKN5Eigen6Matri
 
 34:                                               ; preds = %.lr.ph, %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductINS3_IS1_S1_Li0EEENS_9TransposeIKS1_EELi0EEEEERS1_RKNS_9DenseBaseIT_EE.exit
   %.sroa.011.015 = phi ptr [ %9, %.lr.ph ], [ %78, %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductINS3_IS1_S1_Li0EEENS_9TransposeIKS1_EELi0EEEEERS1_RKNS_9DenseBaseIT_EE.exit ]
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #25
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #25
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #24
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 16
   %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %1, align 8, !tbaa !11
@@ -935,18 +935,18 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductINS3_IS1_S1_Li0EEENS_9Trans
   store ptr %4, ptr %20, align 8, !tbaa !52
   store ptr %1, ptr %21, align 8, !tbaa !52
   store i64 3, ptr %22, align 8, !tbaa !55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
   store ptr %8, ptr %5, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
   store ptr %5, ptr %6, align 8, !tbaa !67
   store ptr %4, ptr %23, align 8, !tbaa !69
   store ptr %7, ptr %24, align 8, !tbaa !71
   store ptr %8, ptr %25, align 8, !tbaa !73
   call void @_ZN5Eigen8internal55copy_using_evaluator_DefaultTraversal_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi3ELi3ELi1ELi3ELi3EEEEENS3_INS_7ProductINS7_INS4_IdLi3ELi3ELi0ELi3ELi3EEES8_Li0EEENS_9TransposeIKS8_EELi1EEEEENS0_9assign_opIddEELi0EEELi0ELi9EE3runERSH_(ptr noundef nonnull align 8 dereferenceable(32) %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #24
   %63 = load double, ptr %8, align 8, !tbaa !16
   store double %63, ptr %.sroa.011.015, align 8, !tbaa !16
   %64 = load double, ptr %26, align 8, !tbaa !16
@@ -971,7 +971,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductINS3_IS1_S1_Li0EEENS_9Trans
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 64
   %77 = load double, ptr %33, align 8, !tbaa !16
   store double %77, ptr %76, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #24
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 72
   %.not = icmp eq ptr %78, %11
   br i1 %.not, label %._crit_edge, label %34
@@ -1358,18 +1358,18 @@ define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromXYZERKN5Eigen
   %4 = alloca %"class.Eigen::Matrix", align 16
   %5 = alloca %"class.Eigen::Matrix", align 8
   %6 = alloca %"class.Eigen::Matrix", align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #24
   %7 = load double, ptr %1, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixXEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %4, double noundef %7)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #24
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixYEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %5, double noundef %9)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #24
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load double, ptr %10, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixZEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %6, double noundef %11)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #24
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1469,10 +1469,10 @@ define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromXYZERKN5Eigen
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit, label %60, !llvm.loop !89
 
 _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #25
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #24
   ret void
 }
 
@@ -1488,18 +1488,18 @@ define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromYZXERKN5Eigen
   %4 = alloca %"class.Eigen::Matrix", align 16
   %5 = alloca %"class.Eigen::Matrix", align 8
   %6 = alloca %"class.Eigen::Matrix", align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #24
   %7 = load double, ptr %1, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixYEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %4, double noundef %7)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #24
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixZEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %5, double noundef %9)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #24
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load double, ptr %10, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixXEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %6, double noundef %11)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #24
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1599,10 +1599,10 @@ define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromYZXERKN5Eigen
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit, label %60, !llvm.loop !89
 
 _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #25
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #24
   ret void
 }
 
@@ -1612,18 +1612,18 @@ define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromZXYERKN5Eigen
   %4 = alloca %"class.Eigen::Matrix", align 16
   %5 = alloca %"class.Eigen::Matrix", align 8
   %6 = alloca %"class.Eigen::Matrix", align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #24
   %7 = load double, ptr %1, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixZEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %4, double noundef %7)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #24
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixXEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %5, double noundef %9)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #24
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load double, ptr %10, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixYEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %6, double noundef %11)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #24
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1723,10 +1723,10 @@ define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromZXYERKN5Eigen
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit, label %60, !llvm.loop !89
 
 _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #25
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #24
   ret void
 }
 
@@ -1736,18 +1736,18 @@ define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromXZYERKN5Eigen
   %4 = alloca %"class.Eigen::Matrix", align 16
   %5 = alloca %"class.Eigen::Matrix", align 8
   %6 = alloca %"class.Eigen::Matrix", align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #24
   %7 = load double, ptr %1, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixXEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %4, double noundef %7)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #24
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixZEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %5, double noundef %9)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #24
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load double, ptr %10, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixYEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %6, double noundef %11)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #24
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1847,10 +1847,10 @@ define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromXZYERKN5Eigen
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit, label %60, !llvm.loop !89
 
 _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #25
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #24
   ret void
 }
 
@@ -1860,18 +1860,18 @@ define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromZYXERKN5Eigen
   %4 = alloca %"class.Eigen::Matrix", align 16
   %5 = alloca %"class.Eigen::Matrix", align 8
   %6 = alloca %"class.Eigen::Matrix", align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #24
   %7 = load double, ptr %1, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixZEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %4, double noundef %7)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #24
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixYEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %5, double noundef %9)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #24
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load double, ptr %10, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixXEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %6, double noundef %11)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #24
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1971,10 +1971,10 @@ define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromZYXERKN5Eigen
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit, label %60, !llvm.loop !89
 
 _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #25
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #24
   ret void
 }
 
@@ -1984,18 +1984,18 @@ define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromYXZERKN5Eigen
   %4 = alloca %"class.Eigen::Matrix", align 16
   %5 = alloca %"class.Eigen::Matrix", align 8
   %6 = alloca %"class.Eigen::Matrix", align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #24
   %7 = load double, ptr %1, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixYEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %4, double noundef %7)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #24
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixXEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %5, double noundef %9)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #24
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load double, ptr %10, align 8, !tbaa !16
   call void @_ZN6open3d7utility15RotationMatrixZEd(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %6, double noundef %11)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #24
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -2095,10 +2095,10 @@ define void @_ZN6open3d8geometry10Geometry3D24GetRotationMatrixFromYXZERKN5Eigen
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit, label %60, !llvm.loop !89
 
 _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_IS1_S1_Li0EEES1_Li0EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #25
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #24
   ret void
 }
 
@@ -2113,93 +2113,89 @@ define void @_ZN6open3d8geometry10Geometry3D30GetRotationMatrixFromAxisAngleERKN
   %8 = load double, ptr %7, align 8, !tbaa !16
   %9 = fmul double %8, %8
   %10 = fadd double %9, %6
-  %11 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %10, i64 0
-  %12 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %11)
-  %13 = extractelement <2 x double> %12, i64 0
-  %14 = fcmp ogt double %13, 0.000000e+00
-  br i1 %14, label %15, label %51
+  %11 = fcmp ogt double %10, 0.000000e+00
+  br i1 %11, label %12, label %48
 
-15:                                               ; preds = %2
-  %16 = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> zeroinitializer
-  %17 = fdiv <2 x double> %3, %16
-  %18 = fdiv double %8, %13
+12:                                               ; preds = %2
+  %.scalar.i = tail call noundef double @llvm.sqrt.f64(double %10)
+  %.sroa.6.16.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %.scalar.i, i64 0
+  %13 = shufflevector <2 x double> %.sroa.6.16.vec.insert.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %14 = fdiv <2 x double> %3, %13
+  %15 = fdiv double %8, %.scalar.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
-  %19 = tail call double @sin(double noundef %13) #25, !tbaa !93, !noalias !90
-  %.sroa.3.8.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %19, i64 0
-  %20 = shufflevector <2 x double> %.sroa.3.8.vec.insert.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %21 = fmul <2 x double> %17, %20
-  %22 = fmul double %18, %19
-  %23 = tail call double @cos(double noundef %13) #25, !tbaa !93, !noalias !90
-  %24 = fsub double 1.000000e+00, %23
-  %.sroa.3.8.vec.insert.i.i.i.i.i.i7.i = insertelement <2 x double> poison, double %24, i64 0
-  %25 = shufflevector <2 x double> %.sroa.3.8.vec.insert.i.i.i.i.i.i7.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %26 = fmul <2 x double> %17, %25
-  %27 = fmul double %18, %24
-  %.sroa.0.0.vec.extract.i = extractelement <2 x double> %26, i64 0
-  %28 = extractelement <2 x double> %17, i64 1
-  %29 = fmul double %28, %.sroa.0.0.vec.extract.i
-  %30 = fsub double %29, %22
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %30, ptr %31, align 8, !tbaa !16, !alias.scope !90
-  %32 = fadd double %22, %29
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = tail call double @sin(double noundef %.scalar.i) #24, !tbaa !93, !noalias !90
+  %.sroa.3.8.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %16, i64 0
+  %17 = shufflevector <2 x double> %.sroa.3.8.vec.insert.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %18 = fmul <2 x double> %14, %17
+  %19 = fmul double %15, %16
+  %20 = tail call double @cos(double noundef %.scalar.i) #24, !tbaa !93, !noalias !90
+  %21 = fsub double 1.000000e+00, %20
+  %.sroa.3.8.vec.insert.i.i.i.i.i.i7.i = insertelement <2 x double> poison, double %21, i64 0
+  %22 = shufflevector <2 x double> %.sroa.3.8.vec.insert.i.i.i.i.i.i7.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %23 = fmul <2 x double> %14, %22
+  %24 = fmul double %15, %21
+  %.sroa.0.0.vec.extract.i = extractelement <2 x double> %23, i64 0
+  %25 = extractelement <2 x double> %14, i64 1
+  %26 = fmul double %25, %.sroa.0.0.vec.extract.i
+  %27 = fsub double %26, %19
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store double %27, ptr %28, align 8, !tbaa !16, !alias.scope !90
+  %29 = fadd double %19, %26
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %29, ptr %30, align 8, !tbaa !16, !alias.scope !90
+  %31 = fmul double %15, %.sroa.0.0.vec.extract.i
+  %.sroa.026.8.vec.extract.i = extractelement <2 x double> %18, i64 1
+  %32 = fadd double %.sroa.026.8.vec.extract.i, %31
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %32, ptr %33, align 8, !tbaa !16, !alias.scope !90
-  %34 = fmul double %18, %.sroa.0.0.vec.extract.i
-  %.sroa.026.8.vec.extract.i = extractelement <2 x double> %21, i64 1
-  %35 = fadd double %.sroa.026.8.vec.extract.i, %34
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store double %35, ptr %36, align 8, !tbaa !16, !alias.scope !90
-  %37 = fsub double %34, %.sroa.026.8.vec.extract.i
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %34 = fsub double %31, %.sroa.026.8.vec.extract.i
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store double %34, ptr %35, align 8, !tbaa !16, !alias.scope !90
+  %.sroa.0.8.vec.extract.i = extractelement <2 x double> %23, i64 1
+  %36 = fmul double %15, %.sroa.0.8.vec.extract.i
+  %.sroa.026.0.vec.extract.i = extractelement <2 x double> %18, i64 0
+  %37 = fsub double %36, %.sroa.026.0.vec.extract.i
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double %37, ptr %38, align 8, !tbaa !16, !alias.scope !90
-  %.sroa.0.8.vec.extract.i = extractelement <2 x double> %26, i64 1
-  %39 = fmul double %18, %.sroa.0.8.vec.extract.i
-  %.sroa.026.0.vec.extract.i = extractelement <2 x double> %21, i64 0
-  %40 = fsub double %39, %.sroa.026.0.vec.extract.i
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store double %40, ptr %41, align 8, !tbaa !16, !alias.scope !90
-  %42 = fadd double %.sroa.026.0.vec.extract.i, %39
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store double %42, ptr %43, align 8, !tbaa !16, !alias.scope !90
-  %44 = fmul <2 x double> %17, %26
-  %45 = extractelement <2 x double> %44, i64 0
-  %46 = fadd double %23, %45
-  %47 = fmul double %28, %.sroa.0.8.vec.extract.i
-  %48 = fadd double %23, %47
-  %49 = fmul double %18, %27
-  %50 = fadd double %23, %49
-  br label %54
+  %39 = fadd double %.sroa.026.0.vec.extract.i, %36
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store double %39, ptr %40, align 8, !tbaa !16, !alias.scope !90
+  %41 = fmul <2 x double> %14, %23
+  %42 = extractelement <2 x double> %41, i64 0
+  %43 = fadd double %20, %42
+  %44 = fmul double %25, %.sroa.0.8.vec.extract.i
+  %45 = fadd double %20, %44
+  %46 = fmul double %15, %24
+  %47 = fadd double %20, %46
+  br label %51
 
-51:                                               ; preds = %2
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false)
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
-  br label %54
+48:                                               ; preds = %2
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
+  br label %51
 
-54:                                               ; preds = %51, %15
-  %.sink8 = phi double [ %46, %15 ], [ 1.000000e+00, %51 ]
-  %.sink7 = phi double [ %48, %15 ], [ 1.000000e+00, %51 ]
-  %.sink = phi double [ %50, %15 ], [ 1.000000e+00, %51 ]
+51:                                               ; preds = %48, %12
+  %.sink8 = phi double [ %43, %12 ], [ 1.000000e+00, %48 ]
+  %.sink7 = phi double [ %45, %12 ], [ 1.000000e+00, %48 ]
+  %.sink = phi double [ %47, %12 ], [ 1.000000e+00, %48 ]
   store double %.sink8, ptr %0, align 8, !tbaa !16
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store double %.sink7, ptr %55, align 8, !tbaa !16
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store double %.sink, ptr %56, align 8, !tbaa !16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store double %.sink7, ptr %52, align 8, !tbaa !16
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store double %.sink, ptr %53, align 8, !tbaa !16
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #15
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @sin(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sin(double noundef) local_unnamed_addr #16
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @cos(double noundef) local_unnamed_addr #16
+declare double @cos(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6open3d8geometry10Geometry3D31GetRotationMatrixFromQuaternionERKN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix") align 8 captures(none) initializes((0, 72)) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(32) %1) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6open3d8geometry10Geometry3D31GetRotationMatrixFromQuaternionERKN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Matrix") align 8 captures(none) initializes((0, 72)) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(32) %1) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load <2 x double>, ptr %3, align 8
@@ -2214,64 +2210,58 @@ define void @_ZN6open3d8geometry10Geometry3D31GetRotationMatrixFromQuaternionERK
   %11 = fadd <2 x double> %10, %shift
   %12 = extractelement <2 x double> %11, i64 0
   %13 = fcmp ogt double %12, 0.000000e+00
-  br i1 %13, label %14, label %_ZNK5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE10normalizedEv.exit
-
-14:                                               ; preds = %2
-  %15 = insertelement <2 x double> %11, double 0.000000e+00, i64 1
-  %16 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %15)
-  %17 = shufflevector <2 x double> %16, <2 x double> poison, <2 x i32> zeroinitializer
-  %18 = fdiv <2 x double> %5, %17
-  %19 = fdiv <2 x double> %.sroa.5.24.vec.insert, %17
-  br label %_ZNK5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE10normalizedEv.exit
-
-_ZNK5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE10normalizedEv.exit: ; preds = %2, %14
-  %.sroa.5.0.i = phi <2 x double> [ %19, %14 ], [ %.sroa.5.24.vec.insert, %2 ]
-  %.sroa.0.0.i = phi <2 x double> [ %18, %14 ], [ %5, %2 ]
+  %.scalar.i.i = tail call double @llvm.sqrt.f64(double %12)
+  %14 = insertelement <2 x double> poison, double %.scalar.i.i, i64 0
+  %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
+  %16 = fdiv <2 x double> %5, %15
+  %17 = fdiv <2 x double> %.sroa.5.24.vec.insert, %15
+  %.sroa.5.0.i = select i1 %13, <2 x double> %17, <2 x double> %.sroa.5.24.vec.insert
+  %.sroa.0.0.i = select i1 %13, <2 x double> %16, <2 x double> %5
   %.sroa.06.0.vec.extract = extractelement <2 x double> %.sroa.0.0.i, i64 0
-  %20 = fmul double %.sroa.06.0.vec.extract, 2.000000e+00
+  %18 = fmul double %.sroa.06.0.vec.extract, 2.000000e+00
   %.sroa.06.8.vec.extract = extractelement <2 x double> %.sroa.0.0.i, i64 1
-  %21 = fmul double %.sroa.06.8.vec.extract, 2.000000e+00
+  %19 = fmul double %.sroa.06.8.vec.extract, 2.000000e+00
   %.sroa.57.16.vec.extract = extractelement <2 x double> %.sroa.5.0.i, i64 0
-  %22 = fmul double %.sroa.57.16.vec.extract, 2.000000e+00
+  %20 = fmul double %.sroa.57.16.vec.extract, 2.000000e+00
   %.sroa.57.24.vec.extract = extractelement <2 x double> %.sroa.5.0.i, i64 1
+  %21 = fmul double %.sroa.57.24.vec.extract, %18
+  %22 = fmul double %.sroa.57.24.vec.extract, %19
   %23 = fmul double %.sroa.57.24.vec.extract, %20
-  %24 = fmul double %.sroa.57.24.vec.extract, %21
-  %25 = fmul double %.sroa.57.24.vec.extract, %22
+  %24 = fmul double %.sroa.06.0.vec.extract, %18
+  %25 = fmul double %.sroa.06.0.vec.extract, %19
   %26 = fmul double %.sroa.06.0.vec.extract, %20
-  %27 = fmul double %.sroa.06.0.vec.extract, %21
-  %28 = fmul double %.sroa.06.0.vec.extract, %22
-  %29 = fmul double %.sroa.06.8.vec.extract, %21
-  %30 = fmul double %.sroa.06.8.vec.extract, %22
-  %31 = fmul double %.sroa.57.16.vec.extract, %22
-  %32 = fadd double %31, %29
-  %33 = fsub double 1.000000e+00, %32
-  store double %33, ptr %0, align 8, !tbaa !16, !alias.scope !95
-  %34 = fsub double %27, %25
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %27 = fmul double %.sroa.06.8.vec.extract, %19
+  %28 = fmul double %.sroa.06.8.vec.extract, %20
+  %29 = fmul double %.sroa.57.16.vec.extract, %20
+  %30 = fadd double %27, %29
+  %31 = fsub double 1.000000e+00, %30
+  store double %31, ptr %0, align 8, !tbaa !16, !alias.scope !95
+  %32 = fsub double %25, %23
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store double %32, ptr %33, align 8, !tbaa !16, !alias.scope !95
+  %34 = fadd double %26, %22
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %34, ptr %35, align 8, !tbaa !16, !alias.scope !95
-  %36 = fadd double %28, %24
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %36 = fadd double %25, %23
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %36, ptr %37, align 8, !tbaa !16, !alias.scope !95
-  %38 = fadd double %25, %27
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %38, ptr %39, align 8, !tbaa !16, !alias.scope !95
-  %40 = fadd double %31, %26
-  %41 = fsub double 1.000000e+00, %40
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %38 = fadd double %24, %29
+  %39 = fsub double 1.000000e+00, %38
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store double %39, ptr %40, align 8, !tbaa !16, !alias.scope !95
+  %41 = fsub double %28, %21
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double %41, ptr %42, align 8, !tbaa !16, !alias.scope !95
-  %43 = fsub double %30, %23
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %43 = fsub double %26, %22
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %43, ptr %44, align 8, !tbaa !16, !alias.scope !95
-  %45 = fsub double %28, %24
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %45 = fadd double %28, %21
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %45, ptr %46, align 8, !tbaa !16, !alias.scope !95
-  %47 = fadd double %30, %23
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store double %47, ptr %48, align 8, !tbaa !16, !alias.scope !95
-  %49 = fadd double %26, %29
-  %50 = fsub double 1.000000e+00, %49
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store double %50, ptr %51, align 8, !tbaa !16, !alias.scope !95
+  %47 = fadd double %24, %27
+  %48 = fsub double 1.000000e+00, %47
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store double %48, ptr %49, align 8, !tbaa !16, !alias.scope !95
   ret void
 }
 
@@ -2294,7 +2284,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
   %9 = load i64, ptr %4, align 8, !tbaa !11
   %10 = add i64 %9, 1
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #29
+  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -2303,15 +2293,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 ; Function Attrs: mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZN6open3d8geometry8GeometryD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @llvm.trap() #24
+  tail call void @llvm.trap() #23
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #18
+declare void @llvm.trap() #17
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @__cxx_global_var_init.7() #19 section ".text.startup" comdat($_ZN3fmt3v1012format_facetISt6localeE2idE) {
+define internal void @__cxx_global_var_init.7() #18 section ".text.startup" comdat($_ZN3fmt3v1012format_facetISt6localeE2idE) {
   %1 = load i8, ptr @_ZGVN3fmt3v1012format_facetISt6localeE2idE, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %4
@@ -2325,19 +2315,22 @@ define internal void @__cxx_global_var_init.7() #19 section ".text.startup" comd
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #20
+declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #21
+declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #23
+declare i64 @llvm.umax.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #23
+declare i64 @llvm.umin.i64(i64, i64) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #22
 
 attributes #0 = { mustprogress nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2354,21 +2347,20 @@ attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #12 = { mustprogress nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { inlinehint mustprogress ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nounwind ssp willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #22 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #24 = { noreturn nounwind }
-attributes #25 = { nounwind }
-attributes #26 = { nounwind memory(none) }
-attributes #27 = { noreturn }
-attributes #28 = { builtin allocsize(0) }
-attributes #29 = { builtin nounwind }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { noreturn nounwind }
+attributes #24 = { nounwind }
+attributes #25 = { nounwind memory(none) }
+attributes #26 = { noreturn }
+attributes #27 = { builtin allocsize(0) }
+attributes #28 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

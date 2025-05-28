@@ -769,8 +769,8 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EED2Ev.exit:   ; preds = %_ZSt8_DestroyIPSt6t
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZZN3igl3dqsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES3_NS1_10QuaternionIdLi0EEENS1_17aligned_allocatorIS5_EENS2_IdLi3ELi1ELi0ELi3ELi1EEES3_EEvRKNS1_10MatrixBaseIT_EERKNS9_IT0_EERKSt6vectorIT1_T2_ERKSI_IT3_SaISO_EERNS1_15PlainObjectBaseIT4_EEENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.2101 = alloca <2 x double>, align 16
-  %.sroa.298 = alloca <2 x double>, align 16
+  %.sroa.2102 = alloca <2 x double>, align 16
+  %.sroa.299 = alloca <2 x double>, align 16
   %3 = alloca %"class.Eigen::Matrix.18", align 16
   %4 = alloca %"class.Eigen::Matrix.18", align 16
   %5 = alloca %"class.Eigen::Matrix.18", align 16
@@ -794,27 +794,28 @@ define linkonce_odr dso_local void @_ZZN3igl3dqsIN5Eigen6MatrixIdLin1ELin1ELi0EL
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !66
   %22 = load ptr, ptr %21, align 8, !tbaa !18
-  %.sroa.2101.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2101, i64 8
-  %.sroa.298.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.298, i64 8
+  %.sroa.2102.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2102, i64 8
+  %.sroa.299.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.299, i64 8
   br label %120
 
 ._crit_edge:                                      ; preds = %120, %2
-  %.sroa.0110.0.lcssa = phi <2 x double> [ zeroinitializer, %2 ], [ %151, %120 ]
-  %.sroa.7112.0.lcssa = phi <2 x double> [ zeroinitializer, %2 ], [ %155, %120 ]
-  %.sroa.0118.0.lcssa = phi <2 x double> [ zeroinitializer, %2 ], [ %140, %120 ]
-  %.sroa.10123.0.lcssa = phi <2 x double> [ zeroinitializer, %2 ], [ %144, %120 ]
-  %23 = fmul <2 x double> %.sroa.0118.0.lcssa, %.sroa.0118.0.lcssa
-  %24 = fmul <2 x double> %.sroa.10123.0.lcssa, %.sroa.10123.0.lcssa
+  %.sroa.0111.0.lcssa = phi <2 x double> [ zeroinitializer, %2 ], [ %151, %120 ]
+  %.sroa.7113.0.lcssa = phi <2 x double> [ zeroinitializer, %2 ], [ %155, %120 ]
+  %.sroa.0119.0.lcssa = phi <2 x double> [ zeroinitializer, %2 ], [ %140, %120 ]
+  %.sroa.10124.0.lcssa = phi <2 x double> [ zeroinitializer, %2 ], [ %144, %120 ]
+  %23 = fmul <2 x double> %.sroa.0119.0.lcssa, %.sroa.0119.0.lcssa
+  %24 = fmul <2 x double> %.sroa.10124.0.lcssa, %.sroa.10124.0.lcssa
   %25 = fadd <2 x double> %23, %24
   %shift = shufflevector <2 x double> %25, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %26 = fadd <2 x double> %25, %shift
-  %27 = insertelement <2 x double> %26, double 0.000000e+00, i64 1
-  %28 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %27)
+  %27 = extractelement <2 x double> %26, i64 0
+  %.scalar.i.i = tail call noundef double @llvm.sqrt.f64(double %27)
+  %28 = insertelement <2 x double> poison, double %.scalar.i.i, i64 0
   %29 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> zeroinitializer
-  %30 = fdiv <2 x double> %.sroa.0110.0.lcssa, %29
-  %31 = fdiv <2 x double> %.sroa.7112.0.lcssa, %29
-  %32 = fdiv <2 x double> %.sroa.0118.0.lcssa, %29
-  %33 = fdiv <2 x double> %.sroa.10123.0.lcssa, %29
+  %30 = fdiv <2 x double> %.sroa.0111.0.lcssa, %29
+  %31 = fdiv <2 x double> %.sroa.7113.0.lcssa, %29
+  %32 = fdiv <2 x double> %.sroa.0119.0.lcssa, %29
+  %33 = fdiv <2 x double> %.sroa.10124.0.lcssa, %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #21
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !67
@@ -841,10 +842,10 @@ define linkonce_odr dso_local void @_ZZN3igl3dqsIN5Eigen6MatrixIdLin1ELin1ELi0EL
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #21
   store <2 x double> %30, ptr %5, align 16, !tbaa !71
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sroa.6133.16.vec.extract = extractelement <2 x double> %31, i64 0
-  store double %.sroa.6133.16.vec.extract, ptr %48, align 16, !tbaa !34
+  %.sroa.6134.16.vec.extract = extractelement <2 x double> %31, i64 0
+  store double %.sroa.6134.16.vec.extract, ptr %48, align 16, !tbaa !34
   %.sroa.6.24.vec.extract = extractelement <2 x double> %33, i64 1
-  %.sroa.6133.24.vec.extract = extractelement <2 x double> %31, i64 1
+  %.sroa.6134.24.vec.extract = extractelement <2 x double> %31, i64 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
   %49 = extractelement <2 x double> %32, i64 1
   %50 = fneg double %43
@@ -857,13 +858,13 @@ define linkonce_odr dso_local void @_ZZN3igl3dqsIN5Eigen6MatrixIdLin1ELin1ELi0EL
   %57 = fneg double %40
   %58 = fmul double %49, %57
   %59 = tail call double @llvm.fmuladd.f64(double %53, double %43, double %58)
-  %.sroa.0135.0.vec.insert = insertelement <2 x double> poison, double %52, i64 0
-  %.sroa.0135.8.vec.insert = insertelement <2 x double> %.sroa.0135.0.vec.insert, double %56, i64 1
+  %.sroa.0136.0.vec.insert = insertelement <2 x double> poison, double %52, i64 0
+  %.sroa.0136.8.vec.insert = insertelement <2 x double> %.sroa.0136.0.vec.insert, double %56, i64 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   %60 = shufflevector <2 x double> %33, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %61 = load <2 x double>, ptr %3, align 16, !tbaa !71, !noalias !72
   %62 = fmul <2 x double> %60, %61
-  %63 = fadd <2 x double> %.sroa.0135.8.vec.insert, %62
+  %63 = fadd <2 x double> %.sroa.0136.8.vec.insert, %62
   %64 = fmul double %.sroa.6.24.vec.extract, %46
   %65 = fadd double %64, %59
   %.sroa.0.8.vec.extract.i = extractelement <2 x double> %63, i64 1
@@ -886,9 +887,9 @@ define linkonce_odr dso_local void @_ZZN3igl3dqsIN5Eigen6MatrixIdLin1ELin1ELi0EL
   %77 = extractelement <2 x double> %30, i64 1
   %78 = fneg double %77
   %79 = fmul double %.sroa.6.16.vec.extract, %78
-  %80 = tail call double @llvm.fmuladd.f64(double %49, double %.sroa.6133.16.vec.extract, double %79)
+  %80 = tail call double @llvm.fmuladd.f64(double %49, double %.sroa.6134.16.vec.extract, double %79)
   %81 = extractelement <2 x double> %30, i64 0
-  %82 = fneg double %.sroa.6133.16.vec.extract
+  %82 = fneg double %.sroa.6134.16.vec.extract
   %83 = fmul double %53, %82
   %84 = tail call double @llvm.fmuladd.f64(double %.sroa.6.16.vec.extract, double %81, double %83)
   %85 = fneg double %81
@@ -925,7 +926,7 @@ define linkonce_odr dso_local void @_ZZN3igl3dqsIN5Eigen6MatrixIdLin1ELin1ELi0EL
   %109 = fmul double %.sroa.6.24.vec.extract, %108
   %110 = getelementptr inbounds nuw double, ptr %4, i64 %.05.i.i.i.i.i.i.i.i.i.i
   %111 = load double, ptr %110, align 8, !tbaa !34
-  %112 = fmul double %.sroa.6133.24.vec.extract, %111
+  %112 = fmul double %.sroa.6134.24.vec.extract, %111
   %113 = fsub double %109, %112
   %114 = getelementptr inbounds nuw double, ptr %7, i64 %.05.i.i.i.i.i.i.i.i.i.i
   %115 = load double, ptr %114, align 8, !tbaa !34
@@ -947,66 +948,63 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
 
 120:                                              ; preds = %.lr.ph, %120
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %120 ]
-  %.sroa.10123.0140 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %144, %120 ]
-  %.sroa.0118.0139 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %140, %120 ]
-  %.sroa.7112.0138 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %155, %120 ]
-  %.sroa.0110.0137 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %151, %120 ]
+  %.sroa.10124.0141 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %144, %120 ]
+  %.sroa.0119.0140 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %140, %120 ]
+  %.sroa.7113.0139 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %155, %120 ]
+  %.sroa.0111.0138 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %151, %120 ]
   %121 = mul nsw i64 %15, %indvars.iv
   %122 = getelementptr double, ptr %16, i64 %121
   %123 = load double, ptr %122, align 8, !tbaa !34
   %124 = getelementptr inbounds nuw %"class.Eigen::Quaternion", ptr %19, i64 %indvars.iv
   %125 = load <2 x double>, ptr %124, align 16, !tbaa !71
-  %126 = fmul <2 x double> %.sroa.0118.0139, %125
+  %126 = fmul <2 x double> %.sroa.0119.0140, %125
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %128 = load <2 x double>, ptr %127, align 16, !tbaa !71
-  %129 = fmul <2 x double> %.sroa.10123.0140, %128
+  %129 = fmul <2 x double> %.sroa.10124.0141, %128
   %130 = fadd <2 x double> %126, %129
-  %shift161 = shufflevector <2 x double> %130, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %131 = fadd <2 x double> %130, %shift161
+  %shift162 = shufflevector <2 x double> %130, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %131 = fadd <2 x double> %130, %shift162
   %132 = extractelement <2 x double> %131, i64 0
   %133 = fcmp olt double %132, 0.000000e+00
   %134 = fneg double %123
-  %.0128 = select i1 %133, double %134, double %123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.2101)
-  store double %.0128, ptr %.sroa.2101, align 16, !tbaa !83, !alias.scope !85
-  store ptr %124, ptr %.sroa.2101.8..sroa_idx, align 8, !tbaa !88, !alias.scope !85
-  %.sroa.2101.0..sroa.2101.0..sroa.2101.0..sroa.2101.16. = load <2 x double>, ptr %.sroa.2101, align 16
-  %bc.i.i.i.i.i = bitcast <2 x double> %.sroa.2101.0..sroa.2101.0..sroa.2101.0..sroa.2101.16. to <2 x i64>
+  %.0129 = select i1 %133, double %134, double %123
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.2102)
+  store double %.0129, ptr %.sroa.2102, align 16, !tbaa !83, !alias.scope !85
+  store ptr %124, ptr %.sroa.2102.8..sroa_idx, align 8, !tbaa !88, !alias.scope !85
+  %.sroa.2102.0..sroa.2102.0..sroa.2102.0..sroa.2102.16. = load <2 x double>, ptr %.sroa.2102, align 16
+  %bc.i.i.i.i.i = bitcast <2 x double> %.sroa.2102.0..sroa.2102.0..sroa.2102.0..sroa.2102.16. to <2 x i64>
   %135 = extractelement <2 x i64> %bc.i.i.i.i.i, i64 1
   %136 = inttoptr i64 %135 to ptr
-  %137 = shufflevector <2 x double> %.sroa.2101.0..sroa.2101.0..sroa.2101.0..sroa.2101.16., <2 x double> poison, <2 x i32> zeroinitializer
+  %137 = shufflevector <2 x double> %.sroa.2102.0..sroa.2102.0..sroa.2102.0..sroa.2102.16., <2 x double> poison, <2 x i32> zeroinitializer
   %138 = load <2 x double>, ptr %136, align 16, !tbaa !71
   %139 = fmul <2 x double> %137, %138
-  %140 = fadd <2 x double> %.sroa.0118.0139, %139
+  %140 = fadd <2 x double> %.sroa.0119.0140, %139
   %141 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %142 = load <2 x double>, ptr %141, align 16, !tbaa !71
   %143 = fmul <2 x double> %137, %142
-  %144 = fadd <2 x double> %.sroa.10123.0140, %143
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.2101)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.298)
+  %144 = fadd <2 x double> %.sroa.10124.0141, %143
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.2102)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.299)
   %145 = getelementptr inbounds nuw %"class.Eigen::Quaternion", ptr %22, i64 %indvars.iv
-  store double %.0128, ptr %.sroa.298, align 16, !tbaa !83, !alias.scope !90
-  store ptr %145, ptr %.sroa.298.8..sroa_idx, align 8, !tbaa !88, !alias.scope !90
-  %.sroa.298.0..sroa.298.0..sroa.298.0..sroa.298.16. = load <2 x double>, ptr %.sroa.298, align 16
-  %bc.i.i.i.i.i10 = bitcast <2 x double> %.sroa.298.0..sroa.298.0..sroa.298.0..sroa.298.16. to <2 x i64>
-  %146 = extractelement <2 x i64> %bc.i.i.i.i.i10, i64 1
+  store double %.0129, ptr %.sroa.299, align 16, !tbaa !83, !alias.scope !90
+  store ptr %145, ptr %.sroa.299.8..sroa_idx, align 8, !tbaa !88, !alias.scope !90
+  %.sroa.299.0..sroa.299.0..sroa.299.0..sroa.299.16. = load <2 x double>, ptr %.sroa.299, align 16
+  %bc.i.i.i.i.i11 = bitcast <2 x double> %.sroa.299.0..sroa.299.0..sroa.299.0..sroa.299.16. to <2 x i64>
+  %146 = extractelement <2 x i64> %bc.i.i.i.i.i11, i64 1
   %147 = inttoptr i64 %146 to ptr
-  %148 = shufflevector <2 x double> %.sroa.298.0..sroa.298.0..sroa.298.0..sroa.298.16., <2 x double> poison, <2 x i32> zeroinitializer
+  %148 = shufflevector <2 x double> %.sroa.299.0..sroa.299.0..sroa.299.0..sroa.299.16., <2 x double> poison, <2 x i32> zeroinitializer
   %149 = load <2 x double>, ptr %147, align 16, !tbaa !71
   %150 = fmul <2 x double> %148, %149
-  %151 = fadd <2 x double> %.sroa.0110.0137, %150
+  %151 = fadd <2 x double> %.sroa.0111.0138, %150
   %152 = getelementptr inbounds nuw i8, ptr %147, i64 16
   %153 = load <2 x double>, ptr %152, align 16, !tbaa !71
   %154 = fmul <2 x double> %148, %153
-  %155 = fadd <2 x double> %.sroa.7112.0138, %154
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.298)
+  %155 = fadd <2 x double> %.sroa.7113.0139, %154
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.299)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
   br i1 %exitcond.not, label %._crit_edge, label %120, !llvm.loop !93
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRKZN3igl12parallel_forIiZNS4_12parallel_forIiZNS4_3dqsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESA_NS8_10QuaternionIdLi0EEENS8_17aligned_allocatorISC_EENS9_IdLi3ELi1ELi0ELi3ELi1EEESA_EEvRKNS8_10MatrixBaseIT_EERKNSG_IT0_EERKS_IT1_T2_ERKS_IT3_SaISU_EERNS8_15PlainObjectBaseIT4_EEEUliE_EEbSH_RKSL_mEUlmE_ZNS6_IiS13_EEbSH_S15_mEUlimE_S16_EEbSH_S15_RKSP_RKSQ_mEUliimE_RiS1F_RmEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1391,6 +1389,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19

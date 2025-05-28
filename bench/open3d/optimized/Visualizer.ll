@@ -7112,9 +7112,9 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(144) ptr @
   ret ptr %0
 
 .lr.ph:                                           ; preds = %1, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit
-  %6 = phi ptr [ %25, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit ], [ %5, %1 ]
-  %7 = phi ptr [ %26, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit ], [ %4, %1 ]
-  %.03 = phi i64 [ %27, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit ], [ 0, %1 ]
+  %6 = phi ptr [ %23, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit ], [ %5, %1 ]
+  %7 = phi ptr [ %24, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit ], [ %4, %1 ]
+  %.03 = phi i64 [ %25, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw %"class.Eigen::Matrix.195", ptr %6, i64 %.03
   %9 = load <2 x double>, ptr %8, align 1, !tbaa !27
   %10 = fmul <2 x double> %9, %9
@@ -7129,28 +7129,27 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(144) ptr @
   br i1 %17, label %18, label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit
 
 18:                                               ; preds = %.lr.ph
-  %19 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %16, i64 0
-  %20 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %19)
-  %21 = extractelement <2 x double> %20, i64 0
-  %22 = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> zeroinitializer
-  %23 = fdiv <2 x double> %9, %22
-  store <2 x double> %23, ptr %8, align 1, !tbaa !27
-  %24 = fdiv double %14, %21
-  store double %24, ptr %13, align 8, !tbaa !92
+  %.scalar.i = tail call double @llvm.sqrt.f64(double %16)
+  %19 = insertelement <2 x double> poison, double %.scalar.i, i64 0
+  %20 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> zeroinitializer
+  %21 = fdiv <2 x double> %9, %20
+  store <2 x double> %21, ptr %8, align 1, !tbaa !27
+  %22 = fdiv double %14, %.scalar.i
+  store double %22, ptr %13, align 8, !tbaa !92
   %.pre = load ptr, ptr %3, align 8, !tbaa !88
   %.pre4 = load ptr, ptr %2, align 8, !tbaa !91
   br label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit
 
 _ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit: ; preds = %.lr.ph, %18
-  %25 = phi ptr [ %6, %.lr.ph ], [ %.pre4, %18 ]
-  %26 = phi ptr [ %7, %.lr.ph ], [ %.pre, %18 ]
-  %27 = add nuw i64 %.03, 1
-  %28 = ptrtoint ptr %26 to i64
-  %29 = ptrtoint ptr %25 to i64
-  %30 = sub i64 %28, %29
-  %31 = sdiv exact i64 %30, 24
-  %32 = icmp ult i64 %27, %31
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !149
+  %23 = phi ptr [ %6, %.lr.ph ], [ %.pre4, %18 ]
+  %24 = phi ptr [ %7, %.lr.ph ], [ %.pre, %18 ]
+  %25 = add nuw i64 %.03, 1
+  %26 = ptrtoint ptr %24 to i64
+  %27 = ptrtoint ptr %23 to i64
+  %28 = sub i64 %26, %27
+  %29 = sdiv exact i64 %28, 24
+  %30 = icmp ult i64 %25, %29
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !149
 }
 
 ; Function Attrs: mustprogress nounwind ssp uwtable
@@ -7781,9 +7780,6 @@ _ZNSt8_Rb_treeIiSt4pairIKiSt8functionIFbPN6open3d13visualization10VisualizerEEEE
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #20
-
 declare void @_ZN6open3d13visualization17GetGlobalColorMapEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.236") align 8) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind ssp uwtable
@@ -7842,10 +7838,10 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #21
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #22
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
 define linkonce_odr dso_local void @_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
@@ -7882,16 +7878,16 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPNSt7__cxx1112basic_stringIcSt11char_traitsI
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #21
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #20
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #21
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #20
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #23
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #22
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #21
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
@@ -8454,7 +8450,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #22
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
 define linkonce_odr dso_local void @_ZN3fmt3v107vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr %1, i64 %2, i64 %3, ptr %4) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
@@ -8964,13 +8960,13 @@ _ZSt20uninitialized_copy_nIPcmS0_ET1_T_T0_S1_.exit: ; preds = %22, %23, %25
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #24
+declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: inlinehint mustprogress noreturn ssp uwtable
-define linkonce_odr dso_local void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef %0) local_unnamed_addr #25 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef %0) local_unnamed_addr #24 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #36
   invoke void @_ZN3fmt3v1012format_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %0)
           to label %3 unwind label %4
@@ -9001,7 +8997,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #11
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #26
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #25
 
 declare void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #5
 
@@ -9630,7 +9626,7 @@ _ZN3fmt3v106detail14format_decimalIcjNS0_8appenderETnNSt9enable_ifIXntsr3std10is
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #20
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #26
 
 ; Function Attrs: nocallback nofree nounwind memory(argmem: readwrite)
 declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #27
@@ -9862,7 +9858,7 @@ _ZN3fmt3v106detail14format_decimalIcmNS0_8appenderETnNSt9enable_ifIXntsr3std10is
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #20
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #26
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr dso_local ptr @_ZN3fmt3v106detail5writeIcNS0_8appenderEnTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 comdat {
@@ -11745,7 +11741,7 @@ declare noundef i64 @_ZNKSt6locale2id5_M_idEv(ptr noundef nonnull align 8 derefe
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #29
 
 ; Function Attrs: noreturn
-declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #21
+declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #20
 
 ; Function Attrs: nounwind
 declare void @_ZNSt6locale5facetD2Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #11
@@ -20672,7 +20668,7 @@ _ZN3fmt3v106detail9dragonbox21shorter_interval_caseIdEENS2_10decimal_fpIT_EEi.ex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #20
+declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #26
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr dso_local ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_12format_specsIT1_EENS1_11float_specsENS1_10locale_refE(ptr %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 %3, ptr %4) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
@@ -23742,7 +23738,7 @@ _ZZN3fmt3v106detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #20
+declare double @llvm.fmuladd.f64(double, double, double) #26
 
 ; Function Attrs: inlinehint mustprogress ssp uwtable
 define linkonce_odr dso_local void @_ZN3fmt3v106detail13format_dragonENS1_8basic_fpIoEEjiRNS1_6bufferIcEERi(ptr noundef byval(%"struct.fmt::v10::detail::basic_fp") align 16 %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
@@ -38055,7 +38051,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit18: ; preds = 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #22
+declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #21
 
 declare void @_ZNK6open3d7utility6Logger8VWarningEPKciS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
@@ -38413,7 +38409,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPN6open3d13visua
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #20
+declare double @llvm.fabs.f64(double) #26
 
 ; Function Attrs: mustprogress nounwind ssp uwtable
 define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
@@ -38558,6 +38554,9 @@ declare i128 @llvm.ctlz.i128(i128, i1 immarg) #32
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #32
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #32
+
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { inlinehint mustprogress nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -38578,13 +38577,13 @@ attributes #16 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector
 attributes #17 = { mustprogress noinline nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #25 = { inlinehint mustprogress noreturn ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { cold noreturn }
+attributes #20 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #24 = { inlinehint mustprogress noreturn ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { cold noreturn }
+attributes #26 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #27 = { nocallback nofree nounwind memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #28 = { mustprogress noinline ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #29 = { mustprogress nofree nounwind willreturn memory(read) }

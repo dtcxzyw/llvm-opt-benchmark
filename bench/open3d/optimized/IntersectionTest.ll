@@ -535,7 +535,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: read) uwtable
 define noundef range(i32 0, 2) i32 @_Z16NoDivTriTriIsectPdS_S_S_S_S_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #1 {
   %7 = alloca [3 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #6
   %8 = load double, ptr %1, align 8, !tbaa !4
   %9 = load double, ptr %0, align 8, !tbaa !4
   %10 = fsub double %8, %9
@@ -871,7 +871,7 @@ define noundef range(i32 0, 2) i32 @_Z16NoDivTriTriIsectPdS_S_S_S_S_(ptr noundef
 
 259:                                              ; preds = %192, %241, %239, %80, %6
   %.0 = phi i32 [ 0, %6 ], [ 0, %80 ], [ %193, %192 ], [ %.3, %241 ], [ %240, %239 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #6
   ret i32 %.0
 }
 
@@ -879,8 +879,8 @@ define noundef range(i32 0, 2) i32 @_Z16NoDivTriTriIsectPdS_S_S_S_S_(ptr noundef
 define noundef range(i32 0, 2) i32 @_Z15planeBoxOverlapPdS_S_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca [3 x double], align 16
   %5 = alloca [3 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #6
   br label %6
 
 6:                                                ; preds = %3, %6
@@ -937,8 +937,8 @@ define noundef range(i32 0, 2) i32 @_Z15planeBoxOverlapPdS_S_(ptr noundef readon
 
 42:                                               ; preds = %32, %17
   %.0 = phi i32 [ 0, %17 ], [ %., %32 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #6
   ret i32 %.0
 }
 
@@ -946,8 +946,8 @@ define noundef range(i32 0, 2) i32 @_Z15planeBoxOverlapPdS_S_(ptr noundef readon
 define noundef range(i32 0, 2) i32 @_Z13triBoxOverlapPdS_PS_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = alloca [3 x double], align 16
   %5 = alloca [3 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #6
   %6 = load ptr, ptr %2, align 8, !tbaa !10
   %7 = load double, ptr %6, align 8, !tbaa !4
   %8 = load double, ptr %0, align 8, !tbaa !4
@@ -1226,8 +1226,8 @@ define noundef range(i32 0, 2) i32 @_Z13triBoxOverlapPdS_PS_(ptr noundef readonl
 
 208:                                              ; preds = %196, %188, %180, %172, %161, %149, %134, %122, %110, %96, %83, %70, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %70 ], [ 0, %83 ], [ 0, %96 ], [ 0, %110 ], [ 0, %122 ], [ 0, %134 ], [ 0, %149 ], [ 0, %161 ], [ 0, %172 ], [ 0, %180 ], [ 0, %188 ], [ %207, %196 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #6
   ret i32 %.0
 }
 
@@ -1362,55 +1362,53 @@ define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest18TriangleTriang
   %78 = fmul double %77, %77
   %79 = fadd double %78, %76
   %80 = fdiv double %79, 5.000000e+00
-  %81 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %80, i64 0
-  %82 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %81)
-  %83 = extractelement <2 x double> %82, i64 0
-  %84 = fadd double %83, 0x3D719799812DEA11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #5
-  %85 = fdiv <2 x double> %43, %62
-  store <2 x double> %85, ptr %7, align 16, !tbaa !13
-  %86 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %87 = fdiv double %63, %84
+  %.scalar.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef double @llvm.sqrt.f64(double %80)
+  %81 = fadd double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i.i, 0x3D719799812DEA11
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #6
+  %82 = fdiv <2 x double> %43, %62
+  store <2 x double> %82, ptr %7, align 16, !tbaa !13
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %84 = fdiv double %63, %81
+  store double %84, ptr %83, align 16, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #6
+  %85 = fdiv <2 x double> %45, %62
+  store <2 x double> %85, ptr %8, align 16, !tbaa !13
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %87 = fdiv double %65, %81
   store double %87, ptr %86, align 16, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #5
-  %88 = fdiv <2 x double> %45, %62
-  store <2 x double> %88, ptr %8, align 16, !tbaa !13
-  %89 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %90 = fdiv double %65, %84
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #6
+  %88 = fdiv <2 x double> %48, %62
+  store <2 x double> %88, ptr %9, align 16, !tbaa !13
+  %89 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %90 = fdiv double %68, %81
   store double %90, ptr %89, align 16, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #5
-  %91 = fdiv <2 x double> %48, %62
-  store <2 x double> %91, ptr %9, align 16, !tbaa !13
-  %92 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %93 = fdiv double %68, %84
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #6
+  %91 = fdiv <2 x double> %51, %62
+  store <2 x double> %91, ptr %10, align 16, !tbaa !13
+  %92 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %93 = fdiv double %71, %81
   store double %93, ptr %92, align 16, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #5
-  %94 = fdiv <2 x double> %51, %62
-  store <2 x double> %94, ptr %10, align 16, !tbaa !13
-  %95 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %96 = fdiv double %71, %84
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #6
+  %94 = fdiv <2 x double> %54, %62
+  store <2 x double> %94, ptr %11, align 16, !tbaa !13
+  %95 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %96 = fdiv double %74, %81
   store double %96, ptr %95, align 16, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #5
-  %97 = fdiv <2 x double> %54, %62
-  store <2 x double> %97, ptr %11, align 16, !tbaa !13
-  %98 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %99 = fdiv double %74, %84
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #6
+  %97 = fdiv <2 x double> %57, %62
+  store <2 x double> %97, ptr %12, align 16, !tbaa !13
+  %98 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %99 = fdiv double %77, %81
   store double %99, ptr %98, align 16, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #5
-  %100 = fdiv <2 x double> %57, %62
-  store <2 x double> %100, ptr %12, align 16, !tbaa !13
-  %101 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %102 = fdiv double %77, %84
-  store double %102, ptr %101, align 16, !tbaa !4
-  %103 = call noundef i32 @_Z16NoDivTriTriIsectPdS_S_S_S_S_(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
-  %104 = icmp ne i32 %103, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #5
-  ret i1 %104
+  %100 = call noundef i32 @_Z16NoDivTriTriIsectPdS_S_S_S_S_(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %101 = icmp ne i32 %100, 0
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #6
+  ret i1 %101
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -1419,7 +1417,7 @@ declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest12TriangleAABBERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES6_S6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 {
   %6 = alloca [3 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #6
   store ptr %2, ptr %6, align 16, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %7, align 8, !tbaa !10
@@ -1427,7 +1425,7 @@ define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest12TriangleAABBER
   store ptr %4, ptr %8, align 16, !tbaa !10
   %9 = call noundef i32 @_Z13triBoxOverlapPdS_PS_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %6)
   %10 = icmp ne i32 %9, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #6
   ret i1 %10
 }
 
@@ -1506,7 +1504,7 @@ define noundef double @_ZN6open3d8geometry16IntersectionTest20LinesMinimumDistan
   %22 = tail call double @llvm.fabs.f64(double %17)
   %23 = fcmp olt double %22, 0x3D719799812DEA11
   %or.cond81 = select i1 %or.cond, i1 %23, i1 false
-  br i1 %or.cond81, label %94, label %24
+  br i1 %or.cond81, label %91, label %24
 
 24:                                               ; preds = %4
   %25 = load <2 x double>, ptr %3, align 8, !tbaa !13
@@ -1524,7 +1522,7 @@ define noundef double @_ZN6open3d8geometry16IntersectionTest20LinesMinimumDistan
   %34 = tail call double @llvm.fabs.f64(double %29)
   %35 = fcmp olt double %34, 0x3D719799812DEA11
   %or.cond85 = select i1 %or.cond83, i1 %35, i1 false
-  br i1 %or.cond85, label %94, label %36
+  br i1 %or.cond85, label %91, label %36
 
 36:                                               ; preds = %24
   %37 = fmul <2 x double> %14, %26
@@ -1550,7 +1548,7 @@ define noundef double @_ZN6open3d8geometry16IntersectionTest20LinesMinimumDistan
   %54 = tail call double @llvm.fmuladd.f64(double %51, double %46, double %53)
   %55 = tail call noundef double @llvm.fabs.f64(double %54)
   %56 = fcmp olt double %55, 0x3D719799812DEA11
-  br i1 %56, label %94, label %57
+  br i1 %56, label %91, label %57
 
 57:                                               ; preds = %36
   %58 = fmul <2 x double> %7, %14
@@ -1591,13 +1589,11 @@ define noundef double @_ZN6open3d8geometry16IntersectionTest20LinesMinimumDistan
   %88 = fsub double %78, %83
   %89 = fmul double %88, %88
   %90 = fadd double %89, %87
-  %91 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %90, i64 0
-  %92 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %91)
-  %93 = extractelement <2 x double> %92, i64 0
-  br label %94
+  %.scalar.i = tail call noundef double @llvm.sqrt.f64(double %90)
+  br label %91
 
-94:                                               ; preds = %24, %4, %36, %57
-  %.0 = phi double [ %93, %57 ], [ -3.000000e+00, %36 ], [ -1.000000e+00, %4 ], [ -2.000000e+00, %24 ]
+91:                                               ; preds = %24, %4, %36, %57
+  %.0 = phi double [ %.scalar.i, %57 ], [ -3.000000e+00, %36 ], [ -1.000000e+00, %4 ], [ -2.000000e+00, %24 ]
   ret double %.0
 }
 
@@ -1850,18 +1846,20 @@ define noundef double @_ZN6open3d8geometry16IntersectionTest27LineSegmentsMinimu
   %167 = fsub double %153, %162
   %168 = fmul double %167, %167
   %169 = fadd double %168, %166
-  %170 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %169, i64 0
-  %171 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %170)
-  %172 = extractelement <2 x double> %171, i64 0
-  ret double %172
+  %.scalar.i = tail call noundef double @llvm.sqrt.f64(double %169)
+  ret double %.scalar.i
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #5
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: read) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

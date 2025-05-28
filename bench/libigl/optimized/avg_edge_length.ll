@@ -19,7 +19,7 @@ define weak_odr dso_local noundef double @_ZN3igl15avg_edge_lengthIN5Eigen6Matri
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   invoke void @_ZN3igl5edgesIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi2ELi0ELin1ELi2EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EE(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
-          to label %.preheader unwind label %45
+          to label %.preheader unwind label %42
 
 .preheader:                                       ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -42,9 +42,9 @@ define weak_odr dso_local noundef double @_ZN3igl15avg_edge_lengthIN5Eigen6Matri
   br i1 %11, label %.lr.ph.i.i.i.i.i.preheader.us, label %.lr.ph.split.split
 
 .lr.ph.i.i.i.i.i.preheader.us:                    ; preds = %.lr.ph.split, %.loopexit.us
-  %14 = phi i64 [ %41, %.loopexit.us ], [ 0, %.lr.ph.split ]
-  %.032.us35 = phi i32 [ %40, %.loopexit.us ], [ 0, %.lr.ph.split ]
-  %.01031.us36 = phi double [ %39, %.loopexit.us ], [ 0.000000e+00, %.lr.ph.split ]
+  %14 = phi i64 [ %38, %.loopexit.us ], [ 0, %.lr.ph.split ]
+  %.032.us35 = phi i32 [ %37, %.loopexit.us ], [ 0, %.lr.ph.split ]
+  %.01031.us36 = phi double [ %36, %.loopexit.us ], [ 0.000000e+00, %.lr.ph.split ]
   %15 = getelementptr i32, ptr %.pre, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !23
   %17 = sext i32 %16 to i64
@@ -75,55 +75,51 @@ define weak_odr dso_local noundef double @_ZN3igl15avg_edge_lengthIN5Eigen6Matri
   br i1 %exitcond.not.i.i.i.i.i.us, label %.loopexit.us, label %.lr.ph.i.i.i.i.i.us, !llvm.loop !27
 
 .loopexit.us:                                     ; preds = %.lr.ph.i.i.i.i.i.us
-  %36 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %34, i64 0
-  %37 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %36)
-  %38 = extractelement <2 x double> %37, i64 0
-  %39 = fadd double %.01031.us36, %38
-  %40 = add i32 %.032.us35, 1
-  %41 = zext i32 %40 to i64
-  %42 = icmp samesign ugt i64 %5, %41
-  br i1 %42, label %.lr.ph.i.i.i.i.i.preheader.us, label %._crit_edge, !llvm.loop !29
+  %.scalar.i.us38 = call noundef double @llvm.sqrt.f64(double %34)
+  %36 = fadd double %.01031.us36, %.scalar.i.us38
+  %37 = add i32 %.032.us35, 1
+  %38 = zext i32 %37 to i64
+  %39 = icmp samesign ugt i64 %5, %38
+  br i1 %39, label %.lr.ph.i.i.i.i.i.preheader.us, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %.loopexit.us, %.lr.ph, %.preheader
-  %.010.lcssa = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.lr.ph ], [ %39, %.loopexit.us ], [ %64, %.lr.ph.split.split ]
-  %43 = sitofp i64 %5 to double
-  %44 = fdiv double %.010.lcssa, %43
+  %.010.lcssa = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.lr.ph ], [ %36, %.loopexit.us ], [ %58, %.lr.ph.split.split ]
+  %40 = sitofp i64 %5 to double
+  %41 = fdiv double %.010.lcssa, %40
   call void @free(ptr noundef %.pre) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
-  ret double %44
+  ret double %41
 
-45:                                               ; preds = %2
-  %46 = landingpad { ptr, i32 }
+42:                                               ; preds = %2
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %47 = load ptr, ptr %3, align 8, !tbaa !11
-  call void @free(ptr noundef %47) #6
+  %44 = load ptr, ptr %3, align 8, !tbaa !11
+  call void @free(ptr noundef %44) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
-  resume { ptr, i32 } %46
+  resume { ptr, i32 } %43
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
-  %48 = phi i64 [ %66, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
-  %.032 = phi i32 [ %65, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
-  %.01031 = phi double [ %64, %.lr.ph.split.split ], [ 0.000000e+00, %.lr.ph.split ]
-  %49 = getelementptr i32, ptr %.pre, i64 %48
-  %50 = load i32, ptr %49, align 4, !tbaa !23
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds double, ptr %7, i64 %51
-  %53 = getelementptr i32, ptr %49, i64 %5
-  %54 = load i32, ptr %53, align 4, !tbaa !23
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds double, ptr %7, i64 %55
-  %57 = load double, ptr %52, align 8, !tbaa !25
-  %58 = load double, ptr %56, align 8, !tbaa !25
-  %59 = fsub double %57, %58
-  %60 = fmul double %59, %59
-  %61 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %60, i64 0
-  %62 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %61)
-  %63 = extractelement <2 x double> %62, i64 0
-  %64 = fadd double %.01031, %63
-  %65 = add i32 %.032, 1
-  %66 = zext i32 %65 to i64
-  %67 = icmp samesign ugt i64 %5, %66
-  br i1 %67, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !29
+  %45 = phi i64 [ %60, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
+  %.032 = phi i32 [ %59, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
+  %.01031 = phi double [ %58, %.lr.ph.split.split ], [ 0.000000e+00, %.lr.ph.split ]
+  %46 = getelementptr i32, ptr %.pre, i64 %45
+  %47 = load i32, ptr %46, align 4, !tbaa !23
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds double, ptr %7, i64 %48
+  %50 = getelementptr i32, ptr %46, i64 %5
+  %51 = load i32, ptr %50, align 4, !tbaa !23
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds double, ptr %7, i64 %52
+  %54 = load double, ptr %49, align 8, !tbaa !25
+  %55 = load double, ptr %53, align 8, !tbaa !25
+  %56 = fsub double %54, %55
+  %57 = fmul double %56, %56
+  %.scalar.i = call noundef double @llvm.sqrt.f64(double %57)
+  %58 = fadd double %.01031, %.scalar.i
+  %59 = add i32 %.032, 1
+  %60 = zext i32 %59 to i64
+  %61 = icmp samesign ugt i64 %5, %60
+  br i1 %61, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !29
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -159,7 +155,7 @@ define weak_odr dso_local noundef double @_ZN3igl15avg_edge_lengthIN5Eigen6Matri
   br label %15
 
 ._crit_edge:                                      ; preds = %15, %.preheader
-  %.010.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %46, %15 ]
+  %.010.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %43, %15 ]
   %10 = sitofp i64 %5 to double
   %11 = fdiv double %.010.lcssa, %10
   call void @free(ptr noundef %.pre) #6
@@ -175,9 +171,9 @@ define weak_odr dso_local noundef double @_ZN3igl15avg_edge_lengthIN5Eigen6Matri
   resume { ptr, i32 } %13
 
 15:                                               ; preds = %.lr.ph, %15
-  %16 = phi i64 [ 0, %.lr.ph ], [ %48, %15 ]
-  %.029 = phi i32 [ 0, %.lr.ph ], [ %47, %15 ]
-  %.01028 = phi double [ 0.000000e+00, %.lr.ph ], [ %46, %15 ]
+  %16 = phi i64 [ 0, %.lr.ph ], [ %45, %15 ]
+  %.029 = phi i32 [ 0, %.lr.ph ], [ %44, %15 ]
+  %.01028 = phi double [ 0.000000e+00, %.lr.ph ], [ %43, %15 ]
   %17 = getelementptr i32, ptr %.pre, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !23
   %19 = sext i32 %18 to i64
@@ -204,14 +200,12 @@ define weak_odr dso_local noundef double @_ZN3igl15avg_edge_lengthIN5Eigen6Matri
   %40 = fmul double %39, %39
   %41 = fadd double %34, %40
   %42 = fadd double %28, %41
-  %43 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %42, i64 0
-  %44 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %43)
-  %45 = extractelement <2 x double> %44, i64 0
-  %46 = fadd double %.01028, %45
-  %47 = add i32 %.029, 1
-  %48 = zext i32 %47 to i64
-  %49 = icmp samesign ugt i64 %5, %48
-  br i1 %49, label %15, label %._crit_edge, !llvm.loop !36
+  %.scalar.i = call noundef double @llvm.sqrt.f64(double %42)
+  %43 = fadd double %.01028, %.scalar.i
+  %44 = add i32 %.029, 1
+  %45 = zext i32 %44 to i64
+  %46 = icmp samesign ugt i64 %5, %45
+  br i1 %46, label %15, label %._crit_edge, !llvm.loop !36
 }
 
 declare void @_ZN3igl5edgesIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELi2ELi0ELin1ELi2EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
@@ -219,18 +213,18 @@ declare void @_ZN3igl5edgesIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1EL
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #4
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
