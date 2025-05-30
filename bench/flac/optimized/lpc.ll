@@ -7040,7 +7040,7 @@ define hidden double @FLAC__lpc_compute_expected_bits_per_residual_sample(double
   %8 = tail call reassoc nsz arcp double @log(double noundef %7) #13, !tbaa !3
   %9 = fmul reassoc nsz arcp double %8, 0x3FE71547652B82FE
   %.inv.i = fcmp reassoc nsz arcp oge double %9, 0.000000e+00
-  %..i = select reassoc nsz arcp i1 %.inv.i, double %9, double 0.000000e+00
+  %..i = select nsz i1 %.inv.i, double %9, double 0.000000e+00
   br label %FLAC__lpc_compute_expected_bits_per_residual_sample_with_error_scale.exit
 
 10:                                               ; preds = %2
@@ -7063,7 +7063,7 @@ define hidden double @FLAC__lpc_compute_expected_bits_per_residual_sample_with_e
   %6 = tail call reassoc nsz arcp double @log(double noundef %5) #13, !tbaa !3
   %7 = fmul reassoc nsz arcp double %6, 0x3FE71547652B82FE
   %.inv = fcmp reassoc nsz arcp oge double %7, 0.000000e+00
-  %. = select reassoc nsz arcp i1 %.inv, double %7, double 0.000000e+00
+  %. = select nsz i1 %.inv, double %7, double 0.000000e+00
   br label %10
 
 8:                                                ; preds = %2
@@ -7106,7 +7106,7 @@ define hidden i32 @FLAC__lpc_compute_best_order(ptr noundef readonly captures(no
   %14 = tail call reassoc nsz arcp double @log(double noundef %13) #13, !tbaa !3
   %15 = fmul reassoc nsz arcp double %14, 0x3FE71547652B82FE
   %.inv.i = fcmp reassoc nsz arcp oge double %15, 0.000000e+00
-  %..i = select reassoc nsz arcp i1 %.inv.i, double %15, double 0.000000e+00
+  %..i = select nsz i1 %.inv.i, double %15, double 0.000000e+00
   br label %FLAC__lpc_compute_expected_bits_per_residual_sample_with_error_scale.exit
 
 16:                                               ; preds = %7

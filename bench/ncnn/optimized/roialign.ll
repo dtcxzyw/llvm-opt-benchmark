@@ -705,8 +705,8 @@ define internal void @_ZNK4ncnn8ROIAlign7forwardERKSt6vectorINS_3MatESaIS2_EERS4
   br i1 %or.cond, label %141, label %100
 
 100:                                              ; preds = %96
-  %.2.us.us.us.us.us.us.us = call fast float @llvm.maxnum.f32(float %.055101.us.us.us.us.us.us.us, float 0.000000e+00)
-  %.053.us.us.us.us.us.us.us = call fast float @llvm.maxnum.f32(float %94, float 0.000000e+00)
+  %.2.us.us.us.us.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %.055101.us.us.us.us.us.us.us, float 0.000000e+00)
+  %.053.us.us.us.us.us.us.us = call nnan ninf nsz float @llvm.maxnum.f32(float %94, float 0.000000e+00)
   %101 = fptosi float %.053.us.us.us.us.us.us.us to i32
   %102 = add nsw i32 %101, 1
   %103 = fptosi float %.2.us.us.us.us.us.us.us to i32
