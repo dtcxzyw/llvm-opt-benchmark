@@ -35,7 +35,7 @@ define hidden void @WebPSamplerProcessPlane(ptr noalias noundef %0, i32 noundef 
   %.01824 = phi ptr [ %2, %.lr.ph ], [ %.1, %14 ]
   %.01923 = phi ptr [ %3, %.lr.ph ], [ %.120, %14 ]
   %.02122 = phi ptr [ %5, %.lr.ph ], [ %17, %14 ]
-  tail call void %9(ptr noundef %.01725, ptr noundef %.01824, ptr noundef %.01923, ptr noundef %.02122, i32 noundef %7) #4
+  tail call void %9(ptr noundef %.01725, ptr noundef %.01824, ptr noundef %.01923, ptr noundef %.02122, i32 noundef %7) #5
   %15 = getelementptr inbounds i8, ptr %.01725, i64 %12
   %16 = and i32 %.026, 1
   %.not = icmp eq i32 %16, 0
@@ -54,7 +54,7 @@ define hidden void @WebPSamplerProcessPlane(ptr noalias noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @WebPInitSamplers() local_unnamed_addr #0 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @WebPInitSamplers.WebPInitSamplers_body_lock) #4
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @WebPInitSamplers.WebPInitSamplers_body_lock) #5
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %15
 
@@ -80,28 +80,28 @@ define hidden void @WebPInitSamplers() local_unnamed_addr #0 {
   br i1 %.not.i, label %WebPInitSamplers_body.exit, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 %4(i32 noundef 0) #4
+  %7 = tail call i32 %4(i32 noundef 0) #5
   %.not1.i = icmp eq i32 %7, 0
   br i1 %.not1.i, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void @WebPInitSamplersSSE2() #4
+  tail call void @WebPInitSamplersSSE2() #5
   br label %9
 
 9:                                                ; preds = %8, %6
   %10 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !5
-  %11 = tail call i32 %10(i32 noundef 3) #4
+  %11 = tail call i32 %10(i32 noundef 3) #5
   %.not2.i = icmp eq i32 %11, 0
   br i1 %.not2.i, label %WebPInitSamplers_body.exit, label %12
 
 12:                                               ; preds = %9
-  tail call void @WebPInitSamplersSSE41() #4
+  tail call void @WebPInitSamplersSSE41() #5
   br label %WebPInitSamplers_body.exit
 
 WebPInitSamplers_body.exit:                       ; preds = %12, %9, %5, %2
   %13 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !5
   store volatile ptr %13, ptr @WebPInitSamplers.WebPInitSamplers_body_last_cpuinfo_used, align 8, !tbaa !5
-  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @WebPInitSamplers.WebPInitSamplers_body_lock) #4
+  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @WebPInitSamplers.WebPInitSamplers_body_lock) #5
   br label %15
 
 15:                                               ; preds = %0, %WebPInitSamplers_body.exit
@@ -306,7 +306,7 @@ define hidden void @WebPConvertRGBA32ToUV_C(ptr noalias noundef readonly capture
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.019 = phi ptr [ %0, %.lr.ph.preheader ], [ %37, %.lr.ph ]
+  %.019 = phi ptr [ %0, %.lr.ph.preheader ], [ %33, %.lr.ph ]
   %6 = load i16, ptr %.019, align 2, !tbaa !13
   %7 = zext i16 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %.019, i64 2
@@ -333,9 +333,9 @@ define hidden void @WebPConvertRGBA32ToUV_C(ptr noalias noundef readonly capture
   %.neg.i17 = mul nsw i32 %10, -24116
   %27 = add nsw i32 %.neg.i17, %26
   %.neg5.i = mul nsw i32 %13, -4684
-  %28 = add nsw i32 %27, %.neg5.i
-  %29 = add nsw i32 %28, 33685504
-  %30 = ashr i32 %29, 18
+  %25 = add nsw i32 %27, %.neg5.i
+  %26 = add nsw i32 %25, 33685504
+  %30 = ashr i32 %26, 18
   %31 = icmp ult i32 %30, 256
   %32 = icmp slt i32 %28, -33685504
   %33 = select i1 %32, i32 -33685504, i32 255
@@ -344,7 +344,7 @@ define hidden void @WebPConvertRGBA32ToUV_C(ptr noalias noundef readonly capture
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   store i8 %35, ptr %36, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %37 = getelementptr inbounds nuw i8, ptr %.019, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
@@ -354,7 +354,7 @@ define hidden void @WebPConvertRGBA32ToUV_C(ptr noalias noundef readonly capture
 
 ; Function Attrs: nounwind uwtable
 define hidden void @WebPInitConvertARGBToYUV() local_unnamed_addr #0 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @WebPInitConvertARGBToYUV.WebPInitConvertARGBToYUV_body_lock) #4
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @WebPInitConvertARGBToYUV.WebPInitConvertARGBToYUV_body_lock) #5
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %15
 
@@ -374,28 +374,28 @@ define hidden void @WebPInitConvertARGBToYUV() local_unnamed_addr #0 {
   br i1 %.not.i, label %WebPInitConvertARGBToYUV_body.exit, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 %4(i32 noundef 0) #4
+  %7 = tail call i32 %4(i32 noundef 0) #5
   %.not1.i = icmp eq i32 %7, 0
   br i1 %.not1.i, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void @WebPInitConvertARGBToYUVSSE2() #4
+  tail call void @WebPInitConvertARGBToYUVSSE2() #5
   br label %9
 
 9:                                                ; preds = %8, %6
   %10 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !5
-  %11 = tail call i32 %10(i32 noundef 3) #4
+  %11 = tail call i32 %10(i32 noundef 3) #5
   %.not2.i = icmp eq i32 %11, 0
   br i1 %.not2.i, label %WebPInitConvertARGBToYUV_body.exit, label %12
 
 12:                                               ; preds = %9
-  tail call void @WebPInitConvertARGBToYUVSSE41() #4
+  tail call void @WebPInitConvertARGBToYUVSSE41() #5
   br label %WebPInitConvertARGBToYUV_body.exit
 
 WebPInitConvertARGBToYUV_body.exit:               ; preds = %12, %9, %5, %2
   %13 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !5
   store volatile ptr %13, ptr @WebPInitConvertARGBToYUV.WebPInitConvertARGBToYUV_body_last_cpuinfo_used, align 8, !tbaa !5
-  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @WebPInitConvertARGBToYUV.WebPInitConvertARGBToYUV_body_lock) #4
+  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @WebPInitConvertARGBToYUV.WebPInitConvertARGBToYUV_body_lock) #5
   br label %15
 
 15:                                               ; preds = %0, %WebPInitConvertARGBToYUV_body.exit

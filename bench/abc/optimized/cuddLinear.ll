@@ -16,9 +16,9 @@ define range(i32 0, 2) i32 @Cudd_PrintLinear(ptr noundef readonly captures(none)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load i32, ptr %2, align 8, !tbaa !3
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %.preheader.preheader, label %.loopexit
+  br i1 %4, label %.preheader.lr.ph, label %.loopexit
 
-.preheader.preheader:                             ; preds = %1
+.preheader.lr.ph:                                 ; preds = %1
   %5 = add nsw i32 %3, -1
   %6 = ashr i32 %5, 6
   %7 = add nsw i32 %6, 1
@@ -27,21 +27,21 @@ define range(i32 0, 2) i32 @Cudd_PrintLinear(ptr noundef readonly captures(none)
   %smax = tail call i32 @llvm.smax.i32(i32 %6, i32 0)
   %10 = add nuw nsw i32 %smax, 1
   %11 = sext i32 %7 to i64
-  %wide.trip.count41 = zext nneg i32 %3 to i64
-  %wide.trip.count = zext nneg i32 %10 to i64
+  %10 = zext nneg i32 %3 to i64
+  %wide.trip.count42 = zext nneg i32 %10 to i64
   br label %.preheader
 
-12:                                               ; preds = %._crit_edge
+.preheader.us:                                    ; preds = %._crit_edge
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count41
   br i1 %exitcond42.not, label %.loopexit, label %.preheader, !llvm.loop !24
 
-.preheader:                                       ; preds = %.preheader.preheader, %12
+.preheader:; preds = %.preheader.lr.ph, %12
   %indvars.iv38 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next39, %12 ]
   %13 = mul nsw i64 %indvars.iv38, %11
   br label %14
 
-14:                                               ; preds = %.preheader, %27
+14: ; preds = %.preheader, %27
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %27 ]
   %15 = load ptr, ptr %8, align 8, !tbaa !26
   %16 = getelementptr i64, ptr %15, i64 %indvars.iv
@@ -49,7 +49,7 @@ define range(i32 0, 2) i32 @Cudd_PrintLinear(ptr noundef readonly captures(none)
   %18 = load i64, ptr %17, align 8, !tbaa !27
   br label %19
 
-19:                                               ; preds = %14, %24
+19:     ; preds = %14, %24
   %.027 = phi i64 [ %18, %14 ], [ %25, %24 ]
   %.02226 = phi i32 [ 0, %14 ], [ %26, %24 ]
   %20 = load ptr, ptr %9, align 8, !tbaa !28
@@ -58,24 +58,24 @@ define range(i32 0, 2) i32 @Cudd_PrintLinear(ptr noundef readonly captures(none)
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %.loopexit, label %24
 
-24:                                               ; preds = %19
+24:; preds = %19
   %25 = ashr i64 %.027, 1
   %26 = add nuw nsw i32 %.02226, 1
   %exitcond.not = icmp eq i32 %26, 64
   br i1 %exitcond.not, label %27, label %19, !llvm.loop !29
 
-27:                                               ; preds = %24
+27:; preds = %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond37.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond37.not, label %._crit_edge, label %14, !llvm.loop !30
+  %exitcond38.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond38.not, label %._crit_edge, label %14, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %27
-  %28 = load ptr, ptr %9, align 8, !tbaa !28
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.1) #13
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %.loopexit, label %12
+  %32 = load ptr, ptr %9, align 8, !tbaa !28
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.1) #13
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %.loopexit, label %12
 
-.loopexit:                                        ; preds = %._crit_edge, %12, %19, %1
+.loopexit:                                        ; preds = %._crit_edge, %.preheader.us, %19, %1
   %.020 = phi i32 [ 1, %1 ], [ 0, %19 ], [ 0, %._crit_edge ], [ 1, %12 ]
   ret i32 %.020
 }
@@ -785,7 +785,7 @@ define range(i32 0, 2) i32 @cuddResizeLinear(ptr noundef captures(none) %0) loca
 19:                                               ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %20, align 8, !tbaa !35
-  br label %51
+  br label %50
 
 21:                                               ; preds = %1
   %22 = mul nsw i32 %6, %3
@@ -807,7 +807,7 @@ define range(i32 0, 2) i32 @cuddResizeLinear(ptr noundef captures(none) %0) loca
 
 .preheader60:                                     ; preds = %.lr.ph.preheader, %21
   %32 = icmp sgt i32 %3, 0
-  br i1 %32, label %.preheader.preheader, label %._crit_edge66
+  br i1 %32, label %.preheader.lr.ph, label %._crit_edge66
 
 .preheader.preheader:                             ; preds = %.preheader60
   %smax = tail call i32 @llvm.smax.i32(i32 %5, i32 0)
@@ -822,11 +822,11 @@ define range(i32 0, 2) i32 @cuddResizeLinear(ptr noundef captures(none) %0) loca
   %indvars.iv75 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next76, %._crit_edge ]
   %36 = mul nsw i64 %indvars.iv75, %34
   %37 = mul nsw i64 %indvars.iv75, %35
-  %invariant.gep = getelementptr i64, ptr %8, i64 %36
+  %invariant.gep82 = getelementptr i64, ptr %8, i64 %36
   %invariant.gep82 = getelementptr i64, ptr %17, i64 %37
   br label %38
 
-38:                                               ; preds = %.preheader, %38
+38: ; preds = %.preheader, %38
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %38 ]
   %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
   %39 = load i64, ptr %gep, align 8, !tbaa !27
@@ -843,36 +843,36 @@ define range(i32 0, 2) i32 @cuddResizeLinear(ptr noundef captures(none) %0) loca
 
 ._crit_edge66:                                    ; preds = %.preheader60
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %40, label %._crit_edge66.thread
+  br i1 %.not, label %39, label %._crit_edge66.thread
 
 ._crit_edge66.thread:                             ; preds = %._crit_edge, %._crit_edge66
   tail call void @free(ptr noundef nonnull %8) #13
-  br label %40
+  br label %39
 
-40:                                               ; preds = %._crit_edge66, %._crit_edge66.thread
-  %41 = icmp slt i32 %3, %10
-  br i1 %41, label %.lr.ph69, label %._crit_edge70
+39:                                               ; preds = %._crit_edge66, %._crit_edge66.thread
+  %40 = icmp slt i32 %3, %10
+  br i1 %40, label %.lr.ph69, label %._crit_edge70
 
-.lr.ph69:                                         ; preds = %40, %.lr.ph69
-  %.267 = phi i32 [ %50, %.lr.ph69 ], [ %3, %40 ]
-  %42 = mul nsw i32 %.267, %13
-  %43 = ashr i32 %.267, 6
-  %44 = add nsw i32 %42, %43
-  %45 = and i32 %.267, 63
-  %46 = shl nuw i32 1, %45
-  %47 = sext i32 %46 to i64
-  %48 = sext i32 %44 to i64
-  %49 = getelementptr inbounds i64, ptr %17, i64 %48
-  store i64 %47, ptr %49, align 8, !tbaa !27
-  %50 = add nsw i32 %.267, 1
-  %exitcond80.not = icmp eq i32 %50, %10
+.lr.ph69:                                         ; preds = %39, %.lr.ph69
+  %.267 = phi i32 [ %49, %.lr.ph69 ], [ %3, %40 ]
+  %41 = mul nsw i32 %.267, %13
+  %42 = ashr i32 %.267, 6
+  %43 = add nsw i32 %41, %42
+  %44 = and i32 %.267, 63
+  %45 = shl nuw i32 1, %44
+  %46 = sext i32 %45 to i64
+  %47 = sext i32 %43 to i64
+  %48 = getelementptr inbounds i64, ptr %17, i64 %47
+  store i64 %46, ptr %48, align 8, !tbaa !27
+  %49 = add nsw i32 %.267, 1
+  %exitcond80.not = icmp eq i32 %49, %10
   br i1 %exitcond80.not, label %._crit_edge70, label %.lr.ph69, !llvm.loop !63
 
-._crit_edge70:                                    ; preds = %.lr.ph69, %40
+._crit_edge70:                                    ; preds = %.lr.ph69, %39
   store i32 %10, ptr %2, align 8, !tbaa !3
-  br label %51
+  br label %50
 
-51:                                               ; preds = %._crit_edge70, %19
+50:                                               ; preds = %._crit_edge70, %19
   %.0 = phi i32 [ 0, %19 ], [ 1, %._crit_edge70 ]
   ret i32 %.0
 }
@@ -1499,9 +1499,9 @@ define i32 @cuddLinearInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   br i1 %.not1.i, label %cuddXorLinear.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge340
-  %335 = getelementptr i8, ptr %0, i64 384
-  %.val292 = load ptr, ptr %335, align 8, !tbaa !26
-  %336 = add nsw i32 %.val, -1
+  %337 = getelementptr i8, ptr %0, i64 384
+  %.val292 = load ptr, ptr %337, align 8, !tbaa !26
+  %338 = add nsw i32 %.val, -1
   %337 = lshr i32 %336, 6
   %338 = add nuw nsw i32 %337, 1
   %339 = mul nsw i32 %338, %11
@@ -2139,13 +2139,13 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
+declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #10
+declare i32 @llvm.smin.i32(i32, i32) #12
 
 attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2158,7 +2158,7 @@ attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nounwind }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind allocsize(0) }

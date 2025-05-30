@@ -6748,10 +6748,10 @@ nsvg__roundf.exit31.i:                            ; preds = %124, %121, %nsvg__r
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %216, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %217 = getelementptr inbounds nuw i8, ptr %161, i64 %indvars.iv.i.i
-  %218 = load i8, ptr %217, align 1, !tbaa !4
-  %219 = add i8 %218, 51
-  store i8 %219, ptr %217, align 1, !tbaa !4
+  %218 = getelementptr inbounds nuw i8, ptr %161, i64 %indvars.iv.i.i
+  %219 = load i8, ptr %218, align 1, !tbaa !4
+  %220 = add i8 %219, 51
+  store i8 %220, ptr %218, align 1, !tbaa !4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %220 = trunc nuw i64 %indvars.iv.next.i.i to i32
   %221 = icmp sgt i32 %.0.i.i, %220
@@ -6849,10 +6849,10 @@ nsvg__fillScanline.exit.i:                        ; preds = %.lr.ph.i.i, %214, %
 
 .lr.ph.i44.i:                                     ; preds = %.lr.ph.i44.i, %.lr.ph.preheader.i43.i
   %indvars.iv.i45.i = phi i64 [ %268, %.lr.ph.preheader.i43.i ], [ %indvars.iv.next.i46.i, %.lr.ph.i44.i ]
-  %269 = getelementptr inbounds nuw i8, ptr %161, i64 %indvars.iv.i45.i
-  %270 = load i8, ptr %269, align 1, !tbaa !4
-  %271 = add i8 %270, 51
-  store i8 %271, ptr %269, align 1, !tbaa !4
+  %270 = getelementptr inbounds nuw i8, ptr %161, i64 %indvars.iv.i45.i
+  %271 = load i8, ptr %270, align 1, !tbaa !4
+  %272 = add i8 %271, 51
+  store i8 %272, ptr %270, align 1, !tbaa !4
   %indvars.iv.next.i46.i = add nuw nsw i64 %indvars.iv.i45.i, 1
   %272 = trunc nuw i64 %indvars.iv.next.i46.i to i32
   %273 = icmp sgt i32 %.0.i42.i, %272

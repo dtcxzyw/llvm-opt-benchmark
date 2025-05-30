@@ -239,18 +239,18 @@ define range(i32 0, 1694498816) i32 @lv_color_rgb_to_hsv(i8 noundef zeroext %0, 
   %12 = udiv i32 %11, 255
   %. = tail call i32 @llvm.umin.i32(i32 %6, i32 %9)
   %13 = tail call i32 @llvm.umin.i32(i32 %., i32 %12)
-  %.sink62 = tail call i32 @llvm.umax.i32(i32 %6, i32 %9)
-  %14 = tail call i32 @llvm.umax.i32(i32 %.sink62, i32 %12)
+  %.sink60 = tail call i32 @llvm.umax.i32(i32 %6, i32 %9)
+  %14 = tail call i32 @llvm.umax.i32(i32 %.sink60, i32 %12)
   %15 = sub nsw i32 %14, %13
   %16 = icmp slt i32 %15, 3
-  br i1 %16, label %.thread, label %17
+  br i1 %16, label %50, label %17
 
 17:                                               ; preds = %3
   %18 = mul nuw nsw i32 %15, 100
   %19 = udiv i32 %18, %14
   %20 = and i32 %19, 255
   %21 = icmp samesign ult i32 %20, 3
-  br i1 %21, label %.thread, label %22
+  br i1 %21, label %50, label %22
 
 22:                                               ; preds = %17
   %23 = icmp eq i32 %14, %6
@@ -277,8 +277,8 @@ define range(i32 0, 1694498816) i32 @lv_color_rgb_to_hsv(i8 noundef zeroext %0, 
   br label %44
 
 38:                                               ; preds = %31
-  %.not = icmp samesign ult i32 %12, %.sink62
-  br i1 %.not, label %.thread, label %39
+  %.not = icmp samesign ult i32 %12, %.sink60
+  br i1 %.not, label %50, label %39
 
 39:                                               ; preds = %38
   %40 = sub nsw i32 %6, %9
@@ -296,13 +296,13 @@ define range(i32 0, 1694498816) i32 @lv_color_rgb_to_hsv(i8 noundef zeroext %0, 
   %48 = add nsw i32 %46, 360
   %spec.select = select i1 %47, i32 %48, i32 %46
   %49 = and i32 %spec.select, 65535
-  br label %.thread
+  br label %50
 
-.thread:                                          ; preds = %38, %44, %17, %3
+50:                                               ; preds = %38, %44, %17, %3
   %.sroa.0.0 = phi i32 [ 0, %3 ], [ 0, %17 ], [ 0, %38 ], [ %49, %44 ]
   %.sroa.4.0 = phi i32 [ 0, %3 ], [ %19, %17 ], [ %19, %38 ], [ %19, %44 ]
-  %50 = mul nuw nsw i32 %14, 1638400
-  %.sroa.7.0.insert.ext = and i32 %50, 2130706432
+  %51 = mul nuw nsw i32 %14, 1638400
+  %.sroa.7.0.insert.ext = and i32 %51, 2130706432
   %.sroa.4.0.insert.ext = shl i32 %.sroa.4.0, 16
   %.sroa.4.0.insert.shift = and i32 %.sroa.4.0.insert.ext, 16711680
   %.sroa.4.0.insert.insert = or disjoint i32 %.sroa.0.0, %.sroa.7.0.insert.ext
@@ -326,8 +326,8 @@ define range(i32 0, 1694498816) i32 @lv_color_to_hsv(i24 %0) local_unnamed_addr 
   %13 = zext nneg i24 %12 to i32
   %..i = tail call i32 @llvm.umin.i32(i32 %5, i32 %9)
   %14 = tail call i32 @llvm.umin.i32(i32 %..i, i32 %13)
-  %.sink62.i = tail call i32 @llvm.umax.i32(i32 %5, i32 %9)
-  %15 = tail call i32 @llvm.umax.i32(i32 %.sink62.i, i32 %13)
+  %.sink60.i = tail call i32 @llvm.umax.i32(i32 %5, i32 %9)
+  %15 = tail call i32 @llvm.umax.i32(i32 %.sink60.i, i32 %13)
   %16 = sub nsw i32 %15, %14
   %17 = icmp slt i32 %16, 3
   br i1 %17, label %lv_color_rgb_to_hsv.exit, label %18
@@ -364,7 +364,7 @@ define range(i32 0, 1694498816) i32 @lv_color_to_hsv(i24 %0) local_unnamed_addr 
   br label %45
 
 39:                                               ; preds = %32
-  %.not.i = icmp samesign ugt i32 %.sink62.i, %13
+  %.not.i = icmp samesign ugt i32 %.sink60.i, %13
   br i1 %.not.i, label %lv_color_rgb_to_hsv.exit, label %40
 
 40:                                               ; preds = %39

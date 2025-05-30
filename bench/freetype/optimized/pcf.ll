@@ -1320,12 +1320,12 @@ pcf_get_properties.exit:                          ; preds = %.lr.ph.split.i, %.l
   %220 = load ptr, ptr %36, align 8, !tbaa !56
   %221 = load i64, ptr %20, align 8, !tbaa !133
   %.not.i208 = icmp eq i64 %221, 0
-  br i1 %.not.i208, label %.loopexit278, label %.lr.ph.i209
+  br i1 %.not.i208, label %.loopexit274, label %.lr.ph.i209
 
 222:                                              ; preds = %.lr.ph.i209
   %223 = add nuw i64 %.07.i, 1
   %exitcond.not.i210 = icmp eq i64 %223, %221
-  br i1 %exitcond.not.i210, label %.loopexit278, label %.lr.ph.i209, !llvm.loop !143
+  br i1 %exitcond.not.i210, label %.loopexit274, label %.lr.ph.i209, !llvm.loop !143
 
 .lr.ph.i209:                                      ; preds = %219, %222
   %.07.i = phi i64 [ %223, %222 ], [ 0, %219 ]
@@ -1334,19 +1334,19 @@ pcf_get_properties.exit:                          ; preds = %.lr.ph.split.i, %.l
   %226 = icmp eq i64 %225, 256
   br i1 %226, label %pcf_has_table_type.exit, label %222
 
-.loopexit278:                                     ; preds = %222, %219
+.loopexit274:                                     ; preds = %222, %219
   %227 = call fastcc i32 @pcf_get_accel(ptr noundef %0, ptr noundef nonnull %1, i64 noundef 2)
   store i32 %227, ptr %10, align 4, !tbaa !101
   %.not172 = icmp eq i32 %227, 0
-  br i1 %.not172, label %.loopexit278.pcf_has_table_type.exit_crit_edge, label %.thread266
+  br i1 %.not172, label %.loopexit274.pcf_has_table_type.exit_crit_edge, label %.thread266
 
-.loopexit278.pcf_has_table_type.exit_crit_edge:   ; preds = %.loopexit278
+.loopexit274.pcf_has_table_type.exit_crit_edge:   ; preds = %.loopexit274
   %.pre = load ptr, ptr %36, align 8, !tbaa !56
-  %.pre324 = load i64, ptr %20, align 8, !tbaa !133
+  %.pre320 = load i64, ptr %20, align 8, !tbaa !133
   br label %pcf_has_table_type.exit
 
-pcf_has_table_type.exit:                          ; preds = %.lr.ph.i209, %.loopexit278.pcf_has_table_type.exit_crit_edge
-  %228 = phi i64 [ %.pre324, %.loopexit278.pcf_has_table_type.exit_crit_edge ], [ %221, %.lr.ph.i209 ]
+pcf_has_table_type.exit:                          ; preds = %.lr.ph.i209, %.loopexit274.pcf_has_table_type.exit_crit_edge
+  %228 = phi i64 [ %.pre320, %.loopexit278.pcf_has_table_type.exit_crit_edge ], [ %221, %.lr.ph.i209 ]
   %229 = phi ptr [ %.pre, %.loopexit278.pcf_has_table_type.exit_crit_edge ], [ %220, %.lr.ph.i209 ]
   %.not171246 = phi i1 [ true, %.loopexit278.pcf_has_table_type.exit_crit_edge ], [ false, %.lr.ph.i209 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
@@ -1567,8 +1567,8 @@ pcf_get_metric.exit.us.i:                         ; preds = %.lr.ph.i219, %311
   %339 = icmp slt i16 %322, %338
   %narrow = sub nsw i16 128, %333
   %340 = icmp slt i16 %330, %narrow
-  %or.cond272 = select i1 %339, i1 true, i1 %340
-  br i1 %or.cond272, label %341, label %342
+  %or.cond268 = select i1 %339, i1 true, i1 %340
+  br i1 %or.cond268, label %341, label %342
 
 341:                                              ; preds = %316
   store i16 0, ptr %327, align 4, !tbaa !88
@@ -1703,7 +1703,7 @@ pcf_get_metrics.exit:                             ; preds = %pcf_get_metric.exit
   store i64 %.sink.i237, ptr %390, align 8, !tbaa !96
   %391 = add nuw nsw i64 %.03660.us.i, 1
   %exitcond66.not.i = icmp eq i64 %.03660.us.i, %..037.i
-  br i1 %exitcond66.not.i, label %._crit_edge.i232.thread326, label %.lr.ph.split.us.i236, !llvm.loop !153
+  br i1 %exitcond66.not.i, label %._crit_edge.i232.thread322, label %.lr.ph.split.us.i236, !llvm.loop !153
 
 .lr.ph.split.i230:                                ; preds = %.lr.ph.i229, %.lr.ph.split.i230
   %.03660.i = phi i64 [ %397, %.lr.ph.split.i230 ], [ 1, %.lr.ph.i229 ]
@@ -1724,15 +1724,15 @@ pcf_get_metrics.exit:                             ; preds = %pcf_get_metric.exit
   %.not46.i233 = icmp eq i32 %398, 0
   br i1 %.not46.i233, label %.preheader.i234, label %pcf_get_bitmaps.exit.thread
 
-._crit_edge.i232.thread326:                       ; preds = %.lr.ph.split.us.i236
+._crit_edge.i232.thread322:                       ; preds = %.lr.ph.split.us.i236
   %399 = load i32, ptr %4, align 4, !tbaa !101
-  %.not46.i233327 = icmp eq i32 %399, 0
-  br i1 %.not46.i233327, label %.preheader.split.us.i.preheader, label %pcf_get_bitmaps.exit.thread
+  %.not46.i233323 = icmp eq i32 %399, 0
+  br i1 %.not46.i233323, label %.preheader.split.us.i.preheader, label %pcf_get_bitmaps.exit.thread
 
 ._crit_edge.i232.thread:                          ; preds = %.lr.ph.split.i230
   %400 = load i32, ptr %4, align 4, !tbaa !101
-  %.not46.i233325 = icmp eq i32 %400, 0
-  br i1 %.not46.i233325, label %.preheader.split.i.preheader, label %pcf_get_bitmaps.exit.thread
+  %.not46.i233321 = icmp eq i32 %400, 0
+  br i1 %.not46.i233321, label %.preheader.split.i.preheader, label %pcf_get_bitmaps.exit.thread
 
 .preheader.i234:                                  ; preds = %._crit_edge.i232
   br i1 %.not43.i, label %.preheader.split.us.i.preheader, label %.preheader.split.i.preheader
@@ -1740,7 +1740,7 @@ pcf_get_metrics.exit:                             ; preds = %pcf_get_metric.exit
 .preheader.split.i.preheader:                     ; preds = %._crit_edge.i232.thread, %.preheader.i234
   br label %.preheader.split.i
 
-.preheader.split.us.i.preheader:                  ; preds = %._crit_edge.i232.thread326, %.preheader.i234
+.preheader.split.us.i.preheader:                  ; preds = %._crit_edge.i232.thread322, %.preheader.i234
   br label %.preheader.split.us.i
 
 .preheader.split.us.i:                            ; preds = %.preheader.split.us.i.preheader, %403
@@ -1767,7 +1767,7 @@ pcf_get_metrics.exit:                             ; preds = %pcf_get_metric.exit
   %.not48.i235 = icmp eq i32 %408, 0
   br i1 %.not48.i235, label %405, label %pcf_get_bitmaps.exit.thread
 
-pcf_get_bitmaps.exit.thread:                      ; preds = %351, %.preheader.split.i, %.preheader.split.us.i, %._crit_edge.i232.thread326, %._crit_edge.i232.thread, %364, %376, %378, %._crit_edge.i232, %348, %361, %356
+pcf_get_bitmaps.exit.thread:                      ; preds = %351, %.preheader.split.i, %.preheader.split.us.i, %._crit_edge.i232.thread322, %._crit_edge.i232.thread, %364, %376, %378, %._crit_edge.i232, %348, %361, %356
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
   br label %.thread266
 
@@ -1866,29 +1866,29 @@ pcf_get_bitmaps.exit.thread:                      ; preds = %351, %.preheader.sp
   %455 = trunc i32 %454 to i16
   %storemerge = select i1 %451, i16 32767, i16 %455
   store i16 %storemerge, ptr %441, align 8, !tbaa !159
-  %456 = call fastcc ptr @pcf_find_property(ptr noundef nonnull %1, ptr noundef nonnull @.str.11)
-  %.not183 = icmp eq ptr %456, null
-  br i1 %.not183, label %469, label %457
+  %458 = call fastcc ptr @pcf_find_property(ptr noundef nonnull %1, ptr noundef nonnull @.str.11)
+  %.not183 = icmp eq ptr %458, null
+  br i1 %.not183, label %469, label %459
 
-457:                                              ; preds = %444
-  %458 = getelementptr inbounds nuw i8, ptr %456, i64 16
-  %459 = load i64, ptr %458, align 8, !tbaa !38
-  %460 = call i64 @llvm.abs.i64(i64 %459, i1 true)
-  %461 = icmp samesign ugt i64 %460, 327665
-  br i1 %461, label %475, label %462
+459:                                              ; preds = %444
+  %460 = getelementptr inbounds nuw i8, ptr %458, i64 16
+  %461 = load i64, ptr %460, align 8, !tbaa !38
+  %462 = call i64 @llvm.abs.i64(i64 %461, i1 true)
+  %463 = icmp samesign ugt i64 %462, 327665
+  br i1 %463, label %475, label %464
 
-462:                                              ; preds = %457
-  %463 = add nsw i64 %459, 5
-  %464 = sdiv i64 %463, 10
-  %465 = trunc i64 %464 to i32
-  %sext184.mask = and i32 %465, 32768
+464:                                              ; preds = %459
+  %465 = add nsw i64 %461, 5
+  %466 = sdiv i64 %465, 10
+  %467 = trunc i64 %466 to i32
+  %sext184.mask = and i32 %467, 32768
   %.not269 = icmp eq i32 %sext184.mask, 0
   %466 = sub i32 0, %465
   %467 = select i1 %.not269, i32 %465, i32 %466
   %468 = trunc i32 %467 to i16
   br label %475
 
-469:                                              ; preds = %444
+469:; preds = %444
   %470 = sext i16 %storemerge to i32
   %471 = shl nsw i32 %470, 1
   %472 = or disjoint i32 %471, 1
@@ -1896,7 +1896,7 @@ pcf_get_bitmaps.exit.thread:                      ; preds = %351, %.preheader.sp
   %474 = trunc nsw i32 %473 to i16
   br label %475
 
-475:                                              ; preds = %457, %462, %469
+475:; preds = %461, %464, %469
   %.sink = phi i16 [ %468, %462 ], [ %474, %469 ], [ 32767, %457 ]
   %476 = getelementptr inbounds nuw i8, ptr %441, i64 2
   store i16 %.sink, ptr %476, align 2, !tbaa !160
@@ -1904,53 +1904,53 @@ pcf_get_bitmaps.exit.thread:                      ; preds = %351, %.preheader.sp
   %.not185 = icmp eq ptr %477, null
   br i1 %.not185, label %486, label %478
 
-478:                                              ; preds = %475
+478: ; preds = %475
   %479 = getelementptr inbounds nuw i8, ptr %477, i64 16
   %480 = load i64, ptr %479, align 8, !tbaa !38
   %481 = call i64 @llvm.abs.i64(i64 %480, i1 true)
   %482 = icmp samesign ugt i64 %481, 328898
   br i1 %482, label %.sink.split, label %483
 
-483:                                              ; preds = %478
+483:    ; preds = %478
   %484 = call i64 @FT_MulDiv(i64 noundef %481, i64 noundef 460800, i64 noundef 72270) #15
   br label %.sink.split
 
 .sink.split:                                      ; preds = %478, %483
-  %.sink359 = phi i64 [ %484, %483 ], [ 32767, %478 ]
-  %485 = getelementptr inbounds nuw i8, ptr %441, i64 8
-  store i64 %.sink359, ptr %485, align 8, !tbaa !161
-  br label %486
+  %.sink355 = phi i64 [ %484, %483 ], [ 32767, %478 ]
+  %487 = getelementptr inbounds nuw i8, ptr %441, i64 8
+  store i64 %.sink355, ptr %487, align 8, !tbaa !161
+  br label %488
 
-486:                                              ; preds = %.sink.split, %475
-  %487 = call fastcc ptr @pcf_find_property(ptr noundef nonnull %1, ptr noundef nonnull @.str.13)
-  %.not186 = icmp eq ptr %487, null
-  br i1 %.not186, label %502, label %488
+488:                                              ; preds = %.sink.split, %475
+  %489 = call fastcc ptr @pcf_find_property(ptr noundef nonnull %1, ptr noundef nonnull @.str.13)
+  %.not186 = icmp eq ptr %489, null
+  br i1 %.not186, label %502, label %490
 
-488:                                              ; preds = %486
-  %489 = getelementptr inbounds nuw i8, ptr %487, i64 16
-  %490 = load i64, ptr %489, align 8, !tbaa !38
-  %491 = call i64 @llvm.abs.i64(i64 %490, i1 true)
-  %492 = icmp samesign ugt i64 %491, 32767
-  br i1 %492, label %.sink.split361, label %493
+490:                                              ; preds = %488
+  %491 = getelementptr inbounds nuw i8, ptr %489, i64 16
+  %492 = load i64, ptr %491, align 8, !tbaa !38
+  %493 = call i64 @llvm.abs.i64(i64 %492, i1 true)
+  %494 = icmp samesign ugt i64 %493, 32767
+  br i1 %494, label %.sink.split357, label %495
 
-493:                                              ; preds = %488
-  %494 = trunc i64 %490 to i32
-  %sext187 = shl i32 %494, 16
-  %495 = ashr exact i32 %sext187, 16
+495:                                              ; preds = %490
+  %496 = trunc i64 %492 to i32
+  %sext187 = shl i32 %496, 16
+  %497 = ashr exact i32 %sext187, 16
   %496 = icmp slt i32 %sext187, 0
   %497 = sub nsw i32 0, %495
   %498 = select i1 %496, i32 %497, i32 %495
   %499 = shl nuw nsw i32 %498, 6
   %500 = zext nneg i32 %499 to i64
-  br label %.sink.split361
+  br label %.sink.split357
 
-.sink.split361:                                   ; preds = %488, %493
-  %.sink362 = phi i64 [ %500, %493 ], [ 2097088, %488 ]
+.sink.split357:                                   ; preds = %490, %495
+  %.sink358 = phi i64 [ %500, %493 ], [ 2097088, %488 ]
   %501 = getelementptr inbounds nuw i8, ptr %441, i64 24
-  store i64 %.sink362, ptr %501, align 8, !tbaa !107
+  store i64 %.sink358, ptr %501, align 8, !tbaa !107
   br label %502
 
-502:                                              ; preds = %.sink.split361, %486
+502:                                              ; preds = %.sink.split357, %488
   %503 = call fastcc ptr @pcf_find_property(ptr noundef nonnull %1, ptr noundef nonnull @.str.14)
   %.not188 = icmp eq ptr %503, null
   br i1 %.not188, label %514, label %504
@@ -1975,7 +1975,7 @@ pcf_get_bitmaps.exit.thread:                      ; preds = %351, %.preheader.sp
   %.0137 = phi i16 [ %513, %509 ], [ 0, %502 ], [ 32767, %504 ]
   %515 = call fastcc ptr @pcf_find_property(ptr noundef nonnull %1, ptr noundef nonnull @.str.15)
   %.not190 = icmp eq ptr %515, null
-  br i1 %.not190, label %.thread329, label %516
+  br i1 %.not190, label %.thread325, label %516
 
 516:                                              ; preds = %514
   %517 = getelementptr inbounds nuw i8, ptr %515, i64 16
@@ -1996,13 +1996,13 @@ pcf_get_bitmaps.exit.thread:                      ; preds = %351, %.preheader.sp
   %528 = icmp eq i64 %527, 0
   br i1 %528, label %539, label %547
 
-.thread329:                                       ; preds = %514
+.thread325:                                       ; preds = %514
   %529 = getelementptr inbounds nuw i8, ptr %441, i64 24
   %530 = load i64, ptr %529, align 8, !tbaa !107
   %531 = icmp eq i64 %530, 0
-  br i1 %531, label %.thread332, label %.thread263
+  br i1 %531, label %.thread328, label %.thread263
 
-.thread332:                                       ; preds = %.thread329
+.thread328:                                       ; preds = %.thread325
   %532 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %533 = load i64, ptr %532, align 8, !tbaa !161
   store i64 %533, ptr %529, align 8, !tbaa !107
@@ -2050,10 +2050,10 @@ pcf_get_bitmaps.exit.thread:                      ; preds = %351, %.preheader.sp
   %554 = call i64 @FT_MulDiv(i64 noundef %548, i64 noundef %552, i64 noundef %553) #15
   br label %.thread263
 
-.thread263:                                       ; preds = %547, %539, %.thread332, %.thread329, %551
-  %.sink364 = phi i64 [ %554, %551 ], [ %548, %547 ], [ %541, %539 ], [ %533, %.thread332 ], [ %530, %.thread329 ]
+.thread263:                                       ; preds = %547, %539, %.thread328, %.thread325, %551
+  %.sink360 = phi i64 [ %554, %551 ], [ %548, %547 ], [ %541, %539 ], [ %533, %.thread332 ], [ %530, %.thread329 ]
   %555 = getelementptr inbounds nuw i8, ptr %441, i64 16
-  store i64 %.sink364, ptr %555, align 8, !tbaa !162
+  store i64 %.sink360, ptr %555, align 8, !tbaa !162
   %556 = call fastcc ptr @pcf_find_property(ptr noundef nonnull %1, ptr noundef nonnull @.str.16)
   %557 = call fastcc ptr @pcf_find_property(ptr noundef nonnull %1, ptr noundef nonnull @.str.17)
   %.not193 = icmp eq ptr %556, null
@@ -2096,7 +2096,7 @@ pcf_get_bitmaps.exit.thread:                      ; preds = %351, %.preheader.sp
   %.not197 = icmp eq i32 %.pr, 0
   br i1 %.not197, label %578, label %.thread266
 
-.thread266:                                       ; preds = %pcf_read_TOC.exit, %pcf_get_properties.exit, %.loopexit278, %pcf_get_metrics.exit, %.loopexit, %412, %566, %437, %429, %422, %pcf_read_TOC.exit.thread, %pcf_get_metrics.exit.thread, %pcf_get_bitmaps.exit.thread, %577
+.thread266:                                       ; preds = %pcf_read_TOC.exit, %pcf_get_properties.exit, %.loopexit274, %pcf_get_metrics.exit, %.loopexit, %412, %566, %437, %429, %422, %pcf_read_TOC.exit.thread, %pcf_get_metrics.exit.thread, %pcf_get_bitmaps.exit.thread, %577
   br label %578
 
 578:                                              ; preds = %577, %.thread266, %114

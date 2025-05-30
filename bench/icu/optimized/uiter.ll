@@ -59,17 +59,17 @@ declare i32 @u_strlen_77(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @uiter_setUTF16BE_77(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %31, label %4
+  br i1 %.not, label %30, label %4
 
 4:                                                ; preds = %3
   %.not19 = icmp eq ptr %1, null
-  br i1 %.not19, label %30, label %5
+  br i1 %.not19, label %29, label %5
 
 5:                                                ; preds = %4
   %6 = icmp eq i32 %2, -1
   br i1 %6, label %11, label %7
 
-7:                                                ; preds = %5
+.thread:                                          ; preds = %5
   %8 = and i32 %2, -2147483647
   %or.cond = icmp eq i32 %8, 0
   br i1 %or.cond, label %9, label %30
@@ -80,7 +80,7 @@ define void @uiter_setUTF16BE_77(ptr noundef writeonly captures(address_is_null)
   %10 = lshr exact i32 %2, 1
   br label %_ZL14utf16BE_strlenPKc.exit
 
-11:                                               ; preds = %5
+11: ; preds = %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) @_ZL15utf16BEIterator, i64 112, i1 false), !tbaa.struct !3
   store ptr %1, ptr %0, align 8, !tbaa !10
   %12 = ptrtoint ptr %1 to i64
@@ -88,46 +88,46 @@ define void @uiter_setUTF16BE_77(ptr noundef writeonly captures(address_is_null)
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %.preheader.i
 
-15:                                               ; preds = %11
-  %16 = tail call i32 @u_strlen_77(ptr noundef nonnull %1)
+14:                                               ; preds = %11
+  %15 = tail call i32 @u_strlen_77(ptr noundef nonnull %1)
   br label %_ZL14utf16BE_strlenPKc.exit
 
 .preheader.i:                                     ; preds = %11, %.critedge.i
-  %.0.i = phi ptr [ %22, %.critedge.i ], [ %1, %11 ]
-  %17 = load i8, ptr %.0.i, align 1, !tbaa !14
-  %18 = icmp eq i8 %17, 0
-  br i1 %18, label %19, label %.critedge.i
+  %.0.i = phi ptr [ %21, %.critedge.i ], [ %1, %11 ]
+  %16 = load i8, ptr %.0.i, align 1, !tbaa !14
+  %17 = icmp eq i8 %16, 0
+  br i1 %17, label %18, label %.critedge.i
 
-19:                                               ; preds = %.preheader.i
-  %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  %21 = load i8, ptr %20, align 1, !tbaa !14
-  %.not.i = icmp eq i8 %21, 0
-  br i1 %.not.i, label %23, label %.critedge.i
+18:                                               ; preds = %.preheader.i
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
+  %20 = load i8, ptr %19, align 1, !tbaa !14
+  %.not.i = icmp eq i8 %20, 0
+  br i1 %.not.i, label %22, label %.critedge.i
 
-.critedge.i:                                      ; preds = %19, %.preheader.i
-  %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
+.critedge.i:                                      ; preds = %18, %.preheader.i
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
   br label %.preheader.i, !llvm.loop !15
 
-23:                                               ; preds = %19
-  %24 = ptrtoint ptr %.0.i to i64
-  %25 = sub i64 %24, %12
-  %26 = sdiv i64 %25, 2
-  %27 = trunc i64 %26 to i32
+22:                                               ; preds = %18
+  %23 = ptrtoint ptr %.0.i to i64
+  %24 = sub i64 %23, %12
+  %25 = sdiv i64 %24, 2
+  %26 = trunc i64 %25 to i32
   br label %_ZL14utf16BE_strlenPKc.exit
 
-_ZL14utf16BE_strlenPKc.exit:                      ; preds = %23, %15, %9
-  %.08.i.sink = phi i32 [ %10, %9 ], [ %16, %15 ], [ %27, %23 ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.08.i.sink, ptr %28, align 8, !tbaa !12
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.08.i.sink, ptr %29, align 4, !tbaa !13
-  br label %31
+_ZL14utf16BE_strlenPKc.exit:                      ; preds = %22, %14, %9
+  %.08.i.sink = phi i32 [ %10, %9 ], [ %15, %15 ], [ %26, %23 ]
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.08.i.sink, ptr %27, align 8, !tbaa !12
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %.08.i.sink, ptr %28, align 4, !tbaa !13
+  br label %30
 
-30:                                               ; preds = %7, %4
+29:                                               ; preds = %7, %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) @_ZL12noopIterator, i64 112, i1 false), !tbaa.struct !3
-  br label %31
+  br label %30
 
-31:                                               ; preds = %_ZL14utf16BE_strlenPKc.exit, %30, %3
+30:                                               ; preds = %_ZL14utf16BE_strlenPKc.exit, %29, %3
   ret void
 }
 

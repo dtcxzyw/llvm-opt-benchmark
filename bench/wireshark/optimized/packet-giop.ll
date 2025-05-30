@@ -2961,24 +2961,24 @@ giop_getline.exit.i:                              ; preds = %string_to_IOR.exit.
   %40 = icmp slt i32 %sext.i.i, 0
   br i1 %40, label %41, label %43
 
-41:                                               ; preds = %38
+42:                                               ; preds = %38
   %42 = ashr exact i32 %sext.i.i, 24
   tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.569, i32 noundef %42)
   br label %43
 
-43:                                               ; preds = %41, %38
+43:                                               ; preds = %42, %38
   %44 = load i8, ptr %32, align 1
   %45 = tail call i32 @ws_xton(i8 noundef signext %44)
   %sext31.i.i = shl i32 %45, 24
   %46 = icmp slt i32 %sext31.i.i, 0
   br i1 %46, label %47, label %49
 
-47:                                               ; preds = %43
+48:                                               ; preds = %43
   %48 = ashr exact i32 %sext31.i.i, 24
   tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.569, i32 noundef %48)
   br label %49
 
-49:                                               ; preds = %47, %43
+49:                                               ; preds = %48, %43
   %50 = shl i32 %39, 4
   %51 = add i32 %45, %50
   %52 = trunc i32 %51 to i8

@@ -3168,16 +3168,16 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread: ; pr
   %140 = icmp eq i32 %.mask.i, 0
   br i1 %140, label %141, label %.preheader.backedge
 
-.preheader.backedge:                              ; preds = %138, %141
-  %.be = phi i32 [ %139, %138 ], [ %145, %141 ]
+.preheader.backedge:                              ; preds = %138, %143
+  %.be = phi i32 [ %139, %138 ], [ %147, %141 ]
   br label %.preheader, !llvm.loop !41
 
-141:                                              ; preds = %138
+143:                                              ; preds = %138
   %142 = and i32 %139, 1073676288
-  %143 = add nuw nsw i32 %142, 65536
-  %144 = and i32 %139, -2147418113
-  %145 = or disjoint i32 %143, %144
-  store i32 %145, ptr %12, align 4
+  %145 = add nuw nsw i32 %142, 65536
+  %146 = and i32 %139, -2147418113
+  %147 = or disjoint i32 %145, %146
+  store i32 %147, ptr %12, align 4
   br label %.preheader.backedge
 
 .loopexit:                                        ; preds = %.thread81, %133
@@ -3185,59 +3185,59 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread: ; pr
           cleanup
   br label %.loopexit.body
 
-.loopexit.split-lp:                               ; preds = %159, %162
+.loopexit.split-lp:                               ; preds = %161, %164
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.body
 
 .loopexit.body:                                   ; preds = %.loopexit, %114, %84, %.loopexit.split-lp
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %85, %84 ], [ %lpad.loopexit, %.loopexit ], [ %115, %114 ]
-  %146 = load i32, ptr %4, align 4, !tbaa !17
-  %147 = add nsw i32 %146, -1
-  store i32 %147, ptr %4, align 4, !tbaa !17
+  %148 = load i32, ptr %4, align 4, !tbaa !17
+  %149 = add nsw i32 %148, -1
+  store i32 %149, ptr %4, align 4, !tbaa !17
   resume { ptr, i32 } %lpad.phi
 
 .loopexit51:                                      ; preds = %136, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread
-  %148 = load i32, ptr %12, align 4
-  %149 = shl i32 %148, 1
-  %150 = icmp slt i32 %149, 131072
-  %.not.i = icmp sgt i32 %148, -1
-  %or.cond.i25 = or i1 %.not.i, %150
-  br i1 %or.cond.i25, label %_ZN4absl18debugging_internalL24MaybeCancelLastSeparatorEPNS0_5StateE.exit, label %151
+  %150 = load i32, ptr %12, align 4
+  %151 = shl i32 %150, 1
+  %152 = icmp slt i32 %151, 131072
+  %.not.i = icmp sgt i32 %150, -1
+  %or.cond.i25 = or i1 %.not.i, %152
+  br i1 %or.cond.i25, label %_ZN4absl18debugging_internalL24MaybeCancelLastSeparatorEPNS0_5StateE.exit, label %153
 
-151:                                              ; preds = %.loopexit51
-  %152 = load i32, ptr %13, align 4, !tbaa !22
-  %153 = icmp sgt i32 %152, 1
-  br i1 %153, label %154, label %_ZN4absl18debugging_internalL24MaybeCancelLastSeparatorEPNS0_5StateE.exit
+153:                                              ; preds = %.loopexit51
+  %154 = load i32, ptr %13, align 4, !tbaa !22
+  %155 = icmp sgt i32 %154, 1
+  br i1 %155, label %156, label %_ZN4absl18debugging_internalL24MaybeCancelLastSeparatorEPNS0_5StateE.exit
 
-154:                                              ; preds = %151
-  %155 = add nsw i32 %152, -2
-  store i32 %155, ptr %13, align 4, !tbaa !22
-  %156 = load ptr, ptr %15, align 8, !tbaa !13
-  %157 = zext nneg i32 %155 to i64
-  %158 = getelementptr inbounds nuw i8, ptr %156, i64 %157
-  store i8 0, ptr %158, align 1, !tbaa !4
+156:                                              ; preds = %153
+  %157 = add nsw i32 %154, -2
+  store i32 %157, ptr %13, align 4, !tbaa !22
+  %158 = load ptr, ptr %15, align 8, !tbaa !13
+  %159 = zext nneg i32 %157 to i64
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 %159
+  store i8 0, ptr %160, align 1, !tbaa !4
   br label %_ZN4absl18debugging_internalL24MaybeCancelLastSeparatorEPNS0_5StateE.exit
 
-_ZN4absl18debugging_internalL24MaybeCancelLastSeparatorEPNS0_5StateE.exit: ; preds = %.loopexit51, %151, %154
-  br i1 %.016, label %159, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
+_ZN4absl18debugging_internalL24MaybeCancelLastSeparatorEPNS0_5StateE.exit: ; preds = %.loopexit51, %153, %156
+  br i1 %.016, label %161, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
-159:                                              ; preds = %_ZN4absl18debugging_internalL24MaybeCancelLastSeparatorEPNS0_5StateE.exit
-  %160 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTemplateArgsEPNS0_5StateE(ptr noundef nonnull %0)
+161:                                              ; preds = %_ZN4absl18debugging_internalL24MaybeCancelLastSeparatorEPNS0_5StateE.exit
+  %162 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTemplateArgsEPNS0_5StateE(ptr noundef nonnull %0)
           to label %161 unwind label %.loopexit.split-lp
 
-161:                                              ; preds = %159
-  br i1 %160, label %162, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
+163:                                              ; preds = %161
+  br i1 %162, label %164, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
-162:                                              ; preds = %161
-  %163 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParsePrefixEPNS0_5StateE(ptr noundef nonnull %0)
+164:                                              ; preds = %163
+  %165 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParsePrefixEPNS0_5StateE(ptr noundef nonnull %0)
           to label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread unwind label %.loopexit.split-lp
 
-_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %162, %_ZN4absl18debugging_internalL24MaybeCancelLastSeparatorEPNS0_5StateE.exit, %161
-  %.0 = phi i1 [ %163, %162 ], [ true, %_ZN4absl18debugging_internalL24MaybeCancelLastSeparatorEPNS0_5StateE.exit ], [ true, %161 ], [ false, %1 ]
-  %164 = load i32, ptr %4, align 4, !tbaa !17
-  %165 = add nsw i32 %164, -1
-  store i32 %165, ptr %4, align 4, !tbaa !17
+_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %164, %_ZN4absl18debugging_internalL24MaybeCancelLastSeparatorEPNS0_5StateE.exit, %163
+  %.0 = phi i1 [ %165, %162 ], [ true, %_ZN4absl18debugging_internalL24MaybeCancelLastSeparatorEPNS0_5StateE.exit ], [ true, %161 ], [ false, %1 ]
+  %166 = load i32, ptr %4, align 4, !tbaa !17
+  %167 = add nsw i32 %166, -1
+  store i32 %167, ptr %4, align 4, !tbaa !17
   ret i1 %.0
 }
 

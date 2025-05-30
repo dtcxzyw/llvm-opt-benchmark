@@ -350,7 +350,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
 
 23:                                               ; preds = %19
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.7) #12
-  br label %159
+  br label %157
 
 24:                                               ; preds = %19
   %25 = call ptr @archive_entry_pathname(ptr noundef %1) #12
@@ -463,7 +463,7 @@ synthesize_ino_value.exit:                        ; preds = %42, %53, %70
 
 synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino_value.exit
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.11) #12
-  br label %159
+  br label %157
 
 77:                                               ; preds = %synthesize_ino_value.exit
   %78 = icmp samesign ugt i32 %.0.i65, 262143
@@ -471,7 +471,7 @@ synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino
 
 79:                                               ; preds = %77
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 34, ptr noundef nonnull @.str.12) #12
-  br label %159
+  br label %157
 
 .thread:                                          ; preds = %27, %77
   %.0.i65111113 = phi i32 [ %.0.i65, %77 ], [ 0, %27 ]
@@ -527,8 +527,8 @@ synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino
   %114 = ashr exact i64 %sext, 32
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 59
   %116 = icmp slt i64 %sext, 0
-  %117 = call i64 @llvm.umin.i64(i64 %114, i64 262143)
-  %..i98 = select i1 %116, i64 262143, i64 %117
+  %116 = call i64 @llvm.umin.i64(i64 %114, i64 262143)
+  %..i98 = select i1 %116, i64 262143, i64 %116
   %118 = call fastcc i64 @format_octal_recursive(i64 noundef %..i98, ptr noundef nonnull %115, i32 noundef 6)
   %119 = call i32 @archive_entry_filetype(ptr noundef %1) #12
   %.not53 = icmp eq i32 %119, 32768
@@ -536,94 +536,94 @@ synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino
 
 120:                                              ; preds = %109
   call void @archive_entry_set_size(ptr noundef %1, i64 noundef 0) #12
-  br label %121
+  br label %119
 
-121:                                              ; preds = %120, %109
-  %122 = call i32 @_archive_entry_symlink_l(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef %.0.i) #12
-  %.not54 = icmp eq i32 %122, 0
-  br i1 %.not54, label %131, label %123
+119:                                              ; preds = %120, %109
+  %120 = call i32 @_archive_entry_symlink_l(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef %.0.i) #12
+  %.not54 = icmp eq i32 %120, 0
+  br i1 %.not54, label %129, label %121
 
-123:                                              ; preds = %121
-  %124 = tail call ptr @__errno_location() #15
-  %125 = load i32, ptr %124, align 4, !tbaa !31
-  %126 = icmp eq i32 %125, 12
-  br i1 %126, label %127, label %128
+121:                                              ; preds = %119
+  %122 = tail call ptr @__errno_location() #15
+  %123 = load i32, ptr %122, align 4, !tbaa !31
+  %124 = icmp eq i32 %123, 12
+  br i1 %124, label %125, label %126
 
-127:                                              ; preds = %123
+125:                                              ; preds = %121
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.13) #12
-  br label %159
+  br label %157
 
-128:                                              ; preds = %123
-  %129 = call ptr @archive_entry_symlink(ptr noundef %1) #12
-  %130 = call ptr @archive_string_conversion_charset_name(ptr noundef %.0.i) #12
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.14, ptr noundef %129, ptr noundef %130) #12
-  br label %131
+126:                                              ; preds = %121
+  %127 = call ptr @archive_entry_symlink(ptr noundef %1) #12
+  %128 = call ptr @archive_string_conversion_charset_name(ptr noundef %.0.i) #12
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.14, ptr noundef %127, ptr noundef %128) #12
+  br label %129
 
-131:                                              ; preds = %128, %121
+129:                                              ; preds = %126, %119
   %.2 = phi i32 [ -20, %128 ], [ %.049, %121 ]
-  %132 = load i64, ptr %6, align 8, !tbaa !32
-  %133 = icmp ne i64 %132, 0
-  %134 = load ptr, ptr %3, align 8
-  %135 = icmp ne ptr %134, null
-  %or.cond = select i1 %133, i1 %135, i1 false
-  br i1 %or.cond, label %136, label %140
+  %130 = load i64, ptr %6, align 8, !tbaa !32
+  %131 = icmp ne i64 %130, 0
+  %132 = load ptr, ptr %3, align 8
+  %133 = icmp ne ptr %132, null
+  %or.cond = select i1 %131, i1 %133, i1 false
+  br i1 %or.cond, label %134, label %138
 
-136:                                              ; preds = %131
-  %137 = load i8, ptr %134, align 1, !tbaa !26
-  %.not55 = icmp eq i8 %137, 0
-  br i1 %.not55, label %140, label %138
+134:                                              ; preds = %129
+  %135 = load i8, ptr %132, align 1, !tbaa !26
+  %.not55 = icmp eq i8 %135, 0
+  br i1 %.not55, label %138, label %136
 
-138:                                              ; preds = %136
-  %139 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %134) #14
-  br label %142
+136:                                              ; preds = %134
+  %137 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %132) #14
+  br label %140
 
-140:                                              ; preds = %136, %131
-  %141 = call i64 @archive_entry_size(ptr noundef %1) #12
-  br label %142
+138:                                              ; preds = %134, %129
+  %139 = call i64 @archive_entry_size(ptr noundef %1) #12
+  br label %140
 
-142:                                              ; preds = %140, %138
-  %.sink117 = phi i64 [ %141, %140 ], [ %139, %138 ]
-  %143 = getelementptr inbounds nuw i8, ptr %5, i64 65
+140:                                              ; preds = %138, %136
+  %.sink117 = phi i64 [ %139, %140 ], [ %137, %138 ]
+  %141 = getelementptr inbounds nuw i8, ptr %5, i64 65
   %..i106 = call i64 @llvm.umin.i64(i64 %.sink117, i64 8589934591)
-  %144 = call fastcc i64 @format_octal_recursive(i64 noundef %..i106, ptr noundef nonnull %143, i32 noundef 11)
+  %142 = call fastcc i64 @format_octal_recursive(i64 noundef %..i106, ptr noundef nonnull %141, i32 noundef 11)
   %.0.in = icmp ult i64 %.sink117, 8589934592
-  br i1 %.0.in, label %146, label %145
+  br i1 %.0.in, label %144, label %143
 
-145:                                              ; preds = %142
+143:                                              ; preds = %140
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 34, ptr noundef nonnull @.str.15) #12
-  br label %159
+  br label %157
 
-146:                                              ; preds = %142
-  %147 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 76) #12
-  %.not57 = icmp eq i32 %147, 0
-  br i1 %.not57, label %148, label %159
+144:                                              ; preds = %140
+  %145 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 76) #12
+  %.not57 = icmp eq i32 %145, 0
+  br i1 %.not57, label %146, label %157
 
-148:                                              ; preds = %146
-  %149 = load ptr, ptr %4, align 8, !tbaa !43
-  %150 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef %149, i64 noundef %114) #12
-  %.not58 = icmp eq i32 %150, 0
-  br i1 %.not58, label %151, label %159
+146:                                              ; preds = %144
+  %147 = load ptr, ptr %4, align 8, !tbaa !43
+  %148 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef %147, i64 noundef %114) #12
+  %.not58 = icmp eq i32 %148, 0
+  br i1 %.not58, label %149, label %157
 
-151:                                              ; preds = %148
-  %152 = call i64 @archive_entry_size(ptr noundef %1) #12
-  store i64 %152, ptr %8, align 8, !tbaa !33
-  %153 = load ptr, ptr %3, align 8, !tbaa !43
-  %.not59 = icmp eq ptr %153, null
-  br i1 %.not59, label %159, label %154
+149:                                              ; preds = %146
+  %150 = call i64 @archive_entry_size(ptr noundef %1) #12
+  store i64 %150, ptr %8, align 8, !tbaa !33
+  %151 = load ptr, ptr %3, align 8, !tbaa !43
+  %.not59 = icmp eq ptr %151, null
+  br i1 %.not59, label %157, label %152
 
-154:                                              ; preds = %151
-  %155 = load i8, ptr %153, align 1, !tbaa !26
-  %.not60 = icmp eq i8 %155, 0
-  br i1 %.not60, label %159, label %156
+152:                                              ; preds = %149
+  %153 = load i8, ptr %151, align 1, !tbaa !26
+  %.not60 = icmp eq i8 %153, 0
+  br i1 %.not60, label %157, label %154
 
-156:                                              ; preds = %154
-  %157 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %153) #14
-  %158 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef nonnull %153, i64 noundef %157) #12
-  %.not61 = icmp eq i32 %158, 0
+154:                                              ; preds = %152
+  %155 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %151) #14
+  %156 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef nonnull %151, i64 noundef %155) #12
+  %.not61 = icmp eq i32 %156, 0
   %spec.select = select i1 %.not61, i32 %.2, i32 -30
-  br label %159
+  br label %157
 
-159:                                              ; preds = %156, %148, %146, %151, %154, %145, %127, %79, %synthesize_ino_value.exit.thread, %23
+157:                                              ; preds = %154, %146, %144, %149, %152, %143, %125, %79, %synthesize_ino_value.exit.thread, %23
   %.1 = phi i32 [ -30, %23 ], [ -30, %synthesize_ino_value.exit.thread ], [ -30, %79 ], [ -30, %127 ], [ -25, %145 ], [ %.2, %154 ], [ %.2, %151 ], [ -30, %146 ], [ -30, %148 ], [ %spec.select, %156 ]
   call void @archive_entry_free(ptr noundef null) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12

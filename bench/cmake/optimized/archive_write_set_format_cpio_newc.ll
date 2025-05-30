@@ -347,7 +347,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
 
 23:                                               ; preds = %19
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.7) #11
-  br label %143
+  br label %141
 
 24:                                               ; preds = %19
   %25 = call ptr @archive_entry_pathname(ptr noundef %1) #11
@@ -435,131 +435,131 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   %80 = ashr exact i64 %sext, 32
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 94
   %82 = icmp slt i64 %sext, 0
-  %83 = call i64 @llvm.umin.i64(i64 %80, i64 4294967295)
-  %..i113 = select i1 %82, i64 4294967295, i64 %83
+  %82 = call i64 @llvm.umin.i64(i64 %80, i64 4294967295)
+  %..i113 = select i1 %82, i64 4294967295, i64 %82
   %84 = call fastcc i64 @format_hex_recursive(i64 noundef %..i113, ptr noundef nonnull %81, i32 noundef 8)
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 102
   %86 = call fastcc i64 @format_hex_recursive(i64 noundef 0, ptr noundef nonnull %85, i32 noundef 8)
   %87 = call i32 @archive_entry_filetype(ptr noundef %1) #11
   %.not62 = icmp eq i32 %87, 32768
-  br i1 %.not62, label %89, label %88
+  br i1 %.not62, label %87, label %88
 
 88:                                               ; preds = %75
   call void @archive_entry_set_size(ptr noundef %1, i64 noundef 0) #11
-  br label %89
+  br label %87
 
-89:                                               ; preds = %88, %75
-  %90 = call i32 @_archive_entry_symlink_l(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef %.0.i) #11
-  %.not63 = icmp eq i32 %90, 0
-  br i1 %.not63, label %99, label %91
+87:                                               ; preds = %88, %75
+  %88 = call i32 @_archive_entry_symlink_l(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef %.0.i) #11
+  %.not63 = icmp eq i32 %88, 0
+  br i1 %.not63, label %97, label %89
 
-91:                                               ; preds = %89
-  %92 = tail call ptr @__errno_location() #14
-  %93 = load i32, ptr %92, align 4, !tbaa !31
-  %94 = icmp eq i32 %93, 12
-  br i1 %94, label %95, label %96
+89:                                               ; preds = %87
+  %90 = tail call ptr @__errno_location() #14
+  %91 = load i32, ptr %90, align 4, !tbaa !31
+  %92 = icmp eq i32 %91, 12
+  br i1 %92, label %93, label %94
 
-95:                                               ; preds = %91
+93:                                               ; preds = %89
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.12) #11
-  br label %143
+  br label %141
 
-96:                                               ; preds = %91
-  %97 = call ptr @archive_entry_symlink(ptr noundef %1) #11
-  %98 = call ptr @archive_string_conversion_charset_name(ptr noundef %.0.i) #11
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.13, ptr noundef %97, ptr noundef %98) #11
-  br label %99
+94:                                               ; preds = %89
+  %95 = call ptr @archive_entry_symlink(ptr noundef %1) #11
+  %96 = call ptr @archive_string_conversion_charset_name(ptr noundef %.0.i) #11
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.13, ptr noundef %95, ptr noundef %96) #11
+  br label %97
 
-99:                                               ; preds = %96, %89
+97:                                               ; preds = %94, %87
   %.3 = phi i32 [ -20, %96 ], [ %.2, %89 ]
-  %100 = load i64, ptr %6, align 8, !tbaa !32
-  %101 = icmp ne i64 %100, 0
-  %102 = load ptr, ptr %3, align 8
-  %103 = icmp ne ptr %102, null
-  %or.cond = select i1 %101, i1 %103, i1 false
-  br i1 %or.cond, label %104, label %108
+  %98 = load i64, ptr %6, align 8, !tbaa !32
+  %99 = icmp ne i64 %98, 0
+  %100 = load ptr, ptr %3, align 8
+  %101 = icmp ne ptr %100, null
+  %or.cond = select i1 %99, i1 %101, i1 false
+  br i1 %or.cond, label %102, label %106
 
-104:                                              ; preds = %99
-  %105 = load i8, ptr %102, align 1, !tbaa !26
-  %.not64 = icmp eq i8 %105, 0
-  br i1 %.not64, label %108, label %106
+102:                                              ; preds = %97
+  %103 = load i8, ptr %100, align 1, !tbaa !26
+  %.not64 = icmp eq i8 %103, 0
+  br i1 %.not64, label %106, label %104
 
-106:                                              ; preds = %104
-  %107 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %102) #13
-  br label %110
+104:                                              ; preds = %102
+  %105 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %100) #13
+  br label %108
 
-108:                                              ; preds = %104, %99
-  %109 = call i64 @archive_entry_size(ptr noundef %1) #11
-  br label %110
+106:                                              ; preds = %102, %97
+  %107 = call i64 @archive_entry_size(ptr noundef %1) #11
+  br label %108
 
-110:                                              ; preds = %108, %106
-  %.sink123 = phi i64 [ %109, %108 ], [ %107, %106 ]
-  %111 = getelementptr inbounds nuw i8, ptr %5, i64 54
+108:                                              ; preds = %106, %104
+  %.sink123 = phi i64 [ %107, %108 ], [ %105, %106 ]
+  %109 = getelementptr inbounds nuw i8, ptr %5, i64 54
   %..i121 = call i64 @llvm.umin.i64(i64 %.sink123, i64 4294967295)
-  %112 = call fastcc i64 @format_hex_recursive(i64 noundef %..i121, ptr noundef nonnull %111, i32 noundef 8)
+  %110 = call fastcc i64 @format_hex_recursive(i64 noundef %..i121, ptr noundef nonnull %109, i32 noundef 8)
   %.0.in = icmp ult i64 %.sink123, 4294967296
-  br i1 %.0.in, label %114, label %113
+  br i1 %.0.in, label %112, label %111
 
-113:                                              ; preds = %110
+111:                                              ; preds = %108
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 34, ptr noundef nonnull @.str.14) #11
-  br label %143
+  br label %141
 
-114:                                              ; preds = %110
-  %115 = call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 110) #11
-  %.not66 = icmp eq i32 %115, 0
-  br i1 %.not66, label %116, label %143
+112:                                              ; preds = %108
+  %113 = call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 110) #11
+  %.not66 = icmp eq i32 %113, 0
+  br i1 %.not66, label %114, label %141
 
-116:                                              ; preds = %114
-  %117 = load ptr, ptr %4, align 8, !tbaa !35
-  %118 = call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef %117, i64 noundef %80) #11
-  %.not67 = icmp eq i32 %118, 0
-  br i1 %.not67, label %119, label %143
+114:                                              ; preds = %112
+  %115 = load ptr, ptr %4, align 8, !tbaa !35
+  %116 = call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef %115, i64 noundef %80) #11
+  %.not67 = icmp eq i32 %116, 0
+  br i1 %.not67, label %117, label %141
 
-119:                                              ; preds = %116
-  %120 = sub i32 1, %29
-  %121 = and i32 %120, 3
-  %.not68 = icmp eq i32 %121, 0
-  br i1 %.not68, label %125, label %122
+117:                                              ; preds = %114
+  %118 = sub i32 1, %29
+  %119 = and i32 %118, 3
+  %.not68 = icmp eq i32 %119, 0
+  br i1 %.not68, label %123, label %120
 
-122:                                              ; preds = %119
-  %123 = zext nneg i32 %121 to i64
-  %124 = call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, i64 noundef %123) #11
-  %.not69 = icmp eq i32 %124, 0
-  br i1 %.not69, label %125, label %143
+120:                                              ; preds = %117
+  %121 = zext nneg i32 %119 to i64
+  %122 = call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, i64 noundef %121) #11
+  %.not69 = icmp eq i32 %122, 0
+  br i1 %.not69, label %123, label %141
 
-125:                                              ; preds = %122, %119
-  %126 = call i64 @archive_entry_size(ptr noundef %1) #11
-  store i64 %126, ptr %8, align 8, !tbaa !33
-  %127 = trunc i64 %126 to i32
-  %128 = sub i32 0, %127
-  %129 = and i32 %128, 3
-  %130 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %129, ptr %130, align 8, !tbaa !34
-  %131 = load ptr, ptr %3, align 8, !tbaa !35
-  %.not70 = icmp eq ptr %131, null
-  br i1 %.not70, label %143, label %132
+123:                                              ; preds = %120, %117
+  %124 = call i64 @archive_entry_size(ptr noundef %1) #11
+  store i64 %124, ptr %8, align 8, !tbaa !33
+  %125 = trunc i64 %124 to i32
+  %126 = sub i32 0, %125
+  %127 = and i32 %126, 3
+  %128 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 %127, ptr %128, align 8, !tbaa !34
+  %129 = load ptr, ptr %3, align 8, !tbaa !35
+  %.not70 = icmp eq ptr %129, null
+  br i1 %.not70, label %141, label %130
 
-132:                                              ; preds = %125
-  %133 = load i8, ptr %131, align 1, !tbaa !26
-  %.not71 = icmp eq i8 %133, 0
-  br i1 %.not71, label %143, label %134
+130:                                              ; preds = %123
+  %131 = load i8, ptr %129, align 1, !tbaa !26
+  %.not71 = icmp eq i8 %131, 0
+  br i1 %.not71, label %141, label %132
 
-134:                                              ; preds = %132
-  %135 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %131) #13
-  %136 = call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef nonnull %131, i64 noundef %135) #11
-  %.not72 = icmp eq i32 %136, 0
-  br i1 %.not72, label %137, label %143
+132:                                              ; preds = %130
+  %133 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %129) #13
+  %134 = call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef nonnull %129, i64 noundef %133) #11
+  %.not72 = icmp eq i32 %134, 0
+  br i1 %.not72, label %135, label %141
 
-137:                                              ; preds = %134
-  %138 = load ptr, ptr %3, align 8, !tbaa !35
-  %139 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %138) #13
-  %140 = sub i64 0, %139
-  %141 = and i64 %140, 3
-  %142 = call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, i64 noundef %141) #11
-  %.not73 = icmp eq i32 %142, 0
+135:                                              ; preds = %132
+  %136 = load ptr, ptr %3, align 8, !tbaa !35
+  %137 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %136) #13
+  %138 = sub i64 0, %137
+  %139 = and i64 %138, 3
+  %140 = call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, i64 noundef %139) #11
+  %.not73 = icmp eq i32 %140, 0
   %spec.select = select i1 %.not73, i32 %.3, i32 -30
-  br label %143
+  br label %141
 
-143:                                              ; preds = %137, %134, %122, %116, %114, %125, %132, %113, %95, %23
+141:                                              ; preds = %135, %132, %120, %114, %112, %123, %130, %111, %93, %23
   %.1 = phi i32 [ -30, %23 ], [ -30, %95 ], [ -25, %113 ], [ %.3, %132 ], [ %.3, %125 ], [ -30, %114 ], [ -30, %116 ], [ -30, %122 ], [ -30, %134 ], [ %spec.select, %137 ]
   call void @archive_entry_free(ptr noundef null) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11

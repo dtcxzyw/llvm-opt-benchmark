@@ -64,7 +64,7 @@ define internal i32 @g722_decode_frame(ptr noundef %0, ptr noundef initializes((
   store i32 %16, ptr %17, align 8, !tbaa !41
   %18 = tail call i32 @ff_get_buffer(ptr noundef %0, ptr noundef %1, i32 noundef 0) #6
   %19 = icmp slt i32 %18, 0
-  br i1 %19, label %126, label %20
+  br i1 %19, label %122, label %20
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %1, align 8, !tbaa !46
@@ -79,7 +79,7 @@ define internal i32 @g722_decode_frame(ptr noundef %0, ptr noundef initializes((
   %or.cond3.i.i = and i1 %27, %or.cond.i.i
   %28 = add nuw nsw i32 %26, 8
   %29 = select i1 %or.cond3.i.i, i32 %28, i32 8
-  br i1 %or.cond3.i.i, label %.preheader, label %126
+  br i1 %or.cond3.i.i, label %.preheader, label %122
 
 .preheader:                                       ; preds = %20
   %30 = icmp sgt i32 %24, 0
@@ -101,9 +101,9 @@ define internal i32 @g722_decode_frame(ptr noundef %0, ptr noundef initializes((
   %invariant.gep71 = getelementptr i8, ptr %7, i64 -32
   br label %42
 
-42:                                               ; preds = %.lr.ph, %121
+42:                                               ; preds = %.lr.ph, %117
   %.05270 = phi ptr [ %21, %.lr.ph ], [ %116, %121 ]
-  %.05369 = phi i32 [ 0, %.lr.ph ], [ %122, %121 ]
+  %.05369 = phi i32 [ 0, %.lr.ph ], [ %118, %121 ]
   %.sroa.6.068 = phi i32 [ 0, %.lr.ph ], [ %64, %121 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   %43 = lshr i32 %.sroa.6.068, 3
@@ -185,13 +185,13 @@ define internal i32 @g722_decode_frame(ptr noundef %0, ptr noundef initializes((
   %.0.i60 = select i1 %.not.i59, i16 %108, i16 %107
   %109 = getelementptr inbounds nuw i8, ptr %.05270, i64 2
   store i16 %.0.i60, ptr %.05270, align 2, !tbaa !48
-  %110 = load i32, ptr %41, align 4, !tbaa !27
-  %111 = ashr i32 %110, 11
-  %112 = add nsw i32 %111, 32768
+  %108 = load i32, ptr %41, align 4, !tbaa !27
+  %109 = ashr i32 %108, 11
+  %112 = add nsw i32 %109, 32768
   %.not.i61 = icmp ult i32 %112, 65536
   %113 = icmp sgt i32 %110, -1
   %114 = select i1 %113, i16 32767, i16 -32768
-  %115 = trunc i32 %111 to i16
+  %115 = trunc i32 %109 to i16
   %.0.i62 = select i1 %.not.i61, i16 %115, i16 %114
   %116 = getelementptr inbounds nuw i8, ptr %.05270, i64 4
   store i16 %.0.i62, ptr %109, align 2, !tbaa !48
@@ -199,27 +199,27 @@ define internal i32 @g722_decode_frame(ptr noundef %0, ptr noundef initializes((
   %118 = icmp sgt i32 %117, 1023
   br i1 %118, label %119, label %121
 
-119:                                              ; preds = %42
-  %120 = zext nneg i32 %117 to i64
-  %gep72 = getelementptr i16, ptr %invariant.gep71, i64 %120
+115:                                              ; preds = %42
+  %116 = zext nneg i32 %117 to i64
+  %gep72 = getelementptr i16, ptr %invariant.gep71, i64 %116
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %38, ptr noundef nonnull align 2 dereferenceable(44) %gep72, i64 44, i1 false)
   store i32 22, ptr %39, align 4, !tbaa !34
-  br label %121
+  br label %117
 
-121:                                              ; preds = %119, %42
+117:                                              ; preds = %115, %42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  %122 = add nuw nsw i32 %.05369, 1
-  %123 = load i32, ptr %14, align 8, !tbaa !39
-  %124 = icmp slt i32 %122, %123
-  br i1 %124, label %42, label %._crit_edge, !llvm.loop !51
+  %118 = add nuw nsw i32 %.05369, 1
+  %119 = load i32, ptr %14, align 8, !tbaa !39
+  %120 = icmp slt i32 %118, %119
+  br i1 %120, label %42, label %._crit_edge, !llvm.loop !51
 
-._crit_edge:                                      ; preds = %121, %.preheader
+._crit_edge:                                      ; preds = %117, %.preheader
   store i32 1, ptr %2, align 4, !tbaa !27
-  %125 = load i32, ptr %14, align 8, !tbaa !39
-  br label %126
+  %121 = load i32, ptr %14, align 8, !tbaa !39
+  br label %122
 
-126:                                              ; preds = %20, %4, %._crit_edge
-  %.0 = phi i32 [ %125, %._crit_edge ], [ %18, %4 ], [ -1094995529, %20 ]
+122:                                              ; preds = %20, %4, %._crit_edge
+  %.0 = phi i32 [ %121, %._crit_edge ], [ %18, %4 ], [ -1094995529, %20 ]
   ret i32 %.0
 }
 

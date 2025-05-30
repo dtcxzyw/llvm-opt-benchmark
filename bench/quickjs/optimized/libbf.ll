@@ -891,7 +891,7 @@ define internal fastcc range(i32 0, 33) i32 @__bf_round(ptr noundef captures(non
   %35 = icmp slt i64 %34, 0
   br i1 %35, label %scan_bit_nz.exit.i, label %36
 
-36:                                               ; preds = %31
+37:                                               ; preds = %31
   %37 = lshr i64 %34, 6
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load ptr, ptr %38, align 8, !tbaa !29
@@ -909,7 +909,7 @@ define internal fastcc range(i32 0, 33) i32 @__bf_round(ptr noundef captures(non
   %.not.i.i = icmp eq i64 %48, 0
   br i1 %.not.i.i, label %.preheader.i.i, label %scan_bit_nz.exit.i
 
-.preheader.i.i:                                   ; preds = %36, %50
+.preheader.i.i:                                   ; preds = %37, %50
   %.011.in.i.i = phi i64 [ %.011.i.i, %50 ], [ %37, %36 ]
   %49 = icmp sgt i64 %.011.in.i.i, 0
   br i1 %49, label %50, label %scan_bit_nz.exit.i
@@ -921,7 +921,7 @@ define internal fastcc range(i32 0, 33) i32 @__bf_round(ptr noundef captures(non
   %.not13.i.i = icmp eq i64 %52, 0
   br i1 %.not13.i.i, label %.preheader.i.i, label %scan_bit_nz.exit.i, !llvm.loop !40
 
-scan_bit_nz.exit.i:                               ; preds = %50, %.preheader.i.i, %36, %31, %28
+scan_bit_nz.exit.i:                               ; preds = %50, %.preheader.i.i, %37, %31, %28
   %.not26.not.i = phi i1 [ true, %36 ], [ false, %31 ], [ true, %28 ], [ %49, %.preheader.i.i ], [ %49, %50 ]
   %.0.i113 = phi i64 [ 1, %36 ], [ 0, %31 ], [ 1, %28 ], [ 1, %50 ], [ 0, %.preheader.i.i ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32

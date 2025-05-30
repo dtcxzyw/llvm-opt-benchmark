@@ -510,7 +510,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %16, %_ZN12ar
   %or.cond19 = select i1 %or.cond.not22, i1 %.not16, i1 false
   br i1 %or.cond19, label %34, label %39
 
-34:                                               ; preds = %27
+34:; preds = %27
   %35 = trunc nsw i64 %24 to i32
   %36 = tail call { i8, i64 } @_ZN7ciArray13element_valueEi(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %35)
   %37 = extractvalue { i8, i64 } %36, 0

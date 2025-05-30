@@ -430,7 +430,7 @@ define void @av_log_default_callback(ptr noundef %0, i32 noundef %1, ptr noundef
   %.0 = select i1 %8, i32 0, i32 %11
   %12 = load i32, ptr @av_log_level, align 4, !tbaa !17
   %13 = icmp sgt i32 %.014, %12
-  br i1 %13, label %117, label %14
+  br i1 %13, label %118, label %14
 
 14:                                               ; preds = %4
   %15 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mutex) #14
@@ -487,12 +487,12 @@ define void @av_log_default_callback(ptr noundef %0, i32 noundef %1, ptr noundef
   %46 = add nsw i32 %45, 1
   store i32 %46, ptr @av_log_default_callback.count, align 4, !tbaa !17
   %47 = icmp eq i32 %29, 1
-  br i1 %47, label %48, label %114
+  br i1 %47, label %48, label %115
 
 48:                                               ; preds = %44
   %49 = load ptr, ptr @stderr, align 8, !tbaa !30
   %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.1, i32 noundef %46) #16
-  br label %114
+  br label %115
 
 51:                                               ; preds = %39, %34, %31, %28
   %52 = load i32, ptr @av_log_default_callback.count, align 4, !tbaa !17
@@ -638,45 +638,45 @@ sanitize.exit41:                                  ; preds = %sanitize.exit41.loo
   %..i = call i32 @llvm.umin.i32(i32 %103, i32 7)
   %.0.i = select i1 %8, i32 0, i32 %..i
   call fastcc void @colored_fputs(i32 noundef %.0.i, i32 noundef %.0, ptr noundef %102)
-  %104 = load ptr, ptr %21, align 16, !tbaa !15
-  %105 = load i8, ptr %104, align 1, !tbaa !27
-  %.not9.i42 = icmp eq i8 %105, 0
+  %105 = load ptr, ptr %21, align 16, !tbaa !15
+  %106 = load i8, ptr %105, align 1, !tbaa !27
+  %.not9.i42 = icmp eq i8 %106, 0
   br i1 %.not9.i42, label %sanitize.exit48, label %.lr.ph.i43
 
-.lr.ph.i43:                                       ; preds = %sanitize.exit41, %110
-  %106 = phi i8 [ %112, %110 ], [ %105, %sanitize.exit41 ]
-  %.010.i44 = phi ptr [ %111, %110 ], [ %104, %sanitize.exit41 ]
-  %107 = icmp ult i8 %106, 8
-  %108 = add i8 %106, -14
-  %or.cond.i45 = icmp ult i8 %108, 18
-  %or.cond8.i46 = or i1 %107, %or.cond.i45
-  br i1 %or.cond8.i46, label %109, label %110
+.lr.ph.i43:                                       ; preds = %sanitize.exit41, %111
+  %107 = phi i8 [ %113, %110 ], [ %106, %sanitize.exit41 ]
+  %.010.i44 = phi ptr [ %112, %110 ], [ %105, %sanitize.exit41 ]
+  %108 = icmp ult i8 %107, 8
+  %109 = add i8 %107, -14
+  %or.cond.i45 = icmp ult i8 %109, 18
+  %or.cond8.i46 = or i1 %108, %or.cond.i45
+  br i1 %or.cond8.i46, label %110, label %111
 
-109:                                              ; preds = %.lr.ph.i43
+110:                                              ; preds = %.lr.ph.i43
   store i8 63, ptr %.010.i44, align 1, !tbaa !27
-  br label %110
+  br label %111
 
-110:                                              ; preds = %109, %.lr.ph.i43
-  %111 = getelementptr inbounds nuw i8, ptr %.010.i44, i64 1
-  %112 = load i8, ptr %111, align 1, !tbaa !27
-  %.not.i47 = icmp eq i8 %112, 0
+111:                                              ; preds = %110, %.lr.ph.i43
+  %112 = getelementptr inbounds nuw i8, ptr %.010.i44, i64 1
+  %113 = load i8, ptr %112, align 1, !tbaa !27
+  %.not.i47 = icmp eq i8 %113, 0
   br i1 %.not.i47, label %sanitize.exit48.loopexit, label %.lr.ph.i43, !llvm.loop !32
 
-sanitize.exit48.loopexit:                         ; preds = %110
+sanitize.exit48.loopexit:                         ; preds = %111
   %.pre52 = load ptr, ptr %21, align 16, !tbaa !15
   br label %sanitize.exit48
 
 sanitize.exit48:                                  ; preds = %sanitize.exit48.loopexit, %sanitize.exit41
-  %113 = phi ptr [ %.pre52, %sanitize.exit48.loopexit ], [ %104, %sanitize.exit41 ]
-  call fastcc void @colored_fputs(i32 noundef %.0.i, i32 noundef %.0, ptr noundef %113)
-  br label %114
+  %114 = phi ptr [ %.pre52, %sanitize.exit48.loopexit ], [ %105, %sanitize.exit41 ]
+  call fastcc void @colored_fputs(i32 noundef %.0.i, i32 noundef %.0, ptr noundef %114)
+  br label %115
 
-114:                                              ; preds = %44, %48, %sanitize.exit48
-  %115 = call i32 @av_bprint_finalize(ptr noundef nonnull %21, ptr noundef null) #14
-  %116 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mutex) #14
-  br label %117
+115:                                              ; preds = %44, %48, %sanitize.exit48
+  %116 = call i32 @av_bprint_finalize(ptr noundef nonnull %21, ptr noundef null) #14
+  %117 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mutex) #14
+  br label %118
 
-117:                                              ; preds = %4, %114
+118:                                              ; preds = %4, %115
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 5120, ptr nonnull %5) #14

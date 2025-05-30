@@ -256,7 +256,7 @@ ff_g723_1_get_residual.exit:                      ; preds = %19
   %42 = ashr exact i64 %sext21, 31
   %43 = add nsw i64 %42, 2147483648
   %.not.i17 = icmp ult i64 %43, 4294967296
-  %44 = icmp sgt i64 %sext21, -1
+  %.not.i.not = icmp sgt i64 %sext21, -1
   %45 = select i1 %44, i64 2147483647, i64 2147483648
   %.0.i18 = select i1 %.not.i17, i64 %42, i64 %45
   %46 = and i64 %.0.i18, 4294934528
@@ -270,9 +270,9 @@ ff_g723_1_get_residual.exit:                      ; preds = %19
   store i16 %51, ptr %52, align 2, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 60
-  br i1 %exitcond.not, label %53, label %35, !llvm.loop !19
+  br i1 %exitcond.not, label %52, label %35, !llvm.loop !19
 
-53:                                               ; preds = %35
+52:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #7
   ret void
 }

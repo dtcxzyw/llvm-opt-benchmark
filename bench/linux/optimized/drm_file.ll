@@ -1085,7 +1085,7 @@ define dso_local i64 @drm_read(ptr noundef readonly captures(none) %0, ptr nound
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %35, align 8
   call void @_raw_spin_unlock_irq(ptr noundef nonnull %16) #9
   %39 = icmp eq ptr %28, null
-  br i1 %39, label %40, label %64
+  br i1 %39, label %40, label %65
 
 40:                                               ; preds = %.thread, %27
   %41 = icmp eq i64 %24, 0
@@ -1133,77 +1133,77 @@ define dso_local i64 @drm_read(ptr noundef readonly captures(none) %0, ptr nound
 .thread10:                                        ; preds = %.lr.ph
   %60 = shl i64 %54, 32
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #9
-  %61 = icmp sgt i64 %60, -1
-  br i1 %61, label %.thread11, label %.thread18.loopexit.split.loop.exit35
+  %62 = icmp sgt i64 %60, -1
+  br i1 %62, label %.thread11, label %.thread18.loopexit.split.loop.exit35
 
 .thread11:                                        ; preds = %.thread10.thread, %46, %.thread10
-  %62 = call i32 @mutex_lock_interruptible(ptr noundef nonnull %12) #9
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %.backedge, label %.thread18.loopexit.split.loop.exit
+  %63 = call i32 @mutex_lock_interruptible(ptr noundef nonnull %12) #9
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %.backedge, label %.thread18.loopexit.split.loop.exit
 
 .backedge:                                        ; preds = %.thread11, %.thread13
-  %.be = phi i64 [ %79, %.thread13 ], [ 0, %.thread11 ]
+  %.be = phi i64 [ %80, %.thread13 ], [ 0, %.thread11 ]
   br label %23
 
-64:                                               ; preds = %27
-  %65 = load ptr, ptr %29, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  %67 = load i32, ptr %66, align 4
-  %68 = zext i32 %67 to i64
-  %69 = sub i64 %2, %24
-  %70 = icmp ult i64 %69, %68
-  br i1 %70, label %.loopexit, label %71
+65:                                               ; preds = %27
+  %66 = load ptr, ptr %29, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
+  %68 = load i32, ptr %67, align 4
+  %69 = zext i32 %68 to i64
+  %70 = sub i64 %2, %24
+  %71 = icmp ult i64 %70, %69
+  br i1 %71, label %.loopexit, label %72
 
-71:                                               ; preds = %64
-  %72 = icmp slt i32 %67, 0
-  br i1 %72, label %.critedge, label %73, !prof !8
+72:                                               ; preds = %65
+  %73 = icmp slt i32 %68, 0
+  br i1 %73, label %.critedge, label %74, !prof !8
 
-.critedge:                                        ; preds = %71
+.critedge:                                        ; preds = %72
   call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #9, !srcloc !24
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 249, i32 2307, i64 12) #9, !srcloc !25
   call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #9, !srcloc !26
   br label %.loopexit19
 
-73:                                               ; preds = %71
-  %74 = getelementptr i8, ptr %1, i64 %24
-  %75 = call i64 @_copy_to_user(ptr noundef %74, ptr noundef %65, i64 noundef %68) #9
-  %76 = icmp eq i64 %75, 0
-  br i1 %76, label %.thread13, label %.loopexit19
+74:                                               ; preds = %72
+  %75 = getelementptr i8, ptr %1, i64 %24
+  %76 = call i64 @_copy_to_user(ptr noundef %75, ptr noundef %66, i64 noundef %69) #9
+  %77 = icmp eq i64 %76, 0
+  br i1 %77, label %.thread13, label %.loopexit19
 
-.loopexit19:                                      ; preds = %73, %.critedge
-  %77 = icmp eq i64 %24, 0
-  %78 = select i1 %77, i64 -14, i64 %24
+.loopexit19:                                      ; preds = %74, %.critedge
+  %78 = icmp eq i64 %24, 0
+  %79 = select i1 %78, i64 -14, i64 %24
   br label %.loopexit
 
-.thread13:                                        ; preds = %73
-  %79 = add i64 %24, %68
+.thread13:                                        ; preds = %74
+  %80 = add i64 %24, %69
   call void @kfree(ptr noundef nonnull %28) #9
   br label %.backedge
 
-.loopexit:                                        ; preds = %64, %.loopexit19
-  %80 = phi i64 [ %78, %.loopexit19 ], [ %24, %64 ]
-  %81 = getelementptr i8, ptr %25, i64 8
+.loopexit:                                        ; preds = %65, %.loopexit19
+  %81 = phi i64 [ %79, %.loopexit19 ], [ %24, %64 ]
+  %82 = getelementptr i8, ptr %25, i64 8
   call void @_raw_spin_lock_irq(ptr noundef nonnull %16) #9
-  %82 = load i32, ptr %18, align 8
-  %83 = sub i32 %82, %67
-  store i32 %83, ptr %18, align 8
-  %84 = load ptr, ptr %17, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store ptr %25, ptr %85, align 8
-  store ptr %84, ptr %25, align 8
-  store ptr %17, ptr %81, align 8
+  %83 = load i32, ptr %18, align 8
+  %84 = sub i32 %83, %68
+  store i32 %84, ptr %18, align 8
+  %85 = load ptr, ptr %17, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  store ptr %25, ptr %86, align 8
+  store ptr %85, ptr %25, align 8
+  store ptr %17, ptr %82, align 8
   store volatile ptr %25, ptr %17, align 8
   call void @_raw_spin_unlock_irq(ptr noundef nonnull %16) #9
-  %86 = call i32 @__wake_up(ptr noundef nonnull %19, i32 noundef 1, i32 noundef 1, ptr noundef nonnull inttoptr (i64 65 to ptr)) #9
+  %87 = call i32 @__wake_up(ptr noundef nonnull %19, i32 noundef 1, i32 noundef 1, ptr noundef nonnull inttoptr (i64 65 to ptr)) #9
   br label %.loopexit20
 
 .loopexit20:                                      ; preds = %40, %42, %.loopexit
-  %.ph = phi i64 [ %80, %.loopexit ], [ %24, %40 ], [ -11, %42 ]
+  %.ph = phi i64 [ %81, %.loopexit ], [ %24, %40 ], [ -11, %42 ]
   call void @mutex_unlock(ptr noundef nonnull %12) #9
   br label %.thread18
 
 .thread18.loopexit.split.loop.exit:               ; preds = %.thread11
-  %87 = sext i32 %62 to i64
+  %88 = sext i32 %63 to i64
   br label %.thread18
 
 .thread18.loopexit.split.loop.exit35:             ; preds = %.thread10
@@ -1211,7 +1211,7 @@ define dso_local i64 @drm_read(ptr noundef readonly captures(none) %0, ptr nound
   br label %.thread18
 
 .thread18:                                        ; preds = %.thread18.loopexit.split.loop.exit, %.thread18.loopexit.split.loop.exit35, %.loopexit20, %21
-  %89 = phi i64 [ %22, %21 ], [ %.ph, %.loopexit20 ], [ %87, %.thread18.loopexit.split.loop.exit ], [ %88, %.thread18.loopexit.split.loop.exit35 ]
+  %89 = phi i64 [ %22, %21 ], [ %.ph, %.loopexit20 ], [ %88, %.thread18.loopexit.split.loop.exit ], [ %88, %.thread18.loopexit.split.loop.exit35 ]
   ret i64 %89
 }
 

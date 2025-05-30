@@ -18255,7 +18255,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit36.i: ; pred
   %or.cond126 = icmp eq i32 %301, 258
   br i1 %or.cond126, label %302, label %.critedge88
 
-302:                                              ; preds = %300
+302:; preds = %300
   %303 = lshr i32 %294, 9
   %304 = zext nneg i32 %303 to i64
   %305 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %11) #19
@@ -18265,29 +18265,29 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit36.i: ; pred
   br i1 %.not76, label %.critedge88, label %.critedge86
 
 .critedge88:                                      ; preds = %302, %300
-  br i1 %84, label %310, label %308
+  br i1 %84, label %314, label %312
 
-308:                                              ; preds = %.critedge88
-  %309 = icmp eq i8 %295, 0
-  %. = select i1 %309, i32 5, i32 6
+312:                                              ; preds = %.critedge88
+  %313 = icmp eq i8 %295, 0
+  %. = select i1 %313, i32 5, i32 6
   br label %.critedge86
 
-310:                                              ; preds = %.critedge88
+314:                                              ; preds = %.critedge88
   store i64 0, ptr %6, align 8, !tbaa !9
   store i64 0, ptr %5, align 8, !tbaa !9
-  %311 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %312 = load ptr, ptr %311, align 8, !tbaa !271
-  %313 = call noundef ptr @_ZN4llvm32GetPointerBaseWithConstantOffsetEPKNS_5ValueERlRKNS_10DataLayoutEb(ptr noundef %79, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(496) %312, i1 noundef zeroext true)
-  %314 = load ptr, ptr %311, align 8, !tbaa !271
-  %315 = call noundef ptr @_ZN4llvm32GetPointerBaseWithConstantOffsetEPKNS_5ValueERlRKNS_10DataLayoutEb(ptr noundef %81, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(496) %314, i1 noundef zeroext true)
-  %.not78 = icmp eq ptr %313, %315
-  br i1 %.not78, label %316, label %.critedge86
+  %315 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %316 = load ptr, ptr %315, align 8, !tbaa !271
+  %317 = call noundef ptr @_ZN4llvm32GetPointerBaseWithConstantOffsetEPKNS_5ValueERlRKNS_10DataLayoutEb(ptr noundef %79, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(496) %316, i1 noundef zeroext true)
+  %318 = load ptr, ptr %315, align 8, !tbaa !271
+  %319 = call noundef ptr @_ZN4llvm32GetPointerBaseWithConstantOffsetEPKNS_5ValueERlRKNS_10DataLayoutEb(ptr noundef %81, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(496) %318, i1 noundef zeroext true)
+  %.not78 = icmp eq ptr %317, %319
+  br i1 %.not78, label %320, label %.critedge86
 
-316:                                              ; preds = %310
-  %317 = load i64, ptr %6, align 8, !tbaa !9
-  %318 = load i64, ptr %5, align 8, !tbaa !9
-  %.not79 = icmp slt i64 %317, %318
-  %319 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %11) #19
+320:                                              ; preds = %314
+  %321 = load i64, ptr %6, align 8, !tbaa !9
+  %322 = load i64, ptr %5, align 8, !tbaa !9
+  %.not79 = icmp slt i64 %321, %322
+  %323 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %11) #19
   br i1 %.not79, label %330, label %320
 
 320:                                              ; preds = %316
@@ -18305,15 +18305,15 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit36.i: ; pred
   %329 = icmp ult i64 %327, %328
   br i1 %329, label %.critedge86, label %333
 
-330:                                              ; preds = %316
+330:; preds = %316
   %331 = sub nsw i64 %318, %317
-  %332 = icmp ult i64 %331, %319
+  %332 = icmp ult i64 %331, %323
   br i1 %332, label %.critedge86, label %333
 
-333:                                              ; preds = %330, %324
+333:; preds = %330, %324
   br label %.critedge86
 
-.critedge86:                                      ; preds = %297, %302, %308, %330, %324, %320, %310, %333, %280
+.critedge86:                                      ; preds = %297, %302, %312, %330, %324, %320, %314, %333, %280
   %.6 = phi i32 [ 6, %280 ], [ 1, %297 ], [ 1, %302 ], [ %., %308 ], [ 5, %333 ], [ 6, %310 ], [ 1, %320 ], [ 4, %324 ], [ 4, %330 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #19

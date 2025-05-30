@@ -35,7 +35,7 @@ define void @ff_acelp_interpolate(ptr noundef writeonly captures(none) %0, ptr n
   br label %17
 
 14:                                               ; preds = %._crit_edge.us
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str) #6
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str) #7
   br label %15
 
 15:                                               ; preds = %14, %._crit_edge.us
@@ -157,7 +157,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #3
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_acelp_high_pass_filter(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = icmp sgt i32 %3, 0
-  br i1 %5, label %.lr.ph, label %39
+  br i1 %5, label %.lr.ph, label %37
 
 .lr.ph:                                           ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -209,9 +209,9 @@ define void @ff_acelp_high_pass_filter(ptr noundef writeonly captures(none) %0, 
 ._crit_edge:                                      ; preds = %7
   store i32 %31, ptr %1, align 4, !tbaa !15
   store i32 %9, ptr %6, align 4, !tbaa !15
-  br label %39
+  br label %37
 
-39:                                               ; preds = %._crit_edge, %4
+37:                                               ; preds = %._crit_edge, %4
   ret void
 }
 
@@ -303,7 +303,7 @@ define void @ff_acelp_filter_init(ptr noundef writeonly captures(none) initializ
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

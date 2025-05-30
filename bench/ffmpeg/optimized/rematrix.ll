@@ -3689,11 +3689,11 @@ define internal void @mix8to2_clip_s16(ptr noundef readonly captures(none) %0, p
   %73 = sext i16 %72 to i32
   %74 = mul nsw i32 %28, %73
   %75 = add nsw i32 %74, %48
-  %76 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv
-  %77 = load i16, ptr %76, align 2, !tbaa !76
-  %78 = sext i16 %77 to i32
-  %79 = mul nsw i32 %32, %78
-  %80 = add nsw i32 %75, %79
+  %77 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv
+  %78 = load i16, ptr %77, align 2, !tbaa !76
+  %79 = sext i16 %78 to i32
+  %80 = mul nsw i32 %32, %79
+  %81 = add nsw i32 %75, %79
   %81 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv
   %82 = load i16, ptr %81, align 2, !tbaa !76
   %83 = sext i16 %82 to i32

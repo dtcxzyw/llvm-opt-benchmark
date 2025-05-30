@@ -3853,12 +3853,12 @@ _ZNSt6vectorIiSaIiEED2Ev.exit69:                  ; preds = %_ZNSt6vectorIiSaIiE
   %156 = icmp slt i32 %149, 0
   br i1 %156, label %157, label %159
 
-157:                                              ; preds = %135
-  %158 = or i32 %149, -2
+156:                                              ; preds = %135
+  %157 = or i32 %149, -2
   br label %173
 
-159:                                              ; preds = %135
-  %160 = and i32 %149, 1
+158:                                              ; preds = %135
+  %159 = and i32 %149, 1
   %161 = and i32 %149, 2147483646
   %162 = getelementptr inbounds nuw %"class.std::vector.5", ptr %143, i64 %14
   %163 = zext nneg i32 %161 to i64
@@ -3873,18 +3873,18 @@ _ZNSt6vectorIiSaIiEED2Ev.exit69:                  ; preds = %_ZNSt6vectorIiSaIiE
   %172 = xor i32 %171, %160
   br label %173
 
-173:                                              ; preds = %159, %157
-  %.057 = phi i32 [ %158, %157 ], [ %167, %159 ]
+173: ; preds = %159, %156
+  %.056 = phi i32 [ %157, %157 ], [ %167, %159 ]
   %.056 = phi i32 [ %158, %157 ], [ %172, %159 ]
   %174 = icmp slt i32 %153, 0
   br i1 %174, label %175, label %177
 
-175:                                              ; preds = %173
+175:; preds = %173
   %176 = or i32 %153, -2
   br label %189
 
-177:                                              ; preds = %173
-  %178 = getelementptr inbounds nuw %"class.std::vector.5", ptr %143, i64 %14
+176:                                              ; preds = %173
+  %177 = getelementptr inbounds nuw %"class.std::vector.5", ptr %143, i64 %14
   %179 = zext nneg i32 %154 to i64
   %180 = load ptr, ptr %178, align 8, !tbaa !77
   %181 = getelementptr inbounds nuw i32, ptr %180, i64 %179
@@ -3897,7 +3897,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit69:                  ; preds = %_ZNSt6vectorIiSaIiE
   %188 = xor i32 %187, %155
   br label %189
 
-189:                                              ; preds = %177, %175
+189:                                              ; preds = %176, %175
   %.055 = phi i32 [ %176, %175 ], [ %183, %177 ]
   %.0 = phi i32 [ %176, %175 ], [ %188, %177 ]
   %190 = shl i32 %142, 1
@@ -11529,8 +11529,8 @@ _ZN5Ttopt17TruthTableRewrite8CopyFuncEiiib.exit.us: ; preds = %38, %49, %.lr.ph6
   %61 = load i32, ptr %58, align 4, !tbaa !221
   %62 = and i32 %61, 1
   %.not10 = icmp eq i32 %62, 0
-  %63 = icmp sgt i32 %61, -1
-  br i1 %63, label %64, label %._crit_edge.i
+  %.not10 = icmp sgt i32 %61, -1
+  br i1 %.not10, label %64, label %._crit_edge.i
 
 64:                                               ; preds = %57
   %65 = lshr i32 %61, 1

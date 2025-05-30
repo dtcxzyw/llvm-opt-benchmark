@@ -18967,32 +18967,32 @@ define void @_Z19crxConvertPlaneLineP8CrxImageiiiPii(ptr noundef readonly captur
   %24 = sub nsw i32 0, %23
   %25 = add nuw i32 %23, 65535
   %26 = icmp sgt i32 %5, 0
-  br i1 %26, label %.lr.ph199, label %.loopexit
+  br i1 %26, label %.lr.ph200, label %.loopexit
 
-.lr.ph199:                                        ; preds = %18
+.lr.ph200:                                        ; preds = %18
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = sext i32 %3 to i64
   %29 = getelementptr inbounds [4 x ptr], ptr %27, i64 0, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !130
   %31 = getelementptr i16, ptr %30, i64 %15
-  %wide.trip.count215 = zext nneg i32 %5 to i64
+  %wide.trip.count216 = zext nneg i32 %5 to i64
   br label %32
 
-32:                                               ; preds = %.lr.ph199, %32
-  %indvars.iv212 = phi i64 [ 0, %.lr.ph199 ], [ %indvars.iv.next213, %32 ]
-  %33 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv212
+32:                                               ; preds = %.lr.ph200, %32
+  %indvars.iv213 = phi i64 [ 0, %.lr.ph199 ], [ %indvars.iv.next214, %32 ]
+  %33 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv213
   %34 = load i32, ptr %33, align 4, !tbaa !19
   %35 = icmp slt i32 %34, %24
   %.not190 = icmp slt i32 %34, %23
   %. = select i1 %.not190, i32 %34, i32 %25
   %36 = select i1 %35, i32 %24, i32 %.
   %37 = trunc i32 %36 to i16
-  %.idx = shl i64 %indvars.iv212, 2
+  %.idx = shl i64 %indvars.iv213, 2
   %38 = getelementptr i8, ptr %31, i64 %.idx
   store i16 %37, ptr %38, align 2, !tbaa !131
-  %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
-  %exitcond216.not = icmp eq i64 %indvars.iv.next213, %wide.trip.count215
-  br i1 %exitcond216.not, label %.loopexit, label %32, !llvm.loop !132
+  %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
+  %exitcond217.not = icmp eq i64 %indvars.iv.next214, %wide.trip.count216
+  br i1 %exitcond217.not, label %.loopexit, label %32, !llvm.loop !132
 
 39:                                               ; preds = %7
   %40 = icmp sgt i32 %5, 0
@@ -19040,32 +19040,32 @@ define void @_Z19crxConvertPlaneLineP8CrxImageiiiPii(ptr noundef readonly captur
   %notmask189 = shl nsw i32 -1, %60
   %63 = xor i32 %notmask189, -1
   %64 = icmp sgt i32 %5, 0
-  br i1 %64, label %.lr.ph203, label %.loopexit
+  br i1 %64, label %.lr.ph204, label %.loopexit
 
-.lr.ph203:                                        ; preds = %57
+.lr.ph204:                                        ; preds = %57
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %66 = sext i32 %3 to i64
   %67 = getelementptr inbounds [4 x ptr], ptr %65, i64 0, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !130
   %69 = getelementptr i16, ptr %68, i64 %15
-  %wide.trip.count225 = zext nneg i32 %5 to i64
+  %wide.trip.count226 = zext nneg i32 %5 to i64
   br label %70
 
-70:                                               ; preds = %.lr.ph203, %70
-  %indvars.iv222 = phi i64 [ 0, %.lr.ph203 ], [ %indvars.iv.next223, %70 ]
-  %71 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv222
+70:                                               ; preds = %.lr.ph204, %70
+  %indvars.iv223 = phi i64 [ 0, %.lr.ph203 ], [ %indvars.iv.next224, %70 ]
+  %71 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv223
   %72 = load i32, ptr %71, align 4, !tbaa !19
   %73 = add nsw i32 %72, %62
   %74 = icmp slt i32 %73, 0
   %.191 = tail call i32 @llvm.smin.i32(i32 %73, i32 %63)
   %75 = trunc i32 %.191 to i16
   %76 = select i1 %74, i16 0, i16 %75
-  %.idx230 = shl i64 %indvars.iv222, 2
-  %77 = getelementptr i8, ptr %69, i64 %.idx230
+  %.idx231 = shl i64 %indvars.iv223, 2
+  %77 = getelementptr i8, ptr %69, i64 %.idx231
   store i16 %76, ptr %77, align 2, !tbaa !131
-  %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
-  %exitcond226.not = icmp eq i64 %indvars.iv.next223, %wide.trip.count225
-  br i1 %exitcond226.not, label %.loopexit, label %70, !llvm.loop !137
+  %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
+  %exitcond227.not = icmp eq i64 %indvars.iv.next224, %wide.trip.count226
+  br i1 %exitcond227.not, label %.loopexit, label %70, !llvm.loop !137
 
 78:                                               ; preds = %55
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -19076,32 +19076,32 @@ define void @_Z19crxConvertPlaneLineP8CrxImageiiiPii(ptr noundef readonly captur
   %83 = add nsw i32 %81, -1
   %84 = shl nuw i32 1, %83
   %85 = icmp sgt i32 %5, 0
-  br i1 %85, label %.lr.ph201, label %.loopexit
+  br i1 %85, label %.lr.ph202, label %.loopexit
 
-.lr.ph201:                                        ; preds = %78
+.lr.ph202:                                        ; preds = %78
   %86 = mul nsw i32 %1, %10
   %87 = add nsw i32 %86, %2
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %90 = load ptr, ptr %89, align 8, !tbaa !130
   %91 = getelementptr i16, ptr %90, i64 %88
-  %wide.trip.count220 = zext nneg i32 %5 to i64
+  %wide.trip.count221 = zext nneg i32 %5 to i64
   br label %92
 
-92:                                               ; preds = %.lr.ph201, %92
-  %indvars.iv217 = phi i64 [ 0, %.lr.ph201 ], [ %indvars.iv.next218, %92 ]
-  %93 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv217
+92:                                               ; preds = %.lr.ph202, %92
+  %indvars.iv218 = phi i64 [ 0, %.lr.ph201 ], [ %indvars.iv.next219, %92 ]
+  %93 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv218
   %94 = load i32, ptr %93, align 4, !tbaa !19
   %95 = add nsw i32 %94, %84
   %96 = icmp slt i32 %95, 0
   %.192 = tail call i32 @llvm.smin.i32(i32 %95, i32 %82)
   %97 = trunc i32 %.192 to i16
   %98 = select i1 %96, i16 0, i16 %97
-  %99 = getelementptr i16, ptr %91, i64 %indvars.iv217
+  %99 = getelementptr i16, ptr %91, i64 %indvars.iv218
   store i16 %98, ptr %99, align 2, !tbaa !131
-  %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
-  %exitcond221.not = icmp eq i64 %indvars.iv.next218, %wide.trip.count220
-  br i1 %exitcond221.not, label %.loopexit, label %92, !llvm.loop !138
+  %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
+  %exitcond222.not = icmp eq i64 %indvars.iv.next219, %wide.trip.count221
+  br i1 %exitcond222.not, label %.loopexit, label %92, !llvm.loop !138
 
 100:                                              ; preds = %6
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 11
@@ -19142,7 +19142,7 @@ define void @_Z19crxConvertPlaneLineP8CrxImageiiiPii(ptr noundef readonly captur
   %.not206 = icmp eq i16 %109, 0
   br i1 %.not206, label %.loopexit, label %.lr.ph205
 
-.lr.ph205:                                        ; preds = %107
+.lr.ph206:                                        ; preds = %107
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %131 = load ptr, ptr %130, align 8, !tbaa !130
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -19153,19 +19153,19 @@ define void @_Z19crxConvertPlaneLineP8CrxImageiiiPii(ptr noundef readonly captur
   %137 = load ptr, ptr %136, align 8, !tbaa !130
   br label %138
 
-138:                                              ; preds = %.lr.ph205, %216
-  %indvars.iv227 = phi i64 [ 0, %.lr.ph205 ], [ %indvars.iv.next228, %216 ]
-  %139 = getelementptr inbounds nuw i16, ptr %117, i64 %indvars.iv227
+138:                                              ; preds = %.lr.ph206, %216
+  %indvars.iv228 = phi i64 [ 0, %.lr.ph205 ], [ %indvars.iv.next228, %216 ]
+  %139 = getelementptr inbounds nuw i16, ptr %117, i64 %indvars.iv228
   %140 = load i16, ptr %139, align 2, !tbaa !131
   %141 = sext i16 %140 to i32
   %142 = shl nsw i32 %141, 10
   %143 = add nsw i32 %142, %126
-  %144 = getelementptr inbounds nuw i16, ptr %119, i64 %indvars.iv227
+  %144 = getelementptr inbounds nuw i16, ptr %119, i64 %indvars.iv228
   %145 = load i16, ptr %144, align 2, !tbaa !131
   %146 = sext i16 %145 to i32
   %.neg = mul nsw i32 %146, -168
   %147 = add i32 %.neg, %143
-  %148 = getelementptr inbounds nuw i16, ptr %121, i64 %indvars.iv227
+  %148 = getelementptr inbounds nuw i16, ptr %121, i64 %indvars.iv228
   %149 = load i16, ptr %148, align 2, !tbaa !131
   %150 = sext i16 %149 to i32
   %.neg187 = mul nsw i32 %150, -585
@@ -19189,20 +19189,20 @@ define void @_Z19crxConvertPlaneLineP8CrxImageiiiPii(ptr noundef readonly captur
 162:                                              ; preds = %158, %153
   %.0 = phi i32 [ %157, %153 ], [ %161, %158 ]
   %163 = mul nsw i32 %150, 1510
-  %164 = add nsw i32 %163, %143
-  %165 = icmp slt i32 %164, -512
+  %.reass = add nsw i32 %163, %143
+  %165 = icmp slt i32 %.reass, -512
   br i1 %165, label %171, label %166
 
-166:                                              ; preds = %162
+166:; preds = %162
   %167 = add nsw i32 %164, 512
   %168 = lshr i32 %167, 10
   %169 = tail call i32 @llvm.smin.i32(i32 %168, i32 %127)
   %170 = trunc i32 %169 to i16
   br label %171
 
-171:                                              ; preds = %162, %166
+171: ; preds = %162, %166
   %172 = phi i16 [ %170, %166 ], [ 0, %162 ]
-  %indvars.iv227.tr = trunc nuw nsw i64 %indvars.iv227 to i32
+  %indvars.iv227.tr = trunc nuw nsw i64 %indvars.iv228 to i32
   %173 = shl nuw nsw i32 %indvars.iv227.tr, 1
   %174 = add i32 %173, %129
   %175 = zext i32 %174 to i64
@@ -19215,14 +19215,14 @@ define void @_Z19crxConvertPlaneLineP8CrxImageiiiPii(ptr noundef readonly captur
   %181 = icmp slt i32 %180, -1
   br i1 %181, label %187, label %182
 
-182:                                              ; preds = %171
+182:; preds = %171
   %183 = add nsw i32 %180, 1
   %184 = lshr i32 %183, 1
   %185 = tail call i32 @llvm.smin.i32(i32 %184, i32 %127)
   %186 = trunc i32 %185 to i16
   br label %187
 
-187:                                              ; preds = %171, %182
+187: ; preds = %171, %182
   %188 = phi i16 [ %186, %182 ], [ 0, %171 ]
   %189 = getelementptr inbounds nuw i16, ptr %133, i64 %175
   store i16 %188, ptr %189, align 2, !tbaa !131
@@ -19232,14 +19232,14 @@ define void @_Z19crxConvertPlaneLineP8CrxImageiiiPii(ptr noundef readonly captur
   %193 = icmp slt i32 %192, -1
   br i1 %193, label %199, label %194
 
-194:                                              ; preds = %187
+194:; preds = %187
   %195 = add nsw i32 %192, 1
   %196 = lshr i32 %195, 1
   %197 = tail call i32 @llvm.smin.i32(i32 %196, i32 %127)
   %198 = trunc i32 %197 to i16
   br label %199
 
-199:                                              ; preds = %187, %194
+199:; preds = %187, %194
   %200 = phi i16 [ %198, %194 ], [ 0, %187 ]
   %201 = getelementptr inbounds nuw i16, ptr %135, i64 %175
   store i16 %200, ptr %201, align 2, !tbaa !131
