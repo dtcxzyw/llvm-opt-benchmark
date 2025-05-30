@@ -431,12 +431,12 @@ transform_point_upscaled.exit205:                 ; preds = %.thread413, %218, %
   %290 = add nsw i32 %289, %.0178
   %291 = ashr i32 %287, 8
   %292 = ashr i32 %290, 8
-  %293 = icmp slt i32 %291, 0
+  %293 = icmp slt i32 %287, 0
   br i1 %293, label %298, label %294
 
 294:                                              ; preds = %.lr.ph.i
   %295 = icmp slt i32 %291, %2
-  %296 = icmp sgt i32 %292, -1
+  %296 = icmp sgt i32 %290, -1
   %.not.i = icmp slt i32 %292, %3
   %297 = and i1 %296, %.not.i
   %or.cond124.i = select i1 %295, i1 %297, i1 false
@@ -588,12 +588,12 @@ transform_point_upscaled.exit205:                 ; preds = %.thread413, %218, %
   %382 = add nsw i32 %381, %.0178
   %383 = ashr i32 %379, 8
   %384 = ashr i32 %382, 8
-  %385 = icmp slt i32 %383, 0
+  %385 = icmp slt i32 %379, 0
   br i1 %385, label %390, label %386
 
 386:                                              ; preds = %.lr.ph.i206
   %387 = icmp slt i32 %383, %2
-  %388 = icmp sgt i32 %384, -1
+  %388 = icmp sgt i32 %382, -1
   %.not.i209 = icmp slt i32 %384, %3
   %389 = and i1 %388, %.not.i209
   %or.cond170.i = select i1 %387, i1 %389, i1 false
@@ -812,12 +812,12 @@ transform_point_upscaled.exit205:                 ; preds = %.thread413, %218, %
   %502 = add nsw i32 %501, %.0178
   %503 = ashr i32 %499, 8
   %504 = ashr i32 %502, 8
-  %505 = icmp slt i32 %503, 0
+  %505 = icmp slt i32 %499, 0
   br i1 %505, label %510, label %506
 
 506:                                              ; preds = %.lr.ph.i219
   %507 = icmp slt i32 %503, %2
-  %508 = icmp sgt i32 %504, -1
+  %508 = icmp sgt i32 %502, -1
   %.not.i222 = icmp slt i32 %504, %3
   %509 = and i1 %508, %.not.i222
   %or.cond129.i = select i1 %507, i1 %509, i1 false
@@ -1005,12 +1005,12 @@ define internal fastcc void @transform_rgb888(ptr noundef readonly captures(none
   %24 = add nsw i32 %23, %5
   %25 = ashr i32 %20, 8
   %26 = ashr i32 %24, 8
-  %27 = icmp slt i32 %25, 0
+  %27 = icmp slt i32 %20, 0
   br i1 %27, label %32, label %28
 
 28:                                               ; preds = %16
   %29 = icmp slt i32 %25, %1
-  %30 = icmp sgt i32 %26, -1
+  %30 = icmp sgt i32 %24, -1
   %.not = icmp slt i32 %26, %2
   %31 = and i1 %30, %.not
   %or.cond170 = select i1 %29, i1 %31, i1 false
@@ -1200,12 +1200,12 @@ define internal fastcc void @transform_rgb565a8(ptr noundef readonly captures(no
   %29 = add nsw i32 %28, %5
   %30 = ashr i32 %25, 8
   %31 = ashr i32 %29, 8
-  %32 = icmp slt i32 %30, 0
+  %32 = icmp slt i32 %25, 0
   br i1 %32, label %37, label %33
 
 33:                                               ; preds = %21
   %34 = icmp slt i32 %30, %1
-  %35 = icmp sgt i32 %31, -1
+  %35 = icmp sgt i32 %29, -1
   %.not = icmp slt i32 %31, %2
   %36 = and i1 %35, %.not
   %or.cond182 = select i1 %34, i1 %36, i1 false

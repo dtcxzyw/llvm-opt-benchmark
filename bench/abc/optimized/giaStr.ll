@@ -1833,7 +1833,7 @@ Vec_StrPush.exit.i:                               ; preds = %103, %Vec_StrGrow.e
   br label %Vec_StrPrintNum.exit
 
 110:                                              ; preds = %Gia_ObjFaninId2p.exit
-  %111 = icmp slt i32 %78, 0
+  %111 = icmp slt i32 %77, 0
   br i1 %111, label %112, label %.preheader
 
 .preheader:                                       ; preds = %Vec_StrPush.exit23.i, %110

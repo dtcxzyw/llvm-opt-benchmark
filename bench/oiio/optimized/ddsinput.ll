@@ -3174,7 +3174,7 @@ _Z17bcdec__unquantizeiii.exit215:                 ; preds = %.thread847, %1381, 
   br label %_Z24bcdec__finish_unquantizeii.exit
 
 1430:                                             ; preds = %_Z17bcdec__unquantizeiii.exit215
-  %1431 = icmp slt i32 %1426, 0
+  %1431 = icmp slt i32 %1425, 0
   br i1 %1431, label %1432, label %1436
 
 1432:                                             ; preds = %1430
@@ -3210,7 +3210,7 @@ _Z24bcdec__finish_unquantizeii.exit:              ; preds = %1427, %1439
   br i1 %.not.i164, label %1458, label %1449
 
 1449:                                             ; preds = %_Z24bcdec__finish_unquantizeii.exit
-  %1450 = icmp slt i32 %1448, 0
+  %1450 = icmp slt i32 %1447, 0
   br i1 %1450, label %1451, label %1455
 
 1451:                                             ; preds = %1449
@@ -3253,7 +3253,7 @@ _Z24bcdec__finish_unquantizeii.exit:              ; preds = %1427, %1439
   %1476 = add i32 %1475, 32
   %1477 = add i32 %1476, %1474
   %1478 = ashr i32 %1477, 6
-  %1479 = icmp slt i32 %1478, 0
+  %1479 = icmp slt i32 %1477, 0
   br i1 %1479, label %1480, label %1484
 
 1480:                                             ; preds = %1469

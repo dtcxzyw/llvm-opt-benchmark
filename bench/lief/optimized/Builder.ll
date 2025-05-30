@@ -37614,7 +37614,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit: ; preds = %318, %322
   %333 = ashr exact i64 %332, 5
   %334 = mul nsw i64 %333, 10
   %335 = load ptr, ptr %300, align 8, !tbaa !46
-  %336 = icmp slt i64 %333, 0
+  %336 = icmp slt i64 %332, 0
   br i1 %336, label %337, label %338
 
 337:                                              ; preds = %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit
@@ -37697,7 +37697,7 @@ _ZN4LIEF15vector_iostream7reserveEm.exit148:      ; preds = %338, %_ZNSt12_Vecto
 370:                                              ; preds = %._crit_edge410
   %371 = ashr exact i64 %363, 1
   %372 = load ptr, ptr %303, align 8, !tbaa !46
-  %373 = icmp slt i64 %371, 0
+  %373 = icmp slt i64 %363, 0
   br i1 %373, label %374, label %375
 
 374:                                              ; preds = %370
@@ -58679,7 +58679,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit: ; preds = %318, %322
   %333 = ashr exact i64 %332, 5
   %334 = mul nsw i64 %333, 10
   %335 = load ptr, ptr %300, align 8, !tbaa !46
-  %336 = icmp slt i64 %333, 0
+  %336 = icmp slt i64 %332, 0
   br i1 %336, label %337, label %338
 
 337:                                              ; preds = %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit
@@ -58762,7 +58762,7 @@ _ZN4LIEF15vector_iostream7reserveEm.exit148:      ; preds = %338, %_ZNSt12_Vecto
 370:                                              ; preds = %._crit_edge410
   %371 = ashr exact i64 %363, 1
   %372 = load ptr, ptr %303, align 8, !tbaa !46
-  %373 = icmp slt i64 %371, 0
+  %373 = icmp slt i64 %363, 0
   br i1 %373, label %374, label %375
 
 374:                                              ; preds = %370

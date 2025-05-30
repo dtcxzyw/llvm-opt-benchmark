@@ -8828,8 +8828,10 @@ define hidden noundef zeroext i1 @_ZN6chrono6format10formatting13write_rfc333917
   %36 = load i32, ptr %1, align 4, !range !1818, !noundef !5
   %37 = ashr i32 %36, 13
   store i32 %37, ptr %35, align 4
+  %.not.i = icmp sgt i32 %36, -1
   %38 = icmp ult i32 %37, 10000
-  br i1 %38, label %_ZN6chrono6format10formatting14write_hundreds17h7a06eb968f86f446E.exit210.thread, label %_ZN4core3ops5range11RangeBounds8contains17he2be645f17656ca6E.exit.thread
+  %or.cond = and i1 %.not.i, %38
+  br i1 %or.cond, label %_ZN6chrono6format10formatting14write_hundreds17h7a06eb968f86f446E.exit210.thread, label %_ZN4core3ops5range11RangeBounds8contains17he2be645f17656ca6E.exit.thread
 
 _ZN4core3ops5range11RangeBounds8contains17he2be645f17656ca6E.exit.thread: ; preds = %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %34)

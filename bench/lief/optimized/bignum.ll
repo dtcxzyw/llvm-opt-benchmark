@@ -2300,11 +2300,11 @@ define hidden range(i32 -32768, 32769) i32 @mbedtls_mpi_cmp_int(ptr noundef read
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %25
-  %30 = icmp slt i64 %3, 0
+  %30 = icmp slt i64 %1, 0
   br i1 %30, label %mbedtls_mpi_cmp_mpi.exit, label %.preheader.i.preheader
 
 31:                                               ; preds = %25
-  %32 = icmp sgt i64 %3, -1
+  %32 = icmp sgt i64 %1, -1
   %33 = icmp ne i16 %27, 0
   %or.cond43.i = and i1 %32, %33
   br i1 %or.cond43.i, label %mbedtls_mpi_cmp_mpi.exit, label %.preheader.i.preheader
@@ -4786,87 +4786,87 @@ define hidden i32 @mbedtls_mpi_random(ptr noundef captures(none) %0, i64 noundef
 mbedtls_mpi_cmp_int.exit:                         ; preds = %19, %34
   %.036.i.i = phi i32 [ %22, %19 ], [ %35, %34 ]
   %38 = icmp slt i32 %.036.i.i, 1
-  br i1 %38, label %mbedtls_mpi_resize_clear.exit, label %mbedtls_mpi_cmp_int.exit.thread17
+  br i1 %38, label %mbedtls_mpi_resize_clear.exit, label %39
 
-mbedtls_mpi_cmp_int.exit.thread17:                ; preds = %mbedtls_mpi_cmp_int.exit
-  %39 = zext i16 %9 to i64
-  br i1 %.not44.i.i, label %40, label %49
+39:                                               ; preds = %mbedtls_mpi_cmp_int.exit
+  %40 = zext i16 %9 to i64
+  br i1 %.not44.i.i, label %41, label %50
 
-40:                                               ; preds = %mbedtls_mpi_cmp_int.exit.thread17
-  %.pre21 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not.i.i15 = icmp eq ptr %.pre21, null
-  br i1 %.not.i.i15, label %46, label %41
+41:                                               ; preds = %39
+  %.pre19 = load ptr, ptr %0, align 8, !tbaa !12
+  %.not.i.i15 = icmp eq ptr %.pre19, null
+  br i1 %.not.i.i15, label %47, label %42
 
-41:                                               ; preds = %40
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %43 = load i16, ptr %42, align 2, !tbaa !3
-  %44 = zext i16 %43 to i64
-  %45 = shl nuw nsw i64 %44, 3
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %.pre21, i64 noundef %45) #16
-  br label %46
+42:                                               ; preds = %41
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %44 = load i16, ptr %43, align 2, !tbaa !3
+  %45 = zext i16 %44 to i64
+  %46 = shl nuw nsw i64 %45, 3
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %.pre19, i64 noundef %46) #16
+  br label %47
 
-46:                                               ; preds = %41, %40
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 1, ptr %47, align 8, !tbaa !10
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 0, ptr %48, align 2, !tbaa !3
+47:                                               ; preds = %42, %41
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i16 1, ptr %48, align 8, !tbaa !10
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  store i16 0, ptr %49, align 2, !tbaa !3
   store ptr null, ptr %0, align 8, !tbaa !12
-  br label %67
+  br label %68
 
-49:                                               ; preds = %mbedtls_mpi_cmp_int.exit.thread17
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %51 = load i16, ptr %50, align 2, !tbaa !3
-  %52 = zext i16 %51 to i64
-  %53 = icmp eq i16 %9, %51
-  %54 = load ptr, ptr %0, align 8, !tbaa !12
-  br i1 %53, label %55, label %58
+50:                                               ; preds = %39
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %52 = load i16, ptr %51, align 2, !tbaa !3
+  %53 = zext i16 %52 to i64
+  %54 = icmp eq i16 %9, %52
+  %55 = load ptr, ptr %0, align 8, !tbaa !12
+  br i1 %54, label %56, label %59
 
-55:                                               ; preds = %49
-  %56 = shl nuw nsw i64 %39, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %54, i8 0, i64 %56, i1 false)
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 1, ptr %57, align 8, !tbaa !10
+56:                                               ; preds = %50
+  %57 = shl nuw nsw i64 %40, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %55, i8 0, i64 %57, i1 false)
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i16 1, ptr %58, align 8, !tbaa !10
   %.pre = load ptr, ptr %0, align 8, !tbaa !12
-  br label %67
+  br label %68
 
-58:                                               ; preds = %49
-  %.not.i11.i = icmp eq ptr %54, null
-  br i1 %.not.i11.i, label %mbedtls_mpi_free.exit12.i, label %59
+59:                                               ; preds = %50
+  %.not.i11.i = icmp eq ptr %55, null
+  br i1 %.not.i11.i, label %mbedtls_mpi_free.exit12.i, label %60
 
-59:                                               ; preds = %58
-  %60 = shl nuw nsw i64 %52, 3
-  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %54, i64 noundef %60) #16
+60:                                               ; preds = %59
+  %61 = shl nuw nsw i64 %53, 3
+  tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %55, i64 noundef %61) #16
   br label %mbedtls_mpi_free.exit12.i
 
-mbedtls_mpi_free.exit12.i:                        ; preds = %59, %58
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 1, ptr %61, align 8, !tbaa !10
-  store i16 0, ptr %50, align 2, !tbaa !3
+mbedtls_mpi_free.exit12.i:                        ; preds = %60, %59
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i16 1, ptr %62, align 8, !tbaa !10
+  store i16 0, ptr %51, align 2, !tbaa !3
   store ptr null, ptr %0, align 8, !tbaa !12
-  %62 = icmp ugt i16 %9, 10000
-  br i1 %62, label %mbedtls_mpi_resize_clear.exit, label %63
+  %63 = icmp ugt i16 %9, 10000
+  br i1 %63, label %mbedtls_mpi_resize_clear.exit, label %64
 
-63:                                               ; preds = %mbedtls_mpi_free.exit12.i
-  %64 = tail call noalias ptr @calloc(i64 noundef range(i64 0, 2305843009213693953) %39, i64 noundef 8) #17
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %mbedtls_mpi_resize_clear.exit, label %66
+64:                                               ; preds = %mbedtls_mpi_free.exit12.i
+  %65 = tail call noalias ptr @calloc(i64 noundef range(i64 0, 2305843009213693953) %40, i64 noundef 8) #17
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %mbedtls_mpi_resize_clear.exit, label %67
 
-66:                                               ; preds = %63
-  store i16 %9, ptr %50, align 2, !tbaa !3
-  store ptr %64, ptr %0, align 8, !tbaa !12
-  br label %67
+67:                                               ; preds = %64
+  store i16 %9, ptr %51, align 2, !tbaa !3
+  store ptr %65, ptr %0, align 8, !tbaa !12
+  br label %68
 
-67:                                               ; preds = %55, %46, %66
-  %68 = phi ptr [ %.pre, %55 ], [ null, %46 ], [ %64, %66 ]
-  %69 = load ptr, ptr %2, align 8, !tbaa !12
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %71 = load i16, ptr %70, align 2, !tbaa !3
-  %72 = zext i16 %71 to i64
-  %73 = tail call i32 @mbedtls_mpi_core_random(ptr noundef %68, i64 noundef %1, ptr noundef %69, i64 noundef %72, ptr noundef %3, ptr noundef %4) #16
+68:                                               ; preds = %56, %47, %67
+  %69 = phi ptr [ %.pre, %56 ], [ null, %47 ], [ %65, %67 ]
+  %70 = load ptr, ptr %2, align 8, !tbaa !12
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %72 = load i16, ptr %71, align 2, !tbaa !3
+  %73 = zext i16 %72 to i64
+  %74 = tail call i32 @mbedtls_mpi_core_random(ptr noundef %69, i64 noundef %1, ptr noundef %70, i64 noundef %73, ptr noundef %3, ptr noundef %4) #16
   br label %mbedtls_mpi_resize_clear.exit
 
-mbedtls_mpi_resize_clear.exit:                    ; preds = %36, %.preheader.i.i, %23, %25, %.lr.ph51.i.i, %63, %mbedtls_mpi_free.exit12.i, %67, %mbedtls_mpi_cmp_int.exit, %5
-  %.0 = phi i32 [ -4, %5 ], [ -4, %mbedtls_mpi_cmp_int.exit ], [ %73, %67 ], [ -16, %mbedtls_mpi_free.exit12.i ], [ -16, %63 ], [ -4, %.lr.ph51.i.i ], [ -4, %25 ], [ -4, %23 ], [ -4, %.preheader.i.i ], [ -4, %36 ]
+mbedtls_mpi_resize_clear.exit:                    ; preds = %36, %.preheader.i.i, %23, %25, %.lr.ph51.i.i, %64, %mbedtls_mpi_free.exit12.i, %68, %mbedtls_mpi_cmp_int.exit, %5
+  %.0 = phi i32 [ -4, %5 ], [ -4, %mbedtls_mpi_cmp_int.exit ], [ %74, %68 ], [ -16, %mbedtls_mpi_free.exit12.i ], [ -16, %64 ], [ -4, %.lr.ph51.i.i ], [ -4, %25 ], [ -4, %23 ], [ -4, %.preheader.i.i ], [ -4, %36 ]
   ret i32 %.0
 }
 
@@ -5682,8 +5682,8 @@ define internal fastcc range(i32 -14, 2) i32 @mpi_check_small_factors(ptr nounde
 
 48:                                               ; preds = %46
   %49 = load i16, ptr %7, align 8, !tbaa !10
-  %or.cond = icmp sgt i16 %49, -1
-  br i1 %or.cond, label %.preheader.i.i, label %mbedtls_mpi_mod_int.exit
+  %or.cond = icmp slt i16 %49, 0
+  br i1 %or.cond, label %mbedtls_mpi_mod_int.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %48, %57
   %.1.i.i = phi i64 [ %51, %57 ], [ %.035.lcssa.i.i, %48 ]

@@ -25597,47 +25597,47 @@ _ZN5boost14multiprecision8backends12eval_is_zeroILm0ELm0ELNS0_16cpp_integer_type
 _ZN5boost14multiprecision4signINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEEiRKNS0_6numberIT_XT0_EEE.exit.i: ; preds = %_ZN5boost14multiprecision8backends12eval_is_zeroILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit.i.i, %18
   %31 = tail call noundef i64 @_ZN4CORE10getBinExpoERKN5boost14multiprecision6numberINS1_8backends15cpp_int_backendILm0ELm0ELNS1_16cpp_integer_typeE1ELNS1_18cpp_int_check_typeE0ESaIyEEELNS1_26expression_template_optionE1EEE(ptr noundef nonnull align 16 dereferenceable(32) %19)
   %32 = udiv i64 %31, 30
-  %sext.i = shl i64 %32, 32
-  %33 = ashr exact i64 %sext.i, 32
-  %34 = icmp slt i64 %33, 0
-  br i1 %34, label %35, label %_ZN5boost14multiprecision6detail17check_shift_rangeIlEEvT_RKSt17integral_constantIbLb0EERKS4_IbLb1EE.exit.i
+  %sext.mask.i = and i64 %32, 2147483648
+  %.not.i = icmp eq i64 %sext.mask.i, 0
+  br i1 %.not.i, label %_ZN5boost14multiprecision6detail17check_shift_rangeIlEEvT_RKSt17integral_constantIbLb0EERKS4_IbLb1EE.exit.i, label %33
 
-35:                                               ; preds = %_ZN5boost14multiprecision4signINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEEiRKNS0_6numberIT_XT0_EEE.exit.i
+33:                                               ; preds = %_ZN5boost14multiprecision4signINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEEiRKNS0_6numberIT_XT0_EEE.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #25
   call void @_ZNSt12out_of_rangeC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.30)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #25
   store ptr @.str.31, ptr %3, align 8, !tbaa !227
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @.str.32, ptr %36, align 8, !tbaa !229
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 1474, ptr %37, align 8, !tbaa !230
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 87, ptr %38, align 4, !tbaa !231
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @.str.32, ptr %34, align 8, !tbaa !229
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i32 1474, ptr %35, align 8, !tbaa !230
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  store i32 87, ptr %36, align 4, !tbaa !231
   invoke void @_ZN5boost15throw_exceptionISt12out_of_rangeEEvRKT_RKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) #37
-          to label %39 unwind label %40
+          to label %37 unwind label %38
 
-39:                                               ; preds = %35
+37:                                               ; preds = %33
   unreachable
 
-40:                                               ; preds = %35
-  %41 = landingpad { ptr, i32 }
+38:                                               ; preds = %33
+  %39 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #25
   call void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #25
-  resume { ptr, i32 } %41
+  resume { ptr, i32 } %39
 
 _ZN5boost14multiprecision6detail17check_shift_rangeIlEEvT_RKSt17integral_constantIbLb0EERKS4_IbLb1EE.exit.i: ; preds = %_ZN5boost14multiprecision4signINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEEiRKNS0_6numberIT_XT0_EEE.exit.i
-  %42 = mul nuw nsw i64 %33, 30
-  tail call void @_ZN5boost14multiprecision8backends16eval_right_shiftILm0ELm0ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_ELNS0_16cpp_integer_typeE1EXT1_ET2_EEEE5valueEvE4typeERS9_o(ptr noundef nonnull align 16 dereferenceable(32) %19, i64 noundef %42, i64 noundef 0)
+  %40 = and i64 %32, 2147483647
+  %41 = mul nuw nsw i64 %40, 30
+  tail call void @_ZN5boost14multiprecision8backends16eval_right_shiftILm0ELm0ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_ELNS0_16cpp_integer_typeE1EXT1_ET2_EEEE5valueEvE4typeERS9_o(ptr noundef nonnull align 16 dereferenceable(32) %19, i64 noundef %41, i64 noundef 0)
   br label %_ZN4CORE11BigFloatRep23eliminateTrailingZeroesEv.exit.sink.split
 
 _ZN4CORE11BigFloatRep23eliminateTrailingZeroesEv.exit.sink.split: ; preds = %_ZN4CORE11BigFloatRep10chunkFloorEl.exit, %_ZN5boost14multiprecision6detail17check_shift_rangeIlEEvT_RKSt17integral_constantIbLb0EERKS4_IbLb1EE.exit.i
-  %.sink9 = phi i64 [ %33, %_ZN5boost14multiprecision6detail17check_shift_rangeIlEEvT_RKSt17integral_constantIbLb0EERKS4_IbLb1EE.exit.i ], [ %.zext, %_ZN4CORE11BigFloatRep10chunkFloorEl.exit ]
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %44 = load i64, ptr %43, align 8, !tbaa !223
-  %45 = add nsw i64 %44, %.sink9
-  store i64 %45, ptr %43, align 8, !tbaa !223
+  %.sink9 = phi i64 [ %40, %_ZN5boost14multiprecision6detail17check_shift_rangeIlEEvT_RKSt17integral_constantIbLb0EERKS4_IbLb1EE.exit.i ], [ %.zext, %_ZN4CORE11BigFloatRep10chunkFloorEl.exit ]
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %43 = load i64, ptr %42, align 8, !tbaa !223
+  %44 = add nsw i64 %43, %.sink9
+  store i64 %44, ptr %42, align 8, !tbaa !223
   br label %_ZN4CORE11BigFloatRep23eliminateTrailingZeroesEv.exit
 
 _ZN4CORE11BigFloatRep23eliminateTrailingZeroesEv.exit: ; preds = %_ZN4CORE11BigFloatRep23eliminateTrailingZeroesEv.exit.sink.split, %_ZN5boost14multiprecision8backends12eval_is_zeroILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit.i.i, %17
@@ -28585,43 +28585,43 @@ _ZN5boost14multiprecision8backends12eval_is_zeroILm0ELm0ELNS0_16cpp_integer_type
 _ZN5boost14multiprecision4signINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEEiRKNS0_6numberIT_XT0_EEE.exit.i: ; preds = %_ZN5boost14multiprecision8backends12eval_is_zeroILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit.i.i, %23
   %36 = call noundef i64 @_ZN4CORE10getBinExpoERKN5boost14multiprecision6numberINS1_8backends15cpp_int_backendILm0ELm0ELNS1_16cpp_integer_typeE1ELNS1_18cpp_int_check_typeE0ESaIyEEELNS1_26expression_template_optionE1EEE(ptr noundef nonnull align 16 dereferenceable(32) %24)
   %37 = udiv i64 %36, 30
-  %sext.i = shl i64 %37, 32
-  %38 = ashr exact i64 %sext.i, 32
-  %39 = icmp slt i64 %38, 0
-  br i1 %39, label %40, label %_ZN5boost14multiprecision6detail17check_shift_rangeIlEEvT_RKSt17integral_constantIbLb0EERKS4_IbLb1EE.exit.i
+  %sext.mask.i = and i64 %37, 2147483648
+  %.not.i = icmp eq i64 %sext.mask.i, 0
+  br i1 %.not.i, label %_ZN5boost14multiprecision6detail17check_shift_rangeIlEEvT_RKSt17integral_constantIbLb0EERKS4_IbLb1EE.exit.i, label %38
 
-40:                                               ; preds = %_ZN5boost14multiprecision4signINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEEiRKNS0_6numberIT_XT0_EEE.exit.i
+38:                                               ; preds = %_ZN5boost14multiprecision4signINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEEiRKNS0_6numberIT_XT0_EEE.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #25
   call void @_ZNSt12out_of_rangeC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.30)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #25
   store ptr @.str.31, ptr %4, align 8, !tbaa !227
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @.str.32, ptr %41, align 8, !tbaa !229
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 1474, ptr %42, align 8, !tbaa !230
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 87, ptr %43, align 4, !tbaa !231
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr @.str.32, ptr %39, align 8, !tbaa !229
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 1474, ptr %40, align 8, !tbaa !230
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  store i32 87, ptr %41, align 4, !tbaa !231
   invoke void @_ZN5boost15throw_exceptionISt12out_of_rangeEEvRKT_RKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) #37
-          to label %44 unwind label %45
+          to label %42 unwind label %43
 
-44:                                               ; preds = %40
+42:                                               ; preds = %38
   unreachable
 
-45:                                               ; preds = %40
-  %46 = landingpad { ptr, i32 }
+43:                                               ; preds = %38
+  %44 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #25
   call void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
-  resume { ptr, i32 } %46
+  resume { ptr, i32 } %44
 
 _ZN5boost14multiprecision6detail17check_shift_rangeIlEEvT_RKSt17integral_constantIbLb0EERKS4_IbLb1EE.exit.i: ; preds = %_ZN5boost14multiprecision4signINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEEiRKNS0_6numberIT_XT0_EEE.exit.i
-  %47 = mul nuw nsw i64 %38, 30
-  call void @_ZN5boost14multiprecision8backends16eval_right_shiftILm0ELm0ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_ELNS0_16cpp_integer_typeE1EXT1_ET2_EEEE5valueEvE4typeERS9_o(ptr noundef nonnull align 16 dereferenceable(32) %24, i64 noundef %47, i64 noundef 0)
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %49 = load i64, ptr %48, align 8, !tbaa !223
-  %50 = add nsw i64 %49, %38
-  store i64 %50, ptr %48, align 8, !tbaa !223
+  %45 = and i64 %37, 2147483647
+  %46 = mul nuw nsw i64 %45, 30
+  call void @_ZN5boost14multiprecision8backends16eval_right_shiftILm0ELm0ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_ELNS0_16cpp_integer_typeE1EXT1_ET2_EEEE5valueEvE4typeERS9_o(ptr noundef nonnull align 16 dereferenceable(32) %24, i64 noundef %46, i64 noundef 0)
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %48 = load i64, ptr %47, align 8, !tbaa !223
+  %49 = add nsw i64 %48, %45
+  store i64 %49, ptr %47, align 8, !tbaa !223
   br label %_ZN4CORE11BigFloatRep23eliminateTrailingZeroesEv.exit
 
 _ZN4CORE11BigFloatRep23eliminateTrailingZeroesEv.exit: ; preds = %_ZN5boost14multiprecision6detail17check_shift_rangeIlEEvT_RKSt17integral_constantIbLb0EERKS4_IbLb1EE.exit.i, %_ZN5boost14multiprecision8backends12eval_is_zeroILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEbE4typeERKS9_.exit.i.i, %20

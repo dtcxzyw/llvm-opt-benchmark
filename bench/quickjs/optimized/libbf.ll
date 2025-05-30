@@ -888,14 +888,14 @@ define internal fastcc range(i32 0, 33) i32 @__bf_round(ptr noundef captures(non
   %32 = sub i64 -2, %.089
   %33 = tail call i64 @llvm.smin.i64(i64 %32, i64 -1)
   %34 = add i64 %33, %.pre.i
-  %35 = ashr i64 %34, 6
-  %36 = icmp slt i64 %35, 0
-  br i1 %36, label %scan_bit_nz.exit.i, label %37
+  %35 = icmp slt i64 %34, 0
+  br i1 %35, label %scan_bit_nz.exit.i, label %36
 
-37:                                               ; preds = %31
+36:                                               ; preds = %31
+  %37 = lshr i64 %34, 6
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load ptr, ptr %38, align 8, !tbaa !29
-  %40 = getelementptr inbounds nuw i64, ptr %39, i64 %35
+  %40 = getelementptr inbounds nuw i64, ptr %39, i64 %37
   %41 = load i64, ptr %40, align 8, !tbaa !33
   %42 = trunc i64 %33 to i32
   %43 = and i32 %42, 63
@@ -909,8 +909,8 @@ define internal fastcc range(i32 0, 33) i32 @__bf_round(ptr noundef captures(non
   %.not.i.i = icmp eq i64 %48, 0
   br i1 %.not.i.i, label %.preheader.i.i, label %scan_bit_nz.exit.i
 
-.preheader.i.i:                                   ; preds = %37, %50
-  %.011.in.i.i = phi i64 [ %.011.i.i, %50 ], [ %35, %37 ]
+.preheader.i.i:                                   ; preds = %36, %50
+  %.011.in.i.i = phi i64 [ %.011.i.i, %50 ], [ %37, %36 ]
   %49 = icmp sgt i64 %.011.in.i.i, 0
   br i1 %49, label %50, label %scan_bit_nz.exit.i
 
@@ -921,15 +921,15 @@ define internal fastcc range(i32 0, 33) i32 @__bf_round(ptr noundef captures(non
   %.not13.i.i = icmp eq i64 %52, 0
   br i1 %.not13.i.i, label %.preheader.i.i, label %scan_bit_nz.exit.i, !llvm.loop !40
 
-scan_bit_nz.exit.i:                               ; preds = %50, %.preheader.i.i, %37, %31, %28
-  %.not26.not.i = phi i1 [ true, %37 ], [ false, %31 ], [ true, %28 ], [ %49, %.preheader.i.i ], [ %49, %50 ]
-  %.0.i113 = phi i64 [ 1, %37 ], [ 0, %31 ], [ 1, %28 ], [ 1, %50 ], [ 0, %.preheader.i.i ]
+scan_bit_nz.exit.i:                               ; preds = %50, %.preheader.i.i, %36, %31, %28
+  %.not26.not.i = phi i1 [ true, %36 ], [ false, %31 ], [ true, %28 ], [ %49, %.preheader.i.i ], [ %49, %50 ]
+  %.0.i113 = phi i64 [ 1, %36 ], [ 0, %31 ], [ 1, %28 ], [ 1, %50 ], [ 0, %.preheader.i.i ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load ptr, ptr %53, align 8, !tbaa !29
   %55 = xor i64 %.089, -1
   %56 = add i64 %.pre.i, %55
   %57 = ashr i64 %56, 6
-  %58 = icmp sgt i64 %57, -1
+  %58 = icmp sgt i64 %56, -1
   %.not.i27.i = icmp ult i64 %57, %3
   %or.cond.i.i = and i1 %58, %.not.i27.i
   br i1 %or.cond.i.i, label %59, label %get_bit.exit.i
@@ -968,7 +968,7 @@ get_bit.exit.i:                                   ; preds = %59, %scan_bit_nz.ex
 68:                                               ; preds = %67
   %69 = sub i64 %.pre.i, %.089
   %70 = ashr i64 %69, 6
-  %71 = icmp sgt i64 %70, -1
+  %71 = icmp sgt i64 %69, -1
   %.not.i29.i = icmp ult i64 %70, %3
   %or.cond.i30.i = and i1 %71, %.not.i29.i
   br i1 %or.cond.i30.i, label %72, label %get_bit.exit32.i
@@ -1159,7 +1159,7 @@ bf_set_zero.exit:                                 ; preds = %132, %138
 149:                                              ; preds = %143
   %150 = sub i64 %.pre.i, %.089
   %151 = ashr i64 %150, 6
-  %152 = icmp sgt i64 %151, -1
+  %152 = icmp sgt i64 %150, -1
   br i1 %152, label %153, label %.preheader
 
 153:                                              ; preds = %149
@@ -1269,7 +1269,7 @@ define dso_local range(i32 0, 2) i32 @bf_can_round(ptr noundef readonly captures
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8, !tbaa !29
   %27 = ashr i64 %24, 6
-  %28 = icmp sgt i64 %27, -1
+  %28 = icmp sgt i64 %24, -1
   %.not.i = icmp ult i64 %27, %21
   %or.cond.i = and i1 %28, %.not.i
   br i1 %or.cond.i, label %29, label %get_bit.exit
@@ -1300,7 +1300,7 @@ get_bit.exit:                                     ; preds = %17, %29
   %.041 = phi i64 [ %39, %38 ], [ %35, %get_bit.exit ]
   %.02842 = add i64 %.02842.in, -1
   %40 = ashr i64 %.02842, 6
-  %41 = icmp sgt i64 %40, -1
+  %41 = icmp sgt i64 %.02842, -1
   %.not.i35 = icmp ult i64 %40, %21
   %or.cond.i36 = and i1 %41, %.not.i35
   br i1 %or.cond.i36, label %42, label %get_bit.exit38
@@ -4399,7 +4399,7 @@ bf_cmpu.exit:                                     ; preds = %236, %216
   %242 = shl i64 %241, 6
   %243 = sub i64 %242, %.val
   %244 = ashr i64 %243, 6
-  %245 = icmp sgt i64 %244, -1
+  %245 = icmp sgt i64 %243, -1
   %.not.i103 = icmp ult i64 %244, %241
   %or.cond.i = and i1 %245, %.not.i103
   br i1 %or.cond.i, label %get_bit.exit, label %get_bit.exit.thread
@@ -8080,7 +8080,7 @@ bf_can_round.exit.us:                             ; preds = %144
   %181 = add i64 %180, %102
   %182 = load ptr, ptr %103, align 8, !tbaa !29
   %183 = ashr i64 %181, 6
-  %184 = icmp sgt i64 %183, -1
+  %184 = icmp sgt i64 %181, -1
   %.not.i.i93 = icmp ult i64 %183, %179
   %or.cond.i.i94 = and i1 %184, %.not.i.i93
   br i1 %or.cond.i.i94, label %185, label %get_bit.exit.i
@@ -8109,7 +8109,7 @@ get_bit.exit.i:                                   ; preds = %185, %178
   %.041.i = phi i64 [ %193, %192 ], [ %190, %get_bit.exit.i ]
   %.02842.i = add i64 %.02842.in.i, -1
   %194 = ashr i64 %.02842.i, 6
-  %195 = icmp sgt i64 %194, -1
+  %195 = icmp sgt i64 %.02842.i, -1
   %.not.i35.i = icmp ult i64 %194, %179
   %or.cond.i36.i = and i1 %195, %.not.i35.i
   br i1 %or.cond.i36.i, label %196, label %get_bit.exit38.i
@@ -10750,7 +10750,7 @@ bf_set.exit:                                      ; preds = %bf_set.exitthread-p
   %71 = add i64 %70, %22
   %72 = load ptr, ptr %13, align 8, !tbaa !29
   %73 = ashr i64 %71, 6
-  %74 = icmp sgt i64 %73, -1
+  %74 = icmp sgt i64 %71, -1
   %.not.i.i28 = icmp ult i64 %73, %69
   %or.cond.i.i29 = and i1 %74, %.not.i.i28
   br i1 %or.cond.i.i29, label %75, label %get_bit.exit.i
@@ -10779,7 +10779,7 @@ get_bit.exit.i:                                   ; preds = %75, %68
   %.041.i = phi i64 [ %83, %82 ], [ %80, %get_bit.exit.i ]
   %.02842.i = add i64 %.02842.in.i, -1
   %84 = ashr i64 %.02842.i, 6
-  %85 = icmp sgt i64 %84, -1
+  %85 = icmp sgt i64 %.02842.i, -1
   %.not.i35.i = icmp ult i64 %84, %69
   %or.cond.i36.i = and i1 %85, %.not.i35.i
   br i1 %or.cond.i36.i, label %86, label %get_bit.exit38.i
@@ -11694,7 +11694,7 @@ define internal fastcc i32 @bf_ziv_rounding(ptr noundef %0, ptr noundef %1, i64 
   %35 = add i64 %34, %17
   %36 = load ptr, ptr %18, align 8, !tbaa !29
   %37 = ashr i64 %35, 6
-  %38 = icmp sgt i64 %37, -1
+  %38 = icmp sgt i64 %35, -1
   %.not.i.i = icmp ult i64 %37, %33
   %or.cond.i.i = and i1 %38, %.not.i.i
   br i1 %or.cond.i.i, label %39, label %get_bit.exit.i
@@ -11722,7 +11722,7 @@ get_bit.exit.i:                                   ; preds = %39, %32
   %.041.i = phi i64 [ %47, %46 ], [ %44, %get_bit.exit.i ]
   %.02842.i = add i64 %.02842.in.i, -1
   %48 = ashr i64 %.02842.i, 6
-  %49 = icmp sgt i64 %48, -1
+  %49 = icmp sgt i64 %.02842.i, -1
   %.not.i35.i = icmp ult i64 %48, %33
   %or.cond.i36.i = and i1 %49, %.not.i35.i
   br i1 %or.cond.i36.i, label %50, label %get_bit.exit38.i
@@ -15159,7 +15159,7 @@ bf_set_ui.exit.i:                                 ; preds = %bf_resize.exit18.th
   %122 = add i64 %121, %108
   %123 = load ptr, ptr %109, align 8, !tbaa !29
   %124 = ashr i64 %122, 6
-  %125 = icmp sgt i64 %124, -1
+  %125 = icmp sgt i64 %122, -1
   %.not.i.i.i45 = icmp ult i64 %124, %120
   %or.cond.i.i.i = and i1 %125, %.not.i.i.i45
   br i1 %or.cond.i.i.i, label %126, label %get_bit.exit.i.i
@@ -15187,7 +15187,7 @@ get_bit.exit.i.i:                                 ; preds = %126, %119
   %.041.i.i = phi i64 [ %134, %133 ], [ %131, %get_bit.exit.i.i ]
   %.02842.i.i = add i64 %.02842.in.i.i, -1
   %135 = ashr i64 %.02842.i.i, 6
-  %136 = icmp sgt i64 %135, -1
+  %136 = icmp sgt i64 %.02842.i.i, -1
   %.not.i35.i.i = icmp ult i64 %135, %120
   %or.cond.i36.i.i = and i1 %136, %.not.i35.i.i
   br i1 %or.cond.i36.i.i, label %137, label %get_bit.exit38.i.i
@@ -15510,7 +15510,7 @@ bf_set_ui.exit.i:                                 ; preds = %bf_resize.exit18.th
   %141 = add i64 %140, %127
   %142 = load ptr, ptr %128, align 8, !tbaa !29
   %143 = ashr i64 %141, 6
-  %144 = icmp sgt i64 %143, -1
+  %144 = icmp sgt i64 %141, -1
   %.not.i.i.i45 = icmp ult i64 %143, %139
   %or.cond.i.i.i = and i1 %144, %.not.i.i.i45
   br i1 %or.cond.i.i.i, label %145, label %get_bit.exit.i.i
@@ -15538,7 +15538,7 @@ get_bit.exit.i.i:                                 ; preds = %145, %138
   %.041.i.i = phi i64 [ %153, %152 ], [ %150, %get_bit.exit.i.i ]
   %.02842.i.i = add i64 %.02842.in.i.i, -1
   %154 = ashr i64 %.02842.i.i, 6
-  %155 = icmp sgt i64 %154, -1
+  %155 = icmp sgt i64 %.02842.i.i, -1
   %.not.i35.i.i = icmp ult i64 %154, %139
   %or.cond.i36.i.i = and i1 %155, %.not.i35.i.i
   br i1 %or.cond.i36.i.i, label %156, label %get_bit.exit38.i.i
@@ -24356,7 +24356,7 @@ ceil_log2.exit:                                   ; preds = %bf_can_round.exit.t
   %163 = add i64 %161, %162
   %164 = load ptr, ptr %108, align 8, !tbaa !29
   %165 = ashr i64 %163, 6
-  %166 = icmp sgt i64 %165, -1
+  %166 = icmp sgt i64 %163, -1
   %.not.i.i86 = icmp ult i64 %165, %160
   %or.cond.i.i87 = and i1 %166, %.not.i.i86
   br i1 %or.cond.i.i87, label %167, label %get_bit.exit.i
@@ -24386,7 +24386,7 @@ get_bit.exit.i:                                   ; preds = %167, %159
   %.041.i = phi i64 [ %176, %175 ], [ %173, %get_bit.exit.i ]
   %.02842.i = add i64 %.02842.in.i, -1
   %177 = ashr i64 %.02842.i, 6
-  %178 = icmp sgt i64 %177, -1
+  %178 = icmp sgt i64 %.02842.i, -1
   %.not.i35.i = icmp ult i64 %177, %160
   %or.cond.i36.i = and i1 %178, %.not.i35.i
   br i1 %or.cond.i36.i, label %179, label %get_bit.exit38.i

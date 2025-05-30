@@ -16797,18 +16797,24 @@ define internal void @_ZL23stbi__YCbCr_to_RGB_simdPhPKhS1_S1_ii(ptr noundef writ
   %81 = ashr i32 %73, 20
   %82 = ashr i32 %78, 20
   %83 = ashr i32 %80, 20
-  %84 = tail call i32 @llvm.smax.i32(i32 %81, i32 0)
-  %85 = tail call i32 @llvm.umin.i32(i32 %84, i32 255)
-  %86 = tail call i32 @llvm.smax.i32(i32 %82, i32 0)
-  %87 = tail call i32 @llvm.umin.i32(i32 %86, i32 255)
-  %88 = tail call i32 @llvm.smax.i32(i32 %83, i32 0)
-  %89 = tail call i32 @llvm.umin.i32(i32 %88, i32 255)
-  %90 = trunc nuw i32 %85 to i8
+  %84 = icmp ugt i32 %81, 255
+  %85 = icmp slt i32 %73, 0
+  %. = select i1 %85, i32 0, i32 255
+  %.0302 = select i1 %84, i32 %., i32 %81
+  %86 = icmp ugt i32 %82, 255
+  %87 = icmp slt i32 %78, 0
+  %.309 = select i1 %87, i32 0, i32 255
+  %.0301 = select i1 %86, i32 %.309, i32 %82
+  %88 = icmp ugt i32 %83, 255
+  %89 = icmp slt i32 %80, 0
+  %.310 = select i1 %89, i32 0, i32 255
+  %.0300 = select i1 %88, i32 %.310, i32 %83
+  %90 = trunc nuw i32 %.0302 to i8
   store i8 %90, ptr %.2315, align 1
-  %91 = trunc nuw i32 %87 to i8
+  %91 = trunc nuw i32 %.0301 to i8
   %92 = getelementptr inbounds nuw i8, ptr %.2315, i64 1
   store i8 %91, ptr %92, align 1
-  %93 = trunc nuw i32 %89 to i8
+  %93 = trunc nuw i32 %.0300 to i8
   %94 = getelementptr inbounds nuw i8, ptr %.2315, i64 2
   store i8 %93, ptr %94, align 1
   %95 = getelementptr inbounds nuw i8, ptr %.2315, i64 3
@@ -154921,9 +154927,6 @@ declare i32 @llvm.smax.i32(i32, i32) #48
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.abs.i8(i8, i1 immarg) #48
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #48
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #50
 
@@ -154932,6 +154935,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #50
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #51
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #48

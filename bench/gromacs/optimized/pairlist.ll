@@ -11790,12 +11790,12 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %56, %58, %60, %62
   %67 = load i32, ptr %66, align 4, !tbaa !101
   store i32 0, ptr %66, align 4, !tbaa !101
   %sext64 = add i64 %49, -4294967296
-  %68 = ashr exact i64 %sext64, 32
-  %69 = icmp sgt i64 %68, -1
-  br i1 %69, label %.lr.ph71.preheader, label %._crit_edge72
+  %68 = icmp sgt i64 %sext64, -1
+  br i1 %68, label %.lr.ph71.preheader, label %._crit_edge72
 
 .lr.ph71.preheader:                               ; preds = %._crit_edge
-  %70 = ashr exact i64 %sext64, 30
+  %69 = lshr exact i64 %sext64, 32
+  %70 = lshr exact i64 %sext64, 30
   %71 = getelementptr i8, ptr %.pre, i64 %70
   %scevgep = getelementptr i8, ptr %71, i64 4
   %load_initial = load i32, ptr %scevgep, align 4
@@ -11825,7 +11825,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %56, %58, %60, %62
 .lr.ph71:                                         ; preds = %.lr.ph71.preheader, %.lr.ph71
   %store_forwarded = phi i32 [ %load_initial, %.lr.ph71.preheader ], [ %85, %.lr.ph71 ]
   %.069 = phi i32 [ %67, %.lr.ph71.preheader ], [ %84, %.lr.ph71 ]
-  %.03768 = phi i64 [ %68, %.lr.ph71.preheader ], [ %86, %.lr.ph71 ]
+  %.03768 = phi i64 [ %69, %.lr.ph71.preheader ], [ %86, %.lr.ph71 ]
   %83 = getelementptr inbounds nuw i32, ptr %.pre, i64 %.03768
   %84 = load i32, ptr %83, align 4, !tbaa !101
   %85 = add nsw i32 %store_forwarded, %.069

@@ -11,11 +11,11 @@ define hidden void @FLAC__window_bartlett(ptr noundef writeonly captures(none) %
   br i1 %.not, label %.preheader35, label %.preheader38
 
 .preheader38:                                     ; preds = %2
-  %5 = ashr exact i32 %3, 1
-  %.not3339 = icmp slt i32 %5, 0
+  %.not3339 = icmp slt i32 %1, 1
   br i1 %.not3339, label %.preheader36, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader38
+  %5 = lshr exact i32 %3, 1
   %6 = uitofp nneg i32 %3 to float
   %7 = add nuw nsw i32 %5, 1
   %wide.trip.count = zext nneg i32 %7 to i64

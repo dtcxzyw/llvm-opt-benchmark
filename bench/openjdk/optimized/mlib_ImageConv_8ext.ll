@@ -2598,7 +2598,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNext_u8(ptr noundef readonly cap
   %162 = ashr i32 %155, %24
   %.not1095.us = icmp ult i32 %162, 256
   %163 = trunc nuw i32 %162 to i8
-  %164 = icmp sgt i32 %162, -1
+  %164 = icmp sgt i32 %155, -1
   %. = sext i1 %164 to i8
   %.sink = select i1 %.not1095.us, i8 %163, i8 %.
   store i8 %.sink, ptr %.119951202.us, align 1
@@ -2606,7 +2606,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNext_u8(ptr noundef readonly cap
   %.not1096.us = icmp ult i32 %165, 256
   %166 = getelementptr inbounds nuw i8, ptr %.119951202.us, i64 %84
   %167 = trunc nuw i32 %165 to i8
-  %168 = icmp sgt i32 %165, -1
+  %168 = icmp sgt i32 %161, -1
   %.1645 = sext i1 %168 to i8
   %.sink1638 = select i1 %.not1096.us, i8 %167, i8 %.1645
   store i8 %.sink1638, ptr %166, align 1
@@ -2696,7 +2696,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNext_u8(ptr noundef readonly cap
   %223 = ashr i32 %214, %24
   %.not1099.us = icmp ult i32 %223, 256
   %224 = trunc nuw i32 %223 to i8
-  %225 = icmp sgt i32 %223, -1
+  %225 = icmp sgt i32 %214, -1
   %.1631 = sext i1 %225 to i8
   %.sink1621 = select i1 %.not1099.us, i8 %224, i8 %.1631
   store i8 %.sink1621, ptr %.109941219.us, align 1
@@ -2704,7 +2704,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNext_u8(ptr noundef readonly cap
   %.not1100.us = icmp ult i32 %226, 256
   %227 = getelementptr inbounds nuw i8, ptr %.109941219.us, i64 %84
   %228 = trunc nuw i32 %226 to i8
-  %229 = icmp sgt i32 %226, -1
+  %229 = icmp sgt i32 %222, -1
   %.1646 = sext i1 %229 to i8
   %.sink1639 = select i1 %.not1100.us, i8 %228, i8 %.1646
   store i8 %.sink1639, ptr %227, align 1
@@ -2806,7 +2806,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNext_u8(ptr noundef readonly cap
   %296 = ashr i32 %285, %24
   %.not1103.us = icmp ult i32 %296, 256
   %297 = trunc nuw i32 %296 to i8
-  %298 = icmp sgt i32 %296, -1
+  %298 = icmp sgt i32 %285, -1
   %.1632 = sext i1 %298 to i8
   %.sink1622 = select i1 %.not1103.us, i8 %297, i8 %.1632
   store i8 %.sink1622, ptr %.99931238.us, align 1
@@ -2814,7 +2814,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNext_u8(ptr noundef readonly cap
   %.not1104.us = icmp ult i32 %299, 256
   %300 = getelementptr inbounds nuw i8, ptr %.99931238.us, i64 %84
   %301 = trunc nuw i32 %299 to i8
-  %302 = icmp sgt i32 %299, -1
+  %302 = icmp sgt i32 %295, -1
   %.1647 = sext i1 %302 to i8
   %.sink1640 = select i1 %.not1104.us, i8 %301, i8 %.1647
   store i8 %.sink1640, ptr %300, align 1
@@ -2932,7 +2932,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNext_u8(ptr noundef readonly cap
   %383 = ashr i32 %370, %24
   %.not1107.us = icmp ult i32 %383, 256
   %384 = trunc nuw i32 %383 to i8
-  %385 = icmp sgt i32 %383, -1
+  %385 = icmp sgt i32 %370, -1
   %.1633 = sext i1 %385 to i8
   %.sink1623 = select i1 %.not1107.us, i8 %384, i8 %.1633
   store i8 %.sink1623, ptr %.89921257.us, align 1
@@ -2940,7 +2940,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNext_u8(ptr noundef readonly cap
   %.not1108.us = icmp ult i32 %386, 256
   %387 = getelementptr inbounds nuw i8, ptr %.89921257.us, i64 %84
   %388 = trunc nuw i32 %386 to i8
-  %389 = icmp sgt i32 %386, -1
+  %389 = icmp sgt i32 %382, -1
   %.1648 = sext i1 %389 to i8
   %.sink1641 = select i1 %.not1108.us, i8 %388, i8 %.1648
   store i8 %.sink1641, ptr %387, align 1
@@ -3072,7 +3072,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNext_u8(ptr noundef readonly cap
   %482 = ashr i32 %467, %24
   %.not1111.us = icmp ult i32 %482, 256
   %483 = trunc nuw i32 %482 to i8
-  %484 = icmp sgt i32 %482, -1
+  %484 = icmp sgt i32 %467, -1
   %.1634 = sext i1 %484 to i8
   %.sink1624 = select i1 %.not1111.us, i8 %483, i8 %.1634
   store i8 %.sink1624, ptr %.79911278.us, align 1
@@ -3080,7 +3080,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNext_u8(ptr noundef readonly cap
   %.not1112.us = icmp ult i32 %485, 256
   %486 = getelementptr inbounds nuw i8, ptr %.79911278.us, i64 %84
   %487 = trunc nuw i32 %485 to i8
-  %488 = icmp sgt i32 %485, -1
+  %488 = icmp sgt i32 %481, -1
   %.1649 = sext i1 %488 to i8
   %.sink1642 = select i1 %.not1112.us, i8 %487, i8 %.1649
   store i8 %.sink1642, ptr %486, align 1
@@ -3226,7 +3226,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNext_u8(ptr noundef readonly cap
   %593 = ashr i32 %576, %24
   %.not1115.us = icmp ult i32 %593, 256
   %594 = trunc nuw i32 %593 to i8
-  %595 = icmp sgt i32 %593, -1
+  %595 = icmp sgt i32 %576, -1
   %.1635 = sext i1 %595 to i8
   %.sink1625 = select i1 %.not1115.us, i8 %594, i8 %.1635
   store i8 %.sink1625, ptr %.59891301.us, align 1
@@ -3234,7 +3234,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNext_u8(ptr noundef readonly cap
   %.not1116.us = icmp ult i32 %596, 256
   %597 = getelementptr inbounds nuw i8, ptr %.59891301.us, i64 %84
   %598 = trunc nuw i32 %596 to i8
-  %599 = icmp sgt i32 %596, -1
+  %599 = icmp sgt i32 %592, -1
   %.1650 = sext i1 %599 to i8
   %.sink1643 = select i1 %.not1116.us, i8 %598, i8 %.1650
   store i8 %.sink1643, ptr %597, align 1
@@ -3332,7 +3332,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNext_u8(ptr noundef readonly cap
   %661 = ashr i32 %656, %24
   %.not1091.us = icmp ult i32 %661, 256
   %662 = trunc nuw i32 %661 to i8
-  %663 = icmp sgt i32 %661, -1
+  %663 = icmp sgt i32 %656, -1
   %.1636 = sext i1 %663 to i8
   %.sink1626 = select i1 %.not1091.us, i8 %662, i8 %.1636
   store i8 %.sink1626, ptr %.129961319.us, align 1
@@ -3340,7 +3340,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNext_u8(ptr noundef readonly cap
   %.not1092.us = icmp ult i32 %664, 256
   %665 = getelementptr inbounds nuw i8, ptr %.129961319.us, i64 %84
   %666 = trunc nuw i32 %664 to i8
-  %667 = icmp sgt i32 %664, -1
+  %667 = icmp sgt i32 %660, -1
   %.1651 = sext i1 %667 to i8
   %.sink1644 = select i1 %.not1092.us, i8 %666, i8 %.1651
   store i8 %.sink1644, ptr %665, align 1
@@ -3550,7 +3550,7 @@ define hidden range(i32 0, 2) i32 @mlib_i_convMxNext_u8(ptr noundef readonly cap
   %715 = ashr i32 %.0971.lcssa, %24
   %.not1089 = icmp ult i32 %715, 256
   %716 = trunc nuw i32 %715 to i8
-  %717 = icmp sgt i32 %715, -1
+  %717 = icmp sgt i32 %.0971.lcssa, -1
   %.1637 = sext i1 %717 to i8
   %.sink1630 = select i1 %.not1089, i8 %716, i8 %.1637
   store i8 %.sink1630, ptr %.139971366, align 1

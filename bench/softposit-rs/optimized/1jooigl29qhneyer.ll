@@ -87,12 +87,12 @@ define noundef i32 @"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2
   %45 = add nuw i64 %44, %43
   %46 = lshr i64 %45, 32
   %47 = trunc nuw i64 %46 to i32
-  %48 = icmp slt i32 %23, 0
-  %49 = icmp ugt i32 %20, 3
+  %48 = sub nsw i32 0, %23
+  %49 = icmp samesign ugt i32 %20, 3
   %.35 = sext i1 %49 to i32
-  %.028.neg = select i1 %48, i32 1, i32 %.35
-  %.024 = tail call i32 @llvm.abs.i32(i32 %23, i1 true)
-  %50 = icmp samesign ugt i32 %.024, 31
+  %.028.neg = select i1 %21, i32 1, i32 %.35
+  %.024 = select i1 %21, i32 %48, i32 %23
+  %50 = icmp sgt i32 %.024, 31
   %.neg = select i1 %50, i32 %.028.neg, i32 0
   %51 = add i32 %.neg, %47
   %52 = sub i32 0, %51
@@ -169,12 +169,12 @@ define noundef i32 @"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2
   %41 = add nuw i64 %40, %39
   %42 = lshr i64 %41, 32
   %43 = trunc nuw i64 %42 to i32
-  %44 = icmp slt i64 %23, 0
-  %45 = icmp ugt i64 %20, 3
+  %44 = sub nsw i64 0, %23
+  %45 = icmp samesign ugt i64 %20, 3
   %.35 = sext i1 %45 to i32
-  %.028.neg = select i1 %44, i32 1, i32 %.35
-  %.024 = tail call i64 @llvm.abs.i64(i64 %23, i1 true)
-  %46 = icmp samesign ugt i64 %.024, 31
+  %.028.neg = select i1 %21, i32 1, i32 %.35
+  %.024 = select i1 %21, i64 %44, i64 %23
+  %46 = icmp sgt i64 %.024, 31
   %.neg = select i1 %46, i32 %.028.neg, i32 0
   %47 = add i32 %.neg, %43
   %48 = sub i32 0, %47
@@ -2346,12 +2346,12 @@ define range(i64 0, -4294967294) i64 @"_ZN59_$LT$softposit..p32e2..P32E2$u20$as$
   %47 = add nuw i64 %46, %45
   %48 = lshr i64 %47, 32
   %49 = trunc nuw i64 %48 to i32
-  %50 = icmp slt i64 %29, 0
-  %51 = icmp ugt i64 %26, 3
+  %50 = sub nsw i64 0, %29
+  %51 = icmp samesign ugt i64 %26, 3
   %.35.i = sext i1 %51 to i32
-  %.028.neg.i = select i1 %50, i32 1, i32 %.35.i
-  %.024.i = tail call i64 @llvm.abs.i64(i64 %29, i1 true)
-  %52 = icmp samesign ugt i64 %.024.i, 31
+  %.028.neg.i = select i1 %27, i32 1, i32 %.35.i
+  %.024.i = select i1 %27, i64 %50, i64 %29
+  %52 = icmp sgt i64 %.024.i, 31
   %.neg.i = select i1 %52, i32 %.028.neg.i, i32 0
   %53 = add i32 %.neg.i, %49
   %54 = sub i32 0, %53
@@ -3792,9 +3792,6 @@ declare double @llvm.fabs.f64(double) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9

@@ -12135,26 +12135,26 @@ define noundef range(i64 0, 2305843009213693952) i64 @_ZN4fish5wutil14wstr_offse
   %17 = ptrtoint ptr %0 to i64
   %18 = ptrtoint ptr %2 to i64
   %19 = sub i64 %17, %18
-  %20 = ashr exact i64 %19, 2
-  %21 = icmp sgt i64 %20, -1
-  br i1 %21, label %27, label %22, !prof !392
+  %20 = icmp sgt i64 %19, -1
+  br i1 %20, label %26, label %21, !prof !392
 
-22:                                               ; preds = %16
+21:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   store ptr @anon.91263fab832fb979df71ce1208d38572.235, ptr %5, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1, ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 0, ptr %26, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 1, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr null, ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 0, ptr %25, align 8
   call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.91263fab832fb979df71ce1208d38572.236) #28
   unreachable
 
-27:                                               ; preds = %16
-  ret i64 %20
+26:                                               ; preds = %16
+  %27 = lshr exact i64 %19, 2
+  ret i64 %27
 }
 
 ; Function Attrs: nonlazybind uwtable

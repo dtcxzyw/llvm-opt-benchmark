@@ -4552,47 +4552,49 @@ _ZN16JVMCINMethodData10initializeEiiPKcPP17FailedSpeculation.exit: ; preds = %18
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16JVMCINMethodData22add_failed_speculationEP7nmethodl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = ashr i64 %2, 5
-  %or.cond = icmp ult i64 %4, 2147483648
-  br i1 %or.cond, label %7, label %5
+  %5 = icmp sgt i64 %2, -1
+  %6 = icmp slt i64 %4, 2147483648
+  %or.cond = and i1 %5, %6
+  br i1 %or.cond, label %9, label %7
 
-5:                                                ; preds = %3
-  %6 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %6, align 1
+7:                                                ; preds = %3
+  %8 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %8, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 779, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i64 noundef %4) #18
   unreachable
 
-7:                                                ; preds = %3
-  %8 = trunc i64 %2 to i32
-  %9 = and i32 %8, 31
-  %10 = and i64 %2, 31
-  %11 = add nuw nsw i64 %4, %10
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 196
-  %15 = load i32, ptr %14, align 4
-  %gepdiff.i = sub i32 %13, %15
-  %16 = zext i32 %gepdiff.i to i64
-  %17 = icmp samesign ugt i64 %11, %16
-  br i1 %17, label %18, label %22
+9:                                                ; preds = %3
+  %10 = trunc i64 %2 to i32
+  %11 = and i32 %10, 31
+  %12 = and i64 %2, 31
+  %13 = add nuw nsw i64 %4, %12
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %15 = load i32, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 196
+  %17 = load i32, ptr %16, align 4
+  %gepdiff.i = sub i32 %15, %17
+  %18 = zext i32 %gepdiff.i to i64
+  %19 = icmp sgt i64 %13, %18
+  br i1 %19, label %20, label %24
 
-18:                                               ; preds = %7
-  %19 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %19, align 1
-  %20 = load i32, ptr %12, align 8
-  %21 = load i32, ptr %14, align 4
-  %gepdiff.i18 = sub i32 %20, %21
-  tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 782, ptr noundef nonnull @.str.26, i64 noundef %2, i64 noundef %4, i32 noundef %9, i32 noundef %gepdiff.i18) #18
+20:                                               ; preds = %9
+  %21 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %21, align 1
+  %22 = load i32, ptr %14, align 8
+  %23 = load i32, ptr %16, align 4
+  %gepdiff.i18 = sub i32 %22, %23
+  tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 782, ptr noundef nonnull @.str.26, i64 noundef %2, i64 noundef %4, i32 noundef %11, i32 noundef %gepdiff.i18) #18
   unreachable
 
-22:                                               ; preds = %7
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %24 = load ptr, ptr %23, align 8
-  %25 = sext i32 %15 to i64
-  %26 = getelementptr inbounds i8, ptr %24, i64 %25
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %4
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call noundef zeroext i1 @_ZN17FailedSpeculation22add_failed_speculationEP7nmethodPPS_Phi(ptr noundef nonnull %1, ptr noundef %29, ptr noundef %27, i32 noundef %9) #16
+24:                                               ; preds = %9
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %26 = load ptr, ptr %25, align 8
+  %27 = sext i32 %17 to i64
+  %28 = getelementptr inbounds i8, ptr %26, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %4
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call noundef zeroext i1 @_ZN17FailedSpeculation22add_failed_speculationEP7nmethodPPS_Phi(ptr noundef nonnull %1, ptr noundef %31, ptr noundef %29, i32 noundef %11) #16
   ret void
 }
 

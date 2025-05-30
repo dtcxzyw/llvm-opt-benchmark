@@ -12893,7 +12893,7 @@ define void @stbi__idct_block(ptr noundef writeonly captures(none) %0, i32 nound
   %192 = ashr i32 %191, 17
   %193 = icmp ugt i32 %192, 255
   %194 = trunc nuw i32 %192 to i8
-  %195 = icmp sgt i32 %192, -1
+  %195 = icmp sgt i32 %191, -1
   %spec.select.i = sext i1 %195 to i8
   %.0.i = select i1 %193, i8 %spec.select.i, i8 %194
   store i8 %.0.i, ptr %.0201220, align 1, !tbaa !21
@@ -12901,7 +12901,7 @@ define void @stbi__idct_block(ptr noundef writeonly captures(none) %0, i32 nound
   %197 = ashr i32 %196, 17
   %198 = icmp ugt i32 %197, 255
   %199 = trunc nuw i32 %197 to i8
-  %200 = icmp sgt i32 %197, -1
+  %200 = icmp sgt i32 %196, -1
   %spec.select.i203 = sext i1 %200 to i8
   %.0.i204 = select i1 %198, i8 %spec.select.i203, i8 %199
   %201 = getelementptr inbounds nuw i8, ptr %.0201220, i64 7
@@ -12910,7 +12910,7 @@ define void @stbi__idct_block(ptr noundef writeonly captures(none) %0, i32 nound
   %203 = ashr i32 %202, 17
   %204 = icmp ugt i32 %203, 255
   %205 = trunc nuw i32 %203 to i8
-  %206 = icmp sgt i32 %203, -1
+  %206 = icmp sgt i32 %202, -1
   %spec.select.i205 = sext i1 %206 to i8
   %.0.i206 = select i1 %204, i8 %spec.select.i205, i8 %205
   %207 = getelementptr inbounds nuw i8, ptr %.0201220, i64 1
@@ -12919,7 +12919,7 @@ define void @stbi__idct_block(ptr noundef writeonly captures(none) %0, i32 nound
   %209 = ashr i32 %208, 17
   %210 = icmp ugt i32 %209, 255
   %211 = trunc nuw i32 %209 to i8
-  %212 = icmp sgt i32 %209, -1
+  %212 = icmp sgt i32 %208, -1
   %spec.select.i207 = sext i1 %212 to i8
   %.0.i208 = select i1 %210, i8 %spec.select.i207, i8 %211
   %213 = getelementptr inbounds nuw i8, ptr %.0201220, i64 6
@@ -12928,7 +12928,7 @@ define void @stbi__idct_block(ptr noundef writeonly captures(none) %0, i32 nound
   %215 = ashr i32 %214, 17
   %216 = icmp ugt i32 %215, 255
   %217 = trunc nuw i32 %215 to i8
-  %218 = icmp sgt i32 %215, -1
+  %218 = icmp sgt i32 %214, -1
   %spec.select.i209 = sext i1 %218 to i8
   %.0.i210 = select i1 %216, i8 %spec.select.i209, i8 %217
   %219 = getelementptr inbounds nuw i8, ptr %.0201220, i64 2
@@ -12937,7 +12937,7 @@ define void @stbi__idct_block(ptr noundef writeonly captures(none) %0, i32 nound
   %221 = ashr i32 %220, 17
   %222 = icmp ugt i32 %221, 255
   %223 = trunc nuw i32 %221 to i8
-  %224 = icmp sgt i32 %221, -1
+  %224 = icmp sgt i32 %220, -1
   %spec.select.i211 = sext i1 %224 to i8
   %.0.i212 = select i1 %222, i8 %spec.select.i211, i8 %223
   %225 = getelementptr inbounds nuw i8, ptr %.0201220, i64 5
@@ -12946,7 +12946,7 @@ define void @stbi__idct_block(ptr noundef writeonly captures(none) %0, i32 nound
   %227 = ashr i32 %226, 17
   %228 = icmp ugt i32 %227, 255
   %229 = trunc nuw i32 %227 to i8
-  %230 = icmp sgt i32 %227, -1
+  %230 = icmp sgt i32 %226, -1
   %spec.select.i213 = sext i1 %230 to i8
   %.0.i214 = select i1 %228, i8 %spec.select.i213, i8 %229
   %231 = getelementptr inbounds nuw i8, ptr %.0201220, i64 3
@@ -12955,7 +12955,7 @@ define void @stbi__idct_block(ptr noundef writeonly captures(none) %0, i32 nound
   %233 = ashr i32 %232, 17
   %234 = icmp ugt i32 %233, 255
   %235 = trunc nuw i32 %233 to i8
-  %236 = icmp sgt i32 %233, -1
+  %236 = icmp sgt i32 %232, -1
   %spec.select.i215 = sext i1 %236 to i8
   %.0.i216 = select i1 %234, i8 %spec.select.i215, i8 %235
   %237 = getelementptr inbounds nuw i8, ptr %.0201220, i64 4
@@ -17432,18 +17432,24 @@ define void @stbi__YCbCr_to_RGB_row(ptr noundef writeonly captures(none) %0, ptr
   %32 = ashr i32 %24, 20
   %33 = ashr i32 %29, 20
   %34 = ashr i32 %31, 20
-  %35 = tail call i32 @llvm.smax.i32(i32 %32, i32 0)
-  %36 = tail call i32 @llvm.umin.i32(i32 %35, i32 255)
-  %37 = tail call i32 @llvm.smax.i32(i32 %33, i32 0)
-  %38 = tail call i32 @llvm.umin.i32(i32 %37, i32 255)
-  %39 = tail call i32 @llvm.smax.i32(i32 %34, i32 0)
-  %40 = tail call i32 @llvm.umin.i32(i32 %39, i32 255)
-  %41 = trunc nuw i32 %36 to i8
+  %35 = icmp ugt i32 %32, 255
+  %36 = icmp slt i32 %24, 0
+  %. = select i1 %36, i32 0, i32 255
+  %.036 = select i1 %35, i32 %., i32 %32
+  %37 = icmp ugt i32 %33, 255
+  %38 = icmp slt i32 %29, 0
+  %.42 = select i1 %38, i32 0, i32 255
+  %.035 = select i1 %37, i32 %.42, i32 %33
+  %39 = icmp ugt i32 %34, 255
+  %40 = icmp slt i32 %31, 0
+  %.43 = select i1 %40, i32 0, i32 255
+  %.034 = select i1 %39, i32 %.43, i32 %34
+  %41 = trunc nuw i32 %.036 to i8
   store i8 %41, ptr %.045, align 1, !tbaa !21
-  %42 = trunc nuw i32 %38 to i8
+  %42 = trunc nuw i32 %.035 to i8
   %43 = getelementptr inbounds nuw i8, ptr %.045, i64 1
   store i8 %42, ptr %43, align 1, !tbaa !21
-  %44 = trunc nuw i32 %40 to i8
+  %44 = trunc nuw i32 %.034 to i8
   %45 = getelementptr inbounds nuw i8, ptr %.045, i64 2
   store i8 %44, ptr %45, align 1, !tbaa !21
   %46 = getelementptr inbounds nuw i8, ptr %.045, i64 3
@@ -17564,18 +17570,24 @@ define void @stbi__YCbCr_to_RGB_simd(ptr noundef writeonly captures(none) %0, pt
   %81 = ashr i32 %73, 20
   %82 = ashr i32 %78, 20
   %83 = ashr i32 %80, 20
-  %84 = tail call i32 @llvm.smax.i32(i32 %81, i32 0)
-  %85 = tail call i32 @llvm.umin.i32(i32 %84, i32 255)
-  %86 = tail call i32 @llvm.smax.i32(i32 %82, i32 0)
-  %87 = tail call i32 @llvm.umin.i32(i32 %86, i32 255)
-  %88 = tail call i32 @llvm.smax.i32(i32 %83, i32 0)
-  %89 = tail call i32 @llvm.umin.i32(i32 %88, i32 255)
-  %90 = trunc nuw i32 %85 to i8
+  %84 = icmp ugt i32 %81, 255
+  %85 = icmp slt i32 %73, 0
+  %. = select i1 %85, i32 0, i32 255
+  %.093 = select i1 %84, i32 %., i32 %81
+  %86 = icmp ugt i32 %82, 255
+  %87 = icmp slt i32 %78, 0
+  %.100 = select i1 %87, i32 0, i32 255
+  %.092 = select i1 %86, i32 %.100, i32 %82
+  %88 = icmp ugt i32 %83, 255
+  %89 = icmp slt i32 %80, 0
+  %.101 = select i1 %89, i32 0, i32 255
+  %.091 = select i1 %88, i32 %.101, i32 %83
+  %90 = trunc nuw i32 %.093 to i8
   store i8 %90, ptr %.2106, align 1, !tbaa !21
-  %91 = trunc nuw i32 %87 to i8
+  %91 = trunc nuw i32 %.092 to i8
   %92 = getelementptr inbounds nuw i8, ptr %.2106, i64 1
   store i8 %91, ptr %92, align 1, !tbaa !21
-  %93 = trunc nuw i32 %89 to i8
+  %93 = trunc nuw i32 %.091 to i8
   %94 = getelementptr inbounds nuw i8, ptr %.2106, i64 2
   store i8 %93, ptr %94, align 1, !tbaa !21
   %95 = getelementptr inbounds nuw i8, ptr %.2106, i64 3

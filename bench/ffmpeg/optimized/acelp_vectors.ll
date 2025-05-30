@@ -150,11 +150,14 @@ define void @ff_acelp_weighted_vector_sum(ptr noundef writeonly captures(none) %
   %22 = add nsw i32 %17, %12
   %23 = add i32 %22, %21
   %24 = ashr i32 %23, %6
-  %25 = tail call i32 @llvm.smax.i32(i32 %24, i32 -32768)
-  %26 = tail call i32 @llvm.smin.i32(i32 %25, i32 32767)
-  %.0.i = trunc nsw i32 %26 to i16
-  %27 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
-  store i16 %.0.i, ptr %27, align 2, !tbaa !7
+  %25 = add i32 %24, 32768
+  %.not.i = icmp ult i32 %25, 65536
+  %26 = icmp sgt i32 %23, -1
+  %27 = select i1 %26, i16 32767, i16 -32768
+  %28 = trunc i32 %24 to i16
+  %.0.i = select i1 %.not.i, i16 %28, i16 %27
+  %29 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  store i16 %.0.i, ptr %29, align 2, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !19
@@ -407,12 +410,6 @@ define void @ff_acelp_vectors_init(ptr noundef writeonly captures(none) initiali
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #6
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

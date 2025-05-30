@@ -1336,89 +1336,87 @@ define hidden void @_ZN8rawspeed12RawImageData9clearAreaENS_12iRectangle2DE(ptr 
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load i32, ptr %26, align 8, !tbaa !9, !noalias !145
   %28 = ashr i32 %27, 1
-  %29 = mul nuw nsw i32 %28, %25
+  %29 = mul nsw i32 %28, %25
   %30 = icmp sgt i32 %23, -1
   tail call void @llvm.assume(i1 %30)
   %31 = icmp sgt i32 %25, -1
   tail call void @llvm.assume(i1 %31)
-  %32 = icmp ugt i32 %27, 1
+  %32 = icmp samesign ugt i32 %27, 1
   tail call void @llvm.assume(i1 %32)
-  %33 = icmp sgt i32 %28, -1
+  %33 = icmp samesign uge i32 %28, %23
   tail call void @llvm.assume(i1 %33)
-  %34 = icmp samesign uge i32 %28, %23
-  tail call void @llvm.assume(i1 %34)
-  %35 = icmp eq i32 %23, 0
-  %36 = icmp ne i32 %25, 0
-  %37 = xor i1 %35, %36
-  tail call void @llvm.assume(i1 %37)
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %39 = load i32, ptr %38, align 8, !tbaa !150, !noalias !151
-  %40 = mul nsw i32 %39, %20
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 596
-  %42 = load i32, ptr %41, align 4, !tbaa !152, !noalias !151
-  %43 = mul nsw i32 %20, %.sroa.5.8.extract.trunc
-  %44 = icmp sgt i32 %40, -1
+  %34 = icmp eq i32 %23, 0
+  %35 = icmp ne i32 %25, 0
+  %36 = xor i1 %34, %35
+  tail call void @llvm.assume(i1 %36)
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %38 = load i32, ptr %37, align 8, !tbaa !150, !noalias !151
+  %39 = mul nsw i32 %38, %20
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 596
+  %41 = load i32, ptr %40, align 4, !tbaa !152, !noalias !151
+  %42 = mul nsw i32 %20, %.sroa.5.8.extract.trunc
+  %43 = icmp sgt i32 %39, -1
+  tail call void @llvm.assume(i1 %43)
+  %44 = icmp sgt i32 %41, -1
   tail call void @llvm.assume(i1 %44)
   %45 = icmp sgt i32 %42, -1
   tail call void @llvm.assume(i1 %45)
-  %46 = icmp sgt i32 %43, -1
+  %46 = icmp sgt i64 %5, -1
   tail call void @llvm.assume(i1 %46)
-  %47 = icmp sgt i64 %5, -1
-  tail call void @llvm.assume(i1 %47)
-  %48 = add nuw nsw i32 %43, %40
-  %49 = icmp samesign ule i32 %48, %23
-  tail call void @llvm.assume(i1 %49)
-  %50 = add nuw nsw i32 %42, %.sroa.5.12.extract.trunc
-  %51 = icmp samesign ule i32 %50, %25
-  tail call void @llvm.assume(i1 %51)
-  %52 = icmp eq i32 %43, 0
-  %53 = icmp samesign ugt i64 %5, 4294967295
-  %54 = xor i1 %52, %53
-  tail call void @llvm.assume(i1 %54)
-  %55 = icmp slt i32 %9, %.sroa.speculated.i
-  br i1 %55, label %.preheader.lr.ph, label %.loopexit
+  %47 = add nuw nsw i32 %42, %39
+  %48 = icmp samesign ule i32 %47, %23
+  tail call void @llvm.assume(i1 %48)
+  %49 = add nuw nsw i32 %41, %.sroa.5.12.extract.trunc
+  %50 = icmp samesign ule i32 %49, %25
+  tail call void @llvm.assume(i1 %50)
+  %51 = icmp eq i32 %42, 0
+  %52 = icmp samesign ugt i64 %5, 4294967295
+  %53 = xor i1 %51, %52
+  tail call void @llvm.assume(i1 %53)
+  %54 = icmp slt i32 %9, %.sroa.speculated.i
+  br i1 %54, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %16
-  %56 = mul nsw i32 %20, %10
-  %57 = icmp slt i32 %8, %56
-  %58 = icmp ne i32 %23, 0
-  br i1 %57, label %.preheader.lr.ph.split.us, label %.loopexit
+  %55 = mul nsw i32 %20, %10
+  %56 = icmp slt i32 %8, %55
+  %57 = icmp ne i32 %23, 0
+  br i1 %56, label %.preheader.lr.ph.split.us, label %.loopexit
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
-  tail call void @llvm.assume(i1 %58)
-  %59 = add nuw i32 %42, %9
-  %60 = mul i32 %28, %59
-  %61 = zext i32 %60 to i64
-  %62 = add nuw i32 %8, %40
-  %63 = zext i32 %62 to i64
-  %64 = add nuw nsw i64 %61, %63
-  %65 = shl nuw nsw i64 %64, 1
-  %66 = and i32 %27, -2
-  %67 = zext i32 %66 to i64
-  %68 = xor i32 %8, -1
-  %69 = add nsw i32 %56, %68
-  %70 = zext i32 %69 to i64
-  %71 = shl nuw nsw i64 %70, 1
-  %72 = add nuw nsw i64 %71, 2
-  %73 = getelementptr nuw i8, ptr %18, i64 %65
+  tail call void @llvm.assume(i1 %57)
+  %58 = add nuw i32 %41, %9
+  %59 = mul i32 %28, %58
+  %60 = zext i32 %59 to i64
+  %61 = add nuw i32 %8, %39
+  %62 = zext i32 %61 to i64
+  %63 = add nuw nsw i64 %60, %62
+  %64 = shl nuw nsw i64 %63, 1
+  %65 = zext i32 %28 to i64
+  %66 = shl nuw nsw i64 %65, 1
+  %67 = xor i32 %8, -1
+  %68 = add nsw i32 %55, %67
+  %69 = zext i32 %68 to i64
+  %70 = shl nuw nsw i64 %69, 1
+  %71 = add nuw nsw i64 %70, 2
+  %72 = getelementptr i8, ptr %18, i64 %64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us, %.preheader.lr.ph.split.us
   %indvar = phi i64 [ %indvar.next, %.preheader.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %.0629.us = phi i32 [ %81, %.preheader.us ], [ %9, %.preheader.lr.ph.split.us ]
-  %74 = mul nuw nsw i64 %indvar, %67
-  %scevgep = getelementptr nuw i8, ptr %73, i64 %74
-  %75 = icmp samesign ult i32 %.0629.us, %.sroa.5.12.extract.trunc
-  tail call void @llvm.assume(i1 %75)
-  %76 = add nuw nsw i32 %.0629.us, %42
-  %77 = icmp samesign ult i32 %76, %25
-  tail call void @llvm.assume(i1 %77)
-  %78 = mul nuw nsw i32 %76, %28
-  %79 = add nuw nsw i32 %78, %23
-  %80 = icmp samesign ule i32 %79, %29
-  tail call void @llvm.assume(i1 %80)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %scevgep, i8 0, i64 %72, i1 false), !tbaa !153
-  %81 = add nuw nsw i32 %.0629.us, 1
+  %.0629.us = phi i32 [ %80, %.preheader.us ], [ %9, %.preheader.lr.ph.split.us ]
+  %73 = mul i64 %66, %indvar
+  %scevgep = getelementptr i8, ptr %72, i64 %73
+  %74 = icmp samesign ult i32 %.0629.us, %.sroa.5.12.extract.trunc
+  tail call void @llvm.assume(i1 %74)
+  %75 = add nuw nsw i32 %.0629.us, %41
+  %76 = icmp samesign ult i32 %75, %25
+  tail call void @llvm.assume(i1 %76)
+  %77 = mul nuw nsw i32 %75, %28
+  %78 = add nuw nsw i32 %77, %23
+  %79 = icmp samesign ule i32 %78, %29
+  tail call void @llvm.assume(i1 %79)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %scevgep, i8 0, i64 %71, i1 false), !tbaa !153
+  %80 = add nuw nsw i32 %.0629.us, 1
   %indvar.next = add nuw nsw i64 %indvar, 1
   %lftr.wideiv = trunc i64 %indvar.next to i32
   %exitcond.not = icmp eq i32 %11, %lftr.wideiv

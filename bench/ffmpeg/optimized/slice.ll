@@ -714,15 +714,15 @@ alloc_slice.exit247.thread:                       ; preds = %.split.i
 265:                                              ; preds = %259
   %266 = load ptr, ptr %157, align 16, !tbaa !71
   %267 = getelementptr inbounds nuw %struct.SwsSlice, ptr %266, i64 %.0198.lcssa
-  %268 = ashr exact i32 %.1195, 1
+  %268 = lshr exact i32 %.1195, 1
   %269 = load i32, ptr %114, align 16, !tbaa !63
   %270 = getelementptr inbounds nuw i8, ptr %267, i64 24
   %271 = icmp sgt i32 %269, 15
-  %272 = ashr exact i32 %.1195, 2
+  %272 = lshr exact i32 %.1195, 2
+  %.not2529.i = icmp slt i32 %.1195, 0
   br i1 %271, label %.split.us.i252, label %.split.i248
 
 .split.us.i252:                                   ; preds = %265
-  %.not2529.i = icmp slt i32 %272, 0
   br i1 %.not2529.i, label %fill_ones.exit, label %.split.us.split.preheader.i
 
 .split.us.split.preheader.i:                      ; preds = %.split.us.i252
@@ -768,8 +768,7 @@ alloc_slice.exit247.thread:                       ; preds = %.split.i
   br i1 %exitcond69.not.i, label %._crit_edge.split.us.split.us38.i, label %.lr.ph31.us.us.i, !llvm.loop !88
 
 .split.i248:                                      ; preds = %265
-  %.not27.i = icmp slt i32 %268, 0
-  br i1 %.not27.i, label %fill_ones.exit, label %.split.split.preheader.i
+  br i1 %.not2529.i, label %fill_ones.exit, label %.split.split.preheader.i
 
 .split.split.preheader.i:                         ; preds = %.split.i248
   %283 = or disjoint i32 %268, 1

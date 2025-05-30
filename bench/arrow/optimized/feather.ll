@@ -14225,11 +14225,11 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef 4)
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !310
   %.pre = load ptr, ptr %29, align 8, !tbaa !311
-  %.pre45 = ptrtoint ptr %.pre to i64
+  %.pre44 = ptrtoint ptr %.pre to i64
   br label %37
 
 37:                                               ; preds = %36, %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i
-  %.pre-phi = phi i64 [ %.pre45, %36 ], [ %32, %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i ]
+  %.pre-phi = phi i64 [ %.pre44, %36 ], [ %32, %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i ]
   %38 = phi ptr [ %.pre.i.i.i, %36 ], [ %.pre4.i.i.i, %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i ]
   %39 = getelementptr inbounds i8, ptr %38, i64 -4
   store ptr %39, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !310
@@ -14248,16 +14248,16 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.ex
   %48 = sub i64 %47, %.pre-phi
   %49 = and i64 %48, 4294967295
   %50 = icmp samesign ult i64 %49, %46
-  br i1 %50, label %51, label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE8fill_bigEm.exit
+  br i1 %50, label %51, label %.lr.ph.preheader
 
 51:                                               ; preds = %37
   tail call void @_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %46)
   %.pre.i.i30 = load ptr, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !310
-  %.pre44 = load i32, ptr %7, align 8, !tbaa !225
-  br label %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE8fill_bigEm.exit
+  %.pre43 = load i32, ptr %7, align 8, !tbaa !225
+  br label %.lr.ph.preheader
 
-_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE8fill_bigEm.exit: ; preds = %37, %51
-  %52 = phi i32 [ %42, %37 ], [ %.pre44, %51 ]
+.lr.ph.preheader:                                 ; preds = %51, %37
+  %52 = phi i32 [ %42, %37 ], [ %.pre43, %51 ]
   %53 = phi ptr [ %39, %37 ], [ %.pre.i.i30, %51 ]
   %54 = sub nsw i64 0, %46
   %55 = getelementptr inbounds i8, ptr %53, i64 %54
@@ -14279,10 +14279,9 @@ _ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE8fill_bigEm.exit: ; 
   %66 = zext i32 %65 to i64
   %.neg = mul nsw i64 %66, -8
   %67 = getelementptr inbounds i8, ptr %63, i64 %.neg
-  %.not42 = icmp eq i32 %65, 0
-  br i1 %.not42, label %._crit_edge, label %.lr.ph
+  br label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE8fill_bigEm.exit
+._crit_edge:                                      ; preds = %.lr.ph
   store ptr %67, ptr %29, align 8, !tbaa !311
   store i32 0, ptr %64, align 8, !tbaa !313
   store i16 0, ptr %43, align 4, !tbaa !314
@@ -14293,8 +14292,8 @@ _ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE8fill_bigEm.exit: ; 
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %82, label %.loopexit.thread
 
-.lr.ph:                                           ; preds = %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE8fill_bigEm.exit, %.lr.ph
-  %.038 = phi ptr [ %80, %.lr.ph ], [ %67, %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE8fill_bigEm.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.038 = phi ptr [ %80, %.lr.ph ], [ %67, %.lr.ph.preheader ]
   %73 = load i32, ptr %.038, align 4, !tbaa !778
   %74 = sub i32 %42, %73
   %75 = trunc i32 %74 to i16
@@ -14350,7 +14349,7 @@ _ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE8fill_bigEm.exit: ; 
   br i1 %103, label %.loopexit.thread, label %114
 
 .loopexit.thread:                                 ; preds = %97, %82, %._crit_edge, %.loopexit
-  %.03748 = phi i32 [ %91, %.loopexit ], [ %69, %._crit_edge ], [ %69, %82 ], [ %69, %97 ]
+  %.03747 = phi i32 [ %91, %.loopexit ], [ %69, %._crit_edge ], [ %69, %82 ], [ %69, %97 ]
   %104 = phi i32 [ %42, %.loopexit ], [ %69, %._crit_edge ], [ %69, %82 ], [ %69, %97 ]
   %105 = phi ptr [ %102, %.loopexit ], [ %59, %._crit_edge ], [ %59, %82 ], [ %59, %97 ]
   %106 = ptrtoint ptr %105 to i64
@@ -14373,7 +14372,7 @@ _ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_small
   br label %114
 
 114:                                              ; preds = %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallIjEEvRKT_.exit, %.loopexit
-  %.03747 = phi i32 [ %.03748, %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallIjEEvRKT_.exit ], [ %91, %.loopexit ]
+  %.03746 = phi i32 [ %.03747, %_ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_smallIjEEvRKT_.exit ], [ %91, %.loopexit ]
   %115 = zext i32 %42 to i64
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %117 = load i64, ptr %116, align 8, !tbaa !226
@@ -14385,7 +14384,7 @@ _ZN22arrow_vendored_private11flatbuffers15vector_downwardIjE18scratch_push_small
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 %122
   %124 = sub i64 0, %118
   %125 = getelementptr inbounds i8, ptr %123, i64 %124
-  %126 = sub nsw i32 %.03747, %42
+  %126 = sub nsw i32 %.03746, %42
   store i32 %126, ptr %125, align 4, !tbaa !82
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 0, ptr %127, align 8, !tbaa !229

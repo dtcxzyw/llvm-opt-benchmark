@@ -954,7 +954,7 @@ define dso_local range(i32 0, 2) i32 @quicklistPushHead(ptr noundef captures(non
   br i1 %.not, label %21, label %20, !prof !26
 
 12:                                               ; preds = %3
-  %13 = icmp sgt i64 %8, -1
+  %13 = icmp sgt i64 %7, -1
   br i1 %13, label %14, label %isLargeElement.exit
 
 14:                                               ; preds = %12
@@ -993,7 +993,7 @@ isLargeElement.exit:                              ; preds = %12
   br i1 %.not14.i, label %45, label %_quicklistNodeAllowInsert.exit.thread, !prof !26
 
 29:                                               ; preds = %27
-  %30 = icmp sgt i64 %8, -1
+  %30 = icmp sgt i64 %7, -1
   br i1 %30, label %31, label %isLargeElement.exit.i
 
 31:                                               ; preds = %29
@@ -1028,7 +1028,7 @@ isLargeElement.exit.i:                            ; preds = %29
   %47 = load i64, ptr %46, align 8, !tbaa !15
   %48 = add i64 %2, 8
   %49 = add i64 %48, %47
-  %50 = icmp sgt i64 %8, -1
+  %50 = icmp sgt i64 %7, -1
   br i1 %50, label %_quicklistNodeAllowInsert.exit, label %.quicklistNodeLimit.exit.i_crit_edge.i
 
 .quicklistNodeLimit.exit.i_crit_edge.i:           ; preds = %45
@@ -1159,7 +1159,7 @@ define dso_local range(i32 0, 2) i32 @quicklistPushTail(ptr noundef captures(non
   br i1 %.not, label %22, label %21, !prof !26
 
 13:                                               ; preds = %3
-  %14 = icmp sgt i64 %9, -1
+  %14 = icmp sgt i64 %8, -1
   br i1 %14, label %15, label %isLargeElement.exit
 
 15:                                               ; preds = %13
@@ -1198,7 +1198,7 @@ isLargeElement.exit:                              ; preds = %13
   br i1 %.not14.i, label %46, label %_quicklistNodeAllowInsert.exit.thread, !prof !26
 
 30:                                               ; preds = %28
-  %31 = icmp sgt i64 %9, -1
+  %31 = icmp sgt i64 %8, -1
   br i1 %31, label %32, label %isLargeElement.exit.i
 
 32:                                               ; preds = %30
@@ -1233,7 +1233,7 @@ isLargeElement.exit.i:                            ; preds = %30
   %48 = load i64, ptr %47, align 8, !tbaa !15
   %49 = add i64 %2, 8
   %50 = add i64 %49, %48
-  %51 = icmp sgt i64 %9, -1
+  %51 = icmp sgt i64 %8, -1
   br i1 %51, label %_quicklistNodeAllowInsert.exit, label %.quicklistNodeLimit.exit.i_crit_edge.i
 
 .quicklistNodeLimit.exit.i_crit_edge.i:           ; preds = %46
@@ -1712,7 +1712,7 @@ define dso_local void @quicklistReplaceEntry(ptr noundef captures(none) %0, ptr 
   br i1 %.not133, label %29, label %.thread, !prof !26
 
 21:                                               ; preds = %13
-  %22 = icmp sgt i64 %17, -1
+  %22 = icmp sgt i64 %16, -1
   br i1 %22, label %23, label %isLargeElement.exit
 
 23:                                               ; preds = %21
@@ -1791,7 +1791,7 @@ isLargeElement.exit:                              ; preds = %21
   br i1 %.not134, label %85, label %69
 
 61:                                               ; preds = %53
-  %62 = icmp sgt i64 %57, -1
+  %62 = icmp sgt i64 %56, -1
   br i1 %62, label %63, label %isLargeElement.exit124
 
 63:                                               ; preds = %61
@@ -1876,7 +1876,7 @@ isLargeElement.exit124:                           ; preds = %61
   br label %isLargeElement.exit130
 
 105:                                              ; preds = %96
-  %106 = icmp sgt i64 %100, -1
+  %106 = icmp sgt i64 %99, -1
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %105
@@ -2176,7 +2176,7 @@ define dso_local ptr @_quicklistMergeNodes(ptr noundef %0, ptr noundef %1) local
   %35 = add i64 %32, 4294967289
   %36 = add i64 %35, %34
   %37 = and i64 %36, 4294967295
-  %38 = icmp sgt i64 %6, -1
+  %38 = icmp sgt i64 %5, -1
   br i1 %38, label %_quicklistNodeAllowMerge.exit, label %quicklistNodeLimit.exit.i.i
 
 quicklistNodeLimit.exit.i.i:                      ; preds = %30
@@ -2230,7 +2230,7 @@ _quicklistNodeAllowMerge.exit.thread:             ; preds = %quicklistNodeLimit.
   %68 = add i64 %65, 4294967289
   %69 = add i64 %68, %67
   %70 = and i64 %69, 4294967295
-  %71 = icmp sgt i64 %6, -1
+  %71 = icmp sgt i64 %5, -1
   br i1 %71, label %_quicklistNodeAllowMerge.exit60, label %quicklistNodeLimit.exit.i.i52
 
 quicklistNodeLimit.exit.i.i52:                    ; preds = %63
@@ -2283,7 +2283,7 @@ _quicklistNodeAllowMerge.exit60.thread:           ; preds = %quicklistNodeLimit.
   %100 = add i64 %97, 4294967289
   %101 = add i64 %100, %99
   %102 = and i64 %101, 4294967295
-  %103 = icmp sgt i64 %6, -1
+  %103 = icmp sgt i64 %5, -1
   br i1 %103, label %_quicklistNodeAllowMerge.exit71, label %quicklistNodeLimit.exit.i.i63
 
 quicklistNodeLimit.exit.i.i63:                    ; preds = %95
@@ -2340,7 +2340,7 @@ _quicklistNodeAllowMerge.exit71.thread:           ; preds = %quicklistNodeLimit.
   %135 = add i64 %132, 4294967289
   %136 = add i64 %135, %134
   %137 = and i64 %136, 4294967295
-  %138 = icmp sgt i64 %6, -1
+  %138 = icmp sgt i64 %5, -1
   br i1 %138, label %_quicklistNodeAllowMerge.exit82, label %quicklistNodeLimit.exit.i.i74
 
 quicklistNodeLimit.exit.i.i74:                    ; preds = %130
@@ -2706,7 +2706,7 @@ define dso_local void @_quicklistInsert(ptr noundef captures(none) %0, ptr nound
   br i1 %.not353, label %28, label %25, !prof !26
 
 17:                                               ; preds = %14
-  %18 = icmp sgt i64 %10, -1
+  %18 = icmp sgt i64 %9, -1
   br i1 %18, label %19, label %isLargeElement.exit
 
 19:                                               ; preds = %17
@@ -2813,7 +2813,7 @@ __quicklistInsertNode.exit:                       ; preds = %53, %49
   br i1 %.not14.i, label %87, label %_quicklistNodeAllowInsert.exit, !prof !26
 
 71:                                               ; preds = %68
-  %72 = icmp sgt i64 %10, -1
+  %72 = icmp sgt i64 %9, -1
   br i1 %72, label %73, label %isLargeElement.exit.i
 
 73:                                               ; preds = %71
@@ -2848,7 +2848,7 @@ isLargeElement.exit.i:                            ; preds = %71
   %89 = load i64, ptr %88, align 8, !tbaa !15
   %90 = add i64 %3, 8
   %91 = add i64 %90, %89
-  %92 = icmp sgt i64 %10, -1
+  %92 = icmp sgt i64 %9, -1
   br i1 %92, label %96, label %.quicklistNodeLimit.exit.i_crit_edge.i
 
 .quicklistNodeLimit.exit.i_crit_edge.i:           ; preds = %87
@@ -2918,7 +2918,7 @@ _quicklistNodeAllowInsert.exit:                   ; preds = %63, %70, %73, %isLa
   br i1 %.not14.i275, label %137, label %_quicklistNodeAllowInsert.exit294.thread, !prof !26
 
 121:                                              ; preds = %118
-  %122 = icmp sgt i64 %10, -1
+  %122 = icmp sgt i64 %9, -1
   br i1 %122, label %123, label %isLargeElement.exit.i289
 
 123:                                              ; preds = %121
@@ -2953,7 +2953,7 @@ isLargeElement.exit.i289:                         ; preds = %121
   %139 = load i64, ptr %138, align 8, !tbaa !15
   %140 = add i64 %3, 8
   %141 = add i64 %140, %139
-  %142 = icmp sgt i64 %10, -1
+  %142 = icmp sgt i64 %9, -1
   br i1 %142, label %_quicklistNodeAllowInsert.exit294, label %.quicklistNodeLimit.exit.i_crit_edge.i277
 
 .quicklistNodeLimit.exit.i_crit_edge.i277:        ; preds = %137
@@ -3016,7 +3016,7 @@ _quicklistNodeAllowInsert.exit294.thread:         ; preds = %quicklistNodeLimit.
   br i1 %.not14.i297, label %182, label %_quicklistNodeAllowInsert.exit316.thread, !prof !26
 
 166:                                              ; preds = %163
-  %167 = icmp sgt i64 %10, -1
+  %167 = icmp sgt i64 %9, -1
   br i1 %167, label %168, label %isLargeElement.exit.i311
 
 168:                                              ; preds = %166
@@ -3051,7 +3051,7 @@ isLargeElement.exit.i311:                         ; preds = %166
   %184 = load i64, ptr %183, align 8, !tbaa !15
   %185 = add i64 %3, 8
   %186 = add i64 %185, %184
-  %187 = icmp sgt i64 %10, -1
+  %187 = icmp sgt i64 %9, -1
   br i1 %187, label %_quicklistNodeAllowInsert.exit316, label %.quicklistNodeLimit.exit.i_crit_edge.i299
 
 .quicklistNodeLimit.exit.i_crit_edge.i299:        ; preds = %182
@@ -3098,7 +3098,7 @@ _quicklistNodeAllowInsert.exit316.thread:         ; preds = %quicklistNodeLimit.
   br i1 %.not352, label %227, label %211, !prof !26
 
 203:                                              ; preds = %.thread
-  %204 = icmp sgt i64 %10, -1
+  %204 = icmp sgt i64 %9, -1
   br i1 %204, label %205, label %isLargeElement.exit322
 
 205:                                              ; preds = %203

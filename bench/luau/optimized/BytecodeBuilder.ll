@@ -6821,8 +6821,8 @@ define dso_local void @_ZN4Luau15BytecodeBuilder9foldJumpsEv(ptr noundef nonnull
   %11 = load ptr, ptr %10, align 8, !tbaa !131
   br label %12
 
-12:                                               ; preds = %.lr.ph39, %45
-  %.sroa.027.037 = phi ptr [ %7, %.lr.ph39 ], [ %47, %45 ]
+12:                                               ; preds = %.lr.ph39, %40
+  %.sroa.027.037 = phi ptr [ %7, %.lr.ph39 ], [ %42, %40 ]
   %13 = load i32, ptr %.sroa.027.037, align 4, !tbaa !298
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds nuw i32, ptr %11, i64 %14
@@ -6833,64 +6833,59 @@ define dso_local void @_ZN4Luau15BytecodeBuilder9foldJumpsEv(ptr noundef nonnull
   %.pn30 = zext i32 %19 to i64
   %.025.in31 = getelementptr inbounds nuw i32, ptr %11, i64 %.pn30
   %.02532 = load i32, ptr %.025.in31, align 4, !tbaa !19
-  %20 = and i32 %.02532, 255
+  %20 = and i32 %.02532, -2147483393
   %21 = icmp eq i32 %20, 23
-  %22 = ashr i32 %.02532, 16
-  %23 = icmp sgt i32 %22, -1
-  %24 = and i1 %21, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge
+  br i1 %21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
-  %25 = phi i32 [ %30, %.lr.ph ], [ %22, %12 ]
-  %.033 = phi i32 [ %27, %.lr.ph ], [ %19, %12 ]
-  %26 = add i32 %.033, 1
-  %27 = add i32 %26, %25
-  %.pn = zext i32 %27 to i64
+  %.02534 = phi i32 [ %.025, %.lr.ph ], [ %.02532, %12 ]
+  %.033 = phi i32 [ %24, %.lr.ph ], [ %19, %12 ]
+  %22 = lshr i32 %.02534, 16
+  %23 = add i32 %.033, 1
+  %24 = add i32 %23, %22
+  %.pn = zext i32 %24 to i64
   %.025.in = getelementptr inbounds nuw i32, ptr %11, i64 %.pn
   %.025 = load i32, ptr %.025.in, align 4, !tbaa !19
-  %28 = and i32 %.025, 255
-  %29 = icmp eq i32 %28, 23
-  %30 = ashr i32 %.025, 16
-  %31 = icmp sgt i32 %30, -1
-  %32 = and i1 %29, %31
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !300
+  %25 = and i32 %.025, -2147483393
+  %26 = icmp eq i32 %25, 23
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !300
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
-  %.0.lcssa = phi i32 [ %19, %12 ], [ %27, %.lr.ph ]
+  %.0.lcssa = phi i32 [ %19, %12 ], [ %24, %.lr.ph ]
   %.025.lcssa = phi i32 [ %.02532, %12 ], [ %.025, %.lr.ph ]
-  %.lcssa = phi i32 [ %20, %12 ], [ %28, %.lr.ph ]
-  %33 = xor i32 %13, -1
-  %34 = add i32 %.0.lcssa, %33
-  %35 = and i32 %16, 255
-  %36 = icmp eq i32 %35, 23
-  %37 = icmp eq i32 %.lcssa, 22
-  %or.cond = and i1 %36, %37
-  br i1 %or.cond, label %.sink.split, label %38
+  %27 = and i32 %.025.lcssa, 255
+  %28 = xor i32 %13, -1
+  %29 = add i32 %.0.lcssa, %28
+  %30 = and i32 %16, 255
+  %31 = icmp eq i32 %30, 23
+  %32 = icmp eq i32 %27, 22
+  %or.cond = and i1 %31, %32
+  br i1 %or.cond, label %.sink.split, label %33
 
-38:                                               ; preds = %._crit_edge
-  %39 = add i32 %34, 32768
-  %40 = icmp ult i32 %39, 65536
-  br i1 %40, label %41, label %45
+33:                                               ; preds = %._crit_edge
+  %34 = add i32 %29, 32768
+  %35 = icmp ult i32 %34, 65536
+  br i1 %35, label %36, label %40
 
-41:                                               ; preds = %38
-  %42 = and i32 %16, 65535
-  %43 = shl nsw i32 %34, 16
-  %44 = or disjoint i32 %43, %42
+36:                                               ; preds = %33
+  %37 = and i32 %16, 65535
+  %38 = shl nsw i32 %29, 16
+  %39 = or disjoint i32 %38, %37
   br label %.sink.split
 
-.sink.split:                                      ; preds = %._crit_edge, %41
-  %.sink = phi i32 [ %44, %41 ], [ %.025.lcssa, %._crit_edge ]
+.sink.split:                                      ; preds = %._crit_edge, %36
+  %.sink = phi i32 [ %39, %36 ], [ %.025.lcssa, %._crit_edge ]
   store i32 %.sink, ptr %15, align 4, !tbaa !19
-  br label %45
+  br label %40
 
-45:                                               ; preds = %.sink.split, %38
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.027.037, i64 4
-  store i32 %.0.lcssa, ptr %46, align 4, !tbaa !301
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.027.037, i64 8
-  %.not = icmp eq ptr %47, %9
+40:                                               ; preds = %.sink.split, %33
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.027.037, i64 4
+  store i32 %.0.lcssa, ptr %41, align 4, !tbaa !301
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.027.037, i64 8
+  %.not = icmp eq ptr %42, %9
   br i1 %.not, label %.loopexit, label %12
 
-.loopexit:                                        ; preds = %45, %5, %1
+.loopexit:                                        ; preds = %40, %5, %1
   ret void
 }
 

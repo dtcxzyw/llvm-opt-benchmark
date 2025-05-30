@@ -6123,12 +6123,12 @@ _ZSt13move_backwardIPN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8
   %40 = ptrtoint ptr %38 to i64
   %41 = ptrtoint ptr %39 to i64
   %42 = sub i64 %40, %41
-  %43 = ashr exact i64 %42, 4
-  %44 = icmp slt i64 %43, 0
-  br i1 %44, label %.lr.ph.preheader.i.i.i.i.i, label %_ZSt4copyIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPNS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEELb1EEEKSD_EEN9__gnu_cxx17__normal_iteratorISE_St6vectorISD_SaISD_EEEEET0_T_SP_SO_.exit
+  %43 = icmp slt i64 %42, 0
+  br i1 %43, label %.lr.ph.preheader.i.i.i.i.i, label %_ZSt4copyIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPNS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEELb1EEEKSD_EEN9__gnu_cxx17__normal_iteratorISE_St6vectorISD_SaISD_EEEEET0_T_SP_SO_.exit
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZSt13move_backwardIPN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES9_ET0_T_SB_SA_.exit
-  %45 = sub nsw i64 0, %43
+  %44 = ashr exact i64 %42, 4
+  %45 = sub nsw i64 0, %44
   br label %.lr.ph.i.i.i.i.i42
 
 .lr.ph.i.i.i.i.i42:                               ; preds = %.lr.ph.i.i.i.i.i42, %.lr.ph.preheader.i.i.i.i.i
@@ -6189,12 +6189,12 @@ _ZSt22__uninitialized_move_aIPN3ue212graph_detail17vertex_descriptorINS0_9ue2_gr
   %61 = ptrtoint ptr %60 to i64
   %62 = ptrtoint ptr %50 to i64
   %63 = sub i64 %61, %62
-  %64 = ashr exact i64 %63, 4
-  %65 = icmp slt i64 %64, 0
-  br i1 %65, label %.lr.ph.preheader.i.i.i.i.i51, label %_ZSt4copyIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPNS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEELb1EEEKSD_EEN9__gnu_cxx17__normal_iteratorISE_St6vectorISD_SaISD_EEEEET0_T_SP_SO_.exit
+  %64 = icmp slt i64 %63, 0
+  br i1 %64, label %.lr.ph.preheader.i.i.i.i.i51, label %_ZSt4copyIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPNS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEELb1EEEKSD_EEN9__gnu_cxx17__normal_iteratorISE_St6vectorISD_SaISD_EEEEET0_T_SP_SO_.exit
 
 .lr.ph.preheader.i.i.i.i.i51:                     ; preds = %_ZSt22__uninitialized_move_aIPN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES9_SaIS8_EET0_T_SC_SB_RT1_.exit49
-  %66 = sub nsw i64 0, %64
+  %65 = ashr exact i64 %63, 4
+  %66 = sub nsw i64 0, %65
   br label %.lr.ph.i.i.i.i.i52
 
 .lr.ph.i.i.i.i.i52:                               ; preds = %.lr.ph.i.i.i.i.i52, %.lr.ph.preheader.i.i.i.i.i51

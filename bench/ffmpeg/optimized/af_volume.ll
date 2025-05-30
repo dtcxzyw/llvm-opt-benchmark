@@ -825,11 +825,14 @@ define internal void @scale_samples_s16_small(ptr noundef writeonly captures(non
   %9 = mul nsw i32 %3, %8
   %10 = add nsw i32 %9, 128
   %11 = ashr i32 %10, 8
-  %12 = tail call i32 @llvm.smax.i32(i32 %11, i32 -32768)
-  %13 = tail call i32 @llvm.smin.i32(i32 %12, i32 32767)
-  %.0.i = trunc nsw i32 %13 to i16
-  %14 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
-  store i16 %.0.i, ptr %14, align 2, !tbaa !84
+  %12 = add nsw i32 %11, 32768
+  %.not.i = icmp ult i32 %12, 65536
+  %13 = icmp sgt i32 %9, -129
+  %14 = select i1 %13, i16 32767, i16 -32768
+  %15 = trunc i32 %11 to i16
+  %.0.i = select i1 %.not.i, i16 %15, i16 %14
+  %16 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  store i16 %.0.i, ptr %16, align 2, !tbaa !84
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
@@ -891,11 +894,14 @@ define internal void @scale_samples_s32(ptr noundef writeonly captures(none) %0,
   %11 = mul nsw i64 %10, %6
   %12 = add nsw i64 %11, 128
   %13 = ashr i64 %12, 8
-  %14 = tail call i64 @llvm.smax.i64(i64 %13, i64 -2147483648)
-  %15 = tail call i64 @llvm.smin.i64(i64 %14, i64 2147483647)
-  %.0.i = trunc nsw i64 %15 to i32
-  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  store i32 %.0.i, ptr %16, align 4, !tbaa !88
+  %14 = add nsw i64 %13, 2147483648
+  %.not.i = icmp ult i64 %14, 4294967296
+  %15 = icmp sgt i64 %11, -129
+  %16 = select i1 %15, i32 2147483647, i32 -2147483648
+  %17 = trunc i64 %13 to i32
+  %.0.i = select i1 %.not.i, i32 %17, i32 %16
+  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  store i32 %.0.i, ptr %18, align 4, !tbaa !88
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !89
@@ -992,15 +998,6 @@ declare i32 @ff_set_common_formats_from_list2(ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7

@@ -1665,8 +1665,7 @@ define dso_local void @_ZN12PathGridnode7getCostEN3irr4core8vector3dIsEE(ptr dea
 entry:
   %dir.sroa.0.0.extract.trunc = trunc i48 %dir.coerce to i32
   %sext = shl i32 %dir.sroa.0.0.extract.trunc, 16
-  %conv = ashr exact i32 %sext, 16
-  %cmp = icmp sgt i32 %conv, 0
+  %cmp = icmp sgt i32 %sext, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1684,7 +1683,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp4 = icmp slt i32 %conv, 0
+  %cmp4 = icmp slt i32 %sext, 0
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.end
@@ -1704,8 +1703,7 @@ if.then5:                                         ; preds = %if.end
 if.end8:                                          ; preds = %if.end
   %sh.diff = lshr i48 %dir.coerce, 16
   %tr.sh.diff = trunc nuw i48 %sh.diff to i32
-  %conv9 = ashr i32 %tr.sh.diff, 16
-  %cmp10 = icmp sgt i32 %conv9, 0
+  %cmp10 = icmp sgt i32 %tr.sh.diff, 65535
   %value.i32 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   br i1 %cmp10, label %if.then11, label %if.end14
 
@@ -1723,7 +1721,7 @@ if.then11:                                        ; preds = %if.end8
   br label %return
 
 if.end14:                                         ; preds = %if.end8
-  %cmp17 = icmp slt i32 %conv9, 0
+  %cmp17 = icmp slt i48 %dir.coerce, 0
   br i1 %cmp17, label %if.then18, label %if.end21
 
 if.then18:                                        ; preds = %if.end14
@@ -1753,12 +1751,11 @@ define dso_local void @_ZN12PathGridnode7setCostEN3irr4core8vector3dIsEERK8PathC
 entry:
   %dir.sroa.0.0.extract.trunc = trunc i48 %dir.coerce to i32
   %sext = shl i32 %dir.sroa.0.0.extract.trunc, 16
-  %conv = ashr exact i32 %sext, 16
-  %cmp = icmp sgt i32 %conv, 0
+  %cmp = icmp sgt i32 %sext, 0
   br i1 %cmp, label %if.end9.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp4 = icmp slt i32 %conv, 0
+  %cmp4 = icmp slt i32 %sext, 0
   br i1 %cmp4, label %if.end9.sink.split, label %if.end9
 
 if.end9.sink.split:                               ; preds = %if.end, %entry
@@ -1786,12 +1783,11 @@ if.end9.sink.split:                               ; preds = %if.end, %entry
 if.end9:                                          ; preds = %if.end9.sink.split, %if.end
   %sh.diff = lshr i48 %dir.coerce, 16
   %tr.sh.diff = trunc nuw i48 %sh.diff to i32
-  %conv10 = ashr i32 %tr.sh.diff, 16
-  %cmp11 = icmp sgt i32 %conv10, 0
+  %cmp11 = icmp sgt i32 %tr.sh.diff, 65535
   br i1 %cmp11, label %if.end24.sink.split, label %if.end16
 
 if.end16:                                         ; preds = %if.end9
-  %cmp19 = icmp slt i32 %conv10, 0
+  %cmp19 = icmp slt i48 %dir.coerce, 0
   br i1 %cmp19, label %if.end24.sink.split, label %if.end24
 
 if.end24.sink.split:                              ; preds = %if.end16, %if.end9
@@ -3986,23 +3982,21 @@ for.body:                                         ; preds = %if.end95, %for.cond
   %32 = load i32, ptr %totalcost47, align 4, !tbaa !114
   %dir.sroa.0.0.extract.trunc.i = trunc i48 %direction_flat.sroa.0.0.copyload to i32
   %sext.i200 = shl i32 %dir.sroa.0.0.extract.trunc.i, 16
-  %conv.i201 = ashr exact i32 %sext.i200, 16
-  %cmp.i202 = icmp sgt i32 %conv.i201, 0
+  %cmp.i202 = icmp sgt i32 %sext.i200, 0
   br i1 %cmp.i202, label %invoke.cont50, label %if.end.i203
 
 if.end.i203:                                      ; preds = %for.body
-  %cmp4.i = icmp slt i32 %conv.i201, 0
+  %cmp4.i = icmp slt i32 %sext.i200, 0
   br i1 %cmp4.i, label %invoke.cont50, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i203
   %sh.diff.i204 = lshr i48 %direction_flat.sroa.0.0.copyload, 16
   %tr.sh.diff.i205 = trunc nuw i48 %sh.diff.i204 to i32
-  %conv9.i = ashr i32 %tr.sh.diff.i205, 16
-  %cmp10.i = icmp sgt i32 %conv9.i, 0
+  %cmp10.i = icmp sgt i32 %tr.sh.diff.i205, 65535
   br i1 %cmp10.i, label %invoke.cont50, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end8.i
-  %cmp17.i = icmp slt i32 %conv9.i, 0
+  %cmp17.i = icmp slt i48 %direction_flat.sroa.0.0.copyload, 0
   br i1 %cmp17.i, label %invoke.cont50, label %if.then52
 
 invoke.cont50:                                    ; preds = %if.end14.i, %if.end8.i, %if.end.i203, %for.body
@@ -4031,7 +4025,7 @@ invoke.cont57:                                    ; preds = %if.then52
   br i1 %cmp.i202, label %if.end9.sink.split.i, label %if.end.i210
 
 if.end.i210:                                      ; preds = %invoke.cont57
-  %cmp4.i211 = icmp slt i32 %conv.i201, 0
+  %cmp4.i211 = icmp slt i32 %sext.i200, 0
   br i1 %cmp4.i211, label %if.end9.sink.split.i, label %if.end9.i
 
 if.end9.sink.split.i:                             ; preds = %if.end.i210, %invoke.cont57
@@ -4052,12 +4046,11 @@ if.end9.sink.split.i:                             ; preds = %if.end.i210, %invok
 if.end9.i:                                        ; preds = %if.end9.sink.split.i, %if.end.i210
   %sh.diff.i212 = lshr i48 %direction_flat.sroa.0.0.copyload, 16
   %tr.sh.diff.i213 = trunc nuw i48 %sh.diff.i212 to i32
-  %conv10.i = ashr i32 %tr.sh.diff.i213, 16
-  %cmp11.i214 = icmp sgt i32 %conv10.i, 0
+  %cmp11.i214 = icmp sgt i32 %tr.sh.diff.i213, 65535
   br i1 %cmp11.i214, label %if.end24.sink.split.i, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end9.i
-  %cmp19.i = icmp slt i32 %conv10.i, 0
+  %cmp19.i = icmp slt i48 %direction_flat.sroa.0.0.copyload, 0
   br i1 %cmp19.i, label %if.end24.sink.split.i, label %invoke.cont67
 
 if.end24.sink.split.i:                            ; preds = %if.end16.i, %if.end9.i

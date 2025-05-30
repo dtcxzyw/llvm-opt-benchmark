@@ -35,12 +35,12 @@ define void @ff_acelp_interpolate(ptr noundef writeonly captures(none) %0, ptr n
   br label %17
 
 14:                                               ; preds = %._crit_edge.us
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str) #6
   br label %15
 
 15:                                               ; preds = %14, %._crit_edge.us
   %16 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv41
-  store i16 %35, ptr %16, align 2, !tbaa !4
+  store i16 %38, ptr %16, align 2, !tbaa !4
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
   br i1 %exitcond45.not, label %._crit_edge33, label %.preheader.us, !llvm.loop !8
@@ -74,10 +74,15 @@ define void @ff_acelp_interpolate(ptr noundef writeonly captures(none) %0, ptr n
 
 ._crit_edge.us:                                   ; preds = %17
   %34 = ashr i32 %33, 15
-  %35 = trunc i32 %34 to i16
-  %36 = tail call i32 @llvm.smax.i32(i32 %34, i32 -32768)
-  %.0.i.us = tail call i32 @llvm.smin.i32(i32 %36, i32 32767)
-  %.not.us = icmp eq i32 %34, %.0.i.us
+  %35 = add nsw i32 %34, 32768
+  %.not.i.us = icmp ult i32 %35, 65536
+  %36 = icmp sgt i32 %33, -1
+  %37 = select i1 %36, i32 32767, i32 32768
+  %38 = trunc i32 %34 to i16
+  %.0.i.us = select i1 %.not.i.us, i32 %34, i32 %37
+  %sext.us = shl i32 %.0.i.us, 16
+  %39 = ashr exact i32 %sext.us, 16
+  %.not.us = icmp eq i32 %34, %39
   br i1 %.not.us, label %15, label %14
 
 ._crit_edge33:                                    ; preds = %15, %.preheader.preheader, %7
@@ -152,7 +157,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #3
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_acelp_high_pass_filter(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = icmp sgt i32 %3, 0
-  br i1 %5, label %.lr.ph, label %37
+  br i1 %5, label %.lr.ph, label %39
 
 .lr.ph:                                           ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -189,11 +194,14 @@ define void @ff_acelp_high_pass_filter(ptr noundef writeonly captures(none) %0, 
   %31 = add nsw i32 %30, %17
   %32 = add nsw i32 %31, 2048
   %33 = ashr i32 %32, 12
-  %34 = tail call i32 @llvm.smax.i32(i32 %33, i32 -32768)
-  %35 = tail call i32 @llvm.smin.i32(i32 %34, i32 32767)
-  %.0.i = trunc nsw i32 %35 to i16
-  %36 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
-  store i16 %.0.i, ptr %36, align 2, !tbaa !4
+  %34 = add nsw i32 %33, 32768
+  %.not.i = icmp ult i32 %34, 65536
+  %35 = icmp sgt i32 %31, -2049
+  %36 = select i1 %35, i16 32767, i16 -32768
+  %37 = trunc i32 %33 to i16
+  %.0.i = select i1 %.not.i, i16 %37, i16 %36
+  %38 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  store i16 %.0.i, ptr %38, align 2, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !17
@@ -201,9 +209,9 @@ define void @ff_acelp_high_pass_filter(ptr noundef writeonly captures(none) %0, 
 ._crit_edge:                                      ; preds = %7
   store i32 %31, ptr %1, align 4, !tbaa !15
   store i32 %9, ptr %6, align 4, !tbaa !15
-  br label %37
+  br label %39
 
-37:                                               ; preds = %._crit_edge, %4
+39:                                               ; preds = %._crit_edge, %4
   ret void
 }
 
@@ -294,23 +302,16 @@ define void @ff_acelp_filter_init(ptr noundef writeonly captures(none) initializ
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #5
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

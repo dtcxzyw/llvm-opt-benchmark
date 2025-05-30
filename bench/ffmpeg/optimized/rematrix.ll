@@ -2623,11 +2623,14 @@ define internal void @copy_clip_s16(ptr noundef writeonly captures(none) %0, ptr
   %13 = mul nsw i32 %8, %12
   %14 = add nsw i32 %13, 16384
   %15 = ashr i32 %14, 15
-  %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 -32768)
-  %17 = tail call i32 @llvm.smin.i32(i32 %16, i32 32767)
-  %.0.i = trunc nsw i32 %17 to i16
-  %18 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
-  store i16 %.0.i, ptr %18, align 2, !tbaa !76
+  %16 = add nsw i32 %15, 32768
+  %.not.i = icmp ult i32 %16, 65536
+  %17 = icmp sgt i32 %13, -16385
+  %18 = select i1 %17, i16 32767, i16 -32768
+  %19 = trunc i32 %15 to i16
+  %.0.i = select i1 %.not.i, i16 %19, i16 %18
+  %20 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  store i16 %.0.i, ptr %20, align 2, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
@@ -2661,14 +2664,17 @@ define internal void @sum2_clip_s16(ptr noundef writeonly captures(none) %0, ptr
   %20 = load i16, ptr %19, align 2, !tbaa !76
   %21 = sext i16 %20 to i32
   %22 = mul nsw i32 %13, %21
-  %23 = add i32 %18, 16384
-  %24 = add i32 %23, %22
+  %23 = add nsw i32 %22, %18
+  %24 = add nsw i32 %23, 16384
   %25 = ashr i32 %24, 15
-  %26 = tail call i32 @llvm.smax.i32(i32 %25, i32 -32768)
-  %27 = tail call i32 @llvm.smin.i32(i32 %26, i32 32767)
-  %.0.i = trunc nsw i32 %27 to i16
-  %28 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
-  store i16 %.0.i, ptr %28, align 2, !tbaa !76
+  %26 = add nsw i32 %25, 32768
+  %.not.i = icmp ult i32 %26, 65536
+  %27 = icmp sgt i32 %23, -16385
+  %28 = select i1 %27, i16 32767, i16 -32768
+  %29 = trunc i32 %25 to i16
+  %.0.i = select i1 %.not.i, i16 %29, i16 %28
+  %30 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  store i16 %.0.i, ptr %30, align 2, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !81
@@ -3556,35 +3562,42 @@ define internal void @mix6to2_clip_s16(ptr noundef readonly captures(none) %0, p
   %42 = load i16, ptr %41, align 2, !tbaa !76
   %43 = sext i16 %42 to i32
   %44 = mul nsw i32 %15, %43
-  %45 = getelementptr inbounds nuw i16, ptr %17, i64 %indvars.iv
-  %46 = load i16, ptr %45, align 2, !tbaa !76
-  %47 = sext i16 %46 to i32
-  %48 = mul nsw i32 %19, %47
-  %49 = add i32 %40, 16384
-  %50 = add i32 %49, %44
-  %51 = add i32 %50, %48
+  %45 = add nsw i32 %44, %40
+  %46 = getelementptr inbounds nuw i16, ptr %17, i64 %indvars.iv
+  %47 = load i16, ptr %46, align 2, !tbaa !76
+  %48 = sext i16 %47 to i32
+  %49 = mul nsw i32 %19, %48
+  %50 = add nsw i32 %45, %49
+  %51 = add nsw i32 %50, 16384
   %52 = ashr i32 %51, 15
-  %53 = tail call i32 @llvm.smax.i32(i32 %52, i32 -32768)
-  %54 = tail call i32 @llvm.smin.i32(i32 %53, i32 32767)
-  %.0.i27 = trunc nsw i32 %54 to i16
-  %55 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv
-  store i16 %.0.i27, ptr %55, align 2, !tbaa !76
-  %56 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv
-  %57 = load i16, ptr %56, align 2, !tbaa !76
-  %58 = sext i16 %57 to i32
-  %59 = mul nsw i32 %24, %58
-  %60 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv
-  %61 = load i16, ptr %60, align 2, !tbaa !76
-  %62 = sext i16 %61 to i32
-  %63 = mul nsw i32 %28, %62
-  %64 = add i32 %49, %59
-  %65 = add i32 %64, %63
-  %66 = ashr i32 %65, 15
-  %67 = tail call i32 @llvm.smax.i32(i32 %66, i32 -32768)
-  %68 = tail call i32 @llvm.smin.i32(i32 %67, i32 32767)
-  %.0.i = trunc nsw i32 %68 to i16
-  %69 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv
-  store i16 %.0.i, ptr %69, align 2, !tbaa !76
+  %53 = add nsw i32 %52, 32768
+  %.not.i26 = icmp ult i32 %53, 65536
+  %54 = icmp sgt i32 %50, -16385
+  %55 = select i1 %54, i16 32767, i16 -32768
+  %56 = trunc i32 %52 to i16
+  %.0.i27 = select i1 %.not.i26, i16 %56, i16 %55
+  %57 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv
+  store i16 %.0.i27, ptr %57, align 2, !tbaa !76
+  %58 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv
+  %59 = load i16, ptr %58, align 2, !tbaa !76
+  %60 = sext i16 %59 to i32
+  %61 = mul nsw i32 %24, %60
+  %62 = add nsw i32 %61, %40
+  %63 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv
+  %64 = load i16, ptr %63, align 2, !tbaa !76
+  %65 = sext i16 %64 to i32
+  %66 = mul nsw i32 %28, %65
+  %67 = add nsw i32 %62, %66
+  %68 = add nsw i32 %67, 16384
+  %69 = ashr i32 %68, 15
+  %70 = add nsw i32 %69, 32768
+  %.not.i = icmp ult i32 %70, 65536
+  %71 = icmp sgt i32 %67, -16385
+  %72 = select i1 %71, i16 32767, i16 -32768
+  %73 = trunc i32 %69 to i16
+  %.0.i = select i1 %.not.i, i16 %73, i16 %72
+  %74 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv
+  store i16 %.0.i, ptr %74, align 2, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !109
@@ -3650,45 +3663,52 @@ define internal void @mix8to2_clip_s16(ptr noundef readonly captures(none) %0, p
   %50 = load i16, ptr %49, align 2, !tbaa !76
   %51 = sext i16 %50 to i32
   %52 = mul nsw i32 %15, %51
-  %53 = getelementptr inbounds nuw i16, ptr %17, i64 %indvars.iv
-  %54 = load i16, ptr %53, align 2, !tbaa !76
-  %55 = sext i16 %54 to i32
-  %56 = mul nsw i32 %19, %55
-  %57 = getelementptr inbounds nuw i16, ptr %21, i64 %indvars.iv
-  %58 = load i16, ptr %57, align 2, !tbaa !76
-  %59 = sext i16 %58 to i32
-  %60 = mul nsw i32 %23, %59
-  %61 = add i32 %48, 16384
-  %62 = add i32 %61, %52
-  %63 = add i32 %62, %56
-  %64 = add i32 %63, %60
+  %53 = add nsw i32 %52, %48
+  %54 = getelementptr inbounds nuw i16, ptr %17, i64 %indvars.iv
+  %55 = load i16, ptr %54, align 2, !tbaa !76
+  %56 = sext i16 %55 to i32
+  %57 = mul nsw i32 %19, %56
+  %58 = add nsw i32 %53, %57
+  %59 = getelementptr inbounds nuw i16, ptr %21, i64 %indvars.iv
+  %60 = load i16, ptr %59, align 2, !tbaa !76
+  %61 = sext i16 %60 to i32
+  %62 = mul nsw i32 %23, %61
+  %63 = add nsw i32 %58, %62
+  %64 = add nsw i32 %63, 16384
   %65 = ashr i32 %64, 15
-  %66 = tail call i32 @llvm.smax.i32(i32 %65, i32 -32768)
-  %67 = tail call i32 @llvm.smin.i32(i32 %66, i32 32767)
-  %.0.i33 = trunc nsw i32 %67 to i16
-  %68 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv
-  store i16 %.0.i33, ptr %68, align 2, !tbaa !76
-  %69 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv
-  %70 = load i16, ptr %69, align 2, !tbaa !76
-  %71 = sext i16 %70 to i32
-  %72 = mul nsw i32 %28, %71
-  %73 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv
-  %74 = load i16, ptr %73, align 2, !tbaa !76
-  %75 = sext i16 %74 to i32
-  %76 = mul nsw i32 %32, %75
-  %77 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv
-  %78 = load i16, ptr %77, align 2, !tbaa !76
-  %79 = sext i16 %78 to i32
-  %80 = mul nsw i32 %36, %79
-  %81 = add i32 %61, %72
-  %82 = add i32 %81, %76
-  %83 = add i32 %82, %80
-  %84 = ashr i32 %83, 15
-  %85 = tail call i32 @llvm.smax.i32(i32 %84, i32 -32768)
-  %86 = tail call i32 @llvm.smin.i32(i32 %85, i32 32767)
-  %.0.i = trunc nsw i32 %86 to i16
-  %87 = getelementptr inbounds nuw i16, ptr %38, i64 %indvars.iv
-  store i16 %.0.i, ptr %87, align 2, !tbaa !76
+  %66 = add nsw i32 %65, 32768
+  %.not.i32 = icmp ult i32 %66, 65536
+  %67 = icmp sgt i32 %63, -16385
+  %68 = select i1 %67, i16 32767, i16 -32768
+  %69 = trunc i32 %65 to i16
+  %.0.i33 = select i1 %.not.i32, i16 %69, i16 %68
+  %70 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv
+  store i16 %.0.i33, ptr %70, align 2, !tbaa !76
+  %71 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv
+  %72 = load i16, ptr %71, align 2, !tbaa !76
+  %73 = sext i16 %72 to i32
+  %74 = mul nsw i32 %28, %73
+  %75 = add nsw i32 %74, %48
+  %76 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv
+  %77 = load i16, ptr %76, align 2, !tbaa !76
+  %78 = sext i16 %77 to i32
+  %79 = mul nsw i32 %32, %78
+  %80 = add nsw i32 %75, %79
+  %81 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv
+  %82 = load i16, ptr %81, align 2, !tbaa !76
+  %83 = sext i16 %82 to i32
+  %84 = mul nsw i32 %36, %83
+  %85 = add nsw i32 %80, %84
+  %86 = add nsw i32 %85, 16384
+  %87 = ashr i32 %86, 15
+  %88 = add nsw i32 %87, 32768
+  %.not.i = icmp ult i32 %88, 65536
+  %89 = icmp sgt i32 %85, -16385
+  %90 = select i1 %89, i16 32767, i16 -32768
+  %91 = trunc i32 %87 to i16
+  %.0.i = select i1 %.not.i, i16 %91, i16 %90
+  %92 = getelementptr inbounds nuw i16, ptr %38, i64 %indvars.iv
+  store i16 %.0.i, ptr %92, align 2, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !110
@@ -4190,9 +4210,6 @@ declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #10

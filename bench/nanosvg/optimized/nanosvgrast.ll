@@ -6682,7 +6682,7 @@ nsvg__roundf.exit31.i:                            ; preds = %124, %121, %nsvg__r
   %spec.select = tail call i32 @llvm.smin.i32(i32 %175, i32 %.6129)
   %.8 = tail call i32 @llvm.smax.i32(i32 %176, i32 %.6)
   %177 = icmp slt i32 %175, %162
-  %178 = icmp sgt i32 %176, -1
+  %178 = icmp sgt i32 %174, -1
   %or.cond.i.i = and i1 %177, %178
   br i1 %or.cond.i.i, label %179, label %nsvg__fillScanline.exit.i
 
@@ -6703,7 +6703,7 @@ nsvg__roundf.exit31.i:                            ; preds = %124, %121, %nsvg__r
   br label %nsvg__fillScanline.exit.i
 
 190:                                              ; preds = %179
-  %191 = icmp sgt i32 %175, -1
+  %191 = icmp sgt i32 %.03151.i, -1
   br i1 %191, label %192, label %203
 
 192:                                              ; preds = %190
@@ -6743,18 +6743,18 @@ nsvg__roundf.exit31.i:                            ; preds = %124, %121, %nsvg__r
   br i1 %215, label %.lr.ph.preheader.i.i, label %nsvg__fillScanline.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %214
-  %216 = zext nneg i32 %.047.i.i to i64
-  %217 = zext nneg i32 %.0.i.i to i64
+  %216 = zext i32 %.047.i.i to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %216, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %218 = getelementptr inbounds nuw i8, ptr %161, i64 %indvars.iv.i.i
-  %219 = load i8, ptr %218, align 1, !tbaa !4
-  %220 = add i8 %219, 51
-  store i8 %220, ptr %218, align 1, !tbaa !4
+  %217 = getelementptr inbounds nuw i8, ptr %161, i64 %indvars.iv.i.i
+  %218 = load i8, ptr %217, align 1, !tbaa !4
+  %219 = add i8 %218, 51
+  store i8 %219, ptr %217, align 1, !tbaa !4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %221 = icmp samesign ult i64 %indvars.iv.next.i.i, %217
+  %220 = trunc nuw i64 %indvars.iv.next.i.i to i32
+  %221 = icmp sgt i32 %.0.i.i, %220
   br i1 %221, label %.lr.ph.i.i, label %nsvg__fillScanline.exit.i, !llvm.loop !197
 
 nsvg__fillScanline.exit.i:                        ; preds = %.lr.ph.i.i, %214, %181, %173, %168, %164
@@ -6783,7 +6783,7 @@ nsvg__fillScanline.exit.i:                        ; preds = %.lr.ph.i.i, %214, %
   %spec.select133 = tail call i32 @llvm.smin.i32(i32 %227, i32 %.3126)
   %.4 = tail call i32 @llvm.smax.i32(i32 %228, i32 %.3)
   %229 = icmp slt i32 %227, %162
-  %230 = icmp sgt i32 %228, -1
+  %230 = icmp sgt i32 %225, -1
   %or.cond.i40.i = and i1 %229, %230
   br i1 %or.cond.i40.i, label %231, label %nsvg__fillScanline.exit47.i
 
@@ -6804,7 +6804,7 @@ nsvg__fillScanline.exit.i:                        ; preds = %.lr.ph.i.i, %214, %
   br label %nsvg__fillScanline.exit47.i
 
 242:                                              ; preds = %231
-  %243 = icmp sgt i32 %227, -1
+  %243 = icmp sgt i32 %.2.i, -1
   br i1 %243, label %244, label %255
 
 244:                                              ; preds = %242
@@ -6844,18 +6844,18 @@ nsvg__fillScanline.exit.i:                        ; preds = %.lr.ph.i.i, %214, %
   br i1 %267, label %.lr.ph.preheader.i43.i, label %nsvg__fillScanline.exit47.i
 
 .lr.ph.preheader.i43.i:                           ; preds = %266
-  %268 = zext nneg i32 %.047.i41.i to i64
-  %269 = zext nneg i32 %.0.i42.i to i64
+  %268 = zext i32 %.047.i41.i to i64
   br label %.lr.ph.i44.i
 
 .lr.ph.i44.i:                                     ; preds = %.lr.ph.i44.i, %.lr.ph.preheader.i43.i
   %indvars.iv.i45.i = phi i64 [ %268, %.lr.ph.preheader.i43.i ], [ %indvars.iv.next.i46.i, %.lr.ph.i44.i ]
-  %270 = getelementptr inbounds nuw i8, ptr %161, i64 %indvars.iv.i45.i
-  %271 = load i8, ptr %270, align 1, !tbaa !4
-  %272 = add i8 %271, 51
-  store i8 %272, ptr %270, align 1, !tbaa !4
+  %269 = getelementptr inbounds nuw i8, ptr %161, i64 %indvars.iv.i45.i
+  %270 = load i8, ptr %269, align 1, !tbaa !4
+  %271 = add i8 %270, 51
+  store i8 %271, ptr %269, align 1, !tbaa !4
   %indvars.iv.next.i46.i = add nuw nsw i64 %indvars.iv.i45.i, 1
-  %273 = icmp samesign ult i64 %indvars.iv.next.i46.i, %269
+  %272 = trunc nuw i64 %indvars.iv.next.i46.i to i32
+  %273 = icmp sgt i32 %.0.i42.i, %272
   br i1 %273, label %.lr.ph.i44.i, label %nsvg__fillScanline.exit47.i, !llvm.loop !197
 
 nsvg__fillScanline.exit47.i:                      ; preds = %.lr.ph.i44.i, %266, %233, %226, %.preheader48.i

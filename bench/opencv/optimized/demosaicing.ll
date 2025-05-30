@@ -1239,9 +1239,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit208: ; preds = %_Z
   br i1 %.not.i.i.i, label %437, label %_ZN2cv10AutoBufferItLm520EEC2Em.exit.i
 
 437:                                              ; preds = %421
-  %438 = ashr exact i64 %sext.i209, 31
-  %.inv.i.i.i = icmp sgt i64 %434, -1
-  %439 = select i1 %.inv.i.i.i, i64 %438, i64 -1
+  %438 = call i64 @llvm.smax.i64(i64 %sext.i209, i64 -1)
+  %439 = ashr i64 %438, 31
   %440 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %439) #19
           to label %.noexc220 unwind label %301
 
@@ -5985,6 +5984,9 @@ declare i32 @llvm.smin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #15

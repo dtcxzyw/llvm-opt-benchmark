@@ -3848,58 +3848,58 @@ _ZNSt6vectorIiSaIiEED2Ev.exit69:                  ; preds = %_ZNSt6vectorIiSaIiE
   %151 = zext i32 %150 to i64
   %152 = getelementptr inbounds nuw i32, ptr %147, i64 %151
   %153 = load i32, ptr %152, align 4, !tbaa !67
-  %154 = and i32 %153, 1
-  %155 = icmp slt i32 %149, 0
-  br i1 %155, label %156, label %158
+  %154 = and i32 %153, -2
+  %155 = and i32 %153, 1
+  %156 = icmp slt i32 %149, 0
+  br i1 %156, label %157, label %159
 
-156:                                              ; preds = %135
-  %157 = or i32 %149, -2
-  br label %172
+157:                                              ; preds = %135
+  %158 = or i32 %149, -2
+  br label %173
 
-158:                                              ; preds = %135
-  %159 = and i32 %149, 1
-  %160 = getelementptr inbounds nuw %"class.std::vector.5", ptr %143, i64 %14
+159:                                              ; preds = %135
+  %160 = and i32 %149, 1
   %161 = and i32 %149, 2147483646
-  %162 = zext nneg i32 %161 to i64
-  %163 = load ptr, ptr %160, align 8, !tbaa !77
-  %164 = getelementptr inbounds nuw i32, ptr %163, i64 %162
-  %165 = load i32, ptr %164, align 4, !tbaa !67
-  %166 = xor i32 %165, %159
-  %167 = or i32 %149, 1
-  %168 = zext nneg i32 %167 to i64
-  %169 = getelementptr inbounds nuw i32, ptr %163, i64 %168
-  %170 = load i32, ptr %169, align 4, !tbaa !67
-  %171 = xor i32 %170, %159
-  br label %172
+  %162 = getelementptr inbounds nuw %"class.std::vector.5", ptr %143, i64 %14
+  %163 = zext nneg i32 %161 to i64
+  %164 = load ptr, ptr %162, align 8, !tbaa !77
+  %165 = getelementptr inbounds nuw i32, ptr %164, i64 %163
+  %166 = load i32, ptr %165, align 4, !tbaa !67
+  %167 = xor i32 %166, %160
+  %168 = or i32 %149, 1
+  %169 = zext nneg i32 %168 to i64
+  %170 = getelementptr inbounds nuw i32, ptr %164, i64 %169
+  %171 = load i32, ptr %170, align 4, !tbaa !67
+  %172 = xor i32 %171, %160
+  br label %173
 
-172:                                              ; preds = %158, %156
-  %.057 = phi i32 [ %157, %156 ], [ %166, %158 ]
-  %.056 = phi i32 [ %157, %156 ], [ %171, %158 ]
-  %173 = icmp slt i32 %153, 0
-  br i1 %173, label %174, label %176
+173:                                              ; preds = %159, %157
+  %.057 = phi i32 [ %158, %157 ], [ %167, %159 ]
+  %.056 = phi i32 [ %158, %157 ], [ %172, %159 ]
+  %174 = icmp slt i32 %153, 0
+  br i1 %174, label %175, label %177
 
-174:                                              ; preds = %172
-  %175 = or i32 %153, -2
+175:                                              ; preds = %173
+  %176 = or i32 %153, -2
   br label %189
 
-176:                                              ; preds = %172
-  %177 = getelementptr inbounds nuw %"class.std::vector.5", ptr %143, i64 %14
-  %178 = and i32 %153, 2147483646
-  %179 = zext nneg i32 %178 to i64
-  %180 = load ptr, ptr %177, align 8, !tbaa !77
+177:                                              ; preds = %173
+  %178 = getelementptr inbounds nuw %"class.std::vector.5", ptr %143, i64 %14
+  %179 = zext nneg i32 %154 to i64
+  %180 = load ptr, ptr %178, align 8, !tbaa !77
   %181 = getelementptr inbounds nuw i32, ptr %180, i64 %179
   %182 = load i32, ptr %181, align 4, !tbaa !67
-  %183 = xor i32 %182, %154
+  %183 = xor i32 %182, %155
   %184 = or i32 %153, 1
   %185 = zext nneg i32 %184 to i64
   %186 = getelementptr inbounds nuw i32, ptr %180, i64 %185
   %187 = load i32, ptr %186, align 4, !tbaa !67
-  %188 = xor i32 %187, %154
+  %188 = xor i32 %187, %155
   br label %189
 
-189:                                              ; preds = %176, %174
-  %.055 = phi i32 [ %175, %174 ], [ %183, %176 ]
-  %.0 = phi i32 [ %175, %174 ], [ %188, %176 ]
+189:                                              ; preds = %177, %175
+  %.055 = phi i32 [ %176, %175 ], [ %183, %177 ]
+  %.0 = phi i32 [ %176, %175 ], [ %188, %177 ]
   %190 = shl i32 %142, 1
   %191 = call noundef i32 @_ZN5Ttopt13TruthTableReo13BDDRebuildOneEiiiiP14Hash_IntMan_t_RSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(272) %0, i32 noundef %190, i32 noundef %.057, i32 noundef %.055, i32 noundef %13, ptr noundef nonnull %30, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %192 = or disjoint i32 %190, 1
@@ -11434,7 +11434,7 @@ define linkonce_odr void @_ZN5Ttopt14TruthTableCare13CompleteMergeEv(ptr noundef
   %30 = ashr i32 %29, 1
   %31 = and i32 %29, 1
   %.not10.us = icmp eq i32 %31, 0
-  %32 = icmp slt i32 %30, 0
+  %32 = icmp slt i32 %29, 0
   br i1 %.not10.us, label %44, label %33
 
 33:                                               ; preds = %.lr.ph.split.us
@@ -11527,15 +11527,15 @@ _ZN5Ttopt17TruthTableRewrite8CopyFuncEiiib.exit.us: ; preds = %38, %49, %.lr.ph6
   %59 = getelementptr inbounds i8, ptr %.sroa.06.013, i64 -4
   %60 = load i32, ptr %59, align 4, !tbaa !223
   %61 = load i32, ptr %58, align 4, !tbaa !221
-  %62 = ashr i32 %61, 1
-  %63 = and i32 %61, 1
-  %.not10 = icmp eq i32 %63, 0
-  %64 = icmp sgt i32 %62, -1
-  br i1 %64, label %65, label %._crit_edge.i
+  %62 = and i32 %61, 1
+  %.not10 = icmp eq i32 %62, 0
+  %63 = icmp sgt i32 %61, -1
+  br i1 %63, label %64, label %._crit_edge.i
 
-65:                                               ; preds = %57
-  %66 = lshr i32 %62, %18
-  %67 = srem i32 %62, %19
+64:                                               ; preds = %57
+  %65 = lshr i32 %61, 1
+  %66 = lshr i32 %65, %18
+  %67 = srem i32 %65, %19
   %68 = shl i32 %67, %56
   %69 = zext nneg i32 %66 to i64
   %70 = getelementptr inbounds nuw i64, ptr %20, i64 %69
@@ -11545,9 +11545,9 @@ _ZN5Ttopt17TruthTableRewrite8CopyFuncEiiib.exit.us: ; preds = %38, %49, %.lr.ph6
   %74 = and i64 %73, %55
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %57, %65
-  %.pre-phi = phi i32 [ %56, %65 ], [ %.pre, %57 ]
-  %.0.i = phi i64 [ %74, %65 ], [ 0, %57 ]
+._crit_edge.i:                                    ; preds = %57, %64
+  %.pre-phi = phi i32 [ %56, %64 ], [ %.pre, %57 ]
+  %.0.i = phi i64 [ %74, %64 ], [ 0, %57 ]
   %75 = select i1 %.not10, i64 0, i64 %55
   %.1.i = xor i64 %75, %.0.i
   %76 = ashr i32 %60, %18

@@ -496,27 +496,30 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %16, %_ZN12ar
   %25 = shl i64 %24, %11
   %26 = add nsw i64 %25, %22
   %.not = icmp eq i64 %26, %1
-  br i1 %.not, label %27, label %36
+  br i1 %.not, label %27, label %39
 
 27:                                               ; preds = %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
-  %or.cond = icmp ult i64 %24, 2147483648
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %29 = load i32, ptr %28, align 8
-  %30 = sext i32 %29 to i64
-  %.not16 = icmp slt i64 %24, %30
-  %or.cond19 = select i1 %or.cond, i1 %.not16, i1 false
-  br i1 %or.cond19, label %31, label %36
+  %28 = add i64 %24, 2147483648
+  %29 = icmp ult i64 %28, 4294967296
+  %30 = icmp sgt i64 %23, -1
+  %or.cond.not22 = and i1 %30, %29
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %32 = load i32, ptr %31, align 8
+  %33 = sext i32 %32 to i64
+  %.not16 = icmp slt i64 %24, %33
+  %or.cond19 = select i1 %or.cond.not22, i1 %.not16, i1 false
+  br i1 %or.cond19, label %34, label %39
 
-31:                                               ; preds = %27
-  %32 = trunc nuw nsw i64 %24 to i32
-  %33 = tail call { i8, i64 } @_ZN7ciArray13element_valueEi(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %32)
-  %34 = extractvalue { i8, i64 } %33, 0
-  %35 = extractvalue { i8, i64 } %33, 1
-  br label %36
+34:                                               ; preds = %27
+  %35 = trunc nsw i64 %24 to i32
+  %36 = tail call { i8, i64 } @_ZN7ciArray13element_valueEi(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %35)
+  %37 = extractvalue { i8, i64 } %36, 0
+  %38 = extractvalue { i8, i64 } %36, 1
+  br label %39
 
-36:                                               ; preds = %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit, %27, %31
-  %.sroa.3.0 = phi i64 [ %35, %31 ], [ -1, %27 ], [ -1, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ]
-  %.sroa.0.0 = phi i8 [ %34, %31 ], [ 99, %27 ], [ 99, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ]
+39:                                               ; preds = %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit, %27, %34
+  %.sroa.3.0 = phi i64 [ %38, %34 ], [ -1, %27 ], [ -1, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ]
+  %.sroa.0.0 = phi i8 [ %37, %34 ], [ 99, %27 ], [ 99, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ]
   %.fca.0.insert = insertvalue { i8, i64 } poison, i8 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i8, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { i8, i64 } %.fca.1.insert

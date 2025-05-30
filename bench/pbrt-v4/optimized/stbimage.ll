@@ -18719,18 +18719,24 @@ define internal void @_ZL23stbi__YCbCr_to_RGB_simdPhPKhS1_S1_ii(ptr noundef writ
   %77 = ashr i32 %69, 20
   %78 = ashr i32 %74, 20
   %79 = ashr i32 %76, 20
-  %80 = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
-  %81 = tail call i32 @llvm.umin.i32(i32 %80, i32 255)
-  %82 = tail call i32 @llvm.smax.i32(i32 %78, i32 0)
-  %83 = tail call i32 @llvm.umin.i32(i32 %82, i32 255)
-  %84 = tail call i32 @llvm.smax.i32(i32 %79, i32 0)
-  %85 = tail call i32 @llvm.umin.i32(i32 %84, i32 255)
-  %86 = trunc nuw i32 %81 to i8
+  %80 = icmp ugt i32 %77, 255
+  %81 = icmp slt i32 %69, 0
+  %. = select i1 %81, i32 0, i32 255
+  %.093 = select i1 %80, i32 %., i32 %77
+  %82 = icmp ugt i32 %78, 255
+  %83 = icmp slt i32 %74, 0
+  %.100 = select i1 %83, i32 0, i32 255
+  %.092 = select i1 %82, i32 %.100, i32 %78
+  %84 = icmp ugt i32 %79, 255
+  %85 = icmp slt i32 %76, 0
+  %.101 = select i1 %85, i32 0, i32 255
+  %.091 = select i1 %84, i32 %.101, i32 %79
+  %86 = trunc nuw i32 %.093 to i8
   store i8 %86, ptr %.2106, align 1, !tbaa !22
-  %87 = trunc nuw i32 %83 to i8
+  %87 = trunc nuw i32 %.092 to i8
   %88 = getelementptr inbounds nuw i8, ptr %.2106, i64 1
   store i8 %87, ptr %88, align 1, !tbaa !22
-  %89 = trunc nuw i32 %85 to i8
+  %89 = trunc nuw i32 %.091 to i8
   %90 = getelementptr inbounds nuw i8, ptr %.2106, i64 2
   store i8 %89, ptr %90, align 1, !tbaa !22
   %91 = getelementptr inbounds nuw i8, ptr %.2106, i64 3
@@ -25744,9 +25750,6 @@ declare i32 @llvm.smax.i32(i32, i32) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #37
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #37
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #39

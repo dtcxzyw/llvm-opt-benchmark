@@ -1657,7 +1657,7 @@ define internal void @Horizontal_Sweep_Span(ptr noundef readonly captures(none) 
   %16 = load i32, ptr %0, align 8, !tbaa !86
   %17 = zext nneg i32 %16 to i64
   %18 = ashr i64 %2, %17
-  %19 = icmp sgt i64 %18, -1
+  %19 = icmp sgt i64 %2, -1
   br i1 %19, label %20, label %41
 
 20:                                               ; preds = %15
@@ -1676,8 +1676,8 @@ define internal void @Horizontal_Sweep_Span(ptr noundef readonly captures(none) 
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %31 = load i32, ptr %30, align 8, !tbaa !43
   %32 = sext i32 %31 to i64
-  %33 = mul nsw i64 %18, %32
-  %34 = sub nsw i64 0, %33
+  %33 = mul i64 %18, %32
+  %34 = sub i64 0, %33
   %35 = getelementptr inbounds i8, ptr %29, i64 %34
   %36 = and i32 %1, 7
   %37 = lshr exact i32 128, %36
@@ -1695,7 +1695,7 @@ define internal void @Horizontal_Sweep_Span(ptr noundef readonly captures(none) 
   %44 = load i32, ptr %0, align 8, !tbaa !86
   %45 = zext nneg i32 %44 to i64
   %46 = ashr i64 %3, %45
-  %47 = icmp sgt i64 %46, -1
+  %47 = icmp sgt i64 %3, -1
   br i1 %47, label %48, label %69
 
 48:                                               ; preds = %43
@@ -1714,8 +1714,8 @@ define internal void @Horizontal_Sweep_Span(ptr noundef readonly captures(none) 
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %59 = load i32, ptr %58, align 8, !tbaa !43
   %60 = sext i32 %59 to i64
-  %61 = mul nsw i64 %46, %60
-  %62 = sub nsw i64 0, %61
+  %61 = mul i64 %46, %60
+  %62 = sub i64 0, %61
   %63 = getelementptr inbounds i8, ptr %57, i64 %62
   %64 = and i32 %1, 7
   %65 = lshr exact i32 128, %64

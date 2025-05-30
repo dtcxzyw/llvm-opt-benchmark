@@ -1707,7 +1707,7 @@ define internal fastcc void @dissect_data_for_typecode_with_params(ptr noundef %
 248:                                              ; preds = %244
   %sext = shl i32 %247, 24
   %249 = ashr exact i32 %sext, 24
-  %250 = icmp slt i32 %249, 0
+  %250 = icmp slt i32 %sext, 0
   %251 = load i32, ptr %4, align 4
   br i1 %250, label %252, label %258
 
@@ -2958,27 +2958,27 @@ giop_getline.exit.i:                              ; preds = %string_to_IOR.exit.
 38:                                               ; preds = %31
   %39 = tail call i32 @ws_xton(i8 noundef signext %26)
   %sext.i.i = shl i32 %39, 24
-  %40 = ashr exact i32 %sext.i.i, 24
-  %41 = icmp slt i32 %40, 0
-  br i1 %41, label %42, label %43
+  %40 = icmp slt i32 %sext.i.i, 0
+  br i1 %40, label %41, label %43
 
-42:                                               ; preds = %38
-  tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.569, i32 noundef %40)
+41:                                               ; preds = %38
+  %42 = ashr exact i32 %sext.i.i, 24
+  tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.569, i32 noundef %42)
   br label %43
 
-43:                                               ; preds = %42, %38
+43:                                               ; preds = %41, %38
   %44 = load i8, ptr %32, align 1
   %45 = tail call i32 @ws_xton(i8 noundef signext %44)
   %sext31.i.i = shl i32 %45, 24
-  %46 = ashr exact i32 %sext31.i.i, 24
-  %47 = icmp slt i32 %46, 0
-  br i1 %47, label %48, label %49
+  %46 = icmp slt i32 %sext31.i.i, 0
+  br i1 %46, label %47, label %49
 
-48:                                               ; preds = %43
-  tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.569, i32 noundef %46)
+47:                                               ; preds = %43
+  %48 = ashr exact i32 %sext31.i.i, 24
+  tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.569, i32 noundef %48)
   br label %49
 
-49:                                               ; preds = %48, %43
+49:                                               ; preds = %47, %43
   %50 = shl i32 %39, 4
   %51 = add i32 %45, %50
   %52 = trunc i32 %51 to i8

@@ -104,9 +104,12 @@ define i32 @ff_g723_1_dot_product(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %4 = tail call i64 @ff_dot_product(ptr noundef %0, ptr noundef %1, i32 noundef %2) #7
   %sext = shl i64 %4, 32
   %5 = ashr exact i64 %sext, 31
-  %6 = tail call i64 @llvm.smax.i64(i64 %5, i64 -2147483648)
-  %7 = tail call i64 @llvm.smin.i64(i64 %6, i64 2147483647)
-  %.0.i = trunc nsw i64 %7 to i32
+  %6 = add nsw i64 %5, 2147483648
+  %.not.i = icmp ult i64 %6, 4294967296
+  %7 = icmp sgt i64 %sext, -1
+  %8 = select i1 %7, i32 2147483647, i32 -2147483648
+  %9 = trunc i64 %5 to i32
+  %.0.i = select i1 %.not.i, i32 %9, i32 %8
   ret i32 %.0.i
 }
 
@@ -244,28 +247,32 @@ ff_g723_1_get_residual.exit:                      ; preds = %19
   %37 = call i64 @ff_dot_product(ptr noundef nonnull %36, ptr noundef nonnull %34, i32 noundef 5) #7
   %sext = shl i64 %37, 32
   %38 = ashr exact i64 %sext, 31
-  %39 = call i64 @llvm.smax.i64(i64 %38, i64 -2147483648)
-  %40 = call i64 @llvm.smin.i64(i64 %39, i64 2147483647)
-  %41 = shl nsw i64 %40, 1
-  %42 = add nsw i64 %41, 2147483648
-  %.not.i17 = icmp ult i64 %42, 4294967296
-  %43 = icmp sgt i64 %38, -1
-  %44 = select i1 %43, i64 2147483647, i64 2147483648
-  %.0.i18 = select i1 %.not.i17, i64 %41, i64 %44
-  %45 = and i64 %.0.i18, 4294934528
-  %.not.i.not = icmp eq i64 %45, 2147450880
-  %46 = trunc i64 %.0.i18 to i32
-  %47 = add i32 %46, 32768
-  %48 = lshr i32 %47, 16
-  %49 = trunc nuw i32 %48 to i16
-  %50 = select i1 %.not.i.not, i16 32767, i16 %49
-  %51 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
-  store i16 %50, ptr %51, align 2, !tbaa !4
+  %39 = add nsw i64 %38, 2147483648
+  %.not.i19 = icmp ult i64 %39, 4294967296
+  %40 = icmp sgt i64 %sext, -1
+  %41 = select i1 %40, i64 2147483647, i64 2147483648
+  %.0.i20 = select i1 %.not.i19, i64 %38, i64 %41
+  %sext21 = shl i64 %.0.i20, 32
+  %42 = ashr exact i64 %sext21, 31
+  %43 = add nsw i64 %42, 2147483648
+  %.not.i17 = icmp ult i64 %43, 4294967296
+  %44 = icmp sgt i64 %sext21, -1
+  %45 = select i1 %44, i64 2147483647, i64 2147483648
+  %.0.i18 = select i1 %.not.i17, i64 %42, i64 %45
+  %46 = and i64 %.0.i18, 4294934528
+  %.not.i.not = icmp eq i64 %46, 2147450880
+  %47 = trunc i64 %.0.i18 to i32
+  %48 = add i32 %47, 32768
+  %49 = lshr i32 %48, 16
+  %50 = trunc nuw i32 %49 to i16
+  %51 = select i1 %.not.i.not, i16 32767, i16 %50
+  %52 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  store i16 %51, ptr %52, align 2, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 60
-  br i1 %exitcond.not, label %52, label %35, !llvm.loop !19
+  br i1 %exitcond.not, label %53, label %35, !llvm.loop !19
 
-52:                                               ; preds = %35
+53:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #7
   ret void
 }
@@ -705,12 +712,6 @@ declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.abs.i16(i16, i1 immarg) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.sadd.sat.i32(i32, i32) #6

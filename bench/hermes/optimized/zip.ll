@@ -19139,23 +19139,22 @@ entry:
   %m_central_dir_offsets = getelementptr inbounds nuw i8, ptr %pZip.104.val, i64 32
   %m_sorted_central_dir_offsets = getelementptr inbounds nuw i8, ptr %pZip.104.val, i64 64
   %0 = load ptr, ptr %m_sorted_central_dir_offsets, align 8
-  %sub = add nsw i32 %pZip.16.val, -2
-  %shr = ashr i32 %sub, 1
-  %cmp28 = icmp sgt i32 %shr, -1
-  br i1 %cmp28, label %for.cond.preheader, label %while.cond26.preheader
+  %cmp28 = icmp sgt i32 %pZip.16.val, 1
+  br i1 %cmp28, label %for.cond.preheader.preheader, label %while.end80
 
-for.cond.preheader:                               ; preds = %entry, %for.end
-  %start.029 = phi i32 [ %dec, %for.end ], [ %shr, %entry ]
+for.cond.preheader.preheader:                     ; preds = %entry
+  %sub = add nsw i32 %pZip.16.val, -2
+  %shr = lshr i32 %sub, 1
+  br label %for.cond.preheader
+
+for.cond.preheader:                               ; preds = %for.cond.preheader.preheader, %for.end
+  %start.029 = phi i32 [ %dec, %for.end ], [ %shr, %for.cond.preheader.preheader ]
   %shl21 = shl nuw i32 %start.029, 1
   %add22 = or disjoint i32 %shl21, 1
   %cmp1.not23 = icmp slt i32 %add22, %pZip.16.val
   br i1 %cmp1.not23, label %if.end, label %for.end
 
-while.cond26.preheader:                           ; preds = %for.end, %entry
-  %cmp2753 = icmp sgt i32 %pZip.16.val, 1
-  br i1 %cmp2753, label %while.body28.preheader, label %while.end80
-
-while.body28.preheader:                           ; preds = %while.cond26.preheader
+while.body28.preheader:                           ; preds = %for.end
   %1 = zext nneg i32 %pZip.16.val to i64
   br label %while.body28
 
@@ -19313,7 +19312,7 @@ do.body:                                          ; preds = %while.end.i196
 for.end:                                          ; preds = %do.body, %while.end.i196, %for.cond.preheader
   %dec = add nsw i32 %start.029, -1
   %cmp = icmp sgt i32 %start.029, 0
-  br i1 %cmp, label %for.cond.preheader, label %while.cond26.preheader, !llvm.loop !181
+  br i1 %cmp, label %for.cond.preheader, label %while.body28.preheader, !llvm.loop !181
 
 while.body28:                                     ; preds = %while.body28.preheader, %for.end78
   %indvars.iv = phi i64 [ %1, %while.body28.preheader ], [ %indvars.iv.next, %for.end78 ]
@@ -19484,7 +19483,7 @@ for.end78:                                        ; preds = %do.body67, %while.e
   %cmp27 = icmp sgt i64 %indvars.iv, 2
   br i1 %cmp27, label %while.body28, label %while.end80, !llvm.loop !182
 
-while.end80:                                      ; preds = %while.body28, %for.end78, %while.cond26.preheader
+while.end80:                                      ; preds = %while.body28, %for.end78, %entry
   ret void
 }
 

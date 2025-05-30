@@ -63194,36 +63194,35 @@ _ZNSt6vectorItSaItEE9push_backEOt.exit74:         ; preds = %73, %_ZNSt6vectorIt
   %121 = ptrtoint ptr %.sroa.14.2 to i64
   %122 = ptrtoint ptr %.sroa.0.3 to i64
   %123 = sub i64 %121, %122
-  %124 = ashr exact i64 %123, 1
-  %.inv54 = icmp sgt i64 %124, -1
-  %125 = select i1 %.inv54, i64 %123, i64 -1
-  %126 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %125) #37
-          to label %127 unwind label %134
+  %124 = tail call i64 @llvm.smax.i64(i64 %123, i64 -1)
+  %125 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %124) #37
+          to label %126 unwind label %134
 
-127:                                              ; preds = %120
-  store ptr %126, ptr %6, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %126, ptr align 2 %.sroa.0.3, i64 %123, i1 false)
+126:                                              ; preds = %120
+  store ptr %125, ptr %6, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %125, ptr align 2 %.sroa.0.3, i64 %123, i1 false)
   %.not.i.i.i = icmp eq ptr %.sroa.0.3, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %128
+  br i1 %.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %127
 
-128:                                              ; preds = %127
-  %129 = ptrtoint ptr %.sroa.25.3 to i64
-  %130 = sub i64 %129, %122
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3, i64 noundef %130) #36
+127:                                              ; preds = %126
+  %128 = ptrtoint ptr %.sroa.25.3 to i64
+  %129 = sub i64 %128, %122
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3, i64 noundef %129) #36
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
-_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %127, %128
+_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %126, %127
   %.not.i.i.i85 = icmp eq ptr %.sroa.0113.4, null
-  br i1 %.not.i.i.i85, label %_ZNSt6vectorIsSaIsEED2Ev.exit, label %131
+  br i1 %.not.i.i.i85, label %_ZNSt6vectorIsSaIsEED2Ev.exit, label %130
 
-131:                                              ; preds = %_ZNSt6vectorItSaItEED2Ev.exit
-  %132 = ptrtoint ptr %.sroa.25128.4 to i64
-  %133 = sub i64 %132, %116
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0113.4, i64 noundef %133) #36
+130:                                              ; preds = %_ZNSt6vectorItSaItEED2Ev.exit
+  %131 = ptrtoint ptr %.sroa.25128.4 to i64
+  %132 = sub i64 %131, %116
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0113.4, i64 noundef %132) #36
   br label %_ZNSt6vectorIsSaIsEED2Ev.exit
 
-_ZNSt6vectorIsSaIsEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %131
-  ret i64 %124
+_ZNSt6vectorIsSaIsEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %130
+  %133 = ashr exact i64 %123, 1
+  ret i64 %133
 
 134:                                              ; preds = %120, %_ZNSt6vectorItSaItEE9push_backEOt.exit74
   %135 = landingpad { ptr, i32 }
@@ -63679,36 +63678,35 @@ _ZNSt6vectorItSaItEE9push_backEOt.exit78:         ; preds = %73, %_ZNSt6vectorIt
   %121 = ptrtoint ptr %.sroa.14.2 to i64
   %122 = ptrtoint ptr %.sroa.0.3 to i64
   %123 = sub i64 %121, %122
-  %124 = ashr exact i64 %123, 1
-  %.inv54 = icmp sgt i64 %124, -1
-  %125 = select i1 %.inv54, i64 %123, i64 -1
-  %126 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %125) #37
-          to label %127 unwind label %134
+  %124 = tail call i64 @llvm.smax.i64(i64 %123, i64 -1)
+  %125 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %124) #37
+          to label %126 unwind label %134
 
-127:                                              ; preds = %120
-  store ptr %126, ptr %6, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %126, ptr align 2 %.sroa.0.3, i64 %123, i1 false)
+126:                                              ; preds = %120
+  store ptr %125, ptr %6, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %125, ptr align 2 %.sroa.0.3, i64 %123, i1 false)
   %.not.i.i.i = icmp eq ptr %.sroa.0.3, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %128
+  br i1 %.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %127
 
-128:                                              ; preds = %127
-  %129 = ptrtoint ptr %.sroa.25.3 to i64
-  %130 = sub i64 %129, %122
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3, i64 noundef %130) #36
+127:                                              ; preds = %126
+  %128 = ptrtoint ptr %.sroa.25.3 to i64
+  %129 = sub i64 %128, %122
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3, i64 noundef %129) #36
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
-_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %127, %128
+_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %126, %127
   %.not.i.i.i89 = icmp eq ptr %.sroa.0118.4, null
-  br i1 %.not.i.i.i89, label %_ZNSt6vectorItSaItEED2Ev.exit90, label %131
+  br i1 %.not.i.i.i89, label %_ZNSt6vectorItSaItEED2Ev.exit90, label %130
 
-131:                                              ; preds = %_ZNSt6vectorItSaItEED2Ev.exit
-  %132 = ptrtoint ptr %.sroa.25133.4 to i64
-  %133 = sub i64 %132, %116
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0118.4, i64 noundef %133) #36
+130:                                              ; preds = %_ZNSt6vectorItSaItEED2Ev.exit
+  %131 = ptrtoint ptr %.sroa.25133.4 to i64
+  %132 = sub i64 %131, %116
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0118.4, i64 noundef %132) #36
   br label %_ZNSt6vectorItSaItEED2Ev.exit90
 
-_ZNSt6vectorItSaItEED2Ev.exit90:                  ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %131
-  ret i64 %124
+_ZNSt6vectorItSaItEED2Ev.exit90:                  ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %130
+  %133 = ashr exact i64 %123, 1
+  ret i64 %133
 
 134:                                              ; preds = %120, %_ZNSt6vectorItSaItEE9push_backEOt.exit78
   %135 = landingpad { ptr, i32 }
@@ -64164,36 +64162,35 @@ _ZNSt6vectorItSaItEE9push_backEOt.exit73:         ; preds = %73, %_ZNSt6vectorIt
   %121 = ptrtoint ptr %.sroa.14.2 to i64
   %122 = ptrtoint ptr %.sroa.0.3 to i64
   %123 = sub i64 %121, %122
-  %124 = ashr exact i64 %123, 1
-  %.inv = icmp sgt i64 %124, -1
-  %125 = select i1 %.inv, i64 %123, i64 -1
-  %126 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %125) #37
-          to label %127 unwind label %134
+  %124 = tail call i64 @llvm.smax.i64(i64 %123, i64 -1)
+  %125 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %124) #37
+          to label %126 unwind label %134
 
-127:                                              ; preds = %120
-  store ptr %126, ptr %6, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %126, ptr align 2 %.sroa.0.3, i64 %123, i1 false)
+126:                                              ; preds = %120
+  store ptr %125, ptr %6, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %125, ptr align 2 %.sroa.0.3, i64 %123, i1 false)
   %.not.i.i.i = icmp eq ptr %.sroa.0.3, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %128
+  br i1 %.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %127
 
-128:                                              ; preds = %127
-  %129 = ptrtoint ptr %.sroa.25.3 to i64
-  %130 = sub i64 %129, %122
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3, i64 noundef %130) #36
+127:                                              ; preds = %126
+  %128 = ptrtoint ptr %.sroa.25.3 to i64
+  %129 = sub i64 %128, %122
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3, i64 noundef %129) #36
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
-_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %127, %128
+_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %126, %127
   %.not.i.i.i84 = icmp eq ptr %.sroa.0112.4, null
-  br i1 %.not.i.i.i84, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %131
+  br i1 %.not.i.i.i84, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %130
 
-131:                                              ; preds = %_ZNSt6vectorItSaItEED2Ev.exit
-  %132 = ptrtoint ptr %.sroa.25127.4 to i64
-  %133 = sub i64 %132, %116
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0112.4, i64 noundef %133) #36
+130:                                              ; preds = %_ZNSt6vectorItSaItEED2Ev.exit
+  %131 = ptrtoint ptr %.sroa.25127.4 to i64
+  %132 = sub i64 %131, %116
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0112.4, i64 noundef %132) #36
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %131
-  ret i64 %124
+_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %130
+  %133 = ashr exact i64 %123, 1
+  ret i64 %133
 
 134:                                              ; preds = %120, %_ZNSt6vectorItSaItEE9push_backEOt.exit73
   %135 = landingpad { ptr, i32 }
@@ -64652,36 +64649,35 @@ _ZNSt6vectorItSaItEE9push_backEOt.exit73:         ; preds = %76, %_ZNSt6vectorIt
   %124 = ptrtoint ptr %.sroa.14.2 to i64
   %125 = ptrtoint ptr %.sroa.0.3 to i64
   %126 = sub i64 %124, %125
-  %127 = ashr exact i64 %126, 1
-  %.inv = icmp sgt i64 %127, -1
-  %128 = select i1 %.inv, i64 %126, i64 -1
-  %129 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %128) #37
-          to label %130 unwind label %137
+  %127 = tail call i64 @llvm.smax.i64(i64 %126, i64 -1)
+  %128 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %127) #37
+          to label %129 unwind label %137
 
-130:                                              ; preds = %123
-  store ptr %129, ptr %6, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %129, ptr align 2 %.sroa.0.3, i64 %126, i1 false)
+129:                                              ; preds = %123
+  store ptr %128, ptr %6, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %128, ptr align 2 %.sroa.0.3, i64 %126, i1 false)
   %.not.i.i.i = icmp eq ptr %.sroa.0.3, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %131
+  br i1 %.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %130
 
-131:                                              ; preds = %130
-  %132 = ptrtoint ptr %.sroa.25.3 to i64
-  %133 = sub i64 %132, %125
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3, i64 noundef %133) #36
+130:                                              ; preds = %129
+  %131 = ptrtoint ptr %.sroa.25.3 to i64
+  %132 = sub i64 %131, %125
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3, i64 noundef %132) #36
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
-_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %130, %131
+_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %129, %130
   %.not.i.i.i84 = icmp eq ptr %.sroa.0111.4, null
-  br i1 %.not.i.i.i84, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %134
+  br i1 %.not.i.i.i84, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %133
 
-134:                                              ; preds = %_ZNSt6vectorItSaItEED2Ev.exit
-  %135 = ptrtoint ptr %.sroa.25126.4 to i64
-  %136 = sub i64 %135, %119
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0111.4, i64 noundef %136) #36
+133:                                              ; preds = %_ZNSt6vectorItSaItEED2Ev.exit
+  %134 = ptrtoint ptr %.sroa.25126.4 to i64
+  %135 = sub i64 %134, %119
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0111.4, i64 noundef %135) #36
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
-_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %134
-  ret i64 %127
+_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %133
+  %136 = ashr exact i64 %126, 1
+  ret i64 %136
 
 137:                                              ; preds = %123, %_ZNSt6vectorItSaItEE9push_backEOt.exit73
   %138 = landingpad { ptr, i32 }
@@ -65138,36 +65134,35 @@ _ZNSt6vectorItSaItEE9push_backEOt.exit73:         ; preds = %73, %_ZNSt6vectorIt
   %120 = ptrtoint ptr %.sroa.14.2 to i64
   %121 = ptrtoint ptr %.sroa.0.3 to i64
   %122 = sub i64 %120, %121
-  %123 = ashr exact i64 %122, 1
-  %.inv = icmp sgt i64 %123, -1
-  %124 = select i1 %.inv, i64 %122, i64 -1
-  %125 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %124) #37
-          to label %126 unwind label %133
+  %123 = tail call i64 @llvm.smax.i64(i64 %122, i64 -1)
+  %124 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %123) #37
+          to label %125 unwind label %133
 
-126:                                              ; preds = %119
-  store ptr %125, ptr %6, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %125, ptr align 2 %.sroa.0.3, i64 %122, i1 false)
+125:                                              ; preds = %119
+  store ptr %124, ptr %6, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %124, ptr align 2 %.sroa.0.3, i64 %122, i1 false)
   %.not.i.i.i = icmp eq ptr %.sroa.0.3, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %127
+  br i1 %.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %126
 
-127:                                              ; preds = %126
-  %128 = ptrtoint ptr %.sroa.25.3 to i64
-  %129 = sub i64 %128, %121
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3, i64 noundef %129) #36
+126:                                              ; preds = %125
+  %127 = ptrtoint ptr %.sroa.25.3 to i64
+  %128 = sub i64 %127, %121
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3, i64 noundef %128) #36
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
-_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %126, %127
+_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %125, %126
   %.not.i.i.i85 = icmp eq ptr %.sroa.0113.4, null
-  br i1 %.not.i.i.i85, label %_ZNSt6vectorIaSaIaEED2Ev.exit, label %130
+  br i1 %.not.i.i.i85, label %_ZNSt6vectorIaSaIaEED2Ev.exit, label %129
 
-130:                                              ; preds = %_ZNSt6vectorItSaItEED2Ev.exit
-  %131 = ptrtoint ptr %.sroa.25128.4 to i64
-  %132 = sub i64 %131, %116
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0113.4, i64 noundef %132) #36
+129:                                              ; preds = %_ZNSt6vectorItSaItEED2Ev.exit
+  %130 = ptrtoint ptr %.sroa.25128.4 to i64
+  %131 = sub i64 %130, %116
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0113.4, i64 noundef %131) #36
   br label %_ZNSt6vectorIaSaIaEED2Ev.exit
 
-_ZNSt6vectorIaSaIaEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %130
-  ret i64 %123
+_ZNSt6vectorIaSaIaEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %129
+  %132 = ashr exact i64 %122, 1
+  ret i64 %132
 
 133:                                              ; preds = %119, %_ZNSt6vectorItSaItEE9push_backEOt.exit73
   %134 = landingpad { ptr, i32 }
@@ -65624,36 +65619,35 @@ _ZNSt6vectorItSaItEE9push_backEOt.exit73:         ; preds = %73, %_ZNSt6vectorIt
   %120 = ptrtoint ptr %.sroa.14.2 to i64
   %121 = ptrtoint ptr %.sroa.0.3 to i64
   %122 = sub i64 %120, %121
-  %123 = ashr exact i64 %122, 1
-  %.inv = icmp sgt i64 %123, -1
-  %124 = select i1 %.inv, i64 %122, i64 -1
-  %125 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %124) #37
-          to label %126 unwind label %133
+  %123 = tail call i64 @llvm.smax.i64(i64 %122, i64 -1)
+  %124 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %123) #37
+          to label %125 unwind label %133
 
-126:                                              ; preds = %119
-  store ptr %125, ptr %6, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %125, ptr align 2 %.sroa.0.3, i64 %122, i1 false)
+125:                                              ; preds = %119
+  store ptr %124, ptr %6, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %124, ptr align 2 %.sroa.0.3, i64 %122, i1 false)
   %.not.i.i.i = icmp eq ptr %.sroa.0.3, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %127
+  br i1 %.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %126
 
-127:                                              ; preds = %126
-  %128 = ptrtoint ptr %.sroa.25.3 to i64
-  %129 = sub i64 %128, %121
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3, i64 noundef %129) #36
+126:                                              ; preds = %125
+  %127 = ptrtoint ptr %.sroa.25.3 to i64
+  %128 = sub i64 %127, %121
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3, i64 noundef %128) #36
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
-_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %126, %127
+_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %125, %126
   %.not.i.i.i85 = icmp eq ptr %.sroa.0113.4, null
-  br i1 %.not.i.i.i85, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %130
+  br i1 %.not.i.i.i85, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %129
 
-130:                                              ; preds = %_ZNSt6vectorItSaItEED2Ev.exit
-  %131 = ptrtoint ptr %.sroa.25128.4 to i64
-  %132 = sub i64 %131, %116
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0113.4, i64 noundef %132) #36
+129:                                              ; preds = %_ZNSt6vectorItSaItEED2Ev.exit
+  %130 = ptrtoint ptr %.sroa.25128.4 to i64
+  %131 = sub i64 %130, %116
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0113.4, i64 noundef %131) #36
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
-_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %130
-  ret i64 %123
+_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %129
+  %132 = ashr exact i64 %122, 1
+  ret i64 %132
 
 133:                                              ; preds = %119, %_ZNSt6vectorItSaItEE9push_backEOt.exit73
   %134 = landingpad { ptr, i32 }

@@ -2209,7 +2209,7 @@ _ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i:    ; preds = %37
   %63 = ptrtoint ptr %62 to i64
   %64 = sub i64 %57, %63
   %65 = ashr exact i64 %64, 2
-  %66 = icmp sgt i64 %65, -1
+  %66 = icmp sgt i64 %64, -1
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %_ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i
@@ -3250,7 +3250,7 @@ _ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i:    ; preds = %37
   %63 = ptrtoint ptr %62 to i64
   %64 = sub i64 %57, %63
   %65 = ashr exact i64 %64, 2
-  %66 = icmp sgt i64 %65, -1
+  %66 = icmp sgt i64 %64, -1
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %_ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i
@@ -3826,7 +3826,7 @@ _ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i:    ; preds = %37
   %63 = ptrtoint ptr %62 to i64
   %64 = sub i64 %57, %63
   %65 = ashr exact i64 %64, 2
-  %66 = icmp sgt i64 %65, -1
+  %66 = icmp sgt i64 %64, -1
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %_ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i
@@ -4470,7 +4470,7 @@ _ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i:    ; preds = %37
   %63 = ptrtoint ptr %62 to i64
   %64 = sub i64 %57, %63
   %65 = ashr exact i64 %64, 2
-  %66 = icmp sgt i64 %65, -1
+  %66 = icmp sgt i64 %64, -1
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %_ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i
@@ -5046,7 +5046,7 @@ _ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i:    ; preds = %37
   %63 = ptrtoint ptr %62 to i64
   %64 = sub i64 %57, %63
   %65 = ashr exact i64 %64, 2
-  %66 = icmp sgt i64 %65, -1
+  %66 = icmp sgt i64 %64, -1
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %_ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i
@@ -5622,7 +5622,7 @@ _ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i:    ; preds = %37
   %63 = ptrtoint ptr %62 to i64
   %64 = sub i64 %57, %63
   %65 = ashr exact i64 %64, 2
-  %66 = icmp sgt i64 %65, -1
+  %66 = icmp sgt i64 %64, -1
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %_ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i
@@ -6198,7 +6198,7 @@ _ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i:    ; preds = %37
   %63 = ptrtoint ptr %62 to i64
   %64 = sub i64 %57, %63
   %65 = ashr exact i64 %64, 2
-  %66 = icmp sgt i64 %65, -1
+  %66 = icmp sgt i64 %64, -1
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %_ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i

@@ -1420,7 +1420,7 @@ get_down2_steps.exit:                             ; preds = %.preheader
 
 clip_pixel_highbd.exit.i:                         ; preds = %66, %64, %62
   %.sink.i.i = phi i32 [ %67, %66 ], [ %65, %64 ], [ %63, %62 ]
-  %68 = icmp slt i32 %61, 0
+  %68 = icmp slt i32 %59, 0
   %69 = trunc nuw nsw i32 %.sink.i.i to i16
   %.0.i.i = select i1 %68, i16 0, i16 %69
   %70 = getelementptr inbounds nuw i8, ptr %.098145.i, i64 2
@@ -1492,7 +1492,7 @@ clip_pixel_highbd.exit.i:                         ; preds = %66, %64, %62
 
 clip_pixel_highbd.exit117.i:                      ; preds = %101, %99, %97
   %.sink.i115.i = phi i32 [ %102, %101 ], [ %100, %99 ], [ %98, %97 ]
-  %103 = icmp slt i32 %96, 0
+  %103 = icmp slt i32 %94, 0
   %104 = trunc nuw nsw i32 %.sink.i115.i to i16
   %.0.i116.i = select i1 %103, i16 0, i16 %104
   %105 = getelementptr inbounds nuw i8, ptr %.1131.i, i64 2
@@ -1565,7 +1565,7 @@ clip_pixel_highbd.exit117.i:                      ; preds = %101, %99, %97
 
 clip_pixel_highbd.exit120.i:                      ; preds = %134, %132, %130
   %.sink.i118.i = phi i32 [ %135, %134 ], [ %133, %132 ], [ %131, %130 ]
-  %136 = icmp slt i32 %129, 0
+  %136 = icmp slt i32 %127, 0
   %137 = trunc nuw nsw i32 %.sink.i118.i to i16
   %.0.i119.i = select i1 %136, i16 0, i16 %137
   %138 = getelementptr inbounds nuw i8, ptr %.2135.i, i64 2
@@ -1629,7 +1629,7 @@ clip_pixel_highbd.exit120.i:                      ; preds = %134, %132, %130
 
 clip_pixel_highbd.exit123.i:                      ; preds = %169, %167, %165
   %.sink.i121.i = phi i32 [ %170, %169 ], [ %168, %167 ], [ %166, %165 ]
-  %171 = icmp slt i32 %164, 0
+  %171 = icmp slt i32 %162, 0
   %172 = trunc nuw nsw i32 %.sink.i121.i to i16
   %.0.i122.i = select i1 %171, i16 0, i16 %172
   %173 = getelementptr inbounds nuw i8, ptr %.3140.i, i64 2
@@ -1711,7 +1711,7 @@ clip_pixel_highbd.exit123.i:                      ; preds = %169, %167, %165
 
 clip_pixel_highbd.exit.i65:                       ; preds = %209, %207, %205
   %.sink.i.i66 = phi i32 [ %210, %209 ], [ %208, %207 ], [ %206, %205 ]
-  %211 = icmp slt i32 %204, 0
+  %211 = icmp slt i32 %202, 0
   %212 = trunc nuw nsw i32 %.sink.i.i66 to i16
   %.0.i.i67 = select i1 %211, i16 0, i16 %212
   %213 = getelementptr inbounds nuw i8, ptr %.090140.i, i64 2
@@ -1779,7 +1779,7 @@ clip_pixel_highbd.exit.i65:                       ; preds = %209, %207, %205
 
 clip_pixel_highbd.exit109.i:                      ; preds = %240, %238, %236
   %.sink.i107.i = phi i32 [ %241, %240 ], [ %239, %238 ], [ %237, %236 ]
-  %242 = icmp slt i32 %235, 0
+  %242 = icmp slt i32 %233, 0
   %243 = trunc nuw nsw i32 %.sink.i107.i to i16
   %.0.i108.i = select i1 %242, i16 0, i16 %243
   %244 = getelementptr inbounds nuw i8, ptr %.1127.i, i64 2
@@ -1848,7 +1848,7 @@ clip_pixel_highbd.exit109.i:                      ; preds = %240, %238, %236
 
 clip_pixel_highbd.exit112.i:                      ; preds = %269, %267, %265
   %.sink.i110.i = phi i32 [ %270, %269 ], [ %268, %267 ], [ %266, %265 ]
-  %271 = icmp slt i32 %264, 0
+  %271 = icmp slt i32 %262, 0
   %272 = trunc nuw nsw i32 %.sink.i110.i to i16
   %.0.i111.i = select i1 %271, i16 0, i16 %272
   %273 = getelementptr inbounds nuw i8, ptr %.2131.i, i64 2
@@ -1908,7 +1908,7 @@ clip_pixel_highbd.exit112.i:                      ; preds = %269, %267, %265
 
 clip_pixel_highbd.exit115.i:                      ; preds = %299, %297, %295
   %.sink.i113.i = phi i32 [ %300, %299 ], [ %298, %297 ], [ %296, %295 ]
-  %301 = icmp slt i32 %294, 0
+  %301 = icmp slt i32 %292, 0
   %302 = trunc nuw nsw i32 %.sink.i113.i to i16
   %.0.i114.i = select i1 %301, i16 0, i16 %302
   %303 = getelementptr inbounds nuw i8, ptr %.3136.i, i64 2
@@ -3453,7 +3453,7 @@ choose_interp_filter.exit:                        ; preds = %5, %7, %9, %11
 
 clip_pixel_highbd.exit.i:                         ; preds = %65, %63, %61
   %.sink.i.i = phi i32 [ %66, %65 ], [ %64, %63 ], [ %62, %61 ]
-  %67 = icmp slt i32 %60, 0
+  %67 = icmp slt i32 %57, -64
   %68 = trunc nuw nsw i32 %.sink.i.i to i16
   %.0.i.i = select i1 %67, i16 0, i16 %68
   %69 = getelementptr inbounds nuw i8, ptr %.0226.i, i64 2
@@ -3522,7 +3522,7 @@ clip_pixel_highbd.exit.i:                         ; preds = %65, %63, %61
 
 clip_pixel_highbd.exit176.i:                      ; preds = %96, %94, %92
   %.sink.i174.i = phi i32 [ %97, %96 ], [ %95, %94 ], [ %93, %92 ]
-  %98 = icmp slt i32 %91, 0
+  %98 = icmp slt i32 %88, -64
   %99 = trunc nuw nsw i32 %.sink.i174.i to i16
   %.0.i175.i = select i1 %98, i16 0, i16 %99
   %100 = getelementptr inbounds nuw i8, ptr %.1201.i, i64 2
@@ -3591,7 +3591,7 @@ clip_pixel_highbd.exit176.i:                      ; preds = %96, %94, %92
 
 clip_pixel_highbd.exit179.i:                      ; preds = %127, %125, %123
   %.sink.i177.i = phi i32 [ %128, %127 ], [ %126, %125 ], [ %124, %123 ]
-  %129 = icmp slt i32 %122, 0
+  %129 = icmp slt i32 %119, -64
   %130 = trunc nuw nsw i32 %.sink.i177.i to i16
   %.0.i178.i = select i1 %129, i16 0, i16 %130
   %131 = getelementptr inbounds nuw i8, ptr %.2211.i, i64 2
@@ -3654,7 +3654,7 @@ clip_pixel_highbd.exit179.i:                      ; preds = %127, %125, %123
 
 clip_pixel_highbd.exit182.i:                      ; preds = %160, %158, %156
   %.sink.i180.i = phi i32 [ %161, %160 ], [ %159, %158 ], [ %157, %156 ]
-  %162 = icmp slt i32 %155, 0
+  %162 = icmp slt i32 %152, -64
   %163 = trunc nuw nsw i32 %.sink.i180.i to i16
   %.0.i181.i = select i1 %162, i16 0, i16 %163
   %164 = getelementptr inbounds nuw i8, ptr %.3220.i, i64 2
