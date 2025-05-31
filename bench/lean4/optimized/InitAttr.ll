@@ -16369,7 +16369,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_isIOUnitInitFnCore(ptr noundef %0, ptr 
 lean_obj_tag.exit:                                ; preds = %8, %11
   %.0.i = phi i32 [ %10, %8 ], [ %13, %11 ]
   %14 = icmp eq i32 %.0.i, 0
-  br i1 %14, label %lean_dec.exit, label %15
+  br i1 %14, label %46, label %15
 
 15:                                               ; preds = %lean_obj_tag.exit
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -16452,9 +16452,13 @@ lean_obj_tag.exit22:                              ; preds = %lean_dec.exit13
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %17) #5
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %lean_obj_tag.exit22.thread, %lean_obj_tag.exit22, %41, %43, %44, %lean_obj_tag.exit
-  %.0.shrunk = phi i1 [ false, %lean_obj_tag.exit ], [ %37, %lean_obj_tag.exit22 ], [ false, %44 ], [ false, %43 ], [ false, %41 ], [ %35, %lean_obj_tag.exit22.thread ]
-  %.0 = zext i1 %.0.shrunk to i8
+lean_dec.exit:                                    ; preds = %lean_obj_tag.exit22.thread, %lean_obj_tag.exit22, %41, %43, %44
+  %45 = phi i1 [ %35, %lean_obj_tag.exit22.thread ], [ %37, %lean_obj_tag.exit22 ], [ %37, %41 ], [ %37, %43 ], [ %37, %44 ]
+  %.1 = zext i1 %45 to i8
+  br label %46
+
+46:                                               ; preds = %lean_obj_tag.exit, %lean_dec.exit
+  %.0 = phi i8 [ %.1, %lean_dec.exit ], [ 0, %lean_obj_tag.exit ]
   ret i8 %.0
 }
 

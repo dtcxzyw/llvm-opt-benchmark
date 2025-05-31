@@ -514,11 +514,12 @@ define hidden noundef range(i32 0, 2) i32 @_ZN3sat4prob5checkEjPKNS_7literalEPNS
   tail call void @_ZN3sat4prob4initEv(ptr noundef nonnull align 8 dereferenceable(816) %0)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %8)
+  %.not25 = xor i1 %9, true
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %11 = load i32, ptr %10, align 8
-  %.not5 = icmp ne i32 %11, 0
-  %or.cond.not6 = select i1 %9, i1 %.not5, i1 false
-  br i1 %or.cond.not6, label %.lr.ph, label %.critedge
+  %.not6 = icmp eq i32 %11, 0
+  %or.cond7 = select i1 %.not25, i1 true, i1 %.not6
+  br i1 %or.cond7, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 760
@@ -541,16 +542,16 @@ define hidden noundef range(i32 0, 2) i32 @_ZN3sat4prob5checkEjPKNS_7literalEPNS
 
 19:                                               ; preds = %18, %17
   %20 = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %8)
+  %.not2 = xor i1 %20, true
   %21 = load i32, ptr %10, align 8
-  %.not = icmp ne i32 %21, 0
-  %or.cond.not = select i1 %20, i1 %.not, i1 false
-  br i1 %or.cond.not, label %14, label %.critedge, !llvm.loop !72
+  %.not = icmp eq i32 %21, 0
+  %or.cond = select i1 %.not2, i1 true, i1 %.not
+  br i1 %or.cond, label %.critedge, label %14, !llvm.loop !72
 
 .critedge:                                        ; preds = %19, %7
-  %.not.lcssa = phi i1 [ %.not5, %7 ], [ %.not, %19 ]
-  %not..not = xor i1 %.not.lcssa, true
-  %. = zext i1 %not..not to i32
-  ret i32 %.
+  %.not.lcssa = phi i1 [ %.not6, %7 ], [ %.not, %19 ]
+  %.0 = zext i1 %.not.lcssa to i32
+  ret i32 %.0
 }
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0

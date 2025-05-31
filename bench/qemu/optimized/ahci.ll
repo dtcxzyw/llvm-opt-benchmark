@@ -702,13 +702,13 @@ trace_ahci_reset_port.exit:                       ; preds = %2, %9, %11, %17, %2
 define internal range(i32 -1, 1) i32 @ahci_state_post_load(ptr noundef %0, i32 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %4 = load i32, ptr %3, align 8
-  %.not78 = icmp eq i32 %4, 0
-  br i1 %.not78, label %is_ncq.exit.thread, label %.lr.ph
+  %.not82 = icmp eq i32 %4, 0
+  br i1 %.not82, label %is_ncq.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %76
-  %.04672 = phi i32 [ %77, %76 ], [ 0, %2 ]
+  %.04676 = phi i32 [ %77, %76 ], [ 0, %2 ]
   %5 = load ptr, ptr %0, align 16
-  %6 = sext i32 %.04672 to i64
+  %6 = sext i32 %.04676 to i64
   %7 = getelementptr inbounds %struct.AHCIDevice, ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 2396
   %9 = load i32, ptr %8, align 4
@@ -738,7 +738,7 @@ define internal range(i32 -1, 1) i32 @ahci_state_post_load(ptr noundef %0, i32 %
 
 .preheader:                                       ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 2496
-  %19 = and i32 %.04672, 255
+  %19 = and i32 %.04676, 255
   %20 = zext nneg i32 %19 to i64
   br label %21
 
@@ -826,7 +826,7 @@ get_cmd_header.exit:                              ; preds = %40
   br i1 %63, label %64, label %65
 
 64:                                               ; preds = %60
-  tail call fastcc void @check_cmd(ptr noundef nonnull %0, i32 noundef %.04672)
+  tail call fastcc void @check_cmd(ptr noundef nonnull %0, i32 noundef %.04676)
   br label %76
 
 65:                                               ; preds = %60
@@ -855,13 +855,13 @@ get_cmd_header.exit64:                            ; preds = %66, %68
   br label %76
 
 76:                                               ; preds = %64, %get_cmd_header.exit64
-  %77 = add nuw i32 %.04672, 1
+  %77 = add nuw i32 %.04676, 1
   %78 = load i32, ptr %3, align 8
   %79 = icmp ult i32 %77, %78
   br i1 %79, label %.lr.ph, label %is_ncq.exit.thread, !llvm.loop !15
 
 is_ncq.exit.thread:                               ; preds = %15, %65, %76, %29, %get_cmd_header.exit, %is_ncq.exit, %21, %2, %get_cmd_header.exit.thread, %14, %11
-  %.0 = phi i32 [ -1, %14 ], [ -1, %11 ], [ -1, %get_cmd_header.exit.thread ], [ 0, %2 ], [ -1, %21 ], [ -1, %is_ncq.exit ], [ -1, %get_cmd_header.exit ], [ -1, %29 ], [ -1, %15 ], [ -1, %65 ], [ 0, %76 ]
+  %.0 = phi i32 [ -1, %get_cmd_header.exit.thread ], [ -1, %14 ], [ -1, %11 ], [ 0, %2 ], [ -1, %21 ], [ -1, %is_ncq.exit ], [ -1, %get_cmd_header.exit ], [ -1, %29 ], [ -1, %15 ], [ -1, %65 ], [ 0, %76 ]
   ret i32 %.0
 }
 
@@ -912,8 +912,8 @@ define internal i64 @ahci_mem_read(ptr noundef %0, i64 noundef %1, i32 noundef %
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %3
-  %12 = icmp ult i32 %2, 2
-  br i1 %12, label %13, label %14, !prof !17
+  %12 = icmp ugt i32 %2, 1
+  br i1 %12, label %14, label %13, !prof !7
 
 13:                                               ; preds = %11
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 423, ptr noundef nonnull @__func__.ahci_mem_read, ptr noundef nonnull @.str.13) #15
@@ -1125,7 +1125,7 @@ trace_ahci_mem_write.exit:                        ; preds = %4, %12, %14, %20, %
 trace_ahci_mem_write_host_unimpl.exit:            ; preds = %70, %64, %58, %39, %40, %45, %34, %34, %34
   %.pr = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i48 = icmp eq i32 %.pr, 0
-  br i1 %.not.i.i48, label %trace_ahci_mem_write_host.exit, label %trace_ahci_mem_write_host_unimpl.exit.trace_ahci_mem_write_host_unimpl.exit.thread53_crit_edge, !prof !18
+  br i1 %.not.i.i48, label %trace_ahci_mem_write_host.exit, label %trace_ahci_mem_write_host_unimpl.exit.trace_ahci_mem_write_host_unimpl.exit.thread53_crit_edge, !prof !17
 
 trace_ahci_mem_write_host_unimpl.exit.trace_ahci_mem_write_host_unimpl.exit.thread53_crit_edge: ; preds = %trace_ahci_mem_write_host_unimpl.exit
   %.in.phi.trans.insert = getelementptr inbounds nuw [11 x ptr], ptr @AHCIHostReg_lookup, i64 0, i64 %35
@@ -1556,7 +1556,7 @@ trace_ahci_mem_read_32_host_default.exit:         ; preds = %46, %40, %34, %25, 
   %.0.ph = phi i32 [ 0, %46 ], [ 0, %40 ], [ 0, %34 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %27, %25 ]
   %.pr = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i32 = icmp eq i32 %.pr, 0
-  br i1 %.not.i.i32, label %trace_ahci_mem_read_32.exit, label %trace_ahci_mem_read_32_host_default.exit.trace_ahci_mem_read_32_host_default.exit.thread42_crit_edge, !prof !19
+  br i1 %.not.i.i32, label %trace_ahci_mem_read_32.exit, label %trace_ahci_mem_read_32_host_default.exit.trace_ahci_mem_read_32_host_default.exit.thread42_crit_edge, !prof !18
 
 trace_ahci_mem_read_32_host_default.exit.trace_ahci_mem_read_32_host_default.exit.thread42_crit_edge: ; preds = %trace_ahci_mem_read_32_host_default.exit
   %.in.phi.trans.insert = getelementptr inbounds nuw [11 x ptr], ptr @AHCIHostReg_lookup, i64 0, i64 %11
@@ -1753,7 +1753,7 @@ trace_ahci_port_read_default.exit.i:              ; preds = %142, %136, %130, %1
   %.0.ph.i = phi i32 [ 0, %142 ], [ 0, %136 ], [ 0, %130 ], [ %..i, %109 ], [ %84, %82 ], [ %87, %85 ], [ %90, %88 ], [ %93, %91 ], [ %96, %94 ], [ %99, %97 ], [ %102, %100 ], [ %105, %103 ], [ %108, %106 ], [ %114, %112 ], [ %117, %115 ], [ %120, %118 ], [ %123, %121 ]
   %.pr.i = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i30.i = icmp eq i32 %.pr.i, 0
-  br i1 %.not.i.i30.i, label %trace_ahci_mem_read_32.exit, label %trace_ahci_port_read_default.exit.trace_ahci_port_read_default.exit.thread34_crit_edge.i, !prof !20
+  br i1 %.not.i.i30.i, label %trace_ahci_mem_read_32.exit, label %trace_ahci_port_read_default.exit.trace_ahci_port_read_default.exit.thread34_crit_edge.i, !prof !19
 
 trace_ahci_port_read_default.exit.trace_ahci_port_read_default.exit.thread34_crit_edge.i: ; preds = %trace_ahci_port_read_default.exit.i
   %.in.phi.trans.insert.i = getelementptr inbounds nuw [32 x ptr], ptr @AHCIPortReg_lookup, i64 0, i64 %81
@@ -1835,7 +1835,7 @@ trace_ahci_mem_read_32_host.exit:                 ; preds = %174, %168, %162, %1
   %.1.ph = phi i32 [ 0, %174 ], [ 0, %168 ], [ 0, %162 ], [ %.037.i, %157 ], [ %.037.i, %151 ], [ %.037.i, %145 ], [ %.037.i, %trace_ahci_port_read_default.exit.thread34.i ], [ %.045, %61 ], [ %.045, %55 ], [ %.045, %49 ], [ %.045, %trace_ahci_mem_read_32_host_default.exit.thread42 ]
   %.pr46 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i36 = icmp eq i32 %.pr46, 0
-  br i1 %.not.i.i36, label %trace_ahci_mem_read_32.exit, label %trace_ahci_mem_read_32_host.exit.thread51, !prof !21
+  br i1 %.not.i.i36, label %trace_ahci_mem_read_32.exit, label %trace_ahci_mem_read_32_host.exit.thread51, !prof !20
 
 trace_ahci_mem_read_32_host.exit.thread51:        ; preds = %160, %trace_ahci_mem_read_32_host.exit
   %.154 = phi i32 [ %.1.ph, %trace_ahci_mem_read_32_host.exit ], [ 0, %160 ]
@@ -1929,7 +1929,7 @@ define internal fastcc void @ahci_check_irq(ptr noundef %0) unnamed_addr #0 {
   %23 = phi i32 [ %21, %19 ], [ %11, %10 ]
   %24 = add nuw i32 %.025, 1
   %exitcond.not = icmp eq i32 %24, %8
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %22, %1
   %25 = phi i32 [ 0, %1 ], [ %23, %22 ]
@@ -3111,7 +3111,7 @@ ahci_write_fis_d2h.exit.i.i.i:                    ; preds = %.sink.split.i.i.i.i
   %377 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i.i.i.i = icmp eq i32 %377, 0
   %or.cond.i89.i.i = select i1 %.not94.i.i.i, i1 true, i1 %.not.i.i.i.i.i
-  br i1 %or.cond.i89.i.i, label %trace_process_ncq_command_mismatch.exit.i.i.i, label %378, !prof !23
+  br i1 %or.cond.i89.i.i, label %trace_process_ncq_command_mismatch.exit.i.i.i, label %378, !prof !22
 
 378:                                              ; preds = %ahci_write_fis_d2h.exit.i.i.i
   %379 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_MISMATCH_DSTATE, align 2
@@ -3171,7 +3171,7 @@ trace_process_ncq_command_mismatch.exit.i.i.i:    ; preds = %392, %386, %380, %3
   %405 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i106.i.i.i = icmp eq i32 %405, 0
   %or.cond123.i.i.i = select i1 %.not98.i.i.i, i1 true, i1 %.not.i.i106.i.i.i
-  br i1 %or.cond123.i.i.i, label %trace_process_ncq_command_aux.exit.i.i.i, label %407, !prof !23
+  br i1 %or.cond123.i.i.i, label %trace_process_ncq_command_aux.exit.i.i.i, label %407, !prof !22
 
 406:                                              ; preds = %399, %396, %trace_process_ncq_command_mismatch.exit.i.i.i
   %.old.i.i.i = load i32, ptr @trace_events_enabled_count, align 4
@@ -3224,7 +3224,7 @@ trace_process_ncq_command_aux.exit.i.i.i:         ; preds = %421, %415, %409, %4
   %428 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i107.i.i.i = icmp eq i32 %428, 0
   %or.cond125.i.i.i = select i1 %.not100.i.i.i, i1 true, i1 %.not.i.i107.i.i.i
-  br i1 %or.cond125.i.i.i, label %trace_process_ncq_command_prioicc.exit.i.i.i, label %430, !prof !23
+  br i1 %or.cond125.i.i.i, label %trace_process_ncq_command_prioicc.exit.i.i.i, label %430, !prof !22
 
 429:                                              ; preds = %trace_process_ncq_command_aux.exit.i.i.i
   %.old124.i.i.i = load i32, ptr @trace_events_enabled_count, align 4
@@ -3271,7 +3271,7 @@ trace_process_ncq_command_prioicc.exit.i.i.i:     ; preds = %444, %438, %432, %4
   %448 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i110.i.i.i = icmp eq i32 %448, 0
   %or.cond127.i.i.i = select i1 %.not101.i.i.i, i1 true, i1 %.not.i.i110.i.i.i
-  br i1 %or.cond127.i.i.i, label %trace_process_ncq_command_fua.exit.i.i.i, label %449, !prof !23
+  br i1 %or.cond127.i.i.i, label %trace_process_ncq_command_fua.exit.i.i.i, label %449, !prof !22
 
 449:                                              ; preds = %trace_process_ncq_command_prioicc.exit.i.i.i
   %450 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_FUA_DSTATE, align 2
@@ -3313,7 +3313,7 @@ trace_process_ncq_command_fua.exit.i.i.i:         ; preds = %463, %457, %451, %4
   %467 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i113.i.i.i = icmp eq i32 %467, 0
   %or.cond129.i.i.i = select i1 %.not102.i.i.i, i1 true, i1 %.not.i.i113.i.i.i
-  br i1 %or.cond129.i.i.i, label %trace_process_ncq_command_rarc.exit.i.i.i, label %468, !prof !23
+  br i1 %or.cond129.i.i.i, label %trace_process_ncq_command_rarc.exit.i.i.i, label %468, !prof !22
 
 468:                                              ; preds = %trace_process_ncq_command_fua.exit.i.i.i
   %469 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_RARC_DSTATE, align 2
@@ -3441,7 +3441,7 @@ trace_process_ncq_command_large.exit.i.i.i:       ; preds = %528, %522, %516, %5
   %532 = zext i32 %531 to i64
   %533 = add i64 %530, %532
   %.not.i.i117.i.i.i = icmp eq i32 %.pr.i.i.i, 0
-  br i1 %.not.i.i117.i.i.i, label %trace_process_ncq_command.exit.i.i.i, label %534, !prof !24
+  br i1 %.not.i.i117.i.i.i, label %trace_process_ncq_command.exit.i.i.i, label %534, !prof !23
 
 534:                                              ; preds = %trace_process_ncq_command_large.exit.i.i.i, %trace_process_ncq_command_large.exit.thread121.i.i.i
   %.in.i.i.i = phi i64 [ %515, %trace_process_ncq_command_large.exit.thread121.i.i.i ], [ %533, %trace_process_ncq_command_large.exit.i.i.i ]
@@ -3625,7 +3625,7 @@ handle_cmd.exit:                                  ; preds = %trace_handle_cmd_ba
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %635 = trunc nuw nsw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %.critedge, label %47, !llvm.loop !25
+  br i1 %exitcond.not, label %.critedge, label %47, !llvm.loop !24
 
 .critedge:                                        ; preds = %47, %handle_cmd.exit, %25, %2
   ret void
@@ -3718,7 +3718,7 @@ define internal fastcc ptr @ahci_pretty_buffer_fis(ptr noundef readonly captures
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %3, ptr noundef nonnull @.str.117, i32 noundef %12) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %13, label %4, !llvm.loop !26
+  br i1 %exitcond.not, label %13, label %4, !llvm.loop !25
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4064,7 +4064,7 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
-  br i1 %exitcond.not, label %.thread, label %111, !llvm.loop !27
+  br i1 %exitcond.not, label %.thread, label %111, !llvm.loop !26
 
 119:                                              ; preds = %111
   %120 = trunc nuw nsw i64 %indvars.iv to i32
@@ -4157,7 +4157,7 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   call void @qemu_sglist_add(ptr noundef nonnull %1, i64 noundef %163, i64 noundef %169) #14
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count
-  br i1 %exitcond144.not, label %.critedge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond144.not, label %.critedge, label %.lr.ph, !llvm.loop !27
 
 .critedge:                                        ; preds = %.lr.ph, %161, %140, %139, %133, %127, %125, %.thread, %108, %102, %96, %94, %90
   %.091 = phi i32 [ -1, %90 ], [ -1, %94 ], [ -1, %96 ], [ -1, %102 ], [ -1, %108 ], [ -1, %.thread ], [ -1, %125 ], [ -1, %127 ], [ -1, %133 ], [ -1, %139 ], [ 0, %140 ], [ 0, %161 ], [ 0, %.lr.ph ]
@@ -5142,7 +5142,7 @@ define internal range(i32 0, 2) i32 @ahci_dma_rw_buf(ptr noundef %0, i1 noundef 
   br label %trace_ahci_dma_rw_buf.exit
 
 trace_ahci_dma_rw_buf.exit:                       ; preds = %48, %42, %36, %34, %26, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %26 ], [ 1, %34 ], [ 1, %36 ], [ 1, %42 ], [ 1, %48 ]
+  %.0 = zext i1 %.not to i32
   ret i32 %.0
 }
 
@@ -5166,7 +5166,7 @@ define internal void @ahci_restart(ptr noundef %0) #0 {
 9:                                                ; preds = %8, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %10, label %3, !llvm.loop !29
+  br i1 %exitcond.not, label %10, label %3, !llvm.loop !28
 
 10:                                               ; preds = %9
   ret void
@@ -5506,16 +5506,15 @@ attributes #16 = { nounwind allocsize(0,1) }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!18 = !{!"branch_weights", !"expected", i32 2146276368, i32 1207280}
-!19 = !{!"branch_weights", !"expected", i32 2146276369, i32 1207279}
-!20 = !{!"branch_weights", !"expected", i32 2146362558, i32 1121090}
-!21 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!22 = distinct !{!22, !5}
-!23 = !{!"branch_weights", i32 4001, i32 1}
-!24 = !{!"branch_weights", !"expected", i32 2145740235, i32 1743413}
+!17 = !{!"branch_weights", !"expected", i32 2146276368, i32 1207280}
+!18 = !{!"branch_weights", !"expected", i32 2146276369, i32 1207279}
+!19 = !{!"branch_weights", !"expected", i32 2146362558, i32 1121090}
+!20 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!21 = distinct !{!21, !5}
+!22 = !{!"branch_weights", i32 4001, i32 1}
+!23 = !{!"branch_weights", !"expected", i32 2145740235, i32 1743413}
+!24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}

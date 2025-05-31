@@ -841,8 +841,7 @@ define hidden void @"_ZN44_$LT$T$u20$as$u20$alloc..borrow..ToOwned$GT$8to_owned1
   br label %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit.i"
 
 "_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit.i": ; preds = %16, %6
-  %.sink.i.i = phi i8 [ 1, %16 ], [ 0, %6 ]
-  store i8 %.sink.i.i, ptr %3, align 8, !alias.scope !357, !noalias !365
+  store i8 %5, ptr %3, align 8, !alias.scope !357, !noalias !365
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %20 = load i64, ptr %19, align 8, !alias.scope !354, !noalias !351, !noundef !9
   %21 = load i64, ptr %1, align 8, !range !366, !alias.scope !354, !noalias !351, !noundef !9
@@ -908,7 +907,7 @@ define hidden void @"_ZN44_$LT$T$u20$as$u20$alloc..borrow..ToOwned$GT$8to_owned1
   %.sroa.9.0.i = phi i64 [ %35, %.noexc.i ], [ undef, %30 ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit.i" ]
   %.sroa.8.0.i = phi i64 [ %39, %.noexc.i ], [ undef, %30 ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit.i" ]
   %.sroa.6.0.i = phi i64 [ %45, %.noexc.i ], [ %32, %30 ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit.i" ]
-  %.sroa.0.02.i = phi i64 [ %41, %.noexc.i ], [ -9223372036854775808, %30 ], [ -9223372036854775806, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit.i" ]
+  %.sroa.0.0.i = phi i64 [ %41, %.noexc.i ], [ -9223372036854775808, %30 ], [ -9223372036854775806, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit.i" ]
   %trunc.i = trunc nuw i64 %21 to i1
   %.sroa.5.0.i = select i1 %trunc.i, i64 %23, i64 undef
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -919,7 +918,7 @@ define hidden void @"_ZN44_$LT$T$u20$as$u20$alloc..borrow..ToOwned$GT$8to_owned1
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.i, ptr %53, align 8, !alias.scope !351, !noalias !354
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.02.i, ptr %54, align 8, !alias.scope !351, !noalias !354
+  store i64 %.sroa.0.0.i, ptr %54, align 8, !alias.scope !351, !noalias !354
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.6.0.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !351, !noalias !354
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -963,8 +962,7 @@ define hidden void @"_ZN49_$LT$mime..Mime$u20$as$u20$core..clone..Clone$GT$5clon
   br label %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit"
 
 "_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit": ; preds = %6, %16
-  %.sink.i = phi i8 [ 1, %16 ], [ 0, %6 ]
-  store i8 %.sink.i, ptr %3, align 8, !alias.scope !383, !noalias !386
+  store i8 %5, ptr %3, align 8, !alias.scope !383, !noalias !386
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %20 = load i64, ptr %19, align 8, !noundef !9
   %21 = load i64, ptr %1, align 8, !range !366, !noundef !9
@@ -1021,7 +1019,7 @@ define hidden void @"_ZN49_$LT$mime..Mime$u20$as$u20$core..clone..Clone$GT$5clon
   %.sroa.9.0 = phi i64 [ %35, %.noexc ], [ undef, %30 ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit" ]
   %.sroa.8.0 = phi i64 [ %39, %.noexc ], [ undef, %30 ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit" ]
   %.sroa.6.0 = phi i64 [ %45, %.noexc ], [ %32, %30 ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit" ]
-  %.sroa.0.02 = phi i64 [ %41, %.noexc ], [ -9223372036854775808, %30 ], [ -9223372036854775806, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit" ]
+  %.sroa.0.0 = phi i64 [ %41, %.noexc ], [ -9223372036854775808, %30 ], [ -9223372036854775806, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.llvm.1214063349730439972.exit" ]
   %trunc = trunc nuw i64 %21 to i1
   %.sroa.5.0 = select i1 %trunc, i64 %23, i64 undef
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1032,7 +1030,7 @@ define hidden void @"_ZN49_$LT$mime..Mime$u20$as$u20$core..clone..Clone$GT$5clon
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.02, ptr %51, align 8
+  store i64 %.sroa.0.0, ptr %51, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1399,8 +1397,7 @@ define hidden void @"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5cl
   br label %18
 
 18:                                               ; preds = %15, %5
-  %.sink = phi i8 [ 1, %15 ], [ 0, %5 ]
-  store i8 %.sink, ptr %0, align 8
+  store i8 %4, ptr %0, align 8
   ret void
 }
 

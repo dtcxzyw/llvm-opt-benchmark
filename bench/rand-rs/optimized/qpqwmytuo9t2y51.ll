@@ -12351,7 +12351,7 @@ define hidden void @_ZN11rand_chacha4guts16set_stream_param8impl_avx17hd10e28f94
   %5 = shl i32 %1, 1
   %6 = or disjoint i32 %5, 1
   switch i32 %6, label %7 [
-    i32 3, label %8
+    i32 3, label %"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..YesS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17h9fd919b22d929d18E.llvm.17720110283109806325.exit1.i"
     i32 1, label %"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..YesS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17h9fd919b22d929d18E.llvm.17720110283109806325.exit1.i"
   ]
 
@@ -12359,31 +12359,25 @@ define hidden void @_ZN11rand_chacha4guts16set_stream_param8impl_avx17hd10e28f94
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.71034ffa948b4d9b00e2d6c0756fe8d1.5.llvm.17720110283109806325, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.71034ffa948b4d9b00e2d6c0756fe8d1.8.llvm.17720110283109806325) #39, !noalias !3034
   unreachable
 
-8:                                                ; preds = %3
-  br label %"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..YesS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17h9fd919b22d929d18E.llvm.17720110283109806325.exit1.i"
-
-"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..YesS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17h9fd919b22d929d18E.llvm.17720110283109806325.exit1.i": ; preds = %3, %8
-  %.sink32 = phi i64 [ 3, %8 ], [ 1, %3 ]
-  switch i32 %5, label %9 [
+"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..YesS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17h9fd919b22d929d18E.llvm.17720110283109806325.exit1.i": ; preds = %3, %3
+  switch i32 %5, label %8 [
     i32 0, label %_ZN11rand_chacha4guts16set_stream_param7fn_impl17h2074b58e636a1d5eE.llvm.17720110283109806325.exit
-    i32 2, label %10
+    i32 2, label %_ZN11rand_chacha4guts16set_stream_param7fn_impl17h2074b58e636a1d5eE.llvm.17720110283109806325.exit
   ]
 
-9:                                                ; preds = %"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..YesS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17h9fd919b22d929d18E.llvm.17720110283109806325.exit1.i"
+8:                                                ; preds = %"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..YesS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17h9fd919b22d929d18E.llvm.17720110283109806325.exit1.i"
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.71034ffa948b4d9b00e2d6c0756fe8d1.5.llvm.17720110283109806325, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.71034ffa948b4d9b00e2d6c0756fe8d1.8.llvm.17720110283109806325) #39, !noalias !3040
   unreachable
 
-10:                                               ; preds = %"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..YesS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17h9fd919b22d929d18E.llvm.17720110283109806325.exit1.i"
-  br label %_ZN11rand_chacha4guts16set_stream_param7fn_impl17h2074b58e636a1d5eE.llvm.17720110283109806325.exit
-
-_ZN11rand_chacha4guts16set_stream_param7fn_impl17h2074b58e636a1d5eE.llvm.17720110283109806325.exit: ; preds = %"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..YesS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17h9fd919b22d929d18E.llvm.17720110283109806325.exit1.i", %10
-  %.sink = phi i64 [ 2, %10 ], [ 0, %"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..YesS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17h9fd919b22d929d18E.llvm.17720110283109806325.exit1.i" ]
-  %11 = trunc i64 %2 to i32
-  %12 = lshr i64 %2, 32
-  %13 = trunc nuw i64 %12 to i32
-  %14 = insertelement <4 x i32> %.sroa.0.0.copyload33, i32 %13, i64 %.sink32
-  %15 = insertelement <4 x i32> %14, i32 %11, i64 %.sink
-  store <4 x i32> %15, ptr %4, align 16
+_ZN11rand_chacha4guts16set_stream_param7fn_impl17h2074b58e636a1d5eE.llvm.17720110283109806325.exit: ; preds = %"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..YesS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17h9fd919b22d929d18E.llvm.17720110283109806325.exit1.i", %"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..YesS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17h9fd919b22d929d18E.llvm.17720110283109806325.exit1.i"
+  %.sink = zext i32 %5 to i64
+  %9 = trunc i64 %2 to i32
+  %10 = lshr i64 %2, 32
+  %11 = trunc nuw i64 %10 to i32
+  %.sink32 = zext i32 %6 to i64
+  %12 = insertelement <4 x i32> %.sroa.0.0.copyload33, i32 %11, i64 %.sink32
+  %13 = insertelement <4 x i32> %12, i32 %9, i64 %.sink
+  store <4 x i32> %13, ptr %4, align 16
   ret void
 }
 

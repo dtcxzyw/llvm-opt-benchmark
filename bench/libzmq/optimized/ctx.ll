@@ -2189,7 +2189,7 @@ _ZNSt3setIiSt4lessIiESaIiEE5eraseERKi.exit:       ; preds = %_ZN3zmq13scoped_loc
   br label %263
 
 102:                                              ; preds = %_ZNSt3setIiSt4lessIiESaIiEE5eraseERKi.exit, %98
-  %.1 = phi i32 [ -1, %98 ], [ 0, %_ZNSt3setIiSt4lessIiESaIiEE5eraseERKi.exit ]
+  %.1 = sext i1 %97 to i32
   %103 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
   %.not.i.i42 = icmp eq i32 %103, 0
   br i1 %.not.i.i42, label %_ZN3zmq13scoped_lock_tD2Ev.exit43, label %104, !prof !93
@@ -4090,7 +4090,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZN
   resume { ptr, i32 } %.pn
 
 49:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %39
-  %.0 = phi i32 [ -1, %39 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %50 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %7) #25
   %.not.i.i15 = icmp eq i32 %50, 0
   br i1 %.not.i.i15, label %_ZN3zmq13scoped_lock_tD2Ev.exit, label %51, !prof !93
@@ -4112,6 +4111,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZN
   unreachable
 
 _ZN3zmq13scoped_lock_tD2Ev.exit:                  ; preds = %49, %51
+  %60 = xor i1 %34, true
+  %.0 = sext i1 %60 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
   ret i32 %.0
 }

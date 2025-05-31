@@ -509,7 +509,7 @@ define range(i64 -1, 1) i64 @FSEv06_buildDTable_raw(ptr noundef writeonly captur
   br i1 %16, label %9, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %9, %2
-  %.022 = phi i64 [ -1, %2 ], [ 0, %9 ]
+  %.022 = sext i1 %4 to i64
   ret i64 %.022
 }
 
@@ -6197,7 +6197,7 @@ default.unreachable:                              ; preds = %ZSTDv06_buildSeqTab
   store i8 %270, ptr %275, align 2, !tbaa !14
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 7
   store i8 0, ptr %276, align 1, !tbaa !20
-  br label %ZSTDv06_buildSeqTable.exit.thread149.sink.split.i.i
+  br label %ZSTDv06_buildSeqTable.exit.thread.i.i
 
 277:                                              ; preds = %259
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #28
@@ -6316,7 +6316,7 @@ default.unreachable:                              ; preds = %ZSTDv06_buildSeqTab
 
 FSEv06_buildDTable.exit.i.i:                      ; preds = %.preheader.i.i.i, %._crit_edge93.i.i.i
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #28
-  br label %ZSTDv06_buildSeqTable.exit.thread149.sink.split.i.i
+  br label %ZSTDv06_buildSeqTable.exit.thread.i.i
 
 318:                                              ; preds = %259
   %.not.i.i.i = icmp eq i32 %232, 0
@@ -6337,6 +6337,10 @@ FSEv06_buildDTable.exit.i.i:                      ; preds = %.preheader.i.i.i, %
   %326 = icmp ugt i32 %325, 9
   br i1 %326, label %ZSTDv06_buildSeqTable.exit.thread153.i.i, label %ZSTDv06_buildSeqTable.exit.i.i
 
+ZSTDv06_buildSeqTable.exit.thread.i.i:            ; preds = %FSEv06_buildDTable.exit.i.i, %272
+  %.0.i.ph.i.i = zext nneg i32 %262 to i64
+  br label %ZSTDv06_buildSeqTable.exit.thread149.sink.split.i.i
+
 ZSTDv06_buildSeqTable.exit.thread112.i.i:         ; preds = %269
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   br label %ZSTDv06_decompressSequences.exit
@@ -6354,8 +6358,8 @@ ZSTDv06_buildSeqTable.exit.i.i:                   ; preds = %324
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #28
   br label %ZSTDv06_buildSeqTable.exit.thread149.sink.split.i.i
 
-ZSTDv06_buildSeqTable.exit.thread149.sink.split.i.i: ; preds = %ZSTDv06_buildSeqTable.exit.i.i, %FSEv06_buildDTable.exit.i.i, %272
-  %.0.i.ph.pn.ph.i.i = phi i64 [ %322, %ZSTDv06_buildSeqTable.exit.i.i ], [ 1, %272 ], [ 0, %FSEv06_buildDTable.exit.i.i ]
+ZSTDv06_buildSeqTable.exit.thread149.sink.split.i.i: ; preds = %ZSTDv06_buildSeqTable.exit.i.i, %ZSTDv06_buildSeqTable.exit.thread.i.i
+  %.0.i.ph.pn.ph.i.i = phi i64 [ %322, %ZSTDv06_buildSeqTable.exit.i.i ], [ %.0.i.ph.i.i, %ZSTDv06_buildSeqTable.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   br label %ZSTDv06_buildSeqTable.exit.thread149.i.i
 
@@ -6390,7 +6394,7 @@ ZSTDv06_buildSeqTable.exit.thread149.i.i:         ; preds = %ZSTDv06_buildSeqTab
   store i8 %331, ptr %336, align 2, !tbaa !14
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 2059
   store i8 0, ptr %337, align 1, !tbaa !20
-  br label %ZSTDv06_buildSeqTable.exit91.thread156.sink.split.i.i
+  br label %ZSTDv06_buildSeqTable.exit91.thread.i.i
 
 338:                                              ; preds = %ZSTDv06_buildSeqTable.exit.thread149.i.i
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #28
@@ -6509,7 +6513,7 @@ ZSTDv06_buildSeqTable.exit.thread149.i.i:         ; preds = %ZSTDv06_buildSeqTab
 
 FSEv06_buildDTable.exit.i:                        ; preds = %.preheader.i128.i, %._crit_edge93.i.i
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #28
-  br label %ZSTDv06_buildSeqTable.exit91.thread156.sink.split.i.i
+  br label %ZSTDv06_buildSeqTable.exit91.thread.i.i
 
 379:                                              ; preds = %ZSTDv06_buildSeqTable.exit.thread149.i.i
   %.not.i87.i.i = icmp eq i32 %232, 0
@@ -6530,6 +6534,10 @@ FSEv06_buildDTable.exit.i:                        ; preds = %.preheader.i128.i, 
   %387 = icmp ugt i32 %386, 8
   br i1 %387, label %ZSTDv06_buildSeqTable.exit91.thread160.i.i, label %ZSTDv06_buildSeqTable.exit91.i.i
 
+ZSTDv06_buildSeqTable.exit91.thread.i.i:          ; preds = %FSEv06_buildDTable.exit.i, %333
+  %.0.i86.ph.i.i = zext nneg i32 %264 to i64
+  br label %ZSTDv06_buildSeqTable.exit91.thread156.sink.split.i.i
+
 ZSTDv06_buildSeqTable.exit91.thread125.i.i:       ; preds = %330, %329
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %ZSTDv06_decompressSequences.exit
@@ -6547,8 +6555,8 @@ ZSTDv06_buildSeqTable.exit91.i.i:                 ; preds = %385
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #28
   br label %ZSTDv06_buildSeqTable.exit91.thread156.sink.split.i.i
 
-ZSTDv06_buildSeqTable.exit91.thread156.sink.split.i.i: ; preds = %ZSTDv06_buildSeqTable.exit91.i.i, %FSEv06_buildDTable.exit.i, %333
-  %.0.i86.ph.pn.ph.i.i = phi i64 [ %383, %ZSTDv06_buildSeqTable.exit91.i.i ], [ 1, %333 ], [ 0, %FSEv06_buildDTable.exit.i ]
+ZSTDv06_buildSeqTable.exit91.thread156.sink.split.i.i: ; preds = %ZSTDv06_buildSeqTable.exit91.i.i, %ZSTDv06_buildSeqTable.exit91.thread.i.i
+  %.0.i86.ph.pn.ph.i.i = phi i64 [ %383, %ZSTDv06_buildSeqTable.exit91.i.i ], [ %.0.i86.ph.i.i, %ZSTDv06_buildSeqTable.exit91.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %ZSTDv06_buildSeqTable.exit91.thread156.i.i
 
@@ -6583,11 +6591,11 @@ ZSTDv06_buildSeqTable.exit91.thread156.i.i:       ; preds = %ZSTDv06_buildSeqTab
   store i8 %392, ptr %397, align 2, !tbaa !14
   %398 = getelementptr inbounds nuw i8, ptr %0, i64 3087
   store i8 0, ptr %398, align 1, !tbaa !20
-  br label %.thread163.sink.split.i.i
+  br label %.thread136.i.i
 
 399:                                              ; preds = %ZSTDv06_buildSeqTable.exit91.thread156.i.i
   %400 = tail call i64 @FSEv06_buildDTable(ptr noundef nonnull %223, ptr noundef nonnull @ML_defaultNorm, i32 noundef 52, i32 noundef 6)
-  br label %.thread163.sink.split.i.i
+  br label %.thread136.i.i
 
 401:                                              ; preds = %ZSTDv06_buildSeqTable.exit91.thread156.i.i
   %.not.i94.i.i = icmp eq i32 %232, 0
@@ -6608,6 +6616,10 @@ ZSTDv06_buildSeqTable.exit91.thread156.i.i:       ; preds = %ZSTDv06_buildSeqTab
   %409 = icmp ugt i32 %408, 9
   br i1 %409, label %.thread167.i.i, label %410
 
+.thread136.i.i:                                   ; preds = %399, %394
+  %.0.i93.ph.i.i = zext nneg i32 %266 to i64
+  br label %.thread163.sink.split.i.i
+
 .thread144.i.i:                                   ; preds = %391, %390
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %ZSTDv06_decompressSequences.exit
@@ -6625,8 +6637,8 @@ ZSTDv06_buildSeqTable.exit91.thread156.i.i:       ; preds = %ZSTDv06_buildSeqTab
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #28
   br label %.thread163.sink.split.i.i
 
-.thread163.sink.split.i.i:                        ; preds = %410, %399, %394
-  %.0.i93.ph.pn.ph.i.i = phi i64 [ %405, %410 ], [ 1, %394 ], [ 0, %399 ]
+.thread163.sink.split.i.i:                        ; preds = %410, %.thread136.i.i
+  %.0.i93.ph.pn.ph.i.i = phi i64 [ %405, %410 ], [ %.0.i93.ph.i.i, %.thread136.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %ZSTDv06_decodeSeqHeaders.exit.i
 

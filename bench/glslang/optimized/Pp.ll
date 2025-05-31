@@ -5685,10 +5685,10 @@ define noundef i32 @_ZN7glslang10TPpContext11tMacroInput4scanEPNS_8TPpTokenE(ptr
   br label %28
 
 28:                                               ; preds = %27, %23
-  %.1 = phi i1 [ true, %27 ], [ %16, %23 ]
+  %.1 = phi i8 [ 1, %27 ], [ %15, %23 ]
   switch i32 %11, label %.critedge [
     i32 162, label %29
-    i32 -1, label %84
+    i32 -1, label %85
   ]
 
 29:                                               ; preds = %28
@@ -5733,49 +5733,50 @@ define noundef i32 @_ZN7glslang10TPpContext11tMacroInput4scanEPNS_8TPpTokenE(ptr
   %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %47
   %62 = load ptr, ptr %61, align 8
   %63 = icmp ne ptr %62, null
-  %64 = xor i1 %.1, true
-  %65 = and i1 %63, %64
-  %66 = icmp eq ptr %62, null
-  br i1 %66, label %74, label %67
+  %64 = trunc i8 %.1 to i1
+  %65 = xor i1 %64, true
+  %66 = and i1 %63, %65
+  %67 = icmp eq ptr %62, null
+  br i1 %67, label %75, label %68
 
-67:                                               ; preds = %58
-  br i1 %.1, label %68, label %79
+68:                                               ; preds = %58
+  br i1 %64, label %69, label %80
 
-68:                                               ; preds = %67
-  %69 = getelementptr inbounds nuw i8, ptr %39, i64 256
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 208
-  %72 = load i32, ptr %71, align 8
-  %73 = and i32 %72, 64
-  %.not = icmp eq i32 %73, 0
-  br i1 %.not, label %74, label %79
+69:                                               ; preds = %68
+  %70 = getelementptr inbounds nuw i8, ptr %39, i64 256
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 208
+  %73 = load i32, ptr %72, align 8
+  %74 = and i32 %73, 64
+  %.not = icmp eq i32 %74, 0
+  br i1 %.not, label %75, label %80
 
-74:                                               ; preds = %68, %58
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %47
-  %78 = load ptr, ptr %77, align 8
-  br label %79
+75:                                               ; preds = %69, %58
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %47
+  %79 = load ptr, ptr %78, align 8
+  br label %80
 
-79:                                               ; preds = %74, %68, %67
-  %.020 = phi ptr [ %78, %74 ], [ %62, %68 ], [ %62, %67 ]
-  %80 = load i8, ptr %19, align 8
-  %81 = trunc i8 %80 to i1
-  tail call void @_ZN7glslang10TPpContext20pushTokenStreamInputERNS0_11TokenStreamEbb(ptr noundef nonnull align 8 dereferenceable(969) %39, ptr noundef nonnull align 8 dereferenceable(40) %.020, i1 noundef zeroext %81, i1 noundef zeroext %65) #18
-  %82 = load ptr, ptr %4, align 8
-  %83 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %82, ptr noundef nonnull %1)
+80:                                               ; preds = %75, %69, %68
+  %.020 = phi ptr [ %79, %75 ], [ %62, %69 ], [ %62, %68 ]
+  %81 = load i8, ptr %19, align 8
+  %82 = trunc i8 %81 to i1
+  tail call void @_ZN7glslang10TPpContext20pushTokenStreamInputERNS0_11TokenStreamEbb(ptr noundef nonnull align 8 dereferenceable(969) %39, ptr noundef nonnull align 8 dereferenceable(40) %.020, i1 noundef zeroext %82, i1 noundef zeroext %66) #18
+  %83 = load ptr, ptr %4, align 8
+  %84 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %83, ptr noundef nonnull %1)
   br label %.critedge
 
-84:                                               ; preds = %28
-  %85 = load ptr, ptr %3, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 72
-  %87 = load i8, ptr %86, align 8
-  %88 = and i8 %87, -3
-  store i8 %88, ptr %86, align 8
+85:                                               ; preds = %28
+  %86 = load ptr, ptr %3, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 72
+  %88 = load i8, ptr %87, align 8
+  %89 = and i8 %88, -3
+  store i8 %89, ptr %87, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %43, %84, %28, %79
-  %.0 = phi i32 [ %83, %79 ], [ %11, %28 ], [ -1, %84 ], [ 162, %43 ]
+.critedge:                                        ; preds = %43, %85, %28, %80
+  %.0 = phi i32 [ %84, %80 ], [ %11, %28 ], [ -1, %85 ], [ 162, %43 ]
   ret i32 %.0
 }
 

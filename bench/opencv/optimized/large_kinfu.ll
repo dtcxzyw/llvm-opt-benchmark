@@ -3181,8 +3181,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
 
 789:                                              ; preds = %781
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42) #27
-  %790 = icmp sgt i32 %788, -1
-  br i1 %790, label %872, label %793
+  %790 = icmp slt i32 %788, 0
+  br i1 %790, label %793, label %872
 
 791:                                              ; preds = %781
   %792 = landingpad { ptr, i32 }
@@ -3445,7 +3445,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i391: ; preds = %894, %8
 
 _ZNSt12__shared_ptrIN2cv5kinfu6detail9PoseGraphELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %874, %882, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i391, %897
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #27
-  br i1 %790, label %902, label %994
+  %cond = icmp sgt i32 %788, -1
+  br i1 %cond, label %902, label %994
 
 898:                                              ; preds = %872
   %899 = landingpad { ptr, i32 }
@@ -5894,8 +5895,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
 
 789:                                              ; preds = %781
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42) #27
-  %790 = icmp sgt i32 %788, -1
-  br i1 %790, label %872, label %793
+  %790 = icmp slt i32 %788, 0
+  br i1 %790, label %793, label %872
 
 791:                                              ; preds = %781
   %792 = landingpad { ptr, i32 }
@@ -6158,7 +6159,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i391: ; preds = %894, %8
 
 _ZNSt12__shared_ptrIN2cv5kinfu6detail9PoseGraphELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %874, %882, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i391, %897
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #27
-  br i1 %790, label %902, label %994
+  %cond = icmp sgt i32 %788, -1
+  br i1 %cond, label %902, label %994
 
 898:                                              ; preds = %872
   %899 = landingpad { ptr, i32 }

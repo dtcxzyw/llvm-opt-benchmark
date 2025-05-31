@@ -55,7 +55,7 @@ define hidden range(i32 -1, 1) i32 @LLVMFuzzerTestOneInput(ptr noundef readonly 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @stderr, align 8, !tbaa !13
   %6 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 16, i64 1, ptr %5) #15
-  br label %21
+  br label %22
 
 7:                                                ; preds = %2
   %8 = add nuw nsw i64 %1, 1
@@ -84,8 +84,12 @@ define hidden range(i32 -1, 1) i32 @LLVMFuzzerTestOneInput(ptr noundef readonly 
   tail call void @proj_cleanup()
   br label %21
 
-21:                                               ; preds = %12, %13, %4
-  %.0 = phi i32 [ -1, %4 ], [ 0, %13 ], [ -1, %12 ]
+21:                                               ; preds = %13, %12
+  %.1 = sext i1 %.not to i32
+  br label %22
+
+22:                                               ; preds = %21, %4
+  %.0 = phi i32 [ -1, %4 ], [ %.1, %21 ]
   ret i32 %.0
 }
 
@@ -115,7 +119,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef rea
 4:                                                ; preds = %2
   %5 = tail call i32 @LLVMFuzzerTestOneInput(ptr noundef nonnull @__const.main.str, i64 noundef 69)
   %.not27 = icmp ne i32 %5, 0
-  %. = sext i1 %.not27 to i32
+  %.0 = sext i1 %.not27 to i32
   br label %33
 
 6:                                                ; preds = %2
@@ -169,7 +173,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef rea
   br label %33
 
 33:                                               ; preds = %30, %4
-  %.1 = phi i32 [ %., %4 ], [ %32, %30 ]
+  %.1 = phi i32 [ %.0, %4 ], [ %32, %30 ]
   ret i32 %.1
 }
 

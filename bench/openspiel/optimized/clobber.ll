@@ -3315,7 +3315,6 @@ _ZN4absl7debian28AlphaNumC2Ei.exit.i:             ; preds = %_ZN4absl7debian28Al
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 30:                                               ; preds = %17, %12
-  %switch = phi i32 [ 1, %17 ], [ 2, %12 ]
   %.0.i = phi i32 [ 2, %17 ], [ 1, %12 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
@@ -3365,15 +3364,19 @@ _ZN4absl7debian28AlphaNumC2Ei.exit.i:             ; preds = %_ZN4absl7debian28Al
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = icmp sgt i32 %34, 0
-  br i1 %50, label %.preheader65, label %._crit_edge72.thread
+  br i1 %50, label %.preheader65.preheader, label %._crit_edge72.thread
 
-.preheader65:                                     ; preds = %.preheader65.lr.ph, %._crit_edge
-  %51 = phi i32 [ %133, %._crit_edge ], [ %32, %.preheader65.lr.ph ]
-  %52 = phi i32 [ %134, %._crit_edge ], [ %34, %.preheader65.lr.ph ]
-  %53 = phi ptr [ %135, %._crit_edge ], [ null, %.preheader65.lr.ph ]
-  %.promoted82 = phi ptr [ %.promoted79, %._crit_edge ], [ null, %.preheader65.lr.ph ]
-  %54 = phi i32 [ %136, %._crit_edge ], [ %34, %.preheader65.lr.ph ]
-  %.03371 = phi i32 [ %137, %._crit_edge ], [ 0, %.preheader65.lr.ph ]
+.preheader65.preheader:                           ; preds = %.preheader65.lr.ph
+  %spec.select = sub i32 2, %16
+  br label %.preheader65
+
+.preheader65:                                     ; preds = %.preheader65.preheader, %._crit_edge
+  %51 = phi i32 [ %133, %._crit_edge ], [ %32, %.preheader65.preheader ]
+  %52 = phi i32 [ %134, %._crit_edge ], [ %34, %.preheader65.preheader ]
+  %53 = phi ptr [ %135, %._crit_edge ], [ null, %.preheader65.preheader ]
+  %.promoted82 = phi ptr [ %.promoted79, %._crit_edge ], [ null, %.preheader65.preheader ]
+  %54 = phi i32 [ %136, %._crit_edge ], [ %34, %.preheader65.preheader ]
+  %.03371 = phi i32 [ %137, %._crit_edge ], [ 0, %.preheader65.preheader ]
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %.lr.ph, label %._crit_edge
 
@@ -3422,7 +3425,7 @@ _ZN4absl7debian28AlphaNumC2Ei.exit.i:             ; preds = %_ZN4absl7debian28Al
   %85 = load ptr, ptr %47, align 8
   %86 = getelementptr inbounds i32, ptr %85, i64 %84
   %87 = load i32, ptr %86, align 4
-  %88 = icmp eq i32 %87, %switch
+  %88 = icmp eq i32 %87, %spec.select
   br i1 %88, label %89, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
 
 89:                                               ; preds = %81

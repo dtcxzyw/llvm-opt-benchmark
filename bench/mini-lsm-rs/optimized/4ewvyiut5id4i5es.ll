@@ -90,22 +90,21 @@ define hidden void @"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_intern
   br label %27
 
 27:                                               ; preds = %26, %24
-  %.sroa.44.8.copyload = load i64, ptr %11, align 8, !noalias !35
+  %.sroa.43.8.copyload = load i64, ptr %11, align 8, !noalias !35
   %.sroa.7.8..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.7.8.copyload = load i64, ptr %.sroa.7.8..sroa_idx, align 8, !noalias !35
   %.sroa.8.8..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.44.8.copyload, ptr %28, align 8, !alias.scope !39
-  %.sroa.7.8..sroa_idx6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.7.8.copyload, ptr %.sroa.7.8..sroa_idx6, align 8, !alias.scope !39
-  %.sroa.8.8..sroa_idx8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %.sroa.8.8..sroa_idx8, ptr noundef nonnull align 8 dereferenceable(2048) %.sroa.8.8..sroa_idx, i64 2048, i1 false)
+  store i64 %.sroa.43.8.copyload, ptr %28, align 8, !alias.scope !39
+  %.sroa.7.8..sroa_idx5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.7.8.copyload, ptr %.sroa.7.8..sroa_idx5, align 8, !alias.scope !39
+  %.sroa.8.8..sroa_idx7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %.sroa.8.8..sroa_idx7, ptr noundef nonnull align 8 dereferenceable(2048) %.sroa.8.8..sroa_idx, i64 2048, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h594ba9a59d297a09E.llvm.12023550525612096193.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h594ba9a59d297a09E.llvm.12023550525612096193.exit": ; preds = %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit", %27
-  %storemerge.i3 = phi i64 [ 0, %27 ], [ 1, %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit" ]
-  store i64 %storemerge.i3, ptr %0, align 8, !alias.scope !41, !noalias !36
+  store i64 %15, ptr %0, align 8, !alias.scope !41, !noalias !36
   br label %29
 
 29:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h594ba9a59d297a09E.llvm.12023550525612096193.exit", %13
@@ -190,8 +189,8 @@ define hidden void @"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$7try_pop17h8
 .lr.ph.preheader:                                 ; preds = %3
   %12 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h80d032db150e0d8dE.llvm.18092150996463083177(ptr noundef nonnull align 8 %1, i64 noundef %5, i64 noundef %9, i8 noundef 1, i8 noundef 0), !noalias !65
   %13 = extractvalue { i64, i64 } %12, 0
-  %switch.i2.i63 = icmp eq i64 %13, 0
-  br i1 %switch.i2.i63, label %.lr.ph._crit_edge, label %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17h3752858d39f2de4fE.llvm.12023550525612096193.exit"
+  %switch.i2.i68 = icmp eq i64 %13, 0
+  br i1 %switch.i2.i68, label %.lr.ph._crit_edge, label %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17h3752858d39f2de4fE.llvm.12023550525612096193.exit"
 
 .lr.ph:                                           ; preds = %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17h3752858d39f2de4fE.llvm.12023550525612096193.exit"
   %14 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h80d032db150e0d8dE.llvm.18092150996463083177(ptr noundef nonnull align 8 %1, i64 noundef %27, i64 noundef %31, i8 noundef 1, i8 noundef 0), !noalias !65
@@ -200,18 +199,18 @@ define hidden void @"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$7try_pop17h8
   br i1 %switch.i2.i, label %.lr.ph._crit_edge, label %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17h3752858d39f2de4fE.llvm.12023550525612096193.exit"
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
-  %.lcssa61 = phi i64 [ %10, %.lr.ph.preheader ], [ %32, %.lr.ph ]
-  %.lcssa59 = phi i64 [ %9, %.lr.ph.preheader ], [ %31, %.lr.ph ]
-  %.lcssa57 = phi ptr [ %7, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.lcssa66 = phi i64 [ %10, %.lr.ph.preheader ], [ %32, %.lr.ph ]
+  %.lcssa64 = phi i64 [ %9, %.lr.ph.preheader ], [ %31, %.lr.ph ]
+  %.lcssa62 = phi ptr [ %7, %.lr.ph.preheader ], [ %29, %.lr.ph ]
   %.lcssa = phi i64 [ %5, %.lr.ph.preheader ], [ %27, %.lr.ph ]
-  %16 = inttoptr i64 %.lcssa61 to ptr
+  %16 = inttoptr i64 %.lcssa66 to ptr
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %18 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull align 8 %17, i8 noundef 0), !noalias !69
   %19 = icmp eq i64 %.lcssa, %18
   br i1 %19, label %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit.i.i", label %21
 
 "_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit.i.i": ; preds = %.lr.ph._crit_edge
-  %20 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h80d032db150e0d8dE.llvm.18092150996463083177(ptr noundef nonnull align 8 %17, i64 noundef %.lcssa, i64 noundef %.lcssa59, i8 noundef 1, i8 noundef 0), !noalias !77
+  %20 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h80d032db150e0d8dE.llvm.18092150996463083177(ptr noundef nonnull align 8 %17, i64 noundef %.lcssa, i64 noundef %.lcssa64, i8 noundef 1, i8 noundef 0), !noalias !77
   br label %21
 
 21:                                               ; preds = %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit.i.i", %.lr.ph._crit_edge
@@ -227,13 +226,13 @@ define hidden void @"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$7try_pop17h8
   store i64 %.lcssa, ptr %25, align 8, !alias.scope !85, !noalias !84
   call void @_ZN15crossbeam_epoch8internal5Local5defer17h63f66b08c2fc0a6aE(ptr noundef nonnull align 8 %22, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2), !noalias !69
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !84
-  br label %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread31"
+  br label %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread34"
 
 26:                                               ; preds = %21
-  tail call void @__rust_dealloc(ptr noundef nonnull %.lcssa57, i64 noundef 2072, i64 noundef 8) #24, !noalias !88
-  br label %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread31"
+  tail call void @__rust_dealloc(ptr noundef nonnull %.lcssa62, i64 noundef 2072, i64 noundef 8) #24, !noalias !88
+  br label %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread34"
 
-"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread31": ; preds = %24, %26
+"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread34": ; preds = %26, %24
   %.sroa.4.8.copyload = load i64, ptr %16, align 8, !noalias !97
   %.sroa.7.8..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.7.8.copyload = load i64, ptr %.sroa.7.8..sroa_idx, align 8, !noalias !97
@@ -241,9 +240,9 @@ define hidden void @"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$7try_pop17h8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(2048) %.sroa.8.8..sroa_idx, i64 2048, i1 false)
   br label %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread"
 
-"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread": ; preds = %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17h3752858d39f2de4fE.llvm.12023550525612096193.exit", %3, %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread31"
-  %.sroa.10.0 = phi i64 [ %.sroa.7.8.copyload, %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread31" ], [ undef, %3 ], [ undef, %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17h3752858d39f2de4fE.llvm.12023550525612096193.exit" ]
-  %.sroa.7.0 = phi i64 [ %.sroa.4.8.copyload, %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread31" ], [ 0, %3 ], [ 0, %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17h3752858d39f2de4fE.llvm.12023550525612096193.exit" ]
+"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread": ; preds = %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17h3752858d39f2de4fE.llvm.12023550525612096193.exit", %3, %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread34"
+  %.sroa.10.0 = phi i64 [ %.sroa.7.8.copyload, %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread34" ], [ undef, %3 ], [ undef, %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17h3752858d39f2de4fE.llvm.12023550525612096193.exit" ]
+  %.sroa.7.0 = phi i64 [ %.sroa.4.8.copyload, %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h6fa0680ebe44589fE.llvm.12023550525612096193.exit.thread34" ], [ 0, %3 ], [ 0, %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17h3752858d39f2de4fE.llvm.12023550525612096193.exit" ]
   store i64 %.sroa.7.0, ptr %0, align 8
   %.sroa.10.8..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.10.0, ptr %.sroa.10.8..sroa_idx, align 8
@@ -1807,8 +1806,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h518f6409cff4e131
   br label %38
 
 38:                                               ; preds = %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal28_$u7b$$u7b$closure$u7d$$u7d$17h2b2cfc0f61835ea6E.llvm.12023550525612096193.exit", %31
-  %storemerge = phi i64 [ 0, %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal28_$u7b$$u7b$closure$u7d$$u7d$17h2b2cfc0f61835ea6E.llvm.12023550525612096193.exit" ], [ 1, %31 ]
-  store i64 %storemerge, ptr %0, align 8
+  store i64 %5, ptr %0, align 8
   ret void
 }
 
@@ -1825,8 +1823,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h594ba9a59d29
   br label %7
 
 7:                                                ; preds = %2, %4
-  %storemerge = phi i64 [ 0, %4 ], [ 1, %2 ]
-  store i64 %storemerge, ptr %0, align 8
+  store i64 %3, ptr %0, align 8
   ret void
 }
 

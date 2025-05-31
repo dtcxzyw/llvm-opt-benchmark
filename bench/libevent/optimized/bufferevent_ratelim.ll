@@ -1551,7 +1551,8 @@ define range(i32 -1, 1) i32 @bufferevent_rate_limit_group_set_min_share(ptr noun
   br label %11
 
 11:                                               ; preds = %2, %4
-  %.011 = phi i32 [ 0, %4 ], [ -1, %2 ]
+  %.lobit = ashr i64 %1, 63
+  %.011 = trunc nsw i64 %.lobit to i32
   ret i32 %.011
 }
 
@@ -1559,10 +1560,10 @@ declare i32 @evutil_weakrand_seed_(ptr noundef, i32 noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @bufferevent_rate_limit_group_set_cfg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = icmp ne ptr %0, null
-  %4 = icmp ne ptr %1, null
-  %or.cond = and i1 %3, %4
-  br i1 %or.cond, label %5, label %55
+  %3 = icmp eq ptr %0, null
+  %4 = icmp eq ptr %1, null
+  %or.cond.not = or i1 %3, %4
+  br i1 %or.cond.not, label %55, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -1653,7 +1654,7 @@ bufferevent_rate_limit_group_set_min_share.exit:  ; preds = %42, %46
   br label %55
 
 55:                                               ; preds = %bufferevent_rate_limit_group_set_min_share.exit, %52, %2
-  %.0 = phi i32 [ -1, %2 ], [ 0, %52 ], [ 0, %bufferevent_rate_limit_group_set_min_share.exit ]
+  %.0 = sext i1 %or.cond.not to i32
   ret i32 %.0
 }
 
@@ -2799,8 +2800,8 @@ define hidden range(i32 -1, 1) i32 @bufferevent_ratelim_init_(ptr noundef captur
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @evbuffer_set_max_read(ptr noundef %6, i64 noundef 16384) #10
   %.not = icmp ne i32 %7, 0
-  %. = sext i1 %.not to i32
-  ret i32 %.
+  %.0 = sext i1 %.not to i32
+  ret i32 %.0
 }
 
 declare i32 @evutil_weakrand_range_(ptr noundef, i32 noundef) local_unnamed_addr #4

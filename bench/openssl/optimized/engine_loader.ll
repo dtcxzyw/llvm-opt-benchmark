@@ -143,7 +143,11 @@ define internal range(i32 0, 2) i32 @engine_expect(ptr noundef writeonly capture
   br label %5
 
 5:                                                ; preds = %2, %3
-  %.0 = phi i32 [ 1, %3 ], [ 0, %2 ]
+  %6 = and i32 %1, -5
+  %7 = icmp eq i32 %6, 0
+  %8 = icmp eq i32 %1, 3
+  %or.cond3 = or i1 %8, %7
+  %.0 = zext i1 %or.cond3 to i32
   ret i32 %.0
 }
 

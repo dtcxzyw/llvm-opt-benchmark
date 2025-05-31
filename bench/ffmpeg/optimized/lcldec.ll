@@ -753,11 +753,13 @@ mszh_decomp.exit:                                 ; preds = %.._crit_edge_crit_e
   %201 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %202 = load i32, ptr %201, align 4, !tbaa !38
   %203 = tail call fastcc i32 @zlib_decomp(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %8, i32 noundef 0, i32 noundef %202)
-  %204 = icmp sgt i32 %203, -1
-  br i1 %204, label %205, label %619
+  %204 = icmp slt i32 %203, 0
+  %.599 = select i1 %204, i32 %8, i32 %203
+  %cond = icmp sgt i32 %203, -1
+  br i1 %cond, label %205, label %619
 
 205:                                              ; preds = %198, %200, %173
-  %.1504 = phi i32 [ %8, %173 ], [ %199, %198 ], [ %203, %200 ]
+  %.1504 = phi i32 [ %8, %173 ], [ %199, %198 ], [ %.599, %200 ]
   %206 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %207 = load ptr, ptr %206, align 8, !tbaa !42
   br label %209

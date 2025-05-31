@@ -9594,8 +9594,9 @@ lean_dec.exit:                                    ; preds = %114, %113, %111, %l
   br i1 %.0.i.i, label %.split.split, label %.split20.us
 
 .split20.us:                                      ; preds = %lean_dec.exit, %lean_obj_tag.exit, %lean_dec.exit.us36, %lean_obj_tag.exit.us24, %lean_obj_tag.exit.us, %lean_dec.exit.us
-  %.us-phi = phi i8 [ 0, %lean_dec.exit.us ], [ 1, %lean_obj_tag.exit.us ], [ 0, %lean_dec.exit.us36 ], [ 1, %lean_obj_tag.exit.us24 ], [ 0, %lean_dec.exit ], [ 1, %lean_obj_tag.exit ]
-  ret i8 %.us-phi
+  %.us-phi.in.in.in = phi i1 [ %15, %lean_dec.exit.us ], [ %15, %lean_obj_tag.exit.us ], [ %45, %lean_obj_tag.exit.us24 ], [ %45, %lean_dec.exit.us36 ], [ %76, %lean_obj_tag.exit ], [ %76, %lean_dec.exit ]
+  %.us-phi.in.in = zext i1 %.us-phi.in.in.in to i8
+  ret i8 %.us-phi.in.in
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15324,11 +15325,11 @@ lean_obj_tag.exit:                                ; preds = %4, %7
 lean_int_dec_eq.exit:                             ; preds = %19, %.critedge.i.i
   %.0.i.i = phi i1 [ %20, %19 ], [ %21, %.critedge.i.i ]
   %22 = xor i1 %.0.i.i, true
-  %. = zext i1 %22 to i8
+  %.0 = zext i1 %22 to i8
   br label %23
 
 23:                                               ; preds = %lean_obj_tag.exit, %lean_int_dec_eq.exit
-  %.1 = phi i8 [ %., %lean_int_dec_eq.exit ], [ 0, %lean_obj_tag.exit ]
+  %.1 = phi i8 [ %.0, %lean_int_dec_eq.exit ], [ 0, %lean_obj_tag.exit ]
   ret i8 %.1
 }
 
@@ -17063,8 +17064,8 @@ lean_int_dec_eq.exit:                             ; preds = %99, %.critedge.i.i
 
 lean_dec.exit:                                    ; preds = %108, %107, %105, %lean_int_dec_eq.exit
   %109 = xor i1 %.0.i.i28, true
-  %. = zext i1 %109 to i8
-  ret i8 %.
+  %.0 = zext i1 %109 to i8
+  ret i8 %.0
 }
 
 ; Function Attrs: nounwind uwtable

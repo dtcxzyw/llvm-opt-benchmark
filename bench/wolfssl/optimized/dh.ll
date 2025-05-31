@@ -1206,16 +1206,16 @@ define noundef range(i32 0, 30) i32 @wc_DhGetNamedKeyMinSize(i32 noundef %0) loc
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @wc_DhCmpNamedKey(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readnone captures(none) %6, i32 noundef %7) local_unnamed_addr #6 {
-  %cond.not = icmp eq i32 %0, 256
-  br i1 %cond.not, label %9, label %17
+  %cond = icmp eq i32 %0, 256
+  br i1 %cond, label %9, label %17
 
 9:                                                ; preds = %8
   %10 = icmp ne i32 %3, 256
   %11 = icmp ne i32 %5, 1
-  %or.cond.not29 = or i1 %10, %11
+  %or.cond.not28 = or i1 %10, %11
   %.not = icmp eq i32 %1, 0
-  %or.cond26 = or i1 %.not, %or.cond.not29
-  br i1 %or.cond26, label %17, label %12
+  %or.cond25 = or i1 %.not, %or.cond.not28
+  br i1 %or.cond25, label %17, label %12
 
 12:                                               ; preds = %9
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(256) %2, ptr noundef nonnull dereferenceable(256) @dh_ffdhe2048_p, i64 256)
@@ -1236,13 +1236,13 @@ define range(i32 0, 2) i32 @wc_DhCmpNamedKey(i32 noundef %0, i32 noundef %1, ptr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @wc_DhGetNamedKeyParamSize(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #7 {
   %cond = icmp eq i32 %0, 256
-  %spec.select = zext i1 %cond to i32
+  %.09 = zext i1 %cond to i32
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %4
-  %spec.select15 = select i1 %cond, i32 256, i32 0
-  store i32 %spec.select15, ptr %1, align 4, !tbaa !21
+  %spec.select = select i1 %cond, i32 256, i32 0
+  store i32 %spec.select, ptr %1, align 4, !tbaa !21
   br label %6
 
 6:                                                ; preds = %5, %4
@@ -1250,7 +1250,7 @@ define noundef i32 @wc_DhGetNamedKeyParamSize(i32 noundef %0, ptr noundef writeo
   br i1 %.not13, label %8, label %7
 
 7:                                                ; preds = %6
-  store i32 %spec.select, ptr %2, align 4, !tbaa !21
+  store i32 %.09, ptr %2, align 4, !tbaa !21
   br label %8
 
 8:                                                ; preds = %7, %6
@@ -1265,46 +1265,42 @@ define noundef i32 @wc_DhGetNamedKeyParamSize(i32 noundef %0, ptr noundef writeo
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @wc_DhCopyNamedKey(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef readnone captures(none) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #8 {
   %cond = icmp eq i32 %0, 256
-  br i1 %cond, label %8, label %.thread
+  %.030 = select i1 %cond, i32 256, i32 0
+  %.029 = zext i1 %cond to i32
+  %8 = icmp ne ptr %1, null
+  %or.cond = and i1 %cond, %8
+  br i1 %or.cond, label %9, label %10
 
-8:                                                ; preds = %7
-  %.not47 = icmp eq ptr %1, null
-  br i1 %.not47, label %.thread, label %9
-
-9:                                                ; preds = %8
+9:                                                ; preds = %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %1, ptr noundef nonnull align 16 dereferenceable(256) @dh_ffdhe2048_p, i64 256, i1 false)
-  br label %.thread
+  br label %10
 
-.thread:                                          ; preds = %7, %9, %8
-  %.02946 = phi i32 [ 1, %9 ], [ 1, %8 ], [ 0, %7 ]
-  %.03045 = phi i32 [ 256, %9 ], [ 256, %8 ], [ 0, %7 ]
-  %.03144 = phi ptr [ @dh_ffdhe2048_g, %9 ], [ @dh_ffdhe2048_g, %8 ], [ null, %7 ]
+10:                                               ; preds = %9, %7
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %11, label %10
+  br i1 %.not, label %12, label %11
 
-10:                                               ; preds = %.thread
-  store i32 %.03045, ptr %2, align 4, !tbaa !21
-  br label %11
+11:                                               ; preds = %10
+  store i32 %.030, ptr %2, align 4, !tbaa !21
+  br label %12
 
-11:                                               ; preds = %10, %.thread
-  %12 = icmp ne ptr %3, null
-  %or.cond3 = and i1 %cond, %12
-  br i1 %or.cond3, label %13, label %15
+12:                                               ; preds = %11, %10
+  %13 = icmp ne ptr %3, null
+  %or.cond3 = and i1 %cond, %13
+  br i1 %or.cond3, label %14, label %15
 
-13:                                               ; preds = %11
-  %14 = zext nneg i32 %.02946 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr align 1 %.03144, i64 %14, i1 false)
+14:                                               ; preds = %12
+  store i8 2, ptr %3, align 1
   br label %15
 
-15:                                               ; preds = %13, %11
+15:                                               ; preds = %14, %12
   %.not37 = icmp eq ptr %4, null
   br i1 %.not37, label %17, label %16
 
 16:                                               ; preds = %15
-  store i32 %.02946, ptr %4, align 4, !tbaa !21
+  store i32 %.029, ptr %4, align 4, !tbaa !21
   br label %17
 
 17:                                               ; preds = %15, %16
@@ -1372,7 +1368,7 @@ attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable 
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

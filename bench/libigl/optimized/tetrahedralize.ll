@@ -341,7 +341,7 @@ define weak_odr dso_local noundef i32 @_ZN3igl8copyleft6tetgen14tetrahedralizeIN
 69:                                               ; preds = %.noexc40, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i, %.noexc38, %101, %95, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit35, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit34, %85, %16
   %70 = landingpad { ptr, i32 }
           cleanup
-  br label %121
+  br label %123
 
 71:                                               ; preds = %62, %57
   %72 = landingpad { ptr, i32 }
@@ -350,7 +350,7 @@ define weak_odr dso_local noundef i32 @_ZN3igl8copyleft6tetgen14tetrahedralizeIN
   %73 = extractvalue { ptr, i32 } %72, 1
   %74 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIi) #14
   %75 = icmp eq i32 %73, %74
-  br i1 %75, label %76, label %121
+  br i1 %75, label %76, label %123
 
 76:                                               ; preds = %71
   %77 = extractvalue { ptr, i32 } %72, 0
@@ -378,7 +378,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %_ZStlsISt11char_tra
   %84 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_end_catch() #14
-  br label %121
+  br label %123
 
 85:                                               ; preds = %65
   %86 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str, i64 noundef 1)
@@ -445,12 +445,12 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc38, %98
           to label %110 unwind label %111
 
 110:                                              ; preds = %108
-  br i1 %109, label %113, label %_ZNSolsEPFRSoS_E.exit37
+  br i1 %109, label %113, label %121
 
 111:                                              ; preds = %120, %108
   %112 = landingpad { ptr, i32 }
           cleanup
-  br label %121
+  br label %123
 
 113:                                              ; preds = %110
   %114 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -459,21 +459,26 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc38, %98
   %117 = load i64, ptr %116, align 8, !tbaa !66
   %118 = mul nsw i64 %117, %115
   %119 = icmp eq i64 %118, 0
-  br i1 %119, label %120, label %_ZNSolsEPFRSoS_E.exit37
+  br i1 %119, label %120, label %121
 
 120:                                              ; preds = %113
   invoke void @_ZN3igl15boundary_facetsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_EEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %_ZNSolsEPFRSoS_E.exit37 unwind label %111
+          to label %121 unwind label %111
 
-_ZNSolsEPFRSoS_E.exit37:                          ; preds = %.noexc40, %110, %120, %113, %_ZNSolsEPFRSoS_E.exit
-  %.0 = phi i32 [ 1, %_ZNSolsEPFRSoS_E.exit ], [ -1, %110 ], [ 0, %120 ], [ 0, %113 ], [ 2, %.noexc40 ]
+121:                                              ; preds = %113, %120, %110
+  %122 = xor i1 %109, true
+  %.1 = sext i1 %122 to i32
+  br label %_ZNSolsEPFRSoS_E.exit37
+
+_ZNSolsEPFRSoS_E.exit37:                          ; preds = %.noexc40, %121, %_ZNSolsEPFRSoS_E.exit
+  %.0 = phi i32 [ %.1, %121 ], [ 1, %_ZNSolsEPFRSoS_E.exit ], [ 2, %.noexc40 ]
   call void @_ZN8tetgenio12clean_memoryEv(ptr noundef nonnull align 8 dereferenceable(448) %18)
   call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %18) #14
   call void @_ZN8tetgenio12clean_memoryEv(ptr noundef nonnull align 8 dereferenceable(448) %17)
   call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %17) #14
   ret i32 %.0
 
-121:                                              ; preds = %111, %83, %71, %69
+123:                                              ; preds = %111, %83, %71, %69
   %.merged31 = phi { ptr, i32 } [ %70, %69 ], [ %112, %111 ], [ %84, %83 ], [ %72, %71 ]
   call void @_ZN8tetgenio12clean_memoryEv(ptr noundef nonnull align 8 dereferenceable(448) %18)
   call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %18) #14

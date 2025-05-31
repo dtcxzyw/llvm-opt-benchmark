@@ -473,13 +473,14 @@ define hidden void @pm_node_list_append(ptr noundef captures(none) %0, ptr nound
   br i1 %13, label %pm_node_list_grow.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %10, %15
-  %.025.i = phi i64 [ %17, %15 ], [ %spec.select.i, %10 ]
+  %.025.i = phi i64 [ %.126.i, %15 ], [ %spec.select.i, %10 ]
   %14 = icmp ugt i64 %4, %.025.i
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %.preheader.i
   %16 = icmp sgt i64 %.025.i, -1
-  %17 = shl nuw i64 %.025.i, 1
+  %17 = zext i1 %16 to i64
+  %.126.i = shl nuw i64 %.025.i, %17
   br i1 %16, label %.preheader.i, label %pm_node_list_grow.exit.thread, !llvm.loop !16
 
 18:                                               ; preds = %.preheader.i
@@ -536,13 +537,14 @@ define hidden void @pm_node_list_prepend(ptr noundef captures(none) %0, ptr noun
   br i1 %13, label %pm_node_list_grow.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %10, %15
-  %.025.i = phi i64 [ %17, %15 ], [ %spec.select.i, %10 ]
+  %.025.i = phi i64 [ %.126.i, %15 ], [ %spec.select.i, %10 ]
   %14 = icmp ugt i64 %4, %.025.i
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %.preheader.i
   %16 = icmp sgt i64 %.025.i, -1
-  %17 = shl nuw i64 %.025.i, 1
+  %17 = zext i1 %16 to i64
+  %.126.i = shl nuw i64 %.025.i, %17
   br i1 %16, label %.preheader.i, label %pm_node_list_grow.exit.thread, !llvm.loop !16
 
 18:                                               ; preds = %.preheader.i
@@ -608,13 +610,14 @@ define hidden void @pm_node_list_concat(ptr noundef captures(none) %0, ptr nound
   br i1 %15, label %pm_node_list_grow.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %12, %17
-  %.025.i = phi i64 [ %19, %17 ], [ %spec.select.i, %12 ]
+  %.025.i = phi i64 [ %.126.i, %17 ], [ %spec.select.i, %12 ]
   %16 = icmp ugt i64 %6, %.025.i
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %.preheader.i
   %18 = icmp sgt i64 %.025.i, -1
-  %19 = shl nuw i64 %.025.i, 1
+  %19 = zext i1 %18 to i64
+  %.126.i = shl nuw i64 %.025.i, %19
   br i1 %18, label %.preheader.i, label %pm_node_list_grow.exit.thread, !llvm.loop !16
 
 20:                                               ; preds = %.preheader.i

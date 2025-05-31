@@ -6770,7 +6770,6 @@ if.end.i:                                         ; preds = %invoke.cont16
 dynamic_cast.notnull.i:                           ; preds = %if.then.i, %if.end.i
   %conv23183 = phi i8 [ %conv23172, %if.end.i ], [ %conv23, %if.then.i ]
   %conv181 = phi i8 [ %conv171, %if.end.i ], [ %conv, %if.then.i ]
-  %extraParams.sroa.4.0176 = phi i64 [ 4294967296, %if.end.i ], [ 0, %if.then.i ]
   %extraParams.sroa.0.0174 = phi i64 [ %18, %if.end.i ], [ 0, %if.then.i ]
   %retval.sroa.0.0.i = phi i8 [ %narrow.i, %if.end.i ], [ %conv.i.i, %if.then.i ]
   %19 = tail call ptr @__dynamic_cast(ptr nonnull %7, ptr nonnull @_ZTIN8facebook5velox4TypeE, ptr nonnull @_ZTIN8facebook5velox16ShortDecimalTypeE, i64 0) #26
@@ -6782,6 +6781,7 @@ if.then33:                                        ; preds = %dynamic_cast.notnul
           to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.exit unwind label %lpad
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.exit: ; preds = %if.then33
+  %extraParams.sroa.4.0.insert.shift = select i1 %cmp, i64 4294967296, i64 0
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i18, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !89
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i18, i64 12
@@ -6801,6 +6801,7 @@ if.then41:                                        ; preds = %if.else
           to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.exit unwind label %lpad
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.exit: ; preds = %if.then41
+  %extraParams.sroa.4.0.insert.shift149 = select i1 %cmp, i64 4294967296, i64 0
   %_M_use_count.i.i.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i35, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i28, align 8, !noalias !92
   %_M_weak_count.i.i.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i35, i64 12
@@ -6813,6 +6814,7 @@ if.end44:                                         ; preds = %if.else
           to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.exit unwind label %lpad
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.exit: ; preds = %if.end44
+  %extraParams.sroa.4.0.insert.shift153 = select i1 %cmp, i64 4294967296, i64 0
   %_M_use_count.i.i.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i76, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i69, align 8, !noalias !95
   %_M_weak_count.i.i.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i76, i64 12
@@ -6823,7 +6825,8 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunction
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.exit
   %call5.i.i.i5.i.i.i.i76.sink188 = phi ptr [ %call5.i.i.i5.i.i.i.i76, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i35, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i18, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.exit ]
   %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS2_5RoundEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS2_5RoundEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS2_5RoundEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.exit ]
-  %extraParams.sroa.0.0.insert.insert147.sink = or disjoint i64 %extraParams.sroa.0.0174, %extraParams.sroa.4.0176
+  %extraParams.sroa.4.0.insert.shift153.pn = phi i64 [ %extraParams.sroa.4.0.insert.shift153, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.exit ], [ %extraParams.sroa.4.0.insert.shift149, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.exit ], [ %extraParams.sroa.4.0.insert.shift, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.exit ]
+  %extraParams.sroa.0.0.insert.insert147.sink = or disjoint i64 %extraParams.sroa.0.0174, %extraParams.sroa.4.0.insert.shift153.pn
   %_M_impl.i.i.i.i.i.i71 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i76.sink188, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i71, align 8, !noalias !24
   %aPrecision_.i.i.i.i.i.i.i.i73 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i76.sink188, i64 24
@@ -7532,7 +7535,6 @@ invoke.cont17:                                    ; preds = %invoke.cont15
 
 dynamic_cast.notnull.i:                           ; preds = %invoke.cont17, %invoke.cont
   %extraParams.sroa.0.0 = phi i64 [ %15, %invoke.cont17 ], [ 0, %invoke.cont ]
-  %extraParams.sroa.4.0 = phi i64 [ 4294967296, %invoke.cont17 ], [ 0, %invoke.cont ]
   %conv = trunc i64 %call2 to i8
   %conv22 = trunc i64 %.sroa.5.0.extract.shift to i8
   %16 = tail call ptr @__dynamic_cast(ptr nonnull %7, ptr nonnull @_ZTIN8facebook5velox4TypeE, ptr nonnull @_ZTIN8facebook5velox16ShortDecimalTypeE, i64 0) #26
@@ -7544,6 +7546,7 @@ if.then32:                                        ; preds = %dynamic_cast.notnul
           to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.exit unwind label %lpad
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.exit: ; preds = %if.then32
+  %extraParams.sroa.4.0.insert.shift = select i1 %cmp, i64 4294967296, i64 0
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i17, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !98
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i17, i64 12
@@ -7563,6 +7566,7 @@ if.then40:                                        ; preds = %if.else
           to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.exit unwind label %lpad
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.exit: ; preds = %if.then40
+  %extraParams.sroa.4.0.insert.shift148 = select i1 %cmp, i64 4294967296, i64 0
   %_M_use_count.i.i.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i34, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i27, align 8, !noalias !101
   %_M_weak_count.i.i.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i34, i64 12
@@ -7575,6 +7579,7 @@ if.end43:                                         ; preds = %if.else
           to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.exit unwind label %lpad
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.exit: ; preds = %if.end43
+  %extraParams.sroa.4.0.insert.shift152 = select i1 %cmp, i64 4294967296, i64 0
   %_M_use_count.i.i.i.i.i.i68 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i68, align 8, !noalias !104
   %_M_weak_count.i.i.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75, i64 12
@@ -7585,7 +7590,8 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunction
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.exit
   %call5.i.i.i5.i.i.i.i75.sink171 = phi ptr [ %call5.i.i.i5.i.i.i.i75, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i34, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i17, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.exit ]
   %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS2_3AbsEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS2_3AbsEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS2_3AbsEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.exit ]
-  %extraParams.sroa.0.0.insert.insert146.sink = or disjoint i64 %extraParams.sroa.4.0, %extraParams.sroa.0.0
+  %extraParams.sroa.4.0.insert.shift152.pn = phi i64 [ %extraParams.sroa.4.0.insert.shift152, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.exit ], [ %extraParams.sroa.4.0.insert.shift148, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.exit ], [ %extraParams.sroa.4.0.insert.shift, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.exit ]
+  %extraParams.sroa.0.0.insert.insert146.sink = or disjoint i64 %extraParams.sroa.0.0, %extraParams.sroa.4.0.insert.shift152.pn
   %_M_impl.i.i.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75.sink171, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i70, align 8, !noalias !24
   %aPrecision_.i.i.i.i.i.i.i.i72 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75.sink171, i64 24
@@ -7911,7 +7917,6 @@ invoke.cont17:                                    ; preds = %invoke.cont15
 
 dynamic_cast.notnull.i:                           ; preds = %invoke.cont17, %invoke.cont
   %extraParams.sroa.0.0 = phi i64 [ %15, %invoke.cont17 ], [ 0, %invoke.cont ]
-  %extraParams.sroa.4.0 = phi i64 [ 4294967296, %invoke.cont17 ], [ 0, %invoke.cont ]
   %conv = trunc i64 %call2 to i8
   %conv22 = trunc i64 %.sroa.5.0.extract.shift to i8
   %16 = tail call ptr @__dynamic_cast(ptr nonnull %7, ptr nonnull @_ZTIN8facebook5velox4TypeE, ptr nonnull @_ZTIN8facebook5velox16ShortDecimalTypeE, i64 0) #26
@@ -7923,6 +7928,7 @@ if.then32:                                        ; preds = %dynamic_cast.notnul
           to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.exit unwind label %lpad
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.exit: ; preds = %if.then32
+  %extraParams.sroa.4.0.insert.shift = select i1 %cmp, i64 4294967296, i64 0
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i17, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !107
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i17, i64 12
@@ -7942,6 +7948,7 @@ if.then40:                                        ; preds = %if.else
           to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.exit unwind label %lpad
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.exit: ; preds = %if.then40
+  %extraParams.sroa.4.0.insert.shift148 = select i1 %cmp, i64 4294967296, i64 0
   %_M_use_count.i.i.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i34, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i27, align 8, !noalias !110
   %_M_weak_count.i.i.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i34, i64 12
@@ -7954,6 +7961,7 @@ if.end43:                                         ; preds = %if.else
           to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.exit unwind label %lpad
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.exit: ; preds = %if.end43
+  %extraParams.sroa.4.0.insert.shift152 = select i1 %cmp, i64 4294967296, i64 0
   %_M_use_count.i.i.i.i.i.i68 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i68, align 8, !noalias !113
   %_M_weak_count.i.i.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75, i64 12
@@ -7964,7 +7972,8 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunction
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.exit
   %call5.i.i.i5.i.i.i.i75.sink171 = phi ptr [ %call5.i.i.i5.i.i.i.i75, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i34, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i17, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.exit ]
   %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS2_6NegateEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS2_6NegateEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS2_6NegateEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.exit ]
-  %extraParams.sroa.0.0.insert.insert146.sink = or disjoint i64 %extraParams.sroa.4.0, %extraParams.sroa.0.0
+  %extraParams.sroa.4.0.insert.shift152.pn = phi i64 [ %extraParams.sroa.4.0.insert.shift152, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.exit ], [ %extraParams.sroa.4.0.insert.shift148, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.exit ], [ %extraParams.sroa.4.0.insert.shift, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.exit ]
+  %extraParams.sroa.0.0.insert.insert146.sink = or disjoint i64 %extraParams.sroa.0.0, %extraParams.sroa.4.0.insert.shift152.pn
   %_M_impl.i.i.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75.sink171, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i70, align 8, !noalias !24
   %aPrecision_.i.i.i.i.i.i.i.i72 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75.sink171, i64 24

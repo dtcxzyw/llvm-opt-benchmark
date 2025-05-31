@@ -510,10 +510,8 @@ entry:
   %bf.set8 = or disjoint i32 %bf.set, %bf.clear
   %bf.set38 = or disjoint i32 %bf.set8, 2048
   store i32 %bf.set38, ptr %force1_1_, align 8
-  switch i8 %direction, label %sw.default [
-    i8 0, label %sw.bb81.invoke
-    i8 1, label %sw.bb81
-  ]
+  %switch = icmp ult i8 %direction, 2
+  br i1 %switch, label %sw.bb81.invoke, label %sw.default
 
 lpad79:                                           ; preds = %sw.bb81.invoke, %sw.default
   %1 = landingpad { ptr, i32 }
@@ -535,11 +533,8 @@ lpad79:                                           ; preds = %sw.bb81.invoke, %sw
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %websockAcceptKey_) #27
   resume { ptr, i32 } %1
 
-sw.bb81:                                          ; preds = %entry
-  br label %sw.bb81.invoke
-
-sw.bb81.invoke:                                   ; preds = %entry, %sw.bb81
-  %2 = phi i32 [ 1, %sw.bb81 ], [ 0, %entry ]
+sw.bb81.invoke:                                   ; preds = %entry
+  %2 = zext nneg i8 %direction to i32
   %parser_78 = getelementptr inbounds nuw i8, ptr %this, i64 64
   invoke void @_ZN8proxygen16http_parser_initEPNS_11http_parserENS_16http_parser_typeE(ptr noundef nonnull %parser_78, i32 noundef %2)
           to label %sw.epilog unwind label %lpad79
@@ -730,8 +725,8 @@ if.then29:                                        ; preds = %if.end
   br i1 %cmp35, label %if.end40.sink.split, label %if.end40
 
 if.end40.sink.split:                              ; preds = %if.end, %if.then29
-  %.sink = phi i32 [ 1, %if.then29 ], [ 0, %if.end ]
   %bf.shl.ph = phi i32 [ 16, %if.then29 ], [ 0, %if.end ]
+  %.sink = zext i1 %paused to i32
   %parser_30 = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @_ZN8proxygen17http_parser_pauseEPNS_11http_parserEi(ptr noundef nonnull %parser_30, i32 noundef %.sink)
   br label %if.end40
@@ -7730,7 +7725,7 @@ if.end18thread-pre-split:                         ; preds = %if.end16, %if.then
   %.pr = load i8, ptr %headerParseState_, align 4
   br label %if.end18
 
-if.end18:                                         ; preds = %if.end18thread-pre-split, %entry
+if.end18:                                         ; preds = %entry, %if.end18thread-pre-split
   %6 = phi i8 [ %.pr, %if.end18thread-pre-split ], [ %0, %entry ]
   switch i8 %6, label %if.else41 [
     i8 5, label %if.then20
@@ -7795,7 +7790,7 @@ if.else47:                                        ; preds = %if.else41
   br label %return
 
 return:                                           ; preds = %if.then, %_ZN5folly5RangeIPKcE7advanceEm.exit, %if.else27, %if.else37, %if.else47, %if.then45, %if.end16
-  %retval.0 = phi i32 [ -1, %if.end16 ], [ 0, %if.then45 ], [ 0, %if.else47 ], [ 0, %if.else37 ], [ 0, %if.else27 ], [ 0, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ -1, %if.then ]
+  %retval.0 = phi i32 [ 0, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %if.else27 ], [ 0, %if.else37 ], [ 0, %if.else47 ], [ 0, %if.then45 ], [ -1, %if.end16 ], [ -1, %if.then ]
   ret i32 %retval.0
 }
 

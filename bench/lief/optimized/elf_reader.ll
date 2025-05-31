@@ -48,7 +48,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
   %4 = load ptr, ptr @stderr, align 8, !tbaa !4
   %5 = load ptr, ptr %1, align 8, !tbaa !9
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef %5) #4
-  br label %273
+  br label %274
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -466,8 +466,12 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
   tail call void @elf_binary_destroy(ptr noundef %10) #5
   br label %273
 
-273:                                              ; preds = %._crit_edge185, %7, %3
-  %.0 = phi i32 [ 1, %3 ], [ 0, %._crit_edge185 ], [ 1, %7 ]
+273:                                              ; preds = %7, %._crit_edge185
+  %.1 = zext i1 %11 to i32
+  br label %274
+
+274:                                              ; preds = %273, %3
+  %.0 = phi i32 [ 1, %3 ], [ %.1, %273 ]
   ret i32 %.0
 }
 

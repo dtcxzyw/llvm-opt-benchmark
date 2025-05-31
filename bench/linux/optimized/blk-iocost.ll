@@ -8130,7 +8130,8 @@ define internal void @ioc_rqos_done(ptr noundef readonly captures(none) %0, ptr 
 
 19:                                               ; preds = %18, %14
   %20 = phi i64 [ 3, %18 ], [ 1, %14 ]
-  %21 = phi i64 [ 1, %18 ], [ 0, %14 ]
+  %.mask = and i32 %16, 255
+  %21 = zext nneg i32 %.mask to i64
   %22 = tail call i64 @ktime_get() #21
   %23 = load i64, ptr %7, align 8
   %24 = sub i64 %22, %23
@@ -8722,7 +8723,8 @@ define internal noundef range(i32 -1, 1) i32 @iocg_wake_fn(ptr noundef %0, i32 n
   br label %43
 
 43:                                               ; preds = %35, %4
-  %44 = phi i32 [ 0, %35 ], [ -1, %4 ]
+  %.lobit = ashr i64 %16, 63
+  %44 = trunc nsw i64 %.lobit to i32
   ret i32 %44
 }
 

@@ -148,8 +148,8 @@ define dso_local range(i32 -1, 1) i32 @crypto_secretbox_open_detached(ptr nounde
   %11 = getelementptr i8, ptr %4, i64 16
   %12 = call i32 @crypto_stream_salsa20_xor(ptr noundef nonnull %7, ptr noundef nonnull %7, i64 noundef 64, ptr noundef %11, ptr noundef nonnull %8) #7
   %13 = call i32 @crypto_onetimeauth_poly1305_verify(ptr noundef nonnull %2, ptr noundef nonnull %1, i64 noundef %3, ptr noundef nonnull %7) #7
-  %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %14, label %.sink.split
+  %.not = icmp ne i32 %13, 0
+  br i1 %.not, label %.sink.split, label %14
 
 14:                                               ; preds = %._crit_edge
   %15 = icmp eq ptr %0, null
@@ -197,12 +197,11 @@ define dso_local range(i32 -1, 1) i32 @crypto_secretbox_open_detached(ptr nounde
   br label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge59, %27, %._crit_edge59.thread, %._crit_edge
-  %.044.ph = phi i32 [ -1, %._crit_edge ], [ 0, %._crit_edge59.thread ], [ 0, %27 ], [ 0, %._crit_edge59 ]
   call void @sodium_memzero(ptr noundef nonnull %8, i64 noundef 32) #7
   br label %32
 
 32:                                               ; preds = %.sink.split, %14
-  %.044 = phi i32 [ 0, %14 ], [ %.044.ph, %.sink.split ]
+  %.044 = sext i1 %.not to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #7
   ret i32 %.044

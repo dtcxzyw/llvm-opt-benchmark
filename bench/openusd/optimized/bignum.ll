@@ -2603,11 +2603,11 @@ define noundef range(i32 -1, 2) i32 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_
   %28 = sext i32 %14 to i64
   br label %29
 
-29:                                               ; preds = %.preheader, %42
-  %indvars.iv = phi i64 [ %23, %.preheader ], [ %indvars.iv.next, %42 ]
+29:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27, %.preheader
+  %indvars.iv = phi i64 [ %23, %.preheader ], [ %indvars.iv.next, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not.not = icmp sgt i64 %indvars.iv, %26
-  br i1 %.not.not, label %30, label %.loopexit
+  br i1 %.not.not, label %30, label %.loopexit.loopexit
 
 30:                                               ; preds = %29
   %.not.i = icmp sgt i64 %indvars.iv, %27
@@ -2637,14 +2637,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZer
 _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit, %37
   %.0.i26 = phi i32 [ %40, %37 ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit ]
   %41 = icmp ult i32 %.0.i, %.0.i26
-  br i1 %41, label %.loopexit, label %42
+  %42 = icmp ugt i32 %.0.i, %.0.i26
+  %or.cond = or i1 %41, %42
+  br i1 %or.cond, label %.loopexit.loopexit, label %29, !llvm.loop !34
 
-42:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27
-  %43 = icmp ugt i32 %.0.i, %.0.i26
-  br i1 %43, label %.loopexit, label %29, !llvm.loop !34
+.loopexit.loopexit:                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27, %29
+  %.0.ph = sext i1 %.not.not to i32
+  br label %.loopexit
 
-.loopexit:                                        ; preds = %29, %42, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27, %16, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %16 ], [ 0, %29 ], [ 1, %42 ], [ -1, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27 ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %16, %2
+  %.0 = phi i32 [ -1, %2 ], [ 1, %16 ], [ %.0.ph, %.loopexit.loopexit ]
   ret i32 %.0
 }
 

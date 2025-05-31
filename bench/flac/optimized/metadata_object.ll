@@ -2790,13 +2790,13 @@ vorbiscomment_find_entry_from_.exit:              ; preds = %FLAC__metadata_obje
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 -1, 2) i32 @FLAC__metadata_object_vorbiscomment_remove_entry_matching(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @FLAC__metadata_object_vorbiscomment_remove_entry_matching(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8, !tbaa !13
-  %.not19 = icmp eq i32 %6, 0
-  br i1 %.not19, label %.loopexit, label %.lr.ph
+  %.not21 = icmp eq i32 %6, 0
+  br i1 %.not21, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2850,8 +2850,6 @@ FLAC__metadata_object_vorbiscomment_entry_matches.exit: ; preds = %10
   %40 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %35, i64 %38, i32 1
   store ptr null, ptr %40, align 8, !tbaa !17
   %41 = tail call range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(ptr noundef nonnull %0, i32 noundef %37)
-  %.not11 = icmp eq i32 %41, 0
-  %. = select i1 %.not11, i32 -1, i32 1
   br label %.loopexit
 
 FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread: ; preds = %10, %FLAC__metadata_object_vorbiscomment_entry_matches.exit
@@ -2860,7 +2858,7 @@ FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread: ; preds = %10, %F
   br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !93
 
 .loopexit:                                        ; preds = %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread, %2, %23
-  %.010 = phi i32 [ %., %23 ], [ 0, %2 ], [ 0, %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread ]
+  %.010 = phi i32 [ -1, %23 ], [ 0, %2 ], [ 0, %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread ]
   ret i32 %.010
 }
 

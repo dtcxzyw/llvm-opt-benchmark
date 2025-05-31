@@ -29,10 +29,9 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h88daea845f471262
   br label %10
 
 10:                                               ; preds = %2, %6
-  %storemerge = phi i64 [ 0, %6 ], [ 1, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %5, ptr %11, align 8
-  store i64 %storemerge, ptr %0, align 8
+  store i64 %3, ptr %0, align 8
   ret void
 }
 
@@ -52,10 +51,9 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf70837589793b108
   br label %10
 
 10:                                               ; preds = %2, %6
-  %storemerge = phi i64 [ 0, %6 ], [ 1, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %5, ptr %11, align 8
-  store i64 %storemerge, ptr %0, align 8
+  store i64 %3, ptr %0, align 8
   ret void
 }
 
@@ -133,11 +131,11 @@ define hidden void @_ZN7memmap211MmapOptions3map17hd75ee153f7297730E(ptr noalias
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf70837589793b108E.llvm.3848035939780480563.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hf70837589793b108E.llvm.3848035939780480563.exit": ; preds = %18, %8, %31, %23
-  %.sink = phi ptr [ %30, %23 ], [ %30, %31 ], [ %19, %18 ], [ %11, %8 ]
-  %storemerge.i.sink = phi i64 [ 1, %23 ], [ 0, %31 ], [ 1, %18 ], [ 1, %8 ]
+  %.sink14 = phi ptr [ %30, %23 ], [ %30, %31 ], [ %19, %18 ], [ %11, %8 ]
+  %.sink = phi i64 [ %28, %23 ], [ %28, %31 ], [ 1, %18 ], [ 1, %8 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %35, align 8
-  store i64 %storemerge.i.sink, ptr %0, align 8
+  store ptr %.sink14, ptr %35, align 8
+  store i64 %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }
@@ -322,11 +320,11 @@ define hidden void @_ZN7memmap211MmapOptions7map_mut17h74d0dc5ed2523426E(ptr noa
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h88daea845f471262E.llvm.3848035939780480563.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h88daea845f471262E.llvm.3848035939780480563.exit": ; preds = %18, %8, %31, %23
-  %.sink = phi ptr [ %30, %23 ], [ %30, %31 ], [ %19, %18 ], [ %11, %8 ]
-  %storemerge.i.sink = phi i64 [ 1, %23 ], [ 0, %31 ], [ 1, %18 ], [ 1, %8 ]
+  %.sink14 = phi ptr [ %30, %23 ], [ %30, %31 ], [ %19, %18 ], [ %11, %8 ]
+  %.sink = phi i64 [ %28, %23 ], [ %28, %31 ], [ 1, %18 ], [ 1, %8 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %35, align 8
-  store i64 %storemerge.i.sink, ptr %0, align 8
+  store ptr %.sink14, ptr %35, align 8
+  store i64 %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }

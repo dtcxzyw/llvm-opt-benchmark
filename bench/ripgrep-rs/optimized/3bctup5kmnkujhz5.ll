@@ -55,26 +55,25 @@ define hidden i24 @_ZN12regex_syntax3hir8interval8Interval5union17h3b0e974a9a940
   %10 = tail call i8 @llvm.umin.i8(i8 %5, i8 %8)
   %.0.sroa.speculated.i1.i = zext i8 %10 to i32
   %11 = add nuw nsw i32 %.0.sroa.speculated.i1.i, 1
-  %.not = icmp samesign ult i32 %11, %.0.sroa.speculated.i.i
-  br i1 %.not, label %13, label %12
+  %12 = icmp samesign uge i32 %11, %.0.sroa.speculated.i.i
+  br i1 %12, label %13, label %14
 
-12:                                               ; preds = %2
+13:                                               ; preds = %2
   %.0.sroa.speculated.i.i1 = tail call noundef i8 @llvm.umin.i8(i8 %3, i8 %6)
   %.0.sroa.speculated.i.i2 = tail call noundef i8 @llvm.umax.i8(i8 %5, i8 %8)
   %..i = tail call i8 @llvm.umin.i8(i8 %.0.sroa.speculated.i.i1, i8 %.0.sroa.speculated.i.i2)
   %.6.i = tail call i8 @llvm.umax.i8(i8 %.0.sroa.speculated.i.i1, i8 %.0.sroa.speculated.i.i2)
-  br label %13
+  br label %14
 
-13:                                               ; preds = %2, %12
-  %.sroa.4.0 = phi i8 [ %.6.i, %12 ], [ undef, %2 ]
-  %.sroa.3.0 = phi i8 [ %..i, %12 ], [ undef, %2 ]
-  %.sroa.0.0 = phi i8 [ 1, %12 ], [ 0, %2 ]
+14:                                               ; preds = %2, %13
+  %.sroa.4.0 = phi i8 [ %.6.i, %13 ], [ undef, %2 ]
+  %.sroa.3.0 = phi i8 [ %..i, %13 ], [ undef, %2 ]
   %.sroa.4.0.insert.ext = zext i8 %.sroa.4.0 to i24
   %.sroa.4.0.insert.shift = shl nuw i24 %.sroa.4.0.insert.ext, 16
   %.sroa.3.0.insert.ext = zext i8 %.sroa.3.0 to i24
   %.sroa.3.0.insert.shift = shl nuw nsw i24 %.sroa.3.0.insert.ext, 8
   %.sroa.3.0.insert.insert = or disjoint i24 %.sroa.3.0.insert.shift, %.sroa.4.0.insert.shift
-  %.sroa.0.0.insert.ext = zext nneg i8 %.sroa.0.0 to i24
+  %.sroa.0.0.insert.ext = zext i1 %12 to i24
   %.sroa.0.0.insert.insert = or disjoint i24 %.sroa.3.0.insert.insert, %.sroa.0.0.insert.ext
   ret i24 %.sroa.0.0.insert.insert
 }

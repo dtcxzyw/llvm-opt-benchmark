@@ -7671,7 +7671,6 @@ rb_vm_lock_enter.exit:                            ; preds = %rb_check_frozen_inl
   br label %58
 
 48:                                               ; preds = %.thread.i, %24
-  %.sroa.4.0.i = phi i64 [ 1, %24 ], [ 0, %.thread.i ]
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %50 = load ptr, ptr %49, align 8, !tbaa !97
   %51 = load i32, ptr %4, align 4, !tbaa !98
@@ -7689,34 +7688,32 @@ rb_vm_lock_enter.exit:                            ; preds = %rb_check_frozen_inl
   %60 = load ptr, ptr %59, align 8, !tbaa !97
   %61 = call i32 @rb_st_insert(ptr noundef %60, i64 noundef %1, i64 noundef %2) #27
   %62 = icmp ne i32 %61, 0
-  %63 = zext i1 %62 to i64
-  %64 = icmp eq i64 %2, 0
-  %65 = and i64 %2, 7
-  %66 = icmp ne i64 %65, 0
-  %67 = or i1 %64, %66
-  br i1 %67, label %general_ivar_set.exit, label %general_ivar_set.exit.sink.split
+  %63 = icmp eq i64 %2, 0
+  %64 = and i64 %2, 7
+  %65 = icmp ne i64 %64, 0
+  %66 = or i1 %63, %65
+  br i1 %66, label %general_ivar_set.exit, label %general_ivar_set.exit.sink.split
 
 general_ivar_set.exit.sink.split:                 ; preds = %58, %48
-  %.sroa.4.1.i.ph = phi i64 [ %.sroa.4.0.i, %48 ], [ %63, %58 ]
+  %.sroa.4.1.shrunk.i.ph = phi i1 [ %25, %48 ], [ %62, %58 ]
   call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %2) #27
   br label %general_ivar_set.exit
 
 general_ivar_set.exit:                            ; preds = %general_ivar_set.exit.sink.split, %48, %58
-  %.sroa.4.1.i = phi i64 [ %63, %58 ], [ %.sroa.4.0.i, %48 ], [ %.sroa.4.1.i.ph, %general_ivar_set.exit.sink.split ]
+  %.sroa.4.1.shrunk.i = phi i1 [ %62, %58 ], [ %25, %48 ], [ %.sroa.4.1.shrunk.i.ph, %general_ivar_set.exit.sink.split ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %68 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !68
-  %.not.i.i7 = icmp eq ptr %68, null
-  br i1 %.not.i.i7, label %69, label %rb_vm_lock_leave.exit
+  %67 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !68
+  %.not.i.i7 = icmp eq ptr %67, null
+  br i1 %.not.i.i7, label %68, label %rb_vm_lock_leave.exit
 
-69:                                               ; preds = %general_ivar_set.exit
+68:                                               ; preds = %general_ivar_set.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #27
   br label %rb_vm_lock_leave.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %general_ivar_set.exit, %69
-  %70 = icmp ne i64 %.sroa.4.1.i, 0
+rb_vm_lock_leave.exit:                            ; preds = %general_ivar_set.exit, %68
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #27
-  %71 = zext i1 %70 to i32
-  ret i32 %71
+  %69 = zext i1 %.sroa.4.1.shrunk.i to i32
+  ret i32 %69
 }
 
 declare void @rb_class_foreach_subclass(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1

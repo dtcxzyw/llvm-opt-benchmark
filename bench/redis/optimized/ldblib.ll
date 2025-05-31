@@ -224,17 +224,16 @@ define internal i32 @db_getinfo(ptr noundef %0) #0 {
   br label %getthread.exit
 
 getthread.exit:                                   ; preds = %1, %5
-  %.053 = phi i32 [ 1, %5 ], [ 0, %1 ]
+  %7 = phi i32 [ 2, %5 ], [ 1, %1 ]
+  %8 = phi i32 [ 3, %5 ], [ 2, %1 ]
   %.0.i = phi ptr [ %6, %5 ], [ %0, %1 ]
-  %7 = or disjoint i32 %.053, 2
-  %8 = tail call ptr @luaL_optlstring(ptr noundef %0, i32 noundef %7, ptr noundef nonnull @.str.24, ptr noundef null) #8
-  %9 = add nuw nsw i32 %.053, 1
-  %10 = tail call i32 @lua_isnumber(ptr noundef %0, i32 noundef %9) #8
+  %9 = tail call ptr @luaL_optlstring(ptr noundef %0, i32 noundef %8, ptr noundef nonnull @.str.24, ptr noundef null) #8
+  %10 = tail call i32 @lua_isnumber(ptr noundef %0, i32 noundef %7) #8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %16, label %11
 
 11:                                               ; preds = %getthread.exit
-  %12 = tail call i64 @lua_tointeger(ptr noundef %0, i32 noundef %9) #8
+  %12 = tail call i64 @lua_tointeger(ptr noundef %0, i32 noundef %7) #8
   %13 = trunc i64 %12 to i32
   %14 = call i32 @lua_getstack(ptr noundef %.0.i, i32 noundef %13, ptr noundef nonnull %2) #8
   %.not38 = icmp eq i32 %14, 0
@@ -245,29 +244,29 @@ getthread.exit:                                   ; preds = %1, %5
   br label %73
 
 16:                                               ; preds = %getthread.exit
-  %17 = tail call i32 @lua_type(ptr noundef %0, i32 noundef %9) #8
+  %17 = tail call i32 @lua_type(ptr noundef %0, i32 noundef %7) #8
   %18 = icmp eq i32 %17, 6
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %16
-  %20 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef %8) #8
+  %20 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef %9) #8
   %21 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #8
-  tail call void @lua_pushvalue(ptr noundef %0, i32 noundef %9) #8
+  tail call void @lua_pushvalue(ptr noundef %0, i32 noundef %7) #8
   tail call void @lua_xmove(ptr noundef %0, ptr noundef %.0.i, i32 noundef 1) #8
   br label %24
 
 22:                                               ; preds = %16
-  %23 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef %9, ptr noundef nonnull @.str.26) #8
+  %23 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef %7, ptr noundef nonnull @.str.26) #8
   br label %73
 
 24:                                               ; preds = %11, %19
-  %.0 = phi ptr [ %8, %11 ], [ %21, %19 ]
+  %.0 = phi ptr [ %9, %11 ], [ %21, %19 ]
   %25 = call i32 @lua_getinfo(ptr noundef %.0.i, ptr noundef %.0, ptr noundef nonnull %2) #8
   %.not39 = icmp eq i32 %25, 0
   br i1 %.not39, label %26, label %28
 
 26:                                               ; preds = %24
-  %27 = call i32 @luaL_argerror(ptr noundef %0, i32 noundef %7, ptr noundef nonnull @.str.27) #8
+  %27 = call i32 @luaL_argerror(ptr noundef %0, i32 noundef %8, ptr noundef nonnull @.str.27) #8
   br label %73
 
 28:                                               ; preds = %24
@@ -404,10 +403,9 @@ define internal i32 @db_getlocal(ptr noundef %0) #0 {
   br label %getthread.exit
 
 getthread.exit:                                   ; preds = %1, %5
-  %.017 = phi i32 [ 1, %5 ], [ 0, %1 ]
+  %7 = phi i32 [ 2, %5 ], [ 1, %1 ]
   %.0.i = phi ptr [ %6, %5 ], [ %0, %1 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #8
-  %7 = add nuw nsw i32 %.017, 1
   %8 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef %7) #8
   %9 = trunc i64 %8 to i32
   %10 = call i32 @lua_getstack(ptr noundef %.0.i, i32 noundef %9, ptr noundef nonnull %2) #8
@@ -419,7 +417,7 @@ getthread.exit:                                   ; preds = %1, %5
   br label %20
 
 13:                                               ; preds = %getthread.exit
-  %14 = or disjoint i32 %.017, 2
+  %14 = select i1 %4, i32 3, i32 2
   %15 = call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef %14) #8
   %16 = trunc i64 %15 to i32
   %17 = call ptr @lua_getlocal(ptr noundef %.0.i, ptr noundef nonnull %2, i32 noundef %16) #8
@@ -514,9 +512,8 @@ define internal noundef i32 @db_sethook(ptr noundef %0) #0 {
   br label %getthread.exit
 
 getthread.exit:                                   ; preds = %1, %4
-  %.024 = phi i32 [ 1, %4 ], [ 0, %1 ]
+  %6 = phi i32 [ 2, %4 ], [ 1, %1 ]
   %.0.i = phi ptr [ %5, %4 ], [ %0, %1 ]
-  %6 = add nuw nsw i32 %.024, 1
   %7 = tail call i32 @lua_type(ptr noundef %0, i32 noundef %6) #8
   %8 = icmp slt i32 %7, 1
   br i1 %8, label %9, label %10
@@ -526,10 +523,10 @@ getthread.exit:                                   ; preds = %1, %4
   br label %23
 
 10:                                               ; preds = %getthread.exit
-  %11 = or disjoint i32 %.024, 2
+  %11 = select i1 %3, i32 3, i32 2
   %12 = tail call ptr @luaL_checklstring(ptr noundef %0, i32 noundef %11, ptr noundef null) #8
   tail call void @luaL_checktype(ptr noundef %0, i32 noundef %6, i32 noundef 6) #8
-  %13 = add nuw nsw i32 %.024, 3
+  %13 = select i1 %3, i32 4, i32 3
   %14 = tail call i64 @luaL_optinteger(ptr noundef %0, i32 noundef %13, i64 noundef 0) #8
   %15 = trunc i64 %14 to i32
   %16 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %12, i32 noundef 99) #10
@@ -573,10 +570,9 @@ define internal i32 @db_setlocal(ptr noundef %0) #0 {
   br label %getthread.exit
 
 getthread.exit:                                   ; preds = %1, %5
-  %.015 = phi i32 [ 1, %5 ], [ 0, %1 ]
+  %7 = phi i32 [ 2, %5 ], [ 1, %1 ]
   %.0.i = phi ptr [ %6, %5 ], [ %0, %1 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #8
-  %7 = add nuw nsw i32 %.015, 1
   %8 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef %7) #8
   %9 = trunc i64 %8 to i32
   %10 = call i32 @lua_getstack(ptr noundef %.0.i, i32 noundef %9, ptr noundef nonnull %2) #8
@@ -588,11 +584,11 @@ getthread.exit:                                   ; preds = %1, %5
   br label %19
 
 13:                                               ; preds = %getthread.exit
-  %14 = add nuw nsw i32 %.015, 3
+  %14 = select i1 %4, i32 4, i32 3
   call void @luaL_checkany(ptr noundef %0, i32 noundef %14) #8
   call void @lua_settop(ptr noundef %0, i32 noundef %14) #8
   call void @lua_xmove(ptr noundef %0, ptr noundef %.0.i, i32 noundef 1) #8
-  %15 = or disjoint i32 %.015, 2
+  %15 = select i1 %4, i32 3, i32 2
   %16 = call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef %15) #8
   %17 = trunc i64 %16 to i32
   %18 = call ptr @lua_setlocal(ptr noundef %.0.i, ptr noundef nonnull %2, i32 noundef %17) #8
@@ -661,10 +657,10 @@ define internal noundef i32 @db_errorfb(ptr noundef %0) #0 {
   br label %getthread.exit
 
 getthread.exit:                                   ; preds = %1, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %1 ]
+  %7 = phi i32 [ 3, %5 ], [ 2, %1 ]
   %.0.i = phi ptr [ %6, %5 ], [ %0, %1 ]
+  %.0 = zext i1 %4 to i32
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #8
-  %7 = or disjoint i32 %.0, 2
   %8 = tail call i32 @lua_isnumber(ptr noundef %0, i32 noundef %7) #8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %12, label %9
@@ -691,7 +687,7 @@ getthread.exit:                                   ; preds = %1, %5
   br label %23
 
 19:                                               ; preds = %15
-  %20 = add nuw nsw i32 %.0, 1
+  %20 = select i1 %4, i32 2, i32 1
   %21 = tail call i32 @lua_isstring(ptr noundef %0, i32 noundef %20) #8
   %.not40 = icmp eq i32 %21, 0
   br i1 %.not40, label %72, label %22

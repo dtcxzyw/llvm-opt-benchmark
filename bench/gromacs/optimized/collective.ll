@@ -128,13 +128,11 @@ define noundef range(i32 0, 2) i32 @_Z19tMPI_Coll_sync_initP9coll_synci(ptr noun
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %8, align 8, !tbaa !34
   %9 = icmp eq ptr %7, null
-  br i1 %9, label %.loopexit, label %.preheader
+  %10 = icmp slt i32 %1, 1
+  %or.cond.not = or i1 %10, %9
+  br i1 %or.cond.not, label %.loopexit, label %.lr.ph.preheader
 
-.preheader:                                       ; preds = %2
-  %10 = icmp sgt i32 %1, 0
-  br i1 %10, label %.lr.ph.preheader, label %.loopexit
-
-.lr.ph.preheader:                                 ; preds = %.preheader
+.lr.ph.preheader:                                 ; preds = %2
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
@@ -147,8 +145,8 @@ define noundef range(i32 0, 2) i32 @_Z19tMPI_Coll_sync_initP9coll_synci(ptr noun
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !35
 
-.loopexit:                                        ; preds = %.lr.ph, %.preheader, %2
-  %.012 = phi i32 [ 1, %2 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %2
+  %.012 = zext i1 %9 to i32
   ret i32 %.012
 }
 

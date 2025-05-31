@@ -16672,7 +16672,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi14OracleFunction14local_init_memE
   br i1 %.not13, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %2
-  %.0 = phi i32 [ 1, %2 ], [ 0, %4 ], [ 0, %.lr.ph ]
+  %.0 = zext i1 %or.cond to i32
   ret i32 %.0
 }
 
@@ -17123,7 +17123,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi14OracleFunction8init_memEPv(ptr 
   %.not = icmp ne i32 %13, 0
   %.not38 = icmp eq ptr %1, null
   %or.cond = or i1 %.not38, %.not
-  br i1 %or.cond, label %_ZNK6casadi14OracleFunction14local_init_memEPv.exit, label %14
+  br i1 %or.cond, label %.critedge, label %14
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1448
@@ -17144,7 +17144,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi14OracleFunction8init_memEPv(ptr 
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   %24 = load i32, ptr %23, align 4, !tbaa !107
   %.not4791 = icmp sgt i32 %24, 0
-  br i1 %.not4791, label %.lr.ph94, label %_ZNK6casadi14OracleFunction14local_init_memEPv.exit
+  br i1 %.not4791, label %.lr.ph94, label %.critedge
 
 .lr.ph94:                                         ; preds = %.preheader
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -17514,7 +17514,7 @@ _ZNSt6vectorIPN6casadi17LocalOracleMemoryESaIS2_EE9push_backEOS2_.exit: ; preds 
   %.not.i = icmp ne i32 %150, 0
   %.not9.i = icmp eq ptr %149, null
   %or.cond.i = or i1 %.not9.i, %.not.i
-  br i1 %or.cond.i, label %_ZNK6casadi14OracleFunction14local_init_memEPv.exit, label %151
+  br i1 %or.cond.i, label %.critedge.loopexit, label %151
 
 151:                                              ; preds = %_ZNSt6vectorIPN6casadi17LocalOracleMemoryESaIS2_EE9push_backEOS2_.exit
   %152 = load ptr, ptr %15, align 8, !tbaa !29
@@ -17534,10 +17534,14 @@ _ZNSt6vectorIPN6casadi17LocalOracleMemoryESaIS2_EE9push_backEOS2_.exit: ; preds 
   %155 = load i32, ptr %23, align 4, !tbaa !107
   %156 = sext i32 %155 to i64
   %.not47 = icmp slt i64 %indvars.iv.next, %156
-  br i1 %.not47, label %118, label %_ZNK6casadi14OracleFunction14local_init_memEPv.exit, !llvm.loop !385
+  br i1 %.not47, label %118, label %.critedge.loopexit, !llvm.loop !385
 
-_ZNK6casadi14OracleFunction14local_init_memEPv.exit: ; preds = %_ZNSt6vectorIPN6casadi17LocalOracleMemoryESaIS2_EE9push_backEOS2_.exit, %.loopexit, %.preheader, %2
-  %.034 = phi i32 [ 1, %2 ], [ 0, %.preheader ], [ 1, %_ZNSt6vectorIPN6casadi17LocalOracleMemoryESaIS2_EE9push_backEOS2_.exit ], [ 0, %.loopexit ]
+.critedge.loopexit:                               ; preds = %_ZNSt6vectorIPN6casadi17LocalOracleMemoryESaIS2_EE9push_backEOS2_.exit, %.loopexit
+  %.not47.lcssa.ph = zext i1 %or.cond.i to i32
+  br label %.critedge
+
+.critedge:                                        ; preds = %.preheader, %.critedge.loopexit, %2
+  %.034 = phi i32 [ 1, %2 ], [ 0, %.preheader ], [ %.not47.lcssa.ph, %.critedge.loopexit ]
   ret i32 %.034
 
 157:                                              ; preds = %37

@@ -2225,8 +2225,8 @@ define hidden { i64, i64 } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   br label %21
 
 21:                                               ; preds = %17, %19
-  %.sroa.3.0 = phi i64 [ %18, %17 ], [ undef, %19 ]
   %.sroa.0.0 = phi i64 [ 1, %17 ], [ 0, %19 ]
+  %.sroa.3.0 = phi i64 [ %18, %17 ], [ undef, %19 ]
   %22 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %23 = insertvalue { i64, i64 } %22, i64 %.sroa.3.0, 1
   ret { i64, i64 } %23
@@ -2239,7 +2239,7 @@ define hidden { i64, i64 } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   tail call void @llvm.experimental.noalias.scope.decl(metadata !296)
   %5 = load ptr, ptr %0, align 8, !alias.scope !296, !noalias !299, !noundef !12
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h91f9da0b7f7307d9E.exit.thread", label %6
+  br i1 %.not.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h91f9da0b7f7307d9E.exit", label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2248,7 +2248,7 @@ define hidden { i64, i64 } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h552912f666f0ec3dE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %4, ptr noundef nonnull %5, i64 noundef %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1), !noalias !303
   %9 = load i64, ptr %4, align 8, !range !283, !noalias !302, !noundef !12
   %10 = trunc nuw i64 %9 to i1
-  br i1 %10, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h91f9da0b7f7307d9E.exit.thread.sink.split", label %11
+  br i1 %10, label %16, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2259,20 +2259,22 @@ define hidden { i64, i64 } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   %14 = call { i64, i64 } @"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17h6b123251ea899924E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3), !noalias !304
   %15 = extractvalue { i64, i64 } %14, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !302
-  br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h91f9da0b7f7307d9E.exit.thread.sink.split"
+  br label %16
 
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h91f9da0b7f7307d9E.exit.thread.sink.split": ; preds = %6, %11
-  %.ph = phi i64 [ %15, %11 ], [ undef, %6 ]
-  %.sroa.0.036.ph = xor i64 %9, 1
+16:                                               ; preds = %11, %6
+  %.sroa.6.0 = phi i64 [ undef, %6 ], [ %15, %11 ]
+  %storemerge.i = phi i64 [ 0, %6 ], [ 1, %11 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !302
-  br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h91f9da0b7f7307d9E.exit.thread"
+  br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h91f9da0b7f7307d9E.exit"
 
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h91f9da0b7f7307d9E.exit.thread": ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h91f9da0b7f7307d9E.exit.thread.sink.split", %2
-  %.sroa.0.036 = phi i64 [ 0, %2 ], [ %.sroa.0.036.ph, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h91f9da0b7f7307d9E.exit.thread.sink.split" ]
-  %16 = phi i64 [ undef, %2 ], [ %.ph, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h91f9da0b7f7307d9E.exit.thread.sink.split" ]
-  %17 = insertvalue { i64, i64 } poison, i64 %.sroa.0.036, 0
-  %18 = insertvalue { i64, i64 } %17, i64 %16, 1
-  ret { i64, i64 } %18
+"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h91f9da0b7f7307d9E.exit": ; preds = %2, %16
+  %.sroa.6.1 = phi i64 [ %.sroa.6.0, %16 ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ %storemerge.i, %16 ], [ 0, %2 ]
+  %17 = trunc nuw i64 %.sroa.0.0 to i1
+  %.sroa.3.0 = select i1 %17, i64 %.sroa.6.1, i64 undef
+  %18 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %19 = insertvalue { i64, i64 } %18, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %19
 }
 
 ; Function Attrs: nonlazybind uwtable

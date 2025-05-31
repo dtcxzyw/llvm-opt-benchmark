@@ -179,7 +179,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc698cf145e4b4f70E.exit": ; preds = %33, %28
   %.sroa.7.0.i = phi i64 [ undef, %28 ], [ %.sroa.7.1.insert.ext.i, %33 ]
   %.sroa.6.0.i = phi ptr [ %27, %28 ], [ %.sroa.6.1.copyload.i, %33 ]
-  %.sroa.0.0.i = phi i8 [ 1, %28 ], [ 0, %33 ]
+  %.sroa.0.0.i = zext i1 %26 to i8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !18
   call void @llvm.experimental.noalias.scope.decl(metadata !27)
   call void @llvm.experimental.noalias.scope.decl(metadata !30)
@@ -1282,7 +1282,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
   ret void
 
 20:                                               ; preds = %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$elfshaker..repo..error..Error$GT$$GT$$GT$17ha09ceb7345ff3acfE.exit.i", %15
-  %storemerge.i = phi i64 [ 0, %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$elfshaker..repo..error..Error$GT$$GT$$GT$17ha09ceb7345ff3acfE.exit.i" ], [ 1, %15 ]
+  %storemerge.i = zext i1 %.not.i.i to i64
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.4)
   store i64 %storemerge.i, ptr %0, align 8, !alias.scope !195
   %.sroa.213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1770,22 +1770,22 @@ define hidden { i64, i64 } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.promoted16 = load i64, ptr %9, align 8
+  %.promoted18 = load i64, ptr %9, align 8
   br label %10
 
 10:                                               ; preds = %15, %3
-  %.val10 = phi i64 [ %.promoted16, %3 ], [ %22, %15 ]
+  %.val10 = phi i64 [ %.promoted18, %3 ], [ %22, %15 ]
   %11 = phi ptr [ %.promoted, %3 ], [ %19, %15 ]
   %.sroa.0.0 = phi i64 [ %1, %3 ], [ %24, %15 ]
   %.not = icmp eq ptr %11, %5
   br i1 %.not, label %12, label %15
 
 12:                                               ; preds = %10, %15
-  %.val10.lcssa.sink = phi i64 [ %22, %15 ], [ %.val10, %10 ]
-  %.sroa.3.0 = phi i64 [ undef, %15 ], [ %.sroa.0.0, %10 ]
-  %.sroa.02.0 = phi i64 [ 0, %15 ], [ 1, %10 ]
+  %.val10.lcssa.sink = phi i64 [ %.val10, %10 ], [ %22, %15 ]
+  %.sroa.3.0 = phi i64 [ %.sroa.0.0, %10 ], [ undef, %15 ]
   %.val = load ptr, ptr %2, align 8, !nonnull !3, !align !14, !noundef !3
   store i64 %.val10.lcssa.sink, ptr %.val, align 8
+  %.sroa.02.0 = zext i1 %.not to i64
   %13 = insertvalue { i64, i64 } poison, i64 %.sroa.02.0, 0
   %14 = insertvalue { i64, i64 } %13, i64 %.sroa.3.0, 1
   ret { i64, i64 } %14
@@ -1818,22 +1818,22 @@ define hidden { i64, i64 } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.promoted14 = load i64, ptr %9, align 8
+  %.promoted16 = load i64, ptr %9, align 8
   br label %10
 
 10:                                               ; preds = %15, %3
-  %.val8 = phi i64 [ %.promoted14, %3 ], [ %18, %15 ]
+  %.val8 = phi i64 [ %.promoted16, %3 ], [ %18, %15 ]
   %11 = phi ptr [ %.promoted, %3 ], [ %16, %15 ]
   %.sroa.0.0 = phi i64 [ %1, %3 ], [ %20, %15 ]
   %.not = icmp eq ptr %11, %5
   br i1 %.not, label %12, label %15
 
 12:                                               ; preds = %10, %15
-  %.val8.lcssa.sink = phi i64 [ %18, %15 ], [ %.val8, %10 ]
-  %.sroa.3.0 = phi i64 [ undef, %15 ], [ %.sroa.0.0, %10 ]
-  %.sroa.02.0 = phi i64 [ 0, %15 ], [ 1, %10 ]
+  %.val8.lcssa.sink = phi i64 [ %.val8, %10 ], [ %18, %15 ]
+  %.sroa.3.0 = phi i64 [ %.sroa.0.0, %10 ], [ undef, %15 ]
   %.val = load ptr, ptr %2, align 8, !nonnull !3, !align !14, !noundef !3
   store i64 %.val8.lcssa.sink, ptr %.val, align 8
+  %.sroa.02.0 = zext i1 %.not to i64
   %13 = insertvalue { i64, i64 } poison, i64 %.sroa.02.0, 0
   %14 = insertvalue { i64, i64 } %13, i64 %.sroa.3.0, 1
   ret { i64, i64 } %14
@@ -2606,7 +2606,7 @@ _ZN3rmp6encode8RmpWrite13write_data_u817hf68f621e7051c86fE.exit.i.i: ; preds = %
 
 28:                                               ; preds = %_ZN3rmp6encode8RmpWrite13write_data_u817hf68f621e7051c86fE.exit.i.i, %14
   %.sroa.4.0.i.i = phi ptr [ %27, %_ZN3rmp6encode8RmpWrite13write_data_u817hf68f621e7051c86fE.exit.i.i ], [ %15, %14 ]
-  %.sroa.0.0.i.i = phi i64 [ 1, %_ZN3rmp6encode8RmpWrite13write_data_u817hf68f621e7051c86fE.exit.i.i ], [ 0, %14 ]
+  %.sroa.0.0.i.i = zext i1 %.not.i.i to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !343)
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !346, !noalias !348
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2683,7 +2683,7 @@ _ZN3rmp6encode8RmpWrite14write_data_u1617ha91a53572e2fc08cE.exit.i: ; preds = %4
 
 55:                                               ; preds = %39, %_ZN3rmp6encode8RmpWrite14write_data_u1617ha91a53572e2fc08cE.exit.i
   %.sroa.4.0.i = phi ptr [ %54, %_ZN3rmp6encode8RmpWrite14write_data_u1617ha91a53572e2fc08cE.exit.i ], [ %40, %39 ]
-  %.sroa.0.0.i = phi i64 [ 1, %_ZN3rmp6encode8RmpWrite14write_data_u1617ha91a53572e2fc08cE.exit.i ], [ 0, %39 ]
+  %.sroa.0.0.i = zext i1 %.not.i to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !374)
   store i64 %.sroa.0.0.i, ptr %0, align 8, !alias.scope !377, !noalias !374
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2736,7 +2736,7 @@ _ZN3rmp6encode8RmpWrite14write_data_u6417h5005436844b2cd03E.exit.i: ; preds = %5
 
 72:                                               ; preds = %57, %_ZN3rmp6encode8RmpWrite14write_data_u6417h5005436844b2cd03E.exit.i
   %.sroa.4.0.i3 = phi ptr [ %71, %_ZN3rmp6encode8RmpWrite14write_data_u6417h5005436844b2cd03E.exit.i ], [ %58, %57 ]
-  %.sroa.0.0.i4 = phi i64 [ 1, %_ZN3rmp6encode8RmpWrite14write_data_u6417h5005436844b2cd03E.exit.i ], [ 0, %57 ]
+  %.sroa.0.0.i4 = zext i1 %.not.i2 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !404)
   store i64 %.sroa.0.0.i4, ptr %0, align 8, !alias.scope !407, !noalias !404
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2790,7 +2790,7 @@ _ZN3rmp6encode8RmpWrite14write_data_u3217h292b303cb7fe26b0E.exit.i: ; preds = %7
 
 90:                                               ; preds = %74, %_ZN3rmp6encode8RmpWrite14write_data_u3217h292b303cb7fe26b0E.exit.i
   %.sroa.4.0.i11 = phi ptr [ %89, %_ZN3rmp6encode8RmpWrite14write_data_u3217h292b303cb7fe26b0E.exit.i ], [ %75, %74 ]
-  %.sroa.0.0.i12 = phi i64 [ 1, %_ZN3rmp6encode8RmpWrite14write_data_u3217h292b303cb7fe26b0E.exit.i ], [ 0, %74 ]
+  %.sroa.0.0.i12 = zext i1 %.not.i10 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !434)
   store i64 %.sroa.0.0.i12, ptr %0, align 8, !alias.scope !437, !noalias !434
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5437,8 +5437,7 @@ define hidden { i64, ptr } @"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zst
 
 12:                                               ; preds = %10, %8
   %.sroa.3.0 = phi ptr [ %9, %8 ], [ %11, %10 ]
-  %.sroa.0.0 = phi i64 [ 1, %8 ], [ 0, %10 ]
-  %13 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } poison, i64 %5, 0
   %14 = insertvalue { i64, ptr } %13, ptr %.sroa.3.0, 1
   ret { i64, ptr } %14
 }
@@ -5477,8 +5476,7 @@ define hidden { i64, ptr } @"_ZN75_$LT$zstd..stream..raw..Encoder$u20$as$u20$zst
 
 12:                                               ; preds = %10, %8
   %.sroa.3.0 = phi ptr [ %9, %8 ], [ %11, %10 ]
-  %.sroa.0.0 = phi i64 [ 1, %8 ], [ 0, %10 ]
-  %13 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } poison, i64 %5, 0
   %14 = insertvalue { i64, ptr } %13, ptr %.sroa.3.0, 1
   ret { i64, ptr } %14
 }
@@ -5501,8 +5499,7 @@ define hidden { i64, ptr } @"_ZN75_$LT$zstd..stream..raw..Encoder$u20$as$u20$zst
 
 12:                                               ; preds = %10, %8
   %.sroa.3.0 = phi ptr [ %9, %8 ], [ %11, %10 ]
-  %.sroa.0.0 = phi i64 [ 1, %8 ], [ 0, %10 ]
-  %13 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } poison, i64 %5, 0
   %14 = insertvalue { i64, ptr } %13, ptr %.sroa.3.0, 1
   ret { i64, ptr } %14
 }

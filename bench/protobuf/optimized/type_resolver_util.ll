@@ -324,29 +324,17 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i: ; preds = %if.then5.i.i.i.i
   %bf.load.i.i = load i8, ptr %label_.i.i, align 1
   %bf.lshr.i.i = lshr i8 %bf.load.i.i, 5
   %bf.clear.i.i = and i8 %bf.lshr.i.i, 3
-  switch i8 %bf.clear.i.i, label %default.unreachable [
-    i8 1, label %sw.epilog.sink.split.i
-    i8 3, label %sw.bb2.i
-    i8 2, label %sw.bb3.i
-    i8 0, label %sw.epilog.i
-  ]
+  %bf.clear.i.i.off = add nsw i8 %bf.clear.i.i, -1
+  %switch = icmp ult i8 %bf.clear.i.i.off, 3
+  br i1 %switch, label %sw.epilog.sink.split.i, label %sw.epilog.i
 
-sw.bb2.i:                                         ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i
-  br label %sw.epilog.sink.split.i
-
-sw.bb3.i:                                         ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i
-  br label %sw.epilog.sink.split.i
-
-default.unreachable:                              ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i
-  unreachable
-
-sw.epilog.sink.split.i:                           ; preds = %sw.bb3.i, %sw.bb2.i, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i
-  %.sink.i = phi i32 [ 2, %sw.bb3.i ], [ 3, %sw.bb2.i ], [ 1, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i ]
+sw.epilog.sink.split.i:                           ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i
+  %.sink.i = zext nneg i8 %bf.clear.i.i to i32
   %cardinality_.i.i32.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 76
   store i32 %.sink.i, ptr %cardinality_.i.i32.i, align 4
   br label %sw.epilog.i
 
-sw.epilog.i:                                      ; preds = %sw.epilog.sink.split.i, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i
+sw.epilog.i:                                      ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i, %sw.epilog.sink.split.i
   %number_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
   %19 = load i32, ptr %number_.i.i, align 4
   %number_.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 80

@@ -1818,26 +1818,25 @@ define hidden i24 @_ZN12regex_syntax3hir8interval8Interval5union17h05ca9256de4be
   %10 = tail call i8 @llvm.umin.i8(i8 %5, i8 %8)
   %.0.sroa.speculated.i1.i = zext i8 %10 to i32
   %11 = add nuw nsw i32 %.0.sroa.speculated.i1.i, 1
-  %.not = icmp samesign ult i32 %11, %.0.sroa.speculated.i.i
-  br i1 %.not, label %13, label %12
+  %12 = icmp samesign uge i32 %11, %.0.sroa.speculated.i.i
+  br i1 %12, label %13, label %14
 
-12:                                               ; preds = %2
+13:                                               ; preds = %2
   %.0.sroa.speculated.i.i1 = tail call noundef i8 @llvm.umin.i8(i8 %3, i8 %6)
   %.0.sroa.speculated.i.i2 = tail call noundef i8 @llvm.umax.i8(i8 %5, i8 %8)
   %..i = tail call i8 @llvm.umin.i8(i8 %.0.sroa.speculated.i.i1, i8 %.0.sroa.speculated.i.i2)
   %.6.i = tail call i8 @llvm.umax.i8(i8 %.0.sroa.speculated.i.i1, i8 %.0.sroa.speculated.i.i2)
-  br label %13
+  br label %14
 
-13:                                               ; preds = %2, %12
-  %.sroa.4.0 = phi i8 [ %.6.i, %12 ], [ undef, %2 ]
-  %.sroa.3.0 = phi i8 [ %..i, %12 ], [ undef, %2 ]
-  %.sroa.0.0 = phi i8 [ 1, %12 ], [ 0, %2 ]
+14:                                               ; preds = %2, %13
+  %.sroa.4.0 = phi i8 [ %.6.i, %13 ], [ undef, %2 ]
+  %.sroa.3.0 = phi i8 [ %..i, %13 ], [ undef, %2 ]
   %.sroa.4.0.insert.ext = zext i8 %.sroa.4.0 to i24
   %.sroa.4.0.insert.shift = shl nuw i24 %.sroa.4.0.insert.ext, 16
   %.sroa.3.0.insert.ext = zext i8 %.sroa.3.0 to i24
   %.sroa.3.0.insert.shift = shl nuw nsw i24 %.sroa.3.0.insert.ext, 8
   %.sroa.3.0.insert.insert = or disjoint i24 %.sroa.3.0.insert.shift, %.sroa.4.0.insert.shift
-  %.sroa.0.0.insert.ext = zext nneg i8 %.sroa.0.0 to i24
+  %.sroa.0.0.insert.ext = zext i1 %12 to i24
   %.sroa.0.0.insert.insert = or disjoint i24 %.sroa.3.0.insert.insert, %.sroa.0.0.insert.ext
   ret i24 %.sroa.0.0.insert.insert
 }
@@ -1883,13 +1882,13 @@ define hidden i24 @_ZN12regex_syntax3hir8interval8Interval9intersect17h350064540
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %8 = load i8, ptr %7, align 1, !alias.scope !183, !noundef !4
   %.0.sroa.speculated.i.i1 = tail call noundef i8 @llvm.umin.i8(i8 %6, i8 %8)
-  %.not = icmp ule i8 %.0.sroa.speculated.i.i, %.0.sroa.speculated.i.i1
+  %9 = icmp ule i8 %.0.sroa.speculated.i.i, %.0.sroa.speculated.i.i1
   %.sroa.4.0.insert.ext = zext i8 %.0.sroa.speculated.i.i1 to i24
   %.sroa.4.0.insert.shift = shl nuw i24 %.sroa.4.0.insert.ext, 16
   %.sroa.3.0.insert.ext = zext i8 %.0.sroa.speculated.i.i to i24
   %.sroa.3.0.insert.shift = shl nuw nsw i24 %.sroa.3.0.insert.ext, 8
   %.sroa.3.0.insert.insert = or disjoint i24 %.sroa.4.0.insert.shift, %.sroa.3.0.insert.shift
-  %.sroa.0.0.insert.ext = zext i1 %.not to i24
+  %.sroa.0.0.insert.ext = zext i1 %9 to i24
   %.sroa.0.0.insert.insert = or disjoint i24 %.sroa.3.0.insert.insert, %.sroa.0.0.insert.ext
   ret i24 %.sroa.0.0.insert.insert
 }
@@ -1951,54 +1950,49 @@ define hidden range(i48 0, -254) i48 @_ZN12regex_syntax3hir8interval8Interval10d
   br label %21
 
 12:                                               ; preds = %8
-  br i1 %9, label %"_ZN57_$LT$u8$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9decrement17h2cf3e1a20ac6c05eE.exit", label %14
+  br i1 %9, label %14, label %.thread
 
 13:                                               ; preds = %8
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.458ea570a757e25242704d80b74fe601.32, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.458ea570a757e25242704d80b74fe601.34) #29
   unreachable
 
-14:                                               ; preds = %"_ZN57_$LT$u8$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9decrement17h2cf3e1a20ac6c05eE.exit", %12
-  %.sroa.020.0 = phi i8 [ 1, %"_ZN57_$LT$u8$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9decrement17h2cf3e1a20ac6c05eE.exit" ], [ 0, %12 ]
-  %.sroa.7.sroa.0.0 = phi i40 [ %.sroa.7.sroa.0.0.insert.ext28, %"_ZN57_$LT$u8$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9decrement17h2cf3e1a20ac6c05eE.exit" ], [ 0, %12 ]
-  br i1 %10, label %"_ZN57_$LT$u8$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9increment17h41aa266bf35d102aE.exit", label %16
-
-"_ZN57_$LT$u8$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9decrement17h2cf3e1a20ac6c05eE.exit": ; preds = %12
+14:                                               ; preds = %12
   %15 = add i8 %.val54, -1
   %.sroa.447.1.insert.ext = zext i8 %.val to i16
   %.sroa.447.2.insert.ext = zext i8 %15 to i16
   %.sroa.447.2.insert.shift = shl nuw i16 %.sroa.447.2.insert.ext, 8
   %.sroa.447.2.insert.insert = or disjoint i16 %.sroa.447.2.insert.shift, %.sroa.447.1.insert.ext
   %.sroa.7.sroa.0.0.insert.ext28 = zext i16 %.sroa.447.2.insert.insert to i40
-  br label %14
+  br i1 %10, label %17, label %16
 
-16:                                               ; preds = %19, %20, %14
-  %.sroa.020.1 = phi i8 [ 1, %20 ], [ 1, %19 ], [ %.sroa.020.0, %14 ]
-  %.sroa.7.sroa.0.1 = phi i40 [ %.sroa.7.sroa.0.0.insert.ext33, %20 ], [ %.sroa.7.sroa.0.2.insert.insert41, %19 ], [ %.sroa.7.sroa.0.0, %14 ]
+.thread:                                          ; preds = %12
+  br i1 %10, label %19, label %16
+
+16:                                               ; preds = %.thread, %17, %19, %14
+  %.sroa.020.1.shrunk = phi i1 [ true, %19 ], [ true, %17 ], [ true, %14 ], [ false, %.thread ]
+  %.sroa.7.sroa.0.1 = phi i40 [ %.sroa.7.sroa.0.0.insert.ext33, %19 ], [ %.sroa.7.sroa.0.2.insert.insert41, %17 ], [ %.sroa.7.sroa.0.0.insert.ext28, %14 ], [ 0, %.thread ]
   %.sroa.7.0.insert.ext = zext i40 %.sroa.7.sroa.0.1 to i48
   %.sroa.7.0.insert.shift = shl nuw i48 %.sroa.7.0.insert.ext, 8
-  %.sroa.020.0.insert.ext = zext nneg i8 %.sroa.020.1 to i48
+  %.sroa.020.0.insert.ext = zext i1 %.sroa.020.1.shrunk to i48
   %.sroa.020.0.insert.insert = or disjoint i48 %.sroa.7.0.insert.shift, %.sroa.020.0.insert.ext
   br label %21
 
-"_ZN57_$LT$u8$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9increment17h41aa266bf35d102aE.exit": ; preds = %14
-  %17 = add nuw i8 %.val55, 1
-  %18 = trunc nuw i8 %.sroa.020.0 to i1
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %"_ZN57_$LT$u8$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9increment17h41aa266bf35d102aE.exit"
+17:                                               ; preds = %14
+  %18 = add nuw i8 %.val55, 1
   %.sroa.552.0.insert.ext = zext i8 %.val53 to i24
   %.sroa.552.0.insert.shift = shl nuw i24 %.sroa.552.0.insert.ext, 16
-  %.sroa.451.0.insert.ext = zext i8 %17 to i24
+  %.sroa.451.0.insert.ext = zext i8 %18 to i24
   %.sroa.451.0.insert.shift = shl nuw nsw i24 %.sroa.451.0.insert.ext, 8
   %.sroa.451.0.insert.insert = or disjoint i24 %.sroa.552.0.insert.shift, %.sroa.451.0.insert.shift
   %.sroa.050.0.insert.insert = or disjoint i24 %.sroa.451.0.insert.insert, 1
   %.sroa.7.sroa.0.2.insert.ext38 = zext i24 %.sroa.050.0.insert.insert to i40
   %.sroa.7.sroa.0.2.insert.shift39 = shl nuw i40 %.sroa.7.sroa.0.2.insert.ext38, 16
-  %.sroa.7.sroa.0.2.insert.insert41 = or disjoint i40 %.sroa.7.sroa.0.0, %.sroa.7.sroa.0.2.insert.shift39
+  %.sroa.7.sroa.0.2.insert.insert41 = or disjoint i40 %.sroa.7.sroa.0.2.insert.shift39, %.sroa.7.sroa.0.0.insert.ext28
   br label %16
 
-20:                                               ; preds = %"_ZN57_$LT$u8$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9increment17h41aa266bf35d102aE.exit"
-  %.sroa.449.1.insert.ext = zext i8 %17 to i16
+19:                                               ; preds = %.thread
+  %20 = add nuw i8 %.val55, 1
+  %.sroa.449.1.insert.ext = zext i8 %20 to i16
   %.sroa.449.2.insert.ext = zext i8 %.val53 to i16
   %.sroa.449.2.insert.shift = shl nuw i16 %.sroa.449.2.insert.ext, 8
   %.sroa.449.2.insert.insert = or disjoint i16 %.sroa.449.2.insert.shift, %.sroa.449.1.insert.ext
@@ -2504,8 +2498,8 @@ define hidden void @"_ZN92_$LT$regex_syntax..hir..ClassBytesRange$u20$as$u20$reg
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noalias noundef nonnull align 8 ptr @_ZN12regex_syntax3hir10Properties5union17h5144b62754b81203E(ptr noundef nonnull readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %3 = icmp eq ptr %0, %1
-  br i1 %3, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h073a7dc024961fe0E.exit69.thread", label %4
+  %3 = icmp ne ptr %0, %1
+  br i1 %3, label %4, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h073a7dc024961fe0E.exit69.thread"
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2518,11 +2512,11 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN12regex_syntax3hir10Proper
   br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h073a7dc024961fe0E.exit69.thread"
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h073a7dc024961fe0E.exit69.thread": ; preds = %2, %4
-  %.054106 = phi i32 [ -1, %4 ], [ 0, %2 ]
   %.0.i.i.i105 = phi ptr [ %6, %4 ], [ null, %2 ]
   %.sroa.11.098104 = phi ptr [ %5, %4 ], [ %0, %2 ]
   %.sroa.3.0 = phi i64 [ %11, %4 ], [ undef, %2 ]
   %.sroa.010.0 = phi i64 [ %9, %4 ], [ 0, %2 ]
+  %.054106 = sext i1 %3 to i32
   %12 = icmp ne ptr %1, null
   br label %.outer
 
@@ -2577,7 +2571,7 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN12regex_syntax3hir10Proper
   br label %18
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5eed7328b348a32fE.exit": ; preds = %13
-  br i1 %3, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5eed7328b348a32fE.exit.thread", label %18
+  br i1 %3, label %18, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5eed7328b348a32fE.exit.thread"
 
 18:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5eed7328b348a32fE.exit.thread88", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5eed7328b348a32fE.exit"
   %.05192 = phi ptr [ %17, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5eed7328b348a32fE.exit.thread88" ], [ %.0.i.i.i105, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5eed7328b348a32fE.exit" ]

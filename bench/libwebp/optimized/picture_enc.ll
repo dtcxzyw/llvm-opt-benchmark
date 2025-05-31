@@ -11,21 +11,19 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 0, 2) i32 @WebPPictureInitInternal(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.mask = and i32 %1, -256
   %.not = icmp eq i32 %.mask, 512
-  br i1 %.not, label %3, label %7
+  %.not6 = icmp ne ptr %0, null
+  %or.cond.not = and i1 %.not6, %.not
+  br i1 %or.cond.not, label %3, label %6
 
 3:                                                ; preds = %2
-  %.not6 = icmp eq ptr %0, null
-  br i1 %.not6, label %7, label %4
-
-4:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 256, i1 false)
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr @DummyWriter, ptr %5, align 8, !tbaa !3
-  %6 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 0) #8
-  br label %7
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr @DummyWriter, ptr %4, align 8, !tbaa !3
+  %5 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 0) #8
+  br label %6
 
-7:                                                ; preds = %3, %4, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %4 ], [ 1, %3 ]
+6:                                                ; preds = %3, %2
+  %.0 = zext i1 %.not to i32
   ret i32 %.0
 }
 

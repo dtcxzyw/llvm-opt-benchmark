@@ -1584,21 +1584,23 @@ land.rhs:                                         ; preds = %invoke.cont15
   %cmp.i.not4.i = icmp eq ptr %13, %14
   br i1 %cmp.i.not4.i, label %land.end, label %for.body.i
 
-for.cond.i:                                       ; preds = %for.body.i
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05.i, i64 16
-  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %14
-  br i1 %cmp.i.not.i, label %land.end, label %for.body.i
-
-for.body.i:                                       ; preds = %land.rhs, %for.cond.i
-  %__begin2.sroa.0.05.i = phi ptr [ %incdec.ptr.i.i, %for.cond.i ], [ %13, %land.rhs ]
+for.body.i:                                       ; preds = %land.rhs, %for.body.i
+  %__begin2.sroa.0.05.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %13, %land.rhs ]
   %15 = load ptr, ptr %__begin2.sroa.0.05.i, align 8
   %supportsFlatNoNullsFastPath_.i.i = getelementptr inbounds nuw i8, ptr %15, i64 97
   %16 = load i8, ptr %supportsFlatNoNullsFastPath_.i.i, align 1
   %tobool.i.i = trunc i8 %16 to i1
-  br i1 %tobool.i.i, label %for.cond.i, label %land.end
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05.i, i64 16
+  %cmp.i.not.i = icmp ne ptr %incdec.ptr.i.i, %14
+  %or.cond.not = select i1 %tobool.i.i, i1 %cmp.i.not.i, i1 false
+  br i1 %or.cond.not, label %for.body.i, label %land.end.loopexit
 
-land.end:                                         ; preds = %for.body.i, %for.cond.i, %land.rhs, %invoke.cont15, %invoke.cont8, %invoke.cont
-  %frombool20 = phi i8 [ 0, %invoke.cont15 ], [ 0, %invoke.cont8 ], [ 0, %invoke.cont ], [ 1, %land.rhs ], [ 1, %for.cond.i ], [ 0, %for.body.i ]
+land.end.loopexit:                                ; preds = %for.body.i
+  %frombool20.ph = and i8 %16, 1
+  br label %land.end
+
+land.end:                                         ; preds = %land.end.loopexit, %land.rhs, %invoke.cont15, %invoke.cont8, %invoke.cont
+  %frombool20 = phi i8 [ 0, %invoke.cont15 ], [ 0, %invoke.cont8 ], [ 0, %invoke.cont ], [ 1, %land.rhs ], [ %frombool20.ph, %land.end.loopexit ]
   store i8 %frombool20, ptr %supportsFlatNoNullsFastPath_, align 1
   %trackCpuUsage_ = getelementptr inbounds nuw i8, ptr %this, i64 98
   store i8 %frombool, ptr %trackCpuUsage_, align 2

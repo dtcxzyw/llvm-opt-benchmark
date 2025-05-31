@@ -44079,7 +44079,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #13
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZN4cvc58internal6theory9datatypes14SygusExtension14getGuardStatusENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1264) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 -1, 1) i32 @_ZN4cvc58internal6theory9datatypes14SygusExtension14getGuardStatusENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1264) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   %4 = alloca %"class.cvc5::internal::NodeTemplate.498", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #26
@@ -44089,10 +44089,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN4cvc58internal6theory9datatypes14
   %8 = load ptr, ptr %1, align 8, !tbaa !89
   store ptr %8, ptr %4, align 8, !tbaa !109
   %9 = call noundef zeroext i1 @_ZNK4cvc58internal6theory9Valuation11hasSatValueENS0_12NodeTemplateILb0EEERb(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
-  %10 = load i8, ptr %3, align 1, !range !325
-  %11 = trunc nuw i8 %10 to i1
-  %. = select i1 %11, i32 1, i32 -1
-  %.0 = select i1 %9, i32 %., i32 0
+  %.0 = sext i1 %9 to i32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #26
   ret i32 %.0
 }
