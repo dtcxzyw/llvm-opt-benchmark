@@ -125,7 +125,7 @@ define void @tiling_callback(ptr noundef readnone captures(none) %0, ptr noundef
   %14 = fdiv reassoc nsz arcp contract afn float %11, %13
   %15 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %14)
   %.inv = fcmp reassoc nsz arcp contract afn oge float %15, 1.200000e+01
-  %16 = select reassoc nsz arcp contract afn i1 %.inv, float 1.200000e+01, float %15
+  %16 = select i1 %.inv, float 1.200000e+01, float %15
   %17 = fptosi float %16 to i32
   store float 0x4000CCCCC0000000, ptr %4, align 4, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -169,7 +169,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %22 = fdiv reassoc nsz arcp contract afn float %19, %21
   %23 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %22)
   %.inv = fcmp reassoc nsz arcp contract afn oge float %23, 1.200000e+01
-  %24 = select reassoc nsz arcp contract afn i1 %.inv, float 1.200000e+01, float %23
+  %24 = select i1 %.inv, float 1.200000e+01, float %23
   %25 = fptosi float %24 to i32
   %26 = icmp eq i32 %25, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8

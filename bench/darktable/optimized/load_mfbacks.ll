@@ -1429,7 +1429,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %129, %199, %200, %_
   %253 = fcmp reassoc nsz arcp contract afn olt float %252, 6.553500e+04
   %254 = select reassoc nsz arcp contract afn i1 %253, float %252, float 6.553500e+04
   %.inv = fcmp reassoc nsz arcp contract afn ole float %254, 0.000000e+00
-  %255 = select reassoc nsz arcp contract afn i1 %.inv, float 0.000000e+00, float %254
+  %255 = select i1 %.inv, float 0.000000e+00, float %254
   %256 = fptoui float %255 to i16
   %257 = getelementptr inbounds nuw [65536 x i16], ptr %50, i64 0, i64 %indvars.iv972
   store i16 %256, ptr %257, align 2, !tbaa !74

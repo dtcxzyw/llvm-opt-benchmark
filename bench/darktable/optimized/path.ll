@@ -5063,7 +5063,7 @@ g_list_next_wraparound.exit:                      ; preds = %466, %469
   %478 = fpext reassoc nsz arcp contract afn float %477 to double
   %479 = fmul reassoc nsz arcp contract afn double %478, 5.000000e-01
   %.inv = fcmp reassoc nsz arcp contract afn ole double %479, 0x3F40624DE0000000
-  %480 = select reassoc nsz arcp contract afn i1 %.inv, double 0x3F40624DE0000000, double %479
+  %480 = select i1 %.inv, double 0x3F40624DE0000000, double %479
   %481 = fptrunc double %480 to float
   %482 = getelementptr inbounds nuw i8, ptr %446, i64 24
   store float %481, ptr %482, align 4, !tbaa !6
@@ -5075,7 +5075,7 @@ g_list_next_wraparound.exit:                      ; preds = %466, %469
   %488 = fpext reassoc nsz arcp contract afn float %487 to double
   %489 = fmul reassoc nsz arcp contract afn double %488, 5.000000e-01
   %.inv528 = fcmp reassoc nsz arcp contract afn ole double %489, 0x3F40624DE0000000
-  %490 = select reassoc nsz arcp contract afn i1 %.inv528, double 0x3F40624DE0000000, double %489
+  %490 = select i1 %.inv528, double 0x3F40624DE0000000, double %489
   %491 = fptrunc double %490 to float
   %492 = getelementptr inbounds nuw i8, ptr %446, i64 28
   store float %491, ptr %492, align 4, !tbaa !6

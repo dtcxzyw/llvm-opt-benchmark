@@ -1498,7 +1498,7 @@ decode_8_pulses_35bits.exit.i:                    ; preds = %822
   %881 = fpext nsz float %880 to double
   %882 = fadd nsz double %881, 2.000000e-01
   %.inv = fcmp nsz oge double %882, 1.000000e+00
-  %883 = select nsz i1 %.inv, double 1.000000e+00, double %882
+  %883 = select i1 %.inv, double 1.000000e+00, double %882
   %884 = fptrunc double %883 to float
   store float %884, ptr %703, align 4, !tbaa !40
   %885 = sext i32 %.val to i64

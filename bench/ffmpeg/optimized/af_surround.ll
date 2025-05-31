@@ -1148,7 +1148,7 @@ generate_window_func.exit:                        ; preds = %481, %460, %458, %4
   %507 = fsub nsz double 1.000000e+00, %506
   %508 = fmul nsz double %507, %505
   %.inv = fcmp nsz ole double %508, 1.000000e+00
-  %509 = select nsz i1 %.inv, double 1.000000e+00, double %508
+  %509 = select i1 %.inv, double 1.000000e+00, double %508
   %510 = fptosi double %509 to i32
   %511 = getelementptr inbounds nuw i8, ptr %6, i64 452
   store i32 %510, ptr %511, align 4, !tbaa !62
@@ -1445,7 +1445,7 @@ define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, p
   %18 = fsub nsz double 1.000000e+00, %17
   %19 = fmul nsz double %18, %14
   %.inv = fcmp nsz ole double %19, 1.000000e+00
-  %20 = select nsz i1 %.inv, double 1.000000e+00, double %19
+  %20 = select i1 %.inv, double 1.000000e+00, double %19
   %21 = fptosi double %20 to i32
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 452
   store i32 %21, ptr %22, align 4, !tbaa !62

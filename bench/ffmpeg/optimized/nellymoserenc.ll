@@ -255,7 +255,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %84 = uitofp nneg i32 %83 to float
   %85 = fdiv nsz float %.071.lcssa.i, %84
   %.inv.i = fcmp nsz ole float %85, 1.000000e+00
-  %86 = select nsz i1 %.inv.i, float 1.000000e+00, float %85
+  %86 = select i1 %.inv.i, float 1.000000e+00, float %85
   %87 = fpext float %86 to double
   %88 = tail call nsz double @llvm.log2.f64(double %87)
   %89 = fmul nsz double %88, 1.024000e+03
@@ -331,7 +331,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %119 = sitofp i32 %.010913.i.i to float
   %120 = fsub nsz float %116, %119
   %.inv.i.i = fcmp nsz ole float %120, 0.000000e+00
-  %121 = select nsz i1 %.inv.i.i, float 0.000000e+00, float %120
+  %121 = select i1 %.inv.i.i, float 0.000000e+00, float %120
   %122 = fptosi float %121 to i32
   %123 = fadd nsz float %.pre.i.i, %119
   %124 = fcmp nsz olt float %123, 3.576800e+04
@@ -339,7 +339,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %126 = fptosi float %125 to i32
   %127 = fsub nsz float %.pre.i.i, %119
   %.inv1.i.i = fcmp nsz ole float %127, 0.000000e+00
-  %128 = select nsz i1 %.inv1.i.i, float 0.000000e+00, float %127
+  %128 = select i1 %.inv1.i.i, float 0.000000e+00, float %127
   %129 = fptosi float %128 to i32
   %130 = sitofp i32 %129 to float
   %131 = fcmp nsz ogt float %125, %130

@@ -2264,7 +2264,7 @@ find_min_book.exit1863.thread:                    ; preds = %1078, %find_min_boo
   %spec.select2283 = select i1 %779, i32 %1134, i32 10
   %1141 = add nuw nsw i32 %spec.select2283, 2
   %.inv = fcmp nsz olt float %1139, 2.000000e+00
-  %.mux = select nsz i1 %.inv, float %1139, float 2.000000e+00
+  %.mux = select i1 %.inv, float %1139, float 2.000000e+00
   %1142 = select i1 %.not2296, float %.mux, float 1.000000e+00
   %1143 = fmul nsz float %1137, %1142
   br label %1183

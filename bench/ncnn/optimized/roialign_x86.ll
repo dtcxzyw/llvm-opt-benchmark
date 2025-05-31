@@ -906,7 +906,7 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
   %41 = fcmp fast olt float %40, -1.000000e+00
   %42 = fcmp fast ogt float %40, %17
   %or.cond.us.us.us.us.us.us = select i1 %41, i1 true, i1 %42
-  %.093.us.us.us.us.us.us = tail call fast float @llvm.maxnum.f32(float %40, float 0.000000e+00)
+  %.093.us.us.us.us.us.us = tail call nnan ninf nsz float @llvm.maxnum.f32(float %40, float 0.000000e+00)
   %43 = fptosi float %.093.us.us.us.us.us.us to i32
   %.not.us.us.us.us.us.us = icmp sgt i32 %19, %43
   %44 = add nsw i32 %43, 1
@@ -944,7 +944,7 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
   br i1 %or.cond109.us.us.us.us.us.us, label %76, label %61
 
 61:                                               ; preds = %.lr.ph.split.us130.us.us.us.us.us
-  %.091.us.us.us.us.us.us = tail call fast float @llvm.maxnum.f32(float %58, float 0.000000e+00)
+  %.091.us.us.us.us.us.us = tail call nnan ninf nsz float @llvm.maxnum.f32(float %58, float 0.000000e+00)
   %62 = fptosi float %.091.us.us.us.us.us.us to i32
   %.not105.us.us.us.us.us.us = icmp sgt i32 %21, %62
   %63 = add nsw i32 %62, 1

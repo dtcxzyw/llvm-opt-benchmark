@@ -1308,7 +1308,7 @@ ir_gain_float.exit.i:                             ; preds = %._crit_edge.i341.i,
   %437 = load float, ptr %417, align 8, !tbaa !125
   %438 = fmul nsz float %437, %418
   %.inv384.i = fcmp nsz ole float %438, 1.000000e+00
-  %439 = select nsz i1 %.inv384.i, float 1.000000e+00, float %438
+  %439 = select i1 %.inv384.i, float 1.000000e+00, float %438
   %440 = fptosi float %439 to i32
   %441 = icmp sgt i32 %326, %440
   br i1 %441, label %.lr.ph453.preheader.i, label %._crit_edge454.i
@@ -1571,7 +1571,7 @@ ir_scale_float.exit.i:                            ; preds = %._crit_edge.i346.i,
   %592 = load float, ptr %572, align 8, !tbaa !125
   %593 = fmul nsz float %592, %573
   %.inv.i = fcmp nsz ole float %593, 1.000000e+00
-  %594 = select nsz i1 %.inv.i, float 1.000000e+00, float %593
+  %594 = select i1 %.inv.i, float 1.000000e+00, float %593
   %595 = fptosi float %594 to i32
   %596 = icmp sgt i32 %326, %595
   br i1 %596, label %.lr.ph430.preheader.i, label %._crit_edge431.i

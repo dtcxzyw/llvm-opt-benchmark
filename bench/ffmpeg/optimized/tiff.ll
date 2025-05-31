@@ -7554,7 +7554,7 @@ thread-pre-split1985:                             ; preds = %._crit_edge1624
   %2742 = fdiv nsz float %2741, %2736
   %2743 = fmul nsz float %2742, 6.553500e+04
   %.inv.us = fcmp nsz oge float %2743, 6.553500e+04
-  %2744 = select nsz i1 %.inv.us, float 6.553500e+04, float %2743
+  %2744 = select i1 %.inv.us, float 6.553500e+04, float %2743
   %2745 = fptoui float %2744 to i16
   store i16 %2745, ptr %2739, align 2, !tbaa !67
   %indvars.iv.next1965 = add nuw nsw i64 %indvars.iv1964, 1

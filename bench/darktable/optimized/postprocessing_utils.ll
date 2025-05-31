@@ -79,7 +79,7 @@ define void @_ZN6LibRaw7exp_befEff(ptr noundef nonnull align 8 dereferenceable(7
   %47 = fadd reassoc nsz arcp contract afn float %46, %reass.mul94
   %48 = fcmp reassoc nsz arcp contract afn olt float %47, 0.000000e+00
   %.inv = fcmp reassoc nsz arcp contract afn oge float %47, 6.553500e+04
-  %49 = select reassoc nsz arcp contract afn i1 %.inv, float 6.553500e+04, float %47
+  %49 = select i1 %.inv, float 6.553500e+04, float %47
   %50 = fptoui float %49 to i16
   %51 = select i1 %48, i16 0, i16 %50
   br label %52

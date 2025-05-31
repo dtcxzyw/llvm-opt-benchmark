@@ -4133,7 +4133,7 @@ _pos_compute_area.exit:                           ; preds = %191, %172, %_thumbs
   %206 = fmul reassoc nsz arcp contract afn float %202, %205
   %207 = fsub reassoc nsz arcp contract afn float %196, %206
   %.inv = fcmp reassoc nsz arcp contract afn ole float %207, 1.000000e+00
-  %208 = select reassoc nsz arcp contract afn i1 %.inv, float 1.000000e+00, float %207
+  %208 = select i1 %.inv, float 1.000000e+00, float %207
   %209 = fptosi float %208 to i32
   store i32 %209, ptr %194, align 8, !tbaa !45
   %210 = tail call fastcc i32 @_thumb_get_imgid(i32 noundef %209)

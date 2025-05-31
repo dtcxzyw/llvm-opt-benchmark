@@ -5202,7 +5202,7 @@ define internal fastcc void @_thumb_resize_overlays(ptr noundef readonly %0) unn
   %126 = fsub reassoc nsz arcp contract afn double %124, %125
   %127 = fadd reassoc nsz arcp contract afn double %126, -1.000000e+00
   %.inv = fcmp reassoc nsz arcp contract afn ole double %127, 0.000000e+00
-  %128 = select reassoc nsz arcp contract afn i1 %.inv, double 0.000000e+00, double %127
+  %128 = select i1 %.inv, double 0.000000e+00, double %127
   %129 = fptosi double %128 to i32
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %131 = load ptr, ptr %130, align 8, !tbaa !95
@@ -5214,7 +5214,7 @@ define internal fastcc void @_thumb_resize_overlays(ptr noundef readonly %0) unn
   %135 = sitofp i16 %134 to double
   %136 = fsub reassoc nsz arcp contract afn double %135, %125
   %.inv320 = fcmp reassoc nsz arcp contract afn ole double %136, 0.000000e+00
-  %137 = select reassoc nsz arcp contract afn i1 %.inv320, double 0.000000e+00, double %136
+  %137 = select i1 %.inv320, double 0.000000e+00, double %136
   %138 = fptosi double %137 to i32
   %139 = load ptr, ptr %130, align 8, !tbaa !95
   call void @gtk_widget_set_margin_start(ptr noundef %139, i32 noundef %138) #20

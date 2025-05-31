@@ -1375,11 +1375,11 @@ dt_masks_get_mask_roi.exit:                       ; preds = %42, %45
   %83 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i109
   %84 = load float, ptr %83, align 4, !tbaa !97, !alias.scope !108, !noalias !111
   %.inv.i = fcmp reassoc nsz arcp contract afn ogt float %84, 0.000000e+00
-  %85 = select reassoc nsz arcp contract afn i1 %.inv.i, float %84, float 0.000000e+00
+  %85 = select i1 %.inv.i, float %84, float 0.000000e+00
   %86 = fcmp reassoc nsz arcp contract afn ogt float %82, 0.000000e+00
   %87 = select reassoc nsz arcp contract afn i1 %86, float %82, float 0.000000e+00
   %.inv68.i = fcmp reassoc nsz arcp contract afn olt float %85, %87
-  %88 = select reassoc nsz arcp contract afn i1 %.inv68.i, float %85, float %87
+  %88 = select i1 %.inv68.i, float %85, float %87
   store float %88, ptr %83, align 4, !tbaa !97, !alias.scope !108, !noalias !111
   %indvars.iv.next.i110 = add nuw nsw i64 %indvars.iv.i109, 1
   %exitcond.not.i111 = icmp eq i64 %indvars.iv.next.i110, %28
@@ -1393,11 +1393,11 @@ dt_masks_get_mask_roi.exit:                       ; preds = %42, %45
   %92 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv64.i
   %93 = load float, ptr %92, align 4, !tbaa !97, !alias.scope !108, !noalias !111
   %.inv69.i = fcmp reassoc nsz arcp contract afn ogt float %93, 0.000000e+00
-  %94 = select reassoc nsz arcp contract afn i1 %.inv69.i, float %93, float 0.000000e+00
+  %94 = select i1 %.inv69.i, float %93, float 0.000000e+00
   %95 = fcmp reassoc nsz arcp contract afn ogt float %91, 0.000000e+00
   %96 = select reassoc nsz arcp contract afn i1 %95, float %91, float 0.000000e+00
   %.inv70.i = fcmp reassoc nsz arcp contract afn olt float %94, %96
-  %97 = select reassoc nsz arcp contract afn i1 %.inv70.i, float %94, float %96
+  %97 = select i1 %.inv70.i, float %94, float %96
   store float %97, ptr %92, align 4, !tbaa !97, !alias.scope !108, !noalias !111
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next65.i, %28

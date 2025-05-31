@@ -93,7 +93,7 @@ define void @tiling_callback(ptr noundef readnone captures(none) %0, ptr noundef
   %20 = fdiv reassoc nsz arcp contract afn float %17, %19
   %21 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %20)
   %.inv = fcmp reassoc nsz arcp contract afn oge float %21, 1.600000e+01
-  %22 = select reassoc nsz arcp contract afn i1 %.inv, float 1.600000e+01, float %21
+  %22 = select i1 %.inv, float 1.600000e+01, float %21
   %23 = fptosi float %22 to i32
   %24 = add nsw i32 %23, 1
   %25 = shl i32 %23, 3
