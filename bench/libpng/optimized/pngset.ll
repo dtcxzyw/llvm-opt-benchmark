@@ -2618,9 +2618,9 @@ define void @png_set_benign_errors(ptr noalias noundef captures(none) %0, i32 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @png_set_check_for_invalid_index(ptr noalias noundef writeonly captures(none) initializes((612, 616)) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = icmp slt i32 %1, 1
-  %.sink = sext i1 %3 to i32
+  %spec.select = sext i1 %3 to i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 612
-  store i32 %.sink, ptr %4, align 4, !tbaa !213
+  store i32 %spec.select, ptr %4, align 4, !tbaa !213
   ret void
 }
 
@@ -2639,7 +2639,7 @@ define range(i32 -1, 80) i32 @png_check_keyword(ptr noalias noundef %0, ptr noun
   store i8 0, ptr %2, align 1, !tbaa !4
   br label %38
 
-.lr.ph:                                           ; preds = %.preheader, %22
+.lr.ph:                                           ; preds = %.preheader, %23
   %8 = phi i8 [ %23, %22 ], [ %6, %.preheader ]
   %.04059 = phi i1 [ %27, %22 ], [ false, %.preheader ]
   %.04158 = phi i32 [ %.142, %22 ], [ 0, %.preheader ]
@@ -2658,27 +2658,27 @@ define range(i32 -1, 80) i32 @png_check_keyword(ptr noalias noundef %0, ptr noun
   %14 = getelementptr inbounds nuw i8, ptr %.04755, i64 1
   store i8 %8, ptr %.04755, align 1, !tbaa !4
   %15 = add nuw nsw i32 %.04357, 1
-  br label %22
+  br label %23
 
 16:                                               ; preds = %.lr.ph
   br i1 %.04059, label %17, label %20
 
-17:                                               ; preds = %16
-  %18 = getelementptr inbounds nuw i8, ptr %.04755, i64 1
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds nuw i8, ptr %.04755, i64 1
   store i8 32, ptr %.04755, align 1, !tbaa !4
-  %19 = add nuw nsw i32 %.04357, 1
+  %20 = add nuw nsw i32 %.04357, 1
   %.not53 = icmp eq i8 %8, 32
   %spec.select = select i1 %.not53, i32 %.04158, i32 %10
-  br label %22
+  br label %23
 
-20:                                               ; preds = %16
-  %21 = icmp eq i32 %.04158, 0
-  %spec.select54 = select i1 %21, i32 %10, i32 %.04158
-  br label %22
+21:                                               ; preds = %16
+  %22 = icmp eq i32 %.04158, 0
+  %spec.select54 = select i1 %22, i32 %10, i32 %.04158
+  br label %23
 
-22:                                               ; preds = %20, %17, %13
-  %.148 = phi ptr [ %14, %13 ], [ %18, %17 ], [ %.04755, %20 ]
-  %.144 = phi i32 [ %15, %13 ], [ %19, %17 ], [ %.04357, %20 ]
+23:                                               ; preds = %21, %18, %13
+  %.148 = phi ptr [ %14, %13 ], [ %19, %17 ], [ %.04755, %20 ]
+  %.144 = phi i32 [ %15, %13 ], [ %20, %17 ], [ %.04357, %20 ]
   %.142 = phi i32 [ %.04158, %13 ], [ %spec.select, %17 ], [ %spec.select54, %20 ]
   %23 = load i8, ptr %9, align 1, !tbaa !4
   %24 = icmp ne i8 %23, 0
@@ -2687,7 +2687,7 @@ define range(i32 -1, 80) i32 @png_check_keyword(ptr noalias noundef %0, ptr noun
   %27 = xor i1 %or.cond5.not, true
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !214
 
-._crit_edge:                                      ; preds = %22, %.preheader
+._crit_edge:                                      ; preds = %23, %.preheader
   %.047.lcssa = phi ptr [ %2, %.preheader ], [ %.148, %22 ]
   %.046.lcssa = phi ptr [ %1, %.preheader ], [ %9, %22 ]
   %.043.lcssa = phi i32 [ 0, %.preheader ], [ %.144, %22 ]

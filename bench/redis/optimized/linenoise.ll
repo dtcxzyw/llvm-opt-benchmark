@@ -1622,7 +1622,7 @@ define dso_local ptr @linenoise(ptr noundef %0) local_unnamed_addr #10 {
   %45 = icmp eq ptr %44, null
   br i1 %45, label %isUnsupportedTerm.exit.thread, label %.preheader.i
 
-.preheader.i:                                     ; preds = %43, %.preheader.i
+46:                                               ; preds = %43, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %43 ]
   %46 = getelementptr inbounds nuw [4 x ptr], ptr @unsupported_term, i64 0, i64 %indvars.iv.i
   %47 = load ptr, ptr %46, align 8, !tbaa !15

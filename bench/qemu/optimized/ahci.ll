@@ -702,13 +702,13 @@ trace_ahci_reset_port.exit:                       ; preds = %2, %9, %11, %17, %2
 define internal range(i32 -1, 1) i32 @ahci_state_post_load(ptr noundef %0, i32 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %4 = load i32, ptr %3, align 8
-  %.not82 = icmp eq i32 %4, 0
-  br i1 %.not82, label %is_ncq.exit.thread, label %.lr.ph
+  %.not78 = icmp eq i32 %4, 0
+  br i1 %.not78, label %is_ncq.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %76
-  %.04676 = phi i32 [ %77, %76 ], [ 0, %2 ]
+  %.04672 = phi i32 [ %77, %76 ], [ 0, %2 ]
   %5 = load ptr, ptr %0, align 16
-  %6 = sext i32 %.04676 to i64
+  %6 = sext i32 %.04672 to i64
   %7 = getelementptr inbounds %struct.AHCIDevice, ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 2396
   %9 = load i32, ptr %8, align 4
@@ -738,7 +738,7 @@ define internal range(i32 -1, 1) i32 @ahci_state_post_load(ptr noundef %0, i32 %
 
 .preheader:                                       ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 2496
-  %19 = and i32 %.04676, 255
+  %19 = and i32 %.04672, 255
   %20 = zext nneg i32 %19 to i64
   br label %21
 
@@ -826,7 +826,7 @@ get_cmd_header.exit:                              ; preds = %40
   br i1 %63, label %64, label %65
 
 64:                                               ; preds = %60
-  tail call fastcc void @check_cmd(ptr noundef nonnull %0, i32 noundef %.04676)
+  tail call fastcc void @check_cmd(ptr noundef nonnull %0, i32 noundef %.04672)
   br label %76
 
 65:                                               ; preds = %60
@@ -855,7 +855,7 @@ get_cmd_header.exit64:                            ; preds = %66, %68
   br label %76
 
 76:                                               ; preds = %64, %get_cmd_header.exit64
-  %77 = add nuw i32 %.04676, 1
+  %77 = add nuw i32 %.04672, 1
   %78 = load i32, ptr %3, align 8
   %79 = icmp ult i32 %77, %78
   br i1 %79, label %.lr.ph, label %is_ncq.exit.thread, !llvm.loop !15

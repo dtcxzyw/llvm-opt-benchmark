@@ -2641,11 +2641,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZer
   %or.cond = or i1 %41, %42
   br i1 %or.cond, label %.loopexit.loopexit, label %29, !llvm.loop !34
 
-.loopexit.loopexit:                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27, %29
+42:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27, %29
   %.0.ph = sext i1 %.not.not to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %16, %2
+.loopexit:                                        ; preds = %42, %16, %2
   %.0 = phi i32 [ -1, %2 ], [ 1, %16 ], [ %.0.ph, %.loopexit.loopexit ]
   ret i32 %.0
 }

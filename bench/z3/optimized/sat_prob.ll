@@ -517,9 +517,9 @@ define hidden noundef range(i32 0, 2) i32 @_ZN3sat4prob5checkEjPKNS_7literalEPNS
   %.not25 = xor i1 %9, true
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %11 = load i32, ptr %10, align 8
-  %.not6 = icmp eq i32 %11, 0
-  %or.cond7 = select i1 %.not25, i1 true, i1 %.not6
-  br i1 %or.cond7, label %.critedge, label %.lr.ph
+  %.not5 = icmp eq i32 %11, 0
+  %or.cond.not6 = select i1 %.not25, i1 true, i1 %.not5
+  br i1 %or.cond.not6, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 760
@@ -545,11 +545,11 @@ define hidden noundef range(i32 0, 2) i32 @_ZN3sat4prob5checkEjPKNS_7literalEPNS
   %.not2 = xor i1 %20, true
   %21 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %21, 0
-  %or.cond = select i1 %.not2, i1 true, i1 %.not
-  br i1 %or.cond, label %.critedge, label %14, !llvm.loop !72
+  %or.cond.not = select i1 %.not2, i1 true, i1 %.not
+  br i1 %or.cond.not, label %.critedge, label %14, !llvm.loop !72
 
 .critedge:                                        ; preds = %19, %7
-  %.not.lcssa = phi i1 [ %.not6, %7 ], [ %.not, %19 ]
+  %.not.lcssa = phi i1 [ %.not5, %7 ], [ %.not, %19 ]
   %.0 = zext i1 %.not.lcssa to i32
   ret i32 %.0
 }

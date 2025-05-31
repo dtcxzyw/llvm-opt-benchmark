@@ -1357,9 +1357,9 @@ _ZN4nodeL23GetSourceMapErrorSourceB5cxx11EPN2v87IsolateENS0_5LocalINS0_7ContextE
 
 nrvo.unused:                                      ; preds = %_ZN4nodeL23GetSourceMapErrorSourceB5cxx11EPN2v87IsolateENS0_5LocalINS0_7ContextEEENS3_INS0_7MessageEEEPb.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
-  br label %nrvo.skipdtor
+  br label %if.end62
 
-nrvo.skipdtor:                                    ; preds = %nrvo.unused, %_ZN4nodeL23GetSourceMapErrorSourceB5cxx11EPN2v87IsolateENS0_5LocalINS0_7ContextEEENS3_INS0_7MessageEEEPb.exit
+if.end62:                                         ; preds = %nrvo.unused, %_ZN4nodeL23GetSourceMapErrorSourceB5cxx11EPN2v87IsolateENS0_5LocalINS0_7ContextEEENS3_INS0_7MessageEEEPb.exit
   %cond1 = icmp eq i8 %tobool59.mask, 0
   br i1 %cond1, label %if.end62, label %cleanup219
 

@@ -314,7 +314,7 @@ default.unreachable123:                           ; preds = %129, %105, %59, %29
 
 ZSTD_noCompressLiterals.exit115:                  ; preds = %71
   %116 = icmp eq i64 %87, 1
-  br i1 %116, label %117, label %126
+  br i1 %116, label %117, label %allBytesIdentical.exit
 
 117:                                              ; preds = %ZSTD_noCompressLiterals.exit115
   %118 = icmp ugt i64 %3, 7
@@ -325,7 +325,7 @@ ZSTD_noCompressLiterals.exit115:                  ; preds = %71
   %121 = icmp samesign ugt i64 %3, 1
   br i1 %121, label %.lr.ph.i, label %allBytesIdentical.exit.thread
 
-.lr.ph.i:                                         ; preds = %119, %.lr.ph.i
+122:                                              ; preds = %119, %.lr.ph.i
   %.08.i = phi i64 [ %124, %.lr.ph.i ], [ 1, %119 ]
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 %.08.i
   %123 = load i8, ptr %122, align 1, !tbaa !3
@@ -335,23 +335,23 @@ ZSTD_noCompressLiterals.exit115:                  ; preds = %71
   %or.cond.not.i = select i1 %.not.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not.i, label %.lr.ph.i, label %allBytesIdentical.exit, !llvm.loop !13
 
-allBytesIdentical.exit:                           ; preds = %.lr.ph.i
-  br i1 %.not.i, label %allBytesIdentical.exit.thread, label %126
+.lr.ph.i:                                         ; preds = %122
+  br i1 %.not.i, label %allBytesIdentical.exit.thread, label %122
 
-allBytesIdentical.exit.thread:                    ; preds = %119, %allBytesIdentical.exit, %117
+allBytesIdentical.exit.thread:                    ; preds = %119, %122, %117
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %7, ptr noundef nonnull align 8 dereferenceable(2064) %6, i64 2064, i1 false)
-  %125 = call i64 @ZSTD_compressRleLiteralsBlock(ptr noundef nonnull %0, i64 poison, ptr noundef %2, i64 noundef %3)
+  %126 = call i64 @ZSTD_compressRleLiteralsBlock(ptr noundef nonnull %0, i64 poison, ptr noundef %2, i64 noundef %3)
   br label %ZSTD_noCompressLiterals.exit
 
-126:                                              ; preds = %allBytesIdentical.exit, %ZSTD_noCompressLiterals.exit115
+allBytesIdentical.exit:                           ; preds = %.lr.ph.i, %ZSTD_noCompressLiterals.exit115
   br i1 %.not99, label %127, label %129
 
-127:                                              ; preds = %126
+127:                                              ; preds = %allBytesIdentical.exit
   %128 = getelementptr inbounds nuw i8, ptr %7, i64 2056
   store i32 1, ptr %128, align 8, !tbaa !10
   br label %129
 
-129:                                              ; preds = %127, %126
+129:                                              ; preds = %127, %allBytesIdentical.exit
   switch i64 %18, label %default.unreachable123 [
     i64 3, label %130
     i64 4, label %143
@@ -406,7 +406,7 @@ allBytesIdentical.exit.thread:                    ; preds = %119, %allBytesIdent
   br label %ZSTD_noCompressLiterals.exit
 
 ZSTD_noCompressLiterals.exit:                     ; preds = %114, %96, %68, %50, %38, %20, %70, %162, %allBytesIdentical.exit.thread
-  %.0 = phi i64 [ %125, %allBytesIdentical.exit.thread ], [ %163, %162 ], [ -70, %70 ], [ %27, %38 ], [ -70, %20 ], [ %57, %68 ], [ -70, %50 ], [ -70, %96 ], [ %103, %114 ]
+  %.0 = phi i64 [ %126, %allBytesIdentical.exit.thread ], [ %163, %162 ], [ -70, %70 ], [ %27, %38 ], [ -70, %20 ], [ %57, %68 ], [ -70, %50 ], [ -70, %96 ], [ %103, %114 ]
   ret i64 %.0
 }
 

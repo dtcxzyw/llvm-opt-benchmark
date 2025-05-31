@@ -12020,8 +12020,8 @@ lpad:                                             ; preds = %if.then.i.i110.invo
 cleanup:                                          ; preds = %sw.bb, %if.then.i.i
   %.pre440 = phi i64 [ %2, %sw.bb ], [ %.pre440.pre, %if.then.i.i ]
   %6 = phi i64 [ %2, %sw.bb ], [ %.pr, %if.then.i.i ]
-  %cmp.i = icmp eq i64 %6, 0
-  br i1 %cmp.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit, label %cleanup18
+  %cmp.i.not = icmp eq i64 %6, 0
+  br i1 %cmp.i.not, label %_ZN4absl12lts_202308026StatusD2Ev.exit, label %cleanup18
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %cleanup
   %allow_legacy_syntax = getelementptr inbounds nuw i8, ptr %writer, i64 45
@@ -12109,7 +12109,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZN4absl12lts_202308028StatusOrIfED2Ev.exit:      ; preds = %cleanup18, %if.then.i.i.i.i
-  br i1 %cmp.i, label %sw.epilog, label %return
+  br i1 %cmp.i.not, label %sw.epilog, label %return
 
 ehcleanup:                                        ; preds = %lpad, %lpad.i
   %.pn88 = phi { ptr, i32 } [ %5, %lpad ], [ %16, %lpad.i ]
@@ -12140,8 +12140,8 @@ lpad25:                                           ; preds = %if.then.i.i136.invo
 cleanup33:                                        ; preds = %sw.bb20, %if.then.i.i117
   %.pre437 = phi i64 [ %20, %sw.bb20 ], [ %.pre437.pre, %if.then.i.i117 ]
   %24 = phi i64 [ %20, %sw.bb20 ], [ %.pr413, %if.then.i.i117 ]
-  %cmp.i120 = icmp eq i64 %24, 0
-  br i1 %cmp.i120, label %_ZN4absl12lts_202308026StatusD2Ev.exit126, label %cleanup58
+  %cmp.i120.not = icmp eq i64 %24, 0
+  br i1 %cmp.i120.not, label %_ZN4absl12lts_202308026StatusD2Ev.exit126, label %cleanup58
 
 _ZN4absl12lts_202308026StatusD2Ev.exit126:        ; preds = %cleanup33
   %allow_legacy_syntax43 = getelementptr inbounds nuw i8, ptr %writer, i64 45
@@ -12228,7 +12228,7 @@ terminate.lpad.i.i.i151:                          ; preds = %if.then.i.i.i.i150
   unreachable
 
 _ZN4absl12lts_202308028StatusOrIdED2Ev.exit:      ; preds = %cleanup58, %if.then.i.i.i.i150
-  br i1 %cmp.i120, label %sw.epilog, label %return
+  br i1 %cmp.i120.not, label %sw.epilog, label %return
 
 ehcleanup60:                                      ; preds = %lpad25, %lpad.i142
   %.pn86 = phi { ptr, i32 } [ %23, %lpad25 ], [ %34, %lpad.i142 ]
@@ -12258,8 +12258,8 @@ lpad66:                                           ; preds = %if.then.i.i175.invo
 
 cleanup74:                                        ; preds = %sw.bb61, %if.then.i.i154
   %42 = phi i64 [ %38, %sw.bb61 ], [ %.pr414, %if.then.i.i154 ]
-  %cmp.i157 = icmp eq i64 %42, 0
-  br i1 %cmp.i157, label %_ZN4absl12lts_202308026StatusD2Ev.exit163, label %cleanup98
+  %cmp.i157.not = icmp eq i64 %42, 0
+  br i1 %cmp.i157.not, label %_ZN4absl12lts_202308026StatusD2Ev.exit163, label %cleanup98
 
 _ZN4absl12lts_202308026StatusD2Ev.exit163:        ; preds = %cleanup74
   %unquote_int64_if_possible = getelementptr inbounds nuw i8, ptr %writer, i64 44
@@ -12363,7 +12363,7 @@ terminate.lpad.i.i.i185:                          ; preds = %if.then.i.i.i.i184
   unreachable
 
 _ZN4absl12lts_202308028StatusOrIlED2Ev.exit:      ; preds = %cleanup98, %if.then.i.i.i.i184
-  br i1 %cmp.i157, label %sw.epilog, label %return
+  br i1 %cmp.i157.not, label %sw.epilog, label %return
 
 sw.bb101:                                         ; preds = %entry, %entry
   call void @_ZN6google8protobuf13json_internal17UnparseProto3Type9GetUInt64EPKNS1_12ResolverPool5FieldE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.364") align 8 %x102, ptr noundef nonnull %field)
@@ -12388,8 +12388,8 @@ lpad106:                                          ; preds = %if.then.i.i213.invo
 
 cleanup114:                                       ; preds = %sw.bb101, %if.then.i.i188
   %58 = phi i64 [ %54, %sw.bb101 ], [ %.pr416, %if.then.i.i188 ]
-  %cmp.i191 = icmp eq i64 %58, 0
-  br i1 %cmp.i191, label %_ZN4absl12lts_202308026StatusD2Ev.exit197, label %cleanup141
+  %cmp.i191.not = icmp eq i64 %58, 0
+  br i1 %cmp.i191.not, label %_ZN4absl12lts_202308026StatusD2Ev.exit197, label %cleanup141
 
 _ZN4absl12lts_202308026StatusD2Ev.exit197:        ; preds = %cleanup114
   %unquote_int64_if_possible124 = getelementptr inbounds nuw i8, ptr %writer, i64 44
@@ -12489,7 +12489,7 @@ terminate.lpad.i.i.i230:                          ; preds = %if.then.i.i.i.i229
   unreachable
 
 _ZN4absl12lts_202308028StatusOrImED2Ev.exit:      ; preds = %cleanup141, %if.then.i.i.i.i229
-  br i1 %cmp.i191, label %sw.epilog, label %return
+  br i1 %cmp.i191.not, label %sw.epilog, label %return
 
 sw.bb144:                                         ; preds = %entry, %entry, %entry
   call void @_ZN6google8protobuf13json_internal17UnparseProto3Type8GetInt32EPKNS1_12ResolverPool5FieldE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.376") align 8 %x145, ptr noundef nonnull %field)
@@ -12516,8 +12516,8 @@ lpad149:                                          ; preds = %call3.i.i.noexc, %i
 cleanup157:                                       ; preds = %sw.bb144, %if.then.i.i233
   %.pre430 = phi i64 [ %70, %sw.bb144 ], [ %.pre430.pre, %if.then.i.i233 ]
   %74 = phi i64 [ %70, %sw.bb144 ], [ %.pr417, %if.then.i.i233 ]
-  %cmp.i236 = icmp eq i64 %74, 0
-  br i1 %cmp.i236, label %_ZN4absl12lts_202308026StatusD2Ev.exit242, label %cleanup169
+  %cmp.i236.not = icmp eq i64 %74, 0
+  br i1 %cmp.i236.not, label %_ZN4absl12lts_202308026StatusD2Ev.exit242, label %cleanup169
 
 _ZN4absl12lts_202308026StatusD2Ev.exit242:        ; preds = %cleanup157
   %cmp.i.i.i.i243 = icmp eq i64 %.pre430, 0
@@ -12572,7 +12572,7 @@ terminate.lpad.i.i.i252:                          ; preds = %if.then.i.i.i.i251
   unreachable
 
 _ZN4absl12lts_202308028StatusOrIiED2Ev.exit:      ; preds = %cleanup169, %if.then.i.i.i.i251
-  br i1 %cmp.i236, label %sw.epilog, label %return
+  br i1 %cmp.i236.not, label %sw.epilog, label %return
 
 sw.bb172:                                         ; preds = %entry, %entry
   call void @_ZN6google8protobuf13json_internal17UnparseProto3Type9GetUInt32EPKNS1_12ResolverPool5FieldE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.386") align 8 %x173, ptr noundef nonnull %field)
@@ -12599,8 +12599,8 @@ lpad177:                                          ; preds = %call3.i.i.noexc273,
 cleanup185:                                       ; preds = %sw.bb172, %if.then.i.i255
   %.pre428 = phi i64 [ %81, %sw.bb172 ], [ %.pre428.pre, %if.then.i.i255 ]
   %85 = phi i64 [ %81, %sw.bb172 ], [ %.pr418, %if.then.i.i255 ]
-  %cmp.i258 = icmp eq i64 %85, 0
-  br i1 %cmp.i258, label %_ZN4absl12lts_202308026StatusD2Ev.exit264, label %cleanup197
+  %cmp.i258.not = icmp eq i64 %85, 0
+  br i1 %cmp.i258.not, label %_ZN4absl12lts_202308026StatusD2Ev.exit264, label %cleanup197
 
 _ZN4absl12lts_202308026StatusD2Ev.exit264:        ; preds = %cleanup185
   %cmp.i.i.i.i265 = icmp eq i64 %.pre428, 0
@@ -12655,7 +12655,7 @@ terminate.lpad.i.i.i279:                          ; preds = %if.then.i.i.i.i278
   unreachable
 
 _ZN4absl12lts_202308028StatusOrIjED2Ev.exit:      ; preds = %cleanup197, %if.then.i.i.i.i278
-  br i1 %cmp.i258, label %sw.epilog, label %return
+  br i1 %cmp.i258.not, label %sw.epilog, label %return
 
 sw.bb200:                                         ; preds = %entry
   call void @_ZN6google8protobuf13json_internal17UnparseProto3Type7GetBoolEPKNS1_12ResolverPool5FieldE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.396") align 8 %x201, ptr noundef nonnull %field)
@@ -12682,8 +12682,8 @@ lpad205:                                          ; preds = %invoke.cont223, %if
 cleanup213:                                       ; preds = %sw.bb200, %if.then.i.i282
   %.pre426 = phi i64 [ %92, %sw.bb200 ], [ %.pre426.pre, %if.then.i.i282 ]
   %96 = phi i64 [ %92, %sw.bb200 ], [ %.pr419, %if.then.i.i282 ]
-  %cmp.i285 = icmp eq i64 %96, 0
-  br i1 %cmp.i285, label %_ZN4absl12lts_202308026StatusD2Ev.exit291, label %cleanup227
+  %cmp.i285.not = icmp eq i64 %96, 0
+  br i1 %cmp.i285.not, label %_ZN4absl12lts_202308026StatusD2Ev.exit291, label %cleanup227
 
 _ZN4absl12lts_202308026StatusD2Ev.exit291:        ; preds = %cleanup213
   %cmp.i.i.i.i292 = icmp eq i64 %.pre426, 0
@@ -12727,7 +12727,7 @@ terminate.lpad.i.i.i299:                          ; preds = %if.then.i.i.i.i298
   unreachable
 
 _ZN4absl12lts_202308028StatusOrIbED2Ev.exit:      ; preds = %cleanup227, %if.then.i.i.i.i298
-  br i1 %cmp.i285, label %sw.epilog, label %return
+  br i1 %cmp.i285.not, label %sw.epilog, label %return
 
 lpad236:                                          ; preds = %.noexc321, %.noexc320, %invoke.cont257
   %102 = landingpad { ptr, i32 }
@@ -12879,8 +12879,8 @@ lpad314:                                          ; preds = %if.then.i.i373, %in
 cleanup322:                                       ; preds = %sw.bb309, %if.then.i.i362
   %.pre424 = phi i64 [ %129, %sw.bb309 ], [ %.pre424.pre, %if.then.i.i362 ]
   %133 = phi i64 [ %129, %sw.bb309 ], [ %.pr420, %if.then.i.i362 ]
-  %cmp.i365 = icmp eq i64 %133, 0
-  br i1 %cmp.i365, label %_ZN4absl12lts_202308026StatusD2Ev.exit371, label %cleanup334
+  %cmp.i365.not = icmp eq i64 %133, 0
+  br i1 %cmp.i365.not, label %_ZN4absl12lts_202308026StatusD2Ev.exit371, label %cleanup334
 
 _ZN4absl12lts_202308026StatusD2Ev.exit371:        ; preds = %cleanup322
   %cmp.i.i.i.i372 = icmp eq i64 %.pre424, 0
@@ -12921,7 +12921,7 @@ terminate.lpad.i.i.i379:                          ; preds = %if.then.i.i.i.i378
   unreachable
 
 _ZN4absl12lts_202308028StatusOrIiED2Ev.exit380:   ; preds = %cleanup334, %if.then.i.i.i.i378
-  br i1 %cmp.i365, label %sw.epilog, label %return
+  br i1 %cmp.i365.not, label %sw.epilog, label %return
 
 sw.bb337:                                         ; preds = %entry, %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !499)
@@ -18723,7 +18723,7 @@ lpad.i.i:                                         ; preds = %call.i.i.noexc.i.i,
   call void @_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal14UntypedMessageEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %inner.i.i) #27, !noalias !645
   br label %common.resume
 
-for.body.i.i.i:                                   ; preds = %call3.i.i.noexc.i, %call2.i.i.noexc.i.i
+for.cond.i.i.i:                                   ; preds = %call3.i.i.noexc.i, %call2.i.i.noexc.i.i
   %i.05.i.i.i = phi i64 [ %inc.i.i.i, %call2.i.i.noexc.i.i ], [ 0, %call3.i.i.noexc.i ]
   %call.i.i6.i.i = invoke { ptr, i64 } @_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv(ptr noundef nonnull align 8 dereferenceable(208) %12)
           to label %call.i.i.noexc.i.i unwind label %lpad.i.i, !noalias !645
@@ -19012,8 +19012,8 @@ call2.i.i.noexc.i.i:                              ; preds = %call.i.i.noexc.i.i
   %cmp3.not.i.i.i = icmp eq i64 %call2.i.i7.i.i, 0
   %inc.i.i.i = add nuw i64 %i.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp ne i64 %inc.i.i.i, %conv.i.i.i.i
-  %or.cond.not.i.i = select i1 %cmp3.not.i.i.i, i1 %exitcond.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %for.body.i.i.i, label %_ZZN6google8protobuf13json_internal12_GLOBAL__N_113WriteRepeatedINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgENSA_5FieldEENKUlRKNS1_12ResolverPool7MessageEE_clESI_.exit.i, !llvm.loop !646
+  %or.cond551.not = select i1 %cmp3.not.i.i.i, i1 %exitcond.not.i.i.i, i1 false
+  br i1 %or.cond551.not, label %for.body.i.i.i, label %_ZZN6google8protobuf13json_internal12_GLOBAL__N_113WriteRepeatedINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgENSA_5FieldEENKUlRKNS1_12ResolverPool7MessageEE_clESI_.exit.i, !llvm.loop !646
 
 _ZZN6google8protobuf13json_internal12_GLOBAL__N_113WriteRepeatedINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgENSA_5FieldEENKUlRKNS1_12ResolverPool7MessageEE_clESI_.exit.i: ; preds = %call2.i.i.noexc.i.i, %call3.i.i.noexc.i
   %cmp.lcssa.i.i.i = phi i1 [ true, %call3.i.i.noexc.i ], [ %cmp3.not.i.i.i, %call2.i.i.noexc.i.i ]

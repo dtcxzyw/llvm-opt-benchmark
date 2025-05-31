@@ -1801,8 +1801,8 @@ SDL_FindColor.exit:                               ; preds = %48, %51, %12
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @SDL_DetectPalette(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #11 {
   %4 = load i32, ptr %0, align 8
-  %.not4042 = icmp sgt i32 %4, 0
-  br i1 %.not4042, label %.lr.ph, label %.thread
+  %.not3643 = icmp sgt i32 %4, 0
+  br i1 %.not3643, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1820,22 +1820,22 @@ define hidden void @SDL_DetectPalette(ptr noundef readonly captures(none) %0, pt
   %9 = getelementptr inbounds nuw %struct.SDL_Color, ptr %6, i64 %indvars.iv, i32 3
   %10 = load i8, ptr %9, align 1
   %.not = icmp eq i8 %10, -1
-  br i1 %.not, label %7, label %.lr.ph46
+  br i1 %.not, label %7, label %.lr.ph47
 
-11:                                               ; preds = %.lr.ph46
-  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count
-  br i1 %exitcond52.not, label %.thread.loopexit, label %.lr.ph46, !llvm.loop !15
+.critedge:                                        ; preds = %.lr.ph47
+  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count
+  br i1 %exitcond53.not, label %.critedge39, label %.lr.ph47, !llvm.loop !15
 
-.lr.ph46:                                         ; preds = %8, %11
-  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %11 ], [ 0, %8 ]
-  %12 = getelementptr inbounds nuw %struct.SDL_Color, ptr %6, i64 %indvars.iv48, i32 3
-  %13 = load i8, ptr %12, align 1
-  %.not32 = icmp eq i8 %13, 0
-  br i1 %.not32, label %11, label %.thread.loopexit
+.lr.ph47:                                         ; preds = %8, %.critedge
+  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %11 ], [ 0, %8 ]
+  %11 = getelementptr inbounds nuw %struct.SDL_Color, ptr %6, i64 %indvars.iv49, i32 3
+  %12 = load i8, ptr %11, align 1
+  %.not32 = icmp eq i8 %12, 0
+  br i1 %.not32, label %.critedge, label %.critedge39
 
-.thread.loopexit:                                 ; preds = %11, %.lr.ph46
-  %.sink.ph = phi i8 [ 0, %11 ], [ 1, %.lr.ph46 ]
+.critedge39:                                      ; preds = %11, %.lr.ph47
+  %.sink54 = phi i8 [ 0, %11 ], [ 1, %.lr.ph46 ]
   %.sink53.ph = zext i1 %.not32 to i8
   br label %.thread
 

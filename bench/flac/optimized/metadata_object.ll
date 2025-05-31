@@ -2795,8 +2795,8 @@ define range(i32 -1, 1) i32 @FLAC__metadata_object_vorbiscomment_remove_entry_ma
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8, !tbaa !13
-  %.not21 = icmp eq i32 %6, 0
-  br i1 %.not21, label %.loopexit, label %.lr.ph
+  %.not19 = icmp eq i32 %6, 0
+  br i1 %.not19, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40

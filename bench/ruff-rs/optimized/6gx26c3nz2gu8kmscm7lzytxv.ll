@@ -301,7 +301,7 @@ define zeroext i1 @"_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_ranges..Line
   %11 = tail call { ptr, i64 } @"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h8576282b9ecfac2aE"(i64 %9, i64 %10, ptr align 1 %0, i64 %1)
   %12 = extractvalue { ptr, i64 } %11, 0
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %24, label %13
+  br i1 %.not, label %23, label %13
 
 13:                                               ; preds = %4
   %14 = extractvalue { ptr, i64 } %11, 1
@@ -327,7 +327,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17h5c0f1e9c798871a0E.exit: 
   %23 = icmp eq i64 %18, 1
   ret i1 %23
 
-24:                                               ; preds = %4
+23:                                               ; preds = %4
   tail call void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr align 1 %0, i64 %1, i64 %9, i64 %10, ptr nonnull align 8 @anon.c9ce67dde11a423340eb3fa1f4df360d.15) #5
   unreachable
 }

@@ -277,15 +277,15 @@ define range(i32 0, 2) i32 @png_user_version_check(ptr noalias noundef %0, ptr n
   %17 = load i32, ptr %4, align 8, !tbaa !24
   %18 = or i32 %17, 131072
   store i32 %18, ptr %4, align 8, !tbaa !24
-  br label %20
+  br label %21
 
 .critedge:                                        ; preds = %12, %16
   %.pre = load i32, ptr %4, align 8, !tbaa !24
   %19 = and i32 %.pre, 131072
-  %.not27 = icmp eq i32 %19, 0
-  br i1 %.not27, label %28, label %20
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %26, label %21
 
-20:                                               ; preds = %.critedge.thread, %.critedge
+21:                                               ; preds = %.critedge.thread, %.critedge
   %21 = phi i32 [ 131072, %.critedge.thread ], [ %19, %.critedge ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #30
   %22 = call i64 @png_safecat(ptr noundef nonnull %3, i64 noundef 128, i64 noundef 0, ptr noundef nonnull @.str.3) #30
@@ -298,9 +298,9 @@ define range(i32 0, 2) i32 @png_user_version_check(ptr noalias noundef %0, ptr n
   %27 = xor i32 %26, 1
   br label %28
 
-28:                                               ; preds = %.critedge, %20
-  %.lobit = phi i32 [ 1, %.critedge ], [ %27, %20 ]
-  ret i32 %.lobit
+26:                                               ; preds = %.critedge, %21
+  %.0 = phi i32 [ 1, %.critedge ], [ %27, %20 ]
+  ret i32 %.0
 }
 
 declare i64 @png_safecat(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
@@ -3707,17 +3707,17 @@ png_pow10.exit:                                   ; preds = %31, %36
 
 44:                                               ; preds = %.lr.ph
   %45 = icmp samesign ult i32 %42, -307
-  br i1 %45, label %png_pow10.exit177.thread, label %.thread.i176
+  br i1 %45, label %png_pow10.exit177.thread, label %.thread.i164
 
-.thread.i176:                                     ; preds = %44
+.thread.i164:                                     ; preds = %44
   %46 = xor i32 %41, -1
   br label %.preheader.i167.preheader
 
 47:                                               ; preds = %.lr.ph
-  %.not24.i164 = icmp eq i32 %42, 0
-  br i1 %.not24.i164, label %png_pow10.exit177.thread, label %.preheader.i167.preheader
+  %.not24.i176 = icmp eq i32 %42, 0
+  br i1 %.not24.i176, label %png_pow10.exit177.thread, label %.preheader.i167.preheader
 
-.preheader.i167.preheader:                        ; preds = %47, %.thread.i176
+.preheader.i167.preheader:                        ; preds = %47, %.thread.i164
   %.117.i168.ph = phi i32 [ %42, %47 ], [ %46, %.thread.i176 ]
   br label %.preheader.i167
 

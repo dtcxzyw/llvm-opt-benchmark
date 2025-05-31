@@ -930,8 +930,8 @@ define hidden void @"_ZN66_$LT$T$u20$as$u20$alloc..ffi..c_str..CString..new..Spe
 
 _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit: ; preds = %12, %._crit_edge.loopexit.i
   %.0.lcssa.i = phi i64 [ 0, %12 ], [ %.0.lcssa.ph.i, %._crit_edge.loopexit.i ]
-  %.lcssa.i = phi i64 [ 0, %12 ], [ %.lcssa.ph.i, %._crit_edge.loopexit.i ]
-  %18 = insertvalue { i64, i64 } poison, i64 %.lcssa.i, 0
+  %.sroa.0.0.i = phi i64 [ 0, %12 ], [ %.lcssa.ph.i, %._crit_edge.loopexit.i ]
+  %18 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %19 = insertvalue { i64, i64 } %18, i64 %.0.lcssa.i, 1
   br label %20
 

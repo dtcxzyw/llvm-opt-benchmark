@@ -6468,7 +6468,7 @@ define void @_ZN6quiche4path4Path3new17h2d58bd63c5cfa508E(ptr dead_on_unwind noa
   invoke void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef %21, i64 %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2555188e7c0d002edaa778fbad9a1afd.288) #21
           to label %.noexc8 unwind label %25
 
-.noexc8:                                          ; preds = %23
+.noexc9:                                          ; preds = %23
   unreachable
 
 25:                                               ; preds = %23, %15
@@ -8600,8 +8600,8 @@ default.unreachable.i:                            ; preds = %186
   br label %229
 
 229:                                              ; preds = %226, %200
-  %.sink66.i = phi i64 [ %228, %226 ], [ %.sroa.028.0.i, %200 ]
-  %.sroa.3.0.i54.i = tail call i64 @llvm.umax.i64(i64 %.sink66.i, i64 %.sink)
+  %.sink.i = phi i64 [ %228, %226 ], [ %.sroa.028.0.i, %200 ]
+  %.sroa.3.0.i54.i = tail call i64 @llvm.umax.i64(i64 %.sink.i, i64 %.sink)
   store i64 1, ptr %36, align 8, !alias.scope !566, !noalias !576
   store i64 %.sroa.3.0.i54.i, ptr %38, align 8, !alias.scope !566, !noalias !576
   %230 = trunc nuw i8 %.sroa.0.0 to i1

@@ -132,7 +132,7 @@ define noundef range(i32 0, 2) i32 @_Z19tMPI_Coll_sync_initP9coll_synci(ptr noun
   %or.cond.not = or i1 %10, %9
   br i1 %or.cond.not, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %2
+.preheader:                                       ; preds = %2
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 

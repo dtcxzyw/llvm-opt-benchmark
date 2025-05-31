@@ -10147,8 +10147,8 @@ cvSensUpdateNorm.exit:                            ; preds = %.lr.ph.i.i99, %298
   %.0.i.ph110 = phi i32 [ 16, %270 ], [ 15, %250 ], [ 14, %209 ], [ 10, %193 ]
   %326 = fmul double %.183136, 2.000000e-01
   %327 = add nuw nsw i32 %.085135, 1
-  %exitcond.not = icmp eq i32 %327, 5
-  br i1 %exitcond.not, label %cvYddNorm.exit.thread116, label %167
+  %exitcond = icmp eq i32 %327, 5
+  br i1 %exitcond, label %cvYddNorm.exit.thread116, label %167
 
 cvYddNorm.exit.thread116:                         ; preds = %325
   %328 = icmp samesign ult i32 %.084137, 3
@@ -11792,8 +11792,8 @@ define internal fastcc range(i32 -1, 1) i32 @cvSensEwtSet(ptr noundef nonnull re
   %24 = load ptr, ptr %23, align 8, !tbaa !65
   %25 = load ptr, ptr %15, align 8, !tbaa !137
   %26 = tail call i32 %22(ptr noundef %9, ptr noundef %24, ptr noundef %25) #13
-  %.not.not.i.not.not.not.not.not = icmp ne i32 %26, 0
-  br i1 %.not.not.i.not.not.not.not.not, label %._crit_edge.loopexit.i, label %27
+  %.not.i = icmp ne i32 %26, 0
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %27
 
 27:                                               ; preds = %16
   %28 = load ptr, ptr %10, align 8, !tbaa !68
@@ -11815,18 +11815,18 @@ define internal fastcc range(i32 -1, 1) i32 @cvSensEwtSet(ptr noundef nonnull re
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %37 = load i32, ptr %36, align 8, !tbaa !156
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph.i11, label %cvSensEwtSetEE.exit
+  br i1 %38, label %.lr.ph.i10, label %cvSensEwtSetEE.exit
 
-.lr.ph.i11:                                       ; preds = %35
+.lr.ph.i10:                                       ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br label %43
 
-43:                                               ; preds = %60, %.lr.ph.i11
-  %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.i11 ], [ %indvars.iv.next.i13, %60 ]
-  %44 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i12
+43:                                               ; preds = %60, %.lr.ph.i10
+  %indvars.iv.i11 = phi i64 [ 0, %.lr.ph.i11 ], [ %indvars.iv.next.i13, %60 ]
+  %44 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i11
   %45 = load ptr, ptr %44, align 8, !tbaa !65
   %46 = load ptr, ptr %39, align 8, !tbaa !98
   tail call void @N_VAbs(ptr noundef %45, ptr noundef %46) #13
@@ -11835,14 +11835,14 @@ define internal fastcc range(i32 -1, 1) i32 @cvSensEwtSet(ptr noundef nonnull re
   tail call void @N_VScale(double noundef %47, ptr noundef %48, ptr noundef %48) #13
   %49 = load ptr, ptr %39, align 8, !tbaa !98
   %50 = load ptr, ptr %41, align 8, !tbaa !177
-  %51 = getelementptr inbounds nuw double, ptr %50, i64 %indvars.iv.i12
+  %51 = getelementptr inbounds nuw double, ptr %50, i64 %indvars.iv.i11
   %52 = load double, ptr %51, align 8, !tbaa !69
   tail call void @N_VAddConst(ptr noundef %49, double noundef %52, ptr noundef %49) #13
   %53 = load ptr, ptr %42, align 8, !tbaa !188
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.i12
+  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.i11
   %55 = load i32, ptr %54, align 4, !tbaa !67
-  %.not.i = icmp eq i32 %55, 0
-  br i1 %.not.i, label %60, label %56
+  %.not.i12 = icmp eq i32 %55, 0
+  br i1 %.not.i12, label %60, label %56
 
 56:                                               ; preds = %43
   %57 = load ptr, ptr %39, align 8, !tbaa !98
@@ -11852,10 +11852,10 @@ define internal fastcc range(i32 -1, 1) i32 @cvSensEwtSet(ptr noundef nonnull re
 
 60:                                               ; preds = %56, %43
   %61 = load ptr, ptr %39, align 8, !tbaa !98
-  %62 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i12
+  %62 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i11
   %63 = load ptr, ptr %62, align 8, !tbaa !65
   tail call void @N_VInv(ptr noundef %61, ptr noundef %63) #13
-  %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
+  %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i11, 1
   %64 = load i32, ptr %36, align 8, !tbaa !156
   %65 = sext i32 %64 to i64
   %66 = icmp slt i64 %indvars.iv.next.i13, %65
@@ -11865,32 +11865,32 @@ define internal fastcc range(i32 -1, 1) i32 @cvSensEwtSet(ptr noundef nonnull re
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %69 = load i32, ptr %68, align 8, !tbaa !156
   %70 = icmp sgt i32 %69, 0
-  br i1 %70, label %.lr.ph.i15, label %cvSensEwtSetEE.exit
+  br i1 %70, label %.lr.ph.i14, label %cvSensEwtSetEE.exit
 
-.lr.ph.i15:                                       ; preds = %67
+.lr.ph.i14:                                       ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br label %75
 
-75:                                               ; preds = %91, %.lr.ph.i15
-  %indvars.iv.i16 = phi i64 [ 0, %.lr.ph.i15 ], [ %indvars.iv.next.i18, %91 ]
-  %76 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i16
+75:                                               ; preds = %91, %.lr.ph.i14
+  %indvars.iv.i15 = phi i64 [ 0, %.lr.ph.i15 ], [ %indvars.iv.next.i17, %91 ]
+  %76 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i15
   %77 = load ptr, ptr %76, align 8, !tbaa !65
   %78 = load ptr, ptr %71, align 8, !tbaa !98
   tail call void @N_VAbs(ptr noundef %77, ptr noundef %78) #13
   %79 = load double, ptr %72, align 8, !tbaa !187
   %80 = load ptr, ptr %71, align 8, !tbaa !98
   %81 = load ptr, ptr %73, align 8, !tbaa !175
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv.i16
+  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv.i15
   %83 = load ptr, ptr %82, align 8, !tbaa !65
   tail call void @N_VLinearSum(double noundef %79, ptr noundef %80, double noundef 1.000000e+00, ptr noundef %83, ptr noundef %80) #13
   %84 = load ptr, ptr %74, align 8, !tbaa !188
-  %85 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv.i16
+  %85 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv.i15
   %86 = load i32, ptr %85, align 4, !tbaa !67
-  %.not.i17 = icmp eq i32 %86, 0
-  br i1 %.not.i17, label %91, label %87
+  %.not.i16 = icmp eq i32 %86, 0
+  br i1 %.not.i16, label %91, label %87
 
 87:                                               ; preds = %75
   %88 = load ptr, ptr %71, align 8, !tbaa !98
@@ -11900,13 +11900,13 @@ define internal fastcc range(i32 -1, 1) i32 @cvSensEwtSet(ptr noundef nonnull re
 
 91:                                               ; preds = %87, %75
   %92 = load ptr, ptr %71, align 8, !tbaa !98
-  %93 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i16
+  %93 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i15
   %94 = load ptr, ptr %93, align 8, !tbaa !65
   tail call void @N_VInv(ptr noundef %92, ptr noundef %94) #13
-  %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i16, 1
+  %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i15, 1
   %95 = load i32, ptr %68, align 8, !tbaa !156
   %96 = sext i32 %95 to i64
-  %97 = icmp slt i64 %indvars.iv.next.i18, %96
+  %97 = icmp slt i64 %indvars.iv.next.i17, %96
   br i1 %97, label %75, label %cvSensEwtSetEE.exit
 
 cvSensEwtSetEE.exit:                              ; preds = %91, %87, %60, %56, %67, %35, %._crit_edge.loopexit.i, %6, %3
@@ -11945,8 +11945,8 @@ define internal fastcc range(i32 -1, 1) i32 @cvQuadSensEwtSet(ptr noundef nonnul
   %19 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8, !tbaa !65
   %21 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef nonnull readonly %0, ptr noundef %9, ptr noundef %20)
-  %.not.not.i.not.not.not.not.not = icmp ne i32 %21, 0
-  br i1 %.not.not.i.not.not.not.not.not, label %._crit_edge.loopexit.i, label %22
+  %.not.i = icmp ne i32 %21, 0
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %22
 
 22:                                               ; preds = %.lr.ph.i
   %23 = load ptr, ptr %10, align 8, !tbaa !68
@@ -11968,18 +11968,18 @@ define internal fastcc range(i32 -1, 1) i32 @cvQuadSensEwtSet(ptr noundef nonnul
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %32 = load i32, ptr %31, align 8, !tbaa !156
   %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %.lr.ph.i11, label %cvQuadSensEwtSetEE.exit
+  br i1 %33, label %.lr.ph.i10, label %cvQuadSensEwtSetEE.exit
 
-.lr.ph.i11:                                       ; preds = %30
+.lr.ph.i10:                                       ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 328
   br label %38
 
-38:                                               ; preds = %55, %.lr.ph.i11
-  %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.i11 ], [ %indvars.iv.next.i13, %55 ]
-  %39 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i12
+38:                                               ; preds = %55, %.lr.ph.i10
+  %indvars.iv.i11 = phi i64 [ 0, %.lr.ph.i11 ], [ %indvars.iv.next.i13, %55 ]
+  %39 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i11
   %40 = load ptr, ptr %39, align 8, !tbaa !65
   %41 = load ptr, ptr %34, align 8, !tbaa !144
   tail call void @N_VAbs(ptr noundef %40, ptr noundef %41) #13
@@ -11988,14 +11988,14 @@ define internal fastcc range(i32 -1, 1) i32 @cvQuadSensEwtSet(ptr noundef nonnul
   tail call void @N_VScale(double noundef %42, ptr noundef %43, ptr noundef %43) #13
   %44 = load ptr, ptr %34, align 8, !tbaa !144
   %45 = load ptr, ptr %36, align 8, !tbaa !204
-  %46 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv.i12
+  %46 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv.i11
   %47 = load double, ptr %46, align 8, !tbaa !69
   tail call void @N_VAddConst(ptr noundef %44, double noundef %47, ptr noundef %44) #13
   %48 = load ptr, ptr %37, align 8, !tbaa !205
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv.i12
+  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv.i11
   %50 = load i32, ptr %49, align 4, !tbaa !67
-  %.not.i = icmp eq i32 %50, 0
-  br i1 %.not.i, label %55, label %51
+  %.not.i12 = icmp eq i32 %50, 0
+  br i1 %.not.i12, label %55, label %51
 
 51:                                               ; preds = %38
   %52 = load ptr, ptr %34, align 8, !tbaa !144
@@ -12005,10 +12005,10 @@ define internal fastcc range(i32 -1, 1) i32 @cvQuadSensEwtSet(ptr noundef nonnul
 
 55:                                               ; preds = %51, %38
   %56 = load ptr, ptr %34, align 8, !tbaa !144
-  %57 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i12
+  %57 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i11
   %58 = load ptr, ptr %57, align 8, !tbaa !65
   tail call void @N_VInv(ptr noundef %56, ptr noundef %58) #13
-  %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
+  %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i11, 1
   %59 = load i32, ptr %31, align 8, !tbaa !156
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next.i13, %60
@@ -12018,32 +12018,32 @@ define internal fastcc range(i32 -1, 1) i32 @cvQuadSensEwtSet(ptr noundef nonnul
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %64 = load i32, ptr %63, align 8, !tbaa !156
   %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %.lr.ph.i15, label %cvQuadSensEwtSetEE.exit
+  br i1 %65, label %.lr.ph.i14, label %cvQuadSensEwtSetEE.exit
 
-.lr.ph.i15:                                       ; preds = %62
+.lr.ph.i14:                                       ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 328
   br label %70
 
-70:                                               ; preds = %86, %.lr.ph.i15
-  %indvars.iv.i16 = phi i64 [ 0, %.lr.ph.i15 ], [ %indvars.iv.next.i18, %86 ]
-  %71 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i16
+70:                                               ; preds = %86, %.lr.ph.i14
+  %indvars.iv.i15 = phi i64 [ 0, %.lr.ph.i15 ], [ %indvars.iv.next.i17, %86 ]
+  %71 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i15
   %72 = load ptr, ptr %71, align 8, !tbaa !65
   %73 = load ptr, ptr %66, align 8, !tbaa !144
   tail call void @N_VAbs(ptr noundef %72, ptr noundef %73) #13
   %74 = load double, ptr %67, align 8, !tbaa !202
   %75 = load ptr, ptr %66, align 8, !tbaa !144
   %76 = load ptr, ptr %68, align 8, !tbaa !207
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv.i16
+  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv.i15
   %78 = load ptr, ptr %77, align 8, !tbaa !65
   tail call void @N_VLinearSum(double noundef %74, ptr noundef %75, double noundef 1.000000e+00, ptr noundef %78, ptr noundef %75) #13
   %79 = load ptr, ptr %69, align 8, !tbaa !205
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv.i16
+  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv.i15
   %81 = load i32, ptr %80, align 4, !tbaa !67
-  %.not.i17 = icmp eq i32 %81, 0
-  br i1 %.not.i17, label %86, label %82
+  %.not.i16 = icmp eq i32 %81, 0
+  br i1 %.not.i16, label %86, label %82
 
 82:                                               ; preds = %70
   %83 = load ptr, ptr %66, align 8, !tbaa !144
@@ -12053,13 +12053,13 @@ define internal fastcc range(i32 -1, 1) i32 @cvQuadSensEwtSet(ptr noundef nonnul
 
 86:                                               ; preds = %82, %70
   %87 = load ptr, ptr %66, align 8, !tbaa !144
-  %88 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i16
+  %88 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i15
   %89 = load ptr, ptr %88, align 8, !tbaa !65
   tail call void @N_VInv(ptr noundef %87, ptr noundef %89) #13
-  %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i16, 1
+  %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i15, 1
   %90 = load i32, ptr %63, align 8, !tbaa !156
   %91 = sext i32 %90 to i64
-  %92 = icmp slt i64 %indvars.iv.next.i18, %91
+  %92 = icmp slt i64 %indvars.iv.next.i17, %91
   br i1 %92, label %70, label %cvQuadSensEwtSetEE.exit
 
 cvQuadSensEwtSetEE.exit:                          ; preds = %86, %82, %55, %51, %62, %30, %._crit_edge.loopexit.i, %6, %3

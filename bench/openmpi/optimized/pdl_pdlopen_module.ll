@@ -194,7 +194,7 @@ define internal range(i32 -1, 1) i32 @pdlopen_lookup(ptr noundef readonly captur
   store ptr %8, ptr %3, align 8, !tbaa !15
   br label %9
 
-9:                                                ; preds = %7, %4
+8:                                                ; preds = %7, %4
   %.0 = sext i1 %.not to i32
   ret i32 %.0
 }

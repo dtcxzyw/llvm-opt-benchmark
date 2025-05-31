@@ -224,11 +224,11 @@ define internal i32 @db_getinfo(ptr noundef %0) #0 {
   br label %getthread.exit
 
 getthread.exit:                                   ; preds = %1, %5
-  %7 = phi i32 [ 2, %5 ], [ 1, %1 ]
+  %.053 = phi i32 [ 2, %5 ], [ 1, %1 ]
   %8 = phi i32 [ 3, %5 ], [ 2, %1 ]
   %.0.i = phi ptr [ %6, %5 ], [ %0, %1 ]
   %9 = tail call ptr @luaL_optlstring(ptr noundef %0, i32 noundef %8, ptr noundef nonnull @.str.24, ptr noundef null) #8
-  %10 = tail call i32 @lua_isnumber(ptr noundef %0, i32 noundef %7) #8
+  %8 = tail call i32 @lua_isnumber(ptr noundef %0, i32 noundef %7) #8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %16, label %11
 
@@ -403,7 +403,7 @@ define internal i32 @db_getlocal(ptr noundef %0) #0 {
   br label %getthread.exit
 
 getthread.exit:                                   ; preds = %1, %5
-  %7 = phi i32 [ 2, %5 ], [ 1, %1 ]
+  %.017 = phi i32 [ 2, %5 ], [ 1, %1 ]
   %.0.i = phi ptr [ %6, %5 ], [ %0, %1 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #8
   %8 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef %7) #8
@@ -512,7 +512,7 @@ define internal noundef i32 @db_sethook(ptr noundef %0) #0 {
   br label %getthread.exit
 
 getthread.exit:                                   ; preds = %1, %4
-  %6 = phi i32 [ 2, %4 ], [ 1, %1 ]
+  %.024 = phi i32 [ 2, %4 ], [ 1, %1 ]
   %.0.i = phi ptr [ %5, %4 ], [ %0, %1 ]
   %7 = tail call i32 @lua_type(ptr noundef %0, i32 noundef %6) #8
   %8 = icmp slt i32 %7, 1
@@ -570,7 +570,7 @@ define internal i32 @db_setlocal(ptr noundef %0) #0 {
   br label %getthread.exit
 
 getthread.exit:                                   ; preds = %1, %5
-  %7 = phi i32 [ 2, %5 ], [ 1, %1 ]
+  %.015 = phi i32 [ 2, %5 ], [ 1, %1 ]
   %.0.i = phi ptr [ %6, %5 ], [ %0, %1 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #8
   %8 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef %7) #8
@@ -657,7 +657,7 @@ define internal noundef i32 @db_errorfb(ptr noundef %0) #0 {
   br label %getthread.exit
 
 getthread.exit:                                   ; preds = %1, %5
-  %7 = phi i32 [ 3, %5 ], [ 2, %1 ]
+  %.0 = phi i32 [ 3, %5 ], [ 2, %1 ]
   %.0.i = phi ptr [ %6, %5 ], [ %0, %1 ]
   %.0 = zext i1 %4 to i32
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #8

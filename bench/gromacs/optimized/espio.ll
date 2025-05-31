@@ -1065,7 +1065,7 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit278:       ; preds = %.outer.i273.split.u
     i32 32, label %.outer.i279.split.us.backedge
     i32 10, label %.outer.i279.split.us.backedge
     i32 9, label %.outer.i279.split.us.backedge
-    i32 123, label %.loopexit.sink.split
+    i32 123, label %.loopexit.sink.split.loopexit
     i32 125, label %.loopexit.sink.split
   ]
 
@@ -1106,7 +1106,7 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit284:       ; preds = %.outer.i279.split.u
   store i8 0, ptr %249, align 1, !tbaa !11
   br label %.critedge13
 
-.loopexit.sink.split:                             ; preds = %.outer.i279.split.us, %.outer.i279.split.us
+.loopexit.sink.split.loopexit:                    ; preds = %.outer.i279.split.us, %.outer.i279.split.us
   %.sink = trunc nuw i32 %242 to i8
   store i8 %.sink, ptr %11, align 16, !tbaa !11
   br label %.loopexit

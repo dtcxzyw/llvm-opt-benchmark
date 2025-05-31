@@ -3471,10 +3471,10 @@ define hidden void @_ZN12object_store3aws7builder15AmazonS3Builder11with_config1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !506)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !509)
-  %29 = icmp eq i64 %.sroa.0106.0.copyload, -9223372036854775808
-  br i1 %29, label %.critedge.i, label %.noexc.i
+  %.not.i = icmp eq i64 %.sroa.0106.0.copyload, -9223372036854775808
+  br i1 %.not.i, label %38, label %.noexc.i
 
-30:                                               ; preds = %37, %33, %.noexc
+29:                                               ; preds = %36, %32, %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !511
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h8ec8f4f21ffaddc8E.exit"
 
@@ -3485,23 +3485,23 @@ define hidden void @_ZN12object_store3aws7builder15AmazonS3Builder11with_config1
           to label %.noexc unwind label %133
 
 .noexc:                                           ; preds = %.noexc.i
-  %31 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %32 = load i64, ptr %31, align 8, !range !474, !noalias !511, !noundef !7
-  %.not.i.i.i.i.i.i = icmp eq i64 %32, 0
-  br i1 %.not.i.i.i.i.i.i, label %30, label %33
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %31 = load i64, ptr %30, align 8, !range !474, !noalias !511, !noundef !7
+  %.not.i.i.i.i.i.i = icmp eq i64 %31, 0
+  br i1 %.not.i.i.i.i.i.i, label %29, label %32
 
-33:                                               ; preds = %.noexc
-  %34 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %35 = load i64, ptr %34, align 8, !noalias !511, !noundef !7
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %30, label %37
+32:                                               ; preds = %.noexc
+  %33 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %34 = load i64, ptr %33, align 8, !noalias !511, !noundef !7
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %29, label %36
 
-37:                                               ; preds = %33
-  %38 = load ptr, ptr %22, align 8, !noalias !511, !nonnull !7, !noundef !7
-  call void @__rust_dealloc(ptr noundef nonnull %38, i64 noundef %35, i64 noundef %32) #24, !noalias !523
-  br label %30
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %22, align 8, !noalias !511, !nonnull !7, !noundef !7
+  call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %34, i64 noundef %31) #24, !noalias !523
+  br label %29
 
-.critedge.i:                                      ; preds = %27
+38:                                               ; preds = %27
   %.sroa.0110.0.copyload111 = load i64, ptr %25, align 8, !alias.scope !524, !noalias !525
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5112, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
@@ -3939,7 +3939,7 @@ define hidden void @_ZN12object_store3aws7builder15AmazonS3Builder11with_config1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %167, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   br label %150
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h8ec8f4f21ffaddc8E.exit": ; preds = %.critedge.i, %30
+"_ZN4core6option15Option$LT$T$GT$7or_else17h8ec8f4f21ffaddc8E.exit": ; preds = %38, %29
   %.sroa.0110.0 = phi i64 [ %.sroa.0110.0.copyload111, %.critedge.i ], [ %.sroa.0106.0.copyload, %30 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   store i64 %.sroa.0110.0, ptr %28, align 8
@@ -8204,8 +8204,8 @@ _ZN4core3ops8function6FnOnce9call_once17hd3d8d66d4f259da8E.exit.i: ; preds = %32
 
 _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %._crit_edge.loopexit.i.i.i, %40
   %.0.lcssa.i.i.i = phi i64 [ 0, %40 ], [ %.0.lcssa.ph.i.i.i, %._crit_edge.loopexit.i.i.i ]
-  %.lcssa.i.i.i = phi i64 [ 0, %40 ], [ %.lcssa.ph.i.i.i, %._crit_edge.loopexit.i.i.i ]
-  %46 = insertvalue { i64, i64 } poison, i64 %.lcssa.i.i.i, 0
+  %.sroa.0.0.i.i.i = phi i64 [ 0, %40 ], [ %.lcssa.ph.i.i.i, %._crit_edge.loopexit.i.i.i ]
+  %46 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i.i.i, 0
   %47 = insertvalue { i64, i64 } %46, i64 %.0.lcssa.i.i.i, 1
   br label %48
 

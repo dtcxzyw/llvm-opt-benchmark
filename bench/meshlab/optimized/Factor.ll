@@ -71,7 +71,7 @@ _Z6FactorddPA2_dd.exit:                           ; preds = %8, %11
   store double %29, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store double %26, ptr %31, align 8
-  br label %41
+  br label %_Z6FactorddPA2_dd.exit
 
 32:                                               ; preds = %15
   %33 = tail call double @sqrt(double noundef %19) #14
@@ -86,9 +86,9 @@ _Z6FactorddPA2_dd.exit:                           ; preds = %8, %11
   store double %39, ptr %3, align 8
   %40 = fsub double %34, %21
   store double %40, ptr %35, align 8
-  br label %41
+  br label %_Z6FactorddPA2_dd.exit
 
-41:                                               ; preds = %23, %32, %_Z6FactorddPA2_dd.exit
+_Z6FactorddPA2_dd.exit:                           ; preds = %23, %32, %_Z6FactorddPA2_dd.exit
   %.0 = phi i32 [ %.0.i, %_Z6FactorddPA2_dd.exit ], [ 2, %32 ], [ 2, %23 ]
   ret i32 %.0
 }

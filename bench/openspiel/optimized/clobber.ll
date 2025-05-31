@@ -3364,15 +3364,15 @@ _ZN4absl7debian28AlphaNumC2Ei.exit.i:             ; preds = %_ZN4absl7debian28Al
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = icmp sgt i32 %34, 0
-  br i1 %50, label %.preheader65.preheader, label %._crit_edge72.thread
+  br i1 %50, label %.preheader65, label %._crit_edge72.thread
 
-.preheader65.preheader:                           ; preds = %.preheader65.lr.ph
+.preheader65:                                     ; preds = %.preheader65.lr.ph
   %spec.select = sub i32 2, %16
   br label %.preheader65
 
-.preheader65:                                     ; preds = %.preheader65.preheader, %._crit_edge
-  %51 = phi i32 [ %133, %._crit_edge ], [ %32, %.preheader65.preheader ]
-  %52 = phi i32 [ %134, %._crit_edge ], [ %34, %.preheader65.preheader ]
+.preheader65: ; preds = %.preheader65.preheader, %._crit_edge
+  %54 = phi i32 [ %133, %._crit_edge ], [ %32, %.preheader65.preheader ]
+  %.03371 = phi i32 [ %134, %._crit_edge ], [ %34, %.preheader65.preheader ]
   %53 = phi ptr [ %135, %._crit_edge ], [ null, %.preheader65.preheader ]
   %.promoted82 = phi ptr [ %.promoted79, %._crit_edge ], [ null, %.preheader65.preheader ]
   %54 = phi i32 [ %136, %._crit_edge ], [ %34, %.preheader65.preheader ]

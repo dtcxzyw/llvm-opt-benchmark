@@ -13682,8 +13682,8 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13SaltedSeedSeqISt8
 
 .lr.ph.i.i.i:                                     ; preds = %16, %.thread.i.i
   %.010.i.i = phi ptr [ %13, %.thread.i.i ], [ %17, %16 ]
-  %18 = shl nuw nsw i64 %3, 2
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %.010.i.i, i8 0, i64 %18, i1 false), !tbaa !49
+  %19 = shl nuw nsw i64 %3, 2
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %.010.i.i, i8 0, i64 %19, i1 false), !tbaa !49
   %19 = zext i1 %7 to i64
   %20 = shl nuw nsw i64 %3, 1
   %21 = or disjoint i64 %20, %19
@@ -13693,7 +13693,7 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13SaltedSeedSeqISt8
   %spec.select = select i1 %7, ptr %23, ptr %22
   br label %24
 
-24:                                               ; preds = %.lr.ph.i.i.i, %.thread
+24:; preds = %.lr.ph.i.i.i, %.thread
   %25 = phi ptr [ %17, %.thread ], [ %22, %.lr.ph.i.i.i ]
   %26 = phi ptr [ %17, %.thread ], [ %spec.select, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds nuw i32, ptr %26, i64 %3
@@ -16937,8 +16937,8 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13SaltedSeedSeqISt8
 
 .lr.ph.i.i.i:                                     ; preds = %16, %.thread.i.i
   %.010.i.i = phi ptr [ %13, %.thread.i.i ], [ %17, %16 ]
-  %18 = shl nuw nsw i64 %3, 2
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %.010.i.i, i8 0, i64 %18, i1 false), !tbaa !49
+  %19 = shl nuw nsw i64 %3, 2
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %.010.i.i, i8 0, i64 %19, i1 false), !tbaa !49
   %19 = zext i1 %7 to i64
   %20 = shl nuw nsw i64 %3, 1
   %21 = or disjoint i64 %20, %19
@@ -16948,7 +16948,7 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13SaltedSeedSeqISt8
   %spec.select = select i1 %7, ptr %23, ptr %22
   br label %24
 
-24:                                               ; preds = %.lr.ph.i.i.i, %.thread
+24:; preds = %.lr.ph.i.i.i, %.thread
   %25 = phi ptr [ %17, %.thread ], [ %22, %.lr.ph.i.i.i ]
   %26 = phi ptr [ %17, %.thread ], [ %spec.select, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds nuw i32, ptr %26, i64 %3

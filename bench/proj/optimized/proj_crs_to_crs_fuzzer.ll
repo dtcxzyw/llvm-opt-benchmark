@@ -119,7 +119,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef rea
 4:                                                ; preds = %2
   %5 = tail call i32 @LLVMFuzzerTestOneInput(ptr noundef nonnull @__const.main.str, i64 noundef 69)
   %.not27 = icmp ne i32 %5, 0
-  %.0 = sext i1 %.not27 to i32
+  %. = sext i1 %.not27 to i32
   br label %33
 
 6:                                                ; preds = %2
@@ -173,7 +173,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef rea
   br label %33
 
 33:                                               ; preds = %30, %4
-  %.1 = phi i32 [ %.0, %4 ], [ %32, %30 ]
+  %.1 = phi i32 [ %., %4 ], [ %32, %30 ]
   ret i32 %.1
 }
 

@@ -99,7 +99,7 @@ define range(i32 0, 2) i32 @exr_compress_buffer(ptr noundef readonly captures(ad
   %or.cond = or i1 %.not22, %.not21
   br i1 %or.cond, label %27, label %26
 
-26:                                               ; preds = %24
+27:                                               ; preds = %24
   store i64 %25, ptr %6, align 8, !tbaa !24
   br label %27
 

@@ -25876,19 +25876,19 @@ sema_expr_begin_analyse.exit:                     ; preds = %7, %10
   br i1 %17, label %sema_expr_begin_analyse.exit.thread, label %21
 
 sema_expr_begin_analyse.exit.thread:              ; preds = %2, %sema_expr_begin_analyse.exit
-  %18 = phi i16 [ %4, %2 ], [ %.sink.i, %sema_expr_begin_analyse.exit ]
-  %19 = and i16 %18, 255
-  %20 = icmp ne i16 %19, 0
-  br label %40
+  %13 = phi i16 [ %4, %2 ], [ %.sink.i, %sema_expr_begin_analyse.exit ]
+  %14 = and i16 %13, 255
+  %15 = icmp ne i16 %14, 0
+  br label %37
 
-21:                                               ; preds = %sema_expr_begin_analyse.exit
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %23 = load ptr, ptr %22, align 8
+22:                                               ; preds = %sema_expr_begin_analyse.exit
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %24 = load ptr, ptr %22, align 8
   %24 = tail call ptr @sema_find_symbol(ptr noundef %0, ptr noundef %23) #12
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %25, label %32
+  br i1 %.not, label %25, label %29
 
-25:                                               ; preds = %21
+25:; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %22, align 8
   %28 = load i64, ptr %26, align 8
@@ -25899,21 +25899,21 @@ sema_expr_begin_analyse.exit.thread:              ; preds = %2, %sema_expr_begin
   store i16 %31, ptr %3, align 8
   br label %40
 
-32:                                               ; preds = %21
-  %33 = getelementptr inbounds nuw i8, ptr %24, i64 80
-  %34 = load i32, ptr %33, align 8
-  %35 = or i32 %34, 4096
-  store i32 %35, ptr %33, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr %24, ptr %36, align 8
-  %37 = load i16, ptr %3, align 8
-  %38 = and i16 %37, -3841
-  %39 = or disjoint i16 %38, 512
-  store i16 %39, ptr %3, align 8
-  br label %40
+29:                                               ; preds = %21
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 80
+  %31 = load i32, ptr %30, align 8
+  %32 = or i32 %31, 4096
+  store i32 %32, ptr %30, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store ptr %24, ptr %33, align 8
+  %34 = load i16, ptr %3, align 8
+  %35 = and i16 %34, -3841
+  %36 = or disjoint i16 %35, 512
+  store i16 %36, ptr %3, align 8
+  br label %37
 
-40:                                               ; preds = %sema_expr_begin_analyse.exit.thread, %32, %25
-  %.0 = phi i1 [ true, %32 ], [ false, %25 ], [ %20, %sema_expr_begin_analyse.exit.thread ]
+37:                                               ; preds = %sema_expr_begin_analyse.exit.thread, %29, %25
+  %.0 = phi i1 [ true, %32 ], [ false, %25 ], [ %15, %sema_expr_begin_analyse.exit.thread ]
   ret i1 %.0
 }
 

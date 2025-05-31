@@ -97,7 +97,7 @@ define internal range(i32 -11, 1) i32 @dlopen_open(ptr noundef %0, i1 noundef ze
   call void @free(ptr noundef %32) #8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  br i1 %31, label %do_dlopen.exit39.thread.loopexit86, label %36
+  br i1 %31, label %do_dlopen.exit39.thread, label %36
 
 .split.us:                                        ; preds = %14
   %33 = call ptr @dlopen(ptr noundef %17, i32 noundef range(i32 1, 258) %.) #8
@@ -118,7 +118,7 @@ define internal range(i32 -11, 1) i32 @dlopen_open(ptr noundef %0, i1 noundef ze
   %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.next
   %.024 = load ptr, ptr %38, align 8, !tbaa !15
   %.not = icmp eq ptr %.024, null
-  br i1 %.not, label %do_dlopen.exit39.thread.loopexit86, label %.lr.ph.split, !llvm.loop !16
+  br i1 %.not, label %do_dlopen.exit39.thread, label %.lr.ph.split, !llvm.loop !16
 
 39:                                               ; preds = %.split.us, %.sink.split.i
   %40 = phi ptr [ %33, %.split.us ], [ %28, %.sink.split.i ]
@@ -157,7 +157,7 @@ do_dlopen.exit39:                                 ; preds = %39, %.sink.split.i3
   store ptr %.445, ptr %48, align 8, !tbaa !18
   br label %do_dlopen.exit39.thread
 
-do_dlopen.exit39.thread.loopexit86:               ; preds = %29, %36
+do_dlopen.exit39.thread:                          ; preds = %29, %36
   %isnotneg = icmp sgt i32 %30, -1
   %.5.ph = sext i1 %isnotneg to i32
   br label %do_dlopen.exit39.thread
@@ -190,7 +190,7 @@ define internal range(i32 -1, 1) i32 @dlopen_lookup(ptr noundef readonly capture
   store ptr %8, ptr %3, align 8, !tbaa !15
   br label %9
 
-9:                                                ; preds = %7, %4
+10:                                               ; preds = %7, %4
   %.0 = sext i1 %.not to i32
   ret i32 %.0
 }

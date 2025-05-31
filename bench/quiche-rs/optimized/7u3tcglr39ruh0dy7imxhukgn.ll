@@ -1726,7 +1726,7 @@ define hidden { i64, i64 } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
   %5 = load ptr, ptr %0, align 8, !alias.scope !110, !noalias !113, !noundef !3
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h7243b4c6c806653fE.exit", label %6
+  br i1 %.not.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h7243b4c6c806653fE.exit.thread", label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1735,7 +1735,7 @@ define hidden { i64, i64 } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hee432d5d933e173dE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %4, ptr noundef nonnull %5, i64 noundef %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1), !noalias !117
   %9 = load i64, ptr %4, align 8, !range !77, !noalias !116, !noundef !3
   %10 = trunc nuw i64 %9 to i1
-  br i1 %10, label %16, label %11
+  br i1 %10, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h7243b4c6c806653fE.exit.thread.sink.split", label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1746,20 +1746,20 @@ define hidden { i64, i64 } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   %14 = call { i64, i64 } @"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17h7d4e06b02eeb97a8E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3), !noalias !118
   %15 = extractvalue { i64, i64 } %14, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !116
-  br label %16
+  br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h7243b4c6c806653fE.exit.thread.sink.split"
 
-16:                                               ; preds = %11, %6
-  %.sroa.6.0 = phi i64 [ undef, %6 ], [ %15, %11 ]
+"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h7243b4c6c806653fE.exit.thread.sink.split": ; preds = %11, %6
+  %.ph = phi i64 [ undef, %6 ], [ %15, %11 ]
   %storemerge.i = phi i64 [ 0, %6 ], [ 1, %11 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !116
-  br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h7243b4c6c806653fE.exit"
+  br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h7243b4c6c806653fE.exit.thread"
 
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h7243b4c6c806653fE.exit": ; preds = %2, %16
-  %.sroa.6.1 = phi i64 [ %.sroa.6.0, %16 ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %storemerge.i, %16 ], [ 0, %2 ]
+"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h7243b4c6c806653fE.exit.thread": ; preds = %2, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h7243b4c6c806653fE.exit.thread.sink.split"
+  %.sroa.0.036 = phi i64 [ %.sroa.6.0, %16 ], [ undef, %2 ]
+  %16 = phi i64 [ %storemerge.i, %16 ], [ 0, %2 ]
   %17 = trunc nuw i64 %.sroa.0.0 to i1
   %.sroa.3.0 = select i1 %17, i64 %.sroa.6.1, i64 undef
-  %18 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %18 = insertvalue { i64, i64 } poison, i64 %16, 0
   %19 = insertvalue { i64, i64 } %18, i64 %.sroa.3.0, 1
   ret { i64, i64 } %19
 }
@@ -7846,10 +7846,10 @@ default.unreachable813:                           ; preds = %219
 
 282:                                              ; preds = %271
   %283 = icmp eq i8 %261, 5
-  %.sroa.029.0 = zext i1 %283 to i64
+  %. = zext i1 %283 to i64
   %284 = load i64, ptr %74, align 8, !noundef !3
   %285 = call noundef i8 @_ZN6quiche2h36stream4Type7to_qlog17ha6f10b2d8625e438E(i8 noundef %261)
-  store i64 %.sroa.029.0, ptr %179, align 8
+  store i64 %., ptr %179, align 8
   store i64 %258, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 0, ptr %.sroa.526.0..sroa_idx, align 8
   store i64 %284, ptr %.sroa.728.0..sroa_idx, align 8

@@ -1818,17 +1818,17 @@ define hidden i24 @_ZN12regex_syntax3hir8interval8Interval5union17h05ca9256de4be
   %10 = tail call i8 @llvm.umin.i8(i8 %5, i8 %8)
   %.0.sroa.speculated.i1.i = zext i8 %10 to i32
   %11 = add nuw nsw i32 %.0.sroa.speculated.i1.i, 1
-  %12 = icmp samesign uge i32 %11, %.0.sroa.speculated.i.i
-  br i1 %12, label %13, label %14
+  %.not = icmp samesign uge i32 %11, %.0.sroa.speculated.i.i
+  br i1 %.not, label %13, label %14
 
-13:                                               ; preds = %2
+12:                                               ; preds = %2
   %.0.sroa.speculated.i.i1 = tail call noundef i8 @llvm.umin.i8(i8 %3, i8 %6)
   %.0.sroa.speculated.i.i2 = tail call noundef i8 @llvm.umax.i8(i8 %5, i8 %8)
   %..i = tail call i8 @llvm.umin.i8(i8 %.0.sroa.speculated.i.i1, i8 %.0.sroa.speculated.i.i2)
   %.6.i = tail call i8 @llvm.umax.i8(i8 %.0.sroa.speculated.i.i1, i8 %.0.sroa.speculated.i.i2)
-  br label %14
+  br label %13
 
-14:                                               ; preds = %2, %13
+13:                                               ; preds = %2, %12
   %.sroa.4.0 = phi i8 [ %.6.i, %13 ], [ undef, %2 ]
   %.sroa.3.0 = phi i8 [ %..i, %13 ], [ undef, %2 ]
   %.sroa.4.0.insert.ext = zext i8 %.sroa.4.0 to i24
@@ -1836,7 +1836,7 @@ define hidden i24 @_ZN12regex_syntax3hir8interval8Interval5union17h05ca9256de4be
   %.sroa.3.0.insert.ext = zext i8 %.sroa.3.0 to i24
   %.sroa.3.0.insert.shift = shl nuw nsw i24 %.sroa.3.0.insert.ext, 8
   %.sroa.3.0.insert.insert = or disjoint i24 %.sroa.3.0.insert.shift, %.sroa.4.0.insert.shift
-  %.sroa.0.0.insert.ext = zext i1 %12 to i24
+  %.sroa.0.0.insert.ext = zext i1 %.not to i24
   %.sroa.0.0.insert.insert = or disjoint i24 %.sroa.3.0.insert.insert, %.sroa.0.0.insert.ext
   ret i24 %.sroa.0.0.insert.insert
 }
@@ -1882,13 +1882,13 @@ define hidden i24 @_ZN12regex_syntax3hir8interval8Interval9intersect17h350064540
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %8 = load i8, ptr %7, align 1, !alias.scope !183, !noundef !4
   %.0.sroa.speculated.i.i1 = tail call noundef i8 @llvm.umin.i8(i8 %6, i8 %8)
-  %9 = icmp ule i8 %.0.sroa.speculated.i.i, %.0.sroa.speculated.i.i1
+  %.not = icmp ule i8 %.0.sroa.speculated.i.i, %.0.sroa.speculated.i.i1
   %.sroa.4.0.insert.ext = zext i8 %.0.sroa.speculated.i.i1 to i24
   %.sroa.4.0.insert.shift = shl nuw i24 %.sroa.4.0.insert.ext, 16
   %.sroa.3.0.insert.ext = zext i8 %.0.sroa.speculated.i.i to i24
   %.sroa.3.0.insert.shift = shl nuw nsw i24 %.sroa.3.0.insert.ext, 8
   %.sroa.3.0.insert.insert = or disjoint i24 %.sroa.4.0.insert.shift, %.sroa.3.0.insert.shift
-  %.sroa.0.0.insert.ext = zext i1 %9 to i24
+  %.sroa.0.0.insert.ext = zext i1 %.not to i24
   %.sroa.0.0.insert.insert = or disjoint i24 %.sroa.3.0.insert.insert, %.sroa.0.0.insert.ext
   ret i24 %.sroa.0.0.insert.insert
 }
@@ -1950,13 +1950,13 @@ define hidden range(i48 0, -254) i48 @_ZN12regex_syntax3hir8interval8Interval10d
   br label %21
 
 12:                                               ; preds = %8
-  br i1 %9, label %14, label %.thread
+  br i1 %9, label %13, label %16
 
 13:                                               ; preds = %8
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.458ea570a757e25242704d80b74fe601.32, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.458ea570a757e25242704d80b74fe601.34) #29
   unreachable
 
-14:                                               ; preds = %12
+14:                                               ; preds = %.not
   %15 = add i8 %.val54, -1
   %.sroa.447.1.insert.ext = zext i8 %.val to i16
   %.sroa.447.2.insert.ext = zext i8 %15 to i16
@@ -1965,7 +1965,7 @@ define hidden range(i48 0, -254) i48 @_ZN12regex_syntax3hir8interval8Interval10d
   %.sroa.7.sroa.0.0.insert.ext28 = zext i16 %.sroa.447.2.insert.insert to i40
   br i1 %10, label %17, label %16
 
-.thread:                                          ; preds = %12
+16:                                               ; preds = %12
   br i1 %10, label %19, label %16
 
 16:                                               ; preds = %.thread, %17, %19, %14
@@ -1977,11 +1977,11 @@ define hidden range(i48 0, -254) i48 @_ZN12regex_syntax3hir8interval8Interval10d
   %.sroa.020.0.insert.insert = or disjoint i48 %.sroa.7.0.insert.shift, %.sroa.020.0.insert.ext
   br label %21
 
-17:                                               ; preds = %14
-  %18 = add nuw i8 %.val55, 1
+"_ZN57_$LT$u8$u20$as$u20$regex_syntax..hir..interval..Bound$GT$9increment17h41aa266bf35d102aE.exit": ; preds = %14
+  %17 = add nuw i8 %.val55, 1
   %.sroa.552.0.insert.ext = zext i8 %.val53 to i24
   %.sroa.552.0.insert.shift = shl nuw i24 %.sroa.552.0.insert.ext, 16
-  %.sroa.451.0.insert.ext = zext i8 %18 to i24
+  %.sroa.451.0.insert.ext = zext i8 %17 to i24
   %.sroa.451.0.insert.shift = shl nuw nsw i24 %.sroa.451.0.insert.ext, 8
   %.sroa.451.0.insert.insert = or disjoint i24 %.sroa.552.0.insert.shift, %.sroa.451.0.insert.shift
   %.sroa.050.0.insert.insert = or disjoint i24 %.sroa.451.0.insert.insert, 1
@@ -1990,7 +1990,7 @@ define hidden range(i48 0, -254) i48 @_ZN12regex_syntax3hir8interval8Interval10d
   %.sroa.7.sroa.0.2.insert.insert41 = or disjoint i40 %.sroa.7.sroa.0.2.insert.shift39, %.sroa.7.sroa.0.0.insert.ext28
   br label %16
 
-19:                                               ; preds = %.thread
+20:                                               ; preds = %.thread
   %20 = add nuw i8 %.val55, 1
   %.sroa.449.1.insert.ext = zext i8 %20 to i16
   %.sroa.449.2.insert.ext = zext i8 %.val53 to i16

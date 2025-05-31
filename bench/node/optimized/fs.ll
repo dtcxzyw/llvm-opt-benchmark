@@ -1886,8 +1886,8 @@ sw.default:                                       ; preds = %do.body
   unreachable
 
 if.end.thread458:                                 ; preds = %if.end14.i, %uv__fs_closedir.exit
-  %storemerge = phi ptr [ %buf.0.i, %if.end14.i ], [ null, %uv__fs_closedir.exit ]
-  store ptr %storemerge, ptr %ptr.i313, align 8
+  %call.i234.lcssa.sink = phi ptr [ %buf.0.i, %if.end14.i ], [ null, %uv__fs_closedir.exit ]
+  store ptr %call.i234.lcssa.sink, ptr %ptr.i313, align 8
   %result130460 = getelementptr inbounds i8, ptr %w, i64 -248
   store i64 0, ptr %result130460, align 8
   br label %land.lhs.true133

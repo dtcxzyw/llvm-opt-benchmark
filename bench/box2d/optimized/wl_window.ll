@@ -488,10 +488,10 @@ define hidden void @libdecorFrameHandleConfigure(ptr noundef %0, ptr noundef %1,
   br label %.sink.split
 
 .sink.split:                                      ; preds = %52, %48
-  %.sink69 = phi float [ %49, %48 ], [ %53, %52 ]
-  %.sink68 = phi ptr [ %5, %48 ], [ %4, %52 ]
-  %54 = fptosi float %.sink69 to i32
-  store i32 %54, ptr %.sink68, align 4, !tbaa !147
+  %.sink71 = phi float [ %49, %48 ], [ %53, %52 ]
+  %.sink70 = phi ptr [ %5, %48 ], [ %4, %52 ]
+  %54 = fptosi float %.sink71 to i32
+  store i32 %54, ptr %.sink70, align 4, !tbaa !147
   br label %55
 
 55:                                               ; preds = %.sink.split, %50, %32, %35, %29
@@ -561,9 +561,9 @@ define hidden void @libdecorFrameHandleConfigure(ptr noundef %0, ptr noundef %1,
   %87 = load i32, ptr %5, align 4, !tbaa !147
   %88 = call fastcc i32 @resizeWindow(ptr noundef nonnull %2, i32 noundef %86, i32 noundef %87)
   %.not66 = icmp eq i32 %88, 0
-  br i1 %.not66, label %92, label %.critedge
+  br i1 %.not66, label %92, label %.thread
 
-.critedge:                                        ; preds = %85
+.thread:                                          ; preds = %85
   %89 = load i32, ptr %62, align 8, !tbaa !138
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 860
   %91 = load i32, ptr %90, align 4, !tbaa !140
@@ -573,7 +573,7 @@ define hidden void @libdecorFrameHandleConfigure(ptr noundef %0, ptr noundef %1,
 92:                                               ; preds = %85
   br i1 %.not65.not, label %93, label %94
 
-93:                                               ; preds = %.critedge, %92
+93:                                               ; preds = %.thread, %92
   call void @_glfwInputWindowDamage(ptr noundef nonnull %2) #20
   br label %101
 
@@ -3702,7 +3702,7 @@ define internal fastcc range(i32 0, 2) i32 @flushDisplay() unnamed_addr #0 {
 9:                                                ; preds = %.lr.ph8, %._crit_edge
   %10 = load i32, ptr %6, align 4, !tbaa !147
   %.not = icmp eq i32 %10, 11
-  br i1 %.not, label %11, label %.loopexit.loopexit
+  br i1 %.not, label %11, label %.loopexit
 
 11:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #20
@@ -3738,9 +3738,9 @@ define internal fastcc range(i32 0, 2) i32 @flushDisplay() unnamed_addr #0 {
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133888), align 8, !tbaa !232
   %23 = call i32 %21(ptr noundef %22) #20
   %24 = icmp eq i32 %23, -1
-  br i1 %24, label %9, label %.loopexit.loopexit
+  br i1 %24, label %9, label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %._crit_edge, %9
+.loopexit:                                        ; preds = %._crit_edge, %9
   %.1.ph = zext i1 %.not to i32
   br label %.loopexit
 

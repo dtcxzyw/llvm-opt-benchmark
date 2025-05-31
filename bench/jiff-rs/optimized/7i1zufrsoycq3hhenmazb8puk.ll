@@ -2676,7 +2676,7 @@ define internal fastcc { i64, ptr } @_ZN4jiff3fmt7strtime14BrokenDownTime18forma
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %14, ptr %15, align 8, !noalias !142
   %16 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.e144535da28e22b2c0b740002851b875.61, i64 noundef range(i64 26, 40) 26)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i" unwind label %22
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i" unwind label %23
 
 "_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i": ; preds = %5
   %17 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %13, ptr %14, ptr noundef %16)
@@ -2689,21 +2689,21 @@ define internal fastcc { i64, ptr } @_ZN4jiff3fmt7strtime14BrokenDownTime18forma
   %21 = insertvalue { i64, ptr } %17, ptr %.sroa.3.0, 1
   ret { i64, ptr } %21
 
-"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$jiff..error..Error$GT$$GT$17h57b64407283e956fE.exit": ; preds = %22, %25
-  resume { ptr, i32 } %23
+"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$jiff..error..Error$GT$$GT$17h57b64407283e956fE.exit": ; preds = %23, %26
+  resume { ptr, i32 } %24
 
-22:                                               ; preds = %5
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %5
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = icmp eq i64 %13, 0
-  br i1 %24, label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$jiff..error..Error$GT$$GT$17h57b64407283e956fE.exit", label %25
+  %25 = icmp eq i64 %13, 0
+  br i1 %25, label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$jiff..error..Error$GT$$GT$17h57b64407283e956fE.exit", label %26
 
-25:                                               ; preds = %22
+26:                                               ; preds = %23
   invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %15)
-          to label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$jiff..error..Error$GT$$GT$17h57b64407283e956fE.exit" unwind label %26
+          to label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$jiff..error..Error$GT$$GT$17h57b64407283e956fE.exit" unwind label %27
 
-26:                                               ; preds = %25
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %26
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #21
   unreachable

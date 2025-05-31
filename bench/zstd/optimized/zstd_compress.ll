@@ -17188,8 +17188,8 @@ define internal i64 @ZSTD_transferSequences_noDelim(ptr noundef captures(none) %
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 8
   %.sroa.10.0.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 4, !tbaa !48
   %53 = add i32 %.sroa.10.0.copyload, %.sroa.4.0.copyload
-  %.not162 = icmp uge i32 %.0126238, %53
-  br i1 %.not162, label %54, label %56
+  %.not162.not = icmp uge i32 %.0126238, %53
+  br i1 %.not162.not, label %54, label %56
 
 54:                                               ; preds = %51
   %.0139 = tail call i32 @llvm.usub.sat.i32(i32 %.sroa.4.0.copyload, i32 %.0120239)
@@ -17493,7 +17493,7 @@ ZSTD_wildcopy.exit:                               ; preds = %145, %.lr.ph.i, %ZS
   %196 = add i32 %.1137, %.1140
   %197 = zext i32 %196 to i64
   %198 = getelementptr inbounds nuw i8, ptr %.0133235, i64 %197
-  %199 = zext i1 %.not162 to i32
+  %199 = zext i1 %.not162.not to i32
   %spec.select = add i32 %.0116240, %199
   %.not160 = icmp eq i32 %.1127, 0
   br i1 %.not160, label %.critedge, label %45
