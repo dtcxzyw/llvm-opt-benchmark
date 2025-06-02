@@ -107999,7 +107999,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr77drop
   %787 = getelementptr inbounds nuw i8, ptr %1, i64 4952
   store i8 1, ptr %787, align 8
   %788 = getelementptr i8, ptr %771, i64 16
-  %789 = invoke noundef nonnull ptr @"_ZN112_$LT$datafusion_physical_plan..projection..ProjectionExec$u20$as$u20$datafusion_physical_plan..ExecutionPlan$GT$6schema17h9f535e2d490ac31fE"(ptr noundef align 1 %788)
+  %789 = invoke noundef nonnull ptr @"_ZN112_$LT$datafusion_physical_plan..projection..ProjectionExec$u20$as$u20$datafusion_physical_plan..ExecutionPlan$GT$6schema17h9f535e2d490ac31fE"(ptr noundef nonnull align 1 %788)
           to label %795 unwind label %793
 
 "_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hf6a18beed89c2b5bE.llvm.8226331118977765550.exit543": ; preds = %"_ZN4core3ptr92drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion_physical_plan..ExecutionPlan$GT$$GT$17h689fa8d5f51ea4f8E.exit670", %921, %793

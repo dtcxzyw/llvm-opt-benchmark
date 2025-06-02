@@ -13149,7 +13149,7 @@ default.unreachable.i.i.i.i.i.i.i.i.i:            ; preds = %.noexc20.i.i.i.i.i.
   %689 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @anon.21ba830f692c8102c13f4b6a0597537d.54, ptr %689, align 8, !noalias !2527
   %690 = getelementptr i8, ptr %313, i64 16
-  %691 = invoke noundef i128 @"_ZN36_$LT$T$u20$as$u20$core..any..Any$GT$7type_id17h5cd7b3fb6fa5a749E"(ptr noundef align 1 %690)
+  %691 = invoke noundef i128 @"_ZN36_$LT$T$u20$as$u20$core..any..Any$GT$7type_id17h5cd7b3fb6fa5a749E"(ptr noundef nonnull align 1 %690)
           to label %699 unwind label %692, !noalias !2531
 
 692:                                              ; preds = %687

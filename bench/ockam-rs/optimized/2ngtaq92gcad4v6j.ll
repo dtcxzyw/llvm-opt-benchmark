@@ -43152,7 +43152,7 @@ _ZN9ockam_api9cli_state9cli_state8CliState8database17hb714951e98c8270eE.exit.i.i
   %266 = load ptr, ptr %265, align 8, !noalias !6243, !nonnull !4, !align !111, !noundef !4
   %267 = getelementptr inbounds nuw i8, ptr %69, i64 128
   %268 = load i64, ptr %267, align 8, !noalias !6243, !noundef !4
-  %269 = invoke { ptr, ptr } @"_ZN155_$LT$ockam_api..cli_state..storage..nodes_repository_sql..NodesSqlxDatabase$u20$as$u20$ockam_api..cli_state..storage..nodes_repository..NodesRepository$GT$8get_node17h5959f64aca31fdd8E"(ptr noundef align 1 %264, ptr noalias noundef nonnull readonly align 1 %266, i64 noundef %268)
+  %269 = invoke { ptr, ptr } @"_ZN155_$LT$ockam_api..cli_state..storage..nodes_repository_sql..NodesSqlxDatabase$u20$as$u20$ockam_api..cli_state..storage..nodes_repository..NodesRepository$GT$8get_node17h5959f64aca31fdd8E"(ptr noundef nonnull align 1 %264, ptr noalias noundef nonnull readonly align 1 %266, i64 noundef %268)
           to label %272 unwind label %270, !noalias !6283
 
 270:                                              ; preds = %263
@@ -101457,7 +101457,7 @@ _ZN9ockam_api9cli_state9cli_state8CliState8database17hb714951e98c8270eE.exit.i.i
   %283 = load ptr, ptr %282, align 8, !noalias !19884, !nonnull !4, !align !111, !noundef !4
   %284 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %285 = load i64, ptr %284, align 8, !noalias !19884, !noundef !4
-  %286 = invoke { ptr, ptr } @"_ZN155_$LT$ockam_api..cli_state..storage..nodes_repository_sql..NodesSqlxDatabase$u20$as$u20$ockam_api..cli_state..storage..nodes_repository..NodesRepository$GT$8get_node17h5959f64aca31fdd8E"(ptr noundef align 1 %281, ptr noalias noundef nonnull readonly align 1 %283, i64 noundef %285)
+  %286 = invoke { ptr, ptr } @"_ZN155_$LT$ockam_api..cli_state..storage..nodes_repository_sql..NodesSqlxDatabase$u20$as$u20$ockam_api..cli_state..storage..nodes_repository..NodesRepository$GT$8get_node17h5959f64aca31fdd8E"(ptr noundef nonnull align 1 %281, ptr noalias noundef nonnull readonly align 1 %283, i64 noundef %285)
           to label %289 unwind label %287, !noalias !19898
 
 287:                                              ; preds = %279

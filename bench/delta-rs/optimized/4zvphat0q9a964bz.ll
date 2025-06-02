@@ -97088,7 +97088,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr78drop
   store i8 1, ptr %329, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %81)
   %330 = getelementptr i8, ptr %311, i64 16
-  invoke void @"_ZN103_$LT$deltalake_core..delta_datafusion..DeltaScan$u20$as$u20$datafusion_physical_plan..ExecutionPlan$GT$19output_partitioning17h5b8a4f777f5687e5E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %81, ptr noundef align 1 %330)
+  invoke void @"_ZN103_$LT$deltalake_core..delta_datafusion..DeltaScan$u20$as$u20$datafusion_physical_plan..ExecutionPlan$GT$19output_partitioning17h5b8a4f777f5687e5E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %81, ptr noundef nonnull align 1 %330)
           to label %333 unwind label %331
 
 331:                                              ; preds = %323

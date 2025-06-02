@@ -3898,7 +3898,7 @@ common.resume:                                    ; preds = %.body, %426, %.thre
   %215 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @anon.4ca6424c5970fe56c18b90431a323fbf.68, ptr %215, align 8, !noalias !568
   %216 = getelementptr i8, ptr %183, i64 16
-  %217 = invoke noundef i128 @"_ZN36_$LT$T$u20$as$u20$core..any..Any$GT$7type_id17h09078da7a03ab29cE"(ptr noundef align 1 %216)
+  %217 = invoke noundef i128 @"_ZN36_$LT$T$u20$as$u20$core..any..Any$GT$7type_id17h09078da7a03ab29cE"(ptr noundef nonnull align 1 %216)
           to label %225 unwind label %218, !noalias !572
 
 218:                                              ; preds = %213

@@ -108850,7 +108850,7 @@ _ZN9ockam_api9cli_state9cli_state8CliState8database17hb714951e98c8270eE.exit.i.i
   %163 = load ptr, ptr %162, align 8, !noalias !15054, !nonnull !4, !align !790, !noundef !4
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %165 = load i64, ptr %164, align 8, !noalias !15054, !noundef !4
-  %166 = invoke { ptr, ptr } @"_ZN159_$LT$ockam_api..cli_state..storage..spaces_repository_sql..SpacesSqlxDatabase$u20$as$u20$ockam_api..cli_state..storage..spaces_repository..SpacesRepository$GT$17get_space_by_name17hc8043ca9546ea2ddE"(ptr noundef align 1 %161, ptr noalias noundef nonnull readonly align 1 %163, i64 noundef %165)
+  %166 = invoke { ptr, ptr } @"_ZN159_$LT$ockam_api..cli_state..storage..spaces_repository_sql..SpacesSqlxDatabase$u20$as$u20$ockam_api..cli_state..storage..spaces_repository..SpacesRepository$GT$17get_space_by_name17hc8043ca9546ea2ddE"(ptr noundef nonnull align 1 %161, ptr noalias noundef nonnull readonly align 1 %163, i64 noundef %165)
           to label %169 unwind label %167, !noalias !15054
 
 167:                                              ; preds = %159
@@ -110149,7 +110149,7 @@ _ZN9ockam_api9cli_state9cli_state8CliState8database17hb714951e98c8270eE.exit.i.i
   %.repack26.i = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr @anon.18447cd967edbb62a84b1bcc4d80419e.730.llvm.18141648412879468590, ptr %.repack26.i, align 8, !noalias !15212
   %121 = getelementptr i8, ptr %112, i64 16
-  %122 = invoke { ptr, ptr } @"_ZN155_$LT$ockam_api..cli_state..storage..users_repository_sql..UsersSqlxDatabase$u20$as$u20$ockam_api..cli_state..storage..users_repository..UsersRepository$GT$16get_default_user17h3844827f9ef6a923E"(ptr noundef align 1 %121)
+  %122 = invoke { ptr, ptr } @"_ZN155_$LT$ockam_api..cli_state..storage..users_repository_sql..UsersSqlxDatabase$u20$as$u20$ockam_api..cli_state..storage..users_repository..UsersRepository$GT$16get_default_user17h3844827f9ef6a923E"(ptr noundef nonnull align 1 %121)
           to label %125 unwind label %123, !noalias !15212
 
 123:                                              ; preds = %120
@@ -124558,7 +124558,7 @@ _ZN9ockam_api9cli_state9cli_state8CliState8database17hb714951e98c8270eE.exit.i.i
   %747 = load ptr, ptr %746, align 8, !noalias !16711, !nonnull !4, !align !790, !noundef !4
   %748 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %749 = load i64, ptr %748, align 8, !noalias !16711, !noundef !4
-  %750 = invoke { ptr, ptr } @"_ZN159_$LT$ockam_api..cli_state..storage..spaces_repository_sql..SpacesSqlxDatabase$u20$as$u20$ockam_api..cli_state..storage..spaces_repository..SpacesRepository$GT$9get_space17he3dd7d0e28e5d1d7E"(ptr noundef align 1 %745, ptr noalias noundef nonnull readonly align 1 %747, i64 noundef %749)
+  %750 = invoke { ptr, ptr } @"_ZN159_$LT$ockam_api..cli_state..storage..spaces_repository_sql..SpacesSqlxDatabase$u20$as$u20$ockam_api..cli_state..storage..spaces_repository..SpacesRepository$GT$9get_space17he3dd7d0e28e5d1d7E"(ptr noundef nonnull align 1 %745, ptr noalias noundef nonnull readonly align 1 %747, i64 noundef %749)
           to label %753 unwind label %751, !noalias !16755
 
 751:                                              ; preds = %744
@@ -128293,7 +128293,7 @@ _ZN9ockam_api9cli_state9cli_state8CliState8database17hb714951e98c8270eE.exit.i.i
   %.repack19.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 456
   store ptr @anon.18447cd967edbb62a84b1bcc4d80419e.729.llvm.18141648412879468590, ptr %.repack19.i.i.i, align 8, !noalias !17165
   %671 = getelementptr i8, ptr %661, i64 16
-  %672 = invoke { ptr, ptr } @"_ZN159_$LT$ockam_api..cli_state..storage..spaces_repository_sql..SpacesSqlxDatabase$u20$as$u20$ockam_api..cli_state..storage..spaces_repository..SpacesRepository$GT$17get_default_space17h25d20dc159ef0f52E"(ptr noundef align 1 %671)
+  %672 = invoke { ptr, ptr } @"_ZN159_$LT$ockam_api..cli_state..storage..spaces_repository_sql..SpacesSqlxDatabase$u20$as$u20$ockam_api..cli_state..storage..spaces_repository..SpacesRepository$GT$17get_default_space17h25d20dc159ef0f52E"(ptr noundef nonnull align 1 %671)
           to label %675 unwind label %673, !noalias !17179
 
 673:                                              ; preds = %669
@@ -129113,7 +129113,7 @@ _ZN9ockam_api9cli_state9cli_state8CliState8database17hb714951e98c8270eE.exit.i.i
   %946 = load ptr, ptr %945, align 8, !noalias !17289, !nonnull !4, !align !790, !noundef !4
   %947 = getelementptr inbounds nuw i8, ptr %1, i64 488
   %948 = load i64, ptr %947, align 8, !noalias !17289, !noundef !4
-  %949 = invoke { ptr, ptr } @"_ZN159_$LT$ockam_api..cli_state..storage..spaces_repository_sql..SpacesSqlxDatabase$u20$as$u20$ockam_api..cli_state..storage..spaces_repository..SpacesRepository$GT$17set_default_space17he62f50a7f44c2029E"(ptr noundef align 1 %944, ptr noalias noundef nonnull readonly align 1 %946, i64 noundef %948)
+  %949 = invoke { ptr, ptr } @"_ZN159_$LT$ockam_api..cli_state..storage..spaces_repository_sql..SpacesSqlxDatabase$u20$as$u20$ockam_api..cli_state..storage..spaces_repository..SpacesRepository$GT$17set_default_space17he62f50a7f44c2029E"(ptr noundef nonnull align 1 %944, ptr noalias noundef nonnull readonly align 1 %946, i64 noundef %948)
           to label %952 unwind label %950, !noalias !17310
 
 950:                                              ; preds = %942
@@ -153904,7 +153904,7 @@ _ZN9ockam_api9cli_state9cli_state8CliState20application_database17h6fed85fbdfecd
   %.repack20.i.i = getelementptr inbounds nuw i8, ptr %0, i64 360
   store ptr @anon.18447cd967edbb62a84b1bcc4d80419e.731.llvm.18141648412879468590, ptr %.repack20.i.i, align 8, !noalias !19955
   %487 = getelementptr i8, ptr %477, i64 16
-  %488 = invoke { ptr, ptr } @"_ZN167_$LT$ockam_api..cli_state..storage..journeys_repository_sql..JourneysSqlxDatabase$u20$as$u20$ockam_api..cli_state..storage..journeys_repository..JourneysRepository$GT$23delete_project_journeys17h67a4d0ce466be3abE"(ptr noundef align 1 %487, ptr noalias noundef nonnull readonly align 1 %464, i64 noundef %463)
+  %488 = invoke { ptr, ptr } @"_ZN167_$LT$ockam_api..cli_state..storage..journeys_repository_sql..JourneysSqlxDatabase$u20$as$u20$ockam_api..cli_state..storage..journeys_repository..JourneysRepository$GT$23delete_project_journeys17h67a4d0ce466be3abE"(ptr noundef nonnull align 1 %487, ptr noalias noundef nonnull readonly align 1 %464, i64 noundef %463)
           to label %491 unwind label %489, !noalias !19976
 
 489:                                              ; preds = %486
@@ -166317,7 +166317,7 @@ _ZN9ockam_api9cli_state9cli_state8CliState8database17hb714951e98c8270eE.exit.i.i
   %442 = load ptr, ptr %441, align 8, !noalias !21390, !nonnull !4, !align !790, !noundef !4
   %443 = getelementptr inbounds nuw i8, ptr %1, i64 1096
   %444 = load i64, ptr %443, align 8, !noalias !21390, !noundef !4
-  %445 = invoke { ptr, ptr } @"_ZN175_$LT$ockam_api..cli_state..storage..identities_repository_sql..IdentitiesSqlxDatabase$u20$as$u20$ockam_api..cli_state..storage..identities_repository..IdentitiesRepository$GT$18get_named_identity17h37c78f0ef893f00eE"(ptr noundef align 1 %440, ptr noalias noundef nonnull readonly align 1 %442, i64 noundef %444)
+  %445 = invoke { ptr, ptr } @"_ZN175_$LT$ockam_api..cli_state..storage..identities_repository_sql..IdentitiesSqlxDatabase$u20$as$u20$ockam_api..cli_state..storage..identities_repository..IdentitiesRepository$GT$18get_named_identity17h37c78f0ef893f00eE"(ptr noundef nonnull align 1 %440, ptr noalias noundef nonnull readonly align 1 %442, i64 noundef %444)
           to label %448 unwind label %446, !noalias !21404
 
 446:                                              ; preds = %439
