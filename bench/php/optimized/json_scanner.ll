@@ -2099,7 +2099,7 @@ php_json_scanner_copy_string.exit1515:            ; preds = %748, %754
 
 php_json_hex_to_int.exit.i.i:                     ; preds = %942, %940, %936
   %.0.i.i.i = phi i32 [ %937, %936 ], [ %941, %940 ], [ %spec.select.i.i.i, %942 ]
-  %945 = shl nsw i32 %.091.i.i, 2
+  %945 = shl nuw nsw i32 %.091.i.i, 2
   %946 = shl nsw i32 %.0.i.i.i, %945
   %947 = or i32 %946, %.082.i.i
   %948 = add nuw nsw i32 %.091.i.i, 1
@@ -2172,7 +2172,7 @@ php_json_scanner_copy_string.exit1517:            ; preds = %php_json_ucs2_to_in
 
 php_json_hex_to_int.exit.i.i1526:                 ; preds = %973, %971, %967
   %.0.i.i.i1527 = phi i32 [ %968, %967 ], [ %972, %971 ], [ %spec.select.i.i.i1525, %973 ]
-  %976 = shl nsw i32 %.091.i.i1520, 2
+  %976 = shl nuw nsw i32 %.091.i.i1520, 2
   %977 = shl nsw i32 %.0.i.i.i1527, %976
   %978 = or i32 %977, %.082.i.i1519
   %979 = add nuw nsw i32 %.091.i.i1520, 1
@@ -2254,7 +2254,7 @@ php_json_scanner_copy_string.exit1531:            ; preds = %php_json_ucs2_to_in
 
 php_json_hex_to_int.exit.i.i1540:                 ; preds = %1011, %1009, %1005
   %.0.i.i.i1541 = phi i32 [ %1006, %1005 ], [ %1010, %1009 ], [ %spec.select.i.i.i1539, %1011 ]
-  %1014 = shl nsw i32 %.091.i.i1534, 2
+  %1014 = shl nuw nsw i32 %.091.i.i1534, 2
   %1015 = shl nsw i32 %.0.i.i.i1541, %1014
   %1016 = or i32 %1015, %.082.i.i1533
   %1017 = add nuw nsw i32 %.091.i.i1534, 1
@@ -2889,7 +2889,7 @@ select.unfold1619:                                ; preds = %php_json_scanner_co
 
 php_json_hex_to_int.exit.i.i1560:                 ; preds = %1316, %1314, %1310
   %.0.i.i.i1561 = phi i32 [ %1311, %1310 ], [ %1315, %1314 ], [ %spec.select.i.i.i1559, %1316 ]
-  %1319 = shl nsw i32 %.091.i.i1554, 2
+  %1319 = shl nuw nsw i32 %.091.i.i1554, 2
   %1320 = shl nsw i32 %.0.i.i.i1561, %1319
   %1321 = or i32 %1320, %.082.i.i1553
   %1322 = add nuw nsw i32 %.091.i.i1554, 1
@@ -2962,7 +2962,7 @@ php_json_scanner_copy_string.exit1565:            ; preds = %php_json_ucs2_to_in
 
 php_json_hex_to_int.exit.i.i1574:                 ; preds = %1347, %1345, %1341
   %.0.i.i.i1575 = phi i32 [ %1342, %1341 ], [ %1346, %1345 ], [ %spec.select.i.i.i1573, %1347 ]
-  %1350 = shl nsw i32 %.091.i.i1568, 2
+  %1350 = shl nuw nsw i32 %.091.i.i1568, 2
   %1351 = shl nsw i32 %.0.i.i.i1575, %1350
   %1352 = or i32 %1351, %.082.i.i1567
   %1353 = add nuw nsw i32 %.091.i.i1568, 1
@@ -3044,7 +3044,7 @@ php_json_scanner_copy_string.exit1579:            ; preds = %php_json_ucs2_to_in
 
 php_json_hex_to_int.exit.i.i1588:                 ; preds = %1385, %1383, %1379
   %.0.i.i.i1589 = phi i32 [ %1380, %1379 ], [ %1384, %1383 ], [ %spec.select.i.i.i1587, %1385 ]
-  %1388 = shl nsw i32 %.091.i.i1582, 2
+  %1388 = shl nuw nsw i32 %.091.i.i1582, 2
   %1389 = shl nsw i32 %.0.i.i.i1589, %1388
   %1390 = or i32 %1389, %.082.i.i1581
   %1391 = add nuw nsw i32 %.091.i.i1582, 1
@@ -3292,7 +3292,7 @@ define internal fastcc i32 @php_json_ucs2_to_int(ptr readonly captures(none) %.0
 
 php_json_hex_to_int.exit.i:                       ; preds = %12, %10, %6
   %.0.i.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %spec.select.i.i, %12 ]
-  %15 = shl nsw i32 %.091.i, 2
+  %15 = shl nuw nsw i32 %.091.i, 2
   %16 = shl nsw i32 %.0.i.i, %15
   %17 = or i32 %16, %.082.i
   %18 = add nuw nsw i32 %.091.i, 1
@@ -3343,7 +3343,7 @@ define internal fastcc i32 @php_json_ucs2_to_int_ex(ptr readonly captures(none) 
 
 php_json_hex_to_int.exit:                         ; preds = %11, %15, %17
   %.0.i = phi i32 [ %12, %11 ], [ %16, %15 ], [ %spec.select.i, %17 ]
-  %20 = shl nsw i32 %.091, 2
+  %20 = shl nuw nsw i32 %.091, 2
   %21 = shl nsw i32 %.0.i, %20
   %22 = or i32 %21, %.082
   %23 = add nuw nsw i32 %.091, 1

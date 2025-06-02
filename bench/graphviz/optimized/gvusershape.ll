@@ -610,8 +610,8 @@ define internal fastcc void @gif_size(ptr noundef captures(none) initializes((88
   br i1 %.not.i, label %10, label %get_int_lsb_first.exit.thread
 
 10:                                               ; preds = %7
-  %.012.tr.i = trunc i64 %.01218.i to i32
-  %11 = shl i32 %.012.tr.i, 3
+  %.012.tr.i = trunc nuw nsw i64 %.01218.i to i32
+  %11 = shl nuw nsw i32 %.012.tr.i, 3
   %12 = shl i32 %8, %11
   %13 = or i32 %12, %.01317.i
   %14 = add nuw nsw i64 %.01218.i, 1
@@ -635,8 +635,8 @@ get_int_lsb_first.exit:                           ; preds = %.critedge.i
   br i1 %.not.i8, label %19, label %get_int_lsb_first.exit.thread
 
 19:                                               ; preds = %16
-  %.012.tr.i10 = trunc i64 %.01218.i6 to i32
-  %20 = shl i32 %.012.tr.i10, 3
+  %.012.tr.i10 = trunc nuw nsw i64 %.01218.i6 to i32
+  %20 = shl nuw nsw i32 %.012.tr.i10, 3
   %21 = shl i32 %17, %20
   %22 = or i32 %21, %.01317.i7
   %23 = add nuw nsw i64 %.01218.i6, 1
@@ -744,8 +744,8 @@ define internal fastcc void @bmp_size(ptr noundef captures(none) initializes((88
   br i1 %.not.i, label %10, label %get_int_lsb_first.exit.thread
 
 10:                                               ; preds = %7
-  %.012.tr.i = trunc i64 %.01218.i to i32
-  %11 = shl i32 %.012.tr.i, 3
+  %.012.tr.i = trunc nuw nsw i64 %.01218.i to i32
+  %11 = shl nuw nsw i32 %.012.tr.i, 3
   %12 = shl i32 %8, %11
   %13 = or i32 %12, %.01317.i
   %14 = add nuw nsw i64 %.01218.i, 1
@@ -769,8 +769,8 @@ get_int_lsb_first.exit:                           ; preds = %.critedge.i
   br i1 %.not.i10, label %19, label %get_int_lsb_first.exit.thread
 
 19:                                               ; preds = %16
-  %.012.tr.i12 = trunc i64 %.01218.i8 to i32
-  %20 = shl i32 %.012.tr.i12, 3
+  %.012.tr.i12 = trunc nuw nsw i64 %.01218.i8 to i32
+  %20 = shl nuw nsw i32 %.012.tr.i12, 3
   %21 = shl i32 %17, %20
   %22 = or i32 %21, %.01317.i9
   %23 = add nuw nsw i64 %.01218.i8, 1
@@ -794,8 +794,8 @@ get_int_lsb_first.exit16:                         ; preds = %.critedge.i14
   br i1 %.not.i19, label %28, label %get_int_lsb_first.exit.thread
 
 28:                                               ; preds = %25
-  %.012.tr.i21 = trunc i64 %.01218.i17 to i32
-  %29 = shl i32 %.012.tr.i21, 3
+  %.012.tr.i21 = trunc nuw nsw i64 %.01218.i17 to i32
+  %29 = shl nuw nsw i32 %.012.tr.i21, 3
   %30 = shl i32 %26, %29
   %31 = or i32 %30, %.01317.i18
   %32 = add nuw nsw i64 %.01218.i17, 1
@@ -819,8 +819,8 @@ get_int_lsb_first.exit25:                         ; preds = %.critedge.i23
   br i1 %.not.i28, label %37, label %get_int_lsb_first.exit.thread
 
 37:                                               ; preds = %34
-  %.012.tr.i30 = trunc i64 %.01218.i26 to i32
-  %38 = shl i32 %.012.tr.i30, 3
+  %.012.tr.i30 = trunc nuw nsw i64 %.01218.i26 to i32
+  %38 = shl nuw nsw i32 %.012.tr.i30, 3
   %39 = shl i32 %35, %38
   %40 = or i32 %39, %.01317.i27
   %41 = add nuw nsw i64 %.01218.i26, 1
@@ -1070,8 +1070,8 @@ define internal fastcc void @webp_size(ptr noundef captures(none) initializes((8
   br i1 %.not.i, label %16, label %get_int_lsb_first.exit.thread
 
 16:                                               ; preds = %13
-  %.012.tr.i = trunc i64 %.01218.i to i32
-  %17 = shl i32 %.012.tr.i, 3
+  %.012.tr.i = trunc nuw nsw i64 %.01218.i to i32
+  %17 = shl nuw nsw i32 %.012.tr.i, 3
   %18 = shl i32 %14, %17
   %19 = or i32 %18, %.01317.i
   %20 = add nuw nsw i64 %.01218.i, 1
@@ -1095,8 +1095,8 @@ get_int_lsb_first.exit:                           ; preds = %.critedge.i
   br i1 %.not.i15, label %25, label %get_int_lsb_first.exit.thread
 
 25:                                               ; preds = %22
-  %.012.tr.i17 = trunc i64 %.01218.i13 to i32
-  %26 = shl i32 %.012.tr.i17, 3
+  %.012.tr.i17 = trunc nuw nsw i64 %.01218.i13 to i32
+  %26 = shl nuw nsw i32 %.012.tr.i17, 3
   %27 = shl i32 %23, %26
   %28 = or i32 %27, %.01317.i14
   %29 = add nuw nsw i64 %.01218.i13, 1
@@ -1121,8 +1121,8 @@ get_int_lsb_first.exit:                           ; preds = %.critedge.i
   br i1 %.not.i24, label %36, label %get_int_lsb_first.exit.thread
 
 36:                                               ; preds = %33
-  %.012.tr.i26 = trunc i64 %.01218.i22 to i32
-  %37 = shl i32 %.012.tr.i26, 3
+  %.012.tr.i26 = trunc nuw nsw i64 %.01218.i22 to i32
+  %37 = shl nuw nsw i32 %.012.tr.i26, 3
   %38 = shl i32 %34, %37
   %39 = or i32 %38, %.01317.i23
   %40 = add nuw nsw i64 %.01218.i22, 1
@@ -1146,8 +1146,8 @@ get_int_lsb_first.exit30:                         ; preds = %.critedge.i28
   br i1 %.not.i33, label %45, label %get_int_lsb_first.exit.thread
 
 45:                                               ; preds = %42
-  %.012.tr.i35 = trunc i64 %.01218.i31 to i32
-  %46 = shl i32 %.012.tr.i35, 3
+  %.012.tr.i35 = trunc nuw nsw i64 %.01218.i31 to i32
+  %46 = shl nuw nsw i32 %.012.tr.i35, 3
   %47 = shl i32 %43, %46
   %48 = or i32 %47, %.01317.i32
   %49 = add nuw nsw i64 %.01218.i31, 1

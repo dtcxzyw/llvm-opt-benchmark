@@ -984,7 +984,7 @@ define internal void @Intra4Preds_C(ptr noalias noundef writeonly %0, ptr noalia
 
 16:                                               ; preds = %16, %12
   %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %16 ]
-  %17 = shl nsw i64 %indvars.iv.i.i, 5
+  %17 = shl nuw nsw i64 %indvars.iv.i.i, 5
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 %17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %18, i8 %15, i64 4, i1 false), !alias.scope !79, !noalias !82
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1530,7 +1530,7 @@ define internal void @Intra16Preds_C(ptr noalias noundef writeonly captures(none
 
 27:                                               ; preds = %27, %._crit_edge.i
   %indvars.iv.i.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next.i.i, %27 ]
-  %28 = shl nsw i64 %indvars.iv.i.i, 5
+  %28 = shl nuw nsw i64 %indvars.iv.i.i, 5
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 %28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %29, i8 %26, i64 16, i1 false), !alias.scope !135, !noalias !147
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1544,7 +1544,7 @@ DCMode.exit:                                      ; preds = %27
 
 .preheader.i11:                                   ; preds = %DCMode.exit, %.preheader.i11
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i13, %.preheader.i11 ], [ 0, %DCMode.exit ]
-  %31 = shl nsw i64 %indvars.iv.i12, 5
+  %31 = shl nuw nsw i64 %indvars.iv.i12, 5
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %32, ptr noundef nonnull readonly align 1 dereferenceable(16) %2, i64 16, i1 false), !alias.scope !151
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
@@ -1553,7 +1553,7 @@ DCMode.exit:                                      ; preds = %27
 
 .preheader37:                                     ; preds = %DCMode.exit, %.preheader37
   %indvars.iv.i.i15 = phi i64 [ %indvars.iv.next.i.i16, %.preheader37 ], [ 0, %DCMode.exit ]
-  %33 = shl nsw i64 %indvars.iv.i.i15, 5
+  %33 = shl nuw nsw i64 %indvars.iv.i.i15, 5
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 %33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %34, i8 127, i64 16, i1 false), !alias.scope !154, !noalias !148
   %indvars.iv.next.i.i16 = add nuw nsw i64 %indvars.iv.i.i15, 1
@@ -1569,7 +1569,7 @@ VerticalPred.exit:                                ; preds = %.preheader.i11, %.p
 
 .preheader.i19:                                   ; preds = %VerticalPred.exit, %.preheader.i19
   %indvars.iv.i20 = phi i64 [ %indvars.iv.next.i21, %.preheader.i19 ], [ 0, %VerticalPred.exit ]
-  %36 = shl nsw i64 %indvars.iv.i20, 5
+  %36 = shl nuw nsw i64 %indvars.iv.i20, 5
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i20
   %39 = load i8, ptr %38, align 1, !tbaa !14, !alias.scope !158, !noalias !155
@@ -1580,7 +1580,7 @@ VerticalPred.exit:                                ; preds = %.preheader.i11, %.p
 
 .preheader34:                                     ; preds = %VerticalPred.exit, %.preheader34
   %indvars.iv.i.i23 = phi i64 [ %indvars.iv.next.i.i24, %.preheader34 ], [ 0, %VerticalPred.exit ]
-  %40 = shl nsw i64 %indvars.iv.i.i23, 5
+  %40 = shl nuw nsw i64 %indvars.iv.i.i23, 5
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 %40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %41, i8 -127, i64 16, i1 false), !alias.scope !155, !noalias !158
   %indvars.iv.next.i.i24 = add nuw nsw i64 %indvars.iv.i.i23, 1
@@ -1637,7 +1637,7 @@ VerticalPred.exit:                                ; preds = %.preheader.i11, %.p
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %64
   %indvars.iv.i.i30 = phi i64 [ %indvars.iv.next.i.i31, %.preheader.i.i ], [ 0, %64 ]
-  %65 = shl nsw i64 %indvars.iv.i.i30, 5
+  %65 = shl nuw nsw i64 %indvars.iv.i.i30, 5
   %66 = getelementptr inbounds nuw i8, ptr %43, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i30
   %68 = load i8, ptr %67, align 1, !tbaa !14, !alias.scope !179, !noalias !180
@@ -1652,7 +1652,7 @@ VerticalPred.exit:                                ; preds = %.preheader.i11, %.p
 
 .preheader.i34.i:                                 ; preds = %69, %.preheader.i34.i
   %indvars.iv.i35.i = phi i64 [ %indvars.iv.next.i36.i, %.preheader.i34.i ], [ 0, %69 ]
-  %71 = shl nsw i64 %indvars.iv.i35.i, 5
+  %71 = shl nuw nsw i64 %indvars.iv.i35.i, 5
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 %71
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %72, ptr noundef nonnull readonly align 1 dereferenceable(16) %2, i64 16, i1 false), !alias.scope !183, !noalias !164
   %indvars.iv.next.i36.i = add nuw nsw i64 %indvars.iv.i35.i, 1
@@ -1661,7 +1661,7 @@ VerticalPred.exit:                                ; preds = %.preheader.i11, %.p
 
 .preheader:                                       ; preds = %69, %.preheader
   %indvars.iv.i41.i = phi i64 [ %indvars.iv.next.i42.i, %.preheader ], [ 0, %69 ]
-  %73 = shl nsw i64 %indvars.iv.i41.i, 5
+  %73 = shl nuw nsw i64 %indvars.iv.i41.i, 5
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 %73
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %74, i8 -127, i64 16, i1 false), !alias.scope !161, !noalias !171
   %indvars.iv.next.i42.i = add nuw nsw i64 %indvars.iv.i41.i, 1
@@ -1757,7 +1757,7 @@ define internal void @IntraChromaPreds_C(ptr noalias noundef writeonly captures(
 
 28:                                               ; preds = %28, %._crit_edge.i
   %indvars.iv.i.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next.i.i, %28 ]
-  %29 = shl nsw i64 %indvars.iv.i.i, 5
+  %29 = shl nuw nsw i64 %indvars.iv.i.i, 5
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 %29
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %30, i8 %27, i64 8, i1 false), !alias.scope !187, !noalias !196
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1774,7 +1774,7 @@ DCMode.exit:                                      ; preds = %28
 
 .preheader.i31:                                   ; preds = %.preheader.i31.preheader, %.preheader.i31
   %indvars.iv.i32 = phi i64 [ %indvars.iv.next.i33, %.preheader.i31 ], [ 0, %.preheader.i31.preheader ]
-  %33 = shl nsw i64 %indvars.iv.i32, 5
+  %33 = shl nuw nsw i64 %indvars.iv.i32, 5
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 %33
   store i64 %32, ptr %34, align 1, !alias.scope !197
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
@@ -1783,7 +1783,7 @@ DCMode.exit:                                      ; preds = %28
 
 .preheader136:                                    ; preds = %DCMode.exit, %.preheader136
   %indvars.iv.i.i35 = phi i64 [ %indvars.iv.next.i.i36, %.preheader136 ], [ 0, %DCMode.exit ]
-  %35 = shl nsw i64 %indvars.iv.i.i35, 5
+  %35 = shl nuw nsw i64 %indvars.iv.i.i35, 5
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 %35
   store i64 9187201950435737471, ptr %36, align 1
   %indvars.iv.next.i.i36 = add nuw nsw i64 %indvars.iv.i.i35, 1
@@ -1799,7 +1799,7 @@ VerticalPred.exit:                                ; preds = %.preheader.i31, %.p
 
 .preheader.i39:                                   ; preds = %VerticalPred.exit, %.preheader.i39
   %indvars.iv.i40 = phi i64 [ %indvars.iv.next.i41, %.preheader.i39 ], [ 0, %VerticalPred.exit ]
-  %38 = shl nsw i64 %indvars.iv.i40, 5
+  %38 = shl nuw nsw i64 %indvars.iv.i40, 5
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i40
   %41 = load i8, ptr %40, align 1, !tbaa !14, !alias.scope !204, !noalias !201
@@ -1810,7 +1810,7 @@ VerticalPred.exit:                                ; preds = %.preheader.i31, %.p
 
 .preheader134:                                    ; preds = %VerticalPred.exit, %.preheader134
   %indvars.iv.i.i43 = phi i64 [ %indvars.iv.next.i.i44, %.preheader134 ], [ 0, %VerticalPred.exit ]
-  %42 = shl nsw i64 %indvars.iv.i.i43, 5
+  %42 = shl nuw nsw i64 %indvars.iv.i.i43, 5
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 %42
   store i64 -9114861777597660799, ptr %43, align 1
   %indvars.iv.next.i.i44 = add nuw nsw i64 %indvars.iv.i.i43, 1
@@ -1867,7 +1867,7 @@ VerticalPred.exit:                                ; preds = %.preheader.i31, %.p
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %66
   %indvars.iv.i.i50 = phi i64 [ %indvars.iv.next.i.i51, %.preheader.i.i ], [ 0, %66 ]
-  %67 = shl nsw i64 %indvars.iv.i.i50, 5
+  %67 = shl nuw nsw i64 %indvars.iv.i.i50, 5
   %68 = getelementptr inbounds nuw i8, ptr %45, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i50
   %70 = load i8, ptr %69, align 1, !tbaa !14, !alias.scope !222, !noalias !223
@@ -1886,7 +1886,7 @@ VerticalPred.exit:                                ; preds = %.preheader.i31, %.p
 
 .preheader.i34.i:                                 ; preds = %.preheader.i34.i.preheader, %.preheader.i34.i
   %indvars.iv.i35.i = phi i64 [ %indvars.iv.next.i36.i, %.preheader.i34.i ], [ 0, %.preheader.i34.i.preheader ]
-  %74 = shl nsw i64 %indvars.iv.i35.i, 5
+  %74 = shl nuw nsw i64 %indvars.iv.i35.i, 5
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 %74
   store i64 %73, ptr %75, align 1, !alias.scope !226, !noalias !209
   %indvars.iv.next.i36.i = add nuw nsw i64 %indvars.iv.i35.i, 1
@@ -1895,7 +1895,7 @@ VerticalPred.exit:                                ; preds = %.preheader.i31, %.p
 
 .preheader133:                                    ; preds = %71, %.preheader133
   %indvars.iv.i41.i = phi i64 [ %indvars.iv.next.i42.i, %.preheader133 ], [ 0, %71 ]
-  %76 = shl nsw i64 %indvars.iv.i41.i, 5
+  %76 = shl nuw nsw i64 %indvars.iv.i41.i, 5
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 %76
   store i64 -9114861777597660799, ptr %77, align 1
   %indvars.iv.next.i42.i = add nuw nsw i64 %indvars.iv.i41.i, 1
@@ -1977,7 +1977,7 @@ VerticalPred.exit:                                ; preds = %.preheader.i31, %.p
 
 105:                                              ; preds = %105, %._crit_edge.i68
   %indvars.iv.i.i70 = phi i64 [ 0, %._crit_edge.i68 ], [ %indvars.iv.next.i.i71, %105 ]
-  %106 = shl nsw i64 %indvars.iv.i.i70, 5
+  %106 = shl nuw nsw i64 %indvars.iv.i.i70, 5
   %107 = getelementptr inbounds nuw i8, ptr %103, i64 %106
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %107, i8 %104, i64 8, i1 false), !alias.scope !230, !noalias !239
   %indvars.iv.next.i.i71 = add nuw nsw i64 %indvars.iv.i.i70, 1
@@ -1994,7 +1994,7 @@ DCMode.exit79:                                    ; preds = %105
 
 .preheader.i81:                                   ; preds = %.preheader.i81.preheader, %.preheader.i81
   %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i83, %.preheader.i81 ], [ 0, %.preheader.i81.preheader ]
-  %110 = shl nsw i64 %indvars.iv.i82, 5
+  %110 = shl nuw nsw i64 %indvars.iv.i82, 5
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 %110
   store i64 %109, ptr %111, align 1, !alias.scope !240
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
@@ -2003,7 +2003,7 @@ DCMode.exit79:                                    ; preds = %105
 
 .preheader131:                                    ; preds = %DCMode.exit79, %.preheader131
   %indvars.iv.i.i85 = phi i64 [ %indvars.iv.next.i.i86, %.preheader131 ], [ 0, %DCMode.exit79 ]
-  %112 = shl nsw i64 %indvars.iv.i.i85, 5
+  %112 = shl nuw nsw i64 %indvars.iv.i.i85, 5
   %113 = getelementptr inbounds nuw i8, ptr %108, i64 %112
   store i64 9187201950435737471, ptr %113, align 1
   %indvars.iv.next.i.i86 = add nuw nsw i64 %indvars.iv.i.i85, 1
@@ -2018,7 +2018,7 @@ VerticalPred.exit88:                              ; preds = %.preheader.i81, %.p
 
 .preheader.i90:                                   ; preds = %VerticalPred.exit88, %.preheader.i90
   %indvars.iv.i91 = phi i64 [ %indvars.iv.next.i92, %.preheader.i90 ], [ 0, %VerticalPred.exit88 ]
-  %115 = shl nsw i64 %indvars.iv.i91, 5
+  %115 = shl nuw nsw i64 %indvars.iv.i91, 5
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %.025124, i64 %indvars.iv.i91
   %118 = load i8, ptr %117, align 1, !tbaa !14, !alias.scope !247, !noalias !244
@@ -2029,7 +2029,7 @@ VerticalPred.exit88:                              ; preds = %.preheader.i81, %.p
 
 .preheader128:                                    ; preds = %VerticalPred.exit88, %.preheader128
   %indvars.iv.i.i94 = phi i64 [ %indvars.iv.next.i.i95, %.preheader128 ], [ 0, %VerticalPred.exit88 ]
-  %119 = shl nsw i64 %indvars.iv.i.i94, 5
+  %119 = shl nuw nsw i64 %indvars.iv.i.i94, 5
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 %119
   store i64 -9114861777597660799, ptr %120, align 1
   %indvars.iv.next.i.i95 = add nuw nsw i64 %indvars.iv.i.i94, 1
@@ -2086,7 +2086,7 @@ VerticalPred.exit88:                              ; preds = %.preheader.i81, %.p
 
 .preheader.i.i107:                                ; preds = %.preheader.i.i107, %143
   %indvars.iv.i.i108 = phi i64 [ %indvars.iv.next.i.i109, %.preheader.i.i107 ], [ 0, %143 ]
-  %144 = shl nsw i64 %indvars.iv.i.i108, 5
+  %144 = shl nuw nsw i64 %indvars.iv.i.i108, 5
   %145 = getelementptr inbounds nuw i8, ptr %122, i64 %144
   %146 = getelementptr inbounds nuw i8, ptr %.025124, i64 %indvars.iv.i.i108
   %147 = load i8, ptr %146, align 1, !tbaa !14, !alias.scope !265, !noalias !266
@@ -2105,7 +2105,7 @@ VerticalPred.exit88:                              ; preds = %.preheader.i81, %.p
 
 .preheader.i34.i111:                              ; preds = %.preheader.i34.i111.preheader, %.preheader.i34.i111
   %indvars.iv.i35.i112 = phi i64 [ %indvars.iv.next.i36.i113, %.preheader.i34.i111 ], [ 0, %.preheader.i34.i111.preheader ]
-  %151 = shl nsw i64 %indvars.iv.i35.i112, 5
+  %151 = shl nuw nsw i64 %indvars.iv.i35.i112, 5
   %152 = getelementptr inbounds nuw i8, ptr %149, i64 %151
   store i64 %150, ptr %152, align 1, !alias.scope !269, !noalias !252
   %indvars.iv.next.i36.i113 = add nuw nsw i64 %indvars.iv.i35.i112, 1
@@ -2114,7 +2114,7 @@ VerticalPred.exit88:                              ; preds = %.preheader.i81, %.p
 
 .preheader:                                       ; preds = %148, %.preheader
   %indvars.iv.i41.i115 = phi i64 [ %indvars.iv.next.i42.i116, %.preheader ], [ 0, %148 ]
-  %153 = shl nsw i64 %indvars.iv.i41.i115, 5
+  %153 = shl nuw nsw i64 %indvars.iv.i41.i115, 5
   %154 = getelementptr inbounds nuw i8, ptr %149, i64 %153
   store i64 -9114861777597660799, ptr %154, align 1
   %indvars.iv.next.i42.i116 = add nuw nsw i64 %indvars.iv.i41.i115, 1

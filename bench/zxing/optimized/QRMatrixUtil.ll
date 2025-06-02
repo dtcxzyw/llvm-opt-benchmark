@@ -74,13 +74,13 @@ define void @_ZN5ZXing6QRCode11BuildMatrixERKNS_8BitArrayENS0_20ErrorCorrectionL
 
 _ZN5ZXing6MatrixINS_4TritEE5clearES1_.exit:       ; preds = %5, %.lr.ph.preheader.i.i.i.i.i
   %24 = load i32, ptr %4, align 8, !tbaa !10
-  br label %.preheader51.i.i
+  br label %.preheader48.i.i
 
-.preheader51.i.i:                                 ; preds = %55, %_ZN5ZXing6MatrixINS_4TritEE5clearES1_.exit
-  %.02553.i.i = phi i32 [ 0, %_ZN5ZXing6MatrixINS_4TritEE5clearES1_.exit ], [ %56, %55 ]
-  %25 = add nsw i32 %.02553.i.i, -3
+.preheader48.i.i:                                 ; preds = %55, %_ZN5ZXing6MatrixINS_4TritEE5clearES1_.exit
+  %.02550.i.i = phi i32 [ 0, %_ZN5ZXing6MatrixINS_4TritEE5clearES1_.exit ], [ %56, %55 ]
+  %25 = add nsw i32 %.02550.i.i, -3
   %26 = tail call i32 @llvm.abs.i32(i32 %25, i1 true)
-  %27 = mul nsw i32 %.02553.i.i, %24
+  %27 = mul nsw i32 %.02550.i.i, %24
   br label %57
 
 .preheader.i.i:                                   ; preds = %55
@@ -93,72 +93,72 @@ _ZN5ZXing6MatrixINS_4TritEE5clearES1_.exit:       ; preds = %5, %.lr.ph.preheade
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %30, i64 7
   br i1 %32, label %.preheader.split.split.us.i.i, label %.preheader.split.split.us.i.us.i
 
-.preheader.split.split.us.i.us.i:                 ; preds = %.preheader.i.i, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.us.i"
-  %.054.us55.i.us.i = phi i32 [ %41, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.us.i" ], [ -1, %.preheader.i.i ]
-  %33 = icmp sgt i32 %.054.us55.i.us.i, -1
-  br i1 %33, label %34, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.us.i"
+.preheader.split.split.us.i.us.i:                 ; preds = %.preheader.i.i, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us61.i.us.i"
+  %.051.us52.i.us.i = phi i32 [ %41, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us61.i.us.i" ], [ -1, %.preheader.i.i ]
+  %33 = icmp sgt i32 %.051.us52.i.us.i, -1
+  br i1 %33, label %34, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us61.i.us.i"
 
 34:                                               ; preds = %.preheader.split.split.us.i.us.i
-  %.pre88.i.us.i = load i32, ptr %29, align 4
-  %35 = icmp slt i32 %.054.us55.i.us.i, %.fr7.i
-  %36 = icmp sgt i32 %.pre88.i.us.i, 7
-  %or.cond44.us59.i.us.i = select i1 %35, i1 %36, i1 false
-  br i1 %or.cond44.us59.i.us.i, label %37, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.us.i"
+  %.pre86.i.us.i = load i32, ptr %29, align 4
+  %35 = icmp slt i32 %.051.us52.i.us.i, %.fr7.i
+  %36 = icmp sgt i32 %.pre86.i.us.i, 7
+  %or.cond44.us56.i.us.i = select i1 %35, i1 %36, i1 false
+  br i1 %or.cond44.us56.i.us.i, label %37, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us61.i.us.i"
 
 37:                                               ; preds = %34
-  %38 = add nuw nsw i32 %.054.us55.i.us.i, %31
+  %38 = add nuw nsw i32 %.051.us52.i.us.i, %31
   %39 = zext nneg i32 %38 to i64
   %40 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %30, i64 %39
   store i8 0, ptr %40, align 1, !tbaa !8
-  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.us.i"
+  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us61.i.us.i"
 
-"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.us.i": ; preds = %37, %34, %.preheader.split.split.us.i.us.i
-  %41 = add nsw i32 %.054.us55.i.us.i, 1
-  %exitcond84.not.i.us.i = icmp eq i32 %41, 8
-  br i1 %exitcond84.not.i.us.i, label %_ZN5ZXing6QRCodeL43EmbedPositionDetectionPatternsAndSeparatorsERNS_6MatrixINS_4TritEEE.exit, label %.preheader.split.split.us.i.us.i, !llvm.loop !17
+"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us61.i.us.i": ; preds = %37, %34, %.preheader.split.split.us.i.us.i
+  %41 = add nsw i32 %.051.us52.i.us.i, 1
+  %exitcond82.not.i.us.i = icmp eq i32 %41, 8
+  br i1 %exitcond82.not.i.us.i, label %_ZN5ZXing6QRCodeL43EmbedPositionDetectionPatternsAndSeparatorsERNS_6MatrixINS_4TritEEE.exit, label %.preheader.split.split.us.i.us.i, !llvm.loop !17
 
-.preheader.split.split.us.i.i:                    ; preds = %.preheader.i.i, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.i"
-  %.054.us55.i.i = phi i32 [ %54, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.i" ], [ -1, %.preheader.i.i ]
-  %42 = icmp sgt i32 %.054.us55.i.i, -1
-  br i1 %42, label %43, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.i"
+.preheader.split.split.us.i.i:                    ; preds = %.preheader.i.i, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us61.i.i"
+  %.051.us52.i.i = phi i32 [ %54, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us61.i.i" ], [ -1, %.preheader.i.i ]
+  %42 = icmp sgt i32 %.051.us52.i.i, -1
+  br i1 %42, label %43, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us61.i.i"
 
 43:                                               ; preds = %.preheader.split.split.us.i.i
-  %.pre88.i.i = load i32, ptr %29, align 4
-  %44 = icmp sgt i32 %.pre88.i.i, 7
-  br i1 %44, label %45, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60.i.i"
+  %.pre86.i.i = load i32, ptr %29, align 4
+  %44 = icmp sgt i32 %.pre86.i.i, 7
+  br i1 %44, label %45, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us57.i.i"
 
 45:                                               ; preds = %43
-  %46 = add nuw nsw i32 %.054.us55.i.i, %31
+  %46 = add nuw nsw i32 %.051.us52.i.i, %31
   %47 = zext nneg i32 %46 to i64
   %48 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %30, i64 %47
   store i8 0, ptr %48, align 1, !tbaa !8
-  %.pre87.i.i = load i32, ptr %29, align 4
-  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60.i.i"
+  %.pre85.i.i = load i32, ptr %29, align 4
+  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us57.i.i"
 
-"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60.i.i": ; preds = %45, %43
-  %49 = phi i32 [ %.pre87.i.i, %45 ], [ %.pre88.i.i, %43 ]
-  %50 = icmp slt i32 %.054.us55.i.i, %49
-  br i1 %50, label %51, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.i"
+"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us57.i.i": ; preds = %45, %43
+  %49 = phi i32 [ %.pre85.i.i, %45 ], [ %.pre86.i.i, %43 ]
+  %50 = icmp slt i32 %.051.us52.i.i, %49
+  br i1 %50, label %51, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us61.i.i"
 
-51:                                               ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60.i.i"
-  %52 = mul nuw nsw i32 %.054.us55.i.i, %.fr7.i
+51:                                               ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us57.i.i"
+  %52 = mul nuw nsw i32 %.051.us52.i.i, %.fr7.i
   %53 = zext nneg i32 %52 to i64
   %gep.i = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %invariant.gep.i, i64 %53
   store i8 0, ptr %gep.i, align 1, !tbaa !8
-  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.i"
+  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us61.i.i"
 
-"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.i": ; preds = %51, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60.i.i", %.preheader.split.split.us.i.i
-  %54 = add nsw i32 %.054.us55.i.i, 1
-  %exitcond84.not.i.i = icmp eq i32 %54, 8
-  br i1 %exitcond84.not.i.i, label %_ZN5ZXing6QRCodeL43EmbedPositionDetectionPatternsAndSeparatorsERNS_6MatrixINS_4TritEEE.exit, label %.preheader.split.split.us.i.i, !llvm.loop !17
+"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us61.i.i": ; preds = %51, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us57.i.i", %.preheader.split.split.us.i.i
+  %54 = add nsw i32 %.051.us52.i.i, 1
+  %exitcond82.not.i.i = icmp eq i32 %54, 8
+  br i1 %exitcond82.not.i.i, label %_ZN5ZXing6QRCodeL43EmbedPositionDetectionPatternsAndSeparatorsERNS_6MatrixINS_4TritEEE.exit, label %.preheader.split.split.us.i.i, !llvm.loop !17
 
 55:                                               ; preds = %57
-  %56 = add nuw nsw i32 %.02553.i.i, 1
-  %exitcond81.not.i.i = icmp eq i32 %56, 7
-  br i1 %exitcond81.not.i.i, label %.preheader.i.i, label %.preheader51.i.i, !llvm.loop !19
+  %56 = add nuw nsw i32 %.02550.i.i, 1
+  %exitcond79.not.i.i = icmp eq i32 %56, 7
+  br i1 %exitcond79.not.i.i, label %.preheader.i.i, label %.preheader48.i.i, !llvm.loop !19
 
-57:                                               ; preds = %57, %.preheader51.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.preheader51.i.i ], [ %indvars.iv.next.i.i, %57 ]
+57:                                               ; preds = %57, %.preheader48.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.preheader48.i.i ], [ %indvars.iv.next.i.i, %57 ]
   %58 = trunc i64 %indvars.iv.i.i to i32
   %59 = add i32 %58, -3
   %60 = tail call i32 @llvm.abs.i32(i32 %59, i1 true)
@@ -173,7 +173,7 @@ _ZN5ZXing6MatrixINS_4TritEE5clearES1_.exit:       ; preds = %5, %.lr.ph.preheade
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 7
   br i1 %exitcond.not.i.i, label %55, label %57, !llvm.loop !20
 
-_ZN5ZXing6QRCodeL43EmbedPositionDetectionPatternsAndSeparatorsERNS_6MatrixINS_4TritEEE.exit: ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.us.i", %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.i"
+_ZN5ZXing6QRCodeL43EmbedPositionDetectionPatternsAndSeparatorsERNS_6MatrixINS_4TritEEE.exit: ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us61.i.us.i", %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us61.i.i"
   %65 = add nsw i32 %.fr7.i, -7
   tail call fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEE(i32 noundef %65, i32 noundef 0, ptr noundef nonnull readonly align 8 dereferenceable(32) %4)
   %66 = load i32, ptr %4, align 8, !tbaa !10
@@ -1677,268 +1677,269 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i32, ptr %2, align 8, !tbaa !10
   %6 = load ptr, ptr %4, align 8, !tbaa !22
-  br label %.preheader51
+  br label %.preheader48
 
-.preheader51:                                     ; preds = %3, %97
-  %.02553 = phi i32 [ 0, %3 ], [ %98, %97 ]
-  %7 = add nsw i32 %.02553, %1
-  %8 = add nsw i32 %.02553, -3
+.preheader48:                                     ; preds = %3, %98
+  %.02550 = phi i32 [ 0, %3 ], [ %99, %98 ]
+  %7 = add nsw i32 %.02550, %1
+  %8 = add nsw i32 %.02550, -3
   %9 = tail call i32 @llvm.abs.i32(i32 %8, i1 true)
   %10 = mul nsw i32 %5, %7
   %invariant.op = add i32 %0, %10
-  br label %99
+  br label %100
 
-.preheader:                                       ; preds = %97
+.preheader:                                       ; preds = %98
   %11 = add nsw i32 %1, -1
   %12 = add nsw i32 %0, -1
   %13 = icmp sgt i32 %0, 0
-  %14 = add nsw i32 %0, 7
-  %15 = icmp sgt i32 %0, -8
-  %16 = load i32, ptr %2, align 8
-  %17 = icmp sgt i32 %1, 0
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %19 = mul nsw i32 %16, %11
-  %20 = load ptr, ptr %4, align 8
-  %21 = add nsw i32 %1, 7
-  %22 = icmp sgt i32 %1, -8
-  %23 = mul nsw i32 %16, %21
-  %24 = icmp sle i32 %0, %16
-  %25 = icmp slt i32 %14, %16
+  %14 = load i32, ptr %2, align 8
+  %15 = icmp sgt i32 %1, 0
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %17 = mul nsw i32 %14, %11
+  %18 = load ptr, ptr %4, align 8
+  %19 = add nsw i32 %1, 7
+  %20 = icmp sgt i32 %1, -8
+  %21 = mul nsw i32 %14, %19
+  %22 = icmp sle i32 %0, %14
+  %23 = icmp sgt i32 %0, -8
+  %24 = load i32, ptr %16, align 4
+  %25 = add nsw i32 %0, 7
+  %26 = icmp slt i32 %25, %14
   br i1 %13, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us"
-  %.054.us = phi i32 [ %59, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us" ], [ -1, %.preheader ]
-  %26 = add nsw i32 %.054.us, %0
-  %27 = icmp sgt i32 %26, -1
-  %.pre91 = load i32, ptr %18, align 4
-  br i1 %27, label %28, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us"
+  %.051.us = phi i32 [ %60, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us" ], [ -1, %.preheader ]
+  %27 = add nsw i32 %.051.us, %0
+  %28 = icmp sgt i32 %27, -1
+  br i1 %28, label %29, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us"
 
-28:                                               ; preds = %.preheader.split.us
-  %29 = icmp slt i32 %26, %16
-  %or.cond.i.us = and i1 %17, %29
-  %30 = icmp sle i32 %1, %.pre91
-  %or.cond.us = select i1 %or.cond.i.us, i1 %30, i1 false
-  br i1 %or.cond.us, label %31, label %35
+29:                                               ; preds = %.preheader.split.us
+  %30 = icmp slt i32 %27, %14
+  %or.cond.i.us = and i1 %15, %30
+  %31 = load i32, ptr %16, align 4
+  %32 = icmp sle i32 %1, %31
+  %or.cond.us = select i1 %or.cond.i.us, i1 %32, i1 false
+  br i1 %or.cond.us, label %33, label %37
 
-31:                                               ; preds = %28
-  %32 = add nuw nsw i32 %19, %26
-  %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %20, i64 %33
-  store i8 0, ptr %34, align 1, !tbaa !8
-  %.pre89 = load i32, ptr %18, align 4
-  br label %35
+33:                                               ; preds = %29
+  %34 = add nuw nsw i32 %17, %27
+  %35 = zext nneg i32 %34 to i64
+  %36 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %18, i64 %35
+  store i8 0, ptr %36, align 1, !tbaa !8
+  %.pre87 = load i32, ptr %16, align 4
+  br label %37
 
-35:                                               ; preds = %31, %28
-  %36 = phi i32 [ %.pre89, %31 ], [ %.pre91, %28 ]
-  %or.cond.i30.us = and i1 %22, %29
-  %37 = icmp slt i32 %21, %36
-  %or.cond44.us = select i1 %or.cond.i30.us, i1 %37, i1 false
-  br i1 %or.cond44.us, label %38, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us"
+37:                                               ; preds = %33, %29
+  %38 = phi i32 [ %.pre87, %33 ], [ %31, %29 ]
+  %or.cond.i30.us = and i1 %20, %30
+  %39 = icmp slt i32 %19, %38
+  %or.cond44.us = select i1 %or.cond.i30.us, i1 %39, i1 false
+  br i1 %or.cond44.us, label %40, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us"
 
-38:                                               ; preds = %35
-  %39 = add nuw nsw i32 %23, %26
-  %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %20, i64 %40
-  store i8 0, ptr %41, align 1, !tbaa !8
-  %.pre90 = load i32, ptr %18, align 4
+40:                                               ; preds = %37
+  %41 = add nuw nsw i32 %21, %27
+  %42 = zext nneg i32 %41 to i64
+  %43 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %18, i64 %42
+  store i8 0, ptr %43, align 1, !tbaa !8
   br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us"
 
-"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us": ; preds = %38, %35, %.preheader.split.us
-  %42 = phi i32 [ %.pre90, %38 ], [ %36, %35 ], [ %.pre91, %.preheader.split.us ]
-  %43 = add nsw i32 %.054.us, %1
-  %44 = icmp sgt i32 %43, -1
-  %or.cond.i32.us = and i1 %44, %24
-  %45 = icmp slt i32 %43, %42
-  %or.cond47.us = select i1 %or.cond.i32.us, i1 %45, i1 false
-  br i1 %or.cond47.us, label %46, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.us"
+"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us": ; preds = %40, %37, %.preheader.split.us
+  %44 = add nsw i32 %.051.us, %1
+  %45 = icmp sgt i32 %44, -1
+  %or.cond.i32.us = and i1 %45, %22
+  br i1 %or.cond.i32.us, label %46, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.us"
+
+"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.us": ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us"
+  br i1 %23, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.thread.us", label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us"
 
 46:                                               ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us"
-  %47 = mul nsw i32 %16, %43
-  %48 = add nuw nsw i32 %12, %47
-  %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %20, i64 %49
-  store i8 0, ptr %50, align 1, !tbaa !8
-  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.us"
+  %47 = icmp slt i32 %44, %24
+  br i1 %47, label %48, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.thread.us"
 
-"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.us": ; preds = %46, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us"
-  br i1 %15, label %51, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us"
+48:                                               ; preds = %46
+  %49 = mul nsw i32 %14, %44
+  %50 = add nuw nsw i32 %12, %49
+  %51 = zext nneg i32 %50 to i64
+  %52 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %18, i64 %51
+  store i8 0, ptr %52, align 1, !tbaa !8
+  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.thread.us"
 
-51:                                               ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.us"
-  %or.cond.i34.us = and i1 %44, %25
-  %52 = load i32, ptr %18, align 4
-  %53 = icmp slt i32 %43, %52
-  %or.cond50.us = select i1 %or.cond.i34.us, i1 %53, i1 false
-  br i1 %or.cond50.us, label %54, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us"
+"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.thread.us": ; preds = %48, %46, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.us"
+  %or.cond.i34.us = and i1 %45, %26
+  %53 = load i32, ptr %16, align 4
+  %54 = icmp slt i32 %44, %53
+  %or.cond47.us = select i1 %or.cond.i34.us, i1 %54, i1 false
+  br i1 %or.cond47.us, label %55, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us"
 
-54:                                               ; preds = %51
-  %55 = mul nsw i32 %16, %43
-  %56 = add nuw nsw i32 %55, %14
-  %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %20, i64 %57
-  store i8 0, ptr %58, align 1, !tbaa !8
+55:                                               ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.thread.us"
+  %56 = mul nsw i32 %14, %44
+  %57 = add nuw nsw i32 %56, %25
+  %58 = zext nneg i32 %57 to i64
+  %59 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %18, i64 %58
+  store i8 0, ptr %59, align 1, !tbaa !8
   br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us"
 
-"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us": ; preds = %54, %51, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.us"
-  %59 = add nsw i32 %.054.us, 1
-  %exitcond85.not = icmp eq i32 %59, 8
-  br i1 %exitcond85.not, label %.split.us, label %.preheader.split.us, !llvm.loop !17
+"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us": ; preds = %55, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.thread.us", %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.us"
+  %60 = add nsw i32 %.051.us, 1
+  %exitcond83.not = icmp eq i32 %60, 8
+  br i1 %exitcond83.not, label %.split.us, label %.preheader.split.us, !llvm.loop !17
 
 .preheader.split:                                 ; preds = %.preheader
-  br i1 %15, label %.preheader.split.split.us, label %.preheader.split.split
+  br i1 %23, label %.preheader.split.split.us, label %.preheader.split.split
 
-.preheader.split.split.us:                        ; preds = %.preheader.split, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63"
-  %.054.us55 = phi i32 [ %85, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63" ], [ -1, %.preheader.split ]
-  %60 = add nsw i32 %.054.us55, %0
-  %61 = icmp sgt i32 %60, -1
-  %.pre88 = load i32, ptr %18, align 4
-  br i1 %61, label %62, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60"
+.preheader.split.split.us:                        ; preds = %.preheader.split, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us61"
+  %.051.us52 = phi i32 [ %86, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us61" ], [ -1, %.preheader.split ]
+  %61 = add nsw i32 %.051.us52, %0
+  %62 = icmp sgt i32 %61, -1
+  %.pre86 = load i32, ptr %16, align 4
+  br i1 %62, label %63, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us57"
 
-62:                                               ; preds = %.preheader.split.split.us
-  %63 = icmp slt i32 %60, %16
-  %or.cond.i.us56 = and i1 %17, %63
-  %64 = icmp sle i32 %1, %.pre88
-  %or.cond.us57 = select i1 %or.cond.i.us56, i1 %64, i1 false
-  br i1 %or.cond.us57, label %65, label %69
+63:                                               ; preds = %.preheader.split.split.us
+  %64 = icmp slt i32 %61, %14
+  %or.cond.i.us53 = and i1 %15, %64
+  %65 = icmp sle i32 %1, %.pre86
+  %or.cond.us54 = select i1 %or.cond.i.us53, i1 %65, i1 false
+  br i1 %or.cond.us54, label %66, label %70
 
-65:                                               ; preds = %62
-  %66 = add nuw nsw i32 %19, %60
-  %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %20, i64 %67
-  store i8 0, ptr %68, align 1, !tbaa !8
-  %.pre86 = load i32, ptr %18, align 4
-  br label %69
+66:                                               ; preds = %63
+  %67 = add nuw nsw i32 %17, %61
+  %68 = zext nneg i32 %67 to i64
+  %69 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %18, i64 %68
+  store i8 0, ptr %69, align 1, !tbaa !8
+  %.pre84 = load i32, ptr %16, align 4
+  br label %70
 
-69:                                               ; preds = %65, %62
-  %70 = phi i32 [ %.pre86, %65 ], [ %.pre88, %62 ]
-  %or.cond.i30.us58 = and i1 %22, %63
-  %71 = icmp slt i32 %21, %70
-  %or.cond44.us59 = select i1 %or.cond.i30.us58, i1 %71, i1 false
-  br i1 %or.cond44.us59, label %72, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60"
+70:                                               ; preds = %66, %63
+  %71 = phi i32 [ %.pre84, %66 ], [ %.pre86, %63 ]
+  %or.cond.i30.us55 = and i1 %20, %64
+  %72 = icmp slt i32 %19, %71
+  %or.cond44.us56 = select i1 %or.cond.i30.us55, i1 %72, i1 false
+  br i1 %or.cond44.us56, label %73, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us57"
 
-72:                                               ; preds = %69
-  %73 = add nuw nsw i32 %23, %60
-  %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %20, i64 %74
-  store i8 0, ptr %75, align 1, !tbaa !8
-  %.pre87 = load i32, ptr %18, align 4
-  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60"
+73:                                               ; preds = %70
+  %74 = add nuw nsw i32 %21, %61
+  %75 = zext nneg i32 %74 to i64
+  %76 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %18, i64 %75
+  store i8 0, ptr %76, align 1, !tbaa !8
+  %.pre85 = load i32, ptr %16, align 4
+  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us57"
 
-"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60": ; preds = %72, %69, %.preheader.split.split.us
-  %76 = phi i32 [ %.pre87, %72 ], [ %70, %69 ], [ %.pre88, %.preheader.split.split.us ]
-  %77 = add nsw i32 %.054.us55, %1
-  %78 = icmp sgt i32 %77, -1
-  %or.cond.i34.us61 = and i1 %78, %25
-  %79 = icmp slt i32 %77, %76
-  %or.cond50.us62 = select i1 %or.cond.i34.us61, i1 %79, i1 false
-  br i1 %or.cond50.us62, label %80, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63"
+"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us57": ; preds = %73, %70, %.preheader.split.split.us
+  %77 = phi i32 [ %.pre85, %73 ], [ %71, %70 ], [ %.pre86, %.preheader.split.split.us ]
+  %78 = add nsw i32 %.051.us52, %1
+  %79 = icmp sgt i32 %78, -1
+  %or.cond.i34.us59 = and i1 %79, %26
+  %80 = icmp slt i32 %78, %77
+  %or.cond47.us60 = select i1 %or.cond.i34.us59, i1 %80, i1 false
+  br i1 %or.cond47.us60, label %81, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us61"
 
-80:                                               ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60"
-  %81 = mul nsw i32 %16, %77
-  %82 = add nuw nsw i32 %81, %14
-  %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %20, i64 %83
-  store i8 0, ptr %84, align 1, !tbaa !8
-  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63"
+81:                                               ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us57"
+  %82 = mul nsw i32 %14, %78
+  %83 = add nuw nsw i32 %82, %25
+  %84 = zext nneg i32 %83 to i64
+  %85 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %18, i64 %84
+  store i8 0, ptr %85, align 1, !tbaa !8
+  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us61"
 
-"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63": ; preds = %80, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60"
-  %85 = add nsw i32 %.054.us55, 1
-  %exitcond84.not = icmp eq i32 %85, 8
-  br i1 %exitcond84.not, label %.split.us, label %.preheader.split.split.us, !llvm.loop !17
+"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us61": ; preds = %81, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us57"
+  %86 = add nsw i32 %.051.us52, 1
+  %exitcond82.not = icmp eq i32 %86, 8
+  br i1 %exitcond82.not, label %.split.us, label %.preheader.split.split.us, !llvm.loop !17
 
 .preheader.split.split:                           ; preds = %.preheader.split
-  br i1 %17, label %.preheader.split.split.split.split, label %.preheader.split.split.split.us
+  br i1 %15, label %.preheader.split.split.split.split, label %.preheader.split.split.split.us
 
 .preheader.split.split.split.us:                  ; preds = %.preheader.split.split
-  br i1 %22, label %.preheader.split.split.split.us.split, label %.split.us
+  br i1 %20, label %.preheader.split.split.split.us.split, label %.split.us
 
-.preheader.split.split.split.us.split:            ; preds = %.preheader.split.split.split.us, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us69"
-  %.054.us64 = phi i32 [ %96, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us69" ], [ -1, %.preheader.split.split.split.us ]
-  %86 = add nsw i32 %.054.us64, %0
-  %87 = icmp sgt i32 %86, -1
-  br i1 %87, label %88, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us69"
+.preheader.split.split.split.us.split:            ; preds = %.preheader.split.split.split.us, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us67"
+  %.051.us62 = phi i32 [ %97, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us67" ], [ -1, %.preheader.split.split.split.us ]
+  %87 = add nsw i32 %.051.us62, %0
+  %88 = icmp sgt i32 %87, -1
+  br i1 %88, label %89, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us67"
 
-88:                                               ; preds = %.preheader.split.split.split.us.split
-  %89 = icmp slt i32 %86, %16
-  %90 = load i32, ptr %18, align 4
-  %91 = icmp slt i32 %21, %90
-  %or.cond44.us68 = select i1 %89, i1 %91, i1 false
-  br i1 %or.cond44.us68, label %92, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us69"
+89:                                               ; preds = %.preheader.split.split.split.us.split
+  %90 = icmp slt i32 %87, %14
+  %91 = load i32, ptr %16, align 4
+  %92 = icmp slt i32 %19, %91
+  %or.cond44.us66 = select i1 %90, i1 %92, i1 false
+  br i1 %or.cond44.us66, label %93, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us67"
 
-92:                                               ; preds = %88
-  %93 = add nuw nsw i32 %23, %86
-  %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %20, i64 %94
-  store i8 0, ptr %95, align 1, !tbaa !8
-  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us69"
+93:                                               ; preds = %89
+  %94 = add nuw nsw i32 %21, %87
+  %95 = zext nneg i32 %94 to i64
+  %96 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %18, i64 %95
+  store i8 0, ptr %96, align 1, !tbaa !8
+  br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us67"
 
-"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us69": ; preds = %92, %88, %.preheader.split.split.split.us.split
-  %96 = add nsw i32 %.054.us64, 1
-  %exitcond82.not = icmp eq i32 %96, 8
-  br i1 %exitcond82.not, label %.split.us, label %.preheader.split.split.split.us.split, !llvm.loop !17
+"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us67": ; preds = %93, %89, %.preheader.split.split.split.us.split
+  %97 = add nsw i32 %.051.us62, 1
+  %exitcond80.not = icmp eq i32 %97, 8
+  br i1 %exitcond80.not, label %.split.us, label %.preheader.split.split.split.us.split, !llvm.loop !17
 
-97:                                               ; preds = %99
-  %98 = add nuw nsw i32 %.02553, 1
-  %exitcond81.not = icmp eq i32 %98, 7
-  br i1 %exitcond81.not, label %.preheader, label %.preheader51, !llvm.loop !19
+98:                                               ; preds = %100
+  %99 = add nuw nsw i32 %.02550, 1
+  %exitcond79.not = icmp eq i32 %99, 7
+  br i1 %exitcond79.not, label %.preheader, label %.preheader48, !llvm.loop !19
 
-99:                                               ; preds = %.preheader51, %99
-  %indvars.iv = phi i64 [ 0, %.preheader51 ], [ %indvars.iv.next, %99 ]
-  %100 = trunc i64 %indvars.iv to i32
-  %101 = add i32 %100, -3
-  %102 = tail call i32 @llvm.abs.i32(i32 %101, i1 true)
-  %.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %102, i32 %9)
-  %103 = icmp ne i32 %.sroa.speculated.i, 2
-  %104 = zext i1 %103 to i8
-  %105 = trunc nuw nsw i64 %indvars.iv to i32
-  %.reass = add i32 %invariant.op, %105
-  %106 = sext i32 %.reass to i64
-  %107 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %6, i64 %106
-  store i8 %104, ptr %107, align 1, !tbaa !8
+100:                                              ; preds = %.preheader48, %100
+  %indvars.iv = phi i64 [ 0, %.preheader48 ], [ %indvars.iv.next, %100 ]
+  %101 = trunc i64 %indvars.iv to i32
+  %102 = add i32 %101, -3
+  %103 = tail call i32 @llvm.abs.i32(i32 %102, i1 true)
+  %.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %103, i32 %9)
+  %104 = icmp ne i32 %.sroa.speculated.i, 2
+  %105 = zext i1 %104 to i8
+  %106 = trunc nuw nsw i64 %indvars.iv to i32
+  %.reass = add i32 %invariant.op, %106
+  %107 = sext i32 %.reass to i64
+  %108 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %6, i64 %107
+  store i8 %105, ptr %108, align 1, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %97, label %99, !llvm.loop !20
+  br i1 %exitcond.not, label %98, label %100, !llvm.loop !20
 
-.split.us:                                        ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us69", %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31", %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63", %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us", %.preheader.split.split.split.us
+.split.us:                                        ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us67", %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31", %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us61", %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us", %.preheader.split.split.split.us
   ret void
 
 .preheader.split.split.split.split:               ; preds = %.preheader.split.split, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31"
-  %.054 = phi i32 [ %125, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31" ], [ -1, %.preheader.split.split ]
-  %108 = add nsw i32 %.054, %0
-  %109 = icmp sgt i32 %108, -1
-  br i1 %109, label %110, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31"
+  %.051 = phi i32 [ %126, %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31" ], [ -1, %.preheader.split.split ]
+  %109 = add nsw i32 %.051, %0
+  %110 = icmp sgt i32 %109, -1
+  br i1 %110, label %111, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31"
 
-110:                                              ; preds = %.preheader.split.split.split.split
-  %111 = icmp slt i32 %108, %16
-  %112 = load i32, ptr %18, align 4
-  %113 = icmp sle i32 %1, %112
-  %or.cond = select i1 %111, i1 %113, i1 false
-  br i1 %or.cond, label %114, label %118
+111:                                              ; preds = %.preheader.split.split.split.split
+  %112 = icmp slt i32 %109, %14
+  %113 = load i32, ptr %16, align 4
+  %114 = icmp sle i32 %1, %113
+  %or.cond = select i1 %112, i1 %114, i1 false
+  br i1 %or.cond, label %115, label %119
 
-114:                                              ; preds = %110
-  %115 = add nuw nsw i32 %19, %108
-  %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %20, i64 %116
-  store i8 0, ptr %117, align 1, !tbaa !8
-  %.pre = load i32, ptr %18, align 4
-  br label %118
+115:                                              ; preds = %111
+  %116 = add nuw nsw i32 %17, %109
+  %117 = zext nneg i32 %116 to i64
+  %118 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %18, i64 %117
+  store i8 0, ptr %118, align 1, !tbaa !8
+  %.pre = load i32, ptr %16, align 4
+  br label %119
 
-118:                                              ; preds = %110, %114
-  %119 = phi i32 [ %112, %110 ], [ %.pre, %114 ]
-  %120 = icmp slt i32 %21, %119
-  %or.cond44 = select i1 %111, i1 %120, i1 false
-  br i1 %or.cond44, label %121, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31"
+119:                                              ; preds = %111, %115
+  %120 = phi i32 [ %113, %111 ], [ %.pre, %115 ]
+  %121 = icmp slt i32 %19, %120
+  %or.cond44 = select i1 %112, i1 %121, i1 false
+  br i1 %or.cond44, label %122, label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31"
 
-121:                                              ; preds = %118
-  %122 = add nuw nsw i32 %23, %108
-  %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %20, i64 %123
-  store i8 0, ptr %124, align 1, !tbaa !8
+122:                                              ; preds = %119
+  %123 = add nuw nsw i32 %21, %109
+  %124 = zext nneg i32 %123 to i64
+  %125 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %18, i64 %124
+  store i8 0, ptr %125, align 1, !tbaa !8
   br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31"
 
-"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31": ; preds = %.preheader.split.split.split.split, %118, %121
-  %125 = add nsw i32 %.054, 1
-  %exitcond83.not = icmp eq i32 %125, 8
-  br i1 %exitcond83.not, label %.split.us, label %.preheader.split.split.split.split, !llvm.loop !17
+"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31": ; preds = %.preheader.split.split.split.split, %119, %122
+  %126 = add nsw i32 %.051, 1
+  %exitcond81.not = icmp eq i32 %126, 8
+  br i1 %exitcond81.not, label %.split.us, label %.preheader.split.split.split.split, !llvm.loop !17
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

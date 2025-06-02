@@ -10553,7 +10553,7 @@ thread-pre-split:                                 ; preds = %4
   %31 = mul i64 %.sroa.023.4100.us, %25
   %32 = add nsw i64 %.sroa.23.3101.us, -1
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.01.3102.us, i64 1
-  %34 = zext i32 %28 to i64
+  %34 = zext nneg i32 %28 to i64
   %35 = sub i64 %31, %34
   %.not73.us = icmp eq i64 %32, 0
   br i1 %.not73.us, label %.loopexit, label %.lr.ph.split.us
@@ -10605,7 +10605,7 @@ thread-pre-split:                                 ; preds = %4
   br label %7
 
 56:                                               ; preds = %52
-  %57 = zext i32 %.sroa.02.0.i to i64
+  %57 = zext nneg i32 %.sroa.02.0.i to i64
   %58 = tail call { i64, i1 } @llvm.ssub.with.overflow.i64(i64 %43, i64 %57)
   %59 = extractvalue { i64, i1 } %58, 1
   %60 = extractvalue { i64, i1 } %58, 0
@@ -10640,7 +10640,7 @@ thread-pre-split:                                 ; preds = %4
   %74 = mul i64 %.sroa.023.4100, %25
   %75 = add nsw i64 %.sroa.23.3101, -1
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.01.3102, i64 1
-  %77 = zext i32 %spec.select to i64
+  %77 = zext nneg i32 %spec.select to i64
   %78 = sub i64 %74, %77
   %.not73 = icmp eq i64 %75, 0
   br i1 %.not73, label %.loopexit, label %.lr.ph.split
@@ -10686,7 +10686,7 @@ thread-pre-split:                                 ; preds = %4
   %91 = mul i64 %.sroa.023.2104.us, %85
   %92 = add nsw i64 %.sroa.23.1105.us, -1
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.01.1106.us, i64 1
-  %94 = zext i32 %88 to i64
+  %94 = zext nneg i32 %88 to i64
   %95 = add i64 %91, %94
   %.not75.us = icmp eq i64 %92, 0
   br i1 %.not75.us, label %.loopexit, label %.lr.ph107.split.us
@@ -10718,7 +10718,7 @@ thread-pre-split:                                 ; preds = %4
   br label %7
 
 113:                                              ; preds = %109
-  %114 = zext i32 %.sroa.02.0.i80 to i64
+  %114 = zext nneg i32 %.sroa.02.0.i80 to i64
   %115 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %100, i64 %114)
   %116 = extractvalue { i64, i1 } %115, 1
   %117 = extractvalue { i64, i1 } %115, 0
@@ -10753,7 +10753,7 @@ thread-pre-split:                                 ; preds = %4
   %131 = mul i64 %.sroa.023.2104, %85
   %132 = add nsw i64 %.sroa.23.1105, -1
   %133 = getelementptr inbounds nuw i8, ptr %.sroa.01.1106, i64 1
-  %134 = zext i32 %spec.select114 to i64
+  %134 = zext nneg i32 %spec.select114 to i64
   %135 = add i64 %131, %134
   %.not75 = icmp eq i64 %132, 0
   br i1 %.not75, label %.loopexit, label %.lr.ph107.split

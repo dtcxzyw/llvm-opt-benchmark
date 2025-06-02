@@ -155676,10 +155676,10 @@ _ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE.exit.i.i: 
   br label %71
 
 71:                                               ; preds = %102, %.lr.ph.i
-  %.0133.i = phi i64 [ %.128, %.lr.ph.i ], [ %.04.i, %102 ]
+  %.0133.i = phi i64 [ %.128, %.lr.ph.i ], [ %.0467.i, %102 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
-  %.04.i = sdiv i64 %.04.in.i, 2
-  %72 = getelementptr inbounds ptr, ptr %0, i64 %.04.i
+  %.0467.i = lshr i64 %.04.in.i, 1
+  %72 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0467.i
   %.val.i = load ptr, ptr %72, align 8, !tbaa !1277
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %73 = getelementptr inbounds nuw i8, ptr %.val.i, i64 128
@@ -155744,11 +155744,11 @@ _ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE.exit.i.i.i
   %103 = load ptr, ptr %72, align 8, !tbaa !1277
   %104 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i
   store ptr %103, ptr %104, align 8, !tbaa !1277
-  %105 = icmp sgt i64 %.04.i, %1
+  %105 = icmp samesign ugt i64 %.0467.i, %1
   br i1 %105, label %71, label %"_ZSt11__push_heapIPPN5clang13CXXRecordDeclElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL36structHasUniqueObjectRepresentationsRKNS0_10ASTContextEPKNS0_10RecordDeclEbE3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !2097
 
 "_ZSt11__push_heapIPPN5clang13CXXRecordDeclElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL36structHasUniqueObjectRepresentationsRKNS0_10ASTContextEPKNS0_10RecordDeclEbE3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL36structHasUniqueObjectRepresentationsRKN5clang10ASTContextEPKNS2_10RecordDeclEbE3$_0EclIPPNS2_13CXXRecordDeclESD_EEbT_RT0_.exit.i", %102, %66
-  %.013.lcssa.i = phi i64 [ %.128, %66 ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL36structHasUniqueObjectRepresentationsRKN5clang10ASTContextEPKNS2_10RecordDeclEbE3$_0EclIPPNS2_13CXXRecordDeclESD_EEbT_RT0_.exit.i" ], [ %.04.i, %102 ]
+  %.013.lcssa.i = phi i64 [ %.128, %66 ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL36structHasUniqueObjectRepresentationsRKN5clang10ASTContextEPKNS2_10RecordDeclEbE3$_0EclIPPNS2_13CXXRecordDeclESD_EEbT_RT0_.exit.i" ], [ %.0467.i, %102 ]
   %106 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %106, align 8, !tbaa !1277
   ret void

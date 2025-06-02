@@ -3062,7 +3062,7 @@ define internal fastcc void @decompTest(ptr noundef nonnull %0, ptr noundef %1, 
   %13 = load i32, ptr %8, align 4
   %14 = icmp ne i32 %13, 0
   %or.cond = select i1 %12, i1 %14, i1 false
-  br i1 %or.cond, label %.preheader, label %46
+  br i1 %or.cond, label %.preheader, label %34
 
 .preheader:                                       ; preds = %10
   %15 = icmp sgt i32 %13, 0
@@ -3091,12 +3091,12 @@ define internal fastcc void @decompTest(ptr noundef nonnull %0, ptr noundef %1, 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %21 = add nsw i32 %6, -5
   %or.cond5 = icmp ult i32 %21, 2
-  br i1 %or.cond5, label %.lr.ph.split.split.us, label %.lr.ph.split.split.split.us
+  br i1 %or.cond5, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.thread.us4
   %22 = phi i32 [ %31, %.thread.us4 ], [ %13, %.lr.ph.split ]
-  %indvars.iv14 = phi i64 [ %indvars.iv.next15, %.thread.us4 ], [ 0, %.lr.ph.split ]
-  %23 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr %11, i64 %indvars.iv14
+  %indvars.iv11 = phi i64 [ %indvars.iv.next12, %.thread.us4 ], [ 0, %.lr.ph.split ]
+  %23 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr %11, i64 %indvars.iv11
   %24 = load i32, ptr %23, align 4, !tbaa !39
   %25 = icmp eq i32 %24, 1
   br i1 %25, label %26, label %.thread.us4
@@ -3111,53 +3111,53 @@ define internal fastcc void @decompTest(ptr noundef nonnull %0, ptr noundef %1, 
 29:                                               ; preds = %26
   %30 = load i64, ptr %23, align 4
   call fastcc void @_decompTest(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 %30)
-  %.pre17 = load i32, ptr %8, align 4, !tbaa !9
+  %.pre14 = load i32, ptr %8, align 4, !tbaa !9
   br label %.thread.us4
 
 .thread.us4:                                      ; preds = %29, %26, %.lr.ph.split.split.us
-  %31 = phi i32 [ %.pre17, %29 ], [ %22, %26 ], [ %22, %.lr.ph.split.split.us ]
-  %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
+  %31 = phi i32 [ %.pre14, %29 ], [ %22, %26 ], [ %22, %.lr.ph.split.split.us ]
+  %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
   %32 = sext i32 %31 to i64
-  %33 = icmp slt i64 %indvars.iv.next15, %32
+  %33 = icmp slt i64 %indvars.iv.next12, %32
   br i1 %33, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !38
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split, %.thread.us6
-  %34 = phi i32 [ %43, %.thread.us6 ], [ %13, %.lr.ph.split ]
-  %indvars.iv11 = phi i64 [ %indvars.iv.next12, %.thread.us6 ], [ 0, %.lr.ph.split ]
-  %35 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr %11, i64 %indvars.iv11
-  %36 = load i32, ptr %35, align 4, !tbaa !39
-  %37 = icmp eq i32 %36, 1
-  br i1 %37, label %38, label %.thread.us6
-
-38:                                               ; preds = %.lr.ph.split.split.split.us
-  %39 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %40 = load i32, ptr %39, align 4, !tbaa !41
-  switch i32 %40, label %.thread.us6 [
-    i32 4, label %41
-    i32 2, label %41
-    i32 1, label %41
-  ]
-
-41:                                               ; preds = %38, %38, %38
-  %42 = load i64, ptr %35, align 4
-  call fastcc void @_decompTest(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 %42)
-  %.pre = load i32, ptr %8, align 4, !tbaa !9
-  br label %.thread.us6
-
-.thread.us6:                                      ; preds = %41, %38, %.lr.ph.split.split.split.us
-  %43 = phi i32 [ %.pre, %41 ], [ %34, %38 ], [ %34, %.lr.ph.split.split.split.us ]
-  %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
-  %44 = sext i32 %43 to i64
-  %45 = icmp slt i64 %indvars.iv.next12, %44
-  br i1 %45, label %.lr.ph.split.split.split.us, label %.loopexit, !llvm.loop !38
-
-46:                                               ; preds = %10
-  %47 = call ptr @tj3GetErrorStr(ptr noundef null) #21
-  %48 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.75, ptr noundef %47)
+34:                                               ; preds = %10
+  %35 = call ptr @tj3GetErrorStr(ptr noundef null) #21
+  %36 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.75, ptr noundef %35)
   store i1 true, ptr @exitStatus, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread.us, %.thread.us6, %.thread.us4, %.preheader, %46, %9
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %.thread
+  %37 = phi i32 [ %46, %.thread ], [ %13, %.lr.ph.split ]
+  %indvars.iv8 = phi i64 [ %indvars.iv.next9, %.thread ], [ 0, %.lr.ph.split ]
+  %38 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr %11, i64 %indvars.iv8
+  %39 = load i32, ptr %38, align 4, !tbaa !39
+  %40 = icmp eq i32 %39, 1
+  br i1 %40, label %41, label %.thread
+
+41:                                               ; preds = %.lr.ph.split.split
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %43 = load i32, ptr %42, align 4, !tbaa !41
+  switch i32 %43, label %.thread [
+    i32 4, label %44
+    i32 2, label %44
+    i32 1, label %44
+  ]
+
+44:                                               ; preds = %41, %41, %41
+  %45 = load i64, ptr %38, align 4
+  call fastcc void @_decompTest(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 %45)
+  %.pre = load i32, ptr %8, align 4, !tbaa !9
+  br label %.thread
+
+.thread:                                          ; preds = %41, %.lr.ph.split.split, %44
+  %46 = phi i32 [ %37, %41 ], [ %37, %.lr.ph.split.split ], [ %.pre, %44 ]
+  %indvars.iv.next9 = add nuw nsw i64 %indvars.iv8, 1
+  %47 = sext i32 %46 to i64
+  %48 = icmp slt i64 %indvars.iv.next9, %47
+  br i1 %48, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !38
+
+.loopexit:                                        ; preds = %.thread.us, %.thread, %.thread.us4, %.preheader, %34, %9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #21
   ret void
 }

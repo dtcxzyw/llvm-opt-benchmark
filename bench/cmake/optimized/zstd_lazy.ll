@@ -29892,18 +29892,18 @@ define internal fastcc i64 @ZSTD_BtFindBestMatch_noDict_4(ptr noundef captures(n
   %27 = load i32, ptr %26, align 4, !tbaa !34
   %28 = sub i32 32, %27
   %29 = and i64 %23, 4294967295
-  br label %ZSTD_hashPtr.exit.us12.i
+  br label %ZSTD_hashPtr.exit.i
 
-ZSTD_hashPtr.exit.us12.i:                         ; preds = %ZSTD_hashPtr.exit.us12.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %ZSTD_hashPtr.exit.us12.i ], [ %9, %.lr.ph.i ]
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
-  %.val.us.i = load i32, ptr %30, align 1, !tbaa !24
-  %31 = mul i32 %.val.us.i, -1640531535
+ZSTD_hashPtr.exit.i:                              ; preds = %ZSTD_hashPtr.exit.i, %.lr.ph.i
+  %indvars.iv12.i = phi i64 [ %indvars.iv.next13.i, %ZSTD_hashPtr.exit.i ], [ %9, %.lr.ph.i ]
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv12.i
+  %.val.i = load i32, ptr %30, align 1, !tbaa !24
+  %31 = mul i32 %.val.i, -1640531535
   %32 = lshr i32 %31, %28
   %33 = zext i32 %32 to i64
   %34 = getelementptr inbounds nuw i32, ptr %14, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !24
-  %36 = trunc nuw i64 %indvars.iv.i to i32
+  %36 = trunc nuw i64 %indvars.iv12.i to i32
   %37 = and i32 %36, %20
   %38 = shl nuw i32 %37, 1
   %39 = zext i32 %38 to i64
@@ -29912,11 +29912,11 @@ ZSTD_hashPtr.exit.us12.i:                         ; preds = %ZSTD_hashPtr.exit.u
   store i32 %36, ptr %34, align 4, !tbaa !24
   store i32 %35, ptr %40, align 4, !tbaa !24
   store i32 1, ptr %41, align 4, !tbaa !24
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %29
-  br i1 %exitcond.not, label %ZSTD_updateDUBT.exit, label %ZSTD_hashPtr.exit.us12.i, !llvm.loop !74
+  %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next13.i, %29
+  br i1 %exitcond.not, label %ZSTD_updateDUBT.exit, label %ZSTD_hashPtr.exit.i, !llvm.loop !74
 
-ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.us12.i, %12
+ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.i, %12
   store i32 %24, ptr %7, align 4, !tbaa !20
   %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 4, i32 noundef 0)
   br label %ZSTD_BtFindBestMatch.exit
@@ -29963,14 +29963,14 @@ define internal fastcc i64 @ZSTD_BtFindBestMatch_noDict_5(ptr noundef captures(n
   br label %ZSTD_hashPtr.exit.us4.i
 
 ZSTD_hashPtr.exit.us4.i:                          ; preds = %ZSTD_hashPtr.exit.us4.i, %.lr.ph.i
-  %indvars.iv21.i = phi i64 [ %indvars.iv.next22.i, %ZSTD_hashPtr.exit.us4.i ], [ %9, %.lr.ph.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv21.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %ZSTD_hashPtr.exit.us4.i ], [ %9, %.lr.ph.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
   %.val33.us.i = load i64, ptr %31, align 1, !tbaa !25
   %32 = mul i64 %.val33.us.i, -3523014627271114752
   %33 = lshr i64 %32, %29
   %34 = getelementptr inbounds nuw i32, ptr %14, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !24
-  %36 = trunc nuw i64 %indvars.iv21.i to i32
+  %36 = trunc nuw i64 %indvars.iv.i to i32
   %37 = and i32 %36, %20
   %38 = shl nuw i32 %37, 1
   %39 = zext i32 %38 to i64
@@ -29979,8 +29979,8 @@ ZSTD_hashPtr.exit.us4.i:                          ; preds = %ZSTD_hashPtr.exit.u
   store i32 %36, ptr %34, align 4, !tbaa !24
   store i32 %35, ptr %40, align 4, !tbaa !24
   store i32 1, ptr %41, align 4, !tbaa !24
-  %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next22.i, %30
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %30
   br i1 %exitcond.not, label %ZSTD_updateDUBT.exit, label %ZSTD_hashPtr.exit.us4.i, !llvm.loop !74
 
 ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.us4.i, %12
@@ -30027,17 +30027,17 @@ define internal fastcc i64 @ZSTD_BtFindBestMatch_noDict_6(ptr noundef captures(n
   %28 = sub i32 64, %27
   %29 = zext nneg i32 %28 to i64
   %30 = and i64 %23, 4294967295
-  br label %ZSTD_hashPtr.exit.us8.i
+  br label %ZSTD_hashPtr.exit.us.i
 
-ZSTD_hashPtr.exit.us8.i:                          ; preds = %ZSTD_hashPtr.exit.us8.i, %.lr.ph.i
-  %indvars.iv18.i = phi i64 [ %indvars.iv.next19.i, %ZSTD_hashPtr.exit.us8.i ], [ %9, %.lr.ph.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv18.i
+ZSTD_hashPtr.exit.us.i:                           ; preds = %ZSTD_hashPtr.exit.us.i, %.lr.ph.i
+  %indvars.iv9.i = phi i64 [ %indvars.iv.next10.i, %ZSTD_hashPtr.exit.us.i ], [ %9, %.lr.ph.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv9.i
   %.val34.us.i = load i64, ptr %31, align 1, !tbaa !25
   %32 = mul i64 %.val34.us.i, -3523014627193847808
   %33 = lshr i64 %32, %29
   %34 = getelementptr inbounds nuw i32, ptr %14, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !24
-  %36 = trunc nuw i64 %indvars.iv18.i to i32
+  %36 = trunc nuw i64 %indvars.iv9.i to i32
   %37 = and i32 %36, %20
   %38 = shl nuw i32 %37, 1
   %39 = zext i32 %38 to i64
@@ -30046,11 +30046,11 @@ ZSTD_hashPtr.exit.us8.i:                          ; preds = %ZSTD_hashPtr.exit.u
   store i32 %36, ptr %34, align 4, !tbaa !24
   store i32 %35, ptr %40, align 4, !tbaa !24
   store i32 1, ptr %41, align 4, !tbaa !24
-  %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next19.i, %30
-  br i1 %exitcond.not, label %ZSTD_updateDUBT.exit, label %ZSTD_hashPtr.exit.us8.i, !llvm.loop !74
+  %indvars.iv.next10.i = add nuw nsw i64 %indvars.iv9.i, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next10.i, %30
+  br i1 %exitcond.not, label %ZSTD_updateDUBT.exit, label %ZSTD_hashPtr.exit.us.i, !llvm.loop !74
 
-ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.us8.i, %12
+ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.us.i, %12
   store i32 %24, ptr %7, align 4, !tbaa !20
   %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 6, i32 noundef 0)
   br label %ZSTD_BtFindBestMatch.exit
@@ -35488,18 +35488,18 @@ define internal fastcc i64 @ZSTD_BtFindBestMatch_extDict_4(ptr noundef captures(
   %27 = load i32, ptr %26, align 4, !tbaa !34
   %28 = sub i32 32, %27
   %29 = and i64 %23, 4294967295
-  br label %ZSTD_hashPtr.exit.us12.i
+  br label %ZSTD_hashPtr.exit.i
 
-ZSTD_hashPtr.exit.us12.i:                         ; preds = %ZSTD_hashPtr.exit.us12.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %ZSTD_hashPtr.exit.us12.i ], [ %9, %.lr.ph.i ]
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
-  %.val.us.i = load i32, ptr %30, align 1, !tbaa !24
-  %31 = mul i32 %.val.us.i, -1640531535
+ZSTD_hashPtr.exit.i:                              ; preds = %ZSTD_hashPtr.exit.i, %.lr.ph.i
+  %indvars.iv12.i = phi i64 [ %indvars.iv.next13.i, %ZSTD_hashPtr.exit.i ], [ %9, %.lr.ph.i ]
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv12.i
+  %.val.i = load i32, ptr %30, align 1, !tbaa !24
+  %31 = mul i32 %.val.i, -1640531535
   %32 = lshr i32 %31, %28
   %33 = zext i32 %32 to i64
   %34 = getelementptr inbounds nuw i32, ptr %14, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !24
-  %36 = trunc nuw i64 %indvars.iv.i to i32
+  %36 = trunc nuw i64 %indvars.iv12.i to i32
   %37 = and i32 %36, %20
   %38 = shl nuw i32 %37, 1
   %39 = zext i32 %38 to i64
@@ -35508,11 +35508,11 @@ ZSTD_hashPtr.exit.us12.i:                         ; preds = %ZSTD_hashPtr.exit.u
   store i32 %36, ptr %34, align 4, !tbaa !24
   store i32 %35, ptr %40, align 4, !tbaa !24
   store i32 1, ptr %41, align 4, !tbaa !24
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %29
-  br i1 %exitcond.not, label %ZSTD_updateDUBT.exit, label %ZSTD_hashPtr.exit.us12.i, !llvm.loop !74
+  %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next13.i, %29
+  br i1 %exitcond.not, label %ZSTD_updateDUBT.exit, label %ZSTD_hashPtr.exit.i, !llvm.loop !74
 
-ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.us12.i, %12
+ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.i, %12
   store i32 %24, ptr %7, align 4, !tbaa !20
   %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 4, i32 noundef 1)
   br label %ZSTD_BtFindBestMatch.exit
@@ -35559,14 +35559,14 @@ define internal fastcc i64 @ZSTD_BtFindBestMatch_extDict_5(ptr noundef captures(
   br label %ZSTD_hashPtr.exit.us4.i
 
 ZSTD_hashPtr.exit.us4.i:                          ; preds = %ZSTD_hashPtr.exit.us4.i, %.lr.ph.i
-  %indvars.iv21.i = phi i64 [ %indvars.iv.next22.i, %ZSTD_hashPtr.exit.us4.i ], [ %9, %.lr.ph.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv21.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %ZSTD_hashPtr.exit.us4.i ], [ %9, %.lr.ph.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
   %.val33.us.i = load i64, ptr %31, align 1, !tbaa !25
   %32 = mul i64 %.val33.us.i, -3523014627271114752
   %33 = lshr i64 %32, %29
   %34 = getelementptr inbounds nuw i32, ptr %14, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !24
-  %36 = trunc nuw i64 %indvars.iv21.i to i32
+  %36 = trunc nuw i64 %indvars.iv.i to i32
   %37 = and i32 %36, %20
   %38 = shl nuw i32 %37, 1
   %39 = zext i32 %38 to i64
@@ -35575,8 +35575,8 @@ ZSTD_hashPtr.exit.us4.i:                          ; preds = %ZSTD_hashPtr.exit.u
   store i32 %36, ptr %34, align 4, !tbaa !24
   store i32 %35, ptr %40, align 4, !tbaa !24
   store i32 1, ptr %41, align 4, !tbaa !24
-  %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next22.i, %30
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %30
   br i1 %exitcond.not, label %ZSTD_updateDUBT.exit, label %ZSTD_hashPtr.exit.us4.i, !llvm.loop !74
 
 ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.us4.i, %12
@@ -35623,17 +35623,17 @@ define internal fastcc i64 @ZSTD_BtFindBestMatch_extDict_6(ptr noundef captures(
   %28 = sub i32 64, %27
   %29 = zext nneg i32 %28 to i64
   %30 = and i64 %23, 4294967295
-  br label %ZSTD_hashPtr.exit.us8.i
+  br label %ZSTD_hashPtr.exit.us.i
 
-ZSTD_hashPtr.exit.us8.i:                          ; preds = %ZSTD_hashPtr.exit.us8.i, %.lr.ph.i
-  %indvars.iv18.i = phi i64 [ %indvars.iv.next19.i, %ZSTD_hashPtr.exit.us8.i ], [ %9, %.lr.ph.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv18.i
+ZSTD_hashPtr.exit.us.i:                           ; preds = %ZSTD_hashPtr.exit.us.i, %.lr.ph.i
+  %indvars.iv9.i = phi i64 [ %indvars.iv.next10.i, %ZSTD_hashPtr.exit.us.i ], [ %9, %.lr.ph.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv9.i
   %.val34.us.i = load i64, ptr %31, align 1, !tbaa !25
   %32 = mul i64 %.val34.us.i, -3523014627193847808
   %33 = lshr i64 %32, %29
   %34 = getelementptr inbounds nuw i32, ptr %14, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !24
-  %36 = trunc nuw i64 %indvars.iv18.i to i32
+  %36 = trunc nuw i64 %indvars.iv9.i to i32
   %37 = and i32 %36, %20
   %38 = shl nuw i32 %37, 1
   %39 = zext i32 %38 to i64
@@ -35642,11 +35642,11 @@ ZSTD_hashPtr.exit.us8.i:                          ; preds = %ZSTD_hashPtr.exit.u
   store i32 %36, ptr %34, align 4, !tbaa !24
   store i32 %35, ptr %40, align 4, !tbaa !24
   store i32 1, ptr %41, align 4, !tbaa !24
-  %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next19.i, %30
-  br i1 %exitcond.not, label %ZSTD_updateDUBT.exit, label %ZSTD_hashPtr.exit.us8.i, !llvm.loop !74
+  %indvars.iv.next10.i = add nuw nsw i64 %indvars.iv9.i, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next10.i, %30
+  br i1 %exitcond.not, label %ZSTD_updateDUBT.exit, label %ZSTD_hashPtr.exit.us.i, !llvm.loop !74
 
-ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.us8.i, %12
+ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.us.i, %12
   store i32 %24, ptr %7, align 4, !tbaa !20
   %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 6, i32 noundef 1)
   br label %ZSTD_BtFindBestMatch.exit
@@ -41777,18 +41777,18 @@ define internal fastcc i64 @ZSTD_BtFindBestMatch_dictMatchState_4(ptr noundef ca
   %27 = load i32, ptr %26, align 4, !tbaa !34
   %28 = sub i32 32, %27
   %29 = and i64 %23, 4294967295
-  br label %ZSTD_hashPtr.exit.us12.i
+  br label %ZSTD_hashPtr.exit.i
 
-ZSTD_hashPtr.exit.us12.i:                         ; preds = %ZSTD_hashPtr.exit.us12.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %ZSTD_hashPtr.exit.us12.i ], [ %9, %.lr.ph.i ]
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
-  %.val.us.i = load i32, ptr %30, align 1, !tbaa !24
-  %31 = mul i32 %.val.us.i, -1640531535
+ZSTD_hashPtr.exit.i:                              ; preds = %ZSTD_hashPtr.exit.i, %.lr.ph.i
+  %indvars.iv12.i = phi i64 [ %indvars.iv.next13.i, %ZSTD_hashPtr.exit.i ], [ %9, %.lr.ph.i ]
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv12.i
+  %.val.i = load i32, ptr %30, align 1, !tbaa !24
+  %31 = mul i32 %.val.i, -1640531535
   %32 = lshr i32 %31, %28
   %33 = zext i32 %32 to i64
   %34 = getelementptr inbounds nuw i32, ptr %14, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !24
-  %36 = trunc nuw i64 %indvars.iv.i to i32
+  %36 = trunc nuw i64 %indvars.iv12.i to i32
   %37 = and i32 %36, %20
   %38 = shl nuw i32 %37, 1
   %39 = zext i32 %38 to i64
@@ -41797,11 +41797,11 @@ ZSTD_hashPtr.exit.us12.i:                         ; preds = %ZSTD_hashPtr.exit.u
   store i32 %36, ptr %34, align 4, !tbaa !24
   store i32 %35, ptr %40, align 4, !tbaa !24
   store i32 1, ptr %41, align 4, !tbaa !24
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %29
-  br i1 %exitcond.not, label %ZSTD_updateDUBT.exit, label %ZSTD_hashPtr.exit.us12.i, !llvm.loop !74
+  %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next13.i, %29
+  br i1 %exitcond.not, label %ZSTD_updateDUBT.exit, label %ZSTD_hashPtr.exit.i, !llvm.loop !74
 
-ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.us12.i, %12
+ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.i, %12
   store i32 %24, ptr %7, align 4, !tbaa !20
   %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 4, i32 noundef 2)
   br label %ZSTD_BtFindBestMatch.exit
@@ -41848,14 +41848,14 @@ define internal fastcc i64 @ZSTD_BtFindBestMatch_dictMatchState_5(ptr noundef ca
   br label %ZSTD_hashPtr.exit.us4.i
 
 ZSTD_hashPtr.exit.us4.i:                          ; preds = %ZSTD_hashPtr.exit.us4.i, %.lr.ph.i
-  %indvars.iv21.i = phi i64 [ %indvars.iv.next22.i, %ZSTD_hashPtr.exit.us4.i ], [ %9, %.lr.ph.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv21.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %ZSTD_hashPtr.exit.us4.i ], [ %9, %.lr.ph.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
   %.val33.us.i = load i64, ptr %31, align 1, !tbaa !25
   %32 = mul i64 %.val33.us.i, -3523014627271114752
   %33 = lshr i64 %32, %29
   %34 = getelementptr inbounds nuw i32, ptr %14, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !24
-  %36 = trunc nuw i64 %indvars.iv21.i to i32
+  %36 = trunc nuw i64 %indvars.iv.i to i32
   %37 = and i32 %36, %20
   %38 = shl nuw i32 %37, 1
   %39 = zext i32 %38 to i64
@@ -41864,8 +41864,8 @@ ZSTD_hashPtr.exit.us4.i:                          ; preds = %ZSTD_hashPtr.exit.u
   store i32 %36, ptr %34, align 4, !tbaa !24
   store i32 %35, ptr %40, align 4, !tbaa !24
   store i32 1, ptr %41, align 4, !tbaa !24
-  %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next22.i, %30
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %30
   br i1 %exitcond.not, label %ZSTD_updateDUBT.exit, label %ZSTD_hashPtr.exit.us4.i, !llvm.loop !74
 
 ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.us4.i, %12
@@ -41912,17 +41912,17 @@ define internal fastcc i64 @ZSTD_BtFindBestMatch_dictMatchState_6(ptr noundef ca
   %28 = sub i32 64, %27
   %29 = zext nneg i32 %28 to i64
   %30 = and i64 %23, 4294967295
-  br label %ZSTD_hashPtr.exit.us8.i
+  br label %ZSTD_hashPtr.exit.us.i
 
-ZSTD_hashPtr.exit.us8.i:                          ; preds = %ZSTD_hashPtr.exit.us8.i, %.lr.ph.i
-  %indvars.iv18.i = phi i64 [ %indvars.iv.next19.i, %ZSTD_hashPtr.exit.us8.i ], [ %9, %.lr.ph.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv18.i
+ZSTD_hashPtr.exit.us.i:                           ; preds = %ZSTD_hashPtr.exit.us.i, %.lr.ph.i
+  %indvars.iv9.i = phi i64 [ %indvars.iv.next10.i, %ZSTD_hashPtr.exit.us.i ], [ %9, %.lr.ph.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv9.i
   %.val34.us.i = load i64, ptr %31, align 1, !tbaa !25
   %32 = mul i64 %.val34.us.i, -3523014627193847808
   %33 = lshr i64 %32, %29
   %34 = getelementptr inbounds nuw i32, ptr %14, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !24
-  %36 = trunc nuw i64 %indvars.iv18.i to i32
+  %36 = trunc nuw i64 %indvars.iv9.i to i32
   %37 = and i32 %36, %20
   %38 = shl nuw i32 %37, 1
   %39 = zext i32 %38 to i64
@@ -41931,11 +41931,11 @@ ZSTD_hashPtr.exit.us8.i:                          ; preds = %ZSTD_hashPtr.exit.u
   store i32 %36, ptr %34, align 4, !tbaa !24
   store i32 %35, ptr %40, align 4, !tbaa !24
   store i32 1, ptr %41, align 4, !tbaa !24
-  %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next19.i, %30
-  br i1 %exitcond.not, label %ZSTD_updateDUBT.exit, label %ZSTD_hashPtr.exit.us8.i, !llvm.loop !74
+  %indvars.iv.next10.i = add nuw nsw i64 %indvars.iv9.i, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next10.i, %30
+  br i1 %exitcond.not, label %ZSTD_updateDUBT.exit, label %ZSTD_hashPtr.exit.us.i, !llvm.loop !74
 
-ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.us8.i, %12
+ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.us.i, %12
   store i32 %24, ptr %7, align 4, !tbaa !20
   %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 6, i32 noundef 2)
   br label %ZSTD_BtFindBestMatch.exit

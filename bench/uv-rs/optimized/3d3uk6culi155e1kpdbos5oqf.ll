@@ -40865,7 +40865,7 @@ define internal fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12r
   %25 = lshr i128 %24, 64
   %26 = xor i128 %25, %24
   %27 = trunc i128 %26 to i64
-  %28 = icmp ult i64 %18, %11
+  %28 = icmp samesign ult i64 %18, %11
   br i1 %28, label %.lr.ph.i.i.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit70.i.i.i.i.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit70.i.i.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hae23c80f6cc75894E.llvm.10297654043934454820.exit61.i.i.i.i.i"
@@ -40976,7 +40976,7 @@ _ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit.i.i: ; preds = %"_ZN4cor
   %82 = lshr i128 %81, 64
   %83 = xor i128 %82, %81
   %84 = trunc i128 %83 to i64
-  %85 = icmp ult i64 %75, %68
+  %85 = icmp samesign ult i64 %75, %68
   br i1 %85, label %.lr.ph.i.i.i.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit70.i.i.i.i.i.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit70.i.i.i.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hae23c80f6cc75894E.llvm.10297654043934454820.exit61.i.i.i.i.i.i"
@@ -41073,7 +41073,7 @@ _ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit.i.i: ; preds = %"_ZN4cor
   %133 = lshr i128 %132, 64
   %134 = xor i128 %133, %132
   %135 = trunc i128 %134 to i64
-  %136 = icmp ult i64 %126, %119
+  %136 = icmp samesign ult i64 %126, %119
   br i1 %136, label %.lr.ph.i.i.i2.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit70.i.i.i9.i.i.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit70.i.i.i9.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hae23c80f6cc75894E.llvm.10297654043934454820.exit61.i.i.i6.i.i.i"

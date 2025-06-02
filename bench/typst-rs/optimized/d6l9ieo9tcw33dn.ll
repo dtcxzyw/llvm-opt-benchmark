@@ -44829,7 +44829,7 @@ _ZN4time10formatting22format_number_pad_zero17hc76bcf101b8062a1E.exit.i: ; preds
   br label %._crit_edge.i.i53.i
 
 654:                                              ; preds = %._crit_edge.i.i53.i
-  %.lhs.trunc34.i.i61.i = trunc nuw i32 %.1.lcssa.i.i55.i to i16
+  %.lhs.trunc34.i.i61.i = trunc nuw nsw i32 %.1.lcssa.i.i55.i to i16
   %655 = urem i16 %.lhs.trunc34.i.i61.i, 100
   %656 = shl nuw nsw i16 %655, 1
   %657 = zext nneg i16 %656 to i64
@@ -46098,7 +46098,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h7713
   br label %._crit_edge.i
 
 25:                                               ; preds = %._crit_edge.i
-  %.lhs.trunc34.i = trunc nuw i32 %.1.lcssa.i to i16
+  %.lhs.trunc34.i = trunc nuw nsw i32 %.1.lcssa.i to i16
   %26 = urem i16 %.lhs.trunc34.i, 100
   %27 = shl nuw nsw i16 %26, 1
   %28 = zext nneg i16 %27 to i64
@@ -46217,16 +46217,14 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h9741
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10286)
   %9 = icmp samesign ugt i32 %2, 9999
-  br i1 %9, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %9, label %._crit_edge.i.thread, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %._crit_edge
-  %.028.lcssa.i = phi i64 [ 10, %._crit_edge ], [ 6, %.lr.ph.i ]
-  %.1.lcssa.i = phi i32 [ %2, %._crit_edge ], [ %13, %.lr.ph.i ]
-  %10 = zext nneg i32 %.1.lcssa.i to i64
-  %11 = icmp samesign ugt i32 %.1.lcssa.i, 99
-  br i1 %11, label %25, label %34
+._crit_edge.i:                                    ; preds = %._crit_edge
+  %10 = zext nneg i32 %2 to i64
+  %11 = icmp samesign ugt i32 %2, 99
+  br i1 %11, label %26, label %34
 
-.lr.ph.i:                                         ; preds = %._crit_edge
+._crit_edge.i.thread:                             ; preds = %._crit_edge
   %12 = urem i32 %2, 10000
   %13 = udiv i32 %2, 10000
   %.lhs.trunc.i = trunc nuw nsw i32 %12 to i16
@@ -46244,25 +46242,25 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h9741
   %gep.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = load i16, ptr %23, align 1, !noalias !10286
   store i16 %24, ptr %gep.i, align 1, !alias.scope !10286
-  br label %._crit_edge.i
+  %25 = zext nneg i32 %13 to i64
+  br label %34
 
-25:                                               ; preds = %._crit_edge.i
-  %.lhs.trunc34.i = trunc nuw i32 %.1.lcssa.i to i16
-  %26 = urem i16 %.lhs.trunc34.i, 100
-  %27 = shl nuw nsw i16 %26, 1
-  %28 = zext nneg i16 %27 to i64
-  %29 = udiv i16 %.lhs.trunc34.i, 100
-  %.zext37.i = zext nneg i16 %29 to i64
-  %30 = add nsw i64 %.028.lcssa.i, -2
-  %31 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %28
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 %30
+26:                                               ; preds = %._crit_edge.i
+  %.lhs.trunc34.i = trunc nuw nsw i32 %2 to i16
+  %27 = urem i16 %.lhs.trunc34.i, 100
+  %28 = shl nuw nsw i16 %27, 1
+  %29 = zext nneg i16 %28 to i64
+  %30 = udiv i16 %.lhs.trunc34.i, 100
+  %.zext37.i = zext nneg i16 %30 to i64
+  %31 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %29
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %33 = load i16, ptr %31, align 1, !noalias !10286
   store i16 %33, ptr %32, align 1, !alias.scope !10286
   br label %34
 
-34:                                               ; preds = %25, %._crit_edge.i
-  %.129.i = phi i64 [ %30, %25 ], [ %.028.lcssa.i, %._crit_edge.i ]
-  %.027.i = phi i64 [ %.zext37.i, %25 ], [ %10, %._crit_edge.i ]
+34:                                               ; preds = %._crit_edge.i.thread, %26, %._crit_edge.i
+  %.129.i = phi i64 [ 8, %26 ], [ 10, %._crit_edge.i ], [ 6, %._crit_edge.i.thread ]
+  %.027.i = phi i64 [ %.zext37.i, %26 ], [ %10, %._crit_edge.i ], [ %25, %._crit_edge.i.thread ]
   %35 = icmp samesign ult i64 %.027.i, 10
   br i1 %35, label %42, label %36
 
@@ -46270,7 +46268,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h9741
   %37 = shl nuw nsw i64 %.027.i, 1
   %38 = add nsw i64 %.129.i, -2
   %39 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %37
-  %40 = getelementptr inbounds i8, ptr %4, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 %38
   %41 = load i16, ptr %39, align 1, !noalias !10286
   store i16 %41, ptr %40, align 1, !alias.scope !10286
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit"
@@ -46278,7 +46276,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h9741
 42:                                               ; preds = %34
   %43 = add nsw i64 %.129.i, -1
   %44 = trunc nuw nsw i64 %.027.i to i8
-  %45 = getelementptr inbounds i8, ptr %4, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 %43
   %46 = or disjoint i8 %44, 48
   store i8 %46, ptr %45, align 1, !alias.scope !10286
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit"
@@ -46303,8 +46301,8 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h9741
 
 57:                                               ; preds = %.lr.ph, %76
   %58 = phi i64 [ %.pre, %.lr.ph ], [ %81, %76 ]
-  %.032 = phi i64 [ 0, %.lr.ph ], [ %59, %76 ]
-  %59 = add nuw nsw i64 %.032, 1
+  %.034 = phi i64 [ 0, %.lr.ph ], [ %59, %76 ]
+  %59 = add nuw nsw i64 %.034, 1
   %indvars = trunc i64 %59 to i8
   %60 = load i64, ptr %1, align 8, !alias.scope !10270, !noalias !10281, !noundef !4
   %61 = icmp eq i64 %60, %58
@@ -46320,7 +46318,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h9741
 
 66:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit", %53
   %67 = phi i64 [ %49, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit" ], [ %.pre.i.i.i.i, %53 ]
-  %68 = getelementptr inbounds i8, ptr %4, i64 %.2.i
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 %.2.i
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %70 = load ptr, ptr %69, align 8, !alias.scope !10305, !noalias !10300, !nonnull !4, !noundef !4
   %71 = getelementptr inbounds i8, ptr %70, i64 %67

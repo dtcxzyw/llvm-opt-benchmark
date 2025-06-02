@@ -3283,7 +3283,7 @@ define internal fastcc void @_ZN4core4hash6Hasher9write_str17h41d94c93939949bfE(
   %.sroa.017.0122.i.i = phi i64 [ %.sroa.020.0123.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit78.i.i" ], [ 2611923443488327891, %.lr.ph.preheader.i.i ]
   %.sroa.07.0121.i.i = phi i64 [ %11, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit78.i.i" ], [ 0, %.lr.ph.preheader.i.i ]
   %8 = or disjoint i64 %.sroa.07.0121.i.i, 8
-  %9 = icmp ugt i64 %8, %2
+  %9 = icmp samesign ugt i64 %8, %2
   br i1 %9, label %10, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hae23c80f6cc75894E.exit61.i.i", !prof !3
 
 10:                                               ; preds = %.lr.ph.i.i
@@ -3291,8 +3291,8 @@ define internal fastcc void @_ZN4core4hash6Hasher9write_str17h41d94c93939949bfE(
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hae23c80f6cc75894E.exit61.i.i": ; preds = %.lr.ph.i.i
-  %11 = add nuw i64 %.sroa.07.0121.i.i, 16
-  %12 = icmp ugt i64 %11, %2
+  %11 = add nuw nsw i64 %.sroa.07.0121.i.i, 16
+  %12 = icmp samesign ugt i64 %11, %2
   br i1 %12, label %17, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit78.i.i", !prof !3
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit70.i.i": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit78.i.i"
@@ -3311,9 +3311,9 @@ define internal fastcc void @_ZN4core4hash6Hasher9write_str17h41d94c93939949bfE(
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit78.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hae23c80f6cc75894E.exit61.i.i"
-  %20 = getelementptr inbounds i8, ptr %1, i64 %.sroa.07.0121.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.07.0121.i.i
   %.sroa.029.0.copyload.i.i = load i64, ptr %20, align 1, !alias.scope !822, !noalias !811
-  %21 = getelementptr inbounds i8, ptr %1, i64 %8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %8
   %.sroa.031.0.copyload.i.i = load i64, ptr %21, align 1, !alias.scope !822, !noalias !811
   %22 = xor i64 %.sroa.029.0.copyload.i.i, %.sroa.017.0122.i.i
   %23 = xor i64 %.sroa.031.0.copyload.i.i, -6626703657320631856
@@ -3323,7 +3323,7 @@ define internal fastcc void @_ZN4core4hash6Hasher9write_str17h41d94c93939949bfE(
   %27 = lshr i128 %26, 64
   %28 = xor i128 %27, %26
   %29 = trunc i128 %28 to i64
-  %30 = icmp ult i64 %11, %5
+  %30 = icmp samesign ult i64 %11, %5
   br i1 %30, label %.lr.ph.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit70.i.i"
 
 31:                                               ; preds = %6
@@ -27346,7 +27346,7 @@ _ZN4core3ptr19swap_nonoverlapping7runtime17h89a2254c9734b07cE.exit: ; preds = %_
   %.sroa.017.0122.i.i.i = phi i64 [ %.sroa.020.0123.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit78.i.i.i" ], [ 2611923443488327891, %.lr.ph.preheader.i.i.i ]
   %.sroa.07.0121.i.i.i = phi i64 [ %171, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit78.i.i.i" ], [ 0, %.lr.ph.preheader.i.i.i ]
   %167 = or disjoint i64 %.sroa.07.0121.i.i.i, 8
-  %168 = icmp ugt i64 %167, %161
+  %168 = icmp samesign ugt i64 %167, %161
   br i1 %168, label %.invoke, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hae23c80f6cc75894E.exit61.i.i.i", !prof !3
 
 .invoke:                                          ; preds = %.lr.ph.i.i.i, %177
@@ -27359,8 +27359,8 @@ _ZN4core3ptr19swap_nonoverlapping7runtime17h89a2254c9734b07cE.exit: ; preds = %_
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hae23c80f6cc75894E.exit61.i.i.i": ; preds = %.lr.ph.i.i.i
-  %171 = add nuw i64 %.sroa.07.0121.i.i.i, 16
-  %172 = icmp ugt i64 %171, %161
+  %171 = add nuw nsw i64 %.sroa.07.0121.i.i.i, 16
+  %172 = icmp samesign ugt i64 %171, %161
   br i1 %172, label %177, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit78.i.i.i", !prof !3
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit70.i.i.i": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit78.i.i.i"
@@ -27378,9 +27378,9 @@ _ZN4core3ptr19swap_nonoverlapping7runtime17h89a2254c9734b07cE.exit: ; preds = %_
   br label %.invoke
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit78.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hae23c80f6cc75894E.exit61.i.i.i"
-  %180 = getelementptr inbounds i8, ptr %162, i64 %.sroa.07.0121.i.i.i
+  %180 = getelementptr inbounds nuw i8, ptr %162, i64 %.sroa.07.0121.i.i.i
   %.sroa.029.0.copyload.i.i.i = load i64, ptr %180, align 1, !alias.scope !4835, !noalias !4842
-  %181 = getelementptr inbounds i8, ptr %162, i64 %167
+  %181 = getelementptr inbounds nuw i8, ptr %162, i64 %167
   %.sroa.031.0.copyload.i.i.i = load i64, ptr %181, align 1, !alias.scope !4835, !noalias !4842
   %182 = xor i64 %.sroa.029.0.copyload.i.i.i, %.sroa.017.0122.i.i.i
   %183 = xor i64 %.sroa.031.0.copyload.i.i.i, -6626703657320631856
@@ -27390,7 +27390,7 @@ _ZN4core3ptr19swap_nonoverlapping7runtime17h89a2254c9734b07cE.exit: ; preds = %_
   %187 = lshr i128 %186, 64
   %188 = xor i128 %187, %186
   %189 = trunc i128 %188 to i64
-  %190 = icmp ult i64 %171, %164
+  %190 = icmp samesign ult i64 %171, %164
   br i1 %190, label %.lr.ph.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit70.i.i.i"
 
 191:                                              ; preds = %165
@@ -37690,12 +37690,12 @@ _ZN4core3ptr19swap_nonoverlapping7runtime17h89a2254c9734b07cE.exit: ; preds = %_
   %.sroa.017.0122.i.i.i = phi i64 [ %.sroa.020.0123.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit78.i.i.i" ], [ 2611923443488327891, %.lr.ph.preheader.i.i.i ]
   %.sroa.07.0121.i.i.i = phi i64 [ %158, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit78.i.i.i" ], [ 0, %.lr.ph.preheader.i.i.i ]
   %156 = or disjoint i64 %.sroa.07.0121.i.i.i, 8
-  %157 = icmp ugt i64 %156, %150
+  %157 = icmp samesign ugt i64 %156, %150
   br i1 %157, label %.invoke, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hae23c80f6cc75894E.exit61.i.i.i", !prof !3
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hae23c80f6cc75894E.exit61.i.i.i": ; preds = %.lr.ph.i.i.i
-  %158 = add nuw i64 %.sroa.07.0121.i.i.i, 16
-  %159 = icmp ugt i64 %158, %150
+  %158 = add nuw nsw i64 %.sroa.07.0121.i.i.i, 16
+  %159 = icmp samesign ugt i64 %158, %150
   br i1 %159, label %164, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit78.i.i.i", !prof !3
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit70.i.i.i": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit78.i.i.i"
@@ -37722,9 +37722,9 @@ _ZN4core3ptr19swap_nonoverlapping7runtime17h89a2254c9734b07cE.exit: ; preds = %_
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit78.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hae23c80f6cc75894E.exit61.i.i.i"
-  %169 = getelementptr inbounds i8, ptr %151, i64 %.sroa.07.0121.i.i.i
+  %169 = getelementptr inbounds nuw i8, ptr %151, i64 %.sroa.07.0121.i.i.i
   %.sroa.029.0.copyload.i.i.i = load i64, ptr %169, align 1, !alias.scope !7042, !noalias !7049
-  %170 = getelementptr inbounds i8, ptr %151, i64 %156
+  %170 = getelementptr inbounds nuw i8, ptr %151, i64 %156
   %.sroa.031.0.copyload.i.i.i = load i64, ptr %170, align 1, !alias.scope !7042, !noalias !7049
   %171 = xor i64 %.sroa.029.0.copyload.i.i.i, %.sroa.017.0122.i.i.i
   %172 = xor i64 %.sroa.031.0.copyload.i.i.i, -6626703657320631856
@@ -37734,7 +37734,7 @@ _ZN4core3ptr19swap_nonoverlapping7runtime17h89a2254c9734b07cE.exit: ; preds = %_
   %176 = lshr i128 %175, 64
   %177 = xor i128 %176, %175
   %178 = trunc i128 %177 to i64
-  %179 = icmp ult i64 %158, %153
+  %179 = icmp samesign ult i64 %158, %153
   br i1 %179, label %.lr.ph.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h933d5f866bd06a5cE.exit70.i.i.i"
 
 180:                                              ; preds = %154

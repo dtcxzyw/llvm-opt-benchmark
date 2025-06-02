@@ -7648,8 +7648,8 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h514c
   %4 = tail call noundef i8 @"_ZN58_$LT$u32$u20$as$u20$time..ext..digit_count..DigitCount$GT$10num_digits17ha41c77c58a3e2667E"(i32 noundef %1)
   %5 = tail call i8 @llvm.usub.sat.i8(i8 3, i8 %4)
   %.not = icmp ugt i8 %4, 2
-  %.sroa.011.1.i28.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 7
-  %.sroa.011.1.i28.sroa.gep1 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %.sroa.011.1.i25.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 7
+  %.sroa.011.1.i25.sroa.gep30 = getelementptr inbounds nuw i8, ptr %3, i64 9
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -7685,16 +7685,16 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h514c
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hb7b886c46e130987E.exit"
 
 22:                                               ; preds = %.thread, %14
-  %.sroa.0.2.i29 = phi i32 [ %.zext29.i, %.thread ], [ %1, %14 ]
-  %.sroa.011.1.i28.sroa.phi = phi ptr [ %.sroa.011.1.i28.sroa.gep, %.thread ], [ %.sroa.011.1.i28.sroa.gep1, %14 ]
-  %.sroa.011.1.i28 = phi i64 [ 7, %.thread ], [ 9, %14 ]
-  %23 = trunc nuw nsw i32 %.sroa.0.2.i29 to i8
+  %.sroa.0.2.i26 = phi i32 [ %.zext29.i, %.thread ], [ %1, %14 ]
+  %.sroa.011.1.i25.sroa.phi = phi ptr [ %.sroa.011.1.i25.sroa.gep, %.thread ], [ %.sroa.011.1.i25.sroa.gep30, %14 ]
+  %.sroa.011.1.i25 = phi i64 [ 7, %.thread ], [ 9, %14 ]
+  %23 = trunc nuw nsw i32 %.sroa.0.2.i26 to i8
   %24 = or disjoint i8 %23, 48
-  store i8 %24, ptr %.sroa.011.1.i28.sroa.phi, align 1, !alias.scope !718
+  store i8 %24, ptr %.sroa.011.1.i25.sroa.phi, align 1, !alias.scope !718
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hb7b886c46e130987E.exit"
 
 "_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hb7b886c46e130987E.exit": ; preds = %16, %22
-  %.sroa.011.2.i = phi i64 [ %.sroa.011.1.i28, %22 ], [ 8, %16 ]
+  %.sroa.011.2.i = phi i64 [ %.sroa.011.1.i25, %22 ], [ 8, %16 ]
   %25 = sub nuw nsw i64 10, %.sroa.011.2.i
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.011.2.i
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he55b90e851844799E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9ef04808737cbe8ef653d32af212bbe.66)
@@ -7702,9 +7702,9 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h514c
   ret void
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.sroa.010.023 = phi i64 [ %27, %.lr.ph ], [ 0, %2 ]
+  %.sroa.010.027 = phi i64 [ %27, %.lr.ph ], [ 0, %2 ]
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he55b90e851844799E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 @anon.e9ef04808737cbe8ef653d32af212bbe.109, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9ef04808737cbe8ef653d32af212bbe.66)
-  %27 = add nuw nsw i64 %.sroa.010.023, 1
+  %27 = add nuw nsw i64 %.sroa.010.027, 1
   %indvars = trunc i64 %27 to i8
   %28 = icmp samesign ugt i8 %5, %indvars
   br i1 %28, label %.lr.ph, label %._crit_edge
@@ -7850,13 +7850,13 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h80cf
   br label %.sink.split
 
 .sink.split:                                      ; preds = %16, %._crit_edge.i.thread
-  %.sink29.in.in.in = phi i16 [ %.lhs.trunc.i, %._crit_edge.i.thread ], [ %.lhs.trunc26.i, %16 ]
+  %.sink.in.in.in = phi i16 [ %.lhs.trunc.i, %._crit_edge.i.thread ], [ %.lhs.trunc26.i, %16 ]
   %.sroa.011.1.i.ph = phi i64 [ 6, %._crit_edge.i.thread ], [ 8, %16 ]
   %.sroa.0.2.i.ph = phi i32 [ %9, %._crit_edge.i.thread ], [ %.zext29.i, %16 ]
-  %.sink29.in.in = urem i16 %.sink29.in.in.in, 100
-  %.sink29.in = shl nuw nsw i16 %.sink29.in.in, 1
-  %.sink29 = zext nneg i16 %.sink29.in to i64
-  %18 = getelementptr inbounds nuw i8, ptr @anon.e9ef04808737cbe8ef653d32af212bbe.98, i64 %.sink29
+  %.sink.in.in = urem i16 %.sink.in.in.in, 100
+  %.sink.in = shl nuw nsw i16 %.sink.in.in, 1
+  %.sink = zext nneg i16 %.sink.in to i64
+  %18 = getelementptr inbounds nuw i8, ptr @anon.e9ef04808737cbe8ef653d32af212bbe.98, i64 %.sink
   %gep.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load i16, ptr %18, align 1, !noalias !724
   store i16 %19, ptr %gep.i, align 1, !alias.scope !724
@@ -7895,9 +7895,9 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h80cf
   ret void
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.sroa.010.023 = phi i64 [ %36, %.lr.ph ], [ 0, %2 ]
+  %.sroa.010.025 = phi i64 [ %36, %.lr.ph ], [ 0, %2 ]
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he55b90e851844799E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 @anon.e9ef04808737cbe8ef653d32af212bbe.109, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9ef04808737cbe8ef653d32af212bbe.66)
-  %36 = add nuw nsw i64 %.sroa.010.023, 1
+  %36 = add nuw nsw i64 %.sroa.010.025, 1
   %indvars = trunc i64 %36 to i8
   %37 = icmp samesign ugt i8 %5, %indvars
   br i1 %37, label %.lr.ph, label %._crit_edge
@@ -7993,10 +7993,10 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17ha188
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hb7b886c46e130987E.exit"
 
 38:                                               ; preds = %.thread, %29
-  %.sroa.0.2.i31 = phi i32 [ %9, %.thread ], [ %.sroa.0.2.i, %29 ]
-  %.sroa.011.1.i30 = phi i64 [ 6, %.thread ], [ %.sroa.011.1.i, %29 ]
-  %39 = add nsw i64 %.sroa.011.1.i30, -1
-  %40 = trunc nuw nsw i32 %.sroa.0.2.i31 to i8
+  %.sroa.0.2.i28 = phi i32 [ %9, %.thread ], [ %.sroa.0.2.i, %29 ]
+  %.sroa.011.1.i27 = phi i64 [ 6, %.thread ], [ %.sroa.011.1.i, %29 ]
+  %39 = add nsw i64 %.sroa.011.1.i27, -1
+  %40 = trunc nuw nsw i32 %.sroa.0.2.i28 to i8
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 %39
   %42 = or disjoint i8 %40, 48
   store i8 %42, ptr %41, align 1, !alias.scope !730
@@ -8011,9 +8011,9 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17ha188
   ret void
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.sroa.010.023 = phi i64 [ %45, %.lr.ph ], [ 0, %2 ]
+  %.sroa.010.029 = phi i64 [ %45, %.lr.ph ], [ 0, %2 ]
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he55b90e851844799E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 @anon.e9ef04808737cbe8ef653d32af212bbe.109, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9ef04808737cbe8ef653d32af212bbe.66)
-  %45 = add nuw nsw i64 %.sroa.010.023, 1
+  %45 = add nuw nsw i64 %.sroa.010.029, 1
   %indvars = trunc i64 %45 to i8
   %46 = icmp samesign ugt i8 %5, %indvars
   br i1 %46, label %.lr.ph, label %._crit_edge

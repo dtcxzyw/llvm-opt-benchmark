@@ -7721,6 +7721,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %855 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %856 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %857 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %.rhs.trunc = trunc nuw nsw i32 %1 to i16
   %858 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %859 = call i32 @llvm.umax.i32(i32 %1, i32 1)
   %wide.trip.count525 = zext nneg i32 %859 to i64
@@ -8222,8 +8223,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit728.us:    ; preds = %_ZNKSt7__cxx1112bas
 
 1044:                                             ; preds = %.lr.ph373.us, %.loopexit.us
   %indvars.iv535 = phi i64 [ 0, %.lr.ph373.us ], [ %indvars.iv.next536, %.loopexit.us ]
-  %1045 = mul nuw nsw i64 %indvars.iv535, %1198
-  %1046 = add nsw i64 %1045, -180
+  %1045 = mul i64 %indvars.iv535, %1198
+  %1046 = add i64 %1045, -180
   br i1 %9, label %1117, label %1047
 
 1047:                                             ; preds = %1044
@@ -8419,7 +8420,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   %1112 = load ptr, ptr %1111, align 8, !tbaa !145
   %1113 = getelementptr inbounds nuw i32, ptr %1112, i64 %indvars.iv535
   %1114 = load i32, ptr %1113, align 4, !tbaa !4
-  %1115 = trunc nsw i64 %1046 to i32
+  %1115 = trunc i64 %1046 to i32
   %1116 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %991, ptr noundef nonnull @.str.224, i32 noundef %1115, i32 noundef %1114) #24
   br label %1123
 
@@ -8427,7 +8428,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   %1118 = getelementptr inbounds nuw float, ptr %.sroa.012.0, i64 %indvars.iv535
   %1119 = load float, ptr %1118, align 4, !tbaa !38
   %1120 = fpext float %1119 to double
-  %1121 = trunc nsw i64 %1046 to i32
+  %1121 = trunc i64 %1046 to i32
   %1122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %991, ptr noundef nonnull @.str.223, i32 noundef %1121, double noundef %1120) #24
   br label %1123
 
@@ -8668,12 +8669,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit756.us: ; preds = 
   br i1 %exitcond530.not, label %.lr.ph373.us, label %.preheader119.us, !llvm.loop !188
 
 .preheader.us:                                    ; preds = %1123
-  %1196 = trunc nsw i64 %1046 to i32
+  %1196 = trunc i64 %1046 to i32
   br label %1124
 
 .lr.ph373.us:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit756.us, %1030
-  %1197 = udiv i32 360, %1
-  %1198 = zext nneg i32 %1197 to i64
+  %1197 = sdiv i16 360, %.rhs.trunc
+  %.sext.us = sext i16 %1197 to i64
+  %1198 = and i64 %.sext.us, 4294967295
   br label %1044
 
 .loopexit124.split.us:                            ; preds = %.noexc936.us, %.critedge.i686.us

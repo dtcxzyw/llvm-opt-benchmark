@@ -7315,7 +7315,7 @@ land.rhs.lr.ph.i.i.i:                             ; preds = %if.end20.i
 land.rhs.i.i.i:                                   ; preds = %_ZStplRKSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_El.exit67.i.i.i, %land.rhs.lr.ph.i.i.i
   %position.addr.0100.i.i.i = phi i64 [ %position.addr.1.i, %land.rhs.lr.ph.i.i.i ], [ %parentPosition.0101.i.i.i, %_ZStplRKSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_El.exit67.i.i.i ]
   %parentPosition.0101.in.i.i.i = add nsw i64 %position.addr.0100.i.i.i, -1
-  %parentPosition.0101.i.i.i = ashr i64 %parentPosition.0101.in.i.i.i, 1
+  %parentPosition.0101.i.i.i = lshr i64 %parentPosition.0101.in.i.i.i, 1
   %add.i.i.i.i.i = add nsw i64 %parentPosition.0101.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp sgt i64 %add.i.i.i.i.i, -1
   br i1 %cmp.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i, label %cond.false.i.i.i.i.i
@@ -7325,7 +7325,7 @@ land.lhs.true.i.i.i.i.i:                          ; preds = %land.rhs.i.i.i
   br i1 %cmp2.i.i.i.i.i, label %if.then.i.i.i.i.i, label %cond.true.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %parentPosition.0101.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %parentPosition.0101.i.i.i
   br label %_ZStplRKSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_El.exit.i.i.i
 
 cond.true.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i
@@ -7366,7 +7366,7 @@ land.lhs.true.i.i32.i.i.i:                        ; preds = %for.body.i.i.i
   br i1 %cmp2.i.i33.i.i.i, label %if.then.i.i36.i.i.i, label %cond.true.i.i34.i.i.i
 
 if.then.i.i36.i.i.i:                              ; preds = %land.lhs.true.i.i32.i.i.i
-  %add.ptr.i.i37.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %parentPosition.0101.i.i.i
+  %add.ptr.i.i37.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %parentPosition.0101.i.i.i
   br label %_ZStplRKSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_El.exit38.i.i.i
 
 cond.true.i.i34.i.i.i:                            ; preds = %land.lhs.true.i.i32.i.i.i
@@ -7397,7 +7397,7 @@ land.lhs.true.i.i61.i.i.i:                        ; preds = %_ZStplRKSt15_Deque_
   br i1 %cmp2.i.i62.i.i.i, label %if.then.i.i65.i.i.i, label %cond.true.i.i63.i.i.i
 
 if.then.i.i65.i.i.i:                              ; preds = %land.lhs.true.i.i61.i.i.i
-  %add.ptr.i.i66.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %position.addr.0100.i.i.i
+  %add.ptr.i.i66.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %position.addr.0100.i.i.i
   br label %_ZStplRKSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_El.exit67.i.i.i
 
 cond.true.i.i63.i.i.i:                            ; preds = %land.lhs.true.i.i61.i.i.i
@@ -7421,7 +7421,7 @@ _ZStplRKSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_El.exit67.i.i.i: ;
   %storemerge.i.i60.i.i.i = phi ptr [ %add.ptr15.i.i59.i.i.i, %cond.end.i.i53.i.i.i ], [ %add.ptr.i.i66.i.i.i, %if.then.i.i65.i.i.i ]
   %18 = load i64, ptr %storemerge.i.i31.i.i.i, align 4
   store i64 %18, ptr %storemerge.i.i60.i.i.i, align 4
-  %cmp.i.i163.i = icmp sgt i64 %parentPosition.0101.i.i.i, %topPosition
+  %cmp.i.i163.i = icmp samesign ugt i64 %parentPosition.0101.i.i.i, %topPosition
   br i1 %cmp.i.i163.i, label %land.rhs.i.i.i, label %for.end.i.i.i, !llvm.loop !379
 
 for.end.i.i.i:                                    ; preds = %_ZStplRKSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_El.exit67.i.i.i, %_ZStplRKSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_El.exit.i.i.i, %entry.for.end.i_crit_edge.i.i
@@ -7436,7 +7436,7 @@ land.lhs.true.i.i90.i.i.i:                        ; preds = %for.end.i.i.i
   br i1 %cmp2.i.i91.i.i.i, label %if.then.i.i94.i.i.i, label %cond.true.i.i92.i.i.i
 
 if.then.i.i94.i.i.i:                              ; preds = %land.lhs.true.i.i90.i.i.i
-  %add.ptr.i.i95.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %position.addr.0.lcssa.i.i.i
+  %add.ptr.i.i95.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %position.addr.0.lcssa.i.i.i
   br label %_ZN5eastl16adjust_heap_implISt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS3_PS3_ElOS3_NS2_9VPCompareES3_EEvT_T0_SA_SA_T1_T2_.exit
 
 cond.true.i.i92.i.i.i:                            ; preds = %land.lhs.true.i.i90.i.i.i
@@ -8198,13 +8198,13 @@ land.rhs.lr.ph.i.i.i:                             ; preds = %if.end20.i
 land.rhs.i.i.i:                                   ; preds = %_ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit65.i.i.i, %land.rhs.lr.ph.i.i.i
   %position.addr.097.i.i.i = phi i64 [ %position.addr.1.i, %land.rhs.lr.ph.i.i.i ], [ %parentPosition.098.i.i.i, %_ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit65.i.i.i ]
   %parentPosition.098.in.i.i.i = add nsw i64 %position.addr.097.i.i.i, -1
-  %parentPosition.098.i.i.i = ashr i64 %parentPosition.098.in.i.i.i, 1
+  %parentPosition.098.i.i.i = lshr i64 %parentPosition.098.in.i.i.i, 1
   %add.i.i.i.i.i = add nsw i64 %parentPosition.098.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i, 128
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %land.rhs.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %parentPosition.098.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %parentPosition.098.i.i.i
   br label %_ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %land.rhs.i.i.i
@@ -8235,7 +8235,7 @@ for.body.i.i.i:                                   ; preds = %_ZNK5eastl13DequeIt
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i34.i.i.i, label %if.else.i.i18.i.i.i
 
 if.then.i.i34.i.i.i:                              ; preds = %for.body.i.i.i
-  %add.ptr.i.i36.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %parentPosition.098.i.i.i
+  %add.ptr.i.i36.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %parentPosition.098.i.i.i
   br label %_ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit37.i.i.i
 
 if.else.i.i18.i.i.i:                              ; preds = %for.body.i.i.i
@@ -8256,7 +8256,7 @@ _ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit37.i
   br i1 %cmp.i.i45.i.i.i, label %if.then.i.i62.i.i.i, label %if.else.i.i46.i.i.i
 
 if.then.i.i62.i.i.i:                              ; preds = %_ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit37.i.i.i
-  %add.ptr.i.i64.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %position.addr.097.i.i.i
+  %add.ptr.i.i64.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %position.addr.097.i.i.i
   br label %_ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit65.i.i.i
 
 if.else.i.i46.i.i.i:                              ; preds = %_ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit37.i.i.i
@@ -8274,7 +8274,7 @@ _ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit65.i
   %storemerge.i.i58.i.i.i = phi ptr [ %add.ptr.i.i64.i.i.i, %if.then.i.i62.i.i.i ], [ %add.ptr7.i.i54.i.i.i, %if.else.i.i46.i.i.i ]
   %18 = load i64, ptr %storemerge.i.i30.i.i.i, align 4
   store i64 %18, ptr %storemerge.i.i58.i.i.i, align 4
-  %cmp.i.i158.i = icmp sgt i64 %parentPosition.098.i.i.i, %topPosition
+  %cmp.i.i158.i = icmp samesign ugt i64 %parentPosition.098.i.i.i, %topPosition
   br i1 %cmp.i.i158.i, label %land.rhs.i.i.i, label %for.end.i.i.i, !llvm.loop !437
 
 for.end.i.i.i:                                    ; preds = %_ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit65.i.i.i, %_ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit.i.i.i, %entry.for.end.i_crit_edge.i.i
@@ -8285,7 +8285,7 @@ for.end.i.i.i:                                    ; preds = %_ZNK5eastl13DequeIt
   br i1 %cmp.i.i73.i.i.i, label %if.then.i.i90.i.i.i, label %if.else.i.i74.i.i.i
 
 if.then.i.i90.i.i.i:                              ; preds = %for.end.i.i.i
-  %add.ptr.i.i92.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %position.addr.0.lcssa.i.i.i
+  %add.ptr.i.i92.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %position.addr.0.lcssa.i.i.i
   br label %_ZN5eastl16adjust_heap_implINS_13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS3_RS3_Lj128EEElOS3_NS2_9VPCompareES3_EEvT_T0_SA_SA_T1_T2_.exit
 
 if.else.i.i74.i.i.i:                              ; preds = %for.end.i.i.i

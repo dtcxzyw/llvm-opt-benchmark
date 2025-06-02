@@ -15651,7 +15651,7 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h6edd51ccd
 19:                                               ; preds = %204, %12
   %.sroa.9.0.i = phi i64 [ %..i, %12 ], [ %18, %204 ]
   %.sroa.01.0.i = phi ptr [ %.sroa.0.0.lcssa, %12 ], [ %17, %204 ]
-  %20 = icmp ugt i64 %.sroa.9.0.i, 12
+  %20 = icmp samesign ugt i64 %.sroa.9.0.i, 12
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %19
@@ -15872,7 +15872,7 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h6edd51ccd
   %.sroa.09.0.i = phi i64 [ 13, %23 ], [ 9, %126 ], [ 1, %21 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1986)
   %186 = add nsw i64 %.sroa.09.0.i, -1
-  %or.cond.not.i.i = icmp ult i64 %186, %.sroa.9.0.i
+  %or.cond.not.i.i = icmp samesign ult i64 %186, %.sroa.9.0.i
   br i1 %or.cond.not.i.i, label %188, label %187
 
 187:                                              ; preds = %185
@@ -18612,7 +18612,7 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17hf06634b7a
 19:                                               ; preds = %204, %12
   %.sroa.9.0.i = phi i64 [ %..i, %12 ], [ %18, %204 ]
   %.sroa.01.0.i = phi ptr [ %.sroa.0.0.lcssa, %12 ], [ %17, %204 ]
-  %20 = icmp ugt i64 %.sroa.9.0.i, 12
+  %20 = icmp samesign ugt i64 %.sroa.9.0.i, 12
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %19
@@ -18833,7 +18833,7 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17hf06634b7a
   %.sroa.09.0.i = phi i64 [ 13, %23 ], [ 9, %126 ], [ 1, %21 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2632)
   %186 = add nsw i64 %.sroa.09.0.i, -1
-  %or.cond.not.i.i = icmp ult i64 %186, %.sroa.9.0.i
+  %or.cond.not.i.i = icmp samesign ult i64 %186, %.sroa.9.0.i
   br i1 %or.cond.not.i.i, label %188, label %187
 
 187:                                              ; preds = %185

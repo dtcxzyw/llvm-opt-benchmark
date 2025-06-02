@@ -3006,10 +3006,10 @@ _ZN7lodepngL15decodeICCUint32EPKhmPm.exit259:     ; preds = %_ZN7lodepngL15decod
   br i1 %.not226, label %184, label %.critedge243
 
 184:                                              ; preds = %_ZN7lodepngL15decodeICCUint32EPKhmPm.exit259
-  %.not227 = icmp uge i64 %.0.i256, %2
+  %.not227 = icmp samesign uge i64 %.0.i256, %2
   %185 = zext i32 %.0.i258 to i64
   %186 = add nuw nsw i64 %.0.i256, %185
-  %187 = icmp ugt i64 %186, %2
+  %187 = icmp samesign ugt i64 %186, %2
   %or.cond246 = select i1 %.not227, i1 true, i1 %187
   %188 = icmp ult i32 %.0.i258, 8
   %or.cond247 = or i1 %188, %or.cond246
@@ -3045,7 +3045,7 @@ _ZN7lodepngL9isICCwordEPKhmmPKc.exit:             ; preds = %196
 
 202:                                              ; preds = %_ZN7lodepngL9isICCwordEPKhmmPKc.exit
   %203 = add nuw nsw i64 %.0.i256, 12
-  %204 = icmp ugt i64 %203, %2
+  %204 = icmp samesign ugt i64 %203, %2
   br i1 %204, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit262, label %205
 
 205:                                              ; preds = %202
@@ -3076,7 +3076,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit262:  ; preds = %202, %205
   %.0.i.i261 = phi float [ %226, %205 ], [ 0.000000e+00, %202 ]
   store float %.0.i.i261, ptr %12, align 8, !tbaa !79
   %227 = add nuw nsw i64 %.0.i256, 16
-  %228 = icmp ugt i64 %227, %2
+  %228 = icmp samesign ugt i64 %227, %2
   br i1 %228, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit264, label %229
 
 229:                                              ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit262
@@ -3106,7 +3106,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit264:  ; preds = %_ZN7lodepngL18decod
   %.0.i.i263 = phi float [ %249, %229 ], [ 0.000000e+00, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit262 ]
   store float %.0.i.i263, ptr %14, align 4, !tbaa !79
   %250 = add nuw nsw i64 %.0.i256, 20
-  %251 = icmp ugt i64 %250, %2
+  %251 = icmp samesign ugt i64 %250, %2
   br i1 %251, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit266, label %252
 
 252:                                              ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit264
@@ -3158,7 +3158,7 @@ _ZN7lodepngL9isICCwordEPKhmmPKc.exit268:          ; preds = %277
 
 283:                                              ; preds = %_ZN7lodepngL9isICCwordEPKhmmPKc.exit268
   %284 = add nuw nsw i64 %.0.i256, 12
-  %285 = icmp ugt i64 %284, %2
+  %285 = icmp samesign ugt i64 %284, %2
   br i1 %285, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit270, label %286
 
 286:                                              ; preds = %283
@@ -3189,7 +3189,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit270:  ; preds = %283, %286
   %.0.i.i269 = phi float [ %307, %286 ], [ 0.000000e+00, %283 ]
   store float %.0.i.i269, ptr %15, align 8, !tbaa !79
   %308 = add nuw nsw i64 %.0.i256, 16
-  %309 = icmp ugt i64 %308, %2
+  %309 = icmp samesign ugt i64 %308, %2
   br i1 %309, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit272, label %310
 
 310:                                              ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit270
@@ -3219,7 +3219,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit272:  ; preds = %_ZN7lodepngL18decod
   %.0.i.i271 = phi float [ %330, %310 ], [ 0.000000e+00, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit270 ]
   store float %.0.i.i271, ptr %17, align 4, !tbaa !79
   %331 = add nuw nsw i64 %.0.i256, 20
-  %332 = icmp ugt i64 %331, %2
+  %332 = icmp samesign ugt i64 %331, %2
   br i1 %332, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit274, label %333
 
 333:                                              ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit272
@@ -3271,7 +3271,7 @@ _ZN7lodepngL9isICCwordEPKhmmPKc.exit276:          ; preds = %358
 
 364:                                              ; preds = %_ZN7lodepngL9isICCwordEPKhmmPKc.exit276
   %365 = add nuw nsw i64 %.0.i256, 12
-  %366 = icmp ugt i64 %365, %2
+  %366 = icmp samesign ugt i64 %365, %2
   br i1 %366, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit278, label %367
 
 367:                                              ; preds = %364
@@ -3302,7 +3302,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit278:  ; preds = %364, %367
   %.0.i.i277 = phi float [ %388, %367 ], [ 0.000000e+00, %364 ]
   store float %.0.i.i277, ptr %18, align 4, !tbaa !79
   %389 = add nuw nsw i64 %.0.i256, 16
-  %390 = icmp ugt i64 %389, %2
+  %390 = icmp samesign ugt i64 %389, %2
   br i1 %390, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit280, label %391
 
 391:                                              ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit278
@@ -3332,7 +3332,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit280:  ; preds = %_ZN7lodepngL18decod
   %.0.i.i279 = phi float [ %411, %391 ], [ 0.000000e+00, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit278 ]
   store float %.0.i.i279, ptr %20, align 4, !tbaa !79
   %412 = add nuw nsw i64 %.0.i256, 20
-  %413 = icmp ugt i64 %412, %2
+  %413 = icmp samesign ugt i64 %412, %2
   br i1 %413, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit282, label %414
 
 414:                                              ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit280
@@ -3384,7 +3384,7 @@ _ZN7lodepngL9isICCwordEPKhmmPKc.exit284:          ; preds = %439
 
 445:                                              ; preds = %_ZN7lodepngL9isICCwordEPKhmmPKc.exit284
   %446 = add nuw nsw i64 %.0.i256, 12
-  %447 = icmp ugt i64 %446, %2
+  %447 = icmp samesign ugt i64 %446, %2
   br i1 %447, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit286, label %448
 
 448:                                              ; preds = %445
@@ -3415,7 +3415,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit286:  ; preds = %445, %448
   %.0.i.i285 = phi float [ %469, %448 ], [ 0.000000e+00, %445 ]
   store float %.0.i.i285, ptr %21, align 8, !tbaa !79
   %470 = add nuw nsw i64 %.0.i256, 16
-  %471 = icmp ugt i64 %470, %2
+  %471 = icmp samesign ugt i64 %470, %2
   br i1 %471, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit288, label %472
 
 472:                                              ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit286
@@ -3445,7 +3445,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit288:  ; preds = %_ZN7lodepngL18decod
   %.0.i.i287 = phi float [ %492, %472 ], [ 0.000000e+00, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit286 ]
   store float %.0.i.i287, ptr %23, align 4, !tbaa !79
   %493 = add nuw nsw i64 %.0.i256, 20
-  %494 = icmp ugt i64 %493, %2
+  %494 = icmp samesign ugt i64 %493, %2
   br i1 %494, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit290, label %495
 
 495:                                              ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit288
@@ -3600,7 +3600,7 @@ _ZN7lodepngL15decodeICCUint32EPKhmPm.exit294.thread: ; preds = %562, %_ZN7lodepn
 587:                                              ; preds = %_ZN7lodepngL15decodeICCUint32EPKhmPm.exit294
   store i32 2, ptr %564, align 8, !tbaa !84
   %588 = add nuw nsw i64 %.0.i256, 14
-  %589 = icmp ugt i64 %588, %2
+  %589 = icmp samesign ugt i64 %588, %2
   br i1 %589, label %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit, label %590
 
 590:                                              ; preds = %587
@@ -3626,7 +3626,7 @@ _ZN7lodepngL15decodeICCUint16EPKhmPm.exit:        ; preds = %587, %590
   store i32 1, ptr %564, align 8, !tbaa !84
   %603 = shl nuw nsw i64 %586, 1
   %604 = add nuw nsw i64 %603, %565
-  %605 = icmp ugt i64 %604, %2
+  %605 = icmp samesign ugt i64 %604, %2
   %606 = icmp ugt i32 %585, 16777216
   %or.cond = or i1 %606, %605
   br i1 %or.cond, label %.critedge243, label %.lr.ph.preheader

@@ -19768,91 +19768,89 @@ _ZN3std4sync4mpmc7context7Context10try_select17hfc5095571a5938baE.exit: ; preds 
   tail call void @llvm.assume(i1 %31)
   %32 = getelementptr inbounds nuw i8, ptr %.val1, i64 24
   %.not.i = icmp eq i32 %30, 1000000000
-  %33 = icmp samesign ult i32 %30, 1000000000
-  %34 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
   br i1 %.not.i, label %.split.us.i, label %.split.i
 
-.split.us.i:                                      ; preds = %25, %36
-  %35 = load atomic i64, ptr %32 acquire, align 8
-  switch i64 %35, label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6 [
-    i64 0, label %36
+.split.us.i:                                      ; preds = %25, %35
+  %34 = load atomic i64, ptr %32 acquire, align 8
+  switch i64 %34, label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6 [
+    i64 0, label %35
     i64 1, label %.thread.loopexit17.i
     i64 2, label %.thread.loopexit17.i
   ]
 
-36:                                               ; preds = %.split.us.i
-  tail call void @_ZN3std6thread6Thread4park17hfc72a11dc603dcc3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %34)
+35:                                               ; preds = %.split.us.i
+  tail call void @_ZN3std6thread6Thread4park17hfc72a11dc603dcc3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %33)
   br label %.split.us.i
 
-.split.i:                                         ; preds = %25, %51
-  %37 = load atomic i64, ptr %32 acquire, align 8
-  switch i64 %37, label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6 [
-    i64 0, label %38
+.split.i:                                         ; preds = %25, %50
+  %36 = load atomic i64, ptr %32 acquire, align 8
+  switch i64 %36, label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6 [
+    i64 0, label %37
     i64 1, label %.thread.loopexit17.i
     i64 2, label %.thread.loopexit17.i
   ]
 
-38:                                               ; preds = %.split.i
-  %39 = tail call { i64, i32 } @_ZN3std4time7Instant3now17he9517b39d898c2d5E()
-  %40 = extractvalue { i64, i32 } %39, 0
-  %41 = extractvalue { i64, i32 } %39, 1
-  %42 = icmp eq i64 %40, %28
-  br i1 %42, label %43, label %46
+37:                                               ; preds = %.split.i
+  %38 = tail call { i64, i32 } @_ZN3std4time7Instant3now17he9517b39d898c2d5E()
+  %39 = extractvalue { i64, i32 } %38, 0
+  %40 = extractvalue { i64, i32 } %38, 1
+  %41 = icmp eq i64 %39, %28
+  br i1 %41, label %42, label %45
 
-43:                                               ; preds = %38
-  %44 = icmp ult i32 %41, 1000000000
-  tail call void @llvm.assume(i1 %44)
-  tail call void @llvm.assume(i1 %33)
-  %45 = icmp samesign ult i32 %41, %30
-  br i1 %45, label %51, label %48
+42:                                               ; preds = %37
+  %43 = icmp ult i32 %40, 1000000000
+  tail call void @llvm.assume(i1 %43)
+  %44 = icmp samesign ult i32 %40, %30
+  br i1 %44, label %50, label %47
 
-46:                                               ; preds = %38
-  %47 = icmp slt i64 %40, %28
-  br i1 %47, label %51, label %48
+45:                                               ; preds = %37
+  %46 = icmp slt i64 %39, %28
+  br i1 %46, label %50, label %47
 
-48:                                               ; preds = %46, %43
-  %49 = cmpxchg ptr %32, i64 0, i64 1 acq_rel acquire, align 8
-  %.sroa.18.0.in.i.i.i = extractvalue { i64, i1 } %49, 1
-  br i1 %.sroa.18.0.in.i.i.i, label %.thread.loopexit17.i, label %50
+47:                                               ; preds = %45, %42
+  %48 = cmpxchg ptr %32, i64 0, i64 1 acq_rel acquire, align 8
+  %.sroa.18.0.in.i.i.i = extractvalue { i64, i1 } %48, 1
+  br i1 %.sroa.18.0.in.i.i.i, label %.thread.loopexit17.i, label %49
 
-50:                                               ; preds = %48
-  %.sroa.01.0.i.i.i = extractvalue { i64, i1 } %49, 0
+49:                                               ; preds = %47
+  %.sroa.01.0.i.i.i = extractvalue { i64, i1 } %48, 0
   switch i64 %.sroa.01.0.i.i.i, label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6 [
-    i64 0, label %55
+    i64 0, label %54
     i64 1, label %.thread.loopexit17.i
     i64 2, label %.thread.loopexit17.i
   ]
 
-51:                                               ; preds = %46, %43
-  %52 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17h99df65994d24d467E"(i64 noundef %28, i32 noundef range(i32 0, 1000000001) %30, i64 noundef %40, i32 noundef %41)
-  %53 = extractvalue { i64, i32 } %52, 0
-  %54 = extractvalue { i64, i32 } %52, 1
-  tail call void @_ZN3std6thread6Thread12park_timeout17hd618bdfca2134781E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %34, i64 noundef %53, i32 noundef %54)
+50:                                               ; preds = %45, %42
+  %51 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17h99df65994d24d467E"(i64 noundef %28, i32 noundef range(i32 0, 1000000001) %30, i64 noundef %39, i32 noundef %40)
+  %52 = extractvalue { i64, i32 } %51, 0
+  %53 = extractvalue { i64, i32 } %51, 1
+  tail call void @_ZN3std6thread6Thread12park_timeout17hd618bdfca2134781E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %33, i64 noundef %52, i32 noundef %53)
   br label %.split.i
 
-55:                                               ; preds = %50
+54:                                               ; preds = %49
   tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.155, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c531fd67d455b9bcbaca05dfc51ea67.157) #34
   unreachable
 
-.thread.loopexit17.i:                             ; preds = %.split.i, %.split.i, %.split.us.i, %.split.us.i, %50, %50, %48
+.thread.loopexit17.i:                             ; preds = %.split.i, %.split.i, %.split.us.i, %.split.us.i, %49, %49, %47
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call fastcc void @_ZN3std4sync4mpmc5waker9SyncWaker10unregister17h5685ffc0d7c82243E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 8 %9, i64 noundef %6)
-  %56 = load ptr, ptr %3, align 8, !noundef !6
-  %.not = icmp eq ptr %56, null
-  br i1 %.not, label %58, label %57, !prof !34
+  %55 = load ptr, ptr %3, align 8, !noundef !6
+  %.not = icmp eq ptr %55, null
+  br i1 %.not, label %57, label %56, !prof !34
 
-_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6: ; preds = %.split.i, %.split.us.i, %50, %57
+_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6: ; preds = %.split.i, %.split.us.i, %49, %56
   ret void
 
-57:                                               ; preds = %.thread.loopexit17.i
+56:                                               ; preds = %.thread.loopexit17.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @"_ZN4core3ptr50drop_in_place$LT$std..sync..mpmc..waker..Entry$GT$17h371fb6bdaa6e5a77E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6
 
-58:                                               ; preds = %.thread.loopexit17.i
+57:                                               ; preds = %.thread.loopexit17.i
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c531fd67d455b9bcbaca05dfc51ea67.158) #34
   unreachable
 }
@@ -20274,91 +20272,89 @@ _ZN3std4sync4mpmc7context7Context10try_select17hfc5095571a5938baE.exit: ; preds 
   tail call void @llvm.assume(i1 %34)
   %35 = getelementptr inbounds nuw i8, ptr %.val1, i64 24
   %.not.i = icmp eq i32 %33, 1000000000
-  %36 = icmp samesign ult i32 %33, 1000000000
-  %37 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
   br i1 %.not.i, label %.split.us.i, label %.split.i
 
-.split.us.i:                                      ; preds = %28, %39
-  %38 = load atomic i64, ptr %35 acquire, align 8
-  switch i64 %38, label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6 [
-    i64 0, label %39
+.split.us.i:                                      ; preds = %28, %38
+  %37 = load atomic i64, ptr %35 acquire, align 8
+  switch i64 %37, label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6 [
+    i64 0, label %38
     i64 1, label %.thread.loopexit17.i
     i64 2, label %.thread.loopexit17.i
   ]
 
-39:                                               ; preds = %.split.us.i
-  tail call void @_ZN3std6thread6Thread4park17hfc72a11dc603dcc3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %37)
+38:                                               ; preds = %.split.us.i
+  tail call void @_ZN3std6thread6Thread4park17hfc72a11dc603dcc3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %36)
   br label %.split.us.i
 
-.split.i:                                         ; preds = %28, %54
-  %40 = load atomic i64, ptr %35 acquire, align 8
-  switch i64 %40, label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6 [
-    i64 0, label %41
+.split.i:                                         ; preds = %28, %53
+  %39 = load atomic i64, ptr %35 acquire, align 8
+  switch i64 %39, label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6 [
+    i64 0, label %40
     i64 1, label %.thread.loopexit17.i
     i64 2, label %.thread.loopexit17.i
   ]
 
-41:                                               ; preds = %.split.i
-  %42 = tail call { i64, i32 } @_ZN3std4time7Instant3now17he9517b39d898c2d5E()
-  %43 = extractvalue { i64, i32 } %42, 0
-  %44 = extractvalue { i64, i32 } %42, 1
-  %45 = icmp eq i64 %43, %31
-  br i1 %45, label %46, label %49
+40:                                               ; preds = %.split.i
+  %41 = tail call { i64, i32 } @_ZN3std4time7Instant3now17he9517b39d898c2d5E()
+  %42 = extractvalue { i64, i32 } %41, 0
+  %43 = extractvalue { i64, i32 } %41, 1
+  %44 = icmp eq i64 %42, %31
+  br i1 %44, label %45, label %48
 
-46:                                               ; preds = %41
-  %47 = icmp ult i32 %44, 1000000000
-  tail call void @llvm.assume(i1 %47)
-  tail call void @llvm.assume(i1 %36)
-  %48 = icmp samesign ult i32 %44, %33
-  br i1 %48, label %54, label %51
+45:                                               ; preds = %40
+  %46 = icmp ult i32 %43, 1000000000
+  tail call void @llvm.assume(i1 %46)
+  %47 = icmp samesign ult i32 %43, %33
+  br i1 %47, label %53, label %50
 
-49:                                               ; preds = %41
-  %50 = icmp slt i64 %43, %31
-  br i1 %50, label %54, label %51
+48:                                               ; preds = %40
+  %49 = icmp slt i64 %42, %31
+  br i1 %49, label %53, label %50
 
-51:                                               ; preds = %49, %46
-  %52 = cmpxchg ptr %35, i64 0, i64 1 acq_rel acquire, align 8
-  %.sroa.18.0.in.i.i.i = extractvalue { i64, i1 } %52, 1
-  br i1 %.sroa.18.0.in.i.i.i, label %.thread.loopexit17.i, label %53
+50:                                               ; preds = %48, %45
+  %51 = cmpxchg ptr %35, i64 0, i64 1 acq_rel acquire, align 8
+  %.sroa.18.0.in.i.i.i = extractvalue { i64, i1 } %51, 1
+  br i1 %.sroa.18.0.in.i.i.i, label %.thread.loopexit17.i, label %52
 
-53:                                               ; preds = %51
-  %.sroa.01.0.i.i.i = extractvalue { i64, i1 } %52, 0
+52:                                               ; preds = %50
+  %.sroa.01.0.i.i.i = extractvalue { i64, i1 } %51, 0
   switch i64 %.sroa.01.0.i.i.i, label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6 [
-    i64 0, label %58
+    i64 0, label %57
     i64 1, label %.thread.loopexit17.i
     i64 2, label %.thread.loopexit17.i
   ]
 
-54:                                               ; preds = %49, %46
-  %55 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17h99df65994d24d467E"(i64 noundef %31, i32 noundef range(i32 0, 1000000001) %33, i64 noundef %43, i32 noundef %44)
-  %56 = extractvalue { i64, i32 } %55, 0
-  %57 = extractvalue { i64, i32 } %55, 1
-  tail call void @_ZN3std6thread6Thread12park_timeout17hd618bdfca2134781E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %37, i64 noundef %56, i32 noundef %57)
+53:                                               ; preds = %48, %45
+  %54 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17h99df65994d24d467E"(i64 noundef %31, i32 noundef range(i32 0, 1000000001) %33, i64 noundef %42, i32 noundef %43)
+  %55 = extractvalue { i64, i32 } %54, 0
+  %56 = extractvalue { i64, i32 } %54, 1
+  tail call void @_ZN3std6thread6Thread12park_timeout17hd618bdfca2134781E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %36, i64 noundef %55, i32 noundef %56)
   br label %.split.i
 
-58:                                               ; preds = %53
+57:                                               ; preds = %52
   tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.6c531fd67d455b9bcbaca05dfc51ea67.155, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c531fd67d455b9bcbaca05dfc51ea67.159) #34
   unreachable
 
-.thread.loopexit17.i:                             ; preds = %.split.i, %.split.i, %.split.us.i, %.split.us.i, %53, %53, %51
+.thread.loopexit17.i:                             ; preds = %.split.i, %.split.i, %.split.us.i, %.split.us.i, %52, %52, %50
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call fastcc void @_ZN3std4sync4mpmc5waker9SyncWaker10unregister17h5685ffc0d7c82243E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 8 %9, i64 noundef %6)
-  %59 = load ptr, ptr %3, align 8, !noundef !6
-  %.not = icmp eq ptr %59, null
-  br i1 %.not, label %61, label %60, !prof !34
+  %58 = load ptr, ptr %3, align 8, !noundef !6
+  %.not = icmp eq ptr %58, null
+  br i1 %.not, label %60, label %59, !prof !34
 
-_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6: ; preds = %.split.i, %.split.us.i, %53, %60
+_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6: ; preds = %.split.i, %.split.us.i, %52, %59
   ret void
 
-60:                                               ; preds = %.thread.loopexit17.i
+59:                                               ; preds = %.thread.loopexit17.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @"_ZN4core3ptr50drop_in_place$LT$std..sync..mpmc..waker..Entry$GT$17h371fb6bdaa6e5a77E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %_ZN3std4sync4mpmc7context7Context10wait_until17h5d036fc936395577E.exit.thread6
 
-61:                                               ; preds = %.thread.loopexit17.i
+60:                                               ; preds = %.thread.loopexit17.i
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c531fd67d455b9bcbaca05dfc51ea67.160) #34
   unreachable
 }

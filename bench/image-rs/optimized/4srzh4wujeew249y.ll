@@ -30807,7 +30807,7 @@ common.resume:                                    ; preds = %395, %348, %372, %2
   %67 = and i8 %62, 7
   %68 = lshr i8 %66, %67
   %69 = and i8 %68, 1
-  %70 = shl nuw i8 %69, %.sroa.01.020.i40.i
+  %70 = shl nuw nsw i8 %69, %.sroa.01.020.i40.i
   %71 = add i8 %70, %.01419.i41.i
   %72 = icmp eq i8 %62, 7
   br i1 %72, label %79, label %81
@@ -31007,7 +31007,7 @@ _ZN4core3ops5range11RangeBounds8contains17h6aa3edaf5343fa2fE.exit.thread.i: ; pr
   %142 = and i8 %137, 7
   %143 = lshr i8 %141, %142
   %144 = and i8 %143, 1
-  %145 = shl nuw i8 %144, %.sroa.01.020.i156
+  %145 = shl nuw nsw i8 %144, %.sroa.01.020.i156
   %146 = add i8 %145, %.01419.i157
   %147 = icmp eq i8 %137, 7
   br i1 %147, label %154, label %156
@@ -31145,7 +31145,7 @@ default.unreachable:                              ; preds = %"_ZN5alloc3vec16Vec
   %192 = and i8 %187, 7
   %193 = lshr i8 %191, %192
   %194 = and i8 %193, 1
-  %195 = shl nuw i8 %194, %.sroa.01.020.i139
+  %195 = shl nuw nsw i8 %194, %.sroa.01.020.i139
   %196 = add i8 %195, %.01419.i140
   %197 = icmp eq i8 %187, 7
   br i1 %197, label %204, label %206
@@ -31209,7 +31209,7 @@ default.unreachable:                              ; preds = %"_ZN5alloc3vec16Vec
   %218 = and i8 %213, 7
   %219 = lshr i8 %217, %218
   %220 = and i8 %219, 1
-  %221 = shl nuw i8 %220, %.sroa.01.020.i124
+  %221 = shl nuw nsw i8 %220, %.sroa.01.020.i124
   %222 = add i8 %221, %.01419.i125
   %223 = icmp eq i8 %213, 7
   br i1 %223, label %230, label %232
@@ -32887,7 +32887,7 @@ define internal fastcc void @"_ZN5image6codecs4webp8lossless24LosslessDecoder$LT
   %126 = and i8 %121, 7
   %127 = lshr i8 %125, %126
   %128 = and i8 %127, 1
-  %129 = shl nuw i8 %128, %.sroa.01.020.i144
+  %129 = shl nuw nsw i8 %128, %.sroa.01.020.i144
   %130 = add i8 %129, %.01419.i145
   %131 = icmp eq i8 %121, 7
   br i1 %131, label %138, label %140
@@ -33956,7 +33956,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i: ; preds = %263
   %465 = and i8 %460, 7
   %466 = lshr i8 %464, %465
   %467 = and i8 %466, 1
-  %468 = shl nuw i8 %467, %.sroa.01.020.i172.i.i
+  %468 = shl nuw nsw i8 %467, %.sroa.01.020.i172.i.i
   %469 = add i8 %468, %.01419.i173.i.i
   %470 = icmp eq i8 %460, 7
   br i1 %470, label %477, label %479
@@ -35076,7 +35076,7 @@ define internal fastcc void @_ZN5image6codecs4webp8lossless9BitReader9read_bits1
   %19 = and i8 %13, 7
   %20 = lshr i8 %18, %19
   %21 = and i8 %20, 1
-  %22 = shl nuw i8 %21, %.sroa.01.020
+  %22 = shl nuw nsw i8 %21, %.sroa.01.020
   %23 = add i8 %22, %.01419
   %24 = icmp eq i8 %13, 7
   br i1 %24, label %32, label %34

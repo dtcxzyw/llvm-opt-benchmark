@@ -40999,8 +40999,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit161: ; preds = %42
   br label %.critedge146
 
 .critedge146:                                     ; preds = %37, %.critedge145
-  %44 = add i64 %.sroa.speculated196, %.0117206
-  %45 = icmp ult i64 %44, %3
+  %44 = add nuw nsw i64 %.sroa.speculated196, %.0117206
+  %45 = icmp samesign ult i64 %44, %3
   br i1 %45, label %34, label %.preheader, !llvm.loop !543
 
 46:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %29
