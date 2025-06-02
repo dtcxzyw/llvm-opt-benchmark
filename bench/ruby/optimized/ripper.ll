@@ -50055,7 +50055,7 @@ define internal void @parser_set_frozen_string_literal(ptr noundef captures(none
   %21 = trunc nuw nsw i32 %18 to i16
   %22 = load i16, ptr %4, align 8
   %23 = and i16 %22, -4
-  %24 = or disjoint i16 %23, %21
+  %24 = or i16 %23, %21
   store i16 %24, ptr %4, align 8
   br label %25
 
@@ -50182,20 +50182,19 @@ define internal void @parser_set_shareable_constant_value(ptr noundef captures(n
 define internal void @parser_set_token_info(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call fastcc i32 @parser_get_bool(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = icmp sgt i32 %4, -1
-  br i1 %5, label %6, label %14
+  br i1 %5, label %6, label %13
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %8 = trunc nuw nsw i32 %4 to i16
   %9 = load i16, ptr %7, align 8
   %10 = shl nuw nsw i16 %8, 8
-  %11 = and i16 %10, 256
-  %12 = and i16 %9, -257
-  %13 = or disjoint i16 %12, %11
-  store i16 %13, ptr %7, align 8
-  br label %14
+  %11 = and i16 %9, -257
+  %12 = or i16 %11, %10
+  store i16 %12, ptr %7, align 8
+  br label %13
 
-14:                                               ; preds = %6, %3
+13:                                               ; preds = %6, %3
   ret void
 }
 

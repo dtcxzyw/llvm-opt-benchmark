@@ -47247,10 +47247,10 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
 
 168:                                              ; preds = %163
   %169 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %170 = load i64, ptr %169, align 4
-  %171 = zext nneg i32 %.0300 to i64
-  %172 = shl nuw nsw i64 %171, 40
-  %173 = and i64 %170, -2250700302057473
+  %170 = zext nneg i32 %.0300 to i64
+  %171 = load i64, ptr %169, align 4
+  %172 = shl nuw nsw i64 %170, 40
+  %173 = and i64 %171, -2250700302057473
   %174 = or disjoint i64 %173, %172
   store i64 %174, ptr %169, align 4
   %175 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -47363,10 +47363,10 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
 
 234:                                              ; preds = %227
   %235 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %236 = load i64, ptr %235, align 4
-  %237 = zext nneg i32 %.0300 to i64
-  %238 = and i64 %236, -16
-  %239 = or disjoint i64 %238, %237
+  %236 = zext nneg i32 %.0300 to i64
+  %237 = load i64, ptr %235, align 4
+  %238 = and i64 %237, -16
+  %239 = or disjoint i64 %238, %236
   store i64 %239, ptr %235, align 4
   br label %240
 
@@ -47489,10 +47489,10 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
 
 309:                                              ; preds = %299
   %310 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %311 = load i64, ptr %310, align 4
-  %312 = zext nneg i32 %.0300 to i64
-  %313 = shl nuw nsw i64 %312, 32
-  %314 = and i64 %311, -1095216660481
+  %311 = zext nneg i32 %.0300 to i64
+  %312 = load i64, ptr %310, align 4
+  %313 = shl nuw nsw i64 %311, 32
+  %314 = and i64 %312, -1095216660481
   %315 = or disjoint i64 %314, %313
   store i64 %315, ptr %310, align 4
   br label %316
@@ -47758,10 +47758,10 @@ _ZN7glslang7IntLog2IiEEiT_.exit:                  ; preds = %.preheader
 445:                                              ; preds = %439, %441
   %.1 = phi i32 [ 0, %441 ], [ %.0300, %439 ]
   %446 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %447 = load i64, ptr %446, align 4
-  %448 = zext nneg i32 %.1 to i64
-  %449 = shl nuw nsw i64 %448, 48
-  %450 = and i64 %447, -71776119061217281
+  %447 = zext nneg i32 %.1 to i64
+  %448 = load i64, ptr %446, align 4
+  %449 = shl nuw nsw i64 %447, 48
+  %450 = and i64 %448, -71776119061217281
   %451 = or disjoint i64 %450, %449
   store i64 %451, ptr %446, align 4
   br i1 %.not, label %452, label %588

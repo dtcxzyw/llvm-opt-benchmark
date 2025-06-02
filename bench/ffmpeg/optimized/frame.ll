@@ -1495,7 +1495,7 @@ define range(i32 0, 2) i32 @av_frame_is_writable(ptr noundef readonly captures(n
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit, label %.preheader23
 
-.preheader:                                       ; preds = %15
+.preheader:                                       ; preds = %13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load i32, ptr %4, align 8, !tbaa !30
   %6 = icmp sgt i32 %5, 0
@@ -1503,47 +1503,45 @@ define range(i32 0, 2) i32 @av_frame_is_writable(ptr noundef readonly captures(n
 
 .lr.ph:                                           ; preds = %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %8 = and i32 %.1, 1
-  br label %16
+  br label %14
 
-.preheader23:                                     ; preds = %1, %15
-  %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %1 ]
-  %.01624 = phi i32 [ %.1, %15 ], [ 1, %1 ]
-  %9 = getelementptr inbounds nuw [8 x ptr], ptr %2, i64 0, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8, !tbaa !42
-  %.not21 = icmp eq ptr %10, null
-  br i1 %.not21, label %15, label %11
+.preheader23:                                     ; preds = %1, %13
+  %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %1 ]
+  %.01624 = phi i32 [ %.1, %13 ], [ 1, %1 ]
+  %8 = getelementptr inbounds nuw [8 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %9 = load ptr, ptr %8, align 8, !tbaa !42
+  %.not21 = icmp eq ptr %9, null
+  br i1 %.not21, label %13, label %10
 
-11:                                               ; preds = %.preheader23
-  %12 = tail call i32 @av_buffer_is_writable(ptr noundef nonnull %10) #8
-  %.not22 = icmp eq i32 %12, 0
-  %13 = and i32 %.01624, 1
-  %14 = select i1 %.not22, i32 0, i32 %13
-  br label %15
+10:                                               ; preds = %.preheader23
+  %11 = tail call i32 @av_buffer_is_writable(ptr noundef nonnull %9) #8
+  %.not22 = icmp eq i32 %11, 0
+  %12 = select i1 %.not22, i32 0, i32 %.01624
+  br label %13
 
-15:                                               ; preds = %.preheader23, %11
-  %.1 = phi i32 [ %14, %11 ], [ %.01624, %.preheader23 ]
+13:                                               ; preds = %.preheader23, %10
+  %.1 = phi i32 [ %12, %10 ], [ %.01624, %.preheader23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %.preheader, label %.preheader23, !llvm.loop !96
 
-16:                                               ; preds = %.lr.ph, %16
-  %indvars.iv29 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next30, %16 ]
-  %.226 = phi i32 [ %8, %.lr.ph ], [ %21, %16 ]
-  %17 = load ptr, ptr %7, align 8, !tbaa !33
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv29
-  %19 = load ptr, ptr %18, align 8, !tbaa !42
-  %20 = tail call i32 @av_buffer_is_writable(ptr noundef %19) #8
-  %.not20 = icmp eq i32 %20, 0
-  %21 = select i1 %.not20, i32 0, i32 %.226
+14:                                               ; preds = %.lr.ph, %14
+  %indvars.iv29 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next30, %14 ]
+  %.226 = phi i32 [ %.1, %.lr.ph ], [ %19, %14 ]
+  %15 = load ptr, ptr %7, align 8, !tbaa !33
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv29
+  %17 = load ptr, ptr %16, align 8, !tbaa !42
+  %18 = tail call i32 @av_buffer_is_writable(ptr noundef %17) #8
+  %.not20 = icmp eq i32 %18, 0
+  %19 = select i1 %.not20, i32 0, i32 %.226
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
-  %22 = load i32, ptr %4, align 8, !tbaa !30
-  %23 = sext i32 %22 to i64
-  %24 = icmp slt i64 %indvars.iv.next30, %23
-  br i1 %24, label %16, label %.loopexit, !llvm.loop !97
+  %20 = load i32, ptr %4, align 8, !tbaa !30
+  %21 = sext i32 %20 to i64
+  %22 = icmp slt i64 %indvars.iv.next30, %21
+  br i1 %22, label %14, label %.loopexit, !llvm.loop !97
 
-.loopexit:                                        ; preds = %16, %.preheader, %1
-  %.017 = phi i32 [ 0, %1 ], [ %.1, %.preheader ], [ %21, %16 ]
+.loopexit:                                        ; preds = %14, %.preheader, %1
+  %.017 = phi i32 [ 0, %1 ], [ %.1, %.preheader ], [ %19, %14 ]
   ret i32 %.017
 }
 
@@ -1558,7 +1556,7 @@ define range(i32 -2147483648, 1) i32 @av_frame_make_writable(ptr noundef %0) loc
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %av_frame_is_writable.exit.thread, label %.preheader23.i
 
-.preheader.i:                                     ; preds = %16
+.preheader.i:                                     ; preds = %14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = load i32, ptr %5, align 8, !tbaa !30
   %7 = icmp sgt i32 %6, 0
@@ -1566,130 +1564,128 @@ define range(i32 -2147483648, 1) i32 @av_frame_make_writable(ptr noundef %0) loc
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %9 = and i32 %.1.i, 1
-  br label %17
+  br label %15
 
-.preheader23.i:                                   ; preds = %1, %16
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %16 ], [ 0, %1 ]
-  %.01624.i = phi i32 [ %.1.i, %16 ], [ 1, %1 ]
-  %10 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i
-  %11 = load ptr, ptr %10, align 8, !tbaa !42
-  %.not21.i = icmp eq ptr %11, null
-  br i1 %.not21.i, label %16, label %12
+.preheader23.i:                                   ; preds = %1, %14
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %1 ]
+  %.01624.i = phi i32 [ %.1.i, %14 ], [ 1, %1 ]
+  %9 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i
+  %10 = load ptr, ptr %9, align 8, !tbaa !42
+  %.not21.i = icmp eq ptr %10, null
+  br i1 %.not21.i, label %14, label %11
 
-12:                                               ; preds = %.preheader23.i
-  %13 = tail call i32 @av_buffer_is_writable(ptr noundef nonnull %11) #8
-  %.not22.i = icmp eq i32 %13, 0
-  %14 = and i32 %.01624.i, 1
-  %15 = select i1 %.not22.i, i32 0, i32 %14
-  br label %16
+11:                                               ; preds = %.preheader23.i
+  %12 = tail call i32 @av_buffer_is_writable(ptr noundef nonnull %10) #8
+  %.not22.i = icmp eq i32 %12, 0
+  %13 = select i1 %.not22.i, i32 0, i32 %.01624.i
+  br label %14
 
-16:                                               ; preds = %12, %.preheader23.i
-  %.1.i = phi i32 [ %15, %12 ], [ %.01624.i, %.preheader23.i ]
+14:                                               ; preds = %11, %.preheader23.i
+  %.1.i = phi i32 [ %13, %11 ], [ %.01624.i, %.preheader23.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
   br i1 %exitcond.not.i, label %.preheader.i, label %.preheader23.i, !llvm.loop !96
 
-17:                                               ; preds = %17, %.lr.ph.i
-  %indvars.iv29.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next30.i, %17 ]
-  %.226.i = phi i32 [ %9, %.lr.ph.i ], [ %22, %17 ]
-  %18 = load ptr, ptr %8, align 8, !tbaa !33
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv29.i
-  %20 = load ptr, ptr %19, align 8, !tbaa !42
-  %21 = tail call i32 @av_buffer_is_writable(ptr noundef %20) #8
-  %.not20.i = icmp eq i32 %21, 0
-  %22 = select i1 %.not20.i, i32 0, i32 %.226.i
+15:                                               ; preds = %15, %.lr.ph.i
+  %indvars.iv29.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next30.i, %15 ]
+  %.226.i = phi i32 [ %.1.i, %.lr.ph.i ], [ %20, %15 ]
+  %16 = load ptr, ptr %8, align 8, !tbaa !33
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv29.i
+  %18 = load ptr, ptr %17, align 8, !tbaa !42
+  %19 = tail call i32 @av_buffer_is_writable(ptr noundef %18) #8
+  %.not20.i = icmp eq i32 %19, 0
+  %20 = select i1 %.not20.i, i32 0, i32 %.226.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
-  %23 = load i32, ptr %5, align 8, !tbaa !30
-  %24 = sext i32 %23 to i64
-  %25 = icmp slt i64 %indvars.iv.next30.i, %24
-  br i1 %25, label %17, label %av_frame_is_writable.exit, !llvm.loop !97
+  %21 = load i32, ptr %5, align 8, !tbaa !30
+  %22 = sext i32 %21 to i64
+  %23 = icmp slt i64 %indvars.iv.next30.i, %22
+  br i1 %23, label %15, label %av_frame_is_writable.exit, !llvm.loop !97
 
-av_frame_is_writable.exit:                        ; preds = %17, %.preheader.i
-  %.017.i = phi i32 [ %.1.i, %.preheader.i ], [ %22, %17 ]
+av_frame_is_writable.exit:                        ; preds = %15, %.preheader.i
+  %.017.i = phi i32 [ %.1.i, %.preheader.i ], [ %20, %15 ]
   %.not = icmp eq i32 %.017.i, 0
-  br i1 %.not, label %av_frame_is_writable.exit.thread, label %66
+  br i1 %.not, label %av_frame_is_writable.exit.thread, label %64
 
 av_frame_is_writable.exit.thread:                 ; preds = %1, %av_frame_is_writable.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %2, i8 0, i64 416, i1 false)
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %27 = load i32, ptr %26, align 4, !tbaa !23
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 116
-  store i32 %27, ptr %28, align 4, !tbaa !23
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %30 = load i32, ptr %29, align 8, !tbaa !35
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  store i32 %30, ptr %31, align 8, !tbaa !35
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %33 = load i32, ptr %32, align 4, !tbaa !36
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 108
-  store i32 %33, ptr %34, align 4, !tbaa !36
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %36 = load i32, ptr %35, align 8, !tbaa !49
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store i32 %36, ptr %37, align 8, !tbaa !49
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 384
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %40 = call i32 @av_channel_layout_copy(ptr noundef nonnull %38, ptr noundef nonnull %39) #8
-  %41 = icmp slt i32 %40, 0
-  br i1 %41, label %42, label %43
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %25 = load i32, ptr %24, align 4, !tbaa !23
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 116
+  store i32 %25, ptr %26, align 4, !tbaa !23
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %28 = load i32, ptr %27, align 8, !tbaa !35
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  store i32 %28, ptr %29, align 8, !tbaa !35
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %31 = load i32, ptr %30, align 4, !tbaa !36
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 108
+  store i32 %31, ptr %32, align 4, !tbaa !36
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %34 = load i32, ptr %33, align 8, !tbaa !49
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  store i32 %34, ptr %35, align 8, !tbaa !49
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 384
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %38 = call i32 @av_channel_layout_copy(ptr noundef nonnull %36, ptr noundef nonnull %37) #8
+  %39 = icmp slt i32 %38, 0
+  br i1 %39, label %40, label %41
 
-42:                                               ; preds = %av_frame_is_writable.exit.thread
+40:                                               ; preds = %av_frame_is_writable.exit.thread
   call void @av_frame_unref(ptr noundef nonnull %2)
-  br label %66
+  br label %64
 
-43:                                               ; preds = %av_frame_is_writable.exit.thread
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %45 = load ptr, ptr %44, align 8, !tbaa !55
-  %.not27 = icmp eq ptr %45, null
-  br i1 %.not27, label %48, label %46
+41:                                               ; preds = %av_frame_is_writable.exit.thread
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %43 = load ptr, ptr %42, align 8, !tbaa !55
+  %.not27 = icmp eq ptr %43, null
+  br i1 %.not27, label %46, label %44
 
-46:                                               ; preds = %43
-  %47 = call i32 @av_hwframe_get_buffer(ptr noundef nonnull %45, ptr noundef nonnull %2, i32 noundef 0) #8
-  br label %50
+44:                                               ; preds = %41
+  %45 = call i32 @av_hwframe_get_buffer(ptr noundef nonnull %43, ptr noundef nonnull %2, i32 noundef 0) #8
+  br label %48
 
-48:                                               ; preds = %43
-  %49 = call i32 @av_frame_get_buffer(ptr noundef nonnull %2, i32 noundef 0)
-  br label %50
+46:                                               ; preds = %41
+  %47 = call i32 @av_frame_get_buffer(ptr noundef nonnull %2, i32 noundef 0)
+  br label %48
 
-50:                                               ; preds = %48, %46
-  %.0 = phi i32 [ %47, %46 ], [ %49, %48 ]
-  %51 = icmp slt i32 %.0, 0
-  br i1 %51, label %66, label %52
+48:                                               ; preds = %46, %44
+  %.0 = phi i32 [ %45, %44 ], [ %47, %46 ]
+  %49 = icmp slt i32 %.0, 0
+  br i1 %49, label %64, label %50
 
-52:                                               ; preds = %50
-  %53 = call i32 @av_frame_copy(ptr noundef nonnull %2, ptr noundef nonnull %0)
-  %54 = icmp slt i32 %53, 0
-  br i1 %54, label %55, label %56
+50:                                               ; preds = %48
+  %51 = call i32 @av_frame_copy(ptr noundef nonnull %2, ptr noundef nonnull %0)
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %53, label %54
 
-55:                                               ; preds = %52
+53:                                               ; preds = %50
   call void @av_frame_unref(ptr noundef nonnull %2)
-  br label %66
+  br label %64
 
-56:                                               ; preds = %52
-  %57 = call fastcc i32 @frame_copy_props(ptr noundef nonnull %2, ptr noundef nonnull readonly %0, i32 noundef 1)
-  %58 = icmp slt i32 %57, 0
-  br i1 %58, label %59, label %60
+54:                                               ; preds = %50
+  %55 = call fastcc i32 @frame_copy_props(ptr noundef nonnull %2, ptr noundef nonnull readonly %0, i32 noundef 1)
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %57, label %58
 
-59:                                               ; preds = %56
+57:                                               ; preds = %54
   call void @av_frame_unref(ptr noundef nonnull %2)
-  br label %66
+  br label %64
 
-60:                                               ; preds = %56
+58:                                               ; preds = %54
   call void @av_frame_unref(ptr noundef nonnull %0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull align 8 dereferenceable(416) %2, i64 416, i1 false), !tbaa.struct !89
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %62 = load ptr, ptr %61, align 8, !tbaa !24
-  %63 = icmp eq ptr %2, %62
-  br i1 %63, label %64, label %66
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %60 = load ptr, ptr %59, align 8, !tbaa !24
+  %61 = icmp eq ptr %2, %60
+  br i1 %61, label %62, label %64
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %0, ptr %65, align 8, !tbaa !24
-  br label %66
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %0, ptr %63, align 8, !tbaa !24
+  br label %64
 
-66:                                               ; preds = %60, %64, %50, %av_frame_is_writable.exit, %59, %55, %42
-  %.022 = phi i32 [ %40, %42 ], [ %53, %55 ], [ %57, %59 ], [ 0, %av_frame_is_writable.exit ], [ %.0, %50 ], [ 0, %64 ], [ 0, %60 ]
+64:                                               ; preds = %58, %62, %48, %av_frame_is_writable.exit, %57, %53, %40
+  %.022 = phi i32 [ %38, %40 ], [ %51, %53 ], [ %55, %57 ], [ 0, %av_frame_is_writable.exit ], [ %.0, %48 ], [ 0, %62 ], [ 0, %58 ]
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %2) #8
   ret i32 %.022
 }

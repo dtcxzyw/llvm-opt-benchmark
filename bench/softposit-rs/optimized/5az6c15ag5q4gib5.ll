@@ -3952,8 +3952,8 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit81: ; preds
   %49 = icmp slt i8 %45, 0
   br i1 %49, label %53, label %51
 
-50:                                               ; preds = %6, %2, %93
-  %.0 = phi i16 [ %.0.i, %93 ], [ -32768, %2 ], [ 0, %6 ]
+50:                                               ; preds = %6, %2, %92
+  %.0 = phi i16 [ %.0.i, %92 ], [ -32768, %2 ], [ 0, %6 ]
   ret i16 %.0
 
 51:                                               ; preds = %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit81
@@ -4005,7 +4005,7 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   %.sroa.0.0.i = phi i16 [ %74, %70 ], [ %69, %64 ]
   %.sroa.6.0.extract.trunc = sext i8 %.sroa.51.0.in.i to i32
   %75 = icmp ugt i8 %.sroa.51.0.in.i, 14
-  br i1 %75, label %92, label %76
+  br i1 %75, label %91, label %76
 
 76:                                               ; preds = %_ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit
   %77 = and i32 %.052, 16383
@@ -4019,43 +4019,42 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   %.049 = select i1 %78, i1 %79, i1 %81
   %.048 = select i1 %78, i16 0, i16 %84
   %85 = zext nneg i8 %.1 to i16
-  %86 = sub nsw i8 13, %.sroa.51.0.in.i
-  %87 = and i8 %86, 15
-  %88 = zext nneg i8 %87 to i16
-  %89 = shl nuw i16 %85, %88
-  %.050 = select i1 %78, i16 0, i16 %89
-  %90 = add nuw i16 %.050, %.sroa.0.0.i
-  %91 = add i16 %90, %.048
-  br i1 %.049, label %95, label %93
+  %86 = zext nneg i8 %.sroa.51.0.in.i to i16
+  %87 = sub nsw i16 13, %86
+  %88 = shl nuw nsw i16 %85, %87
+  %.050 = select i1 %78, i16 0, i16 %88
+  %89 = add nuw i16 %.050, %.sroa.0.0.i
+  %90 = add i16 %89, %.048
+  br i1 %.049, label %94, label %92
 
-92:                                               ; preds = %_ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit
+91:                                               ; preds = %_ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit
   %. = select i1 %63, i16 1, i16 32767
-  br label %93
+  br label %92
 
-93:                                               ; preds = %92, %102, %76
-  %.055 = phi i16 [ %105, %102 ], [ %91, %76 ], [ %., %92 ]
-  %94 = sub i16 0, %.055
-  %.0.i = select i1 %12, i16 %94, i16 %.055
+92:                                               ; preds = %91, %101, %76
+  %.055 = phi i16 [ %104, %101 ], [ %90, %76 ], [ %., %91 ]
+  %93 = sub i16 0, %.055
+  %.0.i = select i1 %12, i16 %93, i16 %.055
   br label %50
 
-95:                                               ; preds = %76
-  %96 = icmp eq i32 %48, 0
-  br i1 %96, label %97, label %102
+94:                                               ; preds = %76
+  %95 = icmp eq i32 %48, 0
+  br i1 %95, label %96, label %101
 
-97:                                               ; preds = %95
+96:                                               ; preds = %94
   %notmask = shl nsw i32 -1, %.sroa.6.0.extract.trunc
-  %98 = xor i32 %notmask, -1
-  %99 = and i32 %77, %98
-  %100 = icmp ne i32 %99, 0
-  %101 = zext i1 %100 to i16
-  br label %102
+  %97 = xor i32 %notmask, -1
+  %98 = and i32 %77, %97
+  %99 = icmp ne i32 %98, 0
+  %100 = zext i1 %99 to i16
+  br label %101
 
-102:                                              ; preds = %95, %97
-  %.054 = phi i16 [ %101, %97 ], [ 1, %95 ]
-  %103 = and i16 %91, 1
-  %104 = or i16 %.054, %103
-  %105 = add i16 %104, %91
-  br label %93
+101:                                              ; preds = %94, %96
+  %.054 = phi i16 [ %100, %96 ], [ 1, %94 ]
+  %102 = and i16 %90, 1
+  %103 = or i16 %.054, %102
+  %104 = add i16 %103, %90
+  br label %92
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -6940,7 +6940,7 @@ define void @"_ZN89_$LT$uu_sort..numeric_str_cmp..NumInfoParseSettings$u20$as$u2
 define hidden void @_ZN7uu_sort15numeric_str_cmp7NumInfo5parse17h09dae599bdcb2b1aE(ptr noalias noundef writeonly sret({ { i64, i8, [7 x i8] }, { i64, i64 } }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %3) unnamed_addr #23 {
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
   %6 = icmp eq i64 %2, 0
-  br i1 %6, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread.thread", label %.lr.ph.lr.ph
+  br i1 %6, label %.thread, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %4
   %7 = load i32, ptr %3, align 4, !range !1366
@@ -7039,7 +7039,7 @@ define hidden void @_ZN7uu_sort15numeric_str_cmp7NumInfo5parse17h09dae599bdcb2b1
   %.046.lcssa = phi i8 [ %.046.lcssa.ph, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread.loopexit" ], [ %.046122, %.outer ]
   %.0.lcssa = phi i64 [ %50, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread.loopexit" ], [ %2, %.outer ]
   %.not59 = icmp eq i64 %.sroa.0.0.ph.lcssa, 0
-  br i1 %.not59, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread.thread", label %54
+  br i1 %.not59, label %.thread, label %54
 
 "_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread76": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.llvm.687266931824691263.exit13.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.llvm.687266931824691263.exit15.i.i", %25, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit"
   %.sink = phi ptr [ %48, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit" ], [ %18, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.llvm.687266931824691263.exit13.i.i" ], [ %28, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.llvm.687266931824691263.exit15.i.i" ], [ %12, %25 ]
@@ -7051,16 +7051,16 @@ define hidden void @_ZN7uu_sort15numeric_str_cmp7NumInfo5parse17h09dae599bdcb2b1
 
 54:                                               ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread"
   %55 = and i8 %.046.lcssa, 1
-  br label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread.thread"
+  br label %.thread
 
-"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread.thread": ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread", %4, %.thread, %103, %54
-  %.048.ph147.lcssa218.sink = phi i64 [ %.048.ph147, %.thread ], [ 0, %103 ], [ %.048.ph.lcssa, %54 ], [ 0, %4 ], [ 0, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread" ]
-  %.sink228 = phi i8 [ %109, %.thread ], [ 1, %103 ], [ %55, %54 ], [ 1, %4 ], [ 1, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread" ]
-  %.sroa.9.0.ph150.lcssa220.sink = phi i64 [ %.sroa.9.0.ph150, %.thread ], [ %.63, %103 ], [ %.sroa.9.0.ph.lcssa, %54 ], [ 0, %4 ], [ %.0.lcssa, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread" ]
-  %.sink225 = phi i64 [ %108, %.thread ], [ %.63, %103 ], [ %2, %54 ], [ 0, %4 ], [ %.0.lcssa, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread" ]
+.thread:                                          ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread", %4, %106, %99, %105, %103, %54
+  %.048.ph147.lcssa218.sink = phi i64 [ 0, %103 ], [ %.048.ph.lcssa, %54 ], [ %.048.ph147, %105 ], [ %.048.ph147, %99 ], [ %.048.ph147, %106 ], [ 0, %4 ], [ 0, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread" ]
+  %.046122.lcssa211.sink = phi i8 [ 1, %103 ], [ %55, %54 ], [ %.046122, %105 ], [ %.046122, %99 ], [ %.046122, %106 ], [ 1, %4 ], [ 1, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread" ]
+  %.sroa.9.0.ph150.lcssa220.sink = phi i64 [ %.63, %103 ], [ %.sroa.9.0.ph.lcssa, %54 ], [ %.sroa.9.0.ph150, %105 ], [ %.sroa.9.0.ph150, %99 ], [ %.sroa.9.0.ph150, %106 ], [ 0, %4 ], [ %.0.lcssa, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread" ]
+  %.sink225 = phi i64 [ %.63, %103 ], [ %2, %54 ], [ %.sroa.11.0118, %105 ], [ %.sroa.11.0118, %99 ], [ %107, %106 ], [ 0, %4 ], [ %.0.lcssa, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread" ]
   store i64 %.048.ph147.lcssa218.sink, ptr %0, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink228, ptr %56, align 8
+  store i8 %.046122.lcssa211.sink, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.9.0.ph150.lcssa220.sink, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7188,7 +7188,7 @@ _ZN7uu_sort15numeric_str_cmp7NumInfo15is_invalid_char17h9471ff473f7ea521E.exit.t
 103:                                              ; preds = %_ZN7uu_sort15numeric_str_cmp7NumInfo15is_invalid_char17h9471ff473f7ea521E.exit.thread
   %104 = trunc nuw i8 %.0124 to i1
   %.63 = select i1 %104, i64 %.sroa.11.0118, i64 0
-  br label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread.thread"
+  br label %.thread
 
 105:                                              ; preds = %99
   switch i32 %.sroa.4.0.i.ph10.i80.lcssa, label %.thread [
@@ -7206,11 +7206,6 @@ _ZN7uu_sort15numeric_str_cmp7NumInfo15is_invalid_char17h9471ff473f7ea521E.exit.t
 106:                                              ; preds = %105, %105, %105, %105, %105, %105, %105, %105, %105
   %107 = add i64 %.sroa.11.0118, 1
   br label %.thread
-
-.thread:                                          ; preds = %105, %99, %106
-  %108 = phi i64 [ %107, %106 ], [ %.sroa.11.0118, %99 ], [ %.sroa.11.0118, %105 ]
-  %109 = and i8 %.046122, 1
-  br label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread.thread"
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable

@@ -2248,19 +2248,14 @@ define internal noundef range(i32 0, 2) i32 @_ZN5YosysL12tcl_get_attrEPvP10Tcl_I
 
 47:                                               ; preds = %._crit_edge.thread
   %48 = trunc nuw i8 %.0104.lcssa299 to i1
-  %.mask = and i8 %.0104.lcssa299, 1
   %49 = trunc nuw i8 %.0100.lcssa301 to i1
-  %.mask117 = and i8 %.0100.lcssa301, 1
   %50 = trunc nuw i8 %.098.lcssa302 to i1
-  %.mask118 = and i8 %.098.lcssa302, 1
   %51 = trunc nuw i8 %.096.lcssa303 to i1
-  %.mask120 = and i8 %.096.lcssa303, 1
   %52 = trunc nuw i8 %.0102.lcssa300 to i1
-  %.mask122 = and i8 %.0102.lcssa300, 1
-  %narrow = add nuw nsw i8 %.mask122, %.mask
-  %narrow119 = add nuw nsw i8 %narrow, %.mask117
-  %narrow121 = add nuw nsw i8 %narrow119, %.mask118
-  %narrow123 = add nuw nsw i8 %narrow121, %.mask120
+  %narrow = add nuw nsw i8 %.0102.lcssa300, %.0104.lcssa299
+  %narrow119 = add nuw nsw i8 %narrow, %.0100.lcssa301
+  %narrow121 = add nuw nsw i8 %narrow119, %.098.lcssa302
+  %narrow123 = add nuw nsw i8 %narrow121, %.096.lcssa303
   %53 = icmp samesign ugt i8 %narrow123, 1
   br i1 %53, label %54, label %55
 
@@ -5295,20 +5290,14 @@ define internal noundef range(i32 0, 2) i32 @_ZN5YosysL12tcl_set_attrEPvP10Tcl_I
 
 71:                                               ; preds = %._crit_edge.thread
   %72 = trunc nuw i8 %.0112.lcssa341 to i1
-  %.mask = and i8 %.0112.lcssa341, 1
   %73 = trunc nuw i8 %.0104.lcssa345 to i1
-  %.mask129 = and i8 %.0104.lcssa345, 1
   %74 = trunc nuw i8 %.0102.lcssa346 to i1
-  %.mask130 = and i8 %.0102.lcssa346, 1
   %75 = trunc nuw i8 %.0110.lcssa342 to i1
-  %.mask132 = and i8 %.0110.lcssa342, 1
-  %.mask134 = and i8 %.0108.lcssa343, 1
-  %.mask136 = and i8 %.0106.lcssa344, 1
-  %narrow = add nuw nsw i8 %.mask132, %.mask
-  %narrow131 = add nuw nsw i8 %narrow, %.mask134
-  %narrow133 = add nuw nsw i8 %narrow131, %.mask136
-  %narrow135 = add nuw nsw i8 %narrow133, %.mask129
-  %narrow137 = add nuw nsw i8 %narrow135, %.mask130
+  %narrow = add nuw nsw i8 %.0110.lcssa342, %.0112.lcssa341
+  %narrow131 = add nuw nsw i8 %narrow, %.0108.lcssa343
+  %narrow133 = add nuw nsw i8 %narrow131, %.0106.lcssa344
+  %narrow135 = add nuw nsw i8 %narrow133, %.0104.lcssa345
+  %narrow137 = add nuw nsw i8 %narrow135, %.0102.lcssa346
   %76 = icmp samesign ugt i8 %narrow137, 1
   br i1 %76, label %77, label %78
 
@@ -7095,10 +7084,8 @@ define internal noundef range(i32 0, 2) i32 @_ZN5YosysL13tcl_get_paramEPvP10Tcl_
 
 40:                                               ; preds = %._crit_edge
   %41 = trunc nuw i8 %.050.lcssa to i1
-  %.mask = and i8 %.050.lcssa, 1
   %42 = trunc nuw i8 %.074.lcssa to i1
-  %.mask82 = and i8 %.074.lcssa, 1
-  %narrow = add nuw nsw i8 %.mask, %.mask82
+  %narrow = add nuw nsw i8 %.050.lcssa, %.074.lcssa
   %43 = icmp samesign ugt i8 %narrow, 1
   br i1 %43, label %._crit_edge.thread, label %44
 
@@ -8488,13 +8475,10 @@ define internal noundef range(i32 0, 2) i32 @_ZN5YosysL13tcl_set_paramEPvP10Tcl_
 
 49:                                               ; preds = %._crit_edge
   %50 = trunc nuw i8 %.076.lcssa to i1
-  %.mask = and i8 %.076.lcssa, 1
   %51 = trunc nuw i8 %.074.lcssa to i1
-  %.mask83 = and i8 %.074.lcssa, 1
-  %narrow = add nuw nsw i8 %.mask83, %.mask
+  %narrow = add nuw nsw i8 %.074.lcssa, %.076.lcssa
   %52 = trunc nuw i8 %.072.lcssa to i1
-  %.mask84 = and i8 %.072.lcssa, 1
-  %narrow85 = add nuw nsw i8 %narrow, %.mask84
+  %narrow85 = add nuw nsw i8 %narrow, %.072.lcssa
   %53 = icmp samesign ugt i8 %narrow85, 1
   br i1 %53, label %._crit_edge.thread, label %54
 

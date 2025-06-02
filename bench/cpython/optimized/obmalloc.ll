@@ -10135,26 +10135,25 @@ _mi_stat_increase.exit76:                         ; preds = %129, %131
 
 153:                                              ; preds = %151, %150
   %.not72 = icmp eq i64 %.151, 0
-  br i1 %.not72, label %156, label %154
+  br i1 %.not72, label %155, label %154
 
 154:                                              ; preds = %153
-  %155 = and i8 %.153, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !117
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 17
   store i8 1, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !117
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 18
-  store i8 %155, ptr %.sroa.6.0..sroa_idx, align 2, !tbaa !117
+  store i8 %.153, ptr %.sroa.6.0..sroa_idx, align 2, !tbaa !117
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 19
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 1
   %.sroa.777.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 4, ptr %.sroa.777.0..sroa_idx, align 4, !tbaa !104
-  br label %156
+  br label %155
 
-156:                                              ; preds = %153, %154
-  %157 = phi ptr [ null, %153 ], [ %56, %154 ]
-  ret ptr %157
+155:                                              ; preds = %153, %154
+  %156 = phi ptr [ null, %153 ], [ %56, %154 ]
+  ret ptr %156
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11531,14 +11530,13 @@ mi_bitmap_mask_.exit24.i:                         ; preds = %5
   %.329 = phi i8 [ %.127.lcssa, %._crit_edge ], [ %spec.select43, %33 ], [ %.02669, %._crit_edge.thread ]
   %.3 = phi i1 [ %.1.lcssa, %._crit_edge ], [ %spec.select42, %33 ], [ %.not67, %._crit_edge.thread ]
   %.not38 = icmp eq ptr %4, null
-  br i1 %.not38, label %39, label %37
+  br i1 %.not38, label %38, label %37
 
 37:                                               ; preds = %36
-  %38 = and i8 %.329, 1
-  store i8 %38, ptr %4, align 1, !tbaa !117
-  br label %39
+  store i8 %.329, ptr %4, align 1, !tbaa !117
+  br label %38
 
-39:                                               ; preds = %37, %36
+38:                                               ; preds = %37, %36
   ret i1 %.3
 }
 

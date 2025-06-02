@@ -8373,37 +8373,37 @@ define internal fastcc void @png_do_expand(ptr noundef captures(none) %0, ptr no
   br i1 %exitcond282.not, label %.loopexit, label %91, !llvm.loop !303
 
 97:                                               ; preds = %83
+  %98 = lshr i32 %.0214, 8
   %.not271 = icmp eq i32 %4, 0
   br i1 %.not271, label %.loopexit, label %.lr.ph261
 
 .lr.ph261:                                        ; preds = %97
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %99 = load i64, ptr %98, align 8, !tbaa !203
-  %100 = shl i64 %99, 1
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 %100
-  %102 = getelementptr inbounds i8, ptr %101, i64 -1
-  %103 = getelementptr inbounds nuw i8, ptr %1, i64 %99
-  %104 = getelementptr inbounds i8, ptr %103, i64 -1
-  %105 = lshr i32 %.0214, 8
-  %106 = trunc nuw i32 %105 to i8
-  %107 = trunc i32 %.0214 to i8
-  br label %108
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %100 = load i64, ptr %99, align 8, !tbaa !203
+  %101 = shl i64 %100, 1
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 %101
+  %103 = getelementptr inbounds i8, ptr %102, i64 -1
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 %100
+  %105 = getelementptr inbounds i8, ptr %104, i64 -1
+  %106 = trunc i32 %.0214 to i8
+  br label %107
 
-108:                                              ; preds = %.lr.ph261, %116
-  %.7260 = phi ptr [ %104, %.lr.ph261 ], [ %120, %116 ]
-  %.5202259 = phi ptr [ %102, %.lr.ph261 ], [ %122, %116 ]
+107:                                              ; preds = %.lr.ph261, %116
+  %.7260 = phi ptr [ %105, %.lr.ph261 ], [ %120, %116 ]
+  %.5202259 = phi ptr [ %103, %.lr.ph261 ], [ %122, %116 ]
   %.4211258 = phi i32 [ 0, %.lr.ph261 ], [ %123, %116 ]
-  %109 = getelementptr inbounds i8, ptr %.7260, i64 -1
-  %110 = load i8, ptr %109, align 1, !tbaa !27
-  %111 = icmp eq i8 %110, %106
+  %108 = getelementptr inbounds i8, ptr %.7260, i64 -1
+  %109 = load i8, ptr %108, align 1, !tbaa !27
+  %110 = zext i8 %109 to i32
+  %111 = icmp eq i32 %98, %110
   br i1 %111, label %112, label %115
 
-112:                                              ; preds = %108
+112:                                              ; preds = %107
   %113 = load i8, ptr %.7260, align 1, !tbaa !27
-  %114 = icmp eq i8 %113, %107
+  %114 = icmp eq i8 %113, %106
   br i1 %114, label %116, label %115
 
-115:                                              ; preds = %112, %108
+115:                                              ; preds = %112, %107
   br label %116
 
 116:                                              ; preds = %112, %115
@@ -8416,12 +8416,12 @@ define internal fastcc void @png_do_expand(ptr noundef captures(none) %0, ptr no
   %119 = getelementptr inbounds i8, ptr %.5202259, i64 -3
   store i8 %118, ptr %.6203, align 1, !tbaa !27
   %120 = getelementptr inbounds i8, ptr %.7260, i64 -2
-  %121 = load i8, ptr %109, align 1, !tbaa !27
+  %121 = load i8, ptr %108, align 1, !tbaa !27
   %122 = getelementptr inbounds i8, ptr %.5202259, i64 -4
   store i8 %121, ptr %119, align 1, !tbaa !27
   %123 = add nuw i32 %.4211258, 1
   %exitcond281.not = icmp eq i32 %123, %4
-  br i1 %exitcond281.not, label %.loopexit, label %108, !llvm.loop !304
+  br i1 %exitcond281.not, label %.loopexit, label %107, !llvm.loop !304
 
 .loopexit:                                        ; preds = %116, %91, %97, %84, %83
   store i8 4, ptr %5, align 8, !tbaa !195

@@ -6764,9 +6764,8 @@ _ZNSt6vectorI16VsiteAtomMappingSaIS0_EE6resizeEm.exit: ; preds = %_ZNSt6vectorIS
   br i1 %exitcond.not.i114, label %559, label %526, !llvm.loop !166
 
 559:                                              ; preds = %.loopexit.i113
-  %not.415.i = and i8 %.2129.i, 1
   %560 = icmp samesign uge i64 %indvars.iv.next354.i, %492
-  %561 = icmp eq i8 %not.415.i, 0
+  %561 = icmp eq i8 %.2129.i, 0
   %.not171.i = select i1 %560, i1 true, i1 %561
   br i1 %.not171.i, label %.loopexit277.i.loopexit296, label %.lr.ph320.i, !llvm.loop !167
 
@@ -6775,7 +6774,7 @@ _ZNSt6vectorI16VsiteAtomMappingSaIS0_EE6resizeEm.exit: ; preds = %_ZNSt6vectorIS
   br label %.loopexit277.i
 
 .loopexit277.i.loopexit296:                       ; preds = %559
-  %spec.select185.i.le = xor i8 %not.415.i, 1
+  %spec.select185.i.le = xor i8 %.2129.i, 1
   br label %.loopexit277.i
 
 .loopexit277.i:                                   ; preds = %.loopexit277.i.loopexit296, %.loopexit277.i.loopexit, %._crit_edge306.i

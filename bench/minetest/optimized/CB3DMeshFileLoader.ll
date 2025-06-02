@@ -6201,22 +6201,21 @@ _ZN3irr4core5arrayItE9push_backEOt.exit378:       ; preds = %_ZNSt6vectorItSaItE
   br i1 %cmp32.not, label %while.body, label %while.end.loopexit, !llvm.loop !250
 
 while.end.loopexit:                               ; preds = %_ZN3irr4core5arrayItE9push_backEOt.exit378
-  %89 = and i8 %showVertexWarning.2429, 1
-  %90 = icmp eq i8 %89, 0
+  %89 = icmp eq i8 %showVertexWarning.2429, 0
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %_ZN3irr4core5arrayItE10reallocateEjb.exit
-  %showVertexWarning.0.lcssa = phi i1 [ true, %_ZN3irr4core5arrayItE10reallocateEjb.exit ], [ %90, %while.end.loopexit ]
-  %91 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !61
-  %92 = load ptr, ptr %B3dStack, align 8, !tbaa !61
-  %sub.ptr.lhs.cast.i.i380 = ptrtoint ptr %91 to i64
-  %sub.ptr.rhs.cast.i.i381 = ptrtoint ptr %92 to i64
+  %showVertexWarning.0.lcssa = phi i1 [ true, %_ZN3irr4core5arrayItE10reallocateEjb.exit ], [ %89, %while.end.loopexit ]
+  %90 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !61
+  %91 = load ptr, ptr %B3dStack, align 8, !tbaa !61
+  %sub.ptr.lhs.cast.i.i380 = ptrtoint ptr %90 to i64
+  %sub.ptr.rhs.cast.i.i381 = ptrtoint ptr %91 to i64
   %sub.ptr.sub.i.i382 = add i64 %sub.ptr.lhs.cast.i.i380, 68719476720
   %conv.i385 = sub i64 %sub.ptr.sub.i.i382, %sub.ptr.rhs.cast.i.i381
   %add.ptr.i.i.i.i.i.idx = and i64 %conv.i385, 68719476720
-  %add.ptr.i.i.i389 = getelementptr inbounds nuw i8, ptr %92, i64 %add.ptr.i.i.i.i.i.idx
+  %add.ptr.i.i.i389 = getelementptr inbounds nuw i8, ptr %91, i64 %add.ptr.i.i.i.i.i.idx
   %add.ptr.i.i.i.i390 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i389, i64 16
-  %cmp.i.not.i.i.i = icmp eq ptr %add.ptr.i.i.i.i390, %91
+  %cmp.i.not.i.i.i = icmp eq ptr %add.ptr.i.i.i.i390, %90
   br i1 %cmp.i.not.i.i.i, label %_ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3irr5scene9SB3dChunkESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3irr5scene9SB3dChunkESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i: ; preds = %while.end
@@ -6227,8 +6226,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3irr5scene9SB3dChunkESt6vectorIS4_SaI
   br label %_ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit
 
 _ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3irr5scene9SB3dChunkESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i, %while.end
-  %93 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3irr5scene9SB3dChunkESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i ], [ %91, %while.end ]
-  %incdec.ptr.i.i.i391 = getelementptr inbounds i8, ptr %93, i64 -16
+  %92 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3irr5scene9SB3dChunkESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i ], [ %90, %while.end ]
+  %incdec.ptr.i.i.i391 = getelementptr inbounds i8, ptr %92, i64 -16
   store ptr %incdec.ptr.i.i.i391, ptr %_M_finish.i.i.i, align 8, !tbaa !68
   br i1 %showVertexWarning.0.lcssa, label %cleanup169, label %if.then166
 
@@ -6237,11 +6236,11 @@ if.then166:                                       ; preds = %_ZN3irr4core5arrayI
   br label %cleanup169
 
 cleanup168.critedge:                              ; preds = %for.body
-  %94 = load ptr, ptr %B3DFile, align 8, !tbaa !53
-  %vtable48 = load ptr, ptr %94, align 8, !tbaa !3
+  %93 = load ptr, ptr %B3DFile, align 8, !tbaa !53
+  %vtable48 = load ptr, ptr %93, align 8, !tbaa !3
   %vfn49 = getelementptr inbounds nuw i8, ptr %vtable48, i64 32
-  %95 = load ptr, ptr %vfn49, align 8
-  %call50 = call noundef nonnull align 8 dereferenceable(32) ptr %95(ptr noundef nonnull align 8 dereferenceable(8) %94) #21
+  %94 = load ptr, ptr %vfn49, align 8
+  %call50 = call noundef nonnull align 8 dereferenceable(32) ptr %94(ptr noundef nonnull align 8 dereferenceable(8) %93) #21
   call void @_ZN3irr2os7Printer3logEPKcRKNS_4core6stringIcEENS_10ELOG_LEVELE(ptr noundef nonnull @.str.19, ptr noundef nonnull align 8 dereferenceable(32) %call50, i32 noundef 3) #21
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %vertex_id) #21
   br label %cleanup169

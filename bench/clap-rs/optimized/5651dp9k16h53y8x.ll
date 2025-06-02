@@ -5071,7 +5071,7 @@ define hidden noundef i64 @_ZN12clap_builder7builder10styled_str9StyledStr13disp
 
 .outer.i.outer:                                   ; preds = %56, %.lr.ph
   %.sroa.0.0.ph.i.ph = phi ptr [ %.sroa.0.1.ph31.i, %56 ], [ %.fca.0.extract9, %.lr.ph ]
-  %.018.ph.i.ph = phi i8 [ %spec.select.i, %56 ], [ 0, %.lr.ph ]
+  %.018.ph.i.ph = phi i8 [ %.018.i, %56 ], [ 0, %.lr.ph ]
   %.0.ph.i.ph = phi i64 [ %spec.select36.i, %56 ], [ 0, %.lr.ph ]
   br label %.outer.i
 
@@ -5154,7 +5154,6 @@ define hidden noundef i64 @_ZN12clap_builder7builder10styled_str9StyledStr13disp
   br i1 %or.cond3.i, label %11, label %56
 
 56:                                               ; preds = %53
-  %spec.select.i = and i8 %.018.i, 1
   %57 = xor i8 %.018.i, 1
   %58 = zext nneg i8 %57 to i64
   %spec.select36.i = add i64 %.0.ph.i.ph, %58
@@ -8787,7 +8786,7 @@ define hidden noundef i64 @_ZN12clap_builder6output8textwrap4core13display_width
 
 .outer.outer:                                     ; preds = %49, %2
   %.sroa.0.0.ph.ph = phi ptr [ %.sroa.0.1.ph31, %49 ], [ %0, %2 ]
-  %.018.ph.ph = phi i8 [ %spec.select, %49 ], [ 0, %2 ]
+  %.018.ph.ph = phi i8 [ %.018, %49 ], [ 0, %2 ]
   %.0.ph.ph = phi i64 [ %spec.select36, %49 ], [ 0, %2 ]
   br label %.outer
 
@@ -8873,7 +8872,6 @@ define hidden noundef i64 @_ZN12clap_builder6output8textwrap4core13display_width
   br i1 %or.cond3, label %4, label %49
 
 49:                                               ; preds = %46
-  %spec.select = and i8 %.018, 1
   %50 = xor i8 %.018, 1
   %51 = zext nneg i8 %50 to i64
   %spec.select36 = add i64 %.0.ph.ph, %51

@@ -15298,8 +15298,8 @@ define linkonce_odr void @_ZN8LightGBM27IntermediateLeafConstraints26GoDownToFin
   br label %80
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %12
-  %.tr78.lcssa = phi i32 [ %1, %12 ], [ %152, %tailrecurse ]
-  %.tr85.lcssa = phi i1 [ %8, %12 ], [ %153, %tailrecurse ]
+  %.tr78.lcssa = phi i32 [ %1, %12 ], [ %151, %tailrecurse ]
+  %.tr85.lcssa = phi i1 [ %8, %12 ], [ %152, %tailrecurse ]
   %16 = xor i32 %.tr78.lcssa, -1
   %17 = zext nneg i32 %16 to i64
   %18 = load ptr, ptr %11, align 8, !tbaa !182
@@ -15423,9 +15423,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 80:                                               ; preds = %.lr.ph, %tailrecurse
-  %81 = phi ptr [ %.pre, %.lr.ph ], [ %148, %tailrecurse ]
-  %.tr8592 = phi i1 [ %8, %.lr.ph ], [ %153, %tailrecurse ]
-  %.tr7891 = phi i32 [ %1, %.lr.ph ], [ %152, %tailrecurse ]
+  %81 = phi ptr [ %.pre, %.lr.ph ], [ %147, %tailrecurse ]
+  %.tr8592 = phi i1 [ %8, %.lr.ph ], [ %152, %tailrecurse ]
+  %.tr7891 = phi i32 [ %1, %.lr.ph ], [ %151, %tailrecurse ]
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 64
   %83 = zext nneg i32 %.tr7891 to i64
   %84 = load ptr, ptr %82, align 8, !tbaa !156
@@ -15527,46 +15527,45 @@ _ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vector
   %or.cond63.not97 = or i1 %136, %.not.i.i
   %.not6098 = icmp ult i32 %90, %10
   %narrow99 = select i1 %or.cond63.not97, i1 true, i1 %.not6098
-  br label %141
+  br label %140
 
 _ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit: ; preds = %134
   %137 = trunc nuw i8 %.2.i to i1
-  %138 = and i8 %.3.i, 1
-  %139 = icmp eq i8 %138, 0
-  %140 = icmp ne i32 %86, %6
+  %138 = icmp eq i8 %.3.i, 0
+  %139 = icmp ne i32 %86, %6
   %.not60 = icmp ult i32 %90, %10
-  %narrow = select i1 %140, i1 true, i1 %.not60
-  br i1 %137, label %141, label %147
+  %narrow = select i1 %139, i1 true, i1 %.not60
+  br i1 %137, label %140, label %146
 
-141:                                              ; preds = %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit
+140:                                              ; preds = %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit
   %narrow104 = phi i1 [ %narrow99, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread ], [ %narrow, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit ]
-  %or.cond63.not102 = phi i1 [ %or.cond63.not97, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread ], [ %140, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit ]
-  %.027.i101 = phi i1 [ false, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread ], [ %139, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit ]
+  %or.cond63.not102 = phi i1 [ %or.cond63.not97, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread ], [ %139, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit ]
+  %.027.i101 = phi i1 [ false, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread ], [ %138, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit ]
   %.not61 = icmp ugt i32 %90, %10
   %.0 = select i1 %or.cond63.not102, i1 true, i1 %.not61
-  %142 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  %143 = load ptr, ptr %142, align 8, !tbaa !156
-  %144 = getelementptr inbounds nuw i32, ptr %143, i64 %83
-  %145 = load i32, ptr %144, align 4, !tbaa !159
-  %146 = and i1 %9, %.0
-  tail call void @_ZN8LightGBM27IntermediateLeafConstraints26GoDownToFindLeavesToUpdateEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEEbiRKNS_9SplitInfoEbbjRKS1_ISE_SaISE_EE(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %145, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(122) %7, i1 noundef zeroext %.tr8592, i1 noundef zeroext %146, i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  %141 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %142 = load ptr, ptr %141, align 8, !tbaa !156
+  %143 = getelementptr inbounds nuw i32, ptr %142, i64 %83
+  %144 = load i32, ptr %143, align 4, !tbaa !159
+  %145 = and i1 %9, %.0
+  tail call void @_ZN8LightGBM27IntermediateLeafConstraints26GoDownToFindLeavesToUpdateEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEEbiRKNS_9SplitInfoEbbjRKS1_ISE_SaISE_EE(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %144, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(122) %7, i1 noundef zeroext %.tr8592, i1 noundef zeroext %145, i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
   br i1 %.027.i101, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, label %tailrecurse
 
-147:                                              ; preds = %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit
-  br i1 %139, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, label %tailrecurse
+146:                                              ; preds = %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit
+  br i1 %138, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, label %tailrecurse
 
-tailrecurse:                                      ; preds = %141, %147
-  %narrow103114 = phi i1 [ %narrow104, %141 ], [ %narrow, %147 ]
-  %148 = load ptr, ptr %14, align 8, !tbaa !274
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 40
-  %150 = load ptr, ptr %149, align 8, !tbaa !156
-  %151 = getelementptr inbounds nuw i32, ptr %150, i64 %83
-  %152 = load i32, ptr %151, align 4, !tbaa !159
-  %153 = and i1 %.tr8592, %narrow103114
-  %154 = icmp slt i32 %152, 0
-  br i1 %154, label %tailrecurse._crit_edge, label %80
+tailrecurse:                                      ; preds = %140, %146
+  %narrow103114 = phi i1 [ %narrow104, %140 ], [ %narrow, %146 ]
+  %147 = load ptr, ptr %14, align 8, !tbaa !274
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 40
+  %149 = load ptr, ptr %148, align 8, !tbaa !156
+  %150 = getelementptr inbounds nuw i32, ptr %149, i64 %83
+  %151 = load i32, ptr %150, align 4, !tbaa !159
+  %152 = and i1 %.tr8592, %narrow103114
+  %153 = icmp slt i32 %151, 0
+  br i1 %153, label %tailrecurse._crit_edge, label %80
 
-_ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %147, %141, %120, %132, %tailrecurse._crit_edge, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %58, %44, %48
+_ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %146, %140, %120, %132, %tailrecurse._crit_edge, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %58, %44, %48
   ret void
 }
 

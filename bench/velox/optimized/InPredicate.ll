@@ -6922,7 +6922,6 @@ _ZN8facebook5velox9functions12_GLOBAL__N_18toValuesInnEESt4pairISt6vectorIT_SaIS
   store ptr %values.sroa.29.5.i, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !alias.scope !83
   %second.i.i = getelementptr inbounds nuw i8, ptr %valuesPair, i64 24
   store i8 %nullAllowed.0.lcssa.i, ptr %second.i.i, align 8, !alias.scope !83
-  %frombool = and i8 %nullAllowed.0.lcssa.i, 1
   %cmp.i.i6 = icmp eq ptr %values.sroa.0.6.i, %values.sroa.15.5.i
   %tobool1 = trunc nuw i8 %nullAllowed.0.lcssa.i to i1
   %or.cond = select i1 %cmp.i.i6, i1 %tobool1, i1 false
@@ -6966,7 +6965,7 @@ if.then8:                                         ; preds = %if.end6
 cleanup.thread:                                   ; preds = %if.then8
   %17 = load i128, ptr %values.sroa.0.6.i, align 16, !noalias !89
   %nullAllowed_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i12, i64 8
-  store i8 %frombool, ptr %nullAllowed_.i.i.i, align 8, !noalias !89
+  store i8 %nullAllowed.0.lcssa.i, ptr %nullAllowed_.i.i.i, align 8, !noalias !89
   %deterministic_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i12, i64 9
   store i8 1, ptr %deterministic_.i.i.i, align 1, !noalias !89
   %kind_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i12, i64 12
@@ -7307,7 +7306,6 @@ _ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIllEESt4pairISt6vectorIT_SaIS
   store ptr %values.sroa.29.5.i, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !alias.scope !92
   %second.i.i = getelementptr inbounds nuw i8, ptr %valuesPair, i64 24
   store i8 %nullAllowed.0.lcssa.i, ptr %second.i.i, align 8, !alias.scope !92
-  %frombool = and i8 %nullAllowed.0.lcssa.i, 1
   %cmp.i.i6 = icmp eq ptr %values.sroa.0.6.i, %values.sroa.15.5.i
   %tobool1 = trunc nuw i8 %nullAllowed.0.lcssa.i to i1
   %or.cond = select i1 %cmp.i.i6, i1 %tobool1, i1 false
@@ -7351,7 +7349,7 @@ if.then8:                                         ; preds = %if.end6
 cleanup.thread:                                   ; preds = %if.then8
   %15 = load i64, ptr %values.sroa.0.6.i, align 8, !noalias !98
   %nullAllowed_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 8
-  store i8 %frombool, ptr %nullAllowed_.i.i.i, align 8, !noalias !98
+  store i8 %nullAllowed.0.lcssa.i, ptr %nullAllowed_.i.i.i, align 8, !noalias !98
   %deterministic_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 9
   store i8 1, ptr %deterministic_.i.i.i, align 1, !noalias !98
   %kind_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 12
@@ -7712,7 +7710,6 @@ _ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIliEESt4pairISt6vectorIT_SaIS
   store ptr %values.sroa.29.5.i, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !alias.scope !101
   %second.i.i = getelementptr inbounds nuw i8, ptr %valuesPair, i64 24
   store i8 %nullAllowed.0.lcssa.i, ptr %second.i.i, align 8, !alias.scope !101
-  %frombool = and i8 %nullAllowed.0.lcssa.i, 1
   %cmp.i.i6 = icmp eq ptr %values.sroa.0.6.i, %values.sroa.15.5.i
   %tobool1 = trunc nuw i8 %nullAllowed.0.lcssa.i to i1
   %or.cond = select i1 %cmp.i.i6, i1 %tobool1, i1 false
@@ -7756,7 +7753,7 @@ if.then8:                                         ; preds = %if.end6
 cleanup.thread:                                   ; preds = %if.then8
   %15 = load i64, ptr %values.sroa.0.6.i, align 8, !noalias !105
   %nullAllowed_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 8
-  store i8 %frombool, ptr %nullAllowed_.i.i.i, align 8, !noalias !105
+  store i8 %nullAllowed.0.lcssa.i, ptr %nullAllowed_.i.i.i, align 8, !noalias !105
   %deterministic_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 9
   store i8 1, ptr %deterministic_.i.i.i, align 1, !noalias !105
   %kind_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 12
@@ -8117,7 +8114,6 @@ _ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlsEESt4pairISt6vectorIT_SaIS
   store ptr %values.sroa.29.5.i, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !alias.scope !108
   %second.i.i = getelementptr inbounds nuw i8, ptr %valuesPair, i64 24
   store i8 %nullAllowed.0.lcssa.i, ptr %second.i.i, align 8, !alias.scope !108
-  %frombool = and i8 %nullAllowed.0.lcssa.i, 1
   %cmp.i.i6 = icmp eq ptr %values.sroa.0.6.i, %values.sroa.15.5.i
   %tobool1 = trunc nuw i8 %nullAllowed.0.lcssa.i to i1
   %or.cond = select i1 %cmp.i.i6, i1 %tobool1, i1 false
@@ -8161,7 +8157,7 @@ if.then8:                                         ; preds = %if.end6
 cleanup.thread:                                   ; preds = %if.then8
   %15 = load i64, ptr %values.sroa.0.6.i, align 8, !noalias !112
   %nullAllowed_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 8
-  store i8 %frombool, ptr %nullAllowed_.i.i.i, align 8, !noalias !112
+  store i8 %nullAllowed.0.lcssa.i, ptr %nullAllowed_.i.i.i, align 8, !noalias !112
   %deterministic_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 9
   store i8 1, ptr %deterministic_.i.i.i, align 1, !noalias !112
   %kind_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 12
@@ -8522,7 +8518,6 @@ _ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlaEESt4pairISt6vectorIT_SaIS
   store ptr %values.sroa.29.5.i, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !alias.scope !115
   %second.i.i = getelementptr inbounds nuw i8, ptr %valuesPair, i64 24
   store i8 %nullAllowed.0.lcssa.i, ptr %second.i.i, align 8, !alias.scope !115
-  %frombool = and i8 %nullAllowed.0.lcssa.i, 1
   %cmp.i.i6 = icmp eq ptr %values.sroa.0.6.i, %values.sroa.15.5.i
   %tobool1 = trunc nuw i8 %nullAllowed.0.lcssa.i to i1
   %or.cond = select i1 %cmp.i.i6, i1 %tobool1, i1 false
@@ -8566,7 +8561,7 @@ if.then8:                                         ; preds = %if.end6
 cleanup.thread:                                   ; preds = %if.then8
   %15 = load i64, ptr %values.sroa.0.6.i, align 8, !noalias !119
   %nullAllowed_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 8
-  store i8 %frombool, ptr %nullAllowed_.i.i.i, align 8, !noalias !119
+  store i8 %nullAllowed.0.lcssa.i, ptr %nullAllowed_.i.i.i, align 8, !noalias !119
   %deterministic_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 9
   store i8 1, ptr %deterministic_.i.i.i, align 1, !noalias !119
   %kind_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 12
@@ -8919,7 +8914,6 @@ if.then5.i.i:                                     ; preds = %if.else.i23.i
 _ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIffEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit33.i.i, %if.else.i23.i, %if.then5.i.i
   %values.sroa.0.6.i = phi ptr [ %values.sroa.0.1.lcssa.i, %if.else.i23.i ], [ %call5.i.i.i.i50.i, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit33.i.i ], [ %values.sroa.0.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then5.i.i ]
   %values.sroa.15.5.i = phi ptr [ %values.sroa.15.1.lcssa.i, %if.else.i23.i ], [ %add.ptr37.i.i, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit33.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i41.i, %if.then.i.i.i.i.i ], [ %spec.select.i, %if.then5.i.i ]
-  %frombool = and i8 %nullAllowed.0.lcssa.i, 1
   %cmp.i.i16 = icmp eq ptr %values.sroa.0.6.i, %values.sroa.15.5.i
   %tobool1 = trunc nuw i8 %nullAllowed.0.lcssa.i to i1
   %or.cond = select i1 %cmp.i.i16, i1 %tobool1, i1 false
@@ -8952,7 +8946,7 @@ if.then8:                                         ; preds = %if.end6
 _ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i: ; preds = %if.then8
   %16 = load float, ptr %values.sroa.0.6.i, align 4, !noalias !128
   %nullAllowed_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i21, i64 8
-  store i8 %frombool, ptr %nullAllowed_.i.i.i.i, align 8, !noalias !128
+  store i8 %nullAllowed.0.lcssa.i, ptr %nullAllowed_.i.i.i.i, align 8, !noalias !128
   %deterministic_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i21, i64 9
   store i8 1, ptr %deterministic_.i.i.i.i, align 1, !noalias !128
   %kind_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i21, i64 12
@@ -9384,7 +9378,6 @@ if.then5.i.i:                                     ; preds = %if.else.i23.i
 _ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIddEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit33.i.i, %if.else.i23.i, %if.then5.i.i
   %values.sroa.0.6.i = phi ptr [ %values.sroa.0.1.lcssa.i, %if.else.i23.i ], [ %call5.i.i.i.i50.i, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit33.i.i ], [ %values.sroa.0.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then5.i.i ]
   %values.sroa.15.5.i = phi ptr [ %values.sroa.15.1.lcssa.i, %if.else.i23.i ], [ %add.ptr37.i.i, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit33.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i41.i, %if.then.i.i.i.i.i ], [ %spec.select.i, %if.then5.i.i ]
-  %frombool = and i8 %nullAllowed.0.lcssa.i, 1
   %cmp.i.i16 = icmp eq ptr %values.sroa.0.6.i, %values.sroa.15.5.i
   %tobool1 = trunc nuw i8 %nullAllowed.0.lcssa.i to i1
   %or.cond = select i1 %cmp.i.i16, i1 %tobool1, i1 false
@@ -9417,7 +9410,7 @@ if.then8:                                         ; preds = %if.end6
 _ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i: ; preds = %if.then8
   %16 = load double, ptr %values.sroa.0.6.i, align 8, !noalias !138
   %nullAllowed_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i21, i64 8
-  store i8 %frombool, ptr %nullAllowed_.i.i.i.i, align 8, !noalias !138
+  store i8 %nullAllowed.0.lcssa.i, ptr %nullAllowed_.i.i.i.i, align 8, !noalias !138
   %deterministic_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i21, i64 9
   store i8 1, ptr %deterministic_.i.i.i.i, align 1, !noalias !138
   %kind_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i21, i64 12
@@ -9855,7 +9848,6 @@ _ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlbEESt4pairISt6vectorIT_SaIS
   store ptr %values.sroa.29.5.i, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !alias.scope !142
   %second.i.i = getelementptr inbounds nuw i8, ptr %valuesPair, i64 24
   store i8 %nullAllowed.0.lcssa.i, ptr %second.i.i, align 8, !alias.scope !142
-  %frombool = and i8 %nullAllowed.0.lcssa.i, 1
   %cmp.i.i6 = icmp eq ptr %values.sroa.0.6.i, %values.sroa.15.5.i
   %tobool1 = trunc nuw i8 %nullAllowed.0.lcssa.i to i1
   %or.cond = select i1 %cmp.i.i6, i1 %tobool1, i1 false
@@ -9899,7 +9891,7 @@ if.then8:                                         ; preds = %if.end6
 cleanup.thread:                                   ; preds = %if.then8
   %15 = load i64, ptr %values.sroa.0.6.i, align 8, !noalias !146
   %nullAllowed_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 8
-  store i8 %frombool, ptr %nullAllowed_.i.i.i, align 8, !noalias !146
+  store i8 %nullAllowed.0.lcssa.i, ptr %nullAllowed_.i.i.i, align 8, !noalias !146
   %deterministic_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 9
   store i8 1, ptr %deterministic_.i.i.i, align 1, !noalias !146
   %kind_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 12
@@ -10275,7 +10267,6 @@ _ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlNS0_9TimestampEEESt4pairISt
   store ptr %values.sroa.29.5.i, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !alias.scope !149
   %second.i.i = getelementptr inbounds nuw i8, ptr %valuesPair, i64 24
   store i8 %nullAllowed.0.lcssa.i, ptr %second.i.i, align 8, !alias.scope !149
-  %frombool = and i8 %nullAllowed.0.lcssa.i, 1
   %cmp.i.i6 = icmp eq ptr %values.sroa.0.6.i, %values.sroa.15.5.i
   %tobool1 = trunc nuw i8 %nullAllowed.0.lcssa.i to i1
   %or.cond = select i1 %cmp.i.i6, i1 %tobool1, i1 false
@@ -10319,7 +10310,7 @@ if.then8:                                         ; preds = %if.end6
 cleanup.thread:                                   ; preds = %if.then8
   %18 = load i64, ptr %values.sroa.0.6.i, align 8, !noalias !153
   %nullAllowed_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 8
-  store i8 %frombool, ptr %nullAllowed_.i.i.i, align 8, !noalias !153
+  store i8 %nullAllowed.0.lcssa.i, ptr %nullAllowed_.i.i.i, align 8, !noalias !153
   %deterministic_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 9
   store i8 1, ptr %deterministic_.i.i.i, align 1, !noalias !153
   %kind_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 12

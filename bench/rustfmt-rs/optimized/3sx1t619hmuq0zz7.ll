@@ -29161,7 +29161,7 @@ define noundef zeroext i1 @"_ZN104_$LT$rustfmt_nightly..chains..ChainFormatterBl
 
 22:                                               ; preds = %4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  br label %133
+  br label %132
 
 .thread68.loopexit:                               ; preds = %110, %108, %48, %76
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -29256,7 +29256,7 @@ define noundef zeroext i1 @"_ZN104_$LT$rustfmt_nightly..chains..ChainFormatterBl
   %62 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #44
-          to label %134 unwind label %63
+          to label %133 unwind label %63
 
 63:                                               ; preds = %61
   %64 = landingpad { ptr, i32 }
@@ -29320,7 +29320,7 @@ define noundef zeroext i1 @"_ZN104_$LT$rustfmt_nightly..chains..ChainFormatterBl
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit": ; preds = %79, %82
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !4385
-  br label %133
+  br label %132
 
 86:                                               ; preds = %76
   %87 = load i64, ptr %8, align 8, !range !987, !noundef !10
@@ -29420,23 +29420,22 @@ define noundef zeroext i1 @"_ZN104_$LT$rustfmt_nightly..chains..ChainFormatterBl
   store i64 %130, ptr %56, align 8, !alias.scope !4380, !noalias !4383
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %132 = and i8 %.136, 1
-  store i8 %132, ptr %131, align 8
-  br label %133
+  store i8 %.136, ptr %131, align 8
+  br label %132
 
-133:                                              ; preds = %22, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit", %124
+132:                                              ; preds = %22, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit", %124
   %.1 = phi i1 [ true, %124 ], [ false, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ], [ false, %22 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   ret i1 %.1
 
-134:                                              ; preds = %61, %.thread63
+133:                                              ; preds = %61, %.thread63
   %.pn66 = phi { ptr, i32 } [ %.pn67, %.thread63 ], [ %62, %61 ]
   resume { ptr, i32 } %.pn66
 
 .thread63:                                        ; preds = %.thread68.loopexit, %.thread68.loopexit.split-lp, %98
   %.pn67 = phi { ptr, i32 } [ %99, %98 ], [ %lpad.loopexit, %.thread68.loopexit ], [ %lpad.loopexit.split-lp, %.thread68.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #44
-          to label %134 unwind label %122
+          to label %133 unwind label %122
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
@@ -37779,40 +37778,39 @@ _ZN15rustfmt_nightly7matches29can_flatten_block_around_this17hd3c3b6a0cebd3167E.
 _ZN15rustfmt_nightly7matches29can_flatten_block_around_this17hd3c3b6a0cebd3167E.exit15: ; preds = %tailrecurse.i10, %tailrecurse.i10, %tailrecurse.i10, %tailrecurse.i10, %tailrecurse.i10, %tailrecurse.i10, %tailrecurse.i10, %tailrecurse.i10, %tailrecurse.i10, %tailrecurse.i10, %.loopexit.loopexit.i14, %select.unfold, %"_ZN4core6option15Option$LT$T$GT$6map_or17hec4cc4d2220d9a3bE.exit", %79, %70, %86, %_ZN15rustfmt_nightly7matches29can_flatten_block_around_this17hd3c3b6a0cebd3167E.exit
   %.sroa.7.0 = phi ptr [ %.fca.1.extract, %86 ], [ %128, %_ZN15rustfmt_nightly7matches29can_flatten_block_around_this17hd3c3b6a0cebd3167E.exit ], [ %1, %70 ], [ %1, %79 ], [ %1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hec4cc4d2220d9a3bE.exit" ], [ %1, %select.unfold ], [ %1, %.loopexit.loopexit.i14 ], [ %1, %tailrecurse.i10 ], [ %1, %tailrecurse.i10 ], [ %1, %tailrecurse.i10 ], [ %1, %tailrecurse.i10 ], [ %1, %tailrecurse.i10 ], [ %1, %tailrecurse.i10 ], [ %1, %tailrecurse.i10 ], [ %1, %tailrecurse.i10 ], [ %1, %tailrecurse.i10 ], [ %1, %tailrecurse.i10 ]
   %.sroa.0.0 = phi i8 [ %.fca.0.extract, %86 ], [ %.04, %_ZN15rustfmt_nightly7matches29can_flatten_block_around_this17hd3c3b6a0cebd3167E.exit ], [ 0, %70 ], [ 1, %79 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hec4cc4d2220d9a3bE.exit" ], [ 0, %select.unfold ], [ 0, %.loopexit.loopexit.i14 ], [ 1, %tailrecurse.i10 ], [ 1, %tailrecurse.i10 ], [ 1, %tailrecurse.i10 ], [ 1, %tailrecurse.i10 ], [ 1, %tailrecurse.i10 ], [ 1, %tailrecurse.i10 ], [ 1, %tailrecurse.i10 ], [ 1, %tailrecurse.i10 ], [ 1, %tailrecurse.i10 ], [ 1, %tailrecurse.i10 ]
-  %129 = and i8 %.sroa.0.0, 1
-  %130 = insertvalue { i8, ptr } poison, i8 %129, 0
-  %131 = insertvalue { i8, ptr } %130, ptr %.sroa.7.0, 1
-  ret { i8, ptr } %131
+  %129 = insertvalue { i8, ptr } poison, i8 %.sroa.0.0, 0
+  %130 = insertvalue { i8, ptr } %129, ptr %.sroa.7.0, 1
+  ret { i8, ptr } %130
 
-tailrecurse.i10:                                  ; preds = %select.unfold, %134
-  %132 = phi i8 [ %.pre, %134 ], [ %11, %select.unfold ]
-  %.tr.i11 = phi ptr [ %136, %134 ], [ %1, %select.unfold ]
-  switch i8 %132, label %.loopexit.loopexit.i14 [
+tailrecurse.i10:                                  ; preds = %select.unfold, %133
+  %131 = phi i8 [ %.pre, %133 ], [ %11, %select.unfold ]
+  %.tr.i11 = phi ptr [ %135, %133 ], [ %1, %select.unfold ]
+  switch i8 %131, label %.loopexit.loopexit.i14 [
     i8 0, label %_ZN15rustfmt_nightly7matches29can_flatten_block_around_this17hd3c3b6a0cebd3167E.exit15
     i8 2, label %_ZN15rustfmt_nightly7matches29can_flatten_block_around_this17hd3c3b6a0cebd3167E.exit15
     i8 3, label %_ZN15rustfmt_nightly7matches29can_flatten_block_around_this17hd3c3b6a0cebd3167E.exit15
     i8 4, label %_ZN15rustfmt_nightly7matches29can_flatten_block_around_this17hd3c3b6a0cebd3167E.exit15
-    i8 6, label %134
-    i8 8, label %134
-    i8 38, label %134
+    i8 6, label %133
+    i8 8, label %133
+    i8 38, label %133
     i8 35, label %_ZN15rustfmt_nightly7matches29can_flatten_block_around_this17hd3c3b6a0cebd3167E.exit15
     i8 34, label %_ZN15rustfmt_nightly7matches29can_flatten_block_around_this17hd3c3b6a0cebd3167E.exit15
     i8 14, label %_ZN15rustfmt_nightly7matches29can_flatten_block_around_this17hd3c3b6a0cebd3167E.exit15
     i8 15, label %_ZN15rustfmt_nightly7matches29can_flatten_block_around_this17hd3c3b6a0cebd3167E.exit15
     i8 16, label %_ZN15rustfmt_nightly7matches29can_flatten_block_around_this17hd3c3b6a0cebd3167E.exit15
     i8 17, label %_ZN15rustfmt_nightly7matches29can_flatten_block_around_this17hd3c3b6a0cebd3167E.exit15
-    i8 24, label %133
-    i8 28, label %134
+    i8 24, label %132
+    i8 28, label %133
   ]
 
-133:                                              ; preds = %tailrecurse.i10
-  br label %134
+132:                                              ; preds = %tailrecurse.i10
+  br label %133
 
-134:                                              ; preds = %133, %tailrecurse.i10, %tailrecurse.i10, %tailrecurse.i10, %tailrecurse.i10
-  %.sink.i12 = phi i64 [ 16, %133 ], [ 8, %tailrecurse.i10 ], [ 8, %tailrecurse.i10 ], [ 8, %tailrecurse.i10 ], [ 8, %tailrecurse.i10 ]
-  %135 = getelementptr inbounds nuw i8, ptr %.tr.i11, i64 %.sink.i12
-  %136 = load ptr, ptr %135, align 8, !nonnull !10, !align !11, !noundef !10
-  %.pre = load i8, ptr %136, align 8, !range !239
+133:                                              ; preds = %132, %tailrecurse.i10, %tailrecurse.i10, %tailrecurse.i10, %tailrecurse.i10
+  %.sink.i12 = phi i64 [ 16, %132 ], [ 8, %tailrecurse.i10 ], [ 8, %tailrecurse.i10 ], [ 8, %tailrecurse.i10 ], [ 8, %tailrecurse.i10 ]
+  %134 = getelementptr inbounds nuw i8, ptr %.tr.i11, i64 %.sink.i12
+  %135 = load ptr, ptr %134, align 8, !nonnull !10, !align !11, !noundef !10
+  %.pre = load i8, ptr %135, align 8, !range !239
   br label %tailrecurse.i10
 
 .loopexit.loopexit.i14:                           ; preds = %tailrecurse.i10

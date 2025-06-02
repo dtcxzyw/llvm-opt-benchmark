@@ -7217,10 +7217,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %226,
   br label %_ZNSt6vectorISt10shared_ptrIN6Assimp3DXF8PolyLineEESaIS4_EE8pop_backEv.exit
 
 230:                                              ; preds = %_ZNK10aiVector3tIfEeqERKS0_.exit.thread
-  %.mask = and i8 %.sroa.0.0.lcssa166, 1
-  %231 = or disjoint i8 %.mask, 2
-  %.mask44 = and i8 %198, 1
-  %narrow = add nuw nsw i8 %231, %.mask44
+  %231 = or disjoint i8 %.sroa.0.0.lcssa166, 2
+  %narrow = add nuw nsw i8 %231, %198
   %232 = zext nneg i8 %narrow to i32
   %233 = getelementptr inbounds nuw i8, ptr %80, i64 72
   %234 = getelementptr inbounds nuw i8, ptr %80, i64 80
@@ -7294,7 +7292,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %238, %_ZNSt6vectorI
   %266 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %267 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %268 = getelementptr inbounds nuw i8, ptr %80, i64 40
-  %269 = add nuw nsw i8 %.sroa.0.0.lcssa166, %.mask44
+  %269 = add nuw nsw i8 %.sroa.0.0.lcssa166, %198
   %270 = add nuw nsw i8 %269, 2
   %wide.trip.count = zext i8 %270 to i64
   br label %271

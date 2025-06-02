@@ -1078,19 +1078,18 @@ define internal fastcc range(i32 -1, 1) i32 @parse_config(ptr noundef captures(n
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %65
-  %69 = and i32 %.1, 3
-  %70 = icmp eq i32 %69, 1
-  br i1 %70, label %71, label %._crit_edge.thread
+  %69 = icmp eq i32 %.1, 1
+  br i1 %69, label %70, label %._crit_edge.thread
 
-71:                                               ; preds = %._crit_edge
-  %72 = load i32, ptr %0, align 4, !tbaa !23
-  %73 = and i32 %72, -49
-  %74 = or disjoint i32 %73, 16
-  store i32 %74, ptr %0, align 4, !tbaa !23
+70:                                               ; preds = %._crit_edge
+  %71 = load i32, ptr %0, align 4, !tbaa !23
+  %72 = and i32 %71, -49
+  %73 = or disjoint i32 %72, 16
+  store i32 %73, ptr %0, align 4, !tbaa !23
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %2, %.thread, %._crit_edge, %71
-  %.2 = phi i32 [ 0, %71 ], [ 0, %._crit_edge ], [ -1, %.thread ], [ 0, %2 ]
+._crit_edge.thread:                               ; preds = %2, %.thread, %._crit_edge, %70
+  %.2 = phi i32 [ 0, %70 ], [ 0, %._crit_edge ], [ -1, %.thread ], [ 0, %2 ]
   ret i32 %.2
 }
 

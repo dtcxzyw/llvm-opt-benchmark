@@ -6423,139 +6423,138 @@ _ZNK3sat12local_search10constraint3endEv.exit:    ; preds = %182
   br i1 %238, label %.thread164, label %239
 
 239:                                              ; preds = %230
-  %240 = and i32 %.4, 2147483647
-  %241 = load ptr, ptr %6, align 8, !tbaa !49
-  %242 = zext nneg i32 %240 to i64
-  %243 = getelementptr inbounds nuw %"struct.sat::local_search::var_info", ptr %241, i64 %242
-  %244 = load i8, ptr %243, align 8, !tbaa !54, !range !7, !noundef !8
-  %245 = trunc nuw i8 %244 to i1
-  %246 = icmp eq i8 %233, 0
-  %247 = xor i1 %246, %245
-  br i1 %247, label %248, label %249
+  %240 = load ptr, ptr %6, align 8, !tbaa !49
+  %241 = zext nneg i32 %.4 to i64
+  %242 = getelementptr inbounds nuw %"struct.sat::local_search::var_info", ptr %240, i64 %241
+  %243 = load i8, ptr %242, align 8, !tbaa !54, !range !7, !noundef !8
+  %244 = trunc nuw i8 %243 to i1
+  %245 = icmp eq i8 %233, 0
+  %246 = xor i1 %245, %244
+  br i1 %246, label %247, label %248
 
-248:                                              ; preds = %239
+247:                                              ; preds = %239
   tail call void @_ZN3sat12local_search12flip_walksatEj(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %.4)
   %.pre = load ptr, ptr %6, align 8, !tbaa !49
-  %.phi.trans.insert = getelementptr inbounds nuw %"struct.sat::local_search::var_info", ptr %.pre, i64 %242
+  %.phi.trans.insert = getelementptr inbounds nuw %"struct.sat::local_search::var_info", ptr %.pre, i64 %241
   %.pre205 = load i8, ptr %.phi.trans.insert, align 8, !tbaa !54, !range !7
-  br label %249
+  br label %248
 
-249:                                              ; preds = %248, %239
-  %250 = phi i8 [ %.pre205, %248 ], [ %244, %239 ]
-  %251 = phi ptr [ %.pre, %248 ], [ %241, %239 ]
-  %252 = xor i32 %237, 1
-  %253 = getelementptr inbounds nuw %"struct.sat::local_search::var_info", ptr %251, i64 %242, i32 2
-  %254 = load i8, ptr %253, align 8, !tbaa !50, !range !7, !noundef !8
-  %255 = trunc nuw i8 %254 to i1
-  br i1 %255, label %256, label %261
+248:                                              ; preds = %247, %239
+  %249 = phi i8 [ %.pre205, %247 ], [ %243, %239 ]
+  %250 = phi ptr [ %.pre, %247 ], [ %240, %239 ]
+  %251 = xor i32 %237, 1
+  %252 = getelementptr inbounds nuw %"struct.sat::local_search::var_info", ptr %250, i64 %241, i32 2
+  %253 = load i8, ptr %252, align 8, !tbaa !50, !range !7, !noundef !8
+  %254 = trunc nuw i8 %253 to i1
+  br i1 %254, label %255, label %260
 
-256:                                              ; preds = %249
-  %257 = trunc i32 %252 to i8
-  %258 = and i8 %257, 1
-  %259 = icmp eq i8 %250, %258
-  br i1 %259, label %260, label %_ZN3sat12local_search8add_unitENS_7literalES1_.exit
+255:                                              ; preds = %248
+  %256 = trunc i32 %251 to i8
+  %257 = and i8 %256, 1
+  %258 = icmp eq i8 %249, %257
+  br i1 %258, label %259, label %_ZN3sat12local_search8add_unitENS_7literalES1_.exit
 
-260:                                              ; preds = %256
+259:                                              ; preds = %255
   store i8 1, ptr %7, align 1, !tbaa !18
   br label %_ZN3sat12local_search8add_unitENS_7literalES1_.exit
 
-261:                                              ; preds = %249
+260:                                              ; preds = %248
   %.not.i141.not.not = icmp eq i8 %233, 0
-  %262 = icmp ne i8 %250, %233
-  %263 = load i8, ptr %8, align 8, !range !7
-  %264 = trunc nuw i8 %263 to i1
-  %or.cond.i = select i1 %262, i1 true, i1 %264
-  br i1 %or.cond.i, label %266, label %265
+  %261 = icmp ne i8 %249, %233
+  %262 = load i8, ptr %8, align 8, !range !7
+  %263 = trunc nuw i8 %262 to i1
+  %or.cond.i = select i1 %261, i1 true, i1 %263
+  br i1 %or.cond.i, label %265, label %264
 
-265:                                              ; preds = %261
-  tail call void @_ZN3sat12local_search12flip_walksatEj(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %240)
+264:                                              ; preds = %260
+  tail call void @_ZN3sat12local_search12flip_walksatEj(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %.4)
   %.pre.i = load ptr, ptr %6, align 8, !tbaa !49
-  br label %266
+  br label %265
 
-266:                                              ; preds = %265, %261
-  %267 = phi ptr [ %.pre.i, %265 ], [ %251, %261 ]
-  %268 = getelementptr inbounds nuw %"struct.sat::local_search::var_info", ptr %267, i64 %242
-  %269 = xor i8 %233, 1
-  store i8 %269, ptr %268, align 8, !tbaa !54
-  %270 = select i1 %.not.i141.not.not, i32 100, i32 0
-  %271 = getelementptr inbounds nuw i8, ptr %268, i64 4
-  store i32 %270, ptr %271, align 4, !tbaa !55
-  %272 = getelementptr inbounds nuw i8, ptr %268, i64 8
-  store i8 1, ptr %272, align 8, !tbaa !50
-  %273 = getelementptr inbounds nuw i8, ptr %268, i64 12
-  store i32 -2, ptr %273, align 4, !tbaa !13
-  %274 = load ptr, ptr %9, align 8, !tbaa !9
-  %275 = icmp eq ptr %274, null
-  br i1 %275, label %282, label %276
+265:                                              ; preds = %264, %260
+  %266 = phi ptr [ %.pre.i, %264 ], [ %250, %260 ]
+  %267 = getelementptr inbounds nuw %"struct.sat::local_search::var_info", ptr %266, i64 %241
+  %268 = xor i8 %233, 1
+  store i8 %268, ptr %267, align 8, !tbaa !54
+  %269 = select i1 %.not.i141.not.not, i32 100, i32 0
+  %270 = getelementptr inbounds nuw i8, ptr %267, i64 4
+  store i32 %269, ptr %270, align 4, !tbaa !55
+  %271 = getelementptr inbounds nuw i8, ptr %267, i64 8
+  store i8 1, ptr %271, align 8, !tbaa !50
+  %272 = getelementptr inbounds nuw i8, ptr %267, i64 12
+  store i32 -2, ptr %272, align 4, !tbaa !13
+  %273 = load ptr, ptr %9, align 8, !tbaa !9
+  %274 = icmp eq ptr %273, null
+  br i1 %274, label %281, label %275
 
-276:                                              ; preds = %266
-  %277 = getelementptr inbounds i8, ptr %274, i64 -4
-  %278 = load i32, ptr %277, align 4, !tbaa !13
-  %279 = getelementptr inbounds i8, ptr %274, i64 -8
-  %280 = load i32, ptr %279, align 4, !tbaa !13
-  %281 = icmp eq i32 %278, %280
-  br i1 %281, label %282, label %_ZN6vectorIjLb0EjE9push_backERKj.exit.i
+275:                                              ; preds = %265
+  %276 = getelementptr inbounds i8, ptr %273, i64 -4
+  %277 = load i32, ptr %276, align 4, !tbaa !13
+  %278 = getelementptr inbounds i8, ptr %273, i64 -8
+  %279 = load i32, ptr %278, align 4, !tbaa !13
+  %280 = icmp eq i32 %277, %279
+  br i1 %280, label %281, label %_ZN6vectorIjLb0EjE9push_backERKj.exit.i
 
-282:                                              ; preds = %276, %266
+281:                                              ; preds = %275, %265
   tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
   %.pre.i.i = load ptr, ptr %9, align 8, !tbaa !9
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre2.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !13
   br label %_ZN6vectorIjLb0EjE9push_backERKj.exit.i
 
-_ZN6vectorIjLb0EjE9push_backERKj.exit.i:          ; preds = %282, %276
-  %283 = phi i32 [ %.pre2.i.i, %282 ], [ %278, %276 ]
-  %284 = phi ptr [ %.pre.i.i, %282 ], [ %274, %276 ]
-  %285 = getelementptr inbounds i8, ptr %284, i64 -4
-  %286 = zext i32 %283 to i64
-  %287 = getelementptr inbounds nuw i32, ptr %284, i64 %286
-  store i32 %240, ptr %287, align 4, !tbaa !13
-  %288 = add i32 %283, 1
-  store i32 %288, ptr %285, align 4, !tbaa !13
+_ZN6vectorIjLb0EjE9push_backERKj.exit.i:          ; preds = %281, %275
+  %282 = phi i32 [ %.pre2.i.i, %281 ], [ %277, %275 ]
+  %283 = phi ptr [ %.pre.i.i, %281 ], [ %273, %275 ]
+  %284 = getelementptr inbounds i8, ptr %283, i64 -4
+  %285 = zext i32 %282 to i64
+  %286 = getelementptr inbounds nuw i32, ptr %283, i64 %285
+  store i32 %.4, ptr %286, align 4, !tbaa !13
+  %287 = add i32 %282, 1
+  store i32 %287, ptr %284, align 4, !tbaa !13
   br label %_ZN3sat12local_search8add_unitENS_7literalES1_.exit
 
-_ZN3sat12local_search8add_unitENS_7literalES1_.exit: ; preds = %256, %260, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i
-  %289 = tail call noundef zeroext i1 @_ZN3sat12local_search9propagateENS_7literalE(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 %252)
-  br i1 %289, label %302, label %290
+_ZN3sat12local_search8add_unitENS_7literalES1_.exit: ; preds = %255, %259, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i
+  %288 = tail call noundef zeroext i1 @_ZN3sat12local_search9propagateENS_7literalE(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 %251)
+  br i1 %288, label %301, label %289
 
-290:                                              ; preds = %_ZN3sat12local_search8add_unitENS_7literalES1_.exit
-  %291 = tail call noundef i32 @_Z19get_verbosity_levelv()
-  %292 = icmp ugt i32 %291, 1
-  br i1 %292, label %293, label %301
+289:                                              ; preds = %_ZN3sat12local_search8add_unitENS_7literalES1_.exit
+  %290 = tail call noundef i32 @_Z19get_verbosity_levelv()
+  %291 = icmp ugt i32 %290, 1
+  br i1 %291, label %292, label %300
 
-293:                                              ; preds = %290
-  %294 = tail call noundef zeroext i1 @_Z11is_threadedv()
-  br i1 %294, label %295, label %298
+292:                                              ; preds = %289
+  %293 = tail call noundef zeroext i1 @_Z11is_threadedv()
+  br i1 %293, label %294, label %297
 
-295:                                              ; preds = %293
+294:                                              ; preds = %292
   tail call void @_Z12verbose_lockv()
-  %296 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
-  %297 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %296, ptr noundef nonnull @.str.29, i64 noundef 6)
+  %295 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
+  %296 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %295, ptr noundef nonnull @.str.29, i64 noundef 6)
   tail call void @_Z14verbose_unlockv()
-  br label %301
+  br label %300
 
-298:                                              ; preds = %293
-  %299 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
-  %300 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %299, ptr noundef nonnull @.str.29, i64 noundef 6)
-  br label %301
+297:                                              ; preds = %292
+  %298 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
+  %299 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %298, ptr noundef nonnull @.str.29, i64 noundef 6)
+  br label %300
 
-301:                                              ; preds = %295, %298, %290
+300:                                              ; preds = %294, %297, %289
   store i8 1, ptr %7, align 1, !tbaa !18
   br label %.thread164
 
-302:                                              ; preds = %_ZN3sat12local_search8add_unitENS_7literalES1_.exit
-  %303 = load ptr, ptr %2, align 8, !tbaa !9
-  %304 = icmp eq ptr %303, null
-  br i1 %304, label %.thread164, label %_ZNK6vectorIjLb0EjE5emptyEv.exit
+301:                                              ; preds = %_ZN3sat12local_search8add_unitENS_7literalES1_.exit
+  %302 = load ptr, ptr %2, align 8, !tbaa !9
+  %303 = icmp eq ptr %302, null
+  br i1 %303, label %.thread164, label %_ZNK6vectorIjLb0EjE5emptyEv.exit
 
-_ZNK6vectorIjLb0EjE5emptyEv.exit:                 ; preds = %302
-  %305 = getelementptr inbounds i8, ptr %303, i64 -4
-  %306 = load i32, ptr %305, align 4, !tbaa !13
-  %.fr = freeze i32 %306
-  %307 = icmp eq i32 %.fr, 0
-  br i1 %307, label %.thread164, label %_ZNK6vectorIjLb0EjE4sizeEv.exit137.backedge
+_ZNK6vectorIjLb0EjE5emptyEv.exit:                 ; preds = %301
+  %304 = getelementptr inbounds i8, ptr %302, i64 -4
+  %305 = load i32, ptr %304, align 4, !tbaa !13
+  %.fr = freeze i32 %305
+  %306 = icmp eq i32 %.fr, 0
+  br i1 %306, label %.thread164, label %_ZNK6vectorIjLb0EjE4sizeEv.exit137.backedge
 
-.thread164:                                       ; preds = %_ZNK6vectorIjLb0EjE5emptyEv.exit, %302, %230, %.thread159.thread, %301, %.loopexit.thread, %221, %218
+.thread164:                                       ; preds = %_ZNK6vectorIjLb0EjE5emptyEv.exit, %301, %230, %.thread159.thread, %300, %.loopexit.thread, %221, %218
   ret void
 }
 

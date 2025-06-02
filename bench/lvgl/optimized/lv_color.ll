@@ -556,35 +556,35 @@ define void @lv_color_premultiply(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define void @lv_color16_premultiply(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
   switch i8 %1, label %4 [
-    i8 -1, label %21
+    i8 -1, label %19
     i8 0, label %3
   ]
 
 3:                                                ; preds = %2
   tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 2) #5
-  br label %21
+  br label %19
 
 4:                                                ; preds = %2
   %5 = zext i8 %1 to i16
   %6 = load i16, ptr %0, align 2
   %7 = lshr i16 %6, 11
-  %8 = shl nuw nsw i16 %5, 3
-  %9 = mul nuw i16 %8, %7
-  %10 = and i16 %9, -2048
-  %11 = and i16 %6, 31
-  %12 = lshr i16 %6, 5
-  %13 = and i16 %12, 63
-  %14 = mul nuw nsw i16 %13, %5
-  %15 = lshr i16 %14, 3
-  %16 = and i16 %15, 2016
-  %17 = mul nuw nsw i16 %11, %5
-  %18 = lshr i16 %17, 8
-  %19 = or disjoint i16 %18, %10
-  %20 = or disjoint i16 %19, %16
-  store i16 %20, ptr %0, align 2
-  br label %21
+  %.tr = shl nuw nsw i16 %5, 3
+  %tr.sh.diff = mul nuw i16 %.tr, %7
+  %8 = and i16 %tr.sh.diff, -2048
+  %9 = and i16 %6, 31
+  %10 = lshr i16 %6, 5
+  %11 = and i16 %10, 63
+  %12 = mul nuw nsw i16 %11, %5
+  %13 = lshr i16 %12, 3
+  %14 = and i16 %13, 2016
+  %15 = mul nuw nsw i16 %9, %5
+  %16 = lshr i16 %15, 8
+  %17 = or disjoint i16 %16, %8
+  %18 = or disjoint i16 %17, %14
+  store i16 %18, ptr %0, align 2
+  br label %19
 
-21:                                               ; preds = %2, %4, %3
+19:                                               ; preds = %2, %4, %3
   ret void
 }
 

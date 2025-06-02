@@ -4928,11 +4928,11 @@ define range(i32 0, 5) i32 @hwloc_bitmap_compare_inclusion(ptr noundef readonly 
   %wide.trip.count = zext i32 %. to i64
   br label %11
 
-11:                                               ; preds = %.lr.ph, %66
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
-  %.076112 = phi i32 [ 0, %.lr.ph ], [ %.177, %66 ]
-  %.080110 = phi i32 [ 1, %.lr.ph ], [ %.181, %66 ]
-  %.082109 = phi i32 [ 1, %.lr.ph ], [ %.183, %66 ]
+11:                                               ; preds = %.lr.ph, %64
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
+  %.076112 = phi i32 [ 0, %.lr.ph ], [ %.177, %64 ]
+  %.080110 = phi i32 [ 1, %.lr.ph ], [ %.181, %64 ]
+  %.082109 = phi i32 [ 1, %.lr.ph ], [ %.183, %64 ]
   %12 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %12, label %13, label %17
 
@@ -4972,7 +4972,7 @@ define range(i32 0, 5) i32 @hwloc_bitmap_compare_inclusion(ptr noundef readonly 
   br i1 %.not95, label %32, label %37
 
 32:                                               ; preds = %30
-  br i1 %.not96, label %66, label %33
+  br i1 %.not96, label %64, label %33
 
 33:                                               ; preds = %32
   %34 = icmp eq i32 %.076112, 2
@@ -5048,78 +5048,76 @@ define range(i32 0, 5) i32 @hwloc_bitmap_compare_inclusion(ptr noundef readonly 
   br i1 %or.cond10, label %61, label %.thread
 
 61:                                               ; preds = %58, %53, %50, %40, %35, %41, %45, %36
+  %62 = phi i32 [ 0, %45 ], [ 0, %41 ], [ %.082109, %36 ], [ %.082109, %35 ], [ 0, %40 ], [ 0, %50 ], [ 0, %53 ], [ 0, %58 ]
   %.278 = phi i32 [ %.076112, %45 ], [ %spec.store.select1, %41 ], [ %spec.store.select, %36 ], [ 4, %35 ], [ 4, %40 ], [ 1, %50 ], [ 2, %53 ], [ 4, %58 ]
-  %62 = and i32 %.082109, 1
-  %63 = select i1 %.not95, i32 %62, i32 0
   %.not101 = icmp eq i64 %31, 0
-  %64 = and i32 %.080110, 1
-  %65 = select i1 %.not101, i32 %64, i32 0
-  br label %66
+  %63 = select i1 %.not101, i32 %.080110, i32 0
+  br label %64
 
-66:                                               ; preds = %61, %32
-  %.183 = phi i32 [ %63, %61 ], [ %.082109, %32 ]
-  %.181 = phi i32 [ %65, %61 ], [ %.080110, %32 ]
+64:                                               ; preds = %61, %32
+  %.183 = phi i32 [ %62, %61 ], [ %.082109, %32 ]
+  %.181 = phi i32 [ %63, %61 ], [ %.080110, %32 ]
   %.177 = phi i32 [ %.278, %61 ], [ %.076112, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %11, !llvm.loop !70
 
-._crit_edge.loopexit:                             ; preds = %66
-  %67 = icmp eq i32 %.183, 0
-  %68 = icmp eq i32 %.181, 0
+._crit_edge.loopexit:                             ; preds = %64
+  %65 = icmp eq i32 %.183, 0
+  %66 = icmp eq i32 %.181, 0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.082.lcssa = phi i1 [ false, %2 ], [ %67, %._crit_edge.loopexit ]
-  %.080.lcssa = phi i1 [ false, %2 ], [ %68, %._crit_edge.loopexit ]
+  %.082.lcssa = phi i1 [ false, %2 ], [ %65, %._crit_edge.loopexit ]
+  %.080.lcssa = phi i1 [ false, %2 ], [ %66, %._crit_edge.loopexit ]
   %.076.lcssa = phi i32 [ 0, %2 ], [ %.177, %._crit_edge.loopexit ]
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %68 = load i32, ptr %67, align 8, !tbaa !14
+  %.not = icmp eq i32 %68, 0
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %70 = load i32, ptr %69, align 8, !tbaa !14
-  %.not = icmp eq i32 %70, 0
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load i32, ptr %71, align 8, !tbaa !14
-  %.not89 = icmp eq i32 %72, 0
-  br i1 %.not, label %73, label %78
+  %.not89 = icmp eq i32 %70, 0
+  br i1 %.not, label %71, label %76
 
-73:                                               ; preds = %._crit_edge
-  br i1 %.not89, label %86, label %74
+71:                                               ; preds = %._crit_edge
+  br i1 %.not89, label %84, label %72
 
-74:                                               ; preds = %73
-  %75 = icmp eq i32 %.076.lcssa, 2
-  br i1 %75, label %76, label %77
+72:                                               ; preds = %71
+  %73 = icmp eq i32 %.076.lcssa, 2
+  br i1 %73, label %74, label %75
 
-76:                                               ; preds = %74
-  br i1 %.080.lcssa, label %.thread, label %86
+74:                                               ; preds = %72
+  br i1 %.080.lcssa, label %.thread, label %84
 
-77:                                               ; preds = %74
+75:                                               ; preds = %72
   %spec.store.select11 = tail call i32 @llvm.umax.i32(i32 %.076.lcssa, i32 1)
-  br label %86
+  br label %84
 
-78:                                               ; preds = %._crit_edge
-  br i1 %.not89, label %79, label %84
+76:                                               ; preds = %._crit_edge
+  br i1 %.not89, label %77, label %82
 
-79:                                               ; preds = %78
-  %80 = icmp eq i32 %.076.lcssa, 1
-  br i1 %80, label %81, label %82
+77:                                               ; preds = %76
+  %78 = icmp eq i32 %.076.lcssa, 1
+  br i1 %78, label %79, label %80
 
-81:                                               ; preds = %79
-  br i1 %.082.lcssa, label %.thread, label %86
+79:                                               ; preds = %77
+  br i1 %.082.lcssa, label %.thread, label %84
 
-82:                                               ; preds = %79
-  %83 = icmp eq i32 %.076.lcssa, 0
-  %spec.store.select12 = select i1 %83, i32 2, i32 %.076.lcssa
-  br label %86
+80:                                               ; preds = %77
+  %81 = icmp eq i32 %.076.lcssa, 0
+  %spec.store.select12 = select i1 %81, i32 2, i32 %.076.lcssa
+  br label %84
 
-84:                                               ; preds = %78
-  %85 = icmp eq i32 %.076.lcssa, 4
-  br i1 %85, label %.thread, label %86
+82:                                               ; preds = %76
+  %83 = icmp eq i32 %.076.lcssa, 4
+  br i1 %83, label %.thread, label %84
 
-86:                                               ; preds = %81, %76, %82, %84, %73, %77
-  %.3 = phi i32 [ %.076.lcssa, %84 ], [ %spec.store.select12, %82 ], [ %spec.store.select11, %77 ], [ %.076.lcssa, %73 ], [ 4, %76 ], [ 4, %81 ]
+84:                                               ; preds = %79, %74, %80, %82, %71, %75
+  %.3 = phi i32 [ %.076.lcssa, %82 ], [ %spec.store.select12, %80 ], [ %spec.store.select11, %75 ], [ %.076.lcssa, %71 ], [ 4, %74 ], [ 4, %79 ]
   br label %.thread
 
-.thread:                                          ; preds = %58, %55, %54, %53, %53, %50, %50, %45, %40, %35, %84, %81, %76, %86
-  %.2 = phi i32 [ %.3, %86 ], [ 3, %76 ], [ 3, %81 ], [ 3, %84 ], [ 3, %35 ], [ 3, %40 ], [ 3, %45 ], [ 3, %50 ], [ 3, %50 ], [ 3, %53 ], [ 3, %53 ], [ 3, %54 ], [ 3, %55 ], [ 3, %58 ]
+.thread:                                          ; preds = %58, %55, %54, %53, %53, %50, %50, %45, %40, %35, %82, %79, %74, %84
+  %.2 = phi i32 [ %.3, %84 ], [ 3, %74 ], [ 3, %79 ], [ 3, %82 ], [ 3, %35 ], [ 3, %40 ], [ 3, %45 ], [ 3, %50 ], [ 3, %50 ], [ 3, %53 ], [ 3, %53 ], [ 3, %54 ], [ 3, %55 ], [ 3, %58 ]
   ret i32 %.2
 }
 

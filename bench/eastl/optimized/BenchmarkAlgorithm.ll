@@ -19840,7 +19840,7 @@ for.body.preheader:                               ; preds = %do.body.i
 
 for.body:                                         ; preds = %for.body.preheader, %do.end
   %temp.sroa.11.0 = phi i32 [ 32623592, %for.body.preheader ], [ %16, %do.end ]
-  %temp.sroa.5.0 = phi i8 [ 0, %for.body.preheader ], [ %17, %do.end ]
+  %temp.sroa.5.0 = phi i8 [ 0, %for.body.preheader ], [ %frombool.i.i42, %do.end ]
   %temp.sroa.0.0 = phi i32 [ 0, %for.body.preheader ], [ %15, %do.end ]
   %p.051 = phi ptr [ %add.ptr, %for.body.preheader ], [ %incdec.ptr, %do.end ]
   %incdec.ptr = getelementptr inbounds i8, ptr %p.051, i64 -24
@@ -19853,10 +19853,9 @@ for.body:                                         ; preds = %for.body.preheader,
   %5 = load i32, ptr %mMagicValue3.i, align 4
   store i32 %temp.sroa.11.0, ptr %mMagicValue3.i, align 4
   %mbThrowOnCopy4.i = getelementptr inbounds i8, ptr %p.051, i64 -20
-  %frombool.i.i = and i8 %temp.sroa.5.0, 1
   %6 = load i8, ptr %mbThrowOnCopy4.i, align 1
   %frombool3.i.i = and i8 %6, 1
-  store i8 %frombool.i.i, ptr %mbThrowOnCopy4.i, align 1
+  store i8 %temp.sroa.5.0, ptr %mbThrowOnCopy4.i, align 1
   %add.ptr7 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %sub.ptr.sub
   %.pre56 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   br label %do.body
@@ -19915,6 +19914,7 @@ do.end:                                           ; preds = %_ZN10TestObjectaSEO
   store i32 %5, ptr %mMagicValue.i38, align 4
   %mbThrowOnCopy.i40 = getelementptr inbounds nuw i8, ptr %p2.0, i64 4
   %17 = load i8, ptr %mbThrowOnCopy.i40, align 1
+  %frombool.i.i42 = and i8 %17, 1
   store i8 %frombool3.i.i, ptr %mbThrowOnCopy.i40, align 1
   %cmp.not = icmp eq ptr %incdec.ptr, %first
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !402

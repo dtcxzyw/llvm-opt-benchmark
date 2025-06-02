@@ -602,12 +602,12 @@ if.else.i21:                                      ; preds = %if.then28.i
 
 if.end43.i:                                       ; preds = %if.else.i21
   %shr.i = lshr i32 %val.0.i, 8
-  %conv46.i = trunc i32 %shr.i to i8
+  %conv44.i = trunc i32 %shr.i to i8
   %incdec.ptr47.ptr.i = getelementptr inbounds nuw i8, ptr %tp.0.ptr.ptr.ptr.le.i, i64 1
-  store i8 %conv46.i, ptr %tp.0.ptr.ptr.ptr.le.i, align 1
-  %conv51.i = trunc i32 %val.0.i to i8
+  store i8 %conv44.i, ptr %tp.0.ptr.ptr.ptr.le.i, align 1
+  %conv48.i = trunc i32 %val.0.i to i8
   %incdec.ptr47.add.i = add nuw nsw i64 %tp.0.idx.ph63.i, 2
-  store i8 %conv51.i, ptr %incdec.ptr47.ptr.i, align 1
+  store i8 %conv48.i, ptr %incdec.ptr47.ptr.i, align 1
   br label %while.cond.outer61.i
 
 land.lhs.true.i:                                  ; preds = %if.end25.i
@@ -709,12 +709,12 @@ if.then68.i:                                      ; preds = %while.end.i22
 
 if.end73.i:                                       ; preds = %if.then68.i
   %shr74.i = lshr i32 %val.0.i, 8
-  %conv78.i = trunc i32 %shr74.i to i8
+  %conv75.i = trunc i32 %shr74.i to i8
   %incdec.ptr79.i = getelementptr inbounds nuw i8, ptr %tp.1.ptr.ptr.i, i64 1
-  store i8 %conv78.i, ptr %tp.1.ptr.ptr.i, align 1
-  %conv83.i = trunc i32 %val.0.i to i8
+  store i8 %conv75.i, ptr %tp.1.ptr.ptr.i, align 1
+  %conv80.i = trunc i32 %val.0.i to i8
   %tp.1.ptr.add.i = add nuw nsw i64 %tp.0.idx.ph63.i, 2
-  store i8 %conv83.i, ptr %incdec.ptr79.i, align 1
+  store i8 %conv80.i, ptr %incdec.ptr79.i, align 1
   br label %if.end85.i
 
 if.end85.i:                                       ; preds = %if.end73.i, %while.end.i22, %while.end.thread.i

@@ -34250,7 +34250,7 @@ define void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap16extend_unaligned17
   %31 = and i8 %30, %29
   store i8 %31, ptr %25, align 1
   %.not9 = icmp ult i64 %13, 8
-  br i1 %.not9, label %41, label %33
+  br i1 %.not9, label %40, label %33
 
 32:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he55d9a39c9b64149E.exit"
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %21, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.78903dfae459d0129993378c72bfad4c.323) #32
@@ -34258,30 +34258,29 @@ define void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap16extend_unaligned17
 
 33:                                               ; preds = %22
   %34 = load i8, ptr %18, align 1, !noundef !28
-  %35 = trunc i64 %11 to i8
-  %36 = and i8 %35, 7
-  %37 = shl i8 %34, %36
-  %38 = or i8 %37, %31
-  store i8 %38, ptr %25, align 1
-  %39 = add i64 %12, %4
-  %40 = icmp ult i64 %39, 9
-  br i1 %40, label %52, label %42
+  %35 = trunc nuw nsw i64 %12 to i8
+  %36 = shl i8 %34, %35
+  %37 = or i8 %36, %31
+  store i8 %37, ptr %25, align 1
+  %38 = add i64 %12, %4
+  %39 = icmp ult i64 %38, 9
+  br i1 %39, label %51, label %41
 
-41:                                               ; preds = %22
+40:                                               ; preds = %22
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.78903dfae459d0129993378c72bfad4c.324) #32
   unreachable
 
-42:                                               ; preds = %33
+41:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
-  %43 = sub i64 %4, %26
-  %44 = getelementptr i8, ptr %18, i64 %14
-  %45 = getelementptr i8, ptr %44, i64 -1
-  %46 = load i8, ptr %45, align 1, !noundef !28
-  store i8 %46, ptr %7, align 1
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 0, ptr %47, align 1
-  %48 = tail call i64 @llvm.uadd.sat.i64(i64 %43, i64 7)
-  %49 = lshr i64 %48, 3
+  %42 = sub i64 %4, %26
+  %43 = getelementptr i8, ptr %18, i64 %14
+  %44 = getelementptr i8, ptr %43, i64 -1
+  %45 = load i8, ptr %44, align 1, !noundef !28
+  store i8 %45, ptr %7, align 1
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  store i8 0, ptr %46, align 1
+  %47 = tail call i64 @llvm.uadd.sat.i64(i64 %42, i64 7)
+  %48 = lshr i64 %47, 3
   store i64 1, ptr %6, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %7, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -34295,15 +34294,15 @@ define void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap16extend_unaligned17
   store i64 2, ptr %.sroa.0.sroa.6.sroa.5.0..sroa.0.sroa.6.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store i64 %49, ptr %50, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store i64 %48, ptr %49, align 8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h84a073b1bd1ae3f7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.78903dfae459d0129993378c72bfad4c.326)
-  %51 = load i64, ptr %10, align 8, !noundef !28
+  %50 = load i64, ptr %10, align 8, !noundef !28
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
-  br label %52
+  br label %51
 
-52:                                               ; preds = %33, %42
-  %.pn = phi i64 [ %51, %42 ], [ %11, %33 ]
+51:                                               ; preds = %33, %41
+  %.pn = phi i64 [ %50, %41 ], [ %11, %33 ]
   %.sink = add i64 %.pn, %4
   store i64 %.sink, ptr %10, align 8
   ret void

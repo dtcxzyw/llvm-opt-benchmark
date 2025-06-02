@@ -435,10 +435,10 @@ define hidden void @bufferevent_ssl_put_error(ptr noundef captures(none) %0, i64
 8:                                                ; preds = %2
   %9 = trunc i64 %1 to i32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %11 = add i8 %4, 4
-  %12 = and i8 %11, 12
+  %11 = shl nuw nsw i8 %6, 2
+  %12 = add nuw nsw i8 %11, 4
   %13 = and i8 %4, -13
-  %14 = or disjoint i8 %12, %13
+  %14 = or i8 %12, %13
   store i8 %14, ptr %3, align 4
   %15 = zext nneg i8 %6 to i64
   %16 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %15
@@ -1089,7 +1089,7 @@ define hidden range(i64 0, 4294967296) i64 @bufferevent_get_ssl_error(ptr nounde
   %4 = load ptr, ptr %3, align 8
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %4, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
   %.not = icmp eq i32 %bcmp, 0
-  br i1 %.not, label %32, label %5
+  br i1 %.not, label %31, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -1105,38 +1105,37 @@ define hidden range(i64 0, 4294967296) i64 @bufferevent_get_ssl_error(ptr nounde
 11:                                               ; preds = %8, %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 588
   %13 = load i8, ptr %12, align 4
-  %14 = and i8 %13, 12
-  %.not18 = icmp eq i8 %14, 0
-  br i1 %.not18, label %27, label %15
+  %14 = lshr i8 %13, 2
+  %15 = and i8 %14, 3
+  %.not18 = icmp eq i8 %15, 0
+  br i1 %.not18, label %26, label %16
 
-15:                                               ; preds = %11
-  %16 = lshr i8 %13, 2
+16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %18 = add nuw nsw i8 %16, 3
-  %19 = and i8 %18, 3
-  %20 = shl nuw nsw i8 %19, 2
-  %21 = and i8 %13, -13
-  %22 = or disjoint i8 %20, %21
-  store i8 %22, ptr %12, align 4
-  %23 = zext nneg i8 %19 to i64
-  %24 = getelementptr inbounds nuw [3 x i32], ptr %17, i64 0, i64 %23
-  %25 = load i32, ptr %24, align 4
-  %26 = zext i32 %25 to i64
-  br label %27
+  %18 = add nsw i8 %15, -1
+  %19 = shl nuw nsw i8 %18, 2
+  %20 = and i8 %13, -13
+  %21 = or i8 %19, %20
+  store i8 %21, ptr %12, align 4
+  %22 = zext nneg i8 %18 to i64
+  %23 = getelementptr inbounds nuw [3 x i32], ptr %17, i64 0, i64 %22
+  %24 = load i32, ptr %23, align 4
+  %25 = zext i32 %24 to i64
+  br label %26
 
-27:                                               ; preds = %11, %15
-  %.013 = phi i64 [ %26, %15 ], [ 0, %11 ]
-  %28 = load ptr, ptr %6, align 8
-  %.not19 = icmp eq ptr %28, null
-  br i1 %.not19, label %32, label %29
+26:                                               ; preds = %11, %16
+  %.013 = phi i64 [ %25, %16 ], [ 0, %11 ]
+  %27 = load ptr, ptr %6, align 8
+  %.not19 = icmp eq ptr %27, null
+  br i1 %.not19, label %31, label %28
 
-29:                                               ; preds = %27
-  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %31 = tail call i32 %30(i32 noundef 0, ptr noundef nonnull %28) #7
-  br label %32
+28:                                               ; preds = %26
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
+  %30 = tail call i32 %29(i32 noundef 0, ptr noundef nonnull %27) #7
+  br label %31
 
-32:                                               ; preds = %27, %29, %1
-  %.0 = phi i64 [ 0, %1 ], [ %.013, %29 ], [ %.013, %27 ]
+31:                                               ; preds = %26, %28, %1
+  %.0 = phi i64 [ 0, %1 ], [ %.013, %28 ], [ %.013, %26 ]
   ret i64 %.0
 }
 

@@ -8798,13 +8798,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit515: ; preds = %_Z
 .loopexit:                                        ; preds = %149, %151, %168, %173, %284
   %.195 = phi i8 [ %.296, %173 ], [ %.296, %168 ], [ %.094, %284 ], [ %.094, %151 ], [ %.094, %149 ]
   %1108 = call noundef zeroext i1 @_ZN2cv16GStreamerCapture19configureAudioFrameEv(ptr noundef nonnull align 8 dereferenceable(496) %0)
-  %1109 = and i8 %.195, 1
-  %1110 = icmp ne i8 %1109, 0
-  %1111 = select i1 %1108, i1 %1110, i1 false
+  %1109 = icmp ne i8 %.195, 0
+  %1110 = select i1 %1108, i1 %1109, i1 false
   br label %.loopexit535
 
 .loopexit535:                                     ; preds = %1092, %.thread523, %.thread, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %221, %_ZN2cv12_GLOBAL__N_18GSafePtrI10_GstSampleE5resetEPS2_.exit, %.loopexit
-  %.092 = phi i1 [ %1111, %.loopexit ], [ true, %_ZN2cv12_GLOBAL__N_18GSafePtrI10_GstSampleE5resetEPS2_.exit ], [ false, %221 ], [ false, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ false, %.thread ], [ false, %.thread523 ], [ false, %1092 ]
+  %.092 = phi i1 [ %1110, %.loopexit ], [ true, %_ZN2cv12_GLOBAL__N_18GSafePtrI10_GstSampleE5resetEPS2_.exit ], [ false, %221 ], [ false, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ false, %.thread ], [ false, %.thread523 ], [ false, %1092 ]
   ret i1 %.092
 }
 

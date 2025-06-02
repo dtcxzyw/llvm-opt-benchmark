@@ -7093,11 +7093,11 @@ define internal noundef zeroext i8 @elem_a2p_bearer_format(ptr noundef %0, ptr n
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 20
   br label %24
 
-24:                                               ; preds = %.lr.ph, %125
-  %.0210267 = phi i8 [ 0, %.lr.ph ], [ %.2, %125 ]
-  %.0211266 = phi i8 [ 0, %.lr.ph ], [ %.1212, %125 ]
-  %.0216265 = phi i8 [ 0, %.lr.ph ], [ %126, %125 ]
-  %.0217263 = phi i32 [ %14, %.lr.ph ], [ %.3, %125 ]
+24:                                               ; preds = %.backedge, %.lr.ph
+  %.0210267 = phi i8 [ 0, %.lr.ph ], [ %.0210267.be, %.backedge ]
+  %.0211266 = phi i8 [ 0, %.lr.ph ], [ %.1212, %.backedge ]
+  %.0216265 = phi i8 [ 0, %.lr.ph ], [ %.0216265.be, %.backedge ]
+  %.0217263 = phi i32 [ %14, %.lr.ph ], [ %.3, %.backedge ]
   %25 = load i32, ptr @ett_bearer_list, align 4
   %26 = zext i8 %.0216265 to i32
   %27 = add nuw nsw i32 %26, 1
@@ -7283,31 +7283,35 @@ define internal noundef zeroext i8 @elem_a2p_bearer_format(ptr noundef %0, ptr n
 122:                                              ; preds = %117, %113
   %.1212 = phi i8 [ 1, %117 ], [ %.0211266, %113 ]
   %.1 = phi i8 [ 1, %117 ], [ %.0210267, %113 ]
-  br i1 %.0213, label %123, label %125
+  br i1 %.0213, label %.thread, label %123
 
 123:                                              ; preds = %122
-  %124 = zext nneg i8 %59 to i32
-  call void @rtp_dyn_payload_insert(ptr noundef %8, i32 noundef %124, ptr noundef nonnull @.str.1398, i32 noundef %., i32 noundef 1)
-  br label %125
+  %124 = sub i32 %.3, %3
+  %.not = icmp eq i32 %4, %124
+  br i1 %.not, label %._crit_edge, label %.backedge
 
-125:                                              ; preds = %123, %122
-  %.2 = phi i8 [ 1, %123 ], [ %.1, %122 ]
-  %126 = add i8 %.0216265, 1
-  %127 = sub i32 %.3, %3
-  %.not = icmp eq i32 %4, %127
-  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !38
+.backedge:                                        ; preds = %123, %.thread
+  %.0210267.be = phi i8 [ %.1, %123 ], [ 1, %.thread ]
+  %.0216265.be = add i8 %.0216265, 1
+  br label %24, !llvm.loop !38
 
-._crit_edge:                                      ; preds = %125
-  %128 = and i8 %.2, 1
-  %129 = icmp eq i8 %128, 0
-  br i1 %129, label %._crit_edge.thread, label %.loopexit
+.thread:                                          ; preds = %122
+  %125 = zext nneg i8 %59 to i32
+  call void @rtp_dyn_payload_insert(ptr noundef %8, i32 noundef %125, ptr noundef nonnull @.str.1398, i32 noundef %., i32 noundef 1)
+  %126 = sub i32 %.3, %3
+  %.not285 = icmp eq i32 %4, %126
+  br i1 %.not285, label %.loopexit, label %.backedge
+
+._crit_edge:                                      ; preds = %123
+  %127 = icmp eq i8 %.1, 0
+  br i1 %127, label %._crit_edge.thread, label %.loopexit
 
 ._crit_edge.thread:                               ; preds = %6, %._crit_edge
   call void @rtp_dyn_payload_free(ptr noundef %8)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %46, %24, %._crit_edge, %._crit_edge.thread, %107, %92, %74, %66
-  %.0.in = phi i32 [ %4, %66 ], [ %94, %92 ], [ %4, %107 ], [ %4, %74 ], [ %4, %._crit_edge.thread ], [ %4, %._crit_edge ], [ %4, %24 ], [ %4, %46 ]
+.loopexit:                                        ; preds = %.thread, %46, %24, %._crit_edge, %._crit_edge.thread, %107, %92, %74, %66
+  %.0.in = phi i32 [ %4, %66 ], [ %94, %92 ], [ %4, %107 ], [ %4, %74 ], [ %4, %._crit_edge.thread ], [ %4, %._crit_edge ], [ %4, %24 ], [ %4, %46 ], [ %4, %.thread ]
   %.0 = trunc i32 %.0.in to i8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
   ret i8 %.0

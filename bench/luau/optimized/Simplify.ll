@@ -2045,29 +2045,28 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit138.i: ; preds = %216, %213
   br label %.loopexit.split-lp.i
 
 223:                                              ; preds = %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit138.i
-  %224 = and i8 %.355.ph.i, 1
-  %225 = and i8 %224, %.551.ph.i
-  %226 = icmp ne i8 %225, 0
+  %224 = and i8 %.551.ph.i, %.355.ph.i
+  %225 = icmp ne i8 %224, 0
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %223, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit138.i, %._crit_edge176.i, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit124.i, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit122.i, %148, %147, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit113.i, %._crit_edge.i, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.i, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.i, %63, %62, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit.i
-  %.1.i = phi i1 [ false, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit.i ], [ %226, %223 ], [ false, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit113.i ], [ false, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit138.i ], [ false, %._crit_edge.i ], [ false, %._crit_edge176.i ], [ false, %62 ], [ false, %147 ], [ false, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.i ], [ false, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit122.i ], [ false, %63 ], [ false, %148 ], [ false, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.i ], [ false, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit124.i ]
-  %227 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %228 = load ptr, ptr %227, align 8, !tbaa !23
-  %.not.i.i.i139.i = icmp eq ptr %228, null
-  br i1 %.not.i.i.i139.i, label %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit140.i, label %229
+  %.1.i = phi i1 [ false, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit.i ], [ %225, %223 ], [ false, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit113.i ], [ false, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit138.i ], [ false, %._crit_edge.i ], [ false, %._crit_edge176.i ], [ false, %62 ], [ false, %147 ], [ false, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.i ], [ false, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit122.i ], [ false, %63 ], [ false, %148 ], [ false, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.i ], [ false, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit124.i ]
+  %226 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %227 = load ptr, ptr %226, align 8, !tbaa !23
+  %.not.i.i.i139.i = icmp eq ptr %227, null
+  br i1 %.not.i.i.i139.i, label %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit140.i, label %228
 
-229:                                              ; preds = %.critedge.thread.i
-  call void @_ZdlPv(ptr noundef nonnull %228) #23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %227, i8 0, i64 16, i1 false)
+228:                                              ; preds = %.critedge.thread.i
+  call void @_ZdlPv(ptr noundef nonnull %227) #23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %226, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit140.i
 
-_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit140.i: ; preds = %229, %.critedge.thread.i
-  %230 = load ptr, ptr %2, align 8, !tbaa !18
-  %231 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %232 = load i64, ptr %231, align 8, !tbaa !29
-  %233 = shl i64 %232, 4
-  call void @_ZdlPvm(ptr noundef %230, i64 noundef %233) #24
+_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit140.i: ; preds = %228, %.critedge.thread.i
+  %229 = load ptr, ptr %2, align 8, !tbaa !18
+  %230 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %231 = load i64, ptr %230, align 8, !tbaa !29
+  %232 = shl i64 %231, 4
+  call void @_ZdlPvm(ptr noundef %229, i64 noundef %232) #24
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #23
   br label %_ZN4LuauL11isFalsyTypeEPKNS_4TypeE.exit
 

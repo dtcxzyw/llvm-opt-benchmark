@@ -8513,18 +8513,17 @@ if.end36:                                         ; preds = %_ZNSt6vectorIN3irr4
   br i1 %exitcond.not, label %for.cond.cleanup25, label %for.body26, !llvm.loop !334
 
 invoke.cont44:                                    ; preds = %for.cond.cleanup
-  %14 = and i8 %success.3, 1
-  %conv45 = zext nneg i8 %14 to i32
+  %conv45 = zext nneg i8 %success.3 to i32
   invoke void @lua_pushboolean(ptr noundef %L, i32 noundef %conv45)
           to label %invoke.cont46 unwind label %lpad43
 
 invoke.cont46:                                    ; preds = %invoke.cont44
-  %15 = load ptr, ptr %modified_blocks, align 8, !tbaa !156
-  %tobool.not.i.i.i.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %modified_blocks, align 8, !tbaa !156
+  %tobool.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i, label %_ZN12MapEditEventD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont46
-  call void @_ZdlPv(ptr noundef nonnull %15) #31
+  call void @_ZdlPv(ptr noundef nonnull %14) #31
   br label %_ZN12MapEditEventD2Ev.exit
 
 _ZN12MapEditEventD2Ev.exit:                       ; preds = %if.then.i.i.i.i, %invoke.cont46
@@ -8532,19 +8531,19 @@ _ZN12MapEditEventD2Ev.exit:                       ; preds = %if.then.i.i.i.i, %i
   br label %cleanup
 
 lpad43:                                           ; preds = %invoke.cont44, %for.cond.cleanup
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   %.pre = load ptr, ptr %modified_blocks, align 8, !tbaa !156
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad43, %lpad.loopexit.split-lp, %lpad.loopexit
-  %17 = phi ptr [ %.pre, %lpad43 ], [ %6, %lpad.loopexit ], [ %6, %lpad.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %16, %lpad43 ], [ %lpad.loopexit127, %lpad.loopexit ], [ %lpad.loopexit.split-lp128, %lpad.loopexit.split-lp ]
-  %tobool.not.i.i.i.i103 = icmp eq ptr %17, null
+  %16 = phi ptr [ %.pre, %lpad43 ], [ %6, %lpad.loopexit ], [ %6, %lpad.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %15, %lpad43 ], [ %lpad.loopexit127, %lpad.loopexit ], [ %lpad.loopexit.split-lp128, %lpad.loopexit.split-lp ]
+  %tobool.not.i.i.i.i103 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i.i103, label %_ZN12MapEditEventD2Ev.exit105, label %if.then.i.i.i.i104
 
 if.then.i.i.i.i104:                               ; preds = %ehcleanup
-  call void @_ZdlPv(ptr noundef nonnull %17) #31
+  call void @_ZdlPv(ptr noundef nonnull %16) #31
   br label %_ZN12MapEditEventD2Ev.exit105
 
 _ZN12MapEditEventD2Ev.exit105:                    ; preds = %if.then.i.i.i.i104, %ehcleanup

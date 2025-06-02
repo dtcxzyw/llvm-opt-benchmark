@@ -2643,48 +2643,47 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %297 = add nuw nsw i32 %.5.i, 1
   %298 = icmp sgt i32 %.5.i, 29998
   %spec.store.select.i = select i1 %298, i32 0, i32 %297
-  %299 = and i32 %spec.store.select.i, 65535
-  %300 = and i32 %219, -65536
-  %301 = or disjoint i32 %299, %300
-  store i32 %301, ptr %218, align 8
-  %302 = load ptr, ptr @pManMR, align 8, !tbaa !31
-  %303 = getelementptr inbounds nuw i8, ptr %302, i64 104
-  %304 = load ptr, ptr %303, align 8, !tbaa !48
-  %305 = getelementptr i8, ptr %304, i64 8
-  %.val98.i = load ptr, ptr %305, align 8, !tbaa !30
-  %306 = zext nneg i32 %220 to i64
-  %307 = getelementptr inbounds nuw i32, ptr %.val98.i, i64 %306
-  %308 = load i32, ptr %307, align 4, !tbaa !51
-  %309 = add nsw i32 %308, -1
-  store i32 %309, ptr %307, align 4, !tbaa !51
-  %310 = zext nneg i32 %spec.store.select.i to i64
-  %311 = getelementptr inbounds nuw i32, ptr %.val98.i, i64 %310
-  %312 = load i32, ptr %311, align 4, !tbaa !51
-  %313 = add nsw i32 %312, 1
-  store i32 %313, ptr %311, align 4, !tbaa !51
-  %314 = load i32, ptr %307, align 4, !tbaa !51
-  %.not85.i = icmp eq i32 %314, 0
-  br i1 %.not85.i, label %315, label %dfsfast_e_retreat.exit
+  %299 = and i32 %219, -65536
+  %300 = or disjoint i32 %spec.store.select.i, %299
+  store i32 %300, ptr %218, align 8
+  %301 = load ptr, ptr @pManMR, align 8, !tbaa !31
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 104
+  %303 = load ptr, ptr %302, align 8, !tbaa !48
+  %304 = getelementptr i8, ptr %303, i64 8
+  %.val98.i = load ptr, ptr %304, align 8, !tbaa !30
+  %305 = zext nneg i32 %220 to i64
+  %306 = getelementptr inbounds nuw i32, ptr %.val98.i, i64 %305
+  %307 = load i32, ptr %306, align 4, !tbaa !51
+  %308 = add nsw i32 %307, -1
+  store i32 %308, ptr %306, align 4, !tbaa !51
+  %309 = zext nneg i32 %spec.store.select.i to i64
+  %310 = getelementptr inbounds nuw i32, ptr %.val98.i, i64 %309
+  %311 = load i32, ptr %310, align 4, !tbaa !51
+  %312 = add nsw i32 %311, 1
+  store i32 %312, ptr %310, align 4, !tbaa !51
+  %313 = load i32, ptr %306, align 4, !tbaa !51
+  %.not85.i = icmp eq i32 %313, 0
+  br i1 %.not85.i, label %314, label %dfsfast_e_retreat.exit
 
-315:                                              ; preds = %.critedge6.i
-  %316 = getelementptr inbounds nuw i8, ptr %302, i64 64
-  store i32 1, ptr %316, align 8, !tbaa !67
+314:                                              ; preds = %.critedge6.i
+  %315 = getelementptr inbounds nuw i8, ptr %301, i64 64
+  store i32 1, ptr %315, align 8, !tbaa !67
   br label %dfsfast_e_retreat.exit
 
 .loopexit:                                        ; preds = %58, %90, %129, %165, %194
-  %317 = load ptr, ptr @pManMR, align 8, !tbaa !31
-  %318 = getelementptr inbounds nuw i8, ptr %317, i64 112
-  %319 = load ptr, ptr %318, align 8, !tbaa !43
+  %316 = load ptr, ptr @pManMR, align 8, !tbaa !31
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 112
+  %318 = load ptr, ptr %317, align 8, !tbaa !43
   %.val80 = load i32, ptr %9, align 8, !tbaa !40
-  %320 = zext i32 %.val80 to i64
-  %321 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %319, i64 %320
-  %322 = load i16, ptr %321, align 8
-  %323 = and i16 %322, -2
-  store i16 %323, ptr %321, align 8
+  %319 = zext i32 %.val80 to i64
+  %320 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %318, i64 %319
+  %321 = load i16, ptr %320, align 8
+  %322 = and i16 %321, -2
+  store i16 %322, ptr %320, align 8
   br label %dfsfast_e_retreat.exit
 
-dfsfast_e_retreat.exit:                           ; preds = %315, %.critedge6.i, %6, %18, %2, %.loopexit
-  %.061 = phi i32 [ 1, %.loopexit ], [ 0, %2 ], [ 1, %18 ], [ 1, %6 ], [ 0, %.critedge6.i ], [ 0, %315 ]
+dfsfast_e_retreat.exit:                           ; preds = %314, %.critedge6.i, %6, %18, %2, %.loopexit
+  %.061 = phi i32 [ 1, %.loopexit ], [ 0, %2 ], [ 1, %18 ], [ 1, %6 ], [ 0, %.critedge6.i ], [ 0, %314 ]
   ret i32 %.061
 }
 

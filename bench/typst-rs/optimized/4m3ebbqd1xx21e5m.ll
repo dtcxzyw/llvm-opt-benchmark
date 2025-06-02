@@ -69173,7 +69173,7 @@ define hidden void @_ZN5typst6layout6inline4line17hd21d4b0cba4d7f6aE(ptr noalias
   %narrow = and i1 %29, %or.cond10
   %.0117 = zext i1 %narrow to i8
   %.not = icmp ult i64 %3, %4
-  br i1 %.not, label %30, label %605
+  br i1 %.not, label %30, label %604
 
 30:                                               ; preds = %6
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 96
@@ -70504,11 +70504,11 @@ _ZN5typst6layout6inline7shaping11ShapedGlyph12is_cj_script17h4d7fb1628f7f6339E.e
   %583 = icmp ult i64 %582, 4
   %584 = xor i64 %581, -9223372036854775808
   %585 = select i1 %583, i64 %584, i64 0
-  switch i64 %585, label %597 [
+  switch i64 %585, label %596 [
     i64 0, label %_ZN5typst6layout6inline4Item5width17he75ff10f73bb5d1eE.exit.sink.split
-    i64 1, label %598
+    i64 1, label %597
     i64 2, label %_ZN5typst6layout6inline4Item5width17he75ff10f73bb5d1eE.exit
-    i64 3, label %599
+    i64 3, label %598
     i64 4, label %_ZN5typst6layout6inline4Item5width17he75ff10f73bb5d1eE.exit
   ]
 
@@ -70534,64 +70534,63 @@ _ZN5typst6layout6inline7shaping11ShapedGlyph12is_cj_script17h4d7fb1628f7f6339E.e
   %594 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i8 %.1118, ptr %594, align 8
   %595 = getelementptr inbounds nuw i8, ptr %0, i64 265
-  %596 = and i8 %.0116, 1
-  store i8 %596, ptr %595, align 1
+  store i8 %.0116, ptr %595, align 1
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %21)
-  br label %600
+  br label %599
+
+596:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2c48ed72c7ade23E.llvm.9217674556973953327.exit"
+  unreachable
 
 597:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2c48ed72c7ade23E.llvm.9217674556973953327.exit"
-  unreachable
+  br label %_ZN5typst6layout6inline4Item5width17he75ff10f73bb5d1eE.exit.sink.split
 
 598:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2c48ed72c7ade23E.llvm.9217674556973953327.exit"
   br label %_ZN5typst6layout6inline4Item5width17he75ff10f73bb5d1eE.exit.sink.split
 
-599:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2c48ed72c7ade23E.llvm.9217674556973953327.exit"
-  br label %_ZN5typst6layout6inline4Item5width17he75ff10f73bb5d1eE.exit.sink.split
-
-600:                                              ; preds = %605, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2c48ed72c7ade23E.llvm.9217674556973953327.exit.thread"
+599:                                              ; preds = %604, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2c48ed72c7ade23E.llvm.9217674556973953327.exit.thread"
   ret void
 
-_ZN5typst6layout6inline4Item5width17he75ff10f73bb5d1eE.exit.sink.split: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2c48ed72c7ade23E.llvm.9217674556973953327.exit", %598, %599
-  %.sink441 = phi i64 [ 32, %599 ], [ 8, %598 ], [ 80, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2c48ed72c7ade23E.llvm.9217674556973953327.exit" ]
-  %601 = getelementptr inbounds nuw i8, ptr %.sroa.0335.0381, i64 %.sink441
-  %602 = load double, ptr %601, align 8, !alias.scope !12317, !noundef !4
+_ZN5typst6layout6inline4Item5width17he75ff10f73bb5d1eE.exit.sink.split: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2c48ed72c7ade23E.llvm.9217674556973953327.exit", %597, %598
+  %.sink441 = phi i64 [ 32, %598 ], [ 8, %597 ], [ 80, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2c48ed72c7ade23E.llvm.9217674556973953327.exit" ]
+  %600 = getelementptr inbounds nuw i8, ptr %.sroa.0335.0381, i64 %.sink441
+  %601 = load double, ptr %600, align 8, !alias.scope !12317, !noundef !4
   br label %_ZN5typst6layout6inline4Item5width17he75ff10f73bb5d1eE.exit
 
 _ZN5typst6layout6inline4Item5width17he75ff10f73bb5d1eE.exit: ; preds = %_ZN5typst6layout6inline4Item5width17he75ff10f73bb5d1eE.exit.sink.split, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2c48ed72c7ade23E.llvm.9217674556973953327.exit", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2c48ed72c7ade23E.llvm.9217674556973953327.exit"
-  %.0.i306 = phi double [ 0.000000e+00, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2c48ed72c7ade23E.llvm.9217674556973953327.exit" ], [ 0.000000e+00, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2c48ed72c7ade23E.llvm.9217674556973953327.exit" ], [ %602, %_ZN5typst6layout6inline4Item5width17he75ff10f73bb5d1eE.exit.sink.split ]
-  %603 = fadd double %.3380, %.0.i306
-  %.0.i.inv.i.i.i.i307 = fcmp ord double %603, 0.000000e+00
-  %.0.i.i.i.i308 = select i1 %.0.i.inv.i.i.i.i307, double %603, double 0.000000e+00
-  %604 = icmp eq ptr %580, %505
-  br i1 %604, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2c48ed72c7ade23E.llvm.9217674556973953327.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2c48ed72c7ade23E.llvm.9217674556973953327.exit"
+  %.0.i306 = phi double [ 0.000000e+00, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2c48ed72c7ade23E.llvm.9217674556973953327.exit" ], [ 0.000000e+00, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2c48ed72c7ade23E.llvm.9217674556973953327.exit" ], [ %601, %_ZN5typst6layout6inline4Item5width17he75ff10f73bb5d1eE.exit.sink.split ]
+  %602 = fadd double %.3380, %.0.i306
+  %.0.i.inv.i.i.i.i307 = fcmp ord double %602, 0.000000e+00
+  %.0.i.i.i.i308 = select i1 %.0.i.inv.i.i.i.i307, double %602, double 0.000000e+00
+  %603 = icmp eq ptr %580, %505
+  br i1 %603, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2c48ed72c7ade23E.llvm.9217674556973953327.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2c48ed72c7ade23E.llvm.9217674556973953327.exit"
 
 "_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$typst..layout..inline..Item$GT$$GT$17h38f14e64333d87cbE.exit": ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$typst..layout..inline..Item$GT$$GT$17h38f14e64333d87cbE.exit242", %80
   resume { ptr, i32 } %.pn157
 
-605:                                              ; preds = %6
-  %606 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store ptr %2, ptr %606, align 8
-  %607 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i64 %3, ptr %607, align 8
-  %608 = getelementptr inbounds nuw i8, ptr %0, i64 240
+604:                                              ; preds = %6
+  %605 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  store ptr %2, ptr %605, align 8
+  %606 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store i64 %3, ptr %606, align 8
+  %607 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store i64 %4, ptr %607, align 8
+  %608 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i64 %4, ptr %608, align 8
-  %609 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i64 %4, ptr %609, align 8
   store i64 -9223372036854775803, ptr %0, align 8
-  %610 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store ptr @anon.8028f6bc2b2948ad00199b8e9b8fe7f2.92.llvm.9217674556973953327, ptr %610, align 8
-  %611 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i64 0, ptr %611, align 8
-  %612 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 -9223372036854775803, ptr %612, align 8
-  %613 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store double 0.000000e+00, ptr %613, align 8
-  %614 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i8 %.0117, ptr %614, align 8
-  %615 = getelementptr inbounds nuw i8, ptr %0, i64 265
-  store i8 0, ptr %615, align 1
-  br label %600
+  %609 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store ptr @anon.8028f6bc2b2948ad00199b8e9b8fe7f2.92.llvm.9217674556973953327, ptr %609, align 8
+  %610 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  store i64 0, ptr %610, align 8
+  %611 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i64 -9223372036854775803, ptr %611, align 8
+  %612 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store double 0.000000e+00, ptr %612, align 8
+  %613 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store i8 %.0117, ptr %613, align 8
+  %614 = getelementptr inbounds nuw i8, ptr %0, i64 265
+  store i8 0, ptr %614, align 1
+  br label %599
 }
 
 ; Function Attrs: nonlazybind uwtable

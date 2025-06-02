@@ -1030,27 +1030,26 @@ define range(i32 -1, 1) i32 @H5T__conv_vlen(ptr noundef readonly captures(addres
 
 .thread648:                                       ; preds = %518, %522, %519, %511, %514
   %.12 = phi i32 [ -1, %514 ], [ %.11, %511 ], [ -1, %522 ], [ %.11, %519 ], [ %.11, %518 ]
-  %526 = and i8 %.0382557575, 1
-  %527 = and i8 %526, %.0384556577
-  %or.cond19.not = icmp ne i8 %527, 0
+  %526 = and i8 %.0382557575, %.0384556577
+  %or.cond19.not = icmp ne i8 %526, 0
   %.not479657 = icmp eq ptr %.0372558573, null
   %.not479 = select i1 %or.cond19.not, i1 true, i1 %.not479657
-  br i1 %.not479, label %530, label %528
+  br i1 %.not479, label %529, label %527
 
-528:                                              ; preds = %.thread648
-  %529 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_vlen_seq_blk_free_list, ptr noundef nonnull %.0372558573) #6
-  br label %530
+527:                                              ; preds = %.thread648
+  %528 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_vlen_seq_blk_free_list, ptr noundef nonnull %.0372558573) #6
+  br label %529
 
-530:                                              ; preds = %528, %.thread648
+529:                                              ; preds = %527, %.thread648
   %.not480 = icmp eq ptr %.0352559571, null
-  br i1 %.not480, label %.thread, label %531
+  br i1 %.not480, label %.thread, label %530
 
-531:                                              ; preds = %530
-  %532 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_vlen_seq_blk_free_list, ptr noundef nonnull %.0352559571) #6
+530:                                              ; preds = %529
+  %531 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_vlen_seq_blk_free_list, ptr noundef nonnull %.0352559571) #6
   br label %.thread
 
-.thread:                                          ; preds = %476, %75, %81, %113, %125, %21, %26, %35, %44, %67, %.thread487, %9, %531, %530
-  %.0324 = phi i32 [ %.12, %531 ], [ %.12, %530 ], [ 0, %9 ], [ 0, %.thread487 ], [ -1, %67 ], [ -1, %44 ], [ -1, %35 ], [ -1, %26 ], [ 0, %21 ], [ -1, %125 ], [ -1, %113 ], [ -1, %81 ], [ -1, %75 ], [ -1, %476 ]
+.thread:                                          ; preds = %476, %75, %81, %113, %125, %21, %26, %35, %44, %67, %.thread487, %9, %530, %529
+  %.0324 = phi i32 [ %.12, %530 ], [ %.12, %529 ], [ 0, %9 ], [ 0, %.thread487 ], [ -1, %67 ], [ -1, %44 ], [ -1, %35 ], [ -1, %26 ], [ 0, %21 ], [ -1, %125 ], [ -1, %113 ], [ -1, %81 ], [ -1, %75 ], [ -1, %476 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #6
