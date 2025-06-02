@@ -3095,8 +3095,8 @@ define internal fastcc void @decompTest(ptr noundef nonnull %0, ptr noundef %1, 
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.thread.us4
   %22 = phi i32 [ %31, %.thread.us4 ], [ %13, %.lr.ph.split ]
-  %indvars.iv11 = phi i64 [ %indvars.iv.next12, %.thread.us4 ], [ 0, %.lr.ph.split ]
-  %23 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr %11, i64 %indvars.iv11
+  %indvars.iv14 = phi i64 [ %indvars.iv.next15, %.thread.us4 ], [ 0, %.lr.ph.split ]
+  %23 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr %11, i64 %indvars.iv14
   %24 = load i32, ptr %23, align 4, !tbaa !39
   %25 = icmp eq i32 %24, 1
   br i1 %25, label %26, label %.thread.us4
@@ -3111,31 +3111,31 @@ define internal fastcc void @decompTest(ptr noundef nonnull %0, ptr noundef %1, 
 29:                                               ; preds = %26
   %30 = load i64, ptr %23, align 4
   call fastcc void @_decompTest(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 %30)
-  %.pre14 = load i32, ptr %8, align 4, !tbaa !9
+  %.pre17 = load i32, ptr %8, align 4, !tbaa !9
   br label %.thread.us4
 
 .thread.us4:                                      ; preds = %29, %26, %.lr.ph.split.split.us
-  %31 = phi i32 [ %.pre14, %29 ], [ %22, %26 ], [ %22, %.lr.ph.split.split.us ]
-  %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
+  %31 = phi i32 [ %.pre17, %29 ], [ %22, %26 ], [ %22, %.lr.ph.split.split.us ]
+  %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %32 = sext i32 %31 to i64
-  %33 = icmp slt i64 %indvars.iv.next12, %32
+  %33 = icmp slt i64 %indvars.iv.next15, %32
   br i1 %33, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !38
 
-34:                                               ; preds = %10
+.lr.ph.split.split.split.us:                      ; preds = %10
   %35 = call ptr @tj3GetErrorStr(ptr noundef null) #21
   %36 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.75, ptr noundef %35)
   store i1 true, ptr @exitStatus, align 4
   br label %.loopexit
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %.thread
+.lr.ph.split.split:; preds = %.lr.ph.split, %.thread
   %37 = phi i32 [ %46, %.thread ], [ %13, %.lr.ph.split ]
   %indvars.iv8 = phi i64 [ %indvars.iv.next9, %.thread ], [ 0, %.lr.ph.split ]
-  %38 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr %11, i64 %indvars.iv8
-  %39 = load i32, ptr %38, align 4, !tbaa !39
-  %40 = icmp eq i32 %39, 1
-  br i1 %40, label %41, label %.thread
+  %39 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr %11, i64 %indvars.iv8
+  %40 = load i32, ptr %39, align 4, !tbaa !39
+  %40 = icmp eq i32 %40, 1
+  br i1 %40, label %41, label %46
 
-41:                                               ; preds = %.lr.ph.split.split
+41:; preds = %.lr.ph.split.split
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %43 = load i32, ptr %42, align 4, !tbaa !41
   switch i32 %43, label %.thread [
@@ -3144,13 +3144,13 @@ define internal fastcc void @decompTest(ptr noundef nonnull %0, ptr noundef %1, 
     i32 1, label %44
   ]
 
-44:                                               ; preds = %41, %41, %41
-  %45 = load i64, ptr %38, align 4
-  call fastcc void @_decompTest(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 %45)
+41:                                               ; preds = %41, %41, %41
+  %42 = load i64, ptr %38, align 4
+  call fastcc void @_decompTest(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 %42)
   %.pre = load i32, ptr %8, align 4, !tbaa !9
   br label %.thread
 
-.thread:                                          ; preds = %41, %.lr.ph.split.split, %44
+46:                                               ; preds = %41, %.lr.ph.split.split, %44
   %46 = phi i32 [ %37, %41 ], [ %37, %.lr.ph.split.split ], [ %.pre, %44 ]
   %indvars.iv.next9 = add nuw nsw i64 %indvars.iv8, 1
   %47 = sext i32 %46 to i64

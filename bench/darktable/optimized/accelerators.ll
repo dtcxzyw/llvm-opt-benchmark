@@ -12754,7 +12754,7 @@ define internal fastcc ptr @_shortcut_key_move_name(i8 noundef zeroext %0, i32 n
 17:                                               ; preds = %9, %15
   %18 = phi ptr [ %16, %15 ], [ %14, %9 ]
   %19 = tail call noalias ptr @g_strdup(ptr noundef %18) #24
-  br label %98
+  br label %94
 
 20:                                               ; preds = %7
   %.not73 = icmp eq i32 %3, 0
@@ -12803,7 +12803,7 @@ define internal fastcc ptr @_shortcut_key_move_name(i8 noundef zeroext %0, i32 n
 38:                                               ; preds = %35, %36
   %39 = phi ptr [ %37, %36 ], [ @.str.190, %35 ]
   %40 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.189, ptr noundef %39, i32 noundef %1) #24
-  br label %98
+  br label %94
 
 41:                                               ; preds = %4
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
@@ -12828,7 +12828,7 @@ define internal fastcc ptr @_shortcut_key_move_name(i8 noundef zeroext %0, i32 n
 ._crit_edge:                                      ; preds = %46, %41
   %48 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.191, i32 noundef 5) #24
   %49 = tail call noalias ptr @g_strdup(ptr noundef %48) #24
-  br label %71
+  br label %67
 
 .critedge:                                        ; preds = %.lr.ph
   %50 = load ptr, ptr %.06492, align 8, !tbaa !73
@@ -12838,13 +12838,13 @@ define internal fastcc ptr @_shortcut_key_move_name(i8 noundef zeroext %0, i32 n
   %or.cond4116 = and i1 %52, %53
   br i1 %51, label %.thread115, label %54
 
-54:                                               ; preds = %.critedge
+54:; preds = %.critedge
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !280
   %57 = tail call ptr %56(i32 noundef %1, i32 noundef %3) #24
   br i1 %or.cond4116, label %.thread109, label %61
 
-.thread115:                                       ; preds = %.critedge
+.thread115:; preds = %.critedge
   %58 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %59 = load ptr, ptr %58, align 8, !tbaa !281
   %60 = tail call ptr %59(i32 noundef %1, i32 noundef %3) #24
@@ -12854,41 +12854,41 @@ define internal fastcc ptr @_shortcut_key_move_name(i8 noundef zeroext %0, i32 n
   store ptr %60, ptr %5, align 8, !tbaa !18
   br label %.loopexit
 
-61:                                               ; preds = %.thread115, %54
+58:                                               ; preds = %.thread115, %54
   %62 = phi ptr [ %60, %.thread115 ], [ %57, %54 ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #24
   store i16 0, ptr %6, align 2
-  br i1 %53, label %65, label %63
+  br i1 %53, label %61, label %59
 
-63:                                               ; preds = %61
-  %64 = add nuw nsw i8 %.06091, 38
-  store i8 %64, ptr %6, align 2, !tbaa !6
-  br label %65
+59:                                               ; preds = %58
+  %60 = add nuw nsw i8 %.06091, 38
+  store i8 %60, ptr %6, align 2, !tbaa !6
+  br label %61
 
-65:                                               ; preds = %63, %61
-  br i1 %52, label %68, label %66
+61:                                               ; preds = %59, %58
+  br i1 %52, label %64, label %62
 
-66:                                               ; preds = %65
-  %67 = load ptr, ptr %50, align 8, !tbaa !200
-  br label %68
+62:                                               ; preds = %61
+  %63 = load ptr, ptr %50, align 8, !tbaa !200
+  br label %64
 
-68:                                               ; preds = %65, %66
-  %69 = phi ptr [ %67, %66 ], [ @.str.5, %65 ]
-  %70 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.192, ptr noundef %69, ptr noundef nonnull %6, ptr noundef %62) #24
+64:                                               ; preds = %61, %62
+  %65 = phi ptr [ %63, %66 ], [ @.str.5, %65 ]
+  %66 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.192, ptr noundef %65, ptr noundef nonnull %6, ptr noundef %62) #24
   call void @g_free(ptr noundef %62) #24
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #24
-  br label %71
+  br label %67
 
-71:                                               ; preds = %._crit_edge, %68
-  %.062 = phi ptr [ %49, %._crit_edge ], [ %70, %68 ]
+67:                                               ; preds = %._crit_edge, %64
+  %.062 = phi ptr [ %49, %._crit_edge ], [ %66, %68 ]
   %.not76 = icmp eq i32 %2, -1
-  br i1 %.not76, label %.loopexitthread-pre-split, label %.preheader
+  br i1 %.not76, label %.loopexit, label %.preheader
 
 .thread109:                                       ; preds = %54
   store ptr %57, ptr %5, align 8, !tbaa !18
   br label %.preheader.split.preheader
 
-.preheader:                                       ; preds = %71
+.preheader:                                       ; preds = %67
   %.not81 = icmp eq i32 %3, 0
   br i1 %.not81, label %.preheader.split.us.preheader, label %.preheader.split.preheader
 
@@ -12900,77 +12900,77 @@ define internal fastcc ptr @_shortcut_key_move_name(i8 noundef zeroext %0, i32 n
   %.493.us.ph = phi ptr [ %.062, %.preheader ], [ %34, %33 ], [ %32, %31 ]
   br label %.preheader.split.us
 
-.preheader.split.us:                              ; preds = %.preheader.split.us.preheader, %79
-  %72 = phi i32 [ %81, %79 ], [ 1, %.preheader.split.us.preheader ]
-  %.06194.us = phi ptr [ %80, %79 ], [ @modifier_string, %.preheader.split.us.preheader ]
+.preheader.split.us:                              ; preds = %.preheader.split.us.preheader, %75
+  %68 = phi i32 [ %77, %79 ], [ 1, %.preheader.split.us.preheader ]
+  %.06194.us = phi ptr [ %76, %79 ], [ @modifier_string, %.preheader.split.us.preheader ]
   %.493.us = phi ptr [ %.5.us, %79 ], [ %.493.us.ph, %.preheader.split.us.preheader ]
-  %73 = and i32 %72, %2
-  %.not80.us = icmp eq i32 %73, 0
-  br i1 %.not80.us, label %79, label %74
+  %69 = and i32 %68, %2
+  %.not80.us = icmp eq i32 %69, 0
+  br i1 %.not80.us, label %75, label %70
 
-74:                                               ; preds = %.preheader.split.us
+70:                                               ; preds = %.preheader.split.us
   %.not82.us = icmp eq ptr %.493.us, null
-  %75 = select i1 %.not82.us, ptr @.str.5, ptr %.493.us
-  %76 = getelementptr inbounds nuw i8, ptr %.06194.us, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !202
-  %78 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.194, ptr noundef nonnull %75, ptr noundef %77) #24
+  %71 = select i1 %.not82.us, ptr @.str.5, ptr %.493.us
+  %72 = getelementptr inbounds nuw i8, ptr %.06194.us, i64 8
+  %73 = load ptr, ptr %72, align 8, !tbaa !202
+  %74 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.194, ptr noundef nonnull %71, ptr noundef %73) #24
   call void @g_free(ptr noundef %.493.us) #24
-  br label %79
+  br label %75
 
-79:                                               ; preds = %74, %.preheader.split.us
-  %.5.us = phi ptr [ %78, %74 ], [ %.493.us, %.preheader.split.us ]
-  %80 = getelementptr inbounds nuw i8, ptr %.06194.us, i64 16
-  %81 = load i32, ptr %80, align 8, !tbaa !204
-  %.not77.us = icmp eq i32 %81, 0
-  br i1 %.not77.us, label %.loopexitthread-pre-split, label %.preheader.split.us
+75:                                               ; preds = %70, %.preheader.split.us
+  %.5.us = phi ptr [ %74, %74 ], [ %.493.us, %.preheader.split.us ]
+  %76 = getelementptr inbounds nuw i8, ptr %.06194.us, i64 16
+  %77 = load i32, ptr %76, align 8, !tbaa !204
+  %.not77.us = icmp eq i32 %77, 0
+  br i1 %.not77.us, label %.loopexit, label %.preheader.split.us
 
-.preheader.split:                                 ; preds = %.preheader.split.preheader, %90
-  %82 = phi i32 [ %92, %90 ], [ 1, %.preheader.split.preheader ]
-  %.06194 = phi ptr [ %91, %90 ], [ @modifier_string, %.preheader.split.preheader ]
+.preheader.split:                                 ; preds = %.preheader.split.preheader, %86
+  %78 = phi i32 [ %88, %90 ], [ 1, %.preheader.split.preheader ]
+  %.06194 = phi ptr [ %87, %90 ], [ @modifier_string, %.preheader.split.preheader ]
   %.493 = phi ptr [ %.5, %90 ], [ %.493.ph, %.preheader.split.preheader ]
-  %83 = and i32 %82, %2
-  %.not80 = icmp eq i32 %83, 0
-  br i1 %.not80, label %90, label %84
+  %79 = and i32 %78, %2
+  %.not80 = icmp eq i32 %79, 0
+  br i1 %.not80, label %86, label %80
 
-84:                                               ; preds = %.preheader.split
+80:                                               ; preds = %.preheader.split
   %.not83 = icmp eq ptr %.493, null
-  %85 = select i1 %.not83, ptr @.str.5, ptr %.493
-  %86 = getelementptr inbounds nuw i8, ptr %.06194, i64 8
-  %87 = load ptr, ptr %86, align 8, !tbaa !202
-  %88 = call ptr @dcgettext(ptr noundef null, ptr noundef %87, i32 noundef 5) #24
-  %89 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.193, ptr noundef nonnull %85, ptr noundef %88) #24
+  %81 = select i1 %.not83, ptr @.str.5, ptr %.493
+  %82 = getelementptr inbounds nuw i8, ptr %.06194, i64 8
+  %83 = load ptr, ptr %82, align 8, !tbaa !202
+  %84 = call ptr @dcgettext(ptr noundef null, ptr noundef %83, i32 noundef 5) #24
+  %85 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.193, ptr noundef nonnull %81, ptr noundef %84) #24
   call void @g_free(ptr noundef %.493) #24
-  br label %90
+  br label %86
 
-90:                                               ; preds = %.preheader.split, %84
-  %.5 = phi ptr [ %89, %84 ], [ %.493, %.preheader.split ]
-  %91 = getelementptr inbounds nuw i8, ptr %.06194, i64 16
-  %92 = load i32, ptr %91, align 8, !tbaa !204
-  %.not77 = icmp eq i32 %92, 0
-  br i1 %.not77, label %.loopexitthread-pre-split, label %.preheader.split
+86:                                               ; preds = %.preheader.split, %80
+  %.5 = phi ptr [ %85, %84 ], [ %.493, %.preheader.split ]
+  %87 = getelementptr inbounds nuw i8, ptr %.06194, i64 16
+  %88 = load i32, ptr %87, align 8, !tbaa !204
+  %.not77 = icmp eq i32 %88, 0
+  br i1 %.not77, label %.loopexit, label %.preheader.split
 
-.loopexitthread-pre-split:                        ; preds = %90, %79, %71
-  %.3.ph = phi ptr [ %.062, %71 ], [ %.5.us, %79 ], [ %.5, %90 ]
-  %.pr = load ptr, ptr %5, align 8, !tbaa !18
+.loopexit:                                        ; preds = %86, %75, %67
+  %.3 = phi ptr [ %.062, %71 ], [ %.5.us, %79 ], [ %.5, %90 ]
+  %89 = load ptr, ptr %5, align 8, !tbaa !18
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread109.thread, %.loopexitthread-pre-split
-  %93 = phi ptr [ %.pr, %.loopexitthread-pre-split ], [ %60, %.thread109.thread ]
+  %93 = phi ptr [ %89, %.loopexitthread-pre-split ], [ %60, %.thread109.thread ]
   %.3 = phi ptr [ %.3.ph, %.loopexitthread-pre-split ], [ null, %.thread109.thread ]
   %.not78 = icmp eq ptr %93, null
   br i1 %.not78, label %98, label %94
 
 94:                                               ; preds = %.loopexit
   %.not79 = icmp eq ptr %.3, null
-  %95 = select i1 %.not79, ptr @.str.5, ptr %.3
-  %96 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.57, ptr noundef nonnull %95, ptr noundef nonnull %93) #24
+  %91 = select i1 %.not79, ptr @.str.5, ptr %.3
+  %92 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.57, ptr noundef nonnull %91, ptr noundef nonnull %93) #24
   call void @g_free(ptr noundef %.3) #24
-  %97 = load ptr, ptr %5, align 8, !tbaa !18
-  call void @g_free(ptr noundef %97) #24
-  br label %98
+  %93 = load ptr, ptr %5, align 8, !tbaa !18
+  call void @g_free(ptr noundef %93) #24
+  br label %94
 
-98:                                               ; preds = %.loopexit, %94, %38, %17
-  %.0 = phi ptr [ %19, %17 ], [ %40, %38 ], [ %96, %94 ], [ %.3, %.loopexit ]
+94:                                               ; preds = %.loopexit, %94, %38, %17
+  %.0 = phi ptr [ %19, %17 ], [ %40, %38 ], [ %92, %94 ], [ %.3, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
   ret ptr %.0
 }

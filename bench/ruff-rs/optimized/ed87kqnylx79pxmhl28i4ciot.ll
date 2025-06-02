@@ -4448,50 +4448,50 @@ define internal fastcc void @_ZN17crossbeam_channel7flavors2at7Channel4recv17h3f
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load atomic i8, ptr %5 monotonic, align 8
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %.preheader, label %23
+  br i1 %7, label %.preheader, label %24
 
 .preheader:                                       ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.not = icmp eq i32 %3, 1000000000
   br i1 %.not, label %.preheader.split.us, label %.preheader.split
 
-.preheader.split.us:                              ; preds = %.preheader, %18
-  %9 = tail call { i64, i32 } @_ZN3std4time7Instant3now17hd0beb3f96f7b2a75E()
-  %10 = extractvalue { i64, i32 } %9, 0
-  %11 = extractvalue { i64, i32 } %9, 1
-  %12 = load i64, ptr %1, align 8, !noundef !3
-  %13 = icmp eq i64 %10, %12
-  br i1 %13, label %15, label %14
-
-14:                                               ; preds = %.preheader.split.us
-  %.not14.us = icmp slt i64 %10, %12
-  br i1 %.not14.us, label %._crit_edge17, label %.split.us
-
-._crit_edge17:                                    ; preds = %14
-  %.pre18 = load i32, ptr %8, align 8, !range !675
-  br label %18
+.preheader.split.us:                              ; preds = %.preheader, %19
+  %10 = tail call { i64, i32 } @_ZN3std4time7Instant3now17hd0beb3f96f7b2a75E()
+  %11 = extractvalue { i64, i32 } %10, 0
+  %12 = extractvalue { i64, i32 } %10, 1
+  %13 = load i64, ptr %1, align 8, !noundef !3
+  %14 = icmp eq i64 %11, %13
+  br i1 %14, label %16, label %15
 
 15:                                               ; preds = %.preheader.split.us
-  %16 = icmp ult i32 %11, 1000000000
-  tail call void @llvm.assume(i1 %16)
-  %17 = load i32, ptr %8, align 8, !range !675, !noundef !3
-  %.not15.us = icmp samesign ult i32 %11, %17
-  br i1 %.not15.us, label %18, label %.split.us
+  %.not14.us = icmp slt i64 %11, %13
+  br i1 %.not14.us, label %._crit_edge17, label %.split.us
 
-18:                                               ; preds = %._crit_edge17, %15
-  %19 = phi i32 [ %.pre18, %._crit_edge17 ], [ %17, %15 ]
-  %20 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17h8d3586e6b4f7fd55E"(i64 noundef %12, i32 noundef %19, i64 noundef %10, i32 noundef %11)
-  %21 = extractvalue { i64, i32 } %20, 0
-  %22 = extractvalue { i64, i32 } %20, 1
-  tail call void @_ZN3std6thread5sleep17h1be092bc08b3cf74E(i64 noundef %21, i32 noundef %22)
+._crit_edge17:                                    ; preds = %15
+  %.pre18 = load i32, ptr %8, align 8, !range !675
+  br label %19
+
+16:                                               ; preds = %.preheader.split.us
+  %17 = icmp ult i32 %12, 1000000000
+  tail call void @llvm.assume(i1 %17)
+  %18 = load i32, ptr %8, align 8, !range !675, !noundef !3
+  %.not15.us = icmp samesign ult i32 %12, %18
+  br i1 %.not15.us, label %19, label %.split.us
+
+19:                                               ; preds = %._crit_edge17, %16
+  %20 = phi i32 [ %.pre18, %._crit_edge17 ], [ %18, %15 ]
+  %21 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17h8d3586e6b4f7fd55E"(i64 noundef %13, i32 noundef %20, i64 noundef %11, i32 noundef %12)
+  %22 = extractvalue { i64, i32 } %21, 0
+  %23 = extractvalue { i64, i32 } %21, 1
+  tail call void @_ZN3std6thread5sleep17h1be092bc08b3cf74E(i64 noundef %22, i32 noundef %23)
   br label %.preheader.split.us
 
-23:                                               ; preds = %4
+24:                                               ; preds = %4
   tail call void @_ZN17crossbeam_channel5utils11sleep_until17h2dc1489dcf69e441E(i64 %2, i32 noundef %3)
   store i8 0, ptr %0, align 8
-  br label %51
+  br label %52
 
-.preheader.split:                                 ; preds = %.preheader, %47
+42:                                               ; preds = %.preheader, %47
   %24 = tail call { i64, i32 } @_ZN3std4time7Instant3now17hd0beb3f96f7b2a75E()
   %25 = extractvalue { i64, i32 } %24, 0
   %26 = extractvalue { i64, i32 } %24, 1
@@ -4528,45 +4528,45 @@ define internal fastcc void @_ZN17crossbeam_channel7flavors2at7Channel4recv17h3f
 
 41:                                               ; preds = %33
   store i8 0, ptr %0, align 8
-  br label %51
+  br label %52
 
-42:                                               ; preds = %39
+43:                                               ; preds = %39
   %43 = load i32, ptr %8, align 8, !range !675, !noundef !3
   %44 = icmp samesign ult i32 %3, %43
   %spec.select20 = tail call i32 @llvm.umin.i32(i32 %3, i32 %43)
   %spec.select21 = select i1 %44, i64 %2, i64 %27
-  br label %47
+  br label %48
 
-45:                                               ; preds = %39
-  %46 = icmp slt i64 %2, %27
-  br i1 %46, label %47, label %._crit_edge
+46:                                               ; preds = %39
+  %47 = icmp slt i64 %2, %27
+  br i1 %47, label %48, label %._crit_edge
 
-._crit_edge:                                      ; preds = %45
+._crit_edge:                                      ; preds = %46
   %.pre = load i32, ptr %8, align 8, !range !675
-  br label %47
+  br label %48
 
-47:                                               ; preds = %42, %._crit_edge, %45
+48:                                               ; preds = %43, %._crit_edge, %46
   %.sroa.3.0 = phi i32 [ %3, %45 ], [ %.pre, %._crit_edge ], [ %spec.select20, %42 ]
   %.sroa.07.0 = phi i64 [ %2, %45 ], [ %27, %._crit_edge ], [ %spec.select21, %42 ]
-  %48 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17h8d3586e6b4f7fd55E"(i64 noundef %.sroa.07.0, i32 noundef %.sroa.3.0, i64 noundef %25, i32 noundef %26)
-  %49 = extractvalue { i64, i32 } %48, 0
-  %50 = extractvalue { i64, i32 } %48, 1
-  tail call void @_ZN3std6thread5sleep17h1be092bc08b3cf74E(i64 noundef %49, i32 noundef %50)
+  %49 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17h8d3586e6b4f7fd55E"(i64 noundef %.sroa.07.0, i32 noundef %.sroa.3.0, i64 noundef %25, i32 noundef %26)
+  %50 = extractvalue { i64, i32 } %49, 0
+  %51 = extractvalue { i64, i32 } %49, 1
+  tail call void @_ZN3std6thread5sleep17h1be092bc08b3cf74E(i64 noundef %50, i32 noundef %51)
   br label %.preheader.split
 
-51:                                               ; preds = %53, %41, %23
-  %.sink = phi i32 [ %55, %53 ], [ 1000000000, %41 ], [ 1000000000, %23 ]
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink, ptr %52, align 8
+52:                                               ; preds = %54, %41, %24
+  %.sink = phi i32 [ %56, %53 ], [ 1000000000, %41 ], [ 1000000000, %23 ]
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.sink, ptr %53, align 8
   ret void
 
-53:                                               ; preds = %.split.us
-  %54 = load i64, ptr %1, align 8, !noundef !3
-  %55 = load i32, ptr %8, align 8, !range !675, !noundef !3
-  store i64 %54, ptr %0, align 8
-  br label %51
+54:                                               ; preds = %.split.us
+  %55 = load i64, ptr %1, align 8, !noundef !3
+  %56 = load i32, ptr %8, align 8, !range !675, !noundef !3
+  store i64 %55, ptr %0, align 8
+  br label %52
 
-56:                                               ; preds = %.split.us
+57:                                               ; preds = %.split.us
   tail call void @_ZN17crossbeam_channel5utils11sleep_until17h2dc1489dcf69e441E(i64 undef, i32 noundef 1000000000)
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.0d819bf952b12adc50c68e79d4fd0e8c.30, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0d819bf952b12adc50c68e79d4fd0e8c.38) #23
   unreachable

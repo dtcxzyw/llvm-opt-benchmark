@@ -46217,14 +46217,14 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h9741
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10286)
   %9 = icmp samesign ugt i32 %2, 9999
-  br i1 %9, label %._crit_edge.i.thread, label %._crit_edge.i
+  br i1 %9, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge
   %10 = zext nneg i32 %2 to i64
   %11 = icmp samesign ugt i32 %2, 99
   br i1 %11, label %26, label %34
 
-._crit_edge.i.thread:                             ; preds = %._crit_edge
+.lr.ph.i:                                         ; preds = %._crit_edge
   %12 = urem i32 %2, 10000
   %13 = udiv i32 %2, 10000
   %.lhs.trunc.i = trunc nuw nsw i32 %12 to i16
@@ -46245,20 +46245,20 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h9741
   %25 = zext nneg i32 %13 to i64
   br label %34
 
-26:                                               ; preds = %._crit_edge.i
+25:                                               ; preds = %._crit_edge.i
   %.lhs.trunc34.i = trunc nuw nsw i32 %2 to i16
-  %27 = urem i16 %.lhs.trunc34.i, 100
-  %28 = shl nuw nsw i16 %27, 1
-  %29 = zext nneg i16 %28 to i64
-  %30 = udiv i16 %.lhs.trunc34.i, 100
-  %.zext37.i = zext nneg i16 %30 to i64
-  %31 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %29
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %26 = urem i16 %.lhs.trunc34.i, 100
+  %27 = shl nuw nsw i16 %26, 1
+  %28 = zext nneg i16 %27 to i64
+  %29 = udiv i16 %.lhs.trunc34.i, 100
+  %.zext37.i = zext nneg i16 %29 to i64
+  %31 = getelementptr inbounds nuw i8, ptr @anon.a2b023d1a4e2834952d16152dce23780.170, i64 %28
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %33 = load i16, ptr %31, align 1, !noalias !10286
   store i16 %33, ptr %32, align 1, !alias.scope !10286
   br label %34
 
-34:                                               ; preds = %._crit_edge.i.thread, %26, %._crit_edge.i
+34:                                               ; preds = %.lr.ph.i, %25, %._crit_edge.i
   %.129.i = phi i64 [ 8, %26 ], [ 10, %._crit_edge.i ], [ 6, %._crit_edge.i.thread ]
   %.027.i = phi i64 [ %.zext37.i, %26 ], [ %10, %._crit_edge.i ], [ %25, %._crit_edge.i.thread ]
   %35 = icmp samesign ult i64 %.027.i, 10
@@ -46301,8 +46301,8 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h9741
 
 57:                                               ; preds = %.lr.ph, %76
   %58 = phi i64 [ %.pre, %.lr.ph ], [ %81, %76 ]
-  %.034 = phi i64 [ 0, %.lr.ph ], [ %59, %76 ]
-  %59 = add nuw nsw i64 %.034, 1
+  %.032 = phi i64 [ 0, %.lr.ph ], [ %59, %76 ]
+  %59 = add nuw nsw i64 %.032, 1
   %indvars = trunc i64 %59 to i8
   %60 = load i64, ptr %1, align 8, !alias.scope !10270, !noalias !10281, !noundef !4
   %61 = icmp eq i64 %60, %58
