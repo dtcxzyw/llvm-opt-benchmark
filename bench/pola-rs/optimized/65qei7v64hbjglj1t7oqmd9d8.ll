@@ -34270,17 +34270,17 @@ define void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap16extend_unaligned17
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.78903dfae459d0129993378c72bfad4c.324) #32
   unreachable
 
-41:                                               ; preds = %33
+42:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
-  %42 = sub i64 %4, %26
-  %43 = getelementptr i8, ptr %18, i64 %14
-  %44 = getelementptr i8, ptr %43, i64 -1
-  %45 = load i8, ptr %44, align 1, !noundef !28
-  store i8 %45, ptr %7, align 1
-  %46 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 0, ptr %46, align 1
-  %47 = tail call i64 @llvm.uadd.sat.i64(i64 %42, i64 7)
-  %48 = lshr i64 %47, 3
+  %43 = sub i64 %4, %26
+  %44 = getelementptr i8, ptr %18, i64 %14
+  %45 = getelementptr i8, ptr %44, i64 -1
+  %46 = load i8, ptr %45, align 1, !noundef !28
+  store i8 %46, ptr %7, align 1
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  store i8 0, ptr %47, align 1
+  %48 = tail call i64 @llvm.uadd.sat.i64(i64 %43, i64 7)
+  %49 = lshr i64 %48, 3
   store i64 1, ptr %6, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %7, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -34294,15 +34294,15 @@ define void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap16extend_unaligned17
   store i64 2, ptr %.sroa.0.sroa.6.sroa.5.0..sroa.0.sroa.6.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store i64 %48, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store i64 %49, ptr %50, align 8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h84a073b1bd1ae3f7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.78903dfae459d0129993378c72bfad4c.326)
-  %50 = load i64, ptr %10, align 8, !noundef !28
+  %51 = load i64, ptr %10, align 8, !noundef !28
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
-  br label %51
+  br label %52
 
-51:                                               ; preds = %33, %41
-  %.pn = phi i64 [ %50, %41 ], [ %11, %33 ]
+52:                                               ; preds = %33, %42
+  %.pn = phi i64 [ %51, %41 ], [ %11, %33 ]
   %.sink = add i64 %.pn, %4
   store i64 %.sink, ptr %10, align 8
   ret void

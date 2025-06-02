@@ -13948,9 +13948,9 @@ define hidden void @"_ZN62_$LT$T$u20$as$u20$mini_lsm_mvcc..table..bloom..BitSlic
   br i1 %8, label %11, label %19, !prof !2474
 
 10:                                               ; preds = %3
-  br i1 %8, label %21, label %28, !prof !2474
+  br i1 %8, label %21, label %29, !prof !2474
 
-11:                                               ; preds = %9
+11:; preds = %9
   %12 = load ptr, ptr %0, align 8, !alias.scope !2905, !nonnull !4, !noundef !4
   %13 = trunc nuw nsw i64 %5 to i8
   %14 = shl nuw i8 1, %13
@@ -13978,7 +13978,7 @@ define hidden void @"_ZN62_$LT$T$u20$as$u20$mini_lsm_mvcc..table..bloom..BitSlic
   store i8 %27, ptr %25, align 1
   br label %20
 
-28:                                               ; preds = %10
+29:                                               ; preds = %10
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %4, i64 noundef %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4dd66198b1e00463ac4f9539cc1b7f60.122.llvm.6717981035442482804) #32
   unreachable
 }

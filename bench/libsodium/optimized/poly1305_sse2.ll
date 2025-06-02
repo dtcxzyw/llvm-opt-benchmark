@@ -308,7 +308,7 @@ define internal fastcc void @poly1305_init_ext(ptr noundef initializes((0, 60)) 
   store i32 %108, ptr %109, align 4
   br i1 %45, label %44, label %110, !llvm.loop !7
 
-110:                                              ; preds = %47, %46, %48
+110:; preds = %47, %46, %48
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, i8 0, i64 16, i1 false)
   ret void

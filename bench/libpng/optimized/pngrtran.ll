@@ -8378,23 +8378,23 @@ define internal fastcc void @png_do_expand(ptr noundef captures(none) %0, ptr no
   br i1 %.not271, label %.loopexit, label %.lr.ph261
 
 .lr.ph261:                                        ; preds = %97
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %100 = load i64, ptr %99, align 8, !tbaa !203
-  %101 = shl i64 %100, 1
-  %102 = getelementptr inbounds nuw i8, ptr %1, i64 %101
-  %103 = getelementptr inbounds i8, ptr %102, i64 -1
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 %100
-  %105 = getelementptr inbounds i8, ptr %104, i64 -1
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %99 = load i64, ptr %98, align 8, !tbaa !203
+  %100 = shl i64 %99, 1
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 %100
+  %102 = getelementptr inbounds i8, ptr %101, i64 -1
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 %99
+  %104 = getelementptr inbounds i8, ptr %103, i64 -1
   %106 = trunc i32 %.0214 to i8
   br label %107
 
-107:                                              ; preds = %.lr.ph261, %116
+107:; preds = %.lr.ph261, %116
   %.7260 = phi ptr [ %105, %.lr.ph261 ], [ %120, %116 ]
   %.5202259 = phi ptr [ %103, %.lr.ph261 ], [ %122, %116 ]
   %.4211258 = phi i32 [ 0, %.lr.ph261 ], [ %123, %116 ]
-  %108 = getelementptr inbounds i8, ptr %.7260, i64 -1
-  %109 = load i8, ptr %108, align 1, !tbaa !27
-  %110 = zext i8 %109 to i32
+  %109 = getelementptr inbounds i8, ptr %.7260, i64 -1
+  %110 = load i8, ptr %109, align 1, !tbaa !27
+  %110 = zext i8 %110 to i32
   %111 = icmp eq i32 %98, %110
   br i1 %111, label %112, label %115
 
@@ -8416,7 +8416,7 @@ define internal fastcc void @png_do_expand(ptr noundef captures(none) %0, ptr no
   %119 = getelementptr inbounds i8, ptr %.5202259, i64 -3
   store i8 %118, ptr %.6203, align 1, !tbaa !27
   %120 = getelementptr inbounds i8, ptr %.7260, i64 -2
-  %121 = load i8, ptr %108, align 1, !tbaa !27
+  %121 = load i8, ptr %109, align 1, !tbaa !27
   %122 = getelementptr inbounds i8, ptr %.5202259, i64 -4
   store i8 %121, ptr %119, align 1, !tbaa !27
   %123 = add nuw i32 %.4211258, 1

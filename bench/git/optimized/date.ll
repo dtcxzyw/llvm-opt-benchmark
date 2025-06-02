@@ -1028,11 +1028,11 @@ strbuf_addch.exit:                                ; preds = %109, %113
   %.not77.i = icmp samesign ult i8 %.sroa.0.1.i, 32
   br i1 %.not77.i, label %230, label %show_date_normal.exit
 
-230:                                              ; preds = %229
+231:                                              ; preds = %229
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @show_date.timebuf, ptr noundef nonnull @.str.70, i32 noundef %.157) #20
   br label %show_date_normal.exit
 
-show_date_normal.exit:                            ; preds = %230, %229, %181, %70, %strbuf_addch.exit, %108, %145, %124, %79, %strbuf_setlen.exit64, %strbuf_setlen.exit62, %strbuf_setlen.exit
+show_date_normal.exit:                            ; preds = %231, %229, %181, %70, %strbuf_addch.exit, %108, %145, %124, %79, %strbuf_setlen.exit64, %strbuf_setlen.exit62, %strbuf_setlen.exit
   %.058 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @show_date.timebuf, i64 16), align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #20
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #20

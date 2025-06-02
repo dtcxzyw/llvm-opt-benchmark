@@ -680,10 +680,10 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_sequence_p
   %187 = and i8 %186, 1
   %188 = zext nneg i8 %187 to i32
   %189 = shl nuw nsw i32 %188, 15
-  %.masked207.masked.masked.masked = or i32 %174, %173
-  %.masked209.masked.masked = or i32 %.masked207.masked.masked.masked, %179
-  %.masked211.masked = or i32 %.masked209.masked.masked, %184
-  %190 = or i32 %.masked211.masked, %189
+  %.masked207.masked.masked.masked.masked = or i32 %174, %173
+  %.masked209.masked.masked.masked = or i32 %.masked207.masked.masked.masked.masked, %179
+  %.masked211.masked.masked = or i32 %.masked209.masked.masked.masked, %184
+  %190 = or i32 %.masked211.masked.masked, %189
   %191 = getelementptr inbounds nuw i8, ptr %3, i64 7926768
   %192 = load i8, ptr %191, align 8, !tbaa !127
   %193 = getelementptr inbounds nuw i8, ptr %3, i64 7926769
@@ -755,8 +755,8 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_sequence_p
   %.sroa.51.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %.sroa.51.0..sroa_idx, i8 0, i64 64, i1 false)
   %216 = load i8, ptr %185, align 2, !tbaa !125
-  %.not214 = icmp eq i8 %216, 0
-  %217 = sext i1 %.not214 to i8
+  %.not215 = icmp eq i8 %216, 0
+  %217 = sext i1 %.not215 to i8
   %218 = getelementptr inbounds nuw i8, ptr %3, i64 7945804
   %219 = load i8, ptr %218, align 4, !tbaa !158
   %220 = add i8 %219, 26
@@ -825,7 +825,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_sequence_p
   %283 = and i8 %282, 1
   %284 = zext nneg i8 %283 to i32
   %285 = shl nuw nsw i32 %284, 14
-  %.masked217.masked = or disjoint i32 %270, %269
+  %.masked218.masked = or disjoint i32 %270, %269
   %286 = getelementptr inbounds nuw i8, ptr %3, i64 7945904
   %287 = load i8, ptr %286, align 8, !tbaa !174
   %288 = and i8 %287, 1
@@ -844,11 +844,11 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_sequence_p
   %301 = and i8 %300, 1
   %302 = zext nneg i8 %301 to i32
   %303 = shl nuw nsw i32 %302, 17
-  %.masked219.masked.masked.masked = or i32 %.masked217.masked, %275
-  %.masked221.masked.masked = or i32 %.masked219.masked.masked.masked, %280
-  %.masked223.masked = or i32 %.masked221.masked.masked, %285
-  %.masked225 = or i32 %.masked223.masked, %290
-  %304 = or i32 %.masked225, %295
+  %.masked220.masked.masked.masked = or i32 %.masked218.masked, %275
+  %.masked222.masked.masked = or i32 %.masked220.masked.masked.masked, %280
+  %.masked224.masked = or i32 %.masked222.masked.masked, %285
+  %.masked226 = or i32 %.masked224.masked, %290
+  %304 = or i32 %.masked226, %295
   %305 = or i32 %304, %303
   store i32 -1, ptr %8, align 4, !tbaa !156
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -894,10 +894,10 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_sequence_p
   %.sroa.40.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %.sroa.40.0..sroa_idx, i8 0, i64 64, i1 false)
   %306 = load i8, ptr %276, align 1, !tbaa !172
-  %.not227 = icmp eq i8 %306, 0
-  br i1 %.not227, label %.loopexit, label %.preheader230
+  %.not228 = icmp eq i8 %306, 0
+  br i1 %.not228, label %.loopexit, label %.preheader231
 
-.preheader230:                                    ; preds = %115
+.preheader231:                                    ; preds = %115
   %307 = getelementptr inbounds nuw i8, ptr %3, i64 7945860
   %308 = getelementptr inbounds nuw i8, ptr %8, i64 479
   %309 = zext i8 %230 to i64
@@ -908,7 +908,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_sequence_p
   %311 = zext i8 %228 to i64
   br label %317
 
-312:                                              ; preds = %.preheader230, %312
+312:                                              ; preds = %.preheader231, %312
   %indvars.iv = phi i64 [ 0, %.preheader230 ], [ %indvars.iv.next, %312 ]
   %313 = getelementptr inbounds nuw [22 x i16], ptr %307, i64 0, i64 %indvars.iv
   %314 = load i16, ptr %313, align 2, !tbaa !157
@@ -916,19 +916,19 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_sequence_p
   %316 = getelementptr inbounds nuw [21 x i8], ptr %308, i64 0, i64 %indvars.iv
   store i8 %315, ptr %316, align 1, !tbaa !155
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not228.not = icmp samesign ult i64 %indvars.iv, %309
-  br i1 %.not228.not, label %312, label %.preheader, !llvm.loop !178
+  %.not229.not = icmp samesign ult i64 %indvars.iv, %309
+  br i1 %.not229.not, label %312, label %.preheader, !llvm.loop !178
 
 317:                                              ; preds = %.preheader, %317
-  %indvars.iv234 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next235, %317 ]
-  %318 = getelementptr inbounds nuw [20 x i16], ptr %310, i64 0, i64 %indvars.iv234
+  %indvars.iv235 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next236, %317 ]
+  %318 = getelementptr inbounds nuw [20 x i16], ptr %310, i64 0, i64 %indvars.iv235
   %319 = load i16, ptr %318, align 2, !tbaa !157
   %320 = trunc i16 %319 to i8
-  %321 = getelementptr inbounds nuw [19 x i8], ptr %.sroa.12.0..sroa_idx, i64 0, i64 %indvars.iv234
+  %321 = getelementptr inbounds nuw [19 x i8], ptr %.sroa.12.0..sroa_idx, i64 0, i64 %indvars.iv235
   store i8 %320, ptr %321, align 1, !tbaa !155
-  %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
-  %.not229.not = icmp samesign ult i64 %indvars.iv234, %311
-  br i1 %.not229.not, label %317, label %.loopexit, !llvm.loop !180
+  %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
+  %.not230.not = icmp samesign ult i64 %indvars.iv235, %311
+  br i1 %.not230.not, label %317, label %.loopexit, !llvm.loop !180
 
 .loopexit:                                        ; preds = %317, %115, %1
   %.0 = phi i32 [ %38, %1 ], [ 0, %115 ], [ 0, %317 ]

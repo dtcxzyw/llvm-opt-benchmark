@@ -614,20 +614,20 @@ _feature_set_state.exit:                          ; preds = %31, %41
 
 .loopexit:                                        ; preds = %_feature_set_state.exit, %_feature_set_state.exit.thread
   store i8 0, ptr %0, align 1
-  br label %47
+  br label %48
 
 45:                                               ; preds = %_feature_set_state.exit, %19, %22
   %.1 = phi i8 [ %spec.select, %_feature_set_state.exit ], [ %.01022, %22 ], [ %.01022, %19 ]
   %46 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #10
   %.not = icmp eq ptr %46, null
-  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !14
+  br i1 %.not, label %._crit_edge.loopexit, label %16, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %45, %2
+._crit_edge.loopexit:                             ; preds = %45, %2
   %.010.lcssa = phi i8 [ 0, %2 ], [ %.1, %45 ]
   store i8 %.010.lcssa, ptr %1, align 1
-  br label %47
+  br label %48
 
-47:                                               ; preds = %._crit_edge, %.loopexit
+48:                                               ; preds = %._crit_edge, %.loopexit
   %.0 = phi i32 [ -1, %.loopexit ], [ 0, %._crit_edge ]
   call void @slurm_xfree(ptr noundef nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10

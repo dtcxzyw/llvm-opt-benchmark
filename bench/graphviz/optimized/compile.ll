@@ -719,99 +719,99 @@ mkBlock.exit:                                     ; preds = %180, %181
   %189 = add nuw i64 %.055101, 1
   %.val78 = load i64, ptr %48, align 8, !tbaa !50
   %190 = icmp ult i64 %189, %.val78
-  br i1 %190, label %74, label %.thread91, !llvm.loop !76
+  br i1 %190, label %74, label %.thread91.loopexit, !llvm.loop !76
 
-.thread91:                                        ; preds = %185, %46
+.thread91.loopexit:                               ; preds = %185, %46
   %191 = phi ptr [ null, %46 ], [ %55, %185 ]
   %192 = phi i64 [ 0, %46 ], [ %187, %185 ]
   %.058 = phi i8 [ 0, %46 ], [ %186, %185 ]
   store i8 %.058, ptr %7, align 8, !tbaa !78
   store i32 4, ptr @codePhase, align 4, !tbaa !43
-  %193 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %194 = load ptr, ptr %193, align 8, !tbaa !79
-  %195 = icmp ne ptr %194, null
-  %or.cond = select i1 %195, i1 true, i1 %or.cond77
-  br i1 %or.cond, label %196, label %203
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %195 = load ptr, ptr %194, align 8, !tbaa !79
+  %196 = icmp ne ptr %195, null
+  %or.cond = select i1 %196, i1 true, i1 %or.cond77
+  br i1 %or.cond, label %197, label %204
 
-196:                                              ; preds = %.thread91
+197:                                              ; preds = %.thread91
   store i64 29, ptr getelementptr inbounds nuw (i8, ptr @symbols, i64 32), align 16, !tbaa !58
   store i16 64, ptr getelementptr inbounds nuw (i8, ptr @tchk, i64 6), align 2, !tbaa !62
-  %197 = load ptr, ptr %0, align 8, !tbaa !47
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %199 = load i32, ptr %198, align 8, !tbaa !80
-  %200 = call fastcc ptr @compile(ptr noundef nonnull %34, ptr noundef %197, ptr noundef %194, i32 noundef %199, ptr noundef nonnull @.str.1, ptr noundef %.060, i32 noundef 264)
-  %201 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr %200, ptr %201, align 8, !tbaa !81
-  %202 = call i32 @getErrorErrors() #25
-  %.not70 = icmp eq i32 %202, 0
-  br i1 %.not70, label %203, label %.loopexit
+  %198 = load ptr, ptr %0, align 8, !tbaa !47
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %200 = load i32, ptr %199, align 8, !tbaa !80
+  %201 = call fastcc ptr @compile(ptr noundef nonnull %34, ptr noundef %198, ptr noundef %195, i32 noundef %200, ptr noundef nonnull @.str.1, ptr noundef %.060, i32 noundef 264)
+  %202 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store ptr %201, ptr %202, align 8, !tbaa !81
+  %203 = call i32 @getErrorErrors() #25
+  %.not70 = icmp eq i32 %203, 0
+  br i1 %.not70, label %204, label %.loopexit
 
-203:                                              ; preds = %196, %.thread91
+204:                                              ; preds = %197, %.thread91
   store i32 5, ptr @codePhase, align 4, !tbaa !43
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %205 = load ptr, ptr %204, align 8, !tbaa !82
-  %.not71 = icmp eq ptr %205, null
-  br i1 %.not71, label %.thread, label %206
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %206 = load ptr, ptr %205, align 8, !tbaa !82
+  %.not71 = icmp eq ptr %206, null
+  br i1 %.not71, label %.thread, label %207
 
-.thread:                                          ; preds = %203
+.thread:                                          ; preds = %204
   call void @setErrorLine(i32 noundef 0) #25
   br label %.loopexit
 
-206:                                              ; preds = %203
+207:                                              ; preds = %204
   store i64 30, ptr getelementptr inbounds nuw (i8, ptr @symbols, i64 32), align 16, !tbaa !58
-  %207 = load ptr, ptr %0, align 8, !tbaa !47
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %209 = load i32, ptr %208, align 4, !tbaa !83
-  %210 = call fastcc ptr @compile(ptr noundef nonnull %34, ptr noundef %207, ptr noundef nonnull %205, i32 noundef %209, ptr noundef nonnull @.str.2, ptr noundef null, i32 noundef 264)
-  %211 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store ptr %210, ptr %211, align 8, !tbaa !84
-  %212 = call i32 @getErrorErrors() #25
-  %.not72 = icmp eq i32 %212, 0
-  br i1 %.not72, label %213, label %.loopexit
+  %208 = load ptr, ptr %0, align 8, !tbaa !47
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %210 = load i32, ptr %209, align 4, !tbaa !83
+  %211 = call fastcc ptr @compile(ptr noundef nonnull %34, ptr noundef %208, ptr noundef nonnull %206, i32 noundef %210, ptr noundef nonnull @.str.2, ptr noundef null, i32 noundef 264)
+  %212 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  store ptr %211, ptr %212, align 8, !tbaa !84
+  %213 = call i32 @getErrorErrors() #25
+  %.not72 = icmp eq i32 %213, 0
+  br i1 %.not72, label %214, label %.loopexit
 
-213:                                              ; preds = %206
+214:                                              ; preds = %207
   call void @setErrorLine(i32 noundef 0) #25
-  %.not73 = icmp eq ptr %210, null
-  br i1 %.not73, label %.loopexit, label %214
+  %.not73 = icmp eq ptr %211, null
+  br i1 %.not73, label %.loopexit, label %215
 
-214:                                              ; preds = %213
+215:                                              ; preds = %214
   store i8 1, ptr %7, align 8, !tbaa !78
   br label %.loopexit
 
-.loopexit:                                        ; preds = %mkBlock.exit, %.thread, %initDisc.exit.thread, %213, %214, %206, %196, %39, %13
-  %215 = phi ptr [ null, %initDisc.exit.thread ], [ %191, %213 ], [ %191, %214 ], [ %191, %206 ], [ %191, %196 ], [ null, %39 ], [ null, %13 ], [ %191, %.thread ], [ %55, %mkBlock.exit ]
-  %216 = phi i64 [ 0, %initDisc.exit.thread ], [ %192, %213 ], [ %192, %214 ], [ %192, %206 ], [ %192, %196 ], [ 0, %39 ], [ 0, %13 ], [ %192, %.thread ], [ %75, %mkBlock.exit ]
-  %217 = phi ptr [ null, %initDisc.exit.thread ], [ %34, %213 ], [ %34, %214 ], [ %34, %206 ], [ %34, %196 ], [ %34, %39 ], [ null, %13 ], [ %34, %.thread ], [ %34, %mkBlock.exit ]
-  %218 = call i32 @getErrorErrors() #25
-  %.not74 = icmp eq i32 %218, 0
-  br i1 %.not74, label %freeCompileProg.exit, label %220
+.loopexit:                                        ; preds = %mkBlock.exit, %.thread, %initDisc.exit.thread, %214, %215, %207, %197, %39, %13
+  %216 = phi ptr [ null, %initDisc.exit.thread ], [ %191, %213 ], [ %191, %214 ], [ %191, %206 ], [ %191, %196 ], [ null, %39 ], [ null, %13 ], [ %191, %.thread ], [ %55, %mkBlock.exit ]
+  %217 = phi i64 [ 0, %initDisc.exit.thread ], [ %192, %213 ], [ %192, %214 ], [ %192, %206 ], [ %192, %196 ], [ 0, %39 ], [ 0, %13 ], [ %192, %.thread ], [ %75, %mkBlock.exit ]
+  %218 = phi ptr [ null, %initDisc.exit.thread ], [ %34, %213 ], [ %34, %214 ], [ %34, %206 ], [ %34, %196 ], [ %34, %39 ], [ null, %13 ], [ %34, %.thread ], [ %34, %mkBlock.exit ]
+  %219 = call i32 @getErrorErrors() #25
+  %.not74 = icmp eq i32 %219, 0
+  br i1 %.not74, label %freeCompileProg.exit, label %221
 
 .thread93:                                        ; preds = %3
   tail call void (i32, ptr, ...) @error(i32 noundef 2, ptr noundef nonnull @.str) #25
-  %219 = tail call i32 @getErrorErrors() #25
+  %220 = tail call i32 @getErrorErrors() #25
   br label %freeCompileProg.exit
 
-220:                                              ; preds = %.loopexit
-  call void @exclose(ptr noundef %217) #25
-  %.not12.i = icmp eq i64 %216, 0
+221:                                              ; preds = %.loopexit
+  call void @exclose(ptr noundef %218) #25
+  %.not12.i = icmp eq i64 %217, 0
   br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %220
-  call void @free(ptr noundef %215) #25
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %221
+  call void @free(ptr noundef %216) #25
   call void @free(ptr noundef nonnull %7) #25
   br label %freeCompileProg.exit
 
-.lr.ph.i:                                         ; preds = %220, %.lr.ph.i
-  %.011.i = phi i64 [ %226, %.lr.ph.i ], [ 0, %220 ]
-  %221 = getelementptr inbounds nuw %struct.comp_block, ptr %215, i64 %.011.i
-  %222 = getelementptr inbounds nuw i8, ptr %221, i64 32
-  %223 = load ptr, ptr %222, align 8, !tbaa !69
-  call void @free(ptr noundef %223) #25
-  %224 = getelementptr inbounds nuw i8, ptr %221, i64 40
-  %225 = load ptr, ptr %224, align 8, !tbaa !72
-  call void @free(ptr noundef %225) #25
-  %226 = add nuw i64 %.011.i, 1
-  %exitcond.not = icmp eq i64 %226, %216
+.lr.ph.i:                                         ; preds = %221, %.lr.ph.i
+  %.011.i = phi i64 [ %227, %.lr.ph.i ], [ 0, %220 ]
+  %222 = getelementptr inbounds nuw %struct.comp_block, ptr %216, i64 %.011.i
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 32
+  %224 = load ptr, ptr %223, align 8, !tbaa !69
+  call void @free(ptr noundef %224) #25
+  %225 = getelementptr inbounds nuw i8, ptr %222, i64 40
+  %226 = load ptr, ptr %225, align 8, !tbaa !72
+  call void @free(ptr noundef %226) #25
+  %227 = add nuw i64 %.011.i, 1
+  %exitcond.not = icmp eq i64 %227, %217
   br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !85
 
 freeCompileProg.exit:                             ; preds = %.thread93, %.loopexit, %._crit_edge.i

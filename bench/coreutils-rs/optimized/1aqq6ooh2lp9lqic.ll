@@ -1070,7 +1070,7 @@ define void @"_ZN93_$LT$uu_fmt..parasplit..ParagraphStream$u20$as$u20$core..iter
 
 18:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17ha6de95951af19959E.exit"
   store i64 -9223372036854775807, ptr %0, align 8
-  br label %307
+  br label %308
 
 19:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17ha6de95951af19959E.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
@@ -1145,7 +1145,7 @@ define void @"_ZN93_$LT$uu_fmt..parasplit..ParagraphStream$u20$as$u20$core..iter
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %292, %282
   %eh.lpad-body = phi { ptr, i32 } [ %283, %282 ], [ %293, %292 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit162, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp163, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h8672e12b13f42901E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #15
-          to label %310 unwind label %308
+          to label %310 unwind label %309
 
 34:                                               ; preds = %.noexc, %30
   %35 = phi i64 [ %.pre.i109, %.noexc ], [ %31, %30 ]
@@ -1773,26 +1773,26 @@ thread-pre-split:                                 ; preds = %267
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  br label %307
+  br label %308
 
-307:                                              ; preds = %_ZN6uu_fmt9parasplit4Line16get_noformatline17hc48cb6b8952ca84fE.exit, %306, %18
+308:                                              ; preds = %_ZN6uu_fmt9parasplit4Line16get_noformatline17hc48cb6b8952ca84fE.exit, %306, %18
   ret void
 
-308:                                              ; preds = %311, %310, %.body
-  %309 = landingpad { ptr, i32 }
+309:                                              ; preds = %312, %311, %.body
+  %310 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
   unreachable
 
-310:                                              ; preds = %.body
+311:                                              ; preds = %.body
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hec57c64d4b42b5d0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #15
-          to label %311 unwind label %308
+          to label %311 unwind label %309
 
-311:                                              ; preds = %310
+312:                                              ; preds = %311
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hec57c64d4b42b5d0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #15
-          to label %common.resume unwind label %308
+          to label %common.resume unwind label %309
 
-common.resume:                                    ; preds = %311
+common.resume:                                    ; preds = %312
   resume { ptr, i32 } %eh.lpad-body
 
 _ZN6uu_fmt9parasplit4Line16get_noformatline17hc48cb6b8952ca84fE.exit: ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17ha6de95951af19959E.exit"
@@ -1800,12 +1800,12 @@ _ZN6uu_fmt9parasplit4Line16get_noformatline17hc48cb6b8952ca84fE.exit: ; preds = 
   %.sroa.3.8..sroa.546.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.3.8.copyload = load i8, ptr %.sroa.3.8..sroa.546.0..sroa_idx.sroa_idx, align 8
   store i64 -9223372036854775806, ptr %1, align 8
-  %312 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store i8 %.sroa.3.8.copyload, ptr %312, align 8
+  %313 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  store i8 %.sroa.3.8.copyload, ptr %313, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.546.0..sroa_idx, i64 24, i1 false)
-  br label %307
+  br label %308
 }
 
 ; Function Attrs: nonlazybind uwtable

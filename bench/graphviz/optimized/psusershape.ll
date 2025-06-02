@@ -50,7 +50,7 @@ define void @epsf_init(ptr noundef %0) local_unnamed_addr #0 {
   %8 = tail call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str) #16
   %9 = tail call ptr @safefile(ptr noundef %8) #16
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %111, label %10
+  br i1 %.not, label %112, label %10
 
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %2) #16
@@ -232,56 +232,56 @@ user_init.exit.thread25:                          ; preds = %15, %user_init.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #16
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %2) #16
-  %81 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 72
-  %82 = load double, ptr %81, align 8, !tbaa !29
-  %83 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 80
-  %84 = load double, ptr %83, align 8, !tbaa !30
-  %85 = fdiv double %82, 7.200000e+01
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %87 = load ptr, ptr %86, align 8, !tbaa !38
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 48
-  store double %85, ptr %88, align 8, !tbaa !42
-  %89 = fdiv double %84, 7.200000e+01
-  %90 = getelementptr inbounds nuw i8, ptr %87, i64 56
-  store double %89, ptr %90, align 8, !tbaa !55
-  %91 = call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 121) 24) #18
-  %92 = icmp eq ptr %91, null
-  br i1 %92, label %93, label %gv_alloc.exit
+  %82 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 72
+  %83 = load double, ptr %82, align 8, !tbaa !29
+  %84 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 80
+  %85 = load double, ptr %84, align 8, !tbaa !30
+  %86 = fdiv double %83, 7.200000e+01
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %88 = load ptr, ptr %87, align 8, !tbaa !38
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 48
+  store double %86, ptr %89, align 8, !tbaa !42
+  %90 = fdiv double %85, 7.200000e+01
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 56
+  store double %90, ptr %91, align 8, !tbaa !55
+  %92 = call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 121) 24) #18
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %94, label %gv_alloc.exit
 
-93:                                               ; preds = %user_init.exit.thread25
-  %94 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.22, i64 noundef 24) #19
+94:                                               ; preds = %user_init.exit.thread25
+  %95 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.22, i64 noundef 24) #19
   call fastcc void @graphviz_exit() #20
   unreachable
 
 gv_alloc.exit:                                    ; preds = %user_init.exit.thread25
-  %96 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  store ptr %91, ptr %96, align 8, !tbaa !56
-  %97 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 24
-  %98 = load i32, ptr %97, align 8, !tbaa !32
-  store i32 %98, ptr %91, align 8, !tbaa !57
-  %99 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 56
-  %100 = load double, ptr %99, align 8, !tbaa !21
-  %101 = fneg double %100
-  %102 = fmul double %82, 5.000000e-01
-  %103 = fsub double %101, %102
-  %104 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store double %103, ptr %104, align 8, !tbaa !59
-  %105 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 64
-  %106 = load double, ptr %105, align 8, !tbaa !28
-  %107 = fneg double %106
-  %108 = fmul double %84, 5.000000e-01
-  %109 = fsub double %107, %108
-  %110 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  store double %109, ptr %110, align 8, !tbaa !60
+  %97 = getelementptr inbounds nuw i8, ptr %88, i64 24
+  store ptr %92, ptr %97, align 8, !tbaa !56
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 24
+  %99 = load i32, ptr %98, align 8, !tbaa !32
+  store i32 %99, ptr %92, align 8, !tbaa !57
+  %100 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 56
+  %101 = load double, ptr %100, align 8, !tbaa !21
+  %102 = fneg double %101
+  %103 = fmul double %83, 5.000000e-01
+  %104 = fsub double %102, %103
+  %105 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  store double %104, ptr %105, align 8, !tbaa !59
+  %106 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 64
+  %107 = load double, ptr %106, align 8, !tbaa !28
+  %108 = fneg double %107
+  %109 = fmul double %85, 5.000000e-01
+  %110 = fsub double %108, %109
+  %111 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  store double %110, ptr %111, align 8, !tbaa !60
   br label %.critedge
 
-111:                                              ; preds = %1
-  %112 = tail call ptr @agnameof(ptr noundef %0) #16
-  tail call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.1, ptr noundef %112) #16
+112:                                              ; preds = %1
+  %113 = tail call ptr @agnameof(ptr noundef %0) #16
+  tail call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.1, ptr noundef %113) #16
   br label %.critedge
 
-.critedge:                                        ; preds = %user_init.exit.thread29, %user_init.exit.thread, %gv_alloc.exit, %111
+.critedge:                                        ; preds = %user_init.exit.thread29, %user_init.exit.thread, %gv_alloc.exit, %112
   ret void
 }
 

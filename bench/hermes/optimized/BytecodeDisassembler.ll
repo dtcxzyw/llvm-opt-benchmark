@@ -13338,7 +13338,7 @@ if.else59:                                        ; preds = %_ZN6hermes3hbc13dec
   %or.cond607.not = select i1 %or.cond37, i1 %tobool.not3.i209, i1 false
   br i1 %or.cond607.not, label %while.body.lr.ph.i210, label %sw.epilog
 
-while.body.lr.ph.i210:                            ; preds = %if.else59
+if.then68:                                        ; preds = %if.else59
   %52 = trunc nuw nsw i64 %or.i167 to i32
   %hash_.i211 = getelementptr inbounds nuw i8, ptr %this, i64 28
   %hash_.promoted.i212 = load i32, ptr %hash_.i211, align 4

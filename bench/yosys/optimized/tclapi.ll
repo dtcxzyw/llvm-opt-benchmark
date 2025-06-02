@@ -2253,9 +2253,9 @@ define internal noundef range(i32 0, 2) i32 @_ZN5YosysL12tcl_get_attrEPvP10Tcl_I
   %51 = trunc nuw i8 %.096.lcssa303 to i1
   %52 = trunc nuw i8 %.0102.lcssa300 to i1
   %narrow = add nuw nsw i8 %.0102.lcssa300, %.0104.lcssa299
-  %narrow119 = add nuw nsw i8 %narrow, %.0100.lcssa301
-  %narrow121 = add nuw nsw i8 %narrow119, %.098.lcssa302
-  %narrow123 = add nuw nsw i8 %narrow121, %.096.lcssa303
+  %narrow = add nuw nsw i8 %narrow, %.0100.lcssa301
+  %narrow119 = add nuw nsw i8 %narrow, %.098.lcssa302
+  %narrow121 = add nuw nsw i8 %narrow119, %.096.lcssa303
   %53 = icmp samesign ugt i8 %narrow123, 1
   br i1 %53, label %54, label %55
 
@@ -5296,8 +5296,8 @@ define internal noundef range(i32 0, 2) i32 @_ZN5YosysL12tcl_set_attrEPvP10Tcl_I
   %narrow = add nuw nsw i8 %.0110.lcssa342, %.0112.lcssa341
   %narrow131 = add nuw nsw i8 %narrow, %.0108.lcssa343
   %narrow133 = add nuw nsw i8 %narrow131, %.0106.lcssa344
-  %narrow135 = add nuw nsw i8 %narrow133, %.0104.lcssa345
-  %narrow137 = add nuw nsw i8 %narrow135, %.0102.lcssa346
+  %narrow = add nuw nsw i8 %narrow133, %.0104.lcssa345
+  %narrow131 = add nuw nsw i8 %narrow, %.0102.lcssa346
   %76 = icmp samesign ugt i8 %narrow137, 1
   br i1 %76, label %77, label %78
 

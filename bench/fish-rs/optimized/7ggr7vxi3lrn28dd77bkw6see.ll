@@ -42680,7 +42680,7 @@ define range(i64 8589934592, 545460846594) i64 @_ZN4fish8builtins7command7comman
 
 25:                                               ; preds = %16
   call void @_ZN4fish8builtins6shared18builtin_print_help17h38ecef4f6f25ccebE(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 4 %12, i64 noundef %14)
-  br label %121
+  br label %122
 
 26:                                               ; preds = %16
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 80
@@ -42702,7 +42702,7 @@ define range(i64 8589934592, 545460846594) i64 @_ZN4fish8builtins7command7comman
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %40 = load i64, ptr %39, align 8, !noundef !3
   call void @_ZN4fish8builtins6shared24builtin_missing_argument17he29a5e1d241a474fE(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 4 %12, i64 noundef %14, ptr noalias noundef nonnull readonly align 4 %38, i64 noundef %40, i1 noundef zeroext false)
-  br label %121
+  br label %122
 
 41:                                               ; preds = %26
   call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %29, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.af0885d1f2ed80afa9677019cc2f89cf.181) #32
@@ -42714,7 +42714,7 @@ define range(i64 8589934592, 545460846594) i64 @_ZN4fish8builtins7command7comman
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %46 = load i64, ptr %45, align 8, !noundef !3
   call void @_ZN4fish8builtins6shared22builtin_unknown_option17h5747d6212e2038ebE(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 4 %12, i64 noundef %14, ptr noalias noundef nonnull readonly align 4 %44, i64 noundef %46, i1 noundef zeroext false)
-  br label %121
+  br label %122
 
 47:                                               ; preds = %31
   call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %34, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.af0885d1f2ed80afa9677019cc2f89cf.182) #32
@@ -42858,11 +42858,11 @@ define range(i64 8589934592, 545460846594) i64 @_ZN4fish8builtins7command7comman
 .split.us.split.us:                               ; preds = %.lr.ph.us
   %100 = landingpad { ptr, i32 }
           cleanup
-  br label %135
+  br label %136
 
 101:                                              ; preds = %18
   call void @_ZN4fish8builtins6shared18builtin_print_help17h38ecef4f6f25ccebE(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 4 %12, i64 noundef %14)
-  br label %121
+  br label %122
 
 .split66.split:                                   ; preds = %48, %._crit_edge
   %102 = phi i64 [ %.pr, %._crit_edge ], [ %50, %48 ]
@@ -42905,7 +42905,7 @@ define range(i64 8589934592, 545460846594) i64 @_ZN4fish8builtins7command7comman
   call void @_ZN4fish4path13path_get_path17he019edc56aee634aE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 4 %115, i64 noundef %117, ptr noundef nonnull align 1 %118, ptr noalias noundef readonly align 8 dereferenceable(72) @anon.af0885d1f2ed80afa9677019cc2f89cf.186)
   %119 = load i64, ptr %6, align 8, !range !37, !noundef !3
   %.not34 = icmp eq i64 %119, -9223372036854775808
-  br i1 %.not34, label %.thread93, label %124
+  br i1 %.not34, label %.thread93, label %125
 
 .thread:                                          ; preds = %111, %103, %106, %81, %78, %76, %61, %58, %56
   %.us-phi68 = phi i8 [ 0, %56 ], [ 0, %58 ], [ 0, %61 ], [ %.sroa.013.0.us, %76 ], [ %.sroa.013.0.us, %78 ], [ %.sroa.013.0.us, %81 ], [ %.sroa.013.0, %106 ], [ %.sroa.013.0, %103 ], [ %.sroa.013.0, %111 ]
@@ -42914,7 +42914,7 @@ define range(i64 8589934592, 545460846594) i64 @_ZN4fish8builtins7command7comman
   %. = zext nneg i8 %120 to i64
   br label %121
 
-121:                                              ; preds = %101, %.split70.us, %42, %36, %25, %.thread
+122:                                              ; preds = %101, %.split70.us, %42, %36, %25, %.thread
   %.sroa.114.2 = phi i64 [ 545460846592, %.thread ], [ 8589934592, %25 ], [ 8589934592, %36 ], [ 8589934592, %42 ], [ 8589934592, %.split70.us ], [ 8589934592, %101 ]
   %.sroa.0.2 = phi i64 [ %., %.thread ], [ 0, %25 ], [ 1, %36 ], [ 1, %42 ], [ 0, %.split70.us ], [ 1, %101 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10)
@@ -42928,49 +42928,49 @@ define range(i64 8589934592, 545460846594) i64 @_ZN4fish8builtins7command7comman
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %._crit_edge
 
-122:                                              ; preds = %128
-  %123 = landingpad { ptr, i32 }
+123:                                              ; preds = %129
+  %124 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h2b31afce3ad430bcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 4, i64 noundef 4)
-          to label %"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E.exit" unwind label %132
+          to label %"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E.exit" unwind label %133
 
-124:                                              ; preds = %114
+125:                                              ; preds = %114
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %125 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %126 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef range(i64 1, 65) 24, i64 noundef range(i64 1, 9) 8) #33
-  %127 = icmp eq ptr %126, null
-  br i1 %127, label %128, label %.lr.ph, !prof !38
+  %126 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %127 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef range(i64 1, 65) 24, i64 noundef range(i64 1, 9) 8) #33
+  %128 = icmp eq ptr %127, null
+  br i1 %128, label %129, label %.lr.ph, !prof !38
 
-128:                                              ; preds = %124
+129:                                              ; preds = %125
   invoke void @_ZN5alloc5alloc18handle_alloc_error17haa66aaa8cfcf3614E(i64 noundef 8, i64 noundef 24) #32
-          to label %131 unwind label %122
+          to label %131 unwind label %123
 
-.lr.ph:                                           ; preds = %124
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %126, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+.lr.ph:                                           ; preds = %125
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i64 1, ptr %7, align 8
-  store ptr %126, ptr %52, align 8
+  store ptr %127, ptr %52, align 8
   store i64 1, ptr %53, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br i1 %.sroa.020.0.ph140, label %.split70.us, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %129 = load ptr, ptr %54, align 8, !nonnull !3, !align !51, !noundef !3
-  %130 = invoke noundef zeroext i1 @_ZN4fish2io12OutputStream8appendln17had237d756931e0d8E(ptr noalias noundef nonnull align 8 dereferenceable(32) %129, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %126)
+  %130 = load ptr, ptr %54, align 8, !nonnull !3, !align !51, !noundef !3
+  %131 = invoke noundef zeroext i1 @_ZN4fish2io12OutputStream8appendln17had237d756931e0d8E(ptr noalias noundef nonnull align 8 dereferenceable(32) %130, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %127)
           to label %._crit_edge unwind label %.split.split
 
-131:                                              ; preds = %128
+132:                                              ; preds = %129
   unreachable
 
-132:                                              ; preds = %122, %135
-  %133 = landingpad { ptr, i32 }
+133:                                              ; preds = %123, %136
+  %134 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #30
   unreachable
 
-"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E.exit": ; preds = %122, %135
-  %.pn = phi { ptr, i32 } [ %.us-phi, %135 ], [ %123, %122 ]
+"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E.exit": ; preds = %123, %136
+  %.pn = phi { ptr, i32 } [ %.us-phi, %135 ], [ %124, %122 ]
   resume { ptr, i32 } %.pn
 
 ._crit_edge:                                      ; preds = %.thread93, %.lr.ph.split
@@ -42984,17 +42984,17 @@ define range(i64 8589934592, 545460846594) i64 @_ZN4fish8builtins7command7comman
   call void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$widestring..utfstring..Utf32String$GT$$GT$17h7d7bb5ac9a2b0f86E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  br label %121
+  br label %122
 
 .split.split:                                     ; preds = %.lr.ph.split
-  %134 = landingpad { ptr, i32 }
+  %135 = landingpad { ptr, i32 }
           cleanup
-  br label %135
+  br label %136
 
-135:                                              ; preds = %.split.us.split.us, %.split.split
-  %.us-phi = phi { ptr, i32 } [ %134, %.split.split ], [ %100, %.split.us.split.us ]
+136:                                              ; preds = %.split.us.split.us, %.split.split
+  %.us-phi = phi { ptr, i32 } [ %135, %.split.split ], [ %100, %.split.us.split.us ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$widestring..utfstring..Utf32String$GT$$GT$17h7d7bb5ac9a2b0f86E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #31
-          to label %"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E.exit" unwind label %132
+          to label %"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E.exit" unwind label %133
 }
 
 ; Function Attrs: nonlazybind uwtable

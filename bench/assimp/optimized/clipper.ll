@@ -11008,7 +11008,7 @@ define hidden void @_ZN10ClipperLib7Clipper15SetWindingCountERNS_5TEdgeE(ptr nou
   %26 = getelementptr i8, ptr %25, i64 -24
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 %27
-  br label %83
+  br label %84
 
 .critedge:                                        ; preds = %8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -11027,7 +11027,7 @@ define hidden void @_ZN10ClipperLib7Clipper15SetWindingCountERNS_5TEdgeE(ptr nou
   %37 = load i32, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 %37, ptr %38, align 8
-  br label %83
+  br label %84
 
 39:                                               ; preds = %.critedge
   %40 = icmp eq i32 %4, 0
@@ -11035,7 +11035,7 @@ define hidden void @_ZN10ClipperLib7Clipper15SetWindingCountERNS_5TEdgeE(ptr nou
   %.0.in.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0.in.in.v.i
   %.0.in.i = load i32, ptr %.0.in.in.i, align 4
   %.0.i = icmp eq i32 %.0.in.i, 0
-  br i1 %.0.i, label %41, label %57
+  br i1 %.0.i, label %41, label %58
 
 41:                                               ; preds = %39
   %42 = icmp eq i32 %30, 0
@@ -11077,93 +11077,93 @@ define hidden void @_ZN10ClipperLib7Clipper15SetWindingCountERNS_5TEdgeE(ptr nou
 
 ._crit_edge:                                      ; preds = %41, %.preheader104, %._crit_edge.loopexit
   %.sink134 = phi i32 [ 0, %.preheader104 ], [ %52, %._crit_edge.loopexit ], [ %30, %41 ]
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  store i32 %.sink134, ptr %53, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %.078111, i64 72
-  %55 = load i32, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i32 %55, ptr %56, align 8
-  br label %83
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  store i32 %.sink134, ptr %54, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %.078111, i64 72
+  %56 = load i32, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  store i32 %56, ptr %57, align 8
+  br label %84
 
-57:                                               ; preds = %39
-  %58 = getelementptr inbounds nuw i8, ptr %.078111, i64 68
-  %59 = load i32, ptr %58, align 4
-  %60 = mul nsw i32 %59, %10
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %62, label %70
+58:                                               ; preds = %39
+  %59 = getelementptr inbounds nuw i8, ptr %.078111, i64 68
+  %60 = load i32, ptr %59, align 4
+  %61 = mul nsw i32 %60, %10
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %63, label %71
 
-62:                                               ; preds = %57
-  %63 = tail call i32 @llvm.abs.i32(i32 %59, i1 false)
-  %64 = icmp ugt i32 %63, 1
-  br i1 %64, label %65, label %69
+63:                                               ; preds = %58
+  %64 = tail call i32 @llvm.abs.i32(i32 %60, i1 false)
+  %65 = icmp ugt i32 %64, 1
+  br i1 %65, label %66, label %70
 
-65:                                               ; preds = %62
-  %66 = mul nsw i32 %30, %10
-  %67 = icmp slt i32 %66, 0
-  %68 = select i1 %67, i32 0, i32 %30
-  %spec.select138 = add nsw i32 %59, %68
-  br label %78
+66:                                               ; preds = %63
+  %67 = mul nsw i32 %30, %10
+  %68 = icmp slt i32 %67, 0
+  %69 = select i1 %68, i32 0, i32 %30
+  %spec.select138 = add nsw i32 %60, %69
+  br label %79
 
-69:                                               ; preds = %62
+70:                                               ; preds = %63
   %spec.select = tail call i32 @llvm.umax.i32(i32 %30, i32 1)
-  br label %78
+  br label %79
 
-70:                                               ; preds = %57
-  %71 = icmp eq i32 %30, 0
-  br i1 %71, label %72, label %74
+71:                                               ; preds = %58
+  %72 = icmp eq i32 %30, 0
+  br i1 %72, label %73, label %75
 
-72:                                               ; preds = %70
-  %.inv = icmp sgt i32 %59, -1
+73:                                               ; preds = %71
+  %.inv = icmp sgt i32 %60, -1
   %.v = select i1 %.inv, i32 1, i32 -1
-  %73 = add nsw i32 %.v, %59
-  br label %78
+  %74 = add nsw i32 %.v, %60
+  br label %79
 
-74:                                               ; preds = %70
-  %75 = mul nsw i32 %30, %10
-  %76 = icmp slt i32 %75, 0
-  %77 = select i1 %76, i32 0, i32 %30
-  %spec.select139 = add nsw i32 %59, %77
-  br label %78
+75:                                               ; preds = %71
+  %76 = mul nsw i32 %30, %10
+  %77 = icmp slt i32 %76, 0
+  %78 = select i1 %77, i32 0, i32 %30
+  %spec.select139 = add nsw i32 %60, %78
+  br label %79
 
-78:                                               ; preds = %74, %65, %72, %69
-  %.sink136 = phi i32 [ %73, %72 ], [ %spec.select, %69 ], [ %spec.select138, %65 ], [ %spec.select139, %74 ]
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  store i32 %.sink136, ptr %79, align 4
-  %80 = getelementptr inbounds nuw i8, ptr %.078111, i64 72
-  %81 = load i32, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i32 %81, ptr %82, align 8
-  br label %83
+79:                                               ; preds = %75, %66, %73, %70
+  %.sink136 = phi i32 [ %74, %72 ], [ %spec.select, %69 ], [ %spec.select138, %65 ], [ %spec.select139, %74 ]
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  store i32 %.sink136, ptr %80, align 4
+  %81 = getelementptr inbounds nuw i8, ptr %.078111, i64 72
+  %82 = load i32, ptr %81, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  store i32 %82, ptr %83, align 8
+  br label %84
 
-83:                                               ; preds = %34, %78, %._crit_edge, %22
-  %.promoted124 = phi i32 [ %37, %34 ], [ %55, %._crit_edge ], [ %81, %78 ], [ 0, %22 ]
-  %84 = phi i32 [ %4, %34 ], [ %4, %._crit_edge ], [ %4, %78 ], [ %16, %22 ]
+84:                                               ; preds = %34, %79, %._crit_edge, %22
+  %.promoted124 = phi i32 [ %37, %34 ], [ %56, %._crit_edge ], [ %82, %78 ], [ 0, %22 ]
+  %85 = phi i32 [ %4, %34 ], [ %4, %._crit_edge ], [ %4, %78 ], [ %16, %22 ]
   %.078.pn92 = phi ptr [ %.078111, %34 ], [ %.078111, %._crit_edge ], [ %.078111, %78 ], [ %28, %22 ]
   %.179.in = getelementptr inbounds nuw i8, ptr %.078.pn92, i64 104
   %.179 = load ptr, ptr %.179.in, align 8
-  %85 = icmp eq i32 %84, 0
-  %.0.in.in.v.i98 = select i1 %85, i64 124, i64 128
+  %86 = icmp eq i32 %85, 0
+  %.0.in.in.v.i98 = select i1 %86, i64 124, i64 128
   %.0.in.in.i99 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.in.in.v.i98
   %.0.in.i100 = load i32, ptr %.0.in.in.i99, align 4
   %.0.i101 = icmp eq i32 %.0.in.i100, 0
   %.not94121 = icmp eq ptr %.179, %1
   br i1 %.0.i101, label %.preheader, label %.preheader102
 
-.preheader102:                                    ; preds = %83
+.preheader102:                                    ; preds = %84
   br i1 %.not94121, label %.loopexit, label %.lr.ph120
 
 .lr.ph120:                                        ; preds = %.preheader102
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br label %99
 
-.preheader:                                       ; preds = %83
+.preheader:                                       ; preds = %84
   br i1 %.not94121, label %.loopexit, label %.lr.ph123
 
 .lr.ph123:                                        ; preds = %.preheader
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br label %88
 
-88:                                               ; preds = %.lr.ph123, %95
+93:                                               ; preds = %.lr.ph123, %95
   %89 = phi i32 [ %.promoted124, %.lr.ph123 ], [ %96, %95 ]
   %.2122 = phi ptr [ %.179, %.lr.ph123 ], [ %98, %95 ]
   %90 = getelementptr inbounds nuw i8, ptr %.2122, i64 64
@@ -11171,7 +11171,7 @@ define hidden void @_ZN10ClipperLib7Clipper15SetWindingCountERNS_5TEdgeE(ptr nou
   %.not95 = icmp eq i32 %91, 0
   br i1 %.not95, label %95, label %92
 
-92:                                               ; preds = %88
+96:                                               ; preds = %93
   %93 = icmp eq i32 %89, 0
   %94 = zext i1 %93 to i32
   store i32 %94, ptr %87, align 8
@@ -11184,7 +11184,7 @@ define hidden void @_ZN10ClipperLib7Clipper15SetWindingCountERNS_5TEdgeE(ptr nou
   %.not94 = icmp eq ptr %98, %1
   br i1 %.not94, label %.loopexit, label %88, !llvm.loop !106
 
-99:                                               ; preds = %.lr.ph120, %99
+99:  ; preds = %.lr.ph120, %99
   %100 = phi i32 [ %.promoted124, %.lr.ph120 ], [ %103, %99 ]
   %.3119 = phi ptr [ %.179, %.lr.ph120 ], [ %105, %99 ]
   %101 = getelementptr inbounds nuw i8, ptr %.3119, i64 64

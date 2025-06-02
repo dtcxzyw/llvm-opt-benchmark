@@ -50182,7 +50182,7 @@ define internal void @parser_set_shareable_constant_value(ptr noundef captures(n
 define internal void @parser_set_token_info(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call fastcc i32 @parser_get_bool(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = icmp sgt i32 %4, -1
-  br i1 %5, label %6, label %13
+  br i1 %5, label %6, label %14
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -50194,7 +50194,7 @@ define internal void @parser_set_token_info(ptr noundef captures(none) %0, ptr n
   store i16 %12, ptr %7, align 8
   br label %13
 
-13:                                               ; preds = %6, %3
+14:                                               ; preds = %6, %3
   ret void
 }
 

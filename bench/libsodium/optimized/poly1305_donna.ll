@@ -40,7 +40,7 @@ define internal noundef i32 @crypto_onetimeauth_poly1305_donna(ptr noundef %0, p
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i8 0, ptr %24, align 8
   %25 = icmp ugt i64 %2, 15
-  br i1 %25, label %26, label %88
+  br i1 %25, label %26, label %90
 
 26:                                               ; preds = %4
   %27 = and i64 %2, -16
@@ -116,39 +116,39 @@ poly1305_blocks.exit:                             ; preds = %37
   store i64 %82, ptr %16, align 8
   store i64 %83, ptr %28, align 32
   store i64 %78, ptr %29, align 8
-  %86 = getelementptr i8, ptr %1, i64 %27
-  %87 = and i64 %2, 15
-  br label %88
+  %88 = getelementptr i8, ptr %1, i64 %27
+  %89 = and i64 %2, 15
+  br label %90
 
-88:                                               ; preds = %poly1305_blocks.exit, %4
-  %.148.i = phi i64 [ %87, %poly1305_blocks.exit ], [ %2, %4 ]
-  %.1.i = phi ptr [ %86, %poly1305_blocks.exit ], [ %1, %4 ]
+90:                                               ; preds = %poly1305_blocks.exit, %4
+  %.148.i = phi i64 [ %89, %poly1305_blocks.exit ], [ %2, %4 ]
+  %.1.i = phi ptr [ %88, %poly1305_blocks.exit ], [ %1, %4 ]
   %.not52.i = icmp eq i64 %.148.i, 0
   br i1 %.not52.i, label %poly1305_update.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %88
-  %89 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  br label %90
+.preheader.i:                                     ; preds = %90
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  br label %92
 
-90:                                               ; preds = %90, %.preheader.i
-  %.14654.i = phi i64 [ 0, %.preheader.i ], [ %96, %90 ]
-  %91 = getelementptr i8, ptr %.1.i, i64 %.14654.i
-  %92 = load i8, ptr %91, align 1
-  %93 = load i64, ptr %23, align 64
-  %94 = add i64 %93, %.14654.i
-  %95 = getelementptr [16 x i8], ptr %89, i64 0, i64 %94
-  store i8 %92, ptr %95, align 1
-  %96 = add nuw nsw i64 %.14654.i, 1
-  %exitcond56.not.i = icmp eq i64 %96, %.148.i
-  br i1 %exitcond56.not.i, label %97, label %90, !llvm.loop !6
+92:                                               ; preds = %92, %.preheader.i
+  %.14654.i = phi i64 [ 0, %.preheader.i ], [ %98, %90 ]
+  %93 = getelementptr i8, ptr %.1.i, i64 %.14654.i
+  %94 = load i8, ptr %93, align 1
+  %95 = load i64, ptr %23, align 64
+  %96 = add i64 %95, %.14654.i
+  %97 = getelementptr [16 x i8], ptr %91, i64 0, i64 %96
+  store i8 %94, ptr %97, align 1
+  %98 = add nuw nsw i64 %.14654.i, 1
+  %exitcond56.not.i = icmp eq i64 %98, %.148.i
+  br i1 %exitcond56.not.i, label %99, label %92, !llvm.loop !6
 
-97:                                               ; preds = %90
-  %98 = load i64, ptr %23, align 64
-  %99 = add i64 %98, %.148.i
-  store i64 %99, ptr %23, align 64
+99:                                               ; preds = %92
+  %100 = load i64, ptr %23, align 64
+  %101 = add i64 %100, %.148.i
+  store i64 %101, ptr %23, align 64
   br label %poly1305_update.exit
 
-poly1305_update.exit:                             ; preds = %88, %97
+poly1305_update.exit:                             ; preds = %90, %99
   call fastcc void @poly1305_finish(ptr noundef nonnull %5, ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #8
   ret i32 0

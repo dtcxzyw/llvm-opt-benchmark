@@ -24146,36 +24146,36 @@ define void @_ZN5image6codecs4webp3vp814predict_dcpred17hbe3e5dcddc10978eE(ptr n
   %9 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 1)
   br label %.lr.ph78
 
-._crit_edge:                                      ; preds = %41, %.preheader69
-  %.2.lcssa = phi i32 [ 0, %.preheader69 ], [ %45, %41 ]
+._crit_edge:                                      ; preds = %42, %.preheader69
+  %.2.lcssa = phi i32 [ 0, %.preheader69 ], [ %46, %41 ]
   %10 = add nuw nsw i32 %., 1
   br label %8
 
-.lr.ph:                                           ; preds = %.preheader69, %41
+.lr.ph:                                           ; preds = %.preheader69, %42
   %.sroa.01.075 = phi i64 [ %11, %41 ], [ 0, %.preheader69 ]
-  %.274 = phi i32 [ %45, %41 ], [ 0, %.preheader69 ]
+  %.274 = phi i32 [ %46, %41 ], [ 0, %.preheader69 ]
   %11 = add nuw i64 %.sroa.01.075, 1
   %12 = mul i64 %11, %3
   %13 = icmp ult i64 %12, %1
-  br i1 %13, label %41, label %46, !prof !835
+  br i1 %13, label %42, label %47, !prof !835
 
 14:                                               ; preds = %._crit_edge79, %8
   %.236 = phi i32 [ %15, %._crit_edge79 ], [ %.135, %8 ]
   %.1 = phi i32 [ %.3.lcssa, %._crit_edge79 ], [ %.033, %8 ]
   %brmerge = or i1 %4, %5
-  br i1 %brmerge, label %17, label %24
+  br i1 %brmerge, label %17, label %25
 
-._crit_edge79:                                    ; preds = %35, %.preheader
-  %.3.lcssa = phi i32 [ %.033, %.preheader ], [ %39, %35 ]
+._crit_edge79:                                    ; preds = %36, %.preheader
+  %.3.lcssa = phi i32 [ %.033, %.preheader ], [ %40, %35 ]
   %15 = add nuw nsw i32 %.135, 1
   br label %14
 
-.lr.ph78:                                         ; preds = %.lr.ph78.preheader, %35
+.lr.ph78:                                         ; preds = %.lr.ph78.preheader, %36
   %.sroa.07.077 = phi i64 [ %16, %35 ], [ 0, %.lr.ph78.preheader ]
-  %.376 = phi i32 [ %39, %35 ], [ %.033, %.lr.ph78.preheader ]
+  %.376 = phi i32 [ %40, %35 ], [ %.033, %.lr.ph78.preheader ]
   %16 = add nuw i64 %.sroa.07.077, 1
   %exitcond95.not = icmp eq i64 %.sroa.07.077, %9
-  br i1 %exitcond95.not, label %40, label %35, !prof !91
+  br i1 %exitcond95.not, label %41, label %36, !prof !91
 
 17:                                               ; preds = %14
   %18 = add nuw nsw i32 %.236, 31
@@ -24186,63 +24186,63 @@ define void @_ZN5image6codecs4webp3vp814predict_dcpred17hbe3e5dcddc10978eE(ptr n
   %23 = trunc i32 %22 to i8
   br label %24
 
-24:                                               ; preds = %14, %17
+25:                                               ; preds = %14, %17
   %.0 = phi i8 [ %23, %17 ], [ -128, %14 ]
   %.not87 = icmp eq i64 %2, 0
   br i1 %.not87, label %._crit_edge85, label %.lr.ph84
 
-.loopexit:                                        ; preds = %31
-  %exitcond98.not = icmp eq i64 %25, %2
+.loopexit:                                        ; preds = %32
+  %exitcond98.not = icmp eq i64 %26, %2
   br i1 %exitcond98.not, label %._crit_edge85, label %.lr.ph84
 
-.lr.ph84:                                         ; preds = %24, %.loopexit
-  %.sroa.021.082 = phi i64 [ %25, %.loopexit ], [ 0, %24 ]
-  %25 = add nuw i64 %.sroa.021.082, 1
-  %26 = mul i64 %25, %3
-  %27 = add i64 %26, 1
-  br label %28
+.lr.ph84:                                         ; preds = %25, %.loopexit
+  %.sroa.021.082 = phi i64 [ %26, %.loopexit ], [ 0, %24 ]
+  %26 = add nuw i64 %.sroa.021.082, 1
+  %27 = mul i64 %26, %3
+  %28 = add i64 %27, 1
+  br label %29
 
-._crit_edge85:                                    ; preds = %.loopexit, %24
+._crit_edge85:                                    ; preds = %.loopexit, %25
   ret void
 
-28:                                               ; preds = %.lr.ph84, %31
-  %.sroa.028.081 = phi i64 [ 0, %.lr.ph84 ], [ %32, %31 ]
-  %29 = add nuw i64 %27, %.sroa.028.081
-  %30 = icmp ult i64 %29, %1
-  br i1 %30, label %31, label %34, !prof !835
+29:                                               ; preds = %.lr.ph84, %32
+  %.sroa.028.081 = phi i64 [ 0, %.lr.ph84 ], [ %33, %31 ]
+  %30 = add nuw i64 %28, %.sroa.028.081
+  %31 = icmp ult i64 %30, %1
+  br i1 %31, label %32, label %35, !prof !835
 
-31:                                               ; preds = %28
-  %32 = add nuw i64 %.sroa.028.081, 1
-  %33 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %29
-  store i8 %.0, ptr %33, align 1
-  %exitcond97.not = icmp eq i64 %32, %2
-  br i1 %exitcond97.not, label %.loopexit, label %28
+32:                                               ; preds = %29
+  %33 = add nuw i64 %.sroa.028.081, 1
+  %34 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %30
+  store i8 %.0, ptr %34, align 1
+  %exitcond97.not = icmp eq i64 %33, %2
+  br i1 %exitcond97.not, label %.loopexit, label %29
 
-34:                                               ; preds = %28
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %29, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4b579c9d043b721191b412a2a5c930c7.407) #34
+35:                                               ; preds = %29
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %30, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4b579c9d043b721191b412a2a5c930c7.407) #34
   unreachable
 
-35:                                               ; preds = %.lr.ph78
-  %36 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %16
-  %37 = load i8, ptr %36, align 1, !noundef !7
-  %38 = zext i8 %37 to i32
-  %39 = add i32 %.376, %38
+36:                                               ; preds = %.lr.ph78
+  %37 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %16
+  %38 = load i8, ptr %37, align 1, !noundef !7
+  %39 = zext i8 %38 to i32
+  %40 = add i32 %.376, %39
   %exitcond96.not = icmp eq i64 %16, %2
   br i1 %exitcond96.not, label %._crit_edge79, label %.lr.ph78
 
-40:                                               ; preds = %.lr.ph78
+41:                                               ; preds = %.lr.ph78
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %16, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4b579c9d043b721191b412a2a5c930c7.408) #34
   unreachable
 
-41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %12
-  %43 = load i8, ptr %42, align 1, !noundef !7
-  %44 = zext i8 %43 to i32
-  %45 = add i32 %.274, %44
+42:                                               ; preds = %.lr.ph
+  %43 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %12
+  %44 = load i8, ptr %43, align 1, !noundef !7
+  %45 = zext i8 %44 to i32
+  %46 = add i32 %.274, %45
   %exitcond.not = icmp eq i64 %11, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-46:                                               ; preds = %.lr.ph
+47:                                               ; preds = %.lr.ph
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %12, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4b579c9d043b721191b412a2a5c930c7.409) #34
   unreachable
 }

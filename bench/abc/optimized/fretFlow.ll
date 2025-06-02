@@ -2671,15 +2671,15 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   br label %dfsfast_e_retreat.exit
 
 .loopexit:                                        ; preds = %58, %90, %129, %165, %194
-  %316 = load ptr, ptr @pManMR, align 8, !tbaa !31
-  %317 = getelementptr inbounds nuw i8, ptr %316, i64 112
-  %318 = load ptr, ptr %317, align 8, !tbaa !43
+  %317 = load ptr, ptr @pManMR, align 8, !tbaa !31
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 112
+  %319 = load ptr, ptr %318, align 8, !tbaa !43
   %.val80 = load i32, ptr %9, align 8, !tbaa !40
-  %319 = zext i32 %.val80 to i64
-  %320 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %318, i64 %319
-  %321 = load i16, ptr %320, align 8
-  %322 = and i16 %321, -2
-  store i16 %322, ptr %320, align 8
+  %320 = zext i32 %.val80 to i64
+  %321 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %319, i64 %320
+  %322 = load i16, ptr %321, align 8
+  %323 = and i16 %322, -2
+  store i16 %323, ptr %321, align 8
   br label %dfsfast_e_retreat.exit
 
 dfsfast_e_retreat.exit:                           ; preds = %314, %.critedge6.i, %6, %18, %2, %.loopexit

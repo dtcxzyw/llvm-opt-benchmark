@@ -3552,12 +3552,12 @@ define dso_local range(i32 0, 2) i32 @doit(ptr noundef %0, ptr noundef %1, i64 n
   %4 = tail call i64 @llvm.smin.i64(i64 %2, i64 40960)
   %5 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %4, ptr noundef nonnull @.str.104, i32 noundef 2631) #23
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %201, label %7
+  br i1 %6, label %202, label %7
 
 7:                                                ; preds = %3
   %8 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %4, ptr noundef nonnull @.str.104, i32 noundef 2633) #23
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %201, label %10
+  br i1 %9, label %202, label %10
 
 10:                                               ; preds = %7
   %11 = tail call ptr @BIO_s_mem() #23
@@ -3572,7 +3572,7 @@ define dso_local range(i32 0, 2) i32 @doit(ptr noundef %0, ptr noundef %1, i64 n
 17:                                               ; preds = %10
   %18 = load ptr, ptr @bio_err, align 8, !tbaa !19
   tail call void @ERR_print_errors(ptr noundef %18) #23
-  br label %201
+  br label %202
 
 19:                                               ; preds = %10
   %20 = tail call ptr @BIO_f_ssl() #23
@@ -3587,7 +3587,7 @@ define dso_local range(i32 0, 2) i32 @doit(ptr noundef %0, ptr noundef %1, i64 n
 26:                                               ; preds = %19
   %27 = load ptr, ptr @bio_err, align 8, !tbaa !19
   tail call void @ERR_print_errors(ptr noundef %27) #23
-  br label %201
+  br label %202
 
 28:                                               ; preds = %19
   tail call void @SSL_set_connect_state(ptr noundef %1) #23
@@ -3596,12 +3596,12 @@ define dso_local range(i32 0, 2) i32 @doit(ptr noundef %0, ptr noundef %1, i64 n
   %30 = tail call i64 @BIO_ctrl(ptr noundef nonnull %21, i32 noundef 109, i64 noundef 0, ptr noundef %1) #23
   %31 = tail call i32 @BIO_up_ref(ptr noundef nonnull %12) #23
   %.not = icmp eq i32 %31, 0
-  br i1 %.not, label %201, label %32
+  br i1 %.not, label %202, label %32
 
 32:                                               ; preds = %28
   %33 = tail call i32 @BIO_up_ref(ptr noundef nonnull %14) #23
   %.not217 = icmp eq i32 %33, 0
-  br i1 %.not217, label %201, label %34
+  br i1 %.not217, label %202, label %34
 
 34:                                               ; preds = %32
   tail call void @SSL_set_accept_state(ptr noundef %0) #23
@@ -3676,7 +3676,7 @@ define dso_local range(i32 0, 2) i32 @doit(ptr noundef %0, ptr noundef %1, i64 n
   %63 = tail call i64 @fwrite(ptr nonnull @.str.143, i64 17, i64 1, ptr %62)
   %64 = load ptr, ptr @bio_err, align 8, !tbaa !19
   tail call void @ERR_print_errors(ptr noundef %64) #23
-  br label %201
+  br label %202
 
 65:                                               ; preds = %60
   %66 = and i32 %.0157, 1
@@ -3714,7 +3714,7 @@ define dso_local range(i32 0, 2) i32 @doit(ptr noundef %0, ptr noundef %1, i64 n
   %79 = tail call i64 @fwrite(ptr nonnull @.str.133, i64 16, i64 1, ptr %78) #24
   %80 = load ptr, ptr @bio_err, align 8, !tbaa !19
   tail call void @ERR_print_errors(ptr noundef %80) #23
-  br label %201
+  br label %202
 
 81:                                               ; preds = %68
   %82 = icmp eq i32 %70, 0
@@ -3723,7 +3723,7 @@ define dso_local range(i32 0, 2) i32 @doit(ptr noundef %0, ptr noundef %1, i64 n
 83:                                               ; preds = %81
   %84 = load ptr, ptr @stderr, align 8, !tbaa !17
   %85 = tail call i64 @fwrite(ptr nonnull @.str.120, i64 26, i64 1, ptr %84) #24
-  br label %201
+  br label %202
 
 86:                                               ; preds = %81
   %.b215 = load i1, ptr @debug, align 4
@@ -3769,7 +3769,7 @@ define dso_local range(i32 0, 2) i32 @doit(ptr noundef %0, ptr noundef %1, i64 n
   %107 = tail call i64 @fwrite(ptr nonnull @.str.133, i64 16, i64 1, ptr %106) #24
   %108 = load ptr, ptr @bio_err, align 8, !tbaa !19
   tail call void @ERR_print_errors(ptr noundef %108) #23
-  br label %201
+  br label %202
 
 109:                                              ; preds = %97
   %110 = icmp eq i32 %98, 0
@@ -3778,7 +3778,7 @@ define dso_local range(i32 0, 2) i32 @doit(ptr noundef %0, ptr noundef %1, i64 n
 111:                                              ; preds = %109
   %112 = load ptr, ptr @stderr, align 8, !tbaa !17
   %113 = tail call i64 @fwrite(ptr nonnull @.str.120, i64 26, i64 1, ptr %112) #24
-  br label %201
+  br label %202
 
 114:                                              ; preds = %109
   %.b214 = load i1, ptr @debug, align 4
@@ -3840,7 +3840,7 @@ define dso_local range(i32 0, 2) i32 @doit(ptr noundef %0, ptr noundef %1, i64 n
   %135 = tail call i64 @fwrite(ptr nonnull @.str.134, i64 16, i64 1, ptr %134) #24
   %136 = load ptr, ptr @bio_err, align 8, !tbaa !19
   tail call void @ERR_print_errors(ptr noundef %136) #23
-  br label %201
+  br label %202
 
 137:                                              ; preds = %125
   %138 = icmp eq i32 %126, 0
@@ -3851,7 +3851,7 @@ define dso_local range(i32 0, 2) i32 @doit(ptr noundef %0, ptr noundef %1, i64 n
   tail call void @ERR_print_errors(ptr noundef %140) #23
   %141 = load ptr, ptr @stderr, align 8, !tbaa !17
   %142 = tail call i64 @fwrite(ptr nonnull @.str.144, i64 38, i64 1, ptr %141) #24
-  br label %201
+  br label %202
 
 143:                                              ; preds = %137
   %.b213 = load i1, ptr @debug, align 4
@@ -3899,7 +3899,7 @@ define dso_local range(i32 0, 2) i32 @doit(ptr noundef %0, ptr noundef %1, i64 n
   %163 = tail call i64 @fwrite(ptr nonnull @.str.134, i64 16, i64 1, ptr %162) #24
   %164 = load ptr, ptr @bio_err, align 8, !tbaa !19
   tail call void @ERR_print_errors(ptr noundef %164) #23
-  br label %201
+  br label %202
 
 165:                                              ; preds = %152
   %166 = icmp eq i32 %154, 0
@@ -3910,7 +3910,7 @@ define dso_local range(i32 0, 2) i32 @doit(ptr noundef %0, ptr noundef %1, i64 n
   tail call void @ERR_print_errors(ptr noundef %168) #23
   %169 = load ptr, ptr @stderr, align 8, !tbaa !17
   %170 = tail call i64 @fwrite(ptr nonnull @.str.145, i64 39, i64 1, ptr %169) #24
-  br label %201
+  br label %202
 
 171:                                              ; preds = %165
   %.b212 = load i1, ptr @debug, align 4
@@ -3951,49 +3951,49 @@ define dso_local range(i32 0, 2) i32 @doit(ptr noundef %0, ptr noundef %1, i64 n
 
 .thread.thread:                                   ; preds = %117, %.thread
   %.b = load i1, ptr @verbose, align 4
-  br i1 %.b, label %184, label %185
+  br i1 %.b, label %185, label %186
 
-184:                                              ; preds = %.thread.thread
+185:                                              ; preds = %.thread.thread
   tail call fastcc void @print_details(ptr noundef %1, ptr noundef nonnull @.str.146)
-  br label %185
+  br label %186
 
-185:                                              ; preds = %184, %.thread.thread
-  %186 = tail call fastcc i32 @verify_npn(ptr noundef %1, ptr noundef %0)
-  %187 = icmp slt i32 %186, 0
-  br i1 %187, label %201, label %188
+186:                                              ; preds = %185, %.thread.thread
+  %187 = tail call fastcc i32 @verify_npn(ptr noundef %1, ptr noundef %0)
+  %188 = icmp slt i32 %187, 0
+  br i1 %188, label %202, label %189
 
-188:                                              ; preds = %185
+189:                                              ; preds = %186
   %.b.i = load i1, ptr @serverinfo_sct, align 4
-  %189 = zext i1 %.b.i to i32
-  %190 = load i32, ptr @serverinfo_sct_seen, align 4, !tbaa !4
-  %.not.i = icmp eq i32 %190, %189
-  br i1 %.not.i, label %191, label %verify_serverinfo.exit.thread
+  %190 = zext i1 %.b.i to i32
+  %191 = load i32, ptr @serverinfo_sct_seen, align 4, !tbaa !4
+  %.not.i = icmp eq i32 %191, %190
+  br i1 %.not.i, label %192, label %verify_serverinfo.exit.thread
 
-191:                                              ; preds = %188
+192:                                              ; preds = %189
   %.b1.i = load i1, ptr @serverinfo_tack, align 4
-  %192 = zext i1 %.b1.i to i32
-  %193 = load i32, ptr @serverinfo_tack_seen, align 4, !tbaa !4
-  %.not2.i = icmp eq i32 %193, %192
-  %194 = load i32, ptr @serverinfo_other_seen, align 4
-  %.not3.i.not = icmp eq i32 %194, 0
+  %193 = zext i1 %.b1.i to i32
+  %194 = load i32, ptr @serverinfo_tack_seen, align 4, !tbaa !4
+  %.not2.i = icmp eq i32 %194, %193
+  %195 = load i32, ptr @serverinfo_other_seen, align 4
+  %.not3.i.not = icmp eq i32 %195, 0
   %or.cond275 = select i1 %.not2.i, i1 %.not3.i.not, i1 false
-  br i1 %or.cond275, label %197, label %verify_serverinfo.exit.thread
+  br i1 %or.cond275, label %198, label %verify_serverinfo.exit.thread
 
-verify_serverinfo.exit.thread:                    ; preds = %191, %188
-  %195 = load ptr, ptr @stderr, align 8, !tbaa !17
-  %196 = tail call i64 @fwrite(ptr nonnull @.str.131, i64 25, i64 1, ptr %195) #24
-  br label %201
+verify_serverinfo.exit.thread:                    ; preds = %192, %189
+  %196 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %197 = tail call i64 @fwrite(ptr nonnull @.str.131, i64 25, i64 1, ptr %196) #24
+  br label %202
 
-197:                                              ; preds = %191
+198:                                              ; preds = %192
   %.b216 = load i1, ptr @custom_ext_error, align 4
-  br i1 %.b216, label %198, label %201
+  br i1 %.b216, label %199, label %202
 
-198:                                              ; preds = %197
-  %199 = load ptr, ptr @stderr, align 8, !tbaa !17
-  %200 = tail call i64 @fwrite(ptr nonnull @.str.132, i64 23, i64 1, ptr %199) #24
-  br label %201
+199:                                              ; preds = %198
+  %200 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %201 = tail call i64 @fwrite(ptr nonnull @.str.132, i64 23, i64 1, ptr %200) #24
+  br label %202
 
-201:                                              ; preds = %197, %32, %28, %185, %7, %3, %198, %verify_serverinfo.exit.thread, %167, %161, %139, %133, %111, %105, %83, %77, %61, %26, %17
+202:                                              ; preds = %198, %32, %28, %186, %7, %3, %199, %verify_serverinfo.exit.thread, %167, %161, %139, %133, %111, %105, %83, %77, %61, %26, %17
   %.0192 = phi ptr [ null, %3 ], [ null, %7 ], [ %8, %17 ], [ %8, %26 ], [ %8, %185 ], [ %8, %verify_serverinfo.exit.thread ], [ %8, %198 ], [ %8, %161 ], [ %8, %167 ], [ %8, %133 ], [ %8, %139 ], [ %8, %77 ], [ %8, %83 ], [ %8, %105 ], [ %8, %111 ], [ %8, %61 ], [ %8, %28 ], [ %8, %32 ], [ %8, %197 ]
   %.0182 = phi i32 [ 1, %3 ], [ 1, %7 ], [ 1, %17 ], [ 1, %26 ], [ 1, %185 ], [ 1, %verify_serverinfo.exit.thread ], [ 1, %198 ], [ 1, %161 ], [ 1, %167 ], [ 1, %133 ], [ 1, %139 ], [ 1, %77 ], [ 1, %83 ], [ 1, %105 ], [ 1, %111 ], [ 1, %61 ], [ 1, %28 ], [ 1, %32 ], [ 0, %197 ]
   %.0181 = phi ptr [ null, %3 ], [ null, %7 ], [ %12, %17 ], [ %12, %26 ], [ null, %185 ], [ null, %verify_serverinfo.exit.thread ], [ null, %198 ], [ null, %161 ], [ null, %167 ], [ null, %133 ], [ null, %139 ], [ null, %77 ], [ null, %83 ], [ null, %105 ], [ null, %111 ], [ null, %61 ], [ null, %28 ], [ %12, %32 ], [ null, %197 ]
@@ -4002,28 +4002,28 @@ verify_serverinfo.exit.thread:                    ; preds = %191, %188
   %.0178 = phi ptr [ null, %3 ], [ null, %7 ], [ null, %17 ], [ %23, %26 ], [ %23, %185 ], [ %23, %verify_serverinfo.exit.thread ], [ %23, %198 ], [ %23, %161 ], [ %23, %167 ], [ %23, %133 ], [ %23, %139 ], [ %23, %77 ], [ %23, %83 ], [ %23, %105 ], [ %23, %111 ], [ %23, %61 ], [ %23, %28 ], [ %23, %32 ], [ %23, %197 ]
   %.not242 = phi i32 [ 1, %3 ], [ 1, %7 ], [ 1, %17 ], [ 1, %26 ], [ 1, %185 ], [ 1, %verify_serverinfo.exit.thread ], [ 1, %198 ], [ 1, %161 ], [ 1, %167 ], [ 1, %133 ], [ 1, %139 ], [ 0, %77 ], [ 1, %83 ], [ 0, %105 ], [ 1, %111 ], [ 1, %61 ], [ 1, %28 ], [ 1, %32 ], [ 1, %197 ]
   %.not241 = phi i32 [ 1, %3 ], [ 1, %7 ], [ 1, %17 ], [ 1, %26 ], [ 1, %185 ], [ 1, %verify_serverinfo.exit.thread ], [ 1, %198 ], [ 0, %161 ], [ 1, %167 ], [ 0, %133 ], [ 1, %139 ], [ 1, %77 ], [ 1, %83 ], [ 1, %105 ], [ 1, %111 ], [ 1, %61 ], [ 1, %28 ], [ 1, %32 ], [ 1, %197 ]
-  %202 = tail call i32 @BIO_free(ptr noundef %.0181) #23
-  %203 = tail call i32 @BIO_free(ptr noundef %.0180) #23
+  %203 = tail call i32 @BIO_free(ptr noundef %.0181) #23
+  %204 = tail call i32 @BIO_free(ptr noundef %.0180) #23
   tail call void @BIO_free_all(ptr noundef %.0179) #23
   tail call void @BIO_free_all(ptr noundef %.0178) #23
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.104, i32 noundef 2880) #23
   tail call void @CRYPTO_free(ptr noundef %.0192, ptr noundef nonnull @.str.104, i32 noundef 2881) #23
-  %204 = load ptr, ptr @should_negotiate, align 8, !tbaa !21
-  %.not239 = icmp eq ptr %204, null
-  br i1 %.not239, label %.thread274, label %205
+  %205 = load ptr, ptr @should_negotiate, align 8, !tbaa !21
+  %.not239 = icmp eq ptr %205, null
+  br i1 %.not239, label %.thread274, label %206
 
-205:                                              ; preds = %201
-  %206 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %204, ptr noundef nonnull dereferenceable(12) @.str.110) #25
-  %207 = icmp eq i32 %206, 0
-  br i1 %207, label %.thread274, label %208
+206:                                              ; preds = %202
+  %207 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %205, ptr noundef nonnull dereferenceable(12) @.str.110) #25
+  %208 = icmp eq i32 %207, 0
+  br i1 %208, label %.thread274, label %209
 
-208:                                              ; preds = %205
-  %209 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %204, ptr noundef nonnull dereferenceable(12) @.str.109) #25
-  %210 = icmp eq i32 %209, 0
-  %spec.select254 = select i1 %210, i32 %.not241, i32 %.0182
+209:                                              ; preds = %206
+  %210 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %205, ptr noundef nonnull dereferenceable(12) @.str.109) #25
+  %211 = icmp eq i32 %210, 0
+  %spec.select254 = select i1 %211, i32 %.not241, i32 %.0182
   br label %.thread274
 
-.thread274:                                       ; preds = %201, %208, %205
+.thread274:                                       ; preds = %202, %209, %206
   %.1183 = phi i32 [ %.not242, %205 ], [ %spec.select254, %208 ], [ %.0182, %201 ]
   ret i32 %.1183
 }

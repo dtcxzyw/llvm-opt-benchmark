@@ -10607,7 +10607,7 @@ _ZL15mi_os_prim_freePvmm.exit:                    ; preds = %_Z17_mi_stat_increa
 
 144:                                              ; preds = %142, %141
   %.not72 = icmp eq i64 %.151, 0
-  br i1 %.not72, label %146, label %145
+  br i1 %.not72, label %147, label %145
 
 145:                                              ; preds = %144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -10621,11 +10621,11 @@ _ZL15mi_os_prim_freePvmm.exit:                    ; preds = %_Z17_mi_stat_increa
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 1
   %.sroa.779.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 4, ptr %.sroa.779.0..sroa_idx, align 4, !tbaa !128
-  br label %146
+  br label %147
 
-146:                                              ; preds = %144, %145
-  %147 = phi ptr [ null, %144 ], [ %59, %145 ]
-  ret ptr %147
+147:                                              ; preds = %144, %145
+  %148 = phi ptr [ null, %144 ], [ %59, %145 ]
+  ret ptr %148
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11883,21 +11883,21 @@ _ZL11mi_popcountm.exit63:                         ; preds = %39, %42
   %.332 = phi i8 [ %.130.lcssa, %._crit_edge ], [ %spec.select55, %45 ]
   %.3 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %.4, %45 ]
   %.not50 = icmp eq ptr %4, null
-  br i1 %.not50, label %48, label %47
+  br i1 %.not50, label %49, label %47
 
 47:                                               ; preds = %46
   store i8 %.332, ptr %4, align 1, !tbaa !88
   br label %48
 
-48:                                               ; preds = %47, %46
+49:                                               ; preds = %47, %46
   %.not51 = icmp eq ptr %5, null
-  br i1 %.not51, label %50, label %49
+  br i1 %.not51, label %51, label %50
 
-49:                                               ; preds = %48
+50:                                               ; preds = %49
   store i64 %.3, ptr %5, align 8, !tbaa !69
-  br label %50
+  br label %51
 
-50:                                               ; preds = %49, %48
+51:                                               ; preds = %50, %49
   ret i1 %.336
 }
 
@@ -12048,21 +12048,21 @@ _ZL11mi_popcountm.exit61:                         ; preds = %39, %42
   %.332 = phi i8 [ 1, %_ZL11mi_popcountm.exit61 ], [ %.130.lcssa, %39 ], [ %.130.lcssa, %._crit_edge ]
   %.3 = phi i64 [ %44, %_ZL11mi_popcountm.exit61 ], [ %.1.lcssa, %39 ], [ %.1.lcssa, %._crit_edge ]
   %.not48 = icmp eq ptr %3, null
-  br i1 %.not48, label %47, label %46
+  br i1 %.not48, label %48, label %46
 
 46:                                               ; preds = %45
   store i8 %.332, ptr %3, align 1, !tbaa !88
   br label %47
 
-47:                                               ; preds = %46, %45
+48:                                               ; preds = %46, %45
   %.not49 = icmp eq ptr %4, null
-  br i1 %.not49, label %49, label %48
+  br i1 %.not49, label %50, label %49
 
-48:                                               ; preds = %47
+49:                                               ; preds = %48
   store i64 %.3, ptr %4, align 8, !tbaa !69
-  br label %49
+  br label %50
 
-49:                                               ; preds = %48, %47
+50:                                               ; preds = %49, %48
   ret i1 %.336
 }
 

@@ -4783,7 +4783,7 @@ _ZNSt5stackIP8MeshFaceSt5dequeIS1_SaIS1_EEE4pushERKS1_.exit: ; preds = %_ZNSt5st
   br i1 %235, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %232
-  br i1 %.4, label %._crit_edge..thread_crit_edge, label %._crit_edge84
+  br i1 %.4, label %._crit_edge..thread_crit_edge, label %._crit_edge84.loopexit
 
 ._crit_edge..thread_crit_edge:                    ; preds = %_ZNSt5stackIP8MeshFaceSt5dequeIS1_SaIS1_EEE4pushEOS1_.exit, %._crit_edge
   %.327.lcssa93 = phi i8 [ %.5, %._crit_edge ], [ %.02482, %_ZNSt5stackIP8MeshFaceSt5dequeIS1_SaIS1_EEE4pushEOS1_.exit ]
@@ -4795,41 +4795,41 @@ _ZNSt5stackIP8MeshFaceSt5dequeIS1_SaIS1_EEE4pushERKS1_.exit: ; preds = %_ZNSt5st
   %.22656 = phi i8 [ %.327.lcssa93, %._crit_edge..thread_crit_edge ], [ %.02482, %30 ]
   %237 = getelementptr inbounds nuw i8, ptr %.sroa.047.080, i64 216
   %.not = icmp eq ptr %237, %236
-  br i1 %.not, label %._crit_edge84, label %30, !llvm.loop !37
+  br i1 %.not, label %._crit_edge84.loopexit, label %30, !llvm.loop !37
 
-._crit_edge84:                                    ; preds = %.thread, %._crit_edge, %_ZN3vcg3tri11UpdateFlagsI4MeshE10FaceClearVERS2_.exit
-  %.125 = phi i8 [ 1, %_ZN3vcg3tri11UpdateFlagsI4MeshE10FaceClearVERS2_.exit ], [ %.5, %._crit_edge ], [ %.22656, %.thread ]
-  %.1 = phi i8 [ 1, %_ZN3vcg3tri11UpdateFlagsI4MeshE10FaceClearVERS2_.exit ], [ 0, %._crit_edge ], [ 1, %.thread ]
+._crit_edge84.loopexit:                           ; preds = %.thread, %._crit_edge, %_ZN3vcg3tri11UpdateFlagsI4MeshE10FaceClearVERS2_.exit
+  %.125.ph = phi i8 [ 1, %_ZN3vcg3tri11UpdateFlagsI4MeshE10FaceClearVERS2_.exit ], [ %.5, %._crit_edge ], [ %.22656, %.thread ]
+  %.1.ph = phi i8 [ 1, %_ZN3vcg3tri11UpdateFlagsI4MeshE10FaceClearVERS2_.exit ], [ 0, %._crit_edge ], [ 1, %.thread ]
   store i8 %.125, ptr %1, align 1
   store i8 %.1, ptr %2, align 1
-  %238 = load ptr, ptr %4, align 8
-  %.not.i.i.i33 = icmp eq ptr %238, null
-  br i1 %.not.i.i.i33, label %_ZNSt5stackIP8MeshFaceSt5dequeIS1_SaIS1_EEED2Ev.exit, label %239
+  %239 = load ptr, ptr %4, align 8
+  %.not.i.i.i33 = icmp eq ptr %239, null
+  br i1 %.not.i.i.i33, label %_ZNSt5stackIP8MeshFaceSt5dequeIS1_SaIS1_EEED2Ev.exit, label %240
 
-239:                                              ; preds = %._crit_edge84
-  %240 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %241 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %242 = load ptr, ptr %241, align 8
-  %243 = load ptr, ptr %240, align 8
-  %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
-  %245 = icmp ult ptr %242, %244
-  br i1 %245, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIP8MeshFaceSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i
+240:                                              ; preds = %._crit_edge84
+  %241 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %242 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %243 = load ptr, ptr %242, align 8
+  %244 = load ptr, ptr %241, align 8
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
+  %246 = icmp ult ptr %243, %245
+  br i1 %246, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIP8MeshFaceSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %239, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %247, %.lr.ph.i.i.i.i ], [ %242, %239 ]
-  %246 = load ptr, ptr %.06.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %246) #28
-  %247 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
-  %248 = icmp ult ptr %.06.i.i.i.i, %243
-  br i1 %248, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIP8MeshFaceSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i, !llvm.loop !38
+.lr.ph.i.i.i.i:                                   ; preds = %240, %.lr.ph.i.i.i.i
+  %.06.i.i.i.i = phi ptr [ %248, %.lr.ph.i.i.i.i ], [ %243, %239 ]
+  %247 = load ptr, ptr %.06.i.i.i.i, align 8
+  call void @_ZdlPv(ptr noundef %247) #28
+  %248 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
+  %249 = icmp ult ptr %.06.i.i.i.i, %244
+  br i1 %249, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIP8MeshFaceSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i, !llvm.loop !38
 
 _ZNSt11_Deque_baseIP8MeshFaceSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %.pre.i.i.i = load ptr, ptr %4, align 8
   br label %_ZNSt11_Deque_baseIP8MeshFaceSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i
 
-_ZNSt11_Deque_baseIP8MeshFaceSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIP8MeshFaceSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i, %239
-  %249 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIP8MeshFaceSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i ], [ %238, %239 ]
-  call void @_ZdlPv(ptr noundef %249) #28
+_ZNSt11_Deque_baseIP8MeshFaceSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIP8MeshFaceSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i, %240
+  %250 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIP8MeshFaceSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i ], [ %239, %239 ]
+  call void @_ZdlPv(ptr noundef %250) #28
   br label %_ZNSt5stackIP8MeshFaceSt5dequeIS1_SaIS1_EEED2Ev.exit
 
 _ZNSt5stackIP8MeshFaceSt5dequeIS1_SaIS1_EEED2Ev.exit: ; preds = %._crit_edge84, %_ZNSt11_Deque_baseIP8MeshFaceSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i

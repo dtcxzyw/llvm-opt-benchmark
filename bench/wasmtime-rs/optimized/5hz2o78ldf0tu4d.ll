@@ -44529,7 +44529,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN17cranelift_codegen5write10FuncWrite
   %46 = trunc i64 %44 to i32
   call void @llvm.experimental.noalias.scope.decl(metadata !6551)
   %47 = call noundef zeroext i1 @_ZN17cranelift_codegen12print_errors21pretty_preamble_error17h9fa148581e41730fE.llvm.17595789031839490487(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(872) %3, i32 noundef 5, i32 %46, ptr noundef nonnull align 1 %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.844, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) null, ptr noundef nonnull align 1 %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24, ptr noalias noundef nonnull align 8 dereferenceable(24) %26), !noalias !6551
-  br i1 %47, label %198, label %27
+  br i1 %47, label %200, label %27
 
 48:                                               ; preds = %68
   %49 = call noundef align 4 dereferenceable_or_null(8) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56778100ca6e6215E.llvm.17595789031839490487"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
@@ -44575,7 +44575,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN17cranelift_codegen5write10FuncWrite
   %72 = trunc i64 %70 to i32
   call void @llvm.experimental.noalias.scope.decl(metadata !6564)
   %73 = call noundef zeroext i1 @_ZN17cranelift_codegen12print_errors21pretty_preamble_error17h9fa148581e41730fE.llvm.17595789031839490487(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(872) %3, i32 noundef 4, i32 %72, ptr noundef nonnull align 1 %69, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.843, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) null, ptr noundef nonnull align 1 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %39, ptr noalias noundef nonnull align 8 dereferenceable(24) %41), !noalias !6564
-  br i1 %73, label %197, label %48
+  br i1 %73, label %199, label %48
 
 74:                                               ; preds = %89
   %75 = call noundef align 8 dereferenceable_or_null(40) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2ebf49201c65a08E.llvm.17595789031839490487"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
@@ -44623,7 +44623,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN17cranelift_codegen5write10FuncWrite
   %. = select i1 %97, ptr null, ptr %.0.i
   call void @llvm.experimental.noalias.scope.decl(metadata !6585)
   %98 = call noundef zeroext i1 @_ZN17cranelift_codegen12print_errors21pretty_preamble_error17h9fa148581e41730fE.llvm.17595789031839490487(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(872) %3, i32 noundef 7, i32 %93, ptr noundef nonnull align 1 %90, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.842, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) %., ptr noundef nonnull align 1 %63, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %65, ptr noalias noundef nonnull align 8 dereferenceable(24) %67), !noalias !6585
-  br i1 %98, label %196, label %74
+  br i1 %98, label %198, label %74
 
 99:                                               ; preds = %114
   %100 = call noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7cf79935d9287da4E.llvm.17595789031839490487"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
@@ -44664,9 +44664,9 @@ define hidden noundef range(i8 0, 3) i8 @_ZN17cranelift_codegen5write10FuncWrite
   %118 = trunc i64 %116 to i32
   call void @llvm.experimental.noalias.scope.decl(metadata !6603)
   %119 = call noundef zeroext i1 @_ZN17cranelift_codegen12print_errors21pretty_preamble_error17h9fa148581e41730fE.llvm.17595789031839490487(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(872) %3, i32 noundef 8, i32 %118, ptr noundef nonnull align 1 %115, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.839, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) null, ptr noundef nonnull align 1 %84, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %86, ptr noalias noundef nonnull align 8 dereferenceable(24) %88), !noalias !6603
-  br i1 %119, label %195, label %99
+  br i1 %119, label %197, label %99
 
-._crit_edge136:                                   ; preds = %191, %._crit_edge132
+._crit_edge136:                                   ; preds = %193, %._crit_edge132
   %.4.lcssa = phi i8 [ %.3.lcssa, %._crit_edge132 ], [ 1, %191 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   %120 = getelementptr inbounds nuw i8, ptr %3, i64 304
@@ -44694,8 +44694,8 @@ define hidden noundef range(i8 0, 3) i8 @_ZN17cranelift_codegen5write10FuncWrite
   %133 = load ptr, ptr %132, align 8, !nonnull !4, !align !40
   br label %154
 
-134:                                              ; preds = %.lr.ph135, %191
-  %135 = phi ptr [ %107, %.lr.ph135 ], [ %192, %191 ]
+134:                                              ; preds = %.lr.ph135, %193
+  %135 = phi ptr [ %107, %.lr.ph135 ], [ %194, %191 ]
   %136 = load i64, ptr %.sroa.699.0..sroa_idx, align 8, !alias.scope !6639, !noundef !4
   %137 = add i64 %136, 1
   store i64 %137, ptr %.sroa.699.0..sroa_idx, align 8, !alias.scope !6639
@@ -44705,9 +44705,9 @@ define hidden noundef range(i8 0, 3) i8 @_ZN17cranelift_codegen5write10FuncWrite
   call void @llvm.experimental.noalias.scope.decl(metadata !6621)
   %139 = call noundef zeroext i1 @_ZN17cranelift_codegen12print_errors21pretty_preamble_error17h9fa148581e41730fE.llvm.17595789031839490487(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(872) %3, i32 noundef 12, i32 %138, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.838, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) null, ptr noundef nonnull align 1 %109, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %111, ptr noalias noundef nonnull align 8 dereferenceable(24) %113), !noalias !6621
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  br i1 %139, label %194, label %191
+  br i1 %139, label %196, label %193
 
-_ZN17cranelift_codegen2ir8constant12ConstantPool4iter17h6e03a4947d4a67daE.exit: ; preds = %187, %._crit_edge136
+_ZN17cranelift_codegen2ir8constant12ConstantPool4iter17h6e03a4947d4a67daE.exit: ; preds = %189, %._crit_edge136
   %.5.lcssa = phi i8 [ %.4.lcssa, %._crit_edge136 ], [ %.8, %187 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   %140 = getelementptr inbounds nuw i8, ptr %3, i64 368
@@ -44751,8 +44751,8 @@ _ZN17cranelift_codegen2ir8constant12ConstantPool4iter17h6e03a4947d4a67daE.exit: 
   %153 = load ptr, ptr %152, align 8, !alias.scope !6649, !noalias !6652, !nonnull !4, !align !40, !noundef !4
   br label %166
 
-154:                                              ; preds = %.lr.ph140, %187
-  %155 = phi ptr [ %125, %.lr.ph140 ], [ %188, %187 ]
+154:                                              ; preds = %.lr.ph140, %189
+  %155 = phi ptr [ %125, %.lr.ph140 ], [ %190, %187 ]
   %.5138 = phi i8 [ %.4.lcssa, %.lr.ph140 ], [ %.8, %187 ]
   %156 = load i64, ptr %.sroa.6102.0..sroa_idx, align 8, !alias.scope !6657, !noundef !4
   %157 = add i64 %156, 1
@@ -44760,7 +44760,7 @@ _ZN17cranelift_codegen2ir8constant12ConstantPool4iter17h6e03a4947d4a67daE.exit: 
   %158 = getelementptr inbounds nuw i8, ptr %155, i64 24
   %159 = load i32, ptr %158, align 8, !noundef !4
   %.not = icmp eq i32 %159, -1
-  br i1 %.not, label %187, label %184
+  br i1 %.not, label %189, label %186
 
 160:                                              ; preds = %166
   %161 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he7beca0ec7c3264bE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6)
@@ -44785,7 +44785,7 @@ _ZN17cranelift_codegen2ir8constant12ConstantPool4iter17h6e03a4947d4a67daE.exit: 
   call void @llvm.assume(i1 %171)
   call void @llvm.experimental.noalias.scope.decl(metadata !6649)
   %172 = call noundef zeroext i1 @_ZN17cranelift_codegen12print_errors21pretty_preamble_error17h9fa148581e41730fE.llvm.17595789031839490487(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(872) %3, i32 noundef 10, i32 %170, ptr noundef nonnull align 1 %169, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.836, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) null, ptr noundef nonnull align 1 %149, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %151, ptr noalias noundef nonnull align 8 dereferenceable(24) %153), !noalias !6649
-  br i1 %172, label %183, label %160
+  br i1 %172, label %185, label %160
 
 173:                                              ; preds = %._crit_edge143
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -44804,54 +44804,54 @@ _ZN17cranelift_codegen2ir8constant12ConstantPool4iter17h6e03a4947d4a67daE.exit: 
   br label %182
 
 182:                                              ; preds = %173, %._crit_edge143, %198, %197, %196, %195, %194, %190, %183
-  %.0 = phi i8 [ 2, %183 ], [ 2, %190 ], [ 2, %194 ], [ 2, %195 ], [ 2, %196 ], [ 2, %197 ], [ 2, %198 ], [ %.6.lcssa, %._crit_edge143 ], [ %.145, %173 ]
+  %.7 = phi i8 [ 2, %183 ], [ 2, %190 ], [ 2, %194 ], [ 2, %195 ], [ 2, %196 ], [ 2, %197 ], [ 2, %198 ], [ %.6.lcssa, %._crit_edge143 ], [ %.145, %173 ]
   ret i8 %.0
 
-183:                                              ; preds = %166
+185:                                              ; preds = %166
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
   br label %182
 
-184:                                              ; preds = %154
-  %185 = trunc i64 %156 to i32
+186:                                              ; preds = %154
+  %187 = trunc i64 %156 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr %155, ptr %7, align 8
   store ptr %127, ptr %128, align 8
-  %186 = call noundef zeroext i1 @_ZN17cranelift_codegen12print_errors21pretty_preamble_error17h9fa148581e41730fE.llvm.17595789031839490487(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(872) %3, i32 noundef 11, i32 %185, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.837, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) null, ptr noundef nonnull align 1 %129, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %131, ptr noalias noundef nonnull align 8 dereferenceable(24) %133), !noalias !6670
+  %188 = call noundef zeroext i1 @_ZN17cranelift_codegen12print_errors21pretty_preamble_error17h9fa148581e41730fE.llvm.17595789031839490487(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(872) %3, i32 noundef 11, i32 %187, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.837, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) null, ptr noundef nonnull align 1 %129, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %131, ptr noalias noundef nonnull align 8 dereferenceable(24) %133), !noalias !6670
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br i1 %186, label %190, label %187
+  br i1 %188, label %192, label %189
 
-187:                                              ; preds = %184, %154
+189:                                              ; preds = %186, %154
   %.8 = phi i8 [ %.5138, %154 ], [ 1, %184 ]
-  %188 = call noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha42ce8a4bc0d97d5E.llvm.17595789031839490487"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
-  %189 = icmp eq ptr %188, null
-  br i1 %189, label %_ZN17cranelift_codegen2ir8constant12ConstantPool4iter17h6e03a4947d4a67daE.exit, label %154
+  %190 = call noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha42ce8a4bc0d97d5E.llvm.17595789031839490487"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  %191 = icmp eq ptr %190, null
+  br i1 %191, label %_ZN17cranelift_codegen2ir8constant12ConstantPool4iter17h6e03a4947d4a67daE.exit, label %154
 
-190:                                              ; preds = %184
+192:                                              ; preds = %186
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %182
 
-191:                                              ; preds = %134
-  %192 = call noundef align 8 dereferenceable_or_null(56) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9a25f910c28d42d0E.llvm.17595789031839490487"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %193 = icmp eq ptr %192, null
-  br i1 %193, label %._crit_edge136, label %134
+193:                                              ; preds = %134
+  %194 = call noundef align 8 dereferenceable_or_null(56) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9a25f910c28d42d0E.llvm.17595789031839490487"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  %195 = icmp eq ptr %194, null
+  br i1 %195, label %._crit_edge136, label %134
 
-194:                                              ; preds = %134
+196:                                              ; preds = %134
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %182
 
-195:                                              ; preds = %114
+197:                                              ; preds = %114
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %182
 
-196:                                              ; preds = %89
+198:                                              ; preds = %89
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   br label %182
 
-197:                                              ; preds = %68
+199:                                              ; preds = %68
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   br label %182
 
-198:                                              ; preds = %42
+200:                                              ; preds = %42
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   br label %182
 }

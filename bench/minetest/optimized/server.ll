@@ -45531,7 +45531,7 @@ if.end28:                                         ; preds = %for.body
   %conv5.i20.mask.i.i = and i32 %div.i19.i.i, 65535
   %retval.sroa.3.0.insert.ext.i.i = zext nneg i32 %conv5.i20.mask.i.i to i48
   %retval.sroa.3.0.insert.shift.i.i = shl nuw i48 %retval.sroa.3.0.insert.ext.i.i, 32
-  %invariant.op10 = or disjoint i48 %retval.sroa.3.0.insert.shift.i.i, %retval.sroa.0.0.insert.ext.i.i
+  %invariant.op8 = or disjoint i48 %retval.sroa.3.0.insert.shift.i.i, %retval.sroa.0.0.insert.ext.i.i
   br label %for.body33
 
 for.body33:                                       ; preds = %for.inc, %if.end28
@@ -45548,7 +45548,7 @@ for.body33:                                       ; preds = %for.inc, %if.end28
   %div.i11.i.i = sdiv i32 %cond.i10.i.i, 16
   %16 = shl nsw i32 %div.i11.i.i, 16
   %retval.sroa.2.0.insert.shift.i.i = zext i32 %16 to i48
-  %retval.sroa.0.0.insert.insert.i.i.reass = or disjoint i48 %retval.sroa.2.0.insert.shift.i.i, %invariant.op10
+  %retval.sroa.0.0.insert.insert.i.i.reass = or disjoint i48 %retval.sroa.2.0.insert.shift.i.i, %invariant.op8
   %vtable = load ptr, ptr %call, align 8, !tbaa !23
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %17 = load ptr, ptr %vfn, align 8
@@ -45610,10 +45610,10 @@ cleanup:                                          ; preds = %if.then49
   %29 = extractelement <2 x float> %26, i64 1
   %30 = call nsz float @llvm.fabs.f32(float %29)
   %31 = fcmp nsz ogt float %30, 3.100750e+05
-  %or.cond13.i.not2.not3 = select i1 %or.cond.i, i1 true, i1 %31
+  %or.cond13.i = select i1 %or.cond.i, i1 true, i1 %31
   %32 = call nsz float @llvm.fabs.f32(float %mul4.i)
   %33 = fcmp nsz ogt float %32, 3.100750e+05
-  %spec.select.i.not.not = or i1 %33, %or.cond13.i.not2.not3
+  %spec.select.i = or i1 %33, %or.cond13.i
   br label %cleanup68
 
 for.inc:                                          ; preds = %if.then49, %_ZNK14NodeDefManager3getEt.exit
@@ -45624,7 +45624,7 @@ for.inc:                                          ; preds = %if.then49, %_ZNK14N
   br i1 %exitcond.not, label %cleanup68, label %for.body33, !llvm.loop !1170
 
 cleanup68:                                        ; preds = %for.inc, %cleanup, %for.body
-  %is_good.4 = phi i1 [ true, %for.body ], [ %spec.select.i.not.not, %cleanup ], [ true, %for.inc ]
+  %is_good.4 = phi i1 [ true, %for.body ], [ %spec.select.i, %cleanup ], [ true, %for.inc ]
   %cmp = icmp samesign ult i32 %i.0165, 3999
   %34 = select i1 %cmp, i1 %is_good.4, i1 false
   br i1 %34, label %for.body, label %for.cond.cleanup, !llvm.loop !1171

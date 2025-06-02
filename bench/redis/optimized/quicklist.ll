@@ -203,28 +203,28 @@ define dso_local void @quicklistRelease(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not3.i, label %quicklistBookmarksClear.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge
-  %25 = getelementptr i8, ptr %0, i64 48
-  br label %26
+  %23 = getelementptr i8, ptr %0, i64 48
+  br label %24
 
-26:                                               ; preds = %26, %.lr.ph.i
-  %27 = phi i32 [ %24, %.lr.ph.i ], [ %39, %26 ]
+24:                                               ; preds = %24, %.lr.ph.i
+  %25 = phi i32 [ %24, %.lr.ph.i ], [ %39, %26 ]
   %28 = phi i64 [ %21, %.lr.ph.i ], [ %36, %26 ]
-  %29 = add nsw i32 %27, -1
-  %30 = zext nneg i32 %29 to i64
-  %31 = shl nuw nsw i64 %30, 32
-  %32 = and i64 %28, -64424509441
-  %33 = or i64 %31, %32
-  store i64 %33, ptr %20, align 8
+  %27 = add nsw i32 %27, -1
+  %30 = zext nneg i32 %27 to i64
+  %29 = shl nuw nsw i64 %30, 32
+  %30 = and i64 %28, -64424509441
+  %31 = or i64 %29, %30
+  store i64 %31, ptr %20, align 8
   %.idx.i = shl nuw nsw i64 %30, 4
-  %34 = getelementptr i8, ptr %25, i64 %.idx.i
-  %35 = load ptr, ptr %34, align 8, !tbaa !20
-  tail call void @zfree(ptr noundef %35) #23
-  %36 = load i64, ptr %20, align 8
-  %37 = lshr i64 %36, 32
+  %32 = getelementptr i8, ptr %23, i64 %.idx.i
+  %33 = load ptr, ptr %32, align 8, !tbaa !20
+  tail call void @zfree(ptr noundef %33) #23
+  %34 = load i64, ptr %20, align 8
+  %37 = lshr i64 %34, 32
   %38 = trunc nuw i64 %37 to i32
-  %39 = and i32 %38, 15
+  %39 = and i32 %3._crit_edge, 15
   %.not.i = icmp eq i32 %39, 0
-  br i1 %.not.i, label %quicklistBookmarksClear.exit, label %26, !llvm.loop !22
+  br i1 %.not.i, label %quicklistBookmarksClear.exit, label %24, !llvm.loop !22
 
 quicklistBookmarksClear.exit:                     ; preds = %26, %._crit_edge
   tail call void @zfree(ptr noundef nonnull %0) #23
@@ -244,10 +244,10 @@ define dso_local void @quicklistBookmarksClear(ptr noundef captures(none) %0) lo
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %7 = getelementptr i8, ptr %0, i64 48
+  %5 = getelementptr i8, ptr %0, i64 48
   br label %8
 
-8:                                                ; preds = %.lr.ph, %8
+._crit_edge:                                      ; preds = %.lr.ph, %8
   %9 = phi i32 [ %6, %.lr.ph ], [ %21, %8 ]
   %10 = phi i64 [ %3, %.lr.ph ], [ %18, %8 ]
   %11 = add nsw i32 %9, -1

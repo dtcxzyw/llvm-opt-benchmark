@@ -112364,7 +112364,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112keep_cache_t5query
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8, !tbaa !101
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %73, label %4
+  br i1 %3, label %74, label %4
 
 4:                                                ; preds = %1
   %5 = call noundef i32 @_ZNK5Yosys7hashlib4dictIPNS_5RTLIL6ModuleEbNS0_8hash_opsIS4_EEE5countERKS4_(ptr noundef nonnull align 8 dereferenceable(49) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110keep_cacheE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -112381,7 +112381,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112keep_cache_t5query
   %10 = load ptr, ptr %2, align 8, !tbaa !101
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = call noundef zeroext i1 @_ZNK5Yosys5RTLIL10AttrObject18get_bool_attributeERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID4keepE)
-  br i1 %12, label %69, label %13
+  br i1 %12, label %70, label %13
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr %2, align 8, !tbaa !101
@@ -112496,24 +112496,24 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit45: ; preds = %_ZN5Yosys5RTLIL
   %.482 = phi i8 [ %.171, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit33 ], [ %.482.ph, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit45.sink.split ]
   %68 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5Yosys7hashlib4dictIPNS_5RTLIL6ModuleEbNS0_8hash_opsIS4_EEEixERKS4_(ptr noundef nonnull align 8 dereferenceable(49) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110keep_cacheE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %2)
   store i8 %.482, ptr %68, align 1, !tbaa !24
-  br label %69
+  br label %70
 
 _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit40: ; preds = %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit47, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit38
   %.pn28.pn.pn = phi { ptr, i32 } [ %34, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit38 ], [ %61, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit47 ]
   resume { ptr, i32 } %.pn28.pn.pn
 
-69:                                               ; preds = %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit45, %8
-  %70 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5Yosys7hashlib4dictIPNS_5RTLIL6ModuleEbNS0_8hash_opsIS4_EEEixERKS4_(ptr noundef nonnull align 8 dereferenceable(49) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110keep_cacheE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %2)
+70:                                               ; preds = %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit45, %8
+  %71 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN5Yosys7hashlib4dictIPNS_5RTLIL6ModuleEbNS0_8hash_opsIS4_EEEixERKS4_(ptr noundef nonnull align 8 dereferenceable(49) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110keep_cacheE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %6, %69
-  %.sink85 = phi ptr [ %70, %69 ], [ %7, %6 ]
-  %71 = load i8, ptr %.sink85, align 1, !tbaa !24, !range !26, !noundef !27
-  %72 = trunc nuw i8 %71 to i1
-  br label %73
+.sink.split:                                      ; preds = %6, %70
+  %.sink85 = phi ptr [ %71, %69 ], [ %7, %6 ]
+  %72 = load i8, ptr %.sink85, align 1, !tbaa !24, !range !26, !noundef !27
+  %73 = trunc nuw i8 %72 to i1
+  br label %74
 
-73:                                               ; preds = %.sink.split, %1
-  %.0 = phi i1 [ false, %1 ], [ %72, %.sink.split ]
+74:                                               ; preds = %.sink.split, %1
+  %.0 = phi i1 [ false, %1 ], [ %73, %.sink.split ]
   ret i1 %.0
 }
 

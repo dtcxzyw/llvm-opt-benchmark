@@ -248,7 +248,7 @@ while.body69:                                     ; preds = %while.body69.lr.ph,
 if.then84:                                        ; preds = %while.body69
   %conv86 = sext i32 %ai.2163 to i64
   %direction88 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv86, i32 1
-  %13 = load i32, ptr %direction88, align 8
+  %15 = load i32, ptr %direction88, align 8
   switch i32 %fillRule, label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117 [
     i32 0, label %sw.bb.i115
     i32 1, label %sw.bb1.i112
@@ -257,20 +257,20 @@ if.then84:                                        ; preds = %while.body69
   ]
 
 sw.bb.i115:                                       ; preds = %if.then84
-  %cmp.i116 = icmp ne i32 %13, 0
+  %cmp.i116 = icmp ne i32 %15, 0
   br label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117
 
 sw.bb1.i112:                                      ; preds = %if.then84
-  %and.i113 = and i32 %13, 1
+  %and.i113 = and i32 %15, 1
   %tobool.i114 = icmp ne i32 %and.i113, 0
   br label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117
 
 sw.bb2.i110:                                      ; preds = %if.then84
-  %cmp3.i111 = icmp sgt i32 %13, 0
+  %cmp3.i111 = icmp sgt i32 %15, 0
   br label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117
 
 sw.bb4.i107:                                      ; preds = %if.then84
-  %cmp5.i108 = icmp slt i32 %13, 0
+  %cmp5.i108 = icmp slt i32 %15, 0
   br label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117
 
 _ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117: ; preds = %if.then84, %sw.bb.i115, %sw.bb1.i112, %sw.bb2.i110, %sw.bb4.i107
@@ -283,12 +283,12 @@ _ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117: ; preds = %if.then84, %sw
 cond.true96:                                      ; preds = %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117
   %conv98 = sext i32 %inc91 to i64
   %add.ptr.i123 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv98
-  %14 = load double, ptr %add.ptr.i123, align 8
+  %16 = load double, ptr %add.ptr.i123, align 8
   br label %if.end104
 
 if.end104:                                        ; preds = %cond.true96, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117, %while.body69
   %ai.3 = phi i32 [ %ai.2163, %while.body69 ], [ %inc91, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117 ], [ %inc91, %cond.true96 ]
-  %ax.3 = phi double [ %ax.2165, %while.body69 ], [ %xTo, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117 ], [ %14, %cond.true96 ]
+  %ax.3 = phi double [ %ax.2165, %while.body69 ], [ %xTo, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117 ], [ %16, %cond.true96 ]
   %aInside.3 = phi i8 [ %aInside.2167, %while.body69 ], [ %frombool90, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117 ], [ %frombool90, %cond.true96 ]
   %cmp105 = fcmp oeq double %bx.2166, %cond.i100
   %cmp110 = icmp slt i32 %bi.2164, %conv109
@@ -298,7 +298,7 @@ if.end104:                                        ; preds = %cond.true96, %_ZN7m
 if.then111:                                       ; preds = %if.end104
   %conv113 = sext i32 %bi.2164 to i64
   %direction115 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %3, i64 %conv113, i32 1
-  %15 = load i32, ptr %direction115, align 8
+  %17 = load i32, ptr %direction115, align 8
   switch i32 %fillRule, label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140 [
     i32 0, label %sw.bb.i138
     i32 1, label %sw.bb1.i135
@@ -307,20 +307,20 @@ if.then111:                                       ; preds = %if.end104
   ]
 
 sw.bb.i138:                                       ; preds = %if.then111
-  %cmp.i139 = icmp ne i32 %15, 0
+  %cmp.i139 = icmp ne i32 %17, 0
   br label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140
 
 sw.bb1.i135:                                      ; preds = %if.then111
-  %and.i136 = and i32 %15, 1
+  %and.i136 = and i32 %17, 1
   %tobool.i137 = icmp ne i32 %and.i136, 0
   br label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140
 
 sw.bb2.i133:                                      ; preds = %if.then111
-  %cmp3.i134 = icmp sgt i32 %15, 0
+  %cmp3.i134 = icmp sgt i32 %17, 0
   br label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140
 
 sw.bb4.i130:                                      ; preds = %if.then111
-  %cmp5.i131 = icmp slt i32 %15, 0
+  %cmp5.i131 = icmp slt i32 %17, 0
   br label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140
 
 _ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140: ; preds = %if.then111, %sw.bb.i138, %sw.bb1.i135, %sw.bb2.i133, %sw.bb4.i130
@@ -333,17 +333,17 @@ _ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140: ; preds = %if.then111, %s
 cond.true123:                                     ; preds = %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140
   %conv125 = sext i32 %inc118 to i64
   %add.ptr.i146 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %3, i64 %conv125
-  %16 = load double, ptr %add.ptr.i146, align 8
+  %18 = load double, ptr %add.ptr.i146, align 8
   br label %if.end131
 
 if.end131:                                        ; preds = %cond.true123, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140, %if.end104
   %bInside.3 = phi i8 [ %bInside.2162, %if.end104 ], [ %frombool117, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140 ], [ %frombool117, %cond.true123 ]
   %bi.3 = phi i32 [ %bi.2164, %if.end104 ], [ %inc118, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140 ], [ %inc118, %cond.true123 ]
-  %bx.3 = phi double [ %bx.2166, %if.end104 ], [ %xTo, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140 ], [ %16, %cond.true123 ]
+  %bx.3 = phi double [ %bx.2166, %if.end104 ], [ %xTo, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140 ], [ %18, %cond.true123 ]
   %cmp65 = fcmp olt double %ax.3, %xTo
   %cmp67 = fcmp olt double %bx.3, %xTo
-  %17 = select i1 %cmp65, i1 true, i1 %cmp67
-  br i1 %17, label %while.body69, label %while.end132, !llvm.loop !7
+  %19 = select i1 %cmp65, i1 true, i1 %cmp67
+  br i1 %19, label %while.body69, label %while.end132, !llvm.loop !7
 
 while.end132:                                     ; preds = %if.end131, %while.cond64.preheader
   %bInside.2.lcssa = phi i8 [ %bInside.0.lcssa, %while.cond64.preheader ], [ %bInside.3, %if.end131 ]

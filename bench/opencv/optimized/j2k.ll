@@ -16483,9 +16483,9 @@ define internal range(i32 0, 2) i32 @opj_j2k_mct_validation(ptr noundef readonly
   br label %17
 
 17:                                               ; preds = %.lr.ph30, %.loopexit
-  %.01829 = phi ptr [ %15, %.lr.ph30 ], [ %37, %.loopexit ]
+  %.01829 = phi ptr [ %15, %.lr.ph30 ], [ %38, %.loopexit ]
   %.128 = phi i32 [ 1, %.lr.ph30 ], [ %.2, %.loopexit ]
-  %.02127 = phi i32 [ 0, %.lr.ph30 ], [ %38, %.loopexit ]
+  %.02127 = phi i32 [ 0, %.lr.ph30 ], [ %39, %.loopexit ]
   %18 = getelementptr inbounds nuw i8, ptr %.01829, i64 16
   %19 = load i32, ptr %18, align 8, !tbaa !108
   %20 = icmp eq i32 %19, 2
@@ -16503,29 +16503,29 @@ define internal range(i32 0, 2) i32 @opj_j2k_mct_validation(ptr noundef readonly
   br i1 %.not33, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %21
-  %28 = getelementptr inbounds nuw i8, ptr %.01829, i64 5600
-  %29 = load ptr, ptr %28, align 8, !tbaa !120
+  %29 = getelementptr inbounds nuw i8, ptr %.01829, i64 5600
+  %30 = load ptr, ptr %29, align 8, !tbaa !120
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.026 = phi ptr [ %35, %.lr.ph ], [ %29, %.lr.ph.preheader ]
-  %.325 = phi i32 [ %34, %.lr.ph ], [ %24, %.lr.ph.preheader ]
-  %.02024 = phi i32 [ %36, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %30 = getelementptr inbounds nuw i8, ptr %.026, i64 20
-  %31 = load i32, ptr %30, align 4, !tbaa !138
-  %32 = and i32 %31, 1
-  %33 = xor i32 %32, 1
-  %34 = and i32 %33, %.325
-  %35 = getelementptr inbounds nuw i8, ptr %.026, i64 1080
-  %36 = add nuw i32 %.02024, 1
-  %exitcond.not = icmp eq i32 %36, %27
+  %.026 = phi ptr [ %36, %.lr.ph ], [ %30, %.lr.ph.preheader ]
+  %.325 = phi i32 [ %35, %.lr.ph ], [ %24, %.lr.ph.preheader ]
+  %.02024 = phi i32 [ %37, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %31 = getelementptr inbounds nuw i8, ptr %.026, i64 20
+  %32 = load i32, ptr %31, align 4, !tbaa !138
+  %33 = and i32 %32, 1
+  %34 = xor i32 %33, 1
+  %35 = and i32 %34, %.325
+  %36 = getelementptr inbounds nuw i8, ptr %.026, i64 1080
+  %37 = add nuw i32 %.02024, 1
+  %exitcond.not = icmp eq i32 %37, %27
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !479
 
 .loopexit:                                        ; preds = %.lr.ph, %21, %17
-  %.2 = phi i32 [ %.128, %17 ], [ %24, %21 ], [ %34, %.lr.ph ]
-  %37 = getelementptr inbounds nuw i8, ptr %.01829, i64 5696
-  %38 = add nuw i32 %.02127, 1
-  %exitcond34.not = icmp eq i32 %38, %13
+  %.2 = phi i32 [ %.128, %17 ], [ %24, %21 ], [ %35, %.lr.ph ]
+  %38 = getelementptr inbounds nuw i8, ptr %.01829, i64 5696
+  %39 = add nuw i32 %.02127, 1
+  %exitcond34.not = icmp eq i32 %39, %13
   br i1 %exitcond34.not, label %.loopexit23, label %17, !llvm.loop !480
 
 .loopexit23:                                      ; preds = %.loopexit, %8, %3

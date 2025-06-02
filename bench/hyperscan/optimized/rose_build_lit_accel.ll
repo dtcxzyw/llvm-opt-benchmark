@@ -109,7 +109,7 @@ _ZNSt6vectorIPKN3ue211AccelStringESaIS3_EE9push_backEOS3_.exit.i: ; preds = %_ZN
 
 _ZN3ue2L10filterLitsERKSt6vectorINS_11AccelStringESaIS1_EEyPS0_IPKS1_SaIS7_EEPj.exit: ; preds = %_ZNSt6vectorIPKN3ue211AccelStringESaIS3_EE9push_backEOS3_.exit.i
   %32 = icmp eq ptr %.sroa.0164.3, %.sroa.11168.1
-  br i1 %32, label %489, label %33
+  br i1 %32, label %490, label %33
 
 .loopexit197:                                     ; preds = %_ZNKSt6vectorIPKN3ue211AccelStringESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -521,7 +521,7 @@ _ZN3ue29verify_u8IjEEhT_.exit.i:                  ; preds = %199
   store i8 %.sroa.025.1.i.lcssa.sink, ptr %209, align 2
   %210 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 %.sroa.7.1.lcssa.sink.i, ptr %210, align 1
-  br label %489
+  br label %490
 
 211:                                              ; preds = %._crit_edge.i._crit_edge, %33
   %spec.select40.i.pre-phi = phi i64 [ %.pre264, %._crit_edge.i._crit_edge ], [ 1, %33 ]
@@ -848,7 +848,7 @@ _ZN3ue2L9findSVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAux.exit: ; pre
   %325 = trunc nuw i32 %.sroa.7.1.i107 to i8
   %326 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 %325, ptr %326, align 1
-  br label %489
+  br label %490
 
 327:                                              ; preds = %211, %._crit_edge.i108
   %328 = invoke noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #12
@@ -1105,7 +1105,7 @@ _ZN3ue2L21litGuardedByCharReachERKNS_9CharReachERKNS_11AccelStringEj.exit: ; pre
 
 447:                                              ; preds = %.preheader
   %448 = icmp samesign ugt i64 %spec.select187, 240
-  br i1 %448, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit, label %466
+  br i1 %448, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit, label %467
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv252 = phi i64 [ %indvars.iv.next253, %.preheader ], [ 0, %.preheader.preheader ]
@@ -1134,90 +1134,90 @@ _ZN3ue2L21litGuardedByCharReachERKNS_9CharReachERKNS_11AccelStringEj.exit: ; pre
   %exitcond255.not = icmp eq i64 %indvars.iv.next253, 16
   br i1 %exitcond255.not, label %447, label %.preheader, !llvm.loop !19
 
-466:                                              ; preds = %447
-  %467 = zext i32 %spec.select94 to i64
-  %468 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %328, i64 %467
-  %469 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %470 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %471 = invoke noundef i32 @_ZN3ue216shuftiBuildMasksERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %468, ptr noundef nonnull %469, ptr noundef nonnull %470)
-          to label %472 unwind label %478
+467:                                              ; preds = %447
+  %468 = zext i32 %spec.select94 to i64
+  %469 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %328, i64 %468
+  %470 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %471 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %472 = invoke noundef i32 @_ZN3ue216shuftiBuildMasksERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %469, ptr noundef nonnull %470, ptr noundef nonnull %471)
+          to label %472 unwind label %479
 
-472:                                              ; preds = %466
-  %.not = icmp eq i32 %471, -1
-  br i1 %.not, label %480, label %473
-
-473:                                              ; preds = %472
-  store i8 13, ptr %2, align 16
-  %.not.i.i139 = icmp ult i32 %spec.select94, 256
-  br i1 %.not.i.i139, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit.sink.split, label %474
+473:                                              ; preds = %467
+  %.not = icmp eq i32 %472, -1
+  br i1 %.not, label %481, label %474
 
 474:                                              ; preds = %473
-  %475 = tail call ptr @__cxa_allocate_exception(i64 48) #14
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %475)
-          to label %.invoke293 unwind label %476
+  store i8 13, ptr %2, align 16
+  %.not.i.i139 = icmp ult i32 %spec.select94, 256
+  br i1 %.not.i.i139, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit.sink.split, label %475
 
-476:                                              ; preds = %474
-  %477 = landingpad { ptr, i32 }
+475:                                              ; preds = %474
+  %476 = tail call ptr @__cxa_allocate_exception(i64 48) #14
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %476)
+          to label %.invoke293 unwind label %477
+
+477:                                              ; preds = %475
+  %478 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %475) #14
+  tail call void @__cxa_free_exception(ptr nonnull %476) #14
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit150
 
-478:                                              ; preds = %.invoke293, %480, %466
-  %479 = landingpad { ptr, i32 }
+479:                                              ; preds = %.invoke293, %481, %467
+  %480 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit150
 
-480:                                              ; preds = %472
-  invoke void @_ZN3ue217truffleBuildMasksERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %468, ptr noundef nonnull %469, ptr noundef nonnull %470)
-          to label %481 unwind label %478
-
-481:                                              ; preds = %480
-  store i8 15, ptr %2, align 16
-  %.not.i.i143 = icmp ult i32 %spec.select94, 256
-  br i1 %.not.i.i143, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit.sink.split, label %482
+481:                                              ; preds = %473
+  invoke void @_ZN3ue217truffleBuildMasksERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %469, ptr noundef nonnull %470, ptr noundef nonnull %471)
+          to label %481 unwind label %479
 
 482:                                              ; preds = %481
-  %483 = tail call ptr @__cxa_allocate_exception(i64 48) #14
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %483)
-          to label %.invoke293 unwind label %485
+  store i8 15, ptr %2, align 16
+  %.not.i.i143 = icmp ult i32 %spec.select94, 256
+  br i1 %.not.i.i143, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit.sink.split, label %483
 
-.invoke293:                                       ; preds = %474, %482
-  %484 = phi ptr [ %483, %482 ], [ %475, %474 ]
-  invoke void @__cxa_throw(ptr nonnull %484, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #11
-          to label %.cont294 unwind label %478
+483:                                              ; preds = %482
+  %484 = tail call ptr @__cxa_allocate_exception(i64 48) #14
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %484)
+          to label %.invoke293 unwind label %486
+
+.invoke293:                                       ; preds = %475, %483
+  %485 = phi ptr [ %484, %482 ], [ %476, %474 ]
+  invoke void @__cxa_throw(ptr nonnull %485, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #11
+          to label %.cont294 unwind label %479
 
 .cont294:                                         ; preds = %.invoke293
   unreachable
 
-485:                                              ; preds = %482
-  %486 = landingpad { ptr, i32 }
+486:                                              ; preds = %483
+  %487 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %483) #14
+  tail call void @__cxa_free_exception(ptr nonnull %484) #14
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit150
 
-_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit.sink.split: ; preds = %481, %473
-  %487 = trunc nuw i32 %spec.select94 to i8
-  %488 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 %487, ptr %488, align 1
+_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit.sink.split: ; preds = %482, %474
+  %488 = trunc nuw i32 %spec.select94 to i8
+  %489 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  store i8 %488, ptr %489, align 1
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit:   ; preds = %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit.sink.split, %447
   tail call void @_ZdlPv(ptr noundef nonnull %328) #13
-  br label %489
+  br label %490
 
-489:                                              ; preds = %_ZN3ue2L9findSVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAux.exit, %_ZN3ue29verify_u8IjEEhT_.exit.i, %_ZN3ue2L10filterLitsERKSt6vectorINS_11AccelStringESaIS1_EEyPS0_IPKS1_SaIS7_EEPj.exit, %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
+490:                                              ; preds = %_ZN3ue2L9findSVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAux.exit, %_ZN3ue29verify_u8IjEEhT_.exit.i, %_ZN3ue2L10filterLitsERKSt6vectorINS_11AccelStringESaIS1_EEyPS0_IPKS1_SaIS7_EEPj.exit, %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
   %.not.i.i.i148 = icmp eq ptr %.sroa.0164.3, null
-  br i1 %.not.i.i.i148, label %_ZNSt6vectorIPKN3ue211AccelStringESaIS3_EED2Ev.exit, label %490
+  br i1 %.not.i.i.i148, label %_ZNSt6vectorIPKN3ue211AccelStringESaIS3_EED2Ev.exit, label %491
 
-490:                                              ; preds = %489
+491:                                              ; preds = %490
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0164.3) #13
   br label %_ZNSt6vectorIPKN3ue211AccelStringESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIPKN3ue211AccelStringESaIS3_EED2Ev.exit: ; preds = %3, %489, %490
+_ZNSt6vectorIPKN3ue211AccelStringESaIS3_EED2Ev.exit: ; preds = %3, %490, %491
   ret void
 
-_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit150: ; preds = %476, %485, %478
-  %.pn89.pn = phi { ptr, i32 } [ %477, %476 ], [ %479, %478 ], [ %486, %485 ]
+_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit150: ; preds = %477, %486, %479
+  %.pn89.pn = phi { ptr, i32 } [ %478, %476 ], [ %480, %478 ], [ %487, %485 ]
   tail call void @_ZdlPv(ptr noundef nonnull %328) #13
   br label %.body
 
@@ -1225,13 +1225,13 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit150: ; preds = %476, %485, %478
   %.sroa.0164.1 = phi ptr [ %.sroa.0164.3, %203 ], [ %.sroa.0164.3, %323 ], [ %.sroa.0164.3, %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit150 ], [ %.sroa.0164.3, %333 ], [ %.sroa.0164.2, %.loopexit197 ], [ %.sroa.0164.0.ph, %.loopexit.split-lp ]
   %.pn89.pn.pn.pn = phi { ptr, i32 } [ %204, %203 ], [ %324, %323 ], [ %.pn89.pn, %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit150 ], [ %334, %333 ], [ %lpad.loopexit, %.loopexit197 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i151 = icmp eq ptr %.sroa.0164.1, null
-  br i1 %.not.i.i.i151, label %_ZNSt6vectorIPKN3ue211AccelStringESaIS3_EED2Ev.exit152, label %491
+  br i1 %.not.i.i.i151, label %_ZNSt6vectorIPKN3ue211AccelStringESaIS3_EED2Ev.exit152, label %492
 
-491:                                              ; preds = %.body
+492:                                              ; preds = %.body
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0164.1) #13
   br label %_ZNSt6vectorIPKN3ue211AccelStringESaIS3_EED2Ev.exit152
 
-_ZNSt6vectorIPKN3ue211AccelStringESaIS3_EED2Ev.exit152: ; preds = %.body, %491
+_ZNSt6vectorIPKN3ue211AccelStringESaIS3_EED2Ev.exit152: ; preds = %.body, %492
   resume { ptr, i32 } %.pn89.pn.pn.pn
 }
 

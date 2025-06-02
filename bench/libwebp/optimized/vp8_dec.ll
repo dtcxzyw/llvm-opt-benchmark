@@ -940,7 +940,7 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 797
   %18 = load i8, ptr %17, align 1, !tbaa !80
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %.critedge, label %159
+  br i1 %19, label %.critedge, label %161
 
 .critedge:                                        ; preds = %2, %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2256
@@ -1073,7 +1073,7 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   br label %98
 
 98:                                               ; preds = %135, %92
-  %.2157.i = phi ptr [ %83, %92 ], [ %129, %135 ]
+  %.2157.i = phi ptr [ %83, %92 ], [ %130, %135 ]
   %.0120156.i = phi i32 [ 0, %92 ], [ %138, %135 ]
   %.0124155.i = phi i32 [ %95, %92 ], [ %144, %135 ]
   %.0125154.i = phi i32 [ %93, %92 ], [ %141, %135 ]
@@ -1088,19 +1088,19 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   %106 = lshr i32 %105, %102
   br label %107
 
-107:                                              ; preds = %130, %98
-  %.3152.i = phi ptr [ %.2157.i, %98 ], [ %129, %130 ]
-  %.0108151.i = phi i32 [ 0, %98 ], [ %128, %130 ]
-  %.2112.in150.i = phi i32 [ %103, %98 ], [ %131, %130 ]
+107:                                              ; preds = %131, %98
+  %.3152.i = phi ptr [ %.2157.i, %98 ], [ %130, %130 ]
+  %.0108151.i = phi i32 [ 0, %98 ], [ %129, %130 ]
+  %.2112.in150.i = phi i32 [ %103, %98 ], [ %132, %130 ]
   %.1115.in149.i = phi i32 [ %106, %98 ], [ %134, %130 ]
   %108 = phi i1 [ true, %98 ], [ false, %130 ]
   %109 = and i32 %.1115.in149.i, 1
   br label %110
 
 110:                                              ; preds = %110, %107
-  %.4147.i = phi ptr [ %.3152.i, %107 ], [ %129, %110 ]
+  %.4147.i = phi ptr [ %.3152.i, %107 ], [ %130, %110 ]
   %.0107146.i = phi i32 [ %109, %107 ], [ %117, %110 ]
-  %.1109145.i = phi i32 [ %.0108151.i, %107 ], [ %128, %110 ]
+  %.1109145.i = phi i32 [ %.0108151.i, %107 ], [ %129, %110 ]
   %.3113.in144.i = phi i32 [ %.2112.in150.i, %107 ], [ %120, %110 ]
   %111 = phi i1 [ true, %107 ], [ false, %110 ]
   %112 = and i32 %.3113.in144.i, 1
@@ -1118,26 +1118,26 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   %124 = shl i32 %.1109145.i, 2
   %125 = icmp sgt i32 %115, 3
   %.inv.i131.i = icmp slt i32 %115, 2
-  %126 = select i1 %.inv.i131.i, i32 %123, i32 2
-  %127 = select i1 %125, i32 3, i32 %126
-  %128 = or disjoint i32 %127, %124
-  %129 = getelementptr inbounds nuw i8, ptr %.4147.i, i64 32
-  br i1 %111, label %110, label %130, !llvm.loop !91
+  %127 = select i1 %.inv.i131.i, i32 %123, i32 2
+  %128 = select i1 %125, i32 3, i32 %127
+  %129 = or disjoint i32 %128, %124
+  %130 = getelementptr inbounds nuw i8, ptr %.4147.i, i64 32
+  br i1 %111, label %110, label %131, !llvm.loop !91
 
-130:                                              ; preds = %110
-  %131 = lshr i32 %120, 2
-  %132 = lshr i32 %.1115.in149.i, 1
+131:                                              ; preds = %110
+  %132 = lshr i32 %120, 2
+  %133 = lshr i32 %.1115.in149.i, 1
   %133 = select i1 %116, i32 32, i32 0
   %134 = or i32 %133, %132
   br i1 %108, label %107, label %135, !llvm.loop !92
 
 135:                                              ; preds = %130
   %136 = shl nuw nsw i32 %.0126153.i, 2
-  %137 = shl i32 %128, %136
+  %138 = shl i32 %128, %136
   %138 = or i32 %137, %.0120156.i
   %139 = shl nuw nsw i32 %131, 4
-  %140 = shl nuw nsw i32 %139, %.0126153.i
-  %141 = or i32 %140, %.0125154.i
+  %141 = shl nuw nsw i32 %139, %.0126153.i
+  %141 = or i32 %141, %.0125154.i
   %142 = and i32 %134, 112
   %143 = shl nuw nsw i32 %142, %.0126153.i
   %144 = or i32 %143, %.0124155.i
@@ -1163,27 +1163,27 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   br label %ParseResiduals.exit
 
 ParseResiduals.exit:                              ; preds = %145, %151
-  %155 = phi i8 [ %154, %151 ], [ 0, %145 ]
-  %156 = getelementptr inbounds nuw i8, ptr %13, i64 796
-  store i8 %155, ptr %156, align 4, !tbaa !98
-  %157 = or i32 %138, %90
-  %.not130.i = icmp ne i32 %157, 0
-  %158 = zext i1 %.not130.i to i8
+  %157 = phi i8 [ %154, %151 ], [ 0, %145 ]
+  %158 = getelementptr inbounds nuw i8, ptr %13, i64 796
+  store i8 %157, ptr %158, align 4, !tbaa !98
+  %159 = or i32 %138, %90
+  %.not130.i = icmp ne i32 %159, 0
+  %160 = zext i1 %.not130.i to i8
   br label %167
 
-159:                                              ; preds = %16
+161:                                              ; preds = %16
   store i8 0, ptr %10, align 1, !tbaa !88
   store i8 0, ptr %6, align 1, !tbaa !88
-  %160 = getelementptr inbounds nuw i8, ptr %13, i64 768
-  %161 = load i8, ptr %160, align 4, !tbaa !83
-  %.not30 = icmp eq i8 %161, 0
-  br i1 %.not30, label %162, label %165
+  %162 = getelementptr inbounds nuw i8, ptr %13, i64 768
+  %163 = load i8, ptr %162, align 4, !tbaa !83
+  %.not30 = icmp eq i8 %163, 0
+  br i1 %.not30, label %164, label %165
 
-162:                                              ; preds = %159
-  %163 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  store i8 0, ptr %163, align 1, !tbaa !84
-  %164 = getelementptr inbounds i8, ptr %5, i64 -1
-  store i8 0, ptr %164, align 1, !tbaa !84
+164:                                              ; preds = %161
+  %165 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  store i8 0, ptr %165, align 1, !tbaa !84
+  %166 = getelementptr inbounds i8, ptr %5, i64 -1
+  store i8 0, ptr %166, align 1, !tbaa !84
   br label %165
 
 165:                                              ; preds = %162, %159
@@ -1198,17 +1198,17 @@ ParseResiduals.exit:                              ; preds = %145, %151
   %170 = icmp sgt i32 %169, 0
   br i1 %170, label %171, label %190
 
-171:                                              ; preds = %167
+171: ; preds = %167
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 2840
   %173 = load ptr, ptr %172, align 8, !tbaa !99
   %174 = load i32, ptr %7, align 8, !tbaa !77
   %175 = sext i32 %174 to i64
   %176 = getelementptr inbounds %struct.VP8FInfo, ptr %173, i64 %175
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 2924
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 2924
   %178 = getelementptr inbounds nuw i8, ptr %13, i64 798
-  %179 = load i8, ptr %178, align 2, !tbaa !82
-  %180 = zext i8 %179 to i64
-  %181 = getelementptr inbounds nuw i8, ptr %13, i64 768
+  %176 = load i8, ptr %178, align 2, !tbaa !82
+  %180 = zext i8 %176 to i64
+  %178 = getelementptr inbounds nuw i8, ptr %13, i64 768
   %182 = load i8, ptr %181, align 4, !tbaa !83
   %183 = zext i8 %182 to i64
   %184 = getelementptr inbounds nuw [4 x [2 x %struct.VP8FInfo]], ptr %177, i64 0, i64 %180, i64 %183
@@ -1221,7 +1221,7 @@ ParseResiduals.exit:                              ; preds = %145, %151
   store i8 %189, ptr %186, align 1, !tbaa !100
   br label %190
 
-190:                                              ; preds = %171, %167
+190:; preds = %171, %167
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %192 = load i32, ptr %191, align 8, !tbaa !66
   %.not32 = icmp eq i32 %192, 0

@@ -15309,7 +15309,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau14AnyTypeSummary11containsAnyEPKNS_
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %35 = load i8, ptr %34, align 1, !tbaa !320, !range !200, !noundef !201
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %_ZN4Luau12DenseHashMapIPKvbNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %103
+  br i1 %36, label %_ZN4Luau12DenseHashMapIPKvbNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %104
 
 _ZN4Luau12DenseHashMapIPKvbNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread: ; preds = %28, %30, %11, %2, %33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #32
@@ -15442,42 +15442,42 @@ _ZN4Luau3getINS_28TypeFunctionInstanceTypePackEPKNS_11TypePackVarEEEPKT_St8optio
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
   store ptr %6, ptr %5, align 8, !tbaa !15
   %83 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPKvbNS_16DenseHashPointerESt8equal_toIS2_EEixERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %84 unwind label %93
+          to label %84 unwind label %94
 
 84:                                               ; preds = %_ZN4Luau3getINS_28TypeFunctionInstanceTypePackEPKNS_11TypePackVarEEEPKT_St8optionalIT0_E.exit.thread
   %85 = trunc nuw i8 %.2 to i1
   store i8 %.2, ptr %83, align 1, !tbaa !320
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
-  %86 = load ptr, ptr %4, align 8, !tbaa !185
-  %.not.i.i.i.i = icmp eq ptr %86, null
-  br i1 %.not.i.i.i.i, label %_ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2Ev.exit, label %87
+  %87 = load ptr, ptr %4, align 8, !tbaa !185
+  %.not.i.i.i.i = icmp eq ptr %87, null
+  br i1 %.not.i.i.i.i, label %_ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2Ev.exit, label %88
 
-87:                                               ; preds = %84
-  %88 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %89 = load ptr, ptr %88, align 8, !tbaa !187
-  %90 = ptrtoint ptr %89 to i64
-  %91 = ptrtoint ptr %86 to i64
-  %92 = sub i64 %90, %91
-  call void @_ZdlPvm(ptr noundef nonnull %86, i64 noundef %92) #31
+88:                                               ; preds = %84
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %90 = load ptr, ptr %89, align 8, !tbaa !187
+  %91 = ptrtoint ptr %90 to i64
+  %92 = ptrtoint ptr %87 to i64
+  %93 = sub i64 %91, %92
+  call void @_ZdlPvm(ptr noundef nonnull %87, i64 noundef %93) #31
   br label %_ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2Ev.exit
 
-_ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2Ev.exit: ; preds = %84, %87
+_ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2Ev.exit: ; preds = %84, %88
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #32
-  br label %103
+  br label %104
 
-93:                                               ; preds = %_ZN4Luau3getINS_28TypeFunctionInstanceTypePackEPKNS_11TypePackVarEEEPKT_St8optionalIT0_E.exit.thread
-  %94 = landingpad { ptr, i32 }
+94:                                               ; preds = %_ZN4Luau3getINS_28TypeFunctionInstanceTypePackEPKNS_11TypePackVarEEEPKT_St8optionalIT0_E.exit.thread
+  %95 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
   br label %95
 
-95:                                               ; preds = %61, %81, %75, %93, %49
+98:                                               ; preds = %61, %81, %75, %93, %49
   %.pn52 = phi { ptr, i32 } [ %50, %49 ], [ %94, %93 ], [ %62, %61 ], [ %76, %75 ], [ %82, %81 ]
-  %96 = load ptr, ptr %4, align 8, !tbaa !185
-  %.not.i.i.i.i61 = icmp eq ptr %96, null
+  %100 = load ptr, ptr %4, align 8, !tbaa !185
+  %.not.i.i.i.i61 = icmp eq ptr %100, null
   br i1 %.not.i.i.i.i61, label %_ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2Ev.exit62, label %97
 
-97:                                               ; preds = %95
+97: ; preds = %95
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %99 = load ptr, ptr %98, align 8, !tbaa !187
   %100 = ptrtoint ptr %99 to i64
@@ -15490,7 +15490,7 @@ _ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2E
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #32
   resume { ptr, i32 } %.pn52
 
-103:                                              ; preds = %33, %_ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2Ev.exit
+104:                                              ; preds = %33, %_ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2Ev.exit
   %.1 = phi i1 [ %85, %_ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2Ev.exit ], [ false, %33 ]
   ret i1 %.1
 }
