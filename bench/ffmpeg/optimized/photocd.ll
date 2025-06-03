@@ -994,48 +994,48 @@ define internal fastcc void @interp_pixels(ptr noundef captures(none) %0, i32 no
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
   %indvars.iv38 = phi i64 [ %8, %.lr.ph.us.preheader ], [ %indvars.iv.next39, %..loopexit_crit_edge.us ]
   %indvars.iv.next39 = add nsw i64 %indvars.iv38, -2
-  %10 = trunc nuw nsw i64 %indvars.iv.next39 to i32
-  %11 = lshr i32 %10, 1
-  %12 = mul nsw i32 %11, %1
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i8, ptr %0, i64 %13
-  %15 = mul nsw i64 %indvars.iv.next39, %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 %15
-  %17 = getelementptr i8, ptr %14, i64 %5
-  %18 = getelementptr i8, ptr %17, i64 -1
-  %19 = load i8, ptr %18, align 1, !tbaa !35
-  %20 = getelementptr i8, ptr %16, i64 %6
-  %21 = getelementptr i8, ptr %20, i64 -1
-  store i8 %19, ptr %21, align 1, !tbaa !35
-  %22 = getelementptr i8, ptr %20, i64 -2
-  store i8 %19, ptr %22, align 1, !tbaa !35
-  br label %23
+  %11 = trunc nuw nsw i64 %indvars.iv.next39 to i32
+  %12 = lshr i32 %11, 1
+  %13 = mul nsw i32 %12, %1
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds i8, ptr %0, i64 %14
+  %16 = mul nsw i64 %indvars.iv.next39, %9
+  %17 = getelementptr inbounds i8, ptr %0, i64 %16
+  %18 = getelementptr i8, ptr %15, i64 %5
+  %19 = getelementptr i8, ptr %18, i64 -1
+  %20 = load i8, ptr %19, align 1, !tbaa !35
+  %21 = getelementptr i8, ptr %17, i64 %6
+  %22 = getelementptr i8, ptr %21, i64 -1
+  store i8 %20, ptr %22, align 1, !tbaa !35
+  %23 = getelementptr i8, ptr %21, i64 -2
+  store i8 %20, ptr %23, align 1, !tbaa !35
+  br label %24
 
-23:                                               ; preds = %.lr.ph.us, %23
+24:                                               ; preds = %.lr.ph.us, %24
   %indvars.iv = phi i64 [ %7, %.lr.ph.us ], [ %indvars.iv.next, %23 ]
-  %24 = lshr i64 %indvars.iv, 1
-  %25 = and i64 %24, 2147483647
-  %26 = getelementptr inbounds nuw i8, ptr %14, i64 %25
-  %27 = load i8, ptr %26, align 1, !tbaa !35
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv
-  store i8 %27, ptr %28, align 1, !tbaa !35
-  %29 = zext i8 %27 to i16
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  %31 = load i8, ptr %30, align 1, !tbaa !35
-  %32 = zext i8 %31 to i16
-  %33 = add nuw nsw i16 %29, 1
-  %34 = add nuw nsw i16 %33, %32
-  %35 = lshr i16 %34, 1
-  %36 = trunc nuw i16 %35 to i8
-  %37 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 %36, ptr %37, align 1, !tbaa !35
+  %25 = lshr i64 %indvars.iv, 1
+  %26 = and i64 %25, 2147483647
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 %26
+  %28 = load i8, ptr %27, align 1, !tbaa !35
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv
+  store i8 %28, ptr %29, align 1, !tbaa !35
+  %30 = zext i8 %28 to i16
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  %32 = load i8, ptr %31, align 1, !tbaa !35
+  %33 = zext i8 %32 to i16
+  %34 = add nuw nsw i16 %30, 1
+  %35 = add nuw nsw i16 %34, %33
+  %36 = lshr i16 %35, 1
+  %37 = trunc nuw i16 %36 to i8
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 1
+  store i8 %37, ptr %38, align 1, !tbaa !35
   %indvars.iv.next = add nsw i64 %indvars.iv, -2
-  %38 = icmp sgt i64 %indvars.iv, 1
-  br i1 %38, label %23, label %..loopexit_crit_edge.us, !llvm.loop !71
+  %39 = icmp sgt i64 %indvars.iv, 1
+  br i1 %39, label %24, label %..loopexit_crit_edge.us, !llvm.loop !71
 
-..loopexit_crit_edge.us:                          ; preds = %23
-  %39 = icmp samesign ugt i64 %indvars.iv38, 3
-  br i1 %39, label %.lr.ph.us, label %.split32.us, !llvm.loop !72
+..loopexit_crit_edge.us:                          ; preds = %24
+  %40 = icmp samesign ugt i64 %indvars.iv38, 3
+  br i1 %40, label %.lr.ph.us, label %.split32.us, !llvm.loop !72
 
 .split32.us:                                      ; preds = %..loopexit_crit_edge.us
   ret void

@@ -388,14 +388,14 @@ for.body163.preheader:                            ; preds = %for.cond161.prehead
 
 for.body163:                                      ; preds = %for.body163.preheader, %_ZN4absl7debian211string_viewC2EPKcm.exit
   %indvars.iv = phi i64 [ 0, %for.body163.preheader ], [ %indvars.iv.next, %_ZN4absl7debian211string_viewC2EPKcm.exit ]
-  %22 = shl nuw nsw i64 %indvars.iv, 1
-  %arrayidx167 = getelementptr inbounds nuw [10 x ptr], ptr %matchcap, i64 0, i64 %22
-  %23 = load ptr, ptr %arrayidx167, align 16
-  %24 = or disjoint i64 %22, 1
-  %arrayidx171 = getelementptr inbounds nuw [10 x ptr], ptr %matchcap, i64 0, i64 %24
-  %25 = load ptr, ptr %arrayidx171, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %25 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %23 to i64
+  %23 = shl nuw nsw i64 %indvars.iv, 1
+  %arrayidx167 = getelementptr inbounds nuw [10 x ptr], ptr %matchcap, i64 0, i64 %23
+  %24 = load ptr, ptr %arrayidx167, align 16
+  %25 = or disjoint i64 %23, 1
+  %arrayidx171 = getelementptr inbounds nuw [10 x ptr], ptr %matchcap, i64 0, i64 %25
+  %26 = load ptr, ptr %arrayidx171, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %26 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %24 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub, -1
   br i1 %cmp.i.i, label %_ZN4absl7debian211string_viewC2EPKcm.exit, label %cond.false.i.i
@@ -406,7 +406,7 @@ cond.false.i.i:                                   ; preds = %for.body163
 
 _ZN4absl7debian211string_viewC2EPKcm.exit:        ; preds = %for.body163
   %arrayidx176 = getelementptr inbounds nuw %"class.absl::debian2::string_view", ptr %match, i64 %indvars.iv
-  store ptr %23, ptr %arrayidx176, align 8
+  store ptr %24, ptr %arrayidx176, align 8
   %ref.tmp164.sroa.2.0.arrayidx176.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx176, i64 8
   store i64 %sub.ptr.sub, ptr %ref.tmp164.sroa.2.0.arrayidx176.sroa_idx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

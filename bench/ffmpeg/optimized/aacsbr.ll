@@ -4602,16 +4602,16 @@ define internal fastcc range(i32 -1, 1) i32 @read_sbr_grid(ptr noundef readonly 
   %77 = and i32 %67, 7
   %78 = shl nuw nsw i32 %76, %77
   store i32 %spec.select.i, ptr %18, align 8, !tbaa !35
-  %79 = trunc i32 %78 to i8
-  %80 = lshr i8 %79, 7
-  %81 = getelementptr inbounds nuw i8, ptr %3, i64 13
-  store i8 %80, ptr %81, align 1, !tbaa !9
+  %78 = trunc i32 %78 to i8
+  %79 = lshr i8 %78, 7
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 %79, ptr %80, align 1, !tbaa !9
   br i1 %53, label %.thread305, label %.lr.ph243.preheader
 
 .lr.ph243.preheader:                              ; preds = %._crit_edge240
   %scevgep = getelementptr i8, ptr %3, i64 14
   %umax = tail call i64 @llvm.umax.i64(i64 %66, i64 2)
-  %82 = add nsw i64 %umax, -1
+  %81 = add nsw i64 %umax, -1
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 %80, i64 %82, i1 false), !tbaa !9
   br label %.thread305
 

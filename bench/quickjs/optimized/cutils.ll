@@ -738,19 +738,19 @@ switch.lookup:                                    ; preds = %9
   %19 = and i8 %18, %5
   %20 = zext i8 %19 to i32
   %21 = zext nneg i32 %switch.load to i64
-  %22 = getelementptr i8, ptr %0, i64 %21
+  %scevgep = getelementptr i8, ptr %0, i64 %21
   %scevgep = getelementptr i8, ptr %22, i64 1
   br label %23
 
-23:                                               ; preds = %14, %25
-  %.034 = phi i32 [ 0, %14 ], [ %31, %25 ]
-  %.02533 = phi i32 [ %20, %14 ], [ %30, %25 ]
+23: ; preds = %14, %25
+  %.02533 = phi i32 [ 0, %14 ], [ %31, %25 ]
+  %.02732 = phi i32 [ %20, %14 ], [ %30, %25 ]
   %.02732 = phi ptr [ %4, %14 ], [ %26, %25 ]
   %24 = load i8, ptr %.02732, align 1, !tbaa !7
   %or.cond = icmp sgt i8 %24, -65
   br i1 %or.cond, label %.loopexit, label %25
 
-25:                                               ; preds = %23
+25: ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %.02732, i64 1
   %27 = shl i32 %.02533, 6
   %28 = and i8 %24, 63
@@ -760,14 +760,14 @@ switch.lookup:                                    ; preds = %9
   %exitcond.not = icmp eq i32 %31, %switch.load
   br i1 %exitcond.not, label %32, label %23, !llvm.loop !25
 
-32:                                               ; preds = %25
+32: ; preds = %25
   %33 = getelementptr inbounds nuw [5 x i32], ptr @utf8_min_code, i64 0, i64 %16
   %34 = load i32, ptr %33, align 4, !tbaa !26
   %35 = icmp ult i32 %30, %34
   br i1 %35, label %.loopexit, label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %32, %7
-  %scevgep.sink = phi ptr [ %4, %7 ], [ %scevgep, %32 ]
+.loopexit.sink.split:; preds = %32, %7
+  %.024.ph = phi ptr [ %4, %7 ], [ %scevgep, %32 ]
   %.024.ph = phi i32 [ %8, %7 ], [ %30, %32 ]
   store ptr %scevgep.sink, ptr %2, align 8, !tbaa !12
   br label %.loopexit

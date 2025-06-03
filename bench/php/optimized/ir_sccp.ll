@@ -2880,7 +2880,7 @@ ir_sccp_remove_unfeasible_merge_inputs.exit.backedge: ; preds = %331, %.preheade
   br i1 %.not179228.i, label %._crit_edge249.i, label %.lr.ph248.preheader.i
 
 .lr.ph248.preheader.i:                            ; preds = %.preheader.i
-  %311 = tail call i16 @llvm.umax.i16(i16 %224, i16 2)
+  %umax.i = tail call i16 @llvm.umax.i16(i16 %224, i16 2)
   %umax.i = zext i16 %311 to i64
   %312 = shl nuw nsw i64 %umax.i, 2
   %313 = add nsw i64 %312, -4

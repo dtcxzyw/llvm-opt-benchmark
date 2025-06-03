@@ -258,29 +258,29 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   %scevgep = getelementptr i8, ptr %.01220, i64 %11
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %16
-  %.01119 = phi i32 [ %18, %16 ], [ 1, %.lr.ph.preheader ]
-  %.218 = phi ptr [ %17, %16 ], [ %6, %.lr.ph.preheader ]
-  %12 = icmp eq ptr %.218, %1
-  br i1 %12, label %.loopexit15, label %13
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %15
+  %.01119 = phi i32 [ %17, %16 ], [ 1, %.lr.ph.preheader ]
+  %.218 = phi ptr [ %16, %16 ], [ %6, %.lr.ph.preheader ]
+  %11 = icmp eq ptr %.218, %1
+  br i1 %11, label %.loopexit15, label %12
 
-13:                                               ; preds = %.lr.ph
-  %14 = load i8, ptr %.218, align 1, !tbaa !4
-  %15 = icmp slt i8 %14, -64
-  br i1 %15, label %16, label %.loopexit15
+12:                                               ; preds = %.lr.ph
+  %13 = load i8, ptr %.218, align 1, !tbaa !4
+  %14 = icmp slt i8 %13, -64
+  br i1 %14, label %15, label %.loopexit15
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %.218, i64 1
-  %18 = add nuw nsw i32 %.01119, 1
-  %exitcond.not = icmp eq i32 %18, %smax
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %.218, i64 1
+  %17 = add nuw nsw i32 %.01119, 1
+  %exitcond.not = icmp eq i32 %17, %smax
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
-.loopexit:                                        ; preds = %16, %5
+.loopexit:                                        ; preds = %15, %5
   %.1 = phi ptr [ %6, %5 ], [ %scevgep, %16 ]
-  %19 = icmp ult ptr %.1, %1
-  br i1 %19, label %.lr.ph21, label %.loopexit15, !llvm.loop !16
+  %18 = icmp ult ptr %.1, %1
+  br i1 %18, label %.lr.ph21, label %.loopexit15, !llvm.loop !16
 
-.loopexit15:                                      ; preds = %.lr.ph21, %.loopexit, %13, %.lr.ph, %2
+.loopexit15:                                      ; preds = %.lr.ph21, %.loopexit, %12, %.lr.ph, %2
   %.0 = phi i32 [ 1, %2 ], [ 0, %.lr.ph ], [ 0, %13 ], [ 0, %.lr.ph21 ], [ 1, %.loopexit ]
   ret i32 %.0
 }

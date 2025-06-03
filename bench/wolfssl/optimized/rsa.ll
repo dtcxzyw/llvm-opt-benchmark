@@ -2933,22 +2933,22 @@ define internal fastcc i32 @RsaMGF1(i32 noundef range(i32 4, 18) %0, ptr noundef
   br i1 %.not9, label %.split.us.split, label %.preheader.us.us, !llvm.loop !41
 
 .preheader.us.us:                                 ; preds = %.split.us, %.preheader.us.us
-  %.041.us.us = phi i32 [ %40, %.preheader.us.us ], [ 0, %.split.us ]
+  %.041.us.us = phi i32 [ %39, %.preheader.us.us ], [ 0, %.split.us ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %1, i64 %17, i1 false)
-  %32 = lshr i32 %.041.us.us, 24
-  %33 = trunc nuw i32 %32 to i8
-  store i8 %33, ptr %18, align 1, !tbaa !20
-  %34 = lshr i32 %.041.us.us, 16
-  %35 = trunc i32 %34 to i8
-  store i8 %35, ptr %21, align 1, !tbaa !20
-  %36 = lshr i32 %.041.us.us, 8
-  %37 = trunc i32 %36 to i8
-  store i8 %37, ptr %24, align 1, !tbaa !20
-  %38 = trunc i32 %.041.us.us to i8
-  store i8 %38, ptr %27, align 1, !tbaa !20
-  %39 = call i32 @wc_Hash(i32 noundef %0, ptr noundef nonnull %6, i32 noundef %10, ptr noundef nonnull %6, i32 noundef %.046) #12
-  %.not.us.us = icmp eq i32 %39, 0
-  %40 = add i32 %.041.us.us, 1
+  %31 = lshr i32 %.041.us.us, 24
+  %32 = trunc nuw i32 %31 to i8
+  store i8 %32, ptr %18, align 1, !tbaa !20
+  %33 = lshr i32 %.041.us.us, 16
+  %34 = trunc i32 %33 to i8
+  store i8 %34, ptr %21, align 1, !tbaa !20
+  %35 = lshr i32 %.041.us.us, 8
+  %36 = trunc i32 %35 to i8
+  store i8 %36, ptr %24, align 1, !tbaa !20
+  %37 = trunc i32 %.041.us.us to i8
+  store i8 %37, ptr %27, align 1, !tbaa !20
+  %38 = call i32 @wc_Hash(i32 noundef %0, ptr noundef nonnull %6, i32 noundef %10, ptr noundef nonnull %6, i32 noundef %.046) #12
+  %.not.us.us = icmp eq i32 %38, 0
+  %39 = add i32 %.041.us.us, 1
   br i1 %.not.us.us, label %.preheader.us.us, label %.thread
 
 .split.us.split:                                  ; preds = %.split.us
@@ -2957,65 +2957,65 @@ define internal fastcc i32 @RsaMGF1(i32 noundef range(i32 4, 18) %0, ptr noundef
   store i8 0, ptr %21, align 1, !tbaa !20
   store i8 0, ptr %24, align 1, !tbaa !20
   store i8 0, ptr %27, align 1, !tbaa !20
-  %41 = call i32 @wc_Hash(i32 noundef %0, ptr noundef nonnull %6, i32 noundef %10, ptr noundef nonnull %6, i32 noundef %.046) #12
+  %40 = call i32 @wc_Hash(i32 noundef %0, ptr noundef nonnull %6, i32 noundef %10, ptr noundef nonnull %6, i32 noundef %.046) #12
   br label %.thread
 
 .split:                                           ; preds = %.split.preheader, %._crit_edge
-  %.041 = phi i32 [ %60, %._crit_edge ], [ 0, %.split.preheader ]
+  %.041 = phi i32 [ %59, %._crit_edge ], [ 0, %.split.preheader ]
   %.040 = phi i32 [ %.2.lcssa, %._crit_edge ], [ 0, %.split.preheader ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %1, i64 %17, i1 false)
-  %42 = lshr i32 %.041, 24
-  %43 = trunc nuw i32 %42 to i8
-  store i8 %43, ptr %18, align 1, !tbaa !20
-  %44 = lshr i32 %.041, 16
-  %45 = trunc i32 %44 to i8
-  store i8 %45, ptr %21, align 1, !tbaa !20
-  %46 = lshr i32 %.041, 8
-  %47 = trunc i32 %46 to i8
-  store i8 %47, ptr %24, align 1, !tbaa !20
-  %48 = trunc i32 %.041 to i8
-  store i8 %48, ptr %27, align 1, !tbaa !20
-  %49 = call i32 @wc_Hash(i32 noundef %0, ptr noundef nonnull %6, i32 noundef %10, ptr noundef nonnull %6, i32 noundef %.046) #12
-  %.not = icmp eq i32 %49, 0
+  %41 = lshr i32 %.041, 24
+  %42 = trunc nuw i32 %41 to i8
+  store i8 %42, ptr %18, align 1, !tbaa !20
+  %43 = lshr i32 %.041, 16
+  %44 = trunc i32 %43 to i8
+  store i8 %44, ptr %21, align 1, !tbaa !20
+  %45 = lshr i32 %.041, 8
+  %46 = trunc i32 %45 to i8
+  store i8 %46, ptr %24, align 1, !tbaa !20
+  %47 = trunc i32 %.041 to i8
+  store i8 %47, ptr %27, align 1, !tbaa !20
+  %48 = call i32 @wc_Hash(i32 noundef %0, ptr noundef nonnull %6, i32 noundef %10, ptr noundef nonnull %6, i32 noundef %.046) #12
+  %.not = icmp eq i32 %48, 0
   br i1 %.not, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %.split
-  %50 = icmp ult i32 %.040, %4
-  br i1 %50, label %.lr.ph.preheader, label %._crit_edge
+  %49 = icmp ult i32 %.040, %4
+  br i1 %49, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %51 = zext i32 %.040 to i64
-  %scevgep = getelementptr i8, ptr %3, i64 %51
-  %52 = xor i32 %.040, -1
-  %53 = add i32 %4, %52
-  %54 = zext i32 %53 to i64
+  %50 = zext i32 %.040 to i64
+  %scevgep = getelementptr i8, ptr %3, i64 %50
+  %51 = xor i32 %.040, -1
+  %52 = add i32 %4, %51
+  %54 = zext i32 %52 to i64
   %umin = call i64 @llvm.umin.i64(i64 %29, i64 %54)
-  %55 = add nuw nsw i64 %umin, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, ptr noundef nonnull align 16 dereferenceable(1) %6, i64 %55, i1 false), !tbaa !20
+  %54 = add nuw nsw i64 %umin, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, ptr noundef nonnull align 16 dereferenceable(1) %6, i64 %54, i1 false), !tbaa !20
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv12 = phi i64 [ %51, %.lr.ph.preheader ], [ %indvars.iv.next13, %.lr.ph ]
+  %indvars.iv12 = phi i64 [ %50, %.lr.ph.preheader ], [ %indvars.iv.next13, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next13 = add nuw nsw i64 %indvars.iv12, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %56 = icmp samesign ult i64 %indvars.iv.next, %30
-  %57 = icmp samesign ult i64 %indvars.iv.next13, %31
-  %58 = select i1 %56, i1 %57, i1 false
-  br i1 %58, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !42
+  %55 = icmp samesign ult i64 %indvars.iv.next, %30
+  %56 = icmp samesign ult i64 %indvars.iv.next13, %31
+  %57 = select i1 %55, i1 %56, i1 false
+  br i1 %57, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !42
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %59 = trunc nuw i64 %indvars.iv.next13 to i32
+  %58 = trunc nuw i64 %indvars.iv.next13 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.2.lcssa = phi i32 [ %.040, %.preheader ], [ %59, %._crit_edge.loopexit ]
-  %60 = add i32 %.041, 1
-  %61 = icmp ult i32 %.2.lcssa, %4
-  br i1 %61, label %.split, label %.thread, !llvm.loop !41
+  %.2.lcssa = phi i32 [ %.040, %.preheader ], [ %58, %._crit_edge.loopexit ]
+  %59 = add i32 %.041, 1
+  %60 = icmp ult i32 %.2.lcssa, %4
+  br i1 %60, label %.split, label %.thread, !llvm.loop !41
 
 .thread:                                          ; preds = %._crit_edge, %.split, %.preheader.us.us, %.split.us.split, %13, %5
-  %.043 = phi i32 [ %.fr7, %5 ], [ -173, %13 ], [ %41, %.split.us.split ], [ %39, %.preheader.us.us ], [ %49, %.split ], [ 0, %._crit_edge ]
+  %.043 = phi i32 [ %.fr7, %5 ], [ -173, %13 ], [ %40, %.split.us.split ], [ %38, %.preheader.us.us ], [ %48, %.split ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #12
   ret i32 %.043
 }

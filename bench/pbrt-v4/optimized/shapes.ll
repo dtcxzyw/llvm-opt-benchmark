@@ -6832,11 +6832,11 @@ _ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEEC2EmRKS5_.exit
   %28 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = invoke noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %27, i64 noundef 8)
-          to label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt5CurveEEEPT_m.exit.preheader unwind label %39
+          to label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt5CurveEEEPT_m.exit.preheader unwind label %38
 
 _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt5CurveEEEPT_m.exit.preheader: ; preds = %_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEEC2EmRKS5_.exit
   %.not = icmp eq i32 %10, 31
-  br i1 %.not, label %34, label %.lr.ph
+  br i1 %.not, label %33, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt5CurveEEEPT_m.exit.preheader
   %31 = sitofp i32 %17 to float
@@ -6851,19 +6851,19 @@ _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt5CurveEEEPT_
   store i64 %33, ptr %32, align 8, !tbaa !59
   br label %34
 
-34:                                               ; preds = %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt5CurveEEEPT_m.exit._crit_edge, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt5CurveEEEPT_m.exit.preheader
-  %35 = add nsw i64 %27, 120
-  %36 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL10curveBytesE)
-  %37 = load i64, ptr %36, align 8, !tbaa !59
-  %38 = add i64 %35, %37
-  store i64 %38, ptr %36, align 8, !tbaa !59
+33:                                               ; preds = %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt5CurveEEEPT_m.exit._crit_edge, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt5CurveEEEPT_m.exit.preheader
+  %34 = add nsw i64 %27, 120
+  %35 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL10curveBytesE)
+  %36 = load i64, ptr %35, align 8, !tbaa !59
+  %37 = add i64 %34, %36
+  store i64 %37, ptr %35, align 8, !tbaa !59
   ret void
 
-39:                                               ; preds = %_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEEC2EmRKS5_.exit
-  %40 = landingpad { ptr, i32 }
+38:                                               ; preds = %_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEEC2EmRKS5_.exit
+  %39 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #31
-  resume { ptr, i32 } %40
+  resume { ptr, i32 } %39
 
 _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt5CurveEEEPT_m.exit: ; preds = %.lr.ph, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt5CurveEEEPT_m.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt5CurveEEEPT_m.exit ]

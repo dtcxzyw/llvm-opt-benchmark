@@ -126,33 +126,33 @@ define dso_local void @sdhci_write_cmd(ptr noundef %0, i64 noundef %1, ptr nound
   %23 = or i32 %22, %.01418.i
   %24 = add nuw nsw i32 %.019.i, 1
   %exitcond.not.i = icmp eq i32 %24, %16
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !7
 
-._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
+._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
   %25 = zext nneg i32 %16 to i64
   %26 = add i64 %.01521.i, %25
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph23.i
+._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %.lr.ph23.i
   %.1.lcssa.i = phi i64 [ %.01521.i, %.lr.ph23.i ], [ %26, %._crit_edge.loopexit.i ]
   %.014.lcssa.i = phi i32 [ 0, %.lr.ph23.i ], [ %23, %._crit_edge.loopexit.i ]
   tail call void @qtest_writel(ptr noundef %0, i64 noundef %12, i32 noundef %.014.lcssa.i) #3
-  %27 = icmp ult i64 %.1.lcssa.i, %3
-  br i1 %27, label %.lr.ph23.i, label %write_fifo.exit, !llvm.loop !8
+  %29 = icmp ult i64 %.1.lcssa.i, %3
+  br i1 %29, label %.lr.ph23.i, label %write_fifo.exit, !llvm.loop !8
 
 write_fifo.exit:                                  ; preds = %._crit_edge.i, %5
-  %28 = sub i64 %4, %3
-  %29 = lshr i64 %28, 2
-  %30 = trunc i64 %29 to i32
-  %31 = add i32 %30, -1
-  %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %.lr.ph.i13, label %fill_block.exit
+  %30 = sub i64 %4, %3
+  %31 = lshr i64 %30, 2
+  %32 = trunc i64 %31 to i32
+  %33 = add i32 %32, -1
+  %34 = icmp sgt i32 %33, -1
+  br i1 %34, label %.lr.ph.i13, label %fill_block.exit
 
 .lr.ph.i13:                                       ; preds = %write_fifo.exit, %.lr.ph.i13
-  %33 = phi i32 [ %34, %.lr.ph.i13 ], [ %31, %write_fifo.exit ]
+  %35 = phi i32 [ %36, %.lr.ph.i13 ], [ %33, %write_fifo.exit ]
   tail call void @qtest_writel(ptr noundef %0, i64 noundef %12, i32 noundef 0) #3
-  %34 = add nsw i32 %33, -1
-  %.not.i14 = icmp eq i32 %33, 0
+  %36 = add nsw i32 %35, -1
+  %.not.i14 = icmp eq i32 %35, 0
   br i1 %.not.i14, label %fill_block.exit, label %.lr.ph.i13, !llvm.loop !9
 
 fill_block.exit:                                  ; preds = %.lr.ph.i13, %write_fifo.exit

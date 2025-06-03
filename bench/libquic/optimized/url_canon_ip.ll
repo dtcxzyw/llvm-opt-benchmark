@@ -1821,8 +1821,8 @@ _ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i:     ; preds = %20
 
 ..thread91.i_crit_edge.i:                         ; preds = %69
   %.phi.trans.insert.i = sext i32 %.265.i.i to i64
-  %.phi.trans.insert37.i = getelementptr inbounds i8, ptr %0, i64 %.phi.trans.insert.i
-  %.pre.i = load i8, ptr %.phi.trans.insert37.i, align 1, !tbaa !3
+  %.phi.trans.insert39.i = getelementptr inbounds i8, ptr %0, i64 %.phi.trans.insert.i
+  %.pre.i = load i8, ptr %.phi.trans.insert39.i, align 1, !tbaa !3
   br label %.thread91.i.i
 
 70:                                               ; preds = %69
@@ -1907,13 +1907,13 @@ _ZN3url12_GLOBAL__N_111DoParseIPv6IchEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.e
 .lr.ph18.split.preheader.i:                       ; preds = %.lr.ph18.i
   %96 = zext nneg i32 %87 to i64
   %97 = add nuw i32 %87, 1
-  %wide.trip.count35.i = zext i32 %97 to i64
+  %wide.trip.count37.i = zext i32 %97 to i64
   br label %.lr.ph18.split.i
 
 .lr.ph18.split.us.i:                              ; preds = %117, %.lr.ph18.split.us.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph18.split.us.preheader.i ], [ %indvars.iv.next.i, %117 ]
+  %indvars.iv30.i = phi i64 [ 0, %.lr.ph18.split.us.preheader.i ], [ %indvars.iv.next31.i, %117 ]
   %.03116.us.i = phi i32 [ 0, %.lr.ph18.split.us.preheader.i ], [ %.334.us.i, %117 ]
-  %98 = icmp eq i64 %indvars.iv.i, %93
+  %98 = icmp eq i64 %indvars.iv30.i, %93
   br i1 %98, label %.preheader.us.preheader.i, label %..loopexit_crit_edge.us.i
 
 .preheader.us.preheader.i:                        ; preds = %.lr.ph18.split.us.i
@@ -1925,11 +1925,11 @@ _ZN3url12_GLOBAL__N_111DoParseIPv6IchEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.e
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.preheader.i, %.lr.ph18.split.us.i
   %.132.us.i = phi i32 [ %.03116.us.i, %.lr.ph18.split.us.i ], [ %100, %.preheader.us.preheader.i ]
-  %.not39.us.i = icmp eq i64 %indvars.iv.i, %94
+  %.not39.us.i = icmp eq i64 %indvars.iv30.i, %94
   br i1 %.not39.us.i, label %117, label %101
 
 101:                                              ; preds = %..loopexit_crit_edge.us.i
-  %102 = getelementptr inbounds nuw [8 x %"struct.url::Component"], ptr %5, i64 0, i64 %indvars.iv.i
+  %102 = getelementptr inbounds nuw [8 x %"struct.url::Component"], ptr %5, i64 0, i64 %indvars.iv30.i
   %.val.us.i = load i32, ptr %102, align 4
   %103 = getelementptr i8, ptr %102, i64 4
   %.val40.us.i = load i32, ptr %103, align 4
@@ -1963,22 +1963,22 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.us
 
 117:                                              ; preds = %_ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.us.i, %..loopexit_crit_edge.us.i
   %.334.us.i = phi i32 [ %115, %_ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.us.i ], [ %.132.us.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph18.split.us.i, !llvm.loop !53
+  %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
+  %exitcond33.not.i = icmp eq i64 %indvars.iv.next31.i, %wide.trip.count.i
+  br i1 %exitcond33.not.i, label %._crit_edge.i, label %.lr.ph18.split.us.i, !llvm.loop !53
 
 ._crit_edge.i:                                    ; preds = %117, %134, %.preheader7.i
   %.031.lcssa.i = phi i32 [ 0, %.preheader7.i ], [ %.334.i, %134 ], [ %.334.us.i, %117 ]
   br i1 %.not13.i.i, label %139, label %135
 
 .lr.ph18.split.i:                                 ; preds = %134, %.lr.ph18.split.preheader.i
-  %indvars.iv32.i = phi i64 [ 0, %.lr.ph18.split.preheader.i ], [ %indvars.iv.next33.i, %134 ]
+  %indvars.iv34.i = phi i64 [ 0, %.lr.ph18.split.preheader.i ], [ %indvars.iv.next35.i, %134 ]
   %.03116.i = phi i32 [ 0, %.lr.ph18.split.preheader.i ], [ %.334.i, %134 ]
-  %.not39.i = icmp eq i64 %indvars.iv32.i, %96
+  %.not39.i = icmp eq i64 %indvars.iv34.i, %96
   br i1 %.not39.i, label %134, label %118
 
 118:                                              ; preds = %.lr.ph18.split.i
-  %119 = getelementptr inbounds nuw [8 x %"struct.url::Component"], ptr %5, i64 0, i64 %indvars.iv32.i
+  %119 = getelementptr inbounds nuw [8 x %"struct.url::Component"], ptr %5, i64 0, i64 %indvars.iv34.i
   %.val.i = load i32, ptr %119, align 4
   %120 = getelementptr i8, ptr %119, i64 4
   %.val40.i = load i32, ptr %120, align 4
@@ -2012,9 +2012,9 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.i:
 
 134:                                              ; preds = %_ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.i, %.lr.ph18.split.i
   %.334.i = phi i32 [ %132, %_ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.i ], [ %.03116.i, %.lr.ph18.split.i ]
-  %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
-  %exitcond36.not.i = icmp eq i64 %indvars.iv.next33.i, %wide.trip.count35.i
-  br i1 %exitcond36.not.i, label %._crit_edge.i, label %.lr.ph18.split.i, !llvm.loop !53
+  %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
+  %exitcond38.not.i = icmp eq i64 %indvars.iv.next35.i, %wide.trip.count37.i
+  br i1 %exitcond38.not.i, label %._crit_edge.i, label %.lr.ph18.split.i, !llvm.loop !53
 
 135:                                              ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
@@ -2185,8 +2185,8 @@ _ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i:     ; preds = %20
 
 ..thread91.i_crit_edge.i:                         ; preds = %69
   %.phi.trans.insert.i = sext i32 %.265.i.i to i64
-  %.phi.trans.insert37.i = getelementptr inbounds i16, ptr %0, i64 %.phi.trans.insert.i
-  %.pre.i = load i16, ptr %.phi.trans.insert37.i, align 2, !tbaa !26
+  %.phi.trans.insert39.i = getelementptr inbounds i16, ptr %0, i64 %.phi.trans.insert.i
+  %.pre.i = load i16, ptr %.phi.trans.insert39.i, align 2, !tbaa !26
   br label %.thread91.i.i
 
 70:                                               ; preds = %69
@@ -2271,13 +2271,13 @@ _ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.e
 .lr.ph18.split.preheader.i:                       ; preds = %.lr.ph18.i
   %96 = zext nneg i32 %87 to i64
   %97 = add nuw i32 %87, 1
-  %wide.trip.count35.i = zext i32 %97 to i64
+  %wide.trip.count37.i = zext i32 %97 to i64
   br label %.lr.ph18.split.i
 
 .lr.ph18.split.us.i:                              ; preds = %119, %.lr.ph18.split.us.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph18.split.us.preheader.i ], [ %indvars.iv.next.i, %119 ]
+  %indvars.iv30.i = phi i64 [ 0, %.lr.ph18.split.us.preheader.i ], [ %indvars.iv.next31.i, %119 ]
   %.03116.us.i = phi i32 [ 0, %.lr.ph18.split.us.preheader.i ], [ %.334.us.i, %119 ]
-  %98 = icmp eq i64 %indvars.iv.i, %93
+  %98 = icmp eq i64 %indvars.iv30.i, %93
   br i1 %98, label %.preheader.us.preheader.i, label %..loopexit_crit_edge.us.i
 
 .preheader.us.preheader.i:                        ; preds = %.lr.ph18.split.us.i
@@ -2289,11 +2289,11 @@ _ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.e
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.preheader.i, %.lr.ph18.split.us.i
   %.132.us.i = phi i32 [ %.03116.us.i, %.lr.ph18.split.us.i ], [ %100, %.preheader.us.preheader.i ]
-  %.not39.us.i = icmp eq i64 %indvars.iv.i, %94
+  %.not39.us.i = icmp eq i64 %indvars.iv30.i, %94
   br i1 %.not39.us.i, label %119, label %101
 
 101:                                              ; preds = %..loopexit_crit_edge.us.i
-  %102 = getelementptr inbounds nuw [8 x %"struct.url::Component"], ptr %5, i64 0, i64 %indvars.iv.i
+  %102 = getelementptr inbounds nuw [8 x %"struct.url::Component"], ptr %5, i64 0, i64 %indvars.iv30.i
   %.val.us.i = load i32, ptr %102, align 4
   %103 = getelementptr i8, ptr %102, i64 4
   %.val40.us.i = load i32, ptr %103, align 4
@@ -2337,22 +2337,22 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.us
 
 119:                                              ; preds = %_ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.us.i, %..loopexit_crit_edge.us.i
   %.334.us.i = phi i32 [ %117, %_ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.us.i ], [ %.132.us.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph18.split.us.i, !llvm.loop !56
+  %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
+  %exitcond33.not.i = icmp eq i64 %indvars.iv.next31.i, %wide.trip.count.i
+  br i1 %exitcond33.not.i, label %._crit_edge.i, label %.lr.ph18.split.us.i, !llvm.loop !56
 
 ._crit_edge.i:                                    ; preds = %119, %138, %.preheader7.i
   %.031.lcssa.i = phi i32 [ 0, %.preheader7.i ], [ %.334.i, %138 ], [ %.334.us.i, %119 ]
   br i1 %.not13.i.i, label %143, label %139
 
 .lr.ph18.split.i:                                 ; preds = %138, %.lr.ph18.split.preheader.i
-  %indvars.iv32.i = phi i64 [ 0, %.lr.ph18.split.preheader.i ], [ %indvars.iv.next33.i, %138 ]
+  %indvars.iv34.i = phi i64 [ 0, %.lr.ph18.split.preheader.i ], [ %indvars.iv.next35.i, %138 ]
   %.03116.i = phi i32 [ 0, %.lr.ph18.split.preheader.i ], [ %.334.i, %138 ]
-  %.not39.i = icmp eq i64 %indvars.iv32.i, %96
+  %.not39.i = icmp eq i64 %indvars.iv34.i, %96
   br i1 %.not39.i, label %138, label %120
 
 120:                                              ; preds = %.lr.ph18.split.i
-  %121 = getelementptr inbounds nuw [8 x %"struct.url::Component"], ptr %5, i64 0, i64 %indvars.iv32.i
+  %121 = getelementptr inbounds nuw [8 x %"struct.url::Component"], ptr %5, i64 0, i64 %indvars.iv34.i
   %.val.i = load i32, ptr %121, align 4
   %122 = getelementptr i8, ptr %121, i64 4
   %.val40.i = load i32, ptr %122, align 4
@@ -2396,9 +2396,9 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.i:
 
 138:                                              ; preds = %_ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.i, %.lr.ph18.split.i
   %.334.i = phi i32 [ %136, %_ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.i ], [ %.03116.i, %.lr.ph18.split.i ]
-  %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
-  %exitcond36.not.i = icmp eq i64 %indvars.iv.next33.i, %wide.trip.count35.i
-  br i1 %exitcond36.not.i, label %._crit_edge.i, label %.lr.ph18.split.i, !llvm.loop !56
+  %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
+  %exitcond38.not.i = icmp eq i64 %indvars.iv.next35.i, %wide.trip.count37.i
+  br i1 %exitcond38.not.i, label %._crit_edge.i, label %.lr.ph18.split.i, !llvm.loop !56
 
 139:                                              ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9

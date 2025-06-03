@@ -1559,13 +1559,13 @@ define internal fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(pt
 18:                                               ; preds = %._crit_edge171, %10
   %19 = load i32, ptr %4, align 4, !tbaa !14
   %.not146 = icmp eq i32 %19, 0
-  br i1 %.not146, label %137, label %20
+  br i1 %.not146, label %135, label %20
 
 20:                                               ; preds = %18
   %21 = load i32, ptr %5, align 4, !tbaa !14
   %22 = or i32 %21, 2080
   store i32 %22, ptr %5, align 4, !tbaa !14
-  br label %137
+  br label %135
 
 23:                                               ; preds = %6
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1577,19 +1577,19 @@ define internal fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(pt
   store i32 %28, ptr %5, align 4, !tbaa !14
   %29 = load i32, ptr %4, align 4, !tbaa !14
   %30 = icmp sgt i32 %29, 1
-  br i1 %30, label %.thread175, label %31
+  br i1 %30, label %.thread174, label %31
 
 31:                                               ; preds = %23
   %32 = icmp slt i32 %7, 0
   br i1 %32, label %34, label %.preheader150
 
-.thread175:                                       ; preds = %23
+.thread174:                                       ; preds = %23
   store i32 1, ptr %4, align 4, !tbaa !14
   %33 = icmp slt i32 %7, 0
   br i1 %33, label %.thread, label %.preheader150
 
-.preheader150:                                    ; preds = %.thread175, %31
-  %.pr177 = phi i32 [ 1, %.thread175 ], [ %29, %31 ]
+.preheader150:                                    ; preds = %.thread174, %31
+  %.pr176 = phi i32 [ 1, %.thread175 ], [ %29, %31 ]
   %.not151.not = icmp eq i32 %8, 1
   br i1 %.not151.not, label %._crit_edge, label %.lr.ph
 
@@ -1622,7 +1622,7 @@ define internal fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(pt
   %.not144 = icmp eq i32 %29, 0
   br i1 %.not144, label %44, label %.thread
 
-.thread:                                          ; preds = %.thread175, %34, %37, %._crit_edge166
+.thread:                                          ; preds = %.thread174, %34, %37, %._crit_edge166
   %42 = load i32, ptr %5, align 4, !tbaa !14
   %43 = or i32 %42, 32
   store i32 %43, ptr %5, align 4, !tbaa !14
@@ -1632,10 +1632,10 @@ define internal fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(pt
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 0, ptr %45, align 1, !tbaa !10
   store i32 1, ptr %0, align 4, !tbaa !9
-  br label %137
+  br label %135
 
 .lr.ph:                                           ; preds = %.preheader150, %50
-  %46 = phi i32 [ %51, %50 ], [ %.pr177, %.preheader150 ]
+  %46 = phi i32 [ %51, %50 ], [ %.pr176, %.preheader150 ]
   %47 = phi i32 [ %53, %50 ], [ 1, %.preheader150 ]
   %.2152 = phi ptr [ %52, %50 ], [ %2, %.preheader150 ]
   %48 = load i8, ptr %.2152, align 1, !tbaa !10
@@ -1661,18 +1661,18 @@ define internal fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(pt
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader150
-  %57 = phi i32 [ %.pr177, %.preheader150 ], [ %51, %._crit_edge.loopexit ]
+  %55 = phi i32 [ %.pr176, %.preheader150 ], [ %51, %._crit_edge.loopexit ]
   %.2123.lcssa = phi i32 [ 0, %.preheader150 ], [ %56, %._crit_edge.loopexit ]
   %.2.lcssa = phi ptr [ %2, %.preheader150 ], [ %scevgep, %._crit_edge.loopexit ]
-  %58 = sub nsw i32 %8, %.2123.lcssa
-  %59 = add nsw i32 %58, -1
-  %60 = icmp eq i32 %59, 0
-  %61 = load i8, ptr %.2.lcssa, align 1, !tbaa !10
-  br i1 %60, label %62, label %77
+  %56 = sub nsw i32 %8, %.2123.lcssa
+  %57 = add nsw i32 %56, -1
+  %58 = icmp eq i32 %57, 0
+  %59 = load i8, ptr %.2.lcssa, align 1, !tbaa !10
+  br i1 %58, label %62, label %75
 
 62:                                               ; preds = %._crit_edge
-  %63 = icmp ugt i8 %61, 4
-  br i1 %63, label %64, label %66
+  %.not141 = icmp ugt i8 %59, 4
+  br i1 %.not141, label %64, label %66
 
 64:                                               ; preds = %62
   %.not141 = icmp eq i8 %61, 5
@@ -1680,77 +1680,77 @@ define internal fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(pt
   %spec.select183 = select i1 %.not141, i32 %65, i32 7
   br label %.sink.split
 
-66:                                               ; preds = %62
-  %.not140 = icmp eq i8 %61, 0
-  br i1 %.not140, label %67, label %.sink.split
+64:                                               ; preds = %62
+  %.not140 = icmp eq i8 %59, 0
+  br i1 %.not140, label %65, label %.sink.split
 
-.sink.split:                                      ; preds = %64, %66
+.sink.split:                                      ; preds = %64, %64
   %.sink = phi i32 [ 3, %66 ], [ %spec.select183, %64 ]
   store i32 %.sink, ptr %4, align 4, !tbaa !14
-  br label %67
+  br label %65
 
-67:                                               ; preds = %.sink.split, %66
-  %68 = load i32, ptr %1, align 4, !tbaa !27
-  %69 = icmp slt i32 %68, 1
-  br i1 %69, label %.loopexit.sink.split, label %70
+65:                                               ; preds = %.sink.split, %64
+  %66 = load i32, ptr %1, align 4, !tbaa !27
+  %67 = icmp slt i32 %66, 1
+  br i1 %67, label %.loopexit.sink.split, label %68
 
-70:                                               ; preds = %67
-  store i32 %68, ptr %0, align 4, !tbaa !9
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  br label %72
+68:                                               ; preds = %65
+  store i32 %66, ptr %0, align 4, !tbaa !9
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  br label %70
 
-72:                                               ; preds = %70, %72
+70:                                               ; preds = %68, %70
   %.2.pn162 = phi ptr [ %.2.lcssa, %70 ], [ %.3, %72 ]
-  %.1119161 = phi ptr [ %71, %70 ], [ %74, %72 ]
-  %.3124160 = phi i32 [ %68, %70 ], [ %75, %72 ]
+  %.1119161 = phi ptr [ %69, %70 ], [ %72, %72 ]
+  %.3124160 = phi i32 [ %66, %70 ], [ %73, %72 ]
   %.3 = getelementptr inbounds nuw i8, ptr %.2.pn162, i64 1
-  %73 = load i8, ptr %.3, align 1, !tbaa !10
-  store i8 %73, ptr %.1119161, align 1, !tbaa !10
-  %74 = getelementptr inbounds nuw i8, ptr %.1119161, i64 1
-  %75 = add nsw i32 %.3124160, -1
-  %76 = icmp samesign ugt i32 %.3124160, 1
-  br i1 %76, label %72, label %.loopexit, !llvm.loop !40
+  %71 = load i8, ptr %.3, align 1, !tbaa !10
+  store i8 %71, ptr %.1119161, align 1, !tbaa !10
+  %72 = getelementptr inbounds nuw i8, ptr %.1119161, i64 1
+  %73 = add nsw i32 %.3124160, -1
+  %74 = icmp samesign ugt i32 %.3124160, 1
+  br i1 %74, label %70, label %.loopexit, !llvm.loop !40
 
-77:                                               ; preds = %._crit_edge
-  %78 = zext i8 %61 to i32
-  %79 = lshr i32 %78, %59
-  %80 = zext i32 %59 to i64
-  %81 = getelementptr inbounds nuw [5 x i32], ptr @_ZL7multies, i64 0, i64 %80
-  %82 = load i32, ptr %81, align 4, !tbaa !14
-  %83 = mul i32 %79, %82
-  %84 = lshr i32 %83, 17
-  %85 = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %80
-  %86 = load i32, ptr %85, align 4, !tbaa !14
-  %87 = mul i32 %84, %86
-  %.not139 = icmp eq i32 %87, %78
-  %spec.select = select i1 %.not139, i32 %57, i32 1
-  %88 = mul nuw nsw i32 %84, 6554
-  %89 = lshr i32 %88, 16
-  %.neg = mul nsw i32 %89, -10
-  %90 = add nsw i32 %.neg, %84
-  %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds nuw [10 x i8], ptr @_ZL6resmap, i64 0, i64 %91
-  %93 = load i8, ptr %92, align 1, !tbaa !10
-  %94 = zext i8 %93 to i32
-  %95 = add nsw i32 %spec.select, %94
-  store i32 %95, ptr %4, align 4, !tbaa !14
-  %96 = load i32, ptr %1, align 4, !tbaa !27
-  %97 = icmp slt i32 %96, 1
-  br i1 %97, label %.loopexit.sink.split, label %98
+75:                                               ; preds = %._crit_edge
+  %76 = zext i8 %59 to i32
+  %77 = lshr i32 %76, %57
+  %78 = zext i32 %57 to i64
+  %79 = getelementptr inbounds nuw [5 x i32], ptr @_ZL7multies, i64 0, i64 %78
+  %80 = load i32, ptr %79, align 4, !tbaa !14
+  %81 = mul i32 %77, %80
+  %82 = lshr i32 %81, 17
+  %83 = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %78
+  %84 = load i32, ptr %83, align 4, !tbaa !14
+  %85 = mul i32 %82, %84
+  %.not139 = icmp eq i32 %85, %76
+  %spec.select = select i1 %.not139, i32 %55, i32 1
+  %86 = mul nuw nsw i32 %82, 6554
+  %87 = lshr i32 %86, 16
+  %.neg = mul nsw i32 %87, -10
+  %88 = add nsw i32 %.neg, %82
+  %89 = zext i32 %88 to i64
+  %90 = getelementptr inbounds nuw [10 x i8], ptr @_ZL6resmap, i64 0, i64 %89
+  %91 = load i8, ptr %90, align 1, !tbaa !10
+  %92 = zext i8 %91 to i32
+  %93 = add nsw i32 %spec.select, %92
+  store i32 %93, ptr %4, align 4, !tbaa !14
+  %94 = load i32, ptr %1, align 4, !tbaa !27
+  %95 = icmp slt i32 %94, 1
+  br i1 %95, label %.loopexit.sink.split, label %96
 
-98:                                               ; preds = %77
-  store i32 %96, ptr %0, align 4, !tbaa !9
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %100 = sub nsw i32 1, %58
-  %101 = trunc i32 %89 to i8
-  store i8 %101, ptr %99, align 1, !tbaa !10
-  %102 = sub i32 %96, %100
-  %103 = icmp slt i32 %102, 1
-  br i1 %103, label %.loopexit, label %.lr.ph158
+96:                                               ; preds = %75
+  store i32 %94, ptr %0, align 4, !tbaa !9
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %98 = sub nsw i32 1, %56
+  %99 = trunc i32 %87 to i8
+  store i8 %99, ptr %97, align 1, !tbaa !10
+  %100 = sub i32 %94, %98
+  %101 = icmp slt i32 %100, 1
+  br i1 %101, label %.loopexit, label %.lr.ph158
 
-.lr.ph158:                                        ; preds = %98
-  %104 = zext i32 %58 to i64
-  %105 = getelementptr inbounds nuw [5 x i32], ptr @_ZL7multies, i64 0, i64 %104
+.lr.ph158:                                        ; preds = %96
+  %102 = zext i32 %56 to i64
+  %103 = getelementptr inbounds nuw [5 x i32], ptr @_ZL7multies, i64 0, i64 %102
   %106 = load i32, ptr %105, align 4, !tbaa !14
   %107 = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %104
   %108 = load i32, ptr %107, align 4, !tbaa !14
@@ -1759,7 +1759,7 @@ define internal fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(pt
   %111 = load i32, ptr %110, align 4, !tbaa !14
   br label %117
 
-112:                                              ; preds = %117
+112:; preds = %117
   %113 = getelementptr inbounds nuw i8, ptr %.2120154, i64 1
   %114 = trunc i32 %124 to i8
   store i8 %114, ptr %113, align 1, !tbaa !10
@@ -1767,11 +1767,11 @@ define internal fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(pt
   %116 = icmp slt i32 %115, 1
   br i1 %116, label %.loopexit, label %117, !llvm.loop !41
 
-117:                                              ; preds = %.lr.ph158, %112
-  %118 = phi i32 [ %102, %.lr.ph158 ], [ %115, %112 ]
-  %.1156 = phi i32 [ %89, %.lr.ph158 ], [ %124, %112 ]
+117: ; preds = %.lr.ph158, %112
+  %.4155 = phi i32 [ %102, %.lr.ph158 ], [ %115, %112 ]
+  %.2120154 = phi i32 [ %89, %.lr.ph158 ], [ %124, %112 ]
   %.4155 = phi ptr [ %.2.lcssa, %.lr.ph158 ], [ %119, %112 ]
-  %.2120154 = phi ptr [ %99, %.lr.ph158 ], [ %113, %112 ]
+  %.2120154 = phi ptr [ %97, %.lr.ph158 ], [ %113, %112 ]
   %119 = getelementptr inbounds nuw i8, ptr %.4155, i64 1
   %120 = load i8, ptr %119, align 1, !tbaa !10
   %121 = zext i8 %120 to i32
@@ -1781,31 +1781,31 @@ define internal fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(pt
   %125 = mul i32 %124, %108
   %126 = sub i32 %121, %125
   %127 = mul i32 %126, %111
-  %128 = add i32 %127, %.1156
+  %128 = add i32 %127, %.2120154
   %129 = trunc i32 %128 to i8
   store i8 %129, ptr %.2120154, align 1, !tbaa !10
-  %130 = sub i32 %118, %58
+  %130 = sub i32 %.4155, %58
   %131 = icmp slt i32 %130, 1
   br i1 %131, label %.loopexit, label %112
 
-.loopexit.sink.split:                             ; preds = %77, %67
+.loopexit.sink.split:; preds = %77, %67
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 0, ptr %132, align 1, !tbaa !10
   store i32 1, ptr %0, align 4, !tbaa !9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %112, %117, %72, %.loopexit.sink.split, %98
-  %133 = load i32, ptr %4, align 4, !tbaa !14
-  %.not142 = icmp eq i32 %133, 0
-  br i1 %.not142, label %137, label %134
+.loopexit:                                        ; preds = %112, %117, %70, %.loopexit.sink.split, %96
+  %131 = load i32, ptr %4, align 4, !tbaa !14
+  %.not142 = icmp eq i32 %131, 0
+  br i1 %.not142, label %135, label %132
 
-134:                                              ; preds = %.loopexit
-  %135 = load i32, ptr %5, align 4, !tbaa !14
-  %136 = or i32 %135, 32
-  store i32 %136, ptr %5, align 4, !tbaa !14
-  br label %137
+132:                                              ; preds = %.loopexit
+  %133 = load i32, ptr %5, align 4, !tbaa !14
+  %134 = or i32 %133, 32
+  store i32 %134, ptr %5, align 4, !tbaa !14
+  br label %135
 
-137:                                              ; preds = %.loopexit, %134, %18, %20, %44
+135:                                              ; preds = %.loopexit, %132, %18, %20, %44
   ret void
 }
 

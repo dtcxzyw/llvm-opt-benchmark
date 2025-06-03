@@ -22769,182 +22769,182 @@ define internal fastcc void @tcg_out_helper_load_slots(ptr noundef captures(none
   %4 = zext nneg i32 %1 to i64
   br label %5
 
-5:                                                ; preds = %3, %9
+5:                                                ; preds = %3, %10
   %indvars.iv9 = phi i32 [ %1, %3 ], [ %indvars.iv.next10, %9 ]
-  %indvars.iv = phi i64 [ %4, %3 ], [ %indvars.iv.next, %9 ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %6 = getelementptr inbounds nuw %struct.TCGMovExtend, ptr %2, i64 %indvars.iv.next
-  %7 = load i32, ptr %6, align 4
-  %8 = icmp ugt i32 %7, 5
-  br i1 %8, label %9, label %.critedge.preheader
+  %indvars.iv = phi i64 [ %4, %3 ], [ %6, %9 ]
+  %6 = add nsw i64 %indvars.iv, -1
+  %7 = getelementptr inbounds nuw %struct.TCGMovExtend, ptr %2, i64 %6
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp ugt i32 %8, 5
+  br i1 %9, label %10, label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %5
   %umax = tail call i32 @llvm.umax.i32(i32 %indvars.iv9, i32 1)
   %wide.trip.count = zext i32 %umax to i64
   br label %.critedge
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %11 = load i32, ptr %10, align 4
-  %12 = icmp eq i32 %11, 0
-  %13 = select i1 %12, i32 2, i32 3
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %15 = load i32, ptr %14, align 4
-  %16 = and i32 %15, 7
-  %.not72 = icmp eq i32 %16, %13
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %12 = load i32, ptr %11, align 4
+  %13 = icmp eq i32 %12, 0
+  %14 = select i1 %13, i32 2, i32 3
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %16 = load i32, ptr %15, align 4
+  %17 = and i32 %16, 7
+  %.not72 = icmp eq i32 %17, %14
   tail call void @llvm.assume(i1 %.not72)
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %18 = load i32, ptr %17, align 4
-  %19 = shl i32 %7, 3
-  %20 = add i32 %19, -48
-  %21 = zext nneg i32 %20 to i64
-  tail call fastcc void @tcg_out_st(ptr noundef %0, i32 noundef %11, i32 noundef %18, i32 noundef 4, i64 noundef %21)
-  %.not = icmp eq i64 %indvars.iv.next, 0
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %19 = load i32, ptr %18, align 4
+  %20 = shl i32 %8, 3
+  %21 = add i32 %110, -48
+  %22 = zext nneg i32 %21 to i64
+  tail call fastcc void @tcg_out_st(ptr noundef %0, i32 noundef %12, i32 noundef %19, i32 noundef 4, i64 noundef %22)
+  %.not.wide = icmp eq i64 %6, 0
   %indvars.iv.next10 = add nsw i32 %indvars.iv9, -1
-  br i1 %.not, label %tcg_out_movext3.exit, label %5
+  br i1 %.not.wide, label %tcg_out_movext3.exit, label %5
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv6 = phi i64 [ 0, %.critedge.preheader ], [ %indvars.iv.next7, %.critedge ]
-  %22 = getelementptr inbounds nuw %struct.TCGMovExtend, ptr %2, i64 %indvars.iv6
-  %23 = load i32, ptr %22, align 4
-  %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw [6 x i32], ptr @tcg_target_call_iarg_regs, i64 0, i64 %24
-  %26 = load i32, ptr %25, align 4
-  store i32 %26, ptr %22, align 4
+  %23 = getelementptr inbounds nuw %struct.TCGMovExtend, ptr %2, i64 %indvars.iv6
+  %24 = load i32, ptr %23, align 4
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr inbounds nuw [6 x i32], ptr @tcg_target_call_iarg_regs, i64 0, i64 %25
+  %27 = load i32, ptr %26, align 4
+  store i32 %27, ptr %23, align 4
   %indvars.iv.next7 = add nuw nsw i64 %indvars.iv6, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next7, %wide.trip.count
-  br i1 %exitcond.not, label %27, label %.critedge, !llvm.loop !105
+  br i1 %exitcond.not, label %28, label %.critedge, !llvm.loop !105
 
-27:                                               ; preds = %.critedge
-  %28 = trunc nuw i64 %indvars.iv to i32
-  switch i32 %28, label %89 [
-    i32 1, label %86
-    i32 3, label %29
-    i32 2, label %84
+28:                                               ; preds = %.critedge
+  %29 = trunc nuw i64 %indvars.iv to i32
+  switch i32 %29, label %89 [
+    i32 1, label %87
+    i32 3, label %210
+    i32 2, label %85
   ]
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %37 = load i32, ptr %36, align 4
-  %38 = load i32, ptr %2, align 4
-  %.not.i = icmp eq i32 %38, %35
-  %.not133.i = icmp eq i32 %38, %37
+210:                                               ; preds = %28
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %34 = load i32, ptr %33, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %36 = load i32, ptr %35, align 4
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %38 = load i32, ptr %37, align 4
+  %39 = load i32, ptr %2, align 4
+  %.not.i = icmp eq i32 %39, %36
+  %.not133.i = icmp eq i32 %39, %38
   %or.cond.i = select i1 %.not.i, i1 true, i1 %.not133.i
-  br i1 %or.cond.i, label %40, label %39
+  br i1 %or.cond.i, label %41, label %310
 
-39:                                               ; preds = %29
-  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %0, ptr noundef nonnull readonly %2, i32 noundef %33)
-  tail call fastcc void @tcg_out_movext2(ptr noundef %0, ptr noundef nonnull readonly %31, ptr noundef nonnull readonly %30)
+310:                                               ; preds = %30
+  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %0, ptr noundef nonnull readonly %2, i32 noundef %34)
+  tail call fastcc void @tcg_out_movext2(ptr noundef %0, ptr noundef nonnull readonly %32, ptr noundef nonnull readonly %31)
   br label %tcg_out_movext3.exit
 
-40:                                               ; preds = %29
-  %41 = load i32, ptr %31, align 4
-  %.not134.i = icmp eq i32 %41, %33
-  %.not135.i = icmp eq i32 %41, %37
+41:                                               ; preds = %210
+  %42 = load i32, ptr %32, align 4
+  %.not134.i = icmp eq i32 %42, %34
+  %.not135.i = icmp eq i32 %42, %38
   %or.cond138.i = select i1 %.not134.i, i1 true, i1 %.not135.i
-  br i1 %or.cond138.i, label %43, label %42
+  br i1 %or.cond138.i, label %44, label %43
 
-42:                                               ; preds = %40
-  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %0, ptr noundef nonnull readonly %31, i32 noundef %35)
-  tail call fastcc void @tcg_out_movext2(ptr noundef %0, ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %30)
-  br label %tcg_out_movext3.exit
-
-43:                                               ; preds = %40
-  %44 = load i32, ptr %30, align 4
-  %.not136.i = icmp eq i32 %44, %33
-  %.not137.i = icmp eq i32 %44, %35
-  %or.cond139.i = or i1 %.not136.i, %.not137.i
-  br i1 %or.cond139.i, label %46, label %45
-
-45:                                               ; preds = %43
-  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %0, ptr noundef nonnull readonly %30, i32 noundef %37)
+43:                                               ; preds = %41
+  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %0, ptr noundef nonnull readonly %32, i32 noundef %36)
   tail call fastcc void @tcg_out_movext2(ptr noundef %0, ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %31)
   br label %tcg_out_movext3.exit
 
-46:                                               ; preds = %43
-  %47 = select i1 %.not.i, i1 %.not135.i, i1 false
-  %brmerge140.demorgan.i = and i1 %47, %.not136.i
-  br i1 %brmerge140.demorgan.i, label %48, label %65
+44:                                               ; preds = %41
+  %45 = load i32, ptr %31, align 4
+  %.not136.i = icmp eq i32 %45, %34
+  %.not137.i = icmp eq i32 %45, %36
+  %or.cond139.i = or i1 %.not136.i, %.not137.i
+  br i1 %or.cond139.i, label %47, label %46
 
-48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %52 = load i32, ptr %51, align 4
-  %53 = or i32 %52, %50
-  %54 = icmp eq i32 %53, 0
-  %55 = select i1 %54, i32 135, i32 4231
-  tail call fastcc void @tcg_out_modrm(ptr noundef %0, i32 noundef %55, i32 noundef %33, i32 noundef %35)
-  %56 = load i32, ptr %51, align 4
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  %58 = load i32, ptr %57, align 4
-  %59 = or i32 %58, %56
-  %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 135, i32 4231
-  tail call fastcc void @tcg_out_modrm(ptr noundef %0, i32 noundef %61, i32 noundef %35, i32 noundef %37)
-  %62 = load i32, ptr %2, align 4
-  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %0, ptr noundef nonnull readonly %2, i32 noundef %62)
-  %63 = load i32, ptr %31, align 4
-  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %0, ptr noundef nonnull readonly %31, i32 noundef %63)
-  %64 = load i32, ptr %30, align 4
-  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %0, ptr noundef nonnull readonly %30, i32 noundef %64)
+46:                                               ; preds = %44
+  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %0, ptr noundef nonnull readonly %31, i32 noundef %38)
+  tail call fastcc void @tcg_out_movext2(ptr noundef %0, ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %32)
   br label %tcg_out_movext3.exit
 
-65:                                               ; preds = %46
+47:                                               ; preds = %44
+  %48 = select i1 %.not.i, i1 %.not135.i, i1 false
+  %brmerge140.demorgan.i = and i1 %48, %.not136.i
+  br i1 %brmerge140.demorgan.i, label %49, label %66
+
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %51 = load i32, ptr %410, align 4
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %53 = load i32, ptr %52, align 4
+  %54 = or i32 %53, %51
+  %55 = icmp eq i32 %54, 0
+  %56 = select i1 %55, i32 135, i32 4231
+  tail call fastcc void @tcg_out_modrm(ptr noundef %0, i32 noundef %56, i32 noundef %34, i32 noundef %36)
+  %57 = load i32, ptr %52, align 4
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  %59 = load i32, ptr %58, align 4
+  %60 = or i32 %59, %57
+  %61 = icmp eq i32 %510, 0
+  %62 = select i1 %61, i32 135, i32 4231
+  tail call fastcc void @tcg_out_modrm(ptr noundef %0, i32 noundef %62, i32 noundef %36, i32 noundef %38)
+  %63 = load i32, ptr %2, align 4
+  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %0, ptr noundef nonnull readonly %2, i32 noundef %63)
+  %64 = load i32, ptr %32, align 4
+  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %0, ptr noundef nonnull readonly %32, i32 noundef %64)
+  %65 = load i32, ptr %31, align 4
+  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %0, ptr noundef nonnull readonly %31, i32 noundef %65)
+  br label %tcg_out_movext3.exit
+
+66:                                               ; preds = %47
   %brmerge141.demorgan.i = and i1 %.not133.i, %.not134.i
   %brmerge142.demorgan.i = and i1 %brmerge141.demorgan.i, %.not137.i
-  br i1 %brmerge142.demorgan.i, label %66, label %83
+  br i1 %brmerge142.demorgan.i, label %67, label %84
 
-66:                                               ; preds = %65
-  %67 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  %70 = load i32, ptr %69, align 4
-  %71 = or i32 %70, %68
-  %72 = icmp eq i32 %71, 0
-  %73 = select i1 %72, i32 135, i32 4231
-  tail call fastcc void @tcg_out_modrm(ptr noundef %0, i32 noundef %73, i32 noundef %35, i32 noundef %37)
-  %74 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %75 = load i32, ptr %74, align 4
-  %76 = load i32, ptr %67, align 4
-  %77 = or i32 %76, %75
-  %78 = icmp eq i32 %77, 0
-  %79 = select i1 %78, i32 135, i32 4231
-  tail call fastcc void @tcg_out_modrm(ptr noundef %0, i32 noundef %79, i32 noundef %33, i32 noundef %35)
-  %80 = load i32, ptr %2, align 4
-  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %0, ptr noundef nonnull readonly %2, i32 noundef %80)
-  %81 = load i32, ptr %31, align 4
-  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %0, ptr noundef nonnull readonly %31, i32 noundef %81)
-  %82 = load i32, ptr %30, align 4
-  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %0, ptr noundef nonnull readonly %30, i32 noundef %82)
+67:                                               ; preds = %66
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %69 = load i32, ptr %68, align 4
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  %71 = load i32, ptr %610, align 4
+  %72 = or i32 %71, %69
+  %73 = icmp eq i32 %72, 0
+  %74 = select i1 %73, i32 135, i32 4231
+  tail call fastcc void @tcg_out_modrm(ptr noundef %0, i32 noundef %74, i32 noundef %36, i32 noundef %38)
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %76 = load i32, ptr %75, align 4
+  %77 = load i32, ptr %68, align 4
+  %78 = or i32 %77, %76
+  %79 = icmp eq i32 %78, 0
+  %80 = select i1 %79, i32 135, i32 4231
+  tail call fastcc void @tcg_out_modrm(ptr noundef %0, i32 noundef %710, i32 noundef %34, i32 noundef %36)
+  %81 = load i32, ptr %2, align 4
+  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %0, ptr noundef nonnull readonly %2, i32 noundef %81)
+  %82 = load i32, ptr %32, align 4
+  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %0, ptr noundef nonnull readonly %32, i32 noundef %82)
+  %83 = load i32, ptr %31, align 4
+  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %0, ptr noundef nonnull readonly %31, i32 noundef %83)
   br label %tcg_out_movext3.exit
 
-83:                                               ; preds = %65
+84:                                               ; preds = %66
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 640, ptr noundef nonnull @__func__.tcg_out_movext3, ptr noundef null) #31
   unreachable
 
-84:                                               ; preds = %27
-  %85 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  tail call fastcc void @tcg_out_movext2(ptr noundef %0, ptr noundef %2, ptr noundef %85)
+85:                                               ; preds = %28
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  tail call fastcc void @tcg_out_movext2(ptr noundef %0, ptr noundef %2, ptr noundef %86)
   br label %tcg_out_movext3.exit
 
-86:                                               ; preds = %27
-  %87 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %88 = load i32, ptr %87, align 4
-  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %0, ptr noundef nonnull readonly %2, i32 noundef %88)
+87:                                               ; preds = %28
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %89 = load i32, ptr %88, align 4
+  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %0, ptr noundef nonnull readonly %2, i32 noundef %89)
   br label %tcg_out_movext3.exit
 
-89:                                               ; preds = %27
+90:                                               ; preds = %28
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5903, ptr noundef nonnull @__func__.tcg_out_helper_load_slots, ptr noundef null) #31
   unreachable
 
-tcg_out_movext3.exit:                             ; preds = %9, %66, %48, %45, %42, %39, %84, %86
+tcg_out_movext3.exit:                             ; preds = %10, %67, %49, %46, %43, %310, %85, %87
   ret void
 }
 

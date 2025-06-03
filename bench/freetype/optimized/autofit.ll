@@ -3983,7 +3983,7 @@ define hidden range(i32 0, 7) i32 @af_shaper_get_coverage(ptr noundef readonly c
   %or.cond = and i1 %10, %11
   %12 = icmp ne ptr %2, null
   %or.cond3 = and i1 %or.cond, %12
-  br i1 %or.cond3, label %13, label %118
+  br i1 %or.cond3, label %13, label %119
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4103,17 +4103,17 @@ define hidden range(i32 0, 7) i32 @af_shaper_get_coverage(ptr noundef readonly c
   br i1 %.not92118, label %.loopexit, label %.lr.ph122
 
 .lr.ph122:                                        ; preds = %62, %._crit_edge117
-  %68 = phi i32 [ %100, %._crit_edge117 ], [ %67, %62 ]
+  %68 = phi i32 [ %101, %._crit_edge117 ], [ %67, %62 ]
   %.066120 = phi i8 [ %.167.lcssa, %._crit_edge117 ], [ 0, %62 ]
-  %.069119 = phi ptr [ %99, %._crit_edge117 ], [ %66, %62 ]
+  %.069119 = phi ptr [ %100, %._crit_edge117 ], [ %66, %62 ]
   %69 = zext i32 %68 to i64
   %70 = getelementptr inbounds nuw [5531 x i8], ptr @af_blue_strings, i64 0, i64 %69
   %71 = load i8, ptr %70, align 1, !tbaa !39
   %.not97112 = icmp eq i8 %71, 0
   br i1 %.not97112, label %._crit_edge117, label %.lr.ph116
 
-.lr.ph116:                                        ; preds = %.lr.ph122, %97
-  %72 = phi i8 [ %98, %97 ], [ %71, %.lr.ph122 ]
+.lr.ph116:                                        ; preds = %.lr.ph122, %98
+  %72 = phi i8 [ %99, %97 ], [ %71, %.lr.ph122 ]
   %.063114 = phi ptr [ %.265, %97 ], [ %70, %.lr.ph122 ]
   %.167113 = phi i8 [ %.3, %97 ], [ %.066120, %.lr.ph122 ]
   %73 = getelementptr i8, ptr %.063114, i64 1
@@ -4147,91 +4147,91 @@ define hidden range(i32 0, 7) i32 @af_shaper_get_coverage(ptr noundef readonly c
 
 .loopexit103.loopexit:                            ; preds = %80
   %88 = zext nneg i32 %.0 to i64
-  %scevgep128 = getelementptr i8, ptr %73, i64 %88
+  %89 = getelementptr i8, ptr %73, i64 %88
   br label %.loopexit103
 
 .loopexit103:                                     ; preds = %.loopexit103.loopexit, %.lr.ph116
   %.265 = phi ptr [ %73, %.lr.ph116 ], [ %scevgep128, %.loopexit103.loopexit ]
   %.2 = phi i32 [ %74, %.lr.ph116 ], [ %86, %.loopexit103.loopexit ]
   store i32 -1, ptr %6, align 4, !tbaa !43
-  %89 = zext i32 %.2 to i64
-  br label %90
+  %90 = zext i32 %.2 to i64
+  br label %91
 
-90:                                               ; preds = %92, %.loopexit103
-  %91 = call i32 @hb_set_next(ptr noundef %49, ptr noundef nonnull %6) #20
-  %.not99 = icmp eq i32 %91, 0
-  br i1 %.not99, label %97, label %92
+91:                                               ; preds = %93, %.loopexit103
+  %92 = call i32 @hb_set_next(ptr noundef %49, ptr noundef nonnull %6) #20
+  %.not99 = icmp eq i32 %92, 0
+  br i1 %.not99, label %98, label %93
 
-92:                                               ; preds = %90
+93:                                               ; preds = %91
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #20
-  %93 = load ptr, ptr %0, align 8, !tbaa !248
-  %94 = call i32 @FT_Get_Char_Index(ptr noundef %93, i64 noundef %89) #20
-  store i32 %94, ptr %9, align 4, !tbaa !43
-  %95 = load i32, ptr %6, align 4, !tbaa !43
-  %96 = call i32 @hb_ot_layout_lookup_would_substitute(ptr noundef %16, i32 noundef %95, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 1) #20
-  %.not100 = icmp eq i32 %96, 0
+  %94 = load ptr, ptr %0, align 8, !tbaa !248
+  %95 = call i32 @FT_Get_Char_Index(ptr noundef %94, i64 noundef %90) #20
+  store i32 %95, ptr %9, align 4, !tbaa !43
+  %96 = load i32, ptr %6, align 4, !tbaa !43
+  %97 = call i32 @hb_ot_layout_lookup_would_substitute(ptr noundef %16, i32 noundef %96, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 1) #20
+  %.not100 = icmp eq i32 %97, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #20
-  br i1 %.not100, label %90, label %97
+  br i1 %.not100, label %91, label %98
 
-97:                                               ; preds = %92, %90
+98:                                               ; preds = %93, %91
   %.3 = phi i8 [ 1, %92 ], [ %.167113, %90 ]
-  %98 = load i8, ptr %.265, align 1, !tbaa !39
-  %.not97 = icmp eq i8 %98, 0
+  %99 = load i8, ptr %.265, align 1, !tbaa !39
+  %.not97 = icmp eq i8 %99, 0
   br i1 %.not97, label %._crit_edge117, label %.lr.ph116, !llvm.loop !301
 
-._crit_edge117:                                   ; preds = %97, %.lr.ph122
+._crit_edge117:                                   ; preds = %98, %.lr.ph122
   %.167.lcssa = phi i8 [ %.066120, %.lr.ph122 ], [ %.3, %97 ]
-  %99 = getelementptr inbounds nuw i8, ptr %.069119, i64 8
-  %100 = load i32, ptr %99, align 4, !tbaa !36
-  %.not92 = icmp eq i32 %100, 5531
+  %100 = getelementptr inbounds nuw i8, ptr %.069119, i64 8
+  %101 = load i32, ptr %100, align 4, !tbaa !36
+  %.not92 = icmp eq i32 %101, 5531
   br i1 %.not92, label %._crit_edge123, label %.lr.ph122, !llvm.loop !302
 
 ._crit_edge123:                                   ; preds = %._crit_edge117
-  %101 = icmp eq i8 %.167.lcssa, 0
-  br i1 %101, label %.loopexit, label %102
+  %102 = icmp eq i8 %.167.lcssa, 0
+  br i1 %102, label %.loopexit, label %103
 
-102:                                              ; preds = %._crit_edge123
+103:                                              ; preds = %._crit_edge123
   %.pr = load i32, ptr %17, align 4, !tbaa !295
   %.not94 = icmp eq i32 %.pr, 10
-  br i1 %.not94, label %.thread, label %103
+  br i1 %.not94, label %.thread, label %104
 
-103:                                              ; preds = %102
+104:                                              ; preds = %103
   call void @hb_set_subtract(ptr noundef %52, ptr noundef %57) #20
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge108, %103, %102
+.thread:                                          ; preds = %._crit_edge108, %104, %103
   store i32 -1, ptr %6, align 4, !tbaa !43
-  %104 = call i32 @hb_set_next(ptr noundef %52, ptr noundef nonnull %6) #20
-  %.not95125 = icmp eq i32 %104, 0
+  %105 = call i32 @hb_set_next(ptr noundef %52, ptr noundef nonnull %6) #20
+  %.not95125 = icmp eq i32 %105, 0
   br i1 %.not95125, label %.loopexit, label %.lr.ph126
 
 .lr.ph126:                                        ; preds = %.thread
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %106
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %107
 
-106:                                              ; preds = %.lr.ph126, %.backedge
-  %107 = load i32, ptr %6, align 4, !tbaa !43
-  %108 = load i32, ptr %105, align 8, !tbaa !187
-  %.not96 = icmp ult i32 %107, %108
-  br i1 %.not96, label %109, label %.backedge
+107:                                              ; preds = %.lr.ph126, %.backedge
+  %108 = load i32, ptr %6, align 4, !tbaa !43
+  %109 = load i32, ptr %106, align 8, !tbaa !187
+  %.not96 = icmp ult i32 %108, %109
+  br i1 %.not96, label %110, label %.backedge
 
-109:                                              ; preds = %106
-  %110 = zext i32 %107 to i64
-  %111 = getelementptr inbounds nuw i16, ptr %2, i64 %110
-  %112 = load i16, ptr %111, align 2, !tbaa !47
-  %113 = icmp eq i16 %112, 16383
-  br i1 %113, label %114, label %.backedge
+110:                                              ; preds = %107
+  %111 = zext i32 %108 to i64
+  %112 = getelementptr inbounds nuw i16, ptr %2, i64 %111
+  %113 = load i16, ptr %112, align 2, !tbaa !47
+  %114 = icmp eq i16 %113, 16383
+  br i1 %114, label %115, label %.backedge
 
-114:                                              ; preds = %109
-  %115 = load i32, ptr %1, align 4, !tbaa !188
-  %116 = trunc i32 %115 to i16
-  store i16 %116, ptr %111, align 2, !tbaa !47
+115:                                              ; preds = %110
+  %116 = load i32, ptr %1, align 4, !tbaa !188
+  %117 = trunc i32 %116 to i16
+  store i16 %117, ptr %112, align 2, !tbaa !47
   br label %.backedge
 
-.backedge:                                        ; preds = %109, %114, %106
-  %117 = call i32 @hb_set_next(ptr noundef %52, ptr noundef nonnull %6) #20
-  %.not95 = icmp eq i32 %117, 0
-  br i1 %.not95, label %.loopexit, label %106, !llvm.loop !303
+.backedge:                                        ; preds = %110, %115, %107
+  %118 = call i32 @hb_set_next(ptr noundef %52, ptr noundef nonnull %6) #20
+  %.not95 = icmp eq i32 %118, 0
+  br i1 %.not95, label %.loopexit, label %107, !llvm.loop !303
 
 .loopexit:                                        ; preds = %.backedge, %62, %.thread, %._crit_edge123, %48, %46
   %.076 = phi ptr [ null, %48 ], [ %56, %._crit_edge123 ], [ null, %46 ], [ %56, %.thread ], [ %56, %62 ], [ %56, %.backedge ]
@@ -4242,9 +4242,9 @@ define hidden range(i32 0, 7) i32 @af_shaper_get_coverage(ptr noundef readonly c
   call void @hb_set_destroy(ptr noundef %.074) #20
   call void @hb_set_destroy(ptr noundef %.076) #20
   call void @hb_set_destroy(ptr noundef %.075) #20
-  br label %118
+  br label %119
 
-118:                                              ; preds = %4, %.loopexit
+119:                                              ; preds = %4, %.loopexit
   %.070 = phi i32 [ 0, %.loopexit ], [ 6, %4 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #20
@@ -4341,7 +4341,7 @@ define hidden noundef ptr @af_shaper_get_cluster(ptr noundef %0, ptr noundef rea
   %spec.select = select i1 %30, i64 2, i64 3
   %.062 = select i1 %29, i64 1, i64 %spec.select
   %.2.idx = select i1 %28, i64 %.062, i64 0
-  %.2 = getelementptr i8, ptr %27, i64 %.2.idx
+  %scevgep82 = getelementptr i8, ptr %27, i64 %.2.idx
   %.pr = load i8, ptr %.2, align 1, !tbaa !39
   %31 = and i8 %.pr, -33
   %spec.select.not = icmp eq i8 %31, 0

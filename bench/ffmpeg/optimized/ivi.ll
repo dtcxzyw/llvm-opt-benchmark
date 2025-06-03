@@ -300,64 +300,64 @@ define internal fastcc i32 @ivi_create_huff_from_desc(ptr noundef readonly captu
   %29 = zext nneg i32 %smax to i64
   %30 = add nsw i64 %29, -1
   %31 = sub i32 255, %.03145
-  %32 = zext i32 %31 to i64
-  %umin = tail call i64 @llvm.umin.i64(i64 %30, i64 %32)
+  %umin = zext i32 %31 to i64
+  %umin = tail call i64 @llvm.umin.i64(i64 %30, i64 %umin)
   %33 = add nuw nsw i64 %umin, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 %25, i64 %33, i1 false), !tbaa !23
   br label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.lr.ph.split.split.us ], [ %28, %.lr.ph.split ]
-  %.03338.us43 = phi i32 [ %38, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %34 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %indvars.iv57
-  %35 = or i32 %.03338.us43, %21
-  %36 = trunc i32 %35 to i16
-  %37 = getelementptr inbounds [256 x i16], ptr %4, i64 0, i64 %indvars.iv57
-  store i16 %36, ptr %37, align 2, !tbaa !29
-  store i8 1, ptr %34, align 1, !tbaa !23
+  %.03338.us43 = phi i32 [ %37, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
+  %33 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %indvars.iv57
+  %34 = or i32 %.03338.us43, %21
+  %35 = trunc i32 %34 to i16
+  %36 = getelementptr inbounds [256 x i16], ptr %4, i64 0, i64 %indvars.iv57
+  store i16 %35, ptr %36, align 2, !tbaa !29
+  store i8 1, ptr %33, align 1, !tbaa !23
   %indvars.iv.next58 = add nsw i64 %indvars.iv57, 1
-  %38 = add nuw nsw i32 %.03338.us43, 1
-  %39 = icmp sge i32 %38, %15
-  %40 = icmp sgt i64 %indvars.iv57, 254
-  %or.cond.us = or i1 %39, %40
+  %37 = add nuw nsw i32 %.03338.us43, 1
+  %38 = icmp sge i32 %37, %15
+  %39 = icmp sgt i64 %indvars.iv57, 254
+  %or.cond.us = or i1 %38, %39
   br i1 %or.cond.us, label %._crit_edge.loopexit, label %.lr.ph.split.split.us, !llvm.loop !31
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %.lr.ph.split.split
   %indvars.iv = phi i64 [ %28, %.lr.ph.split.split.preheader ], [ %indvars.iv.next, %.lr.ph.split.split ]
-  %.03338 = phi i32 [ 0, %.lr.ph.split.split.preheader ], [ %44, %.lr.ph.split.split ]
-  %41 = or i32 %.03338, %21
-  %42 = trunc i32 %41 to i16
-  %43 = getelementptr inbounds [256 x i16], ptr %4, i64 0, i64 %indvars.iv
-  store i16 %42, ptr %43, align 2, !tbaa !29
+  %.03338 = phi i32 [ 0, %.lr.ph.split.split.preheader ], [ %43, %.lr.ph.split.split ]
+  %40 = or i32 %.03338, %21
+  %41 = trunc i32 %40 to i16
+  %42 = getelementptr inbounds [256 x i16], ptr %4, i64 0, i64 %indvars.iv
+  store i16 %41, ptr %42, align 2, !tbaa !29
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %44 = add nuw nsw i32 %.03338, 1
-  %45 = icmp sge i32 %44, %15
-  %46 = icmp sgt i64 %indvars.iv, 254
-  %or.cond = or i1 %45, %46
+  %43 = add nuw nsw i32 %.03338, 1
+  %44 = icmp sge i32 %43, %15
+  %45 = icmp sgt i64 %indvars.iv, 254
+  %or.cond = or i1 %44, %45
   br i1 %or.cond, label %._crit_edge.loopexit50, label %.lr.ph.split.split, !llvm.loop !31
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph.split.split.us
-  %47 = trunc nsw i64 %indvars.iv.next58 to i32
+  %46 = trunc nsw i64 %indvars.iv.next58 to i32
   br label %._crit_edge
 
 ._crit_edge.loopexit50:                           ; preds = %.lr.ph.split.split
-  %48 = trunc nsw i64 %indvars.iv.next to i32
+  %47 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit50, %._crit_edge.loopexit, %11
-  %.1.lcssa = phi i32 [ %.03145, %11 ], [ %47, %._crit_edge.loopexit ], [ %48, %._crit_edge.loopexit50 ]
+  %.1.lcssa = phi i32 [ %.03145, %11 ], [ %46, %._crit_edge.loopexit ], [ %47, %._crit_edge.loopexit50 ]
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge48, label %11, !llvm.loop !32
 
 ._crit_edge48:                                    ; preds = %._crit_edge, %3
   %.031.lcssa = phi i32 [ 0, %3 ], [ %.1.lcssa, %._crit_edge ]
-  %49 = or disjoint i32 %2, 8
-  %50 = call i32 @ff_vlc_init_sparse(ptr noundef %1, i32 noundef 13, i32 noundef %.031.lcssa, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i32 noundef 2, i32 noundef 2, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %49) #10
+  %48 = or disjoint i32 %2, 8
+  %49 = call i32 @ff_vlc_init_sparse(ptr noundef %1, i32 noundef 13, i32 noundef %.031.lcssa, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i32 noundef 2, i32 noundef 2, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %48) #10
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %._crit_edge48
-  %.0 = phi i32 [ %50, %._crit_edge48 ], [ -1094995529, %.lr.ph ]
+  %.0 = phi i32 [ %49, %._crit_edge48 ], [ -1094995529, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #10
   ret i32 %.0

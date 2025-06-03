@@ -2357,13 +2357,13 @@ for.body.i.i:                                     ; preds = %if.then46.i.i, %for
 
 if.end68.i.i:                                     ; preds = %for.body.i.i
   %8 = getelementptr i8, ptr %1, i64 %conv58.i.i
-  %scevgep.i.i = getelementptr i8, ptr %8, i64 2
+  %scevgep.i = getelementptr i8, ptr %8, i64 2
   %cmp69.i.i = icmp slt i64 %shl.i.i, 0
   br i1 %cmp69.i.i, label %if.then.i, label %if.end73.i.i
 
 if.end73.i.i:                                     ; preds = %if.end68.i.i, %if.end41.if.end73_crit_edge.i.i
   %payload_length64.056.i.i = phi i64 [ %conv44.i.i, %if.end41.if.end73_crit_edge.i.i ], [ %or.i.i, %if.end68.i.i ]
-  %it.sroa.0.055.i.i = phi ptr [ %incdec.ptr.i30.i.i, %if.end41.if.end73_crit_edge.i.i ], [ %scevgep.i.i, %if.end68.i.i ]
+  %it.sroa.0.055.i.i = phi ptr [ %incdec.ptr.i30.i.i, %if.end41.if.end73_crit_edge.i.i ], [ %scevgep.i, %if.end68.i.i ]
   %sub.ptr.sub.i39.i.i = add i64 %sub.ptr.lhs.cast.i.i.i, -4
   %sub.i.i = sub i64 %sub.ptr.sub.i39.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp75.i.i = icmp ult i64 %sub.i.i, %payload_length64.056.i.i
@@ -2449,16 +2449,16 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 _ZNSt6vectorIcSaIcEE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKcS1_EEOc.exit.i: ; preds = %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, %if.then9.i.i
   %16 = phi ptr [ %incdec.ptr.i.i, %if.then9.i.i ], [ %incdec.ptr.i9.i.i, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i ]
   %inc97.i.i = add nuw i64 %i80.061.i.i, 1
-  %exitcond63.not.i.i = icmp eq i64 %inc97.i.i, %payload_length64.056.i.i
-  br i1 %exitcond63.not.i.i, label %for.end98.loopexit.i.i, label %for.body83.i.i, !llvm.loop !22
+  %exitcond62.not.i.i = icmp eq i64 %inc97.i.i, %payload_length64.056.i.i
+  br i1 %exitcond62.not.i.i, label %for.end98.loopexit.i.i, label %for.body83.i.i, !llvm.loop !22
 
 for.end98.loopexit.i.i:                           ; preds = %_ZNSt6vectorIcSaIcEE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKcS1_EEOc.exit.i
-  %.pre64.i.i = load ptr, ptr %data, align 8
-  %.pre65.i.i = ptrtoint ptr %.pre64.i.i to i64
+  %.pre63.i.i = load ptr, ptr %data, align 8
+  %.pre64.i.i = ptrtoint ptr %.pre63.i.i to i64
   br label %for.end98.i.i
 
 for.end98.i.i:                                    ; preds = %for.end98.loopexit.i.i, %if.end77.i.i
-  %sub.ptr.rhs.cast.i45.pre-phi.i.i = phi i64 [ %.pre65.i.i, %for.end98.loopexit.i.i ], [ %sub.ptr.rhs.cast.i.i.i, %if.end77.i.i ]
+  %sub.ptr.rhs.cast.i45.pre-phi.i.i = phi i64 [ %.pre64.i.i, %for.end98.loopexit.i.i ], [ %sub.ptr.rhs.cast.i.i.i, %if.end77.i.i ]
   %add.ptr.i43.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 %payload_length64.056.i.i
   %sub.ptr.lhs.cast.i44.i.i = ptrtoint ptr %add.ptr.i43.i.i to i64
   %sub.ptr.sub.i46.i.i = sub i64 %sub.ptr.lhs.cast.i44.i.i, %sub.ptr.rhs.cast.i45.pre-phi.i.i

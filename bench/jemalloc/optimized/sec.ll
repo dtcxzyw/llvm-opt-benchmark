@@ -69,10 +69,10 @@ sz_psz2ind.exit:                                  ; preds = %5, %10
   %34 = getelementptr inbounds nuw %struct.sec_shard_s, ptr %29, i64 %33
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %44
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %45
   %.05365 = phi i64 [ %47, %44 ], [ 0, %.lr.ph.preheader ]
   %.05464 = phi ptr [ %35, %44 ], [ %29, %.lr.ph.preheader ]
-  %.05563 = phi ptr [ %scevgep, %44 ], [ %34, %.lr.ph.preheader ]
+  %.05563 = phi ptr [ %46, %44 ], [ %34, %.lr.ph.preheader ]
   %35 = getelementptr inbounds nuw i8, ptr %.05464, i64 144
   %36 = tail call zeroext i1 @je_malloc_mutex_init(ptr noundef nonnull %.05464, ptr noundef nonnull @.str, i32 noundef 16, i32 noundef 0) #9
   br i1 %36, label %.thread, label %37
@@ -93,10 +93,10 @@ sz_psz2ind.exit:                                  ; preds = %5, %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %27
-  br i1 %exitcond.not, label %44, label %40, !llvm.loop !29
+  br i1 %exitcond.not, label %45, label %40, !llvm.loop !29
 
-44:                                               ; preds = %40
-  %scevgep = getelementptr i8, ptr %.05563, i64 %28
+45:                                               ; preds = %40
+  %46 = getelementptr i8, ptr %.05563, i64 %28
   %45 = getelementptr inbounds nuw i8, ptr %.05464, i64 128
   store i64 0, ptr %45, align 8, !tbaa !31
   %46 = getelementptr inbounds nuw i8, ptr %.05464, i64 136
@@ -106,24 +106,24 @@ sz_psz2ind.exit:                                  ; preds = %5, %10
   %.not = icmp ult i64 %47, %48
   br i1 %.not, label %.lr.ph, label %.critedge, !llvm.loop !33
 
-.critedge:                                        ; preds = %44, %31
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store ptr %3, ptr %49, align 8, !tbaa !34
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %50, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !35
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store i32 %.0.i, ptr %51, align 8, !tbaa !37
+.critedge:                                        ; preds = %45, %31
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store ptr %3, ptr %50, align 8, !tbaa !34
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !35
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  store i32 %.0.i, ptr %52, align 8, !tbaa !37
   store ptr @sec_alloc, ptr %1, align 8, !tbaa !38
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr @je_pai_alloc_batch_default, ptr %52, align 8, !tbaa !39
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr @sec_expand, ptr %53, align 8, !tbaa !40
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr @sec_shrink, ptr %54, align 8, !tbaa !41
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr @sec_dalloc, ptr %55, align 8, !tbaa !42
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr @je_pai_dalloc_batch_default, ptr %56, align 8, !tbaa !43
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr @je_pai_alloc_batch_default, ptr %53, align 8, !tbaa !39
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr @sec_expand, ptr %54, align 8, !tbaa !40
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr @sec_shrink, ptr %55, align 8, !tbaa !41
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr @sec_dalloc, ptr %56, align 8, !tbaa !42
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store ptr @je_pai_dalloc_batch_default, ptr %57, align 8, !tbaa !43
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %.critedge, %sz_psz2ind.exit

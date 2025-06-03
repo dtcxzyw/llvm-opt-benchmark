@@ -51967,32 +51967,32 @@ define internal fastcc void @dissect_ista_availability_window(ptr noundef %0, pt
   br i1 %exitcond28.not, label %._crit_edge12, label %.lr.ph11, !llvm.loop !258
 
 ._crit_edge12:                                    ; preds = %.lr.ph11, %.._crit_edge12_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %.._crit_edge12_crit_edge ], [ %wide.trip.count27, %.lr.ph11 ]
+  %.151.lcssa = phi i64 [ %.pre, %.._crit_edge12_crit_edge ], [ %wide.trip.count27, %.lr.ph11 ]
   %.1.lcssa = phi i8 [ %31, %.._crit_edge12_crit_edge ], [ %40, %.lr.ph11 ]
-  %41 = getelementptr [513 x i8], ptr %4, i64 0, i64 %.pre-phi
+  %41 = getelementptr [513 x i8], ptr %4, i64 0, i64 %.151.lcssa
   store i8 0, ptr %41, align 1
   %42 = sub nuw nsw i32 8, %29
   %wide.trip.count31 = zext nneg i32 %42 to i64
   br label %43
 
-43:                                               ; preds = %._crit_edge12, %43
+44:                                               ; preds = %._crit_edge12, %44
   %indvars.iv29 = phi i64 [ 0, %._crit_edge12 ], [ %indvars.iv.next30, %43 ]
-  %.216 = phi i8 [ %.1.lcssa, %._crit_edge12 ], [ %47, %43 ]
-  %44 = and i8 %.216, 1
-  %45 = or disjoint i8 %44, 48
-  %46 = getelementptr [8 x i8], ptr %5, i64 0, i64 %indvars.iv29
-  store i8 %45, ptr %46, align 1
-  %47 = ashr i8 %.216, 1
+  %.216 = phi i8 [ %.1.lcssa, %._crit_edge12 ], [ %48, %43 ]
+  %45 = and i8 %.216, 1
+  %46 = or disjoint i8 %45, 48
+  %47 = getelementptr [8 x i8], ptr %5, i64 0, i64 %indvars.iv29
+  store i8 %46, ptr %47, align 1
+  %48 = ashr i8 %.216, 1
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count31
-  br i1 %exitcond32.not, label %48, label %43, !llvm.loop !259
+  br i1 %exitcond32.not, label %48, label %44, !llvm.loop !259
 
-48:                                               ; preds = %43
+51:                                               ; preds = %43
   %49 = getelementptr [8 x i8], ptr %5, i64 0, i64 %wide.trip.count31
   store i8 0, ptr %49, align 1
   br label %50
 
-50:                                               ; preds = %48, %._crit_edge
+50:; preds = %48, %._crit_edge
   %51 = load i32, ptr @hf_ieee80211_ftm_ista_avail_bits, align 4
   %52 = add nuw nsw i32 %12, 7
   %53 = lshr i32 %52, 3
@@ -52000,14 +52000,14 @@ define internal fastcc void @dissect_ista_availability_window(ptr noundef %0, pt
   %55 = shl i32 %2, 3
   %56 = add i32 %55, -16
   %.not56 = icmp eq i32 %56, %12
-  br i1 %.not56, label %60, label %57
+  br i1 %.not56, label %61, label %57
 
 57:                                               ; preds = %50
   %58 = load i32, ptr @hf_ieee80211_ftm_ista_avail_pad, align 4
   %59 = call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %58, ptr noundef %0, i32 noundef %.049.lcssa, i32 noundef 1, ptr noundef nonnull %5)
   br label %60
 
-60:                                               ; preds = %57, %50
+61:                                               ; preds = %57, %50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
   call void @llvm.lifetime.end.p0(i64 513, ptr nonnull %4) #24
   ret void

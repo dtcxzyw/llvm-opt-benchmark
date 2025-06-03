@@ -23713,20 +23713,20 @@ _ZN12_GLOBAL__N_111concatenateISt17basic_string_viewIcSt11char_traitsIcEEEEvRPcS
   br label %_ZN12_GLOBAL__N_111concatenateINS_17escaped_codepointEEEvRPcS2_RKT_.exit
 
 36:                                               ; preds = %36, %26
-  %indvars.iv.i = phi i64 [ %30, %26 ], [ %indvars.iv.next.i, %36 ]
-  %.04.i = phi i32 [ %8, %26 ], [ %44, %36 ]
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %37 = and i32 %.04.i, 15
-  %38 = icmp samesign ugt i32 %37, 9
-  %39 = add nuw nsw i32 %37, 55
-  %40 = or disjoint i32 %37, 48
-  %41 = select i1 %38, i32 %39, i32 %40
-  %42 = trunc nuw nsw i32 %41 to i8
-  %43 = getelementptr inbounds nuw [10 x i8], ptr %2, i64 0, i64 %indvars.iv.next.i
-  store i8 %42, ptr %43, align 1, !tbaa !15
-  %44 = lshr i32 %.04.i, 4
-  %45 = icmp ugt i64 %indvars.iv.next.i, 2
-  br i1 %45, label %36, label %_ZN12_GLOBAL__N_111concatenateISt17basic_string_viewIcSt11char_traitsIcEEEEvRPcS5_RKT_.exit30.i, !llvm.loop !560
+  %indvars.iv.i = phi i64 [ %30, %26 ], [ %37, %36 ]
+  %.04.i = phi i32 [ %8, %26 ], [ %45, %36 ]
+  %37 = add nsw i64 %indvars.iv.i, -1
+  %38 = and i32 %.04.i, 15
+  %39 = icmp samesign ugt i32 %38, 9
+  %40 = add nuw nsw i32 %38, 55
+  %41 = or disjoint i32 %38, 48
+  %42 = select i1 %39, i32 %40, i32 %41
+  %43 = trunc nuw nsw i32 %42 to i8
+  %44 = getelementptr inbounds nuw [10 x i8], ptr %2, i64 0, i64 %37
+  store i8 %43, ptr %44, align 1, !tbaa !15
+  %45 = lshr i32 %.04.i, 4
+  %.wide.i = icmp ugt i64 %37, 2
+  br i1 %.wide.i, label %36, label %_ZN12_GLOBAL__N_111concatenateISt17basic_string_viewIcSt11char_traitsIcEEEEvRPcS5_RKT_.exit30.i, !llvm.loop !560
 
 _ZN12_GLOBAL__N_111concatenateINS_17escaped_codepointEEEvRPcS2_RKT_.exit: ; preds = %1, %_ZN12_GLOBAL__N_111concatenateISt17basic_string_viewIcSt11char_traitsIcEEEEvRPcS5_RKT_.exit.i, %_ZN12_GLOBAL__N_111concatenateISt17basic_string_viewIcSt11char_traitsIcEEEEvRPcS5_RKT_.exit30.i
   ret void

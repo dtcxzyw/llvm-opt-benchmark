@@ -106,7 +106,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 120
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %31) #13
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %8) #13
-  br label %158
+  br label %159
 
 32:                                               ; preds = %14
   %33 = landingpad { ptr, i32 }
@@ -378,8 +378,8 @@ _ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit150: ; preds = %143, %135
   br label %._crit_edge182
 
 ._crit_edge182:                                   ; preds = %.lr.ph181.preheader, %_ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit150
-  %146 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %.0112.lcssa, ptr %146, align 8, !tbaa !24
+  %147 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %.0112.lcssa, ptr %147, align 8, !tbaa !24
   br label %.preheader
 
 _ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit141: ; preds = %114, %._crit_edge177, %131
@@ -387,8 +387,8 @@ _ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit141: ; preds = %114, %._crit_edge1
   br i1 %.3, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %_ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit, %._crit_edge182, %_ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit141
-  %147 = icmp sgt i32 %6, 0
-  br i1 %147, label %.lr.ph184.preheader, label %.loopexit
+  %148 = icmp sgt i32 %6, 0
+  br i1 %148, label %.lr.ph184.preheader, label %.loopexit
 
 .lr.ph184.preheader:                              ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %6 to i64
@@ -396,19 +396,19 @@ _ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit141: ; preds = %114, %._crit_edge1
 
 .lr.ph184:                                        ; preds = %.lr.ph184.preheader, %.lr.ph184
   %indvars.iv = phi i64 [ 0, %.lr.ph184.preheader ], [ %indvars.iv.next, %.lr.ph184 ]
-  %148 = shl nuw nsw i64 %indvars.iv, 1
-  %149 = getelementptr inbounds nuw [10 x ptr], ptr %10, i64 0, i64 %148
-  %150 = load ptr, ptr %149, align 16, !tbaa !24
-  %151 = or disjoint i64 %148, 1
-  %152 = getelementptr inbounds nuw [10 x ptr], ptr %10, i64 0, i64 %151
-  %153 = load ptr, ptr %152, align 8, !tbaa !24
-  %154 = ptrtoint ptr %153 to i64
-  %155 = ptrtoint ptr %150 to i64
-  %156 = sub i64 %154, %155
-  %157 = getelementptr inbounds nuw %"class.duckdb_re2::StringPiece", ptr %5, i64 %indvars.iv
-  store ptr %150, ptr %157, align 8, !tbaa !24
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %157, i64 8
-  store i64 %156, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !26
+  %149 = shl nuw nsw i64 %indvars.iv, 1
+  %150 = getelementptr inbounds nuw [10 x ptr], ptr %10, i64 0, i64 %149
+  %151 = load ptr, ptr %150, align 16, !tbaa !24
+  %152 = or disjoint i64 %149, 1
+  %153 = getelementptr inbounds nuw [10 x ptr], ptr %10, i64 0, i64 %152
+  %154 = load ptr, ptr %153, align 8, !tbaa !24
+  %155 = ptrtoint ptr %154 to i64
+  %156 = ptrtoint ptr %151 to i64
+  %157 = sub i64 %155, %156
+  %158 = getelementptr inbounds nuw %"class.duckdb_re2::StringPiece", ptr %5, i64 %indvars.iv
+  store ptr %151, ptr %158, align 8, !tbaa !24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %158, i64 8
+  store i64 %157, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph184, !llvm.loop !78
@@ -418,9 +418,9 @@ _ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit141: ; preds = %114, %._crit_edge1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
-  br label %158
+  br label %159
 
-158:                                              ; preds = %.loopexit, %_ZN10LogMessageD2Ev.exit
+159:                                              ; preds = %.loopexit, %_ZN10LogMessageD2Ev.exit
   %.0102 = phi i1 [ false, %_ZN10LogMessageD2Ev.exit ], [ %.1, %.loopexit ]
   ret i1 %.0102
 }

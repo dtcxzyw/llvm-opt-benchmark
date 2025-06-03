@@ -330,38 +330,38 @@ factorial.exit:                                   ; preds = %factorial.exit.loop
   br label %fillInFlipArray.exit
 
 .lr.ph.i.us.preheader:                            ; preds = %.lr.ph.i.preheader
-  %22 = zext nneg i32 %4 to i64
-  %umax18 = tail call i32 @llvm.umax.i32(i32 %4, i32 1)
-  %23 = add nuw i32 %umax18, 1
-  %wide.trip.count = zext i32 %23 to i64
+  %26 = zext nneg i32 %4 to i64
+  %umax19 = tail call i32 @llvm.umax.i32(i32 %4, i32 1)
+  %27 = add nuw i32 %umax19, 1
+  %wide.trip.count = zext i32 %27 to i64
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.us.preheader, %oneBitPosition.exit.i.loopexit.us
   %indvars.iv = phi i64 [ 1, %.lr.ph.i.us.preheader ], [ %indvars.iv.next, %oneBitPosition.exit.i.loopexit.us ]
-  %.01113.i.us = phi i32 [ 0, %.lr.ph.i.us.preheader ], [ %26, %oneBitPosition.exit.i.loopexit.us ]
-  %24 = trunc nuw nsw i64 %indvars.iv to i32
-  %25 = lshr i32 %24, 1
-  %26 = xor i32 %25, %24
-  %27 = xor i32 %26, %.01113.i.us
+  %.01113.i.us = phi i32 [ 0, %.lr.ph.i.us.preheader ], [ %30, %oneBitPosition.exit.i.loopexit.us ]
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
+  %29 = lshr i32 %28, 1
+  %30 = xor i32 %29, %28
+  %31 = xor i32 %30, %.01113.i.us
   br label %.lr.ph.i.i.us
 
-.lr.ph.i.i.us:                                    ; preds = %.lr.ph.i.us, %30
-  %.08.i.i.us = phi i32 [ %31, %30 ], [ 0, %.lr.ph.i.us ]
-  %28 = shl nuw i32 1, %.08.i.i.us
-  %29 = and i32 %28, %27
-  %.not.i.i.us = icmp eq i32 %29, 0
-  br i1 %.not.i.i.us, label %30, label %oneBitPosition.exit.i.loopexit.us
+.lr.ph.i.i.us:                                    ; preds = %.lr.ph.i.us, %34
+  %.08.i.i.us = phi i32 [ %35, %30 ], [ 0, %.lr.ph.i.us ]
+  %32 = shl nuw i32 1, %.08.i.i.us
+  %33 = and i32 %32, %31
+  %.not.i.i.us = icmp eq i32 %33, 0
+  br i1 %.not.i.i.us, label %34, label %oneBitPosition.exit.i.loopexit.us
 
-30:                                               ; preds = %.lr.ph.i.i.us
-  %31 = add nuw nsw i32 %.08.i.i.us, 1
-  %exitcond.not.i.i.us = icmp eq i32 %31, %0
+34:                                               ; preds = %.lr.ph.i.i.us
+  %35 = add nuw nsw i32 %.08.i.i.us, 1
+  %exitcond.not.i.i.us = icmp eq i32 %35, %0
   br i1 %exitcond.not.i.i.us, label %oneBitPosition.exit.i.loopexit.us, label %.lr.ph.i.i.us, !llvm.loop !26
 
-oneBitPosition.exit.i.loopexit.us:                ; preds = %30, %.lr.ph.i.i.us
+oneBitPosition.exit.i.loopexit.us:                ; preds = %34, %.lr.ph.i.i.us
   %.07.i.i.ph.us = phi i32 [ -1, %30 ], [ %.08.i.i.us, %.lr.ph.i.i.us ]
-  %32 = sub nsw i64 %22, %indvars.iv
-  %33 = getelementptr inbounds i32, ptr %13, i64 %32
-  store i32 %.07.i.i.ph.us, ptr %33, align 4, !tbaa !15
+  %36 = sub nsw i64 %26, %indvars.iv
+  %37 = getelementptr inbounds i32, ptr %13, i64 %36
+  store i32 %.07.i.i.ph.us, ptr %37, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %fillInFlipArray.exit, label %.lr.ph.i.us, !llvm.loop !29

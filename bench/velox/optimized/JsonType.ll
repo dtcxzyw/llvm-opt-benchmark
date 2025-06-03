@@ -83733,8 +83733,8 @@ if.end.i.i.i:                                     ; preds = %if.then6
 
 for.body.i.preheader.i.i:                         ; preds = %if.end.i.i.i
   %5 = or disjoint i32 %4, 1
-  %6 = call i32 @llvm.umax.i32(i32 %5, i32 128)
-  %umax.i.i = zext nneg i32 %6 to i64
+  %umax.i.i = call i32 @llvm.umax.i32(i32 %5, i32 128)
+  %umax.i.i = zext nneg i32 %umax.i.i to i64
   %7 = add nsw i64 %umax.i.i, -65
   %8 = lshr i64 %7, 3
   %9 = and i64 %8, 2305843009213693944
@@ -83753,8 +83753,8 @@ if.then19.i.i.i:                                  ; preds = %for.end.i.i.i
   %notmask.i45.i.i.i = shl nsw i64 -1, %sh_prom.i44.i.i.i
   %idxprom2.i50.i.i.i = zext nneg i32 %div20.i.i.i to i64
   %arrayidx3.i51.i.i.i = getelementptr inbounds nuw i64, ptr %2, i64 %idxprom2.i50.i.i.i
-  %11 = load i64, ptr %arrayidx3.i51.i.i.i, align 8
-  %and4.i52.i.i.i = and i64 %11, %notmask.i45.i.i.i
+  %10 = load i64, ptr %arrayidx3.i51.i.i.i, align 8
+  %and4.i52.i.i.i = and i64 %10, %notmask.i45.i.i.i
   store i64 %and4.i52.i.i.i, ptr %arrayidx3.i51.i.i.i, align 8
   br label %if.then3.i.i.i.i
 
@@ -83769,10 +83769,10 @@ if.then3.i.i.i.i:                                 ; preds = %if.then19.i.i.i, %f
           to label %_ZN8facebook5velox12SimpleVectorINS0_10StringViewEE17invalidateIsAsciiIS2_EENSt9enable_ifIXsr3stdE9is_same_vIT_S2_EEvE4typeEv.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then3.i.i.i.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #36
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #36
   unreachable
 
 _ZN8facebook5velox12SimpleVectorINS0_10StringViewEE17invalidateIsAsciiIS2_EENSt9enable_ifIXsr3stdE9is_same_vIT_S2_EEvE4typeEv.exit: ; preds = %if.then3.i.i.i.i
@@ -83786,16 +83786,16 @@ if.else:                                          ; preds = %if.end3
 
 for.body.preheader:                               ; preds = %if.else
   %rawValues_ = getelementptr inbounds nuw i8, ptr %this, i64 216
-  %14 = load ptr, ptr %rawValues_, align 8
-  %15 = sext i32 %0 to i64
-  %16 = shl nsw i64 %15, 4
-  %scevgep = getelementptr i8, ptr %14, i64 %16
-  %17 = xor i32 %0, -1
-  %18 = add i32 %newSize, %17
-  %19 = zext i32 %18 to i64
-  %20 = shl nuw nsw i64 %19, 4
-  %21 = add nuw nsw i64 %20, 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %21, i1 false)
+  %13 = load ptr, ptr %rawValues_, align 8
+  %14 = sext i32 %0 to i64
+  %15 = shl nsw i64 %14, 4
+  %scevgep = getelementptr i8, ptr %13, i64 %15
+  %16 = xor i32 %0, -1
+  %17 = add i32 %newSize, %16
+  %18 = zext i32 %17 to i64
+  %19 = shl nuw nsw i64 %18, 4
+  %20 = add nuw nsw i64 %19, 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %20, i1 false)
   br label %for.end
 
 for.end:                                          ; preds = %for.body.preheader, %if.else

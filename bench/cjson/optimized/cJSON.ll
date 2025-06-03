@@ -5839,32 +5839,32 @@ define internal fastcc range(i32 0, 2) i32 @parse_string(ptr noundef nonnull wri
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %.093124, i64 1
   store i8 8, ptr %.093124, align 1, !tbaa !34
-  br label %115
+  br label %117
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %.093124, i64 1
   store i8 12, ptr %.093124, align 1, !tbaa !34
-  br label %115
+  br label %117
 
 49:                                               ; preds = %42
   %50 = getelementptr inbounds nuw i8, ptr %.093124, i64 1
   store i8 10, ptr %.093124, align 1, !tbaa !34
-  br label %115
+  br label %117
 
 51:                                               ; preds = %42
   %52 = getelementptr inbounds nuw i8, ptr %.093124, i64 1
   store i8 13, ptr %.093124, align 1, !tbaa !34
-  br label %115
+  br label %117
 
 53:                                               ; preds = %42
   %54 = getelementptr inbounds nuw i8, ptr %.093124, i64 1
   store i8 9, ptr %.093124, align 1, !tbaa !34
-  br label %115
+  br label %117
 
 55:                                               ; preds = %42, %42, %42
   %56 = getelementptr inbounds nuw i8, ptr %.093124, i64 1
   store i8 %44, ptr %.093124, align 1, !tbaa !34
-  br label %115
+  br label %117
 
 57:                                               ; preds = %42
   %58 = icmp samesign ult i64 %40, 6
@@ -5966,84 +5966,84 @@ parse_hex4.exit.i:                                ; preds = %70
   %.169.shrunk.ph.i = phi i32 [ %93, %.thread85.i ], [ %spec.select.i.i, %100 ], [ %spec.select.i.i, %98 ], [ %spec.select.i.i, %96 ]
   %.049.ph.i = phi i64 [ 4, %.thread85.i ], [ 4, %100 ], [ 3, %98 ], [ 2, %96 ]
   %.046.ph.i = phi i64 [ 240, %.thread85.i ], [ 240, %100 ], [ 224, %98 ], [ 192, %96 ]
-  %.16998.i = zext i32 %.169.shrunk.ph.i to i64
-  %102 = add nsw i64 %.049.ph.i, -1
+  %.16997.i = zext i32 %.169.shrunk.ph.i to i64
+  %narrow.i = add nsw i64 %.049.ph.i, -1
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %102, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.290.i = phi i64 [ %.16998.i, %.lr.ph.preheader.i ], [ %107, %.lr.ph.i ]
-  %103 = trunc i64 %.290.i to i8
-  %104 = and i8 %103, 63
-  %105 = or disjoint i8 %104, -128
-  %106 = getelementptr inbounds nuw i8, ptr %.093124, i64 %indvars.iv.i
-  store i8 %105, ptr %106, align 1, !tbaa !34
-  %107 = lshr i64 %.290.i, 6
+  %.290.i = phi i64 [ %.16997.i, %.lr.ph.preheader.i ], [ %108, %.lr.ph.i ]
+  %104 = trunc i64 %.290.i to i8
+  %105 = and i8 %104, 63
+  %106 = or disjoint i8 %105, -128
+  %107 = getelementptr inbounds nuw i8, ptr %.093124, i64 %indvars.iv.i
+  store i8 %106, ptr %107, align 1, !tbaa !34
+  %108 = lshr i64 %.290.i, 6
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %108 = and i64 %indvars.iv.next.i, 255
-  %.not54.i = icmp eq i64 %108, 0
-  br i1 %.not54.i, label %109, label %.lr.ph.i
+  %109 = and i64 %indvars.iv.next.i, 255
+  %.not54.i = icmp eq i64 %109, 0
+  br i1 %.not54.i, label %110, label %.lr.ph.i
 
-109:                                              ; preds = %.lr.ph.i
-  %110 = or i64 %107, %.046.ph.i
-  %111 = trunc i64 %110 to i8
+110:                                              ; preds = %.lr.ph.i
+  %111 = or i64 %108, %.046.ph.i
+  %112 = trunc i64 %111 to i8
   br label %utf16_literal_to_utf8.exit
 
 .loopexit.i:                                      ; preds = %68, %94
   %.169.shrunk.i = phi i32 [ %spec.select.i.i, %94 ], [ 0, %68 ]
-  %112 = trunc i32 %.169.shrunk.i to i8
-  %113 = and i8 %112, 127
+  %114 = trunc i32 %.169.shrunk.i to i8
+  %115 = and i8 %114, 127
   br label %utf16_literal_to_utf8.exit
 
-utf16_literal_to_utf8.exit:                       ; preds = %109, %.loopexit.i
-  %.sink.i = phi i8 [ %113, %.loopexit.i ], [ %111, %109 ]
-  %.04771100113.i = phi i64 [ 6, %.loopexit.i ], [ %.04771.ph.i, %109 ]
-  %.049102111.i = phi i64 [ 1, %.loopexit.i ], [ %.049.ph.i, %109 ]
+utf16_literal_to_utf8.exit:                       ; preds = %110, %.loopexit.i
+  %.sink.i = phi i8 [ %115, %.loopexit.i ], [ %112, %109 ]
+  %.04771101115.i = phi i64 [ 6, %.loopexit.i ], [ %.04771.ph.i, %109 ]
+  %.049103113.i = phi i64 [ 1, %.loopexit.i ], [ %.049.ph.i, %109 ]
   store i8 %.sink.i, ptr %.093124, align 1, !tbaa !34
-  %114 = getelementptr inbounds nuw i8, ptr %.093124, i64 %.049102111.i
-  br label %115
+  %116 = getelementptr inbounds nuw i8, ptr %.093124, i64 %.049103113.i
+  br label %117
 
-115:                                              ; preds = %45, %47, %49, %51, %53, %55, %utf16_literal_to_utf8.exit
-  %.396 = phi ptr [ %114, %utf16_literal_to_utf8.exit ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ]
-  %.0 = phi i64 [ %.04771100113.i, %utf16_literal_to_utf8.exit ], [ 2, %55 ], [ 2, %53 ], [ 2, %51 ], [ 2, %49 ], [ 2, %47 ], [ 2, %45 ]
-  %116 = getelementptr inbounds nuw i8, ptr %.166125, i64 %.0
+117:                                              ; preds = %45, %47, %49, %51, %53, %55, %utf16_literal_to_utf8.exit
+  %.396 = phi ptr [ %116, %utf16_literal_to_utf8.exit ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ]
+  %.0 = phi i64 [ %.04771101115.i, %utf16_literal_to_utf8.exit ], [ 2, %55 ], [ 2, %53 ], [ 2, %51 ], [ 2, %49 ], [ 2, %47 ], [ 2, %45 ]
+  %118 = getelementptr inbounds nuw i8, ptr %.166125, i64 %.0
   br label %.critedge
 
-.critedge:                                        ; preds = %115, %35
+.critedge:                                        ; preds = %117, %35
   %.194 = phi ptr [ %.396, %115 ], [ %37, %35 ]
-  %.2 = phi ptr [ %116, %115 ], [ %36, %35 ]
-  %117 = icmp ult ptr %.2, %.063121.ptr.le
-  br i1 %117, label %.lr.ph128, label %.critedge._crit_edge
+  %.2 = phi ptr [ %118, %115 ], [ %36, %35 ]
+  %119 = icmp ult ptr %.2, %.063121.ptr.le
+  br i1 %119, label %.lr.ph128, label %.critedge._crit_edge
 
 .critedge._crit_edge:                             ; preds = %.critedge, %.critedge.preheader
   %.093.lcssa = phi ptr [ %31, %.critedge.preheader ], [ %.194, %.critedge ]
   store i8 0, ptr %.093.lcssa, align 1, !tbaa !34
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 16, ptr %118, align 8, !tbaa !11
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %31, ptr %119, align 8, !tbaa !16
-  %120 = load ptr, ptr %1, align 8, !tbaa !28
-  %121 = ptrtoint ptr %120 to i64
-  %122 = add i64 %14, 1
-  %123 = sub i64 %122, %121
-  br label %130
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 16, ptr %120, align 8, !tbaa !11
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %31, ptr %121, align 8, !tbaa !16
+  %122 = load ptr, ptr %1, align 8, !tbaa !28
+  %123 = ptrtoint ptr %122 to i64
+  %124 = add i64 %14, 1
+  %125 = sub i64 %124, %123
+  br label %132
 
 utf16_literal_to_utf8.exit.thread:                ; preds = %85, %80, %82, %75, %57, %parse_hex4.exit.i, %100, %42, %38
-  %124 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %125 = load ptr, ptr %124, align 8, !tbaa !60
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %127 = load ptr, ptr %126, align 8, !tbaa !60
   tail call void %125(ptr noundef nonnull %31) #32
   br label %.thread108
 
 .thread108:                                       ; preds = %16, %21, %.preheader, %25, %2, %utf16_literal_to_utf8.exit.thread
   %.065112 = phi ptr [ %.166125, %utf16_literal_to_utf8.exit.thread ], [ %.ptr, %2 ], [ %.ptr, %25 ], [ %.ptr, %.preheader ], [ %.ptr, %21 ], [ %.ptr, %16 ]
-  %126 = load ptr, ptr %1, align 8, !tbaa !28
-  %127 = ptrtoint ptr %.065112 to i64
-  %128 = ptrtoint ptr %126 to i64
-  %129 = sub i64 %127, %128
-  br label %130
+  %128 = load ptr, ptr %1, align 8, !tbaa !28
+  %129 = ptrtoint ptr %.065112 to i64
+  %130 = ptrtoint ptr %128 to i64
+  %131 = sub i64 %129, %130
+  br label %132
 
-130:                                              ; preds = %.thread108, %.critedge._crit_edge
-  %storemerge = phi i64 [ %123, %.critedge._crit_edge ], [ %129, %.thread108 ]
+132:                                              ; preds = %.thread108, %.critedge._crit_edge
+  %storemerge = phi i64 [ %125, %.critedge._crit_edge ], [ %131, %.thread108 ]
   %.067 = phi i32 [ 1, %.critedge._crit_edge ], [ 0, %.thread108 ]
   store i64 %storemerge, ptr %4, align 8, !tbaa !33
   ret i32 %.067

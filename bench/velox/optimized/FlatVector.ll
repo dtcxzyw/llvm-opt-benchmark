@@ -2392,7 +2392,7 @@ if.then.i.i.i2.i:                                 ; preds = %_ZNSt6vectorImSaImE
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad26, %lpad59, %_ZNSt6vectorImSaImEED2Ev.exit.i, %if.then.i.i.i2.i
-  %common.resume.op = phi { ptr, i32 } [ %124, %if.then.i.i.i2.i ], [ %124, %_ZNSt6vectorImSaImEED2Ev.exit.i ], [ %280, %lpad59 ], [ %131, %lpad26 ]
+  %common.resume.op = phi { ptr, i32 } [ %124, %if.then.i.i.i2.i ], [ %124, %_ZNSt6vectorImSaImEED2Ev.exit.i ], [ %279, %lpad59 ], [ %131, %lpad26 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN8facebook5velox13DecodedVectorC2ERKNS0_10BaseVectorEb.exit: ; preds = %if.else25
@@ -3396,8 +3396,8 @@ if.end.i.i.i:                                     ; preds = %if.then55
 
 for.body.i.preheader.i.i:                         ; preds = %if.end.i.i.i
   %269 = or disjoint i32 %268, 1
-  %270 = call i32 @llvm.umax.i32(i32 %269, i32 128)
-  %umax.i.i = zext nneg i32 %270 to i64
+  %umax.i.i = call i32 @llvm.umax.i32(i32 %269, i32 128)
+  %umax.i.i = zext nneg i32 %umax.i.i to i64
   %271 = add nsw i64 %umax.i.i, -65
   %272 = lshr i64 %271, 3
   %273 = and i64 %272, 2305843009213693944
@@ -3416,8 +3416,8 @@ if.then19.i.i.i:                                  ; preds = %for.end.i.i.i
   %notmask.i45.i.i.i = shl nsw i64 -1, %sh_prom.i44.i.i.i
   %idxprom2.i50.i.i.i = zext nneg i32 %div20.i.i.i to i64
   %arrayidx3.i51.i.i.i = getelementptr inbounds nuw i64, ptr %266, i64 %idxprom2.i50.i.i.i
-  %275 = load i64, ptr %arrayidx3.i51.i.i.i, align 8
-  %and4.i52.i.i.i = and i64 %275, %notmask.i45.i.i.i
+  %274 = load i64, ptr %arrayidx3.i51.i.i.i, align 8
+  %and4.i52.i.i.i = and i64 %274, %notmask.i45.i.i.i
   store i64 %and4.i52.i.i.i, ptr %arrayidx3.i51.i.i.i, align 8
   br label %if.then3.i.i.i.i595
 
@@ -3432,10 +3432,10 @@ if.then3.i.i.i.i595:                              ; preds = %if.then19.i.i.i, %f
           to label %_ZN8facebook5velox12SimpleVectorINS0_10StringViewEE17invalidateIsAsciiIS2_EENSt9enable_ifIXsr3stdE9is_same_vIT_S2_EEvE4typeEv.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then3.i.i.i.i595
-  %276 = landingpad { ptr, i32 }
+  %275 = landingpad { ptr, i32 }
           catch ptr null
-  %277 = extractvalue { ptr, i32 } %276, 0
-  call void @__clang_call_terminate(ptr %277) #31
+  %276 = extractvalue { ptr, i32 } %275, 0
+  call void @__clang_call_terminate(ptr %276) #31
   unreachable
 
 _ZN8facebook5velox12SimpleVectorINS0_10StringViewEE17invalidateIsAsciiIS2_EENSt9enable_ifIXsr3stdE9is_same_vIT_S2_EEvE4typeEv.exit: ; preds = %if.then3.i.i.i.i595
@@ -3459,14 +3459,14 @@ if.then3.i.i.i:                                   ; preds = %invoke.cont60
           to label %if.end65 unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i
-  %278 = landingpad { ptr, i32 }
+  %277 = landingpad { ptr, i32 }
           catch ptr null
-  %279 = extractvalue { ptr, i32 } %278, 0
-  call void @__clang_call_terminate(ptr %279) #31
+  %278 = extractvalue { ptr, i32 } %277, 0
+  call void @__clang_call_terminate(ptr %278) #31
   unreachable
 
 lpad59:                                           ; preds = %invoke.cont60
-  %280 = landingpad { ptr, i32 }
+  %279 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5folly9LockedPtrINS_12SynchronizedIN8facebook5velox17SelectivityVectorENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSA_22SynchronizedMutexLevelE1ELNSA_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp57) #32
   br label %common.resume
