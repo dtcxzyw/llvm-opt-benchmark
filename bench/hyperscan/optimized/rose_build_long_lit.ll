@@ -1120,9 +1120,9 @@ define internal fastcc void @_ZN3ue2L15makeBloomFilterERKSt6vectorINS_15ue2_case
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %10
 
-10:                                               ; preds = %74, %4
-  %11 = phi ptr [ null, %4 ], [ %.sroa.0.138, %74 ]
-  %.08 = phi i64 [ 256, %4 ], [ %82, %74 ]
+10:                                               ; preds = %63, %4
+  %11 = phi ptr [ null, %4 ], [ %.sroa.0.138, %63 ]
+  %.08 = phi i64 [ 256, %4 ], [ %71, %63 ]
   %.val = load ptr, ptr %1, align 8
   %.val10 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i = icmp eq i64 %.08, 0
@@ -1131,7 +1131,7 @@ define internal fastcc void @_ZN3ue2L15makeBloomFilterERKSt6vectorINS_15ue2_case
 .noexc.i:                                         ; preds = %10
   %12 = lshr exact i64 %.08, 3
   %13 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #35
-          to label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i unwind label %83
+          to label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i unwind label %72
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i: ; preds = %.noexc.i
   %14 = getelementptr i8, ptr %13, i64 %12
@@ -1271,65 +1271,54 @@ _ZN3ue2L16buildBloomFilterERKSt6vectorINS_15ue2_case_stringESaIS1_EEmmb.exit: ; 
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %56, %_ZN3ue2L16buildBloomFilterERKSt6vectorINS_15ue2_case_stringESaIS1_EEmmb.exit
   %.not6.i.i.i = icmp eq ptr %.sroa.0.138, %.sroa.12.139
-  br i1 %.not6.i.i.i, label %74, label %.lr.ph.i.i.i
+  br i1 %.not6.i.i.i, label %63, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %.lr.ph.i.i.i
-  %.08.i.i.i = phi i32 [ %70, %.lr.ph.i.i.i ], [ 0, %_ZNSt6vectorIhSaIhEED2Ev.exit ]
-  %.sroa.03.07.i.i.i = phi ptr [ %71, %.lr.ph.i.i.i ], [ %.sroa.0.138, %_ZNSt6vectorIhSaIhEED2Ev.exit ]
+  %.08.i.i.i = phi i32 [ %59, %.lr.ph.i.i.i ], [ 0, %_ZNSt6vectorIhSaIhEED2Ev.exit ]
+  %.sroa.03.07.i.i.i = phi ptr [ %60, %.lr.ph.i.i.i ], [ %.sroa.0.138, %_ZNSt6vectorIhSaIhEED2Ev.exit ]
   %.val2.i.i.i = load i8, ptr %.sroa.03.07.i.i.i, align 1
-  %57 = zext i8 %.val2.i.i.i to i32
-  %58 = lshr i32 %57, 1
-  %59 = and i32 %58, 85
-  %60 = sub nsw i32 %57, %59
-  %61 = and i32 %60, 858993459
-  %62 = lshr i32 %60, 2
-  %63 = and i32 %62, 858993459
-  %64 = add nuw nsw i32 %63, %61
-  %65 = lshr i32 %64, 4
-  %66 = add nuw nsw i32 %65, %64
-  %67 = and i32 %66, 252645135
-  %68 = mul i32 %67, 16843009
-  %69 = lshr i32 %68, 24
-  %70 = add i32 %69, %.08.i.i.i
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i, i64 1
-  %.not.i.i.i15 = icmp eq ptr %71, %.sroa.12.139
+  %57 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %.val2.i.i.i)
+  %58 = zext nneg i8 %57 to i32
+  %59 = add i32 %.08.i.i.i, %58
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i, i64 1
+  %.not.i.i.i15 = icmp eq ptr %60, %.sroa.12.139
   br i1 %.not.i.i.i15, label %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEiZN3ue2L14bloomOccupancyERKS6_E3$_0ET0_T_SD_SC_T1_.exit.loopexit.i.i", label %.lr.ph.i.i.i, !llvm.loop !36
 
 "_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEiZN3ue2L14bloomOccupancyERKS6_E3$_0ET0_T_SD_SC_T1_.exit.loopexit.i.i": ; preds = %.lr.ph.i.i.i
-  %72 = sext i32 %70 to i64
-  %73 = uitofp i64 %72 to double
-  br label %74
+  %61 = sext i32 %59 to i64
+  %62 = uitofp i64 %61 to double
+  br label %63
 
-74:                                               ; preds = %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEiZN3ue2L14bloomOccupancyERKS6_E3$_0ET0_T_SD_SC_T1_.exit.loopexit.i.i", %_ZNSt6vectorIhSaIhEED2Ev.exit
-  %.0.lcssa.i.i.i = phi double [ 0.000000e+00, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %73, %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEiZN3ue2L14bloomOccupancyERKS6_E3$_0ET0_T_SD_SC_T1_.exit.loopexit.i.i" ]
-  %75 = ptrtoint ptr %.sroa.12.139 to i64
-  %76 = ptrtoint ptr %.sroa.0.138 to i64
-  %77 = sub i64 %75, %76
-  %78 = shl i64 %77, 3
-  %79 = uitofp i64 %78 to double
-  %80 = fdiv double %.0.lcssa.i.i.i, %79
-  %81 = fcmp olt double %80, 2.500000e-01
-  %82 = shl i64 %.08, 1
-  br i1 %81, label %86, label %10, !llvm.loop !37
+63:                                               ; preds = %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEiZN3ue2L14bloomOccupancyERKS6_E3$_0ET0_T_SD_SC_T1_.exit.loopexit.i.i", %_ZNSt6vectorIhSaIhEED2Ev.exit
+  %.0.lcssa.i.i.i = phi double [ 0.000000e+00, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %62, %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEiZN3ue2L14bloomOccupancyERKS6_E3$_0ET0_T_SD_SC_T1_.exit.loopexit.i.i" ]
+  %64 = ptrtoint ptr %.sroa.12.139 to i64
+  %65 = ptrtoint ptr %.sroa.0.138 to i64
+  %66 = sub i64 %64, %65
+  %67 = shl i64 %66, 3
+  %68 = uitofp i64 %67 to double
+  %69 = fdiv double %.0.lcssa.i.i.i, %68
+  %70 = fcmp olt double %69, 2.500000e-01
+  %71 = shl i64 %.08, 1
+  br i1 %70, label %75, label %10, !llvm.loop !37
 
-83:                                               ; preds = %.noexc.i
-  %84 = landingpad { ptr, i32 }
+72:                                               ; preds = %.noexc.i
+  %73 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %83, %.body.i
-  %.pn = phi { ptr, i32 } [ %84, %83 ], [ %eh.lpad-body.i, %.body.i ]
+.body:                                            ; preds = %72, %.body.i
+  %.pn = phi { ptr, i32 } [ %73, %72 ], [ %eh.lpad-body.i, %.body.i ]
   %.not.i.i.i16 = icmp eq ptr %11, null
-  br i1 %.not.i.i.i16, label %_ZNSt6vectorIhSaIhEED2Ev.exit17, label %85
+  br i1 %.not.i.i.i16, label %_ZNSt6vectorIhSaIhEED2Ev.exit17, label %74
 
-85:                                               ; preds = %.body
+74:                                               ; preds = %.body
   tail call void @_ZdlPv(ptr noundef nonnull %11) #32
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit17
 
-_ZNSt6vectorIhSaIhEED2Ev.exit17:                  ; preds = %.body, %85
+_ZNSt6vectorIhSaIhEED2Ev.exit17:                  ; preds = %.body, %74
   resume { ptr, i32 } %.pn
 
-86:                                               ; preds = %74
+75:                                               ; preds = %63
   ret void
 }
 
@@ -12341,6 +12330,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #28
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ctpop.i8(i8) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #28
