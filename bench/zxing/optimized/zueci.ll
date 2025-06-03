@@ -1605,7 +1605,7 @@ switch.early.test:                                ; preds = %2
 6:                                                ; preds = %2
   %7 = add i32 %0, -19968
   %or.cond5 = icmp ult i32 %7, 37376
-  br i1 %or.cond5, label %8, label %35
+  br i1 %or.cond5, label %8, label %46
 
 8:                                                ; preds = %6
   %9 = icmp samesign ugt i32 %0, 40864
@@ -1638,66 +1638,66 @@ switch.early.test:                                ; preds = %2
   %32 = trunc nuw i16 %31 to i8
   store i8 %32, ptr %1, align 1, !tbaa !3
   %33 = trunc i16 %30 to i8
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %33, ptr %34, align 1, !tbaa !3
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %33, ptr %35, align 1, !tbaa !3
   br label %zueci_u_lookup_uro.exit
 
-35:                                               ; preds = %6
-  %36 = add i32 %0, -57344
-  %or.cond7 = icmp ult i32 %36, 1880
-  br i1 %or.cond7, label %37, label %.thread65
+46:                                               ; preds = %6
+  %47 = add i32 %0, -57344
+  %or.cond7 = icmp ult i32 %47, 1880
+  br i1 %or.cond7, label %48, label %.thread65
 
-37:                                               ; preds = %35
-  %.lhs.trunc = trunc nuw nsw i32 %36 to i16
-  %38 = udiv i16 %.lhs.trunc, 188
-  %narrow = mul nuw nsw i16 %38, 68
+48:                                               ; preds = %46
+  %.lhs.trunc = trunc nuw nsw i32 %47 to i16
+  %49 = udiv i16 %.lhs.trunc, 188
+  %narrow = mul nuw nsw i16 %49, 68
   %.neg = zext nneg i16 %narrow to i32
-  %39 = add nuw nsw i32 %0, %.neg
-  %40 = trunc nuw nsw i16 %38 to i8
-  %41 = or disjoint i8 %40, -16
-  store i8 %41, ptr %1, align 1, !tbaa !3
-  %42 = and i32 %39, 255
-  %43 = add nuw nsw i32 %39, 64
-  %44 = icmp samesign ugt i32 %42, 62
-  %45 = zext i1 %44 to i32
-  %46 = add nuw nsw i32 %43, %45
-  %47 = trunc i32 %46 to i8
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %47, ptr %48, align 1, !tbaa !3
+  %50 = add nuw nsw i32 %0, %.neg
+  %51 = trunc nuw nsw i16 %49 to i8
+  %52 = or disjoint i8 %51, -16
+  store i8 %52, ptr %1, align 1, !tbaa !3
+  %53 = and i32 %50, 255
+  %54 = add nuw nsw i32 %50, 64
+  %55 = icmp samesign ugt i32 %53, 62
+  %56 = zext i1 %55 to i32
+  %57 = add nuw nsw i32 %54, %56
+  %58 = trunc i32 %57 to i8
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %58, ptr %59, align 1, !tbaa !3
   br label %zueci_u_lookup_uro.exit
 
-.thread65:                                        ; preds = %35
-  %49 = icmp ugt i32 %0, 19967
-  %50 = add i32 %0, -92
-  %or.cond = icmp ult i32 %50, 65418
+.thread65:                                        ; preds = %46
+  %60 = icmp ugt i32 %0, 19967
+  %61 = add i32 %0, -92
+  %or.cond = icmp ult i32 %61, 65418
   br i1 %or.cond, label %.preheader.preheader, label %zueci_u_lookup_uro.exit
 
 .preheader.preheader:                             ; preds = %switch.early.test, %switch.early.test, %.thread65
-  %51 = phi i1 [ %49, %.thread65 ], [ false, %switch.early.test ], [ false, %switch.early.test ]
+  %62 = phi i1 [ %60, %.thread65 ], [ false, %switch.early.test ], [ false, %switch.early.test ]
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %79
+.preheader:                                       ; preds = %.preheader.preheader, %90
   %.05577 = phi i32 [ %.257, %79 ], [ 0, %.preheader.preheader ]
   %.05876 = phi i32 [ %.260, %79 ], [ 587, %.preheader.preheader ]
-  %52 = add nsw i32 %.05577, %.05876
-  %53 = ashr i32 %52, 1
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds [588 x i16], ptr @zueci_sjis_u_u, i64 0, i64 %54
-  %56 = load i16, ptr %55, align 2, !tbaa !14
-  %57 = zext i16 %56 to i32
-  %58 = icmp ugt i32 %0, %57
-  br i1 %58, label %59, label %61
+  %63 = add nsw i32 %.05577, %.05876
+  %64 = ashr i32 %63, 1
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds [588 x i16], ptr @zueci_sjis_u_u, i64 0, i64 %65
+  %67 = load i16, ptr %66, align 2, !tbaa !14
+  %68 = zext i16 %67 to i32
+  %69 = icmp ugt i32 %0, %68
+  br i1 %69, label %70, label %72
 
-59:                                               ; preds = %.preheader
-  %60 = add nsw i32 %53, 1
-  br label %79
+70:                                               ; preds = %.preheader
+  %71 = add nsw i32 %64, 1
+  br label %90
 
-61:                                               ; preds = %.preheader
-  %62 = icmp samesign ult i32 %0, %57
+83:                                               ; preds = %.preheader
+  %62 = icmp samesign ult i32 %0, %68
   br i1 %62, label %63, label %65
 
-63:                                               ; preds = %61
-  %64 = add nsw i32 %53, -1
+63:; preds = %61
+  %75 = add nsw i32 %64, -1
   br label %79
 
 65:                                               ; preds = %61
@@ -1718,19 +1718,19 @@ switch.early.test:                                ; preds = %2
   store i8 %75, ptr %76, align 1, !tbaa !3
   br label %zueci_u_lookup_uro.exit
 
-77:                                               ; preds = %65
-  %78 = trunc nuw i16 %70 to i8
-  store i8 %78, ptr %1, align 1, !tbaa !3
+88:                                               ; preds = %76
+  %89 = trunc nuw i16 %70 to i8
+  store i8 %89, ptr %1, align 1, !tbaa !3
   br label %zueci_u_lookup_uro.exit
 
-79:                                               ; preds = %59, %63
-  %.260 = phi i32 [ %.05876, %59 ], [ %64, %63 ]
-  %.257 = phi i32 [ %60, %59 ], [ %.05577, %63 ]
+90:                                               ; preds = %70, %74
+  %.260 = phi i32 [ %.05876, %70 ], [ %75, %74 ]
+  %.257 = phi i32 [ %71, %70 ], [ %.05577, %74 ]
   %.not.not = icmp sgt i32 %.257, %.260
   br i1 %.not.not, label %zueci_u_lookup_uro.exit, label %.preheader, !llvm.loop !18
 
-zueci_u_lookup_uro.exit:                          ; preds = %79, %.thread65, %72, %77, %20, %10, %8, %37, %4
-  %.052 = phi i32 [ 1, %4 ], [ 2, %37 ], [ 0, %8 ], [ 2, %20 ], [ 0, %10 ], [ 1, %77 ], [ 2, %72 ], [ 0, %.thread65 ], [ 0, %79 ]
+zueci_u_lookup_uro.exit:                          ; preds = %90, %.thread65, %72, %88, %20, %10, %8, %48, %4
+  %.052 = phi i32 [ 1, %4 ], [ 2, %48 ], [ 0, %8 ], [ 2, %20 ], [ 0, %10 ], [ 1, %77 ], [ 2, %72 ], [ 0, %.thread65 ], [ 0, %79 ]
   ret i32 %.052
 }
 
@@ -2098,7 +2098,7 @@ define internal range(i32 0, 3) i32 @zueci_u_big5(i32 noundef %0, ptr noundef wr
   %7 = icmp ugt i32 %0, 19967
   %8 = add i32 %0, -19968
   %or.cond = icmp ult i32 %8, 44044
-  br i1 %or.cond, label %9, label %36
+  br i1 %or.cond, label %9, label %47
 
 9:                                                ; preds = %6
   %10 = icmp samesign ugt i32 %0, 40879
@@ -2130,62 +2130,62 @@ define internal range(i32 0, 3) i32 @zueci_u_big5(i32 noundef %0, ptr noundef wr
   %32 = lshr i16 %31, 8
   %33 = trunc nuw i16 %32 to i8
   store i8 %33, ptr %1, align 1, !tbaa !3
-  %34 = trunc i16 %31 to i8
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %34, ptr %35, align 1, !tbaa !3
+  %35 = trunc i16 %31 to i8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %34, ptr %36, align 1, !tbaa !3
   br label %zueci_u_lookup_uro.exit
 
-36:                                               ; preds = %6
-  %37 = add i32 %0, -162
-  %or.cond39 = icmp ult i32 %37, 65219
+47:                                               ; preds = %6
+  %48 = add i32 %0, -162
+  %or.cond39 = icmp ult i32 %48, 65219
   br i1 %or.cond39, label %.preheader, label %zueci_u_lookup_uro.exit
 
-.preheader:                                       ; preds = %36, %60
-  %.02944 = phi i32 [ %.231, %60 ], [ 0, %36 ]
-  %.03343 = phi i32 [ %.235, %60 ], [ 641, %36 ]
-  %38 = add nsw i32 %.02944, %.03343
-  %39 = ashr i32 %38, 1
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds [642 x i16], ptr @zueci_big5_u_u, i64 0, i64 %40
-  %42 = load i16, ptr %41, align 2, !tbaa !14
-  %43 = zext i16 %42 to i32
-  %44 = icmp ugt i32 %0, %43
-  br i1 %44, label %45, label %47
+.preheader:                                       ; preds = %47, %71
+  %.02944 = phi i32 [ %.231, %71 ], [ 0, %47 ]
+  %.03343 = phi i32 [ %.235, %71 ], [ 641, %47 ]
+  %49 = add nsw i32 %.02944, %.03343
+  %50 = ashr i32 %49, 1
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds [642 x i16], ptr @zueci_big5_u_u, i64 0, i64 %51
+  %53 = load i16, ptr %52, align 2, !tbaa !14
+  %54 = zext i16 %53 to i32
+  %55 = icmp ugt i32 %0, %54
+  br i1 %55, label %56, label %58
 
-45:                                               ; preds = %.preheader
-  %46 = add nsw i32 %39, 1
-  br label %60
+56:                                               ; preds = %.preheader
+  %57 = add nsw i32 %50, 1
+  br label %71
 
-47:                                               ; preds = %.preheader
-  %48 = icmp samesign ult i32 %0, %43
-  br i1 %48, label %49, label %.thread
+58:                                               ; preds = %.preheader
+  %59 = icmp samesign ult i32 %0, %54
+  br i1 %59, label %60, label %.thread
 
-49:                                               ; preds = %47
-  %50 = add nsw i32 %39, -1
-  br label %60
+60:                                               ; preds = %58
+  %61 = add nsw i32 %50, -1
+  br label %71
 
-.thread:                                          ; preds = %47
-  %51 = add nsw i32 %39, 13061
-  %52 = select i1 %7, i32 %51, i32 %39
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds [13703 x i16], ptr @zueci_big5_u_mb, i64 0, i64 %53
-  %55 = load i16, ptr %54, align 2, !tbaa !14
-  %56 = lshr i16 %55, 8
-  %57 = trunc nuw i16 %56 to i8
-  store i8 %57, ptr %1, align 1, !tbaa !3
-  %58 = trunc i16 %55 to i8
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %58, ptr %59, align 1, !tbaa !3
+.thread:                                          ; preds = %58
+  %62 = add nsw i32 %50, 13061
+  %63 = select i1 %7, i32 %62, i32 %50
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds [13703 x i16], ptr @zueci_big5_u_mb, i64 0, i64 %64
+  %66 = load i16, ptr %65, align 2, !tbaa !14
+  %67 = lshr i16 %66, 8
+  %68 = trunc nuw i16 %67 to i8
+  store i8 %68, ptr %1, align 1, !tbaa !3
+  %69 = trunc i16 %66 to i8
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %69, ptr %70, align 1, !tbaa !3
   br label %zueci_u_lookup_uro.exit
 
-60:                                               ; preds = %45, %49
-  %.235 = phi i32 [ %.03343, %45 ], [ %50, %49 ]
-  %.231 = phi i32 [ %46, %45 ], [ %.02944, %49 ]
+71:                                               ; preds = %56, %60
+  %.235 = phi i32 [ %.03343, %56 ], [ %61, %60 ]
+  %.231 = phi i32 [ %57, %56 ], [ %.02944, %60 ]
   %.not = icmp sgt i32 %.231, %.235
   br i1 %.not, label %zueci_u_lookup_uro.exit, label %.preheader, !llvm.loop !20
 
-zueci_u_lookup_uro.exit:                          ; preds = %60, %.thread, %21, %11, %36, %9, %4
-  %.0 = phi i32 [ 1, %4 ], [ 0, %9 ], [ 0, %36 ], [ 2, %21 ], [ 0, %11 ], [ 2, %.thread ], [ 0, %60 ]
+zueci_u_lookup_uro.exit:                          ; preds = %71, %.thread, %21, %11, %47, %9, %4
+  %.0 = phi i32 [ 1, %4 ], [ 0, %9 ], [ 0, %47 ], [ 2, %21 ], [ 0, %11 ], [ 2, %.thread ], [ 0, %71 ]
   ret i32 %.0
 }
 
@@ -2202,7 +2202,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gb2312(i32 noundef %0, ptr noundef 
 6:                                                ; preds = %2
   %7 = add i32 %0, -19968
   %or.cond = icmp ult i32 %7, 20511
-  br i1 %or.cond, label %8, label %35
+  br i1 %or.cond, label %8, label %46
 
 8:                                                ; preds = %6
   %9 = icmp samesign ugt i32 %0, 40175
@@ -2235,73 +2235,73 @@ define internal range(i32 0, 3) i32 @zueci_u_gb2312(i32 noundef %0, ptr noundef 
   %32 = trunc nuw i16 %31 to i8
   store i8 %32, ptr %1, align 1, !tbaa !3
   %33 = trunc i16 %30 to i8
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %33, ptr %34, align 1, !tbaa !3
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %33, ptr %35, align 1, !tbaa !3
   br label %zueci_u_lookup_uro.exit
 
-35:                                               ; preds = %6
-  %36 = add i32 %0, -164
-  %or.cond44 = icmp ult i32 %36, 65346
-  br i1 %or.cond44, label %37, label %zueci_u_lookup_uro.exit
+46:                                               ; preds = %6
+  %47 = add i32 %0, -164
+  %or.cond44 = icmp ult i32 %47, 65346
+  br i1 %or.cond44, label %48, label %zueci_u_lookup_uro.exit
 
-37:                                               ; preds = %35
-  %38 = lshr i32 %36, 8
-  %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw [256 x i16], ptr @zueci_gb2312_u_ind, i64 0, i64 %39
-  %41 = load i16, ptr %40, align 2, !tbaa !14
-  %42 = zext i16 %41 to i32
-  %43 = tail call i32 @llvm.umin.i32(i32 %42, i32 562)
-  %44 = add nuw nsw i32 %43, 255
-  %.not.not50 = icmp samesign ult i32 %44, %42
+48:                                               ; preds = %46
+  %49 = lshr i32 %47, 8
+  %50 = zext nneg i32 %49 to i64
+  %51 = getelementptr inbounds nuw [256 x i16], ptr @zueci_gb2312_u_ind, i64 0, i64 %50
+  %52 = load i16, ptr %51, align 2, !tbaa !14
+  %53 = zext i16 %52 to i32
+  %54 = tail call i32 @llvm.umin.i32(i32 %53, i32 562)
+  %55 = add nuw nsw i32 %54, 255
+  %.not.not50 = icmp samesign ult i32 %55, %53
   br i1 %.not.not50, label %zueci_u_lookup_uro.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %37, %58
-  %.03552 = phi i32 [ %.237, %58 ], [ %42, %37 ]
-  %.03851 = phi i32 [ %.240, %58 ], [ %44, %37 ]
-  %45 = add nsw i32 %.03552, %.03851
-  %46 = ashr i32 %45, 1
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds [818 x i16], ptr @zueci_gb2312_u_u, i64 0, i64 %47
-  %49 = load i16, ptr %48, align 2, !tbaa !14
-  %50 = zext i16 %49 to i32
-  %51 = icmp ugt i32 %0, %50
-  br i1 %51, label %52, label %54
+.lr.ph:                                           ; preds = %48, %69
+  %.03552 = phi i32 [ %.237, %69 ], [ %53, %48 ]
+  %.03851 = phi i32 [ %.240, %69 ], [ %55, %48 ]
+  %56 = add nsw i32 %.03552, %.03851
+  %57 = ashr i32 %56, 1
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds [818 x i16], ptr @zueci_gb2312_u_u, i64 0, i64 %58
+  %60 = load i16, ptr %59, align 2, !tbaa !14
+  %61 = zext i16 %60 to i32
+  %62 = icmp ugt i32 %0, %61
+  br i1 %62, label %63, label %65
 
-52:                                               ; preds = %.lr.ph
-  %53 = add nsw i32 %46, 1
-  br label %58
+63:                                               ; preds = %.lr.ph
+  %64 = add nsw i32 %57, 1
+  br label %69
 
-54:                                               ; preds = %.lr.ph
-  %55 = icmp samesign ult i32 %0, %50
-  br i1 %55, label %56, label %59
+65:                                               ; preds = %.lr.ph
+  %66 = icmp samesign ult i32 %0, %61
+  br i1 %66, label %67, label %70
 
-56:                                               ; preds = %54
-  %57 = add nsw i32 %46, -1
-  br label %58
+67:                                               ; preds = %65
+  %68 = add nsw i32 %57, -1
+  br label %69
 
-58:                                               ; preds = %52, %56
-  %.240 = phi i32 [ %.03851, %52 ], [ %57, %56 ]
-  %.237 = phi i32 [ %53, %52 ], [ %.03552, %56 ]
+69:                                               ; preds = %63, %67
+  %.240 = phi i32 [ %.03851, %63 ], [ %68, %67 ]
+  %.237 = phi i32 [ %64, %63 ], [ %.03552, %67 ]
   %.not.not = icmp sgt i32 %.237, %.240
   br i1 %.not.not, label %zueci_u_lookup_uro.exit, label %.lr.ph, !llvm.loop !21
 
-59:                                               ; preds = %54
-  %60 = icmp samesign ugt i32 %0, 19968
-  %61 = add nsw i32 %46, 6627
-  %62 = select i1 %60, i32 %61, i32 %46
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [7445 x i16], ptr @zueci_gb2312_u_mb, i64 0, i64 %63
-  %65 = load i16, ptr %64, align 2, !tbaa !14
-  %66 = lshr i16 %65, 8
-  %67 = trunc nuw i16 %66 to i8
-  store i8 %67, ptr %1, align 1, !tbaa !3
-  %68 = trunc i16 %65 to i8
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %68, ptr %69, align 1, !tbaa !3
+70:                                               ; preds = %65
+  %71 = icmp samesign ugt i32 %0, 19968
+  %72 = add nsw i32 %57, 6627
+  %73 = select i1 %71, i32 %72, i32 %57
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds [7445 x i16], ptr @zueci_gb2312_u_mb, i64 0, i64 %74
+  %76 = load i16, ptr %75, align 2, !tbaa !14
+  %77 = lshr i16 %76, 8
+  %78 = trunc nuw i16 %77 to i8
+  store i8 %78, ptr %1, align 1, !tbaa !3
+  %79 = trunc i16 %76 to i8
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %79, ptr %80, align 1, !tbaa !3
   br label %zueci_u_lookup_uro.exit
 
-zueci_u_lookup_uro.exit:                          ; preds = %58, %37, %35, %59, %20, %10, %8, %4
-  %.033 = phi i32 [ 1, %4 ], [ 2, %59 ], [ 0, %8 ], [ 2, %20 ], [ 0, %10 ], [ 0, %35 ], [ 0, %37 ], [ 0, %58 ]
+zueci_u_lookup_uro.exit:                          ; preds = %69, %48, %46, %70, %20, %10, %8, %4
+  %.033 = phi i32 [ 1, %4 ], [ 2, %70 ], [ 0, %8 ], [ 2, %20 ], [ 0, %10 ], [ 0, %36 ], [ 0, %48 ], [ 0, %69 ]
   ret i32 %.033
 }
 
@@ -2319,7 +2319,7 @@ define internal range(i32 0, 3) i32 @zueci_u_ksx1001(i32 noundef %0, ptr noundef
   %7 = icmp ugt i32 %0, 19967
   %8 = add i32 %0, -19968
   %or.cond = icmp ult i32 %8, 24064
-  br i1 %or.cond, label %9, label %36
+  br i1 %or.cond, label %9, label %47
 
 9:                                                ; preds = %6
   %10 = icmp samesign ugt i32 %0, 40863
@@ -2351,73 +2351,73 @@ define internal range(i32 0, 3) i32 @zueci_u_ksx1001(i32 noundef %0, ptr noundef
   %32 = lshr i16 %31, 8
   %33 = trunc nuw i16 %32 to i8
   store i8 %33, ptr %1, align 1, !tbaa !3
-  %34 = trunc i16 %31 to i8
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %34, ptr %35, align 1, !tbaa !3
+  %35 = trunc i16 %31 to i8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %34, ptr %36, align 1, !tbaa !3
   br label %zueci_u_lookup_uro.exit
 
-36:                                               ; preds = %6
-  %37 = add i32 %0, -161
-  %or.cond42 = icmp ult i32 %37, 65350
-  br i1 %or.cond42, label %38, label %zueci_u_lookup_uro.exit
+47:                                               ; preds = %6
+  %48 = add i32 %0, -161
+  %or.cond42 = icmp ult i32 %48, 65350
+  br i1 %or.cond42, label %49, label %zueci_u_lookup_uro.exit
 
-38:                                               ; preds = %36
-  %39 = lshr i32 %37, 8
-  %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw [256 x i16], ptr @zueci_ksx1001_u_ind, i64 0, i64 %40
-  %42 = load i16, ptr %41, align 2, !tbaa !14
-  %43 = zext i16 %42 to i32
-  %44 = tail call i32 @llvm.umin.i32(i32 %43, i32 3351)
-  %45 = add nuw nsw i32 %44, 255
-  %.not46 = icmp samesign ult i32 %45, %43
+49:                                               ; preds = %47
+  %50 = lshr i32 %48, 8
+  %51 = zext nneg i32 %50 to i64
+  %52 = getelementptr inbounds nuw [256 x i16], ptr @zueci_ksx1001_u_ind, i64 0, i64 %51
+  %53 = load i16, ptr %52, align 2, !tbaa !14
+  %54 = zext i16 %53 to i32
+  %55 = tail call i32 @llvm.umin.i32(i32 %54, i32 3351)
+  %56 = add nuw nsw i32 %55, 255
+  %.not46 = icmp samesign ult i32 %56, %54
   br i1 %.not46, label %zueci_u_lookup_uro.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %38, %68
-  %.03248 = phi i32 [ %.234, %68 ], [ %43, %38 ]
-  %.03647 = phi i32 [ %.238, %68 ], [ %45, %38 ]
-  %46 = add nsw i32 %.03248, %.03647
-  %47 = ashr i32 %46, 1
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds [3607 x i16], ptr @zueci_ksx1001_u_u, i64 0, i64 %48
-  %50 = load i16, ptr %49, align 2, !tbaa !14
-  %51 = zext i16 %50 to i32
-  %52 = icmp ugt i32 %0, %51
-  br i1 %52, label %53, label %55
+.lr.ph:                                           ; preds = %49, %79
+  %.03248 = phi i32 [ %.234, %79 ], [ %54, %49 ]
+  %.03647 = phi i32 [ %.238, %79 ], [ %56, %49 ]
+  %57 = add nsw i32 %.03248, %.03647
+  %58 = ashr i32 %57, 1
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds [3607 x i16], ptr @zueci_ksx1001_u_u, i64 0, i64 %59
+  %61 = load i16, ptr %60, align 2, !tbaa !14
+  %62 = zext i16 %61 to i32
+  %63 = icmp ugt i32 %0, %62
+  br i1 %63, label %64, label %66
 
-53:                                               ; preds = %.lr.ph
-  %54 = add nsw i32 %47, 1
-  br label %68
+64:                                               ; preds = %.lr.ph
+  %65 = add nsw i32 %58, 1
+  br label %79
 
-55:                                               ; preds = %.lr.ph
-  %56 = icmp samesign ult i32 %0, %51
-  br i1 %56, label %57, label %.thread
+66:                                               ; preds = %.lr.ph
+  %67 = icmp samesign ult i32 %0, %62
+  br i1 %67, label %68, label %.thread
 
-57:                                               ; preds = %55
-  %58 = add nsw i32 %47, -1
-  br label %68
+68:                                               ; preds = %66
+  %69 = add nsw i32 %58, -1
+  br label %79
 
-.thread:                                          ; preds = %55
-  %59 = add nsw i32 %47, 4620
-  %60 = select i1 %7, i32 %59, i32 %47
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds [8227 x i16], ptr @zueci_ksx1001_u_mb, i64 0, i64 %61
-  %63 = load i16, ptr %62, align 2, !tbaa !14
-  %64 = lshr i16 %63, 8
-  %65 = trunc nuw i16 %64 to i8
-  store i8 %65, ptr %1, align 1, !tbaa !3
-  %66 = trunc i16 %63 to i8
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %66, ptr %67, align 1, !tbaa !3
+.thread:                                          ; preds = %66
+  %70 = add nsw i32 %58, 4620
+  %71 = select i1 %7, i32 %70, i32 %58
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds [8227 x i16], ptr @zueci_ksx1001_u_mb, i64 0, i64 %72
+  %74 = load i16, ptr %73, align 2, !tbaa !14
+  %75 = lshr i16 %74, 8
+  %76 = trunc nuw i16 %75 to i8
+  store i8 %76, ptr %1, align 1, !tbaa !3
+  %77 = trunc i16 %74 to i8
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %77, ptr %78, align 1, !tbaa !3
   br label %zueci_u_lookup_uro.exit
 
-68:                                               ; preds = %53, %57
-  %.238 = phi i32 [ %.03647, %53 ], [ %58, %57 ]
-  %.234 = phi i32 [ %54, %53 ], [ %.03248, %57 ]
+79:                                               ; preds = %64, %68
+  %.238 = phi i32 [ %.03647, %64 ], [ %69, %68 ]
+  %.234 = phi i32 [ %65, %64 ], [ %.03248, %68 ]
   %.not = icmp sgt i32 %.234, %.238
   br i1 %.not, label %zueci_u_lookup_uro.exit, label %.lr.ph, !llvm.loop !22
 
-zueci_u_lookup_uro.exit:                          ; preds = %68, %38, %.thread, %21, %11, %36, %9, %4
-  %.0 = phi i32 [ 1, %4 ], [ 0, %9 ], [ 0, %36 ], [ 2, %21 ], [ 0, %11 ], [ 2, %.thread ], [ 0, %38 ], [ 0, %68 ]
+zueci_u_lookup_uro.exit:                          ; preds = %79, %49, %.thread, %21, %11, %47, %9, %4
+  %.0 = phi i32 [ 1, %4 ], [ 0, %9 ], [ 0, %47 ], [ 2, %21 ], [ 0, %11 ], [ 2, %.thread ], [ 0, %49 ], [ 0, %79 ]
   ret i32 %.0
 }
 
@@ -2429,11 +2429,11 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr noundef wri
 4:                                                ; preds = %2
   %5 = trunc nuw nsw i32 %0 to i8
   store i8 %5, ptr %1, align 1, !tbaa !3
-  br label %zueci_u_gb2312.exit
+  br label %.thread52
 
 6:                                                ; preds = %2
   switch i32 %0, label %9 [
-    i32 12539, label %zueci_u_gb2312.exit
+    i32 12539, label %.thread52
     i32 8213, label %7
   ]
 
@@ -2441,18 +2441,18 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr noundef wri
   store i8 -88, ptr %1, align 1, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 68, ptr %8, align 1, !tbaa !3
-  br label %zueci_u_gb2312.exit
+  br label %.thread52
 
 9:                                                ; preds = %6
   %10 = add i32 %0, -19968
-  %or.cond.i = icmp ult i32 %10, 20511
-  br i1 %or.cond.i, label %11, label %38
+  %.not = icmp ult i32 %10, 20511
+  br i1 %.not, label %11, label %38
 
 11:                                               ; preds = %9
   %12 = icmp samesign ugt i32 %0, 40175
-  br i1 %12, label %.thread54, label %13
+  br i1 %12, label %.thread54, label %16
 
-13:                                               ; preds = %11
+16:                                               ; preds = %11
   %14 = lshr i32 %10, 4
   %15 = and i32 %0, 15
   %16 = shl nuw nsw i32 1, %15
@@ -2464,7 +2464,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr noundef wri
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %.thread54, label %23
 
-23:                                               ; preds = %13
+23:; preds = %13
   %24 = add nuw nsw i32 %16, 65535
   %25 = and i32 %24, %20
   %26 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %25)
@@ -2481,12 +2481,12 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr noundef wri
   %36 = trunc i16 %33 to i8
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %36, ptr %37, align 1, !tbaa !3
-  br label %zueci_u_gb2312.exit
+  br label %.thread52
 
-38:                                               ; preds = %9
+38:; preds = %9
   %39 = add i32 %0, -164
   %or.cond44.i = icmp ult i32 %39, 65346
-  br i1 %or.cond44.i, label %40, label %zueci_u_gb2312.exit
+  br i1 %or.cond44.i, label %40, label %.thread52
 
 40:                                               ; preds = %38
   %41 = lshr i32 %39, 8
@@ -2617,23 +2617,23 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr noundef wri
   %.243 = phi i32 [ %.04163, %108 ], [ %113, %112 ]
   %.240 = phi i32 [ %109, %108 ], [ %.03864, %112 ]
   %.not47.not = icmp sgt i32 %.240, %.243
-  br i1 %.not47.not, label %zueci_u_gb2312.exit, label %.preheader, !llvm.loop !23
+  br i1 %.not47.not, label %.thread52, label %.preheader, !llvm.loop !23
 
-115:                                              ; preds = %110
-  %116 = add nsw i32 %102, 14139
-  %117 = select i1 %99, i32 %116, i32 %102
-  %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds [14348 x i16], ptr @zueci_gbk_u_mb, i64 0, i64 %118
-  %120 = load i16, ptr %119, align 2, !tbaa !14
-  %121 = lshr i16 %120, 8
-  %122 = trunc nuw i16 %121 to i8
-  store i8 %122, ptr %1, align 1, !tbaa !3
-  %123 = trunc i16 %120 to i8
-  %124 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %123, ptr %124, align 1, !tbaa !3
-  br label %zueci_u_gb2312.exit
+34:                                               ; preds = %110
+  %35 = add nsw i32 %102, 14139
+  %36 = select i1 %99, i32 %35, i32 %102
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds [14348 x i16], ptr @zueci_gbk_u_mb, i64 0, i64 %37
+  %39 = load i16, ptr %38, align 2, !tbaa !14
+  %40 = lshr i16 %39, 8
+  %41 = trunc nuw i16 %40 to i8
+  store i8 %41, ptr %1, align 1, !tbaa !3
+  %42 = trunc i16 %39 to i8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %42, ptr %43, align 1, !tbaa !3
+  br label %.thread52
 
-zueci_u_gb2312.exit:                              ; preds = %114, %38, %.thread52, %115, %84, %.thread54, %62, %23, %73, %6, %7, %4
+.thread52:                                        ; preds = %114, %49, %.thread63, %34, %84, %.thread54, %62, %23, %73, %6, %7, %4
   %.036 = phi i32 [ 1, %4 ], [ 2, %7 ], [ 2, %115 ], [ 0, %6 ], [ 0, %73 ], [ 2, %23 ], [ 2, %62 ], [ 2, %84 ], [ 0, %.thread54 ], [ 0, %.thread52 ], [ 0, %38 ], [ 0, %114 ]
   ret i32 %.036
 }
@@ -2963,10 +2963,10 @@ define internal noundef i32 @zueci_u_utf32le(i32 noundef %0, ptr noundef writeon
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal range(i32 0, 2) i32 @zueci_u_ascii_inv(i32 noundef %0, ptr noundef writeonly captures(none) %1) unnamed_addr #2 {
@@ -3017,7 +3017,7 @@ define internal range(i32 0, 2) i32 @zueci_u_binary(i32 noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i32 0, 9) i32 @zueci_dest_len_eci(i32 noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #5 {
@@ -6151,9 +6151,9 @@ declare i32 @llvm.ctpop.i32(i32) #7
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }

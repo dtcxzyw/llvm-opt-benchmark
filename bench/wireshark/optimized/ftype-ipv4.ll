@@ -156,11 +156,11 @@ define internal noalias ptr @val_to_repr(ptr noundef %0, ptr noundef readonly ca
   %12 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %5, i32 noundef %11)
   br label %15
 
-13:                                               ; preds = %4, %4
+13:; preds = %4, %4
   %14 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %5)
   br label %15
 
-15:                                               ; preds = %13, %10
+15:; preds = %13, %10
   %.0 = phi ptr [ %12, %10 ], [ %14, %13 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
   ret ptr %.0
