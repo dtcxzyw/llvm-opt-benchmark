@@ -165,9 +165,8 @@ define internal range(i32 -2147483648, 1) i32 @h265_metadata_update_fragment(ptr
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %39 = load i8, ptr %38, align 1, !tbaa !31
   %40 = zext i8 %39 to i32
-  %.not78 = icmp slt i32 %.067159, %40
   %41 = add nsw i32 %40, -1
-  %spec.select = select i1 %.not78, i32 %.067159, i32 %41
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %.067159, i32 %41)
   %42 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %33, i64 %indvars.iv
   %43 = load i32, ptr %42, align 8, !tbaa !21
   %44 = icmp ult i32 %43, 32
@@ -194,8 +193,8 @@ define internal range(i32 -2147483648, 1) i32 @h265_metadata_update_fragment(ptr
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %34, !llvm.loop !38
 
 ._crit_edge.loopexit:                             ; preds = %53
-  %54 = trunc i32 %.168 to i8
-  %55 = add i8 %54, 1
+  %54 = trunc nsw i32 %.168 to i8
+  %55 = add nsw i8 %54, 1
   %56 = trunc nuw nsw i32 %.165 to i8
   br label %._crit_edge
 
@@ -1134,6 +1133,9 @@ declare i32 @llvm.smax.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

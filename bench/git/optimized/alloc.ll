@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @allocate_alloc_state() local_unnamed_addr #0 {
-  %1 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 32) #6
+  %1 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 32) #7
   ret ptr %1
 }
 
@@ -33,7 +33,7 @@ define dso_local void @clear_alloc_state(ptr noundef captures(none) %0) local_un
   %10 = zext nneg i32 %8 to i64
   %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !11
-  tail call void @free(ptr noundef %12) #6
+  tail call void @free(ptr noundef %12) #7
   %13 = load i32, ptr %2, align 8, !tbaa !4
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %6, label %._crit_edge, !llvm.loop !12
@@ -41,7 +41,7 @@ define dso_local void @clear_alloc_state(ptr noundef captures(none) %0) local_un
 ._crit_edge:                                      ; preds = %6, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !10
-  tail call void @free(ptr noundef %16) #6
+  tail call void @free(ptr noundef %16) #7
   store ptr null, ptr %15, align 8, !tbaa !10
   ret void
 }
@@ -61,7 +61,7 @@ define dso_local noundef ptr @alloc_blob_node(ptr noundef readonly captures(none
 
 7:                                                ; preds = %1
   store i32 1024, ptr %5, align 8, !tbaa !42
-  %8 = tail call ptr @xmalloc(i64 noundef 40960) #6
+  %8 = tail call ptr @xmalloc(i64 noundef 40960) #7
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -81,22 +81,21 @@ define dso_local noundef ptr @alloc_blob_node(ptr noundef readonly captures(none
   %16 = mul i32 %13, 3
   %17 = add i32 %16, 48
   %18 = sdiv i32 %17, 2
-  %.not28.i = icmp sgt i32 %18, %11
-  %..i = select i1 %.not28.i, i32 %18, i32 %15
+  %..i = tail call i32 @llvm.smax.i32(i32 %18, i32 %15)
   store i32 %..i, ptr %12, align 4, !tbaa !44
   %19 = sext i32 %..i to i64
   %20 = icmp slt i32 %..i, 0
   br i1 %20, label %21, label %st_mult.exit.i
 
 21:                                               ; preds = %14
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #7
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #8
   unreachable
 
 st_mult.exit.i:                                   ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = shl nuw nsw i64 %19, 3
-  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #6
+  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #7
   store ptr %25, ptr %22, align 8, !tbaa !10
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !43
   %.pre30.i = load i32, ptr %10, align 8, !tbaa !4
@@ -140,7 +139,7 @@ define dso_local noundef ptr @alloc_tree_node(ptr noundef readonly captures(none
 
 7:                                                ; preds = %1
   store i32 1024, ptr %5, align 8, !tbaa !42
-  %8 = tail call ptr @xmalloc(i64 noundef 57344) #6
+  %8 = tail call ptr @xmalloc(i64 noundef 57344) #7
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -160,22 +159,21 @@ define dso_local noundef ptr @alloc_tree_node(ptr noundef readonly captures(none
   %16 = mul i32 %13, 3
   %17 = add i32 %16, 48
   %18 = sdiv i32 %17, 2
-  %.not28.i = icmp sgt i32 %18, %11
-  %..i = select i1 %.not28.i, i32 %18, i32 %15
+  %..i = tail call i32 @llvm.smax.i32(i32 %18, i32 %15)
   store i32 %..i, ptr %12, align 4, !tbaa !44
   %19 = sext i32 %..i to i64
   %20 = icmp slt i32 %..i, 0
   br i1 %20, label %21, label %st_mult.exit.i
 
 21:                                               ; preds = %14
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #7
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #8
   unreachable
 
 st_mult.exit.i:                                   ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = shl nuw nsw i64 %19, 3
-  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #6
+  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #7
   store ptr %25, ptr %22, align 8, !tbaa !10
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !43
   %.pre30.i = load i32, ptr %10, align 8, !tbaa !4
@@ -219,7 +217,7 @@ define dso_local noundef ptr @alloc_tag_node(ptr noundef readonly captures(none)
 
 7:                                                ; preds = %1
   store i32 1024, ptr %5, align 8, !tbaa !42
-  %8 = tail call ptr @xmalloc(i64 noundef 65536) #6
+  %8 = tail call ptr @xmalloc(i64 noundef 65536) #7
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -239,22 +237,21 @@ define dso_local noundef ptr @alloc_tag_node(ptr noundef readonly captures(none)
   %16 = mul i32 %13, 3
   %17 = add i32 %16, 48
   %18 = sdiv i32 %17, 2
-  %.not28.i = icmp sgt i32 %18, %11
-  %..i = select i1 %.not28.i, i32 %18, i32 %15
+  %..i = tail call i32 @llvm.smax.i32(i32 %18, i32 %15)
   store i32 %..i, ptr %12, align 4, !tbaa !44
   %19 = sext i32 %..i to i64
   %20 = icmp slt i32 %..i, 0
   br i1 %20, label %21, label %st_mult.exit.i
 
 21:                                               ; preds = %14
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #7
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #8
   unreachable
 
 st_mult.exit.i:                                   ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = shl nuw nsw i64 %19, 3
-  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #6
+  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #7
   store ptr %25, ptr %22, align 8, !tbaa !10
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !43
   %.pre30.i = load i32, ptr %10, align 8, !tbaa !4
@@ -298,7 +295,7 @@ define dso_local noundef ptr @alloc_object_node(ptr noundef readonly captures(no
 
 7:                                                ; preds = %1
   store i32 1024, ptr %5, align 8, !tbaa !42
-  %8 = tail call ptr @xmalloc(i64 noundef 73728) #6
+  %8 = tail call ptr @xmalloc(i64 noundef 73728) #7
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -318,22 +315,21 @@ define dso_local noundef ptr @alloc_object_node(ptr noundef readonly captures(no
   %16 = mul i32 %13, 3
   %17 = add i32 %16, 48
   %18 = sdiv i32 %17, 2
-  %.not28.i = icmp sgt i32 %18, %11
-  %..i = select i1 %.not28.i, i32 %18, i32 %15
+  %..i = tail call i32 @llvm.smax.i32(i32 %18, i32 %15)
   store i32 %..i, ptr %12, align 4, !tbaa !44
   %19 = sext i32 %..i to i64
   %20 = icmp slt i32 %..i, 0
   br i1 %20, label %21, label %st_mult.exit.i
 
 21:                                               ; preds = %14
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #7
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #8
   unreachable
 
 st_mult.exit.i:                                   ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = shl nuw nsw i64 %19, 3
-  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #6
+  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #7
   store ptr %25, ptr %22, align 8, !tbaa !10
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !43
   %.pre30.i = load i32, ptr %10, align 8, !tbaa !4
@@ -389,7 +385,7 @@ define dso_local noundef ptr @alloc_commit_node(ptr noundef readonly captures(no
 
 7:                                                ; preds = %1
   store i32 1024, ptr %5, align 8, !tbaa !42
-  %8 = tail call ptr @xmalloc(i64 noundef 73728) #6
+  %8 = tail call ptr @xmalloc(i64 noundef 73728) #7
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -409,22 +405,21 @@ define dso_local noundef ptr @alloc_commit_node(ptr noundef readonly captures(no
   %16 = mul i32 %13, 3
   %17 = add i32 %16, 48
   %18 = sdiv i32 %17, 2
-  %.not28.i = icmp sgt i32 %18, %11
-  %..i = select i1 %.not28.i, i32 %18, i32 %15
+  %..i = tail call i32 @llvm.smax.i32(i32 %18, i32 %15)
   store i32 %..i, ptr %12, align 4, !tbaa !44
   %19 = sext i32 %..i to i64
   %20 = icmp slt i32 %..i, 0
   br i1 %20, label %21, label %st_mult.exit.i
 
 21:                                               ; preds = %14
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #7
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #8
   unreachable
 
 st_mult.exit.i:                                   ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = shl nuw nsw i64 %19, 3
-  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #6
+  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #7
   store ptr %25, ptr %22, align 8, !tbaa !10
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !43
   %.pre30.i = load i32, ptr %10, align 8, !tbaa !4
@@ -471,14 +466,18 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: noreturn
 declare void @die(ptr noundef, ...) local_unnamed_addr #5
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #6
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn nounwind }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

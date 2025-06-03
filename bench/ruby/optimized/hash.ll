@@ -10727,7 +10727,7 @@ define internal fastcc range(i32 0, 16) i32 @ar_compact_table(i64 noundef %0) un
   %7 = lshr i32 %4, 16
   %8 = and i32 %7, 15
   %9 = icmp eq i32 %8, %6
-  br i1 %9, label %41, label %10
+  br i1 %9, label %42, label %10
 
 10:                                               ; preds = %1
   %11 = add i64 %0, 24
@@ -10737,82 +10737,83 @@ define internal fastcc range(i32 0, 16) i32 @ar_compact_table(i64 noundef %0) un
   br i1 %.not54, label %.loopexit, label %.lr.ph53.preheader
 
 .lr.ph53.preheader:                               ; preds = %10
-  %wide.trip.count62 = zext nneg i32 %6 to i64
+  %14 = zext nneg i32 %6 to i64
   br label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %.lr.ph53.preheader, %ar_cleared_entry.exit.thread
-  %indvars.iv59 = phi i64 [ 0, %.lr.ph53.preheader ], [ %indvars.iv.next60, %ar_cleared_entry.exit.thread ]
+  %indvars.iv60 = phi i64 [ 0, %.lr.ph53.preheader ], [ %indvars.iv.next61, %ar_cleared_entry.exit.thread ]
+  %indvars.iv = phi i64 [ 1, %.lr.ph53.preheader ], [ %indvars.iv.next, %ar_cleared_entry.exit.thread ]
   %.03352 = phi i32 [ 0, %.lr.ph53.preheader ], [ %.3, %ar_cleared_entry.exit.thread ]
-  %14 = getelementptr [8 x i8], ptr %12, i64 0, i64 %indvars.iv59
-  %15 = load i8, ptr %14, align 1, !tbaa !22
-  %16 = icmp eq i8 %15, -1
-  br i1 %16, label %ar_cleared_entry.exit, label %ar_cleared_entry.exit.thread
+  %15 = getelementptr [8 x i8], ptr %12, i64 0, i64 %indvars.iv60
+  %16 = load i8, ptr %15, align 1, !tbaa !22
+  %17 = icmp eq i8 %16, -1
+  br i1 %17, label %ar_cleared_entry.exit, label %ar_cleared_entry.exit.thread
 
 ar_cleared_entry.exit:                            ; preds = %.lr.ph53
-  %17 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %13, i64 0, i64 %indvars.iv59
-  %18 = load i64, ptr %17, align 8, !tbaa !45
-  %.not = icmp eq i64 %18, 36
-  br i1 %.not, label %19, label %ar_cleared_entry.exit.thread
+  %18 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %13, i64 0, i64 %indvars.iv60
+  %19 = load i64, ptr %18, align 8, !tbaa !45
+  %.not = icmp eq i64 %19, 36
+  br i1 %.not, label %20, label %ar_cleared_entry.exit.thread
 
-19:                                               ; preds = %ar_cleared_entry.exit
-  %20 = zext i32 %.03352 to i64
-  %.not36 = icmp samesign ult i64 %indvars.iv59, %20
-  %21 = trunc i64 %indvars.iv59 to i32
+20:                                               ; preds = %ar_cleared_entry.exit
+  %21 = trunc i64 %indvars.iv60 to i32
   %22 = add i32 %21, 1
-  %spec.select = select i1 %.not36, i32 %.03352, i32 %22
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %.03352, i32 %22)
   %23 = icmp ult i32 %spec.select, %6
   br i1 %23, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %19
-  %24 = zext i32 %spec.select to i64
+.lr.ph.preheader:                                 ; preds = %20
+  %24 = zext i32 %.03352 to i64
+  %umax = tail call i64 @llvm.umax.i64(i64 %indvars.iv, i64 %24)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %35
-  %indvars.iv = phi i64 [ %24, %.lr.ph.preheader ], [ %indvars.iv.next, %35 ]
-  %25 = getelementptr [8 x i8], ptr %12, i64 0, i64 %indvars.iv
+  %indvars.iv58 = phi i64 [ %umax, %.lr.ph.preheader ], [ %indvars.iv.next59, %35 ]
+  %25 = getelementptr [8 x i8], ptr %12, i64 0, i64 %indvars.iv58
   %26 = load i8, ptr %25, align 1, !tbaa !22
   %27 = icmp eq i8 %26, -1
   br i1 %27, label %ar_cleared_entry.exit39, label %ar_cleared_entry.exit39.thread
 
 ar_cleared_entry.exit39:                          ; preds = %.lr.ph
-  %28 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %13, i64 0, i64 %indvars.iv
+  %28 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %13, i64 0, i64 %indvars.iv58
   %29 = load i64, ptr %28, align 8, !tbaa !45
   %.not44 = icmp eq i64 %29, 36
   br i1 %.not44, label %35, label %ar_cleared_entry.exit39.thread
 
 ar_cleared_entry.exit39.thread:                   ; preds = %.lr.ph, %ar_cleared_entry.exit39
-  %30 = getelementptr [8 x i8], ptr %12, i64 0, i64 %indvars.iv
-  %31 = trunc nuw i64 %indvars.iv to i32
-  %32 = getelementptr %struct.ar_table_pair_struct, ptr %13, i64 %indvars.iv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !156
+  %30 = getelementptr [8 x i8], ptr %12, i64 0, i64 %indvars.iv58
+  %31 = trunc nuw i64 %indvars.iv58 to i32
+  %32 = getelementptr %struct.ar_table_pair_struct, ptr %13, i64 %indvars.iv58
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !156
   %33 = load i8, ptr %30, align 1, !tbaa !22
-  store i8 %33, ptr %14, align 1, !tbaa !22
+  store i8 %33, ptr %15, align 1, !tbaa !22
   store i64 36, ptr %32, align 8, !tbaa !45
   store i8 -1, ptr %30, align 1, !tbaa !22
   %34 = add nuw nsw i32 %31, 1
   br label %ar_cleared_entry.exit.thread
 
 35:                                               ; preds = %ar_cleared_entry.exit39
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count62
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !157
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %36 = icmp samesign ult i64 %indvars.iv.next59, %14
+  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !157
 
 ar_cleared_entry.exit.thread:                     ; preds = %.lr.ph53, %ar_cleared_entry.exit, %ar_cleared_entry.exit39.thread
   %.3 = phi i32 [ %34, %ar_cleared_entry.exit39.thread ], [ %.03352, %ar_cleared_entry.exit ], [ %.03352, %.lr.ph53 ]
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %.loopexit, label %.lr.ph53, !llvm.loop !158
+  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next61, %14
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph53, !llvm.loop !158
 
-.loopexit:                                        ; preds = %ar_cleared_entry.exit.thread, %19, %35, %10
-  %36 = load i64, ptr %2, align 8, !tbaa !11
-  %37 = and i64 %36, -15728641
-  %38 = shl nuw nsw i32 %8, 20
-  %39 = zext nneg i32 %38 to i64
-  %40 = or disjoint i64 %37, %39
-  store i64 %40, ptr %2, align 8, !tbaa !11
-  br label %41
+.loopexit:                                        ; preds = %ar_cleared_entry.exit.thread, %20, %35, %10
+  %37 = load i64, ptr %2, align 8, !tbaa !11
+  %38 = and i64 %37, -15728641
+  %39 = shl nuw nsw i32 %8, 20
+  %40 = zext nneg i32 %39 to i64
+  %41 = or disjoint i64 %38, %40
+  store i64 %41, ptr %2, align 8, !tbaa !11
+  br label %42
 
-41:                                               ; preds = %1, %.loopexit
+42:                                               ; preds = %1, %.loopexit
   ret i32 %8
 }
 
@@ -10828,7 +10829,7 @@ define internal fastcc void @ar_insert(i64 noundef %0, i64 noundef %1, i64 nound
   %6 = load i64, ptr %4, align 8, !tbaa !11
   %7 = and i64 %6, 32768
   %.not.i = icmp eq i64 %7, 0
-  br i1 %.not.i, label %8, label %78, !prof !59
+  br i1 %.not.i, label %8, label %79, !prof !59
 
 8:                                                ; preds = %3
   %9 = trunc i64 %5 to i8
@@ -10866,7 +10867,7 @@ define internal fastcc void @ar_insert(i64 noundef %0, i64 noundef %1, i64 nound
 
 ar_find_entry.exit:                               ; preds = %19
   %24 = icmp eq i64 %indvars.iv.i.i, 8
-  br i1 %24, label %ar_find_entry.exit.thread, label %74
+  br i1 %24, label %ar_find_entry.exit.thread, label %75
 
 ar_find_entry.exit.thread:                        ; preds = %23, %8, %ar_find_entry.exit
   %25 = load i64, ptr %4, align 8, !tbaa !11
@@ -10874,7 +10875,7 @@ ar_find_entry.exit.thread:                        ; preds = %23, %8, %ar_find_en
   %27 = lshr i32 %26, 16
   %28 = and i32 %27, 15
   %29 = icmp samesign ugt i32 %28, 7
-  br i1 %29, label %78, label %30
+  br i1 %29, label %79, label %30
 
 30:                                               ; preds = %ar_find_entry.exit.thread
   %31 = lshr i32 %26, 20
@@ -10891,110 +10892,111 @@ ar_find_entry.exit.thread:                        ; preds = %23, %8, %ar_find_en
   br i1 %.not54.i, label %.loopexit.i, label %.lr.ph53.preheader.i
 
 .lr.ph53.preheader.i:                             ; preds = %34
-  %wide.trip.count62.i = zext nneg i32 %32 to i64
+  %35 = zext nneg i32 %32 to i64
   br label %.lr.ph53.i
 
 .lr.ph53.i:                                       ; preds = %ar_cleared_entry.exit.thread.i, %.lr.ph53.preheader.i
-  %indvars.iv59.i = phi i64 [ 0, %.lr.ph53.preheader.i ], [ %indvars.iv.next60.i, %ar_cleared_entry.exit.thread.i ]
+  %indvars.iv60.i = phi i64 [ 0, %.lr.ph53.preheader.i ], [ %indvars.iv.next61.i, %ar_cleared_entry.exit.thread.i ]
+  %indvars.iv.i = phi i64 [ 1, %.lr.ph53.preheader.i ], [ %indvars.iv.next.i, %ar_cleared_entry.exit.thread.i ]
   %.03352.i = phi i32 [ 0, %.lr.ph53.preheader.i ], [ %.3.i, %ar_cleared_entry.exit.thread.i ]
-  %35 = getelementptr [8 x i8], ptr %14, i64 0, i64 %indvars.iv59.i
-  %36 = load i8, ptr %35, align 1, !tbaa !22
-  %37 = icmp eq i8 %36, -1
-  br i1 %37, label %ar_cleared_entry.exit.i, label %ar_cleared_entry.exit.thread.i
+  %36 = getelementptr [8 x i8], ptr %14, i64 0, i64 %indvars.iv60.i
+  %37 = load i8, ptr %36, align 1, !tbaa !22
+  %38 = icmp eq i8 %37, -1
+  br i1 %38, label %ar_cleared_entry.exit.i, label %ar_cleared_entry.exit.thread.i
 
 ar_cleared_entry.exit.i:                          ; preds = %.lr.ph53.i
-  %38 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %15, i64 0, i64 %indvars.iv59.i
-  %39 = load i64, ptr %38, align 8, !tbaa !45
-  %.not.i24 = icmp eq i64 %39, 36
-  br i1 %.not.i24, label %40, label %ar_cleared_entry.exit.thread.i
+  %39 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %15, i64 0, i64 %indvars.iv60.i
+  %40 = load i64, ptr %39, align 8, !tbaa !45
+  %.not.i24 = icmp eq i64 %40, 36
+  br i1 %.not.i24, label %41, label %ar_cleared_entry.exit.thread.i
 
-40:                                               ; preds = %ar_cleared_entry.exit.i
-  %41 = zext i32 %.03352.i to i64
-  %.not36.i = icmp samesign ult i64 %indvars.iv59.i, %41
-  %42 = trunc i64 %indvars.iv59.i to i32
+41:                                               ; preds = %ar_cleared_entry.exit.i
+  %42 = trunc i64 %indvars.iv60.i to i32
   %43 = add i32 %42, 1
-  %spec.select.i = select i1 %.not36.i, i32 %.03352.i, i32 %43
+  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %.03352.i, i32 %43)
   %44 = icmp ult i32 %spec.select.i, %32
   br i1 %44, label %.lr.ph.preheader.i, label %.loopexit.i
 
-.lr.ph.preheader.i:                               ; preds = %40
-  %45 = zext i32 %spec.select.i to i64
+.lr.ph.preheader.i:                               ; preds = %41
+  %45 = zext i32 %.03352.i to i64
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %indvars.iv.i, i64 %45)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %56, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ %45, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %56 ]
-  %46 = getelementptr [8 x i8], ptr %14, i64 0, i64 %indvars.iv.i
+  %indvars.iv58.i = phi i64 [ %umax.i, %.lr.ph.preheader.i ], [ %indvars.iv.next59.i, %56 ]
+  %46 = getelementptr [8 x i8], ptr %14, i64 0, i64 %indvars.iv58.i
   %47 = load i8, ptr %46, align 1, !tbaa !22
   %48 = icmp eq i8 %47, -1
   br i1 %48, label %ar_cleared_entry.exit39.i, label %ar_cleared_entry.exit39.thread.i
 
 ar_cleared_entry.exit39.i:                        ; preds = %.lr.ph.i
-  %49 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %15, i64 0, i64 %indvars.iv.i
+  %49 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %15, i64 0, i64 %indvars.iv58.i
   %50 = load i64, ptr %49, align 8, !tbaa !45
   %.not44.i = icmp eq i64 %50, 36
   br i1 %.not44.i, label %56, label %ar_cleared_entry.exit39.thread.i
 
 ar_cleared_entry.exit39.thread.i:                 ; preds = %ar_cleared_entry.exit39.i, %.lr.ph.i
-  %51 = getelementptr [8 x i8], ptr %14, i64 0, i64 %indvars.iv.i
-  %52 = trunc nuw i64 %indvars.iv.i to i32
-  %53 = getelementptr %struct.ar_table_pair_struct, ptr %15, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !156
+  %51 = getelementptr [8 x i8], ptr %14, i64 0, i64 %indvars.iv58.i
+  %52 = trunc nuw i64 %indvars.iv58.i to i32
+  %53 = getelementptr %struct.ar_table_pair_struct, ptr %15, i64 %indvars.iv58.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !156
   %54 = load i8, ptr %51, align 1, !tbaa !22
-  store i8 %54, ptr %35, align 1, !tbaa !22
+  store i8 %54, ptr %36, align 1, !tbaa !22
   store i64 36, ptr %53, align 8, !tbaa !45
   store i8 -1, ptr %51, align 1, !tbaa !22
   %55 = add nuw nsw i32 %52, 1
   br label %ar_cleared_entry.exit.thread.i
 
 56:                                               ; preds = %ar_cleared_entry.exit39.i
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count62.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !157
+  %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
+  %57 = icmp samesign ult i64 %indvars.iv.next59.i, %35
+  br i1 %57, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !157
 
 ar_cleared_entry.exit.thread.i:                   ; preds = %ar_cleared_entry.exit39.thread.i, %ar_cleared_entry.exit.i, %.lr.ph53.i
   %.3.i = phi i32 [ %55, %ar_cleared_entry.exit39.thread.i ], [ %.03352.i, %ar_cleared_entry.exit.i ], [ %.03352.i, %.lr.ph53.i ]
-  %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
-  %exitcond63.not.i = icmp eq i64 %indvars.iv.next60.i, %wide.trip.count62.i
-  br i1 %exitcond63.not.i, label %.loopexit.i, label %.lr.ph53.i, !llvm.loop !158
+  %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next61.i, %35
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph53.i, !llvm.loop !158
 
-.loopexit.i:                                      ; preds = %ar_cleared_entry.exit.thread.i, %40, %56, %34
-  %57 = load i64, ptr %4, align 8, !tbaa !11
-  %58 = and i64 %57, -15728641
-  %59 = shl nuw nsw i32 %28, 20
-  %60 = zext nneg i32 %59 to i64
-  %61 = or disjoint i64 %58, %60
-  store i64 %61, ptr %4, align 8, !tbaa !11
+.loopexit.i:                                      ; preds = %ar_cleared_entry.exit.thread.i, %41, %56, %34
+  %58 = load i64, ptr %4, align 8, !tbaa !11
+  %59 = and i64 %58, -15728641
+  %60 = shl nuw nsw i32 %28, 20
+  %61 = zext nneg i32 %60 to i64
+  %62 = or disjoint i64 %59, %61
+  store i64 %62, ptr %4, align 8, !tbaa !11
   br label %ar_compact_table.exit
 
 ar_compact_table.exit:                            ; preds = %.ar_compact_table.exit_crit_edge, %.loopexit.i
-  %.pre-phi = phi i32 [ %.pre, %.ar_compact_table.exit_crit_edge ], [ %59, %.loopexit.i ]
-  %62 = zext nneg i32 %28 to i64
-  %63 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %15, i64 0, i64 %62
-  store i64 %1, ptr %63, align 8, !tbaa !45
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store i64 %2, ptr %64, align 8, !tbaa !47
-  %65 = getelementptr [8 x i8], ptr %14, i64 0, i64 %62
-  store i8 %9, ptr %65, align 1, !tbaa !22
-  %66 = load i64, ptr %4, align 8, !tbaa !11
-  %67 = and i64 %66, -16711681
-  %68 = add nuw nsw i32 %.pre-phi, 1048576
-  %69 = zext nneg i32 %68 to i64
-  %70 = or disjoint i64 %67, %69
-  %71 = and i64 %66, 983040
-  %72 = add nuw nsw i64 %71, 65536
-  %73 = or i64 %70, %72
-  store i64 %73, ptr %4, align 8, !tbaa !11
-  br label %78
+  %.pre-phi = phi i32 [ %.pre, %.ar_compact_table.exit_crit_edge ], [ %60, %.loopexit.i ]
+  %63 = zext nneg i32 %28 to i64
+  %64 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %15, i64 0, i64 %63
+  store i64 %1, ptr %64, align 8, !tbaa !45
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  store i64 %2, ptr %65, align 8, !tbaa !47
+  %66 = getelementptr [8 x i8], ptr %14, i64 0, i64 %63
+  store i8 %9, ptr %66, align 1, !tbaa !22
+  %67 = load i64, ptr %4, align 8, !tbaa !11
+  %68 = and i64 %67, -16711681
+  %69 = add nuw nsw i32 %.pre-phi, 1048576
+  %70 = zext nneg i32 %69 to i64
+  %71 = or disjoint i64 %68, %70
+  %72 = and i64 %67, 983040
+  %73 = add nuw nsw i64 %72, 65536
+  %74 = or i64 %71, %73
+  store i64 %74, ptr %4, align 8, !tbaa !11
+  br label %79
 
-74:                                               ; preds = %ar_find_entry.exit
-  %75 = shl i64 %indvars.iv.i.i, 4
-  %.idx = and i64 %75, 68719476720
-  %76 = getelementptr i8, ptr %14, i64 16
-  %77 = getelementptr i8, ptr %76, i64 %.idx
-  store i64 %2, ptr %77, align 8, !tbaa !47
-  br label %78
+75:                                               ; preds = %ar_find_entry.exit
+  %76 = shl i64 %indvars.iv.i.i, 4
+  %.idx = and i64 %76, 68719476720
+  %77 = getelementptr i8, ptr %14, i64 16
+  %78 = getelementptr i8, ptr %77, i64 %.idx
+  store i64 %2, ptr %78, align 8, !tbaa !47
+  br label %79
 
-78:                                               ; preds = %ar_find_entry.exit.thread, %3, %74, %ar_compact_table.exit
+79:                                               ; preds = %ar_find_entry.exit.thread, %3, %75, %ar_compact_table.exit
   ret void
 }
 
@@ -12760,6 +12762,12 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #26
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #27
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #26
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

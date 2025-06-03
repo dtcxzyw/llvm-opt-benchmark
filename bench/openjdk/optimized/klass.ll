@@ -1694,7 +1694,7 @@ _ZN5Klass17compute_home_slotEPS_m.exit.i:         ; preds = %25, %20
   %37 = icmp eq i32 %.sroa.5.026.i, %35
   %38 = zext i1 %37 to i32
   %spec.select.i = add i32 %.sroa.8.027.i, %38
-  %.sroa.5.1.i = select i1 %.not.i, i32 %.sroa.5.026.i, i32 %35
+  %.sroa.5.1.i = tail call i32 @llvm.umax.i32(i32 %.sroa.5.026.i, i32 %35)
   %.sroa.8.1.i = select i1 %.not.i, i32 %spec.select.i, i32 1
   %39 = icmp ugt i32 %.sroa.15.029.i, %35
   %40 = icmp eq i32 %.sroa.15.029.i, %35
@@ -6179,13 +6179,13 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i64 @llvm.ctpop.i64(i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshr.i64(i64, i64, i64) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #19

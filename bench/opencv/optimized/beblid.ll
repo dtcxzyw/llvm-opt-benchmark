@@ -2557,14 +2557,12 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   %249 = add nsw i32 %238, %236
   %250 = icmp slt i32 %249, 0
   %251 = add nsw i32 %249, 1
-  %.not114.i = icmp slt i32 %251, %233
-  %spec.select121.i = select i1 %.not114.i, i32 %251, i32 %241
+  %spec.select121.i = tail call i32 @llvm.smin.i32(i32 %251, i32 %241)
   %.096.i = select i1 %250, i32 1, i32 %spec.select121.i
   %252 = add nsw i32 %244, %238
   %253 = icmp slt i32 %252, 0
   %254 = add nsw i32 %252, 1
-  %.not115.i = icmp slt i32 %254, %235
-  %spec.select122.i = select i1 %.not115.i, i32 %254, i32 %247
+  %spec.select122.i = tail call i32 @llvm.smin.i32(i32 %254, i32 %247)
   %.097.i = select i1 %253, i32 1, i32 %spec.select122.i
   %255 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %256 = load i32, ptr %255, align 4, !tbaa !149
@@ -2583,14 +2581,12 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   %263 = add nsw i32 %256, %238
   %264 = icmp slt i32 %263, 0
   %265 = add nsw i32 %263, 1
-  %.not118.i = icmp slt i32 %265, %233
-  %spec.select125.i = select i1 %.not118.i, i32 %265, i32 %241
+  %spec.select125.i = tail call i32 @llvm.smin.i32(i32 %265, i32 %241)
   %.0100.i = select i1 %264, i32 1, i32 %spec.select125.i
   %266 = add nsw i32 %260, %238
   %267 = icmp slt i32 %266, 0
   %268 = add nsw i32 %266, 1
-  %.not119.i = icmp slt i32 %268, %235
-  %spec.select126.i = select i1 %.not119.i, i32 %268, i32 %247
+  %spec.select126.i = tail call i32 @llvm.smin.i32(i32 %268, i32 %247)
   %.0101.i = select i1 %267, i32 1, i32 %spec.select126.i
   %269 = getelementptr inbounds nuw i8, ptr %231, i64 16
   %270 = load ptr, ptr %269, align 8, !tbaa !103
@@ -3924,14 +3920,12 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   %252 = add nsw i32 %241, %239
   %253 = icmp slt i32 %252, 0
   %254 = add nsw i32 %252, 1
-  %.not114.i = icmp slt i32 %254, %236
-  %spec.select121.i = select i1 %.not114.i, i32 %254, i32 %244
+  %spec.select121.i = tail call i32 @llvm.smin.i32(i32 %254, i32 %244)
   %.096.i = select i1 %253, i32 1, i32 %spec.select121.i
   %255 = add nsw i32 %247, %241
   %256 = icmp slt i32 %255, 0
   %257 = add nsw i32 %255, 1
-  %.not115.i = icmp slt i32 %257, %238
-  %spec.select122.i = select i1 %.not115.i, i32 %257, i32 %250
+  %spec.select122.i = tail call i32 @llvm.smin.i32(i32 %257, i32 %250)
   %.097.i = select i1 %256, i32 1, i32 %spec.select122.i
   %258 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %259 = load i32, ptr %258, align 4, !tbaa !184
@@ -3950,14 +3944,12 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   %266 = add nsw i32 %259, %241
   %267 = icmp slt i32 %266, 0
   %268 = add nsw i32 %266, 1
-  %.not118.i = icmp slt i32 %268, %236
-  %spec.select125.i = select i1 %.not118.i, i32 %268, i32 %244
+  %spec.select125.i = tail call i32 @llvm.smin.i32(i32 %268, i32 %244)
   %.0100.i = select i1 %267, i32 1, i32 %spec.select125.i
   %269 = add nsw i32 %263, %241
   %270 = icmp slt i32 %269, 0
   %271 = add nsw i32 %269, 1
-  %.not119.i = icmp slt i32 %271, %238
-  %spec.select126.i = select i1 %.not119.i, i32 %271, i32 %250
+  %spec.select126.i = tail call i32 @llvm.smin.i32(i32 %271, i32 %250)
   %.0101.i = select i1 %270, i32 1, i32 %spec.select126.i
   %272 = getelementptr inbounds nuw i8, ptr %234, i64 16
   %273 = load ptr, ptr %272, align 8, !tbaa !103
@@ -4211,6 +4203,9 @@ declare i64 @llvm.umax.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22

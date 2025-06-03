@@ -668,8 +668,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %376 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv1172
   %377 = load i32, ptr %376, align 4
   %378 = tail call i32 @llvm.smax.i32(i32 %375, i32 0)
-  %.not942 = icmp slt i32 %377, %.val996
-  %379 = select i1 %.not942, i32 %377, i32 %364
+  %379 = tail call i32 @llvm.smin.i32(i32 %377, i32 %364)
   %380 = uitofp nneg i32 %378 to double
   %381 = fadd double %380, 5.000000e-01
   %382 = trunc nsw i64 %indvars.iv1172 to i32
@@ -834,8 +833,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %461 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv1166
   %462 = load i32, ptr %461, align 4
   %463 = tail call i32 @llvm.smax.i32(i32 %460, i32 0)
-  %.not932 = icmp slt i32 %462, %.val996
-  %464 = select i1 %.not932, i32 %462, i32 %355
+  %464 = tail call i32 @llvm.smin.i32(i32 %462, i32 %355)
   %465 = uitofp nneg i32 %463 to double
   %466 = fadd double %465, 5.000000e-01
   %467 = trunc nsw i64 %indvars.iv1166 to i32
@@ -1060,6 +1058,9 @@ declare double @llvm.fabs.f64(double) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

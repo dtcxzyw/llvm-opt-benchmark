@@ -4312,12 +4312,11 @@ define dso_local noundef i32 @_Z14ImFormatStringPcmPKcz(ptr noundef captures(add
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %3
-  %8 = icmp ne i32 %5, -1
-  %9 = trunc i64 %1 to i32
-  %.not = icmp slt i32 %5, %9
-  %or.cond = and i1 %8, %.not
-  %10 = add nsw i32 %9, -1
-  %.0 = select i1 %or.cond, i32 %5, i32 %10
+  %.not = icmp eq i32 %5, -1
+  %8 = trunc i64 %1 to i32
+  %9 = add nsw i32 %8, -1
+  %10 = call i32 @llvm.smin.i32(i32 %5, i32 %9)
+  %.0 = select i1 %.not, i32 %9, i32 %10
   %11 = sext i32 %.0 to i64
   %12 = getelementptr inbounds i8, ptr %0, i64 %11
   store i8 0, ptr %12, align 1, !tbaa !205
@@ -4345,12 +4344,11 @@ define dso_local noundef i32 @_Z15ImFormatStringVPcmPKcP13__va_list_tag(ptr noun
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %4
-  %8 = icmp ne i32 %5, -1
-  %9 = trunc i64 %1 to i32
-  %.not = icmp slt i32 %5, %9
-  %or.cond = and i1 %8, %.not
-  %10 = add nsw i32 %9, -1
-  %.0 = select i1 %or.cond, i32 %5, i32 %10
+  %.not = icmp eq i32 %5, -1
+  %8 = trunc i64 %1 to i32
+  %9 = add nsw i32 %8, -1
+  %10 = tail call i32 @llvm.smin.i32(i32 %5, i32 %9)
+  %.0 = select i1 %.not, i32 %9, i32 %10
   %11 = sext i32 %.0 to i64
   %12 = getelementptr inbounds i8, ptr %0, i64 %11
   store i8 0, ptr %12, align 1, !tbaa !205
@@ -4511,11 +4509,10 @@ define dso_local void @_Z27ImFormatStringToTempBufferVPPKcS1_S0_P13__va_list_tag
   br i1 %87, label %_Z15ImFormatStringVPcmPKcP13__va_list_tag.exit, label %88
 
 88:                                               ; preds = %.thread
-  %89 = icmp ne i32 %86, -1
-  %.not.i = icmp slt i32 %86, %84
-  %or.cond.i = and i1 %89, %.not.i
-  %90 = add nsw i32 %84, -1
-  %.0.i = select i1 %or.cond.i, i32 %86, i32 %90
+  %.not.i = icmp eq i32 %86, -1
+  %89 = add nsw i32 %84, -1
+  %90 = tail call i32 @llvm.smin.i32(i32 %86, i32 %89)
+  %.0.i = select i1 %.not.i, i32 %89, i32 %90
   %91 = sext i32 %.0.i to i64
   %92 = getelementptr inbounds i8, ptr %83, i64 %91
   store i8 0, ptr %92, align 1, !tbaa !205
@@ -7483,10 +7480,9 @@ _Z15ImFormatStringVPcmPKcP13__va_list_tag.exit:   ; preds = %15, %_ZNK8ImVectorI
   %narrow = add nuw i32 %5, 1
   %29 = zext i32 %narrow to i64
   %30 = call i32 @vsnprintf(ptr noundef nonnull %28, i64 noundef %29, ptr noundef readonly %1, ptr noundef nonnull %4) #45
-  %31 = icmp ne i32 %30, -1
-  %.not.i = icmp slt i32 %30, %narrow
-  %or.cond.i = and i1 %31, %.not.i
-  %.0.i = select i1 %or.cond.i, i32 %30, i32 %5
+  %.not.i = icmp eq i32 %30, -1
+  %31 = call i32 @llvm.smin.i32(i32 %30, i32 %5)
+  %.0.i = select i1 %.not.i, i32 %5, i32 %31
   %32 = sext i32 %.0.i to i64
   %33 = getelementptr inbounds i8, ptr %28, i64 %32
   store i8 0, ptr %33, align 1, !tbaa !205

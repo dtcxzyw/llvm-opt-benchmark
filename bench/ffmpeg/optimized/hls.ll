@@ -4319,9 +4319,8 @@ default_reload_interval.exit:                     ; preds = %16, %23
   br label %85
 
 81:                                               ; preds = %71
-  %.not87 = icmp slt i32 %73, %78
   %82 = add nsw i32 %78, -1
-  %83 = select i1 %.not87, i32 %73, i32 %82
+  %83 = tail call i32 @llvm.smin.i32(i32 %73, i32 %82)
   %84 = sext i32 %83 to i64
   br label %85
 
@@ -7254,13 +7253,13 @@ declare i64 @llvm.bswap.i64(i64) #13
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #13

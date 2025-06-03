@@ -1852,8 +1852,7 @@ st_add.exit32._crit_edge:                         ; preds = %st_add.exit32
   %78 = mul i32 %75, 3
   %79 = add i32 %78, 48
   %80 = sdiv i32 %79, 2
-  %.not31 = icmp sgt i32 %80, %73
-  %. = select i1 %.not31, i32 %80, i32 %77
+  %. = tail call i32 @llvm.smax.i32(i32 %80, i32 %77)
   store i32 %., ptr %74, align 4, !tbaa !116
   %81 = sext i32 %. to i64
   %mul.ov.i = icmp slt i32 %., 0
@@ -2861,8 +2860,7 @@ define dso_local noundef ptr @add_pattern_list(ptr noundef captures(none) %0, i3
   %12 = mul i32 %9, 3
   %13 = add i32 %12, 48
   %14 = sdiv i32 %13, 2
-  %.not20 = icmp sgt i32 %14, %7
-  %. = select i1 %.not20, i32 %14, i32 %11
+  %. = tail call i32 @llvm.smax.i32(i32 %14, i32 %11)
   store i32 %., ptr %8, align 4, !tbaa !141
   %15 = sext i32 %. to i64
   %mul.ov.i = icmp slt i32 %., 0
@@ -2936,8 +2934,7 @@ define internal fastcc void @add_patterns_from_file_1(ptr noundef captures(none)
   %17 = mul i32 %14, 3
   %18 = add i32 %17, 48
   %19 = sdiv i32 %18, 2
-  %.not20.i = icmp sgt i32 %19, %12
-  %..i = select i1 %.not20.i, i32 %19, i32 %16
+  %..i = tail call i32 @llvm.smax.i32(i32 %19, i32 %16)
   store i32 %..i, ptr %13, align 4, !tbaa !141
   %20 = sext i32 %..i to i64
   %mul.ov.i.i = icmp slt i32 %..i, 0
@@ -3901,8 +3898,7 @@ strbuf_setlen.exit:                               ; preds = %50, %53
   %99 = mul i32 %96, 3
   %100 = add i32 %99, 48
   %101 = sdiv i32 %100, 2
-  %.not20.i = icmp sgt i32 %101, %93
-  %..i = select i1 %.not20.i, i32 %101, i32 %98
+  %..i = call i32 @llvm.smax.i32(i32 %101, i32 %98)
   store i32 %..i, ptr %65, align 4, !tbaa !141
   %102 = sext i32 %..i to i64
   %mul.ov.i.i = icmp slt i32 %..i, 0
@@ -4260,8 +4256,7 @@ define dso_local noundef ptr @dir_add_ignored(ptr noundef captures(none) %0, ptr
   %13 = mul i32 %10, 3
   %14 = add i32 %13, 48
   %15 = sdiv i32 %14, 2
-  %.not22 = icmp sgt i32 %15, %8
-  %. = select i1 %.not22, i32 %15, i32 %12
+  %. = tail call i32 @llvm.smax.i32(i32 %15, i32 %12)
   store i32 %., ptr %9, align 4, !tbaa !162
   %16 = sext i32 %. to i64
   %mul.ov.i = icmp slt i32 %., 0
@@ -10178,8 +10173,7 @@ define internal fastcc void @dir_add_name(ptr noundef captures(none) %0, ptr nou
   %14 = mul i32 %11, 3
   %15 = add i32 %14, 48
   %16 = sdiv i32 %15, 2
-  %.not22 = icmp sgt i32 %16, %9
-  %. = select i1 %.not22, i32 %16, i32 %13
+  %. = tail call i32 @llvm.smax.i32(i32 %16, i32 %13)
   store i32 %., ptr %10, align 8, !tbaa !263
   %17 = sext i32 %. to i64
   %mul.ov.i = icmp slt i32 %., 0

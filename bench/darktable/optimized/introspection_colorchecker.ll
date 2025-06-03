@@ -4541,9 +4541,8 @@ define internal range(i32 0, 2) i32 @checker_button_press(ptr noundef %0, ptr no
 
 .thread170:                                       ; preds = %30, %80, %146, %139
   %233 = load i32, ptr %33, align 4, !tbaa !16
-  %.not161 = icmp slt i32 %46, %233
   %234 = add nsw i32 %233, -1
-  %spec.select169 = select i1 %.not161, i32 %46, i32 %234
+  %spec.select169 = call i32 @llvm.smin.i32(i32 %46, i32 %234)
   %235 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %236 = load ptr, ptr %235, align 8, !tbaa !69
   call void @dt_bauhaus_combobox_set(ptr noundef %236, i32 noundef %spec.select169) #23

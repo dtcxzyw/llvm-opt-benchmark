@@ -39996,7 +39996,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_jpg_coreP19s
   %28 = add i32 %3, -5
   %29 = icmp ult i32 %28, -4
   %or.cond7 = or i1 %29, %or.cond3.not164
-  br i1 %or.cond7, label %218, label %30
+  br i1 %or.cond7, label %216, label %30
 
 30:                                               ; preds = %6
   %.not = icmp eq i32 %5, 0
@@ -40227,13 +40227,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_jpg_coreP19s
 
 .preheader181.us:                                 ; preds = %.preheader181.lr.ph, %._crit_edge.us
   %indvars.iv229 = phi i32 [ %indvars.iv.next230, %._crit_edge.us ], [ 8, %.preheader181.lr.ph ]
-  %.0151203.us = phi i32 [ %202, %._crit_edge.us ], [ 0, %.preheader181.lr.ph ]
+  %.0151203.us = phi i32 [ %200, %._crit_edge.us ], [ 0, %.preheader181.lr.ph ]
   %.0153202.us = phi i32 [ %153, %._crit_edge.us ], [ 0, %.preheader181.lr.ph ]
   %.0155201.us = phi i32 [ %154, %._crit_edge.us ], [ 0, %.preheader181.lr.ph ]
   %.0157200.us = phi i32 [ %155, %._crit_edge.us ], [ 0, %.preheader181.lr.ph ]
   br label %.preheader.us
 
-152:                                              ; preds = %166
+152:                                              ; preds = %165
   %153 = call fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_contextPiS1_PfS2_iPA2_KtS5_(ptr noundef %0, ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %15, i32 noundef %.1154196.us, ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE6YDC_HT, ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE6YAC_HT)
   %154 = call fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_contextPiS1_PfS2_iPA2_KtS5_(ptr noundef %0, ptr noundef %20, ptr noundef %21, ptr noundef %23, ptr noundef %16, i32 noundef %.1156195.us, ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE7UVDC_HT, ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE7UVAC_HT)
   %155 = call fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_contextPiS1_PfS2_iPA2_KtS5_(ptr noundef %0, ptr noundef %20, ptr noundef %21, ptr noundef %24, ptr noundef %16, i32 noundef %.1158194.us, ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE7UVDC_HT, ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE7UVAC_HT)
@@ -40241,125 +40241,123 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_jpg_coreP19s
   %157 = icmp slt i32 %156, %1
   br i1 %157, label %.preheader.us, label %._crit_edge.us, !llvm.loop !306
 
-158:                                              ; preds = %.preheader.us, %166
-  %.1193.us = phi i32 [ %.0151203.us, %.preheader.us ], [ %167, %166 ]
-  %.0149192.us = phi i32 [ 0, %.preheader.us ], [ %165, %166 ]
-  %159 = icmp slt i32 %.1193.us, %2
-  %160 = select i1 %159, i32 %.1193.us, i32 %150
-  %161 = sub nsw i32 %150, %160
-  %162 = select i1 %.not168.us, i32 %160, i32 %161
-  %163 = mul nsw i32 %162, %1
-  %164 = sext i32 %.0149192.us to i64
-  %165 = add i32 %.0149192.us, 8
-  br label %168
+158:                                              ; preds = %.preheader.us, %165
+  %.1193.us = phi i32 [ %.0151203.us, %.preheader.us ], [ %166, %165 ]
+  %.0149192.us = phi i32 [ 0, %.preheader.us ], [ %164, %165 ]
+  %159 = call i32 @llvm.smin.i32(i32 %.1193.us, i32 %150)
+  %160 = sub nsw i32 %150, %159
+  %161 = select i1 %.not168.us, i32 %159, i32 %160
+  %162 = mul nsw i32 %161, %1
+  %163 = sext i32 %.0149192.us to i64
+  %164 = add i32 %.0149192.us, 8
+  br label %167
 
-166:                                              ; preds = %168
-  %167 = add nuw nsw i32 %.1193.us, 1
-  %exitcond231.not = icmp eq i32 %167, %indvars.iv229
+165:                                              ; preds = %167
+  %166 = add nuw nsw i32 %.1193.us, 1
+  %exitcond231.not = icmp eq i32 %166, %indvars.iv229
   br i1 %exitcond231.not, label %152, label %158, !llvm.loop !307
 
-168:                                              ; preds = %168, %158
-  %indvars.iv225 = phi i64 [ %indvars.iv.next226, %168 ], [ %164, %158 ]
-  %.1145191.us = phi i32 [ %200, %168 ], [ %.0152197.us, %158 ]
-  %169 = icmp slt i32 %.1145191.us, %1
-  %170 = select i1 %169, i32 %.1145191.us, i32 %151
-  %171 = add i32 %170, %163
-  %172 = mul i32 %171, %3
-  %173 = sext i32 %172 to i64
-  %174 = getelementptr inbounds i8, ptr %4, i64 %173
-  %175 = load i8, ptr %174, align 1
-  %176 = uitofp i8 %175 to float
-  %177 = add nsw i32 %172, %146
-  %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds i8, ptr %4, i64 %178
-  %180 = load i8, ptr %179, align 1
-  %181 = uitofp i8 %180 to float
-  %182 = add nsw i32 %172, %147
-  %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds i8, ptr %4, i64 %183
-  %185 = load i8, ptr %184, align 1
-  %186 = uitofp i8 %185 to float
-  %187 = fmul float %181, 0x3FE2C8B440000000
-  %188 = call float @llvm.fmuladd.f32(float %176, float 0x3FD322D0E0000000, float %187)
-  %189 = call float @llvm.fmuladd.f32(float %186, float 0x3FBD2F1AA0000000, float %188)
-  %190 = fadd float %189, -1.280000e+02
-  %191 = getelementptr inbounds [64 x float], ptr %22, i64 0, i64 %indvars.iv225
-  store float %190, ptr %191, align 4
-  %192 = fmul float %181, 0xBFD5335D20000000
-  %193 = call float @llvm.fmuladd.f32(float %176, float 0xBFC59945C0000000, float %192)
-  %194 = call float @llvm.fmuladd.f32(float %186, float 5.000000e-01, float %193)
-  %195 = getelementptr inbounds [64 x float], ptr %23, i64 0, i64 %indvars.iv225
-  store float %194, ptr %195, align 4
-  %196 = fmul float %181, 0xBFDACBD120000000
-  %197 = call float @llvm.fmuladd.f32(float %176, float 5.000000e-01, float %196)
-  %198 = call float @llvm.fmuladd.f32(float %186, float 0xBFB4D0BB60000000, float %197)
-  %199 = getelementptr inbounds [64 x float], ptr %24, i64 0, i64 %indvars.iv225
-  store float %198, ptr %199, align 4
-  %200 = add nuw nsw i32 %.1145191.us, 1
+167:                                              ; preds = %167, %158
+  %indvars.iv225 = phi i64 [ %indvars.iv.next226, %167 ], [ %163, %158 ]
+  %.1145191.us = phi i32 [ %198, %167 ], [ %.0152197.us, %158 ]
+  %168 = call i32 @llvm.smin.i32(i32 %.1145191.us, i32 %151)
+  %169 = add i32 %168, %162
+  %170 = mul i32 %169, %3
+  %171 = sext i32 %170 to i64
+  %172 = getelementptr inbounds i8, ptr %4, i64 %171
+  %173 = load i8, ptr %172, align 1
+  %174 = uitofp i8 %173 to float
+  %175 = add nsw i32 %170, %146
+  %176 = sext i32 %175 to i64
+  %177 = getelementptr inbounds i8, ptr %4, i64 %176
+  %178 = load i8, ptr %177, align 1
+  %179 = uitofp i8 %178 to float
+  %180 = add nsw i32 %170, %147
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr inbounds i8, ptr %4, i64 %181
+  %183 = load i8, ptr %182, align 1
+  %184 = uitofp i8 %183 to float
+  %185 = fmul float %179, 0x3FE2C8B440000000
+  %186 = call float @llvm.fmuladd.f32(float %174, float 0x3FD322D0E0000000, float %185)
+  %187 = call float @llvm.fmuladd.f32(float %184, float 0x3FBD2F1AA0000000, float %186)
+  %188 = fadd float %187, -1.280000e+02
+  %189 = getelementptr inbounds [64 x float], ptr %22, i64 0, i64 %indvars.iv225
+  store float %188, ptr %189, align 4
+  %190 = fmul float %179, 0xBFD5335D20000000
+  %191 = call float @llvm.fmuladd.f32(float %174, float 0xBFC59945C0000000, float %190)
+  %192 = call float @llvm.fmuladd.f32(float %184, float 5.000000e-01, float %191)
+  %193 = getelementptr inbounds [64 x float], ptr %23, i64 0, i64 %indvars.iv225
+  store float %192, ptr %193, align 4
+  %194 = fmul float %179, 0xBFDACBD120000000
+  %195 = call float @llvm.fmuladd.f32(float %174, float 5.000000e-01, float %194)
+  %196 = call float @llvm.fmuladd.f32(float %184, float 0xBFB4D0BB60000000, float %195)
+  %197 = getelementptr inbounds [64 x float], ptr %24, i64 0, i64 %indvars.iv225
+  store float %196, ptr %197, align 4
+  %198 = add nuw nsw i32 %.1145191.us, 1
   %indvars.iv.next226 = add nsw i64 %indvars.iv225, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next226 to i32
-  %exitcond228.not = icmp eq i32 %165, %lftr.wideiv
-  br i1 %exitcond228.not, label %166, label %168, !llvm.loop !308
+  %exitcond228.not = icmp eq i32 %164, %lftr.wideiv
+  br i1 %exitcond228.not, label %165, label %167, !llvm.loop !308
 
 .preheader.us:                                    ; preds = %.preheader181.us, %152
   %.0152197.us = phi i32 [ 0, %.preheader181.us ], [ %156, %152 ]
   %.1154196.us = phi i32 [ %.0153202.us, %.preheader181.us ], [ %153, %152 ]
   %.1156195.us = phi i32 [ %.0155201.us, %.preheader181.us ], [ %154, %152 ]
   %.1158194.us = phi i32 [ %.0157200.us, %.preheader181.us ], [ %155, %152 ]
-  %201 = load i32, ptr @stbi__flip_vertically_on_write, align 4
-  %.not168.us = icmp eq i32 %201, 0
+  %199 = load i32, ptr @stbi__flip_vertically_on_write, align 4
+  %.not168.us = icmp eq i32 %199, 0
   br label %158
 
 ._crit_edge.us:                                   ; preds = %152
-  %202 = add nuw nsw i32 %.0151203.us, 8
-  %203 = icmp slt i32 %202, %2
+  %200 = add nuw nsw i32 %.0151203.us, 8
+  %201 = icmp slt i32 %200, %2
   %indvars.iv.next230 = add i32 %indvars.iv229, 8
-  br i1 %203, label %.preheader181.us, label %._crit_edge204, !llvm.loop !309
+  br i1 %201, label %.preheader181.us, label %._crit_edge204, !llvm.loop !309
 
 ._crit_edge204:                                   ; preds = %._crit_edge.us
   %.pre232 = load i32, ptr %21, align 4
-  %204 = icmp sgt i32 %.pre232, 0
-  br i1 %204, label %.lr.ph.i.preheader, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit
+  %202 = icmp sgt i32 %.pre232, 0
+  br i1 %202, label %.lr.ph.i.preheader, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit
 
 .lr.ph.i.preheader:                               ; preds = %._crit_edge204
-  %205 = sub nsw i32 17, %.pre232
-  %206 = shl i32 127, %205
+  %203 = sub nsw i32 17, %.pre232
+  %204 = shl i32 127, %203
   %.pre = load i32, ptr %20, align 4
-  %207 = or i32 %206, %.pre
-  %208 = add nuw nsw i32 %.pre232, 7
+  %205 = or i32 %204, %.pre
+  %206 = add nuw nsw i32 %.pre232, 7
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %214
-  %.02.i = phi i32 [ %215, %214 ], [ %207, %.lr.ph.i.preheader ]
-  %.0181.i = phi i32 [ %216, %214 ], [ %208, %.lr.ph.i.preheader ]
-  %209 = lshr i32 %.02.i, 16
-  %210 = trunc i32 %209 to i8
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %212
+  %.02.i = phi i32 [ %213, %212 ], [ %205, %.lr.ph.i.preheader ]
+  %.0181.i = phi i32 [ %214, %212 ], [ %206, %.lr.ph.i.preheader ]
+  %207 = lshr i32 %.02.i, 16
+  %208 = trunc i32 %207 to i8
   %.val20.i = load ptr, ptr %0, align 8
   %.val21.i = load ptr, ptr %119, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
-  store i8 %210, ptr %10, align 1
+  store i8 %208, ptr %10, align 1
   call void %.val20.i(ptr noundef %.val21.i, ptr noundef nonnull %10, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  %211 = and i32 %.02.i, 16711680
-  %212 = icmp eq i32 %211, 16711680
-  br i1 %212, label %213, label %214
+  %209 = and i32 %.02.i, 16711680
+  %210 = icmp eq i32 %209, 16711680
+  br i1 %210, label %211, label %212
 
-213:                                              ; preds = %.lr.ph.i
+211:                                              ; preds = %.lr.ph.i
   %.val.i = load ptr, ptr %0, align 8
   %.val19.i = load ptr, ptr %119, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   store i8 0, ptr %9, align 1
   call void %.val.i(ptr noundef %.val19.i, ptr noundef nonnull %9, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  br label %214
+  br label %212
 
-214:                                              ; preds = %213, %.lr.ph.i
-  %215 = shl i32 %.02.i, 8
-  %216 = add nsw i32 %.0181.i, -8
-  %217 = icmp sgt i32 %.0181.i, 15
-  br i1 %217, label %.lr.ph.i, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit, !llvm.loop !310
+212:                                              ; preds = %211, %.lr.ph.i
+  %213 = shl i32 %.02.i, 8
+  %214 = add nsw i32 %.0181.i, -8
+  %215 = icmp sgt i32 %.0181.i, 15
+  br i1 %215, label %.lr.ph.i, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit, !llvm.loop !310
 
-_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit: ; preds = %214, %.preheader181.lr.ph, %88, %._crit_edge204
+_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit: ; preds = %212, %.preheader181.lr.ph, %88, %._crit_edge204
   %.val176 = load ptr, ptr %0, align 8
   %.val177 = load ptr, ptr %119, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
@@ -40372,9 +40370,9 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit: ; preds = %214, %.
   store i8 -39, ptr %7, align 1
   call void %.val178(ptr noundef %.val179, ptr noundef nonnull %7, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  br label %218
+  br label %216
 
-218:                                              ; preds = %6, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit
+216:                                              ; preds = %6, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit
   %.0 = phi i32 [ 1, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit ], [ 0, %6 ]
   ret i32 %.0
 }

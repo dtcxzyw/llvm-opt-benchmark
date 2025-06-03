@@ -588,8 +588,7 @@ Vec_IntSetEntry.exit:                             ; preds = %49, %Vec_IntGrow.ex
 
 Vec_IntGrow.exit.sink.split.i.i65:                ; preds = %96
   %98 = shl nsw i32 %97, 1
-  %.not.i62 = icmp sgt i32 %98, %83
-  %. = select i1 %.not.i62, i32 %98, i32 %95
+  %. = tail call i32 @llvm.smax.i32(i32 %98, i32 %95)
   %99 = sext i32 %. to i64
   %100 = shl nsw i64 %99, 2
   %101 = tail call ptr @realloc(ptr noundef nonnull %storemerge96116, i64 noundef %100) #28
@@ -631,8 +630,7 @@ Vec_IntSetEntry.exit75:                           ; preds = %77, %Vec_IntGrow.ex
 
 Vec_IntGrow.exit.sink.split.i.i80:                ; preds = %118
   %120 = shl nsw i32 %119, 1
-  %.not.i77 = icmp sgt i32 %120, %86
-  %.151 = select i1 %.not.i77, i32 %120, i32 %117
+  %.151 = tail call i32 @llvm.smax.i32(i32 %120, i32 %117)
   %121 = sext i32 %.151 to i64
   %122 = shl nsw i64 %121, 2
   %123 = tail call ptr @realloc(ptr noundef nonnull %storemerge96118, i64 noundef %122) #28

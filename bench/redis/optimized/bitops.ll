@@ -2274,7 +2274,7 @@ getObjectReadOnlyString.exit.thread:              ; preds = %39, %.critedge24.i,
   %97 = call i64 @llvm.smax.i64(i64 %91, i64 0)
   %.not78 = icmp sge i64 %97, %spec.select
   %98 = add nsw i64 %spec.select, -1
-  %99 = select i1 %.not78, i64 %98, i64 %97
+  %99 = call i64 @llvm.smin.i64(i64 %97, i64 %98)
   %100 = or i1 %96, %.not78
   br i1 %100, label %101, label %102
 
@@ -2654,7 +2654,7 @@ define dso_local void @bitposCommand(ptr noundef %0) local_unnamed_addr #4 {
   %83 = call i64 @llvm.smax.i64(i64 %77, i64 0)
   %.not122 = icmp sge i64 %83, %spec.select
   %84 = add nsw i64 %spec.select, -1
-  %85 = select i1 %.not122, i64 %84, i64 %83
+  %85 = call i64 @llvm.smin.i64(i64 %83, i64 %84)
   %86 = or i1 %82, %.not122
   br i1 %86, label %87, label %88
 
@@ -3841,6 +3841,9 @@ declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #17
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -915,7 +915,7 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
   %186 = add nsw i64 %indvars.iv359, %120
   %.not = icmp slt i64 %186, %121
   %187 = trunc nsw i64 %186 to i32
-  %.265 = select i1 %.not, i32 %187, i32 %116
+  %.265 = call i32 @llvm.smin.i32(i32 %187, i32 %116)
   %188 = shl nsw i32 %.265, 4
   %189 = sext i32 %188 to i64
   %190 = getelementptr inbounds i16, ptr %20, i64 %189
@@ -1392,7 +1392,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   %192 = add nsw i64 %indvars.iv359, %124
   %.not = icmp slt i64 %192, %125
   %193 = trunc nsw i64 %192 to i32
-  %.265 = select i1 %.not, i32 %193, i32 %119
+  %.265 = call i32 @llvm.smin.i32(i32 %193, i32 %119)
   %194 = shl nsw i32 %.265, 5
   %195 = sext i32 %194 to i64
   %196 = getelementptr inbounds i16, ptr %20, i64 %195
@@ -1869,7 +1869,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   %192 = add nsw i64 %indvars.iv359, %124
   %.not = icmp slt i64 %192, %125
   %193 = trunc nsw i64 %192 to i32
-  %.265 = select i1 %.not, i32 %193, i32 %119
+  %.265 = call i32 @llvm.smin.i32(i32 %193, i32 %119)
   %194 = shl nsw i32 %.265, 5
   %195 = sext i32 %194 to i64
   %196 = getelementptr inbounds i16, ptr %20, i64 %195
@@ -2346,7 +2346,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   %192 = add nsw i64 %indvars.iv359, %124
   %.not = icmp slt i64 %192, %125
   %193 = trunc nsw i64 %192 to i32
-  %.265 = select i1 %.not, i32 %193, i32 %119
+  %.265 = call i32 @llvm.smin.i32(i32 %193, i32 %119)
   %194 = shl nsw i32 %.265, 6
   %195 = sext i32 %194 to i64
   %196 = getelementptr inbounds i16, ptr %20, i64 %195
@@ -2823,7 +2823,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   %192 = add nsw i64 %indvars.iv359, %124
   %.not = icmp slt i64 %192, %125
   %193 = trunc nsw i64 %192 to i32
-  %.265 = select i1 %.not, i32 %193, i32 %119
+  %.265 = call i32 @llvm.smin.i32(i32 %193, i32 %119)
   %194 = shl nsw i32 %.265, 7
   %195 = sext i32 %194 to i64
   %196 = getelementptr inbounds i16, ptr %20, i64 %195
@@ -3300,7 +3300,7 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %188 = add nsw i64 %indvars.iv359, %122
   %.not = icmp slt i64 %188, %123
   %189 = trunc nsw i64 %188 to i32
-  %.265 = select i1 %.not, i32 %189, i32 %117
+  %.265 = call i32 @llvm.smin.i32(i32 %189, i32 %117)
   %190 = shl nsw i32 %.265, 8
   %191 = sext i32 %190 to i64
   %192 = getelementptr inbounds i16, ptr %20, i64 %191

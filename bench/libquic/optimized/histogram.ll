@@ -366,9 +366,8 @@ _ZN4base9Histogram28InspectConstructionArgumentsERKNSt7__cxx1112basic_stringIcSt
   %5 = alloca %"class.base::Histogram::Factory", align 8
   %spec.select = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
   %6 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4, !tbaa !24
-  %.not.i = icmp slt i32 %2, %6
   %7 = add nsw i32 %6, -1
-  %.010 = select i1 %.not.i, i32 %2, i32 %7
+  %.010 = tail call i32 @llvm.smin.i32(i32 %2, i32 %7)
   %.1 = tail call i32 @llvm.umin.i32(i32 %3, i32 16383)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #22
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4base9Histogram7FactoryE, i64 16), ptr %5, align 8, !tbaa !17
@@ -457,9 +456,8 @@ define noundef ptr @_ZN4base9Histogram14FactoryTimeGetERKNSt7__cxx1112basic_stri
   %12 = trunc i64 %11 to i32
   %spec.select.i = call i32 @llvm.smax.i32(i32 %10, i32 1)
   %13 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4, !tbaa !24
-  %.not.i.i = icmp sgt i32 %13, %12
   %14 = add nsw i32 %13, -1
-  %.010.i = select i1 %.not.i.i, i32 %12, i32 %14
+  %.010.i = call i32 @llvm.smin.i32(i32 %12, i32 %14)
   %.1.i = call i32 @llvm.umin.i32(i32 %3, i32 16383)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #22
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4base9Histogram7FactoryE, i64 16), ptr %6, align 8, !tbaa !17
@@ -537,9 +535,8 @@ define noundef ptr @_ZN4base9Histogram10FactoryGetEPKciiji(ptr noundef readonly 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
   %spec.select.i = call i32 @llvm.smax.i32(i32 %1, i32 1)
   %25 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4, !tbaa !24
-  %.not.i.i = icmp slt i32 %2, %25
   %26 = add nsw i32 %25, -1
-  %.010.i = select i1 %.not.i.i, i32 %2, i32 %26
+  %.010.i = call i32 @llvm.smin.i32(i32 %2, i32 %26)
   %.1.i = call i32 @llvm.umin.i32(i32 %3, i32 16383)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #22
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4base9Histogram7FactoryE, i64 16), ptr %6, align 8, !tbaa !17
@@ -671,9 +668,8 @@ define noundef ptr @_ZN4base9Histogram14FactoryTimeGetEPKcNS_9TimeDeltaES3_ji(pt
   %30 = trunc i64 %28 to i32
   %spec.select.i.i = call i32 @llvm.smax.i32(i32 %29, i32 1)
   %31 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4, !tbaa !24
-  %.not.i.i.i = icmp sgt i32 %31, %30
   %32 = add nsw i32 %31, -1
-  %.010.i.i = select i1 %.not.i.i.i, i32 %30, i32 %32
+  %.010.i.i = call i32 @llvm.smin.i32(i32 %30, i32 %32)
   %.1.i.i = call i32 @llvm.umin.i32(i32 %3, i32 16383)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #22
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4base9Histogram7FactoryE, i64 16), ptr %6, align 8, !tbaa !17
@@ -1019,9 +1015,8 @@ define void @_ZN4base9Histogram8AddCountEii(ptr noundef nonnull align 8 derefere
 
 5:                                                ; preds = %3
   %6 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4, !tbaa !24
-  %.not = icmp slt i32 %1, %6
   %7 = add nsw i32 %6, -1
-  %spec.select = select i1 %.not, i32 %1, i32 %7
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %7)
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %spec.select, i32 0)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8, !tbaa !63
@@ -2444,9 +2439,8 @@ define noundef ptr @_ZN4base9Histogram19DeserializeInfoImplEPNS_14PickleIterator
   %19 = load i32, ptr %4, align 4, !tbaa !24
   %spec.select.i = call i32 @llvm.smax.i32(i32 %16, i32 1)
   %20 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4, !tbaa !24
-  %.not.i.i = icmp slt i32 %17, %20
   %21 = add nsw i32 %20, -1
-  %.010.i = select i1 %.not.i.i, i32 %17, i32 %21
+  %.010.i = call i32 @llvm.smin.i32(i32 %17, i32 %21)
   %.1.i = call i32 @llvm.umin.i32(i32 %18, i32 16383)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #22
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4base9Histogram7FactoryE, i64 16), ptr %2, align 8, !tbaa !17
@@ -2975,9 +2969,8 @@ define noundef ptr @_ZN4base15LinearHistogram10FactoryGetERKNSt7__cxx1112basic_s
   %6 = alloca %"class.base::LinearHistogram::Factory", align 8
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
   %7 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4, !tbaa !24
-  %.not.i.i = icmp slt i32 %2, %7
   %8 = add nsw i32 %7, -1
-  %.011.i = select i1 %.not.i.i, i32 %2, i32 %8
+  %.011.i = tail call i32 @llvm.smin.i32(i32 %2, i32 %8)
   %.1.i = tail call i32 @llvm.umin.i32(i32 %3, i32 16383)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #22
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3006,9 +2999,8 @@ _ZN4base9Histogram28InspectConstructionArgumentsERKNSt7__cxx1112basic_stringIcSt
   %6 = alloca %"class.base::LinearHistogram::Factory", align 8
   %spec.select = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
   %7 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4, !tbaa !24
-  %.not.i = icmp slt i32 %2, %7
   %8 = add nsw i32 %7, -1
-  %.011 = select i1 %.not.i, i32 %2, i32 %8
+  %.011 = tail call i32 @llvm.smin.i32(i32 %2, i32 %8)
   %.1 = tail call i32 @llvm.umin.i32(i32 %3, i32 16383)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #22
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3044,9 +3036,8 @@ define noundef ptr @_ZN4base15LinearHistogram14FactoryTimeGetERKNSt7__cxx1112bas
   %12 = trunc i64 %11 to i32
   %spec.select.i.i = call i32 @llvm.smax.i32(i32 %10, i32 1)
   %13 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4, !tbaa !24
-  %.not.i.i.i = icmp sgt i32 %13, %12
   %14 = add nsw i32 %13, -1
-  %.011.i.i = select i1 %.not.i.i.i, i32 %12, i32 %14
+  %.011.i.i = call i32 @llvm.smin.i32(i32 %12, i32 %14)
   %.1.i.i = call i32 @llvm.umin.i32(i32 %3, i32 16383)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #22
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3124,9 +3115,8 @@ define noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef re
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
   %spec.select.i.i = call i32 @llvm.smax.i32(i32 %1, i32 1)
   %25 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4, !tbaa !24
-  %.not.i.i.i = icmp slt i32 %2, %25
   %26 = add nsw i32 %25, -1
-  %.011.i.i = select i1 %.not.i.i.i, i32 %2, i32 %26
+  %.011.i.i = call i32 @llvm.smin.i32(i32 %2, i32 %26)
   %.1.i.i = call i32 @llvm.umin.i32(i32 %3, i32 16383)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #22
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3260,9 +3250,8 @@ define noundef ptr @_ZN4base15LinearHistogram14FactoryTimeGetEPKcNS_9TimeDeltaES
   %30 = trunc i64 %28 to i32
   %spec.select.i.i.i = call i32 @llvm.smax.i32(i32 %29, i32 1)
   %31 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4, !tbaa !24
-  %.not.i.i.i.i = icmp sgt i32 %31, %30
   %32 = add nsw i32 %31, -1
-  %.011.i.i.i = select i1 %.not.i.i.i.i, i32 %30, i32 %32
+  %.011.i.i.i = call i32 @llvm.smin.i32(i32 %30, i32 %32)
   %.1.i.i.i = call i32 @llvm.umin.i32(i32 %3, i32 16383)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #22
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3639,9 +3628,8 @@ define noundef ptr @_ZN4base15LinearHistogram19DeserializeInfoImplEPNS_14PickleI
   %19 = load i32, ptr %4, align 4, !tbaa !24
   %spec.select.i.i = call i32 @llvm.smax.i32(i32 %16, i32 1)
   %20 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4, !tbaa !24
-  %.not.i.i.i = icmp slt i32 %17, %20
   %21 = add nsw i32 %20, -1
-  %.011.i.i = select i1 %.not.i.i.i, i32 %17, i32 %21
+  %.011.i.i = call i32 @llvm.smin.i32(i32 %17, i32 %21)
   %.1.i.i = call i32 @llvm.umin.i32(i32 %18, i32 16383)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #22
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8

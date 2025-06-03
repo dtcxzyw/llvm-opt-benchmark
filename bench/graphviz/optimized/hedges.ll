@@ -410,10 +410,9 @@ define ptr @ELleftbnd(ptr noundef readonly captures(none) %0) local_unnamed_addr
   %9 = fmul double %6, %8
   %10 = fptosi double %9 to i32
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %10, i32 0)
-  %.not = icmp slt i32 %spec.store.select, %7
   %11 = add nsw i32 %7, -1
-  %spec.select = select i1 %.not, i32 %spec.store.select, i32 %11
-  %12 = icmp sgt i32 %spec.select, -1
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %spec.store.select, i32 %11)
+  %12 = icmp sgt i32 %7, 0
   br i1 %12, label %13, label %ELgethash.exit
 
 13:                                               ; preds = %1
@@ -706,6 +705,9 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

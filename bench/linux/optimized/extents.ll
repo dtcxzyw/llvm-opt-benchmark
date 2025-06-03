@@ -10729,7 +10729,7 @@ define dso_local void @ext4_ext_replay_shrink_inode(ptr noundef %0, i32 noundef 
   br label %6
 
 6:                                                ; preds = %.loopexit6, %4
-  %7 = phi i32 [ 0, %4 ], [ %44, %.loopexit6 ]
+  %7 = phi i32 [ 0, %4 ], [ %43, %.loopexit6 ]
   %8 = tail call ptr @ext4_find_extent(ptr noundef %0, i32 noundef %7, ptr noundef null, i32 noundef 0)
   %9 = icmp ugt ptr %8, inttoptr (i64 -4096 to ptr)
   br i1 %9, label %.loopexit7, label %10
@@ -10784,88 +10784,87 @@ define dso_local void @ext4_ext_replay_shrink_inode(ptr noundef %0, i32 noundef 
   %39 = add nsw i32 %37, -32768
   %40 = select i1 %38, i32 %37, i32 %39
   %41 = add i32 %40, %34
-  %42 = icmp ugt i32 %41, %7
-  %43 = add nuw i32 %7, 1
-  %44 = select i1 %42, i32 %41, i32 %43
+  %42 = add nuw i32 %7, 1
+  %43 = tail call i32 @llvm.umax.i32(i32 %41, i32 %42)
   tail call fastcc void @ext4_ext_try_to_merge(ptr noundef null, ptr noundef %0, ptr noundef %8, ptr noundef nonnull %15)
   tail call void @down_write(ptr noundef %5) #16
-  %45 = load i16, ptr %11, align 8
-  %46 = zext i16 %45 to i64
-  %47 = load volatile i64, ptr %5, align 8
-  %48 = icmp eq i64 %47, 0
-  br i1 %48, label %49, label %50, !prof !9
+  %44 = load i16, ptr %11, align 8
+  %45 = zext i16 %44 to i64
+  %46 = load volatile i64, ptr %5, align 8
+  %47 = icmp eq i64 %46, 0
+  br i1 %47, label %48, label %49, !prof !9
 
-49:                                               ; preds = %33
+48:                                               ; preds = %33
   tail call void asm sideeffect "2059: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2059b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2059) #16, !srcloc !57
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 191, i32 2305, i64 12) #16, !srcloc !58
   tail call void asm sideeffect "2060: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2060b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2060) #16, !srcloc !59
-  br label %50
+  br label %49
 
-50:                                               ; preds = %49, %33
-  %51 = getelementptr %struct.ext4_ext_path, ptr %8, i64 %46, i32 6
-  %52 = load ptr, ptr %51, align 8
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %67, label %54
+49:                                               ; preds = %48, %33
+  %50 = getelementptr %struct.ext4_ext_path, ptr %8, i64 %45, i32 6
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %66, label %53
 
-54:                                               ; preds = %50
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  %56 = load ptr, ptr %55, align 8
-  tail call fastcc void @ext4_extent_block_csum_set(ptr noundef %0, ptr noundef %56)
-  %57 = load ptr, ptr %51, align 8
-  %58 = tail call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.ext4_ext_replay_shrink_inode, i32 noundef 5962, ptr noundef null, ptr noundef %0, ptr noundef %57) #16
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %__ext4_ext_dirty.exit
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 40
+  %55 = load ptr, ptr %54, align 8
+  tail call fastcc void @ext4_extent_block_csum_set(ptr noundef %0, ptr noundef %55)
+  %56 = load ptr, ptr %50, align 8
+  %57 = tail call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.ext4_ext_replay_shrink_inode, i32 noundef 5962, ptr noundef null, ptr noundef %0, ptr noundef %56) #16
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %__ext4_ext_dirty.exit
 
-60:                                               ; preds = %54
-  %61 = load ptr, ptr %51, align 8
-  %62 = load volatile i64, ptr %61, align 8
-  %63 = and i64 %62, 16777216
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %65, label %__ext4_ext_dirty.exit
+59:                                               ; preds = %53
+  %60 = load ptr, ptr %50, align 8
+  %61 = load volatile i64, ptr %60, align 8
+  %62 = and i64 %61, 16777216
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %64, label %__ext4_ext_dirty.exit
 
-65:                                               ; preds = %60
-  %66 = getelementptr i8, ptr %61, i64 3
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %66, i32 1, ptr elementtype(i8) %66) #16, !srcloc !25
+64:                                               ; preds = %59
+  %65 = getelementptr i8, ptr %60, i64 3
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %65, i32 1, ptr elementtype(i8) %65) #16, !srcloc !25
   br label %__ext4_ext_dirty.exit
 
-67:                                               ; preds = %50
-  %68 = tail call i32 @__ext4_mark_inode_dirty(ptr noundef null, ptr noundef %0, ptr noundef nonnull @__func__.__ext4_ext_dirty, i32 noundef 202) #16
+66:                                               ; preds = %49
+  %67 = tail call i32 @__ext4_mark_inode_dirty(ptr noundef null, ptr noundef %0, ptr noundef nonnull @__func__.__ext4_ext_dirty, i32 noundef 202) #16
   br label %__ext4_ext_dirty.exit
 
-__ext4_ext_dirty.exit:                            ; preds = %54, %60, %65, %67
+__ext4_ext_dirty.exit:                            ; preds = %53, %59, %64, %66
   tail call void @up_write(ptr noundef %5) #16
-  %69 = tail call i32 @__ext4_mark_inode_dirty(ptr noundef null, ptr noundef %0, ptr noundef nonnull @__func__.ext4_ext_replay_shrink_inode, i32 noundef 5964) #16
-  %70 = icmp eq ptr %8, null
-  br i1 %70, label %.loopexit6, label %71
+  %68 = tail call i32 @__ext4_mark_inode_dirty(ptr noundef null, ptr noundef %0, ptr noundef nonnull @__func__.ext4_ext_replay_shrink_inode, i32 noundef 5964) #16
+  %69 = icmp eq ptr %8, null
+  br i1 %69, label %.loopexit6, label %70
 
-71:                                               ; preds = %__ext4_ext_dirty.exit
-  %72 = load i16, ptr %11, align 8
-  %73 = zext i16 %72 to i32
-  br label %74
+70:                                               ; preds = %__ext4_ext_dirty.exit
+  %71 = load i16, ptr %11, align 8
+  %72 = zext i16 %71 to i32
+  br label %73
 
-74:                                               ; preds = %81, %71
-  %75 = phi i32 [ 0, %71 ], [ %82, %81 ]
-  %76 = phi ptr [ %8, %71 ], [ %83, %81 ]
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
-  %78 = load ptr, ptr %77, align 8
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %81, label %80
+73:                                               ; preds = %80, %70
+  %74 = phi i32 [ 0, %70 ], [ %81, %80 ]
+  %75 = phi ptr [ %8, %70 ], [ %82, %80 ]
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
+  %77 = load ptr, ptr %76, align 8
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %80, label %79
 
-80:                                               ; preds = %74
-  tail call void @__brelse(ptr noundef nonnull %78) #16
-  br label %81
+79:                                               ; preds = %73
+  tail call void @__brelse(ptr noundef nonnull %77) #16
+  br label %80
 
-81:                                               ; preds = %80, %74
-  store ptr null, ptr %77, align 8
-  %82 = add nuw nsw i32 %75, 1
-  %83 = getelementptr i8, ptr %76, i64 48
-  %84 = icmp eq i32 %75, %73
-  br i1 %84, label %.loopexit6, label %74, !llvm.loop !6
+80:                                               ; preds = %79, %73
+  store ptr null, ptr %76, align 8
+  %81 = add nuw nsw i32 %74, 1
+  %82 = getelementptr i8, ptr %75, i64 48
+  %83 = icmp eq i32 %74, %72
+  br i1 %83, label %.loopexit6, label %73, !llvm.loop !6
 
-.loopexit6:                                       ; preds = %81, %__ext4_ext_dirty.exit
+.loopexit6:                                       ; preds = %80, %__ext4_ext_dirty.exit
   tail call void @kfree(ptr noundef %8) #16
-  %85 = icmp ult i32 %44, %1
-  br i1 %85, label %6, label %.loopexit7, !llvm.loop !183
+  %84 = icmp ult i32 %43, %1
+  br i1 %84, label %6, label %.loopexit7, !llvm.loop !183
 
 .loopexit7:                                       ; preds = %.loopexit6, %6, %.loopexit, %2
   ret void

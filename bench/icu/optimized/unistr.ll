@@ -5628,27 +5628,26 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStrin
   %13 = icmp ne i8 %12, 0
   %14 = icmp sgt i32 %11, 0
   %or.cond = and i1 %13, %14
-  br i1 %or.cond, label %15, label %26
+  br i1 %or.cond, label %15, label %27
 
 15:                                               ; preds = %3
   %16 = icmp slt i32 %1, 0
-  %.not = icmp slt i32 %1, %11
   %17 = add nsw i32 %11, -1
-  %spec.select = select i1 %.not, i32 %1, i32 %17
-  %.0 = select i1 %16, i32 0, i32 %spec.select
-  %18 = load i16, ptr %4, align 8, !tbaa !3
-  %19 = and i16 %18, 2
-  %.not.i = icmp eq i16 %19, 0
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load ptr, ptr %21, align 8
-  %23 = select i1 %.not.i, ptr %22, ptr %20
-  %24 = zext nneg i32 %.0 to i64
-  %25 = getelementptr inbounds nuw i16, ptr %23, i64 %24
-  store i16 %2, ptr %25, align 2, !tbaa !10
-  br label %26
+  %18 = tail call i32 @llvm.umin.i32(i32 %1, i32 %17)
+  %.0 = select i1 %16, i32 0, i32 %18
+  %19 = load i16, ptr %4, align 8, !tbaa !3
+  %20 = and i16 %19, 2
+  %.not.i = icmp eq i16 %20, 0
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = select i1 %.not.i, ptr %23, ptr %21
+  %25 = zext nneg i32 %.0 to i64
+  %26 = getelementptr inbounds nuw i16, ptr %24, i64 %25
+  store i16 %2, ptr %26, align 2, !tbaa !10
+  br label %27
 
-26:                                               ; preds = %15, %3
+27:                                               ; preds = %15, %3
   ret ptr %0
 }
 
