@@ -2880,10 +2880,10 @@ ir_sccp_remove_unfeasible_merge_inputs.exit.backedge: ; preds = %331, %.preheade
   br i1 %.not179228.i, label %._crit_edge249.i, label %.lr.ph248.preheader.i
 
 .lr.ph248.preheader.i:                            ; preds = %.preheader.i
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %225, i32 2)
-  %311 = add nsw i32 %umax.i, -1
-  %312 = zext nneg i32 %311 to i64
-  %313 = shl nuw nsw i64 %312, 2
+  %311 = tail call i16 @llvm.umax.i16(i16 %224, i16 2)
+  %umax.i = zext i16 %311 to i64
+  %312 = shl nuw nsw i64 %umax.i, 2
+  %313 = add nsw i64 %312, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep268.i, i8 0, i64 %313, i1 false), !tbaa !40
   br label %._crit_edge249.i
 
@@ -8231,6 +8231,9 @@ define internal fastcc zeroext i1 @ir_cmp_is_true(i32 noundef range(i32 0, 256) 
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umax.i16(i16, i16) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

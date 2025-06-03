@@ -735,10 +735,9 @@ define void @ff_mpeg4_decode_studio(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.preheader.us
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
-  %98 = tail call i32 @llvm.usub.sat.i32(i32 %87, i32 1)
+  %98 = tail call i32 @llvm.umax.i32(i32 %87, i32 1)
   %99 = shl nuw nsw i32 %98, 1
-  %narrow = add nuw nsw i32 %99, 2
-  %100 = zext nneg i32 %narrow to i64
+  %100 = zext nneg i32 %99 to i64
   %101 = mul nsw i64 %100, %93
   %scevgep = getelementptr i8, ptr %.promoted, i64 %101
   br label %._crit_edge162
@@ -13784,9 +13783,6 @@ declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

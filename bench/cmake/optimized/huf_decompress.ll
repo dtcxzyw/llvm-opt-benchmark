@@ -97,8 +97,7 @@ define dso_local i64 @HUF_readDTableX1_wksp(ptr noundef captures(none) %0, ptr n
   %47 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv46.i
   store i32 %46, ptr %47, align 4, !tbaa !4
   %indvars.iv.next47.i = add nsw i64 %indvars.iv46.i, -1
-  %indvars.i = trunc i64 %indvars.iv.next47.i to i32
-  %48 = icmp ult i32 %26, %indvars.i
+  %48 = icmp ugt i64 %indvars.iv.next47.i, %29
   br i1 %48, label %.lr.ph39.i, label %.lr.ph42.preheader.i, !llvm.loop !11
 
 HUF_rescaleStats.exit:                            ; preds = %16

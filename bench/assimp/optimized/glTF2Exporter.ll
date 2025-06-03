@@ -56398,8 +56398,8 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal8PrettifyEPciii(pt
 .lr.ph.preheader:                                 ; preds = %47
   %scevgep = getelementptr i8, ptr %0, i64 2
   %54 = tail call i32 @llvm.umax.i32(i32 %48, i32 3)
-  %55 = add nsw i32 %54, -2
-  %56 = zext nneg i32 %55 to i64
+  %55 = zext nneg i32 %54 to i64
+  %56 = add nsw i64 %55, -2
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 48, i64 %56, i1 false)
   br label %._crit_edge
 

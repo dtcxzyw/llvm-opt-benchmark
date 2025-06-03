@@ -57622,7 +57622,7 @@ stbir__get_split_info.exit:                       ; preds = %766, %stbir_simd_me
   %788 = add nsw i64 %787, -4
   %wide.trip.count105 = zext nneg i32 %4 to i64
   %wide.trip.count95 = zext nneg i32 %783 to i64
-  %wide.trip.count100 = sext i32 %783 to i64
+  %wide.trip.count100 = zext i32 %783 to i64
   br label %789
 
 789:                                              ; preds = %.lr.ph60, %.loopexit

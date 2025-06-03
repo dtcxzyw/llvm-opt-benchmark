@@ -448,41 +448,41 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noun
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %11, i64 %13
   %15 = icmp eq ptr %11, null
-  br i1 %15, label %RescalePlane.exit, label %.preheader81
+  br i1 %15, label %RescalePlane.exit, label %.preheader82
 
-.preheader81:                                     ; preds = %7
+.preheader82:                                     ; preds = %7
   %16 = icmp sgt i32 %5, 0
   %17 = icmp sgt i32 %4, 0
-  %or.cond131 = and i1 %16, %17
-  br i1 %or.cond131, label %.preheader80.us.preheader, label %._crit_edge93
+  %or.cond132 = and i1 %16, %17
+  br i1 %or.cond132, label %.preheader81.us.preheader, label %._crit_edge94
 
-.preheader80.us.preheader:                        ; preds = %.preheader81
+.preheader81.us.preheader:                        ; preds = %.preheader82
   %18 = sext i32 %1 to i64
   %19 = zext nneg i32 %4 to i64
   %20 = sext i32 %3 to i64
-  %wide.trip.count108 = zext nneg i32 %5 to i64
+  %wide.trip.count109 = zext nneg i32 %5 to i64
   %wide.trip.count = zext nneg i32 %4 to i64
-  br label %.preheader80.us
+  br label %.preheader81.us
 
-.preheader80.us:                                  ; preds = %.preheader80.us.preheader, %._crit_edge.us
-  %indvars.iv105 = phi i64 [ 0, %.preheader80.us.preheader ], [ %indvars.iv.next106, %._crit_edge.us ]
-  %21 = mul nsw i64 %indvars.iv105, %18
-  %22 = mul nuw nsw i64 %indvars.iv105, %19
-  %23 = mul nsw i64 %indvars.iv105, %20
+.preheader81.us:                                  ; preds = %.preheader81.us.preheader, %._crit_edge.us
+  %indvars.iv106 = phi i64 [ 0, %.preheader81.us.preheader ], [ %indvars.iv.next107, %._crit_edge.us ]
+  %21 = mul nsw i64 %indvars.iv106, %18
+  %22 = mul nuw nsw i64 %indvars.iv106, %19
+  %23 = mul nsw i64 %indvars.iv106, %20
   %invariant.gep = getelementptr i8, ptr %0, i64 %21
-  %invariant.gep127 = getelementptr i8, ptr %2, i64 %23
+  %invariant.gep128 = getelementptr i8, ptr %2, i64 %23
   br label %24
 
-24:                                               ; preds = %.preheader80.us, %24
-  %indvars.iv = phi i64 [ 0, %.preheader80.us ], [ %indvars.iv.next, %24 ]
+24:                                               ; preds = %.preheader81.us, %24
+  %indvars.iv = phi i64 [ 0, %.preheader81.us ], [ %indvars.iv.next, %24 ]
   %25 = shl nsw i64 %indvars.iv, 2
   %gep = getelementptr i8, ptr %invariant.gep, i64 %25
   %26 = load i8, ptr %gep, align 1, !tbaa !27
   %27 = add nuw nsw i64 %indvars.iv, %22
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 %27
   store i8 %26, ptr %28, align 1, !tbaa !27
-  %gep128 = getelementptr i8, ptr %invariant.gep127, i64 %25
-  %29 = load i8, ptr %gep128, align 1, !tbaa !27
+  %gep129 = getelementptr i8, ptr %invariant.gep128, i64 %25
+  %29 = load i8, ptr %gep129, align 1, !tbaa !27
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 %27
   store i8 %29, ptr %30, align 1, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -490,29 +490,29 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noun
   br i1 %exitcond.not, label %._crit_edge.us, label %24, !llvm.loop !28
 
 ._crit_edge.us:                                   ; preds = %24
-  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %.preheader79, label %.preheader80.us, !llvm.loop !29
+  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
+  %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
+  br i1 %exitcond110.not, label %.preheader80, label %.preheader81.us, !llvm.loop !29
 
-.preheader79:                                     ; preds = %._crit_edge.us
-  br i1 %16, label %.preheader.lr.ph, label %._crit_edge93
+.preheader80:                                     ; preds = %._crit_edge.us
+  br i1 %16, label %.preheader.lr.ph, label %._crit_edge94
 
-.preheader.lr.ph:                                 ; preds = %.preheader79
+.preheader.lr.ph:                                 ; preds = %.preheader80
   %31 = add nsw i32 %5, -1
   %32 = add nsw i32 %4, -1
   %33 = zext nneg i32 %4 to i64
   %34 = sext i32 %1 to i64
-  %wide.trip.count118 = zext nneg i32 %5 to i64
-  %wide.trip.count113 = zext nneg i32 %4 to i64
+  %wide.trip.count119 = zext nneg i32 %5 to i64
+  %wide.trip.count114 = zext nneg i32 %4 to i64
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us95
-  %indvars.iv115 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next116, %._crit_edge.us95 ]
-  %.06991.us = phi i32 [ 0, %.preheader.lr.ph ], [ %.2.us, %._crit_edge.us95 ]
-  %35 = trunc nuw nsw i64 %indvars.iv115 to i32
+.preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us96
+  %indvars.iv116 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next117, %._crit_edge.us96 ]
+  %.06992.us = phi i32 [ 0, %.preheader.lr.ph ], [ %.2.us, %._crit_edge.us96 ]
+  %35 = trunc nuw nsw i64 %indvars.iv116 to i32
   %36 = tail call i32 @llvm.smax.i32(i32 %35, i32 3)
   %37 = add nsw i32 %36, -3
-  %38 = trunc i64 %indvars.iv115 to i32
+  %38 = trunc i64 %indvars.iv116 to i32
   %39 = add i32 %38, 3
   %40 = tail call i32 @llvm.smin.i32(i32 %39, i32 %31)
   %.not81.i.us = icmp sgt i32 %37, %40
@@ -523,16 +523,16 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noun
   %45 = zext nneg i32 %36 to i64
   %46 = add nsw i64 %45, -3
   %47 = zext nneg i32 %40 to i64
-  %48 = mul nsw i64 %indvars.iv115, %34
-  %invariant.gep129 = getelementptr i8, ptr %0, i64 %48
+  %48 = mul nsw i64 %indvars.iv116, %34
+  %invariant.gep130 = getelementptr i8, ptr %0, i64 %48
   br label %49
 
 49:                                               ; preds = %.preheader.us, %SSIMGetClipped.exit.us
-  %indvars.iv110 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next111, %SSIMGetClipped.exit.us ]
-  %.17089.us = phi i32 [ %.06991.us, %.preheader.us ], [ %.2.us, %SSIMGetClipped.exit.us ]
-  %50 = trunc nuw nsw i64 %indvars.iv110 to i32
+  %indvars.iv111 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next112, %SSIMGetClipped.exit.us ]
+  %.17090.us = phi i32 [ %.06992.us, %.preheader.us ], [ %.2.us, %SSIMGetClipped.exit.us ]
+  %50 = trunc nuw nsw i64 %indvars.iv111 to i32
   %51 = tail call i32 @llvm.smax.i32(i32 %50, i32 3)
-  %52 = trunc i64 %indvars.iv110 to i32
+  %52 = trunc i64 %indvars.iv111 to i32
   %53 = add i32 %52, 3
   %54 = tail call i32 @llvm.smin.i32(i32 %53, i32 %32)
   %55 = add nsw i32 %51, -3
@@ -544,6 +544,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noun
   %56 = zext nneg i32 %51 to i64
   %57 = add nsw i64 %56, -3
   %58 = add nuw nsw i32 %54, 1
+  %wide.trip.count.i.us = zext nneg i32 %58 to i64
   br label %.preheader.i.us
 
 .preheader.i.us:                                  ; preds = %._crit_edge.i.us, %.preheader.preheader.i.us
@@ -556,7 +557,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noun
   %.sroa.9.084.i.us = phi i32 [ 0, %.preheader.preheader.i.us ], [ %78, %._crit_edge.i.us ]
   %.sroa.6.083.i.us = phi i32 [ 0, %.preheader.preheader.i.us ], [ %76, %._crit_edge.i.us ]
   %.sroa.0.082.i.us = phi i32 [ 0, %.preheader.preheader.i.us ], [ %74, %._crit_edge.i.us ]
-  %reass.sub = sub i64 %indvars.iv112.i.us, %indvars.iv115
+  %reass.sub = sub i64 %indvars.iv112.i.us, %indvars.iv116
   %.reass.reass.i.us = shl i64 %reass.sub, 32
   %sext = add i64 %.reass.reass.i.us, 12884901888
   %59 = ashr exact i64 %sext, 32
@@ -572,10 +573,10 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noun
   %.sroa.9.171.i.us = phi i32 [ %.sroa.9.084.i.us, %.preheader.i.us ], [ %78, %62 ]
   %.sroa.6.170.i.us = phi i32 [ %.sroa.6.083.i.us, %.preheader.i.us ], [ %76, %62 ]
   %.sroa.0.169.i.us = phi i32 [ %.sroa.0.082.i.us, %.preheader.i.us ], [ %74, %62 ]
-  %reass.sub96 = sub i64 %indvars.iv.i.us, %indvars.iv110
-  %63 = shl i64 %reass.sub96, 32
-  %sext120 = add i64 %63, 12884901888
-  %64 = ashr exact i64 %sext120, 32
+  %reass.sub97 = sub i64 %indvars.iv.i.us, %indvars.iv111
+  %63 = shl i64 %reass.sub97, 32
+  %sext121 = add i64 %63, 12884901888
+  %64 = ashr exact i64 %sext121, 32
   %65 = getelementptr inbounds [7 x i32], ptr @kWeight, i64 0, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !30
   %67 = mul i32 %66, %61
@@ -597,8 +598,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noun
   %83 = mul i32 %77, %73
   %84 = add i32 %83, %.sroa.18.174.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
-  %lftr.wideiv.i.us = trunc i64 %indvars.iv.next.i.us to i32
-  %exitcond.not.i.us = icmp eq i32 %58, %lftr.wideiv.i.us
+  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i.us
   br i1 %exitcond.not.i.us, label %._crit_edge.i.us, label %62, !llvm.loop !31
 
 ._crit_edge.i.us:                                 ; preds = %62
@@ -666,30 +666,30 @@ SSIMGetClipped.exit.us:                           ; preds = %98, %._crit_edge91.
   %123 = fmul double %122, 2.550000e+02
   %124 = fptosi double %123 to i32
   %125 = icmp slt i32 %124, 0
-  %spec.select.us = tail call i32 @llvm.smax.i32(i32 %.17089.us, i32 %124)
-  %.2.us = select i1 %125, i32 %.17089.us, i32 %spec.select.us
+  %spec.select.us = tail call i32 @llvm.smax.i32(i32 %.17090.us, i32 %124)
+  %.2.us = select i1 %125, i32 %.17090.us, i32 %spec.select.us
   %.0.us = tail call i32 @llvm.smax.i32(i32 %124, i32 0)
   %126 = tail call i32 @llvm.umin.i32(i32 %.0.us, i32 255)
   %127 = trunc nuw i32 %126 to i8
-  %128 = shl nsw i64 %indvars.iv110, 2
-  %gep130 = getelementptr i8, ptr %invariant.gep129, i64 %128
-  store i8 %127, ptr %gep130, align 1, !tbaa !27
-  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
-  %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
-  br i1 %exitcond114.not, label %._crit_edge.us95, label %49, !llvm.loop !33
+  %128 = shl nsw i64 %indvars.iv111, 2
+  %gep131 = getelementptr i8, ptr %invariant.gep130, i64 %128
+  store i8 %127, ptr %gep131, align 1, !tbaa !27
+  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
+  %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
+  br i1 %exitcond115.not, label %._crit_edge.us96, label %49, !llvm.loop !33
 
-._crit_edge.us95:                                 ; preds = %SSIMGetClipped.exit.us
-  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
-  br i1 %exitcond119.not, label %._crit_edge93, label %.preheader.us, !llvm.loop !34
+._crit_edge.us96:                                 ; preds = %SSIMGetClipped.exit.us
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
+  %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
+  br i1 %exitcond120.not, label %._crit_edge94, label %.preheader.us, !llvm.loop !34
 
-._crit_edge93:                                    ; preds = %._crit_edge.us95, %.preheader81, %.preheader79
-  %.069.lcssa = phi i32 [ 0, %.preheader79 ], [ 0, %.preheader81 ], [ %.2.us, %._crit_edge.us95 ]
+._crit_edge94:                                    ; preds = %._crit_edge.us96, %.preheader82, %.preheader80
+  %.069.lcssa = phi i32 [ 0, %.preheader80 ], [ 0, %.preheader82 ], [ %.2.us, %._crit_edge.us96 ]
   tail call void @free(ptr noundef %11) #13
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %RescalePlane.exit, label %129
 
-129:                                              ; preds = %._crit_edge93
+129:                                              ; preds = %._crit_edge94
   %.not.i = icmp eq i32 %.069.lcssa, 0
   br i1 %.not.i, label %132, label %130
 
@@ -707,7 +707,7 @@ SSIMGetClipped.exit.us:                           ; preds = %98, %._crit_edge91.
   %135 = shl nsw i32 %4, 2
   %136 = zext nneg i32 %135 to i64
   %137 = sext i32 %1 to i64
-  %wide.trip.count.i = zext nneg i32 %5 to i64
+  %wide.trip.count.i76 = zext nneg i32 %5 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
@@ -717,8 +717,8 @@ SSIMGetClipped.exit.us:                           ; preds = %98, %._crit_edge91.
   br label %140
 
 140:                                              ; preds = %140, %.lr.ph.us.i
-  %indvars.iv.i76 = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i77, %140 ]
-  %141 = getelementptr inbounds nuw i8, ptr %139, i64 %indvars.iv.i76
+  %indvars.iv.i77 = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i78, %140 ]
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 %indvars.iv.i77
   %142 = load i8, ptr %141, align 1, !tbaa !27
   %143 = zext i8 %142 to i32
   %144 = mul nuw i32 %133, %143
@@ -726,17 +726,17 @@ SSIMGetClipped.exit.us:                           ; preds = %98, %._crit_edge91.
   %146 = lshr i32 %145, 16
   %147 = trunc i32 %146 to i8
   store i8 %147, ptr %141, align 1, !tbaa !27
-  %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i76, 4
-  %148 = icmp samesign ult i64 %indvars.iv.next.i77, %136
+  %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i77, 4
+  %148 = icmp samesign ult i64 %indvars.iv.next.i78, %136
   br i1 %148, label %140, label %._crit_edge.us.i, !llvm.loop !35
 
 ._crit_edge.us.i:                                 ; preds = %140
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
-  %exitcond.not.i78 = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count.i
-  br i1 %exitcond.not.i78, label %RescalePlane.exit, label %.lr.ph.us.i, !llvm.loop !36
+  %exitcond.not.i79 = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count.i76
+  br i1 %exitcond.not.i79, label %RescalePlane.exit, label %.lr.ph.us.i, !llvm.loop !36
 
-RescalePlane.exit:                                ; preds = %._crit_edge.us.i, %132, %._crit_edge93, %7
-  %.065 = phi i32 [ -1, %7 ], [ %.069.lcssa, %._crit_edge93 ], [ %.069.lcssa, %132 ], [ %.069.lcssa, %._crit_edge.us.i ]
+RescalePlane.exit:                                ; preds = %._crit_edge.us.i, %132, %._crit_edge94, %7
+  %.065 = phi i32 [ -1, %7 ], [ %.069.lcssa, %._crit_edge94 ], [ %.069.lcssa, %132 ], [ %.069.lcssa, %._crit_edge.us.i ]
   ret i32 %.065
 }
 

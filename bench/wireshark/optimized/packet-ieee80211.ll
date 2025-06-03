@@ -51935,13 +51935,17 @@ define internal fastcc void @dissect_ista_availability_window(ptr noundef %0, pt
   store i8 0, ptr %28, align 8
   %29 = and i32 %12, 7
   %.not55 = icmp eq i32 %29, 0
-  br i1 %.not55, label %51, label %30
+  br i1 %.not55, label %50, label %30
 
 30:                                               ; preds = %._crit_edge
   %31 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.049.lcssa)
   %32 = add nsw i32 %26, -8
   %33 = icmp slt i32 %32, %12
-  br i1 %33, label %.lr.ph11.preheader, label %._crit_edge12
+  br i1 %33, label %.lr.ph11.preheader, label %.._crit_edge12_crit_edge
+
+.._crit_edge12_crit_edge:                         ; preds = %30
+  %.pre = zext nneg i32 %32 to i64
+  br label %._crit_edge12
 
 .lr.ph11.preheader:                               ; preds = %30
   %34 = zext nneg i32 %.053.lcssa to i64
@@ -51962,49 +51966,48 @@ define internal fastcc void @dissect_ista_availability_window(ptr noundef %0, pt
   %exitcond28.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count27
   br i1 %exitcond28.not, label %._crit_edge12, label %.lr.ph11, !llvm.loop !258
 
-._crit_edge12:                                    ; preds = %.lr.ph11, %30
-  %.151.lcssa = phi i32 [ %32, %30 ], [ %12, %.lr.ph11 ]
-  %.1.lcssa = phi i8 [ %31, %30 ], [ %40, %.lr.ph11 ]
-  %41 = zext nneg i32 %.151.lcssa to i64
-  %42 = getelementptr [513 x i8], ptr %4, i64 0, i64 %41
-  store i8 0, ptr %42, align 1
-  %43 = sub nuw nsw i32 8, %29
-  %wide.trip.count31 = zext nneg i32 %43 to i64
-  br label %44
+._crit_edge12:                                    ; preds = %.lr.ph11, %.._crit_edge12_crit_edge
+  %.pre-phi = phi i64 [ %.pre, %.._crit_edge12_crit_edge ], [ %wide.trip.count27, %.lr.ph11 ]
+  %.1.lcssa = phi i8 [ %31, %.._crit_edge12_crit_edge ], [ %40, %.lr.ph11 ]
+  %41 = getelementptr [513 x i8], ptr %4, i64 0, i64 %.pre-phi
+  store i8 0, ptr %41, align 1
+  %42 = sub nuw nsw i32 8, %29
+  %wide.trip.count31 = zext nneg i32 %42 to i64
+  br label %43
 
-44:                                               ; preds = %._crit_edge12, %44
-  %indvars.iv29 = phi i64 [ 0, %._crit_edge12 ], [ %indvars.iv.next30, %44 ]
-  %.216 = phi i8 [ %.1.lcssa, %._crit_edge12 ], [ %48, %44 ]
-  %45 = and i8 %.216, 1
-  %46 = or disjoint i8 %45, 48
-  %47 = getelementptr [8 x i8], ptr %5, i64 0, i64 %indvars.iv29
-  store i8 %46, ptr %47, align 1
-  %48 = ashr i8 %.216, 1
+43:                                               ; preds = %._crit_edge12, %43
+  %indvars.iv29 = phi i64 [ 0, %._crit_edge12 ], [ %indvars.iv.next30, %43 ]
+  %.216 = phi i8 [ %.1.lcssa, %._crit_edge12 ], [ %47, %43 ]
+  %44 = and i8 %.216, 1
+  %45 = or disjoint i8 %44, 48
+  %46 = getelementptr [8 x i8], ptr %5, i64 0, i64 %indvars.iv29
+  store i8 %45, ptr %46, align 1
+  %47 = ashr i8 %.216, 1
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count31
-  br i1 %exitcond32.not, label %49, label %44, !llvm.loop !259
+  br i1 %exitcond32.not, label %48, label %43, !llvm.loop !259
 
-49:                                               ; preds = %44
-  %50 = getelementptr [8 x i8], ptr %5, i64 0, i64 %wide.trip.count31
-  store i8 0, ptr %50, align 1
-  br label %51
+48:                                               ; preds = %43
+  %49 = getelementptr [8 x i8], ptr %5, i64 0, i64 %wide.trip.count31
+  store i8 0, ptr %49, align 1
+  br label %50
 
-51:                                               ; preds = %49, %._crit_edge
-  %52 = load i32, ptr @hf_ieee80211_ftm_ista_avail_bits, align 4
-  %53 = add nuw nsw i32 %12, 7
-  %54 = lshr i32 %53, 3
-  %55 = call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %52, ptr noundef %0, i32 noundef 3, i32 noundef %54, ptr noundef nonnull %4)
-  %56 = shl i32 %2, 3
-  %57 = add i32 %56, -16
-  %.not56 = icmp eq i32 %57, %12
-  br i1 %.not56, label %61, label %58
+50:                                               ; preds = %48, %._crit_edge
+  %51 = load i32, ptr @hf_ieee80211_ftm_ista_avail_bits, align 4
+  %52 = add nuw nsw i32 %12, 7
+  %53 = lshr i32 %52, 3
+  %54 = call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %51, ptr noundef %0, i32 noundef 3, i32 noundef %53, ptr noundef nonnull %4)
+  %55 = shl i32 %2, 3
+  %56 = add i32 %55, -16
+  %.not56 = icmp eq i32 %56, %12
+  br i1 %.not56, label %60, label %57
 
-58:                                               ; preds = %51
-  %59 = load i32, ptr @hf_ieee80211_ftm_ista_avail_pad, align 4
-  %60 = call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %59, ptr noundef %0, i32 noundef %.049.lcssa, i32 noundef 1, ptr noundef nonnull %5)
-  br label %61
+57:                                               ; preds = %50
+  %58 = load i32, ptr @hf_ieee80211_ftm_ista_avail_pad, align 4
+  %59 = call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %58, ptr noundef %0, i32 noundef %.049.lcssa, i32 noundef 1, ptr noundef nonnull %5)
+  br label %60
 
-61:                                               ; preds = %58, %51
+60:                                               ; preds = %57, %50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
   call void @llvm.lifetime.end.p0(i64 513, ptr nonnull %4) #24
   ret void

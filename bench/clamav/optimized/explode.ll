@@ -1181,7 +1181,7 @@ define internal fastcc range(i32 0, 2) i32 @unpack_tree(ptr noundef readonly cap
   br i1 %exitcond.not64.i, label %._crit_edge.thread66.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i._crit_edge
-  br i1 %27, label %._crit_edge.thread66.i, label %bs.exit
+  br i1 %27, label %._crit_edge.thread66.i, label %bs.exit.preheader
 
 ._crit_edge.thread66.i:                           ; preds = %.lr.ph.i._crit_edge.thread, %.thread.i, %._crit_edge.i
   %47 = add i32 %.0.i74, -1
@@ -1226,42 +1226,41 @@ define internal fastcc range(i32 0, 2) i32 @unpack_tree(ptr noundef readonly cap
   %.246.in.lcssa.i = phi i32 [ %.0.i74, %._crit_edge.thread66.i ], [ %66, %64 ]
   %67 = add i32 %.043.i73, 1
   %68 = icmp ult i32 %.246.in.lcssa.i, %47
-  br i1 %68, label %.lr.ph.preheader.i, label %bs.exit
+  br i1 %68, label %.lr.ph.preheader.i, label %bs.exit.preheader
 
-bs.exit:                                          ; preds = %._crit_edge.i, %._crit_edge55.i
-  %69 = zext nneg i32 %25 to i64
-  br label %70
+bs.exit.preheader:                                ; preds = %._crit_edge.i, %._crit_edge55.i
+  br label %bs.exit
 
-70:                                               ; preds = %70, %bs.exit
-  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %70 ], [ %69, %bs.exit ]
-  %.040 = phi i32 [ %72, %70 ], [ 0, %bs.exit ]
-  %.038 = phi i16 [ %.139, %70 ], [ 0, %bs.exit ]
-  %.036 = phi i16 [ %78, %70 ], [ 0, %bs.exit ]
-  %71 = zext i16 %.038 to i32
-  %72 = add i32 %.040, %71
-  %73 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %indvars.iv84
-  %74 = load i8, ptr %73, align 1, !tbaa !20
-  %75 = zext i8 %74 to i64
-  %76 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %75
-  %77 = load i8, ptr %76, align 1, !tbaa !20
-  %78 = zext i8 %77 to i16
-  %.not54 = icmp eq i16 %.036, %78
-  %79 = zext i8 %77 to i32
-  %80 = sub nsw i32 16, %79
-  %81 = shl nuw nsw i32 1, %80
-  %82 = trunc i32 %81 to i16
-  %.139 = select i1 %.not54, i16 %.038, i16 %82
-  %83 = and i32 %72, 65535
-  %84 = shl nuw nsw i32 %79, 16
-  %85 = or disjoint i32 %84, %83
-  %86 = getelementptr inbounds nuw i32, ptr %1, i64 %75
-  store i32 %85, ptr %86, align 4, !tbaa !23
+bs.exit:                                          ; preds = %bs.exit.preheader, %bs.exit
+  %indvars.iv84.in = phi i64 [ %indvars.iv84, %bs.exit ], [ %wide.trip.count, %bs.exit.preheader ]
+  %.040 = phi i32 [ %70, %bs.exit ], [ 0, %bs.exit.preheader ]
+  %.038 = phi i16 [ %.139, %bs.exit ], [ 0, %bs.exit.preheader ]
+  %.036 = phi i16 [ %76, %bs.exit ], [ 0, %bs.exit.preheader ]
+  %indvars.iv84 = add nsw i64 %indvars.iv84.in, -1
+  %69 = zext i16 %.038 to i32
+  %70 = add i32 %.040, %69
+  %71 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %indvars.iv84
+  %72 = load i8, ptr %71, align 1, !tbaa !20
+  %73 = zext i8 %72 to i64
+  %74 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %73
+  %75 = load i8, ptr %74, align 1, !tbaa !20
+  %76 = zext i8 %75 to i16
+  %.not54 = icmp eq i16 %.036, %76
+  %77 = zext i8 %75 to i32
+  %78 = sub nsw i32 16, %77
+  %79 = shl nuw nsw i32 1, %78
+  %80 = trunc i32 %79 to i16
+  %.139 = select i1 %.not54, i16 %.038, i16 %80
+  %81 = and i32 %70, 65535
+  %82 = shl nuw nsw i32 %77, 16
+  %83 = or disjoint i32 %82, %81
+  %84 = getelementptr inbounds nuw i32, ptr %1, i64 %73
+  store i32 %83, ptr %84, align 4, !tbaa !23
   %.not55 = icmp eq i64 %indvars.iv84, 0
-  %indvars.iv.next85 = add nsw i64 %indvars.iv84, -1
-  br i1 %.not55, label %.thread, label %70
+  br i1 %.not55, label %.thread, label %bs.exit
 
-.thread:                                          ; preds = %.preheader, %70, %24
-  %.2 = phi i32 [ 1, %24 ], [ 0, %70 ], [ 1, %.preheader ]
+.thread:                                          ; preds = %.preheader, %bs.exit, %24
+  %.2 = phi i32 [ 1, %24 ], [ 0, %bs.exit ], [ 1, %.preheader ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #7
   ret i32 %.2

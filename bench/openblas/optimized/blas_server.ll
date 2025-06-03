@@ -956,32 +956,33 @@ define void @goto_set_num_threads(i32 noundef %0) local_unnamed_addr #0 {
   %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @server_lock) #10
   %12 = load i32, ptr @blas_num_threads, align 4, !tbaa !3
   %13 = tail call i32 @llvm.smax.i32(i32 %12, i32 1)
-  %14 = add nsw i32 %spec.store.select, -1
-  %15 = sext i32 %14 to i64
-  %16 = icmp slt i32 %13, %spec.store.select
-  br i1 %16, label %.lr.ph.preheader, label %._crit_edge
+  %14 = icmp slt i32 %13, %spec.store.select
+  br i1 %14, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %10
-  %17 = add nsw i32 %13, -1
-  %18 = zext nneg i32 %17 to i64
+  %15 = add nsw i32 %spec.store.select, -1
+  %16 = add nsw i32 %13, -1
+  %17 = zext nneg i32 %16 to i64
+  %18 = tail call i32 @llvm.umax.i32(i32 %15, i32 %13)
+  %19 = zext i32 %18 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01517 = phi i64 [ %28, %.lr.ph ], [ %18, %.lr.ph.preheader ]
-  %19 = getelementptr inbounds nuw [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %.01517
-  store atomic volatile i64 0, ptr %19 monotonic, align 128
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store volatile i64 4, ptr %20, align 8, !tbaa !14
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %22 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %21, ptr noundef null) #10
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  %24 = tail call i32 @pthread_cond_init(ptr noundef nonnull %23, ptr noundef null) #10
-  %25 = getelementptr inbounds nuw [16 x i64], ptr @blas_threads, i64 0, i64 %.01517
-  %26 = inttoptr i64 %.01517 to ptr
-  %27 = tail call i32 @pthread_create(ptr noundef nonnull %25, ptr noundef null, ptr noundef nonnull @blas_thread_server, ptr noundef %26) #10
-  %28 = add nuw nsw i64 %.01517, 1
-  %29 = icmp slt i64 %28, %15
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !71
+  %.01517 = phi i64 [ %29, %.lr.ph ], [ %17, %.lr.ph.preheader ]
+  %20 = getelementptr inbounds nuw [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %.01517
+  store atomic volatile i64 0, ptr %20 monotonic, align 128
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store volatile i64 4, ptr %21, align 8, !tbaa !14
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %23 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %22, ptr noundef null) #10
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 56
+  %25 = tail call i32 @pthread_cond_init(ptr noundef nonnull %24, ptr noundef null) #10
+  %26 = getelementptr inbounds nuw [16 x i64], ptr @blas_threads, i64 0, i64 %.01517
+  %27 = inttoptr i64 %.01517 to ptr
+  %28 = tail call i32 @pthread_create(ptr noundef nonnull %26, ptr noundef null, ptr noundef nonnull @blas_thread_server, ptr noundef %27) #10
+  %29 = add nuw nsw i64 %.01517, 1
+  %exitcond.not = icmp eq i64 %29, %19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   store i32 %spec.store.select, ptr @blas_num_threads, align 4, !tbaa !3

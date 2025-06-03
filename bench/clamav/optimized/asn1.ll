@@ -4881,11 +4881,10 @@ asn1_expect_objtype.exit30:                       ; preds = %22
   br i1 %.not21, label %.thread40.sink.split, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %28
-  %40 = add nsw i32 %4, -1
-  %41 = zext nneg i32 %40 to i64
-  %42 = mul nuw nsw i64 %41, 24
-  %scevgep = getelementptr i8, ptr %3, i64 %42
-  %wide.trip.count = zext nneg i32 %4 to i64
+  %40 = zext nneg i32 %4 to i64
+  %41 = mul nuw nsw i64 %40, 24
+  %42 = getelementptr i8, ptr %3, i64 %41
+  %scevgep = getelementptr i8, ptr %42, i64 -24
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %48
@@ -4904,7 +4903,7 @@ asn1_expect_objtype.exit30:                       ; preds = %22
 
 48:                                               ; preds = %46, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %40
   br i1 %exitcond.not, label %.thread, label %.preheader
 
 .thread:                                          ; preds = %46, %48

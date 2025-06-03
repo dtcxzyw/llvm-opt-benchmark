@@ -319,85 +319,85 @@ _ZN6icu_7712PatternProps12isWhiteSpaceEi.exit.thread: ; preds = %8, %14
   br i1 %or.cond61, label %_ZN6icu_7712PatternProps12isWhiteSpaceEi.exit31.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %29, %14, %8, %23
-  %wide.trip.count = zext nneg i32 %3 to i64
+  %33 = zext nneg i32 %3 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %46
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %46 ]
-  %33 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
-  %34 = load i16, ptr %33, align 2, !tbaa !8
-  %35 = icmp ult i16 %34, 256
-  br i1 %35, label %36, label %42
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %47
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %47 ]
+  %34 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %35 = load i16, ptr %34, align 2, !tbaa !8
+  %36 = icmp ult i16 %35, 256
+  br i1 %36, label %37, label %43
 
-36:                                               ; preds = %.lr.ph
-  %37 = zext nneg i16 %34 to i64
-  %38 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_77L6latin1E, i64 0, i64 %37
-  %39 = load i8, ptr %38, align 1, !tbaa !3
-  %40 = and i8 %39, 4
-  %41 = icmp eq i8 %40, 0
-  br i1 %41, label %.critedge, label %46
+37:                                               ; preds = %.lr.ph
+  %38 = zext nneg i16 %35 to i64
+  %39 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_77L6latin1E, i64 0, i64 %38
+  %40 = load i8, ptr %39, align 1, !tbaa !3
+  %41 = and i8 %40, 4
+  %42 = icmp eq i8 %41, 0
+  br i1 %42, label %.critedge, label %47
 
-42:                                               ; preds = %.lr.ph
-  %43 = add i16 %34, -8234
-  %or.cond.i32 = icmp ult i16 %43, -28
-  %44 = add nsw i16 %34, -8208
-  %45 = icmp ult i16 %44, 24
-  %or.cond63 = select i1 %or.cond.i32, i1 true, i1 %45
-  br i1 %or.cond63, label %.critedge, label %46
+43:                                               ; preds = %.lr.ph
+  %44 = add i16 %35, -8234
+  %or.cond.i32 = icmp ult i16 %44, -28
+  %45 = add nsw i16 %35, -8208
+  %46 = icmp ult i16 %45, 24
+  %or.cond63 = select i1 %or.cond.i32, i1 true, i1 %46
+  br i1 %or.cond63, label %.critedge, label %47
 
-46:                                               ; preds = %42, %36
+47:                                               ; preds = %43, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %33
   br i1 %exitcond.not, label %.critedge28, label %.lr.ph, !llvm.loop !13
 
-.critedge:                                        ; preds = %36, %42
-  %47 = trunc nuw nsw i64 %indvars.iv to i32
+.critedge:                                        ; preds = %37, %43
+  %48 = trunc nuw nsw i64 %indvars.iv to i32
   %invariant.gep = getelementptr i8, ptr %0, i64 -2
-  %48 = zext nneg i32 %3 to i64
-  br label %49
+  %49 = zext nneg i32 %3 to i64
+  br label %50
 
-49:                                               ; preds = %.critedge, %62
-  %indvars.iv53 = phi i64 [ %48, %.critedge ], [ %indvars.iv.next54, %62 ]
+50:                                               ; preds = %.critedge, %63
+  %indvars.iv53 = phi i64 [ %49, %.critedge ], [ %indvars.iv.next54, %63 ]
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv53
-  %50 = load i16, ptr %gep, align 2, !tbaa !8
-  %51 = icmp ult i16 %50, 256
-  br i1 %51, label %52, label %58
+  %51 = load i16, ptr %gep, align 2, !tbaa !8
+  %52 = icmp ult i16 %51, 256
+  br i1 %52, label %53, label %59
 
-52:                                               ; preds = %49
-  %53 = zext nneg i16 %50 to i64
-  %54 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_77L6latin1E, i64 0, i64 %53
-  %55 = load i8, ptr %54, align 1, !tbaa !3
-  %56 = and i8 %55, 4
-  %57 = icmp eq i8 %56, 0
-  br i1 %57, label %.critedge28.loopexit, label %62
+53:                                               ; preds = %50
+  %54 = zext nneg i16 %51 to i64
+  %55 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_77L6latin1E, i64 0, i64 %54
+  %56 = load i8, ptr %55, align 1, !tbaa !3
+  %57 = and i8 %56, 4
+  %58 = icmp eq i8 %57, 0
+  br i1 %58, label %.critedge28.loopexit, label %63
 
-58:                                               ; preds = %49
-  %59 = add i16 %50, -8234
-  %or.cond.i35 = icmp ult i16 %59, -28
-  %60 = add nsw i16 %50, -8208
-  %61 = icmp ult i16 %60, 24
-  %or.cond65 = select i1 %or.cond.i35, i1 true, i1 %61
-  br i1 %or.cond65, label %.critedge28.loopexit, label %62
+59:                                               ; preds = %50
+  %60 = add i16 %51, -8234
+  %or.cond.i35 = icmp ult i16 %60, -28
+  %61 = add nsw i16 %51, -8208
+  %62 = icmp ult i16 %61, 24
+  %or.cond65 = select i1 %or.cond.i35, i1 true, i1 %62
+  br i1 %or.cond65, label %.critedge28.loopexit, label %63
 
-62:                                               ; preds = %58, %52
+63:                                               ; preds = %59, %53
   %indvars.iv.next54 = add nsw i64 %indvars.iv53, -1
-  br label %49, !llvm.loop !14
+  br label %50, !llvm.loop !14
 
-.critedge28.loopexit:                             ; preds = %52, %58
-  %63 = trunc nsw i64 %indvars.iv53 to i32
+.critedge28.loopexit:                             ; preds = %53, %59
+  %64 = trunc nsw i64 %indvars.iv53 to i32
   br label %.critedge28
 
-.critedge28:                                      ; preds = %46, %.critedge28.loopexit
-  %.02148 = phi i32 [ %47, %.critedge28.loopexit ], [ %3, %46 ]
-  %.0 = phi i32 [ %63, %.critedge28.loopexit ], [ %3, %46 ]
-  %64 = sub nsw i32 %.0, %.02148
-  store i32 %64, ptr %1, align 4, !tbaa !6
-  %65 = zext nneg i32 %.02148 to i64
-  %66 = getelementptr inbounds nuw i16, ptr %0, i64 %65
+.critedge28:                                      ; preds = %47, %.critedge28.loopexit
+  %.02148 = phi i32 [ %48, %.critedge28.loopexit ], [ %3, %47 ]
+  %.0 = phi i32 [ %64, %.critedge28.loopexit ], [ %3, %47 ]
+  %65 = sub nsw i32 %.0, %.02148
+  store i32 %65, ptr %1, align 4, !tbaa !6
+  %66 = zext nneg i32 %.02148 to i64
+  %67 = getelementptr inbounds nuw i16, ptr %0, i64 %66
   br label %_ZN6icu_7712PatternProps12isWhiteSpaceEi.exit31.thread
 
 _ZN6icu_7712PatternProps12isWhiteSpaceEi.exit31.thread: ; preds = %23, %29, %2, %.critedge28
-  %.022 = phi ptr [ %66, %.critedge28 ], [ %0, %2 ], [ %0, %29 ], [ %0, %23 ]
+  %.022 = phi ptr [ %67, %.critedge28 ], [ %0, %2 ], [ %0, %29 ], [ %0, %23 ]
   ret ptr %.022
 }
 

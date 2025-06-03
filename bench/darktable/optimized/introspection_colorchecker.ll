@@ -1940,7 +1940,8 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph58.i:                                       ; preds = %.loopexit.i, %391
-  %indvars.iv72.i = phi i64 [ %indvars.iv.next73.i, %391 ], [ 3, %.loopexit.i ]
+  %indvars.iv72.in.i = phi i64 [ %indvars.iv72.i, %391 ], [ 4, %.loopexit.i ]
+  %indvars.iv72.i = add nsw i64 %indvars.iv72.in.i, -1
   %.idx = mul nuw nsw i64 %indvars.iv72.i, 40
   %386 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %387 = load double, ptr %386, align 8, !tbaa !53
@@ -1952,8 +1953,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   br label %393
 
 391:                                              ; preds = %393
-  %indvars.iv.next73.i = add nsw i64 %indvars.iv72.i, -1
-  %392 = icmp samesign ugt i64 %indvars.iv72.i, 1
+  %392 = icmp samesign ugt i64 %indvars.iv72.in.i, 2
   br i1 %392, label %.lr.ph58.i, label %gauss_solve_triangular.exit
 
 393:                                              ; preds = %393, %.lr.ph58.i
@@ -2047,35 +2047,35 @@ gauss_solve_triangular.exit:                      ; preds = %391
   br i1 %exitcond.not.i394, label %.loopexit.i395, label %.lr.ph.i390
 
 .lr.ph58.i398:                                    ; preds = %.loopexit.i395, %444
-  %indvars.iv72.i399 = phi i64 [ %indvars.iv.next73.i405, %444 ], [ 3, %.loopexit.i395 ]
-  %.idx509 = mul nuw nsw i64 %indvars.iv72.i399, 40
+  %indvars.iv72.in.i399 = phi i64 [ %indvars.iv72.i400, %444 ], [ 4, %.loopexit.i395 ]
+  %indvars.iv72.i400 = add nsw i64 %indvars.iv72.in.i399, -1
+  %.idx509 = mul nuw nsw i64 %indvars.iv72.i400, 40
   %439 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx509
   %440 = load double, ptr %439, align 8, !tbaa !53
-  %441 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv72.i399
+  %441 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv72.i400
   %442 = load double, ptr %441, align 8, !tbaa !53
   %443 = fdiv reassoc nsz arcp contract afn double %442, %440
   store double %443, ptr %441, align 8, !tbaa !53
-  %invariant.gep75.i400 = getelementptr double, ptr %18, i64 %indvars.iv72.i399
+  %invariant.gep75.i401 = getelementptr double, ptr %18, i64 %indvars.iv72.i400
   br label %446
 
 444:                                              ; preds = %446
-  %indvars.iv.next73.i405 = add nsw i64 %indvars.iv72.i399, -1
-  %445 = icmp samesign ugt i64 %indvars.iv72.i399, 1
+  %445 = icmp samesign ugt i64 %indvars.iv72.in.i399, 2
   br i1 %445, label %.lr.ph58.i398, label %gauss_solve_triangular.exit406
 
 446:                                              ; preds = %446, %.lr.ph58.i398
-  %indvars.iv67.i401 = phi i64 [ 0, %.lr.ph58.i398 ], [ %indvars.iv.next68.i403, %446 ]
-  %gep76.i402.idx = shl i64 %indvars.iv67.i401, 5
-  %gep76.i402 = getelementptr i8, ptr %invariant.gep75.i400, i64 %gep76.i402.idx
-  %447 = load double, ptr %gep76.i402, align 8, !tbaa !53
+  %indvars.iv67.i402 = phi i64 [ 0, %.lr.ph58.i398 ], [ %indvars.iv.next68.i404, %446 ]
+  %gep76.i403.idx = shl i64 %indvars.iv67.i402, 5
+  %gep76.i403 = getelementptr i8, ptr %invariant.gep75.i401, i64 %gep76.i403.idx
+  %447 = load double, ptr %gep76.i403, align 8, !tbaa !53
   %448 = fmul reassoc nsz arcp contract afn double %447, %443
-  %449 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv67.i401
+  %449 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv67.i402
   %450 = load double, ptr %449, align 8, !tbaa !53
   %451 = fsub reassoc nsz arcp contract afn double %450, %448
   store double %451, ptr %449, align 8, !tbaa !53
-  %indvars.iv.next68.i403 = add nuw nsw i64 %indvars.iv67.i401, 1
-  %exitcond71.not.i404 = icmp eq i64 %indvars.iv.next68.i403, %indvars.iv72.i399
-  br i1 %exitcond71.not.i404, label %444, label %446
+  %indvars.iv.next68.i404 = add nuw nsw i64 %indvars.iv67.i402, 1
+  %exitcond71.not.i405 = icmp eq i64 %indvars.iv.next68.i404, %indvars.iv72.i400
+  br i1 %exitcond71.not.i405, label %444, label %446
 
 gauss_solve_triangular.exit406:                   ; preds = %444
   %452 = load double, ptr %21, align 16, !tbaa !53
@@ -2153,35 +2153,35 @@ gauss_solve_triangular.exit406:                   ; preds = %444
   br i1 %exitcond.not.i416, label %.loopexit.i417, label %.lr.ph.i412
 
 .lr.ph58.i420:                                    ; preds = %.loopexit.i417, %496
-  %indvars.iv72.i421 = phi i64 [ %indvars.iv.next73.i427, %496 ], [ 3, %.loopexit.i417 ]
-  %.idx510 = mul nuw nsw i64 %indvars.iv72.i421, 40
+  %indvars.iv72.in.i421 = phi i64 [ %indvars.iv72.i422, %496 ], [ 4, %.loopexit.i417 ]
+  %indvars.iv72.i422 = add nsw i64 %indvars.iv72.in.i421, -1
+  %.idx510 = mul nuw nsw i64 %indvars.iv72.i422, 40
   %491 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx510
   %492 = load double, ptr %491, align 8, !tbaa !53
-  %493 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv72.i421
+  %493 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv72.i422
   %494 = load double, ptr %493, align 8, !tbaa !53
   %495 = fdiv reassoc nsz arcp contract afn double %494, %492
   store double %495, ptr %493, align 8, !tbaa !53
-  %invariant.gep75.i422 = getelementptr double, ptr %18, i64 %indvars.iv72.i421
+  %invariant.gep75.i423 = getelementptr double, ptr %18, i64 %indvars.iv72.i422
   br label %498
 
 496:                                              ; preds = %498
-  %indvars.iv.next73.i427 = add nsw i64 %indvars.iv72.i421, -1
-  %497 = icmp samesign ugt i64 %indvars.iv72.i421, 1
+  %497 = icmp samesign ugt i64 %indvars.iv72.in.i421, 2
   br i1 %497, label %.lr.ph58.i420, label %gauss_solve_triangular.exit428
 
 498:                                              ; preds = %498, %.lr.ph58.i420
-  %indvars.iv67.i423 = phi i64 [ 0, %.lr.ph58.i420 ], [ %indvars.iv.next68.i425, %498 ]
-  %gep76.i424.idx = shl i64 %indvars.iv67.i423, 5
-  %gep76.i424 = getelementptr i8, ptr %invariant.gep75.i422, i64 %gep76.i424.idx
-  %499 = load double, ptr %gep76.i424, align 8, !tbaa !53
+  %indvars.iv67.i424 = phi i64 [ 0, %.lr.ph58.i420 ], [ %indvars.iv.next68.i426, %498 ]
+  %gep76.i425.idx = shl i64 %indvars.iv67.i424, 5
+  %gep76.i425 = getelementptr i8, ptr %invariant.gep75.i423, i64 %gep76.i425.idx
+  %499 = load double, ptr %gep76.i425, align 8, !tbaa !53
   %500 = fmul reassoc nsz arcp contract afn double %499, %495
-  %501 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv67.i423
+  %501 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv67.i424
   %502 = load double, ptr %501, align 8, !tbaa !53
   %503 = fsub reassoc nsz arcp contract afn double %502, %500
   store double %503, ptr %501, align 8, !tbaa !53
-  %indvars.iv.next68.i425 = add nuw nsw i64 %indvars.iv67.i423, 1
-  %exitcond71.not.i426 = icmp eq i64 %indvars.iv.next68.i425, %indvars.iv72.i421
-  br i1 %exitcond71.not.i426, label %496, label %498
+  %indvars.iv.next68.i426 = add nuw nsw i64 %indvars.iv67.i424, 1
+  %exitcond71.not.i427 = icmp eq i64 %indvars.iv.next68.i426, %indvars.iv72.i422
+  br i1 %exitcond71.not.i427, label %496, label %498
 
 gauss_solve_triangular.exit428:                   ; preds = %496
   %504 = load double, ptr %22, align 16, !tbaa !53
@@ -2491,35 +2491,35 @@ kernel.exit:                                      ; preds = %534
   br i1 %exitcond.not.i439, label %.loopexit.i440, label %.lr.ph.i435
 
 634:                                              ; preds = %641, %.lr.ph58.i443
-  %indvars.iv72.i444 = phi i64 [ %57, %.lr.ph58.i443 ], [ %indvars.iv.next73.i450, %641 ]
-  %635 = mul nuw i64 %indvars.iv72.i444, %620
+  %indvars.iv72.in.i444 = phi i64 [ %wide.trip.count558, %.lr.ph58.i443 ], [ %indvars.iv72.i445, %641 ]
+  %indvars.iv72.i445 = add nsw i64 %indvars.iv72.in.i444, -1
+  %635 = mul nuw i64 %indvars.iv72.i445, %620
   %636 = getelementptr inbounds nuw double, ptr %520, i64 %635
   %637 = load double, ptr %636, align 8, !tbaa !53
-  %638 = getelementptr inbounds nuw double, ptr %521, i64 %indvars.iv72.i444
+  %638 = getelementptr inbounds nuw double, ptr %521, i64 %indvars.iv72.i445
   %639 = load double, ptr %638, align 8, !tbaa !53
   %640 = fdiv reassoc nsz arcp contract afn double %639, %637
   store double %640, ptr %638, align 8, !tbaa !53
-  %invariant.gep75.i445 = getelementptr double, ptr %520, i64 %indvars.iv72.i444
+  %invariant.gep75.i446 = getelementptr double, ptr %520, i64 %indvars.iv72.i445
   br label %643
 
 641:                                              ; preds = %643
-  %indvars.iv.next73.i450 = add nsw i64 %indvars.iv72.i444, -1
-  %642 = icmp sgt i64 %indvars.iv72.i444, 1
+  %642 = icmp samesign ugt i64 %indvars.iv72.in.i444, 2
   br i1 %642, label %634, label %gauss_solve_triangular.exit451
 
 643:                                              ; preds = %643, %634
-  %indvars.iv67.i446 = phi i64 [ 0, %634 ], [ %indvars.iv.next68.i448, %643 ]
-  %644 = mul nuw nsw i64 %indvars.iv67.i446, %wide.trip.count558
-  %gep76.i447 = getelementptr double, ptr %invariant.gep75.i445, i64 %644
-  %645 = load double, ptr %gep76.i447, align 8, !tbaa !53
+  %indvars.iv67.i447 = phi i64 [ 0, %634 ], [ %indvars.iv.next68.i449, %643 ]
+  %644 = mul nuw nsw i64 %indvars.iv67.i447, %wide.trip.count558
+  %gep76.i448 = getelementptr double, ptr %invariant.gep75.i446, i64 %644
+  %645 = load double, ptr %gep76.i448, align 8, !tbaa !53
   %646 = fmul reassoc nsz arcp contract afn double %645, %640
-  %647 = getelementptr inbounds nuw double, ptr %521, i64 %indvars.iv67.i446
+  %647 = getelementptr inbounds nuw double, ptr %521, i64 %indvars.iv67.i447
   %648 = load double, ptr %647, align 8, !tbaa !53
   %649 = fsub reassoc nsz arcp contract afn double %648, %646
   store double %649, ptr %647, align 8, !tbaa !53
-  %indvars.iv.next68.i448 = add nuw nsw i64 %indvars.iv67.i446, 1
-  %exitcond71.not.i449 = icmp eq i64 %indvars.iv.next68.i448, %indvars.iv72.i444
-  br i1 %exitcond71.not.i449, label %641, label %643
+  %indvars.iv.next68.i449 = add nuw nsw i64 %indvars.iv67.i447, 1
+  %exitcond71.not.i450 = icmp eq i64 %indvars.iv.next68.i449, %indvars.iv72.i445
+  br i1 %exitcond71.not.i450, label %641, label %643
 
 gauss_solve_triangular.exit451:                   ; preds = %641
   %650 = load double, ptr %520, align 8, !tbaa !53
@@ -2598,35 +2598,35 @@ gauss_solve_triangular.exit451:                   ; preds = %641
   br i1 %exitcond.not.i462, label %.loopexit.i463, label %.lr.ph.i458
 
 .lr.ph58.i466:                                    ; preds = %.loopexit.i463, %683
-  %indvars.iv72.i467 = phi i64 [ %indvars.iv.next73.i473, %683 ], [ %57, %.loopexit.i463 ]
-  %677 = mul nuw i64 %indvars.iv72.i467, %620
+  %indvars.iv72.in.i467 = phi i64 [ %indvars.iv72.i468, %683 ], [ %wide.trip.count558, %.loopexit.i463 ]
+  %indvars.iv72.i468 = add nsw i64 %indvars.iv72.in.i467, -1
+  %677 = mul nuw i64 %indvars.iv72.i468, %620
   %678 = getelementptr inbounds nuw double, ptr %520, i64 %677
   %679 = load double, ptr %678, align 8, !tbaa !53
-  %680 = getelementptr inbounds nuw double, ptr %521, i64 %indvars.iv72.i467
+  %680 = getelementptr inbounds nuw double, ptr %521, i64 %indvars.iv72.i468
   %681 = load double, ptr %680, align 8, !tbaa !53
   %682 = fdiv reassoc nsz arcp contract afn double %681, %679
   store double %682, ptr %680, align 8, !tbaa !53
-  %invariant.gep75.i468 = getelementptr double, ptr %520, i64 %indvars.iv72.i467
+  %invariant.gep75.i469 = getelementptr double, ptr %520, i64 %indvars.iv72.i468
   br label %685
 
 683:                                              ; preds = %685
-  %indvars.iv.next73.i473 = add nsw i64 %indvars.iv72.i467, -1
-  %684 = icmp sgt i64 %indvars.iv72.i467, 1
+  %684 = icmp samesign ugt i64 %indvars.iv72.in.i467, 2
   br i1 %684, label %.lr.ph58.i466, label %gauss_solve_triangular.exit474
 
 685:                                              ; preds = %685, %.lr.ph58.i466
-  %indvars.iv67.i469 = phi i64 [ 0, %.lr.ph58.i466 ], [ %indvars.iv.next68.i471, %685 ]
-  %686 = mul nuw nsw i64 %indvars.iv67.i469, %wide.trip.count558
-  %gep76.i470 = getelementptr double, ptr %invariant.gep75.i468, i64 %686
-  %687 = load double, ptr %gep76.i470, align 8, !tbaa !53
+  %indvars.iv67.i470 = phi i64 [ 0, %.lr.ph58.i466 ], [ %indvars.iv.next68.i472, %685 ]
+  %686 = mul nuw nsw i64 %indvars.iv67.i470, %wide.trip.count558
+  %gep76.i471 = getelementptr double, ptr %invariant.gep75.i469, i64 %686
+  %687 = load double, ptr %gep76.i471, align 8, !tbaa !53
   %688 = fmul reassoc nsz arcp contract afn double %687, %682
-  %689 = getelementptr inbounds nuw double, ptr %521, i64 %indvars.iv67.i469
+  %689 = getelementptr inbounds nuw double, ptr %521, i64 %indvars.iv67.i470
   %690 = load double, ptr %689, align 8, !tbaa !53
   %691 = fsub reassoc nsz arcp contract afn double %690, %688
   store double %691, ptr %689, align 8, !tbaa !53
-  %indvars.iv.next68.i471 = add nuw nsw i64 %indvars.iv67.i469, 1
-  %exitcond71.not.i472 = icmp eq i64 %indvars.iv.next68.i471, %indvars.iv72.i467
-  br i1 %exitcond71.not.i472, label %683, label %685
+  %indvars.iv.next68.i472 = add nuw nsw i64 %indvars.iv67.i470, 1
+  %exitcond71.not.i473 = icmp eq i64 %indvars.iv.next68.i472, %indvars.iv72.i468
+  br i1 %exitcond71.not.i473, label %683, label %685
 
 gauss_solve_triangular.exit474:                   ; preds = %683
   %692 = load double, ptr %521, align 8, !tbaa !53
@@ -2704,35 +2704,35 @@ gauss_solve_triangular.exit474:                   ; preds = %683
   br i1 %exitcond.not.i485, label %.loopexit.i486, label %.lr.ph.i481
 
 .lr.ph58.i489:                                    ; preds = %.loopexit.i486, %724
-  %indvars.iv72.i490 = phi i64 [ %indvars.iv.next73.i496, %724 ], [ %57, %.loopexit.i486 ]
-  %718 = mul nuw i64 %indvars.iv72.i490, %620
+  %indvars.iv72.in.i490 = phi i64 [ %indvars.iv72.i491, %724 ], [ %wide.trip.count558, %.loopexit.i486 ]
+  %indvars.iv72.i491 = add nsw i64 %indvars.iv72.in.i490, -1
+  %718 = mul nuw i64 %indvars.iv72.i491, %620
   %719 = getelementptr inbounds nuw double, ptr %520, i64 %718
   %720 = load double, ptr %719, align 8, !tbaa !53
-  %721 = getelementptr inbounds nuw double, ptr %521, i64 %indvars.iv72.i490
+  %721 = getelementptr inbounds nuw double, ptr %521, i64 %indvars.iv72.i491
   %722 = load double, ptr %721, align 8, !tbaa !53
   %723 = fdiv reassoc nsz arcp contract afn double %722, %720
   store double %723, ptr %721, align 8, !tbaa !53
-  %invariant.gep75.i491 = getelementptr double, ptr %520, i64 %indvars.iv72.i490
+  %invariant.gep75.i492 = getelementptr double, ptr %520, i64 %indvars.iv72.i491
   br label %726
 
 724:                                              ; preds = %726
-  %indvars.iv.next73.i496 = add nsw i64 %indvars.iv72.i490, -1
-  %725 = icmp sgt i64 %indvars.iv72.i490, 1
+  %725 = icmp samesign ugt i64 %indvars.iv72.in.i490, 2
   br i1 %725, label %.lr.ph58.i489, label %gauss_solve_triangular.exit497
 
 726:                                              ; preds = %726, %.lr.ph58.i489
-  %indvars.iv67.i492 = phi i64 [ 0, %.lr.ph58.i489 ], [ %indvars.iv.next68.i494, %726 ]
-  %727 = mul nuw nsw i64 %indvars.iv67.i492, %wide.trip.count558
-  %gep76.i493 = getelementptr double, ptr %invariant.gep75.i491, i64 %727
-  %728 = load double, ptr %gep76.i493, align 8, !tbaa !53
+  %indvars.iv67.i493 = phi i64 [ 0, %.lr.ph58.i489 ], [ %indvars.iv.next68.i495, %726 ]
+  %727 = mul nuw nsw i64 %indvars.iv67.i493, %wide.trip.count558
+  %gep76.i494 = getelementptr double, ptr %invariant.gep75.i492, i64 %727
+  %728 = load double, ptr %gep76.i494, align 8, !tbaa !53
   %729 = fmul reassoc nsz arcp contract afn double %728, %723
-  %730 = getelementptr inbounds nuw double, ptr %521, i64 %indvars.iv67.i492
+  %730 = getelementptr inbounds nuw double, ptr %521, i64 %indvars.iv67.i493
   %731 = load double, ptr %730, align 8, !tbaa !53
   %732 = fsub reassoc nsz arcp contract afn double %731, %729
   store double %732, ptr %730, align 8, !tbaa !53
-  %indvars.iv.next68.i494 = add nuw nsw i64 %indvars.iv67.i492, 1
-  %exitcond71.not.i495 = icmp eq i64 %indvars.iv.next68.i494, %indvars.iv72.i490
-  br i1 %exitcond71.not.i495, label %724, label %726
+  %indvars.iv.next68.i495 = add nuw nsw i64 %indvars.iv67.i493, 1
+  %exitcond71.not.i496 = icmp eq i64 %indvars.iv.next68.i495, %indvars.iv72.i491
+  br i1 %exitcond71.not.i496, label %724, label %726
 
 gauss_solve_triangular.exit497:                   ; preds = %724
   %733 = load double, ptr %521, align 8, !tbaa !53
@@ -2817,7 +2817,8 @@ define internal fastcc range(i32 0, 2) i32 @gauss_solve(ptr noundef nonnull capt
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i
 
 26:                                               ; preds = %33, %.lr.ph58.i
-  %indvars.iv72.i = phi i64 [ %wide.trip.count65.i, %.lr.ph58.i ], [ %indvars.iv.next73.i, %33 ]
+  %indvars.iv72.in.i = phi i64 [ %10, %.lr.ph58.i ], [ %indvars.iv72.i, %33 ]
+  %indvars.iv72.i = add nsw i64 %indvars.iv72.in.i, -1
   %27 = mul nuw i64 %indvars.iv72.i, %12
   %28 = getelementptr inbounds nuw double, ptr %0, i64 %27
   %29 = load double, ptr %28, align 8, !tbaa !53
@@ -2829,8 +2830,7 @@ define internal fastcc range(i32 0, 2) i32 @gauss_solve(ptr noundef nonnull capt
   br label %35
 
 33:                                               ; preds = %35
-  %indvars.iv.next73.i = add nsw i64 %indvars.iv72.i, -1
-  %34 = icmp samesign ugt i64 %indvars.iv72.i, 1
+  %34 = icmp samesign ugt i64 %indvars.iv72.in.i, 2
   br i1 %34, label %26, label %gauss_solve_triangular.exit
 
 35:                                               ; preds = %35, %26

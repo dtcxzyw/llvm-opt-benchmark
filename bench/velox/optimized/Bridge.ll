@@ -166696,13 +166696,13 @@ if.end.i.i.i:                                     ; preds = %if.then6
 
 for.body.i.preheader.i.i:                         ; preds = %if.end.i.i.i
   %5 = or disjoint i32 %4, 1
-  %umax.i.i = call i32 @llvm.umax.i32(i32 %5, i32 128)
-  %6 = add nsw i32 %umax.i.i, -65
-  %7 = lshr i32 %6, 3
-  %8 = and i32 %7, 536870904
-  %narrow.i.i = add nuw nsw i32 %8, 8
-  %9 = zext nneg i32 %narrow.i.i to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2, i8 0, i64 %9, i1 false)
+  %6 = call i32 @llvm.umax.i32(i32 %5, i32 128)
+  %umax.i.i = zext nneg i32 %6 to i64
+  %7 = add nsw i64 %umax.i.i, -65
+  %8 = lshr i64 %7, 3
+  %9 = and i64 %8, 2305843009213693944
+  %10 = add nuw nsw i64 %9, 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2, i8 0, i64 %10, i1 false)
   br label %for.end.i.i.i
 
 for.end.i.i.i:                                    ; preds = %for.body.i.preheader.i.i, %if.end.i.i.i
@@ -166716,8 +166716,8 @@ if.then19.i.i.i:                                  ; preds = %for.end.i.i.i
   %notmask.i45.i.i.i = shl nsw i64 -1, %sh_prom.i44.i.i.i
   %idxprom2.i50.i.i.i = zext nneg i32 %div20.i.i.i to i64
   %arrayidx3.i51.i.i.i = getelementptr inbounds nuw i64, ptr %2, i64 %idxprom2.i50.i.i.i
-  %10 = load i64, ptr %arrayidx3.i51.i.i.i, align 8
-  %and4.i52.i.i.i = and i64 %10, %notmask.i45.i.i.i
+  %11 = load i64, ptr %arrayidx3.i51.i.i.i, align 8
+  %and4.i52.i.i.i = and i64 %11, %notmask.i45.i.i.i
   store i64 %and4.i52.i.i.i, ptr %arrayidx3.i51.i.i.i, align 8
   br label %if.then3.i.i.i.i
 
@@ -166732,10 +166732,10 @@ if.then3.i.i.i.i:                                 ; preds = %if.then19.i.i.i, %f
           to label %_ZN8facebook5velox12SimpleVectorINS0_10StringViewEE17invalidateIsAsciiIS2_EENSt9enable_ifIXsr3stdE9is_same_vIT_S2_EEvE4typeEv.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then3.i.i.i.i
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #41
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #41
   unreachable
 
 _ZN8facebook5velox12SimpleVectorINS0_10StringViewEE17invalidateIsAsciiIS2_EENSt9enable_ifIXsr3stdE9is_same_vIT_S2_EEvE4typeEv.exit: ; preds = %if.then3.i.i.i.i
@@ -166749,16 +166749,16 @@ if.else:                                          ; preds = %if.end3
 
 for.body.preheader:                               ; preds = %if.else
   %rawValues_ = getelementptr inbounds nuw i8, ptr %this, i64 216
-  %13 = load ptr, ptr %rawValues_, align 8
-  %14 = sext i32 %0 to i64
-  %15 = shl nsw i64 %14, 4
-  %scevgep = getelementptr i8, ptr %13, i64 %15
-  %16 = xor i32 %0, -1
-  %17 = add i32 %newSize, %16
-  %18 = zext i32 %17 to i64
-  %19 = shl nuw nsw i64 %18, 4
-  %20 = add nuw nsw i64 %19, 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %20, i1 false)
+  %14 = load ptr, ptr %rawValues_, align 8
+  %15 = sext i32 %0 to i64
+  %16 = shl nsw i64 %15, 4
+  %scevgep = getelementptr i8, ptr %14, i64 %16
+  %17 = xor i32 %0, -1
+  %18 = add i32 %newSize, %17
+  %19 = zext i32 %18 to i64
+  %20 = shl nuw nsw i64 %19, 4
+  %21 = add nuw nsw i64 %20, 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %21, i1 false)
   br label %for.end
 
 for.end:                                          ; preds = %for.body.preheader, %if.else
@@ -168269,13 +168269,13 @@ if.end.i.i.i:                                     ; preds = %if.else
 
 for.body.i.preheader.i.i:                         ; preds = %if.end.i.i.i
   %11 = or disjoint i32 %10, 1
-  %umax.i.i = tail call i32 @llvm.umax.i32(i32 %11, i32 128)
-  %12 = add nsw i32 %umax.i.i, -65
-  %13 = lshr i32 %12, 3
-  %14 = and i32 %13, 536870904
-  %narrow.i.i = add nuw nsw i32 %14, 8
-  %15 = zext nneg i32 %narrow.i.i to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %8, i8 0, i64 %15, i1 false)
+  %12 = tail call i32 @llvm.umax.i32(i32 %11, i32 128)
+  %umax.i.i = zext nneg i32 %12 to i64
+  %13 = add nsw i64 %umax.i.i, -65
+  %14 = lshr i64 %13, 3
+  %15 = and i64 %14, 2305843009213693944
+  %16 = add nuw nsw i64 %15, 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %8, i8 0, i64 %16, i1 false)
   br label %for.end.i.i.i
 
 for.end.i.i.i:                                    ; preds = %for.body.i.preheader.i.i, %if.end.i.i.i
@@ -168289,8 +168289,8 @@ if.then19.i.i.i:                                  ; preds = %for.end.i.i.i
   %notmask.i45.i.i.i = shl nsw i64 -1, %sh_prom.i44.i.i.i
   %idxprom2.i50.i.i.i = zext nneg i32 %div20.i.i.i to i64
   %arrayidx3.i51.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %idxprom2.i50.i.i.i
-  %16 = load i64, ptr %arrayidx3.i51.i.i.i, align 8
-  %and4.i52.i.i.i = and i64 %16, %notmask.i45.i.i.i
+  %17 = load i64, ptr %arrayidx3.i51.i.i.i, align 8
+  %and4.i52.i.i.i = and i64 %17, %notmask.i45.i.i.i
   store i64 %and4.i52.i.i.i, ptr %arrayidx3.i51.i.i.i, align 8
   br label %if.then3.i.i.i.i
 
@@ -168305,10 +168305,10 @@ if.then3.i.i.i.i:                                 ; preds = %if.then19.i.i.i, %f
           to label %_ZN8facebook5velox12SimpleVectorINS0_10StringViewEE17invalidateIsAsciiIS2_EENSt9enable_ifIXsr3stdE9is_same_vIT_S2_EEvE4typeEv.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then3.i.i.i.i
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #41
+  %19 = extractvalue { ptr, i32 } %18, 0
+  tail call void @__clang_call_terminate(ptr %19) #41
   unreachable
 
 _ZN8facebook5velox12SimpleVectorINS0_10StringViewEE17invalidateIsAsciiIS2_EENSt9enable_ifIXsr3stdE9is_same_vIT_S2_EEvE4typeEv.exit: ; preds = %if.then3.i.i.i.i

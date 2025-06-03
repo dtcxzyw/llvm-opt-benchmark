@@ -13841,9 +13841,9 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit:    ; preds = %.lr.ph.i208, %_ZN20
   %scevgep402 = getelementptr i8, ptr %5, i64 24
   %264 = add nuw i32 %13, 5
   %smax = tail call i32 @llvm.smax.i32(i32 %264, i32 6)
-  %265 = add nsw i32 %smax, -5
-  %266 = zext nneg i32 %265 to i64
-  %267 = shl nuw nsw i64 %266, 2
+  %265 = zext nneg i32 %smax to i64
+  %266 = shl nuw nsw i64 %265, 2
+  %267 = add nsw i64 %266, -20
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep402, i8 0, i64 %267, i1 false), !tbaa !4
   br label %._crit_edge392
 

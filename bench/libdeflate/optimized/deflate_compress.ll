@@ -8256,7 +8256,7 @@ sort_symbols.exit:                                ; preds = %.lr.ph.i.i, %heapif
   store i32 1, ptr %110, align 4, !tbaa !26
   %111 = getelementptr inbounds nuw i8, ptr %3, i64 %109
   store i8 1, ptr %111, align 1, !tbaa !25
-  br label %248
+  br label %247
 
 112:                                              ; preds = %sort_symbols.exit
   %113 = add i32 %21, -1
@@ -8478,68 +8478,67 @@ compute_length_counts.exit:                       ; preds = %.loopexit.i, %build
 ._crit_edge.i40:                                  ; preds = %207, %203
   %.128.lcssa.i = phi i32 [ %.02734.i, %203 ], [ %209, %207 ]
   %indvars.iv.next.i41 = add nsw i64 %indvars.iv.i38, -1
-  %216 = and i64 %indvars.iv.next.i41, 4294967295
-  %.not.i42 = icmp eq i64 %216, 0
-  br i1 %.not.i42, label %217, label %203
+  %.not.i42 = icmp eq i64 %indvars.iv.next.i41, 0
+  br i1 %.not.i42, label %216, label %203
 
-217:                                              ; preds = %._crit_edge.i40
+216:                                              ; preds = %._crit_edge.i40
   store i32 0, ptr %6, align 16, !tbaa !26
-  %218 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 0, ptr %218, align 4, !tbaa !26
-  %219 = add nuw nsw i32 %1, 1
-  %wide.trip.count.i43 = zext nneg i32 %219 to i64
+  %217 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 0, ptr %217, align 4, !tbaa !26
+  %218 = add nuw nsw i32 %1, 1
+  %wide.trip.count.i43 = zext nneg i32 %218 to i64
   %invariant.gep.i = getelementptr i8, ptr %8, i64 -4
-  br label %220
+  br label %219
 
-220:                                              ; preds = %220, %217
-  %221 = phi i32 [ 0, %217 ], [ %224, %220 ]
-  %indvars.iv39.i = phi i64 [ 2, %217 ], [ %indvars.iv.next40.i, %220 ]
+219:                                              ; preds = %219, %216
+  %220 = phi i32 [ 0, %216 ], [ %223, %219 ]
+  %indvars.iv39.i = phi i64 [ 2, %216 ], [ %indvars.iv.next40.i, %219 ]
   %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv39.i
-  %222 = load i32, ptr %gep.i, align 4, !tbaa !26
-  %223 = add i32 %222, %221
-  %224 = shl i32 %223, 1
-  %225 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv39.i
-  store i32 %224, ptr %225, align 4, !tbaa !26
+  %221 = load i32, ptr %gep.i, align 4, !tbaa !26
+  %222 = add i32 %221, %220
+  %223 = shl i32 %222, 1
+  %224 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv39.i
+  store i32 %223, ptr %224, align 4, !tbaa !26
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count.i43
-  br i1 %exitcond.not.i44, label %.preheader.i45, label %220
+  br i1 %exitcond.not.i44, label %.preheader.i45, label %219
 
-.preheader.i45:                                   ; preds = %220, %.preheader.i45
-  %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %.preheader.i45 ], [ 0, %220 ]
-  %226 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv43.i
-  %227 = load i8, ptr %226, align 1, !tbaa !25
-  %228 = zext i8 %227 to i64
-  %229 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %228
-  %230 = load i32, ptr %229, align 4, !tbaa !26
-  %231 = add i32 %230, 1
-  store i32 %231, ptr %229, align 4, !tbaa !26
-  %232 = and i32 %230, 255
-  %233 = zext nneg i32 %232 to i64
-  %234 = getelementptr inbounds nuw [256 x i8], ptr @bitreverse_tab, i64 0, i64 %233
-  %235 = load i8, ptr %234, align 1, !tbaa !25
-  %236 = zext i8 %235 to i32
-  %237 = shl nuw nsw i32 %236, 8
-  %238 = lshr i32 %230, 8
-  %239 = zext nneg i32 %238 to i64
-  %240 = getelementptr inbounds nuw [256 x i8], ptr @bitreverse_tab, i64 0, i64 %239
-  %241 = load i8, ptr %240, align 1, !tbaa !25
-  %242 = zext i8 %241 to i32
-  %243 = or disjoint i32 %237, %242
-  %244 = zext i8 %227 to i32
-  %245 = sub nsw i32 16, %244
-  %246 = lshr i32 %243, %245
-  %247 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv43.i
-  store i32 %246, ptr %247, align 4, !tbaa !26
-  %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
-  %exitcond48.not.i = icmp eq i64 %indvars.iv.next44.i, %wide.trip.count.i
-  br i1 %exitcond48.not.i, label %gen_codewords.exit, label %.preheader.i45
+.preheader.i45:                                   ; preds = %219, %.preheader.i45
+  %indvars.iv42.i = phi i64 [ %indvars.iv.next43.i, %.preheader.i45 ], [ 0, %219 ]
+  %225 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv42.i
+  %226 = load i8, ptr %225, align 1, !tbaa !25
+  %227 = zext i8 %226 to i64
+  %228 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %227
+  %229 = load i32, ptr %228, align 4, !tbaa !26
+  %230 = add i32 %229, 1
+  store i32 %230, ptr %228, align 4, !tbaa !26
+  %231 = and i32 %229, 255
+  %232 = zext nneg i32 %231 to i64
+  %233 = getelementptr inbounds nuw [256 x i8], ptr @bitreverse_tab, i64 0, i64 %232
+  %234 = load i8, ptr %233, align 1, !tbaa !25
+  %235 = zext i8 %234 to i32
+  %236 = shl nuw nsw i32 %235, 8
+  %237 = lshr i32 %229, 8
+  %238 = zext nneg i32 %237 to i64
+  %239 = getelementptr inbounds nuw [256 x i8], ptr @bitreverse_tab, i64 0, i64 %238
+  %240 = load i8, ptr %239, align 1, !tbaa !25
+  %241 = zext i8 %240 to i32
+  %242 = or disjoint i32 %236, %241
+  %243 = zext i8 %226 to i32
+  %244 = sub nsw i32 16, %243
+  %245 = lshr i32 %242, %244
+  %246 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv42.i
+  store i32 %245, ptr %246, align 4, !tbaa !26
+  %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
+  %exitcond46.not.i = icmp eq i64 %indvars.iv.next43.i, %wide.trip.count.i
+  br i1 %exitcond46.not.i, label %gen_codewords.exit, label %.preheader.i45
 
 gen_codewords.exit:                               ; preds = %.preheader.i45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #15
-  br label %248
+  br label %247
 
-248:                                              ; preds = %gen_codewords.exit, %106
+247:                                              ; preds = %gen_codewords.exit, %106
   ret void
 }
 

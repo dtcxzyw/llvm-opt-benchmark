@@ -82454,9 +82454,8 @@ js_ecvt.exit:                                     ; preds = %160, %166
   %smax = and i64 %176, 7
   %208 = xor i64 %smax, 7
   tail call void @llvm.memset.p0.i64(ptr align 1 %207, i8 48, i64 %208, i1 false), !tbaa !46
-  %narrow = sub nsw i64 1, %176
-  %209 = and i64 %narrow, 15
-  %scevgep161 = getelementptr i8, ptr %.091, i64 %209
+  %209 = getelementptr i8, ptr %.091, i64 %208
+  %scevgep161 = getelementptr i8, ptr %209, i64 2
   br label %._crit_edge145
 
 ._crit_edge145:                                   ; preds = %.lr.ph144.preheader, %205

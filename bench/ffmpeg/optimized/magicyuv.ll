@@ -2161,10 +2161,10 @@ define internal fastcc range(i32 -1094995529, 1) i32 @build_huffman(ptr noundef 
   %scevgep = getelementptr inbounds nuw i8, ptr %4, i64 64
   br label %15
 
-15:                                               ; preds = %.lr.ph, %81
-  %.04476 = phi i32 [ 0, %.lr.ph ], [ %.246, %81 ]
-  %.04775 = phi i32 [ 0, %.lr.ph ], [ %.148, %81 ]
-  %.sroa.0.074 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.1, %81 ]
+15:                                               ; preds = %.lr.ph, %80
+  %.04476 = phi i32 [ 0, %.lr.ph ], [ %.246, %80 ]
+  %.04775 = phi i32 [ 0, %.lr.ph ], [ %.148, %80 ]
+  %.sroa.0.074 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.1, %80 ]
   %16 = load i8, ptr %.sroa.0.074, align 1, !tbaa !30
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.074, i64 1
   %18 = and i8 %16, 127
@@ -2224,7 +2224,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @build_huffman(ptr noundef 
 50:                                               ; preds = %48
   %51 = trunc nsw i64 %indvars.iv.next to i32
   %52 = icmp eq i32 %3, %51
-  br i1 %52, label %53, label %81
+  br i1 %52, label %53, label %80
 
 53:                                               ; preds = %50
   %.val = load ptr, ptr %5, align 8, !tbaa !4
@@ -2249,63 +2249,62 @@ define internal fastcc range(i32 -1094995529, 1) i32 @build_huffman(ptr noundef 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv4.i = phi i64 [ %13, %.preheader.preheader.i ], [ %indvars.iv.next5.i, %.preheader.i ]
   %indvars.iv.next5.i = add nsw i64 %indvars.iv4.i, -1
-  %60 = and i64 %indvars.iv.next5.i, 4294967295
-  %61 = getelementptr inbounds nuw i8, ptr %7, i64 %60
-  %62 = load i8, ptr %61, align 1, !tbaa !30
-  %63 = zext i8 %62 to i64
-  %64 = getelementptr inbounds nuw i16, ptr %4, i64 %63
-  %65 = load i16, ptr %64, align 2, !tbaa !97
-  %66 = add i16 %65, -1
-  store i16 %66, ptr %64, align 2, !tbaa !97
-  %67 = zext i16 %66 to i64
-  %68 = getelementptr inbounds nuw %struct.HuffEntry, ptr %59, i64 %67
-  %69 = trunc i64 %indvars.iv.next5.i to i16
-  store i8 %62, ptr %68, align 2, !tbaa !30
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %68, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.next5.i
+  %61 = load i8, ptr %60, align 1, !tbaa !30
+  %62 = zext i8 %61 to i64
+  %63 = getelementptr inbounds nuw i16, ptr %4, i64 %62
+  %64 = load i16, ptr %63, align 2, !tbaa !97
+  %65 = add i16 %64, -1
+  store i16 %65, ptr %63, align 2, !tbaa !97
+  %66 = zext i16 %65 to i64
+  %67 = getelementptr inbounds nuw %struct.HuffEntry, ptr %59, i64 %66
+  %68 = trunc i64 %indvars.iv.next5.i to i16
+  store i8 %61, ptr %67, align 2, !tbaa !30
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %67, i64 1
   store i8 0, ptr %.sroa.2.0..sroa_idx.i, align 1
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %68, i64 2
-  store i16 %69, ptr %.sroa.3.0..sroa_idx.i, align 2, !tbaa !97
-  %.not.i = icmp eq i64 %60, 0
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %67, i64 2
+  store i16 %68, ptr %.sroa.3.0..sroa_idx.i, align 2, !tbaa !97
+  %.not.i = icmp eq i64 %indvars.iv.next5.i, 0
   br i1 %.not.i, label %huff_build.exit, label %.preheader.i, !llvm.loop !115
 
 huff_build.exit:                                  ; preds = %.preheader.i
-  %70 = sext i32 %.04476 to i64
-  %71 = getelementptr inbounds [4 x %struct.VLC], ptr %11, i64 0, i64 %70
-  %72 = getelementptr inbounds [4 x %struct.VLC_MULTI], ptr %12, i64 0, i64 %70
-  tail call void @ff_vlc_free(ptr noundef nonnull %71) #7
-  tail call void @ff_vlc_free_multi(ptr noundef nonnull %72) #7
-  %73 = load i8, ptr %59, align 2, !tbaa !116
-  %narrow.i = tail call i8 @llvm.umin.i8(i8 %73, i8 12)
+  %69 = sext i32 %.04476 to i64
+  %70 = getelementptr inbounds [4 x %struct.VLC], ptr %11, i64 0, i64 %69
+  %71 = getelementptr inbounds [4 x %struct.VLC_MULTI], ptr %12, i64 0, i64 %69
+  tail call void @ff_vlc_free(ptr noundef nonnull %70) #7
+  tail call void @ff_vlc_free_multi(ptr noundef nonnull %71) #7
+  %72 = load i8, ptr %59, align 2, !tbaa !116
+  %narrow.i = tail call i8 @llvm.umin.i8(i8 %72, i8 12)
   %spec.select.i = zext nneg i8 %narrow.i to i32
-  %74 = getelementptr inbounds nuw i8, ptr %.val, i64 346
-  %75 = tail call i32 @ff_vlc_init_multi_from_lengths(ptr noundef nonnull %71, ptr noundef nonnull %72, i32 noundef %spec.select.i, i32 noundef range(i32 1, -2147483648) %3, i32 noundef range(i32 1, -2147483648) %3, ptr noundef nonnull %59, i32 noundef 4, ptr noundef nonnull %74, i32 noundef 4, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %0) #7
-  %.not56 = icmp eq i32 %75, 0
-  br i1 %.not56, label %76, label %.thread.sink.split
+  %73 = getelementptr inbounds nuw i8, ptr %.val, i64 346
+  %74 = tail call i32 @ff_vlc_init_multi_from_lengths(ptr noundef nonnull %70, ptr noundef nonnull %71, i32 noundef %spec.select.i, i32 noundef range(i32 1, -2147483648) %3, i32 noundef range(i32 1, -2147483648) %3, ptr noundef nonnull %59, i32 noundef 4, ptr noundef nonnull %73, i32 noundef 4, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %0) #7
+  %.not56 = icmp eq i32 %74, 0
+  br i1 %.not56, label %75, label %.thread.sink.split
 
-76:                                               ; preds = %huff_build.exit
-  %77 = add nsw i32 %.04476, 1
-  %78 = load i32, ptr %14, align 8, !tbaa !46
-  %79 = icmp eq i32 %77, %78
-  br i1 %79, label %.thread68, label %80
+75:                                               ; preds = %huff_build.exit
+  %76 = add nsw i32 %.04476, 1
+  %77 = load i32, ptr %14, align 8, !tbaa !46
+  %78 = icmp eq i32 %76, %77
+  br i1 %78, label %.thread68, label %79
 
-80:                                               ; preds = %76
+79:                                               ; preds = %75
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(66) %4, i8 0, i64 66, i1 false)
-  br label %81
+  br label %80
 
-81:                                               ; preds = %50, %80
-  %.148 = phi i32 [ 0, %80 ], [ %51, %50 ]
-  %.246 = phi i32 [ %77, %80 ], [ %.04476, %50 ]
-  %82 = ptrtoint ptr %.sroa.0.1 to i64
-  %83 = sub i64 %10, %82
-  %84 = trunc i64 %83 to i32
-  %85 = icmp sgt i32 %84, 0
-  br i1 %85, label %15, label %.thread68
+80:                                               ; preds = %50, %79
+  %.148 = phi i32 [ 0, %79 ], [ %51, %50 ]
+  %.246 = phi i32 [ %76, %79 ], [ %.04476, %50 ]
+  %81 = ptrtoint ptr %.sroa.0.1 to i64
+  %82 = sub i64 %10, %81
+  %83 = trunc i64 %82 to i32
+  %84 = icmp sgt i32 %83, 0
+  br i1 %84, label %15, label %.thread68
 
-.thread68:                                        ; preds = %81, %20, %76
-  %.145.ph = phi i32 [ %.246, %81 ], [ %.04476, %20 ], [ %77, %76 ]
-  %86 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %87 = load i32, ptr %86, align 8, !tbaa !46
-  %.not57 = icmp eq i32 %.145.ph, %87
+.thread68:                                        ; preds = %80, %20, %75
+  %.145.ph = phi i32 [ %.246, %80 ], [ %.04476, %20 ], [ %76, %75 ]
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %86 = load i32, ptr %85, align 8, !tbaa !46
+  %.not57 = icmp eq i32 %.145.ph, %86
   br i1 %.not57, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %huff_build.exit, %30, %.thread68

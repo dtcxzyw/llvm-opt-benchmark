@@ -4587,32 +4587,32 @@ define internal fastcc range(i32 -1, 1) i32 @read_sbr_grid(ptr noundef readonly 
   br i1 %exitcond291.not, label %._crit_edge240, label %.lr.ph239, !llvm.loop !161
 
 ._crit_edge240:                                   ; preds = %.lr.ph239, %.thread
-  %66 = load i32, ptr %18, align 8, !tbaa !35
-  %67 = load ptr, ptr %2, align 8, !tbaa !49
-  %68 = lshr i32 %66, 3
-  %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds nuw i8, ptr %67, i64 %69
-  %71 = load i8, ptr %70, align 1, !tbaa !9
-  %72 = load i32, ptr %20, align 8, !tbaa !37
-  %73 = icmp slt i32 %66, %72
-  %74 = zext i1 %73 to i32
-  %spec.select.i = add i32 %66, %74
-  %75 = zext i8 %71 to i32
-  %76 = and i32 %66, 7
-  %77 = shl nuw nsw i32 %75, %76
+  %66 = phi i64 [ %54, %.thread ], [ %56, %.lr.ph239 ]
+  %67 = load i32, ptr %18, align 8, !tbaa !35
+  %68 = load ptr, ptr %2, align 8, !tbaa !49
+  %69 = lshr i32 %67, 3
+  %70 = zext nneg i32 %69 to i64
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 %70
+  %72 = load i8, ptr %71, align 1, !tbaa !9
+  %73 = load i32, ptr %20, align 8, !tbaa !37
+  %74 = icmp slt i32 %67, %73
+  %75 = zext i1 %74 to i32
+  %spec.select.i = add i32 %67, %75
+  %76 = zext i8 %72 to i32
+  %77 = and i32 %67, 7
+  %78 = shl nuw nsw i32 %76, %77
   store i32 %spec.select.i, ptr %18, align 8, !tbaa !35
-  %78 = trunc i32 %77 to i8
-  %79 = lshr i8 %78, 7
-  %80 = getelementptr inbounds nuw i8, ptr %3, i64 13
-  store i8 %79, ptr %80, align 1, !tbaa !9
+  %79 = trunc i32 %78 to i8
+  %80 = lshr i8 %79, 7
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 %80, ptr %81, align 1, !tbaa !9
   br i1 %53, label %.thread305, label %.lr.ph243.preheader
 
 .lr.ph243.preheader:                              ; preds = %._crit_edge240
   %scevgep = getelementptr i8, ptr %3, i64 14
-  %umax = tail call i32 @llvm.umax.i32(i32 %44, i32 2)
-  %81 = add nsw i32 %umax, -1
-  %82 = zext nneg i32 %81 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 %79, i64 %82, i1 false), !tbaa !9
+  %umax = tail call i64 @llvm.umax.i64(i64 %66, i64 2)
+  %82 = add nsw i64 %umax, -1
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 %80, i64 %82, i1 false), !tbaa !9
   br label %.thread305
 
 83:                                               ; preds = %4
@@ -8794,6 +8794,9 @@ declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #13
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

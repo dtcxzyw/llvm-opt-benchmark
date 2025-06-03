@@ -176,9 +176,9 @@ for.body54.lr.ph:                                 ; preds = %if.end38
   %scevgep = getelementptr inbounds nuw i8, ptr %matchcap, i64 16
   %scevgep158 = getelementptr inbounds nuw i8, ptr %cap, i64 16
   %smax = tail call i32 @llvm.smax.i32(i32 %mul, i32 3)
-  %9 = add nsw i32 %smax, -2
-  %10 = zext nneg i32 %9 to i64
-  %11 = shl nuw nsw i64 %10, 3
+  %9 = zext nneg i32 %smax to i64
+  %10 = shl nuw nsw i64 %9, 3
+  %11 = add nsw i64 %10, -16
   br label %for.body54
 
 for.body54:                                       ; preds = %for.body54.lr.ph, %for.inc125
@@ -363,11 +363,10 @@ if.end143:                                        ; preds = %for.inc.i111, %if.t
 for.body147.preheader:                            ; preds = %if.end143
   %scevgep160 = getelementptr inbounds nuw i8, ptr %matchcap, i64 16
   %scevgep161 = getelementptr inbounds nuw i8, ptr %cap, i64 16
-  %umax = tail call i32 @llvm.smax.i32(i32 %mul, i32 3)
-  %20 = add nsw i32 %umax, -2
-  %21 = zext nneg i32 %20 to i64
-  %22 = shl nuw nsw i64 %21, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %scevgep160, ptr nonnull align 16 %scevgep161, i64 %22, i1 false)
+  %umax = tail call i64 @llvm.umax.i64(i64 %2, i64 3)
+  %20 = shl nuw nsw i64 %umax, 3
+  %21 = add nsw i64 %20, -16
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %scevgep160, ptr nonnull align 16 %scevgep161, i64 %21, i1 false)
   br label %for.end154
 
 for.end154:                                       ; preds = %for.body147.preheader, %if.end143
@@ -389,14 +388,14 @@ for.body163.preheader:                            ; preds = %for.cond161.prehead
 
 for.body163:                                      ; preds = %for.body163.preheader, %_ZN4absl7debian211string_viewC2EPKcm.exit
   %indvars.iv = phi i64 [ 0, %for.body163.preheader ], [ %indvars.iv.next, %_ZN4absl7debian211string_viewC2EPKcm.exit ]
-  %23 = shl nuw nsw i64 %indvars.iv, 1
-  %arrayidx167 = getelementptr inbounds nuw [10 x ptr], ptr %matchcap, i64 0, i64 %23
-  %24 = load ptr, ptr %arrayidx167, align 16
-  %25 = or disjoint i64 %23, 1
-  %arrayidx171 = getelementptr inbounds nuw [10 x ptr], ptr %matchcap, i64 0, i64 %25
-  %26 = load ptr, ptr %arrayidx171, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %26 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %24 to i64
+  %22 = shl nuw nsw i64 %indvars.iv, 1
+  %arrayidx167 = getelementptr inbounds nuw [10 x ptr], ptr %matchcap, i64 0, i64 %22
+  %23 = load ptr, ptr %arrayidx167, align 16
+  %24 = or disjoint i64 %22, 1
+  %arrayidx171 = getelementptr inbounds nuw [10 x ptr], ptr %matchcap, i64 0, i64 %24
+  %25 = load ptr, ptr %arrayidx171, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %25 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %23 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub, -1
   br i1 %cmp.i.i, label %_ZN4absl7debian211string_viewC2EPKcm.exit, label %cond.false.i.i
@@ -407,7 +406,7 @@ cond.false.i.i:                                   ; preds = %for.body163
 
 _ZN4absl7debian211string_viewC2EPKcm.exit:        ; preds = %for.body163
   %arrayidx176 = getelementptr inbounds nuw %"class.absl::debian2::string_view", ptr %match, i64 %indvars.iv
-  store ptr %24, ptr %arrayidx176, align 8
+  store ptr %23, ptr %arrayidx176, align 8
   %ref.tmp164.sroa.2.0.arrayidx176.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx176, i64 8
   store i64 %sub.ptr.sub, ptr %ref.tmp164.sroa.2.0.arrayidx176.sroa_idx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

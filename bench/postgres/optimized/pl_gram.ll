@@ -5522,25 +5522,23 @@ NameOfDatum.exit:                                 ; preds = %36, %38
   %65 = tail call ptr @palloc(i64 noundef %64) #12
   %66 = getelementptr inbounds nuw i8, ptr %54, i64 56
   store ptr %65, ptr %66, align 8
-  %67 = add nsw i32 %.0.lcssa, -1
-  %68 = zext nneg i32 %67 to i64
   br label %.lr.ph72
 
 .lr.ph72:                                         ; preds = %.lr.ph72.preheader, %.lr.ph72
-  %indvars.iv77 = phi i64 [ %68, %.lr.ph72.preheader ], [ %indvars.iv.next78, %.lr.ph72 ]
-  %69 = getelementptr inbounds nuw [1024 x ptr], ptr %7, i64 0, i64 %indvars.iv77
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %63, align 8
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv77
-  store ptr %70, ptr %72, align 8
-  %73 = getelementptr inbounds nuw [1024 x i32], ptr %8, i64 0, i64 %indvars.iv77
-  %74 = load i32, ptr %73, align 4
-  %75 = load ptr, ptr %66, align 8
-  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv77
-  store i32 %74, ptr %76, align 4
-  %indvars.iv.next78 = add nsw i64 %indvars.iv77, -1
-  %.not = icmp eq i64 %indvars.iv77, 0
-  br i1 %.not, label %._crit_edge73, label %.lr.ph72, !llvm.loop !17
+  %indvars.iv77.in = phi i64 [ %60, %.lr.ph72.preheader ], [ %indvars.iv77, %.lr.ph72 ]
+  %indvars.iv77 = add nsw i64 %indvars.iv77.in, -1
+  %67 = getelementptr inbounds nuw [1024 x ptr], ptr %7, i64 0, i64 %indvars.iv77
+  %68 = load ptr, ptr %67, align 8
+  %69 = load ptr, ptr %63, align 8
+  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv77
+  store ptr %68, ptr %70, align 8
+  %71 = getelementptr inbounds nuw [1024 x i32], ptr %8, i64 0, i64 %indvars.iv77
+  %72 = load i32, ptr %71, align 4
+  %73 = load ptr, ptr %66, align 8
+  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv77
+  store i32 %72, ptr %74, align 4
+  %75 = icmp samesign ugt i64 %indvars.iv77.in, 1
+  br i1 %75, label %.lr.ph72, label %._crit_edge73, !llvm.loop !17
 
 ._crit_edge73:                                    ; preds = %.lr.ph72
   tail call void @plpgsql_adddatum(ptr noundef nonnull %54) #12

@@ -6814,7 +6814,7 @@ _ZN6Unpack10UnpReadBufEv.exit:                    ; preds = %.thread.i, %46
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
   br i1 %exitcond.not, label %89, label %103, !llvm.loop !214
 
-..loopexit77_crit_edge:                           ; preds = %272
+..loopexit77_crit_edge:                           ; preds = %273
   %120 = trunc nuw i64 %indvars.iv.next98 to i32
   br label %.backedge, !llvm.loop !215
 
@@ -7081,70 +7081,71 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %183, %.prehea
   %265 = add nuw nsw i32 %264, %.sink108
   %266 = zext i32 %.04188 to i64
   %scevgep = getelementptr i8, ptr %3, i64 %266
-  %267 = xor i32 %.04188, -1
-  %268 = add i32 %.048, %267
-  %269 = add nsw i32 %265, -1
-  %270 = tail call i32 @llvm.umin.i32(i32 %268, i32 %269)
-  %umin = zext nneg i32 %270 to i64
-  %271 = add nuw nsw i64 %umin, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %271, i1 false), !tbaa !27
-  br label %272, !llvm.loop !215
+  %267 = zext nneg i32 %265 to i64
+  %268 = add nsw i64 %267, -1
+  %269 = xor i32 %.04188, -1
+  %270 = add i32 %.048, %269
+  %271 = zext i32 %270 to i64
+  %umin = tail call i64 @llvm.umin.i64(i64 %268, i64 %271)
+  %272 = add nuw nsw i64 %umin, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %272, i1 false), !tbaa !27
+  br label %273, !llvm.loop !215
 
-272:                                              ; preds = %.lr.ph86, %272
-  %indvars.iv97 = phi i64 [ %266, %.lr.ph86 ], [ %indvars.iv.next98, %272 ]
-  %.185 = phi i32 [ %265, %.lr.ph86 ], [ %273, %272 ]
-  %273 = add nsw i32 %.185, -1
+273:                                              ; preds = %.lr.ph86, %273
+  %indvars.iv97 = phi i64 [ %266, %.lr.ph86 ], [ %indvars.iv.next98, %273 ]
+  %.185 = phi i32 [ %265, %.lr.ph86 ], [ %274, %273 ]
+  %274 = add nsw i32 %.185, -1
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %274 = icmp ne i32 %273, 0
-  %275 = icmp samesign ult i64 %indvars.iv.next98, %102
-  %276 = select i1 %274, i1 %275, i1 false
-  br i1 %276, label %272, label %..loopexit77_crit_edge, !llvm.loop !217
+  %275 = icmp ne i32 %274, 0
+  %276 = icmp samesign ult i64 %indvars.iv.next98, %102
+  %277 = select i1 %275, i1 %276, i1 false
+  br i1 %277, label %273, label %..loopexit77_crit_edge, !llvm.loop !217
 
 .critedge:                                        ; preds = %.backedge
-  %277 = getelementptr inbounds nuw i8, ptr %0, i64 59500
-  store i8 1, ptr %277, align 4, !tbaa !170
-  %278 = icmp sgt i32 %231, %166
-  br i1 %278, label %_ZN6Unpack10UnpReadBufEv.exit.thread, label %279
+  %278 = getelementptr inbounds nuw i8, ptr %0, i64 59500
+  store i8 1, ptr %278, align 4, !tbaa !170
+  %279 = icmp sgt i32 %231, %166
+  br i1 %279, label %_ZN6Unpack10UnpReadBufEv.exit.thread, label %280
 
-279:                                              ; preds = %.critedge
-  %280 = load i8, ptr %61, align 8, !tbaa !171, !range !207, !noundef !208
-  %281 = trunc nuw i8 %280 to i1
-  br i1 %281, label %.preheader, label %293
+280:                                              ; preds = %.critedge
+  %281 = load i8, ptr %61, align 8, !tbaa !171, !range !207, !noundef !208
+  %282 = trunc nuw i8 %281 to i1
+  br i1 %282, label %.preheader, label %294
 
-.preheader:                                       ; preds = %279
-  %282 = getelementptr inbounds nuw i8, ptr %0, i64 39052
-  %283 = load i32, ptr %282, align 4, !tbaa !174
-  %.not91 = icmp eq i32 %283, 0
+.preheader:                                       ; preds = %280
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 39052
+  %284 = load i32, ptr %283, align 4, !tbaa !174
+  %.not91 = icmp eq i32 %284, 0
   br i1 %.not91, label %.loopexit, label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %.preheader
-  %284 = getelementptr inbounds nuw i8, ptr %0, i64 22740
-  br label %285
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 22740
+  br label %286
 
-285:                                              ; preds = %.lr.ph90, %285
-  %indvars.iv100 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next101, %285 ]
-  %286 = mul nuw nsw i64 %indvars.iv100, 257
-  %287 = and i64 %286, 4294967295
-  %288 = getelementptr inbounds nuw [1028 x i8], ptr %3, i64 0, i64 %287
-  %289 = getelementptr inbounds nuw [4 x %struct.DecodeTable], ptr %284, i64 0, i64 %indvars.iv100
-  call void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull align 8 poison, ptr noundef nonnull %288, ptr noundef nonnull %289, i32 noundef 257)
+286:                                              ; preds = %.lr.ph90, %286
+  %indvars.iv100 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next101, %286 ]
+  %287 = mul nuw nsw i64 %indvars.iv100, 257
+  %288 = and i64 %287, 4294967295
+  %289 = getelementptr inbounds nuw [1028 x i8], ptr %3, i64 0, i64 %288
+  %290 = getelementptr inbounds nuw [4 x %struct.DecodeTable], ptr %285, i64 0, i64 %indvars.iv100
+  call void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull align 8 poison, ptr noundef nonnull %289, ptr noundef nonnull %290, i32 noundef 257)
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %290 = load i32, ptr %282, align 4, !tbaa !174
-  %291 = zext i32 %290 to i64
-  %292 = icmp samesign ult i64 %indvars.iv.next101, %291
-  br i1 %292, label %285, label %.loopexit, !llvm.loop !218
+  %291 = load i32, ptr %283, align 4, !tbaa !174
+  %292 = zext i32 %291 to i64
+  %293 = icmp samesign ult i64 %indvars.iv.next101, %292
+  br i1 %293, label %286, label %.loopexit, !llvm.loop !218
 
-293:                                              ; preds = %279
+294:                                              ; preds = %280
   call void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull align 8 poison, ptr noundef nonnull %3, ptr noundef nonnull %90, i32 noundef 298)
-  %294 = getelementptr inbounds nuw i8, ptr %3, i64 298
-  %295 = getelementptr inbounds nuw i8, ptr %0, i64 4024
-  call void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull align 8 poison, ptr noundef nonnull %294, ptr noundef nonnull %295, i32 noundef 48)
-  %296 = getelementptr inbounds nuw i8, ptr %3, i64 346
-  %297 = getelementptr inbounds nuw i8, ptr %0, i64 11664
-  call void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull align 8 poison, ptr noundef nonnull %296, ptr noundef nonnull %297, i32 noundef 28)
+  %295 = getelementptr inbounds nuw i8, ptr %3, i64 298
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 4024
+  call void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull align 8 poison, ptr noundef nonnull %295, ptr noundef nonnull %296, i32 noundef 48)
+  %297 = getelementptr inbounds nuw i8, ptr %3, i64 346
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 11664
+  call void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull align 8 poison, ptr noundef nonnull %297, ptr noundef nonnull %298, i32 noundef 28)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %285, %.preheader, %293
+.loopexit:                                        ; preds = %286, %.preheader, %294
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %101, ptr nonnull align 16 %3, i64 %102, i1 false)
   br label %_ZN6Unpack10UnpReadBufEv.exit.thread
 
@@ -9063,7 +9064,7 @@ _ZN6Unpack12UnpReadBuf30Ev.exit:                  ; preds = %23
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 15620
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16644
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 59092
-  %scevgep119 = getelementptr i8, ptr %3, i64 -1
+  %scevgep118 = getelementptr i8, ptr %3, i64 -1
   br label %103
 
 69:                                               ; preds = %56, %98
@@ -9134,7 +9135,7 @@ _ZN6Unpack12UnpReadBuf30Ev.exit:                  ; preds = %23
   %101 = trunc nuw nsw i64 %indvars.iv.next102 to i32
   br label %.backedge, !llvm.loop !249
 
-..loopexit77_crit_edge:                           ; preds = %220
+..loopexit77_crit_edge:                           ; preds = %221
   %102 = trunc nuw nsw i64 %indvars.iv.next97 to i32
   br label %.backedge, !llvm.loop !249
 
@@ -9302,11 +9303,11 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %148, %.prehea
 198:                                              ; preds = %195
   %199 = icmp eq i16 %.0.in.i, 16
   %. = select i1 %199, i32 13, i32 9
-  %.114 = select i1 %199, i32 3, i32 11
-  %.115 = select i1 %199, i32 3, i32 7
+  %.113 = select i1 %199, i32 3, i32 11
+  %.114 = select i1 %199, i32 3, i32 7
   %200 = lshr i32 %197, %.
-  %201 = add nuw nsw i32 %200, %.114
-  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %.115)
+  %201 = add nuw nsw i32 %200, %.113
+  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %.114)
   %.not61 = icmp eq i32 %.04290, 0
   br i1 %.not61, label %_ZN6Unpack12UnpReadBuf30Ev.exit.thread, label %.preheader
 
@@ -9316,8 +9317,8 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %148, %.prehea
 
 .lr.ph88:                                         ; preds = %.preheader
   %203 = zext nneg i32 %.04290 to i64
-  %scevgep120 = getelementptr i8, ptr %scevgep119, i64 %203
-  %load_initial = load i8, ptr %scevgep120, align 1
+  %scevgep119 = getelementptr i8, ptr %scevgep118, i64 %203
+  %load_initial = load i8, ptr %scevgep119, align 1
   br label %204, !llvm.loop !249
 
 204:                                              ; preds = %.lr.ph88, %204
@@ -9334,60 +9335,61 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %148, %.prehea
 
 210:                                              ; preds = %195
   %211 = icmp eq i16 %.0.in.i, 18
-  %.118 = select i1 %211, i32 3, i32 7
-  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %.118)
+  %.117 = select i1 %211, i32 3, i32 7
+  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %.117)
   %212 = icmp samesign ult i32 %.04290, 404
   br i1 %212, label %.lr.ph84, label %.critedge, !llvm.loop !249
 
 .lr.ph84:                                         ; preds = %210
-  %.116 = select i1 %211, i32 13, i32 9
-  %213 = lshr i32 %197, %.116
-  %.117 = select i1 %211, i32 3, i32 11
-  %214 = add nuw nsw i32 %213, %.117
+  %.115 = select i1 %211, i32 13, i32 9
+  %213 = lshr i32 %197, %.115
+  %.116 = select i1 %211, i32 3, i32 11
+  %214 = add nuw nsw i32 %213, %.116
   %215 = zext nneg i32 %.04290 to i64
   %scevgep94 = getelementptr i8, ptr %3, i64 %215
-  %216 = add nsw i32 %214, -1
-  %217 = sub nuw nsw i32 403, %.04290
-  %218 = tail call i32 @llvm.umin.i32(i32 %216, i32 %217)
-  %narrow105 = add nuw nsw i32 %218, 1
-  %219 = zext nneg i32 %narrow105 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep94, i8 0, i64 %219, i1 false), !tbaa !27
-  br label %220, !llvm.loop !249
+  %216 = zext nneg i32 %214 to i64
+  %217 = add nsw i64 %216, -1
+  %218 = sub nuw nsw i32 403, %.04290
+  %219 = zext nneg i32 %218 to i64
+  %umin95 = tail call i64 @llvm.umin.i64(i64 %217, i64 %219)
+  %220 = add nuw nsw i64 %umin95, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep94, i8 0, i64 %220, i1 false), !tbaa !27
+  br label %221, !llvm.loop !249
 
-220:                                              ; preds = %.lr.ph84, %220
-  %indvars.iv96 = phi i64 [ %215, %.lr.ph84 ], [ %indvars.iv.next97, %220 ]
-  %.182 = phi i32 [ %214, %.lr.ph84 ], [ %221, %220 ]
-  %221 = add nsw i32 %.182, -1
+221:                                              ; preds = %.lr.ph84, %221
+  %indvars.iv96 = phi i64 [ %215, %.lr.ph84 ], [ %indvars.iv.next97, %221 ]
+  %.182 = phi i32 [ %214, %.lr.ph84 ], [ %222, %221 ]
+  %222 = add nsw i32 %.182, -1
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %222 = icmp ne i32 %221, 0
-  %223 = icmp samesign ult i64 %indvars.iv96, 403
-  %224 = select i1 %222, i1 %223, i1 false
-  br i1 %224, label %220, label %..loopexit77_crit_edge, !llvm.loop !251
+  %223 = icmp ne i32 %222, 0
+  %224 = icmp samesign ult i64 %indvars.iv96, 403
+  %225 = select i1 %223, i1 %224, i1 false
+  br i1 %225, label %221, label %..loopexit77_crit_edge, !llvm.loop !251
 
 .critedge:                                        ; preds = %210, %.preheader, %.backedge
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 59501
-  store i8 1, ptr %225, align 1, !tbaa !175
-  %226 = load i32, ptr %4, align 8, !tbaa !94
-  %227 = load i32, ptr %6, align 8, !tbaa !111
-  %228 = icmp sgt i32 %226, %227
-  br i1 %228, label %_ZN6Unpack12UnpReadBuf30Ev.exit.thread, label %229
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 59501
+  store i8 1, ptr %226, align 1, !tbaa !175
+  %227 = load i32, ptr %4, align 8, !tbaa !94
+  %228 = load i32, ptr %6, align 8, !tbaa !111
+  %229 = icmp sgt i32 %227, %228
+  br i1 %229, label %_ZN6Unpack12UnpReadBuf30Ev.exit.thread, label %230
 
-229:                                              ; preds = %.critedge
+230:                                              ; preds = %.critedge
   call void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull align 8 poison, ptr noundef nonnull %3, ptr noundef nonnull %58, i32 noundef 299)
-  %230 = getelementptr inbounds nuw i8, ptr %3, i64 299
-  %231 = getelementptr inbounds nuw i8, ptr %0, i64 4024
-  call void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull align 8 poison, ptr noundef nonnull %230, ptr noundef nonnull %231, i32 noundef 60)
-  %232 = getelementptr inbounds nuw i8, ptr %3, i64 359
-  %233 = getelementptr inbounds nuw i8, ptr %0, i64 7844
-  call void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull align 8 poison, ptr noundef nonnull %232, ptr noundef nonnull %233, i32 noundef 17)
-  %234 = getelementptr inbounds nuw i8, ptr %3, i64 376
-  %235 = getelementptr inbounds nuw i8, ptr %0, i64 11664
-  call void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull align 8 poison, ptr noundef nonnull %234, ptr noundef nonnull %235, i32 noundef 28)
+  %231 = getelementptr inbounds nuw i8, ptr %3, i64 299
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 4024
+  call void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull align 8 poison, ptr noundef nonnull %231, ptr noundef nonnull %232, i32 noundef 60)
+  %233 = getelementptr inbounds nuw i8, ptr %3, i64 359
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 7844
+  call void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull align 8 poison, ptr noundef nonnull %233, ptr noundef nonnull %234, i32 noundef 17)
+  %235 = getelementptr inbounds nuw i8, ptr %3, i64 376
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 11664
+  call void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull align 8 poison, ptr noundef nonnull %235, ptr noundef nonnull %236, i32 noundef 28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(404) %68, ptr noundef nonnull align 16 dereferenceable(404) %3, i64 404, i1 false)
   br label %_ZN6Unpack12UnpReadBuf30Ev.exit.thread
 
-_ZN6Unpack12UnpReadBuf30Ev.exit.thread:           ; preds = %198, %108, %_ZN6Unpack12UnpReadBuf30Ev.exit66, %10, %46, %.critedge, %229, %_ZN6Unpack12UnpReadBuf30Ev.exit
-  %.040 = phi i1 [ false, %_ZN6Unpack12UnpReadBuf30Ev.exit ], [ %49, %46 ], [ true, %229 ], [ false, %.critedge ], [ false, %10 ], [ false, %_ZN6Unpack12UnpReadBuf30Ev.exit66 ], [ false, %108 ], [ false, %198 ]
+_ZN6Unpack12UnpReadBuf30Ev.exit.thread:           ; preds = %198, %108, %_ZN6Unpack12UnpReadBuf30Ev.exit66, %10, %46, %.critedge, %230, %_ZN6Unpack12UnpReadBuf30Ev.exit
+  %.040 = phi i1 [ false, %_ZN6Unpack12UnpReadBuf30Ev.exit ], [ %49, %46 ], [ true, %230 ], [ false, %.critedge ], [ false, %10 ], [ false, %_ZN6Unpack12UnpReadBuf30Ev.exit66 ], [ false, %108 ], [ false, %198 ]
   call void @llvm.lifetime.end.p0(i64 404, ptr nonnull %3) #24
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #24
   ret i1 %.040
@@ -12702,7 +12704,7 @@ _ZN6Unpack10UnpReadBufEv.exit:                    ; preds = %.thread.i, %58
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 18488
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 15416
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 16440
-  %scevgep145 = getelementptr i8, ptr %6, i64 -1
+  %scevgep144 = getelementptr i8, ptr %6, i64 -1
   br label %112
 
 78:                                               ; preds = %61, %107
@@ -12773,7 +12775,7 @@ _ZN6Unpack10UnpReadBufEv.exit:                    ; preds = %.thread.i, %58
   %110 = trunc nuw nsw i64 %indvars.iv.next127 to i32
   br label %.backedge, !llvm.loop !305
 
-..loopexit102_crit_edge:                          ; preds = %238
+..loopexit102_crit_edge:                          ; preds = %239
   %111 = trunc nuw nsw i64 %indvars.iv.next122 to i32
   br label %.backedge, !llvm.loop !305
 
@@ -12970,11 +12972,11 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %170, %.prehea
 216:                                              ; preds = %213
   %217 = icmp eq i16 %.0.in.i, 16
   %. = select i1 %217, i32 13, i32 9
-  %.140 = select i1 %217, i32 3, i32 11
-  %.141 = select i1 %217, i32 3, i32 7
+  %.139 = select i1 %217, i32 3, i32 11
+  %.140 = select i1 %217, i32 3, i32 7
   %218 = lshr i32 %215, %.
-  %219 = add nuw nsw i32 %218, %.140
-  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.141)
+  %219 = add nuw nsw i32 %218, %.139
+  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.140)
   %.not = icmp eq i32 %.068115, 0
   br i1 %.not, label %_ZN6Unpack10UnpReadBufEv.exit93.thread, label %.preheader
 
@@ -12984,8 +12986,8 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %170, %.prehea
 
 .lr.ph113:                                        ; preds = %.preheader
   %221 = zext nneg i32 %.068115 to i64
-  %scevgep146 = getelementptr i8, ptr %scevgep145, i64 %221
-  %load_initial = load i8, ptr %scevgep146, align 1
+  %scevgep145 = getelementptr i8, ptr %scevgep144, i64 %221
+  %load_initial = load i8, ptr %scevgep145, align 1
   br label %222, !llvm.loop !305
 
 222:                                              ; preds = %.lr.ph113, %222
@@ -13002,64 +13004,65 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %170, %.prehea
 
 228:                                              ; preds = %213
   %229 = icmp eq i16 %.0.in.i, 18
-  %.144 = select i1 %229, i32 3, i32 7
-  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.144)
+  %.143 = select i1 %229, i32 3, i32 7
+  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.143)
   %230 = icmp samesign ult i32 %.068115, 430
   br i1 %230, label %.lr.ph109, label %.critedge, !llvm.loop !305
 
 .lr.ph109:                                        ; preds = %228
-  %.142 = select i1 %229, i32 13, i32 9
-  %231 = lshr i32 %215, %.142
-  %.143 = select i1 %229, i32 3, i32 11
-  %232 = add nuw nsw i32 %231, %.143
+  %.141 = select i1 %229, i32 13, i32 9
+  %231 = lshr i32 %215, %.141
+  %.142 = select i1 %229, i32 3, i32 11
+  %232 = add nuw nsw i32 %231, %.142
   %233 = zext nneg i32 %.068115 to i64
   %scevgep119 = getelementptr i8, ptr %6, i64 %233
-  %234 = add nsw i32 %232, -1
-  %235 = sub nuw nsw i32 429, %.068115
-  %236 = tail call i32 @llvm.umin.i32(i32 %234, i32 %235)
-  %narrow131 = add nuw nsw i32 %236, 1
-  %237 = zext nneg i32 %narrow131 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep119, i8 0, i64 %237, i1 false), !tbaa !27
-  br label %238, !llvm.loop !305
+  %234 = zext nneg i32 %232 to i64
+  %235 = add nsw i64 %234, -1
+  %236 = sub nuw nsw i32 429, %.068115
+  %237 = zext nneg i32 %236 to i64
+  %umin120 = tail call i64 @llvm.umin.i64(i64 %235, i64 %237)
+  %238 = add nuw nsw i64 %umin120, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep119, i8 0, i64 %238, i1 false), !tbaa !27
+  br label %239, !llvm.loop !305
 
-238:                                              ; preds = %.lr.ph109, %238
-  %indvars.iv121 = phi i64 [ %233, %.lr.ph109 ], [ %indvars.iv.next122, %238 ]
-  %.1107 = phi i32 [ %232, %.lr.ph109 ], [ %239, %238 ]
-  %239 = add nsw i32 %.1107, -1
+239:                                              ; preds = %.lr.ph109, %239
+  %indvars.iv121 = phi i64 [ %233, %.lr.ph109 ], [ %indvars.iv.next122, %239 ]
+  %.1107 = phi i32 [ %232, %.lr.ph109 ], [ %240, %239 ]
+  %240 = add nsw i32 %.1107, -1
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %240 = icmp ne i32 %239, 0
-  %241 = icmp samesign ult i64 %indvars.iv121, 429
-  %242 = select i1 %240, i1 %241, i1 false
-  br i1 %242, label %238, label %..loopexit102_crit_edge, !llvm.loop !307
+  %241 = icmp ne i32 %240, 0
+  %242 = icmp samesign ult i64 %indvars.iv121, 429
+  %243 = select i1 %241, i1 %242, i1 false
+  br i1 %243, label %239, label %..loopexit102_crit_edge, !llvm.loop !307
 
 .critedge:                                        ; preds = %228, %.preheader, %.backedge
-  %243 = getelementptr inbounds nuw i8, ptr %0, i64 59502
-  store i8 1, ptr %243, align 2, !tbaa !186
-  %244 = load i8, ptr %11, align 8, !tbaa !296, !range !207, !noundef !208
-  %245 = trunc nuw i8 %244 to i1
-  br i1 %245, label %250, label %246
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 59502
+  store i8 1, ptr %244, align 2, !tbaa !186
+  %245 = load i8, ptr %11, align 8, !tbaa !296, !range !207, !noundef !208
+  %246 = trunc nuw i8 %245 to i1
+  br i1 %246, label %251, label %247
 
-246:                                              ; preds = %.critedge
-  %247 = load i32, ptr %1, align 8, !tbaa !168
-  %248 = load i32, ptr %64, align 8, !tbaa !111
-  %249 = icmp sgt i32 %247, %248
-  br i1 %249, label %_ZN6Unpack10UnpReadBufEv.exit93.thread, label %250
+247:                                              ; preds = %.critedge
+  %248 = load i32, ptr %1, align 8, !tbaa !168
+  %249 = load i32, ptr %64, align 8, !tbaa !111
+  %250 = icmp sgt i32 %248, %249
+  br i1 %250, label %_ZN6Unpack10UnpReadBufEv.exit93.thread, label %251
 
-250:                                              ; preds = %246, %.critedge
+251:                                              ; preds = %247, %.critedge
   call void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull align 8 poison, ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef 306)
-  %251 = getelementptr inbounds nuw i8, ptr %6, i64 306
-  %252 = getelementptr inbounds nuw i8, ptr %3, i64 3820
-  call void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull align 8 poison, ptr noundef nonnull %251, ptr noundef nonnull %252, i32 noundef 64)
-  %253 = getelementptr inbounds nuw i8, ptr %6, i64 370
-  %254 = getelementptr inbounds nuw i8, ptr %3, i64 7640
-  call void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull align 8 poison, ptr noundef nonnull %253, ptr noundef nonnull %254, i32 noundef 16)
-  %255 = getelementptr inbounds nuw i8, ptr %6, i64 386
-  %256 = getelementptr inbounds nuw i8, ptr %3, i64 11460
-  call void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull align 8 poison, ptr noundef nonnull %255, ptr noundef nonnull %256, i32 noundef 44)
+  %252 = getelementptr inbounds nuw i8, ptr %6, i64 306
+  %253 = getelementptr inbounds nuw i8, ptr %3, i64 3820
+  call void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull align 8 poison, ptr noundef nonnull %252, ptr noundef nonnull %253, i32 noundef 64)
+  %254 = getelementptr inbounds nuw i8, ptr %6, i64 370
+  %255 = getelementptr inbounds nuw i8, ptr %3, i64 7640
+  call void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull align 8 poison, ptr noundef nonnull %254, ptr noundef nonnull %255, i32 noundef 16)
+  %256 = getelementptr inbounds nuw i8, ptr %6, i64 386
+  %257 = getelementptr inbounds nuw i8, ptr %3, i64 11460
+  call void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull align 8 poison, ptr noundef nonnull %256, ptr noundef nonnull %257, i32 noundef 44)
   br label %_ZN6Unpack10UnpReadBufEv.exit93.thread
 
-_ZN6Unpack10UnpReadBufEv.exit93.thread:           ; preds = %216, %119, %_ZN6Unpack10UnpReadBufEv.exit93, %246, %250
-  %.6 = phi i1 [ true, %250 ], [ false, %246 ], [ false, %_ZN6Unpack10UnpReadBufEv.exit93 ], [ false, %119 ], [ false, %216 ]
+_ZN6Unpack10UnpReadBufEv.exit93.thread:           ; preds = %216, %119, %_ZN6Unpack10UnpReadBufEv.exit93, %247, %251
+  %.6 = phi i1 [ true, %251 ], [ false, %247 ], [ false, %_ZN6Unpack10UnpReadBufEv.exit93 ], [ false, %119 ], [ false, %216 ]
   call void @llvm.lifetime.end.p0(i64 430, ptr nonnull %6) #24
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #24
   br label %_ZN6Unpack10UnpReadBufEv.exit.thread

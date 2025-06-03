@@ -33408,7 +33408,7 @@ heapify_subtree.exit.i.i:                         ; preds = %96, %91
 sort_symbols.exit:                                ; preds = %.lr.ph.i.i, %heapify_subtree.exit.i.i, %38
   call void @llvm.lifetime.end.p0(i64 1152, ptr nonnull %7)
   switch i32 %21, label %108 [
-    i32 0, label %244
+    i32 0, label %243
     i32 1, label %101
   ]
 
@@ -33423,7 +33423,7 @@ sort_symbols.exit:                                ; preds = %.lr.ph.i.i, %heapif
   store i32 1, ptr %106, align 4
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 %105
   store i8 1, ptr %107, align 1
-  br label %244
+  br label %243
 
 108:                                              ; preds = %sort_symbols.exit
   %109 = add i32 %21, -1
@@ -33644,67 +33644,66 @@ compute_length_counts.exit:                       ; preds = %.loopexit.i, %build
 ._crit_edge.i40:                                  ; preds = %203, %199
   %.132.lcssa.i = phi i32 [ %.03138.i, %199 ], [ %205, %203 ]
   %indvars.iv.next.i41 = add nsw i64 %indvars.iv.i37, -1
-  %212 = and i64 %indvars.iv.next.i41, 4294967295
-  %.not.i42 = icmp eq i64 %212, 0
-  br i1 %.not.i42, label %213, label %199, !llvm.loop !202
+  %.not.i42 = icmp eq i64 %indvars.iv.next.i41, 0
+  br i1 %.not.i42, label %212, label %199, !llvm.loop !202
 
-213:                                              ; preds = %._crit_edge.i40
+212:                                              ; preds = %._crit_edge.i40
   store i32 0, ptr %6, align 16
-  %214 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 0, ptr %214, align 4
-  %215 = add nuw nsw i32 %1, 1
-  %wide.trip.count.i43 = zext nneg i32 %215 to i64
+  %213 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 0, ptr %213, align 4
+  %214 = add nuw nsw i32 %1, 1
+  %wide.trip.count.i43 = zext nneg i32 %214 to i64
   %invariant.gep.i = getelementptr i8, ptr %8, i64 -4
-  br label %216
+  br label %215
 
-216:                                              ; preds = %216, %213
-  %217 = phi i32 [ 0, %213 ], [ %220, %216 ]
-  %indvars.iv43.i = phi i64 [ 2, %213 ], [ %indvars.iv.next44.i, %216 ]
+215:                                              ; preds = %215, %212
+  %216 = phi i32 [ 0, %212 ], [ %219, %215 ]
+  %indvars.iv43.i = phi i64 [ 2, %212 ], [ %indvars.iv.next44.i, %215 ]
   %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv43.i
-  %218 = load i32, ptr %gep.i, align 4
-  %219 = add i32 %218, %217
-  %220 = shl i32 %219, 1
-  %221 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv43.i
-  store i32 %220, ptr %221, align 4
+  %217 = load i32, ptr %gep.i, align 4
+  %218 = add i32 %217, %216
+  %219 = shl i32 %218, 1
+  %220 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv43.i
+  store i32 %219, ptr %220, align 4
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next44.i, %wide.trip.count.i43
-  br i1 %exitcond.not.i44, label %.preheader.i45, label %216, !llvm.loop !203
+  br i1 %exitcond.not.i44, label %.preheader.i45, label %215, !llvm.loop !203
 
-.preheader.i45:                                   ; preds = %216, %.preheader.i45
-  %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %.preheader.i45 ], [ 0, %216 ]
-  %222 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv47.i
-  %223 = load i8, ptr %222, align 1
-  %224 = zext i8 %223 to i64
-  %225 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %224
-  %226 = load i32, ptr %225, align 4
-  %227 = add i32 %226, 1
-  store i32 %227, ptr %225, align 4
-  %228 = and i32 %226, 255
-  %229 = zext nneg i32 %228 to i64
-  %230 = getelementptr inbounds nuw [256 x i8], ptr @bitreverse_tab, i64 0, i64 %229
-  %231 = load i8, ptr %230, align 1
-  %232 = zext i8 %231 to i32
-  %233 = shl nuw nsw i32 %232, 8
-  %234 = lshr i32 %226, 8
-  %235 = zext nneg i32 %234 to i64
-  %236 = getelementptr inbounds nuw [256 x i8], ptr @bitreverse_tab, i64 0, i64 %235
-  %237 = load i8, ptr %236, align 1
-  %238 = zext i8 %237 to i32
-  %239 = or disjoint i32 %233, %238
-  %240 = zext i8 %223 to i32
-  %241 = sub nsw i32 16, %240
-  %242 = lshr i32 %239, %241
-  %243 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv47.i
-  store i32 %242, ptr %243, align 4
-  %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
-  %exitcond52.not.i = icmp eq i64 %indvars.iv.next48.i, %wide.trip.count.i
-  br i1 %exitcond52.not.i, label %gen_codewords.exit, label %.preheader.i45, !llvm.loop !204
+.preheader.i45:                                   ; preds = %215, %.preheader.i45
+  %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %.preheader.i45 ], [ 0, %215 ]
+  %221 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv46.i
+  %222 = load i8, ptr %221, align 1
+  %223 = zext i8 %222 to i64
+  %224 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %223
+  %225 = load i32, ptr %224, align 4
+  %226 = add i32 %225, 1
+  store i32 %226, ptr %224, align 4
+  %227 = and i32 %225, 255
+  %228 = zext nneg i32 %227 to i64
+  %229 = getelementptr inbounds nuw [256 x i8], ptr @bitreverse_tab, i64 0, i64 %228
+  %230 = load i8, ptr %229, align 1
+  %231 = zext i8 %230 to i32
+  %232 = shl nuw nsw i32 %231, 8
+  %233 = lshr i32 %225, 8
+  %234 = zext nneg i32 %233 to i64
+  %235 = getelementptr inbounds nuw [256 x i8], ptr @bitreverse_tab, i64 0, i64 %234
+  %236 = load i8, ptr %235, align 1
+  %237 = zext i8 %236 to i32
+  %238 = or disjoint i32 %232, %237
+  %239 = zext i8 %222 to i32
+  %240 = sub nsw i32 16, %239
+  %241 = lshr i32 %238, %240
+  %242 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv46.i
+  store i32 %241, ptr %242, align 4
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
+  %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, %wide.trip.count.i
+  br i1 %exitcond50.not.i, label %gen_codewords.exit, label %.preheader.i45, !llvm.loop !204
 
 gen_codewords.exit:                               ; preds = %.preheader.i45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  br label %244
+  br label %243
 
-244:                                              ; preds = %sort_symbols.exit, %gen_codewords.exit, %101
+243:                                              ; preds = %sort_symbols.exit, %gen_codewords.exit, %101
   ret void
 }
 
