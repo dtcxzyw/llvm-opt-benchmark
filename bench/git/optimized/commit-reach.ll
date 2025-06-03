@@ -1666,18 +1666,18 @@ define dso_local range(i32 -1, 2) i32 @commit_contains(ptr noundef readonly capt
   br i1 %.not, label %126, label %10
 
 10:                                               ; preds = %4
-  %.not81.i = icmp eq ptr %2, null
-  br i1 %.not81.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not82.i = icmp eq ptr %2, null
+  br i1 %.not82.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.i
-  %.03483.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ 9223372036854775807, %10 ]
-  %.03582.i = phi ptr [ %15, %.lr.ph.i ], [ %2, %10 ]
-  %11 = load ptr, ptr %.03582.i, align 8, !tbaa !4
+  %.03484.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ 9223372036854775807, %10 ]
+  %.03583.i = phi ptr [ %15, %.lr.ph.i ], [ %2, %10 ]
+  %11 = load ptr, ptr %.03583.i, align 8, !tbaa !4
   %12 = load ptr, ptr @the_repository, align 8, !tbaa !13
   tail call void @load_commit_graph_info(ptr noundef %12, ptr noundef %11) #13
   %13 = tail call i64 @commit_graph_generation(ptr noundef %11) #13
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %13, i64 %.03483.i)
-  %14 = getelementptr inbounds nuw i8, ptr %.03582.i, i64 8
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %13, i64 %.03484.i)
+  %14 = getelementptr inbounds nuw i8, ptr %.03583.i, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !11
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !69
@@ -1701,11 +1701,11 @@ push_to_contains_stack.exit.i:                    ; preds = %._crit_edge.i
   br label %24
 
 24:                                               ; preds = %121, %push_to_contains_stack.exit.i
-  %.sroa.18.086.i = phi ptr [ %17, %push_to_contains_stack.exit.i ], [ %.sroa.18.1.i, %121 ]
-  %.sroa.14.085.i = phi i32 [ 24, %push_to_contains_stack.exit.i ], [ %.sroa.14.1.i, %121 ]
-  %.sroa.0.084.i = phi i32 [ 1, %push_to_contains_stack.exit.i ], [ %.sroa.0.1.i, %121 ]
-  %25 = sext i32 %.sroa.0.084.i to i64
-  %26 = getelementptr %struct.contains_stack_entry, ptr %.sroa.18.086.i, i64 %25
+  %.sroa.18.087.i = phi ptr [ %17, %push_to_contains_stack.exit.i ], [ %.sroa.18.1.i, %121 ]
+  %.sroa.14.086.i = phi i32 [ 24, %push_to_contains_stack.exit.i ], [ %.sroa.14.1.i, %121 ]
+  %.sroa.0.085.i = phi i32 [ 1, %push_to_contains_stack.exit.i ], [ %.sroa.0.1.i, %121 ]
+  %25 = sext i32 %.sroa.0.085.i to i64
+  %26 = getelementptr %struct.contains_stack_entry, ptr %.sroa.18.087.i, i64 %25
   %27 = getelementptr i8, ptr %26, i64 -16
   %28 = load ptr, ptr %27, align 8, !tbaa !70
   %29 = getelementptr i8, ptr %26, i64 -8
@@ -1721,14 +1721,14 @@ push_to_contains_stack.exit.i:                    ; preds = %._crit_edge.i
   %35 = urem i32 %.val.i, %33
   %36 = load i32, ptr %21, align 8, !tbaa !76
   %.not.i.i.i = icmp ugt i32 %36, %34
-  %.pre89.i = load ptr, ptr %22, align 8, !tbaa !77
+  %.pre90.i = load ptr, ptr %22, align 8, !tbaa !77
   br i1 %.not.i.i.i, label %46, label %st_mult.exit.i.i.i
 
 st_mult.exit.i.i.i:                               ; preds = %31
   %37 = add i32 %34, 1
   %38 = zext i32 %37 to i64
   %39 = shl nuw nsw i64 %38, 3
-  %40 = tail call ptr @xrealloc(ptr noundef %.pre89.i, i64 noundef %39) #13
+  %40 = tail call ptr @xrealloc(ptr noundef %.pre90.i, i64 noundef %39) #13
   store ptr %40, ptr %22, align 8, !tbaa !77
   %41 = load i32, ptr %21, align 8, !tbaa !76
   %.not332.i.i.i = icmp ugt i32 %41, %34
@@ -1745,16 +1745,16 @@ st_mult.exit.i.i.i:                               ; preds = %31
   br i1 %.not33.i.i.i, label %._crit_edge.i.i.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !79
 
 ._crit_edge.i.i.loopexit.i:                       ; preds = %.lr.ph.i.i.i
-  %.pre88.pre.i = load ptr, ptr %22, align 8, !tbaa !77
+  %.pre89.pre.i = load ptr, ptr %22, align 8, !tbaa !77
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.i.i.loopexit.i, %st_mult.exit.i.i.i
-  %.pre88.i = phi ptr [ %.pre88.pre.i, %._crit_edge.i.i.loopexit.i ], [ %40, %st_mult.exit.i.i.i ]
+  %.pre89.i = phi ptr [ %.pre89.pre.i, %._crit_edge.i.i.loopexit.i ], [ %40, %st_mult.exit.i.i.i ]
   store i32 %37, ptr %21, align 8, !tbaa !76
   br label %46
 
 46:                                               ; preds = %._crit_edge.i.i.i, %31
-  %47 = phi ptr [ %.pre88.i, %._crit_edge.i.i.i ], [ %.pre89.i, %31 ]
+  %47 = phi ptr [ %.pre89.i, %._crit_edge.i.i.i ], [ %.pre90.i, %31 ]
   %48 = zext i32 %34 to i64
   %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !78
@@ -1783,7 +1783,7 @@ contains_cache_at.exit.i:                         ; preds = %51, %46
   %63 = zext i32 %62 to i64
   %64 = getelementptr inbounds nuw i32, ptr %60, i64 %63
   store i32 1, ptr %64, align 4, !tbaa !21
-  %65 = add nsw i32 %.sroa.0.084.i, -1
+  %65 = add nsw i32 %.sroa.0.085.i, -1
   br label %121
 
 66:                                               ; preds = %24
@@ -1803,14 +1803,14 @@ contains_cache_at.exit.i:                         ; preds = %51, %46
   %73 = urem i32 %.val43.i, %71
   %74 = load i32, ptr %21, align 8, !tbaa !76
   %.not.i.i44.i = icmp ugt i32 %74, %72
-  %.pre87.i = load ptr, ptr %22, align 8, !tbaa !77
+  %.pre88.i = load ptr, ptr %22, align 8, !tbaa !77
   br i1 %.not.i.i44.i, label %84, label %st_mult.exit.i.i45.i
 
 st_mult.exit.i.i45.i:                             ; preds = %69
   %75 = add i32 %72, 1
   %76 = zext i32 %75 to i64
   %77 = shl nuw nsw i64 %76, 3
-  %78 = tail call ptr @xrealloc(ptr noundef %.pre87.i, i64 noundef %77) #13
+  %78 = tail call ptr @xrealloc(ptr noundef %.pre88.i, i64 noundef %77) #13
   store ptr %78, ptr %22, align 8, !tbaa !77
   %79 = load i32, ptr %21, align 8, !tbaa !76
   %.not332.i.i46.i = icmp ugt i32 %79, %72
@@ -1836,7 +1836,7 @@ st_mult.exit.i.i45.i:                             ; preds = %69
   br label %84
 
 84:                                               ; preds = %._crit_edge.i.i50.i, %69
-  %85 = phi ptr [ %.pre.i, %._crit_edge.i.i50.i ], [ %.pre87.i, %69 ]
+  %85 = phi ptr [ %.pre.i, %._crit_edge.i.i50.i ], [ %.pre88.i, %69 ]
   %86 = zext i32 %72 to i64
   %87 = getelementptr inbounds nuw ptr, ptr %85, i64 %86
   %88 = load ptr, ptr %87, align 8, !tbaa !78
@@ -1865,7 +1865,7 @@ contains_cache_at.exit55.i:                       ; preds = %89, %84
   %101 = zext i32 %100 to i64
   %102 = getelementptr inbounds nuw i32, ptr %98, i64 %101
   store i32 2, ptr %102, align 4, !tbaa !21
-  %103 = add nsw i32 %.sroa.0.084.i, -1
+  %103 = add nsw i32 %.sroa.0.085.i, -1
   br label %121
 
 104:                                              ; preds = %66
@@ -1876,31 +1876,31 @@ contains_cache_at.exit55.i:                       ; preds = %89, %84
 
 107:                                              ; preds = %66
   %108 = load ptr, ptr %30, align 8, !tbaa !4
-  %.not.i56.i = icmp slt i32 %.sroa.0.084.i, %.sroa.14.085.i
-  %.pre92.i = add nsw i32 %.sroa.0.084.i, 1
-  br i1 %.not.i56.i, label %push_to_contains_stack.exit64.i, label %109
+  %.not.i56.i = icmp slt i32 %.sroa.0.085.i, %.sroa.14.086.i
+  %.pre93.i = add nsw i32 %.sroa.0.085.i, 1
+  br i1 %.not.i56.i, label %push_to_contains_stack.exit65.i, label %109
 
 109:                                              ; preds = %107
-  %110 = mul i32 %.sroa.14.085.i, 3
+  %110 = mul i32 %.sroa.14.086.i, 3
   %111 = add i32 %110, 48
   %112 = sdiv i32 %111, 2
   %..i57.i = tail call i32 @llvm.smax.i32(i32 %112, i32 %.pre92.i)
   %113 = sext i32 %..i57.i to i64
   %mul.ov.i.i58.i = icmp slt i32 %..i57.i, 0
-  br i1 %mul.ov.i.i58.i, label %114, label %st_mult.exit.i59.i
+  br i1 %mul.ov.i.i58.i, label %114, label %st_mult.exit.i60.i
 
 114:                                              ; preds = %109
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.5, i64 noundef 16, i64 noundef %113) #14
   unreachable
 
-st_mult.exit.i59.i:                               ; preds = %109
+st_mult.exit.i60.i:                               ; preds = %109
   %115 = shl nuw nsw i64 %113, 4
-  %116 = tail call ptr @xrealloc(ptr noundef nonnull %.sroa.18.086.i, i64 noundef %115) #13
-  br label %push_to_contains_stack.exit64.i
+  %116 = tail call ptr @xrealloc(ptr noundef nonnull %.sroa.18.087.i, i64 noundef %115) #13
+  br label %push_to_contains_stack.exit65.i
 
-push_to_contains_stack.exit64.i:                  ; preds = %st_mult.exit.i59.i, %107
-  %.sroa.14.3.i = phi i32 [ %..i57.i, %st_mult.exit.i59.i ], [ %.sroa.14.085.i, %107 ]
-  %.sroa.18.3.i = phi ptr [ %116, %st_mult.exit.i59.i ], [ %.sroa.18.086.i, %107 ]
+push_to_contains_stack.exit65.i:                  ; preds = %st_mult.exit.i60.i, %107
+  %.sroa.14.3.i = phi i32 [ %..i57.i, %st_mult.exit.i59.i ], [ %.sroa.14.086.i, %107 ]
+  %.sroa.18.3.i = phi ptr [ %116, %st_mult.exit.i59.i ], [ %.sroa.18.087.i, %107 ]
   %117 = getelementptr inbounds %struct.contains_stack_entry, ptr %.sroa.18.3.i, i64 %25
   store ptr %108, ptr %117, align 8, !tbaa !70
   %118 = getelementptr inbounds nuw i8, ptr %108, i64 48
@@ -1909,10 +1909,10 @@ push_to_contains_stack.exit64.i:                  ; preds = %st_mult.exit.i59.i,
   store ptr %119, ptr %120, align 8, !tbaa !72
   br label %121
 
-121:                                              ; preds = %push_to_contains_stack.exit64.i, %104, %contains_cache_at.exit55.i, %66, %contains_cache_at.exit.i
-  %.sroa.0.1.i = phi i32 [ %65, %contains_cache_at.exit.i ], [ %.sroa.0.084.i, %66 ], [ %.pre92.i, %push_to_contains_stack.exit64.i ], [ %.sroa.0.084.i, %104 ], [ %103, %contains_cache_at.exit55.i ]
-  %.sroa.14.1.i = phi i32 [ %.sroa.14.085.i, %contains_cache_at.exit.i ], [ %.sroa.14.085.i, %66 ], [ %.sroa.14.3.i, %push_to_contains_stack.exit64.i ], [ %.sroa.14.085.i, %104 ], [ %.sroa.14.085.i, %contains_cache_at.exit55.i ]
-  %.sroa.18.1.i = phi ptr [ %.sroa.18.086.i, %contains_cache_at.exit.i ], [ %.sroa.18.086.i, %66 ], [ %.sroa.18.3.i, %push_to_contains_stack.exit64.i ], [ %.sroa.18.086.i, %104 ], [ %.sroa.18.086.i, %contains_cache_at.exit55.i ]
+121:                                              ; preds = %push_to_contains_stack.exit65.i, %104, %contains_cache_at.exit55.i, %66, %contains_cache_at.exit.i
+  %.sroa.0.1.i = phi i32 [ %65, %contains_cache_at.exit.i ], [ %.sroa.0.085.i, %66 ], [ %.pre93.i, %push_to_contains_stack.exit64.i ], [ %.sroa.0.085.i, %104 ], [ %103, %contains_cache_at.exit55.i ]
+  %.sroa.14.1.i = phi i32 [ %.sroa.14.086.i, %contains_cache_at.exit.i ], [ %.sroa.14.086.i, %66 ], [ %.sroa.14.3.i, %push_to_contains_stack.exit64.i ], [ %.sroa.14.086.i, %104 ], [ %.sroa.14.086.i, %contains_cache_at.exit55.i ]
+  %.sroa.18.1.i = phi ptr [ %.sroa.18.087.i, %contains_cache_at.exit.i ], [ %.sroa.18.087.i, %66 ], [ %.sroa.18.3.i, %push_to_contains_stack.exit64.i ], [ %.sroa.18.087.i, %104 ], [ %.sroa.18.087.i, %contains_cache_at.exit55.i ]
   %.not41.i = icmp eq i32 %.sroa.0.1.i, 0
   br i1 %.not41.i, label %122, label %24, !llvm.loop !81
 

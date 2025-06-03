@@ -34371,8 +34371,8 @@ define void @_ZNK6casadi6MXNode13get_horzsplitERKSt6vectorIxSaIxEE(ptr dead_on_u
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !24
   %19 = load ptr, ptr %0, align 8, !tbaa !23
-  %.not116 = icmp eq ptr %18, %19
-  br i1 %.not116, label %.loopexit, label %.lr.ph115
+  %.not117 = icmp eq ptr %18, %19
+  br i1 %.not117, label %.loopexit, label %.lr.ph115
 
 .thread:                                          ; preds = %12
   %20 = landingpad { ptr, i32 }
@@ -34481,8 +34481,8 @@ _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %_ZN6casadi13Generic
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !287
   %60 = load ptr, ptr %2, align 8, !tbaa !289
-  %.not = icmp eq ptr %59, %60
-  br i1 %.not, label %.loopexit, label %.preheader.lr.ph
+  %.not116 = icmp eq ptr %59, %60
+  br i1 %.not116, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader84
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -34605,18 +34605,18 @@ _ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit: ; preds = %.noexc58
 
 ._ZNK6casadi6MXNode5size2Ev.exit_crit_edge:       ; preds = %109
   %.pre = load ptr, ptr %62, align 8, !tbaa !24
-  %.pre133 = load ptr, ptr %61, align 8, !tbaa !23
-  %.pre134 = ptrtoint ptr %.pre to i64
-  %.pre135 = ptrtoint ptr %.pre133 to i64
-  %.pre137 = sub i64 %.pre134, %.pre135
-  %.pre139 = ashr exact i64 %.pre137, 3
+  %.pre134 = load ptr, ptr %61, align 8, !tbaa !23
+  %.pre135 = ptrtoint ptr %.pre to i64
+  %.pre136 = ptrtoint ptr %.pre134 to i64
+  %.pre138 = sub i64 %.pre135, %.pre136
+  %.pre140 = ashr exact i64 %.pre138, 3
   br label %_ZNK6casadi6MXNode5size2Ev.exit
 
 _ZNK6casadi6MXNode5size2Ev.exit:                  ; preds = %._ZNK6casadi6MXNode5size2Ev.exit_crit_edge, %106
-  %.pre-phi140 = phi i64 [ %.pre139, %._ZNK6casadi6MXNode5size2Ev.exit_crit_edge ], [ %95, %106 ]
-  %111 = phi ptr [ %.pre133, %._ZNK6casadi6MXNode5size2Ev.exit_crit_edge ], [ %91, %106 ]
+  %.pre-phi141 = phi i64 [ %.pre140, %._ZNK6casadi6MXNode5size2Ev.exit_crit_edge ], [ %95, %106 ]
+  %111 = phi ptr [ %.pre134, %._ZNK6casadi6MXNode5size2Ev.exit_crit_edge ], [ %91, %106 ]
   %112 = phi i64 [ %110, %._ZNK6casadi6MXNode5size2Ev.exit_crit_edge ], [ %108, %106 ]
-  %.not.i.i.i61 = icmp ult i64 %spec.select, %.pre-phi140
+  %.not.i.i.i61 = icmp ult i64 %spec.select, %.pre-phi141
   br i1 %.not.i.i.i61, label %113, label %.invoke
 
 113:                                              ; preds = %_ZNK6casadi6MXNode5size2Ev.exit
@@ -34645,7 +34645,7 @@ _ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit66: ; preds = %.noexc64
 
 .invoke:                                          ; preds = %119, %_ZNK6casadi6MXNode5size2Ev.exit, %.lr.ph
   %126 = phi i64 [ %.1106, %.lr.ph ], [ %spec.select, %_ZNK6casadi6MXNode5size2Ev.exit ], [ %spec.select, %119 ]
-  %127 = phi i64 [ %79, %.lr.ph ], [ %125, %119 ], [ %.pre-phi140, %_ZNK6casadi6MXNode5size2Ev.exit ]
+  %127 = phi i64 [ %79, %.lr.ph ], [ %125, %119 ], [ %.pre-phi141, %_ZNK6casadi6MXNode5size2Ev.exit ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.100, i64 noundef %126, i64 noundef %127) #37
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -36046,8 +36046,8 @@ define void @_ZNK6casadi6MXNode13get_vertsplitERKSt6vectorIxSaIxEE(ptr dead_on_u
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !24
   %19 = load ptr, ptr %0, align 8, !tbaa !23
-  %.not116 = icmp eq ptr %18, %19
-  br i1 %.not116, label %.loopexit, label %.lr.ph115
+  %.not117 = icmp eq ptr %18, %19
+  br i1 %.not117, label %.loopexit, label %.lr.ph115
 
 .thread:                                          ; preds = %12
   %20 = landingpad { ptr, i32 }
@@ -36156,8 +36156,8 @@ _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %_ZN6casadi13Generic
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !287
   %60 = load ptr, ptr %2, align 8, !tbaa !289
-  %.not = icmp eq ptr %59, %60
-  br i1 %.not, label %.loopexit, label %.preheader.lr.ph
+  %.not116 = icmp eq ptr %59, %60
+  br i1 %.not116, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader84
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -36280,18 +36280,18 @@ _ZNK6casadi13GenericMatrixINS_2MXEE5size1Ev.exit: ; preds = %.noexc58
 
 ._ZNK6casadi6MXNode5size1Ev.exit_crit_edge:       ; preds = %109
   %.pre = load ptr, ptr %62, align 8, !tbaa !24
-  %.pre133 = load ptr, ptr %61, align 8, !tbaa !23
-  %.pre134 = ptrtoint ptr %.pre to i64
-  %.pre135 = ptrtoint ptr %.pre133 to i64
-  %.pre137 = sub i64 %.pre134, %.pre135
-  %.pre139 = ashr exact i64 %.pre137, 3
+  %.pre134 = load ptr, ptr %61, align 8, !tbaa !23
+  %.pre135 = ptrtoint ptr %.pre to i64
+  %.pre136 = ptrtoint ptr %.pre134 to i64
+  %.pre138 = sub i64 %.pre135, %.pre136
+  %.pre140 = ashr exact i64 %.pre138, 3
   br label %_ZNK6casadi6MXNode5size1Ev.exit
 
 _ZNK6casadi6MXNode5size1Ev.exit:                  ; preds = %._ZNK6casadi6MXNode5size1Ev.exit_crit_edge, %106
-  %.pre-phi140 = phi i64 [ %.pre139, %._ZNK6casadi6MXNode5size1Ev.exit_crit_edge ], [ %95, %106 ]
-  %111 = phi ptr [ %.pre133, %._ZNK6casadi6MXNode5size1Ev.exit_crit_edge ], [ %91, %106 ]
+  %.pre-phi141 = phi i64 [ %.pre140, %._ZNK6casadi6MXNode5size1Ev.exit_crit_edge ], [ %95, %106 ]
+  %111 = phi ptr [ %.pre134, %._ZNK6casadi6MXNode5size1Ev.exit_crit_edge ], [ %91, %106 ]
   %112 = phi i64 [ %110, %._ZNK6casadi6MXNode5size1Ev.exit_crit_edge ], [ %108, %106 ]
-  %.not.i.i.i61 = icmp ult i64 %spec.select, %.pre-phi140
+  %.not.i.i.i61 = icmp ult i64 %spec.select, %.pre-phi141
   br i1 %.not.i.i.i61, label %113, label %.invoke
 
 113:                                              ; preds = %_ZNK6casadi6MXNode5size1Ev.exit
@@ -36320,7 +36320,7 @@ _ZNK6casadi13GenericMatrixINS_2MXEE5size1Ev.exit66: ; preds = %.noexc64
 
 .invoke:                                          ; preds = %119, %_ZNK6casadi6MXNode5size1Ev.exit, %.lr.ph
   %126 = phi i64 [ %.1106, %.lr.ph ], [ %spec.select, %_ZNK6casadi6MXNode5size1Ev.exit ], [ %spec.select, %119 ]
-  %127 = phi i64 [ %79, %.lr.ph ], [ %125, %119 ], [ %.pre-phi140, %_ZNK6casadi6MXNode5size1Ev.exit ]
+  %127 = phi i64 [ %79, %.lr.ph ], [ %125, %119 ], [ %.pre-phi141, %_ZNK6casadi6MXNode5size1Ev.exit ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.100, i64 noundef %126, i64 noundef %127) #37
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 

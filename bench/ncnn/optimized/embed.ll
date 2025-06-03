@@ -847,14 +847,14 @@ define internal void @_ZN4ncnnL10embed_int8ERKNS_3MatES2_fS2_RS0_iRKNS_6OptionE.
 .preheader.us.us.preheader:                       ; preds = %.lr.ph53.split.us
   %36 = sext i32 %22 to i64
   %37 = add nsw i32 %21, 1
-  %wide.trip.count70 = zext nneg i32 %33 to i64
+  %wide.trip.count71 = zext nneg i32 %33 to i64
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %..loopexit_crit_edge.us.us
-  %indvars.iv72 = phi i64 [ %36, %.preheader.us.us.preheader ], [ %indvars.iv.next73, %..loopexit_crit_edge.us.us ]
-  %.reass.us.us = mul i64 %factor.op.mul, %indvars.iv72
+  %indvars.iv73 = phi i64 [ %36, %.preheader.us.us.preheader ], [ %indvars.iv.next74, %..loopexit_crit_edge.us.us ]
+  %.reass.us.us = mul i64 %factor.op.mul, %indvars.iv73
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 %.reass.us.us
-  %39 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv72
+  %39 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv73
   %40 = load i32, ptr %39, align 4, !tbaa !50
   %spec.store.select.us.us = call i32 @llvm.smax.i32(i32 %40, i32 0)
   %spec.select.us.us = call i32 @llvm.smin.i32(i32 %spec.store.select.us.us, i32 %31)
@@ -866,22 +866,22 @@ define internal void @_ZN4ncnnL10embed_int8ERKNS_3MatES2_fS2_RS0_iRKNS_6OptionE.
   br label %46
 
 46:                                               ; preds = %.preheader.us.us, %46
-  %indvars.iv67 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next68, %46 ]
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 %indvars.iv67
+  %indvars.iv68 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next69, %46 ]
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 %indvars.iv68
   %48 = load i8, ptr %47, align 1, !tbaa !56
   %49 = sitofp i8 %48 to float
   %50 = fmul fast float %49, %45
-  %51 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv67
+  %51 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv68
   store float %50, ptr %51, align 4, !tbaa !46
-  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
-  br i1 %exitcond71.not, label %..loopexit_crit_edge.us.us, label %46, !llvm.loop !57
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
+  %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
+  br i1 %exitcond72.not, label %..loopexit_crit_edge.us.us, label %46, !llvm.loop !57
 
 ..loopexit_crit_edge.us.us:                       ; preds = %46
-  %indvars.iv.next73 = add nsw i64 %indvars.iv72, 1
-  %lftr.wideiv75 = trunc i64 %indvars.iv.next73 to i32
-  %exitcond76.not = icmp eq i32 %37, %lftr.wideiv75
-  br i1 %exitcond76.not, label %._crit_edge, label %.preheader.us.us
+  %indvars.iv.next74 = add nsw i64 %indvars.iv73, 1
+  %lftr.wideiv76 = trunc i64 %indvars.iv.next74 to i32
+  %exitcond77.not = icmp eq i32 %37, %lftr.wideiv76
+  br i1 %exitcond77.not, label %._crit_edge, label %.preheader.us.us
 
 .lr.ph53.split:                                   ; preds = %.lr.ph53
   br i1 %35, label %.preheader46.us.preheader, label %._crit_edge
@@ -893,10 +893,10 @@ define internal void @_ZN4ncnnL10embed_int8ERKNS_3MatES2_fS2_RS0_iRKNS_6OptionE.
   br label %.preheader46.us
 
 .preheader46.us:                                  ; preds = %.preheader46.us.preheader, %..loopexit47_crit_edge.us
-  %indvars.iv63 = phi i64 [ %52, %.preheader46.us.preheader ], [ %indvars.iv.next64, %..loopexit47_crit_edge.us ]
-  %.reass.us55 = mul i64 %factor.op.mul, %indvars.iv63
+  %indvars.iv64 = phi i64 [ %52, %.preheader46.us.preheader ], [ %indvars.iv.next65, %..loopexit47_crit_edge.us ]
+  %.reass.us55 = mul i64 %factor.op.mul, %indvars.iv64
   %54 = getelementptr inbounds nuw i8, ptr %23, i64 %.reass.us55
-  %55 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv63
+  %55 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv64
   %56 = load i32, ptr %55, align 4, !tbaa !50
   %spec.store.select.us56 = call i32 @llvm.smax.i32(i32 %56, i32 0)
   %spec.select.us57 = call i32 @llvm.smin.i32(i32 %spec.store.select.us56, i32 %31)
@@ -923,10 +923,10 @@ define internal void @_ZN4ncnnL10embed_int8ERKNS_3MatES2_fS2_RS0_iRKNS_6OptionE.
   br i1 %exitcond.not, label %..loopexit47_crit_edge.us, label %62, !llvm.loop !59
 
 ..loopexit47_crit_edge.us:                        ; preds = %62
-  %indvars.iv.next64 = add nsw i64 %indvars.iv63, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next64 to i32
-  %exitcond66.not = icmp eq i32 %53, %lftr.wideiv
-  br i1 %exitcond66.not, label %._crit_edge, label %.preheader46.us
+  %indvars.iv.next65 = add nsw i64 %indvars.iv64, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next65 to i32
+  %exitcond67.not = icmp eq i32 %53, %lftr.wideiv
+  br i1 %exitcond67.not, label %._crit_edge, label %.preheader46.us
 
 ._crit_edge:                                      ; preds = %..loopexit47_crit_edge.us, %..loopexit_crit_edge.us.us, %.lr.ph53.split, %.lr.ph53.split.us, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %19)

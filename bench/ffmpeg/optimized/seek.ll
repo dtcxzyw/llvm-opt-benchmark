@@ -1637,7 +1637,7 @@ ff_read_frame_flush.exit.i:                       ; preds = %44, %22
   %56 = add nsw i64 %55, -1
   %57 = icmp slt i64 %2, %52
   %spec.select.i46.i = tail call i64 @llvm.smin.i64(i64 %2, i64 %56)
-  %.0.i.i = select i1 %57, i64 %52, i64 %spec.select.i46.i
+  %spec.select.i47.i = select i1 %57, i64 %52, i64 %spec.select.i46.i
   %58 = load ptr, ptr %53, align 8, !tbaa !66
   %59 = tail call i64 @avio_seek(ptr noundef %58, i64 noundef %.0.i.i, i32 noundef 0) #17
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -1683,23 +1683,23 @@ ff_read_frame_flush.exit.i:                       ; preds = %44, %22
   tail call void @ff_flush_packet_queue(ptr noundef nonnull %0) #17
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %86 = load i32, ptr %85, align 4, !tbaa !4
-  %.not25.i47.i = icmp eq i32 %86, 0
-  br i1 %.not25.i47.i, label %ff_read_frame_flush.exit56.i, label %.lr.ph.i48.i
+  %.not25.i48.i = icmp eq i32 %86, 0
+  br i1 %.not25.i48.i, label %ff_read_frame_flush.exit57.i, label %.lr.ph.i49.i
 
-.lr.ph.i48.i:                                     ; preds = %84
+.lr.ph.i49.i:                                     ; preds = %84
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 268
   br label %89
 
-89:                                               ; preds = %106, %.lr.ph.i48.i
-  %indvars.iv27.i49.i = phi i64 [ 0, %.lr.ph.i48.i ], [ %indvars.iv.next28.i55.i, %106 ]
+89:                                               ; preds = %106, %.lr.ph.i49.i
+  %indvars.iv27.i50.i = phi i64 [ 0, %.lr.ph.i48.i ], [ %indvars.iv.next28.i56.i, %106 ]
   %90 = load ptr, ptr %87, align 8, !tbaa !24
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv27.i49.i
+  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv27.i50.i
   %92 = load ptr, ptr %91, align 8, !tbaa !33
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 816
   %94 = load ptr, ptr %93, align 8, !tbaa !80
-  %.not.i50.i = icmp eq ptr %94, null
-  br i1 %.not.i50.i, label %96, label %95
+  %.not.i51.i = icmp eq ptr %94, null
+  br i1 %.not.i51.i, label %96, label %95
 
 95:                                               ; preds = %89
   tail call void @av_parser_close(ptr noundef nonnull %94) #17
@@ -1714,9 +1714,9 @@ ff_read_frame_flush.exit.i:                       ; preds = %44, %22
   %99 = getelementptr inbounds nuw i8, ptr %92, i64 832
   %100 = load i64, ptr %99, align 8, !tbaa !83
   %101 = icmp eq i64 %100, -9223372036854775808
-  %spec.select.i51.i = select i1 %101, i64 9223090561878065151, i64 -9223372036854775808
+  %spec.select.i52.i = select i1 %101, i64 9223090561878065151, i64 -9223372036854775808
   %102 = getelementptr inbounds nuw i8, ptr %92, i64 840
-  store i64 %spec.select.i51.i, ptr %102, align 8, !tbaa !35
+  store i64 %spec.select.i52.i, ptr %102, align 8, !tbaa !35
   %103 = load i32, ptr %88, align 4, !tbaa !84
   %104 = getelementptr inbounds nuw i8, ptr %92, i64 804
   store i32 %103, ptr %104, align 4, !tbaa !85
@@ -1726,40 +1726,40 @@ ff_read_frame_flush.exit.i:                       ; preds = %44, %22
 106:                                              ; preds = %111
   %107 = getelementptr inbounds nuw i8, ptr %92, i64 360
   store i32 0, ptr %107, align 8, !tbaa !86
-  %indvars.iv.next28.i55.i = add nuw nsw i64 %indvars.iv27.i49.i, 1
+  %indvars.iv.next28.i56.i = add nuw nsw i64 %indvars.iv27.i50.i, 1
   %108 = load i32, ptr %85, align 4, !tbaa !4
   %109 = zext i32 %108 to i64
-  %110 = icmp samesign ult i64 %indvars.iv.next28.i55.i, %109
-  br i1 %110, label %89, label %ff_read_frame_flush.exit56.i, !llvm.loop !87
+  %110 = icmp samesign ult i64 %indvars.iv.next28.i56.i, %109
+  br i1 %110, label %89, label %ff_read_frame_flush.exit57.i, !llvm.loop !87
 
 111:                                              ; preds = %111, %96
-  %indvars.iv.i52.i = phi i64 [ 0, %96 ], [ %indvars.iv.next.i53.i, %111 ]
-  %112 = getelementptr inbounds nuw [17 x i64], ptr %105, i64 0, i64 %indvars.iv.i52.i
+  %indvars.iv.i53.i = phi i64 [ 0, %96 ], [ %indvars.iv.next.i54.i, %111 ]
+  %112 = getelementptr inbounds nuw [17 x i64], ptr %105, i64 0, i64 %indvars.iv.i53.i
   store i64 -9223372036854775808, ptr %112, align 8, !tbaa !54
-  %indvars.iv.next.i53.i = add nuw nsw i64 %indvars.iv.i52.i, 1
-  %exitcond.not.i54.i = icmp eq i64 %indvars.iv.next.i53.i, 17
-  br i1 %exitcond.not.i54.i, label %106, label %111, !llvm.loop !88
+  %indvars.iv.next.i54.i = add nuw nsw i64 %indvars.iv.i53.i, 1
+  %exitcond.not.i55.i = icmp eq i64 %indvars.iv.next.i54.i, 17
+  br i1 %exitcond.not.i55.i, label %106, label %111, !llvm.loop !88
 
-ff_read_frame_flush.exit56.i:                     ; preds = %106, %84
+ff_read_frame_flush.exit57.i:                     ; preds = %106, %84
   %113 = load ptr, ptr %5, align 8, !tbaa !75
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 104
   %115 = load ptr, ptr %114, align 8, !tbaa !96
   %116 = tail call i32 %115(ptr noundef nonnull %0, i32 noundef %.037.i, i64 noundef %.038.i, i32 noundef %3) #17
   %117 = icmp sgt i32 %116, -1
-  br i1 %117, label %seek_frame_internal.exit.thread, label %ff_read_frame_flush.exit56..critedge_crit_edge.i
+  br i1 %117, label %seek_frame_internal.exit.thread, label %ff_read_frame_flush.exit57..critedge_crit_edge.i
 
-ff_read_frame_flush.exit56..critedge_crit_edge.i: ; preds = %ff_read_frame_flush.exit56.i
+ff_read_frame_flush.exit57..critedge_crit_edge.i: ; preds = %ff_read_frame_flush.exit57.i
   %.pre.i = load ptr, ptr %5, align 8, !tbaa !75
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %ff_read_frame_flush.exit56..critedge_crit_edge.i, %80
+.critedge.i:                                      ; preds = %ff_read_frame_flush.exit57..critedge_crit_edge.i, %80
   %118 = phi ptr [ %.pre.i, %ff_read_frame_flush.exit56..critedge_crit_edge.i ], [ %81, %80 ]
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 112
   %120 = load ptr, ptr %119, align 8, !tbaa !76
   %.not42.i = icmp ne ptr %120, null
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %118, i64 16
-  %.pre81.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !97
-  %121 = and i32 %.pre81.i, 8192
+  %.pre82.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !97
+  %121 = and i32 %.pre82.i, 8192
   %.not43.i = icmp eq i32 %121, 0
   %or.cond.i = select i1 %.not42.i, i1 %.not43.i, i1 false
   br i1 %or.cond.i, label %122, label %.critedge._crit_edge.i
@@ -1768,23 +1768,23 @@ ff_read_frame_flush.exit56..critedge_crit_edge.i: ; preds = %ff_read_frame_flush
   tail call void @ff_flush_packet_queue(ptr noundef nonnull %0) #17
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %124 = load i32, ptr %123, align 4, !tbaa !4
-  %.not25.i57.i = icmp eq i32 %124, 0
-  br i1 %.not25.i57.i, label %ff_read_frame_flush.exit66.i, label %.lr.ph.i58.i
+  %.not25.i58.i = icmp eq i32 %124, 0
+  br i1 %.not25.i58.i, label %ff_read_frame_flush.exit67.i, label %.lr.ph.i59.i
 
-.lr.ph.i58.i:                                     ; preds = %122
+.lr.ph.i59.i:                                     ; preds = %122
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 268
   br label %127
 
-127:                                              ; preds = %144, %.lr.ph.i58.i
-  %indvars.iv27.i59.i = phi i64 [ 0, %.lr.ph.i58.i ], [ %indvars.iv.next28.i65.i, %144 ]
+127:                                              ; preds = %144, %.lr.ph.i59.i
+  %indvars.iv27.i60.i = phi i64 [ 0, %.lr.ph.i58.i ], [ %indvars.iv.next28.i66.i, %144 ]
   %128 = load ptr, ptr %125, align 8, !tbaa !24
-  %129 = getelementptr inbounds nuw ptr, ptr %128, i64 %indvars.iv27.i59.i
+  %129 = getelementptr inbounds nuw ptr, ptr %128, i64 %indvars.iv27.i60.i
   %130 = load ptr, ptr %129, align 8, !tbaa !33
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 816
   %132 = load ptr, ptr %131, align 8, !tbaa !80
-  %.not.i60.i = icmp eq ptr %132, null
-  br i1 %.not.i60.i, label %134, label %133
+  %.not.i61.i = icmp eq ptr %132, null
+  br i1 %.not.i61.i, label %134, label %133
 
 133:                                              ; preds = %127
   tail call void @av_parser_close(ptr noundef nonnull %132) #17
@@ -1799,9 +1799,9 @@ ff_read_frame_flush.exit56..critedge_crit_edge.i: ; preds = %ff_read_frame_flush
   %137 = getelementptr inbounds nuw i8, ptr %130, i64 832
   %138 = load i64, ptr %137, align 8, !tbaa !83
   %139 = icmp eq i64 %138, -9223372036854775808
-  %spec.select.i61.i = select i1 %139, i64 9223090561878065151, i64 -9223372036854775808
+  %spec.select.i62.i = select i1 %139, i64 9223090561878065151, i64 -9223372036854775808
   %140 = getelementptr inbounds nuw i8, ptr %130, i64 840
-  store i64 %spec.select.i61.i, ptr %140, align 8, !tbaa !35
+  store i64 %spec.select.i62.i, ptr %140, align 8, !tbaa !35
   %141 = load i32, ptr %126, align 4, !tbaa !84
   %142 = getelementptr inbounds nuw i8, ptr %130, i64 804
   store i32 %141, ptr %142, align 4, !tbaa !85
@@ -1811,26 +1811,26 @@ ff_read_frame_flush.exit56..critedge_crit_edge.i: ; preds = %ff_read_frame_flush
 144:                                              ; preds = %149
   %145 = getelementptr inbounds nuw i8, ptr %130, i64 360
   store i32 0, ptr %145, align 8, !tbaa !86
-  %indvars.iv.next28.i65.i = add nuw nsw i64 %indvars.iv27.i59.i, 1
+  %indvars.iv.next28.i66.i = add nuw nsw i64 %indvars.iv27.i60.i, 1
   %146 = load i32, ptr %123, align 4, !tbaa !4
   %147 = zext i32 %146 to i64
-  %148 = icmp samesign ult i64 %indvars.iv.next28.i65.i, %147
-  br i1 %148, label %127, label %ff_read_frame_flush.exit66.i, !llvm.loop !87
+  %148 = icmp samesign ult i64 %indvars.iv.next28.i66.i, %147
+  br i1 %148, label %127, label %ff_read_frame_flush.exit67.i, !llvm.loop !87
 
 149:                                              ; preds = %149, %134
-  %indvars.iv.i62.i = phi i64 [ 0, %134 ], [ %indvars.iv.next.i63.i, %149 ]
-  %150 = getelementptr inbounds nuw [17 x i64], ptr %143, i64 0, i64 %indvars.iv.i62.i
+  %indvars.iv.i63.i = phi i64 [ 0, %134 ], [ %indvars.iv.next.i64.i, %149 ]
+  %150 = getelementptr inbounds nuw [17 x i64], ptr %143, i64 0, i64 %indvars.iv.i63.i
   store i64 -9223372036854775808, ptr %150, align 8, !tbaa !54
-  %indvars.iv.next.i63.i = add nuw nsw i64 %indvars.iv.i62.i, 1
-  %exitcond.not.i64.i = icmp eq i64 %indvars.iv.next.i63.i, 17
-  br i1 %exitcond.not.i64.i, label %144, label %149, !llvm.loop !88
+  %indvars.iv.next.i64.i = add nuw nsw i64 %indvars.iv.i63.i, 1
+  %exitcond.not.i65.i = icmp eq i64 %indvars.iv.next.i64.i, 17
+  br i1 %exitcond.not.i65.i, label %144, label %149, !llvm.loop !88
 
-ff_read_frame_flush.exit66.i:                     ; preds = %144, %122
+ff_read_frame_flush.exit67.i:                     ; preds = %144, %122
   %151 = tail call i32 @ff_seek_frame_binary(ptr noundef nonnull %0, i32 noundef %.037.i, i64 noundef %.038.i, i32 noundef %3)
   br label %seek_frame_internal.exit
 
 .critedge._crit_edge.i:                           ; preds = %.critedge.i
-  %152 = and i32 %.pre81.i, 16384
+  %152 = and i32 %.pre82.i, 16384
   %.not44.i = icmp eq i32 %152, 0
   br i1 %.not44.i, label %153, label %seek_frame_internal.exit.thread27
 
@@ -1838,23 +1838,23 @@ ff_read_frame_flush.exit66.i:                     ; preds = %144, %122
   tail call void @ff_flush_packet_queue(ptr noundef nonnull %0) #17
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %155 = load i32, ptr %154, align 4, !tbaa !4
-  %.not25.i67.i = icmp eq i32 %155, 0
-  br i1 %.not25.i67.i, label %ff_read_frame_flush.exit76.i, label %.lr.ph.i68.i
+  %.not25.i68.i = icmp eq i32 %155, 0
+  br i1 %.not25.i68.i, label %ff_read_frame_flush.exit77.i, label %.lr.ph.i69.i
 
-.lr.ph.i68.i:                                     ; preds = %153
+.lr.ph.i69.i:                                     ; preds = %153
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 268
   br label %158
 
-158:                                              ; preds = %175, %.lr.ph.i68.i
-  %indvars.iv27.i69.i = phi i64 [ 0, %.lr.ph.i68.i ], [ %indvars.iv.next28.i75.i, %175 ]
+158:                                              ; preds = %175, %.lr.ph.i69.i
+  %indvars.iv27.i70.i = phi i64 [ 0, %.lr.ph.i68.i ], [ %indvars.iv.next28.i76.i, %175 ]
   %159 = load ptr, ptr %156, align 8, !tbaa !24
-  %160 = getelementptr inbounds nuw ptr, ptr %159, i64 %indvars.iv27.i69.i
+  %160 = getelementptr inbounds nuw ptr, ptr %159, i64 %indvars.iv27.i70.i
   %161 = load ptr, ptr %160, align 8, !tbaa !33
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 816
   %163 = load ptr, ptr %162, align 8, !tbaa !80
-  %.not.i70.i = icmp eq ptr %163, null
-  br i1 %.not.i70.i, label %165, label %164
+  %.not.i71.i = icmp eq ptr %163, null
+  br i1 %.not.i71.i, label %165, label %164
 
 164:                                              ; preds = %158
   tail call void @av_parser_close(ptr noundef nonnull %163) #17
@@ -1869,9 +1869,9 @@ ff_read_frame_flush.exit66.i:                     ; preds = %144, %122
   %168 = getelementptr inbounds nuw i8, ptr %161, i64 832
   %169 = load i64, ptr %168, align 8, !tbaa !83
   %170 = icmp eq i64 %169, -9223372036854775808
-  %spec.select.i71.i = select i1 %170, i64 9223090561878065151, i64 -9223372036854775808
+  %spec.select.i72.i = select i1 %170, i64 9223090561878065151, i64 -9223372036854775808
   %171 = getelementptr inbounds nuw i8, ptr %161, i64 840
-  store i64 %spec.select.i71.i, ptr %171, align 8, !tbaa !35
+  store i64 %spec.select.i72.i, ptr %171, align 8, !tbaa !35
   %172 = load i32, ptr %157, align 4, !tbaa !84
   %173 = getelementptr inbounds nuw i8, ptr %161, i64 804
   store i32 %172, ptr %173, align 4, !tbaa !85
@@ -1881,21 +1881,21 @@ ff_read_frame_flush.exit66.i:                     ; preds = %144, %122
 175:                                              ; preds = %180
   %176 = getelementptr inbounds nuw i8, ptr %161, i64 360
   store i32 0, ptr %176, align 8, !tbaa !86
-  %indvars.iv.next28.i75.i = add nuw nsw i64 %indvars.iv27.i69.i, 1
+  %indvars.iv.next28.i76.i = add nuw nsw i64 %indvars.iv27.i70.i, 1
   %177 = load i32, ptr %154, align 4, !tbaa !4
   %178 = zext i32 %177 to i64
-  %179 = icmp samesign ult i64 %indvars.iv.next28.i75.i, %178
-  br i1 %179, label %158, label %ff_read_frame_flush.exit76.i, !llvm.loop !87
+  %179 = icmp samesign ult i64 %indvars.iv.next28.i76.i, %178
+  br i1 %179, label %158, label %ff_read_frame_flush.exit77.i, !llvm.loop !87
 
 180:                                              ; preds = %180, %165
-  %indvars.iv.i72.i = phi i64 [ 0, %165 ], [ %indvars.iv.next.i73.i, %180 ]
-  %181 = getelementptr inbounds nuw [17 x i64], ptr %174, i64 0, i64 %indvars.iv.i72.i
+  %indvars.iv.i73.i = phi i64 [ 0, %165 ], [ %indvars.iv.next.i74.i, %180 ]
+  %181 = getelementptr inbounds nuw [17 x i64], ptr %174, i64 0, i64 %indvars.iv.i73.i
   store i64 -9223372036854775808, ptr %181, align 8, !tbaa !54
-  %indvars.iv.next.i73.i = add nuw nsw i64 %indvars.iv.i72.i, 1
-  %exitcond.not.i74.i = icmp eq i64 %indvars.iv.next.i73.i, 17
-  br i1 %exitcond.not.i74.i, label %175, label %180, !llvm.loop !88
+  %indvars.iv.next.i74.i = add nuw nsw i64 %indvars.iv.i73.i, 1
+  %exitcond.not.i75.i = icmp eq i64 %indvars.iv.next.i74.i, 17
+  br i1 %exitcond.not.i75.i, label %175, label %180, !llvm.loop !88
 
-ff_read_frame_flush.exit76.i:                     ; preds = %175, %153
+ff_read_frame_flush.exit77.i:                     ; preds = %175, %153
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %183 = load ptr, ptr %182, align 8, !tbaa !24
   %184 = zext nneg i32 %.037.i to i64
@@ -1909,9 +1909,9 @@ ff_read_frame_flush.exit76.i:                     ; preds = %175, %153
   %192 = icmp slt i32 %191, 0
   br i1 %192, label %193, label %.critedge.i.i
 
-193:                                              ; preds = %ff_read_frame_flush.exit76.i
-  %.not.i78.i = icmp eq i32 %190, 0
-  br i1 %.not.i78.i, label %238, label %194
+193:                                              ; preds = %ff_read_frame_flush.exit77.i
+  %.not.i79.i = icmp eq i32 %190, 0
+  br i1 %.not.i79.i, label %238, label %194
 
 194:                                              ; preds = %193
   %195 = getelementptr inbounds nuw i8, ptr %188, i64 8
@@ -1919,7 +1919,7 @@ ff_read_frame_flush.exit76.i:                     ; preds = %175, %153
   %197 = icmp slt i64 %.038.i, %196
   br i1 %197, label %seek_frame_internal.exit.thread27, label %.thread100.i.i
 
-.critedge.i.i:                                    ; preds = %ff_read_frame_flush.exit76.i
+.critedge.i.i:                                    ; preds = %ff_read_frame_flush.exit77.i
   %198 = add nsw i32 %190, -1
   %199 = icmp eq i32 %191, %198
   br i1 %199, label %200, label %.thread112.i.i
@@ -2205,12 +2205,12 @@ ff_read_frame_flush.exit.i.i:                     ; preds = %303, %.thread112.i.
   %exitcond.not.i97.i.i = icmp eq i64 %indvars.iv.next.i96.i.i, %wide.trip.count.i94.i.i
   br i1 %exitcond.not.i97.i.i, label %seek_frame_internal.exit.thread, label %339, !llvm.loop !48
 
-seek_frame_internal.exit:                         ; preds = %ff_read_frame_flush.exit66.i, %211, %247, %325
+seek_frame_internal.exit:                         ; preds = %ff_read_frame_flush.exit67.i, %211, %247, %325
   %.036.i = phi i32 [ %151, %ff_read_frame_flush.exit66.i ], [ %326, %325 ], [ %248, %247 ], [ %212, %211 ]
   %352 = icmp sgt i32 %.036.i, -1
   br i1 %352, label %seek_frame_internal.exit.thread, label %seek_frame_internal.exit.thread27
 
-seek_frame_internal.exit.thread:                  ; preds = %339, %327, %313, %ff_read_frame_flush.exit56.i, %ff_read_frame_flush.exit.i, %seek_frame_internal.exit
+seek_frame_internal.exit.thread:                  ; preds = %339, %327, %313, %ff_read_frame_flush.exit57.i, %ff_read_frame_flush.exit.i, %seek_frame_internal.exit
   %353 = tail call i32 @avformat_queue_attached_pictures(ptr noundef nonnull %0) #17
   br label %seek_frame_internal.exit.thread27
 

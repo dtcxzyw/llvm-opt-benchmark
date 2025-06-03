@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @allocate_alloc_state() local_unnamed_addr #0 {
-  %1 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 32) #7
+  %1 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 32) #6
   ret ptr %1
 }
 
@@ -33,7 +33,7 @@ define dso_local void @clear_alloc_state(ptr noundef captures(none) %0) local_un
   %10 = zext nneg i32 %8 to i64
   %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !11
-  tail call void @free(ptr noundef %12) #7
+  tail call void @free(ptr noundef %12) #6
   %13 = load i32, ptr %2, align 8, !tbaa !4
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %6, label %._crit_edge, !llvm.loop !12
@@ -41,7 +41,7 @@ define dso_local void @clear_alloc_state(ptr noundef captures(none) %0) local_un
 ._crit_edge:                                      ; preds = %6, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !10
-  tail call void @free(ptr noundef %16) #7
+  tail call void @free(ptr noundef %16) #6
   store ptr null, ptr %15, align 8, !tbaa !10
   ret void
 }
@@ -61,7 +61,7 @@ define dso_local noundef ptr @alloc_blob_node(ptr noundef readonly captures(none
 
 7:                                                ; preds = %1
   store i32 1024, ptr %5, align 8, !tbaa !42
-  %8 = tail call ptr @xmalloc(i64 noundef 40960) #7
+  %8 = tail call ptr @xmalloc(i64 noundef 40960) #6
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -88,14 +88,14 @@ define dso_local noundef ptr @alloc_blob_node(ptr noundef readonly captures(none
   br i1 %20, label %21, label %st_mult.exit.i
 
 21:                                               ; preds = %14
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #8
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #7
   unreachable
 
 st_mult.exit.i:                                   ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = shl nuw nsw i64 %19, 3
-  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #7
+  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #6
   store ptr %25, ptr %22, align 8, !tbaa !10
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !43
   %.pre30.i = load i32, ptr %10, align 8, !tbaa !4
@@ -139,7 +139,7 @@ define dso_local noundef ptr @alloc_tree_node(ptr noundef readonly captures(none
 
 7:                                                ; preds = %1
   store i32 1024, ptr %5, align 8, !tbaa !42
-  %8 = tail call ptr @xmalloc(i64 noundef 57344) #7
+  %8 = tail call ptr @xmalloc(i64 noundef 57344) #6
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -166,14 +166,14 @@ define dso_local noundef ptr @alloc_tree_node(ptr noundef readonly captures(none
   br i1 %20, label %21, label %st_mult.exit.i
 
 21:                                               ; preds = %14
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #8
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #7
   unreachable
 
 st_mult.exit.i:                                   ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = shl nuw nsw i64 %19, 3
-  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #7
+  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #6
   store ptr %25, ptr %22, align 8, !tbaa !10
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !43
   %.pre30.i = load i32, ptr %10, align 8, !tbaa !4
@@ -217,7 +217,7 @@ define dso_local noundef ptr @alloc_tag_node(ptr noundef readonly captures(none)
 
 7:                                                ; preds = %1
   store i32 1024, ptr %5, align 8, !tbaa !42
-  %8 = tail call ptr @xmalloc(i64 noundef 65536) #7
+  %8 = tail call ptr @xmalloc(i64 noundef 65536) #6
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -244,14 +244,14 @@ define dso_local noundef ptr @alloc_tag_node(ptr noundef readonly captures(none)
   br i1 %20, label %21, label %st_mult.exit.i
 
 21:                                               ; preds = %14
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #8
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #7
   unreachable
 
 st_mult.exit.i:                                   ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = shl nuw nsw i64 %19, 3
-  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #7
+  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #6
   store ptr %25, ptr %22, align 8, !tbaa !10
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !43
   %.pre30.i = load i32, ptr %10, align 8, !tbaa !4
@@ -295,7 +295,7 @@ define dso_local noundef ptr @alloc_object_node(ptr noundef readonly captures(no
 
 7:                                                ; preds = %1
   store i32 1024, ptr %5, align 8, !tbaa !42
-  %8 = tail call ptr @xmalloc(i64 noundef 73728) #7
+  %8 = tail call ptr @xmalloc(i64 noundef 73728) #6
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -322,14 +322,14 @@ define dso_local noundef ptr @alloc_object_node(ptr noundef readonly captures(no
   br i1 %20, label %21, label %st_mult.exit.i
 
 21:                                               ; preds = %14
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #8
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #7
   unreachable
 
 st_mult.exit.i:                                   ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = shl nuw nsw i64 %19, 3
-  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #7
+  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #6
   store ptr %25, ptr %22, align 8, !tbaa !10
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !43
   %.pre30.i = load i32, ptr %10, align 8, !tbaa !4
@@ -385,7 +385,7 @@ define dso_local noundef ptr @alloc_commit_node(ptr noundef readonly captures(no
 
 7:                                                ; preds = %1
   store i32 1024, ptr %5, align 8, !tbaa !42
-  %8 = tail call ptr @xmalloc(i64 noundef 73728) #7
+  %8 = tail call ptr @xmalloc(i64 noundef 73728) #6
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -412,14 +412,14 @@ define dso_local noundef ptr @alloc_commit_node(ptr noundef readonly captures(no
   br i1 %20, label %21, label %st_mult.exit.i
 
 21:                                               ; preds = %14
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #8
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #7
   unreachable
 
 st_mult.exit.i:                                   ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = shl nuw nsw i64 %19, 3
-  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #7
+  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #6
   store ptr %25, ptr %22, align 8, !tbaa !10
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !43
   %.pre30.i = load i32, ptr %10, align 8, !tbaa !4

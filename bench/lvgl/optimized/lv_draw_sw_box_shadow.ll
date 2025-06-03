@@ -1393,9 +1393,9 @@ define internal fastcc void @shadow_blur_corner(i32 noundef %0, i32 noundef rang
 .lr.ph:                                           ; preds = %._crit_edge137
   %37 = udiv i32 16320, %1
   %wide.trip.count = zext i32 %36 to i64
-  br label %63
+  br label %64
 
-.preheader130:                                    ; preds = %69, %._crit_edge137
+.preheader130:                                    ; preds = %70, %._crit_edge137
   br i1 %9, label %.lr.ph147, label %._crit_edge148
 
 .lr.ph147:                                        ; preds = %.preheader130
@@ -1433,8 +1433,8 @@ define internal fastcc void @shadow_blur_corner(i32 noundef %0, i32 noundef rang
 
 49:                                               ; preds = %.lr.ph142.us, %49
   %indvars.iv162 = phi i64 [ 0, %.lr.ph142.us ], [ %indvars.iv.next163, %49 ]
-  %.0109141.us = phi i32 [ %44, %.lr.ph142.us ], [ %61, %49 ]
-  %.1117140.us = phi ptr [ %41, %.lr.ph142.us ], [ %62, %49 ]
+  %.0109141.us = phi i32 [ %44, %.lr.ph142.us ], [ %62, %49 ]
+  %.1117140.us = phi ptr [ %41, %.lr.ph142.us ], [ %63, %49 ]
   %50 = tail call i32 @llvm.smax.i32(i32 %.0109141.us, i32 0)
   %51 = lshr i32 %50, 6
   %52 = trunc i32 %51 to i16
@@ -1452,40 +1452,40 @@ define internal fastcc void @shadow_blur_corner(i32 noundef %0, i32 noundef rang
   %59 = add i32 %38, %58
   %.pn129.us = tail call i32 @llvm.smin.i32(i32 %59, i32 %39)
   %.pn128.us = mul nsw i32 %.pn129.us, %0
-  %60 = sext i32 %.pn128.us to i64
-  %.0.in.in.us = getelementptr i16, ptr %45, i64 %60
+  %61 = sext i32 %.pn128.us to i64
+  %.0.in.in.us = getelementptr i16, ptr %45, i64 %61
   %.0.in.us = load i16, ptr %.0.in.in.us, align 2, !tbaa !29
   %.0.us = zext i16 %.0.in.us to i32
-  %61 = add i32 %57, %.0.us
+  %62 = add i32 %57, %.0.us
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
-  %62 = getelementptr inbounds nuw i16, ptr %.1117140.us, i64 %6
+  %63 = getelementptr inbounds nuw i16, ptr %.1117140.us, i64 %6
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count176
   br i1 %exitcond166.not, label %.lr.ph145.us, label %49, !llvm.loop !61
 
-63:                                               ; preds = %.lr.ph, %69
+64:                                               ; preds = %.lr.ph, %70
   %indvars.iv158 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next159, %69 ]
-  %64 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv158
-  %65 = load i16, ptr %64, align 2, !tbaa !29
-  switch i16 %65, label %66 [
-    i16 0, label %69
+  %65 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv158
+  %66 = load i16, ptr %65, align 2, !tbaa !29
+  switch i16 %66, label %66 [
+    i16 0, label %70
     i16 16320, label %.sink.split
   ]
 
-66:                                               ; preds = %63
-  %67 = zext i16 %65 to i32
-  %68 = sdiv i32 %67, %1
+67:                                               ; preds = %64
+  %68 = zext i16 %66 to i32
+  %69 = sdiv i32 %68, %1
   br label %.sink.split
 
-.sink.split:                                      ; preds = %63, %66
-  %.sink.in = phi i32 [ %68, %66 ], [ %37, %63 ]
+.sink.split:                                      ; preds = %64, %67
+  %.sink.in = phi i32 [ %69, %66 ], [ %37, %63 ]
   %.sink = trunc i32 %.sink.in to i16
-  store i16 %.sink, ptr %64, align 2, !tbaa !29
-  br label %69
+  store i16 %.sink, ptr %65, align 2, !tbaa !29
+  br label %70
 
-69:                                               ; preds = %.sink.split, %63
+70:                                               ; preds = %.sink.split, %64
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count
-  br i1 %exitcond161.not, label %.preheader130, label %63, !llvm.loop !62
+  br i1 %exitcond161.not, label %.preheader130, label %64, !llvm.loop !62
 
 ._crit_edge148:                                   ; preds = %._crit_edge.us149, %.preheader130
   tail call void @lv_free(ptr noundef %8) #6

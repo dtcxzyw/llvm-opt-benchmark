@@ -20384,7 +20384,7 @@ GC_setup_atfork.exit:                             ; preds = %0, %10, %11
 22:                                               ; preds = %.thread
   %23 = load ptr, ptr @GC_current_warn_proc, align 8, !tbaa !12
   tail call void %23(ptr noundef nonnull @.str.324, i64 noundef 0) #47
-  br label %.thread29.sink.split
+  br label %.thread31
 
 24:                                               ; preds = %.thread
   %25 = call i64 @read(i32 noundef %20, ptr noundef nonnull %5, i64 noundef 1700) #47
@@ -20399,7 +20399,7 @@ GC_setup_atfork.exit:                             ; preds = %0, %10, %11
   %32 = sext i32 %31 to i64
   tail call void %29(ptr noundef nonnull @.str.325, i64 noundef %32) #47
   %33 = tail call i32 @close(i32 noundef %20) #47
-  br label %.thread29.sink.split
+  br label %.thread31
 
 34:                                               ; preds = %24
   %35 = and i64 %25, 2147483647
@@ -20407,7 +20407,7 @@ GC_setup_atfork.exit:                             ; preds = %0, %10, %11
   store i8 0, ptr %36, align 1, !tbaa !41
   %37 = tail call i32 @close(i32 noundef %20) #47
   %38 = icmp samesign ugt i32 %26, 4
-  br i1 %38, label %.lr.ph.preheader.i, label %.thread29.sink.split
+  br i1 %38, label %.lr.ph.preheader.i, label %.thread31
 
 .lr.ph.preheader.i:                               ; preds = %34
   %39 = add i64 %25, 4294967292
@@ -20455,9 +20455,9 @@ GC_setup_atfork.exit:                             ; preds = %0, %10, %11
 .lr.ph._crit_edge.i:                              ; preds = %58, %53, %48, %44, %.lr.ph.i
   %.2.i = phi i32 [ %.01925.i, %44 ], [ %.01925.i, %48 ], [ %.01925.i, %53 ], [ %spec.select.i, %58 ], [ %.01925.i, %.lr.ph.i ]
   %exitcond.not.i = icmp eq i64 %43, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.thread29.sink.split, label %.lr.ph.i, !llvm.loop !315
+  br i1 %exitcond.not.i, label %.thread31, label %.lr.ph.i, !llvm.loop !315
 
-.thread29.sink.split:                             ; preds = %.lr.ph._crit_edge.i, %34, %28, %22
+.thread31:                                        ; preds = %.lr.ph._crit_edge.i, %34, %28, %22
   %.2.i.lcssa.sink = phi i32 [ 1, %22 ], [ 1, %28 ], [ 1, %34 ], [ %.2.i, %.lr.ph._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 1701, ptr nonnull %5) #47
   store i32 %.2.i.lcssa.sink, ptr @GC_nprocs, align 4, !tbaa !3
@@ -20476,19 +20476,19 @@ GC_setup_atfork.exit:                             ; preds = %0, %10, %11
   %or.cond = icmp ult i32 %69, -16
   br i1 %or.cond, label %70, label %78
 
-70:                                               ; preds = %66
+64:                                               ; preds = %66
   %71 = load ptr, ptr @GC_current_warn_proc, align 8, !tbaa !12
   %sext = shl i64 %67, 32
   %72 = ashr exact i64 %sext, 32
   tail call void %71(ptr noundef nonnull @.str.319, i64 noundef %72) #47
   br label %78
 
-73:                                               ; preds = %.thread29
+71:                                               ; preds = %.thread29
   %74 = load i32, ptr @GC_required_markers_cnt, align 4, !tbaa !3
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %78
 
-76:                                               ; preds = %73
+75:                                               ; preds = %71
   %77 = tail call i32 @llvm.umin.i32(i32 %64, i32 16)
   br label %78
 
@@ -20507,358 +20507,358 @@ GC_setup_atfork.exit:                             ; preds = %0, %10, %11
 
 83:                                               ; preds = %78, %81
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4) #47
-  %84 = load i32, ptr @GC_sig_suspend, align 4, !tbaa !3
-  %85 = icmp eq i32 %84, -1
-  br i1 %85, label %86, label %87
+  %90 = load i32, ptr @GC_sig_suspend, align 4, !tbaa !3
+  %91 = icmp eq i32 %90, -1
+  br i1 %91, label %92, label %93
 
-86:                                               ; preds = %83
+92:                                               ; preds = %83
   store i32 30, ptr @GC_sig_suspend, align 4, !tbaa !3
-  br label %87
+  br label %93
 
-87:                                               ; preds = %86, %83
-  %88 = load i32, ptr @GC_sig_thr_restart, align 4, !tbaa !3
-  %89 = icmp eq i32 %88, -1
-  br i1 %89, label %90, label %91
+93:                                               ; preds = %92, %83
+  %94 = load i32, ptr @GC_sig_thr_restart, align 4, !tbaa !3
+  %95 = icmp eq i32 %94, -1
+  br i1 %95, label %96, label %97
 
-90:                                               ; preds = %87
+96:                                               ; preds = %93
   store i32 24, ptr @GC_sig_thr_restart, align 4, !tbaa !3
-  br label %91
+  br label %97
 
-91:                                               ; preds = %90, %87
-  %92 = tail call i32 @sem_init(ptr noundef nonnull @GC_suspend_ack_sem, i32 noundef 0, i32 noundef 0) #47
-  %93 = icmp eq i32 %92, -1
-  br i1 %93, label %94, label %96
+97:                                               ; preds = %96, %93
+  %98 = tail call i32 @sem_init(ptr noundef nonnull @GC_suspend_ack_sem, i32 noundef 0, i32 noundef 0) #47
+  %99 = icmp eq i32 %98, -1
+  br i1 %99, label %100, label %102
 
-94:                                               ; preds = %91
-  %95 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
+100:                                              ; preds = %97
+  %101 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
   tail call void %95(ptr noundef nonnull @.str.116) #47
   tail call void @abort() #51
   unreachable
 
-96:                                               ; preds = %91
+102:                                              ; preds = %97
   store volatile i64 1, ptr @GC_stop_count, align 8, !tbaa !10
-  %97 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %98 = call i32 @sigfillset(ptr noundef nonnull %97) #47
-  %.not.i21 = icmp eq i32 %98, 0
-  br i1 %.not.i21, label %101, label %99
+  %103 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %104 = call i32 @sigfillset(ptr noundef nonnull %103) #47
+  %.not.i22 = icmp eq i32 %104, 0
+  br i1 %.not.i22, label %107, label %105
 
-99:                                               ; preds = %96
-  %100 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
+105:                                              ; preds = %102
+  %106 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
   call void %100(ptr noundef nonnull @.str.305) #47
   call void @abort() #51
   unreachable
 
-101:                                              ; preds = %96
-  call fastcc void @GC_remove_allowed_signals(ptr noundef nonnull %97)
-  %102 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i32 268435460, ptr %102, align 8, !tbaa !310
+107:                                              ; preds = %102
+  call fastcc void @GC_remove_allowed_signals(ptr noundef nonnull %103)
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  store i32 268435460, ptr %108, align 8, !tbaa !310
   store ptr @GC_suspend_sigaction, ptr %4, align 8, !tbaa !41
-  %103 = load i32, ptr @GC_sig_suspend, align 4, !tbaa !3
-  %104 = call i32 @sigaction(i32 noundef %103, ptr noundef nonnull %4, ptr noundef null) #47
-  %.not3.i = icmp eq i32 %104, 0
-  br i1 %.not3.i, label %107, label %105
+  %109 = load i32, ptr @GC_sig_suspend, align 4, !tbaa !3
+  %110 = call i32 @sigaction(i32 noundef %109, ptr noundef nonnull %4, ptr noundef null) #47
+  %.not3.i = icmp eq i32 %110, 0
+  br i1 %.not3.i, label %113, label %111
 
-105:                                              ; preds = %101
-  %106 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
+111:                                              ; preds = %107
+  %112 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
   call void %106(ptr noundef nonnull @.str.326) #47
   call void @abort() #51
   unreachable
 
-107:                                              ; preds = %101
-  %108 = load i32, ptr @GC_sig_suspend, align 4, !tbaa !3
-  %109 = load i32, ptr @GC_sig_thr_restart, align 4, !tbaa !3
-  %.not4.i = icmp eq i32 %108, %109
-  br i1 %.not4.i, label %116, label %110
+113:                                              ; preds = %107
+  %114 = load i32, ptr @GC_sig_suspend, align 4, !tbaa !3
+  %115 = load i32, ptr @GC_sig_thr_restart, align 4, !tbaa !3
+  %.not4.i = icmp eq i32 %114, %115
+  br i1 %.not4.i, label %122, label %116
 
-110:                                              ; preds = %107
-  %111 = load i32, ptr %102, align 8, !tbaa !310
-  %112 = and i32 %111, -5
-  store i32 %112, ptr %102, align 8, !tbaa !310
+116:                                              ; preds = %113
+  %117 = load i32, ptr %108, align 8, !tbaa !310
+  %118 = and i32 %117, -5
+  store i32 %118, ptr %108, align 8, !tbaa !310
   store ptr @GC_restart_handler, ptr %4, align 8, !tbaa !41
-  %113 = call i32 @sigaction(i32 noundef %109, ptr noundef nonnull %4, ptr noundef null) #47
-  %.not6.i = icmp eq i32 %113, 0
-  br i1 %.not6.i, label %119, label %114
+  %119 = call i32 @sigaction(i32 noundef %115, ptr noundef nonnull %4, ptr noundef null) #47
+  %.not6.i = icmp eq i32 %119, 0
+  br i1 %.not6.i, label %125, label %120
 
-114:                                              ; preds = %110
-  %115 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
+120:                                              ; preds = %116
+  %121 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
   call void %115(ptr noundef nonnull @.str.327) #47
   call void @abort() #51
   unreachable
 
-116:                                              ; preds = %107
-  %117 = load i32, ptr @GC_print_stats, align 4, !tbaa !3
-  %.not5.i = icmp eq i32 %117, 0
-  br i1 %.not5.i, label %119, label %118, !prof !13
+122:                                              ; preds = %113
+  %123 = load i32, ptr @GC_print_stats, align 4, !tbaa !3
+  %.not5.i = icmp eq i32 %123, 0
+  br i1 %.not5.i, label %125, label %124, !prof !13
 
-118:                                              ; preds = %116
+124:                                              ; preds = %122
   call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.328)
-  br label %119
+  br label %125
 
-119:                                              ; preds = %118, %116, %110
-  %120 = call i32 @sigfillset(ptr noundef nonnull @suspend_handler_mask) #47
-  %.not7.i = icmp eq i32 %120, 0
-  br i1 %.not7.i, label %123, label %121
+125:                                              ; preds = %124, %122, %116
+  %126 = call i32 @sigfillset(ptr noundef nonnull @suspend_handler_mask) #47
+  %.not7.i = icmp eq i32 %126, 0
+  br i1 %.not7.i, label %129, label %127
 
-121:                                              ; preds = %119
-  %122 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
+127:                                              ; preds = %125
+  %128 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
   call void %122(ptr noundef nonnull @.str.305) #47
   call void @abort() #51
   unreachable
 
-123:                                              ; preds = %119
+129:                                              ; preds = %125
   call fastcc void @GC_remove_allowed_signals(ptr noundef nonnull @suspend_handler_mask)
-  %124 = load i32, ptr @GC_sig_thr_restart, align 4, !tbaa !3
-  %125 = call i32 @sigdelset(ptr noundef nonnull @suspend_handler_mask, i32 noundef %124) #47
-  %.not8.i = icmp eq i32 %125, 0
-  br i1 %.not8.i, label %128, label %126
+  %130 = load i32, ptr @GC_sig_thr_restart, align 4, !tbaa !3
+  %131 = call i32 @sigdelset(ptr noundef nonnull @suspend_handler_mask, i32 noundef %130) #47
+  %.not8.i = icmp eq i32 %131, 0
+  br i1 %.not8.i, label %134, label %132
 
-126:                                              ; preds = %123
-  %127 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
+132:                                              ; preds = %129
+  %133 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
   call void %127(ptr noundef nonnull @.str.114) #47
   call void @abort() #51
   unreachable
 
-128:                                              ; preds = %123
+134:                                              ; preds = %129
   store i8 1, ptr @GC_retry_signals, align 1, !tbaa !41
-  %129 = call ptr @getenv(ptr noundef nonnull @.str.329) #47
-  %.not9.i = icmp eq ptr %129, null
-  br i1 %.not9.i, label %140, label %130
+  %135 = call ptr @getenv(ptr noundef nonnull @.str.329) #47
+  %.not9.i = icmp eq ptr %135, null
+  br i1 %.not9.i, label %146, label %136
 
-130:                                              ; preds = %128
-  %131 = load i8, ptr %129, align 1, !tbaa !41
-  %.not10.i = icmp eq i8 %131, 48
-  br i1 %.not10.i, label %132, label %137
+136:                                              ; preds = %134
+  %137 = load i8, ptr %135, align 1, !tbaa !41
+  %.not10.i = icmp eq i8 %137, 48
+  br i1 %.not10.i, label %138, label %143
 
-132:                                              ; preds = %130
-  %133 = getelementptr inbounds nuw i8, ptr %129, i64 1
-  %134 = load i8, ptr %133, align 1, !tbaa !41
-  %135 = icmp ne i8 %134, 0
-  %136 = zext i1 %135 to i8
-  br label %137
-
-137:                                              ; preds = %132, %130
-  %138 = phi i8 [ 1, %130 ], [ %136, %132 ]
-  store i8 %138, ptr @GC_retry_signals, align 1, !tbaa !41
-  %139 = icmp eq i8 %138, 0
-  br label %140
-
-140:                                              ; preds = %137, %128
-  %.not11.i = phi i1 [ %139, %137 ], [ false, %128 ]
-  %141 = load i32, ptr @GC_print_stats, align 4
-  %.not12.i = icmp eq i32 %141, 0
-  %or.cond.i = select i1 %.not11.i, i1 true, i1 %.not12.i
-  br i1 %or.cond.i, label %143, label %142, !prof !31
-
-142:                                              ; preds = %140
-  call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.330)
+138:                                              ; preds = %136
+  %139 = getelementptr inbounds nuw i8, ptr %135, i64 1
+  %140 = load i8, ptr %139, align 1, !tbaa !41
+  %141 = icmp ne i8 %140, 0
+  %142 = zext i1 %141 to i8
   br label %143
 
-143:                                              ; preds = %142, %140
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #47
-  %144 = call i32 @sigemptyset(ptr noundef nonnull %3) #47
-  %145 = load i32, ptr @GC_sig_suspend, align 4, !tbaa !3
-  %.not.i.i.i = icmp eq i32 %145, -1
-  %146 = select i1 %.not.i.i.i, i32 30, i32 %145
-  %147 = call i32 @sigaddset(ptr noundef nonnull %3, i32 noundef %146) #47
-  %148 = load i32, ptr @GC_sig_thr_restart, align 4, !tbaa !3
-  %.not.i1.i.i = icmp eq i32 %148, -1
-  %149 = select i1 %.not.i1.i.i, i32 24, i32 %148
-  %150 = call i32 @sigaddset(ptr noundef nonnull %3, i32 noundef %149) #47
-  %151 = call i32 @pthread_sigmask(i32 noundef 1, ptr noundef nonnull %3, ptr noundef null) #47
-  %.not.i.i = icmp eq i32 %151, 0
-  br i1 %.not.i.i, label %GC_stop_init.exit, label %152
+143:                                              ; preds = %138, %136
+  %144 = phi i8 [ 1, %130 ], [ %142, %132 ]
+  store i8 %144, ptr @GC_retry_signals, align 1, !tbaa !41
+  %145 = icmp eq i8 %144, 0
+  br label %146
 
-152:                                              ; preds = %143
-  %153 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
+146:                                              ; preds = %143, %134
+  %.not11.i = phi i1 [ %145, %137 ], [ false, %128 ]
+  %147 = load i32, ptr @GC_print_stats, align 4
+  %.not12.i = icmp eq i32 %147, 0
+  %or.cond.i = select i1 %.not11.i, i1 true, i1 %.not12.i
+  br i1 %or.cond.i, label %149, label %148, !prof !31
+
+148:                                              ; preds = %146
+  call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.330)
+  br label %149
+
+149:                                              ; preds = %148, %146
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #47
+  %150 = call i32 @sigemptyset(ptr noundef nonnull %3) #47
+  %151 = load i32, ptr @GC_sig_suspend, align 4, !tbaa !3
+  %.not.i.i.i = icmp eq i32 %151, -1
+  %152 = select i1 %.not.i.i.i, i32 30, i32 %151
+  %153 = call i32 @sigaddset(ptr noundef nonnull %3, i32 noundef %152) #47
+  %154 = load i32, ptr @GC_sig_thr_restart, align 4, !tbaa !3
+  %.not.i1.i.i = icmp eq i32 %154, -1
+  %155 = select i1 %.not.i1.i.i, i32 24, i32 %154
+  %156 = call i32 @sigaddset(ptr noundef nonnull %3, i32 noundef %155) #47
+  %157 = call i32 @pthread_sigmask(i32 noundef 1, ptr noundef nonnull %3, ptr noundef null) #47
+  %.not.i.i = icmp eq i32 %157, 0
+  br i1 %.not.i.i, label %GC_stop_init.exit, label %158
+
+158:                                              ; preds = %149
+  %159 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
   call void %153(ptr noundef nonnull @.str.334) #47
   call void @abort() #51
   unreachable
 
-GC_stop_init.exit:                                ; preds = %143
+GC_stop_init.exit:                                ; preds = %149
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #47
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4) #47
-  %154 = load i32, ptr @GC_available_markers_m1, align 4, !tbaa !3
-  %155 = icmp slt i32 %154, 1
-  br i1 %155, label %156, label %159
+  %160 = load i32, ptr @GC_available_markers_m1, align 4, !tbaa !3
+  %161 = icmp slt i32 %160, 1
+  br i1 %161, label %162, label %165
 
-156:                                              ; preds = %GC_stop_init.exit
+162:                                              ; preds = %GC_stop_init.exit
   store i32 0, ptr @GC_parallel, align 4, !tbaa !3
-  %157 = load i32, ptr @GC_print_stats, align 4, !tbaa !3
-  %.not20 = icmp eq i32 %157, 0
-  br i1 %.not20, label %191, label %158, !prof !13
+  %163 = load i32, ptr @GC_print_stats, align 4, !tbaa !3
+  %.not20 = icmp eq i32 %163, 0
+  br i1 %.not20, label %197, label %164, !prof !13
 
-158:                                              ; preds = %156
+164:                                              ; preds = %162
   call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.321)
-  br label %191
+  br label %197
 
-159:                                              ; preds = %GC_stop_init.exit
+165:                                              ; preds = %GC_stop_init.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #47
-  %160 = call ptr @gnu_get_libc_version() #47
+  %166 = call ptr @gnu_get_libc_version() #47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #47
-  %161 = call i64 @strtoul(ptr noundef %160, ptr noundef nonnull %1, i32 noundef 10) #47
-  %162 = trunc i64 %161 to i32
-  %163 = icmp slt i32 %162, 0
-  br i1 %163, label %.thread.i, label %164
+  %167 = call i64 @strtoul(ptr noundef %166, ptr noundef nonnull %1, i32 noundef 10) #47
+  %168 = trunc i64 %167 to i32
+  %169 = icmp slt i32 %168, 0
+  br i1 %169, label %.thread.i, label %170
 
-164:                                              ; preds = %159
-  %165 = load ptr, ptr %1, align 8, !tbaa !42
-  %166 = icmp ne ptr %160, %165
-  %.not.i.i22 = icmp ult i64 %161, 4294967296
-  %or.cond.i.i = and i1 %.not.i.i22, %166
-  br i1 %or.cond.i.i, label %167, label %.thread.i
+170:                                              ; preds = %165
+  %171 = load ptr, ptr %1, align 8, !tbaa !42
+  %172 = icmp ne ptr %166, %171
+  %.not.i.i23 = icmp ult i64 %167, 4294967296
+  %or.cond.i.i = and i1 %.not.i.i23, %172
+  br i1 %or.cond.i.i, label %173, label %.thread.i
 
-167:                                              ; preds = %164
-  %168 = load i8, ptr %165, align 1, !tbaa !41
-  %.not16.i.i = icmp eq i8 %168, 46
-  br i1 %.not16.i.i, label %169, label %GC_parse_version.exit.i
+173:                                              ; preds = %170
+  %174 = load i8, ptr %171, align 1, !tbaa !41
+  %.not16.i.i = icmp eq i8 %174, 46
+  br i1 %.not16.i.i, label %175, label %GC_parse_version.exit.i
 
-169:                                              ; preds = %167
-  %170 = getelementptr inbounds nuw i8, ptr %165, i64 1
-  %171 = call i64 @strtoul(ptr noundef nonnull %170, ptr noundef nonnull %1, i32 noundef 10) #47
-  %172 = trunc nuw nsw i64 %171 to i32
-  %or.cond18.i.i = icmp ult i64 %171, 2147483648
+175:                                              ; preds = %173
+  %176 = getelementptr inbounds nuw i8, ptr %171, i64 1
+  %177 = call i64 @strtoul(ptr noundef nonnull %176, ptr noundef nonnull %1, i32 noundef 10) #47
+  %178 = trunc nuw nsw i64 %177 to i32
+  %or.cond18.i.i = icmp ult i64 %177, 2147483648
   br i1 %or.cond18.i.i, label %GC_parse_version.exit.i, label %.thread.i
 
-.thread.i:                                        ; preds = %169, %164, %159
+.thread.i:                                        ; preds = %175, %170, %165
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #47
   br label %setup_mark_lock.exit
 
-GC_parse_version.exit.i:                          ; preds = %169, %167
-  %.1.i = phi i32 [ -1, %167 ], [ %172, %169 ]
+GC_parse_version.exit.i:                          ; preds = %175, %173
+  %.1.i = phi i32 [ -1, %167 ], [ %178, %169 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #47
-  %173 = icmp samesign ugt i32 %162, 2
-  br i1 %173, label %177, label %174
+  %179 = icmp samesign ugt i32 %168, 2
+  br i1 %171, label %183, label %180
 
-174:                                              ; preds = %GC_parse_version.exit.i
-  %175 = icmp eq i32 %162, 2
-  %176 = icmp sgt i32 %.1.i, 18
-  %or.cond.i23 = select i1 %175, i1 %176, i1 false
-  br i1 %or.cond.i23, label %177, label %setup_mark_lock.exit
+180:                                              ; preds = %GC_parse_version.exit.i
+  %181 = icmp eq i32 %168, 2
+  %182 = icmp sgt i32 %.1.i, 18
+  %or.cond.i24 = select i1 %181, i1 %182, i1 false
+  br i1 %or.cond.i24, label %183, label %setup_mark_lock.exit
 
-177:                                              ; preds = %174, %GC_parse_version.exit.i
-  %178 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %2) #47
-  %.not.i24 = icmp eq i32 %178, 0
-  br i1 %.not.i24, label %181, label %179
+183:                                              ; preds = %180, %GC_parse_version.exit.i
+  %184 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %2) #47
+  %.not.i25 = icmp eq i32 %184, 0
+  br i1 %.not.i25, label %187, label %185
 
-179:                                              ; preds = %177
-  %180 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
+185:                                              ; preds = %183
+  %186 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
   call void %180(ptr noundef nonnull @.str.335) #47
   call void @abort() #51
   unreachable
 
-181:                                              ; preds = %177
-  %182 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %2, i32 noundef 0) #47
-  %.not3.i25 = icmp eq i32 %182, 0
-  br i1 %.not3.i25, label %185, label %183
+187:                                              ; preds = %183
+  %188 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %2, i32 noundef 0) #47
+  %.not3.i26 = icmp eq i32 %188, 0
+  br i1 %.not3.i26, label %191, label %189
 
-183:                                              ; preds = %181
-  %184 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
+189:                                              ; preds = %187
+  %190 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
   call void %184(ptr noundef nonnull @.str.336) #47
   call void @abort() #51
   unreachable
 
-185:                                              ; preds = %181
-  %186 = call i32 @pthread_mutex_init(ptr noundef nonnull @mark_mutex, ptr noundef nonnull %2) #47
-  %.not4.i26 = icmp eq i32 %186, 0
-  br i1 %.not4.i26, label %189, label %187
+191:                                              ; preds = %187
+  %192 = call i32 @pthread_mutex_init(ptr noundef nonnull @mark_mutex, ptr noundef nonnull %2) #47
+  %.not4.i27 = icmp eq i32 %192, 0
+  br i1 %.not4.i27, label %195, label %193
 
-187:                                              ; preds = %185
-  %188 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
+193:                                              ; preds = %191
+  %194 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
   call void %188(ptr noundef nonnull @.str.337) #47
   call void @abort() #51
   unreachable
 
-189:                                              ; preds = %185
-  %190 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %2) #47
+195:                                              ; preds = %191
+  %196 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %2) #47
   br label %setup_mark_lock.exit
 
-setup_mark_lock.exit:                             ; preds = %.thread.i, %174, %189
+setup_mark_lock.exit:                             ; preds = %.thread.i, %180, %195
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #47
-  br label %191
+  br label %197
 
-191:                                              ; preds = %158, %156, %setup_mark_lock.exit
-  %192 = tail call i64 @pthread_self() #54
-  %193 = load ptr, ptr @GC_stackbottom, align 8, !tbaa !42
-  %194 = lshr i64 %192, 8
-  %195 = xor i64 %194, %192
-  %196 = lshr i64 %195, 16
-  %197 = xor i64 %196, %195
-  %198 = and i64 %197, 255
-  %199 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @first_thread, i64 8), align 8, !tbaa !185
-  %200 = icmp eq ptr %199, null
-  br i1 %200, label %.thread32, label %203, !prof !44
+197:                                              ; preds = %164, %162, %setup_mark_lock.exit
+  %198 = tail call i64 @pthread_self() #54
+  %199 = load ptr, ptr @GC_stackbottom, align 8, !tbaa !42
+  %200 = lshr i64 %198, 8
+  %201 = xor i64 %1100, %198
+  %202 = lshr i64 %201, 16
+  %203 = xor i64 %1102, %201
+  %204 = and i64 %203, 255
+  %205 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @first_thread, i64 8), align 8, !tbaa !185
+  %206 = icmp eq ptr %1105, null
+  br i1 %206, label %.thread33, label %209, !prof !44
 
-.thread32:                                        ; preds = %191
+.thread33:                                        ; preds = %197
   store ptr @first_crtn, ptr getelementptr inbounds nuw (i8, ptr @first_thread, i64 8), align 8, !tbaa !185
-  %201 = getelementptr inbounds nuw [256 x ptr], ptr @GC_threads, i64 0, i64 %198
-  %202 = load ptr, ptr %201, align 8, !tbaa !316
-  store ptr %202, ptr @first_thread, align 8, !tbaa !41
-  store ptr @first_thread, ptr %201, align 8, !tbaa !316
+  %207 = getelementptr inbounds nuw [256 x ptr], ptr @GC_threads, i64 0, i64 %204
+  %208 = load ptr, ptr %207, align 8, !tbaa !316
+  store ptr %208, ptr @first_thread, align 8, !tbaa !41
+  store ptr @first_thread, ptr %207, align 8, !tbaa !316
   br label %GC_new_thread.exit
 
-203:                                              ; preds = %191
+209:                                              ; preds = %197
   store i1 true, ptr @GC_in_thread_creation, align 1
-  %204 = call fastcc ptr @GC_generic_malloc_inner_small(i64 noundef 64, i32 noundef 1)
-  store ptr %204, ptr @saved_crtn, align 8, !tbaa !318
-  %205 = call fastcc ptr @GC_generic_malloc_inner_small(i64 noundef 856, i32 noundef 1)
+  %210 = call fastcc ptr @GC_generic_malloc_inner_small(i64 noundef 64, i32 noundef 1)
+  store ptr %210, ptr @saved_crtn, align 8, !tbaa !318
+  %211 = call fastcc ptr @GC_generic_malloc_inner_small(i64 noundef 856, i32 noundef 1)
   store ptr null, ptr @saved_crtn, align 8, !tbaa !318
   store i1 false, ptr @GC_in_thread_creation, align 1
-  %206 = icmp eq ptr %204, null
-  %207 = icmp eq ptr %205, null
-  %or.cond.i27 = or i1 %206, %207
-  br i1 %or.cond.i27, label %208, label %210
+  %212 = icmp eq ptr %210, null
+  %213 = icmp eq ptr %211, null
+  %or.cond.i28 = or i1 %212, %213
+  br i1 %or.cond.i28, label %214, label %216
 
-208:                                              ; preds = %203
-  %209 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
+214:                                              ; preds = %209
+  %215 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
   call void %209(ptr noundef nonnull @.str.338) #47
   call void @abort() #51
   unreachable
 
-210:                                              ; preds = %203
-  %211 = getelementptr inbounds nuw i8, ptr %205, i64 8
-  store ptr %204, ptr %211, align 8, !tbaa !185
-  %212 = getelementptr inbounds nuw [256 x ptr], ptr @GC_threads, i64 0, i64 %198
-  %213 = load ptr, ptr %212, align 8, !tbaa !316
-  store ptr %213, ptr %205, align 8, !tbaa !41
-  store ptr %205, ptr %212, align 8, !tbaa !316
-  %214 = icmp ne ptr %205, @first_thread
+216:                                              ; preds = %209
+  %217 = getelementptr inbounds nuw i8, ptr %211, i64 8
+  store ptr %210, ptr %217, align 8, !tbaa !185
+  %218 = getelementptr inbounds nuw [256 x ptr], ptr @GC_threads, i64 0, i64 %204
+  %219 = load ptr, ptr %218, align 8, !tbaa !316
+  store ptr %219, ptr %211, align 8, !tbaa !41
+  store ptr %211, ptr %218, align 8, !tbaa !316
+  %220 = icmp ne ptr %211, @first_thread
   %.b.i = load i1, ptr @GC_manual_vdb, align 1
-  %or.cond4.i = select i1 %214, i1 %.b.i, i1 false
-  br i1 %or.cond4.i, label %215, label %GC_new_thread.exit, !prof !319
+  %or.cond4.i = select i1 %220, i1 %.b.i, i1 false
+  br i1 %or.cond4.i, label %221, label %GC_new_thread.exit, !prof !319
 
-215:                                              ; preds = %210
-  %216 = ptrtoint ptr %205 to i64
-  %217 = lshr i64 %216, 12
-  %218 = lshr i64 %216, 18
-  %219 = and i64 %218, 4095
-  %220 = getelementptr inbounds nuw [4096 x i64], ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 59912), i64 0, i64 %219
-  %221 = and i64 %217, 63
-  %222 = shl nuw i64 1, %221
-  %223 = atomicrmw volatile or ptr %220, i64 %222 monotonic, align 8
-  %.pre = load ptr, ptr %211, align 8, !tbaa !185
+221:                                              ; preds = %216
+  %222 = ptrtoint ptr %211 to i64
+  %223 = lshr i64 %222, 12
+  %224 = lshr i64 %222, 18
+  %225 = and i64 %224, 4095
+  %226 = getelementptr inbounds nuw [4096 x i64], ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 59912), i64 0, i64 %225
+  %227 = and i64 %223, 63
+  %228 = shl nuw i64 1, %227
+  %229 = atomicrmw volatile or ptr %226, i64 %228 monotonic, align 8
+  %.pre = load ptr, ptr %217, align 8, !tbaa !185
   br label %GC_new_thread.exit
 
-GC_new_thread.exit:                               ; preds = %.thread32, %210, %215
-  %224 = phi ptr [ @first_crtn, %.thread32 ], [ %204, %210 ], [ %.pre, %215 ]
-  %.0.i2836 = phi ptr [ @first_thread, %.thread32 ], [ %205, %210 ], [ %205, %215 ]
-  %225 = getelementptr inbounds nuw i8, ptr %.0.i2836, i64 16
-  store i64 %192, ptr %225, align 8, !tbaa !180
-  %226 = getelementptr inbounds nuw i8, ptr %224, i64 8
-  store ptr %193, ptr %226, align 8, !tbaa !320
-  store ptr %193, ptr %224, align 8, !tbaa !321
-  %227 = icmp eq ptr %193, null
-  br i1 %227, label %228, label %GC_record_stack_base.exit
+GC_new_thread.exit:                               ; preds = %.thread33, %216, %221
+  %230 = phi ptr [ @first_crtn, %.thread32 ], [ %210, %210 ], [ %.pre, %215 ]
+  %.0.i2937 = phi ptr [ @first_thread, %.thread32 ], [ %211, %210 ], [ %211, %215 ]
+  %231 = getelementptr inbounds nuw i8, ptr %.0.i2937, i64 16
+  store i64 %198, ptr %231, align 8, !tbaa !180
+  %232 = getelementptr inbounds nuw i8, ptr %230, i64 8
+  store ptr %199, ptr %232, align 8, !tbaa !320
+  store ptr %199, ptr %230, align 8, !tbaa !321
+  %233 = icmp eq ptr %199, null
+  br i1 %233, label %234, label %GC_record_stack_base.exit
 
-228:                                              ; preds = %GC_new_thread.exit
-  %229 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
+234:                                              ; preds = %GC_new_thread.exit
+  %235 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
   call void %229(ptr noundef nonnull @.str.339) #47
   call void @abort() #51
   unreachable
 
 GC_record_stack_base.exit:                        ; preds = %GC_new_thread.exit
-  store i64 %192, ptr @GC_main_thread_id, align 8, !tbaa !10
-  %230 = getelementptr inbounds nuw i8, ptr %.0.i2836, i64 24
-  store i8 2, ptr %230, align 8, !tbaa !322
+  store i64 %198, ptr @GC_main_thread_id, align 8, !tbaa !10
+  %236 = getelementptr inbounds nuw i8, ptr %.0.i2937, i64 24
+  store i8 2, ptr %236, align 8, !tbaa !322
   ret void
 }
 

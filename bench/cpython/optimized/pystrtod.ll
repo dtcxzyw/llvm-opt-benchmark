@@ -451,11 +451,11 @@ define dso_local ptr @PyOS_double_to_string(double noundef %0, i8 noundef signex
 
 16:                                               ; preds = %15
   tail call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str.6, i32 noundef 1269) #12
-  br label %172
+  br label %173
 
 17:                                               ; preds = %5
   tail call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str.6, i32 noundef 1275) #12
-  br label %172
+  br label %173
 
 18:                                               ; preds = %5, %12, %15, %14, %10
   %.020 = phi i32 [ 0, %15 ], [ %spec.store.select, %14 ], [ %11, %10 ], [ %2, %12 ], [ %2, %5 ]
@@ -491,7 +491,7 @@ define dso_local ptr @PyOS_double_to_string(double noundef %0, i8 noundef signex
   %.fr252.i = freeze i32 %31
   %32 = sext i32 %.fr252.i to i64
   %33 = icmp eq ptr %30, null
-  br i1 %33, label %169, label %34
+  br i1 %33, label %170, label %34
 
 34:                                               ; preds = %29
   %35 = load ptr, ptr %6, align 8, !tbaa !9
@@ -553,7 +553,7 @@ thread-pre-split.i:                               ; preds = %47, %42
 
 58:                                               ; preds = %55
   %59 = call ptr @PyErr_NoMemory() #12
-  br label %171
+  br label %172
 
 60:                                               ; preds = %55
   %61 = load i32, ptr %8, align 4, !tbaa !12
@@ -584,11 +584,11 @@ thread-pre-split.i:                               ; preds = %47, %42
   %69 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %.1.i, ptr noundef nonnull dereferenceable(1) %68, i64 noundef 3) #12
   %70 = getelementptr i8, ptr %.1.i, i64 3
   %.not186.i = icmp eq ptr %4, null
-  br i1 %.not186.i, label %168, label %71
+  br i1 %.not186.i, label %169, label %71
 
 71:                                               ; preds = %67
   store i32 1, ptr %4, align 4, !tbaa !12
-  br label %168
+  br label %169
 
 72:                                               ; preds = %65
   %73 = icmp eq i8 %66, 78
@@ -601,11 +601,11 @@ thread-pre-split.i:                               ; preds = %47, %42
   %77 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %.1.i, ptr noundef nonnull dereferenceable(1) %76, i64 noundef 3) #12
   %78 = getelementptr i8, ptr %.1.i, i64 3
   %.not185.i = icmp eq ptr %4, null
-  br i1 %.not185.i, label %168, label %79
+  br i1 %.not185.i, label %169, label %79
 
 79:                                               ; preds = %74
   store i32 2, ptr %4, align 4, !tbaa !12
-  br label %168
+  br label %169
 
 80:                                               ; preds = %.thread200.i, %47
   %.not187.i = icmp eq ptr %4, null
@@ -657,7 +657,7 @@ thread-pre-split.i:                               ; preds = %47, %42
 
 95:                                               ; preds = %82
   call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str.6, i32 noundef 1103) #12
-  br label %171
+  br label %172
 
 96:                                               ; preds = %82
   %97 = add i32 %.fr252.i, 3
@@ -674,7 +674,7 @@ thread-pre-split.i:                               ; preds = %47, %42
   %102 = add nsw i64 %101, -1
   %103 = icmp ne i32 %20, 0
   %or.cond5.i = and i1 %103, %.0164227.i
-  br i1 %or.cond5.i, label %.thread, label %107
+  br i1 %or.cond5.i, label %.thread, label %108
 
 .thread:                                          ; preds = %98
   %104 = add nsw i64 %32, 1
@@ -683,147 +683,147 @@ thread-pre-split.i:                               ; preds = %47, %42
 
 .thread28:                                        ; preds = %.thread231.i, %93
   %.0160229239.i.ph = phi i64 [ %spec.select.i, %93 ], [ %83, %.thread231.i ]
-  %106 = call i64 @llvm.smax.i64(i64 %.0160229239.i.ph, i64 1)
-  br label %109
+  %107 = call i64 @llvm.smax.i64(i64 %.0160229239.i.ph, i64 1)
+  br label %110
 
-107:                                              ; preds = %98
-  %108 = call i64 @llvm.smax.i64(i64 %.0160229.i, i64 %99)
+108:                                              ; preds = %98
+  %109 = call i64 @llvm.smax.i64(i64 %.0160229.i, i64 %99)
   %spec.select31 = select i1 %.0164227.i, i64 3, i64 8
-  br label %109
+  br label %110
 
-109:                                              ; preds = %107, %.thread, %.thread28
-  %.1161.i26 = phi i64 [ %106, %.thread28 ], [ %105, %.thread ], [ %108, %107 ]
+110:                                              ; preds = %108, %.thread, %.thread28
+  %.1161.i26 = phi i64 [ %107, %.thread28 ], [ %105, %.thread ], [ %109, %107 ]
   %.0164227240.i24 = phi i1 [ false, %.thread28 ], [ true, %.thread ], [ %.0164227.i, %107 ]
-  %110 = phi i64 [ 1, %.thread28 ], [ %99, %.thread ], [ %99, %107 ]
-  %111 = phi i1 [ false, %.thread28 ], [ %100, %.thread ], [ %100, %107 ]
-  %112 = phi i64 [ 1, %.thread28 ], [ %101, %.thread ], [ %101, %107 ]
-  %113 = phi i64 [ 0, %.thread28 ], [ %102, %.thread ], [ %102, %107 ]
-  %114 = phi i64 [ 8, %.thread28 ], [ 3, %.thread ], [ %spec.select31, %107 ]
-  %115 = add i32 %.fr252.i, -1
-  %reass.sub = sub nsw i64 %114, %112
-  %116 = add nuw nsw i64 %reass.sub, 1
-  %117 = add i64 %116, %.1161.i26
-  %118 = call ptr @PyMem_Malloc(i64 noundef %117) #12
-  %119 = icmp eq ptr %118, null
-  br i1 %119, label %120, label %122
+  %111 = phi i64 [ 1, %.thread28 ], [ %99, %.thread ], [ %99, %107 ]
+  %112 = phi i1 [ false, %.thread28 ], [ %100, %.thread ], [ %100, %107 ]
+  %113 = phi i64 [ 1, %.thread28 ], [ %101, %.thread ], [ %101, %107 ]
+  %114 = phi i64 [ 0, %.thread28 ], [ %102, %.thread ], [ %102, %107 ]
+  %115 = phi i64 [ 8, %.thread28 ], [ 3, %.thread ], [ %spec.select31, %107 ]
+  %116 = add i32 %.fr252.i, -1
+  %reass.sub = sub nsw i64 %115, %113
+  %117 = add nuw nsw i64 %reass.sub, 1
+  %118 = add i64 %117, %.1161.i26
+  %119 = call ptr @PyMem_Malloc(i64 noundef %118) #12
+  %120 = icmp eq ptr %119, null
+  br i1 %120, label %121, label %123
 
-120:                                              ; preds = %109
-  %121 = call ptr @PyErr_NoMemory() #12
-  br label %171
+121:                                              ; preds = %110
+  %122 = call ptr @PyErr_NoMemory() #12
+  br label %172
 
-122:                                              ; preds = %109
-  %123 = load i32, ptr %8, align 4, !tbaa !12
-  %124 = icmp eq i32 %123, 1
-  br i1 %124, label %.sink.split246.i, label %125
+123:                                              ; preds = %110
+  %124 = load i32, ptr %8, align 4, !tbaa !12
+  %125 = icmp eq i32 %124, 1
+  br i1 %125, label %.sink.split246.i, label %126
 
-125:                                              ; preds = %122
+126:                                              ; preds = %123
   %.not191.i = icmp eq i32 %19, 0
-  br i1 %.not191.i, label %127, label %.sink.split246.i
+  br i1 %.not191.i, label %128, label %.sink.split246.i
 
-.sink.split246.i:                                 ; preds = %125, %122
+.sink.split246.i:                                 ; preds = %126, %123
   %.sink247.i = phi i8 [ 45, %122 ], [ 43, %125 ]
-  %126 = getelementptr i8, ptr %118, i64 1
-  store i8 %.sink247.i, ptr %118, align 1, !tbaa !4
-  br label %127
+  %127 = getelementptr i8, ptr %119, i64 1
+  store i8 %.sink247.i, ptr %119, align 1, !tbaa !4
+  br label %128
 
-127:                                              ; preds = %.sink.split246.i, %125
-  %.2.i = phi ptr [ %118, %125 ], [ %126, %.sink.split246.i ]
-  br i1 %111, label %.thread202.i, label %135
+128:                                              ; preds = %.sink.split246.i, %126
+  %.2.i = phi ptr [ %119, %125 ], [ %127, %.sink.split246.i ]
+  br i1 %112, label %.thread202.i, label %136
 
-.thread202.i:                                     ; preds = %127
-  %128 = sub nsw i64 %110, %113
-  call void @llvm.memset.p0.i64(ptr align 1 %.2.i, i8 48, i64 %128, i1 false)
-  %129 = getelementptr i8, ptr %.2.i, i64 %128
-  %130 = getelementptr i8, ptr %129, i64 1
-  store i8 46, ptr %129, align 1, !tbaa !4
-  %131 = sub nsw i64 0, %110
-  call void @llvm.memset.p0.i64(ptr align 1 %130, i8 48, i64 %131, i1 false)
-  %132 = getelementptr i8, ptr %130, i64 %131
-  %.not192204.i = icmp sgt i64 %110, %38
-  %133 = call ptr @strncpy(ptr noundef %132, ptr noundef nonnull %30, i64 noundef %38) #12
-  %134 = getelementptr i8, ptr %132, i64 %38
-  br i1 %.not192204.i, label %149, label %153
+.thread202.i:                                     ; preds = %128
+  %129 = sub nsw i64 %111, %114
+  call void @llvm.memset.p0.i64(ptr align 1 %.2.i, i8 48, i64 %129, i1 false)
+  %130 = getelementptr i8, ptr %.2.i, i64 %129
+  %131 = getelementptr i8, ptr %130, i64 1
+  store i8 46, ptr %130, align 1, !tbaa !4
+  %132 = sub nsw i64 0, %111
+  call void @llvm.memset.p0.i64(ptr align 1 %131, i8 48, i64 %132, i1 false)
+  %133 = getelementptr i8, ptr %131, i64 %132
+  %.not192204.i = icmp sgt i64 %111, %38
+  %134 = call ptr @strncpy(ptr noundef %133, ptr noundef nonnull %30, i64 noundef %38) #12
+  %135 = getelementptr i8, ptr %133, i64 %38
+  br i1 %.not192204.i, label %150, label %154
 
-135:                                              ; preds = %127
-  %136 = sub nuw nsw i64 1, %112
-  call void @llvm.memset.p0.i64(ptr align 1 %.2.i, i8 48, i64 %136, i1 false)
-  %137 = getelementptr i8, ptr %.2.i, i64 %136
-  %.not192.i = icmp sgt i64 %110, %38
-  br i1 %.not192.i, label %146, label %138
+136:                                              ; preds = %128
+  %137 = sub nuw nsw i64 1, %113
+  call void @llvm.memset.p0.i64(ptr align 1 %.2.i, i8 48, i64 %137, i1 false)
+  %138 = getelementptr i8, ptr %.2.i, i64 %137
+  %.not192.i = icmp sgt i64 %111, %38
+  br i1 %.not192.i, label %147, label %139
 
-138:                                              ; preds = %135
-  %139 = call ptr @strncpy(ptr noundef %137, ptr noundef nonnull %30, i64 noundef %110) #12
-  %140 = getelementptr i8, ptr %137, i64 %110
-  %141 = getelementptr i8, ptr %140, i64 1
-  store i8 46, ptr %140, align 1, !tbaa !4
-  %142 = getelementptr i8, ptr %30, i64 %110
-  %143 = sub nsw i64 %38, %110
-  %144 = call ptr @strncpy(ptr noundef %141, ptr noundef %142, i64 noundef %143) #12
-  %145 = getelementptr i8, ptr %141, i64 %143
-  br label %153
+139:                                              ; preds = %136
+  %140 = call ptr @strncpy(ptr noundef %138, ptr noundef nonnull %30, i64 noundef %111) #12
+  %141 = getelementptr i8, ptr %138, i64 %111
+  %142 = getelementptr i8, ptr %141, i64 1
+  store i8 46, ptr %141, align 1, !tbaa !4
+  %143 = getelementptr i8, ptr %30, i64 %111
+  %144 = sub nsw i64 %38, %111
+  %145 = call ptr @strncpy(ptr noundef %142, ptr noundef %143, i64 noundef %144) #12
+  %146 = getelementptr i8, ptr %142, i64 %144
+  br label %154
 
-146:                                              ; preds = %135
-  %147 = call ptr @strncpy(ptr noundef %137, ptr noundef nonnull %30, i64 noundef %38) #12
-  %148 = getelementptr i8, ptr %137, i64 %38
-  br label %149
+147:                                              ; preds = %136
+  %148 = call ptr @strncpy(ptr noundef %138, ptr noundef nonnull %30, i64 noundef %38) #12
+  %149 = getelementptr i8, ptr %138, i64 %38
+  br label %150
 
-149:                                              ; preds = %146, %.thread202.i
-  %.4209.i = phi ptr [ %148, %146 ], [ %134, %.thread202.i ]
-  %150 = sub i64 %110, %38
-  call void @llvm.memset.p0.i64(ptr align 1 %.4209.i, i8 48, i64 %150, i1 false)
-  %151 = getelementptr i8, ptr %.4209.i, i64 %150
-  %152 = getelementptr i8, ptr %151, i64 1
-  store i8 46, ptr %151, align 1, !tbaa !4
-  br label %153
+150:                                              ; preds = %147, %.thread202.i
+  %.4209.i = phi ptr [ %149, %146 ], [ %135, %.thread202.i ]
+  %151 = sub i64 %111, %38
+  call void @llvm.memset.p0.i64(ptr align 1 %.4209.i, i8 48, i64 %151, i1 false)
+  %152 = getelementptr i8, ptr %.4209.i, i64 %151
+  %153 = getelementptr i8, ptr %152, i64 1
+  store i8 46, ptr %152, align 1, !tbaa !4
+  br label %154
 
-153:                                              ; preds = %149, %138, %.thread202.i
-  %.sink251.i = phi i64 [ %110, %149 ], [ %38, %138 ], [ %38, %.thread202.i ]
-  %.4210.sink249.i = phi ptr [ %152, %149 ], [ %145, %138 ], [ %134, %.thread202.i ]
-  %154 = sub i64 %.1161.i26, %.sink251.i
-  call void @llvm.memset.p0.i64(ptr align 1 %.4210.sink249.i, i8 48, i64 %154, i1 false)
-  %155 = getelementptr i8, ptr %.4210.sink249.i, i64 %154
-  %156 = getelementptr i8, ptr %155, i64 -1
-  %157 = load i8, ptr %156, align 1, !tbaa !4
-  %158 = icmp ne i8 %157, 46
-  %159 = icmp ne i32 %21, 0
-  %or.cond7.i = or i1 %159, %158
-  %spec.select199.i = select i1 %or.cond7.i, ptr %155, ptr %156
-  br i1 %.0164227240.i24, label %168, label %160
+154:                                              ; preds = %150, %139, %.thread202.i
+  %.sink251.i = phi i64 [ %111, %149 ], [ %38, %138 ], [ %38, %.thread202.i ]
+  %.4210.sink249.i = phi ptr [ %153, %149 ], [ %146, %138 ], [ %135, %.thread202.i ]
+  %155 = sub i64 %.1161.i26, %.sink251.i
+  call void @llvm.memset.p0.i64(ptr align 1 %.4210.sink249.i, i8 48, i64 %155, i1 false)
+  %156 = getelementptr i8, ptr %.4210.sink249.i, i64 %155
+  %157 = getelementptr i8, ptr %156, i64 -1
+  %158 = load i8, ptr %157, align 1, !tbaa !4
+  %159 = icmp ne i8 %158, 46
+  %160 = icmp ne i32 %21, 0
+  %or.cond7.i = or i1 %160, %159
+  %spec.select199.i = select i1 %or.cond7.i, ptr %156, ptr %157
+  br i1 %.0164227240.i24, label %169, label %161
 
-160:                                              ; preds = %153
-  %161 = getelementptr i8, ptr %.3, i64 16
-  %162 = load ptr, ptr %161, align 8, !tbaa !9
-  %163 = load i8, ptr %162, align 1, !tbaa !4
-  %164 = getelementptr i8, ptr %spec.select199.i, i64 1
-  store i8 %163, ptr %spec.select199.i, align 1, !tbaa !4
-  %165 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %164, ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %115) #12
-  %166 = sext i32 %165 to i64
-  %167 = getelementptr i8, ptr %164, i64 %166
-  br label %168
+161:                                              ; preds = %154
+  %162 = getelementptr i8, ptr %.3, i64 16
+  %163 = load ptr, ptr %162, align 8, !tbaa !9
+  %164 = load i8, ptr %163, align 1, !tbaa !4
+  %165 = getelementptr i8, ptr %spec.select199.i, i64 1
+  store i8 %164, ptr %spec.select199.i, align 1, !tbaa !4
+  %166 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %165, ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %116) #12
+  %167 = sext i32 %166 to i64
+  %168 = getelementptr i8, ptr %165, i64 %167
+  br label %169
 
-168:                                              ; preds = %160, %153, %79, %74, %71, %67
-  %.0159.ph.i = phi ptr [ %78, %74 ], [ %78, %79 ], [ %70, %67 ], [ %70, %71 ], [ %spec.select199.i, %153 ], [ %167, %160 ]
-  %.0.ph.i = phi ptr [ %56, %74 ], [ %56, %79 ], [ %56, %67 ], [ %56, %71 ], [ %118, %153 ], [ %118, %160 ]
+169:                                              ; preds = %161, %154, %79, %74, %71, %67
+  %.0159.ph.i = phi ptr [ %78, %74 ], [ %78, %79 ], [ %70, %67 ], [ %70, %71 ], [ %spec.select199.i, %153 ], [ %168, %160 ]
+  %.0.ph.i = phi ptr [ %56, %74 ], [ %56, %79 ], [ %56, %67 ], [ %56, %71 ], [ %119, %153 ], [ %119, %160 ]
   store i8 0, ptr %.0159.ph.i, align 1, !tbaa !4
-  br label %171
+  br label %172
 
-169:                                              ; preds = %29
-  %170 = call ptr @PyErr_NoMemory() #12
+170:                                              ; preds = %29
+  %171 = call ptr @PyErr_NoMemory() #12
   br label %format_float_short.exit
 
-171:                                              ; preds = %168, %120, %95, %58
+172:                                              ; preds = %169, %121, %95, %58
   %.0217.ph.i = phi ptr [ null, %58 ], [ null, %120 ], [ null, %95 ], [ %.0.ph.i, %168 ]
   call void @_Py_dg_freedtoa(ptr noundef nonnull %30) #12
   br label %format_float_short.exit
 
-format_float_short.exit:                          ; preds = %169, %171
+format_float_short.exit:                          ; preds = %170, %172
   %.0217222.i = phi ptr [ %.0217.ph.i, %171 ], [ null, %169 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  br label %172
+  br label %173
 
-172:                                              ; preds = %format_float_short.exit, %17, %16
+173:                                              ; preds = %format_float_short.exit, %17, %16
   %.015 = phi ptr [ null, %17 ], [ null, %16 ], [ %.0217222.i, %format_float_short.exit ]
   ret ptr %.015
 }
