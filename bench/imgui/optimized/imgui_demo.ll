@@ -12038,8 +12038,8 @@ _ZL10HelpMarkerPKc.exit607:                       ; preds = %597, %605
 
 737:                                              ; preds = %736
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #33
-  %738 = uitofp nneg i32 %.033363 to float
-  %739 = fadd float %738, -1.000000e+00
+  %738 = add nsw i32 %.033363, -1
+  %739 = sitofp i32 %738 to float
   store float %739, ptr %46, align 4, !tbaa !42
   store float %739, ptr %722, align 4, !tbaa !44
   call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 11, ptr noundef nonnull align 4 dereferenceable(8) %46)
@@ -20986,7 +20986,7 @@ _ZL10HelpMarkerPKc.exit628:                       ; preds = %1000, %1002
 
 1011:                                             ; preds = %1007, %1021
   %.0484809 = phi i32 [ 0, %1007 ], [ %1022, %1021 ]
-  %.lhs.trunc = trunc nuw i32 %.0484809 to i8
+  %.lhs.trunc = trunc nuw nsw i32 %.0484809 to i8
   %1012 = urem i8 %.lhs.trunc, 3
   %1013 = icmp eq i8 %1012, 2
   br i1 %1013, label %1014, label %.critedge598

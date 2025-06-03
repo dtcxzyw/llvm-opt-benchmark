@@ -1854,7 +1854,7 @@ switch.edge:                                      ; preds = %2
   %.0186198.i.i = phi ptr [ %303, %304 ], [ %335, %337 ]
   %306 = add nsw i32 %.0182199.i.i, %305
   %307 = trunc i32 %306 to i8
-  %308 = trunc nuw i32 %.0182199.i.i to i8
+  %308 = trunc nuw nsw i32 %.0182199.i.i to i8
   br label %309
 
 309:                                              ; preds = %309, %.preheader195.i.i
@@ -1865,7 +1865,7 @@ switch.edge:                                      ; preds = %2
   %312 = sdiv i32 %311, 2
   %313 = add nsw i32 %312, %306
   %314 = sdiv i32 %313, 2
-  %.lhs.trunc.i.i = trunc i32 %310 to i16
+  %.lhs.trunc.i.i = trunc nsw i32 %310 to i16
   %315 = sdiv i16 %.lhs.trunc.i.i, 2
   %316 = trunc i32 %312 to i8
   %317 = getelementptr inbounds nuw i8, ptr %.1187196.i.i, i64 1
@@ -2000,7 +2000,7 @@ switch.edge:                                      ; preds = %2
   store i8 %368, ptr %379, align 1, !tbaa !46
   %381 = getelementptr inbounds nuw i8, ptr %.5204.i.i, i64 15
   store i8 %377, ptr %380, align 1, !tbaa !46
-  %382 = trunc i32 %.2205.i.i to i8
+  %382 = trunc nsw i32 %.2205.i.i to i8
   %383 = add i8 %10, %382
   %384 = getelementptr inbounds nuw i8, ptr %.5204.i.i, i64 16
   store i8 %383, ptr %381, align 1, !tbaa !46
@@ -2017,7 +2017,7 @@ switch.edge:                                      ; preds = %2
   %.3185214.i.i = phi i32 [ 0, %.preheader190.i.i ], [ %415, %414 ]
   %.6213.i.i = phi ptr [ %384, %.preheader190.i.i ], [ %412, %414 ]
   %invariant.op208.reass.i.i = add nsw i32 %.3185214.i.i, %invariant.op212.i.i
-  %388 = trunc i32 %.3185214.i.i to i8
+  %388 = trunc nsw i32 %.3185214.i.i to i8
   %389 = add i8 %10, %388
   br label %390
 
@@ -2035,7 +2035,7 @@ switch.edge:                                      ; preds = %2
   %396 = trunc i32 %392 to i8
   %397 = getelementptr inbounds nuw i8, ptr %.7210.i.i, i64 3
   store i8 %396, ptr %395, align 1, !tbaa !46
-  %398 = trunc i32 %.3211.i.i to i8
+  %398 = trunc nsw i32 %.3211.i.i to i8
   %399 = add i8 %10, %398
   %400 = getelementptr inbounds nuw i8, ptr %.7210.i.i, i64 4
   store i8 %399, ptr %397, align 1, !tbaa !46

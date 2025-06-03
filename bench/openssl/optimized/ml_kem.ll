@@ -2956,58 +2956,58 @@ define internal range(i32 0, 2) i32 @cbd_3(ptr noundef writeonly captures(none) 
   %44 = add nsw i32 %.neg58, %41
   %45 = add nsw i32 %44, %39
   %46 = add nsw i32 %45, %43
-  %47 = lshr i32 %46, 15
-  %48 = and i32 %47, 3329
-  %49 = add nsw i32 %48, %46
-  %50 = trunc nsw i32 %49 to i16
-  %51 = getelementptr inbounds nuw i8, ptr %.054.ptr, i64 4
-  store i16 %50, ptr %32, align 2, !tbaa !36
-  %52 = lshr i32 %36, 4
-  %53 = and i32 %52, 1
-  %54 = lshr i32 %36, 5
-  %55 = and i32 %54, 1
-  %56 = lshr i32 %36, 6
-  %57 = and i32 %56, 1
-  %58 = lshr i32 %36, 7
-  %59 = zext i8 %13 to i32
-  %60 = and i32 %59, 1
-  %61 = shl i32 %59, 30
-  %62 = ashr i32 %61, 31
-  %.neg68 = sub nsw i32 %55, %58
-  %.neg70 = add nsw i32 %.neg68, %53
-  %63 = add nsw i32 %.neg70, %57
-  %64 = sub nsw i32 %63, %60
-  %65 = add nsw i32 %64, %62
-  %66 = lshr i32 %65, 15
-  %67 = and i32 %66, 3329
-  %68 = add nsw i32 %67, %65
-  %69 = trunc nsw i32 %68 to i16
-  %70 = getelementptr inbounds nuw i8, ptr %.054.ptr, i64 6
-  store i16 %69, ptr %51, align 2, !tbaa !36
-  %71 = lshr i32 %59, 2
+  %isneg59 = icmp slt i32 %46, 0
+  %47 = select i1 %isneg59, i32 3329, i32 0
+  %48 = add nsw i32 %47, %46
+  %49 = trunc nsw i32 %48 to i16
+  %50 = getelementptr inbounds nuw i8, ptr %.054.ptr, i64 4
+  store i16 %49, ptr %32, align 2, !tbaa !36
+  %51 = lshr i32 %36, 4
+  %52 = and i32 %51, 1
+  %53 = lshr i32 %36, 5
+  %54 = and i32 %53, 1
+  %55 = lshr i32 %36, 6
+  %56 = and i32 %55, 1
+  %57 = lshr i32 %36, 7
+  %58 = zext i8 %13 to i32
+  %59 = and i32 %58, 1
+  %60 = shl i32 %58, 30
+  %61 = ashr i32 %60, 31
+  %.neg70 = sub nsw i32 %54, %57
+  %.neg72 = add nsw i32 %.neg70, %52
+  %62 = add nsw i32 %.neg72, %56
+  %63 = sub nsw i32 %62, %59
+  %64 = add nsw i32 %63, %61
+  %isneg60 = icmp slt i32 %64, 0
+  %65 = select i1 %isneg60, i32 3329, i32 0
+  %66 = add nsw i32 %65, %64
+  %67 = trunc nsw i32 %66 to i16
+  %68 = getelementptr inbounds nuw i8, ptr %.054.ptr, i64 6
+  store i16 %67, ptr %50, align 2, !tbaa !36
+  %69 = lshr i32 %58, 2
+  %70 = and i32 %69, 1
+  %71 = lshr i32 %58, 3
   %72 = and i32 %71, 1
-  %73 = lshr i32 %59, 3
+  %73 = lshr i32 %58, 4
   %74 = and i32 %73, 1
-  %75 = lshr i32 %59, 4
-  %76 = and i32 %75, 1
-  %77 = shl i32 %59, 26
+  %75 = shl i32 %58, 26
+  %76 = ashr i32 %75, 31
+  %77 = shl i32 %58, 25
   %78 = ashr i32 %77, 31
-  %79 = shl i32 %59, 25
-  %80 = ashr i32 %79, 31
-  %81 = lshr i32 %59, 7
-  %.neg74 = sub nsw i32 %74, %81
-  %.neg75 = add nsw i32 %.neg74, %72
-  %82 = add nsw i32 %.neg75, %76
-  %83 = add nsw i32 %82, %80
-  %84 = add nsw i32 %83, %78
-  %isneg63 = icmp slt i32 %84, 0
-  %85 = select i1 %isneg63, i32 3329, i32 0
-  %86 = add nsw i32 %85, %84
-  %87 = trunc nsw i32 %86 to i16
+  %79 = lshr i32 %58, 7
+  %.neg76 = sub nsw i32 %72, %79
+  %.neg77 = add nsw i32 %.neg76, %70
+  %80 = add nsw i32 %.neg77, %74
+  %81 = add nsw i32 %80, %78
+  %82 = add nsw i32 %81, %76
+  %isneg65 = icmp slt i32 %82, 0
+  %83 = select i1 %isneg65, i32 3329, i32 0
+  %84 = add nsw i32 %83, %82
+  %85 = trunc nsw i32 %84 to i16
   %.054.add = add nuw nsw i64 %.054.idx, 8
-  store i16 %87, ptr %70, align 2, !tbaa !36
-  %88 = icmp samesign ult i64 %.054.idx, 504
-  br i1 %88, label %.preheader, label %.loopexit, !llvm.loop !77
+  store i16 %85, ptr %68, align 2, !tbaa !36
+  %86 = icmp samesign ult i64 %.054.idx, 504
+  br i1 %86, label %.preheader, label %.loopexit, !llvm.loop !77
 
 .loopexit:                                        ; preds = %.preheader, %4
   %.0 = phi i32 [ 0, %4 ], [ 1, %.preheader ]

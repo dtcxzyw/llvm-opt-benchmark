@@ -175,7 +175,7 @@ define void @_ZN6LibRaw19kodak_radc_load_rawEv(ptr noundef nonnull align 8 deref
   %reass.sub = sub nsw i32 %83, %77
   %84 = add i32 %reass.sub, 2048
   %85 = or i32 %84, %80
-  %86 = trunc nuw i32 %85 to i16
+  %86 = trunc nuw nsw i32 %85 to i16
   %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv408
   store i16 %86, ptr %gep, align 2, !tbaa !75
   %indvars.iv.next409 = add nuw nsw i64 %indvars.iv408, 1

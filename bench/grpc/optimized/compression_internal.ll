@@ -396,7 +396,7 @@ define i8 @_ZN9grpc_core23CompressionAlgorithmSet10FromUint32Ej(i32 noundef %0) 
   %7 = shl nuw nsw i32 1, %6
   %8 = and i32 %7, %0
   %.not = icmp eq i32 %8, 0
-  %9 = trunc nuw i64 %.05 to i8
+  %9 = trunc nuw nsw i64 %.05 to i8
   %10 = shl nuw nsw i8 1, %9
   %11 = select i1 %.not, i8 0, i8 %10
   %12 = or i8 %5, %11
@@ -428,7 +428,7 @@ define i8 @_ZN9grpc_core23CompressionAlgorithmSet15FromChannelArgsERKNS_11Channe
   %9 = shl nuw nsw i32 1, %8
   %10 = and i32 %9, %.0.i
   %.not.i = icmp eq i32 %10, 0
-  %11 = trunc nuw i64 %.05.i to i8
+  %11 = trunc nuw nsw i64 %.05.i to i8
   %12 = shl nuw nsw i8 1, %11
   %13 = select i1 %.not.i, i8 0, i8 %12
   %14 = or i8 %13, %7
@@ -519,7 +519,7 @@ define { i64, ptr } @_ZNK9grpc_core23CompressionAlgorithmSet8ToStringEv(ptr noun
   %.08.i.i = phi i64 [ 0, %1 ], [ %10, %3 ]
   %.067.i.i = phi i32 [ 0, %1 ], [ %.1.i.i, %3 ]
   %4 = trunc nuw nsw i64 %.08.i.i to i32
-  %5 = trunc nuw i64 %.08.i.i to i8
+  %5 = trunc nuw nsw i64 %.08.i.i to i8
   %6 = shl nuw nsw i8 1, %5
   %7 = and i8 %6, %2
   %.not.i.i = icmp eq i8 %7, 0
@@ -550,7 +550,7 @@ define noundef i32 @_ZNK9grpc_core23CompressionAlgorithmSet15ToLegacyBitmaskEv(p
   %.08.i = phi i64 [ 0, %1 ], [ %10, %3 ]
   %.067.i = phi i32 [ 0, %1 ], [ %.1.i, %3 ]
   %4 = trunc nuw nsw i64 %.08.i to i32
-  %5 = trunc nuw i64 %.08.i to i8
+  %5 = trunc nuw nsw i64 %.08.i to i8
   %6 = shl nuw nsw i8 1, %5
   %7 = and i8 %6, %2
   %.not.i = icmp eq i8 %7, 0
@@ -574,7 +574,7 @@ define void @_ZNK9grpc_core23CompressionAlgorithmSet7ToSliceEv(ptr dead_on_unwin
   %.08.i.i.i = phi i64 [ 0, %2 ], [ %11, %4 ]
   %.067.i.i.i = phi i32 [ 0, %2 ], [ %.1.i.i.i, %4 ]
   %5 = trunc nuw nsw i64 %.08.i.i.i to i32
-  %6 = trunc nuw i64 %.08.i.i.i to i8
+  %6 = trunc nuw nsw i64 %.08.i.i.i to i8
   %7 = shl nuw nsw i8 1, %6
   %8 = and i8 %7, %3
   %.not.i.i.i = icmp eq i8 %8, 0

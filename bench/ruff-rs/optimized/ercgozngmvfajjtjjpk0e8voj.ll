@@ -5089,7 +5089,7 @@ define hidden void @_ZN21ruff_python_formatter6string8implicit36FormatImplicitCo
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !318
   store i8 2, ptr %.sroa.017.0.sroa.gep50.i, align 4, !noalias !318
   %47 = load i64, ptr %17, align 8, !range !11, !noalias !318, !noundef !3
-  %switch.cast = trunc nuw nsw i64 %47 to i24
+  %switch.cast = trunc nuw i64 %47 to i24
   %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
   %switch.downshift = lshr i24 65538, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8

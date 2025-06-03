@@ -3799,7 +3799,7 @@ switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !107, !noundef !12
   %2 = icmp ne i64 %1, 4
   tail call void @llvm.assume(i1 %2)
-  %switch.cast = trunc nuw nsw i64 %1 to i29
+  %switch.cast = trunc nuw i64 %1 to i29
   %switch.downshift = lshr i29 13631492, %switch.cast
   %switch.masked = trunc i29 %switch.downshift to i1
   ret i1 %switch.masked

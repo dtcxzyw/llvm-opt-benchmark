@@ -203,7 +203,7 @@ define hidden noundef range(i8 0, 5) i8 @_ZN21uv_distribution_types10dist_error1
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8, !range !5, !noundef !3
-  %switch.maskindex = trunc nuw nsw i64 %11 to i8
+  %switch.maskindex = trunc nuw i64 %11 to i8
   %switch.shifted = lshr i8 99, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %12

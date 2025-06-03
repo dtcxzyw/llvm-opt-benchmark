@@ -6038,7 +6038,7 @@ dbg_printhex.exit149:                             ; preds = %66, %68
 .preheader.us:                                    ; preds = %84, %87
   %.1106184.us = phi i32 [ %88, %87 ], [ 1, %84 ]
   %85 = load ptr, ptr %52, align 8, !tbaa !46
-  %86 = trunc nuw i32 %.1106184.us to i8
+  %86 = trunc nuw nsw i32 %.1106184.us to i8
   br label %89
 
 87:                                               ; preds = %._crit_edge.us

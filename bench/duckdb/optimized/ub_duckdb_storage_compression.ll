@@ -18008,7 +18008,7 @@ define linkonce_odr noundef i64 @_ZN6duckdb17AlpRDFinalAnalyzeIfEEmRNS_12Analyze
   %.019.i = phi i8 [ 0, %5 ], [ %.1.i, %11 ]
   %.01318.i = phi double [ 0x41DFFFFFFFC00000, %5 ], [ %.114.i, %11 ]
   %.01517.i = phi i64 [ 1, %5 ], [ %16, %11 ]
-  %12 = trunc nuw i64 %.01517.i to i8
+  %12 = trunc nuw nsw i64 %.01517.i to i8
   %13 = sub nuw nsw i8 32, %12
   %14 = tail call noundef double @_ZN6duckdb3alp16AlpRDCompressionIfLb1EE24BuildLeftPartsDictionaryILb0EEEdRKNS_6vectorIjLb1EEEhRNS0_21AlpRDCompressionStateIfLb1EEE(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 noundef zeroext %13, ptr noundef nonnull align 8 dereferenceable(20577) %10)
   %15 = fcmp ugt double %14, %.01318.i
@@ -19208,7 +19208,7 @@ define linkonce_odr noundef i64 @_ZN6duckdb17AlpRDFinalAnalyzeIdEEmRNS_12Analyze
   %.019.i = phi i8 [ 0, %5 ], [ %.1.i, %11 ]
   %.01318.i = phi double [ 0x41DFFFFFFFC00000, %5 ], [ %.114.i, %11 ]
   %.01517.i = phi i64 [ 1, %5 ], [ %16, %11 ]
-  %12 = trunc nuw i64 %.01517.i to i8
+  %12 = trunc nuw nsw i64 %.01517.i to i8
   %13 = sub nuw nsw i8 64, %12
   %14 = tail call noundef double @_ZN6duckdb3alp16AlpRDCompressionIdLb1EE24BuildLeftPartsDictionaryILb0EEEdRKNS_6vectorImLb1EEEhRNS0_21AlpRDCompressionStateIdLb1EEE(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 noundef zeroext %13, ptr noundef nonnull align 8 dereferenceable(20577) %10)
   %15 = fcmp ugt double %14, %.01318.i

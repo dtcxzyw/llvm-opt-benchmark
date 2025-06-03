@@ -48773,7 +48773,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit372: ; preds = %_Z
   br i1 %571, label %.lr.ph1019, label %._crit_edge1020
 
 .lr.ph1019:                                       ; preds = %569
-  %572 = trunc nuw i64 %.01361021 to i32
+  %572 = trunc nuw nsw i64 %.01361021 to i32
   %573 = getelementptr inbounds nuw %"class.std::vector.87", ptr %475, i64 %.01361021
   %574 = getelementptr inbounds nuw i8, ptr %573, i64 8
   %575 = getelementptr inbounds nuw i8, ptr %573, i64 16
@@ -54296,7 +54296,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit498: ; preds = %_Z
   br i1 %746, label %.lr.ph1407, label %._crit_edge1408
 
 .lr.ph1407:                                       ; preds = %744
-  %747 = trunc nuw i64 %.01881409 to i32
+  %747 = trunc nuw nsw i64 %.01881409 to i32
   %748 = getelementptr inbounds nuw %"class.std::vector.87", ptr %650, i64 %.01881409
   %749 = getelementptr inbounds nuw i8, ptr %748, i64 8
   %750 = getelementptr inbounds nuw i8, ptr %748, i64 16

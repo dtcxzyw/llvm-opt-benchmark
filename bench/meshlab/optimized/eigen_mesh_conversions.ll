@@ -10698,7 +10698,7 @@ define linkonce_odr void @_ZN3vcg24TessellatePlanarPolygon3ISt6vectorINS_6Point3
   %.01721.i.i = phi i64 [ 0, %2 ], [ %11, %10 ]
   %.01820.i.i = phi i32 [ 1, %2 ], [ %16, %10 ]
   %11 = add nuw nsw i64 %.01721.i.i, 1
-  %12 = trunc nuw i64 %11 to i16
+  %12 = trunc nuw nsw i64 %11 to i16
   %.lhs.trunc.i.i = mul nuw nsw i16 %12, 21
   %13 = urem i16 %.lhs.trunc.i.i, 55
   %.zext.i.i = zext nneg i16 %13 to i64

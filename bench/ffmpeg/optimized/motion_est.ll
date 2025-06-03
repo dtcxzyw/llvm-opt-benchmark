@@ -9167,7 +9167,7 @@ get_limits.exit:                                  ; preds = %56, %63
   %107 = load i64, ptr %106, align 8, !tbaa !149
   %108 = add nsw i64 %107, %105
   store i64 %108, ptr %106, align 8, !tbaa !149
-  %109 = trunc nuw nsw i32 %104 to i16
+  %109 = trunc nuw i32 %104 to i16
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 6488
   %111 = load ptr, ptr %110, align 8, !tbaa !148
   %112 = load i32, ptr %6, align 4, !tbaa !70
@@ -9992,7 +9992,7 @@ bidir_refine.exit:                                ; preds = %172, %525
   %585 = load i64, ptr %584, align 8, !tbaa !149
   %586 = add nsw i64 %585, %583
   store i64 %586, ptr %584, align 8, !tbaa !149
-  %587 = trunc nuw nsw i32 %582 to i16
+  %587 = trunc nuw i32 %582 to i16
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 6488
   %589 = load ptr, ptr %588, align 8, !tbaa !148
   %590 = load i32, ptr %6, align 4, !tbaa !70

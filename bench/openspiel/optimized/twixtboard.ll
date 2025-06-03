@@ -5740,7 +5740,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread78: ; pred
 .critedge:                                        ; preds = %70, %49
   %72 = shl nuw nsw i64 1, %indvars.iv
   %73 = load i32, ptr %18, align 4
-  %74 = trunc nuw i64 %72 to i32
+  %74 = trunc nuw nsw i64 %72 to i32
   %75 = or i32 %73, %74
   store i32 %75, ptr %18, align 4
   %76 = and i64 %indvars.iv, 4294967295
@@ -5748,7 +5748,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread78: ; pred
   %78 = shl nuw nsw i64 1, %77
   %79 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %80 = load i32, ptr %79, align 4
-  %81 = trunc nuw i64 %78 to i32
+  %81 = trunc nuw nsw i64 %78 to i32
   %82 = or i32 %80, %81
   store i32 %82, ptr %79, align 4
   %83 = getelementptr inbounds nuw i8, ptr %45, i64 76
@@ -5775,7 +5775,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread78: ; pred
 94:                                               ; preds = %56
   %95 = shl nuw nsw i64 1, %indvars.iv
   %96 = load i32, ptr %17, align 4
-  %97 = trunc nuw i64 %95 to i32
+  %97 = trunc nuw nsw i64 %95 to i32
   %98 = or i32 %96, %97
   store i32 %98, ptr %17, align 4
   %99 = and i64 %indvars.iv, 4294967295
@@ -5783,7 +5783,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread78: ; pred
   %101 = shl nuw nsw i64 1, %100
   %102 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %103 = load i32, ptr %102, align 4
-  %104 = trunc nuw i64 %101 to i32
+  %104 = trunc nuw nsw i64 %101 to i32
   %105 = or i32 %103, %104
   store i32 %105, ptr %102, align 4
   br label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread

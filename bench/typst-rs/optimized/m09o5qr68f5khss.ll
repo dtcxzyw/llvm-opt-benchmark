@@ -6279,7 +6279,7 @@ switch.lookup:                                    ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %6, ptr %0, align 8, !alias.scope !1627
   %7 = load i32, ptr %4, align 8, !range !122, !alias.scope !1630, !noundef !4
-  %switch.idx.cast = trunc nuw nsw i32 %7 to i8
+  %switch.idx.cast = trunc nuw i32 %7 to i8
   br label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h153bc4e4242e8deaE.exit"
 
 "_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h153bc4e4242e8deaE.exit": ; preds = %switch.lookup, %1
@@ -10444,7 +10444,7 @@ switch.lookup:                                    ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %13, ptr %1, align 8, !alias.scope !3098, !noalias !3085
   %14 = load i32, ptr %7, align 8, !range !122, !alias.scope !3101, !noalias !3108, !noundef !4
-  %switch.idx.cast = trunc nuw nsw i32 %14 to i8
+  %switch.idx.cast = trunc nuw i32 %14 to i8
   %.not.i.i.i.i = icmp eq i8 %.val6.i, %switch.idx.cast
   br i1 %.not.i.i.i.i, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h132d67fd0612b5ebE.exit.i", label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hb8e8008e60362be0E.llvm.14728845296163125433.exit
 
@@ -40126,7 +40126,7 @@ switch.lookup:                                    ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.08.0, i64 16
   %12 = load i32, ptr %.sroa.08.0, align 8, !range !122, !alias.scope !10445, !noalias !10452, !noundef !4
-  %switch.idx.cast = trunc nuw nsw i32 %12 to i8
+  %switch.idx.cast = trunc nuw i32 %12 to i8
   %.not.i.i.i.i.i.i = icmp eq i8 %.val6.i.i.i, %switch.idx.cast
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h132d67fd0612b5ebE.exit.i.i.i", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h89a646a3574f8e0bE.llvm.14728845296163125433.exit"
 
@@ -40174,7 +40174,7 @@ switch.lookup:                                    ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %13, ptr %1, align 8, !alias.scope !10474, !noalias !10469
   %14 = load i32, ptr %7, align 8, !range !122, !alias.scope !10477, !noalias !10484, !noundef !4
-  %switch.idx.cast = trunc nuw nsw i32 %14 to i8
+  %switch.idx.cast = trunc nuw i32 %14 to i8
   %.not.i.i.i.i.i = icmp eq i8 %.val6.i.i, %switch.idx.cast
   br i1 %.not.i.i.i.i.i, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h132d67fd0612b5ebE.exit.i.i", label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h24eb302fe933df74E.llvm.14728845296163125433.exit"
 
@@ -41823,7 +41823,7 @@ switch.lookup:                                    ; preds = %8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i, i64 16
   %11 = load i32, ptr %.sroa.08.0.i, align 8, !range !122, !alias.scope !11231, !noalias !11238, !noundef !4
-  %switch.idx.cast = trunc nuw nsw i32 %11 to i8
+  %switch.idx.cast = trunc nuw i32 %11 to i8
   %.not.i.i.i.i.i.i.i = icmp eq i8 %.val6.i.i.i.i, %switch.idx.cast
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h132d67fd0612b5ebE.exit.i.i.i.i", label %_ZN4core4iter6traits8iterator12iter_compare17h0a4e87845a9aa6edE.llvm.14728845296163125433.exit
 
@@ -47240,7 +47240,7 @@ switch.lookup:                                    ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %13, ptr %1, align 8, !alias.scope !12776
   %14 = load i32, ptr %7, align 8, !range !122, !alias.scope !12779, !noalias !12773, !noundef !4
-  %switch.idx.cast = trunc nuw nsw i32 %14 to i8
+  %switch.idx.cast = trunc nuw i32 %14 to i8
   %.not.i.i.i = icmp eq i8 %.val6, %switch.idx.cast
   br i1 %.not.i.i.i, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h132d67fd0612b5ebE.exit", label %15
 

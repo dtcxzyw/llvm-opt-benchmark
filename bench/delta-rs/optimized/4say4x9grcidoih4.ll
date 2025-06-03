@@ -70239,7 +70239,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 switch.lookup:                                    ; preds = %105
   %.sroa.2.0.copyload = load i64, ptr %109, align 8
-  %switch.cast = trunc nuw nsw i64 %107 to i24
+  %switch.cast = trunc nuw i64 %107 to i24
   %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
   %switch.downshift = lshr i24 525322, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
@@ -71246,7 +71246,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 switch.lookup669:                                 ; preds = %375
   %.sroa.2147.0.copyload = load i64, ptr %378, align 8
-  %switch.cast670 = trunc nuw nsw i64 %376 to i24
+  %switch.cast670 = trunc nuw i64 %376 to i24
   %switch.shiftamt671 = shl nuw nsw i24 %switch.cast670, 3
   %switch.downshift672 = lshr i24 525322, %switch.shiftamt671
   %switch.masked673 = trunc i24 %switch.downshift672 to i8
@@ -73026,7 +73026,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 switch.lookup:                                    ; preds = %105
   %.sroa.2.0.copyload = load i64, ptr %109, align 8
-  %switch.cast = trunc nuw nsw i64 %107 to i24
+  %switch.cast = trunc nuw i64 %107 to i24
   %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
   %switch.downshift = lshr i24 525322, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
@@ -74036,7 +74036,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 switch.lookup669:                                 ; preds = %375
   %.sroa.2147.0.copyload = load i64, ptr %378, align 8
-  %switch.cast670 = trunc nuw nsw i64 %376 to i24
+  %switch.cast670 = trunc nuw i64 %376 to i24
   %switch.shiftamt671 = shl nuw nsw i24 %switch.cast670, 3
   %switch.downshift672 = lshr i24 525322, %switch.shiftamt671
   %switch.masked673 = trunc i24 %switch.downshift672 to i8

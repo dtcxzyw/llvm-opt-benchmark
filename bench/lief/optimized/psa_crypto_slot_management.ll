@@ -63,7 +63,7 @@ define hidden void @psa_wipe_all_key_slots() local_unnamed_addr #4 {
 
 .preheader18:                                     ; preds = %1
   %5 = icmp eq i64 %.01620, 22
-  %6 = trunc nuw i64 %.01620 to i32
+  %6 = trunc nuw nsw i64 %.01620 to i32
   %7 = shl i32 16, %6
   %8 = zext i32 %7 to i64
   %.0.i = select i1 %5, i64 32, i64 %8
@@ -938,7 +938,7 @@ define hidden void @mbedtls_psa_get_stats(ptr noundef writeonly captures(none) i
 
 .preheader:                                       ; preds = %9
   %20 = icmp eq i64 %.033, 22
-  %21 = trunc nuw i64 %.033 to i32
+  %21 = trunc nuw nsw i64 %.033 to i32
   %22 = shl i32 16, %21
   %23 = zext i32 %22 to i64
   %.0.i = select i1 %20, i64 32, i64 %23

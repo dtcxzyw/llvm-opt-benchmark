@@ -1843,7 +1843,7 @@ define internal fastcc void @build_xlaw_table(ptr noundef captures(none) initial
 
 .lr.ph:                                           ; preds = %12
   %24 = xor i32 %.035, %6
-  %25 = trunc nuw i32 %24 to i8
+  %25 = trunc nuw nsw i32 %24 to i8
   %26 = sext i32 %.03234 to i64
   %wide.trip.count = sext i32 %22 to i64
   br label %27

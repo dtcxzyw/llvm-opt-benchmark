@@ -1030,7 +1030,7 @@ FindMatchLengthWithLimit.exit162.i404:            ; preds = %457, %.critedge.i15
   br i1 %.not147.i408, label %493, label %486
 
 486:                                              ; preds = %485
-  %487 = trunc nuw i64 %.0132.i362771 to i32
+  %487 = trunc nuw nsw i64 %.0132.i362771 to i32
   %488 = and i32 %487, 2
   %489 = lshr exact i32 117264, %488
   %490 = and i32 %489, 4
@@ -1969,7 +1969,7 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %903, %.critedge.i15
   br i1 %.not147.i, label %939, label %932
 
 932:                                              ; preds = %931
-  %933 = trunc nuw i64 %.0132.i948 to i32
+  %933 = trunc nuw nsw i64 %.0132.i948 to i32
   %934 = and i32 %933, 2
   %935 = lshr exact i32 117264, %934
   %936 = and i32 %935, 4
@@ -3523,7 +3523,7 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %459, %.critedge.i15
   br i1 %.not147.i267, label %495, label %488
 
 488:                                              ; preds = %487
-  %489 = trunc nuw i64 %.0132.i221746 to i32
+  %489 = trunc nuw nsw i64 %.0132.i221746 to i32
   %490 = and i32 %489, 2
   %491 = lshr exact i32 117264, %490
   %492 = and i32 %491, 4
@@ -4466,7 +4466,7 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %907, %.critedge.i15
   br i1 %.not147.i, label %943, label %936
 
 936:                                              ; preds = %935
-  %937 = trunc nuw i64 %.0132.i923 to i32
+  %937 = trunc nuw nsw i64 %.0132.i923 to i32
   %938 = and i32 %937, 2
   %939 = lshr exact i32 117264, %938
   %940 = and i32 %939, 4
@@ -6083,7 +6083,7 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %501, %.critedge.i15
   br i1 %.not147.i267, label %537, label %530
 
 530:                                              ; preds = %529
-  %531 = trunc nuw i64 %.0132.i221764 to i32
+  %531 = trunc nuw nsw i64 %.0132.i221764 to i32
   %532 = and i32 %531, 2
   %533 = lshr exact i32 117264, %532
   %534 = and i32 %533, 4
@@ -7098,7 +7098,7 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %994, %.critedge.i15
   br i1 %.not147.i, label %1030, label %1023
 
 1023:                                             ; preds = %1022
-  %1024 = trunc nuw i64 %.0132.i949 to i32
+  %1024 = trunc nuw nsw i64 %.0132.i949 to i32
   %1025 = and i32 %1024, 2
   %1026 = lshr exact i32 117264, %1025
   %1027 = and i32 %1026, 4
@@ -8745,7 +8745,7 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %503, %.critedge.i15
   br i1 %.not147.i267, label %539, label %532
 
 532:                                              ; preds = %531
-  %533 = trunc nuw i64 %.0132.i221766 to i32
+  %533 = trunc nuw nsw i64 %.0132.i221766 to i32
   %534 = and i32 %533, 2
   %535 = lshr exact i32 117264, %534
   %536 = and i32 %535, 4
@@ -9765,7 +9765,7 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %999, %.critedge.i15
   br i1 %.not147.i, label %1035, label %1028
 
 1028:                                             ; preds = %1027
-  %1029 = trunc nuw i64 %.0132.i951 to i32
+  %1029 = trunc nuw nsw i64 %.0132.i951 to i32
   %1030 = and i32 %1029, 2
   %1031 = lshr exact i32 117264, %1030
   %1032 = and i32 %1031, 4
@@ -10679,7 +10679,7 @@ FindMatchLengthWithLimit.exit164.i:               ; preds = %112, %.critedge.i15
   br i1 %.not147.i308, label %148, label %141
 
 141:                                              ; preds = %140
-  %142 = trunc nuw i64 %.0127.i635 to i32
+  %142 = trunc nuw nsw i64 %.0127.i635 to i32
   %143 = and i32 %142, 2
   %144 = lshr exact i32 117264, %143
   %145 = and i32 %144, 4
@@ -11245,7 +11245,7 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %400, %.critedge.i15
   br i1 %.not147.i267, label %436, label %429
 
 429:                                              ; preds = %428
-  %430 = trunc nuw i64 %.0132.i221714 to i32
+  %430 = trunc nuw nsw i64 %.0132.i221714 to i32
   %431 = and i32 %430, 2
   %432 = lshr exact i32 117264, %431
   %433 = and i32 %432, 4
@@ -11605,7 +11605,7 @@ FindMatchLengthWithLimit.exit164.i392:            ; preds = %553, %.critedge.i15
   br i1 %.not147.i377, label %589, label %582
 
 582:                                              ; preds = %581
-  %583 = trunc nuw i64 %.0127.i315788 to i32
+  %583 = trunc nuw nsw i64 %.0127.i315788 to i32
   %584 = and i32 %583, 2
   %585 = lshr exact i32 117264, %584
   %586 = and i32 %585, 4
@@ -12170,7 +12170,7 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %840, %.critedge.i15
   br i1 %.not147.i, label %876, label %869
 
 869:                                              ; preds = %868
-  %870 = trunc nuw i64 %.0132.i870 to i32
+  %870 = trunc nuw nsw i64 %.0132.i870 to i32
   %871 = and i32 %870, 2
   %872 = lshr exact i32 117264, %871
   %873 = and i32 %872, 4
@@ -13092,7 +13092,7 @@ FindMatchLengthWithLimit.exit164.i:               ; preds = %125, %.critedge.i15
   br i1 %.not147.i308, label %161, label %154
 
 154:                                              ; preds = %153
-  %155 = trunc nuw i64 %.0127.i635 to i32
+  %155 = trunc nuw nsw i64 %.0127.i635 to i32
   %156 = and i32 %155, 14
   %157 = lshr i32 117264, %156
   %158 = and i32 %157, 14
@@ -13658,7 +13658,7 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %413, %.critedge.i15
   br i1 %.not147.i267, label %449, label %442
 
 442:                                              ; preds = %441
-  %443 = trunc nuw i64 %.0132.i221714 to i32
+  %443 = trunc nuw nsw i64 %.0132.i221714 to i32
   %444 = and i32 %443, 2
   %445 = lshr exact i32 117264, %444
   %446 = and i32 %445, 4
@@ -14018,7 +14018,7 @@ FindMatchLengthWithLimit.exit164.i392:            ; preds = %566, %.critedge.i15
   br i1 %.not147.i377, label %602, label %595
 
 595:                                              ; preds = %594
-  %596 = trunc nuw i64 %.0127.i315788 to i32
+  %596 = trunc nuw nsw i64 %.0127.i315788 to i32
   %597 = and i32 %596, 14
   %598 = lshr i32 117264, %597
   %599 = and i32 %598, 14
@@ -14583,7 +14583,7 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %853, %.critedge.i15
   br i1 %.not147.i, label %889, label %882
 
 882:                                              ; preds = %881
-  %883 = trunc nuw i64 %.0132.i870 to i32
+  %883 = trunc nuw nsw i64 %.0132.i870 to i32
   %884 = and i32 %883, 2
   %885 = lshr exact i32 117264, %884
   %886 = and i32 %885, 4
@@ -15536,7 +15536,7 @@ FindMatchLengthWithLimit.exit164.i:               ; preds = %138, %.critedge.i15
   br i1 %.not147.i308, label %174, label %167
 
 167:                                              ; preds = %166
-  %168 = trunc nuw i64 %.0127.i635 to i32
+  %168 = trunc nuw nsw i64 %.0127.i635 to i32
   %169 = and i32 %168, 14
   %170 = lshr i32 117264, %169
   %171 = and i32 %170, 14
@@ -16107,7 +16107,7 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %431, %.critedge.i15
   br i1 %.not147.i267, label %467, label %460
 
 460:                                              ; preds = %459
-  %461 = trunc nuw i64 %.0132.i221714 to i32
+  %461 = trunc nuw nsw i64 %.0132.i221714 to i32
   %462 = and i32 %461, 2
   %463 = lshr exact i32 117264, %462
   %464 = and i32 %463, 4
@@ -16465,7 +16465,7 @@ FindMatchLengthWithLimit.exit164.i392:            ; preds = %582, %.critedge.i15
   br i1 %.not147.i377, label %618, label %611
 
 611:                                              ; preds = %610
-  %612 = trunc nuw i64 %.0127.i315785 to i32
+  %612 = trunc nuw nsw i64 %.0127.i315785 to i32
   %613 = and i32 %612, 14
   %614 = lshr i32 117264, %613
   %615 = and i32 %614, 14
@@ -17036,7 +17036,7 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %875, %.critedge.i15
   br i1 %.not147.i, label %911, label %904
 
 904:                                              ; preds = %903
-  %905 = trunc nuw i64 %.0132.i867 to i32
+  %905 = trunc nuw nsw i64 %.0132.i867 to i32
   %906 = and i32 %905, 2
   %907 = lshr exact i32 117264, %906
   %908 = and i32 %907, 4
@@ -18408,7 +18408,7 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %314, %.critedge.i15
   br i1 %.not147.i267, label %350, label %343
 
 343:                                              ; preds = %342
-  %344 = trunc nuw i64 %.0132.i221647 to i32
+  %344 = trunc nuw nsw i64 %.0132.i221647 to i32
   %345 = and i32 %344, 2
   %346 = lshr exact i32 117264, %345
   %347 = and i32 %346, 4
@@ -19213,7 +19213,7 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %678, %.critedge.i15
   br i1 %.not147.i, label %714, label %707
 
 707:                                              ; preds = %706
-  %708 = trunc nuw i64 %.0132.i785 to i32
+  %708 = trunc nuw nsw i64 %.0132.i785 to i32
   %709 = and i32 %708, 2
   %710 = lshr exact i32 117264, %709
   %711 = and i32 %710, 4
@@ -20878,7 +20878,7 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %537, %.critedge.i15
   br i1 %.not147.i267, label %573, label %566
 
 566:                                              ; preds = %565
-  %567 = trunc nuw i64 %.0132.i221822 to i32
+  %567 = trunc nuw nsw i64 %.0132.i221822 to i32
   %568 = and i32 %567, 2
   %569 = lshr exact i32 117264, %568
   %570 = and i32 %569, 4
@@ -21995,7 +21995,7 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %1058, %.critedge.i1
   br i1 %.not147.i, label %1094, label %1087
 
 1087:                                             ; preds = %1086
-  %1088 = trunc nuw i64 %.0132.i1030 to i32
+  %1088 = trunc nuw nsw i64 %.0132.i1030 to i32
   %1089 = and i32 %1088, 2
   %1090 = lshr exact i32 117264, %1089
   %1091 = and i32 %1090, 4
@@ -30130,7 +30130,7 @@ FindMatchLengthWithLimit.exit164.i:               ; preds = %109, %.critedge.i15
   br i1 %.not147.i, label %145, label %138
 
 138:                                              ; preds = %137
-  %139 = trunc nuw i64 %.0127.i480 to i32
+  %139 = trunc nuw nsw i64 %.0127.i480 to i32
   %140 = and i32 %139, 2
   %141 = lshr exact i32 117264, %140
   %142 = and i32 %141, 4
@@ -30696,7 +30696,7 @@ FindMatchLengthWithLimit.exit164.i282:            ; preds = %386, %.critedge.i15
   br i1 %.not147.i267, label %422, label %415
 
 415:                                              ; preds = %414
-  %416 = trunc nuw i64 %.0127.i205558 to i32
+  %416 = trunc nuw nsw i64 %.0127.i205558 to i32
   %417 = and i32 %416, 2
   %418 = lshr exact i32 117264, %417
   %419 = and i32 %418, 4
@@ -31820,7 +31820,7 @@ FindMatchLengthWithLimit.exit164.i:               ; preds = %122, %.critedge.i15
   br i1 %.not147.i, label %158, label %151
 
 151:                                              ; preds = %150
-  %152 = trunc nuw i64 %.0127.i480 to i32
+  %152 = trunc nuw nsw i64 %.0127.i480 to i32
   %153 = and i32 %152, 14
   %154 = lshr i32 117264, %153
   %155 = and i32 %154, 14
@@ -32386,7 +32386,7 @@ FindMatchLengthWithLimit.exit164.i282:            ; preds = %399, %.critedge.i15
   br i1 %.not147.i267, label %435, label %428
 
 428:                                              ; preds = %427
-  %429 = trunc nuw i64 %.0127.i205558 to i32
+  %429 = trunc nuw nsw i64 %.0127.i205558 to i32
   %430 = and i32 %429, 14
   %431 = lshr i32 117264, %430
   %432 = and i32 %431, 14
@@ -33541,7 +33541,7 @@ FindMatchLengthWithLimit.exit164.i:               ; preds = %135, %.critedge.i15
   br i1 %.not147.i, label %171, label %164
 
 164:                                              ; preds = %163
-  %165 = trunc nuw i64 %.0127.i480 to i32
+  %165 = trunc nuw nsw i64 %.0127.i480 to i32
   %166 = and i32 %165, 14
   %167 = lshr i32 117264, %166
   %168 = and i32 %167, 14
@@ -34110,7 +34110,7 @@ FindMatchLengthWithLimit.exit164.i282:            ; preds = %415, %.critedge.i15
   br i1 %.not147.i267, label %451, label %444
 
 444:                                              ; preds = %443
-  %445 = trunc nuw i64 %.0127.i205558 to i32
+  %445 = trunc nuw nsw i64 %.0127.i205558 to i32
   %446 = and i32 %445, 14
   %447 = lshr i32 117264, %446
   %448 = and i32 %447, 14

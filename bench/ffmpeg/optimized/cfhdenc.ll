@@ -2867,7 +2867,7 @@ bytestream2_put_be16.exit709.thread:              ; preds = %1196, %bytestream2_
   br label %bytestream2_put_be16.exit715.thread
 
 bytestream2_put_be16.exit709:                     ; preds = %1204
-  %1211 = trunc nuw i32 %1104 to i16
+  %1211 = trunc nuw nsw i32 %1104 to i16
   %1212 = shl nuw nsw i16 %1211, 8
   store i16 %1212, ptr %1203, align 1, !tbaa !83
   %1213 = load ptr, ptr %8, align 8, !tbaa !79

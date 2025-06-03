@@ -9129,7 +9129,7 @@ _ZN4absl12lts_2024072212log_internal12Check_EQImplImjEEPNSt7__cxx1112basic_strin
 
 114:                                              ; preds = %.preheader, %136
   %storemerge105 = phi i32 [ 0, %.preheader ], [ %137, %136 ]
-  %115 = trunc nuw i32 %storemerge105 to i8
+  %115 = trunc nuw nsw i32 %storemerge105 to i8
   %116 = shl nuw i8 1, %115
   %117 = and i8 %107, %116
   %.not103 = icmp eq i8 %117, 0

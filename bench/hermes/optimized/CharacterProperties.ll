@@ -774,7 +774,7 @@ if.then29.i:                                      ; preds = %for.body21.i
   %61 = load i32, ptr %Size.i.i.i.i.i.i14, align 8
   %cmp92.i.not.i61 = icmp eq i32 %61, 0
   %62 = lshr i64 %agg.tmp.sroa.0.0.insert.insert.i.i60, 32
-  %63 = trunc nuw nsw i64 %62 to i32
+  %63 = trunc nuw i64 %62 to i32
   br i1 %cmp92.i.not.i61, label %if.then7.i.i.i134, label %while.body.lr.ph.i.i62
 
 while.body.lr.ph.i.i62:                           ; preds = %if.then29.i

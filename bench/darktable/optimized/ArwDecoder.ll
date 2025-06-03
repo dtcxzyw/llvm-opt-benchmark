@@ -1674,7 +1674,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
 .lr.ph:                                           ; preds = %.preheader
   %28 = trunc nuw nsw i64 %indvars.iv42 to i32
   %29 = shl nuw nsw i32 1, %28
-  %30 = trunc nuw i32 %29 to i16
+  %30 = trunc nuw nsw i32 %29 to i16
   %.phi.trans.insert = zext i32 %25 to i64
   %.phi.trans.insert46 = getelementptr inbounds nuw i16, ptr %4, i64 %.phi.trans.insert
   %.pre = load i16, ptr %.phi.trans.insert46, align 2, !tbaa !60

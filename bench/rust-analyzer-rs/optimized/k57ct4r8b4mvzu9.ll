@@ -17155,7 +17155,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %173
 define noundef zeroext i1 @"_ZN6syntax3ast8expr_ext53_$LT$impl$u20$syntax..ast..generated..nodes..Expr$GT$13is_block_like17ha95a24bba24fee03E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !232, !noundef !4
-  %switch.cast = trunc nuw nsw i64 %1 to i36
+  %switch.cast = trunc nuw i64 %1 to i36
   %switch.downshift = lshr i36 8591265824, %switch.cast
   %switch.masked = trunc i36 %switch.downshift to i1
   ret i1 %switch.masked

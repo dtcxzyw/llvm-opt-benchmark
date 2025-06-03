@@ -6561,7 +6561,7 @@ define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_123CFRTest_
           to label %23 unwind label %.loopexit
 
 23:                                               ; preds = %22
-  %.lhs.trunc = trunc nuw i32 %.01138 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %.01138 to i16
   %24 = urem i16 %.lhs.trunc, 10
   %25 = icmp eq i16 %24, 0
   br i1 %25, label %26, label %_ZNSt10shared_ptrIN10open_spiel6PolicyEED2Ev.exit

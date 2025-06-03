@@ -3300,7 +3300,7 @@ define void @dtgtk_cairo_paint_clock(ptr noundef %0, i32 noundef %1, i32 noundef
 
 32:                                               ; preds = %7, %32
   %.034 = phi i32 [ 0, %7 ], [ %35, %32 ]
-  %.lhs.trunc = trunc nuw i32 %.034 to i8
+  %.lhs.trunc = trunc nuw nsw i32 %.034 to i8
   %33 = urem i8 %.lhs.trunc, 3
   %.not = icmp eq i8 %33, 0
   %34 = select reassoc nsz arcp contract afn i1 %.not, double 5.000000e-02, double 3.000000e-02

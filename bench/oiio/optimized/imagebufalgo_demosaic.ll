@@ -7203,7 +7203,7 @@ _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIffLi2ELi3EXadsoA2_KmL_ZNS
 .preheader.i21:                                   ; preds = %41, %60
   %.02127.i22 = phi i64 [ %61, %60 ], [ 0, %41 ]
   %.02226.i23 = phi i64 [ %58, %60 ], [ 0, %41 ]
-  %42 = trunc nuw i64 %.02127.i22 to i32
+  %42 = trunc nuw nsw i64 %.02127.i22 to i32
   %43 = add i32 %4, %42
   %44 = srem i32 %43, 6
   %45 = sext i32 %44 to i64
@@ -7391,7 +7391,7 @@ _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIffLi2ELi3EXadsoA2_KmL_ZNS
 .preheader.i21:                                   ; preds = %41, %60
   %.02127.i22 = phi i64 [ %61, %60 ], [ 0, %41 ]
   %.02226.i23 = phi i64 [ %58, %60 ], [ 0, %41 ]
-  %42 = trunc nuw i64 %.02127.i22 to i32
+  %42 = trunc nuw nsw i64 %.02127.i22 to i32
   %43 = add i32 %4, %42
   %44 = srem i32 %43, 6
   %45 = sext i32 %44 to i64
@@ -7579,7 +7579,7 @@ _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIffLi2ELi3EXadsoA2_KmL_ZNS
 .preheader.i21:                                   ; preds = %41, %60
   %.02127.i22 = phi i64 [ %61, %60 ], [ 0, %41 ]
   %.02226.i23 = phi i64 [ %58, %60 ], [ 0, %41 ]
-  %42 = trunc nuw i64 %.02127.i22 to i32
+  %42 = trunc nuw nsw i64 %.02127.i22 to i32
   %43 = add i32 %4, %42
   %44 = srem i32 %43, 6
   %45 = sext i32 %44 to i64
@@ -7767,7 +7767,7 @@ _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIffLi2ELi3EXadsoA2_KmL_ZNS
 .preheader.i21:                                   ; preds = %41, %60
   %.02127.i22 = phi i64 [ %61, %60 ], [ 0, %41 ]
   %.02226.i23 = phi i64 [ %58, %60 ], [ 0, %41 ]
-  %42 = trunc nuw i64 %.02127.i22 to i32
+  %42 = trunc nuw nsw i64 %.02127.i22 to i32
   %43 = add i32 %4, %42
   %44 = srem i32 %43, 6
   %45 = sext i32 %44 to i64
@@ -77894,7 +77894,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
 .preheader.i.i.i:                                 ; preds = %90, %110
   %.02127.i.i.i = phi i64 [ %111, %110 ], [ 0, %90 ]
   %.02226.i.i.i = phi i64 [ %108, %110 ], [ 0, %90 ]
-  %92 = trunc nuw i64 %.02127.i.i.i to i32
+  %92 = trunc nuw nsw i64 %.02127.i.i.i to i32
   %93 = add nuw nsw i32 %92, %89
   %.urem.i.i.i.i = add nsw i32 %93, -6
   %.cmp.i.i.i.i = icmp samesign ult i32 %93, 6
@@ -86260,7 +86260,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
 .preheader.i.i.i:                                 ; preds = %90, %110
   %.02127.i.i.i = phi i64 [ %111, %110 ], [ 0, %90 ]
   %.02226.i.i.i = phi i64 [ %108, %110 ], [ 0, %90 ]
-  %92 = trunc nuw i64 %.02127.i.i.i to i32
+  %92 = trunc nuw nsw i64 %.02127.i.i.i to i32
   %93 = add nuw nsw i32 %92, %89
   %.urem.i.i.i.i = add nsw i32 %93, -6
   %.cmp.i.i.i.i = icmp samesign ult i32 %93, 6
@@ -94697,7 +94697,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
 .preheader.i.i.i:                                 ; preds = %90, %110
   %.02127.i.i.i = phi i64 [ %111, %110 ], [ 0, %90 ]
   %.02226.i.i.i = phi i64 [ %108, %110 ], [ 0, %90 ]
-  %92 = trunc nuw i64 %.02127.i.i.i to i32
+  %92 = trunc nuw nsw i64 %.02127.i.i.i to i32
   %93 = add nuw nsw i32 %92, %89
   %.urem.i.i.i.i = add nsw i32 %93, -6
   %.cmp.i.i.i.i = icmp samesign ult i32 %93, 6
@@ -101742,7 +101742,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
 .preheader.i.i.i:                                 ; preds = %90, %110
   %.02127.i.i.i = phi i64 [ %111, %110 ], [ 0, %90 ]
   %.02226.i.i.i = phi i64 [ %108, %110 ], [ 0, %90 ]
-  %92 = trunc nuw i64 %.02127.i.i.i to i32
+  %92 = trunc nuw nsw i64 %.02127.i.i.i to i32
   %93 = add nuw nsw i32 %92, %89
   %.urem.i.i.i.i = add nsw i32 %93, -6
   %.cmp.i.i.i.i = icmp samesign ult i32 %93, 6
@@ -110179,7 +110179,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
 .preheader.i.i.i:                                 ; preds = %90, %110
   %.02127.i.i.i = phi i64 [ %111, %110 ], [ 0, %90 ]
   %.02226.i.i.i = phi i64 [ %108, %110 ], [ 0, %90 ]
-  %92 = trunc nuw i64 %.02127.i.i.i to i32
+  %92 = trunc nuw nsw i64 %.02127.i.i.i to i32
   %93 = add nuw nsw i32 %92, %89
   %.urem.i.i.i.i = add nsw i32 %93, -6
   %.cmp.i.i.i.i = icmp samesign ult i32 %93, 6
@@ -119588,7 +119588,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
 .preheader.i.i.i:                                 ; preds = %90, %110
   %.02127.i.i.i = phi i64 [ %111, %110 ], [ 0, %90 ]
   %.02226.i.i.i = phi i64 [ %108, %110 ], [ 0, %90 ]
-  %92 = trunc nuw i64 %.02127.i.i.i to i32
+  %92 = trunc nuw nsw i64 %.02127.i.i.i to i32
   %93 = add nuw nsw i32 %92, %89
   %.urem.i.i.i.i = add nsw i32 %93, -6
   %.cmp.i.i.i.i = icmp samesign ult i32 %93, 6
@@ -125181,7 +125181,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
 .preheader.i.i.i:                                 ; preds = %90, %110
   %.02127.i.i.i = phi i64 [ %111, %110 ], [ 0, %90 ]
   %.02226.i.i.i = phi i64 [ %108, %110 ], [ 0, %90 ]
-  %92 = trunc nuw i64 %.02127.i.i.i to i32
+  %92 = trunc nuw nsw i64 %.02127.i.i.i to i32
   %93 = add nuw nsw i32 %92, %89
   %.urem.i.i.i.i = add nsw i32 %93, -6
   %.cmp.i.i.i.i = icmp samesign ult i32 %93, 6

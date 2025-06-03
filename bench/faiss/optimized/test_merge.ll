@@ -3123,7 +3123,7 @@ define dso_local void @_ZN30MERGE_merge_flat_ondisk_3_Test8TestBodyEv(ptr nonnul
   %.sroa.0.084 = phi ptr [ null, %1 ], [ %.sroa.0.1, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
   %.sroa.12.083 = phi ptr [ null, %1 ], [ %.sroa.12.1, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
   %.sroa.9.082 = phi ptr [ null, %1 ], [ %.sroa.9.1, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
-  %.lhs.trunc = trunc nuw i32 %.01785 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %.01785 to i16
   %14 = urem i16 %.lhs.trunc, 250
   %15 = zext nneg i16 %14 to i64
   %.not.i.i = icmp eq ptr %.sroa.9.082, %.sroa.12.083

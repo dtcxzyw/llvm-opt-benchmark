@@ -2837,8 +2837,8 @@ define linkonce_odr dso_local void @_ZN17BenchmarkCompoundC2ER8Settings(ptr noun
 66:                                               ; preds = %60, %85
   %.0103120 = phi i32 [ 0, %60 ], [ %86, %85 ]
   %67 = mul nuw nsw i32 %.0103120, 20
-  %68 = uitofp nneg i32 %67 to float
-  %69 = fadd float %68, -5.000000e+01
+  %68 = add nsw i32 %67, -50
+  %69 = sitofp i32 %68 to float
   store float %69, ptr %52, align 4, !tbaa !15
   store float %63, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !15
   %.sroa.012.0.copyload = load i32, ptr %16, align 4

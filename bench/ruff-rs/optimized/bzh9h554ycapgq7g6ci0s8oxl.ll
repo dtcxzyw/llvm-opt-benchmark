@@ -66273,7 +66273,7 @@ switch.lookup:                                    ; preds = %2
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = load i64, ptr %1, align 8, !range !8, !noundef !9
-  %switch.idx.cast = trunc nuw nsw i64 %5 to i8
+  %switch.idx.cast = trunc nuw i64 %5 to i8
   %switch.offset = xor i8 %switch.idx.cast, 3
   br label %7
 

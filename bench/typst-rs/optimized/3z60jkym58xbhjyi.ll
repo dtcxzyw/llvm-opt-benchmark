@@ -5901,7 +5901,7 @@ switch.lookup:
   %23 = alloca { { { i64, ptr, {} }, i64 }, i64 }, align 8
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5typst9visualize5image6raster11RasterImage7dynamic17hdd73719c71bad7edE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
   %.val = load i64, ptr %24, align 8, !range !841, !noundef !4
-  %switch.idx.cast = trunc nuw nsw i64 %.val to i8
+  %switch.idx.cast = trunc nuw i64 %.val to i8
   %25 = tail call noundef i8 @_ZN5image5color9ColorType13channel_count17h96060351b99fa18aE(i8 noundef %switch.idx.cast)
   %26 = icmp ugt i8 %25, 2
   %27 = tail call noundef i8 @_ZN5typst9visualize5image6raster11RasterImage6format17h525338180554e0c1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1), !range !842
@@ -5931,7 +5931,7 @@ switch.lookup:
   %.sroa.11.0.in.i.i = getelementptr inbounds nuw i8, ptr %24, i64 36
   %.sroa.11.0.i.i = load i32, ptr %.sroa.11.0.in.i.i, align 4, !alias.scope !848, !noalias !851, !noundef !4
   %.val.i = load i64, ptr %24, align 8, !range !841, !alias.scope !846, !noalias !851, !noundef !4
-  %switch.idx.cast33 = trunc nuw nsw i64 %.val.i to i8
+  %switch.idx.cast33 = trunc nuw i64 %.val.i to i8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17), !noalias !853
   invoke void @"_ZN104_$LT$image..image..ImageOutputFormat$u20$as$u20$core..convert..From$LT$image..image..ImageFormat$GT$$GT$4from17hef9e71a91aec5d2cE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %17, i8 noundef 1)
           to label %.noexc20 unwind label %107

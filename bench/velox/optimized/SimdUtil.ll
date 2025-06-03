@@ -487,7 +487,7 @@ for.body4.i.i43:                                  ; preds = %for.body4.i.i43, %f
   %arrayidx.i.i45 = getelementptr inbounds nuw [4 x i8], ptr %tmp.i.i40, i64 0, i64 %indvars.iv.i.i44
   %25 = trunc nuw nsw i64 %indvars.iv.i.i44 to i32
   %26 = lshr i32 %24, %25
-  %27 = trunc nuw i32 %26 to i8
+  %27 = trunc nuw nsw i32 %26 to i8
   %frombool.i.i46 = and i8 %27, 1
   store i8 %frombool.i.i46, ptr %arrayidx.i.i45, align 1
   %indvars.iv.next.i.i47 = add nuw nsw i64 %indvars.iv.i.i44, 1

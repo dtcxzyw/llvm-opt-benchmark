@@ -44543,7 +44543,7 @@ switch.lookup:
   %13 = alloca { { i8, [23 x i8] } }, align 8
   %14 = alloca { i32, { { i32, i32 }, i32 }, i32, i8, i8, [2 x i8] }, align 4
   %15 = load i64, ptr %1, align 8, !range !1085, !alias.scope !9910, !noundef !4
-  %switch.idx.cast = trunc nuw nsw i64 %15 to i8
+  %switch.idx.cast = trunc nuw i64 %15 to i8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %17 = load i64, ptr %16, align 8, !range !1014, !noundef !4
   %18 = icmp eq i64 %17, -9223372036854775808

@@ -113,7 +113,7 @@ define hidden noundef zeroext i1 @_ZN22cranelift_codegen_meta4cdsl8operands7Oper
 define hidden noundef zeroext i1 @_ZN22cranelift_codegen_meta4cdsl8operands7Operand25is_immediate_or_entityref17h560b80b6f14286d8E(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !4, !noundef !3
-  %switch.cast = trunc nuw nsw i64 %1 to i5
+  %switch.cast = trunc nuw i64 %1 to i5
   %switch.downshift = lshr i5 13, %switch.cast
   %switch.masked = trunc i5 %switch.downshift to i1
   ret i1 %switch.masked

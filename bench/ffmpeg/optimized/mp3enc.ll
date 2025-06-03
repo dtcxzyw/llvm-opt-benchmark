@@ -1101,7 +1101,7 @@ define internal fastcc void @mp3_write_xing(ptr noundef %0) unnamed_addr #0 {
 113:                                              ; preds = %98, %113
   %.190150 = phi i32 [ 0, %98 ], [ %117, %113 ]
   %114 = load ptr, ptr %2, align 8, !tbaa !105
-  %115 = trunc nuw i32 %.190150 to i16
+  %115 = trunc nuw nsw i32 %.190150 to i16
   %.lhs.trunc = mul nuw i16 %115, 255
   %116 = udiv i16 %.lhs.trunc, 100
   %.zext = zext nneg i16 %116 to i32

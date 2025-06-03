@@ -92,7 +92,7 @@ _ZNSt5arrayIiLm8EE4fillERKi.exit.i:               ; preds = %._ZNSt5arrayIiLm8EE
   br i1 %28, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %29 = trunc nuw i64 %.0713.i.i to i32
+  %29 = trunc nuw nsw i64 %.0713.i.i to i32
   %30 = and i32 %29, 1
   br label %32
 

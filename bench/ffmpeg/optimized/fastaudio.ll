@@ -50,9 +50,9 @@ define internal range(i32 -12, 1) i32 @fastaudio_init(ptr noundef captures(none)
 
 .preheader87:                                     ; preds = %.preheader88, %.preheader87
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.preheader87 ], [ 0, %.preheader88 ]
-  %17 = trunc nuw nsw i64 %indvars.iv106 to i32
-  %18 = uitofp nneg i32 %17 to float
-  %19 = fadd nsz float %18, -1.300000e+01
+  %17 = trunc i64 %indvars.iv106 to i32
+  %18 = add i32 %17, -13
+  %19 = sitofp i32 %18 to float
   %20 = fdiv nsz float %19, 2.000000e+01
   %21 = add nuw nsw i64 %indvars.iv106, 19
   %22 = getelementptr inbounds nuw [64 x float], ptr %3, i64 0, i64 %21
@@ -111,9 +111,9 @@ define internal range(i32 -12, 1) i32 @fastaudio_init(ptr noundef captures(none)
 
 .preheader84:                                     ; preds = %38, %.preheader84
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.preheader84 ], [ 0, %38 ]
-  %45 = trunc nuw nsw i64 %indvars.iv122 to i32
-  %46 = uitofp nneg i32 %45 to float
-  %47 = fadd nsz float %46, -1.300000e+01
+  %45 = trunc i64 %indvars.iv122 to i32
+  %46 = add i32 %45, -13
+  %47 = sitofp i32 %46 to float
   %48 = fdiv nsz float %47, 2.000000e+01
   %49 = add nuw nsw i64 %indvars.iv122, 7
   %50 = getelementptr inbounds nuw [64 x float], ptr %31, i64 0, i64 %49
@@ -464,7 +464,7 @@ bytestream2_get_le32.exit:                        ; preds = %45, %49
   %143 = sext i32 %.reass to i64
   %144 = getelementptr inbounds float, ptr %5, i64 %143
   store float %141, ptr %144, align 4, !tbaa !28
-  %.lhs.trunc = trunc nuw i32 %.082126185 to i8
+  %.lhs.trunc = trunc nuw nsw i32 %.082126185 to i8
   %145 = urem i8 %.lhs.trunc, 10
   %146 = icmp eq i8 %145, 9
   br i1 %146, label %147, label %.thread106

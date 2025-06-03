@@ -1002,7 +1002,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit161.i391: ; preds = %4
   br i1 %.not146.i395, label %494, label %487
 
 487:                                              ; preds = %486
-  %488 = trunc nuw i64 %.0131.i352716 to i32
+  %488 = trunc nuw nsw i64 %.0131.i352716 to i32
   %489 = and i32 %488, 2
   %490 = lshr exact i32 117264, %489
   %491 = and i32 %490, 4
@@ -1926,7 +1926,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit161.i: ; preds = %906,
   br i1 %.not146.i, label %942, label %935
 
 935:                                              ; preds = %934
-  %936 = trunc nuw i64 %.0131.i328876 to i32
+  %936 = trunc nuw nsw i64 %.0131.i328876 to i32
   %937 = and i32 %936, 2
   %938 = lshr exact i32 117264, %937
   %939 = and i32 %938, 4
@@ -3464,7 +3464,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit161.i260: ; preds = %4
   br i1 %.not146.i264, label %496, label %489
 
 489:                                              ; preds = %488
-  %490 = trunc nuw i64 %.0131.i221693 to i32
+  %490 = trunc nuw nsw i64 %.0131.i221693 to i32
   %491 = and i32 %490, 2
   %492 = lshr exact i32 117264, %491
   %493 = and i32 %492, 4
@@ -4392,7 +4392,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit161.i: ; preds = %910,
   br i1 %.not146.i, label %946, label %939
 
 939:                                              ; preds = %938
-  %940 = trunc nuw i64 %.0131.i853 to i32
+  %940 = trunc nuw nsw i64 %.0131.i853 to i32
   %941 = and i32 %940, 2
   %942 = lshr exact i32 117264, %941
   %943 = and i32 %942, 4
@@ -5274,7 +5274,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i: ; preds = %112,
   br i1 %.not146.i302, label %148, label %141
 
 141:                                              ; preds = %140
-  %142 = trunc nuw i64 %.0126.i627 to i32
+  %142 = trunc nuw nsw i64 %.0126.i627 to i32
   %143 = and i32 %142, 2
   %144 = lshr exact i32 117264, %143
   %145 = and i32 %144, 4
@@ -5842,7 +5842,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit161.i260: ; preds = %4
   br i1 %.not146.i264, label %440, label %433
 
 433:                                              ; preds = %432
-  %434 = trunc nuw i64 %.0131.i221704 to i32
+  %434 = trunc nuw nsw i64 %.0131.i221704 to i32
   %435 = and i32 %434, 2
   %436 = lshr exact i32 117264, %435
   %437 = and i32 %436, 4
@@ -6194,7 +6194,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i383: ; preds = %5
   br i1 %.not146.i368, label %594, label %587
 
 587:                                              ; preds = %586
-  %588 = trunc nuw i64 %.0126.i309776 to i32
+  %588 = trunc nuw nsw i64 %.0126.i309776 to i32
   %589 = and i32 %588, 2
   %590 = lshr exact i32 117264, %589
   %591 = and i32 %590, 4
@@ -6761,7 +6761,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit161.i: ; preds = %849,
   br i1 %.not146.i, label %885, label %878
 
 878:                                              ; preds = %877
-  %879 = trunc nuw i64 %.0131.i854 to i32
+  %879 = trunc nuw nsw i64 %.0131.i854 to i32
   %880 = and i32 %879, 2
   %881 = lshr exact i32 117264, %880
   %882 = and i32 %881, 4
@@ -7674,7 +7674,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i: ; preds = %125,
   br i1 %.not146.i302, label %161, label %154
 
 154:                                              ; preds = %153
-  %155 = trunc nuw i64 %.0126.i627 to i32
+  %155 = trunc nuw nsw i64 %.0126.i627 to i32
   %156 = and i32 %155, 14
   %157 = lshr i32 117264, %156
   %158 = and i32 %157, 14
@@ -8242,7 +8242,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit161.i260: ; preds = %4
   br i1 %.not146.i264, label %453, label %446
 
 446:                                              ; preds = %445
-  %447 = trunc nuw i64 %.0131.i221704 to i32
+  %447 = trunc nuw nsw i64 %.0131.i221704 to i32
   %448 = and i32 %447, 2
   %449 = lshr exact i32 117264, %448
   %450 = and i32 %449, 4
@@ -8594,7 +8594,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i383: ; preds = %5
   br i1 %.not146.i368, label %607, label %600
 
 600:                                              ; preds = %599
-  %601 = trunc nuw i64 %.0126.i309776 to i32
+  %601 = trunc nuw nsw i64 %.0126.i309776 to i32
   %602 = and i32 %601, 14
   %603 = lshr i32 117264, %602
   %604 = and i32 %603, 14
@@ -9161,7 +9161,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit161.i: ; preds = %862,
   br i1 %.not146.i, label %898, label %891
 
 891:                                              ; preds = %890
-  %892 = trunc nuw i64 %.0131.i854 to i32
+  %892 = trunc nuw nsw i64 %.0131.i854 to i32
   %893 = and i32 %892, 2
   %894 = lshr exact i32 117264, %893
   %895 = and i32 %894, 4
@@ -10105,7 +10105,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i: ; preds = %138,
   br i1 %.not146.i302, label %174, label %167
 
 167:                                              ; preds = %166
-  %168 = trunc nuw i64 %.0126.i627 to i32
+  %168 = trunc nuw nsw i64 %.0126.i627 to i32
   %169 = and i32 %168, 14
   %170 = lshr i32 117264, %169
   %171 = and i32 %170, 14
@@ -10678,7 +10678,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit161.i260: ; preds = %4
   br i1 %.not146.i264, label %471, label %464
 
 464:                                              ; preds = %463
-  %465 = trunc nuw i64 %.0131.i221704 to i32
+  %465 = trunc nuw nsw i64 %.0131.i221704 to i32
   %466 = and i32 %465, 2
   %467 = lshr exact i32 117264, %466
   %468 = and i32 %467, 4
@@ -11028,7 +11028,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i383: ; preds = %5
   br i1 %.not146.i368, label %623, label %616
 
 616:                                              ; preds = %615
-  %617 = trunc nuw i64 %.0126.i309773 to i32
+  %617 = trunc nuw nsw i64 %.0126.i309773 to i32
   %618 = and i32 %617, 14
   %619 = lshr i32 117264, %618
   %620 = and i32 %619, 14
@@ -11601,7 +11601,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit161.i: ; preds = %884,
   br i1 %.not146.i, label %920, label %913
 
 913:                                              ; preds = %912
-  %914 = trunc nuw i64 %.0131.i851 to i32
+  %914 = trunc nuw nsw i64 %.0131.i851 to i32
   %915 = and i32 %914, 2
   %916 = lshr exact i32 117264, %915
   %917 = and i32 %916, 4
@@ -12967,7 +12967,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit161.i260: ; preds = %3
   br i1 %.not146.i264, label %350, label %343
 
 343:                                              ; preds = %342
-  %344 = trunc nuw i64 %.0131.i221646 to i32
+  %344 = trunc nuw nsw i64 %.0131.i221646 to i32
   %345 = and i32 %344, 2
   %346 = lshr exact i32 117264, %345
   %347 = and i32 %346, 4
@@ -13767,7 +13767,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit161.i: ; preds = %679,
   br i1 %.not146.i, label %715, label %708
 
 708:                                              ; preds = %707
-  %709 = trunc nuw i64 %.0131.i783 to i32
+  %709 = trunc nuw nsw i64 %.0131.i783 to i32
   %710 = and i32 %709, 2
   %711 = lshr exact i32 117264, %710
   %712 = and i32 %711, 4
@@ -15416,7 +15416,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit161.i260: ; preds = %5
   br i1 %.not146.i264, label %574, label %567
 
 567:                                              ; preds = %566
-  %568 = trunc nuw i64 %.0131.i221768 to i32
+  %568 = trunc nuw nsw i64 %.0131.i221768 to i32
   %569 = and i32 %568, 2
   %570 = lshr exact i32 117264, %569
   %571 = and i32 %570, 4
@@ -16518,7 +16518,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit161.i: ; preds = %1061
   br i1 %.not146.i, label %1097, label %1090
 
 1090:                                             ; preds = %1089
-  %1091 = trunc nuw i64 %.0131.i959 to i32
+  %1091 = trunc nuw nsw i64 %.0131.i959 to i32
   %1092 = and i32 %1091, 2
   %1093 = lshr exact i32 117264, %1092
   %1094 = and i32 %1093, 4
@@ -24602,7 +24602,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i: ; preds = %109,
   br i1 %.not146.i, label %145, label %138
 
 138:                                              ; preds = %137
-  %139 = trunc nuw i64 %.0126.i476 to i32
+  %139 = trunc nuw nsw i64 %.0126.i476 to i32
   %140 = and i32 %139, 2
   %141 = lshr exact i32 117264, %140
   %142 = and i32 %141, 4
@@ -25167,7 +25167,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i279: ; preds = %3
   br i1 %.not146.i264, label %426, label %419
 
 419:                                              ; preds = %418
-  %420 = trunc nuw i64 %.0126.i205552 to i32
+  %420 = trunc nuw nsw i64 %.0126.i205552 to i32
   %421 = and i32 %420, 2
   %422 = lshr exact i32 117264, %421
   %423 = and i32 %422, 4
@@ -26289,7 +26289,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i: ; preds = %122,
   br i1 %.not146.i, label %158, label %151
 
 151:                                              ; preds = %150
-  %152 = trunc nuw i64 %.0126.i476 to i32
+  %152 = trunc nuw nsw i64 %.0126.i476 to i32
   %153 = and i32 %152, 14
   %154 = lshr i32 117264, %153
   %155 = and i32 %154, 14
@@ -26854,7 +26854,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i279: ; preds = %4
   br i1 %.not146.i264, label %439, label %432
 
 432:                                              ; preds = %431
-  %433 = trunc nuw i64 %.0126.i205552 to i32
+  %433 = trunc nuw nsw i64 %.0126.i205552 to i32
   %434 = and i32 %433, 14
   %435 = lshr i32 117264, %434
   %436 = and i32 %435, 14
@@ -28007,7 +28007,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i: ; preds = %135,
   br i1 %.not146.i, label %171, label %164
 
 164:                                              ; preds = %163
-  %165 = trunc nuw i64 %.0126.i476 to i32
+  %165 = trunc nuw nsw i64 %.0126.i476 to i32
   %166 = and i32 %165, 14
   %167 = lshr i32 117264, %166
   %168 = and i32 %167, 14
@@ -28575,7 +28575,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i279: ; preds = %4
   br i1 %.not146.i264, label %455, label %448
 
 448:                                              ; preds = %447
-  %449 = trunc nuw i64 %.0126.i205552 to i32
+  %449 = trunc nuw nsw i64 %.0126.i205552 to i32
   %450 = and i32 %449, 14
   %451 = lshr i32 117264, %450
   %452 = and i32 %451, 14

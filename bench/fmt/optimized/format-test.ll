@@ -182341,7 +182341,7 @@ define hidden void @_ZN32format_test_buffer_boundary_Test8TestBodyEv(ptr nonnull
 
 22:                                               ; preds = %17, %26
   %.052 = phi i32 [ 3, %17 ], [ %27, %26 ]
-  %.lhs.trunc = trunc nuw i32 %.052 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %.052 to i16
   %23 = urem i16 %.lhs.trunc, 73
   %.not = icmp eq i16 %23, 0
   %24 = select i1 %.not, i8 10, i8 120

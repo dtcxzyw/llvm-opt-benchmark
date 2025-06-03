@@ -36904,7 +36904,7 @@ _ZN8wasmtime7runtime5types8HeapType14from_wasm_type17h7119c7fae2ddd10bE.llvm.148
 define hidden noundef zeroext i1 @_ZN8wasmtime7runtime5types7RefType15is_gc_heap_type17h05d22cb1c7f3b881E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #9 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !675, !alias.scope !4595, !noundef !9
-  %switch.cast = trunc nuw nsw i64 %1 to i7
+  %switch.cast = trunc nuw i64 %1 to i7
   %switch.downshift = lshr i7 17, %switch.cast
   %switch.masked = trunc i7 %switch.downshift to i1
   ret i1 %switch.masked
@@ -37608,7 +37608,7 @@ _ZN8wasmtime7runtime5types8FuncType22from_shared_type_index17ha0be65bdf64456b8E.
 define hidden noundef zeroext i1 @_ZN8wasmtime7runtime5types8HeapType15is_gc_heap_type17h91fc3f1573bfb93cE.llvm.14851531119274094909(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #9 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !675, !noundef !9
-  %switch.cast = trunc nuw nsw i64 %1 to i7
+  %switch.cast = trunc nuw i64 %1 to i7
   %switch.downshift = lshr i7 17, %switch.cast
   %switch.masked = trunc i7 %switch.downshift to i1
   ret i1 %switch.masked

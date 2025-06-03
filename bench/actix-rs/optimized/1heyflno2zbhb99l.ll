@@ -3517,7 +3517,7 @@ define hidden void @_ZN6brotli3enc9metablock20BrotliBuildMetaBlock17hefd00365c03
   br i1 %139, label %.lr.ph, label %.loopexit378
 
 .lr.ph:                                           ; preds = %137
-  %140 = trunc nuw i64 %.sroa.0.0400 to i32
+  %140 = trunc nuw nsw i64 %.sroa.0.0400 to i32
   br label %151
 
 141:                                              ; preds = %.loopexit378

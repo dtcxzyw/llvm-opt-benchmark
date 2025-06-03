@@ -430,7 +430,7 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %1 = load ptr, ptr %0, align 8, !alias.scope !42, !nonnull !4, !align !34, !noundef !4
   %2 = load i64, ptr %1, align 8, !range !35, !noalias !42, !noundef !4
-  %switch.cast = trunc nuw nsw i64 %2 to i25
+  %switch.cast = trunc nuw i64 %2 to i25
   %switch.downshift = lshr i25 1, %switch.cast
   %switch.masked = trunc nuw i25 %switch.downshift to i1
   ret i1 %switch.masked

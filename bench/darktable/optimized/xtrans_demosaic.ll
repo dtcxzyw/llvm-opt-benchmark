@@ -558,7 +558,7 @@ define void @_ZN6LibRaw18xtrans_interpolateEi(ptr noundef nonnull align 8 derefe
   br i1 %exitcond1404.not, label %.critedge, label %.preheader1141, !llvm.loop !95
 
 265:                                              ; preds = %263
-  %266 = trunc nuw i32 %.09791217 to i8
+  %266 = trunc nuw nsw i32 %.09791217 to i8
   %.lhs.trunc = add nuw nsw i8 %266, 6
   %267 = urem i8 %.lhs.trunc, 6
   %268 = zext nneg i8 %267 to i64

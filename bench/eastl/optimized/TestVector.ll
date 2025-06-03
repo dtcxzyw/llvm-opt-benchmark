@@ -23175,7 +23175,7 @@ for.body1058.preheader:                           ; preds = %_ZN5eastl10VectorBa
 
 for.body1058:                                     ; preds = %for.body1058.preheader, %for.body1058
   %i.117848 = phi i64 [ %inc1062, %for.body1058 ], [ 0, %for.body1058.preheader ]
-  %rem.lhs.trunc = trunc nuw i64 %i.117848 to i8
+  %rem.lhs.trunc = trunc nuw nsw i64 %i.117848 to i8
   %rem7775 = urem i8 %rem.lhs.trunc, 3
   %rem.zext = zext nneg i8 %rem7775 to i32
   %884 = load ptr, ptr %intArray794, align 8
@@ -23933,7 +23933,7 @@ for.body1256.preheader:                           ; preds = %_ZN5eastl10VectorBa
 
 for.body1256:                                     ; preds = %for.body1256.preheader, %for.body1256
   %i.137850 = phi i64 [ %inc1261, %for.body1256 ], [ 0, %for.body1256.preheader ]
-  %rem1258.lhs.trunc = trunc nuw i64 %i.137850 to i8
+  %rem1258.lhs.trunc = trunc nuw nsw i64 %i.137850 to i8
   %rem12587776 = urem i8 %rem1258.lhs.trunc, 3
   %rem1258.zext = zext nneg i8 %rem12587776 to i32
   %1027 = load ptr, ptr %intArray794, align 8

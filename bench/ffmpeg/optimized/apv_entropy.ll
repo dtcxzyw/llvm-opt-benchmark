@@ -103,7 +103,7 @@ define void @ff_apv_entropy_build_decode_lut(ptr noundef captures(none) %0) loca
   store i8 %8, ptr %50, align 2, !tbaa !6
   %51 = lshr i32 %19, %13
   %52 = add nuw nsw i32 %51, %9
-  %53 = trunc nuw i32 %52 to i16
+  %53 = trunc nuw nsw i32 %52 to i16
   store i16 %53, ptr %18, align 2, !tbaa !11
   br label %54
 

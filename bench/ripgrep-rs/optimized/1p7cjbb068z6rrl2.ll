@@ -205,7 +205,7 @@ define noundef zeroext i1 @_ZN12grep_printer7summary11SummaryKind14requires_stat
 define noundef zeroext i1 @_ZN12grep_printer7summary11SummaryKind10quit_early17h382c816e49328e5dE(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #1 {
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !7, !noundef !8
-  %switch.cast = trunc nuw nsw i8 %1 to i5
+  %switch.cast = trunc nuw i8 %1 to i5
   %switch.downshift = lshr i5 -12, %switch.cast
   %switch.masked = trunc i5 %switch.downshift to i1
   ret i1 %switch.masked

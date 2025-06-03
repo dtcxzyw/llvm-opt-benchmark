@@ -18600,7 +18600,7 @@ _ZNK3vcg4face3PosINS_3tri12VoronoiAtlasI6CMeshOE8VoroFaceEEneERKS7_.exit.i: ; pr
 584:                                              ; preds = %_ZN3vcg4face3PosINS_3tri12VoronoiAtlasI6CMeshOE8VoroFaceEE5NextEEv.exit.i.i, %_ZNK3vcg4face3PosINS_3tri12VoronoiAtlasI6CMeshOE8VoroFaceEEneERKS7_.exit.i
   %585 = phi i32 [ %601, %_ZN3vcg4face3PosINS_3tri12VoronoiAtlasI6CMeshOE8VoroFaceEE5NextEEv.exit.i.i ], [ %.sroa.5.0.i, %_ZNK3vcg4face3PosINS_3tri12VoronoiAtlasI6CMeshOE8VoroFaceEEneERKS7_.exit.i ]
   %586 = phi ptr [ %597, %_ZN3vcg4face3PosINS_3tri12VoronoiAtlasI6CMeshOE8VoroFaceEE5NextEEv.exit.i.i ], [ %.sroa.0.0.i, %_ZNK3vcg4face3PosINS_3tri12VoronoiAtlasI6CMeshOE8VoroFaceEEneERKS7_.exit.i ]
-  %587 = trunc i32 %585 to i16
+  %587 = trunc nsw i32 %585 to i16
   %.lhs.trunc.i = add nsw i16 %587, 1
   %588 = srem i16 %.lhs.trunc.i, 3
   %589 = sext i16 %588 to i64
@@ -54551,7 +54551,7 @@ _ZNK3vcg4face3PosINS_3tri12VoronoiAtlasI6CMeshOE8VoroFaceEEneERKS7_.exit: ; pred
 31:                                               ; preds = %_ZN3vcg4face3PosINS_3tri12VoronoiAtlasI6CMeshOE8VoroFaceEE5NextEEv.exit.i, %_ZNK3vcg4face3PosINS_3tri12VoronoiAtlasI6CMeshOE8VoroFaceEEneERKS7_.exit
   %32 = phi i32 [ %48, %_ZN3vcg4face3PosINS_3tri12VoronoiAtlasI6CMeshOE8VoroFaceEE5NextEEv.exit.i ], [ %.sroa.5.0, %_ZNK3vcg4face3PosINS_3tri12VoronoiAtlasI6CMeshOE8VoroFaceEEneERKS7_.exit ]
   %33 = phi ptr [ %44, %_ZN3vcg4face3PosINS_3tri12VoronoiAtlasI6CMeshOE8VoroFaceEE5NextEEv.exit.i ], [ %.sroa.0.0, %_ZNK3vcg4face3PosINS_3tri12VoronoiAtlasI6CMeshOE8VoroFaceEEneERKS7_.exit ]
-  %34 = trunc i32 %32 to i16
+  %34 = trunc nsw i32 %32 to i16
   %.lhs.trunc = add nsw i16 %34, 1
   %35 = srem i16 %.lhs.trunc, 3
   %36 = sext i16 %35 to i64

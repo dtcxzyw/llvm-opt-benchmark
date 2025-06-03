@@ -108804,7 +108804,7 @@ define void @"_ZN144_$LT$polars_plan..plans..optimizer..cse..cse_expr..CommonSub
   tail call void @llvm.assume(i1 %7)
   %switch.tableidx = add nsw i64 %6, -10
   %8 = icmp ult i64 %switch.tableidx, 6
-  %switch.cast = trunc nsw i64 %switch.tableidx to i48
+  %switch.cast = trunc i64 %switch.tableidx to i48
   %switch.shiftamt = shl nuw nsw i48 %switch.cast, 3
   %switch.downshift = lshr i48 4295033088, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i8

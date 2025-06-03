@@ -4733,7 +4733,7 @@ define void @_ZN13pingora_cache9HttpCache5phase17h2416e782e7d4ef00E(ptr dead_on_
 define noundef zeroext i1 @_ZN13pingora_cache9HttpCache13upstream_used17hd753c6db5aae8b33E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(72) %0) unnamed_addr #6 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !402, !noundef !3
-  %switch.cast = trunc nuw nsw i64 %1 to i11
+  %switch.cast = trunc nuw i64 %1 to i11
   %switch.downshift = lshr i11 -219, %switch.cast
   %switch.masked = trunc i11 %switch.downshift to i1
   ret i1 %switch.masked

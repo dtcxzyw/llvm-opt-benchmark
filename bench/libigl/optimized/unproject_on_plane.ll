@@ -429,7 +429,7 @@ _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal21scalar_score_coeff_opIdEEKN
 
 .lr.ph:                                           ; preds = %65, %.lr.ph
   %storemerge175 = phi i64 [ %71, %.lr.ph ], [ %.045174, %65 ]
-  %67 = trunc nuw i64 %storemerge175 to i32
+  %67 = trunc nuw nsw i64 %storemerge175 to i32
   %68 = getelementptr inbounds nuw i32, ptr %9, i64 %storemerge175
   store i32 %67, ptr %68, align 4, !tbaa !46
   %69 = getelementptr inbounds nuw i32, ptr %10, i64 %storemerge175

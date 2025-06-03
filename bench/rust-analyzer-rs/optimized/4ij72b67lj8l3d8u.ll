@@ -46806,7 +46806,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hd51e52a1c962c8c7E.exit: ; pred
 define noundef range(i8 0, 3) i8 @_ZN7hir_def4data3adt11VariantData4kind17h711f52aa799d6732E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #4 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !67, !noundef !7
-  %switch.cast = trunc nuw nsw i64 %1 to i24
+  %switch.cast = trunc nuw i64 %1 to i24
   %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
   %switch.downshift = lshr i24 131073, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8

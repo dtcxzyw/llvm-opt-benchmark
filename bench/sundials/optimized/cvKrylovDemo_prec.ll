@@ -625,7 +625,7 @@ PrintOutput.exit:                                 ; preds = %check_retval.exit11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #9
-  %.lhs.trunc = trunc nuw i32 %.0210 to i8
+  %.lhs.trunc = trunc nuw nsw i32 %.0210 to i8
   %251 = urem i8 %.lhs.trunc, 3
   %252 = icmp eq i8 %251, 0
   %or.cond = and i1 %151, %252

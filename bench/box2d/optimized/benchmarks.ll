@@ -798,7 +798,7 @@ define void @CreateSpinner(i32 %0) local_unnamed_addr #6 {
   store float %.04050, ptr %40, align 4, !tbaa !20
   store float %.04149, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !20
   %53 = call i64 @b2CreateBody(i32 %0, ptr noundef nonnull %13) #8
-  %.lhs.trunc = trunc nuw i32 %.04348 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %.04348 to i16
   %54 = urem i16 %.lhs.trunc, 3
   switch i16 %54, label %default.unreachable [
     i16 0, label %55
@@ -914,8 +914,8 @@ define void @CreateSmash(i32 %0) local_unnamed_addr #6 {
 22:                                               ; preds = %.preheader, %22
   %.02021 = phi i32 [ 0, %.preheader ], [ %28, %22 ]
   store float %18, ptr %14, align 4, !tbaa !68
-  %23 = uitofp nneg i32 %.02021 to float
-  %24 = fadd float %23, -4.000000e+01
+  %23 = add nsw i32 %.02021, -40
+  %24 = sitofp i32 %23 to float
   %25 = fmul float %24, 0x3FD99999A0000000
   store float %25, ptr %15, align 8, !tbaa !69
   %26 = call i64 @b2CreateBody(i32 %0, ptr noundef nonnull %6) #8

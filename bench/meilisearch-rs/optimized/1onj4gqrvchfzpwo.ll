@@ -3425,7 +3425,7 @@ _ZN14allocator_api26stable5alloc6global6Global10alloc_impl17h4b4fe1d7a8542cbbE.l
 define noundef range(i8 0, 27) i8 @"_ZN100_$LT$meilisearch_auth..error..AuthControllerError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hf9506b83eb3ef120E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #13 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !335, !noundef !5
-  %switch.cast = trunc nuw nsw i64 %1 to i24
+  %switch.cast = trunc nuw i64 %1 to i24
   %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
   %switch.downshift = lshr i24 1703937, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8

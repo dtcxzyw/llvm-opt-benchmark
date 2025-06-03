@@ -73312,7 +73312,7 @@ switch.lookup:                                    ; preds = %2
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = load i64, ptr %1, align 8, !range !402, !noundef !6
-  %switch.cast = trunc nuw nsw i64 %5 to i24
+  %switch.cast = trunc nuw i64 %5 to i24
   %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
   %switch.downshift = lshr i24 328450, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8

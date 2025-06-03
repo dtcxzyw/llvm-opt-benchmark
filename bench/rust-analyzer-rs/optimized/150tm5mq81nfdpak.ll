@@ -38736,7 +38736,7 @@ default.unreachable:                              ; preds = %6
 switch.lookup:                                    ; preds = %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6433d072923ed64cE.llvm.17272167133303916261.exit.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !8740
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  %switch.cast = trunc nuw nsw i32 %43 to i24
+  %switch.cast = trunc nuw i32 %43 to i24
   %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
   %switch.downshift = lshr i24 722692, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8

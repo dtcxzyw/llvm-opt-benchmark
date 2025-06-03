@@ -561,7 +561,7 @@ Dar_Permutations.exit:                            ; preds = %.lr.ph.i
   br i1 %exitcond.not.i144, label %Dar_TruthPolarize.exit.preheader, label %.lr.ph.i141, !llvm.loop !22
 
 Dar_TruthPolarize.exit.preheader:                 ; preds = %48
-  %49 = trunc nuw i32 %.0117188 to i8
+  %49 = trunc nuw nsw i32 %.0117188 to i8
   %50 = or disjoint i8 %49, 16
   br label %51
 

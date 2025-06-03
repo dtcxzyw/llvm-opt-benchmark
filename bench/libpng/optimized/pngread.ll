@@ -2452,7 +2452,7 @@ make_gray_colormap.exit:                          ; preds = %.preheader
 
 .preheader586:                                    ; preds = %125, %.preheader586
   %.01921.i = phi i32 [ %132, %.preheader586 ], [ 0, %125 ]
-  %.019.tr.i = trunc nuw i32 %.01921.i to i16
+  %.019.tr.i = trunc nuw nsw i32 %.01921.i to i16
   %130 = shl nuw i16 %.019.tr.i, 8
   %.lhs.trunc.i = or disjoint i16 %130, 115
   %131 = udiv i16 %.lhs.trunc.i, 231
@@ -2566,7 +2566,7 @@ make_gray_colormap.exit468:                       ; preds = %.preheader583
 
 .preheader584:                                    ; preds = %175, %.preheader584
   %.0418632 = phi i32 [ %182, %.preheader584 ], [ 0, %175 ]
-  %.0418.tr = trunc nuw i32 %.0418632 to i16
+  %.0418.tr = trunc nuw nsw i32 %.0418632 to i16
   %180 = shl nuw i16 %.0418.tr, 8
   %.lhs.trunc = or disjoint i16 %180, 115
   %181 = udiv i16 %.lhs.trunc, 231
@@ -2713,7 +2713,7 @@ make_gray_colormap.exit468:                       ; preds = %.preheader583
 
 .preheader589:                                    ; preds = %270, %.preheader589
   %.01921.i469 = phi i32 [ %277, %.preheader589 ], [ 0, %270 ]
-  %.019.tr.i470 = trunc nuw i32 %.01921.i469 to i16
+  %.019.tr.i470 = trunc nuw nsw i32 %.01921.i469 to i16
   %275 = shl nuw i16 %.019.tr.i470, 8
   %.lhs.trunc.i471 = or disjoint i16 %275, 115
   %276 = udiv i16 %.lhs.trunc.i471, 231

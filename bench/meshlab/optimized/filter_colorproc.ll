@@ -23978,7 +23978,7 @@ define linkonce_odr void @_ZN3vcg3tri11UpdateColorI6CMeshOE17PerVertexAddNoiseER
   %.01721.i.i = phi i64 [ 0, %6 ], [ %12, %11 ]
   %.01820.i.i = phi i32 [ 1, %6 ], [ %17, %11 ]
   %12 = add nuw nsw i64 %.01721.i.i, 1
-  %13 = trunc nuw i64 %12 to i16
+  %13 = trunc nuw nsw i64 %12 to i16
   %.lhs.trunc.i.i = mul nuw nsw i16 %13, 21
   %14 = urem i16 %.lhs.trunc.i.i, 55
   %.zext.i.i = zext nneg i16 %14 to i64

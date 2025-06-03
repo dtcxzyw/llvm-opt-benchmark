@@ -2346,7 +2346,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf95cca0234f68c8fE.exit: ; preds 
 define noundef range(i8 0, 3) i8 @"_ZN111_$LT$typst_svg..GradientKind$u20$as$u20$core..convert..From$LT$$RF$typst..visualize..gradient..Gradient$GT$$GT$4from17h7124f9e8e61bed4aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #5 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !405, !noundef !37
-  %switch.idx.cast = trunc nuw nsw i64 %1 to i8
+  %switch.idx.cast = trunc nuw i64 %1 to i8
   ret i8 %switch.idx.cast
 }
 

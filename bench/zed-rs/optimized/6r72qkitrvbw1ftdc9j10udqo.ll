@@ -392,7 +392,7 @@ switch.lookup:
   %3 = load i32, ptr %2, align 8, !range !5, !noundef !4
   %4 = and i32 %3, 14
   %5 = icmp eq i32 %4, 10
-  %6 = trunc nuw nsw i32 %3 to i8
+  %6 = trunc nuw i32 %3 to i8
   %7 = add nsw i8 %6, -9
   %switch.idx.cast = select i1 %5, i8 %7, i8 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)

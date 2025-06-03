@@ -18723,7 +18723,7 @@ define internal range(i32 0, 2) i32 @test_multi_resume(i32 noundef %0) #1 {
   br i1 %.not39, label %.loopexit, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %79
-  %.pre = trunc nuw i32 %.03050 to i8
+  %.pre = trunc nuw nsw i32 %.03050 to i8
   %.pre52 = urem i8 %.pre, 3
   br label %91
 

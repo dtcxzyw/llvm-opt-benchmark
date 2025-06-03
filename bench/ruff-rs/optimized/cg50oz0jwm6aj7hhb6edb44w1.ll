@@ -135240,7 +135240,7 @@ define hidden void @_ZN11ruff_linter5rules4ruff5rules18invalid_index_type18inval
 switch.lookup:                                    ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %46 = load i64, ptr %45, align 8, !range !151, !noundef !9
-  %switch.idx.cast = trunc nuw nsw i64 %46 to i8
+  %switch.idx.cast = trunc nuw i64 %46 to i8
   %switch.offset = add nuw nsw i8 %switch.idx.cast, 3
   br label %52
 

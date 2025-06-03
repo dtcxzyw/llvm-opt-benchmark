@@ -4536,7 +4536,7 @@ define hidden void @_ZN4core3ops8function5FnMut8call_mut17haa469b49cfb9a82bE.llv
 define hidden noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17haf77f6cc2e552cd8E.llvm.6030771845222660662(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %1) unnamed_addr #4 {
 switch.lookup:
   %2 = load i16, ptr %1, align 2, !range !41, !alias.scope !448, !noundef !7
-  %switch.cast = trunc nuw nsw i16 %2 to i14
+  %switch.cast = trunc nuw i16 %2 to i14
   %switch.downshift = lshr i14 4008, %switch.cast
   %switch.masked = trunc i14 %switch.downshift to i1
   ret i1 %switch.masked
@@ -4573,7 +4573,7 @@ _ZN4core3ops8function5FnMut8call_mut17haa469b49cfb9a82bE.llvm.603077184522266066
 define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hcdb3dea355a4d90fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %1) unnamed_addr #6 {
 switch.lookup:
   %2 = load i16, ptr %1, align 2, !range !41, !alias.scope !468, !noundef !7
-  %switch.cast = trunc nuw nsw i16 %2 to i14
+  %switch.cast = trunc nuw i16 %2 to i14
   %switch.downshift = lshr i14 4008, %switch.cast
   %switch.masked = trunc i14 %switch.downshift to i1
   ret i1 %switch.masked

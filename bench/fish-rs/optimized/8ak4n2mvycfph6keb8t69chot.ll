@@ -39432,7 +39432,7 @@ switch.lookup:
 define noundef range(i8 0, 7) i8 @"_ZN106_$LT$fish..event..event_type_t$u20$as$u20$core..convert..From$LT$$RF$fish..event..EventDescription$GT$$GT$4from17had7e32b16b3ebf1fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #4 {
 switch.lookup:
   %1 = load i32, ptr %0, align 8, !range !3561, !noundef !7
-  %switch.idx.cast = trunc nuw nsw i32 %1 to i8
+  %switch.idx.cast = trunc nuw i32 %1 to i8
   ret i8 %switch.idx.cast
 }
 

@@ -10066,7 +10066,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 switch.lookup:                                    ; preds = %84
   %.sroa.2.0.copyload = load i64, ptr %88, align 8
-  %switch.cast = trunc nuw nsw i64 %86 to i24
+  %switch.cast = trunc nuw i64 %86 to i24
   %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
   %switch.downshift = lshr i24 525322, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
@@ -10300,7 +10300,7 @@ switch.lookup:                                    ; preds = %84
 
 switch.lookup292:                                 ; preds = %178
   %.sroa.298.0.copyload = load i64, ptr %181, align 8
-  %switch.cast293 = trunc nuw nsw i64 %179 to i24
+  %switch.cast293 = trunc nuw i64 %179 to i24
   %switch.shiftamt294 = shl nuw nsw i24 %switch.cast293, 3
   %switch.downshift295 = lshr i24 525322, %switch.shiftamt294
   %switch.masked296 = trunc i24 %switch.downshift295 to i8

@@ -4157,7 +4157,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit: ; preds = %53
   br i1 %exitcond.not.i53, label %._crit_edge.i54, label %78, !llvm.loop !118
 
 86:                                               ; preds = %._crit_edge.i54
-  %87 = trunc nuw nsw i64 %85 to i32
+  %87 = trunc nuw i64 %85 to i32
   %88 = getelementptr inbounds nuw [84 x i32], ptr %27, i64 0, i64 %wide.trip.count.i49
   store i32 %87, ptr %88, align 4, !tbaa !22
   %89 = add nuw nsw i32 %56, 1

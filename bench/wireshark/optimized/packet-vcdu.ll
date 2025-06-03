@@ -317,7 +317,7 @@ define internal i32 @dissect_vcdu(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %61 = phi i32 [ %71, %69 ], [ 0, %4 ]
   %62 = and i32 %.01620.i, 3
   %63 = icmp ne i32 %62, 0
-  %.lhs.trunc.i = trunc nuw i32 %.01620.i to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %.01620.i to i16
   %64 = urem i16 %.lhs.trunc.i, 100
   %.not.i = icmp eq i16 %64, 0
   %or.cond.i = or i1 %63, %.not.i

@@ -85877,7 +85877,7 @@ switch.lookup:                                    ; preds = %3
   %17 = load i32, ptr %5, align 8, !range !16890, !noalias !16886, !noundef !10
   %18 = and i32 %17, 14
   %19 = icmp eq i32 %18, 10
-  %20 = trunc nuw nsw i32 %17 to i8
+  %20 = trunc nuw i32 %17 to i8
   %21 = add nsw i8 %20, -9
   %switch.idx.cast = select i1 %19, i8 %21, i8 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !16886
@@ -85889,7 +85889,7 @@ switch.lookup:                                    ; preds = %3
   %22 = load i32, ptr %4, align 8, !range !16890, !noalias !16891, !noundef !10
   %23 = and i32 %22, 14
   %24 = icmp eq i32 %23, 10
-  %25 = trunc nuw nsw i32 %22 to i8
+  %25 = trunc nuw i32 %22 to i8
   %26 = add nsw i8 %25, -9
   %switch.idx.cast10 = select i1 %24, i8 %26, i8 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !16891

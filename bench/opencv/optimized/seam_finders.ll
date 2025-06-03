@@ -4646,7 +4646,7 @@ define void @_ZN2cv6detail12DpSeamFinder9findEdgesEv(ptr noundef nonnull align 8
   %.sroa.2.0.insert.shift.i = shl nuw nsw i64 %indvars.iv567, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %indvars.iv570
   %.sroa.5593.0.extract.shift = lshr i64 %.sroa.0.0.insert.insert.i, 32
-  %.sroa.5593.0.extract.trunc = trunc nuw nsw i64 %.sroa.5593.0.extract.shift to i32
+  %.sroa.5593.0.extract.trunc = trunc nuw i64 %.sroa.5593.0.extract.shift to i32
   %26 = load ptr, ptr %4, align 8, !tbaa !148
   %.not11.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not11.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i

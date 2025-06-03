@@ -160,7 +160,7 @@ sub_2:                                            ; preds = %sub_1
   br label %35
 
 35:                                               ; preds = %34, %33
-  %.lhs.trunc = trunc nuw i32 %.192 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %.192 to i16
   %36 = urem i16 %.lhs.trunc, 3
   %.not61 = icmp eq i16 %36, 0
   br i1 %.not61, label %38, label %37

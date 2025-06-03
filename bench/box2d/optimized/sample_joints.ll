@@ -3523,11 +3523,11 @@ define linkonce_odr dso_local void @_ZN6BridgeC2ER8Settings(ptr noundef nonnull 
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 1528
   br label %54
 
-41:                                               ; preds = %72
+41:                                               ; preds = %74
   store i64 %.sroa.062.0.copyload63, ptr %6, align 8
   store i64 %23, ptr %35, align 8
   %42 = invoke <2 x float> @b2Body_GetLocalPoint(i64 %.sroa.062.0.copyload63, <2 x float> <float 8.000000e+01, float 2.000000e+01>)
-          to label %85 unwind label %96
+          to label %87 unwind label %98
 
 43:                                               ; preds = %20
   %44 = landingpad { ptr, i32 }
@@ -3542,29 +3542,29 @@ define linkonce_odr dso_local void @_ZN6BridgeC2ER8Settings(ptr noundef nonnull 
 47:                                               ; preds = %45, %43
   %.pn = phi { ptr, i32 } [ %46, %45 ], [ %44, %43 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #16
-  br label %149
+  br label %151
 
 48:                                               ; preds = %24
   %49 = landingpad { ptr, i32 }
           cleanup
-  br label %104
+  br label %106
 
 50:                                               ; preds = %25
   %51 = landingpad { ptr, i32 }
           cleanup
-  br label %103
+  br label %105
 
 52:                                               ; preds = %26
   %53 = landingpad { ptr, i32 }
           cleanup
-  br label %102
+  br label %104
 
-54:                                               ; preds = %28, %72
-  %indvars.iv = phi i64 [ 0, %28 ], [ %indvars.iv.next, %72 ]
-  %.sroa.062.0118 = phi i64 [ %23, %28 ], [ %.sroa.062.0.copyload63, %72 ]
+54:                                               ; preds = %28, %74
+  %indvars.iv = phi i64 [ 0, %28 ], [ %indvars.iv.next, %74 ]
+  %.sroa.062.0118 = phi i64 [ %23, %28 ], [ %.sroa.062.0.copyload63, %74 ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #16
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %7)
-          to label %55 unwind label %74
+          to label %55 unwind label %76
 
 55:                                               ; preds = %54
   store i32 2, ptr %7, align 8, !tbaa !59
@@ -3577,298 +3577,300 @@ define linkonce_odr dso_local void @_ZN6BridgeC2ER8Settings(ptr noundef nonnull 
   store float 0x3FB99999A0000000, ptr %33, align 4, !tbaa !64
   %.sroa.040.0.copyload = load i32, ptr %22, align 4
   %59 = invoke i64 @b2CreateBody(i32 %.sroa.040.0.copyload, ptr noundef nonnull %7)
-          to label %60 unwind label %76
+          to label %60 unwind label %78
 
 60:                                               ; preds = %55
   %61 = getelementptr inbounds nuw [160 x %struct.b2BodyId], ptr %34, i64 0, i64 %indvars.iv
   store i64 %59, ptr %61, align 8
   %62 = invoke i64 @b2CreatePolygonShape(i64 %59, ptr noundef nonnull %5, ptr noundef nonnull %4)
-          to label %63 unwind label %74
+          to label %63 unwind label %76
 
 63:                                               ; preds = %60
-  %64 = fadd float %57, -8.000000e+01
-  %.sroa.035.4.vec.insert = insertelement <2 x float> <float poison, float 2.000000e+01>, float %64, i64 0
+  %64 = trunc i64 %indvars.iv to i32
+  %65 = add i32 %64, -80
+  %66 = sitofp i32 %65 to float
+  %.sroa.035.4.vec.insert = insertelement <2 x float> <float poison, float 2.000000e+01>, float %66, i64 0
   store i64 %.sroa.062.0118, ptr %6, align 8
-  %65 = load i64, ptr %61, align 8
-  store i64 %65, ptr %35, align 8
-  %66 = invoke <2 x float> @b2Body_GetLocalPoint(i64 %.sroa.062.0118, <2 x float> %.sroa.035.4.vec.insert)
-          to label %67 unwind label %78
-
-67:                                               ; preds = %63
-  store <2 x float> %66, ptr %36, align 8
-  %.sroa.030.0.copyload = load i64, ptr %35, align 8
-  %68 = invoke <2 x float> @b2Body_GetLocalPoint(i64 %.sroa.030.0.copyload, <2 x float> %.sroa.035.4.vec.insert)
+  %67 = load i64, ptr %61, align 8
+  store i64 %67, ptr %35, align 8
+  %68 = invoke <2 x float> @b2Body_GetLocalPoint(i64 %.sroa.062.0118, <2 x float> %.sroa.035.4.vec.insert)
           to label %69 unwind label %80
 
-69:                                               ; preds = %67
-  store <2 x float> %68, ptr %37, align 8
-  store i8 1, ptr %38, align 4, !tbaa !104
-  %70 = load float, ptr %29, align 8, !tbaa !145
-  store float %70, ptr %39, align 8, !tbaa !103
-  %.sroa.027.0.copyload = load i32, ptr %22, align 4
-  %71 = invoke i64 @b2CreateRevoluteJoint(i32 %.sroa.027.0.copyload, ptr noundef nonnull %6)
-          to label %72 unwind label %82
+69:                                               ; preds = %63
+  store <2 x float> %68, ptr %36, align 8
+  %.sroa.030.0.copyload = load i64, ptr %35, align 8
+  %70 = invoke <2 x float> @b2Body_GetLocalPoint(i64 %.sroa.030.0.copyload, <2 x float> %.sroa.035.4.vec.insert)
+          to label %71 unwind label %82
 
-72:                                               ; preds = %69
+71:                                               ; preds = %69
+  store <2 x float> %70, ptr %37, align 8
+  store i8 1, ptr %38, align 4, !tbaa !104
+  %72 = load float, ptr %29, align 8, !tbaa !145
+  store float %72, ptr %39, align 8, !tbaa !103
+  %.sroa.027.0.copyload = load i32, ptr %22, align 4
+  %73 = invoke i64 @b2CreateRevoluteJoint(i32 %.sroa.027.0.copyload, ptr noundef nonnull %6)
+          to label %74 unwind label %84
+
+74:                                               ; preds = %71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %73 = getelementptr inbounds nuw [161 x %struct.b2JointId], ptr %40, i64 0, i64 %indvars.iv
-  store i64 %71, ptr %73, align 8
+  %75 = getelementptr inbounds nuw [161 x %struct.b2JointId], ptr %40, i64 0, i64 %indvars.iv
+  store i64 %73, ptr %75, align 8
   %.sroa.062.0.copyload63 = load i64, ptr %61, align 8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #16
   %exitcond.not = icmp eq i64 %indvars.iv.next, 160
   br i1 %exitcond.not, label %41, label %54, !llvm.loop !149
 
-74:                                               ; preds = %60, %54
-  %75 = landingpad { ptr, i32 }
-          cleanup
-  br label %84
-
-76:                                               ; preds = %55
+76:                                               ; preds = %60, %54
   %77 = landingpad { ptr, i32 }
           cleanup
-  br label %84
+  br label %86
 
-78:                                               ; preds = %63
+78:                                               ; preds = %55
   %79 = landingpad { ptr, i32 }
           cleanup
-  br label %84
+  br label %86
 
-80:                                               ; preds = %67
+80:                                               ; preds = %63
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %84
+  br label %86
 
 82:                                               ; preds = %69
   %83 = landingpad { ptr, i32 }
           cleanup
-  br label %84
+  br label %86
 
-84:                                               ; preds = %78, %80, %82, %76, %74
-  %.pn98.pn = phi { ptr, i32 } [ %75, %74 ], [ %77, %76 ], [ %83, %82 ], [ %81, %80 ], [ %79, %78 ]
+84:                                               ; preds = %71
+  %85 = landingpad { ptr, i32 }
+          cleanup
+  br label %86
+
+86:                                               ; preds = %80, %82, %84, %78, %76
+  %.pn98.pn = phi { ptr, i32 } [ %77, %76 ], [ %79, %78 ], [ %85, %84 ], [ %83, %82 ], [ %81, %80 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #16
-  br label %102
+  br label %104
 
-85:                                               ; preds = %41
+87:                                               ; preds = %41
   store <2 x float> %42, ptr %36, align 8
   %.sroa.019.0.copyload = load i64, ptr %35, align 8
-  %86 = invoke <2 x float> @b2Body_GetLocalPoint(i64 %.sroa.019.0.copyload, <2 x float> <float 8.000000e+01, float 2.000000e+01>)
-          to label %87 unwind label %98
+  %88 = invoke <2 x float> @b2Body_GetLocalPoint(i64 %.sroa.019.0.copyload, <2 x float> <float 8.000000e+01, float 2.000000e+01>)
+          to label %89 unwind label %100
 
-87:                                               ; preds = %85
-  store <2 x float> %86, ptr %37, align 8
+89:                                               ; preds = %87
+  store <2 x float> %88, ptr %37, align 8
   store i8 1, ptr %38, align 4, !tbaa !104
-  %88 = load float, ptr %29, align 8, !tbaa !145
-  store float %88, ptr %39, align 8, !tbaa !103
+  %90 = load float, ptr %29, align 8, !tbaa !145
+  store float %90, ptr %39, align 8, !tbaa !103
   %.sroa.016.0.copyload = load i32, ptr %22, align 4
-  %89 = invoke i64 @b2CreateRevoluteJoint(i32 %.sroa.016.0.copyload, ptr noundef nonnull %6)
-          to label %90 unwind label %100
+  %91 = invoke i64 @b2CreateRevoluteJoint(i32 %.sroa.016.0.copyload, ptr noundef nonnull %6)
+          to label %92 unwind label %102
 
-90:                                               ; preds = %87
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 2808
-  store i64 %89, ptr %91, align 8
+92:                                               ; preds = %89
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 2808
+  store i64 %91, ptr %93, align 8
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #16
-  %92 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  %93 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %11, i64 28
+  %95 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  br label %105
+  br label %107
 
-.preheader:                                       ; preds = %114
-  %94 = getelementptr inbounds nuw i8, ptr %14, i64 28
-  %95 = getelementptr inbounds nuw i8, ptr %15, i64 4
+.preheader:                                       ; preds = %116
+  %96 = getelementptr inbounds nuw i8, ptr %14, i64 28
+  %97 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
-  br label %130
+  br label %132
 
-96:                                               ; preds = %41
-  %97 = landingpad { ptr, i32 }
-          cleanup
-  br label %102
-
-98:                                               ; preds = %85
+98:                                               ; preds = %41
   %99 = landingpad { ptr, i32 }
           cleanup
-  br label %102
+  br label %104
 
 100:                                              ; preds = %87
   %101 = landingpad { ptr, i32 }
           cleanup
-  br label %102
-
-102:                                              ; preds = %84, %100, %98, %96, %52
-  %.pn98.pn.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %.pn98.pn, %84 ], [ %101, %100 ], [ %99, %98 ], [ %97, %96 ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #16
-  br label %103
-
-103:                                              ; preds = %102, %50
-  %.pn98.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn98.pn.pn.pn, %102 ], [ %51, %50 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #16
   br label %104
 
-104:                                              ; preds = %103, %48
-  %.pn98.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn98.pn.pn.pn.pn, %103 ], [ %49, %48 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #16
-  br label %149
+102:                                              ; preds = %89
+  %103 = landingpad { ptr, i32 }
+          cleanup
+  br label %104
 
-105:                                              ; preds = %90, %114
-  %106 = phi i1 [ true, %90 ], [ false, %114 ]
-  %.086119 = phi float [ -8.000000e+00, %90 ], [ 0.000000e+00, %114 ]
+104:                                              ; preds = %86, %102, %100, %98, %52
+  %.pn98.pn.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %.pn98.pn, %86 ], [ %103, %102 ], [ %101, %100 ], [ %99, %98 ]
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #16
+  br label %105
+
+105:                                              ; preds = %104, %50
+  %.pn98.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn98.pn.pn.pn, %104 ], [ %51, %50 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #16
+  br label %106
+
+106:                                              ; preds = %105, %48
+  %.pn98.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn98.pn.pn.pn.pn, %105 ], [ %49, %48 ]
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #16
+  br label %151
+
+107:                                              ; preds = %92, %116
+  %108 = phi i1 [ true, %92 ], [ false, %116 ]
+  %.086119 = phi float [ -8.000000e+00, %92 ], [ 0.000000e+00, %116 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %8, ptr noundef nonnull align 16 dereferenceable(24) @__const.Bridge.vertices, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %9) #16
   invoke void @b2ComputeHull(ptr dead_on_unwind nonnull writable sret(%struct.b2Hull) align 4 %9, ptr noundef nonnull %8, i32 noundef 3)
-          to label %107 unwind label %115
+          to label %109 unwind label %117
 
-107:                                              ; preds = %105
+109:                                              ; preds = %107
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10) #16
   invoke void @b2MakePolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %10, ptr noundef nonnull %9, float noundef 0.000000e+00)
-          to label %108 unwind label %117
-
-108:                                              ; preds = %107
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11) #16
-  invoke void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %11)
-          to label %109 unwind label %119
-
-109:                                              ; preds = %108
-  store float 2.000000e+01, ptr %92, align 4, !tbaa !46
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #16
-  invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %12)
-          to label %110 unwind label %121
+          to label %110 unwind label %119
 
 110:                                              ; preds = %109
-  store i32 2, ptr %12, align 8, !tbaa !59
-  store float %.086119, ptr %93, align 4, !tbaa !15
-  store float 2.200000e+01, ptr %.sroa.412.0..sroa_idx, align 8, !tbaa !15
-  %.sroa.09.0.copyload = load i32, ptr %22, align 4
-  %111 = invoke i64 @b2CreateBody(i32 %.sroa.09.0.copyload, ptr noundef nonnull %12)
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11) #16
+  invoke void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %11)
+          to label %111 unwind label %121
+
+111:                                              ; preds = %110
+  store float 2.000000e+01, ptr %94, align 4, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #16
+  invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %12)
           to label %112 unwind label %123
 
-112:                                              ; preds = %110
-  %113 = invoke i64 @b2CreatePolygonShape(i64 %111, ptr noundef nonnull %11, ptr noundef nonnull %10)
-          to label %114 unwind label %123
+112:                                              ; preds = %111
+  store i32 2, ptr %12, align 8, !tbaa !59
+  store float %.086119, ptr %95, align 4, !tbaa !15
+  store float 2.200000e+01, ptr %.sroa.412.0..sroa_idx, align 8, !tbaa !15
+  %.sroa.09.0.copyload = load i32, ptr %22, align 4
+  %113 = invoke i64 @b2CreateBody(i32 %.sroa.09.0.copyload, ptr noundef nonnull %12)
+          to label %114 unwind label %125
 
 114:                                              ; preds = %112
+  %115 = invoke i64 @b2CreatePolygonShape(i64 %113, ptr noundef nonnull %11, ptr noundef nonnull %10)
+          to label %116 unwind label %125
+
+116:                                              ; preds = %114
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #16
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10) #16
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %9) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #16
-  br i1 %106, label %105, label %.preheader, !llvm.loop !150
-
-115:                                              ; preds = %105
-  %116 = landingpad { ptr, i32 }
-          cleanup
-  br label %128
+  br i1 %108, label %107, label %.preheader, !llvm.loop !150
 
 117:                                              ; preds = %107
   %118 = landingpad { ptr, i32 }
           cleanup
-  br label %127
+  br label %130
 
-119:                                              ; preds = %108
+119:                                              ; preds = %109
   %120 = landingpad { ptr, i32 }
           cleanup
-  br label %126
+  br label %129
 
-121:                                              ; preds = %109
+121:                                              ; preds = %110
   %122 = landingpad { ptr, i32 }
           cleanup
-  br label %125
-
-123:                                              ; preds = %112, %110
-  %124 = landingpad { ptr, i32 }
-          cleanup
-  br label %125
-
-125:                                              ; preds = %123, %121
-  %.pn93 = phi { ptr, i32 } [ %124, %123 ], [ %122, %121 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #16
-  br label %126
-
-126:                                              ; preds = %125, %119
-  %.pn93.pn = phi { ptr, i32 } [ %.pn93, %125 ], [ %120, %119 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #16
-  br label %127
-
-127:                                              ; preds = %126, %117
-  %.pn93.pn.pn = phi { ptr, i32 } [ %.pn93.pn, %126 ], [ %118, %117 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10) #16
   br label %128
 
-128:                                              ; preds = %127, %115
-  %.pn93.pn.pn.pn = phi { ptr, i32 } [ %.pn93.pn.pn, %127 ], [ %116, %115 ]
+123:                                              ; preds = %111
+  %124 = landingpad { ptr, i32 }
+          cleanup
+  br label %127
+
+125:                                              ; preds = %114, %112
+  %126 = landingpad { ptr, i32 }
+          cleanup
+  br label %127
+
+127:                                              ; preds = %125, %123
+  %.pn93 = phi { ptr, i32 } [ %126, %125 ], [ %124, %123 ]
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #16
+  br label %128
+
+128:                                              ; preds = %127, %121
+  %.pn93.pn = phi { ptr, i32 } [ %.pn93, %127 ], [ %122, %121 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #16
+  br label %129
+
+129:                                              ; preds = %128, %119
+  %.pn93.pn.pn = phi { ptr, i32 } [ %.pn93.pn, %128 ], [ %120, %119 ]
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10) #16
+  br label %130
+
+130:                                              ; preds = %129, %117
+  %.pn93.pn.pn.pn = phi { ptr, i32 } [ %.pn93.pn.pn, %129 ], [ %118, %117 ]
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %9) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #16
-  br label %149
+  br label %151
 
-129:                                              ; preds = %139
+131:                                              ; preds = %141
   ret void
 
-130:                                              ; preds = %.preheader, %139
-  %.085120 = phi i32 [ 0, %.preheader ], [ %140, %139 ]
+132:                                              ; preds = %.preheader, %141
+  %.085120 = phi i32 [ 0, %.preheader ], [ %142, %141 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) @__const.Bridge.circle, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %14) #16
   invoke void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %14)
-          to label %131 unwind label %141
+          to label %133 unwind label %143
 
-131:                                              ; preds = %130
-  store float 2.000000e+01, ptr %94, align 4, !tbaa !46
+133:                                              ; preds = %132
+  store float 2.000000e+01, ptr %96, align 4, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %15) #16
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %15)
-          to label %132 unwind label %143
+          to label %134 unwind label %145
 
-132:                                              ; preds = %131
+134:                                              ; preds = %133
   store i32 2, ptr %15, align 8, !tbaa !59
-  %133 = uitofp nneg i32 %.085120 to float
-  %134 = fmul float %133, 6.000000e+00
-  %135 = fadd float %134, -6.000000e+00
-  store float %135, ptr %95, align 4, !tbaa !15
+  %135 = uitofp nneg i32 %.085120 to float
+  %136 = fmul float %135, 6.000000e+00
+  %137 = fadd float %136, -6.000000e+00
+  store float %137, ptr %97, align 4, !tbaa !15
   store float 2.500000e+01, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !15
   %.sroa.02.0.copyload = load i32, ptr %22, align 4
-  %136 = invoke i64 @b2CreateBody(i32 %.sroa.02.0.copyload, ptr noundef nonnull %15)
-          to label %137 unwind label %145
+  %138 = invoke i64 @b2CreateBody(i32 %.sroa.02.0.copyload, ptr noundef nonnull %15)
+          to label %139 unwind label %147
 
-137:                                              ; preds = %132
-  %138 = invoke i64 @b2CreateCircleShape(i64 %136, ptr noundef nonnull %14, ptr noundef nonnull %13)
-          to label %139 unwind label %145
+139:                                              ; preds = %134
+  %140 = invoke i64 @b2CreateCircleShape(i64 %138, ptr noundef nonnull %14, ptr noundef nonnull %13)
+          to label %141 unwind label %147
 
-139:                                              ; preds = %137
+141:                                              ; preds = %139
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #16
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14) #16
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #16
-  %140 = add nuw nsw i32 %.085120, 1
-  %exitcond124.not = icmp eq i32 %140, 3
-  br i1 %exitcond124.not, label %129, label %130, !llvm.loop !151
+  %142 = add nuw nsw i32 %.085120, 1
+  %exitcond124.not = icmp eq i32 %142, 3
+  br i1 %exitcond124.not, label %131, label %132, !llvm.loop !151
 
-141:                                              ; preds = %130
-  %142 = landingpad { ptr, i32 }
-          cleanup
-  br label %148
-
-143:                                              ; preds = %131
+143:                                              ; preds = %132
   %144 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %150
 
-145:                                              ; preds = %137, %132
+145:                                              ; preds = %133
   %146 = landingpad { ptr, i32 }
           cleanup
-  br label %147
-
-147:                                              ; preds = %145, %143
-  %.pn90 = phi { ptr, i32 } [ %146, %145 ], [ %144, %143 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #16
-  br label %148
-
-148:                                              ; preds = %147, %141
-  %.pn90.pn = phi { ptr, i32 } [ %.pn90, %147 ], [ %142, %141 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14) #16
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #16
   br label %149
 
-149:                                              ; preds = %148, %128, %104, %47
-  %.pn98.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn98.pn.pn.pn.pn.pn, %104 ], [ %.pn93.pn.pn.pn, %128 ], [ %.pn90.pn, %148 ], [ %.pn, %47 ]
+147:                                              ; preds = %139, %134
+  %148 = landingpad { ptr, i32 }
+          cleanup
+  br label %149
+
+149:                                              ; preds = %147, %145
+  %.pn90 = phi { ptr, i32 } [ %148, %147 ], [ %146, %145 ]
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #16
+  br label %150
+
+150:                                              ; preds = %149, %143
+  %.pn90.pn = phi { ptr, i32 } [ %.pn90, %149 ], [ %144, %143 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14) #16
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #16
+  br label %151
+
+151:                                              ; preds = %150, %130, %106, %47
+  %.pn98.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn98.pn.pn.pn.pn.pn, %106 ], [ %.pn93.pn.pn.pn, %130 ], [ %.pn90.pn, %150 ], [ %.pn, %47 ]
   call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #16
   resume { ptr, i32 } %.pn98.pn.pn.pn.pn.pn.pn
 }

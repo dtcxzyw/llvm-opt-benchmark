@@ -557,7 +557,7 @@ Vec_PtrCountZero.exit:                            ; preds = %104, %100
   %111 = zext i1 %.not131 to i32
   store i32 %111, ptr %84, align 8, !tbaa !75
   store i32 %.0121210, ptr %85, align 8, !tbaa !76
-  %112 = trunc nuw i32 %.0120211 to i16
+  %112 = trunc nuw nsw i32 %.0120211 to i16
   %.lhs.trunc = mul nuw i16 %112, 17
   %113 = urem i16 %.lhs.trunc, 500
   %.zext = zext nneg i16 %113 to i32

@@ -951,7 +951,7 @@ switch.lookup:                                    ; preds = %2
   %9 = load i64, ptr %8, align 8, !noalias !180, !noundef !4
   %10 = load i128, ptr %.sroa.59.0.copyload, align 16, !noalias !180, !noundef !4
   %11 = load i64, ptr %.sroa.7.0.copyload, align 8, !range !10, !alias.scope !184, !noalias !187, !noundef !4
-  %switch.idx.cast = trunc nuw nsw i64 %11 to i8
+  %switch.idx.cast = trunc nuw i64 %11 to i8
   %.sroa.01.48..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.01.i, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.01.48..sroa_idx.i, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.610.0.copyload, i64 32, i1 false), !noalias !180
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %.sroa.01.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8.0.copyload, i64 48, i1 false), !noalias !180
@@ -2411,7 +2411,7 @@ switch.lookup:                                    ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8, !noalias !520, !noundef !4
   %16 = load i64, ptr %.sroa.10.24.copyload18, align 8, !range !10, !alias.scope !527, !noalias !530, !noundef !4
-  %switch.idx.cast = trunc nuw nsw i64 %16 to i8
+  %switch.idx.cast = trunc nuw i64 %16 to i8
   %.sroa.01.48..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.01.i.i, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.01.48..sroa_idx.i.i, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.8.24.copyload16, i64 32, i1 false), !noalias !520
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %.sroa.01.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.11.24.copyload20, i64 48, i1 false), !noalias !520

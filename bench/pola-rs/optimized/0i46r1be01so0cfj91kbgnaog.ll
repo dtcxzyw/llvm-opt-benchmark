@@ -30530,7 +30530,7 @@ switch.lookup:                                    ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %14 = load i16, ptr %13, align 2, !range !4676, !noundef !13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11)
-  %switch.idx.cast = trunc nuw nsw i16 %14 to i8
+  %switch.idx.cast = trunc nuw i16 %14 to i8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10)
   call void @_ZN19polars_arrow_format3ipc9generated4root3org6apache5arrow7flatbuf7TimeRef9bit_width17h290faa256f7a8f8cE(ptr noalias noundef nonnull sret([80 x i8]) align 16 captures(none) dereferenceable(80) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1)
   %15 = load i8, ptr %10, align 16, !range !23, !noundef !13
@@ -30704,7 +30704,7 @@ switch.lookup:                                    ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %18 = load i16, ptr %17, align 2, !range !4676, !noundef !13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
-  %switch.idx.cast = trunc nuw nsw i16 %18 to i8
+  %switch.idx.cast = trunc nuw i16 %18 to i8
   %.not85 = icmp eq ptr %13, null
   br i1 %.not85, label %37, label %19
 
@@ -34539,7 +34539,7 @@ switch.lookup2015:                                ; preds = %293
   %296 = getelementptr inbounds nuw i8, ptr %76, i64 2
   %297 = load i16, ptr %296, align 2, !range !5173, !noundef !13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %76)
-  %switch.idx.cast = trunc nuw nsw i16 %297 to i8
+  %switch.idx.cast = trunc nuw i16 %297 to i8
   %switch.offset2016 = add nuw nsw i8 %switch.idx.cast, 11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %77)
   br label %267
@@ -35018,7 +35018,7 @@ switch.lookup2017:                                ; preds = %375
   %378 = getelementptr inbounds nuw i8, ptr %68, i64 2
   %379 = load i16, ptr %378, align 2, !range !5173, !noundef !13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %68)
-  %switch.idx.cast2018 = trunc nuw nsw i16 %379 to i8
+  %switch.idx.cast2018 = trunc nuw i16 %379 to i8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %69)
   br label %267
 
@@ -35438,7 +35438,7 @@ switch.lookup2019:                                ; preds = %433
   %436 = getelementptr inbounds nuw i8, ptr %66, i64 2
   %437 = load i16, ptr %436, align 2, !range !4676, !noundef !13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %66)
-  %switch.idx.cast2020 = trunc nuw nsw i16 %437 to i8
+  %switch.idx.cast2020 = trunc nuw i16 %437 to i8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %67)
   br label %267
 

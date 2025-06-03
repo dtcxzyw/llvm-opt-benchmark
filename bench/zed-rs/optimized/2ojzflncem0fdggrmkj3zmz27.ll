@@ -21171,7 +21171,7 @@ _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit: ; preds = %4
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %37 = load i64, ptr %36, align 8, !noalias !3867
   %38 = uitofp i64 %37 to float
-  %39 = trunc nuw nsw i64 %35 to i32
+  %39 = trunc nuw i64 %35 to i32
   br label %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread
 
 _ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread: ; preds = %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit, %13, %_ZN3vim3Vim10take_count17h6898fe041cab8e11E.exit.thread6

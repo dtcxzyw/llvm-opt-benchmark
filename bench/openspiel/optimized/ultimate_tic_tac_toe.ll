@@ -1637,7 +1637,7 @@ define void @_ZNK10open_spiel20ultimate_tic_tac_toe16UltimateTTTState8ToStringB5
 
 19:                                               ; preds = %2, %.thread
   %.02836 = phi i32 [ 0, %2 ], [ %67, %.thread ]
-  %.lhs.trunc = trunc nuw i32 %.02836 to i8
+  %.lhs.trunc = trunc nuw nsw i32 %.02836 to i8
   %20 = urem i8 %.lhs.trunc, 3
   %.zext = zext nneg i8 %20 to i32
   %21 = sub nsw i32 %.02836, %.zext
@@ -1649,7 +1649,7 @@ define void @_ZNK10open_spiel20ultimate_tic_tac_toe16UltimateTTTState8ToStringB5
 
 25:                                               ; preds = %19, %65
   %.02735 = phi i32 [ 0, %19 ], [ %66, %65 ]
-  %.lhs.trunc31 = trunc nuw i32 %.02735 to i8
+  %.lhs.trunc31 = trunc nuw nsw i32 %.02735 to i8
   %26 = udiv i8 %.lhs.trunc31, 3
   %.zext32 = zext nneg i8 %26 to i32
   %27 = urem i8 %.lhs.trunc31, 3

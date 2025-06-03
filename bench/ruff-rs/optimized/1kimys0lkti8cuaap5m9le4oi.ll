@@ -59901,7 +59901,7 @@ switch.lookup:                                    ; preds = %2
   br i1 %29, label %30, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules25unnecessary_comprehension17ComprehensionKind13try_from_expr17h7cc0e9ed0b431307E.exit
 
 30:                                               ; preds = %switch.lookup
-  %switch.idx.cast = trunc nuw nsw i32 %switch.tableidx to i8
+  %switch.idx.cast = trunc nuw i32 %switch.tableidx to i8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %24)
   %31 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %1)
   %32 = extractvalue { i32, i32 } %31, 0

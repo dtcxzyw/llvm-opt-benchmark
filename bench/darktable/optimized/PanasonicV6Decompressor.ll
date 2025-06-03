@@ -740,7 +740,7 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi12EEC2ENS_10ByteStreamE.exit
   %.037.i77 = phi i32 [ 0, %_ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi12EEC2ENS_10ByteStreamE.exit ], [ %185, %179 ]
   %.038.i76 = phi i32 [ 0, %_ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi12EEC2ENS_10ByteStreamE.exit ], [ %.139.i, %179 ]
   %136 = phi i8 [ 0, %_ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi12EEC2ENS_10ByteStreamE.exit ], [ %153, %179 ]
-  %.lhs.trunc = trunc nuw i32 %.037.i77 to i8
+  %.lhs.trunc = trunc nuw nsw i32 %.037.i77 to i8
   %137 = urem i8 %.lhs.trunc, 3
   %138 = icmp eq i8 %137, 2
   br i1 %138, label %139, label %148
@@ -1051,7 +1051,7 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit
   %.037.i72 = phi i32 [ 0, %_ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit ], [ %168, %_ZNK8rawspeed10Array2DRefItEclEii.exit.i ]
   %.038.i71 = phi i32 [ 0, %_ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit ], [ %.139.i, %_ZNK8rawspeed10Array2DRefItEclEii.exit.i ]
   %122 = phi i8 [ 0, %_ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit ], [ %139, %_ZNK8rawspeed10Array2DRefItEclEii.exit.i ]
-  %.lhs.trunc = trunc nuw i32 %.037.i72 to i8
+  %.lhs.trunc = trunc nuw nsw i32 %.037.i72 to i8
   %123 = urem i8 %.lhs.trunc, 3
   %124 = icmp eq i8 %123, 2
   br i1 %124, label %125, label %134

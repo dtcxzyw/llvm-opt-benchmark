@@ -182,7 +182,7 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
   %89 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.l_start_shuffled, i64 0, i64 %indvars.iv.i.us
   %90 = load i8, ptr %89, align 1, !tbaa !19
   %91 = zext i8 %90 to i32
-  %.lhs.trunc40.us = trunc nuw i32 %88 to i8
+  %.lhs.trunc40.us = trunc nuw nsw i32 %88 to i8
   %92 = udiv i8 %.lhs.trunc40.us, 6
   %.zext41.us = zext nneg i8 %92 to i32
   %93 = add nuw nsw i32 %.zext41.us, %91

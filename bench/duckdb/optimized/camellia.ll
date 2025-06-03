@@ -718,7 +718,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   br i1 %.not169, label %590, label %569
 
 569:                                              ; preds = %565
-  %570 = trunc nuw i64 %.7210 to i32
+  %570 = trunc nuw nsw i64 %.7210 to i32
   %571 = mul nuw nsw i32 %570, 15
   %572 = and i32 %571, 31
   %573 = shl i32 %552, %572
@@ -797,7 +797,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   br i1 %.not166, label %637, label %616
 
 616:                                              ; preds = %612
-  %617 = trunc nuw i64 %.9212 to i32
+  %617 = trunc nuw nsw i64 %.9212 to i32
   %618 = mul nuw nsw i32 %617, 15
   %619 = and i32 %618, 31
   %620 = shl i32 %605, %619
@@ -867,7 +867,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   br i1 %.not163, label %675, label %654
 
 654:                                              ; preds = %650
-  %655 = trunc nuw i64 %.11214 to i32
+  %655 = trunc nuw nsw i64 %.11214 to i32
   %656 = mul nuw nsw i32 %655, 15
   %657 = and i32 %656, 31
   %658 = shl i32 %391, %657
@@ -946,7 +946,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   br i1 %.not161, label %721, label %700
 
 700:                                              ; preds = %696
-  %701 = trunc nuw i64 %.13216 to i32
+  %701 = trunc nuw nsw i64 %.13216 to i32
   %702 = mul nuw nsw i32 %701, 15
   %703 = and i32 %702, 31
   %704 = shl i32 %689, %703

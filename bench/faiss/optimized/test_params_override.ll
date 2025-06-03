@@ -3728,7 +3728,7 @@ _ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %
   %.sroa.0111.0136 = phi ptr [ null, %10 ], [ %.sroa.0111.2, %72 ]
   %.sroa.12.0135 = phi ptr [ null, %10 ], [ %.sroa.12.1, %72 ]
   %.sroa.17.0134 = phi ptr [ null, %10 ], [ %.sroa.17.2, %72 ]
-  %.lhs.trunc = trunc nuw i64 %storemerge137 to i16
+  %.lhs.trunc = trunc nuw nsw i64 %storemerge137 to i16
   %38 = urem i16 %.lhs.trunc, 10
   %39 = icmp eq i16 %38, 2
   br i1 %39, label %40, label %72

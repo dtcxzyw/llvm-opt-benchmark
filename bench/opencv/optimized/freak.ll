@@ -594,7 +594,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl12PatternPointESaIS3_EE6resizeEm.exit:
   %.sroa.0108.0145 = phi ptr [ %.sroa.0108.3, %231 ], [ null, %193 ]
   %.sroa.10.0144 = phi ptr [ %.sroa.10.2, %231 ], [ null, %193 ]
   %.sroa.14.0143 = phi ptr [ %.sroa.14.2, %231 ], [ null, %193 ]
-  %.sroa.0.0.insert.ext100 = trunc nuw i32 %.079146 to i16
+  %.sroa.0.0.insert.ext100 = trunc nuw nsw i32 %.079146 to i16
   br label %233
 
 224:                                              ; preds = %231

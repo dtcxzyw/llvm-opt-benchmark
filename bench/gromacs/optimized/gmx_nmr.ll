@@ -1911,7 +1911,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit596: ; preds = %_Z
 .preheader1100:                                   ; preds = %619, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit605
   %.23771316 = phi i32 [ %649, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit605 ], [ 0, %619 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %58) #20
-  %.lhs.trunc = trunc nuw i32 %.23771316 to i8
+  %.lhs.trunc = trunc nuw nsw i32 %.23771316 to i8
   %622 = udiv i8 %.lhs.trunc, 3
   %narrow = add nuw nsw i8 %622, 1
   %623 = zext nneg i8 %narrow to i32

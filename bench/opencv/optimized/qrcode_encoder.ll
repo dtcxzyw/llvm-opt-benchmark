@@ -9895,7 +9895,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 580:                                              ; preds = %558
   %581 = and i8 %560, 1
-  %582 = trunc nuw i64 %.0459 to i8
+  %582 = trunc nuw nsw i64 %.0459 to i8
   %583 = sub nuw nsw i8 7, %582
   %584 = shl nuw i8 %581, %583
   %585 = load ptr, ptr %2, align 8, !tbaa !60

@@ -1121,7 +1121,7 @@ define noundef zeroext i1 @_ZN3vfs11ChangedFile11is_modified17hcc83aa8f361cbd17E
 define noundef range(i8 0, 3) i8 @_ZN3vfs11ChangedFile4kind17h02b1f1b9576b6d2dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #7 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !40, !noundef !22
-  %switch.idx.cast = trunc nuw nsw i64 %1 to i8
+  %switch.idx.cast = trunc nuw i64 %1 to i8
   ret i8 %switch.idx.cast
 }
 

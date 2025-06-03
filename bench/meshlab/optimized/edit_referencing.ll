@@ -13037,7 +13037,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
   %38 = and i64 %37, 1
   %39 = call i64 @llvm.umin.i64(i64 %38, i64 %26)
   %40 = sub nsw i64 %26, %39
-  %.lhs.trunc = trunc nsw i64 %40 to i8
+  %.lhs.trunc = trunc i64 %40 to i8
   %41 = sdiv i8 %.lhs.trunc, 2
   %.sext = sext i8 %41 to i64
   %42 = shl nuw nsw i64 %.sext, 1

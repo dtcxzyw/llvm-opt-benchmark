@@ -10359,7 +10359,7 @@ switch.lookup:                                    ; preds = %8
   br label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit
 
 switch.lookup1:                                   ; preds = %12
-  %switch.cast = trunc nuw nsw i64 %switch.tableidx2 to i56
+  %switch.cast = trunc nuw i64 %switch.tableidx2 to i56
   %switch.shiftamt3 = shl nuw nsw i56 %switch.cast, 3
   %switch.downshift4 = lshr i56 2542118161744386, %switch.shiftamt3
   %switch.masked5 = trunc i56 %switch.downshift4 to i8
@@ -10577,7 +10577,7 @@ switch.lookup:                                    ; preds = %7
   br label %20
 
 switch.lookup2:                                   ; preds = %11
-  %switch.cast = trunc nuw nsw i64 %switch.tableidx3 to i56
+  %switch.cast = trunc nuw i64 %switch.tableidx3 to i56
   %switch.shiftamt4 = shl nuw nsw i56 %switch.cast, 3
   %switch.downshift5 = lshr i56 2542118161744386, %switch.shiftamt4
   %switch.masked6 = trunc i56 %switch.downshift5 to i8

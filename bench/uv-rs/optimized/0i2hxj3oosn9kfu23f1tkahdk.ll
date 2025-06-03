@@ -13789,7 +13789,7 @@ define void @_ZN12uv_installer8preparer5Error9from_dist17h9dfc63af9d7e6b84E(ptr 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load i64, ptr %28, align 8, !range !755, !alias.scope !3396, !noalias !3399, !noundef !12
-  %switch.maskindex = trunc nuw nsw i64 %29 to i8
+  %switch.maskindex = trunc nuw i64 %29 to i8
   %switch.shifted = lshr i8 99, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %_ZN21uv_distribution_types10dist_error13DistErrorKind9from_dist17h773c14f5397ed2c5E.exit, label %30

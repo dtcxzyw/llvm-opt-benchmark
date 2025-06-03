@@ -829,7 +829,7 @@ define hidden noundef i32 @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_c
   %.sroa.0.013 = phi i32 [ %1, %2 ], [ %10, %4 ]
   %.sroa.07.012 = phi i64 [ 0, %2 ], [ %5, %4 ]
   %5 = add nuw nsw i64 %.sroa.07.012, 1
-  %6 = trunc nuw i64 %.sroa.07.012 to i32
+  %6 = trunc nuw nsw i64 %.sroa.07.012 to i32
   %7 = getelementptr inbounds nuw i32, ptr %0, i64 %.sroa.07.012
   %8 = load i32, ptr %7, align 4, !noundef !3
   %.lobit.i = lshr i32 %8, 31
@@ -1485,7 +1485,7 @@ define hidden noundef i32 @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_c
   %.sroa.0.013 = phi i32 [ %1, %2 ], [ %11, %4 ]
   %.sroa.07.012 = phi i64 [ 0, %2 ], [ %5, %4 ]
   %5 = add nuw nsw i64 %.sroa.07.012, 1
-  %6 = trunc nuw i64 %.sroa.07.012 to i32
+  %6 = trunc nuw nsw i64 %.sroa.07.012 to i32
   %7 = getelementptr inbounds nuw i16, ptr %0, i64 %.sroa.07.012
   %8 = load i16, ptr %7, align 2, !noundef !3
   %.lobit.i = lshr i16 %8, 15
@@ -2191,7 +2191,7 @@ define hidden noundef i32 @"_ZN67_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_c
   %.sroa.0.013 = phi i32 [ %1, %2 ], [ %11, %4 ]
   %.sroa.07.012 = phi i64 [ 0, %2 ], [ %5, %4 ]
   %5 = add nuw nsw i64 %.sroa.07.012, 1
-  %6 = trunc nuw i64 %.sroa.07.012 to i32
+  %6 = trunc nuw nsw i64 %.sroa.07.012 to i32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.07.012
   %8 = load i8, ptr %7, align 1, !noundef !3
   %.lobit.i = lshr i8 %8, 7

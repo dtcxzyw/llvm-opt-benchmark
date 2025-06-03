@@ -639,7 +639,7 @@ er_supported.exit:                                ; preds = %22
 .lr.ph803:                                        ; preds = %179
   %182 = shl nuw nsw i32 1, %.0571805
   %183 = shl nuw nsw i32 8, %.0571805
-  %184 = trunc nuw i32 %182 to i8
+  %184 = trunc nuw nsw i32 %182 to i8
   %185 = zext nneg i32 %180 to i64
   br label %186
 
@@ -822,7 +822,7 @@ select.unfold:                                    ; preds = %238
   %270 = shl nuw nsw i32 1, %269
   %271 = add nsw i64 %indvars.iv915, -1
   %272 = getelementptr inbounds [4 x i32], ptr @__const.ff_er_frame_end.threshold_part, i64 0, i64 %271
-  %273 = trunc nuw i32 %270 to i8
+  %273 = trunc nuw nsw i32 %270 to i8
   %274 = zext nneg i32 %267 to i64
   br label %275
 

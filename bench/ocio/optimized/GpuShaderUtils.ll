@@ -23577,7 +23577,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev15getMatrixValuesIfLi3E
 
 17:                                               ; preds = %4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32
   %.02066 = phi i32 [ 0, %4 ], [ %65, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32 ]
-  %.lhs.trunc = trunc nuw i32 %.02066 to i8
+  %.lhs.trunc = trunc nuw nsw i32 %.02066 to i8
   %18 = udiv i8 %.lhs.trunc, 3
   %.zext = zext nneg i8 %18 to i32
   %19 = urem i8 %.lhs.trunc, 3
@@ -23889,7 +23889,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev15getMatrixValuesIdLi3E
 
 17:                                               ; preds = %4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32
   %.02066 = phi i32 [ 0, %4 ], [ %65, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32 ]
-  %.lhs.trunc = trunc nuw i32 %.02066 to i8
+  %.lhs.trunc = trunc nuw nsw i32 %.02066 to i8
   %18 = udiv i8 %.lhs.trunc, 3
   %.zext = zext nneg i8 %18 to i32
   %19 = urem i8 %.lhs.trunc, 3

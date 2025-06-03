@@ -506,7 +506,7 @@ define noundef zeroext i1 @_ZN20ruff_python_semantic7binding7Binding10is_unbound
 switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %2 = load i32, ptr %1, align 8, !range !30, !noundef !4
-  %switch.cast = trunc nuw nsw i32 %2 to i21
+  %switch.cast = trunc nuw i32 %2 to i21
   %switch.downshift = lshr i21 -917503, %switch.cast
   %switch.masked = trunc i21 %switch.downshift to i1
   ret i1 %switch.masked
@@ -622,7 +622,7 @@ define noundef zeroext i1 @_ZN20ruff_python_semantic7binding7Binding9redefines17
   ]
 
 switch.lookup:                                    ; preds = %5
-  %switch.cast = trunc nuw nsw i32 %6 to i16
+  %switch.cast = trunc nuw i32 %6 to i16
   %switch.downshift = lshr i16 -13300, %switch.cast
   %switch.masked = trunc i16 %switch.downshift to i1
   br label %23

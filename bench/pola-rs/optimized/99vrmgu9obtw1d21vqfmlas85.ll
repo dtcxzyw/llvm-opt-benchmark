@@ -37581,7 +37581,7 @@ switch.lookup:                                    ; preds = %"_ZN111_$LT$core..i
   %20 = add i64 %.sroa.55.011, 1
   %21 = getelementptr inbounds nuw { i32, [31 x i32] }, ptr %6, i64 %17
   %.val = load i32, ptr %21, align 16, !range !1253, !noundef !10
-  %switch.cast = trunc nuw nsw i32 %.val to i23
+  %switch.cast = trunc nuw i32 %.val to i23
   %switch.downshift = lshr i23 -4112, %switch.cast
   %switch.masked = trunc i23 %switch.downshift to i1
   tail call void @_ZN11polars_pipe9executors5sinks8group_by6string15apply_aggregate17h2eb30c90259838b2E(i64 noundef %17, i32 noundef %13, ptr noalias noundef nonnull readonly align 4 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %19, i1 noundef zeroext %switch.masked, ptr noalias noundef nonnull align 16 %8, i64 noundef %9)

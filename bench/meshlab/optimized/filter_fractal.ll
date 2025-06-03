@@ -11095,7 +11095,7 @@ define linkonce_odr void @_ZN12CratersUtilsI6CMeshOE11CratersArgsC2EP9MeshModelS
   %.01721.i.i = phi i64 [ 0, %17 ], [ %24, %23 ]
   %.01820.i.i = phi i32 [ 1, %17 ], [ %29, %23 ]
   %24 = add nuw nsw i64 %.01721.i.i, 1
-  %25 = trunc nuw i64 %24 to i16
+  %25 = trunc nuw nsw i64 %24 to i16
   %.lhs.trunc.i.i = mul nuw nsw i16 %25, 21
   %26 = urem i16 %.lhs.trunc.i.i, 55
   %.zext.i.i = zext nneg i16 %26 to i64
@@ -17967,7 +17967,7 @@ define linkonce_odr void @_ZN3vcg4math18SubtractiveRingRNG10initializeEj(ptr nou
   %.01721 = phi i64 [ 0, %2 ], [ %6, %5 ]
   %.01820 = phi i32 [ 1, %2 ], [ %11, %5 ]
   %6 = add nuw nsw i64 %.01721, 1
-  %7 = trunc nuw i64 %6 to i16
+  %7 = trunc nuw nsw i64 %6 to i16
   %.lhs.trunc = mul nuw nsw i16 %7, 21
   %8 = urem i16 %.lhs.trunc, 55
   %.zext = zext nneg i16 %8 to i64

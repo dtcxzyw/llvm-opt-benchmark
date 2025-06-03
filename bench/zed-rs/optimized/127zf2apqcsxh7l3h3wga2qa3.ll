@@ -151811,7 +151811,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
 _ZN4gpui3app10entity_map9EntityMap4read17hb5a1ffacf7a07cabE.exit: ; preds = %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hf12ac4999d779880E.exit.i"
   %86 = tail call noundef align 8 dereferenceable(16) ptr @_ZN9assistant16inline_assistant7Codegen6status17hb26e772b70193110E(ptr noalias noundef nonnull readonly align 8 dereferenceable(216) %75, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %2)
   %87 = load i64, ptr %86, align 8, !range !3324, !noundef !4
-  %switch.idx.cast = trunc nuw nsw i64 %87 to i8
+  %switch.idx.cast = trunc nuw i64 %87 to i8
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hdf3942f5558a4727E.exit"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hdf3942f5558a4727E.exit": ; preds = %._crit_edge.i.i16, %.lr.ph.i.i12, %_ZN4gpui3app10entity_map9EntityMap4read17hb5a1ffacf7a07cabE.exit, %select.unfold

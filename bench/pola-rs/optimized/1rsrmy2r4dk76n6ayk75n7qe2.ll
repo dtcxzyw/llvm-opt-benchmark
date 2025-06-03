@@ -24488,7 +24488,7 @@ define hidden { i16, i16 } @_ZN21polars_parquet_format6thrift6varint6decode15Var
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i16, ptr %10, align 8
   %.sroa.3.0 = select i1 %9, i16 %11, i16 undef
-  %12 = trunc nuw nsw i64 %8 to i16
+  %12 = trunc nuw i64 %8 to i16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %13 = insertvalue { i16, i16 } poison, i16 %12, 0
   %14 = insertvalue { i16, i16 } %13, i16 %.sroa.3.0, 1
@@ -24571,7 +24571,7 @@ define hidden { i32, i32 } @_ZN21polars_parquet_format6thrift6varint6decode15Var
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i32, ptr %10, align 8
   %.sroa.3.0 = select i1 %9, i32 %11, i32 undef
-  %12 = trunc nuw nsw i64 %8 to i32
+  %12 = trunc nuw i64 %8 to i32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %13 = insertvalue { i32, i32 } poison, i32 %12, 0
   %14 = insertvalue { i32, i32 } %13, i32 %.sroa.3.0, 1
@@ -24599,7 +24599,7 @@ define hidden { i32, i32 } @_ZN21polars_parquet_format6thrift6varint6decode15Var
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i32, ptr %10, align 8
   %.sroa.3.0 = select i1 %9, i32 %11, i32 undef
-  %12 = trunc nuw nsw i64 %8 to i32
+  %12 = trunc nuw i64 %8 to i32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %13 = insertvalue { i32, i32 } poison, i32 %12, 0
   %14 = insertvalue { i32, i32 } %13, i32 %.sroa.3.0, 1

@@ -8893,7 +8893,7 @@ define void @_ZN6LibRaw22minolta_rd175_load_rawEv(ptr noundef nonnull align 8 de
   br label %16
 
 16:                                               ; preds = %15, %8
-  %.lhs.trunc = trunc nuw i32 %.03146 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %.03146 to i16
   %17 = udiv i16 %.lhs.trunc, 82
   %.zext = zext nneg i16 %17 to i32
   %18 = urem i16 %.lhs.trunc, 82

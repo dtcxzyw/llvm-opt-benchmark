@@ -6644,7 +6644,7 @@ switch.lookup:
   %4 = alloca { { i32, [5 x i32] } }, align 8
   %5 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %6 = load i32, ptr %0, align 4, !range !73, !noundef !12
-  %switch.idx.cast = trunc nuw nsw i32 %6 to i8
+  %switch.idx.cast = trunc nuw i32 %6 to i8
   %.sroa.5.0.in = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.sroa.5.0 = load i32, ptr %.sroa.5.0.in, align 4
   %7 = icmp eq i32 %.sroa.5.0, 0
@@ -6895,7 +6895,7 @@ common.resume:                                    ; preds = %82, %66, %69
   %.sroa.03.0 = phi i64 [ %.sroa.0.i.sroa.0.0.copyload, %"_ZN76_$LT$proc_macro2..imp..DeferredTokenStream$u20$as$u20$core..clone..Clone$GT$5clone17h3a717b477080e467E.llvm.8518282266673452345.exit.i" ], [ -9223372036854775808, %72 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1300)
   %80 = load i32, ptr %50, align 8, !range !73, !alias.scope !1300, !noalias !1303, !noundef !12
-  %switch.idx.cast = trunc nuw nsw i32 %80 to i8
+  %switch.idx.cast = trunc nuw i32 %80 to i8
   %.sroa.5.0.in.i = getelementptr inbounds nuw i8, ptr %0, i64 92
   %.sroa.5.0.i = load i32, ptr %.sroa.5.0.in.i, align 4, !alias.scope !1300, !noalias !1303
   %81 = icmp eq i32 %.sroa.5.0.i, 0

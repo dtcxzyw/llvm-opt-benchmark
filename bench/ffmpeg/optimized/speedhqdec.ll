@@ -339,7 +339,7 @@ define internal fastcc void @compute_alpha_vlcs() unnamed_addr #0 {
   %.264 = phi i32 [ 0, %23 ], [ %45, %34 ]
   %35 = shl nuw nsw i32 %.264, 3
   %36 = or disjoint i32 %35, %31
-  %37 = trunc nuw i32 %36 to i16
+  %37 = trunc nuw nsw i32 %36 to i16
   %38 = or disjoint i16 %37, 2
   %39 = getelementptr inbounds [266 x i16], ptr %2, i64 0, i64 %indvars.iv79
   store i16 %38, ptr %39, align 2, !tbaa !52

@@ -19642,7 +19642,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %783, %788, %795
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #28
   %836 = lshr i32 %.0213986, 24
-  %837 = trunc nuw nsw i32 %836 to i8
+  %837 = trunc nuw i32 %836 to i8
   store i8 %837, ptr %22, align 1, !tbaa !15
   %838 = lshr i32 %.0213986, 16
   %839 = trunc i32 %838 to i8

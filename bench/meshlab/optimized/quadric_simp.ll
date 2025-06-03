@@ -34262,7 +34262,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i: ; preds
   %135 = and i64 %134, 1
   %136 = call i64 @llvm.umin.i64(i64 %135, i64 %129)
   %137 = sub nsw i64 %129, %136
-  %.lhs.trunc = trunc nsw i64 %137 to i8
+  %.lhs.trunc = trunc i64 %137 to i8
   %138 = sdiv i8 %.lhs.trunc, 2
   %.sext = sext i8 %138 to i64
   %139 = shl nuw nsw i64 %.sext, 1

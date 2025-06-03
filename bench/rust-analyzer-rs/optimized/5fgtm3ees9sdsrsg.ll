@@ -79300,7 +79300,7 @@ switch.lookup:                                    ; preds = %135
   %140 = icmp ne ptr %.0.val, null
   call void @llvm.assume(i1 %140)
   %141 = load i64, ptr %.0.val, align 8, !range !1805, !noundef !4
-  %switch.cast = trunc nuw nsw i64 %141 to i36
+  %switch.cast = trunc nuw i64 %141 to i36
   %switch.downshift = lshr i36 3248654497, %switch.cast
   %switch.masked = trunc i36 %switch.downshift to i1
   switch i64 %136, label %145 [

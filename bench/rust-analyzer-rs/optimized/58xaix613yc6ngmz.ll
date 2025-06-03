@@ -59335,7 +59335,7 @@ define hidden noundef i32 @"_ZN7hir_def7nameres9collector12ModCollector14collect
 define hidden noundef range(i8 0, 3) i8 @_ZN7hir_def7nameres10proc_macro13ProcMacroKind14to_basedb_kind17h45efb457ac8d12f1E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !2734, !noundef !13
-  %switch.idx.cast = trunc nuw nsw i64 %1 to i8
+  %switch.idx.cast = trunc nuw i64 %1 to i8
   ret i8 %switch.idx.cast
 }
 

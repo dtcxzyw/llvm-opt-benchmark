@@ -189686,7 +189686,7 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit19:      ; preds = %73, %62, %_ZNK3vcg4
   %75 = phi ptr [ %100, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit.i ], [ %55, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit19 ]
   %76 = phi i32 [ %99, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit.i ], [ %.sroa.978.0, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit19 ]
   %77 = phi ptr [ %96, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit.i ], [ %.sroa.074.0, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit19 ]
-  %78 = trunc i32 %76 to i16
+  %78 = trunc nsw i32 %76 to i16
   %.lhs.trunc = add nsw i16 %78, 1
   %79 = srem i16 %.lhs.trunc, 3
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -209952,7 +209952,7 @@ define linkonce_odr void @_ZN3vcg24TessellatePlanarPolygon3ISt6vectorINS_6Point3
   %.01721.i.i = phi i64 [ 0, %2 ], [ %11, %10 ]
   %.01820.i.i = phi i32 [ 1, %2 ], [ %16, %10 ]
   %11 = add nuw nsw i64 %.01721.i.i, 1
-  %12 = trunc nuw i64 %11 to i16
+  %12 = trunc nuw nsw i64 %11 to i16
   %.lhs.trunc.i.i = mul nuw nsw i16 %12, 21
   %13 = urem i16 %.lhs.trunc.i.i, 55
   %.zext.i.i = zext nneg i16 %13 to i64

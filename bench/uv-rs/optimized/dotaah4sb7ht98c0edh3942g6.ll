@@ -5889,7 +5889,7 @@ define void @_ZN15uv_requirements5Error9from_dist17h4af15987d9dac652E(ptr dead_o
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8, !range !89, !alias.scope !2030, !noalias !2033, !noundef !3
-  %switch.maskindex = trunc nuw nsw i64 %13 to i8
+  %switch.maskindex = trunc nuw i64 %13 to i8
   %switch.shifted = lshr i8 99, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %_ZN21uv_distribution_types10dist_error13DistErrorKind9from_dist17h164c00fdbf5cae24E.exit, label %14

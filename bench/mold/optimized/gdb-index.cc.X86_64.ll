@@ -1880,7 +1880,7 @@ _ZN4mold8bit_ceilEm.exit:                         ; preds = %_ZN4mold8bit_ceilEm
   store i8 %717, ptr %715, align 1, !tbaa !17
   %718 = getelementptr inbounds nuw i8, ptr %697, i64 63
   %719 = lshr i64 %421, 56
-  %720 = trunc nuw nsw i64 %719 to i8
+  %720 = trunc nuw i64 %719 to i8
   store i8 %720, ptr %718, align 1, !tbaa !17
   %721 = load ptr, ptr %632, align 8, !tbaa !162
   %722 = load ptr, ptr %721, align 8, !tbaa !78

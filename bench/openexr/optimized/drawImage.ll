@@ -108,7 +108,7 @@ define dso_local void @_Z10drawImage1RN7Imf_3_47Array2DINS_4RgbaEEEii(ptr nounde
   %62 = tail call double @cos(double noundef %58) #13, !tbaa !10
   %63 = tail call double @llvm.fmuladd.f64(double %49, double %62, double %54)
   %64 = fptrunc double %63 to float
-  %.lhs.trunc = trunc nuw i32 %.07686 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %.07686 to i16
   %65 = urem i16 %.lhs.trunc, 10
   %66 = icmp eq i16 %65, 0
   br i1 %66, label %67, label %._crit_edge

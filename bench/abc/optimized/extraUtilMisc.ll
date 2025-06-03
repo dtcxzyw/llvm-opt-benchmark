@@ -1934,7 +1934,7 @@ Extra_Permutations.exit:                          ; preds = %.lr.ph.i
   br i1 %exitcond.not.i129, label %Extra_TruthPolarize.exit.preheader, label %.lr.ph.i126, !llvm.loop !28
 
 Extra_TruthPolarize.exit.preheader:               ; preds = %43
-  %44 = trunc nuw i32 %.0107173 to i8
+  %44 = trunc nuw nsw i32 %.0107173 to i8
   %45 = or disjoint i8 %44, 16
   br label %46
 
@@ -2345,7 +2345,7 @@ Extra_TruthPolarize.exit.us:                      ; preds = %30
 
 35:                                               ; preds = %Extra_TruthPolarize.exit.us
   store i32 %17, ptr %32, align 4, !tbaa !3
-  %36 = trunc nuw i32 %.073.us to i8
+  %36 = trunc nuw nsw i32 %.073.us to i8
   %37 = getelementptr inbounds nuw ptr, ptr %4, i64 %31
   %38 = load ptr, ptr %37, align 8, !tbaa !19
   store i8 %36, ptr %38, align 1, !tbaa !12
@@ -2360,7 +2360,7 @@ Extra_TruthPolarize.exit.us:                      ; preds = %30
   br i1 %43, label %44, label %51
 
 44:                                               ; preds = %40
-  %45 = trunc nuw i32 %.073.us to i8
+  %45 = trunc nuw nsw i32 %.073.us to i8
   %46 = getelementptr inbounds nuw ptr, ptr %4, i64 %31
   %47 = load ptr, ptr %46, align 8, !tbaa !19
   %48 = add nsw i8 %42, 1
@@ -2429,7 +2429,7 @@ Extra_TruthPolarize.exit:                         ; preds = %65
   br i1 %77, label %78, label %85
 
 78:                                               ; preds = %74
-  %79 = trunc nuw i32 %.073 to i8
+  %79 = trunc nuw nsw i32 %.073 to i8
   %80 = getelementptr inbounds nuw ptr, ptr %4, i64 %66
   %81 = load ptr, ptr %80, align 8, !tbaa !19
   %82 = add nsw i8 %76, 1
@@ -2565,7 +2565,7 @@ Extra_TruthPolarize.exit.us:                      ; preds = %33
 
 38:                                               ; preds = %Extra_TruthPolarize.exit.us
   store i16 %20, ptr %35, align 2, !tbaa !39
-  %39 = trunc nuw i32 %.069.us to i8
+  %39 = trunc nuw nsw i32 %.069.us to i8
   %40 = getelementptr inbounds nuw ptr, ptr %8, i64 %34
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   store i8 %39, ptr %41, align 1, !tbaa !12
@@ -2581,7 +2581,7 @@ Extra_TruthPolarize.exit.us:                      ; preds = %33
   br i1 %47, label %48, label %55
 
 48:                                               ; preds = %43
-  %49 = trunc nuw i32 %.069.us to i8
+  %49 = trunc nuw nsw i32 %.069.us to i8
   %50 = getelementptr inbounds nuw ptr, ptr %8, i64 %34
   %51 = load ptr, ptr %50, align 8, !tbaa !19
   %52 = add i8 %45, 1
@@ -2652,7 +2652,7 @@ Extra_TruthPolarize.exit:                         ; preds = %69
   br i1 %83, label %84, label %91
 
 84:                                               ; preds = %79
-  %85 = trunc nuw i32 %.069 to i8
+  %85 = trunc nuw nsw i32 %.069 to i8
   %86 = getelementptr inbounds nuw ptr, ptr %8, i64 %70
   %87 = load ptr, ptr %86, align 8, !tbaa !19
   %88 = add i8 %81, 1

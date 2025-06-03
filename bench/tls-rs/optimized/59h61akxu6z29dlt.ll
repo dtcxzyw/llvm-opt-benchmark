@@ -7939,7 +7939,7 @@ switch.lookup:                                    ; preds = %1
 define hidden noundef zeroext i1 @_ZN6rustls5enums15SignatureScheme18supported_in_tls1317hb5c986ddd0a532a5E(ptr noalias noundef readonly align 2 captures(none) dereferenceable(4) %0) unnamed_addr #15 {
 switch.lookup:
   %1 = load i16, ptr %0, align 2, !range !120, !noundef !4
-  %switch.cast = trunc nuw nsw i16 %1 to i14
+  %switch.cast = trunc nuw i16 %1 to i14
   %switch.downshift = lshr i14 4008, %switch.cast
   %switch.masked = trunc i14 %switch.downshift to i1
   ret i1 %switch.masked

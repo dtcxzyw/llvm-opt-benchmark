@@ -7016,7 +7016,7 @@ define hidden noundef range(i8 0, 5) i8 @_ZN6diesel2pg10connection3raw13RawConne
 switch.lookup:
   %1 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %2 = tail call noundef i32 @PQtransactionStatus(ptr noundef nonnull %1), !range !1233
-  %switch.idx.cast = trunc nuw nsw i32 %2 to i8
+  %switch.idx.cast = trunc nuw i32 %2 to i8
   ret i8 %switch.idx.cast
 }
 

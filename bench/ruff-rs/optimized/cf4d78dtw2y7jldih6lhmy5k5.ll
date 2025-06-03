@@ -74454,7 +74454,7 @@ define hidden noundef range(i8 0, 7) i8 @_ZN11ruff_linter5rules9pyupgrade5types9
 switch.lookup:                                    ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !range !205, !noundef !4
-  %switch.idx.cast = trunc nuw nsw i64 %6 to i8
+  %switch.idx.cast = trunc nuw i64 %6 to i8
   %switch.offset = add nuw nsw i8 %switch.idx.cast, 3
   br label %8
 

@@ -1191,7 +1191,7 @@ define internal fastcc void @mp_build_rgb_yuv_table() unnamed_addr #5 {
 .preheader4:                                      ; preds = %0, %35
   %.0307 = phi i32 [ 0, %0 ], [ %36, %35 ]
   %1 = mul nuw nsw i32 %.0307, 1000
-  %2 = trunc nuw i32 %.0307 to i8
+  %2 = trunc nuw nsw i32 %.0307 to i8
   br label %.preheader3
 
 .preheader3:                                      ; preds = %.preheader4, %33

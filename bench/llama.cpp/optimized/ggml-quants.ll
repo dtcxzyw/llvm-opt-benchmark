@@ -9854,7 +9854,7 @@ define void @dequantize_row_tq2_0(ptr noalias noundef readonly captures(none) %0
 .preheader:                                       ; preds = %.preheader23, %17
   %.227 = phi ptr [ %.129, %.preheader23 ], [ %29, %17 ]
   %.02026 = phi i64 [ 0, %.preheader23 ], [ %18, %17 ]
-  %.020.tr = trunc nuw i64 %.02026 to i8
+  %.020.tr = trunc nuw nsw i64 %.02026 to i8
   %15 = shl nuw nsw i8 %.020.tr, 1
   br label %19
 

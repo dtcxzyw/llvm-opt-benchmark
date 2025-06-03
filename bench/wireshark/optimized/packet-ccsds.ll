@@ -309,7 +309,7 @@ define internal i32 @dissect_ccsds(ptr noundef %0, ptr noundef %1, ptr noundef %
   %55 = phi i32 [ %65, %63 ], [ 0, %41 ]
   %56 = and i32 %.011.i, 3
   %57 = icmp ne i32 %56, 0
-  %.lhs.trunc.i = trunc nuw i32 %.011.i to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %.011.i to i16
   %58 = urem i16 %.lhs.trunc.i, 100
   %.not.i = icmp eq i16 %58, 0
   %or.cond.i = or i1 %57, %.not.i

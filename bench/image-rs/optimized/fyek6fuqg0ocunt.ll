@@ -35739,7 +35739,7 @@ _ZN5image8dynimage12DynamicImage8as_bytes17hdff9c2bb18c9aca7E.exit: ; preds = %2
 define noundef range(i8 0, 10) i8 @_ZN5image8dynimage12DynamicImage5color17h002f8014e19deb5bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #2 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !11, !noundef !4
-  %switch.idx.cast = trunc nuw nsw i64 %1 to i8
+  %switch.idx.cast = trunc nuw i64 %1 to i8
   ret i8 %switch.idx.cast
 }
 

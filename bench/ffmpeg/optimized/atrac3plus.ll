@@ -200,7 +200,7 @@ define internal fastcc void @build_canonical_huff(ptr noundef readonly captures(
 
 .lr.ph:                                           ; preds = %25
   %28 = zext i8 %27 to i32
-  %29 = trunc nuw i32 %.030 to i8
+  %29 = trunc nuw nsw i32 %.030 to i8
   %30 = sext i32 %.02129 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %.02129, i32 256)
   %wide.trip.count = zext nneg i32 %smax to i64
